@@ -181,7 +181,7 @@ export class Tooltip {
       throw new Error("tooltip element is not instanceof HTMLElement");
     }
 
-    if (!this.stateless) {
+    if (!this.stateless && this.target) {
       this.target.addEventListener("mouseenter", this.callbacks.activate);
       this.target.addEventListener("mouseleave", this.callbacks.deactivate);
       this.target.addEventListener("focus", this.callbacks.activate);
@@ -241,19 +241,18 @@ export class Tooltip {
     }
 
     const tooltip = this.element.shadowRoot?.querySelector(".tooltip");
-    if (!(tooltip instanceof HTMLElement)) {
-      throw new Error("tooltip element is not instanceof HTMLElement");
+
+    if (this.target && tooltip instanceof HTMLElement) {
+      this.popper = createPopper(this.target, tooltip, {
+        placement: this.position,
+        modifiers: [maxSize, applyMaxSize, { name: "eventListeners", enabled: false }],
+      });
+
+      this.setStrategy();
     }
-
-    this.popper = createPopper(this.target, tooltip, {
-      placement: this.position,
-      modifiers: [maxSize, applyMaxSize, { name: "eventListeners", enabled: false }],
-    });
-
-    this.setStrategy();
   }
 
-  private get target(): HTMLElement {
+  private get target(): HTMLElement | undefined {
     return this.#target ?? this.initializeTarget();
   }
 
@@ -263,21 +262,27 @@ export class Tooltip {
 
   #target?: HTMLElement;
 
-  private initializeTarget(): HTMLElement {
+  private initializeTarget(): HTMLElement | undefined {
     const id = this.element.id;
 
     if (!id) {
-      throw new Error("Unable to find reference tooltip has no [id] attribute.");
+      console.warn("Unable to find reference tooltip has no [id] attribute.");
+
+      return;
     }
 
     const rootNode = this.element.getRootNode();
     if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
-      throw new Error(`rootNode is not instance of Document or ShadowRoot`);
+      console.warn(`rootNode is not instance of Document or ShadowRoot`);
+
+      return;
     }
 
     const reference = rootNode.querySelector<HTMLElement>(`[aria-describedBy="${id}`);
     if (!reference) {
-      throw new Error(`Unable to find reference with aria-describedby ${id}`);
+      console.warn(`Unable to find reference with aria-describedby ${id}`);
+
+      return;
     }
 
     this.#target = reference;
