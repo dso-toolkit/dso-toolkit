@@ -16,8 +16,8 @@ export const cssLabel: ComponentImplementation<Label> = {
           slot=${ifDefined(slotName)}
           class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}"
         >
-          ${symbol ? html`<span class="dso-label-symbol">${unsafeHTML(symbol)}</span>` : nothing} :
-          nothing}${label}${removable
+          ${symbol ? html`<span class="dso-label-symbol">${unsafeHTML(symbol)}</span>` : nothing}${label}
+          ${removable
             ? html`
                 <button type="button" @click=${ifDefined(dsoRemoveClick)}>
                   <span class="sr-only">Verwijder</span>
