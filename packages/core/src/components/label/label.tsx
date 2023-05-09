@@ -103,13 +103,6 @@ export class Label implements ComponentInterface {
     }
   }
 
-  private static statusMap = new Map<string, string>([
-    ["info", "Opmerking"],
-    ["success", "Gelukt"],
-    ["warning", "Waarschuwing"],
-    ["danger", "Fout"],
-  ]);
-
   @Method()
   async truncateLabel() {
     setTimeout(() => {
@@ -176,8 +169,6 @@ export class Label implements ComponentInterface {
   };
 
   render() {
-    const status = this.status && Label.statusMap.get(this.status);
-
     return (
       <Fragment>
         <span
@@ -189,7 +180,6 @@ export class Label implements ComponentInterface {
           })}
         >
           <slot name="symbol"></slot>
-          {status && <span class="sr-only">{status}: </span>}
           <span
             class={clsx("dso-label-content", {
               "dso-truncate": !!this.truncate,
