@@ -37,4 +37,30 @@ describe("Expandable Heading", () => {
       .should("be.visible")
       .percySnapshot();
   });
+
+  it("should show delete", () => {
+    cy.get("dso-expandable-heading")
+      .invoke("attr", "edit-action", "delete")
+      .get("dso-expandable-heading")
+      .should("have.class", "dso-del")
+      .find('dso-ozon-content[slot="title"]')
+      .click()
+      .get("@dsoExpandableHeading")
+      .find(".dso-edit-action-text")
+      .should("exist")
+      .should("have.text", "verwijderd:");
+  });
+
+  it("should show insert", () => {
+    cy.get("dso-expandable-heading")
+      .invoke("attr", "edit-action", "insert")
+      .get("dso-expandable-heading")
+      .should("have.class", "dso-ins")
+      .find('dso-ozon-content[slot="title"]')
+      .click()
+      .get("@dsoExpandableHeading")
+      .find(".dso-edit-action-text")
+      .should("exist")
+      .should("have.text", "toegevoegd:");
+  });
 });

@@ -12,7 +12,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
+import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -233,6 +233,7 @@ export namespace Components {
     }
     interface DsoExpandableHeading {
         "color": "default" | "black";
+        "editAction"?: EditAction;
         "heading": HeadingTags;
         "open"?: boolean;
     }
@@ -1069,6 +1070,7 @@ declare namespace LocalJSX {
     }
     interface DsoExpandableHeading {
         "color"?: "default" | "black";
+        "editAction"?: EditAction;
         "heading"?: HeadingTags;
         "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
         "open"?: boolean;

@@ -154,6 +154,8 @@ export const content = [
       interactive: true,
       prefix: "Afdeling 4.1 ",
       suffix: " [gereserveerd]",
+      // prefix: `<span slot="prefix">Afdeling 4.1 </span>`,
+      // suffix: `<span slot="suffix"> [gereserveerd]</span>`,
     },
   },
   {

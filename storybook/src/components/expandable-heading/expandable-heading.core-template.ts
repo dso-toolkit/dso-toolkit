@@ -11,6 +11,7 @@ export const coreExpandableHeading: ComponentImplementation<ExpandableHeading<Te
     function expandableHeadingTemplate({
       heading,
       color,
+      editAction,
       title,
       addonsStart,
       addonsEnd,
@@ -18,7 +19,12 @@ export const coreExpandableHeading: ComponentImplementation<ExpandableHeading<Te
       dsoToggle,
     }: ExpandableHeading<TemplateResult>) {
       return html`
-        <dso-expandable-heading heading=${ifDefined(heading)} color=${ifDefined(color)} @dsoToggle=${dsoToggle}>
+        <dso-expandable-heading
+          heading=${ifDefined(heading)}
+          color=${ifDefined(color)}
+          edit-action=${ifDefined(editAction)}
+          @dsoToggle=${dsoToggle}
+        >
           ${title} ${addonsStart} ${addonsEnd} ${content}
         </dso-expandable-heading>
       `;

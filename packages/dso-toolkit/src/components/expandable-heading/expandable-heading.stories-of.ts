@@ -13,6 +13,7 @@ export interface ExpandableHeadingTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
   expandableHeading: ExpandableHeading<TemplateFnReturnType>;
   expandableHeadingWithChildList: ExpandableHeading<TemplateFnReturnType>;
+  expandableHeadingRenvooi: ExpandableHeading<TemplateFnReturnType>;
 }
 
 export function storiesOfExpandableHeading<Implementation, Templates, TemplateFnReturnType>(
@@ -45,6 +46,18 @@ export function storiesOfExpandableHeading<Implementation, Templates, TemplateFn
       "with child list",
       templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeadingWithChildList }) => {
         return expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeadingWithChildList));
+      }),
+      {
+        args: {
+          heading: "h3",
+        },
+      }
+    );
+
+    stories.add(
+      "renvooiweergave",
+      templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeadingRenvooi }) => {
+        return expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeadingRenvooi));
       }),
       {
         args: {

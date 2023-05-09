@@ -213,7 +213,7 @@ export interface Components {
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
-  expandableHeading: ExpandableHeading;
+  expandableHeading: ExpandableHeading<TemplateResult>;
   footnote: Footnote;
   footnotes: Footnote[];
   formButtons: FormButtons;
@@ -248,7 +248,7 @@ export interface Components {
   mapControls: MapControls;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
-  ozonContent: OzonContent;
+  ozonContent: OzonContent<TemplateResult>;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;

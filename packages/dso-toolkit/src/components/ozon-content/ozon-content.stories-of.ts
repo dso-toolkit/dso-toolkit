@@ -5,7 +5,9 @@ import { content } from "./ozon-content.content.js";
 import { OzonContent } from "./ozon-content.models.js";
 
 export interface OzonContentTemplates<TemplateFnReturnType> {
-  ozonContentTemplate: (ozonContentProperties: OzonContent) => TemplateFnReturnType;
+  ozonContentTemplate: (ozonContentProperties: OzonContent<TemplateFnReturnType>) => TemplateFnReturnType;
+  prefix?: TemplateFnReturnType;
+  suffix?: TemplateFnReturnType;
 }
 
 export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturnType>(
@@ -21,8 +23,8 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
       argTypes: ozonContentArgTypes,
     });
 
-    const template = templateMapper<OzonContentArgs>((args, { ozonContentTemplate }) =>
-      ozonContentTemplate(ozonContentArgsMapper(args))
+    const template = templateMapper<OzonContentArgs>((args, { ozonContentTemplate, prefix, suffix }) =>
+      ozonContentTemplate(ozonContentArgsMapper(args, prefix, suffix))
     );
 
     content.forEach((story) => {
@@ -32,8 +34,8 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
           inline: false,
           interactive: false,
           deleted: false,
-          prefix: story.args?.prefix || "",
-          suffix: story.args?.suffix || "",
+          prefix: story.args?.prefix,
+          suffix: story.args?.suffix,
           ...story.args,
         }),
       });

@@ -1,5 +1,5 @@
 import { ExpandableHeading } from "dso-toolkit";
-import { TemplateResult } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 import { Templates } from "../../../templates";
 import { parentExpandableHeadingContent } from "./expandable-heading.content";
@@ -27,7 +27,7 @@ export function expandableHeading(templates: Templates): ExpandableHeading<Templ
       `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,
-      prefix: "Artikel 1.1 ",
+      prefix: html`<span slot="prefix">Artikel 1.1 </span>`,
       inline: true,
     }),
     addonsStart: labelTemplate({ slotName: "addons-start", label: "een label", status: "danger", compact: true }),

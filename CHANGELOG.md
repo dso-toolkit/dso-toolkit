@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Modal: Controller voor Core, React en Angular. Hiermee krijgt `dso-modal` de juiste plek in het DOM ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
+Expandable Heading: property `edit-action`. Hiermee kan het component als verwijderd of toegevoegd worden aangemerkt. ([#2061](https://github.com/dso-toolkit/dso-toolkit/issues/2061))
 
 ### Fixed
 * **BREAKING** `.dso-justify-form-groups` Layout issue.\

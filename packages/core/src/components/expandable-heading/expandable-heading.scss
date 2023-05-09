@@ -3,15 +3,45 @@
 @use "~dso-toolkit/src/variables/units";
 
 @use "~dso-toolkit/src/components/headings/headings";
+@use "~dso-toolkit/src/components/insert/insert";
 
 :host {
   display: block;
+  margin-inline: -(units.$u1);
+  padding-inline: units.$u1;
+}
+
+:host(.dso-del) {
+  background-color: colors.$danger-bg-color;
+  color: colors.$zwart;
+  text-decoration: line-through;
+}
+
+:host(.dso-ins) {
+  background-color: colors.$success-bg-color;
+  box-shadow: insert.$insert-box-shadow;
+  color: colors.$zwart;
 }
 
 @include utilities.box-sizing();
 
 .sr-only {
   @include utilities.sr-only();
+}
+
+.dso-edit-action-text {
+  margin-bottom: units.$u1;
+  margin-top: -(units.$u1);
+
+  span {
+    display: inline-block;
+    font-style: italic;
+  }
+
+  + .expandable-heading {
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 .expandable-heading {

@@ -1,8 +1,8 @@
-import { Component, Event, EventEmitter, Fragment, h, Prop } from "@stencil/core";
+import { Component, Event, EventEmitter, Host, h, Prop } from "@stencil/core";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import { ExpandableHeadingToggleEvent, HeadingTags } from "./expandable-heading.interfaces";
+import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./expandable-heading.interfaces";
 import { Heading } from "./heading";
 
 @Component({
@@ -20,6 +20,9 @@ export class ExpandableHeading {
   @Prop()
   color: "default" | "black" = "default";
 
+  @Prop()
+  editAction?: EditAction;
+
   @Event()
   dsoToggle!: EventEmitter<ExpandableHeadingToggleEvent>;
 
@@ -35,7 +38,22 @@ export class ExpandableHeading {
     const expandableProperties = this.open ? { open: true } : {};
 
     return (
-      <Fragment>
+      <Host
+        class={clsx({
+          "dso-del": this.editAction === "delete",
+          "dso-ins": this.editAction === "insert",
+        })}
+      >
+        {this.editAction === "delete" && (
+          <p class="dso-edit-action-text">
+            <span>verwijderd:</span>
+          </p>
+        )}
+        {this.editAction === "insert" && (
+          <p class="dso-edit-action-text">
+            <span>toegevoegd:</span>
+          </p>
+        )}
         <div class={clsx("expandable-heading", this.color === "black" ? "dso-expandable-heading-black" : "")}>
           <Heading heading={this.heading}>
             <button
@@ -56,7 +74,7 @@ export class ExpandableHeading {
         <dso-expandable id={this.identifier} {...expandableProperties}>
           <slot></slot>
         </dso-expandable>
-      </Fragment>
+      </Host>
     );
   }
 }

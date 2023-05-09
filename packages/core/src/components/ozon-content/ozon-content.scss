@@ -1,8 +1,9 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/insert/insert";
 
 :host(:not([inline])) {
   display: block;
@@ -157,6 +158,7 @@ span[role="paragraph"] {
 
 .dso-ins {
   background-color: colors.$success-bg-color;
+  box-shadow: insert.$insert-box-shadow;
   color: colors.$zwart;
 
   a {

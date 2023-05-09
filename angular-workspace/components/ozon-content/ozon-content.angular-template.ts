@@ -1,3 +1,4 @@
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 import { OzonContent } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
@@ -8,7 +9,7 @@ const defaultPropValues = {
   dsoAnchorClick: "dsoAnchorClick($event.detail)",
 };
 
-export const angularOzonContent: ComponentImplementation<OzonContent> = {
+export const angularOzonContent: ComponentImplementation<OzonContent<StoryFnAngularReturnType>> = {
   component: "ozonContent",
   implementation: "angular",
   template: () =>

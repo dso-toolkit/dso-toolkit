@@ -5,11 +5,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                   | Default     |
-| --------- | --------- | ----------- | -------------------------------------- | ----------- |
-| `color`   | `color`   |             | `"black" \| "default"`                 | `"default"` |
-| `heading` | `heading` |             | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"` | `"h2"`      |
-| `open`    | `open`    |             | `boolean \| undefined`                 | `undefined` |
+| Property     | Attribute     | Description | Type                                   | Default     |
+| ------------ | ------------- | ----------- | -------------------------------------- | ----------- |
+| `color`      | `color`       |             | `"black" \| "default"`                 | `"default"` |
+| `editAction` | `edit-action` |             | `"delete" \| "insert" \| undefined`    | `undefined` |
+| `heading`    | `heading`     |             | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"` | `"h2"`      |
+| `open`       | `open`        |             | `boolean \| undefined`                 | `undefined` |
 
 
 ## Events
