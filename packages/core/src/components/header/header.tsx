@@ -193,7 +193,7 @@ export class Header {
           </div>
           {this.showDropDown && this.mainMenu && this.mainMenu.length > 0 && (
             <div class="dropdown">
-              <dso-dropdown-menu dropdown-align="right">
+              <dso-dropdown-menu dropdown-align="right" strategy="absolute">
                 <button type="button" slot="toggle">
                   <span>Menu</span>
                 </button>
