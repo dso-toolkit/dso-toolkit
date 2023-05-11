@@ -220,6 +220,10 @@ export namespace Components {
          */
         "dropdownAlign": "left" | "right";
         /**
+          * Space between button and dropdown options
+         */
+        "dropdownOptionsOffset": number;
+        /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
@@ -1056,6 +1060,10 @@ declare namespace LocalJSX {
           * Alignment of the dropdown
          */
         "dropdownAlign"?: "left" | "right";
+        /**
+          * Space between button and dropdown options
+         */
+        "dropdownOptionsOffset"?: number;
         /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */

@@ -28,6 +28,8 @@ export class Header {
     });
   }
 
+  private dropdownElement?: HTMLElement;
+
   @Element()
   host!: HTMLElement;
 
@@ -65,6 +67,9 @@ export class Header {
 
   @State()
   overflowMenuItems = 0;
+
+  @State()
+  dropdownOptionsOffset = 0;
 
   /**
    * Emitted when something in the header is selected.
@@ -110,6 +115,7 @@ export class Header {
 
   componentDidRender() {
     if (this.showDropDown) {
+      this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
       return;
     }
 
@@ -134,11 +140,24 @@ export class Header {
   }
 
   setDropDownMenu() {
+    this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
+
     if (this.useDropDownMenu !== "auto") {
       return;
     }
 
     this.showDropDown = window.innerWidth < minDesktopViewportWidth;
+  }
+
+  private calculateDropdownOptionsOffset() {
+    if (!this.dropdownElement) {
+      return 0;
+    }
+
+    return (
+      this.host.clientHeight -
+      (this.dropdownElement?.getBoundingClientRect().bottom - this.host.getBoundingClientRect().top)
+    );
   }
 
   onWindowResize = debounce(() => {
@@ -195,7 +214,12 @@ export class Header {
             this.mainMenu &&
             (this.mainMenu.length > 0 || this.userHomeUrl || this.authStatus !== "none") && (
               <div class="dropdown">
-                <dso-dropdown-menu dropdown-align="right" strategy="absolute">
+                <dso-dropdown-menu
+                  dropdown-align="right"
+                  strategy="absolute"
+                  dropdownOptionsOffset={this.dropdownOptionsOffset}
+                  ref={(element) => (this.dropdownElement = element)}
+                >
                   <button type="button" slot="toggle">
                     <span>Menu</span>
                   </button>
