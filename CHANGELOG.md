@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   - Dropdown Menu op kleinste scherm klapt tegen de linker kant van het scherm. Deze moet net zoveel ruimte hebben als aan de rechterkant.
   - Wanneer er geen hoofd-menu items zijn, maar wel inloggen en mijn omgevingsloket links zijn. Is er op een klein scherm geen dropdown menu.
   - Dropdown opties moeten uitklappen vanaf de onder rand van de header.
+  - Met sublogo: Het menu staat te ver naar rechts en valt deels buiten beeld, zowel de knop als de dropdown.
 
 ## 53.0.0
 
