@@ -13,6 +13,7 @@ import {
   basicSections,
   conclusionSections,
   compactSections,
+  neutralSections,
   subSections,
 } from "./accordion.content";
 
@@ -33,6 +34,7 @@ storiesOfAccordion({
     anchorSections: anchorSections(templates),
     conclusionSections: conclusionSections(templates),
     compactSections: compactSections(templates),
+    neutralSections: neutralSections(templates),
     subSections: subSections(templates),
   }),
 });
@@ -54,6 +56,7 @@ storiesOfAccordion({
     anchorSections: anchorSections(templates),
     conclusionSections: conclusionSections(templates),
     compactSections: compactSections(templates),
+    neutralSections: neutralSections(templates),
     subSections: subSections(templates),
   }),
 });

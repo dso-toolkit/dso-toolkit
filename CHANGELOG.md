@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+*Accordion: Nieuwe neutral variant toevoegen ([#2099](https://github.com/dso-toolkit/dso-toolkit/issues/2099))
+
 ### Changed
 * **all:** Package updates ([#2118](https://github.com/dso-toolkit/dso-toolkit/issues/2118))
 

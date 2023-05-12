@@ -1,4 +1,4 @@
-export type AccordionVariant = "default" | "compact" | "conclusion";
+export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral";
 
 export interface AccordionInternalState {
   variant: AccordionVariant;

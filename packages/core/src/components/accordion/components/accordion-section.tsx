@@ -181,6 +181,7 @@ export class AccordionSection implements ComponentInterface {
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
     const hasAddons = !!this.status || !!this.state || !!this.icon || !!this.attachmentCount;
+    const isNeutral = variant === "neutral";
 
     return (
       <Host
@@ -217,6 +218,8 @@ export class AccordionSection implements ComponentInterface {
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
                 <span>{this.handleTitle}</span>
+
+                {isNeutral && <dso-info-button />}
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
