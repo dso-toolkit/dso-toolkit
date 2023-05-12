@@ -1,19 +1,20 @@
-import { ActionListItem } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import React from "react";
 
+import { ActionListItem } from "dso-toolkit";
 import { Templates } from "../../templates";
 
-function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
+function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
-    content: buttonTemplate({
-      variant: "secondary",
-      label: "Download de actielijst als PDF",
-      icon: { icon: "download" },
-    }),
+    content: (
+      <button className="dso-secondary">
+        {iconTemplate({ icon: "download" })}
+        Download de actielijst als PDF
+      </button>
+    ),
   };
 }
 
-function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templates): ActionListItem<TemplateResult> {
+function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
     content: accordionTemplate({
@@ -23,8 +24,8 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
             'Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"',
           heading: "h4",
           open: true,
-          content: richContentTemplate({
-            children: html`
+          content: (
+            <div className="dso-rich-content">
               <h5>Algemene toelichting</h5>
               <p>
                 Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u moet regelen.
@@ -37,14 +38,14 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
                 vervangen".
               </p>
               <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
-              <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
-              <span
-                >${iconTemplate({ icon: "air" })}
-                <a href="#">www.agv.nl ${iconTemplate({ icon: "external-link" })}</a></span
-              >
-              <span>${iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam</span>
-            `,
-          }),
+              <span>{iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
+              <span>
+                {iconTemplate({ icon: "air" })}
+                <a href="#">www.agv.nl {iconTemplate({ icon: "external-link" })}</a>
+              </span>
+              <span>{iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam</span>
+            </div>
+          ),
         },
         {
           handleTitle:
@@ -60,7 +61,7 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
   };
 }
 
-function item3({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
+function item3({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Vergunningen aanvragen",
     content: accordionTemplate({
@@ -79,7 +80,7 @@ function item3({ accordionTemplate }: Templates): ActionListItem<TemplateResult>
   };
 }
 
-function item4({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
+function item4({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Meldingen en informatie voorbereiden",
     content: accordionTemplate({
@@ -115,7 +116,7 @@ function item4({ accordionTemplate }: Templates): ActionListItem<TemplateResult>
   };
 }
 
-function item5({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
+function item5({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Om rekening mee te houden",
     divider: true,
@@ -138,27 +139,27 @@ function item5({ accordionTemplate }: Templates): ActionListItem<TemplateResult>
   };
 }
 
-const item6: ActionListItem<TemplateResult> = {
+const item6: ActionListItem<JSX.Element> = {
   title: "Start de werkzaamheden",
 };
 
-function warning({ richContentTemplate }: Templates): ActionListItem<TemplateResult> {
-  return {
-    title: "Let op",
-    warning: true,
-    content: richContentTemplate({
-      children: html`<p>
+const warning: ActionListItem<JSX.Element> = {
+  title: "Let op",
+  warning: true,
+  content: (
+    <div className="dso-rich-content">
+      <p>
         Deze actielijst is niet compleet. Mogelijk moet u meer of andere zaken regelen voordat u daadwerkelijk met de
         werkzaamheden mag starten. <a href="#">Ga terug naar de vorige stap</a> en beantwoord openstaande vragen.
-      </p>`,
-    }),
-  };
-}
+      </p>
+    </div>
+  ),
+};
 
-export function actionListItems(templates: Templates): ActionListItem<TemplateResult>[] {
+export function actionListItems(templates: Templates): ActionListItem<JSX.Element>[] {
   return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), item6];
 }
 
-export function actionListWithWarningItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), warning(templates)];
+export function actionListWithWarningItems(templates: Templates): ActionListItem<JSX.Element>[] {
+  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), warning];
 }

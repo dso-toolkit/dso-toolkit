@@ -17,7 +17,7 @@ export function storiesOfActionList<Implementation, Templates, TemplateFnReturnT
     ActionListTemplates<TemplateFnReturnType>
   >
 ) {
-  return storiesOfFactory("ActionList", storiesOfArguments, (stories, templateMapper) => {
+  return storiesOfFactory("Action List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: actionListArgTypes,
       args: {
