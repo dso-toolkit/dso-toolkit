@@ -15,6 +15,7 @@
 ### Used by
 
  - [dso-accordion-section](../accordion/components)
+ - [dso-action-list-item](../action-list/components)
  - [dso-alert](../alert)
  - [dso-annotation-button](../annotation-button)
  - [dso-annotation-output](../annotation-output)
@@ -39,6 +40,7 @@
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-icon
+  dso-action-list-item --> dso-icon
   dso-alert --> dso-icon
   dso-annotation-button --> dso-icon
   dso-annotation-output --> dso-icon

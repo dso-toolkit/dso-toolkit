@@ -77,6 +77,18 @@ export namespace Components {
          */
         "toggleSection": (scrollIntoView?: boolean) => Promise<void>;
     }
+    interface DsoActionList {
+        "listTitle": string;
+    }
+    interface DsoActionListItem {
+        /**
+          * Places a dashed line at the bottom of the item.
+         */
+        "divider": boolean;
+        "itemTitle"?: string;
+        "step": number;
+        "warning": boolean;
+    }
     interface DsoAlert {
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -583,6 +595,18 @@ declare global {
         prototype: HTMLDsoAccordionSectionElement;
         new (): HTMLDsoAccordionSectionElement;
     };
+    interface HTMLDsoActionListElement extends Components.DsoActionList, HTMLStencilElement {
+    }
+    var HTMLDsoActionListElement: {
+        prototype: HTMLDsoActionListElement;
+        new (): HTMLDsoActionListElement;
+    };
+    interface HTMLDsoActionListItemElement extends Components.DsoActionListItem, HTMLStencilElement {
+    }
+    var HTMLDsoActionListItemElement: {
+        prototype: HTMLDsoActionListItemElement;
+        new (): HTMLDsoActionListItemElement;
+    };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
     var HTMLDsoAlertElement: {
@@ -814,6 +838,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "dso-accordion": HTMLDsoAccordionElement;
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
+        "dso-action-list": HTMLDsoActionListElement;
+        "dso-action-list-item": HTMLDsoActionListItemElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-output": HTMLDsoAnnotationOutputElement;
@@ -892,6 +918,18 @@ declare namespace LocalJSX {
          */
         "state"?: AccordionSectionState;
         "status"?: string;
+    }
+    interface DsoActionList {
+        "listTitle": string;
+    }
+    interface DsoActionListItem {
+        /**
+          * Places a dashed line at the bottom of the item.
+         */
+        "divider"?: boolean;
+        "itemTitle"?: string;
+        "step": number;
+        "warning"?: boolean;
     }
     interface DsoAlert {
         /**
@@ -1345,6 +1383,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dso-accordion": DsoAccordion;
         "dso-accordion-section": DsoAccordionSection;
+        "dso-action-list": DsoActionList;
+        "dso-action-list-item": DsoActionListItem;
         "dso-alert": DsoAlert;
         "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-output": DsoAnnotationOutput;
@@ -1391,6 +1431,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
+            "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
+            "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;

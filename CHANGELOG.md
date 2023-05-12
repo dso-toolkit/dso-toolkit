@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Componenten set: Actielijst ([#2098](https://github.com/dso-toolkit/dso-toolkit/issues/2098))
+  - `<dso-action-list>`: container voor de actielijst
+  - `<dso-action-list-item>`: een item dat geplaatst kan worden in de actielijst
+  
 ### Changed
 * **all:** Package updates ([#2118](https://github.com/dso-toolkit/dso-toolkit/issues/2118))
 
