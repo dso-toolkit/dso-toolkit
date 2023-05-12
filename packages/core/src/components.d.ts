@@ -85,6 +85,10 @@ export namespace Components {
           * Places a dashed line at the bottom of the item.
          */
         "divider": boolean;
+        /**
+          * Show flow line to next step
+         */
+        "flowLine": boolean;
         "itemTitle"?: string;
         "step": number;
         "warning": boolean;
@@ -927,6 +931,10 @@ declare namespace LocalJSX {
           * Places a dashed line at the bottom of the item.
          */
         "divider"?: boolean;
+        /**
+          * Show flow line to next step
+         */
+        "flowLine"?: boolean;
         "itemTitle"?: string;
         "step": number;
         "warning"?: boolean;

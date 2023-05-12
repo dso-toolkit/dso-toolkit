@@ -5,6 +5,7 @@ import { Templates } from "../../templates";
 
 function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
+    flowLine: true,
     content: buttonTemplate({
       variant: "secondary",
       label: "Download de actielijst als PDF",
@@ -16,6 +17,7 @@ function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
 function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -63,6 +65,7 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
 function item3({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
     title: "Vergunningen aanvragen",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -82,6 +85,7 @@ function item3({ accordionTemplate }: Templates): ActionListItem<TemplateResult>
 function item4({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
     title: "Meldingen en informatie voorbereiden",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -115,9 +119,10 @@ function item4({ accordionTemplate }: Templates): ActionListItem<TemplateResult>
   };
 }
 
-function item5({ accordionTemplate }: Templates): ActionListItem<TemplateResult> {
+function item5({ accordionTemplate }: Templates, flowLine = true): ActionListItem<TemplateResult> {
   return {
     title: "Om rekening mee te houden",
+    flowLine,
     divider: true,
     content: accordionTemplate({
       sections: [
@@ -160,5 +165,12 @@ export function actionListItems(templates: Templates): ActionListItem<TemplateRe
 }
 
 export function actionListWithWarningItems(templates: Templates): ActionListItem<TemplateResult>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), warning(templates)];
+  return [
+    item1(templates),
+    item2(templates),
+    item3(templates),
+    item4(templates),
+    item5(templates, false),
+    warning(templates),
+  ];
 }

@@ -12,6 +12,12 @@ export class ActionListItem implements ComponentInterface {
   @Prop()
   itemTitle?: string;
 
+  /**
+   * Show flow line to next step
+   */
+  @Prop()
+  flowLine = false;
+
   @Prop()
   warning = false;
 
@@ -26,6 +32,7 @@ export class ActionListItem implements ComponentInterface {
       <Host
         class={{
           divider: this.divider,
+          "flow-line": this.flowLine,
         }}
       >
         <div class="dso-action-list-item">

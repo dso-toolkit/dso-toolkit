@@ -13,7 +13,13 @@ export const reactActionList: ComponentImplementation<ActionList<JSX.Element>> =
       return (
         <DsoActionList listTitle={title}>
           {actionListItems.map((item, index) => (
-            <DsoActionListItem step={index + 1} item-title={item.title} warning={item.warning} divider={item.divider}>
+            <DsoActionListItem
+              step={index + 1}
+              item-title={item.title}
+              flowLine={item.flowLine}
+              warning={item.warning}
+              divider={item.divider}
+            >
               {item.content}
             </DsoActionListItem>
           ))}

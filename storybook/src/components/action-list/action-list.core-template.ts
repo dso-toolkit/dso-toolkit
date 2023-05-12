@@ -16,6 +16,7 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
               html`<dso-action-list-item
                 step=${index + 1}
                 item-title=${ifDefined(item.title)}
+                flow-line=${ifDefined(item.flowLine)}
                 warning=${ifDefined(item.warning)}
                 divider=${ifDefined(item.divider)}
                 >${item.content}</dso-action-list-item

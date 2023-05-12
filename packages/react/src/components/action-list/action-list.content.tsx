@@ -5,6 +5,7 @@ import { Templates } from "../../templates";
 
 function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
+    flowLine: true,
     content: (
       <button className="dso-secondary">
         {iconTemplate({ icon: "download" })}
@@ -17,6 +18,7 @@ function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
 function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -64,6 +66,7 @@ function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<J
 function item3({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Vergunningen aanvragen",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -83,6 +86,7 @@ function item3({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
 function item4({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Meldingen en informatie voorbereiden",
+    flowLine: true,
     content: accordionTemplate({
       sections: [
         {
@@ -116,9 +120,10 @@ function item4({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   };
 }
 
-function item5({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
+function item5({ accordionTemplate }: Templates, flowLine = true): ActionListItem<JSX.Element> {
   return {
     title: "Om rekening mee te houden",
+    flowLine,
     divider: true,
     content: accordionTemplate({
       sections: [
@@ -161,5 +166,5 @@ export function actionListItems(templates: Templates): ActionListItem<JSX.Elemen
 }
 
 export function actionListWithWarningItems(templates: Templates): ActionListItem<JSX.Element>[] {
-  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates), warning];
+  return [item1(templates), item2(templates), item3(templates), item4(templates), item5(templates, false), warning];
 }

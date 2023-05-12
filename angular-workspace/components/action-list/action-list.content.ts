@@ -3,6 +3,7 @@ import { ActionListItem } from "dso-toolkit";
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 
 const item1: ActionListItem<StoryFnAngularReturnType> = {
+  flowLine: true,
   content: {
     template: `
       <button class="dso-secondary">
@@ -14,6 +15,7 @@ const item1: ActionListItem<StoryFnAngularReturnType> = {
 
 const item2: ActionListItem<StoryFnAngularReturnType> = {
   title: "Neem contact op met het waterschap en de gemeente",
+  flowLine: true,
   content: {
     template: `
         <dso-accordion>
@@ -58,6 +60,7 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
 
 const item3: ActionListItem<StoryFnAngularReturnType> = {
   title: "Vergunningen aanvragen",
+  flowLine: true,
   content: {
     template: `
           <dso-accordion>
@@ -77,6 +80,7 @@ const item3: ActionListItem<StoryFnAngularReturnType> = {
 
 const item4: ActionListItem<StoryFnAngularReturnType> = {
   title: "Meldingen en informatie voorbereiden",
+  flowLine: true,
   content: {
     template: `
       <dso-accordion>
@@ -114,11 +118,13 @@ const item4: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-const item5: ActionListItem<StoryFnAngularReturnType> = {
-  title: "Om rekening mee te houden",
-  divider: true,
-  content: {
-    template: `
+function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
+  return {
+    title: "Om rekening mee te houden",
+    flowLine,
+    divider: true,
+    content: {
+      template: `
       <dso-accordion>
         <dso-accordion-section
           handle-title="Horecabedrijf"
@@ -136,8 +142,9 @@ const item5: ActionListItem<StoryFnAngularReturnType> = {
         ></dso-accordion-section>
       </dso-accordion>
     `,
-  },
-};
+    },
+  };
+}
 
 const item6: ActionListItem<StoryFnAngularReturnType> = {
   title: "Start de werkzaamheden",
@@ -158,13 +165,13 @@ const warning: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-export const actionListItems: ActionListItem<StoryFnAngularReturnType>[] = [item1, item2, item3, item4, item5, item6];
+export const actionListItems: ActionListItem<StoryFnAngularReturnType>[] = [item1, item2, item3, item4, item5(), item6];
 
 export const actionListWithWarningItems: ActionListItem<StoryFnAngularReturnType>[] = [
   item1,
   item2,
   item3,
   item4,
-  item5,
+  item5(false),
   warning,
 ];

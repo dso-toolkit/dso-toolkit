@@ -19,6 +19,7 @@ export const angularActionList: ComponentImplementation<ActionList<StoryFnAngula
                 *ngIf="actionListItems[${index}] as item"
                 [step]="${index + 1}"
                 [itemTitle]="item.title"
+                [flowLine]="item.flowLine"
                 [warning]="item.warning"
                 [divider]="item.divider"
               >

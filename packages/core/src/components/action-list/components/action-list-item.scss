@@ -15,11 +15,17 @@
 }
 
 :host(.divider) {
-  &::after {
-    border-bottom: 0.25rem dashed colors.$lichtblauw;
-    content: "";
-    display: block;
-    height: units.$u3;
+  .dso-action-list-item {
+    &::after {
+      border-bottom: 0.25rem dashed colors.$lichtblauw;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: units.$u3;
+      left: units.$u10;
+      position: absolute;
+      width: calc(100% + 16px);
+    }
   }
 }
 

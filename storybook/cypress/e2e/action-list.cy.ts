@@ -1,6 +1,6 @@
 describe("ActionList", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-actionlist--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-action-list--default");
   });
 
   it("screenshot", () => {
