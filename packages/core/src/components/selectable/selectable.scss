@@ -20,7 +20,7 @@
 @include utilities.box-sizing();
 
 .dso-selectable-input-wrapper {
-  display: inline-block;
+  display: inline;
   margin-left: -#{units.$u4};
   min-height: units.$u3;
   padding-left: units.$u4;
@@ -38,4 +38,8 @@
       );
     }
   }
+}
+
+dso-info-button {
+  display: inline-block;
 }
