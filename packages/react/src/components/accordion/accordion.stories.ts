@@ -10,6 +10,7 @@ import {
   conclusionSections,
   compactSections,
   subSections,
+  neutralSections,
 } from "./accordion.content";
 
 import readme from "./readme.md";
@@ -26,6 +27,7 @@ storiesOfAccordion({
     basicSections,
     conclusionSections,
     compactSections,
+    neutralSections,
     anchorSections,
     subSections: subSections(templates),
     allowMultipleOpenSections,

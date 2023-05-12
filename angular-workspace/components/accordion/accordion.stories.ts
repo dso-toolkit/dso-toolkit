@@ -10,6 +10,7 @@ import {
   basicSections,
   compactSections,
   conclusionSections,
+  neutralSections,
   subSections,
 } from "./accordion.content";
 
@@ -28,6 +29,7 @@ storiesOfAccordion({
     anchorSections,
     compactSections,
     conclusionSections,
+    neutralSections,
     subSections: subSections(templates),
     allowMultipleOpenSections,
     addonsSections,

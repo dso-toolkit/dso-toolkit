@@ -203,6 +203,19 @@ export const compactSections: AccordionSection<StoryFnAngularReturnType>[] = [
   section4,
 ];
 
+export const neutralSections: AccordionSection<StoryFnAngularReturnType>[] = [
+  {
+    ...section1,
+    open: true,
+  },
+  section2,
+  {
+    ...section3,
+    open: true,
+  },
+  section4,
+];
+
 export const addonsSections: AccordionSection<StoryFnAngularReturnType>[] = [
   {
     ...section1,
