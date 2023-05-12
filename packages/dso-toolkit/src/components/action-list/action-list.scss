@@ -1,0 +1,12 @@
+@use "../../variables/units.scss";
+
+dso-action-list {
+  dso-action-list-item {
+    margin-inline-start: -#{units.$u10};
+
+    &::after {
+      margin-inline-start: units.$u10;
+      width: calc(100% + #{units.$u2});
+    }
+  }
+}

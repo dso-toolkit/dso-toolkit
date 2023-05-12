@@ -6,7 +6,9 @@
 :host {
   background-color: colors.$lichtblauw-20;
   display: block;
-  padding: units.$u2;
+  padding-block: units.$u2;
+  padding-inline-start: units.$u2;
+  padding-inline-end: units.$u10 + units.$u2;
 }
 
 @include utilities.box-sizing();

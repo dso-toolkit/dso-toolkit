@@ -28,9 +28,13 @@ export class ActionListItem implements ComponentInterface {
           divider: this.divider,
         }}
       >
-        {this.warning ? <dso-icon icon="status-warning"></dso-icon> : <div class="dso-step-counter">{this.step}</div>}
-        {this.itemTitle && <h3>{this.itemTitle}</h3>}
-        <slot />
+        <div class="dso-action-list-item">
+          {this.warning ? <dso-icon icon="status-warning"></dso-icon> : <div class="dso-step-counter">{this.step}</div>}
+          <div class="action-list-item-content">
+            {this.itemTitle && <h3>{this.itemTitle}</h3>}
+            <slot />
+          </div>
+        </div>
       </Host>
     );
   }
