@@ -10,7 +10,7 @@ export interface DropdownMenuArgs {
   isCheckable: boolean;
   groups: DropdownMenuGroup[];
   boundary: string;
-  strategy: typeof dropdownMenuStrategy[number];
+  strategy: (typeof dropdownMenuStrategy)[number];
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {

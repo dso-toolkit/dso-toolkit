@@ -11,7 +11,7 @@ export interface Card<TemplateFnReturnType> {
   content: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType>>;
   image?: string;
-  imageShape?: typeof imageShapes[number];
+  imageShape?: (typeof imageShapes)[number];
   clickable?: boolean;
   dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
 }

@@ -1,5 +1,5 @@
-import { BaseLayer } from "../../packages/core/src/components/map-base-layers/map-base-layers.interfaces";
-import { Overlay } from "../../packages/core/src/components/map-overlays/map-overlays.interfaces";
+import { BaseLayer } from "../../../packages/core/src/components/map-base-layers/map-base-layers.interfaces";
+import { Overlay } from "../../../packages/core/src/components/map-overlays/map-overlays.interfaces";
 
 describe("Map Controls", () => {
   beforeEach(() => {

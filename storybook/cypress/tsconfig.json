@@ -6,5 +6,5 @@
     "esModuleInterop": true,
     "types": ["cypress", "cypress-axe", "cypress-real-events", "@percy/cypress"]
   },
-  "include": ["../packages/core/src/components.d.ts", "**/*.ts"]
+  "include": ["../../packages/core/src/components.d.ts", "**/*.ts"]
 }

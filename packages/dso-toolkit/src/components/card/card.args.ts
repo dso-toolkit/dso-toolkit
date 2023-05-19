@@ -11,7 +11,7 @@ export interface CardArgs {
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never>>;
   image: string | undefined;
-  imageShape: typeof imageShapes[number];
+  imageShape: (typeof imageShapes)[number];
   clickable: boolean;
   dsoCardClicked: HandlerFunction;
 }

@@ -1,4 +1,4 @@
-import { TreeViewItem } from "../../packages/core/src/components/tree-view/tree-view.interfaces";
+import { TreeViewItem } from "../../../packages/core/src/components/tree-view/tree-view.interfaces";
 
 describe("Tree View", () => {
   function firstChildItem(subject: JQuery<HTMLElement>, label: string) {
@@ -25,7 +25,7 @@ describe("Tree View", () => {
     return cy.wrap(subject).should("not.have.focus").should("have.attr", "tabIndex", -1);
   }
 
-  function press(subject: JQuery<HTMLElement>, key: Parameters<typeof cy["realPress"]>[0]) {
+  function press(subject: JQuery<HTMLElement>, key: Parameters<(typeof cy)["realPress"]>[0]) {
     cy.realPress(key);
     return cy.wrap(subject);
   }
@@ -145,7 +145,7 @@ describe("Tree View", () => {
     function shouldHaveExpandedBehaviour(
       startElement: string,
       expanded: boolean,
-      keys: Parameters<typeof cy["realPress"]>[0] = null
+      keys: Parameters<(typeof cy)["realPress"]>[0] = null
     ): Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
       let cursor = cy.get(`@${startElement}`).then(shouldHaveFocusAndTabIndex);
 
@@ -190,7 +190,7 @@ describe("Tree View", () => {
       startElement: string,
       selectorFunc: (subject: JQuery<HTMLElement>, label: string) => Cypress.Chainable<JQuery<HTMLElement>>,
       targetElement: string,
-      keys: Parameters<typeof cy["realPress"]>[0]
+      keys: Parameters<(typeof cy)["realPress"]>[0]
     ) {
       cy.get(`@${startElement}`)
         .then((subject) => (selectorFunc ? selectorFunc(subject, targetElement) : subject))
