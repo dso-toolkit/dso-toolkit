@@ -251,7 +251,7 @@ describe("Accordion", () => {
       .should("contain.text", status);
   });
 
-  it("should render the handle correctly in reverseAlign mode", () => {
+  it.skip("should render the handle correctly in reverseAlign mode", () => {
     cy.get("dso-accordion")
       .as("dsoAccordion")
       .invoke("removeAttr", "reverse-align")

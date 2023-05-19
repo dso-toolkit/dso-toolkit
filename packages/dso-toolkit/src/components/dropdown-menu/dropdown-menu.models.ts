@@ -9,7 +9,7 @@ export interface DropdownMenu {
   dropdownAlign?: "left" | "right";
   isCheckable?: boolean;
   boundary?: string;
-  strategy?: typeof dropdownMenuStrategy[number];
+  strategy?: (typeof dropdownMenuStrategy)[number];
 }
 
 export interface DropdownMenuGroup {

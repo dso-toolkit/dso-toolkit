@@ -1,5 +1,5 @@
-import del from "del";
+import { deleteAsync } from "del";
 
 export function cleanDist() {
-  return del("dist");
+  return deleteAsync("dist");
 }

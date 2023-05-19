@@ -1,6 +1,6 @@
 language: node_js
 os: linux
-dist: xenial
+dist: jammy
 cache:
   npm: false
   directories:
@@ -8,7 +8,7 @@ cache:
     - ~/.cache/Cypress
     - ./.cache/nx
 node_js:
-  - "16"
+  - "18"
 git:
   depth: false
 before_install:
