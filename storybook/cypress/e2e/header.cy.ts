@@ -1,4 +1,4 @@
-import { HeaderMenuItem } from "../../packages/core/src/components/header/header.interfaces";
+import { HeaderMenuItem } from "../../../packages/core/src/components/header/header.interfaces";
 
 describe("Header", () => {
   beforeEach(() => {

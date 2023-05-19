@@ -7,8 +7,8 @@ import { Tooltip, tooltipPositions, tooltipStrategy } from "./tooltip.models.js"
 export interface TooltipArgs {
   active: boolean;
   descriptive?: boolean;
-  position: typeof tooltipPositions[number];
-  strategy: typeof tooltipStrategy[number];
+  position: (typeof tooltipPositions)[number];
+  strategy: (typeof tooltipStrategy)[number];
   label: string;
   id: string;
   action: HandlerFunction;

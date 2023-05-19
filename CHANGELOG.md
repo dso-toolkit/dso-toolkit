@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **all:** Package updates ([#2118](https://github.com/dso-toolkit/dso-toolkit/issues/2118))
+
 ## 53.0.0
 
 ### Changed
