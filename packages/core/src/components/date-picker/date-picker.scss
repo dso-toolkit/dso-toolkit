@@ -8,7 +8,7 @@
 :host {
   display: block;
 
-  &[invalid] {
+  &[invalid]:not([invalid="false"]) {
     .dso-date__input {
       border-color: colors.$danger-color;
     }
