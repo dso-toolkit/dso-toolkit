@@ -225,9 +225,10 @@ export class AccordionSection implements ComponentInterface {
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
-                <span>{this.handleTitle}</span>
-
-                {isNeutral && <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />}
+                <span>
+                  {this.handleTitle}
+                  {isNeutral && <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />}
+                </span>
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
