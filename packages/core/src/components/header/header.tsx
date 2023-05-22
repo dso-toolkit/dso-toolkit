@@ -124,6 +124,10 @@ export class Header {
 
   componentDidLoad() {
     this.setShowDropDown(this.useDropDownMenu);
+
+    if (this.showDropDown) {
+      this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
+    }
   }
 
   setOverflowMenu() {
@@ -140,8 +144,6 @@ export class Header {
   }
 
   setDropDownMenu() {
-    this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
-
     if (this.useDropDownMenu !== "auto") {
       return;
     }
