@@ -19,47 +19,53 @@ function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<J
   return {
     title: "Neem contact op met het waterschap en de gemeente",
     flowLine: true,
-    content: accordionTemplate({
-      sections: [
-        {
-          handleTitle:
-            'Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"',
-          heading: "h4",
-          open: true,
-          content: (
-            <div className="dso-rich-content">
-              <h5>Algemene toelichting</h5>
-              <p>
-                Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u moet regelen.
-                Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen, melding doen of informatie
-                geven.
-              </p>
-              <h5>Voorbereiding</h5>
-              <p>
-                Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
-                vervangen".
-              </p>
-              <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
-              <span>{iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
-              <span>
-                {iconTemplate({ icon: "air" })}
-                <a href="#">www.agv.nl {iconTemplate({ icon: "external-link" })}</a>
-              </span>
-              <span>{iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam</span>
-            </div>
-          ),
-        },
-        {
-          handleTitle:
-            'Waterschap: Wat u moet regelen voor "Verharding aanbrengen of verwijderen bij oppervlaktewater"',
-          heading: "h4",
-        },
-        {
-          handleTitle: 'Gemeente: Wat u moet regelen voor "Verhard oppervlak en stedelijke uitbreiding"',
-          heading: "h4",
-        },
-      ],
-    }),
+    content: (
+      <div className="dso-rich-content">
+        {accordionTemplate({
+          sections: [
+            {
+              handleTitle:
+                'Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"',
+              heading: "h4",
+              open: true,
+              content: (
+                <div className="dso-rich-content">
+                  <h5>Algemene toelichting</h5>
+                  <p>
+                    Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u moet
+                    regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen, melding doen of
+                    informatie geven.
+                  </p>
+                  <h5>Voorbereiding</h5>
+                  <p>
+                    Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
+                    vervangen".
+                  </p>
+                  <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
+                  <span>{iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
+                  <span>
+                    {iconTemplate({ icon: "air" })}
+                    <a href="#">www.agv.nl {iconTemplate({ icon: "external-link" })}</a>
+                  </span>
+                  <span>
+                    {iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam
+                  </span>
+                </div>
+              ),
+            },
+            {
+              handleTitle:
+                'Waterschap: Wat u moet regelen voor "Verharding aanbrengen of verwijderen bij oppervlaktewater"',
+              heading: "h4",
+            },
+            {
+              handleTitle: 'Gemeente: Wat u moet regelen voor "Verhard oppervlak en stedelijke uitbreiding"',
+              heading: "h4",
+            },
+          ],
+        })}
+      </div>
+    ),
   };
 }
 
@@ -67,19 +73,24 @@ function item3({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Vergunningen aanvragen",
     flowLine: true,
-    content: accordionTemplate({
-      sections: [
-        {
-          handleTitle: 'Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"',
-          heading: "h4",
-        },
-        {
-          handleTitle:
-            'Vraag een vergunning aan voor "Tank, drukvat, explosiegevaarlijke stof of installatie plaatsen"',
-          heading: "h4",
-        },
-      ],
-    }),
+    content: (
+      <div className="dso-rich-content">
+        {accordionTemplate({
+          sections: [
+            {
+              handleTitle:
+                'Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"',
+              heading: "h4",
+            },
+            {
+              handleTitle:
+                'Vraag een vergunning aan voor "Tank, drukvat, explosiegevaarlijke stof of installatie plaatsen"',
+              heading: "h4",
+            },
+          ],
+        })}
+      </div>
+    ),
   };
 }
 
@@ -87,36 +98,40 @@ function item4({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Meldingen en informatie voorbereiden",
     flowLine: true,
-    content: accordionTemplate({
-      sections: [
-        {
-          handleTitle:
-            'Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"',
-          heading: "h4",
-        },
-        {
-          handleTitle: 'Doe een melding voor "Opslaan van propaan of propeen in opslagtanks"',
-          heading: "h4",
-        },
-        {
-          handleTitle: 'Doe een melding voor "Bouwwerk brandveilig gebruiken"',
-          heading: "h4",
-        },
-        {
-          handleTitle:
-            'Geef informatie over "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"',
-          heading: "h4",
-        },
-        {
-          handleTitle: 'Geef informatie over "Lozen bij niet industriële voedselbereiding"',
-          heading: "h4",
-        },
-        {
-          handleTitle: 'Geef informatie over "Voedsel bereiden, geen voedingsmiddelenindustrie"',
-          heading: "h4",
-        },
-      ],
-    }),
+    content: (
+      <div className="dso-rich-content">
+        {accordionTemplate({
+          sections: [
+            {
+              handleTitle:
+                'Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"',
+              heading: "h4",
+            },
+            {
+              handleTitle: 'Doe een melding voor "Opslaan van propaan of propeen in opslagtanks"',
+              heading: "h4",
+            },
+            {
+              handleTitle: 'Doe een melding voor "Bouwwerk brandveilig gebruiken"',
+              heading: "h4",
+            },
+            {
+              handleTitle:
+                'Geef informatie over "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"',
+              heading: "h4",
+            },
+            {
+              handleTitle: 'Geef informatie over "Lozen bij niet industriële voedselbereiding"',
+              heading: "h4",
+            },
+            {
+              handleTitle: 'Geef informatie over "Voedsel bereiden, geen voedingsmiddelenindustrie"',
+              heading: "h4",
+            },
+          ],
+        })}
+      </div>
+    ),
   };
 }
 
@@ -125,22 +140,26 @@ function item5({ accordionTemplate }: Templates, flowLine = true): ActionListIte
     title: "Om rekening mee te houden",
     flowLine,
     divider: true,
-    content: accordionTemplate({
-      sections: [
-        {
-          handleTitle: "Horecabedrijf",
-          heading: "h4",
-        },
-        {
-          handleTitle: "Aanbouw, uitbouw of bijgebouw bouwen of vervangen",
-          heading: "h4",
-        },
-        {
-          handleTitle: "Gas opslaan in een opslagtank",
-          heading: "h4",
-        },
-      ],
-    }),
+    content: (
+      <div className="dso-rich-content">
+        {accordionTemplate({
+          sections: [
+            {
+              handleTitle: "Horecabedrijf",
+              heading: "h4",
+            },
+            {
+              handleTitle: "Aanbouw, uitbouw of bijgebouw bouwen of vervangen",
+              heading: "h4",
+            },
+            {
+              handleTitle: "Gas opslaan in een opslagtank",
+              heading: "h4",
+            },
+          ],
+        })}
+      </div>
+    ),
   };
 }
 

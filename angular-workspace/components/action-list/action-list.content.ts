@@ -18,6 +18,7 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
   flowLine: true,
   content: {
     template: `
+      <div class="dso-rich-content">
         <dso-accordion>
           <dso-accordion-section
             open="true"
@@ -54,7 +55,8 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
             heading="h4"
           ></dso-accordion-section>
         </dso-accordion>
-      `,
+      </div>
+    `,
   },
 };
 
@@ -63,18 +65,20 @@ const item3: ActionListItem<StoryFnAngularReturnType> = {
   flowLine: true,
   content: {
     template: `
-          <dso-accordion>
-            <dso-accordion-section
-              handle-title='Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"'
-              heading="h4"
-            ></dso-accordion-section>
+      <div class="dso-rich-content">
+        <dso-accordion>
+          <dso-accordion-section
+            handle-title='Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"'
+            heading="h4"
+          ></dso-accordion-section>
 
-            <dso-accordion-section
-              handle-title='Vraag een vergunning aan voor "Tank, drukvat, explosiegevaarlijke stof of installatie plaatsen"'
-              heading="h4"
-            ></dso-accordion-section>
-          </dso-accordion>
-        `,
+          <dso-accordion-section
+            handle-title='Vraag een vergunning aan voor "Tank, drukvat, explosiegevaarlijke stof of installatie plaatsen"'
+            heading="h4"
+          ></dso-accordion-section>
+        </dso-accordion>
+      </div>
+    `,
   },
 };
 
@@ -83,37 +87,39 @@ const item4: ActionListItem<StoryFnAngularReturnType> = {
   flowLine: true,
   content: {
     template: `
-      <dso-accordion>
-        <dso-accordion-section
-          handle-title='Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
-          heading="h4"
-        ></dso-accordion-section>
+      <div class="dso-rich-content">
+        <dso-accordion>
+          <dso-accordion-section
+            handle-title='Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
+            heading="h4"
+          ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title='Doe een melding voor "Opslaan van propaan of propeen in opslagtanks"'
-          heading="h4"
-        ></dso-accordion-section>
+          <dso-accordion-section
+            handle-title='Doe een melding voor "Opslaan van propaan of propeen in opslagtanks"'
+            heading="h4"
+          ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title='Doe een melding voor "Bouwwerk brandveilig gebruiken"'
-          heading="h4"
-        ></dso-accordion-section>
+          <dso-accordion-section
+            handle-title='Doe een melding voor "Bouwwerk brandveilig gebruiken"'
+            heading="h4"
+          ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title='Geef informatie over "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
-          heading="h4"
-        ></dso-accordion-section>
+          <dso-accordion-section
+            handle-title='Geef informatie over "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
+            heading="h4"
+          ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title='Geef informatie over "Lozen bij niet industriële voedselbereiding"'
-          heading="h4"
-        ></dso-accordion-section>
+          <dso-accordion-section
+            handle-title='Geef informatie over "Lozen bij niet industriële voedselbereiding"'
+            heading="h4"
+          ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title='Geef informatie over "Voedsel bereiden, geen voedingsmiddelenindustrie"'
-          heading="h4"
-        ></dso-accordion-section>
-      </dso-accordion>
+          <dso-accordion-section
+            handle-title='Geef informatie over "Voedsel bereiden, geen voedingsmiddelenindustrie"'
+            heading="h4"
+          ></dso-accordion-section>
+        </dso-accordion>
+      </div>
     `,
   },
 };
@@ -125,23 +131,25 @@ function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
     divider: true,
     content: {
       template: `
-      <dso-accordion>
-        <dso-accordion-section
-          handle-title="Horecabedrijf"
-          heading="h4"
-        ></dso-accordion-section>
+        <div class="dso-rich-content">
+          <dso-accordion>
+            <dso-accordion-section
+              handle-title="Horecabedrijf"
+              heading="h4"
+            ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title="Aanbouw, uitbouw of bijgebouw bouwen of vervangen"
-          heading="h4"
-        ></dso-accordion-section>
+            <dso-accordion-section
+              handle-title="Aanbouw, uitbouw of bijgebouw bouwen of vervangen"
+              heading="h4"
+            ></dso-accordion-section>
 
-        <dso-accordion-section
-          handle-title="Gas opslaan in een opslagtank"
-          heading="h4"
-        ></dso-accordion-section>
-      </dso-accordion>
-    `,
+            <dso-accordion-section
+              handle-title="Gas opslaan in een opslagtank"
+              heading="h4"
+            ></dso-accordion-section>
+          </dso-accordion>
+        </div>
+      `,
     },
   };
 }
