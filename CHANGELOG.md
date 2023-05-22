@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **all:** Package updates ([#2118](https://github.com/dso-toolkit/dso-toolkit/issues/2118))
 
+### Fixed
+* Date Picker: dso-date-picker[invalid] selector uitbreiden met :not() clausule ([#2116](https://github.com/dso-toolkit/dso-toolkit/issues/2116))
+
 ## 53.0.0
 
 ### Changed
