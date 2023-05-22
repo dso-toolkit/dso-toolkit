@@ -6,9 +6,20 @@ export function children({ anchorTemplate, imageTemplate }: Templates) {
   return html`
     <div class="dso-rich-content">
       <h1>Kop 1</h1>
+      <h1 class="inline-heading">Inline kop 1</h1>
+      <p>Tekst bij inline kop 1</p>
       <h2>Kop 2</h2>
+      <h2 class="inline-heading">Inline kop 2</h2>
+      <p>Tekst bij inline kop 2</p>
       <h3>Kop 3</h3>
+      <h3 class="inline-heading">Inline kop 3</h3>
+      <p>Tekst bij inline kop 3</p>
       <h4>Kop 4</h4>
+      <h4 class="inline-heading">Inline kop 4</h4>
+      <p>Tekst bij inline kop 4</p>
+      <h5>Kop 5</h5>
+      <h5 class="inline-heading">Inline kop 5</h5>
+      <p>Tekst bij inline kop 5</p>
       <p>We ondersteunen <em>emphasis</em>, <strong>strong</strong>, <i>italic</i>, <b>bold</b> en <u>underline</u>.</p>
       <p>
         Verder doen we aan <sub>lage</sub> en <sup>hoge</sup> letters en voegen we wel eens wat <del>weg</del
