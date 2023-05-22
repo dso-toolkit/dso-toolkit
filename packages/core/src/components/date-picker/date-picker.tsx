@@ -162,7 +162,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Is input invalid?
    */
-  @Prop() invalid?: boolean;
+  @Prop({ reflect: true }) invalid?: boolean;
 
   /**
    * Should the input be focused on load?
