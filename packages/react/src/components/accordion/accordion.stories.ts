@@ -7,10 +7,7 @@ import {
   allowMultipleOpenSections,
   anchorSections,
   basicSections,
-  conclusionSections,
-  compactSections,
   subSections,
-  neutralSections,
 } from "./accordion.content";
 
 import readme from "./readme.md";
@@ -25,9 +22,9 @@ storiesOfAccordion({
   storyTemplates: ({ accordionTemplate }, templates) => ({
     accordionTemplate,
     basicSections,
-    conclusionSections,
-    compactSections,
-    neutralSections,
+    conclusionSections: basicSections,
+    compactSections: basicSections,
+    neutralSections: basicSections,
     anchorSections,
     subSections: subSections(templates),
     allowMultipleOpenSections,

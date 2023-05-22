@@ -61,7 +61,7 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     );
 
     stories.add(
-      "neutral",
+      "neutral (core only)",
       templateMapper<AccordionArgs>((args, { accordionTemplate, neutralSections }) =>
         accordionTemplate(accordionArgsMapper(args, neutralSections))
       ),

@@ -38,7 +38,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [dso-accordion-section](../accordion/components)
  - [dso-selectable](../selectable)
  - [dso-toggletip](../toggletip)
 
@@ -50,7 +49,6 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   dso-info-button --> dso-icon
-  dso-accordion-section --> dso-info-button
   dso-selectable --> dso-info-button
   dso-toggletip --> dso-info-button
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px

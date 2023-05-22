@@ -45,14 +45,11 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon](../../icon)
-- [dso-info-button](../../info-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-icon
-  dso-accordion-section --> dso-info-button
-  dso-info-button --> dso-icon
   style dso-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

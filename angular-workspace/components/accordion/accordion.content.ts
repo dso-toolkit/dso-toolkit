@@ -177,45 +177,6 @@ export const allowMultipleOpenSections: AccordionSection<StoryFnAngularReturnTyp
   section4,
 ];
 
-export const conclusionSections: AccordionSection<StoryFnAngularReturnType>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
-export const compactSections: AccordionSection<StoryFnAngularReturnType>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
-export const neutralSections: AccordionSection<StoryFnAngularReturnType>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
 export const addonsSections: AccordionSection<StoryFnAngularReturnType>[] = [
   {
     ...section1,
