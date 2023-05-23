@@ -4,7 +4,6 @@
 
 :host {
   display: block;
-  padding-left: units.$u4;
 
   @include selectable.root("dso-info", false);
 
@@ -19,27 +18,35 @@
 
 @include utilities.box-sizing();
 
-.dso-selectable-input-wrapper {
-  display: inline;
-  margin-left: -#{units.$u4};
-  min-height: units.$u3;
-  padding-left: units.$u4;
+.dso-selectable-container {
+  display: inline-block;
+  position: relative;
+  padding-inline: units.$u4;
 
-  &:focus-within {
-    @include utilities.focus-outline();
-  }
+  .dso-selectable-input-wrapper {
+    display: inline;
+    margin-inline: -#{units.$u4};
+    min-height: units.$u3;
+    padding-inline: units.$u4;
 
-  input[type="radio"],
-  input[type="checkbox"] {
-    &:focus + label::before {
-      @include selectable.selectableBoxShadow(
-        selectable.$border-width,
-        var(--dso-selectable-color, selectable.$valid-color)
-      );
+    &:focus-within {
+      @include utilities.focus-outline();
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      &:focus + label::before {
+        @include selectable.selectableBoxShadow(
+          selectable.$border-width,
+          var(--dso-selectable-color, selectable.$valid-color)
+        );
+      }
     }
   }
 }
 
 dso-info-button {
-  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

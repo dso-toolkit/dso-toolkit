@@ -9,7 +9,7 @@ describe("Card", () => {
 
   it("should call dsoCardClicked event when user clicks a non-interactive element in card", () => {
     cy.get("dso-card")
-      .find("dso-selectable > .dso-selectable-input-wrapper > input")
+      .find("dso-selectable > .dso-selectable-container > .dso-selectable-input-wrapper > input")
       .focus()
       .realClick()
       .get("@dsoCardClickedListener")
