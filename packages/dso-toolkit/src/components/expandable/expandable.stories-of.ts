@@ -42,6 +42,7 @@ export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnT
       {
         args: {
           open: false,
+          enableAnimation: false,
         },
       }
     );

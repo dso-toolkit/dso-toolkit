@@ -8,6 +8,7 @@ import {
   Host,
   Method,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
 import anime from "animejs";
@@ -41,6 +42,9 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   @Prop()
   minimumHeight?: number;
 
+  @State()
+  animationReady = false;
+
   @Event()
   dsoToggle!: EventEmitter<ExpandableToggleEvent>;
 
@@ -51,6 +55,18 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   toggleOpen() {
     if (this.enableAnimation) {
       this.activateAnimation();
+    }
+  }
+
+  @Watch("enableAnimation")
+  toggleEnableAnimation(enableAnimation: boolean) {
+    if (enableAnimation) {
+      this.prepareAnimationResizeObserver();
+      this.activateObserver();
+    } else {
+      this.resizeObserver?.disconnect();
+      delete this.animeInstance;
+      this.host.removeAttribute("style");
     }
   }
 
@@ -71,6 +87,10 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   }
 
   componentDidLoad(): void {
+    this.activateObserver();
+  }
+
+  activateObserver() {
     const bodyContentElement = this.host.querySelector(`[slot="expandable-content"]`);
 
     if (bodyContentElement) {
@@ -87,7 +107,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
       <Host
         aria-hidden={this.open ? "false" : "true"}
         class={clsx({
-          "dso-animate-ready": this.enableAnimation && this.animeInstance !== undefined,
+          "dso-animate-ready": this.enableAnimation && this.animationReady,
           "dso-hide": !this.enableAnimation && !this.open,
         })}
       >
@@ -101,11 +121,12 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
       debounce(([entry]) => {
         // entry.contentRect does not include padding, so we use getBoundingClientRect.
         const height = entry.target.getBoundingClientRect().height;
+
         if (this.bodyHeight !== height) {
           this.bodyHeight = height;
-
-          this.instantiateAnimation();
         }
+
+        this.instantiateAnimation();
       }, 150)
     );
   }
@@ -149,6 +170,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
       this.host.style.height = "";
     }
 
+    this.animationReady = !!this.animeInstance;
     this.animationInstantiated.emit();
   }
 
