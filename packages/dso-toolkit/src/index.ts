@@ -32,6 +32,9 @@ export {
 } from "./components/accordion/accordion.models.js";
 export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/accordion.stories-of.js";
 
+export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
+export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
+
 export { Alert, AlertType } from "./components/alert/alert.models.js";
 export { AlertTemplates, storiesOfAlert } from "./components/alert/alert.stories-of.js";
 

@@ -1,0 +1,25 @@
+@use "../../variables/colors.scss";
+@use "../../variables/units.scss";
+
+dso-action-list {
+  dso-action-list-item {
+    margin-inline-start: -#{units.$u10};
+
+    &::after {
+      margin-inline-start: units.$u10;
+      width: calc(100% + #{units.$u2});
+    }
+  }
+
+  .flow-line {
+    &::after {
+      content: "";
+      background-color: colors.$bosgroen;
+      height: calc(100% - 48px);
+      left: -50px;
+      position: absolute;
+      top: 64px;
+      width: 4px;
+    }
+  }
+}

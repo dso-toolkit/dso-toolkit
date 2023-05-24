@@ -1,5 +1,6 @@
 import {
   Accordion,
+  ActionList,
   Alert,
   Annotation,
   AnnotationButton,
@@ -186,9 +187,11 @@ import { coreInfo } from "./components/info/info.core-template";
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
+import { coreActionList } from "./components/action-list/action-list.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
+  actionList: ActionList<TemplateResult>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   annotation: Annotation<TemplateResult>;
@@ -298,6 +301,7 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 });
 
 templateContainer.add(coreAccordion);
+templateContainer.add(coreActionList);
 templateContainer.add(coreAlert);
 templateContainer.add(coreAnnotation);
 templateContainer.add(coreAnnotationButton);

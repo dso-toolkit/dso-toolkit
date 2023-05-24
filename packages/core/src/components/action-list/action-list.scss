@@ -1,0 +1,25 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/headings";
+
+:host {
+  background-color: colors.$lichtblauw-20;
+  display: block;
+  padding-block: units.$u2;
+  padding-inline-start: units.$u2;
+  padding-inline-end: units.$u10 + units.$u2;
+}
+
+@include utilities.box-sizing();
+
+h2 {
+  @include headings.base();
+  @include headings.h2();
+
+  margin-block: 0 units.$u2;
+}
+
+.dso-action-list-content {
+  padding-inline-start: units.$u10;
+}
