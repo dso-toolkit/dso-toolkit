@@ -1,0 +1,74 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/accordion";
+
+@mixin dso-web-component-accordion-neutral {
+  .dso-section-handle {
+    background-color: transparent;
+    border: none;
+    border-radius: accordion.$border-radius;
+    margin-block-end: 2px;
+
+    a,
+    button {
+      color: accordion.$neutral-color;
+      padding: 5px 16px 5px 0;
+
+      &:hover,
+      &:active,
+      &.active {
+        color: accordion.$neutral-color;
+      }
+
+      .info-icon {
+        color: colors.$grasgroen;
+        margin-inline-start: 8px;
+      }
+    }
+  }
+
+  .dso-section-body {
+    background-color: transparent;
+    border: 1px solid accordion.$neutral-border-color;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
+    margin-block: 0;
+
+    &.dso-animate-ready {
+      @include utilities.transition(margin-block);
+    }
+
+    .dso-section-body-content {
+      padding: 16px 32px 24px 32px;
+    }
+  }
+}
+
+@mixin dso-web-component-accordion-neutral-open {
+  > .dso-section-handle {
+    background-color: transparant;
+    border-radius: 0;
+    border-top-left-radius: accordion.$border-radius;
+    border-top-right-radius: accordion.$border-radius;
+
+    a,
+    button {
+      color: accordion.$neutral-color;
+
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{colors.$wit};
+        --dso-icon: var(--di-paperclip-wit);
+      }
+    }
+  }
+
+  .dso-section-body {
+    margin-block-end: 16px;
+    margin-block-start: 2px;
+  }
+}
+
+@mixin dso-web-component-accordion-neutral-open-nested {
+  .dso-section-body {
+    background-color: accordion.$default-nested-body-bgcolor;
+  }
+}
