@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 53.1.0
+
 ### Fixed
 * Selectable: Uitlijnen van 'i'tje in de Core Selectable ([#2087](https://github.com/dso-toolkit/dso-toolkit/issues/2087))
 
