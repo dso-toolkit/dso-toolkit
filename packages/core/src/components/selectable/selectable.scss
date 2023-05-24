@@ -21,7 +21,11 @@
 .dso-selectable-container {
   display: inline-block;
   position: relative;
-  padding-inline: units.$u4;
+  padding-inline-start: units.$u4;
+
+  &.has-info-button {
+    padding-inline-end: units.$u4;
+  }
 
   .dso-selectable-input-wrapper {
     display: inline;

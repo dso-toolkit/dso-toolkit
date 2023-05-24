@@ -11,6 +11,7 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
+import clsx from "clsx";
 import { createIdentifier } from "../../utils/create-identifier";
 import { SelectableChangeEvent } from "./selectable.interfaces";
 
@@ -105,7 +106,7 @@ export class Selectable {
 
     return (
       <Fragment>
-        <div class="dso-selectable-container">
+        <div class={clsx("dso-selectable-container", { "has-info-button": hasInfo })}>
           <div class="dso-selectable-input-wrapper">
             <input
               type={this.type}
