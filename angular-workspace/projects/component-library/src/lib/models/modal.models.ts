@@ -1,10 +1,8 @@
-export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
-}
+import { TemplateRef, Type } from "@angular/core";
 
 export type ModalRole = "dialog" | "alert" | "alertDialog";
 
-export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
+export type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
 
 export interface ModalContent {
   title?: string;

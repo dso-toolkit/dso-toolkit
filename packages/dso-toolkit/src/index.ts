@@ -234,7 +234,7 @@ export {
 } from "./components/list-button/list-button.models.js";
 export { ListButtonTemplates, storiesOfListButton } from "./components/list-button/list-button.stories-of.js";
 
-export { Modal, ModalContent, ModalOptions, ModalRole } from "./components/modal/modal.models.js";
+export { Modal } from "./components/modal/modal.models.js";
 export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";
 
 export {

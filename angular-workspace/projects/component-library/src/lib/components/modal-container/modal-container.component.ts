@@ -2,7 +2,7 @@ import { ComponentPortal, TemplatePortal } from "@angular/cdk/portal";
 import { Component, EventEmitter, Input, Output, ViewContainerRef, inject } from "@angular/core";
 import { DsoModalCloseEvent } from "@dso-toolkit/core";
 
-import { ModalOptions } from "dso-toolkit";
+import { ModalOptions } from "../../models/modal.models";
 
 @Component({
   selector: "dso-modal-container",

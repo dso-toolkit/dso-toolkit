@@ -4,25 +4,26 @@
 
 ## DsoModalController
 
-```
-import { ModalContent, ModalOptions } from "dso-toolkit";
-import { DsoModalController, DsoModalRef } from "@dso-toolkit/angular";
+```typescript
+import { DsoModalController, DsoModalRef, ModalContent, ModalOptions } from "@dso-toolkit/angular";
 
 @Component()
 export class ModalControllerDemo {
   private controller: DsoModalController = inject(DsoModalController);
 
   open() {
-    const ref = this.modalController.open({
-      title: 'DSO Angular Modal',
-      body: ModalBodyComponent, // Angular Component. note: TemplateRef's are also allowed.
-      footer: ModalFooterComponent, // Angular Component.
-    },
-    {
-      data: {
-        text: 'Dit object is beschikbaar via 'private data = inject(DIALOG_DATA)' binnen bijvoorbeeld ModalBodyComponent',
+    const ref = this.modalController.open(
+      {
+        title: "DSO Angular Modal",
+        body: ModalBodyComponent, // Angular Component. note: TemplateRef's are also allowed.
+        footer: ModalFooterComponent, // Angular Component.
       },
-    });
+      {
+        data: {
+          text: 'Dit object is beschikbaar via "private data = inject(DIALOG_DATA)" binnen bijvoorbeeld ModalBodyComponent',
+        },
+      }
+    );
 
     ref.onDsoClose().subscribe(() => ref.close());
   }
@@ -31,14 +32,14 @@ export class ModalControllerDemo {
 
 ### API
 
-```
-export type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
-
+```typescript
 class DsoModalController {
-  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
+  open(modal: ModalContent, options?: ModalOptions): DsoModalRef;
 }
 
-interface ModalContent<AllowedModalContentTypes> {
+type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
+
+interface ModalContent {
   title?: string;
   body: AllowedModalContentTypes;
   footer?: AllowedModalContentTypes;
@@ -50,7 +51,7 @@ interface ModalOptions {
   initialFocus?: string;
 }
 
-class DialogRef {
+class DsoModalRef {
   /** Removes the Dialog **/
   close(): void;
 
