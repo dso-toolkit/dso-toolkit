@@ -130,6 +130,10 @@ export class AccordionSection implements ComponentInterface {
     await this.scrollIntoViewWhenNeeded(false);
   }
 
+  get isNeutral() {
+    return this.accordionState?.variant === "neutral";
+  }
+
   private async scrollIntoViewWhenNeeded(sectionToggled: boolean): Promise<void> {
     AccordionSection.scrollCandidate = undefined;
 
@@ -187,7 +191,6 @@ export class AccordionSection implements ComponentInterface {
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
     const hasAddons = !!this.status || !!this.state || !!this.icon || !!this.attachmentCount;
-    const isNeutral = variant === "neutral";
 
     return (
       <Host
@@ -227,7 +230,9 @@ export class AccordionSection implements ComponentInterface {
 
                 <span>
                   {this.handleTitle}
-                  {isNeutral && <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />}
+                  {this.isNeutral && (
+                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
+                  )}
                 </span>
 
                 {hasAddons && (
@@ -270,7 +275,7 @@ export class AccordionSection implements ComponentInterface {
   private instantiateAnimation() {
     this.animeInstance = anime({
       targets: this.sectionBody,
-      height: this.accordionState?.variant === "neutral" ? 0 : 4,
+      height: this.isNeutral ? 0 : 4,
       easing: "cubicBezier(0.4, 0, 0.2, 1)",
       duration: 260,
       autoplay: false,
