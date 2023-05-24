@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Selectable: Uitlijnen van 'i'tje in de Core Selectable ([#2087](https://github.com/dso-toolkit/dso-toolkit/issues/2087))
+
 ### Added
 * Accordion: Neutral variant ([#2099](https://github.com/dso-toolkit/dso-toolkit/issues/2099))
 * Actielijst ([#2098](https://github.com/dso-toolkit/dso-toolkit/issues/2098))

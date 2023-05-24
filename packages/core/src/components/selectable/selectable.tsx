@@ -11,6 +11,7 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
+import clsx from "clsx";
 import { createIdentifier } from "../../utils/create-identifier";
 import { SelectableChangeEvent } from "./selectable.interfaces";
 
@@ -105,48 +106,52 @@ export class Selectable {
 
     return (
       <Fragment>
-        <div class="dso-selectable-input-wrapper">
-          <input
-            type={this.type}
-            id={this.getIdentifier()}
-            value={this.value}
-            name={this.name}
-            aria-invalid={this.invalid?.toString()}
-            aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
-            aria-labelledBy={this.labelledById}
-            disabled={this.disabled}
-            required={this.required}
-            checked={this.checked}
-            onChange={(e) => this.dsoChange.emit(e)}
-            ref={(el) => (this.input = el)}
-          />
-          {!this.labelledById ? (
-            <label htmlFor={this.getIdentifier()}>
-              <slot></slot>
-            </label>
-          ) : (
-            <label></label>
+        <div class={clsx("dso-selectable-container", { "has-info-button": hasInfo })}>
+          <div class="dso-selectable-input-wrapper">
+            <input
+              type={this.type}
+              id={this.getIdentifier()}
+              value={this.value}
+              name={this.name}
+              aria-invalid={this.invalid?.toString()}
+              aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
+              aria-labelledBy={this.labelledById}
+              disabled={this.disabled}
+              required={this.required}
+              checked={this.checked}
+              onChange={(e) => this.dsoChange.emit(e)}
+              ref={(el) => (this.input = el)}
+            />
+            {!this.labelledById ? (
+              <label htmlFor={this.getIdentifier()}>
+                <slot></slot>
+              </label>
+            ) : (
+              <label></label>
+            )}
+          </div>
+          {hasInfo && (
+            <Fragment>
+              {!this.infoFixed && (
+                <dso-info-button
+                  active={this.infoActive}
+                  onDsoToggle={(e) => (this.infoActive = e.detail.active)}
+                ></dso-info-button>
+              )}
+            </Fragment>
           )}
         </div>
         {hasInfo && (
-          <Fragment>
-            {!this.infoFixed && (
-              <dso-info-button
-                active={this.infoActive}
-                onDsoToggle={(e) => (this.infoActive = e.detail.active)}
-              ></dso-info-button>
-            )}
-            <dso-info
-              id={hasInfo && this.infoFixed ? this.describedById : undefined}
-              fixed={this.infoFixed}
-              active={this.infoActive}
-              onDsoClose={() => (this.infoActive = false)}
-            >
-              <div>
-                <slot name="info"></slot>
-              </div>
-            </dso-info>
-          </Fragment>
+          <dso-info
+            id={hasInfo && this.infoFixed ? this.describedById : undefined}
+            fixed={this.infoFixed}
+            active={this.infoActive}
+            onDsoClose={() => (this.infoActive = false)}
+          >
+            <div>
+              <slot name="info"></slot>
+            </div>
+          </dso-info>
         )}
       </Fragment>
     );

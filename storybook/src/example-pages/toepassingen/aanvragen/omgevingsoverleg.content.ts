@@ -126,12 +126,22 @@ export function radios({ richContentTemplate }: Templates): FormGroupRadios<Temp
         label: "Omgevingsoverleg",
         value: "Omgevingsoverleg",
         type: "radio",
+        info: {
+          id: "omgevings-overleg-radio-1-info",
+          content: html`<div slot="info">Dit is een omgevingsoverleg</div>`,
+          fixed: false,
+        },
       },
       {
         id: "omgevings-overleg-radio-2",
         label: "Definitief verzoek",
         value: "definitiefverzoek",
         type: "radio",
+        info: {
+          id: "omgevings-overleg-radio-2-info",
+          content: html`<div slot="info">Dit is een definitief verzoek</div>`,
+          fixed: false,
+        },
       },
     ],
   };
