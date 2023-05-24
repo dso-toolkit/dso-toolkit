@@ -169,32 +169,6 @@ export const allowMultipleOpenSections: AccordionSection<JSX.Element>[] = [
   section4,
 ];
 
-export const conclusionSections: AccordionSection<JSX.Element>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
-export const compactSections: AccordionSection<JSX.Element>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
 export const addonsSections: AccordionSection<JSX.Element>[] = [
   {
     ...section1,

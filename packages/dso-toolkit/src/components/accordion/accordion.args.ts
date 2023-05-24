@@ -21,7 +21,7 @@ export interface AccordionArgs {
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   variant: {
-    options: [undefined, "compact", "conclusion"],
+    options: [undefined, "compact", "conclusion", "neutral"],
     control: {
       type: "select",
       labels: {

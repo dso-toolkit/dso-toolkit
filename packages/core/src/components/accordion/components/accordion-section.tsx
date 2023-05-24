@@ -73,6 +73,12 @@ export class AccordionSection implements ComponentInterface {
   @State()
   hasNestedSection = false;
 
+  @State()
+  animationReady = false;
+
+  @State()
+  hover = false;
+
   @Watch("open")
   toggleOpen() {
     this.activateAnimation();
@@ -122,6 +128,10 @@ export class AccordionSection implements ComponentInterface {
   @Method()
   async scrollSectionIntoView(): Promise<void> {
     await this.scrollIntoViewWhenNeeded(false);
+  }
+
+  get isNeutral() {
+    return this.accordionState?.variant === "neutral";
   }
 
   private async scrollIntoViewWhenNeeded(sectionToggled: boolean): Promise<void> {
@@ -191,6 +201,8 @@ export class AccordionSection implements ComponentInterface {
           "dso-accordion-reverse-align": reverseAlign ?? false,
         }}
         hidden={!variant}
+        onMouseenter={() => (this.hover = true)}
+        onMouseleave={() => (this.hover = false)}
       >
         <Handle heading={this.heading} ref={(element) => (this.sectionHeading = element)}>
           <HandleElement
@@ -216,7 +228,12 @@ export class AccordionSection implements ComponentInterface {
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
-                <span>{this.handleTitle}</span>
+                <span>
+                  {this.handleTitle}
+                  {this.isNeutral && (
+                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
+                  )}
+                </span>
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
@@ -229,7 +246,7 @@ export class AccordionSection implements ComponentInterface {
           </HandleElement>
         </Handle>
         <div
-          class={{ "dso-section-body": true, "dso-animate-ready": !!this.animeInstance }}
+          class={{ "dso-section-body": true, "dso-animate-ready": this.animationReady }}
           ref={(element) => (this.sectionBody = element)}
           aria-hidden={this.open ? "false" : "true"}
         >
@@ -258,7 +275,7 @@ export class AccordionSection implements ComponentInterface {
   private instantiateAnimation() {
     this.animeInstance = anime({
       targets: this.sectionBody,
-      height: 4,
+      height: this.isNeutral ? 0 : 4,
       easing: "cubicBezier(0.4, 0, 0.2, 1)",
       duration: 260,
       autoplay: false,
@@ -301,6 +318,8 @@ export class AccordionSection implements ComponentInterface {
     if (this.sectionBody) {
       this.sectionBody.style.height = "";
     }
+
+    this.animationReady = !!this.animeInstance;
   }
 
   private activateAnimation() {
