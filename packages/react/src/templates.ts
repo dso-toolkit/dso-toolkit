@@ -1,5 +1,6 @@
 import {
   Accordion,
+  ActionList,
   Alert,
   Annotation,
   AnnotationButton,
@@ -41,6 +42,7 @@ import {
 } from "dso-toolkit";
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
+import { reactActionList } from "./components/action-list/action-list.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
 import { reactAnnotation } from "./components/annotation/annotation.react-template";
 import { reactAnnotationButton } from "./components/annotation-button/annotation-button.react-template";
@@ -78,8 +80,9 @@ import { reactTreeView } from "./components/tree-view/tree-view.react-template";
 import { reactViewerGrid } from "./components/viewer-grid/viewer-grid.react-template";
 
 export interface Components {
-  alert: Alert<JSX.Element>;
   accordion: Accordion<JSX.Element>;
+  actionList: ActionList<JSX.Element>;
+  alert: Alert<JSX.Element>;
   annotation: Annotation<JSX.Element>;
   annotationButton: AnnotationButton;
   annotationOutput: AnnotationOutput<JSX.Element>;
@@ -123,6 +126,7 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<Model, 
 export const templateContainer = new TemplateContainer<Implementation, Templates, JSX.Element>();
 
 templateContainer.add(reactAccordion);
+templateContainer.add(reactActionList);
 templateContainer.add(reactAlert);
 templateContainer.add(reactAnnotation);
 templateContainer.add(reactAnnotationButton);
