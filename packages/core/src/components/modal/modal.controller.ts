@@ -1,11 +1,9 @@
-import { ModalContent, ModalOptions } from "dso-toolkit";
+import { ModalContent, ModalOptions } from "./modal.interfaces";
 
 import { DsoModalRef } from "./modal-ref";
 
-export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
-
 export class DsoModalController {
-  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoModalRef {
+  open(modal: ModalContent, options?: ModalOptions): DsoModalRef {
     const dsoModalElement = this.createModal(modal, options);
 
     document.body.appendChild(dsoModalElement);
@@ -13,10 +11,7 @@ export class DsoModalController {
     return new DsoModalRef(dsoModalElement);
   }
 
-  private createModal(
-    { title, body, footer }: ModalContent<AllowedModalContentTypes>,
-    options?: ModalOptions
-  ): HTMLElement {
+  private createModal({ title, body, footer }: ModalContent, options?: ModalOptions): HTMLElement {
     const element = document.createElement(`dso-modal`);
 
     if (title) {
