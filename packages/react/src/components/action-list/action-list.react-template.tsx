@@ -26,6 +26,7 @@ export const reactActionList: ComponentImplementation<ActionList<JSX.Element>> =
           <div className="dso-rich-content">
             <h2>Heeft u vragen?</h2>
             {accordionTemplate({
+              variant: "neutral",
               sections: [
                 {
                   handleTitle: "Contactinformatie gemeente Utrecht",

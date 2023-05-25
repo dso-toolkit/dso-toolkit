@@ -19,25 +19,25 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             open="true"
             handle-title='Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"'
             heading="h4"
           >
             <div class="dso-rich-content">
-              <h5>Algemene toelichting</h5>
+              <h5 class="inline-heading">Algemene toelichting</h5>
               <p>
                 Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u moet regelen.
                 Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen, melding doen of informatie
                 geven.
               </p>
-              <h5>Voorbereiding</h5>
+              <h5 class="inline-heading">Voorbereiding</h5>
               <p>
                 Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
                 vervangen".
               </p>
-              <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
+              <h5 class="inline-heading">Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
               <span><dso-icon icon="call"></dso-icon> Telefoon: 0900 9394</span>
               <span><dso-icon icon="air"></dso-icon> <a href="#">www.agv.nl <dso-icon icon="external-link"></dso-icon></a></span
               >
@@ -66,7 +66,7 @@ const item3: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             handle-title='Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"'
             heading="h4"
@@ -88,7 +88,7 @@ const item4: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             handle-title='Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
             heading="h4"
@@ -132,7 +132,7 @@ function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
     content: {
       template: `
         <div class="dso-rich-content">
-          <dso-accordion>
+          <dso-accordion variant="neutral">
             <dso-accordion-section
               handle-title="Horecabedrijf"
               heading="h4"
