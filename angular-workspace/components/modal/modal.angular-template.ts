@@ -21,6 +21,7 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
             [initialFocus]="initialFocus"
+            [returnFocus]="returnFocus"
             (dsoClose)="dsoClose?.($event)"
           ></modal-controller-demo>
 

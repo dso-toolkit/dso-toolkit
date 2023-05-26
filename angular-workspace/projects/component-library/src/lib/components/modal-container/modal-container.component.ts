@@ -12,6 +12,7 @@ import { ModalOptions } from "../../models/modal.models";
       [role]="options?.role"
       [showCloseButton]="options?.showCloseButton"
       [initialFocus]="options?.initialFocus"
+      [returnFocus]="options?.returnFocus"
       (dsoClose)="dsoClose.emit($event.detail)"
     >
       <div *ngIf="bodyPortalRef" slot="body"><ng-template [cdkPortalOutlet]="bodyPortalRef"></ng-template></div>

@@ -1,8 +1,8 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from "@stencil/core";
-import { createFocusTrap, FocusTrap } from "focus-trap";
+import { createFocusTrap, FocusTargetValueOrFalse, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
-import { DsoModalCloseEvent } from "./modal.interfaces";
+import { DsoModalCloseEvent, ModalRole } from "./modal.interfaces";
 
 @Component({
   tag: "dso-modal",
@@ -30,7 +30,7 @@ export class Modal implements ComponentInterface {
 
   /** the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog` */
   @Prop()
-  role = "dialog";
+  role: ModalRole = "dialog";
 
   /** when `false` the close button in the header will not be rendered. Defaults to `true` */
   @Prop()
@@ -39,6 +39,12 @@ export class Modal implements ComponentInterface {
   /** Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.*/
   @Prop()
   initialFocus?: string;
+
+  /**
+   * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
+   */
+  @Prop()
+  returnFocus?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
 
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
@@ -118,6 +124,7 @@ export class Modal implements ComponentInterface {
           );
         },
         allowOutsideClick: true,
+        setReturnFocus: (e) => this.returnFocus?.(e) ?? e,
         escapeDeactivates: true,
         tabbableOptions: {
           getShadowRoot: true,

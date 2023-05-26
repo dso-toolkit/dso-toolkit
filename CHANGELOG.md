@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Modal: setReturnFocus van FocusTrap aanbieden ([#2131](https://github.com/dso-toolkit/dso-toolkit/issues/2131))
+
 ## 53.1.0
 
 ### Fixed

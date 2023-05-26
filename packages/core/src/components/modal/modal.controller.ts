@@ -19,7 +19,7 @@ export class DsoModalController {
     }
 
     if (options) {
-      const { role, showCloseButton, initialFocus } = options;
+      const { role, showCloseButton, initialFocus, returnFocus } = options;
 
       if (role) {
         element.role = role;
@@ -31,6 +31,10 @@ export class DsoModalController {
 
       if (initialFocus) {
         element.setAttribute("initial-focus", initialFocus);
+      }
+
+      if (returnFocus) {
+        element.returnFocus = returnFocus;
       }
     }
 
