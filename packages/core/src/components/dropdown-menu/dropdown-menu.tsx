@@ -25,6 +25,12 @@ export class DropdownMenu {
   dropdownAlign: "left" | "right" = "left";
 
   /**
+   * Space between button and dropdown options
+   */
+  @Prop()
+  dropdownOptionsOffset = 2;
+
+  /**
    * Whether the menu is checkable.
    */
   @Prop()
@@ -48,6 +54,20 @@ export class DropdownMenu {
 
     this.popper.setOptions({
       placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+    });
+  }
+
+  @Watch("dropdownOptionsOffset")
+  watchOptionsOffset() {
+    this.popper?.setOptions({
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, this.dropdownOptionsOffset],
+          },
+        },
+      ],
     });
   }
 
@@ -150,7 +170,7 @@ export class DropdownMenu {
         {
           name: "offset",
           options: {
-            offset: [0, 2], // 2px margin between button and options
+            offset: [0, this.dropdownOptionsOffset],
           },
         },
         {

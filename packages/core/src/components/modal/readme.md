@@ -8,15 +8,14 @@ Modals werken het best wanneer deze op een hoog niveau in de DOM tree geplaatst 
 
 Voorbeeld:
 
-```
-import { ModalContent, ModalOptions } from "dso-toolkit";
-import { DsoModalController } from "@dso-toolkit/core";
+```typescript
+import { DsoModalController, ModalContent, ModalOptions } from "@dso-toolkit/core";
 
 const controller = new DsoModalController();
 
-const modal:  = {
-  title: 'Titel',
-  body: '<span>content</span>',
+const modal: ModalContent = {
+  title: "Titel",
+  body: "<span>content</span>",
 };
 
 const ref = controller.open(modal);
@@ -27,14 +26,10 @@ ref.close();
 
 ### API
 
-```
+```typescript
 export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
 
-class DsoModalController {
-  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
-}
-
-interface ModalContent<AllowedModalContentTypes> {
+interface ModalContent {
   title?: string;
   body: AllowedModalContentTypes;
   footer?: AllowedModalContentTypes;
@@ -46,7 +41,11 @@ interface ModalOptions {
   initialFocus?: string;
 }
 
-class DialogRef {
+class DsoModalController {
+  open(modal: ModalContent, options?: ModalOptions): DsoModalRef
+}
+
+class DsoModalRef {
   /** Removes the Dialog **/
   close(): void;
 
@@ -61,7 +60,7 @@ Deze `DsoModalRef` bevat de functie `close` om de modal te sluiten. via de funct
 ## React `<DsoModalPortal />`
 Voor React is een higher order component (`<DsoModalPortal />`) beschikbaar om de `<DsoModal />` op de juiste plek in het DOM te plaatsen. Zie "Properties" onderaan deze pagina voor de API van `<DsoModal/>`
 
-```
+```tsx
 <DsoModalPortal>
   <DsoModal {...modalProps}>
     <div slot="body">{body}</div>
@@ -74,9 +73,8 @@ Voor React is een higher order component (`<DsoModalPortal />`) beschikbaar om d
 
 Voorbeeld:
 
-```
-import { ModalContent, ModalOptions } from "dso-toolkit";
-import { DsoModalController, DsoModalRef } from "@dso-toolkit/angular";
+```typescript
+import { DsoModalController, DsoModalRef, ModalContent, ModalOptions } from "@dso-toolkit/angular";
 
 @Component()
 export class ModalControllerDemo {
@@ -100,14 +98,15 @@ export class ModalControllerDemo {
 ```
 
 ### API
-```
+
+```typescript
 export type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
 
 class DsoModalController {
-  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
+  open(modal: ModalContent, options?: ModalOptions): DsoModalRef
 }
 
-interface ModalContent<AllowedModalContentTypes> {
+interface ModalContent {
   title?: string;
   body: AllowedModalContentTypes;
   footer?: AllowedModalContentTypes;
@@ -119,7 +118,7 @@ interface ModalOptions {
   initialFocus?: string;
 }
 
-class DialogRef {
+class DsoModalRef {
   /** Removes the Dialog **/
   close(): void;
 

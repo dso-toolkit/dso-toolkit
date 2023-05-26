@@ -9,10 +9,8 @@ import {
   Method,
   Prop,
   State,
-  Watch,
 } from "@stencil/core";
-import anime from "animejs";
-import debounce from "debounce";
+import { ExpandableInterface, isExpandable } from "../../expandable/expandable.interfaces";
 
 import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
@@ -30,15 +28,13 @@ export class AccordionSection implements ComponentInterface {
 
   private accordionState?: AccordionInternalState;
 
-  private animeInstance?: anime.AnimeInstance;
-
   private sectionBody?: HTMLDivElement;
 
   private sectionHeading?: HTMLHeadingElement;
 
-  private resizeObserver?: ResizeObserver;
-
   private bodyHeight?: number;
+
+  private expandable?: ExpandableInterface;
 
   @Element()
   host!: HTMLElement;
@@ -73,10 +69,8 @@ export class AccordionSection implements ComponentInterface {
   @State()
   hasNestedSection = false;
 
-  @Watch("open")
-  toggleOpen() {
-    this.activateAnimation();
-  }
+  @State()
+  hover = false;
 
   componentWillLoad() {
     const accordion = this.host.parentElement;
@@ -90,20 +84,6 @@ export class AccordionSection implements ComponentInterface {
         forceUpdate(this.host);
       });
     }
-
-    this.prepareAnimationResizeObserver();
-  }
-
-  componentDidLoad(): void {
-    const bodyContentElement = this.host.shadowRoot?.querySelector(".dso-section-body-content");
-
-    if (bodyContentElement) {
-      this.resizeObserver?.observe(bodyContentElement);
-    }
-  }
-
-  disconnectedCallback() {
-    this.resizeObserver?.disconnect();
   }
 
   /** Toggle this section.
@@ -124,6 +104,10 @@ export class AccordionSection implements ComponentInterface {
     await this.scrollIntoViewWhenNeeded(false);
   }
 
+  get isNeutral() {
+    return this.accordionState?.variant === "neutral";
+  }
+
   private async scrollIntoViewWhenNeeded(sectionToggled: boolean): Promise<void> {
     AccordionSection.scrollCandidate = undefined;
 
@@ -134,7 +118,9 @@ export class AccordionSection implements ComponentInterface {
       return;
     }
 
-    const waitForAnimationBeforeScrolling = (state: AccordionInternalState) => {
+    const waitForAnimationBeforeScrolling = async (state: AccordionInternalState) => {
+      this.bodyHeight = await this.expandable?.getBodyHeight();
+
       const sectionBottomOffsetTop =
         this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
 
@@ -143,7 +129,7 @@ export class AccordionSection implements ComponentInterface {
       );
     };
 
-    if (waitForAnimationBeforeScrolling(this.accordionState)) {
+    if (await waitForAnimationBeforeScrolling(this.accordionState)) {
       AccordionSection.scrollCandidate = this.host;
       return;
     }
@@ -164,6 +150,39 @@ export class AccordionSection implements ComponentInterface {
       window.scrollTo({
         top: this.host.offsetTop,
         behavior: "smooth",
+      });
+    }
+  }
+
+  private setAnimationBehaviour(event: Event, section?: HTMLElement): void {
+    const expandableElement = event.target;
+
+    if (!(expandableElement instanceof HTMLElement)) {
+      return;
+    }
+
+    if (isExpandable(expandableElement)) {
+      this.expandable = expandableElement;
+      this.expandable.getAnimeInstance().then((animeInstance) => {
+        if (animeInstance) {
+          animeInstance.update;
+          animeInstance.changeComplete = async () => {
+            if (!section) {
+              return;
+            }
+
+            const accordion = section.parentElement;
+
+            if (isAccordion(accordion)) {
+              accordion?.animationEnd(section);
+            }
+
+            if (AccordionSection.scrollCandidate === this.host) {
+              AccordionSection.scrollCandidate = undefined;
+              await this.scrollSectionIntoView();
+            }
+          };
+        }
       });
     }
   }
@@ -191,6 +210,8 @@ export class AccordionSection implements ComponentInterface {
           "dso-accordion-reverse-align": reverseAlign ?? false,
         }}
         hidden={!variant}
+        onMouseenter={() => (this.hover = true)}
+        onMouseleave={() => (this.hover = false)}
       >
         <Handle heading={this.heading} ref={(element) => (this.sectionHeading = element)}>
           <HandleElement
@@ -216,7 +237,12 @@ export class AccordionSection implements ComponentInterface {
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
-                <span>{this.handleTitle}</span>
+                <span>
+                  {this.handleTitle}
+                  {this.isNeutral && (
+                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
+                  )}
+                </span>
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
@@ -228,95 +254,23 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
-        <div
-          class={{ "dso-section-body": true, "dso-animate-ready": !!this.animeInstance }}
-          ref={(element) => (this.sectionBody = element)}
-          aria-hidden={this.open ? "false" : "true"}
+        <dso-expandable
+          class="dso-section-body"
+          open={this.open}
+          enableAnimation={true}
+          minimumHeight={this.isNeutral ? 0 : 4}
+          onAnimationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
         >
-          <div class="dso-section-body-content">
+          <div
+            slot="expandable-content"
+            class="dso-section-body-content"
+            ref={(element) => (this.sectionBody = element)}
+          >
             <slot />
           </div>
-        </div>
+        </dso-expandable>
       </Host>
     );
-  }
-
-  private prepareAnimationResizeObserver() {
-    this.resizeObserver = new ResizeObserver(
-      debounce(([entry]) => {
-        // entry.contentRect does not include padding, so we use getBoundingClientRect.
-        const height = entry.target.getBoundingClientRect().height;
-        if (this.bodyHeight !== height) {
-          this.bodyHeight = height;
-
-          this.instantiateAnimation();
-        }
-      }, 150)
-    );
-  }
-
-  private instantiateAnimation() {
-    this.animeInstance = anime({
-      targets: this.sectionBody,
-      height: 4,
-      easing: "cubicBezier(0.4, 0, 0.2, 1)",
-      duration: 260,
-      autoplay: false,
-      direction: "normal",
-      changeComplete: async () => {
-        this.accordion?.animationEnd(this.host);
-
-        if (AccordionSection.scrollCandidate === this.host) {
-          AccordionSection.scrollCandidate = undefined;
-          await this.scrollSectionIntoView();
-        }
-      },
-      begin: () => {
-        if (this.sectionBody) {
-          if (this.open) {
-            this.sectionBody.style.visibility = "";
-            this.sectionBody.style.position = "";
-            this.sectionBody.style.bottom = "";
-          }
-        }
-      },
-      complete: () => {
-        if (this.sectionBody) {
-          this.sectionBody.style.height = "";
-
-          if (!this.open) {
-            this.sectionBody.style.visibility = "hidden";
-            this.sectionBody.style.position = "absolute";
-            this.sectionBody.style.bottom = "100%";
-          }
-        }
-      },
-    });
-
-    if (!this.open) {
-      this.animeInstance.reverse();
-      this.animeInstance.play();
-    }
-
-    if (this.sectionBody) {
-      this.sectionBody.style.height = "";
-    }
-  }
-
-  private activateAnimation() {
-    if (this.animeInstance) {
-      if (this.animeInstance.progress > 0 && this.animeInstance.progress < 100) {
-        this.animeInstance.reverse();
-      } else {
-        if (this.open) {
-          this.animeInstance.direction = "reverse";
-          this.animeInstance.play();
-        } else {
-          this.animeInstance.direction = "normal";
-          this.animeInstance.play();
-        }
-      }
-    }
   }
 }
 

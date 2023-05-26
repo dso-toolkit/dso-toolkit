@@ -1,5 +1,6 @@
 import {
   Accordion,
+  ActionList,
   Alert,
   Annotation,
   AnnotationButton,
@@ -27,6 +28,8 @@ import {
   DocumentHeader,
   DocumentList,
   DropdownMenu,
+  Expandable,
+  ExpandableHeading,
   Footnote,
   Form,
   FormGroup,
@@ -52,37 +55,36 @@ import {
   Info,
   InfoButton,
   InputNumber,
+  JustifyFormGroups,
   Label,
+  LabelGroup,
   LinkList,
   List,
   ListButton,
   MapControls,
   Modal,
   Navbar,
+  OzonContent,
   Pagination,
   ProgressBar,
   ProgressIndicator,
+  ResponsiveElement,
   RichContent,
+  RowEqualHeights,
   SearchBar,
   Selectable,
   ShoppingCart,
   SlideToggle,
+  Table,
   Tabs,
   TemplateContainer,
   Tile,
+  TileGrid,
   Toggletip,
   Tooltip,
   TreeView,
-  Whitebox,
-  JustifyFormGroups,
-  OzonContent,
-  LabelGroup,
-  TileGrid,
   ViewerGrid,
-  RowEqualHeights,
-  Table,
-  ResponsiveElement,
-  ExpandableHeading,
+  Whitebox,
 } from "dso-toolkit";
 
 import { TemplateResult } from "lit-html";
@@ -117,6 +119,7 @@ import { coreAutosuggest } from "./components/autosuggest/autosuggest.core-templ
 import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
+import { coreExpandable } from "./components/expandable/expandable.core-template";
 import { coreExpandableHeading } from "./components/expandable-heading/expandable-heading.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
@@ -186,9 +189,11 @@ import { coreInfo } from "./components/info/info.core-template";
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
+import { coreActionList } from "./components/action-list/action-list.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
+  actionList: ActionList<TemplateResult>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   annotation: Annotation<TemplateResult>;
@@ -213,6 +218,7 @@ export interface Components {
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
+  expandable: Expandable<TemplateResult>;
   expandableHeading: ExpandableHeading<TemplateResult>;
   footnote: Footnote;
   footnotes: Footnote[];
@@ -248,7 +254,7 @@ export interface Components {
   mapControls: MapControls;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
-  ozonContent: OzonContent<TemplateResult>;
+  ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
@@ -298,6 +304,7 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 });
 
 templateContainer.add(coreAccordion);
+templateContainer.add(coreActionList);
 templateContainer.add(coreAlert);
 templateContainer.add(coreAnnotation);
 templateContainer.add(coreAnnotationButton);
@@ -310,6 +317,7 @@ templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDropdownMenu);
+templateContainer.add(coreExpandable);
 templateContainer.add(coreExpandableHeading);
 templateContainer.add(coreHeader);
 templateContainer.add(coreHelpcenterPanel);

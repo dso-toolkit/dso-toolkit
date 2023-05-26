@@ -1,8 +1,8 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { ComponentPortal, TemplatePortal } from "@angular/cdk/portal";
-import { inject, Injectable, TemplateRef, Type } from "@angular/core";
+import { inject, Injectable, TemplateRef } from "@angular/core";
 
-import { ModalContent, ModalOptions } from "dso-toolkit";
+import { ModalContent, ModalOptions } from "../../models/modal.models";
 
 import { DsoModalContainer } from "../../components/modal-container/modal-container.component";
 import { DsoModalRef } from "./modal-ref";
@@ -16,7 +16,7 @@ export interface ModalConfig {
 export class DsoModalController {
   private cdkDialog = inject(Dialog);
 
-  open({ title, body, footer }: ModalContent<Type<unknown> | TemplateRef<unknown>>, config?: ModalConfig): DsoModalRef {
+  open({ title, body, footer }: ModalContent, config?: ModalConfig): DsoModalRef {
     const dialogRef = this.cdkDialog.open(DsoModalContainer, { data: config?.data });
 
     if (dialogRef.componentInstance) {

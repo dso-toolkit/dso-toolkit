@@ -1,5 +1,6 @@
 import {
   Accordion,
+  ActionList,
   Alert,
   Annotation,
   AnnotationButton,
@@ -14,6 +15,7 @@ import {
   ComponentsToTemplates,
   DatePicker,
   DropdownMenu,
+  Expandable,
   ExpandableHeading,
   Header,
   HelpcenterPanel,
@@ -41,6 +43,7 @@ import {
 } from "dso-toolkit";
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
+import { reactActionList } from "./components/action-list/action-list.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
 import { reactAnnotation } from "./components/annotation/annotation.react-template";
 import { reactAnnotationButton } from "./components/annotation-button/annotation-button.react-template";
@@ -53,6 +56,7 @@ import { reactCard } from "./components/card/card.react-template";
 import { reactCardContainer } from "./components/card-container/card-container.react-template";
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
+import { reactExpandable } from "./components/expandable/expandable.react-template";
 import { reactExpandableHeading } from "./components/expandable-heading/expandable-heading.react-template";
 import { reactHeader } from "./components/header/header.react-template";
 import { reactHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.react-template";
@@ -78,8 +82,9 @@ import { reactTreeView } from "./components/tree-view/tree-view.react-template";
 import { reactViewerGrid } from "./components/viewer-grid/viewer-grid.react-template";
 
 export interface Components {
-  alert: Alert<JSX.Element>;
   accordion: Accordion<JSX.Element>;
+  actionList: ActionList<JSX.Element>;
+  alert: Alert<JSX.Element>;
   annotation: Annotation<JSX.Element>;
   annotationButton: AnnotationButton;
   annotationOutput: AnnotationOutput<JSX.Element>;
@@ -91,6 +96,7 @@ export interface Components {
   cardContainer: CardContainer<JSX.Element>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
+  expandable: Expandable<JSX.Element>;
   expandableHeading: ExpandableHeading<JSX.Element>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
@@ -123,6 +129,7 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<Model, 
 export const templateContainer = new TemplateContainer<Implementation, Templates, JSX.Element>();
 
 templateContainer.add(reactAccordion);
+templateContainer.add(reactActionList);
 templateContainer.add(reactAlert);
 templateContainer.add(reactAnnotation);
 templateContainer.add(reactAnnotationButton);
@@ -135,6 +142,7 @@ templateContainer.add(reactCard);
 templateContainer.add(reactCardContainer);
 templateContainer.add(reactDatePicker);
 templateContainer.add(reactDropdownMenu);
+templateContainer.add(reactExpandable);
 templateContainer.add(reactExpandableHeading);
 templateContainer.add(reactHeader);
 templateContainer.add(reactHelpcenterPanel);

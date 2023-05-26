@@ -32,6 +32,9 @@ export {
 } from "./components/accordion/accordion.models.js";
 export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/accordion.stories-of.js";
 
+export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
+export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
+
 export { Alert, AlertType } from "./components/alert/alert.models.js";
 export { AlertTemplates, storiesOfAlert } from "./components/alert/alert.stories-of.js";
 
@@ -136,6 +139,9 @@ export {
 } from "./components/dropdown-menu/dropdown-menu.models.js";
 export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
 
+export { Expandable } from "./components/expandable/expandable.models.js";
+export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
+
 export { ExpandableHeading } from "./components/expandable-heading/expandable-heading.models.js";
 export {
   ExpandableHeadingTemplates,
@@ -231,7 +237,7 @@ export {
 } from "./components/list-button/list-button.models.js";
 export { ListButtonTemplates, storiesOfListButton } from "./components/list-button/list-button.stories-of.js";
 
-export { Modal, ModalContent, ModalOptions, ModalRole } from "./components/modal/modal.models.js";
+export { Modal } from "./components/modal/modal.models.js";
 export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";
 
 export {

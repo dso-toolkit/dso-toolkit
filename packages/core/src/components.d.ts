@@ -12,6 +12,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { ExpandableToggleEvent } from "./components/expandable/expandable.interfaces";
 import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -76,6 +77,22 @@ export namespace Components {
           * @param scrollIntoView boolean - defaults to true
          */
         "toggleSection": (scrollIntoView?: boolean) => Promise<void>;
+    }
+    interface DsoActionList {
+        "listTitle": string;
+    }
+    interface DsoActionListItem {
+        /**
+          * Places a dashed line at the bottom of the item.
+         */
+        "divider": boolean;
+        /**
+          * Show flow line to next step
+         */
+        "flowLine": boolean;
+        "itemTitle"?: string;
+        "step": number;
+        "warning": boolean;
     }
     interface DsoAlert {
         /**
@@ -220,6 +237,10 @@ export namespace Components {
          */
         "dropdownAlign": "left" | "right";
         /**
+          * Space between button and dropdown options
+         */
+        "dropdownOptionsOffset": number;
+        /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
@@ -229,6 +250,13 @@ export namespace Components {
         "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        "enableAnimation": boolean;
+        "getAnimeInstance": () => Promise<anime.AnimeInstance | undefined>;
+        "getBodyHeight": () => Promise<number | undefined>;
+        /**
+          * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
+         */
+        "minimumHeight"?: number;
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
@@ -502,6 +530,10 @@ export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
 }
+export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoExpandableElement;
+}
 export interface DsoExpandableHeadingCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoExpandableHeadingElement;
@@ -582,6 +614,18 @@ declare global {
     var HTMLDsoAccordionSectionElement: {
         prototype: HTMLDsoAccordionSectionElement;
         new (): HTMLDsoAccordionSectionElement;
+    };
+    interface HTMLDsoActionListElement extends Components.DsoActionList, HTMLStencilElement {
+    }
+    var HTMLDsoActionListElement: {
+        prototype: HTMLDsoActionListElement;
+        new (): HTMLDsoActionListElement;
+    };
+    interface HTMLDsoActionListItemElement extends Components.DsoActionListItem, HTMLStencilElement {
+    }
+    var HTMLDsoActionListItemElement: {
+        prototype: HTMLDsoActionListItemElement;
+        new (): HTMLDsoActionListItemElement;
     };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
@@ -814,6 +858,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "dso-accordion": HTMLDsoAccordionElement;
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
+        "dso-action-list": HTMLDsoActionListElement;
+        "dso-action-list-item": HTMLDsoActionListItemElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-output": HTMLDsoAnnotationOutputElement;
@@ -892,6 +938,22 @@ declare namespace LocalJSX {
          */
         "state"?: AccordionSectionState;
         "status"?: string;
+    }
+    interface DsoActionList {
+        "listTitle": string;
+    }
+    interface DsoActionListItem {
+        /**
+          * Places a dashed line at the bottom of the item.
+         */
+        "divider"?: boolean;
+        /**
+          * Show flow line to next step
+         */
+        "flowLine"?: boolean;
+        "itemTitle"?: string;
+        "step": number;
+        "warning"?: boolean;
     }
     interface DsoAlert {
         /**
@@ -1057,6 +1119,10 @@ declare namespace LocalJSX {
          */
         "dropdownAlign"?: "left" | "right";
         /**
+          * Space between button and dropdown options
+         */
+        "dropdownOptionsOffset"?: number;
+        /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
@@ -1066,6 +1132,13 @@ declare namespace LocalJSX {
         "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        "enableAnimation"?: boolean;
+        /**
+          * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
+         */
+        "minimumHeight"?: number;
+        "onAnimationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
+        "onDsoToggle"?: (event: DsoExpandableCustomEvent<ExpandableToggleEvent>) => void;
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
@@ -1345,6 +1418,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dso-accordion": DsoAccordion;
         "dso-accordion-section": DsoAccordionSection;
+        "dso-action-list": DsoActionList;
+        "dso-action-list-item": DsoActionListItem;
         "dso-alert": DsoAlert;
         "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-output": DsoAnnotationOutput;
@@ -1391,6 +1466,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
+            "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
+            "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;

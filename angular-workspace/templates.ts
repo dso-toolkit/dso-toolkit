@@ -1,6 +1,7 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 import {
   Accordion,
+  ActionList,
   Alert,
   Annotation,
   AnnotationButton,
@@ -11,6 +12,7 @@ import {
   BaseComponentImplementation,
   DatePicker,
   DropdownMenu,
+  Expandable,
   ExpandableHeading,
   Header,
   HelpcenterPanel,
@@ -33,16 +35,18 @@ import {
 } from "dso-toolkit";
 
 import { angularAccordion } from "./components/accordion/accordion.angular-template";
+import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
-import { angularAnnotation } from "./components/annotation/annotation.angular-template";
 import { angularAnnotationButton } from "./components/annotation-button/annotation-button.angular-template";
 import { angularAnnotationOutput } from "./components/annotation-output/annotation-output.angular-template";
+import { angularAnnotation } from "./components/annotation/annotation.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularBanner } from "./components/banner/banner.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandableHeading } from "./components/expandable-heading/expandable-heading.angular-template";
+import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
 import { angularHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.angular-template";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
@@ -63,6 +67,7 @@ import { angularToggletip } from "./components/toggletip/toggletip.angular-templ
 
 export interface Components {
   accordion: Accordion<StoryFnAngularReturnType>;
+  actionList: ActionList<StoryFnAngularReturnType>;
   alert: Alert<StoryFnAngularReturnType>;
   annotation: Annotation<StoryFnAngularReturnType>;
   annotationButton: AnnotationButton;
@@ -75,6 +80,7 @@ export interface Components {
   // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
+  expandable: Expandable<StoryFnAngularReturnType>;
   expandableHeading: ExpandableHeading<StoryFnAngularReturnType>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
@@ -130,6 +136,7 @@ type Implementation = "angular";
 export const templateContainer = new TemplateContainer<Implementation, Templates, StoryFnAngularReturnType>();
 
 templateContainer.add(angularAccordion);
+templateContainer.add(angularActionList);
 templateContainer.add(angularAlert);
 templateContainer.add(angularAnnotation);
 templateContainer.add(angularAnnotationButton);
@@ -139,6 +146,7 @@ templateContainer.add(angularBadge);
 templateContainer.add(angularBanner);
 templateContainer.add(angularDatePicker);
 templateContainer.add(angularDropdownMenu);
+templateContainer.add(angularExpandable);
 templateContainer.add(angularExpandableHeading);
 templateContainer.add(angularHeader);
 templateContainer.add(angularHelpcenterPanel);

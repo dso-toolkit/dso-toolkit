@@ -1,0 +1,63 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/headings";
+@use "~dso-toolkit/src/components/step-counter";
+
+@include utilities.box-sizing();
+
+:host {
+  @include step-counter.step-counter();
+
+  display: block;
+  padding-block: units.$u2;
+  position: relative;
+}
+
+:host(.divider) {
+  .dso-action-list-item {
+    &::after {
+      border-bottom: 0.25rem dashed colors.$lichtblauw;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: units.$u3;
+      left: units.$u10;
+      position: absolute;
+      width: calc(100% + 16px);
+    }
+  }
+}
+
+h3 {
+  @include headings.base();
+  @include headings.h3();
+
+  margin-block-end: units.$u2;
+  margin-block-start: 0;
+  min-height: units.$u6;
+  padding-block-start: 9px;
+}
+
+.dso-action-list-item {
+  display: grid;
+  grid-template-columns: units.$u10 1fr;
+
+  .dso-step-counter {
+    position: unset;
+  }
+
+  .dso-step-counter,
+  dso-icon {
+    margin-inline-start: units.$u1;
+  }
+
+  .action-list-item-content {
+    grid-column: 2 / 2;
+  }
+}
+
+dso-icon {
+  height: units.$u6;
+  width: units.$u6;
+}

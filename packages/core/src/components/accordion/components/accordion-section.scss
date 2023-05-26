@@ -9,6 +9,7 @@
 @use "accordion-section-theme-compact";
 @use "accordion-section-theme-conclusion";
 @use "accordion-section-theme-default";
+@use "accordion-section-theme-neutral";
 
 @include utilities.box-sizing();
 
@@ -42,7 +43,7 @@
 
   .dso-section-handle > button,
   .dso-section-handle > a {
-    align-items: center;
+    align-items: flex-start;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -88,11 +89,6 @@
 }
 
 :host([open]) {
-  .dso-section-body {
-    position: inherit;
-    visibility: inherit;
-  }
-
   .dso-section-handle {
     > button,
     > a {
@@ -110,15 +106,9 @@
 }
 
 .dso-section-body {
-  &:not(.dso-animate-ready) {
-    position: absolute;
-    visibility: hidden;
-  }
-
   background-color: colors.$wit;
   border-top: 0;
   margin-top: accordion.$border-radius * -1;
-  overflow-y: hidden;
 
   .dso-section-body-content {
     padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
@@ -166,4 +156,17 @@
 
 :host(.dso-accordion-conclusion.dso-nested-accordion[open]) {
   @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open-nested();
+}
+
+// Neutral
+:host(.dso-accordion-neutral) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral();
+}
+
+:host(.dso-accordion-neutral[open]) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open();
+}
+
+:host(.dso-accordion-neutral.dso-nested-accordion[open]) {
+  @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open-nested();
 }

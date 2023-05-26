@@ -1,6 +1,6 @@
 export type AccordionHandleElement = "anchor" | "button";
 
-export type AccordionVariant = "default" | "compact" | "conclusion";
+export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral";
 
 export type AccordionSectionState = "success" | "info" | "warning" | "danger" | "error";
 

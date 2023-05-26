@@ -62,8 +62,8 @@
 
   > #{$info-selector} {
     float: none;
-    margin: units.$u1 units.$u2 0 #{units.$u4 * -1};
-    width: calc(100% + #{units.$u4});
+    margin: units.$u1 units.$u2 0 0;
+    width: 100%;
   }
 }
 
