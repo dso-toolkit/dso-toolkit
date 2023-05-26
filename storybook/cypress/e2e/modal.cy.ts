@@ -131,4 +131,24 @@ describe("Modal", () => {
 
     cy.get("@modalBody").invoke("scrollTop").should("be.greaterThan", 0);
   });
+
+  it("should return focus to previous element", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=voorbeeldpagina-s-patronen-modal-return-focus--modal-return-focus");
+
+    cy.contains("Open modal").as("activate-button").click().should("not.have.focus");
+
+    cy.get("dso-modal").shadow().find("button.dso-close").click();
+
+    cy.get("@activate-button").should("have.focus");
+  });
+
+  it("should return focus to returnFocus() element", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=voorbeeldpagina-s-patronen-modal-return-focus--modal-return-focus");
+
+    cy.contains("Open modal met returnFocus").as("activate-button").click().should("not.have.focus");
+
+    cy.get("dso-modal").shadow().find("button.dso-close").click();
+
+    cy.contains("Open modal").should("have.focus");
+  });
 });
