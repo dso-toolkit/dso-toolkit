@@ -22,7 +22,7 @@ export const cssListButton: ComponentImplementation<ListButton> = {
         return html`
           <button
             type="button"
-            class="dso-list-button ${classMap({ "dso-selected": count > 0 || checked })}"
+            class="dso-list-button ${classMap({ "dso-selected": (count && count > 0) || checked || false })}"
             ?disabled=${disabled}
           >
             <span>${label}</span>
@@ -30,11 +30,11 @@ export const cssListButton: ComponentImplementation<ListButton> = {
             ${subcontent ? html`<span class="dso-subcontent">${unsafeHTML(subcontent)}</span>` : nothing}
             ${!hasInputNumber
               ? html`
-                  ${count === 1 ? html`${iconTemplate({ icon: "check" })}` : nothing}
-                  ${count > 1 ? html`<span class="dso-count">${count}x</span>` : nothing}
+                  ${count && count === 1 ? html`${iconTemplate({ icon: "check" })}` : nothing}
+                  ${count && count > 1 ? html`<span class="dso-count">${count}x</span>` : nothing}
                 `
               : nothing}
-            ${count > 0 ? html`<span class="sr-only">geselecteerd</span>` : nothing}
+            ${count && count > 0 ? html`<span class="sr-only">geselecteerd</span>` : nothing}
           </button>
         `;
       }
@@ -44,7 +44,7 @@ export const cssListButton: ComponentImplementation<ListButton> = {
           ? html`
               <div class="dso-btn-group">
                 ${listButtonComponentTemplate(listButton)}
-                ${inputNumberTemplate({ ...listButton.inputNumber, count: listButton.count })}
+                ${inputNumberTemplate({ ...listButton.inputNumber, count: listButton.count ?? 0 })}
               </div>
             `
           : html` ${listButtonComponentTemplate(listButton)} `}

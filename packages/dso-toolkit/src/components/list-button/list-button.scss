@@ -1,5 +1,8 @@
 @use "../button";
 @use "../list-button";
+@use "../selectable";
+@use "../../variables/colors";
+@use "../../variables/units";
 
 .dso-btn-group {
   @include list-button.button-group(".dso-input-number", ".dso-list-button");
@@ -16,6 +19,25 @@
   + .dso-btn-group {
     @include list-button.sibling();
   }
+}
+
+.dso-list-button .dso-subcontent,
+dso-list-button > [slot="subcontent"] {
+  color: colors.$grijs-60;
+  font-weight: 400;
+  padding: units.$u2 0 0 units.$u2;
+
+  mark {
+    background-color: transparent;
+    color: colors.$grijs-60;
+    font-weight: 700;
+    padding: 0;
+  }
+}
+
+dso-list-button > [slot="subcontent"] {
+  padding-left: selectable.$size + units.$u3;
+  padding-top: units.$u1;
 }
 
 dso-list-button + dso-list-button {

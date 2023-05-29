@@ -327,9 +327,12 @@ export namespace Components {
         "count"?: number;
         "disabled": boolean;
         "label"?: string;
+        /**
+          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
+         */
+        "manual": boolean;
         "max"?: string | number;
         "min"?: string | number;
-        "subcontent"?: string;
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {
@@ -1215,11 +1218,14 @@ declare namespace LocalJSX {
         "count"?: number;
         "disabled"?: boolean;
         "label"?: string;
+        /**
+          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
+         */
+        "manual"?: boolean;
         "max"?: string | number;
         "min"?: string | number;
         "onDsoCountChange"?: (event: DsoListButtonCustomEvent<ListButtonChangeEvent>) => void;
         "onDsoSelectedChange"?: (event: DsoListButtonCustomEvent<ListButtonSelectedEvent>) => void;
-        "subcontent"?: string;
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {

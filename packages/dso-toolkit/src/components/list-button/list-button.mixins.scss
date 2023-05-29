@@ -181,19 +181,6 @@
     width: 100%;
   }
 
-  .dso-subcontent {
-    color: colors.$grijs-60;
-    font-weight: 400;
-    padding: units.$u2 0 0 units.$u2;
-
-    mark {
-      background-color: transparent;
-      color: colors.$grijs-60;
-      font-weight: 700;
-      padding: 0;
-    }
-  }
-
   dso-icon,
   svg.di,
   .dso-count {

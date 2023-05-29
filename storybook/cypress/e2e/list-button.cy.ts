@@ -3,7 +3,7 @@ describe("ListButton", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-list-button--single-select");
   });
 
-  it("should render label, sublabel and subcontent correctly", () => {
+  it("should render label and sublabel correctly", () => {
     cy.percySnapshot();
 
     cy.get("dso-list-button")
@@ -20,17 +20,27 @@ describe("ListButton", () => {
       .find(".dso-sublabel")
       .should("not.exist")
       .get("@dsoListButtonShadow")
-      .find(".dso-subcontent")
       .should("not.exist")
       .get("@dsoListButton")
       .invoke("attr", "sublabel", "Sublabel")
-      .invoke("attr", "subcontent", "Subcontent")
       .get("@dsoListButtonShadow")
       .find(".dso-sublabel")
       .should("contain.text", "Sublabel")
-      .get("@dsoListButtonShadow")
-      .find(".dso-subcontent")
-      .should("contain.text", "Subcontent");
+      .get("@dsoListButtonShadow");
+  });
+
+  it("should render subcontent in slot", () => {
+    cy.get("dso-list-button").invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
+
+    cy.get("dso-list-button")
+      .shadow()
+      .find('slot[name="subcontent"]')
+      .invoke("get", 0)
+      .invoke("assignedNodes")
+      .then((assignedNodes) => {
+        cy.get('dso-list-button > [slot="subcontent"]').invoke("get", 0).should("equal", assignedNodes[0]);
+      })
+      .percySnapshot();
   });
 
   it("should be accessible", () => {
@@ -188,5 +198,31 @@ describe("ListButton", () => {
       .get("@dsoListButtonShadow")
       .find(".dso-list-button.dso-selected")
       .should("not.exist");
+  });
+
+  it("should disable manual input when manual is false", () => {
+    cy.get("dso-list-button")
+      .invoke("attr", "count", 5)
+      .invoke("attr", "manual", "false")
+      .shadow()
+      .find(".dso-manual-input-button")
+      .should("not.exist");
+  });
+
+  it("should cancel manual input when manual is set to false during manual input", () => {
+    cy.get("dso-list-button")
+      .invoke("attr", "count", 5)
+      .shadow()
+      .find(".dso-manual-input-button")
+      .click()
+      .get("dso-list-button")
+      .shadow()
+      .find('input[type="number"]:not([readonly])')
+      .as("manualInputField")
+      .should("not.have.class", "hidden")
+      .get("dso-list-button")
+      .invoke("attr", "manual", "false")
+      .get("@manualInputField")
+      .should("have.class", "hidden");
   });
 });
