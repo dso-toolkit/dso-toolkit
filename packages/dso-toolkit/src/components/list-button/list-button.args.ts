@@ -13,6 +13,7 @@ export interface ListButtonArgs {
   count?: number;
   min?: number;
   max?: number;
+  manual: boolean;
   dsoCountChange: HandlerFunction;
   dsoSelectedChange: HandlerFunction;
 }
@@ -59,6 +60,11 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
   max: {
     control: {
       type: "number",
+    },
+  },
+  manual: {
+    control: {
+      type: "boolean",
     },
   },
   dsoCountChange: {

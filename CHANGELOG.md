@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 54.0.0
+
 ### Added
+* **BREAKING:** List Button: Nieuw attribuut `manual` voor configureren van handmatige invoer en `@Prop() subcontent` naar `slot[name="subcontent"]` ([#2132](https://github.com/dso-toolkit/dso-toolkit/issues/2132))
 * Modal: setReturnFocus van FocusTrap aanbieden ([#2131](https://github.com/dso-toolkit/dso-toolkit/issues/2131))
 
 ## 53.1.0

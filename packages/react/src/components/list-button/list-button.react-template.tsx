@@ -17,6 +17,7 @@ export const reactListButton: ComponentImplementation<ListButton> = {
       checked,
       min,
       max,
+      manual,
       dsoSelectedChange,
       dsoCountChange,
     }) {
@@ -24,7 +25,7 @@ export const reactListButton: ComponentImplementation<ListButton> = {
         <DsoListButton
           label={label}
           sublabel={sublabel}
-          subcontent={subcontent}
+          manual={manual}
           count={count}
           min={min}
           max={max}
@@ -32,7 +33,9 @@ export const reactListButton: ComponentImplementation<ListButton> = {
           checked={checked}
           onDsoCountChange={dsoCountChange}
           onDsoSelectedChange={dsoSelectedChange}
-        ></DsoListButton>
+        >
+          {subcontent && <span slot="subcontent" dangerouslySetInnerHTML={{ __html: subcontent }} />}
+        </DsoListButton>
       );
     },
 };
