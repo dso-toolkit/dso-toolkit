@@ -29,18 +29,18 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
             open: true,
             content: richContentTemplate({
               children: html`
-                <h5 class="inline-heading">Algemene toelichting</h5>
+                <h5 class="dso-inline-heading">Algemene toelichting</h5>
                 <p>
                   Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u moet
                   regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen, melding doen of
                   informatie geven.
                 </p>
-                <h5 class="inline-heading">Voorbereiding</h5>
+                <h5 class="dso-inline-heading">Voorbereiding</h5>
                 <p>
                   Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
                   vervangen".
                 </p>
-                <h5 class="inline-heading">Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
+                <h5 class="dso-inline-heading">Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
                 <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
                 <span
                   >${iconTemplate({ icon: "air" })}
