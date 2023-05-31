@@ -167,6 +167,12 @@ export class Tooltip {
     deactivate: () => (this.active = false),
   };
 
+  private onMouseLeave = () => {
+    if (!this.element.matches(":hover") && !this.target?.matches(":hover")) {
+      this.callbacks.deactivate();
+    }
+  };
+
   @State()
   private hidden = true;
 
@@ -183,7 +189,7 @@ export class Tooltip {
 
     if (!this.stateless && this.target) {
       this.target.addEventListener("mouseenter", this.callbacks.activate);
-      this.target.addEventListener("mouseleave", this.callbacks.deactivate);
+      [this.element, this.target].forEach((element) => element.addEventListener("mouseleave", this.onMouseLeave));
       this.target.addEventListener("focus", this.callbacks.activate);
       this.target.addEventListener("blur", this.callbacks.deactivate);
     }
@@ -194,7 +200,7 @@ export class Tooltip {
 
     if (!this.stateless && this.target) {
       this.target.removeEventListener("mouseenter", this.callbacks.activate);
-      this.target.removeEventListener("mouseleave", this.callbacks.deactivate);
+      [this.element, this.target].forEach((element) => element.removeEventListener("mouseleave", this.onMouseLeave));
       this.target.removeEventListener("focus", this.callbacks.activate);
       this.target.removeEventListener("blur", this.callbacks.deactivate);
     }

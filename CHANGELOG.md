@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Document Header: Underline ontbreekt bij hover ([#2129](https://github.com/dso-toolkit/dso-toolkit/issues/2129))
+* Tooltip - as sibling: Met expliciete id relatie sluit de tooltip al zodra de cursor op de content staat ([#2073](https://github.com/dso-toolkit/dso-toolkit/issues/2073))
 
 ## 54.0.1
 
