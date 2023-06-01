@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 54.0.1
+
+### Fixed
+* `@types/animejs` moet een dependency ipv devDependency zijn. ([#2139](https://github.com/dso-toolkit/dso-toolkit/issues/2139))
+
 ## 54.0.0
 
 ### Added
