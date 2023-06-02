@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Document Header: Underline ontbreekt bij hover ([#2129](https://github.com/dso-toolkit/dso-toolkit/issues/2129))
+
 ## 54.0.1
 
 ### Fixed
