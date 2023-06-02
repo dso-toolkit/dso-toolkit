@@ -1,6 +1,7 @@
 import { ListButton } from "dso-toolkit";
-import { html } from "lit-html";
+import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -17,6 +18,7 @@ export const coreListButton: ComponentImplementation<ListButton> = {
       checked,
       min,
       max,
+      manual,
       dsoSelectedChange,
       dsoCountChange,
     }: ListButton) {
@@ -24,15 +26,16 @@ export const coreListButton: ComponentImplementation<ListButton> = {
         <dso-list-button
           label=${label}
           sublabel=${ifDefined(sublabel)}
-          subcontent=${ifDefined(subcontent)}
           count=${ifDefined(count)}
           min=${ifDefined(min)}
           max=${ifDefined(max)}
+          ?manual=${manual}
           ?disabled=${disabled}
           ?checked=${checked}
           @dsoCountChange=${dsoCountChange}
           @dsoSelectedChange=${dsoSelectedChange}
         >
+          ${subcontent ? html`<span slot="subcontent">${unsafeHTML(subcontent)}</span>` : nothing}
         </dso-list-button>
       `;
     };

@@ -8,7 +8,7 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "core",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose }) {
+    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose, returnFocus }) {
       const open = () => {
         /* eslint-disable @typescript-eslint/no-explicit-any */
         if ((window as any).modalRef) {
@@ -31,7 +31,7 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
             body: bodyElement,
             footer: footerElement.childElementCount ? footerElement : undefined,
           },
-          { role, showCloseButton, initialFocus }
+          { role, showCloseButton, initialFocus, returnFocus }
         );
 
         if (dsoClose) {

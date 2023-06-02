@@ -49,6 +49,7 @@ interface ModalOptions {
   role?: "alert" | "dialog" | "alertdialog";
   showCloseButton?: boolean;
   initialFocus?: string;
+  returnFocus?: (e: HTMLElement | SVGElement) => HTMLElement | SVGElement | string | false;
 }
 
 class DsoModalRef {

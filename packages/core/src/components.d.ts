@@ -20,7 +20,8 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
+import { DsoModalCloseEvent, ModalRole } from "./components/modal/modal.interfaces";
+import { FocusTargetValueOrFalse } from "focus-trap";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
@@ -326,9 +327,12 @@ export namespace Components {
         "count"?: number;
         "disabled": boolean;
         "label"?: string;
+        /**
+          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
+         */
+        "manual": boolean;
         "max"?: string | number;
         "min"?: string | number;
-        "subcontent"?: string;
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {
@@ -351,9 +355,13 @@ export namespace Components {
         "initialFocus"?: string;
         "modalTitle"?: string;
         /**
+          * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
+         */
+        "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
          */
-        "role": string;
+        "role": ModalRole;
         /**
           * when `false` the close button in the header will not be rendered. Defaults to `true`
          */
@@ -1210,11 +1218,14 @@ declare namespace LocalJSX {
         "count"?: number;
         "disabled"?: boolean;
         "label"?: string;
+        /**
+          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
+         */
+        "manual"?: boolean;
         "max"?: string | number;
         "min"?: string | number;
         "onDsoCountChange"?: (event: DsoListButtonCustomEvent<ListButtonChangeEvent>) => void;
         "onDsoSelectedChange"?: (event: DsoListButtonCustomEvent<ListButtonSelectedEvent>) => void;
-        "subcontent"?: string;
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {
@@ -1245,9 +1256,13 @@ declare namespace LocalJSX {
         "modalTitle"?: string;
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
         /**
+          * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
+         */
+        "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
          */
-        "role"?: string;
+        "role"?: ModalRole;
         /**
           * when `false` the close button in the header will not be rendered. Defaults to `true`
          */

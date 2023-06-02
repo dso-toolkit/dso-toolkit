@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import { createFocusTrap, FocusTrap } from "focus-trap";
@@ -26,9 +26,6 @@ export class ListButton implements ComponentInterface {
   @Prop()
   sublabel?: string;
 
-  @Prop()
-  subcontent?: string;
-
   /** When defined the count can show on the list-button. */
   @Prop()
   count?: number;
@@ -45,11 +42,26 @@ export class ListButton implements ComponentInterface {
   @Prop({ reflect: true })
   disabled = false;
 
+  /**
+   * Allow user to directly input a value.
+   *
+   * Set to `false` to force users to use plus/minus buttons.
+   */
+  @Prop()
+  manual = true;
+
   @Event()
   dsoCountChange!: EventEmitter<ListButtonChangeEvent>;
 
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
+
+  @Watch("manual")
+  watchManualCallback() {
+    if (!this.manual && this.manualCount) {
+      this.stopManualCountInput();
+    }
+  }
 
   componentDidRender(): void {
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
@@ -171,7 +183,7 @@ export class ListButton implements ComponentInterface {
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
           </div>
           {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
-          {this.subcontent && <span class="dso-subcontent">{this.subcontent}</span>}
+          <slot name="subcontent" />
         </div>
 
         {this.count !== undefined && this.count > 0 && (
@@ -213,18 +225,20 @@ export class ListButton implements ComponentInterface {
                   />
                 </div>
 
-                <button
-                  class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
-                  type={!showButtonInputs ? "submit" : "button"}
-                  disabled={this.disabled}
-                  onClick={() => showButtonInputs && this.startManualCountInput()}
-                >
-                  {showButtonInputs ? (
-                    <span class="sr-only">Handmatig aantal invullen</span>
-                  ) : (
-                    <span class="sr-only">Zet waarde</span>
-                  )}
-                </button>
+                {this.manual === true && (
+                  <button
+                    class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
+                    type={!showButtonInputs ? "submit" : "button"}
+                    disabled={this.disabled}
+                    onClick={() => showButtonInputs && this.startManualCountInput()}
+                  >
+                    {showButtonInputs ? (
+                      <span class="sr-only">Handmatig aantal invullen</span>
+                    ) : (
+                      <span class="sr-only">Zet waarde</span>
+                    )}
+                  </button>
+                )}
               </form>
             </div>
 

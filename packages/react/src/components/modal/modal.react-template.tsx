@@ -10,7 +10,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
   component: "modal",
   implementation: "react",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose }) {
+    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose, returnFocus }) {
       return (
         <DsoModalPortal>
           <DsoModal
@@ -18,6 +18,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
             modalTitle={modalTitle}
             showCloseButton={showCloseButton ?? true}
             initialFocus={initialFocus}
+            returnFocus={returnFocus}
             onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ref={(el) => ((window as any)["modalRef"] = { framework: "react", ref: el })}

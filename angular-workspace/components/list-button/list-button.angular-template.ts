@@ -12,15 +12,16 @@ export const angularListButton: ComponentImplementation<ListButton> = {
           <dso-list-button
             [label]="label"
             [sublabel]="sublabel"
-            [subcontent]="subcontent"
             [count]="count"
             [min]="min"
             [max]="max"
             [disabled]="disabled"
             [checked]="checked"
+            [manual]="manual"
             (dsoCountChange)="dsoCountChange()"
             (dsoSelectedChange)="dsoSelectedChange()"
           >
+            <span slot="subcontent" *ngIf="subcontent" [innerHTML]="$any(subcontent) | trustHtml"></span>
           </dso-list-button>
         `,
       };
