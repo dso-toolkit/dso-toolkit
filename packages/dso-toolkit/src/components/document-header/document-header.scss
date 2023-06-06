@@ -86,19 +86,6 @@
     flex-wrap: wrap;
     gap: units.$u1 units.$u2;
 
-    .dso-document-header-toggle-status {
-      background-color: transparent;
-      border: 0;
-      padding: 0;
-
-      svg.di.di-chevron-down + span:not(.sr-only),
-      svg.di.di-chevron-up + span:not(.sr-only),
-      span:not(.sr-only) + svg.di.di-chevron-down,
-      span:not(.sr-only) + svg.di.di-chevron-up {
-        margin-left: units.$u1 * 0.5;
-      }
-    }
-
     > dso-label,
     > .dso-label {
       margin-right: calc(units.$u1 * -1);
@@ -125,7 +112,8 @@
   }
 
   .dso-document-header-map-action,
-  .dso-document-header-toggle-features {
+  .dso-document-header-toggle-features,
+  .dso-document-header-toggle-status {
     @include button.tertiary();
 
     color: colors.$zwart;
