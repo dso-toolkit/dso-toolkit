@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Accordion: property `group` om functionaliteit over meerdere accordions te laten werken.
+
 ## 54.3.0
 
 ### Added

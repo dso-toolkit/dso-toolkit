@@ -112,6 +112,18 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       )
     );
 
+    stories.add(
+      "accordion groups",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, alignmentSections }) =>
+        accordionTemplate(accordionArgsMapper(args, alignmentSections))
+      ),
+      {
+        args: {
+          group: "dso",
+        },
+      }
+    );
+
     return stories;
   });
 }

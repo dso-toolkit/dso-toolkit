@@ -13,6 +13,7 @@ import {
 import { isExpandable } from "../../expandable/expandable.functions";
 
 import { AccordionInternalState } from "../accordion.interfaces";
+import { isAccordion } from "../accordion.functions";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
 import { Handle, HandleElement, HandleIcon } from "./handles";
 
@@ -102,7 +103,11 @@ export class AccordionSection implements ComponentInterface {
       this.accordion = accordion;
 
       accordion._getState().then((state) => {
-        this.accordionState = state;
+        if (!state) {
+          return;
+        }
+   
+     	this.accordionState = state;
         forceUpdate(this.host);
       });
     }
@@ -296,8 +301,4 @@ export class AccordionSection implements ComponentInterface {
       </Host>
     );
   }
-}
-
-function isAccordion(element: Element): element is HTMLDsoAccordionElement {
-  return element.tagName === "DSO-ACCORDION";
 }

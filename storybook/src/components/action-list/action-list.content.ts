@@ -20,6 +20,7 @@ function item2({ accordionTemplate, iconTemplate, richContentTemplate }: Templat
     flowLine: true,
     content: richContentTemplate({
       children: accordionTemplate({
+        group: "#2130",
         sections: [
           {
             handleTitle:
@@ -72,6 +73,7 @@ function item3({ accordionTemplate, richContentTemplate }: Templates): ActionLis
     flowLine: true,
     content: richContentTemplate({
       children: accordionTemplate({
+        group: "#2130",
         sections: [
           {
             handleTitle:
@@ -95,6 +97,7 @@ function item4({ accordionTemplate, richContentTemplate }: Templates): ActionLis
     flowLine: true,
     content: richContentTemplate({
       children: accordionTemplate({
+        group: "#2130",
         sections: [
           {
             handleTitle:
@@ -135,6 +138,7 @@ function item5({ accordionTemplate, richContentTemplate }: Templates, flowLine =
     divider: true,
     content: richContentTemplate({
       children: accordionTemplate({
+        group: "#2130",
         sections: [
           {
             handleTitle: "Horecabedrijf",

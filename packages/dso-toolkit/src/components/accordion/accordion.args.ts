@@ -4,7 +4,8 @@ import { ArgTypes, noControl } from "../../storybook/index.js";
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } from "./accordion.models.js";
 
 export interface AccordionArgs {
-  variant: undefined | "compact" | "conclusion";
+  group: string;
+  variant: undefined | "compact" | "conclusion" | "neutral";
   reverseAlign: boolean;
   allowMultipleOpen: boolean;
   dsoToggleSection: HandlerFunction;
@@ -20,6 +21,7 @@ export interface AccordionArgs {
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
+  group: noControl,
   variant: {
     options: [undefined, "compact", "conclusion", "neutral"],
     control: {
@@ -110,6 +112,7 @@ export function accordionArgsMapper<TemplateFnReturnType>(
   }
 
   return {
+    group: a.group,
     variant: a.variant,
     reverseAlign: a.reverseAlign,
     allowMultipleOpen: a.allowMultipleOpen,

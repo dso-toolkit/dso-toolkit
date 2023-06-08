@@ -385,6 +385,9 @@ describe("Accordion", () => {
       .invoke("attr", "allow-multiple-open", "")
       .invoke("prop", "allowMultipleOpen")
       .should("eq", true)
+      .wait(500)
+      .get("@dsoToggleSectionAnimationEndListener")
+      .should("not.have.been.called")
       .get("dso-accordion")
       .find("dso-accordion-section")
       .first()
@@ -397,5 +400,37 @@ describe("Accordion", () => {
       .invoke("at", -1)
       .its("args.0.detail.section.open")
       .should("equal", true);
+  });
+
+  it("should close section when section in another accordion of the same group opens", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--accordion-groups")
+      .get("dso-accordion")
+      .first()
+      .as("dsoAccordion1")
+      .invoke("attr", "group", "groep-1")
+      .get("dso-accordion")
+      .last()
+      .as("dsoAccordion2")
+      .invoke("attr", "group", "groep-1")
+      .get("@dsoAccordion1")
+      .find("dso-accordion-section")
+      .first()
+      .as("dsoAccordion1Section")
+      .invoke("attr", "open", "")
+      .wait(500)
+      .get("@dsoAccordion2")
+      .find("dso-accordion-section")
+      .first()
+      .as("dsoAccordion2Section")
+      .shadow()
+      .find(".dso-section-handle")
+      .realClick()
+      .wait(animationTime)
+      .get("@dsoAccordion2Section")
+      .invoke("prop", "open")
+      .should("eq", true)
+      .get("@dsoAccordion1Section")
+      .invoke("prop", "open")
+      .should("eq", false);
   });
 });

@@ -1,8 +1,10 @@
 export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral";
 
 export interface AccordionInternalState {
-  variant: AccordionVariant;
-  reverseAlign: boolean;
+  allowMultipleOpen: boolean;
+}
+
+export interface AccordionGroupState {
   allowMultipleOpen: boolean;
 }
 
@@ -21,4 +23,8 @@ export interface AccordionSectionToggleAnimationEndEvent {
     element: HTMLElement;
     open: boolean;
   };
+}
+
+export interface AccordionGroupConfig {
+  allowMultipleOpen?: boolean;
 }

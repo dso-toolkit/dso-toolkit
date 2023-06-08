@@ -30,6 +30,36 @@ export const angularAccordion: ComponentImplementation<Accordion<StoryFnAngularR
         props: customProps,
         template: `
           <dso-accordion
+            [group]="group"
+            [variant]="variant"
+            [reverseAlign]="reverseAlign"
+            [allowMultipleOpen]="allowMultipleOpen"
+            (dsoToggleSection)="toggleSection($event)"
+            (dsoToggleSectionAnimationEnd)="toggleSectionAnimationEnd($event)"
+          >
+            ${props.sections
+              .map(
+                (s, i) => `
+                  <dso-accordion-section
+                    *ngIf="sections[${i}] as section"
+                    [open]="section.open"
+                    [handleTitle]="section.handleTitle"
+                    [heading]="section.heading"
+                    [handleUrl]="section.handleUrl"
+                    [state]="section.state"
+                    [status]="section.status"
+                    [icon]="section.icon"
+                    [attachmentCount]="section.attachmentCount"
+                  >
+                    ${s.content?.template}
+                  </dso-accordion-section>
+                `
+              )
+              .join("")}
+          </dso-accordion>
+          <dso-accordion
+            *ngIf="group"
+            [group]="group"
             [variant]="variant"
             [reverseAlign]="reverseAlign"
             [allowMultipleOpen]="allowMultipleOpen"

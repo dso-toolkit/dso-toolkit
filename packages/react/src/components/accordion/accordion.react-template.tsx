@@ -14,6 +14,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   implementation: "react",
   template: () =>
     function accordionTemplate({
+      group,
       variant,
       reverseAlign,
       allowMultipleOpen,
@@ -22,41 +23,82 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
       sections,
     }) {
       return (
-        <DsoAccordion
-          variant={variant}
-          reverseAlign={reverseAlign}
-          allowMultipleOpen={allowMultipleOpen}
-          onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
-            /* eslint-disable @typescript-eslint/no-explicit-any */
-            e.detail.section.element = "elementRef" as any;
-            e.detail.sections = ["elementRef"] as any;
-            /* eslint-enable @typescript-eslint/no-explicit-any */
+        <>
+          <DsoAccordion
+            group={group}
+            variant={variant}
+            reverseAlign={reverseAlign}
+            allowMultipleOpen={allowMultipleOpen}
+            onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
+              /* eslint-disable @typescript-eslint/no-explicit-any */
+              e.detail.section.element = "elementRef" as any;
+              e.detail.sections = ["elementRef"] as any;
+              /* eslint-enable @typescript-eslint/no-explicit-any */
 
-            dsoToggleSection?.(e);
-          }}
-          onDsoToggleSectionAnimationEnd={(e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            e.detail.section.element = "elementRef" as any;
+              dsoToggleSection?.(e);
+            }}
+            onDsoToggleSectionAnimationEnd={(e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              e.detail.section.element = "elementRef" as any;
 
-            dsoToggleSectionAnimationEnd?.(e);
-          }}
-        >
-          {sections.map((section, i) => (
-            <DsoAccordionSection
-              key={`dsoAccordionSection-${i}`}
-              open={section.open}
-              handleTitle={section.handleTitle}
-              heading={section.heading}
-              handleUrl={section.handleUrl}
-              state={section.state}
-              status={section.status}
-              icon={section.icon}
-              attachmentCount={section.attachmentCount}
+              dsoToggleSectionAnimationEnd?.(e);
+            }}
+          >
+            {sections.map((section, i) => (
+              <DsoAccordionSection
+                key={`dsoAccordionSection-${i}`}
+                open={section.open}
+                handleTitle={section.handleTitle}
+                heading={section.heading}
+                handleUrl={section.handleUrl}
+                state={section.state}
+                status={section.status}
+                icon={section.icon}
+                attachmentCount={section.attachmentCount}
+              >
+                {section.content}
+              </DsoAccordionSection>
+            ))}
+          </DsoAccordion>
+          {group && (
+            <DsoAccordion
+              group={group}
+              variant={variant}
+              reverseAlign={reverseAlign}
+              allowMultipleOpen={allowMultipleOpen}
+              onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
+                /* eslint-disable @typescript-eslint/no-explicit-any */
+                e.detail.section.element = "elementRef" as any;
+                e.detail.sections = ["elementRef"] as any;
+                /* eslint-enable @typescript-eslint/no-explicit-any */
+
+                dsoToggleSection?.(e);
+              }}
+              onDsoToggleSectionAnimationEnd={(e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                e.detail.section.element = "elementRef" as any;
+
+                dsoToggleSectionAnimationEnd?.(e);
+              }}
             >
-              {section.content}
-            </DsoAccordionSection>
-          ))}
-        </DsoAccordion>
+              {sections.map((section, i) => (
+                <DsoAccordionSection
+                  key={`dsoAccordionSection-${i}`}
+                  open={section.open}
+                  handleTitle={section.handleTitle}
+                  heading={section.heading}
+                  handleUrl={section.handleUrl}
+                  state={section.state}
+                  status={section.status}
+                  icon={section.icon}
+                  attachmentCount={section.attachmentCount}
+                >
+                  {section.content}
+                </DsoAccordionSection>
+              ))}
+            </DsoAccordion>
+          )}
+        </>
       );
     },
 };
