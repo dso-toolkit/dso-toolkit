@@ -19,7 +19,7 @@
     "lint:eslint": "eslint --max-warnings=0 .",
     "build": "nx run-many --target=build",
     "build-www": "nx run-many --target=build-www",
-    "e2e": "nx run storybook:e2e",
+    "e2e": "nx e2e storybook",
     "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
     "start": "yarn node scripts/start.js",

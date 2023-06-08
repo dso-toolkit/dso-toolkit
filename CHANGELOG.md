@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
 * Stijlen op Web Component attributes ([#2080](https://github.com/dso-toolkit/dso-toolkit/issues/2080))
 
+### Tasks
+* Docker build environment ([#2246](https://github.com/dso-toolkit/dso-toolkit/issues/2246))
+
 ## 56.0.0
 
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.

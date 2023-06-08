@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "start": "storybook dev --port 45000",
-    "storybook:build": "storybook build --output-dir ./www"
+    "storybook:build": "storybook build --output-dir ./www",
+    "cy:run": "cypress run",
+    "cy:parallel": "cypress-parallel --script cy:run --threads 2 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
@@ -28,6 +30,8 @@
     "axe-core": "^4.7.2",
     "cypress": "^12.15.0",
     "cypress-axe": "^1.4.0",
+    "cypress-multi-reporters": "1.6.3",
+    "cypress-parallel": "0.13.0",
     "cypress-real-events": "^1.8.1",
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^2.0.6",
