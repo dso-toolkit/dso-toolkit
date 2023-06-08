@@ -5,9 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Documentatie
+* Action List documentatie verwijst naar niet-bestaande variant ([#2149](https://github.com/dso-toolkit/dso-toolkit/issues/2149))
+
 ### Fixed
 * Document Header: Underline ontbreekt bij hover ([#2129](https://github.com/dso-toolkit/dso-toolkit/issues/2129))
-* Action List documentatie verwijst naar niet-bestaande variant ([#2149](https://github.com/dso-toolkit/dso-toolkit/issues/2149))
 
 ## 54.0.1
 
