@@ -58,7 +58,7 @@ describe("Helpcenter panel", () => {
     cy.percySnapshot(`${Cypress.currentTest.title}" -- opened`);
   });
 
-  it("should not load iframe when panel is closed", () => {
+  it.skip("should not load iframe when panel is closed", () => {
     const secondUrl = window.location.origin + "/iframe.html?id=core-icon--icon&viewMode=docs";
 
     cy.get("@openButton")

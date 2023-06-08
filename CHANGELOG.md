@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Label: Tests op orde maken ([#2134](https://github.com/dso-toolkit/dso-toolkit/issues/2134))
+* Docker build environment ([#2246](https://github.com/dso-toolkit/dso-toolkit/issues/2246))
 
 ## 56.0.0
 

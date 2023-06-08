@@ -1,94 +1,15 @@
-language: node_js
 os: linux
 dist: jammy
 cache:
-  npm: false
   directories:
-    - ./.yarn/cache
-    - ~/.cache/Cypress
-    - ./.cache/nx
-node_js:
-  - "18"
+    - ./storybook/cypress-parallel
 git:
   depth: false
-before_install:
-  - openssl aes-256-cbc -K $encrypted_5f33485edc80_key -iv $encrypted_5f33485edc80_iv -in deploy_rsa.enc -out deploy_rsa -d
-  - eval "$(ssh-agent -s)"
-  - chmod 600 deploy_rsa
-  - ssh-add deploy_rsa
-  - cat known_hosts >> ~/.ssh/known_hosts
-  - echo -e "Host ${DEPLOY_HOST}\n\tCheckHostIP no\n" >> ~/.ssh/config
-install:
-  - yarn install --immutable
 stages:
-  - name: build
-  - name: deploy
-    if: (branch =~ /^#/ || branch = master) && type = push
-  - name: release
-    if: tag =~ /^v/
+  - name: ci/cd
+    if: type = push && (branch =~ /^#/ || branch = master || tag =~ /^v/)
 jobs:
   include:
-    - stage: build
-      name: dedupe check, npm audit, lint, build, build-www, e2e
-      workspaces:
-        create:
-          name: build-artifacts
-          paths:
-            - angular-workspace/dist
-            - angular-workspace/www
-            - packages/core/dist
-            - packages/core/loader
-            - packages/dso-toolkit/dist
-            - packages/react/dist
-            - packages/react/www
-            - storybook/www
-            - website/www
-      script: yarn dedupe --check &&
-        (yarn npm audit --all --recursive || true) &&
-        yarn lint &&
-        yarn build &&
-        yarn build-www &&
-        yarn e2e
-
-    - stage: deploy
-      name: deploy to dso-toolkit.nl
-      workspaces:
-        use: build-artifacts
-      script:
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/dso-toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/dso-toolkit/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/core/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${TRAVIS_BRANCH/\#/_} &&
-        ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
-
-    - stage: release
-      name: publish to npm
-      workspaces:
-        use: build-artifacts
-      script: yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
-        npm config set //registry.npmjs.org/:_authToken ${DEPLOY_NPM_TOKEN} &&
-        cp README.md packages/dso-toolkit &&
-        yarn workspace @dso-toolkit/core version ${TRAVIS_TAG:1} --immediate &&
-        yarn workspace @dso-toolkit/react version ${TRAVIS_TAG:1} --immediate &&
-        yarn workspace dso-toolkit version ${TRAVIS_TAG:1} --immediate &&
-        yarn workspace dso-toolkit npm publish --access public &&
-        yarn workspace @dso-toolkit/core npm publish --access public &&
-        yarn workspace @dso-toolkit/react npm publish --access public &&
-        cd angular-workspace/dist/component-library && npm version ${TRAVIS_TAG:1} && npm publish && cd ../../.. &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/dso-toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/dso-toolkit/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/core/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${TRAVIS_TAG:1} &&
-        ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
-env:
-  global:
-    - secure: hV4IoQHsW8+xY6m/hqHJ8c5x7zC5VkZ7XGBOZTWzhSD2+7aOrWdfO9R55cDL4a8YXoyzaArbw4k61X5f64licxzSV1TT1v1rLLyVh99nqf3OATqyI5PYHAU4ichSsfrVSlo24jHN3Scl3sDIgv+wgWIMCxAGZ+s66KJgOcROZRnRCnV3Gb3HBb5mgr+ejv1hHoCNs5/1J6k/aLOKHlBkRKQ2JLbLE5jyo13lsSQufrEbgQ18L0kH4JAqZFGde0k9HuNej85WgLKVBS4rEG2/iPcnUOrZupQmQNPzLSWj0DjkdcqLRt7wfSQki1uBGBfdOMhjkhNL2npt3go+fg9r/8i8uNdFUfvlK+NRrwXz854ZUw2kbFo9MPnYssFVsiYIEumS+0Ket2tIzs7p7xxO93IN6g+EcvKHTjKh2ZZqCawcjeat6Haoe6IbnwAZEEat2loexEb6VsbQcuSXIRB+O7WgEj/KMJVDoVgEzTXl9M0JsPQzx+rN/EiZAuJk6an2ABkUOgZEK4IuxxQ5kR/Tvu4dI+jgCRALxkgjtVed14ZyErF1KUP+djKuREX6ktYV9OMjROJro8c2Kjz6Isig/6yLlPu6h1k2ZTsXWLgIEJPWUd/iF9VmUUNGVU2ewEZnSgek5cRov4qnmg8KOuyF3oVKPjpzjhG9/KIyr+Tyn7Q=
-    - secure: swUhrAlAquiWHOPeMUVgVlV2jR5au1wS2AS9SJWsbQSxlceOCGjAqNp9Lxrcafx6Hw/yQ1dKeGazpywxuwftqRC6MbPiyKlIQ98SvjHw3f9uyTjmsOgvg8Nc12vt67QJIeF2C/+Dua02G+Mf7Z34CJv0xs98tjgQCeWty3SfyJvccPlGuPdW/GLkZ2zyWYTp3IRpUS5Yba/QDoWgbGnF3MGInXdviifgi2/WeN+ccDGwqKCHzAwvngbBiT0pFzupcq3SgZAncqWd3yReTcBvWdDzT3QldFprJevXirOMfimSDk9BuPNutGNljhSJWuqfpuk5dDuuUirDRqHbxHXMg1lXFQWreSr6x78CNHVKts4h9cgKb8fXgqzOJgrHCQjgPoAMdGvm78gL+scaTzUm2NWKd3wGYJC/otFvCHFavR1mVOG5KmV/wvW8nKznlxvtEGKohpeA0+fvSC3tQw29zNBG4hhc34zf45qwSixodXPvQIIJS4/4DW5S/5uGEin28eVD+vtp4+PHx6E/e1/TbUH1titTQHFMsXyTL8/PkNen3WI5NolvnjmCk+wuIxyLG8p1rc+RtcHwxcualu+KUtLCQtSLULlucSibgTWbgxVo2yDH9JYojf70ydOMZdkvvF/Z8TwwG4UsDJwPxZsVuBwYT21AcvVio8YzKnYsKQA=
-    - secure: QzxedKljf5yOYCt72D460Bv3mXK4TC7qZWrOCd8LxMnrN66Y9W9+EPVjhInYe8dUeUlUrlZpLqx91FFUNot+d3NI4UP0xzmfq6ndkCP4RCViZ5aP8806KFS+5xONkisAA5uc6bjXQWyxVAJa/jPuKqEGhgllxekFVavnBKh57fnId3QLAWlQ+f1SovLkWlzNTgWJ2NWa5HxxfRF7RIPo84Wni18HoZzqst921b2bBJv9OVhiaNKF8ZK8Z4pzc0NNbBw+0wU2y1meAmwjjlW9fIicaXV9ltWn4UG01ZbcGVC/3/uzbi9Sh/sUSY6m5bNmOphFVgHuzlRZpS/pxvjWzCNwEGsZCQLZQW2mWn490NT5ALUU6Ld3TvjlolPD3bOYRmGwibGg4FCxugfiC0t2bYZESUUVOy3KdmTLU9fK9tJMOpDNS1aS8XJaB1aqxq14TlWz5JXEVMXexMnXGM7fQsoQMX+C1sFiWvnH2qK7FKmeR5T4TH2x3nLQsAoqj8wjxQtZlaOfCqTRNou70ox95CfsZX+WulbFuNb+N4d7Xzw6QBWFAkN7DNyIGD2bbeFt45I6y4P/l2ueAisBDARp45hQ6jLxH1hyZMaklxu7Wd8X8wAd0cP7EtkhgIaQFs5JEdQv4/oENp47SR2ICbiDaTolY/GGUBuGCCS7rSpxJr8=
-    - secure: oHHBGKSUznQrWbCrpY5T1WRK6yadnThSjIa3+vjVELH9nQRr6bZEdh4rKRYzxG0jAQCyHQ5Dc7SkjeAvYGjrR2lFbzk1hFLRv3uIg+daA+Ckd3Rb4I65zZTRzRmNTpwqeZGHIU/lw9kRflwKQPBONkFm6pzcZ+kYgQDqsI0srnDNWL34GjZL/j8IUobzfzXdqnDtdWzCSg7V9MfMEp++wqAA/svUo9wrcc72RY0YTWHjniX6LOIloHi0xCAtQxj5yNmAxPHxBsJdmhVahQV+8sSkjSq6lUQfiUX7q+MaxLNZD+b1mRN3ZDPf+/AAinItHcuGPe+Wnnml4GsWowL8WLmEgF6YWN2HU2ukQIwanmAZpZiY9p19FiHhMzHBVH5+n5lcHzU3afFkubuMr4VtoEESk/+hSwjo5TunGFRKCgkX04SvaOjViqvNRgmApyfIxgV1qA0NzZ1PcuXZ3APLemLBEZ5eHQ+/xFZOJ7HUWvwQSk5UWpHZ7IkPNolIM+U8CFKNwjbMh+g7YCmh4/1TiHgrbFeY6gaZpWsGWvFS/5HWEV6oYASqcw2Nco8fGyiBa36dAziAbYdOyyQw7vJFv1MdptcT7e21UVV/LxlSfjk7lsHRRwNHaR/D1Im7bNaI967/S+fICqmNcnnuppXNfgmWsEXZ89oQ1zvn0Lr2yOo=
-    - secure: uMTD8yYFt0MGGcM0f+IhVsjUxtIr+nUFjzHc7pz7akqLdpQuqdoE6UzlXuZfp0itic5SPYl6e9HrHKWLQFEHWfO7hofkCXJS/1ti3cGe3mhkZ7FNqOvZoNBLsW4NwH7EzSNCmMrX+TU677ozJ6A5XqitVGbbQbjmeIcJMI0HbFoFkfKcsUGpzbk4FY+EhgbFGUwko87cxDopoR3N4ptzo6xEBjtP6IEnPpWvE6BsUdV4ilen+BhpUjyz9hBRgWx0n5l2A8JDm2bKqxpFcljagC0u7hDu/TZy2FDuMasIfqYiXpdUzvwcyGAShCz3I3lQyi00BcCBpoDE4AmlEWnWbIpD8OD21H0EV/MTo0E/Sn+mJ9Guic5V4R993GhWuiYnywZ2QtE0cEk4JeBM7HiUzSXYoeUSoYJkG8ucaRxQY+99XGyJb5+YV6NR9qgk5DY60thXqqCoXiAFFoUiqx6uUASkEMhJ2tN9illIDUuUtm/P9oihAZaR8OyqDwhvv9SxZMm4Xpe0mV+F6QCaR+h5WhcKkkFMwvOgnwYWyV/R6Ec5Z68vh96i3sUDY7ZBfYBDhwjeQ/PTosQXG3KadmxT4whCibBIvBeLxghAh7bXMC8RZg5tda5c6mGwqtIml5SnxQPZm9E2Ykj5rL1vnumnqpiyiAwNy2VnvhT6zYIAfsA=
-    - secure: J7bX/4YDbz3CCABsMlfQeSp4PO3m4TJ7UToDZhzmLxXLytMx/cAjIwWoBQaPPFGxn+PZ/bT8TN6wjnwH/9Sto/dnA+zQ5ZDIs9MQvIXajZB950ph1DvERjdiv18kEu0mQjdcMDxsbQrhtdMnxHKedSavk4pSkRF7y2b459nCGqun0xq4QsCVrrSBWLNwSPkMo341NY04uTgs+iWaZS1ANhXuov7QzgxFdqQ3f9k1QOjOiEzp9r4MsLImN/b9jSL0JcFItCsAnuXgEoPzcwyvjMWrv9uJrHHlsu+3VG3ETlksfyYS0i4SONqjmT4CZrs1u7tGDPhczS6yjyloX/Yj/KzkH1L3h7TtOObSTKZUk3d3B9U5Y/EbEKHAoq2vDTmgcES2nC1zdRuZ3yhJ6ARyy5tsOrEsnpfWD2+faHBlWVE21xullaLNM5YLpmwrTAyPBWb0Na3/+allgLym/zEC1P+yV7kZ97QfD8hWI41Wxd6/+tuKrwPyE7JXfRK7ZtZqDvZuhaE12usT8cO1piXGFNLemZRGFjHu34XKIcN62zGoRXu2R2POYp+8rK+ud6G7hnVFtQMV/tFJk9VjUNzQ+aVK4UuMX5VhCZIAbvSY+X3g4m6QMzlO5UWbDrVGm3QnBtoMzCAFXM6WgDyVweOg6XAQUe0FvvAty3/jd5yYDE8=
+    - name: dedupe check, npm audit, lint, build, build-www, e2e, deploy
+      stage: ci/cd
+      script: bash cicd.sh
