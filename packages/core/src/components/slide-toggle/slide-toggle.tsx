@@ -78,17 +78,18 @@ export class SlideToggle implements ComponentInterface {
     return element instanceof SVGElement && this.toggleButton?.contains(element) ? true : false;
   }
 
-  private handleMouseDown = (e: MouseEvent) => {
+  private handleInteractionStart = (e: MouseEvent | TouchEvent) => {
     if (!this.isToggleButton(e.target)) {
       return;
     }
 
     this.drag = false;
 
-    document.addEventListener("mousemove", this.handleDrag);
+    document.addEventListener("mousemove", this.handleInteractionMove);
+    document.addEventListener("touchmove", this.handleInteractionMove);
   };
 
-  private handleDrag = (e: MouseEvent) => {
+  private handleInteractionMove = (e: MouseEvent | TouchEvent) => {
     this.drag = true;
 
     if (!(this.circle instanceof SVGCircleElement) || !(this.rect instanceof SVGRectElement)) {
@@ -98,7 +99,7 @@ export class SlideToggle implements ComponentInterface {
     this.circle.style.transition = "none";
     this.rect.style.transition = "none";
 
-    const clientX = e.clientX - 20;
+    const clientX = (e instanceof TouchEvent ? e.changedTouches[0].clientX : e.clientX) - 20;
 
     if (clientX <= 10) {
       this.rect.style.fill = this.colors[0];
@@ -116,8 +117,9 @@ export class SlideToggle implements ComponentInterface {
     }
   };
 
-  private handleMouseUp = (e: MouseEvent) => {
-    document.removeEventListener("mousemove", this.handleDrag);
+  private handleInteractionEnd = (e: MouseEvent | TouchEvent) => {
+    document.removeEventListener("mousemove", this.handleInteractionMove);
+    document.removeEventListener("touchmove", this.handleInteractionMove);
 
     if (this.drag) {
       if (!(this.circle instanceof SVGCircleElement) || !(this.rect instanceof SVGRectElement)) {
@@ -127,7 +129,7 @@ export class SlideToggle implements ComponentInterface {
       this.circle.removeAttribute("style");
       this.rect.removeAttribute("style");
 
-      const clientX = e.clientX - 20;
+      const clientX = (e instanceof TouchEvent ? e.changedTouches[0].clientX : e.clientX) - 20;
 
       if (clientX > 20) {
         this.handleSwitch(e, true);
@@ -148,8 +150,11 @@ export class SlideToggle implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    document.addEventListener("mousedown", this.handleMouseDown);
-    document.addEventListener("mouseup", this.handleMouseUp);
+    document.addEventListener("mousedown", this.handleInteractionStart);
+    document.addEventListener("touchstart", this.handleInteractionStart);
+    document.addEventListener("mouseup", this.handleInteractionEnd);
+    document.addEventListener("touchend", this.handleInteractionEnd);
+
     this.toggleButton?.addEventListener("keypress", (event) => {
       if (event.key === "Enter") {
         this.handleSwitch(event, !this.checked);
@@ -158,9 +163,13 @@ export class SlideToggle implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    document.removeEventListener("mousedown", this.handleMouseDown);
-    document.removeEventListener("mouseup", this.handleMouseUp);
-    document.removeEventListener("mousemove", this.handleDrag);
+    document.removeEventListener("mousedown", this.handleInteractionStart);
+    document.removeEventListener("touchstart", this.handleInteractionStart);
+    document.removeEventListener("mouseup", this.handleInteractionEnd);
+    document.removeEventListener("touchend", this.handleInteractionEnd);
+    document.removeEventListener("mousemove", this.handleInteractionMove);
+    document.removeEventListener("touchmove", this.handleInteractionMove);
+
     this.toggleButton?.removeEventListener("keypress", (event) => {
       if (event.key === "Enter") {
         this.handleSwitch(event, !this.checked);
