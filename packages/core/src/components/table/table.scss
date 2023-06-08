@@ -3,6 +3,7 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/utilities";
 
 @use "~dso-toolkit/src/components/button";
@@ -35,7 +36,7 @@
   inset: 0px;
   height: 100%;
   position: fixed;
-  z-index: 530;
+  z-index: zindex.$modal;
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {

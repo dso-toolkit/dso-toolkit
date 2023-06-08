@@ -1,6 +1,7 @@
 @use "../../utilities";
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/zindex";
 @use "../list";
 @use "../form-control";
 
@@ -60,7 +61,7 @@
     > .dso-delete {
       position: absolute;
       width: units.$u3;
-      z-index: 2;
+      z-index: zindex.$shopping-cart;
     }
 
     > .dso-items {
