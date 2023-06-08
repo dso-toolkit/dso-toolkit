@@ -251,10 +251,9 @@ describe("Accordion", () => {
       .should("contain.text", status);
   });
 
-  it.skip("should render the handle correctly in reverseAlign mode", () => {
+  it("should render the handle correctly in reverseAlign mode", () => {
     cy.get("dso-accordion")
       .as("dsoAccordion")
-      .invoke("removeAttr", "reverse-align")
       .find("dso-accordion-section")
       .shadow()
       .find(".dso-section-handle > button, .dso-section-handle > a")
@@ -262,7 +261,9 @@ describe("Accordion", () => {
       .find("dso-icon:first-child")
       .should("exist")
       .get("@dsoAccordion")
-      .invoke("attr", "reverse-align", "")
+      .then(($accordion) => {
+        $accordion.prop("reverseAlign", true);
+      })
       .get("@dsoAccordionHandle")
       .find("dso-icon:first-child")
       .should("not.exist")
