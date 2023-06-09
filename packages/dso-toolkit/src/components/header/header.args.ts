@@ -19,6 +19,7 @@ export interface HeaderArgs {
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
+  userHomeActive: boolean;
   dsoHeaderClick: HandlerFunction;
 }
 
@@ -67,6 +68,7 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
       type: "text",
     },
   },
+  userHomeActive: noControl,
   userProfileUrl: noControl,
   userProfileName: {
     name: "Naam gebruiker",

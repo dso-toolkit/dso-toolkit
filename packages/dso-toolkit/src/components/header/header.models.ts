@@ -13,6 +13,7 @@ export interface Header {
   userProfileName?: string;
   userProfileUrl?: string;
   userHomeUrl?: string;
+  userHomeActive?: boolean;
   dsoHeaderClick?: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
 }
 

@@ -70,6 +70,38 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
       },
     });
 
+    stories.add("user home active", template, {
+      args: {
+        mainMenu: [
+          {
+            label: "Home",
+            url: "#home",
+          },
+          {
+            label: "Vergunningscheck",
+            url: "#vergunningscheck",
+          },
+          {
+            label: "Aanvragen",
+            url: "#aanvragen",
+          },
+          {
+            label: "Regels op de kaart",
+            url: "#regelsopdekaart",
+          },
+          {
+            label: "Maatregelen op maat",
+            url: "#maatregelenopmaat",
+          },
+          {
+            label: "Hulpcentrum",
+            url: "#hulpcentrum",
+          },
+        ],
+        userHomeActive: true,
+      },
+    });
+
     return stories;
   });
 }

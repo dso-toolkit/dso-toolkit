@@ -31,6 +31,7 @@ interface HeaderMenuLogoutClick {
 | `logoutUrl`       | `logout-url`         |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `mainMenu`        | --                   |                                                                                                             | `HeaderMenuItem[] \| undefined`       | `[]`        |
 | `useDropDownMenu` | `use-drop-down-menu` |                                                                                                             | `"always" \| "auto"`                  | `"auto"`    |
+| `userHomeActive`  | `user-home-active`   |                                                                                                             | `boolean \| undefined`                | `undefined` |
 | `userHomeUrl`     | `user-home-url`      |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `userProfileName` | `user-profile-name`  |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `userProfileUrl`  | `user-profile-url`   |                                                                                                             | `string \| undefined`                 | `undefined` |
