@@ -18,6 +18,7 @@ export const angularHeader: ComponentImplementation<Header> = {
             [logoutUrl]="logoutUrl"
             [userProfileName]="userProfileName"
             [userHomeUrl]="userHomeUrl"
+            [userHomeActive]="userHomeActive"
             (dsoHeaderClick)="dsoHeaderClick()"
           >
             <div slot="logo"><img alt="Omgevingsloket" [src]="logo | trustUrl" /></div>

@@ -289,4 +289,36 @@ describe("Header", () => {
         type: "profile",
       });
   });
+
+  it("should be possible to make user home active", () => {
+    cy.get("dso-header")
+      .find("nav li:first")
+      .should("have.class", "dso-active")
+      .find("a")
+      .should("have.attr", "aria-current", "page")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
+      .get("dso-header")
+      .invoke("attr", "user-home-active", "true")
+      .get("dso-header")
+      .then(($header) => {
+        defaultMenuItems[0] = {
+          label: "Home",
+          url: "#home",
+        };
+
+        setMenuItems($header, defaultMenuItems);
+      })
+      .get("dso-header")
+      .find("nav li:first")
+      .should("not.have.class", "dso-active")
+      .find("a")
+      .should("not.have.attr", "aria-current", "page")
+      .and("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
+      .get("dso-header")
+      .find("nav li.menu-user-home")
+      .should("have.class", "dso-active")
+      .find("a")
+      .should("have.attr", "aria-current", "page")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
+  });
 });

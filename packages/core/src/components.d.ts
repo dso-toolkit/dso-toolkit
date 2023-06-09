@@ -280,6 +280,7 @@ export namespace Components {
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
         "useDropDownMenu": "always" | "auto";
+        "userHomeActive"?: boolean;
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;
@@ -1191,6 +1192,7 @@ declare namespace LocalJSX {
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
         "useDropDownMenu"?: "always" | "auto";
+        "userHomeActive"?: boolean;
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;

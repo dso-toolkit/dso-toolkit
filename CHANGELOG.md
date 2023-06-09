@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Header: property `userHomeActive` om "Mijn Omgevingsloket" actief te maken voor een paarse underline ([#2104](https://github.com/dso-toolkit/dso-toolkit/issues/2104))
+
 ## 54.2.0
 
 ### Added
