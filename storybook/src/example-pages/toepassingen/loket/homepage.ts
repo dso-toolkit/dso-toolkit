@@ -102,7 +102,7 @@ examplePageFactory(
                     Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
                     u een aanvraag of melding starten.
                   </p>
-                  ${buttonTemplate({ label: "Aanvragen", url: "#", modifier: "dso-secondary" })}
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
                 `,
               }),
             })}
@@ -119,7 +119,7 @@ examplePageFactory(
                     In Regels op de kaart vindt u de regels van alle overheden bij elkaar. U kunt ook plannen van de
                     overheid bekijken voor de toekomst
                   </p>
-                  ${buttonTemplate({ label: "Regels op de kaart", url: "#", modifier: "dso-secondary" })}
+                  ${buttonTemplate({ label: "Regels op de kaart", url: "#", variant: "secondary" })}
                 `,
               }),
             })}
@@ -136,7 +136,7 @@ examplePageFactory(
                     Welke algemene regels gelden er voor uw bedrijf, huis of project? Krijg een overzicht van de
                     maatregelen waarmee u aan de regels kunt voldoen.
                   </p>
-                  ${buttonTemplate({ label: "Maatregelen op maat", url: "#", modifier: "dso-secondary" })}
+                  ${buttonTemplate({ label: "Maatregelen op maat", url: "#", variant: "secondary" })}
                 `,
               }),
             })}

@@ -281,7 +281,7 @@ export class DropdownMenu {
       nextIndex = tabs.length - 1;
     }
 
-    tabs[nextIndex].focus();
+    tabs[nextIndex]?.focus();
   }
 
   escape = () => {

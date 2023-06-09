@@ -1,10 +1,10 @@
 import { Tabs } from "dso-toolkit";
 
-import { html } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { ComponentImplementation } from "../../templates";
 
-export const cssTabs: ComponentImplementation<Tabs> = {
+export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   component: "tabs",
   implementation: "html-css",
   template: () =>

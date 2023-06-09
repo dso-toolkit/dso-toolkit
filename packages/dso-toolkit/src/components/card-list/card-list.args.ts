@@ -19,6 +19,13 @@ export function cardListArgsMapper<TemplateFnReturnType>(
 ): CardList<TemplateFnReturnType> {
   return {
     ...a,
-    cards: a.cards.map((card, index) => cardArgsMapper(card, content[index])),
+    cards: a.cards.map((card, index) => {
+      const c = content[index];
+      if (!c) {
+        throw new Error("No content found for index");
+      }
+
+      return cardArgsMapper(card, c);
+    }),
   };
 }

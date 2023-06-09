@@ -4,6 +4,8 @@
     "target": "es2017",
     "module": "ESNext",
     "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noUncheckedIndexedAccess": true,
     "experimentalDecorators": true,
     "noEmit": true,
     "lib": ["dom", "es2019"],

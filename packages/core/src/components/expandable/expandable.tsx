@@ -11,7 +11,7 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import anime from "animejs";
+import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
 
@@ -27,7 +27,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
 
   private bodyHeight?: number;
 
-  private animeInstance?: anime.AnimeInstance;
+  private animeInstance?: AnimeInstance;
 
   @Element()
   host!: HTMLElement;
@@ -71,7 +71,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   }
 
   @Method()
-  async getAnimeInstance(): Promise<anime.AnimeInstance | undefined> {
+  async getAnimeInstance(): Promise<AnimeInstance | undefined> {
     return this.animeInstance;
   }
 
@@ -119,6 +119,10 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   private prepareAnimationResizeObserver(): void {
     this.resizeObserver = new ResizeObserver(
       debounce(([entry]) => {
+        if (!entry) {
+          throw new Error("No entry found");
+        }
+
         // entry.contentRect does not include padding, so we use getBoundingClientRect.
         const height = entry.target.getBoundingClientRect().height;
 

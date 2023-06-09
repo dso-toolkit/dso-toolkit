@@ -1,5 +1,7 @@
+import { AnimeInstance } from "animejs";
+
 export interface ExpandableInterface {
-  getAnimeInstance(): Promise<anime.AnimeInstance | undefined>;
+  getAnimeInstance(): Promise<AnimeInstance | undefined>;
   getBodyHeight(): Promise<number | undefined>;
 }
 

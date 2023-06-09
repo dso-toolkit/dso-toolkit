@@ -13,6 +13,10 @@ function onStory(load: () => void, unload: () => void) {
 }
 
 const storyObserver = new MutationObserver(([titleMutationRecord]) => {
+  if (!titleMutationRecord) {
+    return;
+  }
+
   if (titleMutationRecord.target.textContent?.startsWith("HTML|CSS / Modal")) {
     toggleClass("dso-modal-open");
   }

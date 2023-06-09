@@ -5,6 +5,10 @@ export let collection = items;
 
 export function onOpenItem(path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void): void {
   const actionItem = path[path.length - 1];
+  if (!actionItem) {
+    return;
+  }
+
   const actionBehaviour = new Map([
     ["item.1.3", { loading: false, loadTime: 250 }],
     ["item.1.4", { loading: true, loadTime: 2500 }],
@@ -89,7 +93,12 @@ function updateDeepTree(
   path: TreeViewItem[],
   updater: (item: TreeViewItem) => TreeViewItem
 ): TreeViewItem[] {
-  const item = collection.find((item) => item.id === path[0].id);
+  const id = path[0]?.id;
+  if (!id) {
+    throw new Error("No id found in path");
+  }
+
+  const item = collection.find((item) => item.id === id);
 
   return collection.map((root) => {
     if (root !== item) {

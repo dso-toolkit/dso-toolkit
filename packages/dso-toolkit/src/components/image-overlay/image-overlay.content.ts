@@ -1,6 +1,6 @@
 import { Image } from "../image/image.models.js";
 
-export const images: Image[] = [
+export const images: [Image, Image, Image, Image] = [
   {
     alt: "Kanaal met windmolens",
     source: "images/canvas-home_iplo-min.png",

@@ -3,7 +3,7 @@ import { images } from "./image-overlay.content.js";
 import { ImageOverlay } from "./image-overlay.models.js";
 
 export interface ImageOverlayArgs {
-  image: number;
+  image: 0 | 1 | 2 | 3;
 }
 
 export const imageOverlayArgTypes: ArgTypes<ImageOverlayArgs> = {

@@ -156,6 +156,10 @@ export class Table implements ComponentInterface, TableInterface {
   }
 
   private setResponsiveTable([dsoTable]: ResizeObserverEntry[]): void {
+    if (!dsoTable) {
+      throw new Error("No dsoTable found");
+    }
+
     const tableElement = dsoTable.target.querySelector("table");
 
     if (dsoTable && tableElement instanceof HTMLTableElement) {

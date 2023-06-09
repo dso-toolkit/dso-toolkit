@@ -13,8 +13,8 @@ export interface ListButton {
   max?: number;
   checked?: boolean;
   manual?: boolean;
-  dsoCountChange: (e: CustomEvent<ListButtonChangeEvent>) => void;
-  dsoSelectedChange: (e: CustomEvent<ListButtonSelectedEvent>) => void;
+  dsoCountChange?: (e: CustomEvent<ListButtonChangeEvent>) => void;
+  dsoSelectedChange?: (e: CustomEvent<ListButtonSelectedEvent>) => void;
 }
 
 export interface ListButtonChangeEvent {

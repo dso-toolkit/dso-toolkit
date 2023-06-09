@@ -1,5 +1,6 @@
 export { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
 export { FormGroupConfirm } from "./models/form-group-confirm.model.js";
+export { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
 export { FormGroupFiles, FormGroupFilesFile } from "./models/form-group-files.model.js";
 export { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
 export { FormGroupInputNumber } from "./models/form-group-input-number.model.js";

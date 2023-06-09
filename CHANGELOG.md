@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Laatste componenten opnemen in z-index register ([#1945](https://github.com/dso-toolkit/dso-toolkit/issues/1945))
 * h5 in "Rich Content in Action List Item" en in "Info in Form" hebben geen marges meer ([#2110](https://github.com/dso-toolkit/dso-toolkit/issues/2110))
+* Diverse TypeScript issues ([#2160](https://github.com/dso-toolkit/dso-toolkit/issues/2160))
 
 ## 54.0.1
 

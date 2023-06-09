@@ -4,6 +4,8 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "declaration": true,
+    "noEmitOnError": true,
+    "noUncheckedIndexedAccess": true,
     "declarationMap": true,
     "inlineSources": true,
     "types": []

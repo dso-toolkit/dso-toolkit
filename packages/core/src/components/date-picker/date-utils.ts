@@ -38,7 +38,13 @@ export function parseDutchDate(value: string | undefined): Date | undefined {
 
   const matches = value.split("-");
 
-  if (matches.length === 3 && matches[2].length === 4) {
+  if (
+    matches.length === 3 &&
+    typeof matches[0] === "string" &&
+    typeof matches[1] === "string" &&
+    typeof matches[2] === "string" &&
+    matches[2].length === 4
+  ) {
     return createDate(matches[2], matches[1], matches[0]);
   }
 }

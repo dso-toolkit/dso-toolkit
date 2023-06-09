@@ -388,6 +388,10 @@ export class DsoDatePicker implements ComponentInterface {
 
   private handleTouchStart = (event: TouchEvent) => {
     const touch = event.changedTouches[0];
+    if (!touch) {
+      throw new Error("No touch found");
+    }
+
     this.initialTouchX = touch.pageX;
     this.initialTouchY = touch.pageY;
   };
@@ -398,6 +402,10 @@ export class DsoDatePicker implements ComponentInterface {
 
   private handleTouchEnd = (event: TouchEvent) => {
     const touch = event.changedTouches[0];
+    if (!touch) {
+      throw new Error("No touch found");
+    }
+
     const distX = touch.pageX - (this.initialTouchX ?? 0); // get horizontal dist traveled
     const distY = touch.pageY - (this.initialTouchY ?? 0); // get vertical dist traveled
     const threshold = 70;

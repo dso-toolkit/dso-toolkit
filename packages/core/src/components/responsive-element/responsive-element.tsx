@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, M
 
 import { ElementSize, ResponsiveElementSize } from "./responsive-element.interfaces";
 
-const elementSizes: ElementSize[] = [
+const elementSizes: [ElementSize, ElementSize, ElementSize] = [
   {
     width: 624,
     alias: "large",
@@ -38,6 +38,10 @@ export class ResponsiveElement implements ComponentInterface {
   }
 
   observer = new ResizeObserver(([entry]) => {
+    if (!entry) {
+      throw new Error("No entry found");
+    }
+
     const size = elementSizes.find((s) => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
 
     this.sizeAlias = size;

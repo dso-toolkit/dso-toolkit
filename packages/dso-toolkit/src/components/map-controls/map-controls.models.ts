@@ -26,14 +26,14 @@ export interface OverlayChangeEvent {
 }
 
 export interface MapControls {
-  dsoZoomIn: (e: CustomEvent<MouseEvent>) => void;
-  dsoZoomOut: (e: CustomEvent<MouseEvent>) => void;
-  dsoToggle: (e: CustomEvent<MapControlsToggleEvent>) => void;
+  dsoZoomIn?: (e: CustomEvent<MouseEvent>) => void;
+  dsoZoomOut?: (e: CustomEvent<MouseEvent>) => void;
+  dsoToggle?: (e: CustomEvent<MapControlsToggleEvent>) => void;
   open: boolean;
   baseLayers: typeof baseLayers;
-  dsoBaseLayerChange: (e: CustomEvent<BaseLayerChangeEvent>) => void;
+  dsoBaseLayerChange?: (e: CustomEvent<BaseLayerChangeEvent>) => void;
   overlays: typeof overlays;
-  dsoToggleOverlay: (e: CustomEvent<OverlayChangeEvent>) => void;
+  dsoToggleOverlay?: (e: CustomEvent<OverlayChangeEvent>) => void;
   disableZoom?: "both" | "in" | "out" | undefined;
 }
 

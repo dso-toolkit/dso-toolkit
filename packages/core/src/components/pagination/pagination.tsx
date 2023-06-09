@@ -112,7 +112,7 @@ export class Pagination implements ComponentInterface {
           </li>
           {pages.map((page) => (
             <>
-              {this.showEllipsisBeforeLast(pages, page, availablePositions, pages[pages.length - 1]) && (
+              {this.showEllipsisBeforeLast(pages, page, availablePositions) && (
                 <li>
                   <span>...</span>
                 </li>
@@ -140,7 +140,9 @@ export class Pagination implements ComponentInterface {
               href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}
               aria-label="Volgende"
               onClick={(e) =>
-                currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
+                currentPage &&
+                this.totalPages &&
+                this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
               }
             >
               <dso-icon icon="chevron-right"></dso-icon>
@@ -230,23 +232,28 @@ export class Pagination implements ComponentInterface {
   }
 
   private showEllipsisAfterFirst(pages: number[], page: number, availablePositions: number): boolean {
+    const totalPages = pages[pages.length - 1];
+    if (!totalPages) {
+      throw new Error("No totalPages");
+    }
+
     return (
       pages.indexOf(page) === 0 &&
-      pages[pages.length - 1] > availablePositions - 2 &&
+      totalPages > availablePositions - 2 &&
       !pages.some((p) => p === 2) &&
       availablePositions >= 7
     );
   }
 
-  private showEllipsisBeforeLast(
-    pages: number[],
-    page: number,
-    availablePositions: number,
-    totalPages: number
-  ): boolean {
+  private showEllipsisBeforeLast(pages: number[], page: number, availablePositions: number): boolean {
+    const totalPages = pages[pages.length - 1];
+    if (!totalPages) {
+      throw new Error("No totalPages");
+    }
+
     return (
       pages.indexOf(page) === pages.length - 1 &&
-      pages[pages.length - 1] > availablePositions - 2 &&
+      totalPages > availablePositions - 2 &&
       !pages.some((p) => p === totalPages - 1) &&
       availablePositions >= 7
     );

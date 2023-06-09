@@ -1,4 +1,7 @@
 module.exports = {
+  typescript: {
+    check: true,
+  },
   staticDirs: [
     "../../packages/dso-toolkit/storybook-assets",
     { from: "../../packages/dso-toolkit", to: "/dso-toolkit" },

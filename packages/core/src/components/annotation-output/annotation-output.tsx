@@ -25,9 +25,14 @@ export class AnnotationOutput implements ComponentInterface {
   async toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {
     AnnotationService.toggle(identifier);
 
+    const open = AnnotationService.state[this.identifier];
+    if (open === undefined) {
+      throw new Error(`No state found for ${this.identifier}`);
+    }
+
     this.dsoToggle.emit({
       originalEvent: e,
-      open: AnnotationService.state[this.identifier],
+      open,
     });
   }
 

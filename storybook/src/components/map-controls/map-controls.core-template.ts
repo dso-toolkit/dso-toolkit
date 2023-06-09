@@ -31,11 +31,11 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
         >
           <dso-map-base-layers
             .baseLayers=${baseLayers}
-            @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => dsoBaseLayerChange(e)}
+            @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => dsoBaseLayerChange?.(e)}
           ></dso-map-base-layers>
           <dso-map-overlays
             .overlays=${overlays}
-            @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => dsoToggleOverlay(e)}
+            @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => dsoToggleOverlay?.(e)}
           ></dso-map-overlays>
           ${richContentTemplate({
             children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,

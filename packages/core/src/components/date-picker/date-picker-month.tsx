@@ -16,7 +16,12 @@ function chunk<T>(array: T[], chunkSize: number): T[][] {
 function mapWithOffset<T, U>(array: T[], startingOffset: number, mapFn: (item: T) => U): U[] {
   return array.map((_, i) => {
     const adjustedIndex = (i + startingOffset) % array.length;
-    return mapFn(array[adjustedIndex]);
+    const item = array[adjustedIndex];
+    if (!item) {
+      throw new Error("No item found");
+    }
+
+    return mapFn(item);
   });
 }
 
