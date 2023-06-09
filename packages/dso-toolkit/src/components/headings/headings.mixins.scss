@@ -7,13 +7,17 @@
 }
 
 @mixin margin-large() {
-  margin-bottom: units.$vertical-spacing-medium;
-  margin-top: typography.$line-height-computed;
+  margin-block-end: units.$vertical-spacing-medium;
+  margin-block-start: typography.$line-height-computed;
 }
 
 @mixin margin-small() {
-  margin-bottom: units.$vertical-spacing-medium;
-  margin-top: (typography.$line-height-computed * 0.5);
+  margin-block-end: units.$vertical-spacing-medium;
+  margin-block-start: (typography.$line-height-computed * 0.5);
+}
+
+@mixin no-margin() {
+  margin-block: 0;
 }
 
 @mixin h1() {
