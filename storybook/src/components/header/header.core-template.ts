@@ -18,6 +18,7 @@ export const coreHeader: ComponentImplementation<Header> = {
       userProfileUrl,
       userProfileName,
       userHomeUrl,
+      userHomeActive,
       dsoHeaderClick,
     }) {
       return html`<dso-header
@@ -29,6 +30,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-profile-url=${ifDefined(userProfileUrl)}
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
+        user-home-active=${ifDefined(userHomeActive)}
         @dsoHeaderClick=${dsoHeaderClick}
       >
         <div slot="logo"><img alt="Omgevingsloket" src=${logo} /></div>

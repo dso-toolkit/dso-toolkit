@@ -20,6 +20,7 @@ export const reactHeader: ComponentImplementation<Header> = {
       userProfileUrl,
       userProfileName,
       userHomeUrl,
+      userHomeActive,
       dsoHeaderClick,
     }) {
       return (
@@ -32,6 +33,7 @@ export const reactHeader: ComponentImplementation<Header> = {
           userProfileUrl={userProfileUrl}
           userProfileName={userProfileName}
           userHomeUrl={userHomeUrl}
+          userHomeActive={userHomeActive}
           onDsoHeaderClick={dsoHeaderClick}
         >
           <div slot="logo">

@@ -59,6 +59,9 @@ export class Header {
   @Prop()
   userHomeUrl?: string;
 
+  @Prop()
+  userHomeActive?: boolean;
+
   @State()
   showDropDown?: boolean;
 
@@ -116,6 +119,7 @@ export class Header {
   componentDidRender() {
     if (this.showDropDown) {
       this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
+
       return;
     }
 
@@ -165,6 +169,10 @@ export class Header {
   onWindowResize = debounce(() => {
     this.setDropDownMenu();
     this.setOverflowMenu();
+
+    if (this.showDropDown) {
+      this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
+    }
   }, 100);
 
   connectedCallback() {
@@ -355,9 +363,10 @@ export class Header {
                       </li>
                     )}
                     {this.userHomeUrl && (
-                      <li class="menu-user-home">
+                      <li class={clsx("menu-user-home", { "dso-active": this.userHomeActive })}>
                         <a
                           href={this.userHomeUrl}
+                          aria-current={this.userHomeActive ? "page" : undefined}
                           onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
                         >
                           <dso-icon icon="user-line"></dso-icon>
