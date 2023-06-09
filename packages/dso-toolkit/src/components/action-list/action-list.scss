@@ -1,5 +1,6 @@
 @use "../../variables/colors.scss";
 @use "../../variables/units.scss";
+@use "../headings";
 
 dso-action-list {
   dso-action-list-item {
@@ -20,6 +21,13 @@ dso-action-list {
       position: absolute;
       top: 64px;
       width: 4px;
+    }
+  }
+
+  .dso-rich-content {
+    h5,
+    .h5 {
+      @include headings.no-margin();
     }
   }
 }

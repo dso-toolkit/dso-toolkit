@@ -6,6 +6,7 @@
 @use "../../variables/typography";
 @use "../../variables/zindex";
 @use "../form-control";
+@use "../headings";
 
 @use "../../di";
 
@@ -42,6 +43,13 @@
   > .dso-info {
     float: left;
     margin: units.$u2 0;
+  }
+
+  .dso-info {
+    h5,
+    .h5 {
+      @include headings.no-margin();
+    }
   }
 
   .control-label {

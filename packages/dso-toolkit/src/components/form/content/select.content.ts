@@ -10,7 +10,7 @@ export const selectContent: Omit<FormGroupSelectArgs, "infoButtonHandler" | "inf
   multiple: false,
   infoButtonLabel: "Toelichting bij veld",
   infoActive: false,
-  infoText: '<div class="dso-rich-content"><p>Rich text</p></div>',
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
   infoFixed: false,
 };
 
