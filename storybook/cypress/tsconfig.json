@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "lib": ["es2019", "dom"],
     "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "types": ["cypress", "cypress-axe", "cypress-real-events", "@percy/cypress"]
   },

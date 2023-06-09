@@ -189,7 +189,7 @@ examplePageFactory(
         `,
         map: html`
           <img src="images/kaart.png" aria-hidden="true" />
-          ${mapControlsTemplate({})}
+          ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
         `,
       })}
     </main>

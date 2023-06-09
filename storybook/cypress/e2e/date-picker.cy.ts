@@ -439,7 +439,9 @@ describe("Date Picker", () => {
       .click()
       .wait(300)
       .get("dso-date-picker")
-      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .find<HTMLOptionElement>(
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+      )
       .then((options) => {
         const actual = [...options].map((o) => o.text);
         expect(actual).to.deep.eq(["Januari", "Februari", "Maart"]);
@@ -452,7 +454,9 @@ describe("Date Picker", () => {
       .select("2021")
       .wait(300)
       .get("dso-date-picker")
-      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .find<HTMLOptionElement>(
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+      )
       .then((options) => {
         const actual = [...options].map((o) => o.text);
 
@@ -479,7 +483,9 @@ describe("Date Picker", () => {
       .find(`.dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option[value="7"]`)
       .should("be.selected")
       .get("dso-date-picker")
-      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .find<HTMLOptionElement>(
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+      )
       .then((options) => {
         const actual = [...options].map((o) => o.text);
         expect(actual).to.deep.eq(["Augustus", "September", "Oktober", "November", "December"]);

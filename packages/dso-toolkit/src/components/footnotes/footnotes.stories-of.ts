@@ -51,8 +51,8 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
       {
         argTypes: footnotesReferenceArgTypes,
         args: {
-          label: footnotes[0].label,
-          number: footnotes[0].number,
+          label: footnotes[0]?.label,
+          number: footnotes[0]?.number,
         },
       }
     );

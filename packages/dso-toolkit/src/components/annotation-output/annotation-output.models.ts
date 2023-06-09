@@ -1,5 +1,6 @@
 export interface AnnotationOutput<TemplateFnReturnType> {
   identifier: string;
+  slotName?: string;
   title: TemplateFnReturnType;
   addons?: TemplateFnReturnType;
   content: TemplateFnReturnType;

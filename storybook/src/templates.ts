@@ -254,7 +254,7 @@ export interface Components {
   mapControls: MapControls;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
-  ozonContent: OzonContent;
+  ozonContent: OzonContent<TemplateResult>;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
@@ -266,7 +266,7 @@ export interface Components {
   shoppingCart: ShoppingCart;
   slideToggle: SlideToggle;
   table: Table<TemplateResult>;
-  tabs: Tabs;
+  tabs: Tabs<TemplateResult>;
   tileGrid: TileGrid;
   tile: Tile;
   toggletip: Toggletip<TemplateResult>;

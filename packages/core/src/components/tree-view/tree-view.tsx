@@ -61,6 +61,9 @@ export class TreeView implements ComponentInterface {
     }
 
     const itemToFocus = path[path.length - 1];
+    if (!itemToFocus) {
+      throw new Error("No itemToFocus found");
+    }
 
     const elementToFocus = (Array.from(tree.querySelectorAll("p") ?? []) as HTMLElement[])
       .filter((item) => item.offsetWidth > 0 && item.offsetHeight > 0)
@@ -186,7 +189,12 @@ export class TreeView implements ComponentInterface {
         break;
     }
 
-    TreeView.setFocus(tree, focusableItems[index]);
+    const focusableItem = focusableItems[index];
+    if (!focusableItem) {
+      throw new Error("No focusableItem found");
+    }
+
+    TreeView.setFocus(tree, focusableItem);
   }
 
   private static expandItemOrFocusChild(tree: HTMLElement, target: HTMLElement): void {

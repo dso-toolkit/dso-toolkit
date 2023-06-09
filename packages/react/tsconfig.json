@@ -12,7 +12,9 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "noImplicitAny": true,
+    "noEmitOnError": true,
     "noImplicitReturns": true,
+    // "noUncheckedIndexedAccess": true, https://github.com/ionic-team/stencil-ds-output-targets/issues/355
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,

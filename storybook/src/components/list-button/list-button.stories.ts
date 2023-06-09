@@ -36,11 +36,11 @@ storiesOfListButton({
       ...props,
       dsoCountChange(e) {
         this.count = e.detail.count;
-        props.dsoCountChange(e);
+        props.dsoCountChange?.(e);
       },
       dsoSelectedChange(e) {
         this.checked = e.detail.checked;
-        props.dsoSelectedChange(e);
+        props.dsoSelectedChange?.(e);
       },
     });
 

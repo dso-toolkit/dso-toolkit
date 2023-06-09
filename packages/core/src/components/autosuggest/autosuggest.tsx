@@ -170,9 +170,9 @@ export class Autosuggest {
       }
 
       const label = this.input.labels[0];
-      if (label.id) {
+      if (label?.id) {
         this.labelId = label.id;
-      } else {
+      } else if (label) {
         label.id = this.labelId;
       }
 
@@ -196,7 +196,7 @@ export class Autosuggest {
   }
 
   markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
-    if (!suggestionValue || !terms || terms.length === 0) {
+    if (!suggestionValue || !terms || terms.length === 0 || terms[0] === undefined) {
       return [""];
     }
 

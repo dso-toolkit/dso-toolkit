@@ -14,9 +14,11 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
+    "noEmitOnError": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
     "outDir": "dist",
     "declarationDir": "dist/types",
     "target": "ESNext"

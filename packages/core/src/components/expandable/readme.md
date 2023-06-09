@@ -22,7 +22,7 @@
 
 ## Methods
 
-### `getAnimeInstance() => Promise<anime.AnimeInstance | undefined>`
+### `getAnimeInstance() => Promise<AnimeInstance | undefined>`
 
 
 

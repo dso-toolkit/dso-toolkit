@@ -1,5 +1,3 @@
-import "@dso-toolkit/core";
-
 interface ParentNode extends Node {
   /**
    * Replace all children of node with nodes, while replacing strings in nodes with equivalent Text nodes.

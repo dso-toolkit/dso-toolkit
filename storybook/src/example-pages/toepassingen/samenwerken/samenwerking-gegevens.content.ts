@@ -56,14 +56,17 @@ export function items({ buttonRowTemplate, definitionListTemplate }: Templates):
       {
         label: "Documenten",
         id: "uniekID-2",
+        content: html``,
       },
       {
         label: "Ketenpartners",
         id: "uniekID-3",
+        content: html``,
       },
       {
         label: "Actieverzoeken",
         id: "uniekID-4",
+        content: html``,
       },
     ],
   };

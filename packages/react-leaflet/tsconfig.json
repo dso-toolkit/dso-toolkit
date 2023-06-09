@@ -4,6 +4,8 @@
     "strict": true,
     "target": "esnext",
     "module": "esnext",
+    "noEmitOnError": true,
+    "noUncheckedIndexedAccess": true,
     "moduleResolution": "node",
     "noEmit": true,
     "allowJs": true,

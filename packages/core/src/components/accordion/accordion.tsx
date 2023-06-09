@@ -97,7 +97,10 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     const sections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section"));
 
     if (typeof sectionElement === "number") {
-      sectionElement = sections[sectionElement];
+      const section = sections[sectionElement];
+      if (section instanceof HTMLElement) {
+        sectionElement = section;
+      }
     }
 
     if (!(sectionElement instanceof HTMLElement) || !sections.includes(sectionElement)) {

@@ -157,6 +157,7 @@ export {
   FormGroupBase,
   FormGroupCheckboxes,
   FormGroupConfirm,
+  FormGroupDatePicker,
   FormGroupFiles,
   FormGroupFilesFile,
   FormGroupInput,

@@ -41,6 +41,7 @@ examplePageFactory(
               placeholder: "Helpartikelen zoeken",
               buttonLabel: "Zoeken",
               icon: true,
+              id: "helpcentrum-search-bar",
             })}
           </div>
         </div>

@@ -329,8 +329,8 @@ describe("Accordion", () => {
   it("should scroll section into view when scrollSectionIntoView is called", () => {
     prepareScrollIntoView();
     cy.get("dso-accordion")
-      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
-      .last()
+      .find("dso-accordion-section")
+      .last<HTMLDsoAccordionSectionElement>()
       .then(($sections) => {
         const sectionElement = $sections[0];
         if ("scrollSectionIntoView" in sectionElement && typeof sectionElement.scrollSectionIntoView === "function") {
@@ -345,8 +345,8 @@ describe("Accordion", () => {
   it("should scroll section into view when toggleSection is called", () => {
     prepareScrollIntoView();
     cy.get("dso-accordion")
-      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
-      .last()
+      .find("dso-accordion-section")
+      .last<HTMLDsoAccordionSectionElement>()
       .then(($sections) => {
         const sectionElement = $sections[0];
         if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
@@ -361,8 +361,8 @@ describe("Accordion", () => {
   it("should NOT scroll section into view when toggleSection is called with param 'false'", () => {
     prepareScrollIntoView();
     cy.get("dso-accordion")
-      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
-      .last()
+      .find("dso-accordion-section")
+      .last<HTMLDsoAccordionSectionElement>()
       .then(($sections) => {
         const sectionElement = $sections[0];
         if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
