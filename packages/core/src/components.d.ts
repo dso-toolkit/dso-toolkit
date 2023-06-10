@@ -416,9 +416,9 @@ export namespace Components {
     }
     interface DsoScrollContainer {
         /**
-          * Internal method. **Do not use!**
+          * Internal method. Do not use.
          */
-        "setScrollState": (target: HTMLDivElement) => Promise<void>;
+        "_setScrollState": (target: HTMLDivElement) => Promise<void>;
     }
     interface DsoSelectable {
         "checked"?: boolean;

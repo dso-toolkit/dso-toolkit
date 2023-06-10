@@ -263,7 +263,7 @@ export interface Components {
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;
   rowEqualHeights: RowEqualHeights<TemplateResult>;
-  scrollContainer: ScrollContainer;
+  scrollContainer: ScrollContainer<TemplateResult>;
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;

@@ -12,9 +12,9 @@
 
 ## Methods
 
-### `setScrollState(target: HTMLDivElement) => Promise<void>`
+### `_setScrollState(target: HTMLDivElement) => Promise<void>`
 
-Internal method. **Do not use!**
+Internal method. Do not use.
 
 #### Returns
 

@@ -1,9 +1,9 @@
 import { ScrollContainer } from "dso-toolkit";
-import { html } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 
-export const coreScrollContainer: ComponentImplementation<ScrollContainer> = {
+export const coreScrollContainer: ComponentImplementation<ScrollContainer<TemplateResult>> = {
   component: "scrollContainer",
   implementation: "core",
   template: () =>

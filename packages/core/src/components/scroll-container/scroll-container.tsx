@@ -16,13 +16,13 @@ const resizeObserver = new ResizeObserver(
         target.parentNode instanceof ShadowRoot &&
         isDsoScrollContainerComponent(target.parentNode?.host)
       ) {
-        target.parentNode.host.setScrollState(target);
+        target.parentNode.host._setScrollState(target);
       } else if (target.parentElement && isDsoScrollContainerComponent(target.parentElement)) {
         const host = target.parentElement;
         const scrollContainerDiv = host.shadowRoot?.querySelector(".scroll-container");
 
         if (scrollContainerDiv instanceof HTMLDivElement) {
-          host.setScrollState(scrollContainerDiv);
+          host._setScrollState(scrollContainerDiv);
         }
       }
     });
@@ -41,16 +41,14 @@ const mutationObserver = new MutationObserver((entries) => {
       const scrollContainerDiv = element.shadowRoot?.querySelector(".scroll-container");
 
       if (scrollContainerDiv instanceof HTMLDivElement) {
-        element.setScrollState(scrollContainerDiv);
+        element._setScrollState(scrollContainerDiv);
       }
     }
   });
 });
 
-function isDsoScrollContainerComponent(
-  element: Element | HTMLDsoScrollContainerElement
-): element is HTMLDsoScrollContainerElement {
-  return (element as HTMLDsoScrollContainerElement).setScrollState !== undefined;
+function isDsoScrollContainerComponent(element: Element): element is HTMLDsoScrollContainerElement {
+  return element.tagName === "DSO-SCROLL-CONTAINER" && "_setScrollState" in element;
 }
 
 @Component({
@@ -72,10 +70,10 @@ export class ScrollContainer {
   scrollState: "top" | "middle" | "bottom" | "noScroll" = "noScroll";
 
   /**
-   * Internal method. **Do not use!**
+   * Internal method. Do not use.
    */
   @Method()
-  async setScrollState(target: HTMLDivElement) {
+  async _setScrollState(target: HTMLDivElement) {
     if (target.scrollHeight <= target.clientHeight) {
       this.scrollState = "noScroll";
 
@@ -107,7 +105,7 @@ export class ScrollContainer {
 
   handleScroll = (event: Event) => {
     if (event.target instanceof HTMLDivElement) {
-      this.setScrollState(event.target);
+      this._setScrollState(event.target);
     }
   };
 
