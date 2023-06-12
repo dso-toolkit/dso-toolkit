@@ -50,7 +50,7 @@ export const dynamicContent = {
       </p>
     </div>
     <dso-accordion variant="compact">
-      <dso-accordion-section handleTitle="Klap Open" heading="h4" open="false">
+      <dso-accordion-section handle-title="Klap Open" heading="h4">
         <div>
           <p>
           aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.

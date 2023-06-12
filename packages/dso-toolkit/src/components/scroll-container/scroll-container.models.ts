@@ -5,5 +5,4 @@ export interface ScrollContainer<TemplateFnReturnType> {
 
 export type DsoScrollContainerEvent = {
   scrollEnd: "top" | "bottom" | false;
-  element: HTMLDivElement;
 };

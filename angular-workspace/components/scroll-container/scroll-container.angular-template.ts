@@ -1,7 +1,7 @@
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 import { ScrollContainer } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 
 export const angularScrollContainer: ComponentImplementation<ScrollContainer<StoryFnAngularReturnType>> = {
   component: "scrollContainer",
@@ -12,7 +12,7 @@ export const angularScrollContainer: ComponentImplementation<ScrollContainer<Sto
         props,
         template: `
           <dso-scroll-container
-            (dsoScrollContainerEvent)="dsoScrollContainerEvent()"
+            (dsoScrollContainerEvent)="dsoScrollContainerEvent?.($event)"
           >
             ${props.children.template}
           </dso-scroll-container>

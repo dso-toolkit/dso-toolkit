@@ -58,7 +58,6 @@ export function dynamicContent({ accordionTemplate }: Templates) {
           {
             handleTitle: "Klap Open",
             heading: "h4",
-            open: false,
             content: (
               <div>
                 <p>

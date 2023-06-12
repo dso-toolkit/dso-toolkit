@@ -9,7 +9,7 @@ export interface ScrollContainerArgs {
 
 export const scrollContainerArgTypes: ArgTypes<ScrollContainerArgs> = {
   dsoScrollContainerEvent: {
-    action: "scrollEnd",
+    action: "dsoScrollContainerEvent",
   },
 };
 

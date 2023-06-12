@@ -83,7 +83,7 @@ export class ScrollContainer {
     if (target.scrollTop === 0) {
       this.scrollState = "top";
 
-      this.dsoScrollContainerEvent.emit({ element: target, scrollEnd: "top" });
+      this.dsoScrollContainerEvent.emit({ scrollEnd: "top" });
 
       return;
     }
@@ -91,7 +91,7 @@ export class ScrollContainer {
     if (target.scrollHeight - target.scrollTop - target.clientHeight < 1) {
       this.scrollState = "bottom";
 
-      this.dsoScrollContainerEvent.emit({ element: target, scrollEnd: "bottom" });
+      this.dsoScrollContainerEvent.emit({ scrollEnd: "bottom" });
 
       return;
     }
@@ -115,15 +115,27 @@ export class ScrollContainer {
     if (scrollContainerDiv instanceof HTMLDivElement) {
       setTimeout(() => resizeObserver.observe(scrollContainerDiv), 200);
     }
+
     mutationObserver.observe(this.host, { characterData: true, attributes: false, childList: false, subtree: true });
 
     const slottedElements = Array.from(this.host.children);
     slottedElements.forEach((element) => resizeObserver.observe(element));
   }
 
+  disconnectedCallback(): void {
+    const scrollContainerDiv = this.host.shadowRoot?.querySelector(".scroll-container");
+
+    if (scrollContainerDiv instanceof HTMLDivElement) {
+      resizeObserver.unobserve(scrollContainerDiv);
+    }
+
+    const slottedElements = Array.from(this.host.children);
+    slottedElements.forEach((element) => resizeObserver.unobserve(element));
+  }
+
   render() {
     return (
-      <div class={clsx("shadow-container")}>
+      <div class="shadow-container">
         <div
           class={clsx("scroll-container", { [`scroll-${this.scrollState}`]: this.scrollState !== "noScroll" })}
           onScroll={this.handleScroll}
