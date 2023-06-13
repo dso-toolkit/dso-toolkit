@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Document Header: Underline ontbreekt bij hover ([#2129](https://github.com/dso-toolkit/dso-toolkit/issues/2129))
 * Tooltip: Met expliciete id relatie sluit de tooltip al zodra de cursor op de content staat ([#2073](https://github.com/dso-toolkit/dso-toolkit/issues/2073))
+* React Selectable toont zich altijd als invalid ([#2147](https://github.com/dso-toolkit/dso-toolkit/issues/2147))
 
 ### Changed
 * Laatste componenten opnemen in z-index register ([#1945](https://github.com/dso-toolkit/dso-toolkit/issues/1945))

@@ -7,7 +7,7 @@
 
   @include selectable.root("dso-info", false);
 
-  &[invalid] {
+  &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();
   }
 }
