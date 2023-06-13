@@ -24,8 +24,7 @@ describe("Scrollable", () => {
   });
 
   it("should emit event when scroll has reached top or bottom", () => {
-    cy.wait(100)
-      .get("@dsoScrollEndListener")
+    cy.get("@dsoScrollEndListener")
       .should("not.have.been.called")
       .get("@scrollContainer")
       .scrollTo("bottom")

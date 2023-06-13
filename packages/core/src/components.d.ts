@@ -26,7 +26,7 @@ import { FocusTargetValueOrFalse } from "focus-trap";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
-import { DsoScrollEnd } from "./components/scrollable/scrollable.interfaces";
+import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -418,7 +418,7 @@ export namespace Components {
         /**
           * Internal method. Do not use.
          */
-        "_setScrollState": (target: HTMLDivElement) => Promise<void>;
+        "_setScrollState": () => Promise<void>;
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -1345,7 +1345,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted when the scrollbar has reached top or bottom.
          */
-        "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEnd>) => void;
+        "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEndEvent>) => void;
     }
     interface DsoSelectable {
         "checked"?: boolean;

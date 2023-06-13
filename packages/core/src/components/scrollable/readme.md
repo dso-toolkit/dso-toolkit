@@ -5,14 +5,14 @@
 
 ## Events
 
-| Event          | Description                                                 | Type                                             |
-| -------------- | ----------------------------------------------------------- | ------------------------------------------------ |
-| `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<{ scrollEnd: "top" \| "bottom"; }>` |
+| Event          | Description                                                 | Type                             |
+| -------------- | ----------------------------------------------------------- | -------------------------------- |
+| `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<DsoScrollEndEvent>` |
 
 
 ## Methods
 
-### `_setScrollState(target: HTMLDivElement) => Promise<void>`
+### `_setScrollState() => Promise<void>`
 
 Internal method. Do not use.
 
