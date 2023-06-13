@@ -12,7 +12,7 @@ export const angularScrollable: ComponentImplementation<Scrollable<StoryFnAngula
         props,
         template: `
           <dso-scrollable
-            (dsoScrollableEvent)="dsoScrollableEvent?.($event)"
+            (dsoScrollEnd)="dsoScrollEnd?.($event)"
           >
             ${props.children.template}
           </dso-scrollable>

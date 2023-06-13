@@ -4,12 +4,12 @@ import { ArgTypes } from "../../storybook/index.js";
 import { Scrollable } from "./scrollable.models.js";
 
 export interface ScrollableArgs {
-  dsoScrollableEvent: HandlerFunction;
+  dsoScrollEnd: HandlerFunction;
 }
 
 export const scrollableArgTypes: ArgTypes<ScrollableArgs> = {
-  dsoScrollableEvent: {
-    action: "dsoScrollableEvent",
+  dsoScrollEnd: {
+    action: "dsoScrollEnd",
   },
 };
 

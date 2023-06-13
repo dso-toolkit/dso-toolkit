@@ -5,9 +5,9 @@
 
 ## Events
 
-| Event                | Description                                                 | Type                                             |
-| -------------------- | ----------------------------------------------------------- | ------------------------------------------------ |
-| `dsoScrollableEvent` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<{ scrollEnd: "top" \| "bottom"; }>` |
+| Event          | Description                                                 | Type                                             |
+| -------------- | ----------------------------------------------------------- | ------------------------------------------------ |
+| `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<{ scrollEnd: "top" \| "bottom"; }>` |
 
 
 ## Methods

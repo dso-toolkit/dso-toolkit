@@ -1,3 +1,3 @@
-export type DsoScrollableEvent = {
+export type DsoScrollEnd = {
   scrollEnd: "top" | "bottom";
 };

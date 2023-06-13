@@ -7,7 +7,7 @@ export const coreScrollable: ComponentImplementation<Scrollable<TemplateResult>>
   component: "scrollable",
   implementation: "core",
   template: () =>
-    function scrollableTemplate({ children, dsoScrollableEvent }) {
-      return html`<dso-scrollable @dsoScrollableEvent=${dsoScrollableEvent}> ${children} </dso-scrollable>`;
+    function scrollableTemplate({ children, dsoScrollEnd }) {
+      return html`<dso-scrollable @dsoScrollEnd=${dsoScrollEnd}> ${children} </dso-scrollable>`;
     },
 };

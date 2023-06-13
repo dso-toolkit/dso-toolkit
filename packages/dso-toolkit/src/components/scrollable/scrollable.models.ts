@@ -1,8 +1,8 @@
 export interface Scrollable<TemplateFnReturnType> {
-  dsoScrollableEvent?: (e: CustomEvent<DsoScrollableEvent>) => void;
+  dsoScrollEnd?: (e: CustomEvent<DsoScrollEnd>) => void;
   children: TemplateFnReturnType;
 }
 
-export type DsoScrollableEvent = {
+export type DsoScrollEnd = {
   scrollEnd: "top" | "bottom" | false;
 };

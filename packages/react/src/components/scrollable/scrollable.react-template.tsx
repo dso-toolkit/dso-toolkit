@@ -8,7 +8,7 @@ export const reactScrollable: ComponentImplementation<Scrollable<JSX.Element>> =
   component: "scrollable",
   implementation: "react",
   template: () =>
-    function scrollableTemplate({ children, dsoScrollableEvent }) {
-      return <DsoScrollable onDsoScrollableEvent={dsoScrollableEvent}>{children}</DsoScrollable>;
+    function scrollableTemplate({ children, dsoScrollEnd }) {
+      return <DsoScrollable onDsoScrollEnd={dsoScrollEnd}>{children}</DsoScrollable>;
     },
 };
