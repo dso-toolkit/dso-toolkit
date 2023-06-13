@@ -15,14 +15,14 @@ import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
 
-import { ExpandableInterface, ExpandableToggleEvent } from "./expandable.interfaces";
+import { ExpandableToggleEvent } from "./expandable.interfaces";
 
 @Component({
   tag: "dso-expandable",
   styleUrl: "expandable.scss",
   shadow: true,
 })
-export class Expandable implements ComponentInterface, ExpandableInterface {
+export class Expandable implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
   private bodyHeight?: number;

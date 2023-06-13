@@ -1,5 +1,8 @@
 import { Component, h, Host, Prop, Event, EventEmitter, State, Watch, Method } from "@stencil/core";
-import { MapControlsToggleEvent, transitionDuration } from "./map-controls.interfaces";
+import { MapControlsToggleEvent } from "./map-controls.interfaces";
+
+// Sync with $transition-duration in ./map-controls.scss
+const transitionDuration = 300;
 
 @Component({
   tag: "dso-map-controls",

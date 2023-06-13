@@ -1,0 +1,392 @@
+diff --git a/node_modules/@stencil/angular-output-target/angular-component-lib/utils.ts b/node_modules/@stencil/angular-output-target/angular-component-lib/utils.ts
+index 58ed93b..b77e640 100644
+--- a/node_modules/@stencil/angular-output-target/angular-component-lib/utils.ts
++++ b/node_modules/@stencil/angular-output-target/angular-component-lib/utils.ts
+@@ -36,6 +36,28 @@ export const defineCustomElement = (tagName: string, customElement: any) => {
+   }
+ };
+ 
++/**
++ * The Angular property name that contains the object of metadata properties
++ * for the component added by the Angular compiler.
++ */
++const NG_COMP_DEF = 'ɵcmp';
++
++export const clearAngularOutputBindings = (cls: any) => {
++  if (typeof cls === 'function' && cls !== null) {
++    if (cls.prototype.constructor) {
++      const instance = cls.prototype.constructor;
++      if (instance[NG_COMP_DEF]) {
++        /**
++         * With the output targets generating @Output() proxies, we need to
++         * clear the metadata (ɵcmp.outputs) so that Angular does not add its own event listener
++         * and cause duplicate event emissions for the web component events.
++         */
++        instance[NG_COMP_DEF].outputs = {};
++      }
++    }
++  }
++};
++
+ // tslint:disable-next-line: only-arrow-functions
+ export function ProxyCmp(opts: { defineCustomElementFn?: () => void; inputs?: any; methods?: any }) {
+   const decorator = function (cls: any) {
+@@ -45,6 +67,8 @@ export function ProxyCmp(opts: { defineCustomElementFn?: () => void; inputs?: an
+       defineCustomElementFn();
+     }
+ 
++    clearAngularOutputBindings(cls);
++
+     if (inputs) {
+       proxyInputs(cls, inputs);
+     }
+diff --git a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
+index aa00d18..a6bfe59 100644
+--- a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
++++ b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
+@@ -9,7 +9,7 @@ import type { ComponentCompilerEvent } from '@stencil/core/internal';
+  * @param includeImportCustomElements Whether to define the component as a custom element.
+  * @returns The component declaration as a string.
+  */
+-export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly string[], methods: readonly string[], includeImportCustomElements?: boolean) => string;
++export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly ComponentCompilerEvent[], methods: readonly string[], includeImportCustomElements?: boolean) => string;
+ /**
+  * Creates the component interface type definition.
+  * @param tagNameAsPascal The tag name as PascalCase.
+diff --git a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
+index b1b095f..1238ffd 100644
+--- a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
++++ b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
+@@ -17,7 +17,7 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
+     // Formats the input strings into comma separated, single quoted values.
+     const formattedInputs = formatToQuotedList(inputs);
+     // Formats the output strings into comma separated, single quoted values.
+-    const formattedOutputs = formatToQuotedList(outputs);
++    const formattedOutputs = formatToQuotedList(outputs.map((event) => event.name));
+     // Formats the method strings into comma separated, single quoted values.
+     const formattedMethods = formatToQuotedList(methods);
+     const proxyCmpOptions = [];
+@@ -31,32 +31,54 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
+     if (hasMethods) {
+         proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
+     }
+-    /**
+-     * Notes on the generated output:
+-     * - We disable @angular-eslint/no-inputs-metadata-property, so that
+-     * Angular does not complain about the inputs property. The output target
+-     * uses the inputs property to define the inputs of the component instead of
+-     * having to use the @Input decorator (and manually define the type and default value).
+-     */
+-    const output = `@ProxyCmp({${proxyCmpOptions.join(',')}\n})
+-@Component({
+-  selector: '${tagName}',
+-  changeDetection: ChangeDetectionStrategy.OnPush,
+-  template: '<ng-content></ng-content>',
+-  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+-  inputs: [${formattedInputs}],
+-})
+-export class ${tagNameAsPascal} {
+-  protected el: HTMLElement;
+-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+-    c.detach();
+-    this.el = r.nativeElement;${hasOutputs
+-        ? `
+-    proxyOutputs(this, this.el, [${formattedOutputs}]);`
+-        : ''}
+-  }
+-}`;
+-    return output;
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
++        /**
++         * We disable @angular-eslint/no-inputs-metadata-property, so that
++         * Angular does not complain about the inputs property. The output target
++         * uses the inputs property to define the inputs of the component instead of
++         * having to use the @Input decorator (and manually define the type and default value).
++         */
++        `  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property`,
++        `  inputs: [${formattedInputs}],`,
++        `})`,
++        `export class ${tagNameAsPascal} {`,
++    ];
++    if (hasOutputs) {
++        for (let compilerEvent of outputs) {
++            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
++        }
++    }
++    output.push(`  protected el: HTMLElement;`);
++    output.push(`  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {`);
++    output.push(`    c.detach();`);
++    output.push(`    this.el = r.nativeElement;`);
++    if (hasOutputs) {
++        output.push(`    proxyOutputs(this, this.el, [${formattedOutputs}]);`);
++    }
++    output.push(`  }`);
++    output.push(`}`);
++    return output.join('\n');
++};
++/**
++ * Creates an `@Output()` decorator for a custom event on a Stencil component.
++ * @param tagName The tag name of the component.
++ * @param event The Stencil component event.
++ * @returns The `@Output()` decorator as a string.
++ */
++const createAngularOutputDecorator = (tagName, event) => {
++    const tagNameAsPascal = dashToPascalCase(tagName);
++    // When updating to Stencil 3.0, the component custom event generic will be
++    // exported by default and can be referenced here with:
++    // const customEvent = `${tagNameAsPascal}CustomEvent`;
++    const customEventType = `CustomEvent`;
++    const eventType = formatOutputType(tagNameAsPascal, event);
++    const outputType = `${customEventType}<${eventType}>`;
++    return `@Output() ${event.name}: EventEmitter<${outputType}> = new EventEmitter();`;
+ };
+ /**
+  * Sanitizes and formats the component event type.
+diff --git a/node_modules/@stencil/angular-output-target/dist/index.cjs.js b/node_modules/@stencil/angular-output-target/dist/index.cjs.js
+index 7d8a725..6cf6861 100644
+--- a/node_modules/@stencil/angular-output-target/dist/index.cjs.js
++++ b/node_modules/@stencil/angular-output-target/dist/index.cjs.js
+@@ -148,7 +148,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+     // Formats the input strings into comma separated, single quoted values.
+     const formattedInputs = formatToQuotedList(inputs);
+     // Formats the output strings into comma separated, single quoted values.
+-    const formattedOutputs = formatToQuotedList(outputs);
++    const formattedOutputs = formatToQuotedList(outputs.map((event) => event.name));
+     // Formats the method strings into comma separated, single quoted values.
+     const formattedMethods = formatToQuotedList(methods);
+     const proxyCmpOptions = [];
+@@ -162,32 +162,54 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+     if (hasMethods) {
+         proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
+     }
+-    /**
+-     * Notes on the generated output:
+-     * - We disable @angular-eslint/no-inputs-metadata-property, so that
+-     * Angular does not complain about the inputs property. The output target
+-     * uses the inputs property to define the inputs of the component instead of
+-     * having to use the @Input decorator (and manually define the type and default value).
+-     */
+-    const output = `@ProxyCmp({${proxyCmpOptions.join(',')}\n})
+-@Component({
+-  selector: '${tagName}',
+-  changeDetection: ChangeDetectionStrategy.OnPush,
+-  template: '<ng-content></ng-content>',
+-  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+-  inputs: [${formattedInputs}],
+-})
+-export class ${tagNameAsPascal} {
+-  protected el: HTMLElement;
+-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+-    c.detach();
+-    this.el = r.nativeElement;${hasOutputs
+-        ? `
+-    proxyOutputs(this, this.el, [${formattedOutputs}]);`
+-        : ''}
+-  }
+-}`;
+-    return output;
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
++        /**
++         * We disable @angular-eslint/no-inputs-metadata-property, so that
++         * Angular does not complain about the inputs property. The output target
++         * uses the inputs property to define the inputs of the component instead of
++         * having to use the @Input decorator (and manually define the type and default value).
++         */
++        `  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property`,
++        `  inputs: [${formattedInputs}],`,
++        `})`,
++        `export class ${tagNameAsPascal} {`,
++    ];
++    if (hasOutputs) {
++        for (let compilerEvent of outputs) {
++            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
++        }
++    }
++    output.push(`  protected el: HTMLElement;`);
++    output.push(`  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {`);
++    output.push(`    c.detach();`);
++    output.push(`    this.el = r.nativeElement;`);
++    if (hasOutputs) {
++        output.push(`    proxyOutputs(this, this.el, [${formattedOutputs}]);`);
++    }
++    output.push(`  }`);
++    output.push(`}`);
++    return output.join('\n');
++};
++/**
++ * Creates an `@Output()` decorator for a custom event on a Stencil component.
++ * @param tagName The tag name of the component.
++ * @param event The Stencil component event.
++ * @returns The `@Output()` decorator as a string.
++ */
++const createAngularOutputDecorator = (tagName, event) => {
++    const tagNameAsPascal = dashToPascalCase(tagName);
++    // When updating to Stencil 3.0, the component custom event generic will be
++    // exported by default and can be referenced here with:
++    // const customEvent = `${tagNameAsPascal}CustomEvent`;
++    const customEventType = `CustomEvent`;
++    const eventType = formatOutputType(tagNameAsPascal, event);
++    const outputType = `${customEventType}<${eventType}>`;
++    return `@Output() ${event.name}: EventEmitter<${outputType}> = new EventEmitter();`;
+ };
+ /**
+  * Sanitizes and formats the component event type.
+@@ -399,6 +421,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
+     const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
+     if (includeOutputImports) {
+         angularCoreImports.push('EventEmitter');
++        angularCoreImports.push('Output');
+     }
+     angularCoreImports.push('NgZone');
+     /**
+@@ -468,7 +491,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+         inputs.sort();
+         const outputs = [];
+         if (cmpMeta.events) {
+-            outputs.push(...cmpMeta.events.filter(filterInternalProps).map(mapPropName));
++            outputs.push(...cmpMeta.events.filter(filterInternalProps));
+         }
+         const methods = [];
+         if (cmpMeta.methods) {
+diff --git a/node_modules/@stencil/angular-output-target/dist/index.js b/node_modules/@stencil/angular-output-target/dist/index.js
+index df5aeb9..61fc2c6 100644
+--- a/node_modules/@stencil/angular-output-target/dist/index.js
++++ b/node_modules/@stencil/angular-output-target/dist/index.js
+@@ -140,7 +140,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+     // Formats the input strings into comma separated, single quoted values.
+     const formattedInputs = formatToQuotedList(inputs);
+     // Formats the output strings into comma separated, single quoted values.
+-    const formattedOutputs = formatToQuotedList(outputs);
++    const formattedOutputs = formatToQuotedList(outputs.map((event) => event.name));
+     // Formats the method strings into comma separated, single quoted values.
+     const formattedMethods = formatToQuotedList(methods);
+     const proxyCmpOptions = [];
+@@ -154,32 +154,54 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+     if (hasMethods) {
+         proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
+     }
+-    /**
+-     * Notes on the generated output:
+-     * - We disable @angular-eslint/no-inputs-metadata-property, so that
+-     * Angular does not complain about the inputs property. The output target
+-     * uses the inputs property to define the inputs of the component instead of
+-     * having to use the @Input decorator (and manually define the type and default value).
+-     */
+-    const output = `@ProxyCmp({${proxyCmpOptions.join(',')}\n})
+-@Component({
+-  selector: '${tagName}',
+-  changeDetection: ChangeDetectionStrategy.OnPush,
+-  template: '<ng-content></ng-content>',
+-  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+-  inputs: [${formattedInputs}],
+-})
+-export class ${tagNameAsPascal} {
+-  protected el: HTMLElement;
+-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+-    c.detach();
+-    this.el = r.nativeElement;${hasOutputs
+-        ? `
+-    proxyOutputs(this, this.el, [${formattedOutputs}]);`
+-        : ''}
+-  }
+-}`;
+-    return output;
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
++        /**
++         * We disable @angular-eslint/no-inputs-metadata-property, so that
++         * Angular does not complain about the inputs property. The output target
++         * uses the inputs property to define the inputs of the component instead of
++         * having to use the @Input decorator (and manually define the type and default value).
++         */
++        `  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property`,
++        `  inputs: [${formattedInputs}],`,
++        `})`,
++        `export class ${tagNameAsPascal} {`,
++    ];
++    if (hasOutputs) {
++        for (let compilerEvent of outputs) {
++            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
++        }
++    }
++    output.push(`  protected el: HTMLElement;`);
++    output.push(`  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {`);
++    output.push(`    c.detach();`);
++    output.push(`    this.el = r.nativeElement;`);
++    if (hasOutputs) {
++        output.push(`    proxyOutputs(this, this.el, [${formattedOutputs}]);`);
++    }
++    output.push(`  }`);
++    output.push(`}`);
++    return output.join('\n');
++};
++/**
++ * Creates an `@Output()` decorator for a custom event on a Stencil component.
++ * @param tagName The tag name of the component.
++ * @param event The Stencil component event.
++ * @returns The `@Output()` decorator as a string.
++ */
++const createAngularOutputDecorator = (tagName, event) => {
++    const tagNameAsPascal = dashToPascalCase(tagName);
++    // When updating to Stencil 3.0, the component custom event generic will be
++    // exported by default and can be referenced here with:
++    // const customEvent = `${tagNameAsPascal}CustomEvent`;
++    const customEventType = `CustomEvent`;
++    const eventType = formatOutputType(tagNameAsPascal, event);
++    const outputType = `${customEventType}<${eventType}>`;
++    return `@Output() ${event.name}: EventEmitter<${outputType}> = new EventEmitter();`;
+ };
+ /**
+  * Sanitizes and formats the component event type.
+@@ -391,6 +413,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
+     const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
+     if (includeOutputImports) {
+         angularCoreImports.push('EventEmitter');
++        angularCoreImports.push('Output');
+     }
+     angularCoreImports.push('NgZone');
+     /**
+@@ -460,7 +483,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+         inputs.sort();
+         const outputs = [];
+         if (cmpMeta.events) {
+-            outputs.push(...cmpMeta.events.filter(filterInternalProps).map(mapPropName));
++            outputs.push(...cmpMeta.events.filter(filterInternalProps));
+         }
+         const methods = [];
+         if (cmpMeta.methods) {
+diff --git a/node_modules/@stencil/angular-output-target/dist/output-angular.js b/node_modules/@stencil/angular-output-target/dist/output-angular.js
+index c84fc38..36cffed 100644
+--- a/node_modules/@stencil/angular-output-target/dist/output-angular.js
++++ b/node_modules/@stencil/angular-output-target/dist/output-angular.js
+@@ -47,6 +47,7 @@ export function generateProxies(components, pkgData, outputTarget, rootDir) {
+     const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
+     if (includeOutputImports) {
+         angularCoreImports.push('EventEmitter');
++        angularCoreImports.push('Output');
+     }
+     angularCoreImports.push('NgZone');
+     /**
+@@ -116,7 +117,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+         inputs.sort();
+         const outputs = [];
+         if (cmpMeta.events) {
+-            outputs.push(...cmpMeta.events.filter(filterInternalProps).map(mapPropName));
++            outputs.push(...cmpMeta.events.filter(filterInternalProps));
+         }
+         const methods = [];
+         if (cmpMeta.methods) {
