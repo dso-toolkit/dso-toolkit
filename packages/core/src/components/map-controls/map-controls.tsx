@@ -105,11 +105,11 @@ export class MapControls {
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>
-          <dso-scroll-container>
+          <dso-scrollable>
             <div class="content">
               <slot></slot>
             </div>
-          </dso-scroll-container>
+          </dso-scrollable>
         </section>
       </Host>
     );

@@ -2,7 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Method, State } from "@sten
 import clsx from "clsx";
 import debounce from "debounce";
 
-import { DsoScrollContainerEvent } from "./scroll-container.interfaces";
+import { DsoScrollableEvent } from "./scrollable.interfaces";
 
 const resizeObserver = new ResizeObserver(
   debounce((entries) => {
@@ -14,10 +14,10 @@ const resizeObserver = new ResizeObserver(
       if (
         target instanceof HTMLDivElement &&
         target.parentNode instanceof ShadowRoot &&
-        isDsoScrollContainerComponent(target.parentNode?.host)
+        isDsoScrollableComponent(target.parentNode?.host)
       ) {
         target.parentNode.host._setScrollState(target);
-      } else if (target.parentElement && isDsoScrollContainerComponent(target.parentElement)) {
+      } else if (target.parentElement && isDsoScrollableComponent(target.parentElement)) {
         const host = target.parentElement;
         const scrollContainerDiv = host.shadowRoot?.querySelector(".scroll-container");
 
@@ -31,13 +31,13 @@ const resizeObserver = new ResizeObserver(
 
 const mutationObserver = new MutationObserver((entries) => {
   entries.forEach(({ target }) => {
-    const element = target.parentElement?.closest("dso-scroll-container");
+    const element = target.parentElement?.closest("dso-scrollable");
 
     if (!(element instanceof HTMLElement)) {
       return;
     }
 
-    if (isDsoScrollContainerComponent(element)) {
+    if (isDsoScrollableComponent(element)) {
       const scrollContainerDiv = element.shadowRoot?.querySelector(".scroll-container");
 
       if (scrollContainerDiv instanceof HTMLDivElement) {
@@ -47,16 +47,16 @@ const mutationObserver = new MutationObserver((entries) => {
   });
 });
 
-function isDsoScrollContainerComponent(element: Element): element is HTMLDsoScrollContainerElement {
-  return element.tagName === "DSO-SCROLL-CONTAINER" && "_setScrollState" in element;
+function isDsoScrollableComponent(element: Element): element is HTMLDsoScrollableElement {
+  return element.tagName === "DSO-SCROLLABLE" && "_setScrollState" in element;
 }
 
 @Component({
-  tag: "dso-scroll-container",
-  styleUrl: "scroll-container.scss",
+  tag: "dso-scrollable",
+  styleUrl: "scrollable.scss",
   shadow: true,
 })
-export class ScrollContainer {
+export class Scrollable {
   @Element()
   host!: HTMLElement;
 
@@ -64,7 +64,7 @@ export class ScrollContainer {
    * Event emitted when the scrollbar has reached top or bottom.
    */
   @Event()
-  dsoScrollContainerEvent!: EventEmitter<DsoScrollContainerEvent>;
+  dsoScrollableEvent!: EventEmitter<DsoScrollableEvent>;
 
   @State()
   scrollState: "top" | "middle" | "bottom" | "noScroll" = "noScroll";
@@ -83,7 +83,7 @@ export class ScrollContainer {
     if (target.scrollTop === 0) {
       this.scrollState = "top";
 
-      this.dsoScrollContainerEvent.emit({ scrollEnd: "top" });
+      this.dsoScrollableEvent.emit({ scrollEnd: "top" });
 
       return;
     }
@@ -91,7 +91,7 @@ export class ScrollContainer {
     if (target.scrollHeight - target.scrollTop - target.clientHeight < 1) {
       this.scrollState = "bottom";
 
-      this.dsoScrollContainerEvent.emit({ scrollEnd: "bottom" });
+      this.dsoScrollableEvent.emit({ scrollEnd: "bottom" });
 
       return;
     }

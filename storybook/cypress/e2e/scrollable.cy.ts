@@ -1,9 +1,9 @@
-describe("Scroll Container", () => {
+describe("Scrollable", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scroll-container--default")
-      .get("dso-scroll-container")
-      .then(($scrollContainer) => {
-        $scrollContainer.on("dsoScrollContainerEvent", cy.stub().as("dsoScrollContainerEventListener"));
+    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--default")
+      .get("dso-scrollable")
+      .then(($scrollable) => {
+        $scrollable.on("dsoScrollableEvent", cy.stub().as("dsoScrollableEventListener"));
       })
       .shadow()
       .find(".scroll-container")
@@ -24,33 +24,33 @@ describe("Scroll Container", () => {
   });
 
   it("should emit event when scroll has reached top or bottom", () => {
-    cy.get("@dsoScrollContainerEventListener")
+    cy.get("@dsoScrollableEventListener")
       .should("have.been.calledOnce")
       .get("@scrollContainer")
       .scrollTo("bottom")
-      .get("@dsoScrollContainerEventListener")
+      .get("@dsoScrollableEventListener")
       .should("have.been.calledTwice");
   });
 
   it("should update scroll state on resize", () => {
     cy.get("@scrollContainer")
       .should("have.class", "scroll-top")
-      .get("#scroll-container-mock")
+      .get("#scrollable-mock")
       .then(($mock) => $mock.css("max-width", 900))
       .get("@scrollContainer")
       .should("not.have.class", "scroll-top");
   });
 
   it("should update scroll state with dynamic content", () => {
-    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scroll-container--dynamic-content")
-      .get("dso-scroll-container")
+    cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content")
+      .get("dso-scrollable")
       .shadow()
       .find(".scroll-container")
       .as("scrollContainer")
       .should("not.have.class", "scroll-top")
       .and("not.have.class", "scroll-middle")
       .and("not.have.class", "scroll-bottom")
-      .get("dso-scroll-container")
+      .get("dso-scrollable")
       .find("> dso-accordion > dso-accordion-section[handle-title='Klap Open']")
       .click()
       .get("@scrollContainer")

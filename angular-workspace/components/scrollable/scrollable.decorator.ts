@@ -8,7 +8,7 @@ export const decorator: DecoratorFunction<StoryFnAngularReturnType> = (story) =>
     props,
     template: `
     <div
-      id="scroll-container-mock"
+      id="scrollable-mock"
       style="background-color: #efefef; height: 750px; max-width: 500px"
     >
       ${template}

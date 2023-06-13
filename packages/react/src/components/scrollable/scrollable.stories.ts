@@ -1,12 +1,12 @@
-import { storiesOfScrollContainer } from "dso-toolkit";
+import { storiesOfScrollable } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
-import { decorator } from "./scroll-container.decorator";
-import { defaultContent, dynamicContent } from "./scroll-container.content";
+import { decorator } from "./scrollable.decorator";
+import { defaultContent, dynamicContent } from "./scrollable.content";
 
-storiesOfScrollContainer(
+storiesOfScrollable(
   {
     parameters: {
       module,
@@ -14,8 +14,8 @@ storiesOfScrollContainer(
       readme,
     },
     templateContainer,
-    storyTemplates: ({ scrollContainerTemplate }, templates) => ({
-      scrollContainerTemplate,
+    storyTemplates: ({ scrollableTemplate }, templates) => ({
+      scrollableTemplate,
       defaultContent,
       dynamicContent: dynamicContent(templates),
     }),

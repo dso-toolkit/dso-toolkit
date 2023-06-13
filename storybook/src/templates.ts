@@ -71,7 +71,7 @@ import {
   ResponsiveElement,
   RichContent,
   RowEqualHeights,
-  ScrollContainer,
+  Scrollable,
   SearchBar,
   Selectable,
   ShoppingCart,
@@ -191,7 +191,7 @@ import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-hei
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
-import { coreScrollContainer } from "./components/scroll-container/scroll-container.core-template";
+import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
@@ -263,7 +263,7 @@ export interface Components {
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;
   rowEqualHeights: RowEqualHeights<TemplateResult>;
-  scrollContainer: ScrollContainer<TemplateResult>;
+  scrollable: Scrollable<TemplateResult>;
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
@@ -338,7 +338,7 @@ templateContainer.add(corePagination);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
 templateContainer.add(coreResponsiveElement);
-templateContainer.add(coreScrollContainer);
+templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSlideToggle);
 templateContainer.add(coreTable);
