@@ -45,7 +45,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   @State()
   animationReady = false;
 
-  @Event()
+  @Event({ bubbles: false })
   dsoToggle!: EventEmitter<ExpandableToggleEvent>;
 
   @Event()

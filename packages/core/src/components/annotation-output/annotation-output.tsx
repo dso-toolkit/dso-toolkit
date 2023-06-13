@@ -18,7 +18,7 @@ export class AnnotationOutput implements ComponentInterface {
   @Prop()
   annotationPrefix?: string;
 
-  @Event()
+  @Event({ bubbles: false })
   dsoToggle!: EventEmitter<AnnotationToggleEvent>;
 
   @Method()

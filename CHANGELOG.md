@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 54.2.0
+
+### Added
+* dsoToggle event voor Annotation Output, Expandable en Expandable Heading niet bubblen ([#2166](https://github.com/dso-toolkit/dso-toolkit/issues/2166))
+
 ## 54.1.0
 
 ### Added

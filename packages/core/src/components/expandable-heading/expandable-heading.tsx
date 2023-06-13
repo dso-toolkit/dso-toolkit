@@ -23,7 +23,7 @@ export class ExpandableHeading {
   @Prop()
   editAction?: EditAction;
 
-  @Event()
+  @Event({ bubbles: false })
   dsoToggle!: EventEmitter<ExpandableHeadingToggleEvent>;
 
   identifier = uuidv4();
