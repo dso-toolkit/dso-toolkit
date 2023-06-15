@@ -8,4 +8,5 @@ export interface DatePicker {
   disabled: boolean;
   autofocus?: boolean;
   invalid?: boolean;
+  describedBy?: string;
 }

@@ -13,6 +13,7 @@ export interface DatePickerArgs {
   disabled: boolean;
   autofocus: boolean;
   invalid: boolean;
+  describedBy: string;
 }
 
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
@@ -64,6 +65,11 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   },
   invalid: {
     type: "boolean",
+  },
+  describedBy: {
+    control: {
+      type: "text",
+    },
   },
   dsoDateChange: {
     action: "dsoDateChange",
