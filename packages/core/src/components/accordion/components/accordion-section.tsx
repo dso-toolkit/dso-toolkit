@@ -165,7 +165,6 @@ export class AccordionSection implements ComponentInterface {
       this.expandable = expandableElement;
       this.expandable.getAnimeInstance().then((animeInstance) => {
         if (animeInstance) {
-          animeInstance.update;
           animeInstance.changeComplete = async () => {
             if (!section) {
               return;
