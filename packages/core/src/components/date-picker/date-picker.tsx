@@ -165,7 +165,7 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop({ reflect: true }) invalid?: boolean;
 
   /**
-   * Is input to be described by?
+   * ID of element that describes input
    */
   @Prop() describedBy?: string;
 
@@ -626,7 +626,6 @@ export class DsoDatePicker implements ComponentInterface {
    * Always the last one in the class.
    */
   render() {
-    console.log(this.describedBy);
     const valueAsDate = parseDutchDate(this.value);
     const formattedDate = valueAsDate && printDutchDate(valueAsDate);
     const selectedYear = (valueAsDate || this.focusedDay).getFullYear();

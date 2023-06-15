@@ -170,7 +170,7 @@ export namespace Components {
     }
     interface DsoDatePicker {
         /**
-          * Is input to be described by?
+          * ID of element that describes input
          */
         "describedBy"?: string;
         /**
@@ -1073,7 +1073,7 @@ declare namespace LocalJSX {
     }
     interface DsoDatePicker {
         /**
-          * Is input to be described by?
+          * ID of element that describes input
          */
         "describedBy"?: string;
         /**
