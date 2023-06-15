@@ -496,4 +496,11 @@ describe("Date Picker", () => {
       .find(`option[value="9"]`)
       .should("be.selected");
   });
+
+  it("should set aria-describedby", () => {
+    cy.get("dso-date-picker")
+      .invoke("attr", "described-by", "id-van-ander-element")
+      .find(".dso-date__input")
+      .should("have.attr", "aria-describedby", "id-van-ander-element");
+  });
 });

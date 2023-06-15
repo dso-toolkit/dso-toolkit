@@ -170,6 +170,10 @@ export namespace Components {
     }
     interface DsoDatePicker {
         /**
+          * ID of element that describes the input element
+         */
+        "describedBy"?: string;
+        /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
          */
         "direction": DsoDatePickerDirection;
@@ -1068,6 +1072,10 @@ declare namespace LocalJSX {
         "mode"?: CardContainerMode;
     }
     interface DsoDatePicker {
+        /**
+          * ID of element that describes the input element
+         */
+        "describedBy"?: string;
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
          */

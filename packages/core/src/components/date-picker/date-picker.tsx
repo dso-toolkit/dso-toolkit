@@ -165,6 +165,11 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop({ reflect: true }) invalid?: boolean;
 
   /**
+   * ID of element that describes the input element
+   */
+  @Prop() describedBy?: string;
+
+  /**
    * Should the input be focused on load?
    */
   @Prop() dsoAutofocus = false;
@@ -655,6 +660,7 @@ export class DsoDatePicker implements ComponentInterface {
               required={this.required ? true : undefined}
               aria-autocomplete="none"
               aria-invalid={this.invalid?.toString()}
+              aria-describedby={this.describedBy}
               onInput={this.handleInputChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
