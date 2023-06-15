@@ -165,6 +165,11 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop({ reflect: true }) invalid?: boolean;
 
   /**
+   * Is input to be described by?
+   */
+  @Prop() describedBy?: string;
+
+  /**
    * Should the input be focused on load?
    */
   @Prop() dsoAutofocus = false;
@@ -621,6 +626,7 @@ export class DsoDatePicker implements ComponentInterface {
    * Always the last one in the class.
    */
   render() {
+    console.log(this.describedBy);
     const valueAsDate = parseDutchDate(this.value);
     const formattedDate = valueAsDate && printDutchDate(valueAsDate);
     const selectedYear = (valueAsDate || this.focusedDay).getFullYear();
@@ -655,6 +661,7 @@ export class DsoDatePicker implements ComponentInterface {
               required={this.required ? true : undefined}
               aria-autocomplete="none"
               aria-invalid={this.invalid?.toString()}
+              aria-describedby={this.describedBy}
               onInput={this.handleInputChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}

@@ -18,6 +18,7 @@ export const angularDatePicker: ComponentImplementation<DatePicker> = {
             [dsoAutofocus]="autofocus"
             [disabled]="disabled"
             [invalid]="invalid"
+            [describedBy]="describedBy"
             (dsoDateChange)="dsoDateChange?.($event)"
           ></dso-date-picker>`,
       };
