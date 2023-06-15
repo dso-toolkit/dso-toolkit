@@ -7,48 +7,60 @@ import { h, Component, Fragment, Element, Prop, State } from "@stencil/core";
 })
 export class Toggletip {
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoToggletipElement;
 
   @State()
   active = false;
 
+  /**
+   * Toggletip label.
+   */
   @Prop()
   label = "Toelichting";
 
+  /**
+   * Toggletip position.
+   */
   @Prop()
   position: "top" | "right" | "bottom" | "left" = "right";
 
+  /**
+   * Set to true for small Toggletip.
+   */
   @Prop()
   small?: boolean;
 
+  /**
+   * Set to true for secondary Toggletip.
+   */
   @Prop()
   secondary?: boolean;
 
-  infoButton?: HTMLDsoInfoButtonElement;
+  private infoButton?: HTMLDsoInfoButtonElement;
 
-  click = () => {
+  private click = () => {
     this.active ? this.close() : this.open();
   };
 
-  open = () => {
+  private open = () => {
     this.active = true;
     this.host.addEventListener("keydown", this.keyDownListener);
     this.host.addEventListener("focusout", this.focusOutListener);
   };
 
-  close = () => {
+  private close = () => {
     this.host.removeEventListener("focusout", this.focusOutListener);
     this.host.removeEventListener("keydown", this.keyDownListener);
     this.active = false;
   };
 
-  focusOutListener = (event: FocusEvent) => {
+  private focusOutListener = (event: FocusEvent) => {
     if (!this.host.contains(event.relatedTarget as Node)) {
       this.close();
     }
   };
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (!event.defaultPrevented && event.key === "Escape") {
       this.close();
       this.infoButton?.setFocus();

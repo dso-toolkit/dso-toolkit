@@ -9,11 +9,17 @@ import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 })
 export class SlideToggle implements ComponentInterface {
   @Element()
-  private host!: HTMLElement;
+  private host!: HTMLDsoSlideToggleElement;
 
+  /**
+   * Set to true if Slide Toggle is checked.
+   */
   @Prop()
   checked = false;
 
+  /**
+   * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
+   */
   @Prop()
   disabled = false;
 
@@ -32,6 +38,9 @@ export class SlideToggle implements ComponentInterface {
   @Prop()
   identifier = v4();
 
+  /**
+   * Emitted when user checks or unchecks the Slide Toggle.
+   */
   @Event()
   dsoActiveChange!: EventEmitter<SlideToggleActiveEvent>;
 

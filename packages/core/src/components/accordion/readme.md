@@ -9,7 +9,7 @@
 | ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ----------- |
 | `allowMultipleOpen` | `allow-multiple-open` | Allows multiple sections to be open at the same time.                                                                                                              | `boolean`                                                          | `false`     |
 | `reverseAlign`      | `reverse-align`       | Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements | `boolean`                                                          | `false`     |
-| `variant`           | `variant`             |                                                                                                                                                                    | `"compact" \| "conclusion" \| "default" \| "neutral" \| undefined` | `"default"` |
+| `variant`           | `variant`             | The variant of the Accordion.                                                                                                                                      | `"compact" \| "conclusion" \| "default" \| "neutral" \| undefined` | `"default"` |
 
 
 ## Events
@@ -22,9 +22,19 @@
 
 ## Methods
 
+### `_getState() => Promise<AccordionInternalState>`
+
+Internal method. Do not use.
+
+#### Returns
+
+Type: `Promise<AccordionInternalState>`
+
+
+
 ### `animationEnd(sectionElement: HTMLElement) => Promise<void>`
 
-
+Emitted when the animation of opening or closing ends.
 
 #### Returns
 
@@ -39,16 +49,6 @@ Closes all sections belonging to this accordion.
 #### Returns
 
 Type: `Promise<void>`
-
-
-
-### `getState() => Promise<AccordionInternalState>`
-
-
-
-#### Returns
-
-Type: `Promise<AccordionInternalState>`
 
 
 

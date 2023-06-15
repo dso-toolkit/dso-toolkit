@@ -18,11 +18,17 @@ export class AnnotationOutput implements ComponentInterface {
   @Prop()
   annotationPrefix?: string;
 
+  /**
+   * This event is emitted when the user activates the Annotation Button.
+   */
   @Event({ bubbles: false })
   dsoToggle!: EventEmitter<AnnotationToggleEvent>;
 
+  /**
+   * Internal method. Do not use.
+   */
   @Method()
-  async toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {
+  async _toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {
     AnnotationService.toggle(identifier);
 
     const open = AnnotationService.state[this.identifier];
@@ -36,8 +42,8 @@ export class AnnotationOutput implements ComponentInterface {
     });
   }
 
-  toggleHandler(e: MouseEvent | KeyboardEvent) {
-    this.toggleAnnotation(e, this.identifier);
+  private toggleHandler(e: MouseEvent | KeyboardEvent) {
+    this._toggleAnnotation(e, this.identifier);
   }
 
   render() {

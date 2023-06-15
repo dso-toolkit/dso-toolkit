@@ -76,7 +76,7 @@ export class DropdownMenu {
     this.setStrategy();
   }
 
-  setStrategy() {
+  private setStrategy() {
     if (!this.popper) {
       return;
     }
@@ -110,7 +110,7 @@ export class DropdownMenu {
   }
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoDropdownMenuElement;
 
   private popper: PopperInstance | undefined;
 
@@ -206,10 +206,10 @@ export class DropdownMenu {
       this.host.addEventListener("keydown", this.keyDownListener);
     }
 
-    this.tabbables.forEach((tabbable) => {
-      tabbable.removeEventListener("click", this.escape);
+    this.tabbables.forEach((focusableElement) => {
+      focusableElement.removeEventListener("click", this.escape);
       if (this.open) {
-        tabbable.addEventListener("click", this.escape);
+        focusableElement.addEventListener("click", this.escape);
       }
     });
   }
@@ -218,13 +218,13 @@ export class DropdownMenu {
     this.popper?.destroy();
   }
 
-  focusOutListener = (event: FocusEvent) => {
+  private focusOutListener = (event: FocusEvent) => {
     if (!this.tabbables.includes(event.relatedTarget as FocusableElement)) {
       this.open = false;
     }
   };
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
       return;
     }
@@ -256,7 +256,7 @@ export class DropdownMenu {
     event.preventDefault();
   };
 
-  getActiveElement(root: Document | ShadowRoot = document): Element | null {
+  private getActiveElement(root: Document | ShadowRoot = document): Element | null {
     const activeEl = root.activeElement;
 
     if (!activeEl) {
@@ -270,7 +270,7 @@ export class DropdownMenu {
     return activeEl;
   }
 
-  tabInPopup(direction: number) {
+  private tabInPopup(direction: number) {
     const tabs = this.tabbables;
     const currentIndex = tabs.findIndex((e) => e === this.getActiveElement());
 
@@ -284,7 +284,7 @@ export class DropdownMenu {
     tabs[nextIndex]?.focus();
   }
 
-  escape = () => {
+  private escape = () => {
     this.button.focus();
     this.open = false;
   };

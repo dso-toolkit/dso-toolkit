@@ -46,6 +46,9 @@ export class OzonContent implements ComponentInterface {
   @State()
   state: OzonContentNodeState = {};
 
+  /**
+   * Emitted when `<a>` is clicked.
+   */
   @Event()
   dsoAnchorClick!: EventEmitter<OzonContentAnchorClick>;
 
@@ -56,18 +59,22 @@ export class OzonContent implements ComponentInterface {
   dsoClick!: EventEmitter<OzonContentClick>;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoOzonContentElement;
 
   private mapper = new Mapper();
 
-  handleHostOnClick(e: UIEvent) {
+  private handleHostOnClick(e: UIEvent) {
     // '' is `true`: <dso-ozon-content interactive>
     if (this.interactive !== "" && !this.interactive) {
       return;
     }
 
     const doIt =
-      e.composedPath().find((e) => e === this.host || (e instanceof HTMLElement && isTabbable(e))) === this.host;
+      e
+        .composedPath()
+        .find(
+          (eventTarget) => eventTarget === this.host || (eventTarget instanceof HTMLElement && isTabbable(eventTarget))
+        ) === this.host;
 
     if (doIt) {
       this.dsoClick.emit({ originalEvent: e });

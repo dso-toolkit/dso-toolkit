@@ -7,24 +7,23 @@
 
 | Property          | Attribute          | Description                                                                                                                                     | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `enableAnimation` | `enable-animation` |                                                                                                                                                 | `boolean`              | `false`     |
+| `enableAnimation` | `enable-animation` | Set to `true` to show the content animated.                                                                                                     | `boolean`              | `false`     |
 | `minimumHeight`   | `minimum-height`   | When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to | `number \| undefined`  | `undefined` |
-| `open`            | `open`             |                                                                                                                                                 | `boolean \| undefined` | `undefined` |
+| `open`            | `open`             | Set to `true` to expand the content.                                                                                                            | `boolean \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event                   | Description | Type                                 |
-| ----------------------- | ----------- | ------------------------------------ |
-| `animationInstantiated` |             | `CustomEvent<void>`                  |
-| `dsoToggle`             |             | `CustomEvent<ExpandableToggleEvent>` |
+| Event                    | Description                 | Type                |
+| ------------------------ | --------------------------- | ------------------- |
+| `_animationInstantiated` | Internal event. Do not use. | `CustomEvent<void>` |
 
 
 ## Methods
 
-### `getAnimeInstance() => Promise<AnimeInstance | undefined>`
+### `_getAnimeInstance() => Promise<AnimeInstance | undefined>`
 
-
+Internal method. Do not use.
 
 #### Returns
 
@@ -32,9 +31,9 @@ Type: `Promise<AnimeInstance | undefined>`
 
 
 
-### `getBodyHeight() => Promise<number | undefined>`
+### `_getBodyHeight() => Promise<number | undefined>`
 
-
+Internal method. Do not use.
 
 #### Returns
 

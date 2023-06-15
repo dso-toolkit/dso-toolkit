@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property           | Attribute | Description | Type                  | Default        |
-| ------------------ | --------- | ----------- | --------------------- | -------------- |
-| `label`            | `label`   |             | `string \| undefined` | `"Hulp nodig"` |
-| `url` _(required)_ | `url`     |             | `string`              | `undefined`    |
+| Property           | Attribute | Description                                                 | Type     | Default        |
+| ------------------ | --------- | ----------------------------------------------------------- | -------- | -------------- |
+| `label`            | `label`   | The label on the help button that activates the Helpcenter. | `string` | `"Hulp nodig"` |
+| `url` _(required)_ | `url`     | The URL that's loaded when the Helpcenter opens.            | `string` | `undefined`    |
 
 
 ## Dependencies

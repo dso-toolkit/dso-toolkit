@@ -66,12 +66,12 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({
           <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
         ) : (
           <ul role="group">
-            {item.items?.map((childItem: TreeViewItem, index: number, org: TreeViewItem[]) => (
+            {item.items?.map((childItem: TreeViewItem, childIndex: number, org: TreeViewItem[]) => (
               <DsoTreeItem
                 owner={owner}
                 ancestors={[...ancestors, item]}
                 item={childItem}
-                index={index}
+                index={childIndex}
                 level={level + 1}
                 setSize={org.length}
               ></DsoTreeItem>

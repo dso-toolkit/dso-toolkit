@@ -17,9 +17,15 @@ export class ViewerGrid {
 
   private mapPanel?: HTMLDivElement;
 
+  /**
+   * Set to true when filterpanel should show.
+   */
   @Prop({ reflect: true })
   filterpanelOpen = false;
 
+  /**
+   * Set to true when overlay should show.
+   */
   @Prop({ reflect: true })
   overlayOpen = false;
 
@@ -34,32 +40,44 @@ export class ViewerGrid {
   @State()
   mainSize: MainSize = "large";
 
+  /**
+   * Emitted when user wants to close the overlay.
+   */
   @Event()
   dsoCloseOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
 
+  /**
+   * Emitted when user cancels filterpanel.
+   */
   @Event()
   dsoFilterpanelCancel!: EventEmitter<FilterpanelEvent>;
 
+  /**
+   * Emitted when user applies filterpanel options.
+   */
   @Event()
   dsoFilterpanelApply!: EventEmitter<FilterpanelEvent>;
 
+  /**
+   * Emitted before and after main size animation. Inspect `detail` property for more information.
+   */
   @Event()
   dsoMainSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoViewerGridElement;
 
-  filterpanel: HTMLElement | undefined;
+  private filterpanel: HTMLElement | undefined;
 
-  filterpanelSlot: HTMLElement | null = null;
+  private filterpanelSlot: HTMLElement | null = null;
 
-  filterpanelFocustrap: FocusTrap | undefined;
+  private filterpanelFocustrap: FocusTrap | undefined;
 
-  overlay: HTMLDivElement | undefined;
+  private overlay: HTMLDivElement | undefined;
 
-  overlaySlot: HTMLDivElement | null = null;
+  private overlaySlot: HTMLDivElement | null = null;
 
-  overlayFocustrap: FocusTrap | undefined;
+  private overlayFocustrap: FocusTrap | undefined;
 
   @Watch("mainSize")
   mainSizeWatcher(currentSize: MainSize, previousSize: MainSize) {
@@ -84,15 +102,15 @@ export class ViewerGrid {
     );
   }
 
-  shrinkMain = () => {
+  private shrinkMain = () => {
     this.mainSize = this.mainSize === "large" ? "medium" : "small";
   };
 
-  expandMain = () => {
+  private expandMain = () => {
     this.mainSize = this.mainSize === "small" ? "medium" : "large";
   };
 
-  updateFocusTrap() {
+  private updateFocusTrap() {
     if (this.filterpanelOpen && this.overlayOpen) {
       return;
     }
@@ -118,7 +136,7 @@ export class ViewerGrid {
     }
   }
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.key !== "Escape") {
       return;
     }
@@ -173,11 +191,11 @@ export class ViewerGrid {
     this.host.removeEventListener("keydown", this.keyDownListener);
   }
 
-  handleFilterpanelApply(mouseEvent: MouseEvent) {
+  private handleFilterpanelApply(mouseEvent: MouseEvent) {
     this.dsoFilterpanelApply.emit({ originalEvent: mouseEvent });
   }
 
-  handleFilterpanelCancel(mouseEvent: MouseEvent) {
+  private handleFilterpanelCancel(mouseEvent: MouseEvent) {
     this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
   }
 

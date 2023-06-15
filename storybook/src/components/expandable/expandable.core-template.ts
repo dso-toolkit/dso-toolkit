@@ -8,19 +8,12 @@ export const coreExpandable: ComponentImplementation<Expandable<TemplateResult>>
   component: "expandable",
   implementation: "core",
   template: () =>
-    function expandableTemplate({
-      open,
-      enableAnimation,
-      minimumHeight,
-      content,
-      dsoToggle,
-    }: Expandable<TemplateResult>) {
+    function expandableTemplate({ open, enableAnimation, minimumHeight, content }: Expandable<TemplateResult>) {
       return html`
         <dso-expandable
           enable-animation=${ifDefined(enableAnimation)}
           minimum-height=${ifDefined(minimumHeight)}
           ?open=${ifDefined(open)}
-          @dsoToggle=${dsoToggle}
         >
           ${content}
         </dso-expandable>

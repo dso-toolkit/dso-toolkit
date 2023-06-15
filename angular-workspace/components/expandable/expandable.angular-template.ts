@@ -15,7 +15,6 @@ export const angularExpandable: ComponentImplementation<Expandable<StoryFnAngula
             [enableAnimation]="enableAnimation"
             [minimunHeight]="minimunHeight"
             [open]="open"
-            (dsoToggle)="dsoToggle()"
           >
             ${props.content.template}
           </dso-expandable>

@@ -1,6 +1,6 @@
 import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from "@popperjs/core";
 import maxSize from "popper-max-size-modifier";
-import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from "@stencil/core";
+import { h, Component, Element, Host, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
 import { hasOverflow } from "../../utils/has-overflow";
 import debounce from "debounce";
@@ -108,7 +108,7 @@ export class Tooltip {
     this.setStrategy();
   }
 
-  setStrategy() {
+  private setStrategy() {
     if (!this.popper) {
       return;
     }
@@ -158,7 +158,7 @@ export class Tooltip {
   }
 
   @Element()
-  private element!: HTMLElement;
+  private element!: HTMLDsoTooltipElement;
 
   private popper: PopperInstance | undefined;
 
@@ -176,8 +176,7 @@ export class Tooltip {
   @State()
   private hidden = true;
 
-  @Listen("click")
-  listenClick(e: MouseEvent) {
+  private listenClick(e: MouseEvent) {
     e.stopPropagation();
   }
 
@@ -214,7 +213,7 @@ export class Tooltip {
     }
   }
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       this.deactivate();
     }
@@ -222,7 +221,7 @@ export class Tooltip {
 
   render() {
     return (
-      <Host class={{ hidden: this.hidden }} role="tooltip">
+      <Host class={{ hidden: this.hidden }} role="tooltip" onClick={this.listenClick}>
         <div class={clsx("tooltip", { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div aria-hidden={!this.descriptive || undefined} class={clsx("tooltip-inner", { "dso-small": this.small })}>

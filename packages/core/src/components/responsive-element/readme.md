@@ -20,7 +20,7 @@
 
 Type: `Promise<ResponsiveElementSize>`
 
-
+The current size
 
 
 ## Dependencies

@@ -6,12 +6,21 @@ import { h, Component, Event, Prop, EventEmitter, Fragment } from "@stencil/core
   shadow: true,
 })
 export class Info {
+  /**
+   * Set to true if the Info should not be toggled and always visible.
+   */
   @Prop({ reflect: true })
   fixed?: boolean;
 
+  /**
+   * Whether the Info is active.
+   */
   @Prop({ reflect: true })
   active?: boolean;
 
+  /**
+   * Emitted when the user activates the close button.
+   */
   @Event()
   dsoClose!: EventEmitter<MouseEvent>;
 

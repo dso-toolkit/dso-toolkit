@@ -7,7 +7,7 @@ export interface AccordionInternalState {
 }
 
 export interface AccordionInterface {
-  getState(): Promise<AccordionInternalState>;
+  _getState(): Promise<AccordionInternalState>;
   /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
    * returns `undefined` when no section is tiggled.\
    * returns `true` when the section is opened and `false` when the section is closed.

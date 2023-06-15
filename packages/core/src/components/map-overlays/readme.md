@@ -7,17 +7,17 @@ Private component, do not use.
 
 ## Properties
 
-| Property                | Attribute | Description | Type        | Default     |
-| ----------------------- | --------- | ----------- | ----------- | ----------- |
-| `group`                 | `group`   |             | `string`    | `uuidv4()`  |
-| `overlays` _(required)_ | --        |             | `Overlay[]` | `undefined` |
+| Property                | Attribute | Description                                                           | Type        | Default     |
+| ----------------------- | --------- | --------------------------------------------------------------------- | ----------- | ----------- |
+| `group`                 | `group`   | To group the overlays together. Generally the default value suffices. | `string`    | `uuidv4()`  |
+| `overlays` _(required)_ | --        | The overlays.                                                         | `Overlay[]` | `undefined` |
 
 
 ## Events
 
-| Event              | Description | Type                              |
-| ------------------ | ----------- | --------------------------------- |
-| `dsoToggleOverlay` |             | `CustomEvent<OverlayChangeEvent>` |
+| Event              | Description                                        | Type                              |
+| ------------------ | -------------------------------------------------- | --------------------------------- |
+| `dsoToggleOverlay` | Emitted when the user selects a different overlay. | `CustomEvent<OverlayChangeEvent>` |
 
 
 ## Dependencies

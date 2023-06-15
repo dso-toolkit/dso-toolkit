@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type               | Default  |
-| -------- | --------- | ----------- | ------------------ | -------- |
-| `mode`   | `mode`    |             | `"grid" \| "list"` | `"list"` |
+| Property | Attribute | Description                     | Type               | Default  |
+| -------- | --------- | ------------------------------- | ------------------ | -------- |
+| `mode`   | `mode`    | The mode of the Card Container. | `"grid" \| "list"` | `"list"` |
 
 
 ----------------------------------------------

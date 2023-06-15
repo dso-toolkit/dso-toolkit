@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property                  | Attribute    | Description | Type     | Default     |
-| ------------------------- | ------------ | ----------- | -------- | ----------- |
-| `identifier` _(required)_ | `identifier` |             | `string` | `undefined` |
+| Property                  | Attribute    | Description                                                                                                  | Type     | Default     |
+| ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| `identifier` _(required)_ | `identifier` | To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output. | `string` | `undefined` |
 
 
 ## Dependencies

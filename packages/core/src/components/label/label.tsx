@@ -18,14 +18,14 @@ const resizeObserver = new ResizeObserver(
   debounce((entries) => {
     entries.forEach(({ target }) => {
       if (isDsoLabelComponent(target)) {
-        target.truncateLabel();
+        target._truncateLabel();
       }
     });
   }, 150)
 );
 
-function isDsoLabelComponent(element: Element | HTMLDsoLabelElement): element is HTMLDsoLabelElement {
-  return (element as HTMLDsoLabelElement).truncateLabel !== undefined;
+function isDsoLabelComponent(element: Element): element is HTMLDsoLabelElement {
+  return element.tagName === "DSO-LABEL";
 }
 
 function hasEllipses(el: HTMLElement): boolean {
@@ -45,14 +45,17 @@ export class Label implements ComponentInterface {
   private mutationObserver?: MutationObserver;
 
   @Element()
-  private host!: HTMLElement;
+  private host!: HTMLDsoLabelElement;
 
+  /** For compact Label */
   @Prop()
   compact?: boolean;
 
+  /** Shows a button that can be used to remove the Label. */
   @Prop()
   removable?: boolean;
 
+  /** The status of this Label. */
   @Prop()
   status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
 
@@ -62,6 +65,7 @@ export class Label implements ComponentInterface {
   @State()
   removeFocus?: boolean;
 
+  /** Whether the Label is allowed to truncate the contents if it does not fit the container element. */
   @Prop()
   truncate?: boolean;
 
@@ -77,6 +81,7 @@ export class Label implements ComponentInterface {
   @State()
   labelText: string | null = null;
 
+  /** Emitted when the user activates the remove button. */
   @Event()
   dsoRemoveClick!: EventEmitter<MouseEvent>;
 
@@ -103,16 +108,17 @@ export class Label implements ComponentInterface {
     }
   }
 
+  /**
+   * Internal method. Do not use.
+   */
   @Method()
-  async truncateLabel() {
+  async _truncateLabel() {
     setTimeout(() => {
       this.isTruncated = this.labelContent && hasEllipses(this.labelContent);
     });
   }
 
-  /** **[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this. */
-  @Method()
-  async syncLabelText() {
+  private syncLabelText() {
     this.labelText = this.host.textContent;
   }
 
@@ -131,7 +137,7 @@ export class Label implements ComponentInterface {
   }
 
   /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
-  startMutationObserver(): void {
+  private startMutationObserver(): void {
     if (this.mutationObserver) {
       return;
     }
@@ -147,13 +153,13 @@ export class Label implements ComponentInterface {
     this.labelText = this.host.textContent;
   }
 
-  startTruncate(): void {
+  private startTruncate(): void {
     resizeObserver.observe(this.host);
     this.startMutationObserver();
-    this.truncateLabel();
+    this._truncateLabel();
   }
 
-  stopTruncate(): void {
+  private stopTruncate(): void {
     document.removeEventListener("keydown", this.keyDownListener);
 
     resizeObserver.unobserve(this.host);
@@ -161,7 +167,7 @@ export class Label implements ComponentInterface {
     this.keydownListenerActive = false;
   }
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       this.textHover = false;
       this.textFocus = false;

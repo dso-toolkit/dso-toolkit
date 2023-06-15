@@ -78,7 +78,7 @@ export class TreeView implements ComponentInterface {
     return true;
   }
 
-  keyDownListener = (event: KeyboardEvent) => {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
       return;
     }
@@ -129,6 +129,7 @@ export class TreeView implements ComponentInterface {
     event.preventDefault();
   };
 
+  // eslint-disable-next-line @stencil-community/own-props-must-be-private -- Omdat this als TreeView instance aan Functionele Components wordt gegeven
   itemClick = (event: MouseEvent, ancestors: TreeViewItem[], item: TreeViewItem) => {
     if (!(event.target instanceof HTMLElement)) {
       return;
@@ -139,7 +140,7 @@ export class TreeView implements ComponentInterface {
     if (contentElement) {
       const tree = event
         .composedPath()
-        .find((item) => (item instanceof HTMLElement ? item.className === "dso-tree" : false));
+        .find((eventTarget) => (eventTarget instanceof HTMLElement ? eventTarget.className === "dso-tree" : false));
       if (!(contentElement instanceof HTMLParagraphElement) || !(tree instanceof HTMLElement)) {
         return;
       }

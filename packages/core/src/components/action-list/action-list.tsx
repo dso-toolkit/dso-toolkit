@@ -6,6 +6,9 @@ import { h, Component, Host, ComponentInterface, Prop } from "@stencil/core";
   shadow: true,
 })
 export class ActionList implements ComponentInterface {
+  /**
+   * The title.
+   */
   @Prop()
   listTitle!: string;
 

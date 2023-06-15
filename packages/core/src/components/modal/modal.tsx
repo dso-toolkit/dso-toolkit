@@ -17,7 +17,7 @@ export class Modal implements ComponentInterface {
   private modalElement?: HTMLDivElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoModalElement;
 
   @State()
   ariaId = v4();
@@ -25,6 +25,9 @@ export class Modal implements ComponentInterface {
   @State()
   hasFooter?: boolean;
 
+  /**
+   * The title of the Modal.
+   */
   @Prop()
   modalTitle?: string;
 
@@ -46,6 +49,9 @@ export class Modal implements ComponentInterface {
   @Prop()
   returnFocus?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
 
+  /**
+   * Emitted when the user wants to close the Modal.
+   */
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 

@@ -22,9 +22,15 @@ export class HelpcenterPanel {
 
   private iframeLoaded = false;
 
+  /**
+   * The label on the help button that activates the Helpcenter.
+   */
   @Prop()
-  label?: string = "Hulp nodig";
+  label = "Hulp nodig";
 
+  /**
+   * The URL that's loaded when the Helpcenter opens.
+   */
   @Prop()
   url!: string;
 
@@ -69,7 +75,7 @@ export class HelpcenterPanel {
     }
   }
 
-  createTrap() {
+  private createTrap() {
     if (!this.panelWrapperElement) {
       return;
     }
@@ -84,7 +90,7 @@ export class HelpcenterPanel {
     }).activate();
   }
 
-  openClick = () => {
+  private openClick = () => {
     this.visibility = "visible";
     this.slideState = "open";
     setTimeout(() => {
@@ -97,7 +103,7 @@ export class HelpcenterPanel {
     }
   };
 
-  closeClick = () => {
+  private closeClick = () => {
     this.isOpen = "close";
     this.slideState = "close";
     setTimeout(() => {

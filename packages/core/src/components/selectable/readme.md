@@ -7,34 +7,36 @@
 
 ## Properties
 
-| Property             | Attribute         | Description | Type                    | Default     |
-| -------------------- | ----------------- | ----------- | ----------------------- | ----------- |
-| `checked`            | `checked`         |             | `boolean \| undefined`  | `undefined` |
-| `describedById`      | `described-by-id` |             | `string \| undefined`   | `undefined` |
-| `disabled`           | `disabled`        |             | `boolean \| undefined`  | `undefined` |
-| `identifier`         | `identifier`      |             | `string \| undefined`   | `undefined` |
-| `indeterminate`      | `indeterminate`   |             | `boolean \| undefined`  | `undefined` |
-| `infoFixed`          | `info-fixed`      |             | `boolean \| undefined`  | `undefined` |
-| `invalid`            | `invalid`         |             | `boolean \| undefined`  | `undefined` |
-| `labelledById`       | `labelled-by-id`  |             | `string \| undefined`   | `undefined` |
-| `name`               | `name`            |             | `string \| undefined`   | `undefined` |
-| `required`           | `required`        |             | `boolean \| undefined`  | `undefined` |
-| `type` _(required)_  | `type`            |             | `"checkbox" \| "radio"` | `undefined` |
-| `value` _(required)_ | `value`           |             | `string`                | `undefined` |
+| Property             | Attribute         | Description                                                                                                                                                                       | Type                    | Default     |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
+| `checked`            | `checked`         | Mark the Selectable as checked                                                                                                                                                    | `boolean \| undefined`  | `undefined` |
+| `describedById`      | `described-by-id` | To link this control to an element that describes it.                                                                                                                             | `string \| undefined`   | `undefined` |
+| `disabled`           | `disabled`        | To disable the Selectable.                                                                                                                                                        | `boolean \| undefined`  | `undefined` |
+| `identifier`         | `identifier`      | To set `<input id>` attribute for external references.                                                                                                                            | `string \| undefined`   | `undefined` |
+| `indeterminate`      | `indeterminate`   | An indeterminate state is neither true or false. It means the answer is somewhere in between.  Can be used to indicate child Selectables that are a mix of checked and unchecked. | `boolean \| undefined`  | `undefined` |
+| `infoFixed`          | `info-fixed`      | Set to true if the Info should not be toggled and always visible.                                                                                                                 | `boolean \| undefined`  | `undefined` |
+| `invalid`            | `invalid`         | Set to true of the current value is not valid.                                                                                                                                    | `boolean \| undefined`  | `undefined` |
+| `labelledById`       | `labelled-by-id`  | To link this control to an element that labels it.                                                                                                                                | `string \| undefined`   | `undefined` |
+| `name`               | `name`            | Name of the Selectable. Can be used to group Selectables.                                                                                                                         | `string \| undefined`   | `undefined` |
+| `required`           | `required`        | To mark the Selectable as required.                                                                                                                                               | `boolean \| undefined`  | `undefined` |
+| `type` _(required)_  | `type`            | Type of Selectable.  `checkbox`: Multiple options `radio`: Single option.                                                                                                         | `"checkbox" \| "radio"` | `undefined` |
+| `value` _(required)_ | `value`           | The value of the Selectable.                                                                                                                                                      | `string`                | `undefined` |
 
 
 ## Events
 
-| Event       | Description | Type                                 |
-| ----------- | ----------- | ------------------------------------ |
-| `dsoChange` |             | `CustomEvent<SelectableChangeEvent>` |
+| Event       | Description                                              | Type                                 |
+| ----------- | -------------------------------------------------------- | ------------------------------------ |
+| `dsoChange` | Emitted when the user checks or unchecks the Selectable. | `CustomEvent<SelectableChangeEvent>` |
 
 
 ## Methods
 
 ### `toggleInfo(active?: boolean) => Promise<void>`
 
+Method to toggle the Info. Is set to `active` when passed.
 
+If `active` is not passed, Info is toggled to opposite value.
 
 #### Returns
 

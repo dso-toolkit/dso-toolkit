@@ -30,8 +30,11 @@ export class Accordion implements ComponentInterface, AccordionInterface {
   private accordionState: AccordionInternalState;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoAccordionElement;
 
+  /**
+   * The variant of the Accordion.
+   */
   @Prop({ reflect: true })
   variant?: AccordionVariant = "default";
 
@@ -83,8 +86,11 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     }
   }
 
+  /**
+   * Internal method. Do not use.
+   */
   @Method()
-  async getState(): Promise<AccordionInternalState> {
+  async _getState(): Promise<AccordionInternalState> {
     return this.accordionState;
   }
 
@@ -130,6 +136,9 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     return true;
   }
 
+  /**
+   * Emitted when the animation of opening or closing ends.
+   */
   @Method()
   async animationEnd(sectionElement: HTMLElement): Promise<void> {
     this.dsoToggleSectionAnimationEnd.emit({

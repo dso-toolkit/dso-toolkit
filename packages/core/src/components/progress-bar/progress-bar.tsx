@@ -6,12 +6,21 @@ import { Component, h, Prop } from "@stencil/core";
   shadow: true,
 })
 export class ProgressBar {
+  /**
+   * The current progress. Should be between `min` and `max`.
+   */
   @Prop()
   progress!: number;
 
+  /**
+   * From where progress is made.
+   */
   @Prop()
   min = 0;
 
+  /**
+   * When the operation completes.
+   */
   @Prop()
   max = 100;
 

@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property             | Attribute | Description | Type     | Default     |
-| -------------------- | --------- | ----------- | -------- | ----------- |
-| `count` _(required)_ | `count`   |             | `number` | `undefined` |
+| Property             | Attribute | Description                | Type     | Default     |
+| -------------------- | --------- | -------------------------- | -------- | ----------- |
+| `count` _(required)_ | `count`   | The number of attachments. | `number` | `undefined` |
 
 
 ## Dependencies

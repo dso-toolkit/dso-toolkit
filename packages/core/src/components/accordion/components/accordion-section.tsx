@@ -37,11 +37,17 @@ export class AccordionSection implements ComponentInterface {
   private expandable?: HTMLDsoExpandableElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoAccordionSectionElement;
 
+  /**
+   * The title of the handle
+   */
   @Prop()
   handleTitle?: string;
 
+  /**
+   * Which heading element to use.
+   */
   @Prop()
   heading: AccordionHeading = "h2";
 
@@ -57,13 +63,22 @@ export class AccordionSection implements ComponentInterface {
   @Prop()
   attachmentCount?: number;
 
+  /**
+   * To set an icon in the heading handle.
+   */
   @Prop()
   icon?: string;
 
+  /**
+   * The status of the section.
+   */
   @Prop()
   status?: string;
 
-  @Prop({ reflect: true, mutable: true })
+  /**
+   * To open the Accordion Section.
+   */
+  @Prop({ reflect: true })
   open = false;
 
   @State()
@@ -77,9 +92,10 @@ export class AccordionSection implements ComponentInterface {
 
     this.hasNestedSection = this.host.querySelector("dso-accordion") !== null;
 
-    if (isAccordion(accordion)) {
+    if (accordion && isAccordion(accordion)) {
       this.accordion = accordion;
-      accordion.getState().then((state) => {
+
+      accordion._getState().then((state) => {
         this.accordionState = state;
         forceUpdate(this.host);
       });
@@ -119,7 +135,7 @@ export class AccordionSection implements ComponentInterface {
     }
 
     const waitForAnimationBeforeScrolling = async (state: AccordionInternalState) => {
-      this.bodyHeight = await this.expandable?.getBodyHeight();
+      this.bodyHeight = await this.expandable?._getBodyHeight();
 
       const sectionBottomOffsetTop =
         this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
@@ -163,7 +179,7 @@ export class AccordionSection implements ComponentInterface {
 
     if (isExpandable(expandableElement)) {
       this.expandable = expandableElement;
-      this.expandable.getAnimeInstance().then((animeInstance) => {
+      this.expandable._getAnimeInstance().then((animeInstance) => {
         if (animeInstance) {
           animeInstance.changeComplete = async () => {
             if (!section) {
@@ -172,7 +188,7 @@ export class AccordionSection implements ComponentInterface {
 
             const accordion = section.parentElement;
 
-            if (isAccordion(accordion)) {
+            if (accordion && isAccordion(accordion)) {
               accordion?.animationEnd(section);
             }
 
@@ -256,9 +272,9 @@ export class AccordionSection implements ComponentInterface {
         <dso-expandable
           class="dso-section-body"
           open={this.open}
-          enableAnimation={true}
+          enableAnimation
           minimumHeight={this.isNeutral ? 0 : 4}
-          onAnimationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
+          on_animationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
         >
           <div
             slot="expandable-content"
@@ -273,6 +289,6 @@ export class AccordionSection implements ComponentInterface {
   }
 }
 
-function isAccordion(element: HTMLElement | AccordionInterface | null): element is AccordionInterface {
-  return element instanceof HTMLElement && "getState" in element;
+function isAccordion(element: Element): element is HTMLDsoAccordionElement {
+  return element.tagName === "DSO-ACCORDION";
 }

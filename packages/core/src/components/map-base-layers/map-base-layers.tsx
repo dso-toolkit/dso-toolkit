@@ -9,19 +9,28 @@ import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
   shadow: true,
 })
 export class MapBaseLayers implements ComponentInterface {
-  previousBaselayers: BaseLayer[] | undefined;
-  selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+  private previousBaselayers: BaseLayer[] | undefined;
+  private selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
 
+  /**
+   * Emitted when the user checks or unchecks a base layer.
+   */
   @Event()
   dsoBaseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
 
+  /**
+   * To group the overlays together. Generally the default value suffices.
+   */
   @Prop()
   group = uuidv4();
 
+  /**
+   * The base layers.
+   */
   @Prop()
   baseLayers!: BaseLayer[];
 
-  baseLayerChangeHandler(baseLayer: BaseLayer): void {
+  private baseLayerChangeHandler(baseLayer: BaseLayer): void {
     this.dsoBaseLayerChange.emit({ activeBaseLayer: baseLayer });
   }
 

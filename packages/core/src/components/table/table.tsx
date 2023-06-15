@@ -22,7 +22,7 @@ export class Table implements ComponentInterface, TableInterface {
   private labelledbyId = v4();
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoTableElement;
 
   /** Prevents the table being opened in a modal. */
   @Prop({ reflect: true })
@@ -38,7 +38,7 @@ export class Table implements ComponentInterface, TableInterface {
   @State()
   placeholderHeight?: number;
 
-  startResponsiveBehavior(): void {
+  private startResponsiveBehavior(): void {
     this.resizeObserver?.observe(this.host);
   }
 

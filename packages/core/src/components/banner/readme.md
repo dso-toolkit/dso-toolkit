@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property              | Attribute | Description | Type                               | Default     |
-| --------------------- | --------- | ----------- | ---------------------------------- | ----------- |
-| `status` _(required)_ | `status`  |             | `"danger" \| "error" \| "warning"` | `undefined` |
+| Property              | Attribute | Description               | Type                               | Default     |
+| --------------------- | --------- | ------------------------- | ---------------------------------- | ----------- |
+| `status` _(required)_ | `status`  | The status of the banner. | `"danger" \| "error" \| "warning"` | `undefined` |
 
 
 ----------------------------------------------

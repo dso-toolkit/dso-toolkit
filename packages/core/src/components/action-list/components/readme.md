@@ -11,9 +11,9 @@
 | ------------------- | ------------ | ----------------------------------------------- | --------------------- | ----------- |
 | `divider`           | `divider`    | Places a dashed line at the bottom of the item. | `boolean`             | `false`     |
 | `flowLine`          | `flow-line`  | Show flow line to next step                     | `boolean`             | `false`     |
-| `itemTitle`         | `item-title` |                                                 | `string \| undefined` | `undefined` |
-| `step` _(required)_ | `step`       |                                                 | `number`              | `undefined` |
-| `warning`           | `warning`    |                                                 | `boolean`             | `false`     |
+| `itemTitle`         | `item-title` | The title of the item.                          | `string \| undefined` | `undefined` |
+| `step` _(required)_ | `step`       | The step of the Action List Item.               | `number`              | `undefined` |
+| `warning`           | `warning`    | When there is a warning.                        | `boolean`             | `false`     |
 
 
 ## Dependencies

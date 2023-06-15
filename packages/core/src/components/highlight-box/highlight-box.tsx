@@ -7,23 +7,38 @@ import clsx from "clsx";
   shadow: true,
 })
 export class HighlightBox {
+  /**
+   * For yellow Highlight Box.
+   */
   @Prop()
   yellow?: boolean;
 
+  /**
+   * For a bordered Highlight Box.
+   */
   @Prop()
   border?: boolean;
 
+  /**
+   * For a while Highlight Box.
+   */
   @Prop()
   white?: boolean;
 
+  /**
+   * For an Highlight Box with a drop shadow.
+   */
   @Prop()
   dropShadow?: boolean;
 
+  /**
+   * To create a step indicator.
+   */
   @Prop()
   step?: number;
 
   @Element()
-  private element!: HTMLElement;
+  private element!: HTMLDsoHighlightBoxElement;
 
   render() {
     const hasCounter = this.step || !!this.element.querySelector("[slot=icon]");

@@ -29,15 +29,21 @@ export class ResponsiveElement implements ComponentInterface {
   @State()
   sizeWidth = 0;
 
+  /**
+   *
+   */
   @Event()
   dsoSizeChange!: EventEmitter<ResponsiveElementSize>;
 
+  /**
+   * @returns The current size
+   */
   @Method()
   async getSize(): Promise<ResponsiveElementSize> {
     return this.sizeAlias;
   }
 
-  observer = new ResizeObserver(([entry]) => {
+  private observer = new ResizeObserver(([entry]) => {
     if (!entry) {
       throw new Error("No entry found");
     }
@@ -49,7 +55,7 @@ export class ResponsiveElement implements ComponentInterface {
   });
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoResponsiveElementElement;
 
   componentWillLoad() {
     this.observer.observe(this.host);

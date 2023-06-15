@@ -204,6 +204,7 @@ const icons = [
   shadow: true,
 })
 export class Icon {
+  /** The alias of the icon. */
   @Prop()
   icon?: string;
 

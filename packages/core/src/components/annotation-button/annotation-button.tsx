@@ -8,10 +8,13 @@ import { AnnotationService } from "../../services/annotation.service";
   shadow: false,
 })
 export class AnnotationButton implements ComponentInterface {
+  /**
+   * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
+   */
   @Prop()
   identifier!: string;
 
-  annotationOutput!: HTMLDsoAnnotationOutputElement | null;
+  private annotationOutput!: HTMLDsoAnnotationOutputElement | null;
 
   componentDidLoad() {
     this.annotationOutput = document.querySelector(`dso-annotation-output[identifier='${this.identifier}']`);
@@ -24,7 +27,7 @@ export class AnnotationButton implements ComponentInterface {
         class="dso-tertiary"
         aria-controls={this.identifier}
         aria-expanded={AnnotationService.state[this.identifier] ? "true" : "false"}
-        onClick={(e) => this.annotationOutput?.toggleAnnotation(e, this.identifier)}
+        onClick={(e) => this.annotationOutput?._toggleAnnotation(e, this.identifier)}
       >
         <dso-icon icon="label"></dso-icon>
         <span class="sr-only">Toelichting bekijken</span>

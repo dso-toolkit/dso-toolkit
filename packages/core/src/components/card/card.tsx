@@ -13,14 +13,23 @@ import { DsoCardClickedEvent, ImageShape } from "./card.interfaces";
 })
 export class Card implements ComponentInterface {
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoCardElement;
 
+  /**
+   * Do not use, this is set programmatically by the component.
+   */
   @Prop({ reflect: true })
   isSelectable = false;
 
+  /**
+   * Do not use, this is set programmatically by the component.
+   */
   @Prop({ reflect: true })
   hasImage = false;
 
+  /**
+   * Whether or not the Card is clickable.
+   */
   @Prop()
   clickable = true;
 
@@ -32,6 +41,9 @@ export class Card implements ComponentInterface {
   @Prop({ reflect: true })
   imageShape: ImageShape = "normal";
 
+  /**
+   * Emitted when the Card is clickable and the user clicked the Card.
+   */
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
 
