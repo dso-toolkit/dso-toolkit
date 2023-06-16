@@ -1,19 +1,23 @@
-import { controlOpenAttribute, isSectionOpen } from "./accordion.functions";
-import { AccordionGroupConfig, AccordionGroupState, isAccordion } from "./accordion.interfaces";
+import { controlOpenAttribute } from "./accordion.functions";
+import { AccordionGroupConfig, AccordionGroupState } from "./accordion.interfaces";
 
 import { createStore } from "@stencil/store";
 
 export class AccordionGroup {
-  private state;
+  store = createStore<AccordionGroupState>({
+    allowMultipleOpen: false,
+  });
 
   private accordions: HTMLElement[] = [];
 
-  constructor(config: AccordionGroupConfig) {
-    const { state } = createStore<AccordionGroupState>({
-      allowMultipleOpen: config.allowMultipleOpen || false,
-    });
-
-    this.state = state;
+  sections() {
+    return this.accordions.reduce<HTMLElement[]>(
+      (current, accordion) => [
+        ...current,
+        ...Array.from(accordion.querySelectorAll<HTMLElement>(":scope > dso-accordion-section")),
+      ],
+      []
+    );
   }
 
   register(accordion: HTMLElement) {
@@ -21,30 +25,30 @@ export class AccordionGroup {
   }
 
   unregister(accordion: HTMLElement) {
-    this.accordions = this.accordions.filter((a) => a !== accordion);
-  }
+    const index = this.accordions.indexOf(accordion);
 
-  getState() {
-    return this.state;
+    if (index > -1) {
+      this.accordions.splice(index, 1);
+    }
   }
 
   setConfig(groupConfig: AccordionGroupConfig) {
-    this.state = {
-      ...this.state,
+    this.store.state = {
+      ...this.store.state,
       ...groupConfig,
     };
   }
 
   updateAllowMultipleOpen(allowMultipleOpen: boolean) {
-    this.state.allowMultipleOpen = allowMultipleOpen;
+    this.store.state.allowMultipleOpen = allowMultipleOpen;
 
     if (!allowMultipleOpen) {
-      const openSections = this.accordions.reduce(
+      const openSections = this.accordions.reduce<HTMLElement[]>(
         (current, accordion) => [
           ...current,
           ...Array.from(accordion.querySelectorAll<HTMLElement>(":scope > dso-accordion-section[open]")),
         ],
-        [] as HTMLElement[]
+        []
       );
 
       // By removing the first section, it is kept open;
@@ -53,93 +57,22 @@ export class AccordionGroup {
       openSections.forEach((section) => controlOpenAttribute(section, false));
     }
   }
-
-  async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) {
-    const sections = this.accordions.reduce(
-      (current, accordion) => [
-        ...current,
-        ...Array.from(accordion.querySelectorAll<HTMLElement>(":scope > dso-accordion-section")),
-      ],
-      [] as HTMLElement[]
-    );
-
-    if (typeof sectionElement === "number") {
-      const section = sections[sectionElement];
-
-      if (section instanceof HTMLElement) {
-        sectionElement = section;
-      }
-    }
-
-    if (!(sectionElement instanceof HTMLElement) || !sections.includes(sectionElement)) {
-      return;
-    }
-
-    const sectionIsOpen = isSectionOpen(sectionElement);
-
-    if (this.state.allowMultipleOpen) {
-      controlOpenAttribute(sectionElement, !sectionIsOpen);
-
-      const accordion = sectionElement.closest("dso-accordion");
-
-      if (isAccordion(accordion)) {
-        accordion.emitToggleEvent(sectionElement, sections, event);
-      }
-
-      return !sectionIsOpen;
-    }
-
-    if (sectionIsOpen) {
-      controlOpenAttribute(sectionElement, false);
-
-      const accordion = sectionElement.closest("dso-accordion");
-
-      if (isAccordion(accordion)) {
-        accordion.emitToggleEvent(sectionElement, sections, event);
-      }
-
-      return false;
-    }
-
-    await this.closeOpenSections();
-
-    controlOpenAttribute(sectionElement, true);
-
-    const accordion = sectionElement.closest("dso-accordion");
-
-    if (isAccordion(accordion)) {
-      accordion.emitToggleEvent(sectionElement, sections, event);
-    }
-
-    return true;
-  }
-
-  async closeOpenSections(): Promise<void> {
-    const sections = this.accordions.reduce(
-      (current, accordion) => [
-        ...current,
-        ...Array.from(accordion.querySelectorAll<HTMLElement>(":scope > dso-accordion-section")),
-      ],
-      [] as HTMLElement[]
-    );
-
-    const openSections = sections.filter((s) => isSectionOpen(s));
-    openSections.forEach((section) => controlOpenAttribute(section, false));
-  }
 }
 
 class AccordionGroups {
   private accordionGroups: Array<{ name: string; group: AccordionGroup }> = [];
 
-  get(groupName: string, config: AccordionGroupConfig): AccordionGroup {
+  // get(groupName: string, config: AccordionGroupConfig): AccordionGroup {
+  get(groupName: string): AccordionGroup {
     let accordionGroup = this.accordionGroups.find((group) => group.name === groupName)?.group;
 
     if (accordionGroup) {
-      accordionGroup.setConfig(config);
+      // accordionGroup.setConfig(config);
       return accordionGroup;
     }
 
-    accordionGroup = new AccordionGroup(config);
+    // accordionGroup = new AccordionGroup(config);
+    accordionGroup = new AccordionGroup();
 
     this.accordionGroups.push({ name: groupName, group: accordionGroup });
 

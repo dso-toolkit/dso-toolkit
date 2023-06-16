@@ -106,8 +106,8 @@ export class AccordionSection implements ComponentInterface {
         if (!state) {
           return;
         }
-   
-     	this.accordionState = state;
+
+      this.accordionState = state;
         forceUpdate(this.host);
       });
     }

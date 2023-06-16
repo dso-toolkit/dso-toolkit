@@ -425,7 +425,7 @@ describe("Accordion", () => {
       .shadow()
       .find(".dso-section-handle")
       .realClick()
-      .wait(animationTime)
+      .wait(260)
       .get("@dsoAccordion2Section")
       .invoke("prop", "open")
       .should("eq", true)
