@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Modal: visuele aanpassingen spacing en responsiveness. ([#2092](https://github.com/dso-toolkit/dso-toolkit/pull/2172))
+
 ## 54.3.0
 
 ### Added
