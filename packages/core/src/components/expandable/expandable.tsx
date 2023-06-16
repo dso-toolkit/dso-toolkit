@@ -15,8 +15,6 @@ import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
 
-import { ExpandableToggleEvent } from "./expandable.interfaces";
-
 @Component({
   tag: "dso-expandable",
   styleUrl: "expandable.scss",
@@ -30,26 +28,34 @@ export class Expandable implements ComponentInterface {
   private animeInstance?: AnimeInstance;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoExpandableElement;
 
+  /**
+   * Set to `true` to expand the content.
+   */
   @Prop({ reflect: true })
   open?: boolean;
 
+  /**
+   * Set to `true` to show the content animated.
+   */
   @Prop()
   enableAnimation = false;
 
-  /** When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to */
+  /**
+   * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
+   */
   @Prop()
   minimumHeight?: number;
 
   @State()
   animationReady = false;
 
-  @Event({ bubbles: false })
-  dsoToggle!: EventEmitter<ExpandableToggleEvent>;
-
+  /**
+   * @internal
+   */
   @Event()
-  animationInstantiated!: EventEmitter<void>;
+  _animationInstantiated!: EventEmitter<void>;
 
   @Watch("open")
   toggleOpen() {
@@ -70,13 +76,19 @@ export class Expandable implements ComponentInterface {
     }
   }
 
+  /**
+   * @internal
+   */
   @Method()
-  async getAnimeInstance(): Promise<AnimeInstance | undefined> {
+  async _getAnimeInstance(): Promise<AnimeInstance | undefined> {
     return this.animeInstance;
   }
 
+  /**
+   * @internal
+   */
   @Method()
-  async getBodyHeight(): Promise<number | undefined> {
+  async _getBodyHeight(): Promise<number | undefined> {
     return this.bodyHeight;
   }
 
@@ -90,7 +102,7 @@ export class Expandable implements ComponentInterface {
     this.activateObserver();
   }
 
-  activateObserver() {
+  private activateObserver() {
     const bodyContentElement = this.host.querySelector(`[slot="expandable-content"]`);
 
     if (bodyContentElement) {
@@ -175,7 +187,7 @@ export class Expandable implements ComponentInterface {
     }
 
     this.animationReady = !!this.animeInstance;
-    this.animationInstantiated.emit();
+    this._animationInstantiated.emit();
   }
 
   private activateAnimation(): void {

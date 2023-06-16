@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                     | Default         |
-| ----------- | ----------- | ----------- | ---------------------------------------- | --------------- |
-| `label`     | `label`     |             | `string`                                 | `"Toelichting"` |
-| `position`  | `position`  |             | `"bottom" \| "left" \| "right" \| "top"` | `"right"`       |
-| `secondary` | `secondary` |             | `boolean \| undefined`                   | `undefined`     |
-| `small`     | `small`     |             | `boolean \| undefined`                   | `undefined`     |
+| Property    | Attribute   | Description                          | Type                                     | Default         |
+| ----------- | ----------- | ------------------------------------ | ---------------------------------------- | --------------- |
+| `label`     | `label`     | Toggletip label.                     | `string`                                 | `"Toelichting"` |
+| `position`  | `position`  | Toggletip position.                  | `"bottom" \| "left" \| "right" \| "top"` | `"right"`       |
+| `secondary` | `secondary` | Set to true for secondary Toggletip. | `boolean \| undefined`                   | `undefined`     |
+| `small`     | `small`     | Set to true for small Toggletip.     | `boolean \| undefined`                   | `undefined`     |
 
 
 ## Dependencies

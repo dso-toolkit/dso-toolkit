@@ -8,13 +8,13 @@
 | Property          | Attribute          | Description                                                                           | Type                                                                   | Default     |
 | ----------------- | ------------------ | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
 | `attachmentCount` | `attachment-count` | `attachmentCount` takes precedence over `icon`                                        | `number \| undefined`                                                  | `undefined` |
-| `handleTitle`     | `handle-title`     |                                                                                       | `string \| undefined`                                                  | `undefined` |
+| `handleTitle`     | `handle-title`     | The title of the handle                                                               | `string \| undefined`                                                  | `undefined` |
 | `handleUrl`       | `handle-url`       | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                                  | `undefined` |
-| `heading`         | `heading`          |                                                                                       | `"h2" \| "h3" \| "h4" \| "h5"`                                         | `"h2"`      |
-| `icon`            | `icon`             |                                                                                       | `string \| undefined`                                                  | `undefined` |
-| `open`            | `open`             |                                                                                       | `boolean`                                                              | `false`     |
+| `heading`         | `heading`          | Which heading element to use.                                                         | `"h2" \| "h3" \| "h4" \| "h5"`                                         | `"h2"`      |
+| `icon`            | `icon`             | To set an icon in the heading handle.                                                 | `string \| undefined`                                                  | `undefined` |
+| `open`            | `open`             | To open the Accordion Section.                                                        | `boolean`                                                              | `false`     |
 | `state`           | `state`            | `state` takes precedence over `attachmentCount` and `icon`                            | `"danger" \| "error" \| "info" \| "success" \| "warning" \| undefined` | `undefined` |
-| `status`          | `status`           |                                                                                       | `string \| undefined`                                                  | `undefined` |
+| `status`          | `status`           | The status of the section.                                                            | `string \| undefined`                                                  | `undefined` |
 
 
 ## Methods

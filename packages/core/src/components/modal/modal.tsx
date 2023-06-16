@@ -17,7 +17,7 @@ export class Modal implements ComponentInterface {
   private modalElement?: HTMLDivElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoModalElement;
 
   @State()
   ariaId = v4();
@@ -25,18 +25,27 @@ export class Modal implements ComponentInterface {
   @State()
   hasFooter?: boolean;
 
+  /**
+   * The title of the Modal.
+   */
   @Prop()
   modalTitle?: string;
 
-  /** the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog` */
+  /**
+   * the role for the modal `dialog` | `alert` | `alertdialog`.
+   */
   @Prop()
   role: string | null = "dialog";
 
-  /** when `false` the close button in the header will not be rendered. Defaults to `true` */
+  /**
+   * when `false` the close button in the header will not be rendered. Defaults to `true`.
+   */
   @Prop()
   showCloseButton = true;
 
-  /** Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.*/
+  /**
+   * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
+   */
   @Prop()
   initialFocus?: string;
 
@@ -46,6 +55,9 @@ export class Modal implements ComponentInterface {
   @Prop()
   returnFocus?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
 
+  /**
+   * Emitted when the user wants to close the Modal.
+   */
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 

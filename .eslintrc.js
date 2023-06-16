@@ -12,6 +12,33 @@ module.exports = {
         "@typescript-eslint/no-var-requires": ["off"],
       },
     },
+    {
+      files: ["packages/core/src/**/*{.ts,.tsx}"],
+      parserOptions: {
+        project: "./packages/core/tsconfig.json",
+      },
+      extends: ["@infoprojects/eslint-config", "plugin:@stencil-community/strict", "prettier"],
+      rules: {
+        // @stencil-community overrides
+        "func-style": [2, "declaration", { allowArrowFunctions: true }],
+        "no-shadow": 0,
+        "react/jsx-no-bind": 0,
+        "@typescript-eslint/no-shadow": 2,
+        "@stencil-community/strict-boolean-conditions": 0,
+        "@stencil-community/decorators-style": [
+          "error",
+          {
+            prop: "multiline",
+            state: "multiline",
+            element: "multiline",
+            event: "multiline",
+            method: "multiline",
+            watch: "multiline",
+            listen: "multiline",
+          },
+        ],
+      },
+    },
   ],
   plugins: ["@typescript-eslint", "only-warn", "lit"],
   extends: ["@infoprojects/eslint-config", "prettier"],

@@ -13,22 +13,9 @@
 
 ## Events
 
-| Event       | Description | Type                                 |
-| ----------- | ----------- | ------------------------------------ |
-| `dsoToggle` |             | `CustomEvent<AnnotationToggleEvent>` |
-
-
-## Methods
-
-### `toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
+| Event       | Description                                                          | Type                                 |
+| ----------- | -------------------------------------------------------------------- | ------------------------------------ |
+| `dsoToggle` | This event is emitted when the user activates the Annotation Button. | `CustomEvent<AnnotationToggleEvent>` |
 
 
 ## Dependencies

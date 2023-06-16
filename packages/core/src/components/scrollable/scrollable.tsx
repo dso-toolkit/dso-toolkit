@@ -26,7 +26,7 @@ function getScrollableComponentFromResizeObserverEntry({
 }
 
 function isDsoScrollableComponent(element: Element): element is HTMLDsoScrollableElement {
-  return element.tagName === "DSO-SCROLLABLE" && "_setScrollState" in element;
+  return element.tagName === "DSO-SCROLLABLE";
 }
 
 @Component({
@@ -47,10 +47,10 @@ export class Scrollable {
     })
   );
 
-  scrollContainerDiv?: HTMLDivElement;
+  private scrollContainerDiv?: HTMLDivElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoScrollableElement;
 
   /**
    * Event emitted when the scrollbar has reached top or bottom.
@@ -62,7 +62,7 @@ export class Scrollable {
   scrollPosition: ScrollPosition = "noScroll";
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _setScrollState() {

@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                      | Type      | Default |
-| -------------- | --------------- | ---------------------------------------------------------------- | --------- | ------- |
-| `isResponsive` | `is-responsive` | Indicates whether the table is currently horizontally scrollable | `boolean` | `false` |
-| `noModal`      | `no-modal`      | Prevents the table being opened in a modal.                      | `boolean` | `false` |
+| Property       | Attribute       | Description                                                       | Type      | Default |
+| -------------- | --------------- | ----------------------------------------------------------------- | --------- | ------- |
+| `isResponsive` | `is-responsive` | Indicates whether the table is currently horizontally scrollable. | `boolean` | `false` |
+| `noModal`      | `no-modal`      | Prevents the table being opened in a modal.                       | `boolean` | `false` |
 
 
 ## Dependencies

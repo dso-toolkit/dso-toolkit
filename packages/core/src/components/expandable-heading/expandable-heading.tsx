@@ -11,24 +11,41 @@ import { Heading } from "./heading";
   shadow: true,
 })
 export class ExpandableHeading {
+  /**
+   * To open the Expandable Heading.
+   */
   @Prop()
   open?: boolean;
 
+  /**
+   * Which heading element to use.
+   */
   @Prop()
   heading: HeadingTags = "h2";
 
+  /**
+   * The color.
+   */
   @Prop()
   color: "default" | "black" = "default";
 
+  /**
+   * Whether this Expandable Heading has an edit action.
+   *
+   * Also known as "wijzigactie" in STOP.
+   */
   @Prop()
   editAction?: EditAction;
 
+  /**
+   * Emitted when the user activates the toggle button.
+   */
   @Event({ bubbles: false })
   dsoToggle!: EventEmitter<ExpandableHeadingToggleEvent>;
 
-  identifier = uuidv4();
+  private identifier = uuidv4();
 
-  toggle(e: MouseEvent | KeyboardEvent) {
+  private toggle(e: MouseEvent | KeyboardEvent) {
     this.open = !this.open;
 
     this.dsoToggle.emit({ originalEvent: e, open: this.open });

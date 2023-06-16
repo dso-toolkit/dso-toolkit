@@ -9,7 +9,7 @@
 
 | Property                 | Attribute    | Description | Type     | Default     |
 | ------------------------ | ------------ | ----------- | -------- | ----------- |
-| `listTitle` _(required)_ | `list-title` |             | `string` | `undefined` |
+| `listTitle` _(required)_ | `list-title` | The title.  | `string` | `undefined` |
 
 
 ----------------------------------------------

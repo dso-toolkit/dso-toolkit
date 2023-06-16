@@ -74,7 +74,7 @@ export class Autosuggest {
   dsoSearch!: EventEmitter<string>;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoAutosuggestElement;
 
   @State()
   showSuggestions = false;
@@ -99,30 +99,30 @@ export class Autosuggest {
     }
   }
 
-  input?: HTMLInputElement;
+  private input?: HTMLInputElement;
 
-  listbox: HTMLUListElement | undefined;
+  private listbox: HTMLUListElement | undefined;
 
-  listboxId: string = v4();
+  private listboxId: string = v4();
 
-  inputId: string = v4();
+  private inputId: string = v4();
 
-  labelId: string = v4();
+  private labelId: string = v4();
 
-  debouncedEmitValue = debounce((value: string) => {
+  private debouncedEmitValue = debounce((value: string) => {
     this.dsoChange.emit(value);
     this.debouncedShowLoading();
   }, 200);
 
-  debouncedShowLoading = debounce(() => {
+  private debouncedShowLoading = debounce(() => {
     if (this.inputValue) {
       this.showLoading = true;
     }
   }, this.loadingDelayed);
 
-  inputValue = "";
+  private inputValue = "";
 
-  onInput = (event: Event) => {
+  private onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
       throw new Error("event.target is not instanceof HTMLInputElement");
     }
@@ -132,7 +132,7 @@ export class Autosuggest {
     this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : "");
   };
 
-  onFocusIn = () => {
+  private onFocusIn = () => {
     if (this.suggestOnFocus) {
       this.openSuggestions();
     }
@@ -195,7 +195,7 @@ export class Autosuggest {
     this.input?.removeEventListener("focusin", this.onFocusIn);
   }
 
-  markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
+  private markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
     if (!suggestionValue || !terms || terms.length === 0 || terms[0] === undefined) {
       return [""];
     }
@@ -219,13 +219,13 @@ export class Autosuggest {
     });
   }
 
-  selectSuggestion(suggestion: Suggestion) {
+  private selectSuggestion(suggestion: Suggestion) {
     this.selectedSuggestion = suggestion;
 
     this.input?.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
   }
 
-  selectFirstSuggestion() {
+  private selectFirstSuggestion() {
     if (!this.suggestions) {
       return;
     }
@@ -237,7 +237,7 @@ export class Autosuggest {
     }
   }
 
-  selectLastSuggestion() {
+  private selectLastSuggestion() {
     if (!this.suggestions) {
       return;
     }
@@ -249,7 +249,7 @@ export class Autosuggest {
     }
   }
 
-  selectNextSuggestion() {
+  private selectNextSuggestion() {
     if (!this.suggestions) {
       return;
     }
@@ -263,7 +263,7 @@ export class Autosuggest {
     }
   }
 
-  selectPreviousSuggestion() {
+  private selectPreviousSuggestion() {
     if (!this.suggestions) {
       return;
     }
@@ -277,14 +277,14 @@ export class Autosuggest {
     }
   }
 
-  resetSelectedSuggestion() {
+  private resetSelectedSuggestion() {
     this.showLoading = !this.loadingDelayed;
     this.notFound = false;
     this.selectedSuggestion = undefined;
     this.input?.setAttribute("aria-activedescendant", "");
   }
 
-  openSuggestions(selectSuggestion?: "first" | "last") {
+  private openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
     this.notFound = this.suggestions?.length === 0 ?? false;
     this.input?.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
@@ -296,14 +296,14 @@ export class Autosuggest {
     }
   }
 
-  closeSuggestions() {
+  private closeSuggestions() {
     this.showSuggestions = false;
     this.notFound = false;
     this.input?.setAttribute("aria-expanded", "false");
     this.selectFirstSuggestion();
   }
 
-  pickSelectedValue() {
+  private pickSelectedValue() {
     if (this.selectedSuggestion && this.showSuggestions) {
       this.dsoSelect.emit(this.selectedSuggestion);
     } else {
@@ -313,7 +313,7 @@ export class Autosuggest {
     this.closeSuggestions();
   }
 
-  onKeyDown = (event: KeyboardEvent) => {
+  private onKeyDown = (event: KeyboardEvent) => {
     if (event.defaultPrevented || this.loading) {
       return;
     }
@@ -356,7 +356,7 @@ export class Autosuggest {
     event.preventDefault();
   };
 
-  listboxItemId(suggestion: Suggestion): string {
+  private listboxItemId(suggestion: Suggestion): string {
     if (!this.suggestions) {
       return "";
     }
@@ -381,7 +381,8 @@ export class Autosuggest {
             ref={(element) => (this.listbox = element)}
             hidden={!this.showSuggestions && !this.notFound}
           >
-            {this.showSuggestions && this.suggestions ? (
+            {(this.showSuggestions &&
+              this.suggestions &&
               this.suggestions.map((suggestion) => (
                 <li
                   role="option"
@@ -396,18 +397,18 @@ export class Autosuggest {
                   <span class="value">{this.markTerms(suggestion.value, terms)}</span>
                   {suggestion.type ? <span class="type">{suggestion.type}</span> : undefined}
                 </li>
-              ))
-            ) : this.notFound ? (
-              <li>
-                <span class="value">
-                  {!this.notFoundLabel ? (
-                    this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
-                  ) : (
-                    <span>{this.notFoundLabel}</span>
-                  )}
-                </span>
-              </li>
-            ) : undefined}
+              ))) ||
+              (this.notFound && (
+                <li>
+                  <span class="value">
+                    {!this.notFoundLabel ? (
+                      this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
+                    ) : (
+                      <span>{this.notFoundLabel}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
           </ul>
         )}
       </>

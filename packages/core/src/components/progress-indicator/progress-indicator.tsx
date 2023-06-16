@@ -6,18 +6,27 @@ import { Component, h, Host, Prop } from "@stencil/core";
   shadow: true,
 })
 export class Progressindicator {
+  /**
+   * The label of the Progress Indicator.
+   */
   @Prop()
-  label?: string;
+  label = "Resultaten laden: een moment geduld alstublieft.";
 
+  /**
+   * The size (width) of the Progress Indicator.
+   *
+   * If no size is set, falls back to `small`.
+   */
   @Prop({ reflect: true })
   size?: "small" | "medium" | "large";
 
+  /**
+   * Set for bloatier Progress Indicator.
+   */
   @Prop()
   block?: boolean;
 
   render() {
-    const label = this.label ?? "Resultaten laden: een moment geduld alstublieft.";
-
     return (
       <Host>
         <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label">
@@ -35,7 +44,7 @@ export class Progressindicator {
           </svg>
         </span>
         <span id="progress-indicator-label" class="dso-progress-indicator-label">
-          {label}
+          {this.label}
         </span>
       </Host>
     );

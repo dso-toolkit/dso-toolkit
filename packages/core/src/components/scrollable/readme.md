@@ -10,19 +10,6 @@
 | `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<DsoScrollEndEvent>` |
 
 
-## Methods
-
-### `_setScrollState() => Promise<void>`
-
-Internal method. Do not use.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Used by

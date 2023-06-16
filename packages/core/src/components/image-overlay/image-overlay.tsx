@@ -9,7 +9,7 @@ import { createFocusTrap, FocusTrap } from "focus-trap";
 })
 export class ImageOverlay implements ComponentInterface {
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoImageOverlayElement;
 
   @State()
   active = false;
@@ -17,15 +17,15 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   zoomable = false;
 
-  buttonElement: HTMLButtonElement | undefined;
+  private buttonElement: HTMLButtonElement | undefined;
 
-  wrapperElement: HTMLDivElement | undefined;
+  private wrapperElement: HTMLDivElement | undefined;
 
-  trap: FocusTrap | undefined;
+  private trap: FocusTrap | undefined;
 
-  titelSlot: HTMLElement | null = null;
+  private titelSlot: HTMLElement | null = null;
 
-  bijschriftSlot: HTMLElement | null = null;
+  private bijschriftSlot: HTMLElement | null = null;
 
   private mutationObserver?: MutationObserver;
 
@@ -81,7 +81,7 @@ export class ImageOverlay implements ComponentInterface {
     this.resizeObserver?.disconnect();
   }
 
-  initZoomableImage(): void {
+  private initZoomableImage(): void {
     const imgElement = this.host.querySelector("img");
 
     if (!(imgElement instanceof HTMLImageElement)) {
@@ -96,7 +96,7 @@ export class ImageOverlay implements ComponentInterface {
     this.resizeObserver?.observe(imgElement);
   }
 
-  setZoomable(imageElement: HTMLImageElement): void {
+  private setZoomable(imageElement: HTMLImageElement): void {
     const { width, naturalWidth, height, naturalHeight } = imageElement;
 
     this.zoomable = width < naturalWidth || height < naturalHeight;

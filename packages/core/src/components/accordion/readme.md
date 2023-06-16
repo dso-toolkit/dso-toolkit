@@ -9,7 +9,7 @@
 | ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ----------- |
 | `allowMultipleOpen` | `allow-multiple-open` | Allows multiple sections to be open at the same time.                                                                                                              | `boolean`                                                          | `false`     |
 | `reverseAlign`      | `reverse-align`       | Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements | `boolean`                                                          | `false`     |
-| `variant`           | `variant`             |                                                                                                                                                                    | `"compact" \| "conclusion" \| "default" \| "neutral" \| undefined` | `"default"` |
+| `variant`           | `variant`             | The variant of the Accordion.                                                                                                                                      | `"compact" \| "conclusion" \| "default" \| "neutral" \| undefined` | `"default"` |
 
 
 ## Events
@@ -24,7 +24,7 @@
 
 ### `animationEnd(sectionElement: HTMLElement) => Promise<void>`
 
-
+Emitted when the animation of opening or closing ends.
 
 #### Returns
 
@@ -42,27 +42,15 @@ Type: `Promise<void>`
 
 
 
-### `getState() => Promise<AccordionInternalState>`
-
-
-
-#### Returns
-
-Type: `Promise<AccordionInternalState>`
-
-
-
 ### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>`
 
-Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
-returns `undefined` when no section is toggled.\
-returns `true` when the section is opened and `false` when the section is closed.
+Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
 
 #### Returns
 
 Type: `Promise<boolean | undefined>`
 
-
+The state of the section
 
 
 ----------------------------------------------

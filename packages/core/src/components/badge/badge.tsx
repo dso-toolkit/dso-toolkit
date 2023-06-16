@@ -7,6 +7,9 @@ import clsx from "clsx";
   shadow: true,
 })
 export class Badge {
+  /**
+   * The status of the Badge.
+   */
   @Prop()
   status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
 

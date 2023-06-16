@@ -12,15 +12,31 @@ const transitionDuration = 300;
 export class MapControls {
   private panelTitle = "Kaartlagen";
 
+  /**
+   * To show and hide the Map Controls.
+   */
   @Prop({ reflect: true, mutable: true })
   open = false;
 
+  /**
+   * To disable the zoom controls:
+   *
+   * * `in`: Disable zoom in button.
+   * * `out`: Disable zoom out button.
+   * * `both`: Disable zoom in and zoom out.
+   */
   @Prop()
   disableZoom?: "in" | "out" | "both";
 
+  /**
+   * Emitted when the user activates the zoom in button.
+   */
   @Event()
   dsoZoomIn!: EventEmitter<MouseEvent>;
 
+  /**
+   * Emitted when the user activates the zoom out button.
+   */
   @Event()
   dsoZoomOut!: EventEmitter<MouseEvent>;
 
@@ -51,6 +67,12 @@ export class MapControls {
     }
   }
 
+  /**
+   * Emitted when the visibility is toggled.
+   *
+   * Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
+   * @param e
+   */
   @Method()
   async toggleVisibility(e: MouseEvent | KeyboardEvent) {
     this.open = !this.open;

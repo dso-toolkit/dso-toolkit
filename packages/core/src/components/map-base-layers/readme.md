@@ -7,17 +7,17 @@ Private component, do not use.
 
 ## Properties
 
-| Property                  | Attribute | Description | Type          | Default     |
-| ------------------------- | --------- | ----------- | ------------- | ----------- |
-| `baseLayers` _(required)_ | --        |             | `BaseLayer[]` | `undefined` |
-| `group`                   | `group`   |             | `string`      | `uuidv4()`  |
+| Property                  | Attribute | Description                                                           | Type          | Default     |
+| ------------------------- | --------- | --------------------------------------------------------------------- | ------------- | ----------- |
+| `baseLayers` _(required)_ | --        | The base layers.                                                      | `BaseLayer[]` | `undefined` |
+| `group`                   | `group`   | To group the overlays together. Generally the default value suffices. | `string`      | `uuidv4()`  |
 
 
 ## Events
 
-| Event                | Description | Type                                |
-| -------------------- | ----------- | ----------------------------------- |
-| `dsoBaseLayerChange` |             | `CustomEvent<BaseLayerChangeEvent>` |
+| Event                | Description                                            | Type                                |
+| -------------------- | ------------------------------------------------------ | ----------------------------------- |
+| `dsoBaseLayerChange` | Emitted when the user checks or unchecks a base layer. | `CustomEvent<BaseLayerChangeEvent>` |
 
 
 ## Dependencies

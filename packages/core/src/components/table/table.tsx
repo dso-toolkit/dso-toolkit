@@ -3,14 +3,12 @@ import debounce from "debounce";
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
-import { TableInterface } from "./table.interfaces";
-
 @Component({
   tag: "dso-table",
   styleUrl: "table.scss",
   shadow: true,
 })
-export class Table implements ComponentInterface, TableInterface {
+export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
   private focusTrapElement?: HTMLDivElement;
@@ -22,13 +20,17 @@ export class Table implements ComponentInterface, TableInterface {
   private labelledbyId = v4();
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoTableElement;
 
-  /** Prevents the table being opened in a modal. */
+  /**
+   * Prevents the table being opened in a modal.
+   */
   @Prop({ reflect: true })
   noModal = false;
 
-  /** Indicates whether the table is currently horizontally scrollable */
+  /**
+   * Indicates whether the table is currently horizontally scrollable.
+   */
   @Prop({ reflect: true })
   isResponsive = false;
 
@@ -38,7 +40,7 @@ export class Table implements ComponentInterface, TableInterface {
   @State()
   placeholderHeight?: number;
 
-  startResponsiveBehavior(): void {
+  private startResponsiveBehavior(): void {
     this.resizeObserver?.observe(this.host);
   }
 

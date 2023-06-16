@@ -8,8 +8,8 @@ export class OzonContentAlNode implements OzonContentNode {
   name = "Al";
 
   render(node: Element, { mapNodeToJsx, path }: OzonContentNodeContext) {
-    const nestedAl = path.some((node) => {
-      const nodeName = getNodeName(node);
+    const nestedAl = path.some((n) => {
+      const nodeName = getNodeName(n);
 
       return nodeName === "Al" || nodeName === "Opschrift";
     });

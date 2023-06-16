@@ -7,25 +7,25 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                   | Default                   |
-| ----------- | ----------- | ----------- | ---------------------- | ------------------------- |
-| `active`    | `active`    |             | `boolean \| undefined` | `undefined`               |
-| `label`     | `label`     |             | `string`               | `"Toelichting bij optie"` |
-| `secondary` | `secondary` |             | `boolean \| undefined` | `undefined`               |
+| Property    | Attribute   | Description                       | Type                   | Default                   |
+| ----------- | ----------- | --------------------------------- | ---------------------- | ------------------------- |
+| `active`    | `active`    | Whether the InfoButton is active. | `boolean \| undefined` | `undefined`               |
+| `label`     | `label`     | The label.                        | `string`               | `"Toelichting bij optie"` |
+| `secondary` | `secondary` | For secondary Info Button.        | `boolean \| undefined` | `undefined`               |
 
 
 ## Events
 
-| Event       | Description | Type                                 |
-| ----------- | ----------- | ------------------------------------ |
-| `dsoToggle` |             | `CustomEvent<InfoButtonToggleEvent>` |
+| Event       | Description                                      | Type                                 |
+| ----------- | ------------------------------------------------ | ------------------------------------ |
+| `dsoToggle` | Emitted when the user activates the Info Button. | `CustomEvent<InfoButtonToggleEvent>` |
 
 
 ## Methods
 
 ### `setFocus() => Promise<void>`
 
-
+To set focus to the toggle button.
 
 #### Returns
 

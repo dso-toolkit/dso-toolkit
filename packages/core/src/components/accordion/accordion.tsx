@@ -12,7 +12,6 @@ import {
 } from "@stencil/core";
 
 import {
-  AccordionInterface,
   AccordionInternalState,
   AccordionSectionToggleAnimationEndEvent,
   AccordionSectionToggleEvent,
@@ -26,20 +25,27 @@ import { createStore } from "@stencil/store";
   styleUrl: "accordion.scss",
   shadow: true,
 })
-export class Accordion implements ComponentInterface, AccordionInterface {
+export class Accordion implements ComponentInterface {
   private accordionState: AccordionInternalState;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoAccordionElement;
 
+  /**
+   * The variant of the Accordion.
+   */
   @Prop({ reflect: true })
   variant?: AccordionVariant = "default";
 
-  /** Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements */
+  /**
+   * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+   */
   @Prop({ reflect: true })
   reverseAlign = false;
 
-  /** Allows multiple sections to be open at the same time. */
+  /**
+   * Allows multiple sections to be open at the same time.
+   */
   @Prop({ reflect: true })
   allowMultipleOpen = false;
 
@@ -83,14 +89,19 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     }
   }
 
+  /**
+   * @internal
+   */
   @Method()
-  async getState(): Promise<AccordionInternalState> {
+  async _getState(): Promise<AccordionInternalState> {
     return this.accordionState;
   }
 
-  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
-   * returns `undefined` when no section is toggled.\
-   * returns `true` when the section is opened and `false` when the section is closed.
+  /**
+   * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+   * @param sectionElement The section element that needs to toggle
+   * @param event The event that the user triggered
+   * @returns The state of the section
    */
   @Method()
   async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean> {
@@ -130,6 +141,9 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     return true;
   }
 
+  /**
+   * Emitted when the animation of opening or closing ends.
+   */
   @Method()
   async animationEnd(sectionElement: HTMLElement): Promise<void> {
     this.dsoToggleSectionAnimationEnd.emit({
@@ -140,7 +154,9 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     });
   }
 
-  /** Closes all sections belonging to this accordion. */
+  /**
+   * Closes all sections belonging to this accordion.
+   */
   @Method()
   async closeOpenSections(): Promise<void> {
     const sections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section"));

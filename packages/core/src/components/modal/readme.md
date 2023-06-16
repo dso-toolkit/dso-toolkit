@@ -137,17 +137,17 @@ De `DsoModalRef` bevat de functie `close` om de modal te sluiten en een functie 
 | Property          | Attribute           | Description                                                                                                                                                                                                                         | Type                                                                                                 | Default     |
 | ----------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
 | `initialFocus`    | `initial-focus`     | Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused. | `string \| undefined`                                                                                | `undefined` |
-| `modalTitle`      | `modal-title`       |                                                                                                                                                                                                                                     | `string \| undefined`                                                                                | `undefined` |
+| `modalTitle`      | `modal-title`       | The title of the Modal.                                                                                                                                                                                                             | `string \| undefined`                                                                                | `undefined` |
 | `returnFocus`     | --                  | Function that returns the element to focus on Modal close. Return `false` for no focus restore.                                                                                                                                     | `((nodeFocusedBeforeActivation: HTMLElement \| SVGElement) => FocusTargetValueOrFalse) \| undefined` | `undefined` |
-| `role`            | `role`              | the role for the modal `dialog` \| `alert` \| `alertdialog` defaults to `dialog`                                                                                                                                                    | `null \| string`                                                                                     | `"dialog"`  |
-| `showCloseButton` | `show-close-button` | when `false` the close button in the header will not be rendered. Defaults to `true`                                                                                                                                                | `boolean`                                                                                            | `true`      |
+| `role`            | `role`              | the role for the modal `dialog` \| `alert` \| `alertdialog`.                                                                                                                                                                        | `"alert" \| "alertdialog" \| "dialog"`                                                               | `"dialog"`  |
+| `showCloseButton` | `show-close-button` | when `false` the close button in the header will not be rendered. Defaults to `true`.                                                                                                                                               | `boolean`                                                                                            | `true`      |
 
 
 ## Events
 
-| Event      | Description | Type                              |
-| ---------- | ----------- | --------------------------------- |
-| `dsoClose` |             | `CustomEvent<DsoModalCloseEvent>` |
+| Event      | Description                                     | Type                              |
+| ---------- | ----------------------------------------------- | --------------------------------- |
+| `dsoClose` | Emitted when the user wants to close the Modal. | `CustomEvent<DsoModalCloseEvent>` |
 
 
 ## Dependencies

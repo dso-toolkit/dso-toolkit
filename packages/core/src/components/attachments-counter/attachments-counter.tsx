@@ -6,6 +6,9 @@ import { Component, h, Prop } from "@stencil/core";
   shadow: true,
 })
 export class AttachmentsCounter {
+  /**
+   * The number of attachments.
+   */
   @Prop()
   count!: number;
 

@@ -11,22 +11,38 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
 export class InfoButton {
   private button?: HTMLButtonElement;
 
+  /**
+   * Whether the InfoButton is active.
+   */
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
 
   @State()
   hover = false;
 
+  /**
+   * For secondary Info Button.
+   */
   @Prop()
   secondary?: boolean;
 
+  /**
+   * The label.
+   */
   @Prop()
   label = "Toelichting bij optie";
 
+  /**
+   * Emitted when the user activates the Info Button.
+   */
   @Event()
   dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
 
-  @Method() async setFocus() {
+  /**
+   * To set focus to the toggle button.
+   */
+  @Method()
+  async setFocus() {
     this.button?.focus();
   }
 

@@ -9,29 +9,44 @@ import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 })
 export class SlideToggle implements ComponentInterface {
   @Element()
-  private host!: HTMLElement;
+  private host!: HTMLDsoSlideToggleElement;
 
+  /**
+   * Set to true if Slide Toggle is checked.
+   */
   @Prop()
   checked = false;
 
+  /**
+   * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
+   */
   @Prop()
   disabled = false;
 
-  /** When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component */
+  /**
+   * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
+   */
   @Prop()
   accessibleLabel?: string;
 
-  /** Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button */
+  /**
+   * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button.
+   */
   @Prop()
   labelledbyId?: string;
 
   @State()
   hasVisibleLabel?: boolean;
 
-  /** Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">` */
+  /**
+   * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`.
+   */
   @Prop()
   identifier = v4();
 
+  /**
+   * Emitted when user checks or unchecks the Slide Toggle.
+   */
   @Event()
   dsoActiveChange!: EventEmitter<SlideToggleActiveEvent>;
 

@@ -11,19 +11,28 @@ import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
   shadow: true,
 })
 export class MapOverlays implements ComponentInterface {
-  previousOverlays: Overlay[] | undefined;
-  selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+  private previousOverlays: Overlay[] | undefined;
+  private selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
 
+  /**
+   * To group the overlays together. Generally the default value suffices.
+   */
   @Prop()
   group = uuidv4();
 
+  /**
+   * The overlays.
+   */
   @Prop()
   overlays!: Overlay[];
 
+  /**
+   * Emitted when the user selects a different overlay.
+   */
   @Event()
   dsoToggleOverlay!: EventEmitter<OverlayChangeEvent>;
 
-  overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {
+  private overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {
     const checked = e.detail.target instanceof HTMLInputElement ? !!e.detail.target.checked : false;
 
     this.dsoToggleOverlay.emit({ overlay, checked });

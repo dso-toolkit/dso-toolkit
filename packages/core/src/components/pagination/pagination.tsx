@@ -30,7 +30,7 @@ export class Pagination implements ComponentInterface {
   private responsiveElement?: HTMLDsoResponsiveElementElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoPaginationElement;
 
   @State()
   availablePositions?: number;
@@ -66,7 +66,7 @@ export class Pagination implements ComponentInterface {
     this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[event.detail]);
   }
 
-  clickHandler(e: MouseEvent, page: number) {
+  private clickHandler(e: MouseEvent, page: number) {
     this.dsoSelectPage.emit({
       originalEvent: e,
       page,

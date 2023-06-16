@@ -5,17 +5,17 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                   | Default     |
-| -------- | --------- | ----------- | ---------------------- | ----------- |
-| `active` | `active`  |             | `boolean \| undefined` | `undefined` |
-| `fixed`  | `fixed`   |             | `boolean \| undefined` | `undefined` |
+| Property | Attribute | Description                                                       | Type                   | Default     |
+| -------- | --------- | ----------------------------------------------------------------- | ---------------------- | ----------- |
+| `active` | `active`  | Whether the Info is active.                                       | `boolean \| undefined` | `undefined` |
+| `fixed`  | `fixed`   | Set to true if the Info should not be toggled and always visible. | `boolean \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event      | Description | Type                      |
-| ---------- | ----------- | ------------------------- |
-| `dsoClose` |             | `CustomEvent<MouseEvent>` |
+| Event      | Description                                       | Type                      |
+| ---------- | ------------------------------------------------- | ------------------------- |
+| `dsoClose` | Emitted when the user activates the close button. | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies

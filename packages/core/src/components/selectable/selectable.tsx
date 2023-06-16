@@ -21,51 +21,101 @@ import { SelectableChangeEvent } from "./selectable.interfaces";
   scoped: true,
 })
 export class Selectable {
+  /**
+   * Type of Selectable.
+   *
+   * `checkbox`: Multiple options
+   * `radio`: Single option.
+   */
   @Prop()
   type!: "checkbox" | "radio";
 
+  /**
+   * To set `<input id>` attribute for external references.
+   */
   @Prop()
   identifier?: string;
 
+  /**
+   * Name of the Selectable. Can be used to group Selectables.
+   */
   @Prop()
   name?: string;
 
+  /**
+   * The value of the Selectable.
+   */
   @Prop()
   value!: string;
 
+  /**
+   * Set to true of the current value is not valid.
+   */
   @Prop()
   invalid?: boolean;
 
+  /**
+   * To link this control to an element that describes it.
+   */
   @Prop()
   describedById?: string;
 
+  /**
+   * To link this control to an element that labels it.
+   */
   @Prop()
   labelledById?: string;
 
+  /**
+   * To disable the Selectable.
+   */
   @Prop()
   disabled?: boolean;
 
+  /**
+   * To mark the Selectable as required.
+   */
   @Prop()
   required?: boolean;
 
+  /**
+   * Mark the Selectable as checked
+   */
   @Prop()
   checked?: boolean;
 
+  /**
+   * An indeterminate state is neither true or false. It means the answer is somewhere in between.
+   *
+   * Can be used to indicate child Selectables that are a mix of checked and unchecked.
+   */
   @Prop()
   indeterminate?: boolean;
 
+  /**
+   * Set to true if the Info should not be toggled and always visible.
+   */
   @Prop()
   infoFixed?: boolean;
 
+  /**
+   * Emitted when the user checks or unchecks the Selectable.
+   */
   @Event()
   dsoChange!: EventEmitter<SelectableChangeEvent>;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoSelectableElement;
 
   @State()
   infoActive = false;
 
+  /**
+   * Method to toggle the Info. Is set to `active` when passed.
+   *
+   * If `active` is not passed, Info is toggled to opposite value.
+   * @param active
+   */
   @Method()
   async toggleInfo(active?: boolean) {
     this.infoActive = active ?? !this.infoActive;

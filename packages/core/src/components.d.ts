@@ -12,7 +12,6 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { ExpandableToggleEvent } from "./components/expandable/expandable.interfaces";
 import { AnimeInstance } from "animejs";
 import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -38,7 +37,6 @@ export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-export { ExpandableToggleEvent } from "./components/expandable/expandable.interfaces";
 export { AnimeInstance } from "animejs";
 export { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -59,24 +57,33 @@ export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 export { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
+        "_getState": () => Promise<AccordionInternalState>;
         /**
           * Allows multiple sections to be open at the same time.
          */
         "allowMultipleOpen": boolean;
+        /**
+          * Emitted when the animation of opening or closing ends.
+         */
         "animationEnd": (sectionElement: HTMLElement) => Promise<void>;
         /**
           * Closes all sections belonging to this accordion.
          */
         "closeOpenSections": () => Promise<void>;
-        "getState": () => Promise<AccordionInternalState>;
         /**
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
          */
         "reverseAlign": boolean;
         /**
-          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\ returns `undefined` when no section is toggled.\ returns `true` when the section is opened and `false` when the section is closed.
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+          * @param sectionElement The section element that needs to toggle
+          * @param event The event that the user triggered
+          * @returns The state of the section
          */
         "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>;
+        /**
+          * The variant of the Accordion.
+         */
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
@@ -84,13 +91,25 @@ export namespace Components {
           * `attachmentCount` takes precedence over `icon`
          */
         "attachmentCount"?: number;
+        /**
+          * The title of the handle
+         */
         "handleTitle"?: string;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
         "handleUrl"?: string;
+        /**
+          * Which heading element to use.
+         */
         "heading": AccordionHeading;
+        /**
+          * To set an icon in the heading handle.
+         */
         "icon"?: string;
+        /**
+          * To open the Accordion Section.
+         */
         "open": boolean;
         /**
           * Scroll this section into view when needed.
@@ -100,6 +119,9 @@ export namespace Components {
           * `state` takes precedence over `attachmentCount` and `icon`
          */
         "state"?: AccordionSectionState;
+        /**
+          * The status of the section.
+         */
         "status"?: string;
         /**
           * Toggle this section.
@@ -108,6 +130,9 @@ export namespace Components {
         "toggleSection": (scrollIntoView?: boolean) => Promise<void>;
     }
     interface DsoActionList {
+        /**
+          * The title.
+         */
         "listTitle": string;
     }
     interface DsoActionListItem {
@@ -119,8 +144,17 @@ export namespace Components {
           * Show flow line to next step
          */
         "flowLine": boolean;
+        /**
+          * The title of the item.
+         */
         "itemTitle"?: string;
+        /**
+          * The step of the Action List Item.
+         */
         "step": number;
+        /**
+          * When there is a warning.
+         */
         "warning": boolean;
     }
     interface DsoAlert {
@@ -134,9 +168,13 @@ export namespace Components {
         "status": "success" | "info" | "warning" | "error";
     }
     interface DsoAnnotationButton {
+        /**
+          * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
+         */
         "identifier": string;
     }
     interface DsoAnnotationOutput {
+        "_toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
         /**
           * This text will be displayed above the annotation-output when opened
          */
@@ -145,9 +183,11 @@ export namespace Components {
           * The annotation-button that toggles this component should have the same identifier.
          */
         "identifier": string;
-        "toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
     }
     interface DsoAttachmentsCounter {
+        /**
+          * The number of attachments.
+         */
         "count": number;
     }
     interface DsoAutosuggest {
@@ -177,21 +217,39 @@ export namespace Components {
         "suggestions": Suggestion[] | null;
     }
     interface DsoBadge {
+        /**
+          * The status of the Badge.
+         */
         "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
     }
     interface DsoBanner {
+        /**
+          * The status of the banner.
+         */
         "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
+        /**
+          * Whether or not the Card is clickable.
+         */
         "clickable": boolean;
+        /**
+          * Do not use, this is set programmatically by the component.
+         */
         "hasImage": boolean;
         /**
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape": ImageShape;
+        /**
+          * Do not use, this is set programmatically by the component.
+         */
         "isSelectable": boolean;
     }
     interface DsoCardContainer {
+        /**
+          * The mode of the Card Container.
+         */
         "mode": CardContainerMode;
     }
     interface DsoDatePicker {
@@ -283,19 +341,37 @@ export namespace Components {
         "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        "_getAnimeInstance": () => Promise<AnimeInstance | undefined>;
+        "_getBodyHeight": () => Promise<number | undefined>;
+        /**
+          * Set to `true` to show the content animated.
+         */
         "enableAnimation": boolean;
-        "getAnimeInstance": () => Promise<AnimeInstance | undefined>;
-        "getBodyHeight": () => Promise<number | undefined>;
         /**
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
         "minimumHeight"?: number;
+        /**
+          * Set to `true` to expand the content.
+         */
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
+        /**
+          * The color.
+         */
         "color": "default" | "black";
+        /**
+          * Whether this Expandable Heading has an edit action.  Also known as "wijzigactie" in STOP.
+         */
         "editAction"?: EditAction;
+        /**
+          * Which heading element to use.
+         */
         "heading": HeadingTags;
+        /**
+          * To open the Expandable Heading.
+         */
         "open"?: boolean;
     }
     interface DsoHeader {
@@ -307,78 +383,189 @@ export namespace Components {
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */
         "loginUrl"?: string;
+        /**
+          * The URL to open when the user activates "logout".
+         */
         "logoutUrl"?: string;
+        /**
+          * The main menu items.
+         */
         "mainMenu"?: HeaderMenuItem[];
+        /**
+          * Either have the dropdown menu appear automatically or always.
+         */
         "useDropDownMenu": "always" | "auto";
+        /**
+          * Set this to true when the user is at "Mijn Omgevingsloket".
+         */
         "userHomeActive"?: boolean;
+        /**
+          * The URL to open when the user activates "Mijn Omgevingsloket".
+         */
         "userHomeUrl"?: string;
+        /**
+          * The name to show when the user is logged in.
+         */
         "userProfileName"?: string;
+        /**
+          * The URL to open when the user activates the profile url.
+         */
         "userProfileUrl"?: string;
     }
     interface DsoHelpcenterPanel {
-        "label"?: string;
+        /**
+          * The label on the help button that activates the Helpcenter.
+         */
+        "label": string;
+        /**
+          * The URL that's loaded when the Helpcenter opens.
+         */
         "url": string;
     }
     interface DsoHighlightBox {
+        /**
+          * For a bordered Highlight Box.
+         */
         "border"?: boolean;
+        /**
+          * For an Highlight Box with a drop shadow.
+         */
         "dropShadow"?: boolean;
+        /**
+          * To create a step indicator.
+         */
         "step"?: number;
+        /**
+          * For a while Highlight Box.
+         */
         "white"?: boolean;
+        /**
+          * For yellow Highlight Box.
+         */
         "yellow"?: boolean;
     }
     interface DsoIcon {
+        /**
+          * The alias of the icon.
+         */
         "icon"?: string;
     }
     interface DsoImageOverlay {
     }
     interface DsoInfo {
+        /**
+          * Whether the Info is active.
+         */
         "active"?: boolean;
+        /**
+          * Set to true if the Info should not be toggled and always visible.
+         */
         "fixed"?: boolean;
     }
     interface DsoInfoButton {
+        /**
+          * Whether the InfoButton is active.
+         */
         "active"?: boolean;
+        /**
+          * The label.
+         */
         "label": string;
+        /**
+          * For secondary Info Button.
+         */
         "secondary"?: boolean;
+        /**
+          * To set focus to the toggle button.
+         */
         "setFocus": () => Promise<void>;
     }
     interface DsoLabel {
+        "_truncateLabel": () => Promise<void>;
+        /**
+          * For compact Label
+         */
         "compact"?: boolean;
+        /**
+          * Shows a button that can be used to remove the Label.
+         */
         "removable"?: boolean;
+        /**
+          * The status of this Label.
+         */
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
         /**
-          * **[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this.
+          * Whether the Label is allowed to truncate the contents if it does not fit the container element.
          */
-        "syncLabelText": () => Promise<void>;
         "truncate"?: boolean;
-        "truncateLabel": () => Promise<void>;
     }
     interface DsoListButton {
+        /**
+          * Whether the List Button is checked.
+         */
         "checked": boolean;
         /**
-          * When defined the count can show on the list-button.
+          * When defined the count can show on the List Button.
          */
         "count"?: number;
+        /**
+          * Whether the List Button is disabled.
+         */
         "disabled": boolean;
+        /**
+          * The label of the List Button.
+         */
         "label"?: string;
         /**
           * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
          */
         "manual": boolean;
+        /**
+          * The maximum value.
+         */
         "max"?: string | number;
+        /**
+          * The minimum value.
+         */
         "min"?: string | number;
+        /**
+          * The sublabel of the List Button.
+         */
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {
+        /**
+          * The base layers.
+         */
         "baseLayers": BaseLayer[];
+        /**
+          * To group the overlays together. Generally the default value suffices.
+         */
         "group": string;
     }
     interface DsoMapControls {
+        /**
+          * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
+         */
         "disableZoom"?: "in" | "out" | "both";
+        /**
+          * To show and hide the Map Controls.
+         */
         "open": boolean;
+        /**
+          * Emitted when the visibility is toggled.  Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
+          * @param e
+         */
         "toggleVisibility": (e: MouseEvent | KeyboardEvent) => Promise<void>;
     }
     interface DsoMapOverlays {
+        /**
+          * To group the overlays together. Generally the default value suffices.
+         */
         "group": string;
+        /**
+          * The overlays.
+         */
         "overlays": Overlay[];
     }
     interface DsoModal {
@@ -386,17 +573,20 @@ export namespace Components {
           * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
          */
         "initialFocus"?: string;
+        /**
+          * The title of the Modal.
+         */
         "modalTitle"?: string;
         /**
           * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
          */
         "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
         /**
-          * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
+          * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "role": string | null;
         /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`
+          * when `false` the close button in the header will not be rendered. Defaults to `true`.
          */
         "showCloseButton": boolean;
     }
@@ -433,58 +623,122 @@ export namespace Components {
         "totalPages"?: number;
     }
     interface DsoProgressBar {
+        /**
+          * When the operation completes.
+         */
         "max": number;
+        /**
+          * From where progress is made.
+         */
         "min": number;
+        /**
+          * The current progress. Should be between `min` and `max`.
+         */
         "progress": number;
     }
     interface DsoProgressIndicator {
+        /**
+          * Set for bloatier Progress Indicator.
+         */
         "block"?: boolean;
-        "label"?: string;
+        /**
+          * The label of the Progress Indicator.
+         */
+        "label": string;
+        /**
+          * The size (width) of the Progress Indicator.  If no size is set, falls back to `small`.
+         */
         "size"?: "small" | "medium" | "large";
     }
     interface DsoResponsiveElement {
+        /**
+          * The current size
+         */
         "getSize": () => Promise<ResponsiveElementSize>;
     }
     interface DsoScrollable {
-        /**
-          * Internal method. Do not use.
-         */
         "_setScrollState": () => Promise<void>;
     }
     interface DsoSelectable {
+        /**
+          * Mark the Selectable as checked
+         */
         "checked"?: boolean;
+        /**
+          * To link this control to an element that describes it.
+         */
         "describedById"?: string;
+        /**
+          * To disable the Selectable.
+         */
         "disabled"?: boolean;
+        /**
+          * To set `<input id>` attribute for external references.
+         */
         "identifier"?: string;
+        /**
+          * An indeterminate state is neither true or false. It means the answer is somewhere in between.  Can be used to indicate child Selectables that are a mix of checked and unchecked.
+         */
         "indeterminate"?: boolean;
+        /**
+          * Set to true if the Info should not be toggled and always visible.
+         */
         "infoFixed"?: boolean;
+        /**
+          * Set to true of the current value is not valid.
+         */
         "invalid"?: boolean;
+        /**
+          * To link this control to an element that labels it.
+         */
         "labelledById"?: string;
+        /**
+          * Name of the Selectable. Can be used to group Selectables.
+         */
         "name"?: string;
+        /**
+          * To mark the Selectable as required.
+         */
         "required"?: boolean;
+        /**
+          * Method to toggle the Info. Is set to `active` when passed.  If `active` is not passed, Info is toggled to opposite value.
+          * @param active
+         */
         "toggleInfo": (active?: boolean) => Promise<void>;
+        /**
+          * Type of Selectable.  `checkbox`: Multiple options `radio`: Single option.
+         */
         "type": "checkbox" | "radio";
+        /**
+          * The value of the Selectable.
+         */
         "value": string;
     }
     interface DsoSlideToggle {
         /**
-          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
          */
         "accessibleLabel"?: string;
+        /**
+          * Set to true if Slide Toggle is checked.
+         */
         "checked": boolean;
+        /**
+          * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
+         */
         "disabled": boolean;
         /**
-          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`.
          */
         "identifier": string;
         /**
-          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button.
          */
         "labelledbyId"?: string;
     }
     interface DsoTable {
         /**
-          * Indicates whether the table is currently horizontally scrollable
+          * Indicates whether the table is currently horizontally scrollable.
          */
         "isResponsive": boolean;
         /**
@@ -493,9 +747,21 @@ export namespace Components {
         "noModal": boolean;
     }
     interface DsoToggletip {
+        /**
+          * Toggletip label.
+         */
         "label": string;
+        /**
+          * Toggletip position.
+         */
         "position": "top" | "right" | "bottom" | "left";
+        /**
+          * Set to true for secondary Toggletip.
+         */
         "secondary"?: boolean;
+        /**
+          * Set to true for small Toggletip.
+         */
         "small"?: boolean;
     }
     interface DsoTooltip {
@@ -549,11 +815,17 @@ export namespace Components {
         "focusItem": (path: TreeViewItem[]) => Promise<boolean>;
     }
     interface DsoViewerGrid {
+        /**
+          * Set to true when filterpanel should show.
+         */
         "filterpanelOpen": boolean;
         /**
           * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
         "initialMainSize"?: MainSize;
+        /**
+          * Set to true when overlay should show.
+         */
         "overlayOpen": boolean;
     }
 }
@@ -976,6 +1248,9 @@ declare namespace LocalJSX {
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
          */
         "reverseAlign"?: boolean;
+        /**
+          * The variant of the Accordion.
+         */
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
@@ -983,21 +1258,39 @@ declare namespace LocalJSX {
           * `attachmentCount` takes precedence over `icon`
          */
         "attachmentCount"?: number;
+        /**
+          * The title of the handle
+         */
         "handleTitle"?: string;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
         "handleUrl"?: string;
+        /**
+          * Which heading element to use.
+         */
         "heading"?: AccordionHeading;
+        /**
+          * To set an icon in the heading handle.
+         */
         "icon"?: string;
+        /**
+          * To open the Accordion Section.
+         */
         "open"?: boolean;
         /**
           * `state` takes precedence over `attachmentCount` and `icon`
          */
         "state"?: AccordionSectionState;
+        /**
+          * The status of the section.
+         */
         "status"?: string;
     }
     interface DsoActionList {
+        /**
+          * The title.
+         */
         "listTitle": string;
     }
     interface DsoActionListItem {
@@ -1009,8 +1302,17 @@ declare namespace LocalJSX {
           * Show flow line to next step
          */
         "flowLine"?: boolean;
+        /**
+          * The title of the item.
+         */
         "itemTitle"?: string;
+        /**
+          * The step of the Action List Item.
+         */
         "step": number;
+        /**
+          * When there is a warning.
+         */
         "warning"?: boolean;
     }
     interface DsoAlert {
@@ -1024,6 +1326,9 @@ declare namespace LocalJSX {
         "status": "success" | "info" | "warning" | "error";
     }
     interface DsoAnnotationButton {
+        /**
+          * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
+         */
         "identifier": string;
     }
     interface DsoAnnotationOutput {
@@ -1035,9 +1340,15 @@ declare namespace LocalJSX {
           * The annotation-button that toggles this component should have the same identifier.
          */
         "identifier": string;
+        /**
+          * This event is emitted when the user activates the Annotation Button.
+         */
         "onDsoToggle"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
     }
     interface DsoAttachmentsCounter {
+        /**
+          * The number of attachments.
+         */
         "count": number;
     }
     interface DsoAutosuggest {
@@ -1079,22 +1390,43 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[] | null;
     }
     interface DsoBadge {
+        /**
+          * The status of the Badge.
+         */
         "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
     }
     interface DsoBanner {
+        /**
+          * The status of the banner.
+         */
         "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
+        /**
+          * Whether or not the Card is clickable.
+         */
         "clickable"?: boolean;
+        /**
+          * Do not use, this is set programmatically by the component.
+         */
         "hasImage"?: boolean;
         /**
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape"?: ImageShape;
+        /**
+          * Do not use, this is set programmatically by the component.
+         */
         "isSelectable"?: boolean;
+        /**
+          * Emitted when the Card is clickable and the user clicked the Card.
+         */
         "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;
     }
     interface DsoCardContainer {
+        /**
+          * The mode of the Card Container.
+         */
         "mode"?: CardContainerMode;
     }
     interface DsoDatePicker {
@@ -1194,20 +1526,40 @@ declare namespace LocalJSX {
         "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        /**
+          * Set to `true` to show the content animated.
+         */
         "enableAnimation"?: boolean;
         /**
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
         "minimumHeight"?: number;
-        "onAnimationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
-        "onDsoToggle"?: (event: DsoExpandableCustomEvent<ExpandableToggleEvent>) => void;
+        "on_animationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
+        /**
+          * Set to `true` to expand the content.
+         */
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
+        /**
+          * The color.
+         */
         "color"?: "default" | "black";
+        /**
+          * Whether this Expandable Heading has an edit action.  Also known as "wijzigactie" in STOP.
+         */
         "editAction"?: EditAction;
+        /**
+          * Which heading element to use.
+         */
         "heading"?: HeadingTags;
+        /**
+          * Emitted when the user activates the toggle button.
+         */
         "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
+        /**
+          * To open the Expandable Heading.
+         */
         "open"?: boolean;
     }
     interface DsoHeader {
@@ -1219,88 +1571,223 @@ declare namespace LocalJSX {
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */
         "loginUrl"?: string;
+        /**
+          * The URL to open when the user activates "logout".
+         */
         "logoutUrl"?: string;
+        /**
+          * The main menu items.
+         */
         "mainMenu"?: HeaderMenuItem[];
         /**
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
+        /**
+          * Either have the dropdown menu appear automatically or always.
+         */
         "useDropDownMenu"?: "always" | "auto";
+        /**
+          * Set this to true when the user is at "Mijn Omgevingsloket".
+         */
         "userHomeActive"?: boolean;
+        /**
+          * The URL to open when the user activates "Mijn Omgevingsloket".
+         */
         "userHomeUrl"?: string;
+        /**
+          * The name to show when the user is logged in.
+         */
         "userProfileName"?: string;
+        /**
+          * The URL to open when the user activates the profile url.
+         */
         "userProfileUrl"?: string;
     }
     interface DsoHelpcenterPanel {
+        /**
+          * The label on the help button that activates the Helpcenter.
+         */
         "label"?: string;
+        /**
+          * The URL that's loaded when the Helpcenter opens.
+         */
         "url": string;
     }
     interface DsoHighlightBox {
+        /**
+          * For a bordered Highlight Box.
+         */
         "border"?: boolean;
+        /**
+          * For an Highlight Box with a drop shadow.
+         */
         "dropShadow"?: boolean;
+        /**
+          * To create a step indicator.
+         */
         "step"?: number;
+        /**
+          * For a while Highlight Box.
+         */
         "white"?: boolean;
+        /**
+          * For yellow Highlight Box.
+         */
         "yellow"?: boolean;
     }
     interface DsoIcon {
+        /**
+          * The alias of the icon.
+         */
         "icon"?: string;
     }
     interface DsoImageOverlay {
     }
     interface DsoInfo {
+        /**
+          * Whether the Info is active.
+         */
         "active"?: boolean;
+        /**
+          * Set to true if the Info should not be toggled and always visible.
+         */
         "fixed"?: boolean;
+        /**
+          * Emitted when the user activates the close button.
+         */
         "onDsoClose"?: (event: DsoInfoCustomEvent<MouseEvent>) => void;
     }
     interface DsoInfoButton {
+        /**
+          * Whether the InfoButton is active.
+         */
         "active"?: boolean;
+        /**
+          * The label.
+         */
         "label"?: string;
+        /**
+          * Emitted when the user activates the Info Button.
+         */
         "onDsoToggle"?: (event: DsoInfoButtonCustomEvent<InfoButtonToggleEvent>) => void;
+        /**
+          * For secondary Info Button.
+         */
         "secondary"?: boolean;
     }
     interface DsoLabel {
+        /**
+          * For compact Label
+         */
         "compact"?: boolean;
+        /**
+          * Emitted when the user activates the remove button.
+         */
         "onDsoRemoveClick"?: (event: DsoLabelCustomEvent<MouseEvent>) => void;
+        /**
+          * Shows a button that can be used to remove the Label.
+         */
         "removable"?: boolean;
+        /**
+          * The status of this Label.
+         */
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+        /**
+          * Whether the Label is allowed to truncate the contents if it does not fit the container element.
+         */
         "truncate"?: boolean;
     }
     interface DsoListButton {
+        /**
+          * Whether the List Button is checked.
+         */
         "checked"?: boolean;
         /**
-          * When defined the count can show on the list-button.
+          * When defined the count can show on the List Button.
          */
         "count"?: number;
+        /**
+          * Whether the List Button is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * The label of the List Button.
+         */
         "label"?: string;
         /**
           * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
          */
         "manual"?: boolean;
+        /**
+          * The maximum value.
+         */
         "max"?: string | number;
+        /**
+          * The minimum value.
+         */
         "min"?: string | number;
+        /**
+          * Emitted when the user changes the count.
+         */
         "onDsoCountChange"?: (event: DsoListButtonCustomEvent<ListButtonChangeEvent>) => void;
+        /**
+          * Emitted when the user activates the List Button itself.  Does not fire when the user activates the count controls.
+         */
         "onDsoSelectedChange"?: (event: DsoListButtonCustomEvent<ListButtonSelectedEvent>) => void;
+        /**
+          * The sublabel of the List Button.
+         */
         "sublabel"?: string;
     }
     interface DsoMapBaseLayers {
+        /**
+          * The base layers.
+         */
         "baseLayers": BaseLayer[];
+        /**
+          * To group the overlays together. Generally the default value suffices.
+         */
         "group"?: string;
+        /**
+          * Emitted when the user checks or unchecks a base layer.
+         */
         "onDsoBaseLayerChange"?: (event: DsoMapBaseLayersCustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
+        /**
+          * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
+         */
         "disableZoom"?: "in" | "out" | "both";
         /**
           * emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes.
          */
         "onDsoToggle"?: (event: DsoMapControlsCustomEvent<MapControlsToggleEvent>) => void;
+        /**
+          * Emitted when the user activates the zoom in button.
+         */
         "onDsoZoomIn"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
+        /**
+          * Emitted when the user activates the zoom out button.
+         */
         "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
+        /**
+          * To show and hide the Map Controls.
+         */
         "open"?: boolean;
     }
     interface DsoMapOverlays {
+        /**
+          * To group the overlays together. Generally the default value suffices.
+         */
         "group"?: string;
+        /**
+          * Emitted when the user selects a different overlay.
+         */
         "onDsoToggleOverlay"?: (event: DsoMapOverlaysCustomEvent<OverlayChangeEvent>) => void;
+        /**
+          * The overlays.
+         */
         "overlays": Overlay[];
     }
     interface DsoModal {
@@ -1308,18 +1795,24 @@ declare namespace LocalJSX {
           * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
          */
         "initialFocus"?: string;
+        /**
+          * The title of the Modal.
+         */
         "modalTitle"?: string;
+        /**
+          * Emitted when the user wants to close the Modal.
+         */
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
         /**
           * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
          */
         "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
         /**
-          * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
+          * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "role"?: string | null;
         /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`
+          * when `false` the close button in the header will not be rendered. Defaults to `true`.
          */
         "showCloseButton"?: boolean;
     }
@@ -1340,6 +1833,9 @@ declare namespace LocalJSX {
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
         "interactive"?: "sub" | "" | boolean;
+        /**
+          * Emitted when `<a>` is clicked.
+         */
         "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClick>) => void;
         /**
           * These events are only emitted when the component is `interactive`.
@@ -1365,16 +1861,37 @@ declare namespace LocalJSX {
         "totalPages"?: number;
     }
     interface DsoProgressBar {
+        /**
+          * When the operation completes.
+         */
         "max"?: number;
+        /**
+          * From where progress is made.
+         */
         "min"?: number;
+        /**
+          * The current progress. Should be between `min` and `max`.
+         */
         "progress": number;
     }
     interface DsoProgressIndicator {
+        /**
+          * Set for bloatier Progress Indicator.
+         */
         "block"?: boolean;
+        /**
+          * The label of the Progress Indicator.
+         */
         "label"?: string;
+        /**
+          * The size (width) of the Progress Indicator.  If no size is set, falls back to `small`.
+         */
         "size"?: "small" | "medium" | "large";
     }
     interface DsoResponsiveElement {
+        /**
+          * Emitted when size has changed
+         */
         "onDsoSizeChange"?: (event: DsoResponsiveElementCustomEvent<ResponsiveElementSize>) => void;
     }
     interface DsoScrollable {
@@ -1384,40 +1901,88 @@ declare namespace LocalJSX {
         "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEndEvent>) => void;
     }
     interface DsoSelectable {
+        /**
+          * Mark the Selectable as checked
+         */
         "checked"?: boolean;
+        /**
+          * To link this control to an element that describes it.
+         */
         "describedById"?: string;
+        /**
+          * To disable the Selectable.
+         */
         "disabled"?: boolean;
+        /**
+          * To set `<input id>` attribute for external references.
+         */
         "identifier"?: string;
+        /**
+          * An indeterminate state is neither true or false. It means the answer is somewhere in between.  Can be used to indicate child Selectables that are a mix of checked and unchecked.
+         */
         "indeterminate"?: boolean;
+        /**
+          * Set to true if the Info should not be toggled and always visible.
+         */
         "infoFixed"?: boolean;
+        /**
+          * Set to true of the current value is not valid.
+         */
         "invalid"?: boolean;
+        /**
+          * To link this control to an element that labels it.
+         */
         "labelledById"?: string;
+        /**
+          * Name of the Selectable. Can be used to group Selectables.
+         */
         "name"?: string;
+        /**
+          * Emitted when the user checks or unchecks the Selectable.
+         */
         "onDsoChange"?: (event: DsoSelectableCustomEvent<SelectableChangeEvent>) => void;
+        /**
+          * To mark the Selectable as required.
+         */
         "required"?: boolean;
+        /**
+          * Type of Selectable.  `checkbox`: Multiple options `radio`: Single option.
+         */
         "type": "checkbox" | "radio";
+        /**
+          * The value of the Selectable.
+         */
         "value": string;
     }
     interface DsoSlideToggle {
         /**
-          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
          */
         "accessibleLabel"?: string;
+        /**
+          * Set to true if Slide Toggle is checked.
+         */
         "checked"?: boolean;
+        /**
+          * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
+         */
         "disabled"?: boolean;
         /**
-          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`.
          */
         "identifier"?: string;
         /**
-          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button.
          */
         "labelledbyId"?: string;
+        /**
+          * Emitted when user checks or unchecks the Slide Toggle.
+         */
         "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
     }
     interface DsoTable {
         /**
-          * Indicates whether the table is currently horizontally scrollable
+          * Indicates whether the table is currently horizontally scrollable.
          */
         "isResponsive"?: boolean;
         /**
@@ -1426,9 +1991,21 @@ declare namespace LocalJSX {
         "noModal"?: boolean;
     }
     interface DsoToggletip {
+        /**
+          * Toggletip label.
+         */
         "label"?: string;
+        /**
+          * Toggletip position.
+         */
         "position"?: "top" | "right" | "bottom" | "left";
+        /**
+          * Set to true for secondary Toggletip.
+         */
         "secondary"?: boolean;
+        /**
+          * Set to true for small Toggletip.
+         */
         "small"?: boolean;
     }
     interface DsoTooltip {
@@ -1480,15 +2057,33 @@ declare namespace LocalJSX {
         "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
     }
     interface DsoViewerGrid {
+        /**
+          * Set to true when filterpanel should show.
+         */
         "filterpanelOpen"?: boolean;
         /**
           * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
         "initialMainSize"?: MainSize;
+        /**
+          * Emitted when user wants to close the overlay.
+         */
         "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<MouseEvent | KeyboardEvent>) => void;
+        /**
+          * Emitted when user applies filterpanel options.
+         */
         "onDsoFilterpanelApply"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        /**
+          * Emitted when user cancels filterpanel.
+         */
         "onDsoFilterpanelCancel"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        /**
+          * Emitted before and after main size animation. Inspect `detail` property for more information.
+         */
         "onDsoMainSizeChange"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeEvent>) => void;
+        /**
+          * Set to true when overlay should show.
+         */
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {

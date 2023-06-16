@@ -112,15 +112,23 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Reference to host HTML element.
    */
-  @Element() element!: HTMLElement;
+  @Element()
+  element!: HTMLDsoDatePickerElement;
 
   /**
    * State() variables
    */
-  @State() activeFocus = false;
-  @State() focusedDay = new Date();
-  @State() open = false;
-  @State() visible = false;
+  @State()
+  activeFocus = false;
+
+  @State()
+  focusedDay = new Date();
+
+  @State()
+  open = false;
+
+  @State()
+  visible = false;
 
   /**
    * Public Property API
@@ -129,67 +137,79 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Name of the date picker input.
    */
-  @Prop() name = "date";
+  @Prop()
+  name = "date";
 
   /**
    * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
    */
-  @Prop() identifier: string | undefined;
+  @Prop()
+  identifier: string | undefined;
 
   /**
    * Makes the date picker input component disabled. This prevents users from being able to
    * interact with the input, and conveys its inactive state to assistive technologies.
    */
-  @Prop({ reflect: true }) disabled = false;
+  @Prop({ reflect: true })
+  disabled = false;
 
   /**
    * Defines a specific role attribute for the date picker input.
    */
-  @Prop() role: string | null = null;
+  @Prop()
+  role: string | null = null;
 
   /**
    * Forces the opening direction of the calendar modal to be always left or right.
    * This setting can be useful when the input is smaller than the opening date picker
    * would be as by default the picker always opens towards right.
    */
-  @Prop() direction: DsoDatePickerDirection = "right";
+  @Prop()
+  direction: DsoDatePickerDirection = "right";
 
   /**
    * Should the input be marked as required?
    */
-  @Prop() required = false;
+  @Prop()
+  required = false;
 
   /**
    * Is input invalid?
    */
-  @Prop({ reflect: true }) invalid?: boolean;
+  @Prop({ reflect: true })
+  invalid?: boolean;
 
   /**
    * ID of element that describes the input element
    */
-  @Prop() describedBy?: string;
+  @Prop()
+  describedBy?: string;
 
   /**
    * Should the input be focused on load?
    */
-  @Prop() dsoAutofocus = false;
+  @Prop()
+  dsoAutofocus = false;
 
   /**
    * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
-  @Prop({ reflect: true, mutable: true }) value = "";
+  @Prop({ reflect: true, mutable: true })
+  value = "";
 
   /**
    * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the max property.
    */
-  @Prop() min: string | undefined;
+  @Prop()
+  min: string | undefined;
 
   /**
    * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the min property.
    */
-  @Prop() max: string | undefined;
+  @Prop()
+  max: string | undefined;
 
   /**
    * Events section.
@@ -198,27 +218,32 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event() dsoDateChange!: EventEmitter<DsoDatePickerChangeEvent>;
+  @Event()
+  dsoDateChange!: EventEmitter<DsoDatePickerChangeEvent>;
 
   /**
    * Event emitted the date picker input is blurred.
    */
-  @Event() dsoBlur!: EventEmitter<DsoDatePickerFocusEvent>;
+  @Event()
+  dsoBlur!: EventEmitter<DsoDatePickerFocusEvent>;
 
   /**
    * Event emitted on key up in the date picker input.
    */
-  @Event() dsoKeyUp!: EventEmitter<DsoDatePickerKeyboardEvent>;
+  @Event()
+  dsoKeyUp!: EventEmitter<DsoDatePickerKeyboardEvent>;
 
   /**
    * Event emitted on key down in the date picker input.
    */
-  @Event() dsoKeyDown!: EventEmitter<DsoDatePickerKeyboardEvent>;
+  @Event()
+  dsoKeyDown!: EventEmitter<DsoDatePickerKeyboardEvent>;
 
   /**
    * Event emitted the date picker input is focused.
    */
-  @Event() dsoFocus!: EventEmitter<DsoDatePickerFocusEvent>;
+  @Event()
+  dsoFocus!: EventEmitter<DsoDatePickerFocusEvent>;
 
   /**
    * Component event handling.
@@ -243,7 +268,8 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
    */
-  @Method() async setFocus() {
+  @Method()
+  async setFocus() {
     return this.datePickerInput?.focus();
   }
 
@@ -254,7 +280,8 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Show the calendar modal, moving focus to the calendar inside.
    */
-  @Method() async show() {
+  @Method()
+  async show() {
     if (typeof this.hideTimeoutId !== "undefined") {
       clearTimeout(this.hideTimeoutId);
     }
@@ -277,7 +304,8 @@ export class DsoDatePicker implements ComponentInterface {
    * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus
    * returning to the date picker's button. Default is true.
    */
-  @Method() async hide(moveFocusToButton = true) {
+  @Method()
+  async hide(moveFocusToButton = true) {
     this.open = false;
 
     // in cases where calendar is quickly shown and hidden

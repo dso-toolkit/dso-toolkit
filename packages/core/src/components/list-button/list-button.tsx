@@ -20,25 +20,45 @@ export class ListButton implements ComponentInterface {
   @State()
   manualCount?: number;
 
+  /**
+   * The label of the List Button.
+   */
   @Prop()
   label?: string;
 
+  /**
+   * The sublabel of the List Button.
+   */
   @Prop()
   sublabel?: string;
 
-  /** When defined the count can show on the list-button. */
+  /**
+   * When defined the count can show on the List Button.
+   */
   @Prop()
   count?: number;
 
+  /**
+   * The minimum value.
+   */
   @Prop()
   min?: string | number;
 
+  /**
+   * The maximum value.
+   */
   @Prop()
   max?: string | number;
 
+  /**
+   * Whether the List Button is checked.
+   */
   @Prop({ reflect: true })
   checked = false;
 
+  /**
+   * Whether the List Button is disabled.
+   */
   @Prop({ reflect: true })
   disabled = false;
 
@@ -50,9 +70,17 @@ export class ListButton implements ComponentInterface {
   @Prop()
   manual = true;
 
+  /**
+   * Emitted when the user changes the count.
+   */
   @Event()
   dsoCountChange!: EventEmitter<ListButtonChangeEvent>;
 
+  /**
+   * Emitted when the user activates the List Button itself.
+   *
+   * Does not fire when the user activates the count controls.
+   */
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 

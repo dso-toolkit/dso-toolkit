@@ -33,7 +33,7 @@ export interface OzonContentClick {
 
 | Event            | Description                                                        | Type                                  |
 | ---------------- | ------------------------------------------------------------------ | ------------------------------------- |
-| `dsoAnchorClick` |                                                                    | `CustomEvent<OzonContentAnchorClick>` |
+| `dsoAnchorClick` | Emitted when `<a>` is clicked.                                     | `CustomEvent<OzonContentAnchorClick>` |
 | `dsoClick`       | These events are only emitted when the component is `interactive`. | `CustomEvent<OzonContentClick>`       |
 
 

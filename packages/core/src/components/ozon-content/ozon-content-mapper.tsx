@@ -91,9 +91,7 @@ export class Mapper {
     const identity = mapper.identify?.(node);
 
     const state = identity ? context.state[identity] : undefined;
-    const setState = identity
-      ? (state: unknown) => context.setState({ ...context.state, [identity]: state })
-      : undefined;
+    const setState = identity ? (s: unknown) => context.setState({ ...context.state, [identity]: s }) : undefined;
 
     return mapper.render(node, {
       mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),

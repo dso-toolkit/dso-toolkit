@@ -7,40 +7,9 @@
 
 | Property          | Attribute          | Description                                                                                                                                     | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `enableAnimation` | `enable-animation` |                                                                                                                                                 | `boolean`              | `false`     |
+| `enableAnimation` | `enable-animation` | Set to `true` to show the content animated.                                                                                                     | `boolean`              | `false`     |
 | `minimumHeight`   | `minimum-height`   | When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to | `number \| undefined`  | `undefined` |
-| `open`            | `open`             |                                                                                                                                                 | `boolean \| undefined` | `undefined` |
-
-
-## Events
-
-| Event                   | Description | Type                                 |
-| ----------------------- | ----------- | ------------------------------------ |
-| `animationInstantiated` |             | `CustomEvent<void>`                  |
-| `dsoToggle`             |             | `CustomEvent<ExpandableToggleEvent>` |
-
-
-## Methods
-
-### `getAnimeInstance() => Promise<AnimeInstance | undefined>`
-
-
-
-#### Returns
-
-Type: `Promise<AnimeInstance | undefined>`
-
-
-
-### `getBodyHeight() => Promise<number | undefined>`
-
-
-
-#### Returns
-
-Type: `Promise<number | undefined>`
-
-
+| `open`            | `open`             | Set to `true` to expand the content.                                                                                                            | `boolean \| undefined` | `undefined` |
 
 
 ## Dependencies

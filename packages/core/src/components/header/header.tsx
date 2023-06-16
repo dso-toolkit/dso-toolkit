@@ -31,34 +31,59 @@ export class Header {
   private dropdownElement?: HTMLElement;
 
   @Element()
-  host!: HTMLElement;
+  host!: HTMLDsoHeaderElement;
 
+  /**
+   * The main menu items.
+   */
   @Prop()
   mainMenu?: HeaderMenuItem[] = [];
 
+  /**
+   * Either have the dropdown menu appear automatically or always.
+   */
   @Prop()
   useDropDownMenu: "always" | "auto" = "auto";
 
-  /** Used to show the login/logout option. 'none' renders nothing. */
+  /**
+   * Used to show the login/logout option. 'none' renders nothing.
+   */
   @Prop()
   authStatus: "none" | "loggedIn" | "loggedOut" = "none";
 
-  /** When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. */
+  /**
+   * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+   */
   @Prop()
   loginUrl?: string;
 
+  /**
+   * The URL to open when the user activates "logout".
+   */
   @Prop()
   logoutUrl?: string;
 
+  /**
+   * The name to show when the user is logged in.
+   */
   @Prop()
   userProfileName?: string;
 
+  /**
+   * The URL to open when the user activates the profile url.
+   */
   @Prop()
   userProfileUrl?: string;
 
+  /**
+   * The URL to open when the user activates "Mijn Omgevingsloket".
+   */
   @Prop()
   userHomeUrl?: string;
 
+  /**
+   * Set this to true when the user is at "Mijn Omgevingsloket".
+   */
   @Prop()
   userHomeActive?: boolean;
 
@@ -86,21 +111,22 @@ export class Header {
   setShowDropDown(value: "always" | "auto") {
     if (value === "auto") {
       this.setDropDownMenu();
+
       return;
     }
 
     this.showDropDown = value === "always";
   }
 
-  wrapper: HTMLDivElement | undefined;
+  private wrapper: HTMLDivElement | undefined;
 
-  nav: HTMLUListElement | undefined;
+  private nav: HTMLUListElement | undefined;
 
   componentWillLoad() {
     this.hasSubLogo = this.host.querySelector("*[slot = 'sub-logo']") !== null;
   }
 
-  shrinkMenuToFit() {
+  private shrinkMenuToFit() {
     if (!this.wrapper || !this.nav) {
       return;
     }
@@ -134,7 +160,7 @@ export class Header {
     }
   }
 
-  setOverflowMenu() {
+  private setOverflowMenu() {
     if (this.showDropDown) {
       return;
     }
@@ -147,7 +173,7 @@ export class Header {
     this.shrinkMenuToFit();
   }
 
-  setDropDownMenu() {
+  private setDropDownMenu() {
     if (this.useDropDownMenu !== "auto") {
       return;
     }
@@ -166,7 +192,7 @@ export class Header {
     );
   }
 
-  onWindowResize = debounce(() => {
+  private onWindowResize = debounce(() => {
     this.setDropDownMenu();
     this.setOverflowMenu();
 
@@ -183,7 +209,7 @@ export class Header {
     window.removeEventListener("resize", this.onWindowResize);
   }
 
-  MenuItem = (item: HeaderMenuItem) => {
+  private MenuItem = (item: HeaderMenuItem) => {
     return (
       <li class={item.active ? "dso-active" : undefined}>
         <a

@@ -11,42 +11,19 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                                                                                           | Default     |
-| ----------- | ----------- | ----------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
-| `compact`   | `compact`   |             | `boolean \| undefined`                                                                                         | `undefined` |
-| `removable` | `removable` |             | `boolean \| undefined`                                                                                         | `undefined` |
-| `status`    | `status`    |             | `"attention" \| "bright" \| "danger" \| "error" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `truncate`  | `truncate`  |             | `boolean \| undefined`                                                                                         | `undefined` |
+| Property    | Attribute   | Description                                                                                     | Type                                                                                                           | Default     |
+| ----------- | ----------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
+| `compact`   | `compact`   | For compact Label                                                                               | `boolean \| undefined`                                                                                         | `undefined` |
+| `removable` | `removable` | Shows a button that can be used to remove the Label.                                            | `boolean \| undefined`                                                                                         | `undefined` |
+| `status`    | `status`    | The status of this Label.                                                                       | `"attention" \| "bright" \| "danger" \| "error" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| `truncate`  | `truncate`  | Whether the Label is allowed to truncate the contents if it does not fit the container element. | `boolean \| undefined`                                                                                         | `undefined` |
 
 
 ## Events
 
-| Event            | Description | Type                      |
-| ---------------- | ----------- | ------------------------- |
-| `dsoRemoveClick` |             | `CustomEvent<MouseEvent>` |
-
-
-## Methods
-
-### `syncLabelText() => Promise<void>`
-
-**[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `truncateLabel() => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
+| Event            | Description                                        | Type                      |
+| ---------------- | -------------------------------------------------- | ------------------------- |
+| `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies

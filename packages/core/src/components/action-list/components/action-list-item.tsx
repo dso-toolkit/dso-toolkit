@@ -6,9 +6,15 @@ import { h, Component, ComponentInterface, Host, Prop } from "@stencil/core";
   shadow: true,
 })
 export class ActionListItem implements ComponentInterface {
+  /**
+   * The step of the Action List Item.
+   */
   @Prop()
   step!: number;
 
+  /**
+   * The title of the item.
+   */
   @Prop()
   itemTitle?: string;
 
@@ -18,6 +24,9 @@ export class ActionListItem implements ComponentInterface {
   @Prop()
   flowLine = false;
 
+  /**
+   * When there is a warning.
+   */
   @Prop()
   warning = false;
 

@@ -7,19 +7,19 @@
 
 | Property          | Attribute           | Description                                                                                                                      | Type                                          | Default     |
 | ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `filterpanelOpen` | `filterpanel-open`  |                                                                                                                                  | `boolean`                                     | `false`     |
+| `filterpanelOpen` | `filterpanel-open`  | Set to true when filterpanel should show.                                                                                        | `boolean`                                     | `false`     |
 | `initialMainSize` | `initial-main-size` | Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`. | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
-| `overlayOpen`     | `overlay-open`      |                                                                                                                                  | `boolean`                                     | `false`     |
+| `overlayOpen`     | `overlay-open`      | Set to true when overlay should show.                                                                                            | `boolean`                                     | `false`     |
 
 
 ## Events
 
-| Event                  | Description | Type                                       |
-| ---------------------- | ----------- | ------------------------------------------ |
-| `dsoCloseOverlay`      |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
-| `dsoFilterpanelApply`  |             | `CustomEvent<FilterpanelEvent>`            |
-| `dsoFilterpanelCancel` |             | `CustomEvent<FilterpanelEvent>`            |
-| `dsoMainSizeChange`    |             | `CustomEvent<ViewerGridChangeSizeEvent>`   |
+| Event                  | Description                                                                                   | Type                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `dsoCloseOverlay`      | Emitted when user wants to close the overlay.                                                 | `CustomEvent<KeyboardEvent \| MouseEvent>` |
+| `dsoFilterpanelApply`  | Emitted when user applies filterpanel options.                                                | `CustomEvent<FilterpanelEvent>`            |
+| `dsoFilterpanelCancel` | Emitted when user cancels filterpanel.                                                        | `CustomEvent<FilterpanelEvent>`            |
+| `dsoMainSizeChange`    | Emitted before and after main size animation. Inspect `detail` property for more information. | `CustomEvent<ViewerGridChangeSizeEvent>`   |
 
 
 ## Dependencies
