@@ -28,13 +28,13 @@
     "@dso-toolkit/core": "*",
     "@types/fs-extra": "^11.0.1",
     "@types/leaflet": "^1.9.3",
-    "concurrently": "^8.0.1",
-    "dso-toolkit": "*",
+    "concurrently": "^8.2.0",
+    "dso-toolkit": "workspace:^",
     "fs-extra": "^11.1.1",
     "klap": "^7.0.11",
-    "leaflet": "1.9.4",
+    "leaflet": "^1.9.4",
     "minimist": "^1.2.8",
-    "sass": "^1.62.1",
+    "sass": "^1.63.4",
     "typescript": "~4.8.4"
   },
   "peerDependencies": {

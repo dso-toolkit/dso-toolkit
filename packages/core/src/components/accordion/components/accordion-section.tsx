@@ -10,7 +10,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ExpandableInterface, isExpandable } from "../../expandable/expandable.interfaces";
+import { isExpandable } from "../../expandable/expandable.functions";
 
 import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
@@ -34,7 +34,7 @@ export class AccordionSection implements ComponentInterface {
 
   private bodyHeight?: number;
 
-  private expandable?: ExpandableInterface;
+  private expandable?: HTMLDsoExpandableElement;
 
   @Element()
   host!: HTMLElement;
@@ -165,7 +165,6 @@ export class AccordionSection implements ComponentInterface {
       this.expandable = expandableElement;
       this.expandable.getAnimeInstance().then((animeInstance) => {
         if (animeInstance) {
-          animeInstance.update;
           animeInstance.changeComplete = async () => {
             if (!section) {
               return;
