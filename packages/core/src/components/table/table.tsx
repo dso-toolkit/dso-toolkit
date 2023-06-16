@@ -3,14 +3,12 @@ import debounce from "debounce";
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
-import { TableInterface } from "./table.interfaces";
-
 @Component({
   tag: "dso-table",
   styleUrl: "table.scss",
   shadow: true,
 })
-export class Table implements ComponentInterface, TableInterface {
+export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
   private focusTrapElement?: HTMLDivElement;

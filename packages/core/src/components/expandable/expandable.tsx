@@ -50,7 +50,7 @@ export class Expandable implements ComponentInterface {
   animationReady = false;
 
   /**
-   * Internal event. Do not use.
+   * @internal
    */
   @Event()
   _animationInstantiated!: EventEmitter<void>;
@@ -75,7 +75,7 @@ export class Expandable implements ComponentInterface {
   }
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _getAnimeInstance(): Promise<AnimeInstance | undefined> {
@@ -83,7 +83,7 @@ export class Expandable implements ComponentInterface {
   }
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _getBodyHeight(): Promise<number | undefined> {

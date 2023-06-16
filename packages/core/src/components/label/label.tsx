@@ -109,7 +109,7 @@ export class Label implements ComponentInterface {
   }
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _truncateLabel() {

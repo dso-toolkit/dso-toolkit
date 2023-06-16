@@ -57,9 +57,6 @@ export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 export { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
-        /**
-          * Internal method. Do not use.
-         */
         "_getState": () => Promise<AccordionInternalState>;
         /**
           * Allows multiple sections to be open at the same time.
@@ -78,7 +75,10 @@ export namespace Components {
          */
         "reverseAlign": boolean;
         /**
-          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\ returns `undefined` when no section is toggled.\ returns `true` when the section is opened and `false` when the section is closed.
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+          * @param sectionElement The section element that needs to toggle
+          * @param event The event that the user triggered
+          * @returns The state of the section
          */
         "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>;
         /**
@@ -174,9 +174,6 @@ export namespace Components {
         "identifier": string;
     }
     interface DsoAnnotationOutput {
-        /**
-          * Internal method. Do not use.
-         */
         "_toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
         /**
           * This text will be displayed above the annotation-output when opened
@@ -344,13 +341,7 @@ export namespace Components {
         "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
-        /**
-          * Internal method. Do not use.
-         */
         "_getAnimeInstance": () => Promise<AnimeInstance | undefined>;
-        /**
-          * Internal method. Do not use.
-         */
         "_getBodyHeight": () => Promise<number | undefined>;
         /**
           * Set to `true` to show the content animated.
@@ -490,9 +481,6 @@ export namespace Components {
         "setFocus": () => Promise<void>;
     }
     interface DsoLabel {
-        /**
-          * Internal method. Do not use.
-         */
         "_truncateLabel": () => Promise<void>;
         /**
           * For compact Label
@@ -664,14 +652,11 @@ export namespace Components {
     }
     interface DsoResponsiveElement {
         /**
-          * @returns The current size
+          * The current size
          */
         "getSize": () => Promise<ResponsiveElementSize>;
     }
     interface DsoScrollable {
-        /**
-          * Internal method. Do not use.
-         */
         "_setScrollState": () => Promise<void>;
     }
     interface DsoSelectable {
@@ -1549,9 +1534,6 @@ declare namespace LocalJSX {
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
         "minimumHeight"?: number;
-        /**
-          * Internal event. Do not use.
-         */
         "on_animationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
         /**
           * Set to `true` to expand the content.
@@ -1907,6 +1889,9 @@ declare namespace LocalJSX {
         "size"?: "small" | "medium" | "large";
     }
     interface DsoResponsiveElement {
+        /**
+          * Emitted when size has changed
+         */
         "onDsoSizeChange"?: (event: DsoResponsiveElementCustomEvent<ResponsiveElementSize>) => void;
     }
     interface DsoScrollable {

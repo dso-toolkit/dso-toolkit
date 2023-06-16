@@ -19,11 +19,10 @@ module.exports = {
       },
       extends: ["@infoprojects/eslint-config", "plugin:@stencil-community/strict", "prettier"],
       rules: {
-        // base config?
-        "func-style": [2, "declaration", { allowArrowFunctions: true }],
         // @stencil-community overrides
-        "react/jsx-no-bind": 0,
+        "func-style": [2, "declaration", { allowArrowFunctions: true }],
         "no-shadow": 0,
+        "react/jsx-no-bind": 0,
         "@typescript-eslint/no-shadow": 2,
         "@stencil-community/strict-boolean-conditions": 0,
         "@stencil-community/decorators-style": [

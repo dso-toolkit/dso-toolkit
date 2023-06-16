@@ -22,16 +22,6 @@
 
 ## Methods
 
-### `_getState() => Promise<AccordionInternalState>`
-
-Internal method. Do not use.
-
-#### Returns
-
-Type: `Promise<AccordionInternalState>`
-
-
-
 ### `animationEnd(sectionElement: HTMLElement) => Promise<void>`
 
 Emitted when the animation of opening or closing ends.
@@ -54,15 +44,13 @@ Type: `Promise<void>`
 
 ### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>`
 
-Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
-returns `undefined` when no section is toggled.\
-returns `true` when the section is opened and `false` when the section is closed.
+Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
 
 #### Returns
 
 Type: `Promise<boolean | undefined>`
 
-
+The state of the section
 
 
 ----------------------------------------------

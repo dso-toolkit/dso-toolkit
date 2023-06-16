@@ -25,7 +25,7 @@ export class AnnotationOutput implements ComponentInterface {
   dsoToggle!: EventEmitter<AnnotationToggleEvent>;
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {

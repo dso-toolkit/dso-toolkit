@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import { isExpandable } from "../../expandable/expandable.functions";
 
-import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
+import { AccordionInternalState } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
 import { Handle, HandleElement, HandleIcon } from "./handles";
 
@@ -24,7 +24,7 @@ import { Handle, HandleElement, HandleIcon } from "./handles";
 export class AccordionSection implements ComponentInterface {
   private static scrollCandidate?: HTMLElement;
 
-  private accordion?: AccordionInterface;
+  private accordion?: HTMLDsoAccordionElement;
 
   private accordionState?: AccordionInternalState;
 

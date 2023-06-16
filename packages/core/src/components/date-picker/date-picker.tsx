@@ -120,10 +120,13 @@ export class DsoDatePicker implements ComponentInterface {
    */
   @State()
   activeFocus = false;
+
   @State()
   focusedDay = new Date();
+
   @State()
   open = false;
+
   @State()
   visible = false;
 

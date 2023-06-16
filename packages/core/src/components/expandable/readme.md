@@ -12,36 +12,6 @@
 | `open`            | `open`             | Set to `true` to expand the content.                                                                                                            | `boolean \| undefined` | `undefined` |
 
 
-## Events
-
-| Event                    | Description                 | Type                |
-| ------------------------ | --------------------------- | ------------------- |
-| `_animationInstantiated` | Internal event. Do not use. | `CustomEvent<void>` |
-
-
-## Methods
-
-### `_getAnimeInstance() => Promise<AnimeInstance | undefined>`
-
-Internal method. Do not use.
-
-#### Returns
-
-Type: `Promise<AnimeInstance | undefined>`
-
-
-
-### `_getBodyHeight() => Promise<number | undefined>`
-
-Internal method. Do not use.
-
-#### Returns
-
-Type: `Promise<number | undefined>`
-
-
-
-
 ## Dependencies
 
 ### Used by

@@ -26,19 +26,6 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 | `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
 
 
-## Methods
-
-### `_truncateLabel() => Promise<void>`
-
-Internal method. Do not use.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Depends on

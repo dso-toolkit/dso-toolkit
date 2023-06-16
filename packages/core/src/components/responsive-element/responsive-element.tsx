@@ -30,13 +30,13 @@ export class ResponsiveElement implements ComponentInterface {
   sizeWidth = 0;
 
   /**
-   *
+   * Emitted when size has changed
    */
   @Event()
   dsoSizeChange!: EventEmitter<ResponsiveElementSize>;
 
   /**
-   * @returns The current size
+   * The current size
    */
   @Method()
   async getSize(): Promise<ResponsiveElementSize> {

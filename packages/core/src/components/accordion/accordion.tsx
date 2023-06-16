@@ -12,7 +12,6 @@ import {
 } from "@stencil/core";
 
 import {
-  AccordionInterface,
   AccordionInternalState,
   AccordionSectionToggleAnimationEndEvent,
   AccordionSectionToggleEvent,
@@ -26,7 +25,7 @@ import { createStore } from "@stencil/store";
   styleUrl: "accordion.scss",
   shadow: true,
 })
-export class Accordion implements ComponentInterface, AccordionInterface {
+export class Accordion implements ComponentInterface {
   private accordionState: AccordionInternalState;
 
   @Element()
@@ -87,16 +86,18 @@ export class Accordion implements ComponentInterface, AccordionInterface {
   }
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _getState(): Promise<AccordionInternalState> {
     return this.accordionState;
   }
 
-  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
-   * returns `undefined` when no section is toggled.\
-   * returns `true` when the section is opened and `false` when the section is closed.
+  /**
+   * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+   * @param sectionElement The section element that needs to toggle
+   * @param event The event that the user triggered
+   * @returns The state of the section
    */
   @Method()
   async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean> {

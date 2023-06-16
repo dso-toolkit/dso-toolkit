@@ -5,22 +5,22 @@
 
 ## Events
 
-| Event           | Description | Type                                          |
-| --------------- | ----------- | --------------------------------------------- |
-| `dsoSizeChange` |             | `CustomEvent<"large" \| "medium" \| "small">` |
+| Event           | Description                   | Type                                          |
+| --------------- | ----------------------------- | --------------------------------------------- |
+| `dsoSizeChange` | Emitted when size has changed | `CustomEvent<"large" \| "medium" \| "small">` |
 
 
 ## Methods
 
 ### `getSize() => Promise<ResponsiveElementSize>`
 
-
+The current size
 
 #### Returns
 
 Type: `Promise<ResponsiveElementSize>`
 
-The current size
+
 
 
 ## Dependencies

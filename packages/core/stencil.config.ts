@@ -45,6 +45,7 @@ export const config: Config = {
     },
     {
       type: "docs-readme",
+      strict: true,
     },
   ],
 };

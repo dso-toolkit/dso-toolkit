@@ -62,7 +62,7 @@ export class Scrollable {
   scrollPosition: ScrollPosition = "noScroll";
 
   /**
-   * Internal method. Do not use.
+   * @internal
    */
   @Method()
   async _setScrollState() {
