@@ -17,13 +17,15 @@ export const config: Config = {
   ],
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: "@dso-toolkit/core/dist",
+      componentCorePackage: "@dso-toolkit/core",
+      customElementsDir: "dist/components",
       includeImportCustomElements: true,
       directivesProxyFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
     }),
     reactOutputTarget({
-      componentCorePackage: "@dso-toolkit/core/dist",
+      componentCorePackage: "@dso-toolkit/core",
+      customElementsDir: "dist/components",
       includeImportCustomElements: true,
       proxiesFile: "../react/src/components.ts",
     }),
@@ -33,7 +35,14 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
-      generateTypeDeclarations: true,
+      customElementsExportBehavior: "single-export-module",
+      copy: [
+        {
+          src: "../scripts/custom-elements",
+          dest: "dist/components",
+          warn: true,
+        },
+      ],
     },
     {
       type: "docs-readme",

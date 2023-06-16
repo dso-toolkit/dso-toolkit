@@ -4,7 +4,6 @@ describe("Accordion", () => {
       .get("dso-accordion")
       .then(($accordion) => {
         $accordion.on("dsoToggleSection", cy.stub().as("dsoToggleSectionListener"));
-        $accordion.on("dsoToggleSectionAnimationEnd", cy.stub().as("dsoToggleSectionAnimationEndListener"));
       });
   });
 
@@ -17,8 +16,6 @@ describe("Accordion", () => {
       })
       .wait(200);
   };
-
-  const animationTime = 260;
 
   it("should open and close a section by clicking the handle", () => {
     cy.percySnapshot();
@@ -380,15 +377,20 @@ describe("Accordion", () => {
 
   it("should emit dsoToggleSectionAnimationEnd event for all toggle animations end", () => {
     cy.get("dso-accordion")
+      .then(($accordion) => {
+        $accordion.on("dsoToggleSectionAnimationEnd", cy.stub().as("dsoToggleSectionAnimationEndListener"));
+      })
+      .get("dso-accordion")
+      .wait(1500) // https://github.com/dso-toolkit/dso-toolkit/issues/2169
       .invoke("attr", "allow-multiple-open", "")
-      .wait(500)
+      .invoke("prop", "allowMultipleOpen")
+      .should("eq", true)
+      .get("dso-accordion")
       .find("dso-accordion-section")
       .first()
       .shadow()
-      .as("dsoFirstSection")
       .find(".dso-section-handle")
-      .realClick()
-      .wait(animationTime)
+      .click()
       .get("@dsoToggleSectionAnimationEndListener")
       .should("have.been.calledOnce")
       .invoke("getCalls")

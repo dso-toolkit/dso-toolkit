@@ -31,6 +31,32 @@ import { SelectableChangeEvent } from "./components/selectable/selectable.interf
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
+export { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+export { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
+export { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
+export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
+export { CardContainerMode } from "./components/card-container/card-container.interfaces";
+export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+export { ExpandableToggleEvent } from "./components/expandable/expandable.interfaces";
+export { AnimeInstance } from "animejs";
+export { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
+export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
+export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
+export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
+export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
+export { DsoModalCloseEvent, ModalRole } from "./components/modal/modal.interfaces";
+export { FocusTargetValueOrFalse } from "focus-trap";
+export { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
+export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
+export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
+export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
+export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
+export { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
         /**
