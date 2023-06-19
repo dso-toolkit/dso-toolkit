@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 54.2.1
+
+### Added
+* Angular 16 support ([#2122](https://github.com/dso-toolkit/dso-toolkit/issues/2122))
+
 ## 54.2.0
 
 ### Added

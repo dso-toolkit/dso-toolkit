@@ -2,7 +2,7 @@ import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragmen
 import { createFocusTrap, FocusTargetValueOrFalse, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
-import { DsoModalCloseEvent, ModalRole } from "./modal.interfaces";
+import { DsoModalCloseEvent } from "./modal.interfaces";
 
 @Component({
   tag: "dso-modal",
@@ -30,7 +30,7 @@ export class Modal implements ComponentInterface {
 
   /** the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog` */
   @Prop()
-  role: ModalRole = "dialog";
+  role: string | null = "dialog";
 
   /** when `false` the close button in the header will not be rendered. Defaults to `true` */
   @Prop()
@@ -67,7 +67,7 @@ export class Modal implements ComponentInterface {
         <div class="dso-modal-overlay"></div>
         <div
           class="dso-modal"
-          role={this.role}
+          role={this.role ?? undefined}
           aria-modal="true"
           aria-labelledby={this.ariaId}
           ref={(element) => (this.modalElement = element)}
