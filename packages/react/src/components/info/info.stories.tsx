@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfInfo({
   parameters: {

@@ -1,8 +1,8 @@
 import { storiesOfSelectable, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/selectable/readme.md";
-import coreReadme from "@dso-toolkit/core/src/components/selectable/readme.md";
+import cssReadme from "dso-toolkit/src/components/selectable/readme.md?raw";
+import coreReadme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { infoRichContent } from "./selectable.content";

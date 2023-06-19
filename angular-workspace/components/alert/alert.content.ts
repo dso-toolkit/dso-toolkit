@@ -1,4 +1,4 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 
 export const successMessage: StoryFnAngularReturnType = {
   template: "<p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>",

@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 
 import { StorybookParameters, StoryRoot } from "../../storybook/index.js";
 
@@ -98,7 +98,7 @@ export interface FormTemplates<TemplateFnReturnType> {
 }
 
 export interface FormParameters<TemplateFnReturnType> {
-  formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
+  formGroupDecorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(

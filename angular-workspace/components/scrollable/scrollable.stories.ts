@@ -6,7 +6,7 @@ import { DsoScrollable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { decorator } from "./scrollable.decorator";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 import { defaultContent, dynamicContent } from "./scrollable.content";
 
 storiesOfScrollable(

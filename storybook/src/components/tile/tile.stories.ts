@@ -1,7 +1,7 @@
 import { storiesOfTile, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/tile/readme.md";
+import cssReadme from "dso-toolkit/src/components/tile/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

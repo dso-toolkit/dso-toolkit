@@ -3,7 +3,7 @@ import gulp from "gulp";
 import gulpSass from "gulp-sass";
 import rename from "gulp-rename";
 import filter from "gulp-filter";
-import dartSass from "sass";
+import * as dartSass from "sass";
 
 import { plugins } from "../postcss.config.js";
 

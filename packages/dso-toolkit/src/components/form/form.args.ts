@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { content } from "./content/form.content.js";
 import { Form } from "./models/form.model.js";
 

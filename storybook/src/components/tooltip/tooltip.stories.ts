@@ -1,8 +1,8 @@
 import { storiesOfTooltip, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/tooltip/readme.md";
-import coreReadme from "@dso-toolkit/core/src/components/tooltip/readme.md";
+import cssReadme from "dso-toolkit/src/components/tooltip/readme.md?raw";
+import coreReadme from "@dso-toolkit/core/src/components/tooltip/readme.md?raw";
 
 import { asChildTemplate, asSiblingTemplate } from "./tooltip.content";
 import { templateContainer } from "../../templates";

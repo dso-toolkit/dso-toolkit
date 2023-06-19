@@ -10,12 +10,50 @@ import {
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md";
+import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { activeFilters } from "dso-toolkit/src/components/label-group/label-group.content";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const activeFilters: any = [
+  {
+    label: "Bouwwerken, werken en objecten bouwen",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+  {
+    label: "Regels",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+  {
+    label: "Tuin",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+  {
+    label: "Slopen of verwijderen bij een hoofdspoorweg of een bijzondere spoorweg",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+  {
+    label: "Geluidzone",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+  {
+    label: "Thema: milieu algemeen",
+    status: "bright",
+    removable: true,
+    truncate: true,
+  },
+];
 
 storiesOfViewerGrid({
   parameters: {

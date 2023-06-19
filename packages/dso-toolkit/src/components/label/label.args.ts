@@ -2,7 +2,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 
 import { Label } from "./label.models.js";
 
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 
 export interface LabelArgs {
   status: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";

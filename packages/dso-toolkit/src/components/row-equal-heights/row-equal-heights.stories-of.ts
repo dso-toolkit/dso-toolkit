@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { HighlightBox } from "../highlight-box/highlight-box.models.js";
 import { Tile } from "../tile/tile.models.js";
@@ -13,7 +13,7 @@ export interface RowEqualHeightsTemplates<TemplateFnReturnType> {
 }
 
 interface RowEqualHeightsParameters<TemplateFnReturnType> {
-  decorator: DecoratorFunction<TemplateFnReturnType>;
+  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfRowEqualHeights<Implementation, Templates, TemplateFnReturnType>(

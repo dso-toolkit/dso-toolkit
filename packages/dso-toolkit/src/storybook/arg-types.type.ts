@@ -1,5 +1,5 @@
-import { ArgType } from "@storybook/addons";
+// import { ArgTypes } from "@storybook/types";
 
-export type ArgTypes<ComponentArgs> = {
-  [P in keyof Required<ComponentArgs>]: ArgType;
-};
+// export type ArgTypes<ComponentArgs> = {
+//   [P in keyof Required<ComponentArgs>]: ArgType;
+// };

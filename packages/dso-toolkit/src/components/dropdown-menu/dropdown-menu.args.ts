@@ -1,4 +1,6 @@
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../storybook/index.js";
 
 import { DropdownMenu, DropdownMenuGroup, dropdownMenuStrategy } from "./dropdown-menu.models.js";
 

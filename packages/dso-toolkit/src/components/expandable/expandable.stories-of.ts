@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { DecoratorFunction } from "@storybook/types";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import { ExpandableArgs, expandableArgsMapper, expandableArgTypes } from "./expandable.args.js";
@@ -10,7 +10,12 @@ export interface ExpandableTemplates<TemplateFnReturnType> {
 }
 
 export interface ExpandableParameters<TemplateFnReturnType> {
-  decorator: DecoratorFunction<TemplateFnReturnType>;
+  decorator: DecoratorFunction<{
+    T: TemplateFnReturnType;
+    canvasElement: TemplateFnReturnType;
+    component: TemplateFnReturnType;
+    storyResult: TemplateFnReturnType;
+  }>;
 }
 
 export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnType>(

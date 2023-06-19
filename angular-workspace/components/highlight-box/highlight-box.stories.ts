@@ -5,7 +5,7 @@ import { DsoHighlightBox, DsoIcon } from "../../projects/component-library/src/p
 import { templateContainer } from "../../templates";
 import { content } from "./highlight-box.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfHighlightBox({
   parameters: {

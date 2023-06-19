@@ -1,4 +1,6 @@
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../storybook/index.js";
 
 import { Tabs, TabsItem } from "./tabs.models.js";
 

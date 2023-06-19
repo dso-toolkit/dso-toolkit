@@ -5,7 +5,7 @@ import { DsoAlert } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfAlert({
   parameters: {

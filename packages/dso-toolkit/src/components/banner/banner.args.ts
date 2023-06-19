@@ -1,6 +1,6 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 
 import { Banner } from "./banner.models.js";
 

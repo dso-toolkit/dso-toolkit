@@ -1,4 +1,4 @@
-import { Args, StoryApi } from "@storybook/addons";
+import { Args, Addon_StoryApi } from "@storybook/types";
 
 import { TemplateContainer } from "../template-container.js";
 
@@ -13,11 +13,11 @@ export interface StoriesOfArguments<Implementation, Templates, TemplateFnReturnT
 
 export interface StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates> {
   (
-    stories: StoryApi<TemplateFnReturnType>,
+    stories: Addon_StoryApi<TemplateFnReturnType>,
     templateMapper: <StoryVariantArgs>(
       cb: (args: StoryVariantArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
     ) => (args: Args) => TemplateFnReturnType
-  ): StoryApi<TemplateFnReturnType>;
+  ): Addon_StoryApi<TemplateFnReturnType>;
 }
 
 export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemplates, Templates>(

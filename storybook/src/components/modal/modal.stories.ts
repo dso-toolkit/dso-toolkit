@@ -1,5 +1,5 @@
-import coreReadme from "@dso-toolkit/core/src/components/modal/readme.md";
-import cssReadme from "dso-toolkit/src/components/modal/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
+import cssReadme from "dso-toolkit/src/components/modal/readme.md?raw";
 import { storiesOfModal, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 

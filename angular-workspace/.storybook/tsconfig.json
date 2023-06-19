@@ -2,9 +2,11 @@
   "extends": "../projects/component-library/tsconfig.lib.json",
   "compilerOptions": {
     "types": ["node"],
-    "allowSyntheticDefaultImports": true
+    "target": "esNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "exclude": ["../src/test.ts", "../src/**/*.spec.ts", "../projects/**/*.spec.ts"],
-  "include": ["../components/**/*", "../projects/**/*"],
+  "include": ["../components/**/*", "../projects/**/*", "./preview.ts"],
   "files": ["./typings.d.ts"]
 }

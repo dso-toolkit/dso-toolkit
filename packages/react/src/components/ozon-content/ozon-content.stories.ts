@@ -2,7 +2,7 @@ import { storiesOfOzonContent } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfOzonContent({
   parameters: {

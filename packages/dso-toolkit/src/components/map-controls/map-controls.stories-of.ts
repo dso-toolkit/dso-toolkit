@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import { mapControlsArgsMapper, mapControlsArgTypes, MapControlsArgs } from "./map-controls.args.js";
@@ -10,7 +10,7 @@ export interface MapControlsTemplates<TemplateFnReturnType> {
 }
 
 export interface MapControlsParameters<TemplateFnReturnType> {
-  decorator: DecoratorFunction<TemplateFnReturnType>;
+  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfMapControls<Implementation, Templates, TemplateFnReturnType>(

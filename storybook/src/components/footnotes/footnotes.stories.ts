@@ -2,7 +2,7 @@ import { html } from "lit-html";
 import { storiesOfFootnotes, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/footnotes/readme.md";
+import cssReadme from "dso-toolkit/src/components/footnotes/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

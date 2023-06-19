@@ -4,7 +4,7 @@ import { storiesOfProgressBar } from "dso-toolkit";
 import { DsoProgressBar } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfProgressBar({
   parameters: {

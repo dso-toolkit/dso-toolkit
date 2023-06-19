@@ -1,7 +1,7 @@
 import { storiesOfRichContent, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/rich-content/readme.md";
+import cssReadme from "dso-toolkit/src/components/rich-content/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { children } from "./rich-content.content";

@@ -6,12 +6,12 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true,
     "lib": ["dom", "ESNext"],
     "importHelpers": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "noEmitOnError": true,
     "noImplicitReturns": true,
     // "noUncheckedIndexedAccess": true, https://github.com/ionic-team/stencil-ds-output-targets/issues/355
@@ -26,7 +26,7 @@
     "jsx": "react",
     "target": "ESNext"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", ".storybook/preview.ts"],
   "exclude": ["**/__tests__/**", "node_modules"],
   "compileOnSave": false,
   "buildOnSave": false

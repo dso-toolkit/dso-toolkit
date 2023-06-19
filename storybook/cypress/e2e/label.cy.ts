@@ -7,7 +7,7 @@ describe("Label", () => {
   const defaultLabelText = "Bouwwerken, werken en objecten bouwen";
   function prepareComponent() {
     // Set the min-height so that there is room for the tooltip.
-    cy.get("#root").invoke("attr", "style", "min-height: 360px;");
+    cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
     cy.get("dso-label").invoke("html", defaultLabelText).as("dsoLabel").shadow().as("dsoLabelShadow");
   }

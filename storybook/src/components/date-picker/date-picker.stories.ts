@@ -2,7 +2,7 @@ import { storiesOfDatePicker, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import cssReadme from "@dso-toolkit/core/src/components/date-picker/readme.md";
+import cssReadme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 
 import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.content";
 import { templateContainer } from "../../templates";

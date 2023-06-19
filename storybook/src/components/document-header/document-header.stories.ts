@@ -1,7 +1,7 @@
 import { DefinitionList, storiesOfDocumentHeader, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/document-header/readme.md";
+import cssReadme from "dso-toolkit/src/components/document-header/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { html, TemplateResult } from "lit-html";

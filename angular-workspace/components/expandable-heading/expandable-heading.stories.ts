@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 import { expandableHeading } from "./content/expandable-heading";
 import { expandableHeadingWithChildList } from "./content/expandable-heading-with-children";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfExpandableHeading({
   parameters: {

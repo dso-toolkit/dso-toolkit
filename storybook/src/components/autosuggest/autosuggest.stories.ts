@@ -2,7 +2,7 @@ import { AutosuggestSuggestion, storiesOfAutosuggest, StoryRoot } from "dso-tool
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md";
+import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
