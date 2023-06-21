@@ -84,6 +84,14 @@
   }
 }
 
+:host([suppressed]) {
+  opacity: 0.6;
+
+  .expandable-heading button {
+    color: colors.$grijs-60;
+  }
+}
+
 dso-expandable {
   padding-left: units.$u3;
 }

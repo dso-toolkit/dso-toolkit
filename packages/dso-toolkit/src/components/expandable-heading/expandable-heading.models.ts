@@ -6,6 +6,7 @@ export interface ExpandableHeading<TemplateFnReturnType> {
   addonsStart?: TemplateFnReturnType;
   addonsEnd?: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  suppressed?: boolean;
   dsoToggle?: (e: CustomEvent<ExpandableHeadingToggleEvent>) => void;
 }
 

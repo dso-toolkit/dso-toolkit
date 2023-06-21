@@ -45,8 +45,8 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-export { DsoModalCloseEvent, ModalRole } from "./components/modal/modal.interfaces";
 export { FocusTargetValueOrFalse } from "focus-trap";
+export { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
@@ -373,6 +373,10 @@ export namespace Components {
           * To open the Expandable Heading.
          */
         "open"?: boolean;
+        /**
+          * Marks this element as unavailable.
+         */
+        "suppressed": boolean;
     }
     interface DsoHeader {
         /**
@@ -1561,6 +1565,10 @@ declare namespace LocalJSX {
           * To open the Expandable Heading.
          */
         "open"?: boolean;
+        /**
+          * Marks this element as unavailable.
+         */
+        "suppressed"?: boolean;
     }
     interface DsoHeader {
         /**

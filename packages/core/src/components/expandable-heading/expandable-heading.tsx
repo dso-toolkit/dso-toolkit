@@ -30,6 +30,12 @@ export class ExpandableHeading {
   color: "default" | "black" = "default";
 
   /**
+   * Marks this element as unavailable.
+   */
+  @Prop()
+  suppressed = false;
+
+  /**
    * Whether this Expandable Heading has an edit action.
    *
    * Also known as "wijzigactie" in STOP.

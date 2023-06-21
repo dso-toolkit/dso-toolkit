@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Header: property `userHomeActive` om "Mijn Omgevingsloket" actief te maken voor een paarse underline ([#2104](https://github.com/dso-toolkit/dso-toolkit/issues/2104))
 * Date Picker: Ondersteuning voor aria-describedby ([#2049](https://github.com/dso-toolkit/dso-toolkit/issues/2049))
+* Expandable Heading: `suppressed` modus ([#2175](https://github.com/dso-toolkit/dso-toolkit/issues/2175))
 
 ### Changed
 * Update naar Stencil 3 ([#2120](https://github.com/dso-toolkit/dso-toolkit/issues/2120))

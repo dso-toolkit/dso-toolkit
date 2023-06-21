@@ -11,6 +11,7 @@
 | `editAction` | `edit-action` | Whether this Expandable Heading has an edit action.  Also known as "wijzigactie" in STOP. | `"delete" \| "insert" \| undefined`    | `undefined` |
 | `heading`    | `heading`     | Which heading element to use.                                                             | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"` | `"h2"`      |
 | `open`       | `open`        | To open the Expandable Heading.                                                           | `boolean \| undefined`                 | `undefined` |
+| `suppressed` | `suppressed`  | Marks this element as unavailable.                                                        | `boolean`                              | `false`     |
 
 
 ## Events

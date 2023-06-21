@@ -15,6 +15,7 @@ export const reactExpandableHeading: ComponentImplementation<ExpandableHeading<J
       title,
       color,
       editAction,
+      suppressed,
       addonsStart,
       addonsEnd,
       content,
@@ -23,7 +24,14 @@ export const reactExpandableHeading: ComponentImplementation<ExpandableHeading<J
       const key = uuidv4();
 
       return (
-        <DsoExpandableHeading key={key} heading={heading} color={color} editAction={editAction} onDsoToggle={dsoToggle}>
+        <DsoExpandableHeading
+          key={key}
+          heading={heading}
+          color={color}
+          editAction={editAction}
+          onDsoToggle={dsoToggle}
+          suppressed={suppressed}
+        >
           {title} {addonsStart} {addonsEnd} {content}
         </DsoExpandableHeading>
       );

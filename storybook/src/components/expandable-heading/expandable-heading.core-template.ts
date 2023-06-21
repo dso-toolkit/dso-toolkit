@@ -12,6 +12,7 @@ export const coreExpandableHeading: ComponentImplementation<ExpandableHeading<Te
       heading,
       color,
       editAction,
+      suppressed,
       title,
       addonsStart,
       addonsEnd,
@@ -23,6 +24,7 @@ export const coreExpandableHeading: ComponentImplementation<ExpandableHeading<Te
           heading=${ifDefined(heading)}
           color=${ifDefined(color)}
           edit-action=${ifDefined(editAction)}
+          ?suppressed=${suppressed}
           @dsoToggle=${dsoToggle}
         >
           ${title} ${addonsStart} ${addonsEnd} ${content}

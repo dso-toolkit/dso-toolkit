@@ -15,6 +15,7 @@ export const angularExpandableHeading: ComponentImplementation<ExpandableHeading
             [color]="color"
             [editAction]="editAction"
             [heading]="heading"
+            [suppressed]="suppressed"
             (dsoToggle)="dsoToggle?.($event)"
           >
             ${props.title.template}

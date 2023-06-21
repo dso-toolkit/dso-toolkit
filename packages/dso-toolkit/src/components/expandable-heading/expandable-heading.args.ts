@@ -5,6 +5,7 @@ import { EditAction, ExpandableHeading, ExpandableHeadingTemplates } from "./exp
 export interface ExpandableHeadingArgs {
   heading: "h2" | "h3" | "h4" | "h5" | "h6";
   color: "default" | "black";
+  suppressed?: boolean;
   editAction: EditAction;
   dsoToggle: HandlerFunction;
 }
@@ -21,6 +22,9 @@ export const expandableHeadingArgTypes: ArgTypes<ExpandableHeadingArgs> = {
     control: {
       type: "select",
     },
+  },
+  suppressed: {
+    type: "boolean",
   },
   editAction: {
     options: [undefined, "delete", "insert"],
