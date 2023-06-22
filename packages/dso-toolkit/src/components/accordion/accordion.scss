@@ -22,11 +22,11 @@
     margin-top: accordion.$border-radius * -1;
     padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
 
-    *:first-child:not(.dso-info) {
+    > *:first-child:not(.dso-info) {
       margin-top: 0;
     }
 
-    *:last-child:not(.dso-info) {
+    > *:last-child:not(.dso-info) {
       margin-bottom: 0;
     }
 
@@ -245,6 +245,10 @@
 
 // Web component
 dso-accordion-section {
+  > *:first-child:not(.dso-info) {
+    margin-top: 0;
+  }
+
   > *:last-child:not(.dso-info) {
     margin-bottom: 0;
   }
