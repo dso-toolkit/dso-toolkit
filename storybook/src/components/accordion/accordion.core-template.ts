@@ -1,5 +1,5 @@
 import { Accordion } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { ComponentImplementation } from "../../templates";
 
@@ -16,12 +16,11 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
       dsoToggleSectionAnimationEnd,
       sections,
     }) {
-      return html`
+      const accordionHtml = html`
         <dso-accordion
-          group=${ifDefined(group)}
           variant=${ifDefined(variant)}
           ?reverse-align=${reverseAlign}
-          ?allow-multiple-open=${allowMultipleOpen}
+          ?allow-multiple-open=${group ? false : allowMultipleOpen}
           @dsoToggleSection=${dsoToggleSection}
           @dsoToggleSectionAnimationEnd=${dsoToggleSectionAnimationEnd}
         >
@@ -40,33 +39,17 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
             </dso-accordion-section>`
           )}
         </dso-accordion>
-        ${group
-          ? html`
-              <dso-accordion
-                group=${ifDefined(group)}
-                variant=${ifDefined(variant)}
-                ?reverse-align=${reverseAlign}
-                ?allow-multiple-open=${allowMultipleOpen}
-                @dsoToggleSection=${dsoToggleSection}
-                @dsoToggleSectionAnimationEnd=${dsoToggleSectionAnimationEnd}
-              >
-                ${sections.map(
-                  (section) => html`<dso-accordion-section
-                    ?open=${ifDefined(section.open)}
-                    handle-title=${section.handleTitle}
-                    heading=${section.heading}
-                    handle-url=${ifDefined(section.handleUrl)}
-                    state=${ifDefined(section.state)}
-                    status=${ifDefined(section.status)}
-                    icon=${ifDefined(section.icon)}
-                    attachment-count=${ifDefined(section.attachmentCount)}
-                  >
-                    ${section.content}
-                  </dso-accordion-section>`
-                )}
-              </dso-accordion>
-            `
-          : nothing}
       `;
+
+      return group
+        ? html`
+            <dso-accordion-group
+              ?allow-multiple-open=${allowMultipleOpen}
+              @dsoGroupConfigChanged=${(e: Event) => console.log(e)}
+            >
+              ${accordionHtml} ${accordionHtml}
+            </dso-accordion-group>
+          `
+        : accordionHtml;
     },
 };

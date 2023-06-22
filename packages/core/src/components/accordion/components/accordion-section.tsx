@@ -9,6 +9,7 @@ import {
   Method,
   Prop,
   State,
+  Listen,
 } from "@stencil/core";
 import { isExpandable } from "../../expandable/expandable.functions";
 
@@ -94,6 +95,11 @@ export class AccordionSection implements ComponentInterface {
   @State()
   hover = false;
 
+  @Listen("dsoToggleSection")
+  onDsoToggleSection() {
+    console.log("toggle");
+  }
+
   componentWillLoad() {
     const accordion = this.host.parentElement;
 
@@ -103,11 +109,7 @@ export class AccordionSection implements ComponentInterface {
       this.accordion = accordion;
 
       accordion._getState().then((state) => {
-        if (!state) {
-          return;
-        }
-
-      this.accordionState = state;
+        this.accordionState = state;
         forceUpdate(this.host);
       });
     }

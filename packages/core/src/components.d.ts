@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionGroupConfigChangedEvent } from "./components/accordion-group/accordion-group.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -31,6 +32,7 @@ import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.i
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+export { AccordionGroupConfigChangedEvent } from "./components/accordion-group/accordion-group.interfaces";
 export { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -85,6 +87,12 @@ export namespace Components {
           * The variant of the Accordion.
          */
         "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionGroup {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
+        "allowMultipleOpen": boolean;
     }
     interface DsoAccordionSection {
         /**
@@ -837,6 +845,10 @@ export interface DsoAccordionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionElement;
 }
+export interface DsoAccordionGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAccordionGroupElement;
+}
 export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationOutputElement;
@@ -935,6 +947,12 @@ declare global {
     var HTMLDsoAccordionElement: {
         prototype: HTMLDsoAccordionElement;
         new (): HTMLDsoAccordionElement;
+    };
+    interface HTMLDsoAccordionGroupElement extends Components.DsoAccordionGroup, HTMLStencilElement {
+    }
+    var HTMLDsoAccordionGroupElement: {
+        prototype: HTMLDsoAccordionGroupElement;
+        new (): HTMLDsoAccordionGroupElement;
     };
     interface HTMLDsoAccordionSectionElement extends Components.DsoAccordionSection, HTMLStencilElement {
     }
@@ -1190,6 +1208,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "dso-accordion": HTMLDsoAccordionElement;
+        "dso-accordion-group": HTMLDsoAccordionGroupElement;
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-action-list": HTMLDsoActionListElement;
         "dso-action-list-item": HTMLDsoActionListItemElement;
@@ -1256,6 +1275,13 @@ declare namespace LocalJSX {
           * The variant of the Accordion.
          */
         "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionGroup {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
+        "allowMultipleOpen"?: boolean;
+        "onDsoGroupConfigChanged"?: (event: DsoAccordionGroupCustomEvent<AccordionGroupConfigChangedEvent>) => void;
     }
     interface DsoAccordionSection {
         /**
@@ -2096,6 +2122,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "dso-accordion": DsoAccordion;
+        "dso-accordion-group": DsoAccordionGroup;
         "dso-accordion-section": DsoAccordionSection;
         "dso-action-list": DsoActionList;
         "dso-action-list-item": DsoActionListItem;
@@ -2145,6 +2172,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
+            "dso-accordion-group": LocalJSX.DsoAccordionGroup & JSXBase.HTMLAttributes<HTMLDsoAccordionGroupElement>;
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
             "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;

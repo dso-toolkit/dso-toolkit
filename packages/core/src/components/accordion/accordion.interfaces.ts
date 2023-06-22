@@ -6,10 +6,6 @@ export interface AccordionInternalState {
   allowMultipleOpen: boolean;
 }
 
-export interface AccordionGroupState {
-  allowMultipleOpen: boolean;
-}
-
 export interface AccordionSectionToggleEvent {
   /** When the section is toggled by clicking in the header the `MouseEvent` is available. */
   originalEvent?: MouseEvent;
@@ -25,8 +21,4 @@ export interface AccordionSectionToggleAnimationEndEvent {
     element: HTMLElement;
     open: boolean;
   };
-}
-
-export interface AccordionGroupConfig {
-  allowMultipleOpen?: boolean;
 }
