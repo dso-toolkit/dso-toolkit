@@ -1,4 +1,5 @@
 import { ArgTypes } from "@storybook/types";
+
 import { content } from "./content/form.content.js";
 import { Form } from "./models/form.model.js";
 
@@ -10,7 +11,6 @@ export interface FormArgs {
 
 export const formArgTypes: ArgTypes<FormArgs> = {
   legend: {
-    defaultValue: "Formulier",
     control: {
       type: "text",
     },

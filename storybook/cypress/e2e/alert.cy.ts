@@ -1,6 +1,6 @@
 describe("Alert", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-alert");
+    cy.visit("http://localhost:45000/iframe.html?id=core-alert--success");
   });
 
   it("should have button", () => {

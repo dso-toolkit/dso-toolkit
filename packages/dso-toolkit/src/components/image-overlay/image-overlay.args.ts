@@ -8,7 +8,6 @@ export interface ImageOverlayArgs {
 
 export const imageOverlayArgTypes: ArgTypes<ImageOverlayArgs> = {
   image: {
-    defaultValue: 0,
     options: [0, 1, 2, 3],
     control: {
       type: "select",
