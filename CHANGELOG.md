@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* MapControls: Kaartlagenknop als icoon bij smalle viewports. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
+
 ## 54.3.0
 
 ### Added
