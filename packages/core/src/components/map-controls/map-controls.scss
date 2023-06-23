@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/button";
 
@@ -27,6 +28,10 @@
 
   .toggle-visibility-button {
     display: none;
+  }
+
+  .zoom-buttons {
+    top: units.$u2;
   }
 }
 
@@ -105,5 +110,27 @@ header {
     font-family: typography.$headings-font-family;
     line-height: 1;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+  .toggle-visibility-button {
+    height: 40px;
+    margin-right: 0;
+    min-width: auto;
+    right: calc(100% + core-map-controls-variables.$controls-margin);
+    width: 40px;
+
+    dso-icon {
+      margin-right: 0;
+    }
+
+    span {
+      visibility: hidden;
+    }
+  }
+
+  .zoom-buttons {
+    top: units.$u9;
   }
 }
