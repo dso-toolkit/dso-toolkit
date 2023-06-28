@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Listbutton gaat stuk onder de 768 pixel viewport ([#2192](https://github.com/dso-toolkit/dso-toolkit/issues/2192))
+
 ## 54.3.0
 
 ### Added
