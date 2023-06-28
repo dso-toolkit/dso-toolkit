@@ -166,7 +166,7 @@
     box-shadow: inset 0px 0px 0px 1px colors.$grasgroen, inset -1px 0px 0px 0px colors.$grasgroen;
 
     &.dso-single-count {
-      @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+      @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
         border-right: 0;
         box-shadow: colors.$grasgroen 0px 1px 0px 0px inset, colors.$grasgroen 1px 0px 0px 0px inset,
           colors.$grasgroen 0px -1px 0px 0px inset;
