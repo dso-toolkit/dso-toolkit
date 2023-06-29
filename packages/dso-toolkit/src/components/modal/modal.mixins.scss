@@ -62,17 +62,19 @@
     }
   }
 
-  .dso-body {
+  dso-scrollable {
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
-
-    @include rich-content.children();
+    (modal-variables.$footer-button-height + modal-variables.$footer-padding);
 
     height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
     max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
     min-height: modal-variables.$body-min-height;
-    overflow-x: auto;
-    padding: modal-variables.$body-padding;
+
+    .dso-body {
+      @include rich-content.children();
+
+      padding: modal-variables.$body-padding;
+    }
   }
 
   .dso-footer {
