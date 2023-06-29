@@ -69,6 +69,10 @@
 
     color: colors.$grasgroen;
     font-weight: 600;
+
+    &:focus {
+      color: colors.$wit;
+    }
   }
 }
 
@@ -120,7 +124,8 @@ dso-dropdown-menu {
     }
 
     ul li {
-      a {
+      a,
+      button {
         color: colors.$bosgroen;
         font-size: 1.25rem;
         padding: units.$u2;
