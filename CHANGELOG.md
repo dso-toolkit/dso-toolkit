@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Modal: Restyle ([#2092](https://github.com/dso-toolkit/dso-toolkit/pull/2172))
 * Map Controls: Kaartlagenknop op kleine viewports: zonder label, alleen met icoon. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
+* Header: Uitloggen knop goede styling meegeven net als de andere <a> tags. ([#2163](https://github.com/dso-toolkit/dso-toolkit/issues/2163))
 
 ### Fixed
 * List Button: Gaat stuk in de smalle viewport (768px) ([#2192](https://github.com/dso-toolkit/dso-toolkit/issues/2192))
@@ -23,7 +24,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Update naar Stencil 3 ([#2120](https://github.com/dso-toolkit/dso-toolkit/issues/2120))
 * ESLint voor Stencil ([#1958](https://github.com/dso-toolkit/dso-toolkit/issues/1958))
-* Header: Uitloggen knop goede styling meegeven net als de andere <a> tags. ([#2163](https://github.com/dso-toolkit/dso-toolkit/issues/2163))
 
 ## 54.2.1
 
