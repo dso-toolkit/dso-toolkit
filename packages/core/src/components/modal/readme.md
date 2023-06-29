@@ -155,11 +155,13 @@ De `DsoModalRef` bevat de functie `close` om de modal te sluiten en een functie 
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-modal --> dso-icon
+  dso-modal --> dso-scrollable
   style dso-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

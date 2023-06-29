@@ -29,13 +29,13 @@
 
   .dso-dialog {
     animation: 1s ease-out 0s 1 slideInFromTop;
-    margin-top: 15vh;
+    background-color: modal-variables.$content-bg;
+    box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
     margin-left: auto;
     margin-right: auto;
+    margin-top: clamp(#{units.$u5}, 15vh, 15vh);
     max-width: modal-variables.$max-width;
     opacity: 1;
-    background-color: modal-variables.$content-bg;
-    box-shadow: 0 8px 24px 0 rgba(25, 25, 25, 0.4);
   }
 
   .dso-header {
@@ -62,7 +62,7 @@
     }
   }
 
-  .dso-body {
+  > .dso-dialog > .dso-body {
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-height + modal-variables.$footer-padding);
 
@@ -75,11 +75,26 @@
     padding: modal-variables.$body-padding;
   }
 
+  > .dso-dialog > dso-scrollable {
+    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
+      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+
+    height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    min-height: modal-variables.$body-min-height;
+
+    .dso-body {
+      @include rich-content.children();
+
+      padding: modal-variables.$body-padding;
+    }
+  }
+
   .dso-footer {
     @include modal-wide-buttons();
 
     min-height: modal-variables.$footer-button-height + modal-variables.$footer-padding;
-    padding: 0 modal-variables.$footer-padding modal-variables.$footer-padding;
+    padding: calc(modal-variables.$footer-padding / 2) modal-variables.$footer-padding;
     text-align: right;
   }
 
@@ -122,6 +137,33 @@
           }
         }
       }
+    }
+  }
+
+  // special query for height
+  @media screen and (max-height: modal-variables.$small-modal-vh) {
+    .dso-dialog {
+      margin-bottom: units.$u1;
+      margin-top: units.$u1;
+      min-height: modal-variables.$min-modal-height;
+    }
+
+    .dso-header {
+      padding: #{units.$u1} #{units.$u2};
+
+      .dso-close {
+        top: units.$u1;
+      }
+    }
+
+    .dso-body {
+      padding: #{units.$u2} #{units.$u3};
+    }
+
+    .dso-footer {
+      min-height: auto;
+      overflow: auto;
+      padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
     }
   }
 }

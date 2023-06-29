@@ -37,7 +37,9 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
                   </div>
                 `
               : nothing}
-            <div class="dso-body" tabindex="0">${body}</div>
+            <dso-scrollable>
+              <div class="dso-body" tabindex="0">${body}</div>
+            </dso-scrollable>
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
         </div>

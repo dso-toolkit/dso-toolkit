@@ -118,10 +118,11 @@ describe("Modal", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
 
     cy.get("dso-modal").shadow().find(".dso-body").as("modalBody");
+    cy.get("dso-modal").shadow().find("dso-scrollable").shadow().find(".dso-scroll-container").as("scrollable");
 
     cy.get("dso-modal").shadow().find(".dso-close").should("have.focus");
     cy.get("@modalBody").should("have.attr", "tabindex", 0);
-    cy.get("@modalBody").invoke("scrollTop").should("eq", 0);
+    cy.get("@scrollable").invoke("scrollTop").should("eq", 0);
 
     cy.realPress("Tab");
 
@@ -129,7 +130,7 @@ describe("Modal", () => {
 
     cy.realPress("{downarrow}");
 
-    cy.get("@modalBody").invoke("scrollTop").should("be.greaterThan", 0);
+    cy.get("@scrollable").invoke("scrollTop").should("be.greaterThan", 0);
   });
 
   it("should return focus to previous element", () => {
