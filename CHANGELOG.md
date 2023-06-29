@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Update naar Stencil 3 ([#2120](https://github.com/dso-toolkit/dso-toolkit/issues/2120))
 * ESLint voor Stencil ([#1958](https://github.com/dso-toolkit/dso-toolkit/issues/1958))
+* Header: Uitloggen knop goede styling meegeven net als de andere <a> tags. ([#2163](https://github.com/dso-toolkit/dso-toolkit/issues/2163))
 
 ## 54.2.1
 
