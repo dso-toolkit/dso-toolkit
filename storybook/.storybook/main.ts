@@ -84,10 +84,6 @@ const config: StorybookConfig = {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
 
-    // if (!process.env.CI) {
-    //   config.entry = config.entry.filter((singleEntry) => !singleEntry.includes(`${sep}webpack-hot-middleware${sep}`));
-    // }
-
     return config;
   },
   core: {

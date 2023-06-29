@@ -4,7 +4,7 @@ import { Preview } from "@storybook/react";
 const preview: Preview = {
   parameters: {
     jsx: {
-      // I have no idea what type this is, and how this works. /Th
+      // I have no idea what type this is and how it works. /Th
       displayName: function getDisplayName(ReactElement: any) {
         return (
           ReactElement.type?.render?.displayName ??

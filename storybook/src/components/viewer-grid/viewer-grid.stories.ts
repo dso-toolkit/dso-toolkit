@@ -15,6 +15,9 @@ import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { templateContainer } from "../../templates";
 import { HandlerFunction } from "@storybook/addon-actions";
 
+// Dit is nodig omdat TypeScript geen modules compileert. Zodra dso-toolkit dat wel doet kan de `const activeFilters` worden vervangen met:
+// import { activeFilters } from "dso-toolkit/src/components/label-group/label-group.content";
+// Zie ook dso-toolkit/dso-toolkit#2206
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const activeFilters: any = [
   {

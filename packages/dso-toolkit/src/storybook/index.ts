@@ -1,4 +1,3 @@
-// export { ArgTypes } from "./arg-types.type.js";
 export { ArgsError } from "./args-error.error.js";
 export { componentArgs } from "./component-args.function.js";
 export { createStories } from "./create-stories.function.js";

@@ -3291,6 +3291,7 @@ __metadata:
     "@storybook/react": 7.0.22
     "@storybook/react-webpack5": 7.0.22
     "@storybook/theming": 7.0.22
+    "@storybook/types": 7.0.22
     "@types/react": ^18.2.6
     "@types/react-dom": ^18.2.4
     babel-loader: ^9.1.2
@@ -7733,6 +7734,7 @@ __metadata:
     "@storybook/addon-links": 7.0.22
     "@storybook/angular": 7.0.22
     "@storybook/testing-library": ^0.1.0
+    "@storybook/types": 7.0.22
     "@types/jasmine": ^4.3.4
     babel-loader: ^9.1.2
     dso-toolkit: "workspace:^"
@@ -11544,6 +11546,7 @@ __metadata:
     "@storybook/components": ^7.0.22
     "@storybook/core-events": ^7.0.22
     "@storybook/theming": ^7.0.22
+    "@storybook/types": 7.0.22
     "@storybook/web-components": 7.0.22
     "@storybook/web-components-webpack5": 7.0.22
     "@whitespace/storybook-addon-html": 5.1.6
@@ -11606,6 +11609,7 @@ __metadata:
     "@storybook/addon-actions": 7.0.22
     "@storybook/addons": 7.0.22
     "@storybook/client-api": 7.0.22
+    "@storybook/types": 7.0.22
     "@types/css": ^0.0.33
     "@types/fancy-log": ^2.0.0
     "@types/gulp": ^4.0.10

@@ -32,6 +32,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config, { configType }) => {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
+
     return config;
   },
   core: {
