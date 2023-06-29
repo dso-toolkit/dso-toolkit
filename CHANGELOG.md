@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Map Controls: Kaartlagenknop op kleine viewports: zonder label, alleen met icoon. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
+
 ### Changed
 * Modal: Restyle ([#2092](https://github.com/dso-toolkit/dso-toolkit/pull/2092))
 
