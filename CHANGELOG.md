@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### CHANGED
+* MapControls: Kaartlagenknop als icoon bij smalle viewports. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
+
 ## 54.3.0
 
 ### Added
@@ -15,7 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Update naar Stencil 3 ([#2120](https://github.com/dso-toolkit/dso-toolkit/issues/2120))
 * ESLint voor Stencil ([#1958](https://github.com/dso-toolkit/dso-toolkit/issues/1958))
-* MapControls: Kaartlagenknop als icoon bij smalle viewports. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
 
 ## 54.2.1
 
