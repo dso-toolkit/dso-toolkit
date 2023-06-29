@@ -19,7 +19,7 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             open="true"
             handle-title='Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"'
@@ -66,7 +66,7 @@ const item3: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             handle-title='Vraag een vergunning aan voor "Een bouwwerk of ander werk aanbrengen, wijzigen of verwijderen"'
             heading="h4"
@@ -88,7 +88,7 @@ const item4: ActionListItem<StoryFnAngularReturnType> = {
   content: {
     template: `
       <div class="dso-rich-content">
-        <dso-accordion>
+        <dso-accordion variant="neutral">
           <dso-accordion-section
             handle-title='Doe een melding voor "Kleine en middelgrote stookinstallatie voor standaard brandstoffen (minder dan 50MW)"'
             heading="h4"
@@ -132,7 +132,7 @@ function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
     content: {
       template: `
         <div class="dso-rich-content">
-          <dso-accordion>
+          <dso-accordion variant="neutral">
             <dso-accordion-section
               handle-title="Horecabedrijf"
               heading="h4"
