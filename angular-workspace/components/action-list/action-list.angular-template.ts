@@ -30,7 +30,7 @@ export const angularActionList: ComponentImplementation<ActionList<StoryFnAngula
             .join("")}
           <div class="dso-rich-content">
             <h2>Heeft u vragen?</h2>
-            <dso-accordion>
+            <dso-accordion variant="neutral">
               <dso-accordion-section handle-title="Contactinformatie gemeente Utrecht" heading="h3"></dso-accordion-section>
               <dso-accordion-section handle-title="Contactinformatie waterschap Amstel, Gooi en Vecht" heading="h3"></dso-accordion-section>
             </dso-accordion>
