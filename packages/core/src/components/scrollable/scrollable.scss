@@ -11,10 +11,14 @@
 
 .dso-shadow-container {
   height: 100%;
+  max-height: inherit;
+  min-height: inherit;
   position: relative;
 
   .dso-scroll-container {
     height: 100%;
+    max-height: inherit;
+    min-height: inherit;
     overflow-y: auto;
 
     &::before,

@@ -4,6 +4,9 @@
 $max-width: 640px;
 $max-height: 70vh;
 
+$small-modal-vh: 380px;
+$min-modal-height: 216px;
+
 $backdrop-bg: colors.$wit;
 $backdrop-opacity: 0.2;
 $content-bg: colors.$wit;
@@ -13,6 +16,8 @@ $close-icon-size: units.$u4;
 $close-icon-color: colors.$grasgroen;
 
 $header-padding: units.$u2;
+$body-min-height: 6.5rem;
 $body-padding: units.$u4;
 $footer-padding: units.$u4;
+$footer-padding-small-modal-vh: units.$u1;
 $footer-button-height: units.$u6;
