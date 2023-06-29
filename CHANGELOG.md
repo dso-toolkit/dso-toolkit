@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Docs
 * Alle Button varianten etaleren ([#2020](https://github.com/dso-toolkit/dso-toolkit/issues/2020))
+* Action List: gebruik neutral variant van Accordion in voorbeeldpagina's en documentatie ([#2198](https://github.com/dso-toolkit/dso-toolkit/issues/2198))
 
 ### Tasks
 * Storybook 7 update ([#2083](https://github.com/dso-toolkit/dso-toolkit/issues/2083))

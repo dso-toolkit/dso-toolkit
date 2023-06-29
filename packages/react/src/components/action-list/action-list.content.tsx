@@ -22,6 +22,7 @@ function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<J
     content: (
       <div className="dso-rich-content">
         {accordionTemplate({
+          variant: "neutral",
           sections: [
             {
               handleTitle:
@@ -76,6 +77,7 @@ function item3({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
     content: (
       <div className="dso-rich-content">
         {accordionTemplate({
+          variant: "neutral",
           sections: [
             {
               handleTitle:
@@ -101,6 +103,7 @@ function item4({ accordionTemplate }: Templates): ActionListItem<JSX.Element> {
     content: (
       <div className="dso-rich-content">
         {accordionTemplate({
+          variant: "neutral",
           sections: [
             {
               handleTitle:
@@ -143,6 +146,7 @@ function item5({ accordionTemplate }: Templates, flowLine = true): ActionListIte
     content: (
       <div className="dso-rich-content">
         {accordionTemplate({
+          variant: "neutral",
           sections: [
             {
               handleTitle: "Horecabedrijf",
