@@ -101,13 +101,15 @@ export class Modal implements ComponentInterface {
               </span>
             )}
 
-            <div class="dso-body" tabIndex={0}>
-              <slot name="body"></slot>
-            </div>
+            <dso-scrollable>
+              <div class="dso-body" tabIndex={0}>
+                <slot name="body" />
+              </div>
+            </dso-scrollable>
 
             {this.hasFooter && (
               <div class="dso-footer">
-                <slot name="footer"></slot>
+                <slot name="footer" />
               </div>
             )}
           </div>
