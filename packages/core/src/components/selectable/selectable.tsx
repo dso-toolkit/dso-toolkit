@@ -110,6 +110,9 @@ export class Selectable {
   @State()
   infoActive = false;
 
+  @State()
+  keyboardFocus = false;
+
   /**
    * Method to toggle the Info. Is set to `active` when passed.
    *
@@ -157,7 +160,7 @@ export class Selectable {
     return (
       <Fragment>
         <div class={clsx("dso-selectable-container", { "has-info-button": hasInfo })}>
-          <div class="dso-selectable-input-wrapper">
+          <div class={clsx("dso-selectable-input-wrapper", { "dso-keyboard-focus": this.keyboardFocus })}>
             <input
               type={this.type}
               id={this.getIdentifier()}
@@ -170,6 +173,8 @@ export class Selectable {
               required={this.required}
               checked={this.checked}
               onChange={(e) => this.dsoChange.emit(e)}
+              onBlur={() => (this.keyboardFocus = false)}
+              onKeyUp={() => (this.keyboardFocus = true)}
               ref={(el) => (this.input = el)}
             />
             {!this.labelledById ? (
