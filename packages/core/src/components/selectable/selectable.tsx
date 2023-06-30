@@ -111,7 +111,7 @@ export class Selectable {
   infoActive = false;
 
   @State()
-  isFocused = false;
+  keyboardFocus = false;
 
   /**
    * Method to toggle the Info. Is set to `active` when passed.
@@ -156,11 +156,12 @@ export class Selectable {
 
   render() {
     const hasInfo = !!this.host.querySelector('[slot="info"]');
+    // this.keyboardFocus = true;
 
     return (
       <Fragment>
         <div class={clsx("dso-selectable-container", { "has-info-button": hasInfo })}>
-          <div class={clsx("dso-selectable-input-wrapper", { "dso-is-focused": this.isFocused })}>
+          <div class={clsx("dso-selectable-input-wrapper", { "dso-keyboard-focus": this.keyboardFocus })}>
             <input
               type={this.type}
               id={this.getIdentifier()}
@@ -172,9 +173,11 @@ export class Selectable {
               disabled={this.disabled}
               required={this.required}
               checked={this.checked}
-              onFocus={() => (this.isFocused = true)}
-              onBlur={() => (this.isFocused = false)}
               onChange={(e) => this.dsoChange.emit(e)}
+              onBlur={() => (this.keyboardFocus = false)}
+              onKeyUp={() => {
+                this.keyboardFocus = true;
+              }}
               ref={(el) => (this.input = el)}
             />
             {!this.labelledById ? (

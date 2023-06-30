@@ -33,10 +33,7 @@
     min-height: units.$u3;
     padding-inline: units.$u4;
 
-    &.dso-is-focused {
-    }
-
-    &:focus-within {
+    &:focus-within.dso-keyboard-focus {
       @include utilities.focus-outline();
     }
 
