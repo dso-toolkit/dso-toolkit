@@ -156,7 +156,6 @@ export class Selectable {
 
   render() {
     const hasInfo = !!this.host.querySelector('[slot="info"]');
-    // this.keyboardFocus = true;
 
     return (
       <Fragment>
@@ -175,9 +174,7 @@ export class Selectable {
               checked={this.checked}
               onChange={(e) => this.dsoChange.emit(e)}
               onBlur={() => (this.keyboardFocus = false)}
-              onKeyUp={() => {
-                this.keyboardFocus = true;
-              }}
+              onKeyUp={() => (this.keyboardFocus = true)}
               ref={(el) => (this.input = el)}
             />
             {!this.labelledById ? (
