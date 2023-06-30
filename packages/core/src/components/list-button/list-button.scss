@@ -8,6 +8,10 @@
 
 @include utilities.box-sizing();
 
+:host {
+  display: block;
+}
+
 .sr-only {
   @include utilities.sr-only();
 }

@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * List Button: Gaat stuk in de smalle viewport (768px) ([#2192](https://github.com/dso-toolkit/dso-toolkit/issues/2192))
-* ListButton: Margins toevoegen onder ListButton ([#2157](https://github.com/dso-toolkit/dso-toolkit/issues/2157))
+* ListButton: Display block op :host plaatsen van ListButton ([#2157](https://github.com/dso-toolkit/dso-toolkit/issues/2157))
 
 ## 54.3.0
 
