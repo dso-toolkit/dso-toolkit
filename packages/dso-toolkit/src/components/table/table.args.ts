@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { Table, TableContent } from "./table.models.js";
 
 export interface TableArgs {

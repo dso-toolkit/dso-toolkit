@@ -1,5 +1,7 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes, noControl } from "../../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../../storybook/index.js";
 import { selectOptionGroupContent, selectOptionsContent } from "../content/select.content.js";
 
 import { FormGroupSelect } from "../form.models.js";

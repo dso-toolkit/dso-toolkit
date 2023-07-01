@@ -1,5 +1,5 @@
 import { LabelParameters } from "dso-toolkit";
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 
 export const decorator: LabelParameters<StoryFnAngularReturnType>["decorator"] = (story, css) => {
   const { props, template } = story();

@@ -4,7 +4,7 @@ import { storiesOfDropdownMenu } from "dso-toolkit";
 import { DsoDropdownMenu } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfDropdownMenu({
   parameters: {

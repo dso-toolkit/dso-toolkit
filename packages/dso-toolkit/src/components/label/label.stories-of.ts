@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions";
-import { PartialStoryFn } from "@storybook/addons";
+import { Addon_PartialStoryFn } from "@storybook/types";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
@@ -12,7 +12,7 @@ export interface LabelTemplates<TemplateFnReturnType> {
 }
 
 export interface LabelParameters<TemplateFnReturnType> {
-  decorator: (story: PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
+  decorator: (story: Addon_PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
 }
 
 export function storiesOfLabel<Implementation, Templates, TemplateFnReturnType>(

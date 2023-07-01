@@ -1,6 +1,7 @@
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "@storybook/types";
 
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { noControl } from "../../storybook/index.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";

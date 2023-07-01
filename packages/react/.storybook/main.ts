@@ -1,27 +1,21 @@
-module.exports = {
+import { StorybookConfig } from "@storybook/react-webpack5";
+
+const config: StorybookConfig = {
   typescript: {
     check: true,
   },
   staticDirs: [
     "../../dso-toolkit/storybook-assets",
-    { from: "../../dso-toolkit", to: "/dso-toolkit" },
-    { from: "../../../node_modules/iframe-resizer/js", to: "iframe-resizer" },
-  ],
-  features: {
-    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
-    postcss: false,
-  },
-  addons: [
     {
-      name: "@storybook/addon-docs",
-      options: {
-        transcludeMarkdown: true,
-      },
+      from: "../../dso-toolkit",
+      to: "/dso-toolkit",
     },
-    "@storybook/addon-essentials",
-    "storybook-addon-jsx",
-    "@storybook/addon-a11y",
+    {
+      from: "../../../node_modules/iframe-resizer/js",
+      to: "iframe-resizer",
+    },
   ],
+  addons: ["@storybook/addon-essentials", "storybook-addon-jsx", "@storybook/addon-a11y"],
   stories: ["../src/**/*.stories.@(ts|tsx)"],
   previewHead: (head) => `
     ${head}
@@ -42,7 +36,18 @@ module.exports = {
     return config;
   },
   core: {
-    builder: "webpack5",
     disableTelemetry: true,
   },
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
+  features: {
+    storyStoreV7: false,
+  },
 };
+
+export default config;

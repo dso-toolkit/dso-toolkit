@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { HelpcenterPanel } from "./helpcenter-panel.models.js";
 
 export interface HelpcenterPanelArgs {

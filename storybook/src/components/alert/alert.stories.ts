@@ -1,8 +1,8 @@
 import { storiesOf } from "@storybook/web-components";
 import { storiesOfAlert, StoryRoot } from "dso-toolkit";
 
-import cssReadme from "dso-toolkit/src/components/alert/readme.md";
-import coreReadme from "@dso-toolkit/core/src/components/alert/readme.md";
+import cssReadme from "dso-toolkit/src/components/alert/readme.md?raw";
+import coreReadme from "@dso-toolkit/core/src/components/alert/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";

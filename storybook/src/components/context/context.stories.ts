@@ -1,7 +1,7 @@
 import { storiesOfContext, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/context/readme.md";
+import cssReadme from "dso-toolkit/src/components/context/readme.md?raw";
 
 import { children, content, label } from "./context.content";
 

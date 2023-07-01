@@ -1,7 +1,7 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 import React from "react";
 
-export const decorator: DecoratorFunction<JSX.Element> = (story) => (
+export const decorator: Addon_DecoratorFunction<JSX.Element> = (story) => (
   <>
     <span>toggle open control in the controls panel to expand/collapse.</span>
     {story()}

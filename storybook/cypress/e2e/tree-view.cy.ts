@@ -31,7 +31,7 @@ describe("Tree View", () => {
   }
 
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-tree-view");
+    cy.visit("http://localhost:45000/iframe.html?id=core-tree-view--tree-view");
     cy.injectAxe();
     cy.get("body").get("dso-tree-view").shadow().as("tree-view");
 

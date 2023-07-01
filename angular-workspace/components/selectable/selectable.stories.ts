@@ -5,7 +5,7 @@ import { DsoSelectable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { infoRichContent } from "./selectable.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfSelectable({
   parameters: {

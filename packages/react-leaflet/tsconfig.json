@@ -5,6 +5,7 @@
     "target": "esnext",
     "module": "esnext",
     "noEmitOnError": true,
+    "esModuleInterop": true,
     "noUncheckedIndexedAccess": true,
     "moduleResolution": "node",
     "noEmit": true,

@@ -2,7 +2,7 @@
 
 import gulp from "gulp";
 import gulpSass from "gulp-sass";
-import dartSass from "sass";
+import * as dartSass from "sass";
 import { basename } from "path";
 import { obj } from "list-stream";
 import { parse } from "css";

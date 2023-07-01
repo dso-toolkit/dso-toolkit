@@ -5,7 +5,7 @@ import { DsoLabel } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { decorator } from "./label.decorator";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfLabel(
   {

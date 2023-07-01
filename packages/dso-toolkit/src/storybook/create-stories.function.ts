@@ -1,3 +1,5 @@
+import { compiler } from "markdown-to-jsx";
+
 import { StorybookParameters } from "./storybook-parameters.interface.js";
 
 export function createStories(
@@ -6,7 +8,7 @@ export function createStories(
 ) {
   const stories = storiesOf(root ? `${root}/${name}` : name, mainModule).addParameters({
     docs: {
-      page: readme,
+      page: () => compiler(readme, { forceBlock: true }),
     },
   });
 

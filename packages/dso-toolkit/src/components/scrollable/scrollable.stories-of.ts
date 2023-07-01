@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import { ScrollableArgs, scrollableArgsMapper, scrollableArgTypes } from "./scrollable.args.js";
@@ -11,7 +11,7 @@ export interface ScrollableTemplates<TemplateFnReturnType> {
 }
 
 export interface ScrollableParameters<TemplateFnReturnType> {
-  decorator: DecoratorFunction<TemplateFnReturnType>;
+  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfScrollable<Implementation, Templates, TemplateFnReturnType>(

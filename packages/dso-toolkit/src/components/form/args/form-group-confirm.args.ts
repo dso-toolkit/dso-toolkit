@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupConfirm } from "../form.models.js";

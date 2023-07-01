@@ -5,7 +5,7 @@ import { DsoToggletip } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { children } from "./toggletip.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfToggletip({
   parameters: {

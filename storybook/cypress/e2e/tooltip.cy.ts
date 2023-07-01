@@ -4,7 +4,7 @@ describe("Tooltip", () => {
   });
 
   function prepareComponent() {
-    cy.get("#root").invoke("attr", "style", "min-height: 360px;");
+    cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
     cy.get("dso-tooltip").closest("button").as("dsoButton");
   }
@@ -47,7 +47,7 @@ describe("Tooltip", () => {
   it("should not hide tooltip when hover is in tooltip, but outside button", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-tooltip--as-sibling");
 
-    cy.get("#root").invoke("attr", "style", "min-height: 360px;");
+    cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
     cy.get("dso-tooltip")
       .as("dsoTooltip")

@@ -1,4 +1,4 @@
-import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md";
+import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
 import { storiesOfResponsiveElement, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";

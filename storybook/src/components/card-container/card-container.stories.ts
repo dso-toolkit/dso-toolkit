@@ -1,7 +1,7 @@
 import { storiesOfCardContainer, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import coreReadme from "@dso-toolkit/core/src/components/card-container/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/card-container/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { content } from "./card-container.content";

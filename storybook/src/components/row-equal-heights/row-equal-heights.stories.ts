@@ -2,7 +2,7 @@ import { storiesOfRowEqualHeights, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import readme from "dso-toolkit/src/components/row-equal-heights/readme.md";
+import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 
 import { decorator } from "./row-equal-heights.decorator";
 import { templateContainer } from "../../templates";

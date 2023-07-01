@@ -11,7 +11,7 @@ import {
   warningRichContent,
 } from "./banner.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfBanner({
   parameters: {

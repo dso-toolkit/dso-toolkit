@@ -1,17 +1,20 @@
-module.exports = {
+import { StorybookConfig } from "@storybook/angular";
+
+const config: StorybookConfig = {
   typescript: {
     check: true,
   },
   staticDirs: [
     "../../packages/dso-toolkit/storybook-assets",
-    { from: "../../packages/dso-toolkit", to: "/dso-toolkit" },
-    { from: "../../packages/core/dist", to: "/core" },
-    { from: "../../node_modules/iframe-resizer/js", to: "iframe-resizer" },
+    {
+      from: "../../packages/dso-toolkit",
+      to: "/dso-toolkit",
+    },
+    {
+      from: "../../node_modules/iframe-resizer/js",
+      to: "iframe-resizer",
+    },
   ],
-  features: {
-    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
-    postcss: false,
-  },
   stories: ["../components/*/*.stories.ts"],
   addons: [
     {
@@ -28,7 +31,6 @@ module.exports = {
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
-    <script type="module" src="./core/dso-toolkit/dso-toolkit.esm.js"></script>
     <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
   previewBody: (body) =>
@@ -44,9 +46,19 @@ module.exports = {
 
     return config;
   },
-  framework: "@storybook/angular",
+  framework: {
+    name: "@storybook/angular",
+    options: {},
+  },
   core: {
-    builder: "@storybook/builder-webpack5",
     disableTelemetry: true,
   },
+  docs: {
+    autodocs: true,
+  },
+  features: {
+    storyStoreV7: false,
+  },
 };
+
+export default config;

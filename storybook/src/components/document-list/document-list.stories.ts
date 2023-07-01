@@ -1,7 +1,7 @@
 import { storiesOfDocumentList, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/document-list/readme.md";
+import cssReadme from "dso-toolkit/src/components/document-list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { html } from "lit-html";

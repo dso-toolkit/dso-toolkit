@@ -15,7 +15,7 @@ import { storiesOf } from "@storybook/react";
 
 import { DsoResponsiveElement } from "../../components";
 import { templateContainer } from "../../templates";
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 import { definitionListTemplate } from "./viewer-grid.definition-list.content";
 import { documentListTemplate } from "./viewer-grid.document-list.content";
 import { contextTemplate } from "./viewer-grid.filterblok.content";

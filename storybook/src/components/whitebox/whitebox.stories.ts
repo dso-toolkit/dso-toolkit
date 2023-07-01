@@ -1,7 +1,7 @@
 import { storiesOfWhitebox, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import readme from "dso-toolkit/src/components/whitebox/readme.md";
+import readme from "dso-toolkit/src/components/whitebox/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 const css = `
   dso-responsive-element:not([small]) .demo-small {

@@ -5,7 +5,7 @@ import { DsoDatePicker } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfDatePicker(
   {

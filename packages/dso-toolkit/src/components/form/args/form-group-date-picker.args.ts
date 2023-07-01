@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { FormGroupDatePicker } from "../models/form-group-date-picker.model.js";
 
 export interface FormGroupDatePickerArgs {

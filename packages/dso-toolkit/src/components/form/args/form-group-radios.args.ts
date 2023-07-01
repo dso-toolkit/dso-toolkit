@@ -1,5 +1,7 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes, noControl } from "../../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../../storybook/index.js";
 import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupRadios } from "../form.models.js";

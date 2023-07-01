@@ -1,4 +1,4 @@
-import coreReadme from "@dso-toolkit/core/src/components/slide-toggle/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/slide-toggle/readme.md?raw";
 import { storiesOf } from "@storybook/web-components";
 import { storiesOfSlideToggle, StoryRoot } from "dso-toolkit";
 

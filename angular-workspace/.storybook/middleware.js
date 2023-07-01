@@ -1,13 +1,13 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
+import { createProxyMiddleware } from "http-proxy-middleware";
 
-module.exports = function (app) {
+export default function middleware(app) {
   app.use(
     "/~dev-server",
     createProxyMiddleware({
-      target: "http://localhost:45333",
+      target: "http://127.0.0.1:45333",
       changeOrigin: true,
       logLevel: "silent",
       ws: true,
     })
   );
-};
+}

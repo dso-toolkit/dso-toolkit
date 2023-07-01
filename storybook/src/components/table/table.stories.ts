@@ -1,7 +1,7 @@
 import { storiesOfTable, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import coreReadme from "@dso-toolkit/core/src/components/table/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { defaultTable, imageOverlayTable } from "./table.content";

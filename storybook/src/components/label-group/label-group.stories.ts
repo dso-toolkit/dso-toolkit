@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/label-group/readme.md";
+import cssReadme from "dso-toolkit/src/components/label-group/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { storiesOfLabelGroup, StoryRoot } from "dso-toolkit";
