@@ -1,5 +1,7 @@
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
+
+import { noControl } from "../../storybook/index.js";
 
 import { ListButton } from "./list-button.models.js";
 

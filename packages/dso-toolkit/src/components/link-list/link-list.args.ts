@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 
 import { LinkList, LinkListType } from "./link-list.models.js";
 import { Anchor } from "../anchor/anchor.models.js";

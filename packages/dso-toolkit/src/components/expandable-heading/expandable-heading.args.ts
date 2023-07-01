@@ -1,5 +1,7 @@
+import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes, noControl } from "../../storybook/index.js";
+
+import { noControl } from "../../storybook/index.js";
 import { EditAction, ExpandableHeading, ExpandableHeadingTemplates } from "./expandable-heading.models.js";
 
 export interface ExpandableHeadingArgs {

@@ -1,6 +1,8 @@
+import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { noControl } from "../../storybook/index.js";
+
 import { Annotation } from "./annotation.models.js";
 
 export interface AnnotationArgs {

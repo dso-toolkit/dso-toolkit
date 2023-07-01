@@ -1,8 +1,8 @@
 import { storiesOfIcon, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import coreReadme from "@dso-toolkit/core/src/components/icon/readme.md";
-import cssReadme from "dso-toolkit/src/components/icon/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
+import cssReadme from "dso-toolkit/src/components/icon/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

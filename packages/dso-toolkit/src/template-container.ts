@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/addons";
+import { Addon_StoryFn } from "@storybook/types";
 
 export interface BaseComponentImplementation<
   Model,
@@ -72,7 +72,7 @@ export class TemplateContainer<
 
   fromArgs<StoryArgs>(
     mapper: (args: StoryArgs, templates: Templates) => TemplateFnReturnType
-  ): StoryFn<TemplateFnReturnType> {
+  ): Addon_StoryFn<TemplateFnReturnType> {
     return (a, context) => {
       const { preferredImplementation } = a;
       const args = { ...a };

@@ -4,7 +4,7 @@ import { storiesOfActionList } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfActionList({
   parameters: {

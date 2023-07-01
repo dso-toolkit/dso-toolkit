@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * List Button: Gaat stuk in de smalle viewport (768px) ([#2192](https://github.com/dso-toolkit/dso-toolkit/issues/2192))
 * List Button: Web Component implementatie heeft onderling geen 4px ruimte ([#2157](https://github.com/dso-toolkit/dso-toolkit/issues/2157))
 
+### Tasks
+* Storybook 7 update ([#2083](https://github.com/dso-toolkit/dso-toolkit/issues/2083))
+
 ## 54.3.0
 
 ### Added

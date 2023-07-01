@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/web-components";
 import { storiesOfExpandable, StoryRoot } from "dso-toolkit";
 
-import coreReadme from "@dso-toolkit/core/src/components/expandable/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/expandable/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { expandableContent } from "./expandable.content";

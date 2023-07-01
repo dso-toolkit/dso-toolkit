@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 function asChildTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (

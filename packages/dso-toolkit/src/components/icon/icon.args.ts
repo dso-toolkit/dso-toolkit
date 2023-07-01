@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 import { Icon } from "./icon.models.js";
 
 export interface IconArgs {

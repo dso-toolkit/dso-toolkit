@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/web-components";
 import { storiesOfAnnotation, StoryRoot } from "dso-toolkit";
 
-import coreReadme from "dso-toolkit/src/components/annotation/readme.md";
+import coreReadme from "dso-toolkit/src/components/annotation/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { annotationContent } from "./annotation.content";

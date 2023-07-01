@@ -5,6 +5,7 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "noEmitOnError": true,
+    "resolveJsonModule": true,
     "noUncheckedIndexedAccess": true,
     "declarationMap": true,
     "inlineSources": true,

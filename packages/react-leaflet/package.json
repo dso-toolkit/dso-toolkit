@@ -34,7 +34,7 @@
     "klap": "^7.0.11",
     "leaflet": "^1.9.4",
     "react-leaflet": "^4.2.1",
-    "typescript": "~4.8.4"
+    "typescript": "^5.1.3"
   },
   "peerDependencies": {
     "@dso-toolkit/leaflet": "^1.2.4",

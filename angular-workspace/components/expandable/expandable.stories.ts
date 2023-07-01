@@ -5,7 +5,7 @@ import { templateContainer } from "../../templates";
 import { expandableContent } from "./expandable.content";
 import { decorator } from "./expandable.decorator";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfExpandable(
   {

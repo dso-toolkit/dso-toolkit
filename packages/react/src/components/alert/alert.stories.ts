@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfAlert({
   parameters: {

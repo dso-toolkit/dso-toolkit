@@ -10,6 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "noPropertyAccessFromIndexSignature": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,

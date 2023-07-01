@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
 
 import { ProgressIndicator } from "./progress-indicator.models.js";
 

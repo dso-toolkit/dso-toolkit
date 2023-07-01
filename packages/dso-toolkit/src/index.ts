@@ -9,7 +9,6 @@ export {
 } from "./template-container.js";
 
 export {
-  ArgTypes,
   ArgsError,
   StoriesOfArguments,
   StoryOfFactoryArguments,

@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { Addon_DecoratorFunction } from "@storybook/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
@@ -13,7 +13,7 @@ export interface DatePickerTemplates<TemplateFnReturnType> {
 }
 
 export interface DatePickerParameters<TemplateFnReturnType> {
-  decorator: DecoratorFunction<TemplateFnReturnType>;
+  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnType>(

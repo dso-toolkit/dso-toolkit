@@ -1,8 +1,8 @@
 import { storiesOfCard, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/card/readme.md";
-import coreReadme from "@dso-toolkit/core/src/components/card/readme.md";
+import cssReadme from "dso-toolkit/src/components/card/readme.md?raw";
+import coreReadme from "@dso-toolkit/core/src/components/card/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { content } from "./card.content";

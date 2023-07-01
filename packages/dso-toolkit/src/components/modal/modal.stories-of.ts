@@ -13,7 +13,11 @@ function onStory(load: () => void, unload: () => void) {
 }
 
 const storyObserver = new MutationObserver(([titleMutationRecord]) => {
-  if (!titleMutationRecord) {
+  if (
+    !titleMutationRecord ||
+    !(titleMutationRecord instanceof HTMLTitleElement) ||
+    titleMutationRecord.target.textContent?.includes(" - Docs")
+  ) {
     return;
   }
 
@@ -70,9 +74,6 @@ const storyObserver = new MutationObserver(([titleMutationRecord]) => {
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-storyObserver.observe(window.parent.document.head.querySelector("title")!, { childList: true, subtree: true });
-
 const canvasObserver = new MutationObserver((mutationRecords) => {
   for (const mutationRecord of mutationRecords.filter((r) => r.type === "attributes")) {
     if (!(mutationRecord.target instanceof HTMLElement)) {
@@ -85,8 +86,19 @@ const canvasObserver = new MutationObserver((mutationRecords) => {
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-canvasObserver.observe(document.getElementById("root")!, { attributes: true });
+setTimeout(() => {
+  const title = window.parent.document.head.querySelector("title");
+  const storybookRoot = document.getElementById("storybook-root");
+
+  if (!title || !storybookRoot) {
+    console.warn("No title or storybookRoot found", title, storybookRoot);
+
+    return;
+  }
+
+  storyObserver.observe(title, { childList: true, subtree: true });
+  canvasObserver.observe(storybookRoot, { attributes: true });
+}, 400);
 
 function toggleClass(className: string) {
   setTimeout(

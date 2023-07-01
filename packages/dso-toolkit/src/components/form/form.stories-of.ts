@@ -1,4 +1,5 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { compiler } from "markdown-to-jsx";
+import { Addon_DecoratorFunction } from "@storybook/types";
 
 import { StorybookParameters, StoryRoot } from "../../storybook/index.js";
 
@@ -98,7 +99,7 @@ export interface FormTemplates<TemplateFnReturnType> {
 }
 
 export interface FormParameters<TemplateFnReturnType> {
-  formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
+  formGroupDecorator: Addon_DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
@@ -110,8 +111,11 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
   storiesOf(`${StoryRoot.HtmlCss}/Form/form`, mainModule)
     .addParameters({
       argTypes: formArgTypes,
+      args: {
+        legend: "Formulier",
+      },
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .add(
@@ -128,7 +132,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupCheckboxesArgTypes,
       args: checkboxesContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -146,7 +150,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupConfirmArgTypes,
       args: confirmContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -164,7 +168,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupDatePickerArgTypes,
       args: datePickerContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -182,7 +186,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupFilesArgTypes,
       args: filesContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -200,7 +204,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupInputArgTypes,
       args: inputContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -218,7 +222,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupInputNumberArgTypes,
       args: inputNumberContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -236,7 +240,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupRadiosArgTypes,
       args: radiosContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -254,7 +258,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupSearchBarArgTypes,
       args: searchBarContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -272,7 +276,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupSelectArgTypes,
       args: selectContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -290,7 +294,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupStaticArgTypes,
       args: staticContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)
@@ -308,7 +312,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       argTypes: formGroupTextareaArgTypes,
       args: textareaContent,
       docs: {
-        page: readme,
+        page: () => compiler(readme, { forceBlock: true }),
       },
     })
     .addDecorator(formGroupDecorator)

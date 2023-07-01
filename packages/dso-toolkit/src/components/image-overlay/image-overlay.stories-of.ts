@@ -17,6 +17,9 @@ export function storiesOfImageOverlay<Implementation, Templates, TemplateFnRetur
   return storiesOfFactory("Image Overlay", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: imageOverlayArgTypes,
+      args: {
+        image: 0,
+      },
       layout: "fullscreen",
     });
 

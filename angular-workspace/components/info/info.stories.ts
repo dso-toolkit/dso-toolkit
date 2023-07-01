@@ -5,7 +5,7 @@ import { DsoInfo } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { richContent } from "./info.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfInfo({
   parameters: {

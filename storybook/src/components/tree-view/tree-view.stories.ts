@@ -1,7 +1,7 @@
 import { storiesOfTreeView, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import readme from "@dso-toolkit/core/src/components/tree-view/readme.md";
+import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";

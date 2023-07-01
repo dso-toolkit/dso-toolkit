@@ -1,4 +1,6 @@
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../storybook/index.js";
 
 import { CardArgs, cardArgsMapper } from "../card/card.args.js";
 import { CardList } from "./card-list.models.js";

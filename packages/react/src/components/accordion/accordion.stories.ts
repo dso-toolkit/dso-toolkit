@@ -10,7 +10,7 @@ import {
   subSections,
 } from "./accordion.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfAccordion({
   parameters: {

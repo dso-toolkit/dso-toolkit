@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import { infoRichContent } from "./selectable.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfSelectable({
   parameters: {

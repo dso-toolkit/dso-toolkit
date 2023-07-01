@@ -6,7 +6,7 @@ import { DsoHeader } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { TrustUrlPipe } from "../trust-url.pipe";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfHeader({
   parameters: {

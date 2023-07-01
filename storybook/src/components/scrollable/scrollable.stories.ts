@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/web-components";
 import { storiesOfScrollable, StoryRoot } from "dso-toolkit";
 
-import coreReadme from "@dso-toolkit/core/src/components/scrollable/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { decorator } from "./scrollable.decorator";

@@ -1,7 +1,7 @@
 import { storiesOfActionList, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import coreReadme from "@dso-toolkit/core/src/components/action-list/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/action-list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";

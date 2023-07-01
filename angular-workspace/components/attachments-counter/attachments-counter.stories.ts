@@ -4,7 +4,7 @@ import { storiesOfAttachmentsCounter } from "dso-toolkit";
 import { DsoAttachmentsCounter } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfAttachmentsCounter({
   parameters: {

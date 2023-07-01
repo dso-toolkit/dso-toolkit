@@ -1,8 +1,8 @@
 import { storiesOfPagination, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
-import coreReadme from "@dso-toolkit/core/src/components/pagination/readme.md";
-import cssReadme from "dso-toolkit/src/components/pagination/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/pagination/readme.md?raw";
+import cssReadme from "dso-toolkit/src/components/pagination/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

@@ -1,7 +1,9 @@
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "@storybook/types";
+
 import { DefinitionList } from "../definition-list/definition-list.models.js";
 import { DocumentHeader } from "./document-header.models.js";
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { noControl } from "../../storybook/index.js";
 
 export interface DocumentHeaderArgs {
   title: string;

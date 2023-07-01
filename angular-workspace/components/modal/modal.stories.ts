@@ -21,7 +21,7 @@ import {
   passiveFooter,
 } from "./modal.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfModal({
   parameters: {

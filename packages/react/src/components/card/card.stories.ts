@@ -4,7 +4,7 @@ import { templateContainer } from "../../templates";
 
 import { content } from "./card.content";
 
-import readme from "./readme.md";
+import readme from "./readme.md?raw";
 
 storiesOfCard({
   parameters: {

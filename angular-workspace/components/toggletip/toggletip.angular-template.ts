@@ -1,4 +1,4 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 
 import { Toggletip } from "dso-toolkit";
 import { ComponentImplementation } from "../../templates";
