@@ -193,8 +193,8 @@ export class Header {
   }
 
   private onWindowResize = debounce(() => {
-    this.dropdownElement?.removeAttribute("open")
-    this.dropdownElement?.removeAttribute("tabindex")
+    this.dropdownElement?.removeAttribute("open");
+    this.dropdownElement?.removeAttribute("tabindex");
 
     this.setDropDownMenu();
     this.setOverflowMenu();
