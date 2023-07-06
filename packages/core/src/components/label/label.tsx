@@ -10,6 +10,7 @@ import {
   Prop,
   State,
   Watch,
+  Listen,
 } from "@stencil/core";
 import clsx from "clsx";
 import { debounce } from "debounce";
@@ -40,8 +41,6 @@ function hasEllipses(el: HTMLElement): boolean {
 export class Label implements ComponentInterface {
   private labelContent: HTMLSpanElement | undefined;
 
-  private keydownListenerActive = false;
-
   private mutationObserver?: MutationObserver;
 
   @Element()
@@ -65,6 +64,12 @@ export class Label implements ComponentInterface {
   @Prop()
   status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
 
+  /**
+   * Emitted when the user activates the remove button.
+   */
+  @Event()
+  dsoRemoveClick!: EventEmitter<MouseEvent>;
+
   @State()
   removeHover?: boolean;
 
@@ -84,16 +89,19 @@ export class Label implements ComponentInterface {
   textFocus?: boolean;
 
   @State()
-  isTruncated?: boolean;
+  isTruncated = false;
 
   @State()
-  labelText: string | null = null;
+  labelText = "";
 
-  /**
-   * Emitted when the user activates the remove button.
-   */
-  @Event()
-  dsoRemoveClick!: EventEmitter<MouseEvent>;
+  @Watch("removable")
+  watchRemovable(removable: boolean) {
+    if (removable) {
+      this.startMutationObserver();
+    } else {
+      this.stopMutationObserver();
+    }
+  }
 
   @Watch("truncate")
   watchTruncate(truncate: boolean) {
@@ -104,17 +112,11 @@ export class Label implements ComponentInterface {
     }
   }
 
-  @Watch("textHover")
-  @Watch("textFocus")
-  watchTooltipActive() {
-    if (!this.keydownListenerActive && (this.textHover || this.textFocus)) {
-      document.addEventListener("keydown", this.keyDownListener);
-      this.keydownListenerActive = true;
-    }
-
-    if (!this.textHover && !this.textFocus) {
-      document.removeEventListener("keydown", this.keyDownListener);
-      this.keydownListenerActive = false;
+  @Listen("keydown", { target: "document" })
+  keyDownListener(event: KeyboardEvent) {
+    if (event.key === "Escape") {
+      this.textHover = false;
+      this.textFocus = false;
     }
   }
 
@@ -124,12 +126,12 @@ export class Label implements ComponentInterface {
   @Method()
   async _truncateLabel() {
     setTimeout(() => {
-      this.isTruncated = this.labelContent && hasEllipses(this.labelContent);
+      this.isTruncated = !!this.labelContent && hasEllipses(this.labelContent);
     });
   }
 
   private syncLabelText() {
-    this.labelText = this.host.textContent;
+    this.labelText = this.host.textContent?.trim() ?? "";
   }
 
   componentDidLoad() {
@@ -144,23 +146,30 @@ export class Label implements ComponentInterface {
 
   disconnectedCallback() {
     this.stopTruncate();
+
+    this.stopMutationObserver(true);
   }
 
   /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
   private startMutationObserver(): void {
-    if (this.mutationObserver) {
-      return;
-    }
-
-    this.mutationObserver = new MutationObserver((entries) => entries.forEach(() => this.syncLabelText()));
+    this.mutationObserver = new MutationObserver(() => this.syncLabelText());
 
     this.mutationObserver.observe(this.host, {
       characterData: true,
+      childList: true,
       subtree: true,
       attributes: true,
     });
 
-    this.labelText = this.host.textContent;
+    this.syncLabelText();
+  }
+
+  private stopMutationObserver(force = false): void {
+    if (force || !(this.truncate && this.removable)) {
+      this.mutationObserver?.disconnect();
+
+      delete this.mutationObserver;
+    }
   }
 
   private startTruncate(): void {
@@ -170,19 +179,10 @@ export class Label implements ComponentInterface {
   }
 
   private stopTruncate(): void {
-    document.removeEventListener("keydown", this.keyDownListener);
-
     resizeObserver.unobserve(this.host);
-    this.isTruncated = undefined;
-    this.keydownListenerActive = false;
+    this.stopMutationObserver();
+    this.isTruncated = false;
   }
-
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      this.textHover = false;
-      this.textFocus = false;
-    }
-  };
 
   render() {
     return (
