@@ -12,7 +12,6 @@ import {
   DatePicker,
   DropdownMenu,
   Expandable,
-  ExpandableHeading,
   Header,
   HelpcenterPanel,
   HighlightBox,
@@ -44,7 +43,6 @@ import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularBanner } from "./components/banner/banner.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
-import { angularExpandableHeading } from "./components/expandable-heading/expandable-heading.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
 import { angularHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.angular-template";
@@ -80,7 +78,6 @@ export interface Components {
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<StoryFnAngularReturnType>;
-  expandableHeading: ExpandableHeading<StoryFnAngularReturnType>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<StoryFnAngularReturnType>;
@@ -146,7 +143,6 @@ templateContainer.add(angularBanner);
 templateContainer.add(angularDatePicker);
 templateContainer.add(angularDropdownMenu);
 templateContainer.add(angularExpandable);
-templateContainer.add(angularExpandableHeading);
 templateContainer.add(angularHeader);
 templateContainer.add(angularHelpcenterPanel);
 templateContainer.add(angularHighlightBox);

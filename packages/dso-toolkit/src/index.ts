@@ -116,6 +116,12 @@ export {
 export { Description } from "./components/description/description.models.js";
 export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
 
+export { DocumentComponent } from "./components/document-component/document-component.models.js";
+export {
+  DocumentComponentTemplates,
+  storiesOfDocumentComponent,
+} from "./components/document-component/document-component.stories-of.js";
+
 export { DocumentHeader } from "./components/document-header/document-header.models.js";
 export {
   DocumentHeaderTemplates,
@@ -140,12 +146,6 @@ export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropd
 
 export { Expandable } from "./components/expandable/expandable.models.js";
 export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
-
-export { ExpandableHeading } from "./components/expandable-heading/expandable-heading.models.js";
-export {
-  ExpandableHeadingTemplates,
-  storiesOfExpandableHeading,
-} from "./components/expandable-heading/expandable-heading.stories-of.js";
 
 export { Footnote } from "./components/footnotes/footnotes.models.js";
 export { FootnotesTemplates, storiesOfFootnotes } from "./components/footnotes/footnotes.stories-of.js";

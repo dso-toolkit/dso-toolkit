@@ -7,13 +7,14 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
-import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
+import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
+import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { DocumentComponentOpenToggleEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.types";
 import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
-import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -32,13 +33,14 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
-export { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
+export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
+export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+export { DocumentComponentOpenToggleEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.types";
 export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
-export { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -143,10 +145,13 @@ export namespace Components {
         /**
           * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
          */
-        "identifier": string;
+        "identifier": string | undefined;
+        /**
+          * Set to true when the annotation is open.
+         */
+        "open": boolean;
     }
     interface DsoAnnotationOutput {
-        "_toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
         /**
           * This text will be displayed above the annotation-output when opened
          */
@@ -155,6 +160,10 @@ export namespace Components {
           * The annotation-button that toggles this component should have the same identifier.
          */
         "identifier": string;
+        /**
+          * Set to `true` to show content.
+         */
+        "open": boolean;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -286,6 +295,76 @@ export namespace Components {
          */
         "value": string;
     }
+    interface DsoDocumentComponent {
+        /**
+          * An alternative title to show when there is nothing to create a title.
+         */
+        "alternativeTitle"?: string;
+        /**
+          * Enables annotations.
+         */
+        "annotated": boolean;
+        /**
+          * Marks as draft.
+         */
+        "bevatOntwerpInformatie": boolean;
+        /**
+          * Marks this Document Component as belonging to an active filter.
+         */
+        "filtered": boolean;
+        /**
+          * When a child Document Component has a status "Draft".
+         */
+        "genesteOntwerpInformatie": boolean;
+        /**
+          * Marks Document Component as reserved.
+         */
+        "gereserveerd": boolean;
+        /**
+          * The heading element to use.
+         */
+        "heading": "h2" | "h3" | "h4" | "h5" | "h6";
+        /**
+          * The Inhoud XML.
+         */
+        "inhoud"?: string;
+        /**
+          * The Label XML.
+         */
+        "label"?: string;
+        /**
+          * Marks this Document Component as not-applicable.
+         */
+        "notApplicable": boolean;
+        /**
+          * The Nummer XML.
+         */
+        "nummer"?: string;
+        /**
+          * This boolean attribute indicates whether the children are visible.
+         */
+        "open": boolean;
+        /**
+          * When the Annotation Output is opened, set this to true.
+         */
+        "openAnnotation": boolean;
+        /**
+          * The Opschrift XML.
+         */
+        "opschrift"?: string;
+        /**
+          * Type of Document Component.
+         */
+        "type"?: string;
+        /**
+          * Marks the Document Component as expired.
+         */
+        "vervallen": boolean;
+        /**
+          * The wijzigactie as in STOP.
+         */
+        "wijzigactie"?: DocumentComponentWijzigactie;
+    }
     interface DsoDropdownMenu {
         /**
           * Selector for the element the dropdown options should not be overflowing.
@@ -325,28 +404,6 @@ export namespace Components {
           * Set to `true` to expand the content.
          */
         "open"?: boolean;
-    }
-    interface DsoExpandableHeading {
-        /**
-          * The color.
-         */
-        "color": "default" | "black";
-        /**
-          * Whether this Expandable Heading has an edit action.  Also known as "wijzigactie" in STOP.
-         */
-        "editAction"?: EditAction;
-        /**
-          * Which heading element to use.
-         */
-        "heading": HeadingTags;
-        /**
-          * To open the Expandable Heading.
-         */
-        "open"?: boolean;
-        /**
-          * Marks this element as unavailable.
-         */
-        "suppressed": boolean;
     }
     interface DsoHeader {
         /**
@@ -802,10 +859,16 @@ export namespace Components {
          */
         "overlayOpen": boolean;
     }
+    interface DsotDocumentComponentDemo {
+    }
 }
 export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionSectionElement;
+}
+export interface DsoAnnotationButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAnnotationButtonElement;
 }
 export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -823,13 +886,13 @@ export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
 }
+export interface DsoDocumentComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDocumentComponentElement;
+}
 export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoExpandableElement;
-}
-export interface DsoExpandableHeadingCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoExpandableHeadingElement;
 }
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -984,6 +1047,12 @@ declare global {
         prototype: HTMLDsoDatePickerElement;
         new (): HTMLDsoDatePickerElement;
     };
+    interface HTMLDsoDocumentComponentElement extends Components.DsoDocumentComponent, HTMLStencilElement {
+    }
+    var HTMLDsoDocumentComponentElement: {
+        prototype: HTMLDsoDocumentComponentElement;
+        new (): HTMLDsoDocumentComponentElement;
+    };
     interface HTMLDsoDropdownMenuElement extends Components.DsoDropdownMenu, HTMLStencilElement {
     }
     var HTMLDsoDropdownMenuElement: {
@@ -995,12 +1064,6 @@ declare global {
     var HTMLDsoExpandableElement: {
         prototype: HTMLDsoExpandableElement;
         new (): HTMLDsoExpandableElement;
-    };
-    interface HTMLDsoExpandableHeadingElement extends Components.DsoExpandableHeading, HTMLStencilElement {
-    }
-    var HTMLDsoExpandableHeadingElement: {
-        prototype: HTMLDsoExpandableHeadingElement;
-        new (): HTMLDsoExpandableHeadingElement;
     };
     interface HTMLDsoHeaderElement extends Components.DsoHeader, HTMLStencilElement {
     }
@@ -1158,6 +1221,12 @@ declare global {
         prototype: HTMLDsoViewerGridElement;
         new (): HTMLDsoViewerGridElement;
     };
+    interface HTMLDsotDocumentComponentDemoElement extends Components.DsotDocumentComponentDemo, HTMLStencilElement {
+    }
+    var HTMLDsotDocumentComponentDemoElement: {
+        prototype: HTMLDsotDocumentComponentDemoElement;
+        new (): HTMLDsotDocumentComponentDemoElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-accordion": HTMLDsoAccordionElement;
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
@@ -1173,9 +1242,9 @@ declare global {
         "dso-card": HTMLDsoCardElement;
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
+        "dso-document-component": HTMLDsoDocumentComponentElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-expandable": HTMLDsoExpandableElement;
-        "dso-expandable-heading": HTMLDsoExpandableHeadingElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -1202,6 +1271,7 @@ declare global {
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
         "dso-viewer-grid": HTMLDsoViewerGridElement;
+        "dsot-document-component-demo": HTMLDsotDocumentComponentDemoElement;
     }
 }
 declare namespace LocalJSX {
@@ -1299,7 +1369,15 @@ declare namespace LocalJSX {
         /**
           * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
          */
-        "identifier": string;
+        "identifier": string | undefined;
+        /**
+          * Emitted when user activates the button.
+         */
+        "onDsoClick"?: (event: DsoAnnotationButtonCustomEvent<AnnotationButtonClickEvent>) => void;
+        /**
+          * Set to true when the annotation is open.
+         */
+        "open"?: boolean;
     }
     interface DsoAnnotationOutput {
         /**
@@ -1313,7 +1391,11 @@ declare namespace LocalJSX {
         /**
           * This event is emitted when the user activates the Annotation Button.
          */
-        "onDsoToggle"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
+        "onDsoClose"?: (event: DsoAnnotationOutputCustomEvent<AnnotationOutputCloseEvent>) => void;
+        /**
+          * Set to `true` to show content.
+         */
+        "open"?: boolean;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -1469,6 +1551,84 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface DsoDocumentComponent {
+        /**
+          * An alternative title to show when there is nothing to create a title.
+         */
+        "alternativeTitle"?: string;
+        /**
+          * Enables annotations.
+         */
+        "annotated"?: boolean;
+        /**
+          * Marks as draft.
+         */
+        "bevatOntwerpInformatie"?: boolean;
+        /**
+          * Marks this Document Component as belonging to an active filter.
+         */
+        "filtered"?: boolean;
+        /**
+          * When a child Document Component has a status "Draft".
+         */
+        "genesteOntwerpInformatie"?: boolean;
+        /**
+          * Marks Document Component as reserved.
+         */
+        "gereserveerd"?: boolean;
+        /**
+          * The heading element to use.
+         */
+        "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
+        /**
+          * The Inhoud XML.
+         */
+        "inhoud"?: string;
+        /**
+          * The Label XML.
+         */
+        "label"?: string;
+        /**
+          * Marks this Document Component as not-applicable.
+         */
+        "notApplicable"?: boolean;
+        /**
+          * The Nummer XML.
+         */
+        "nummer"?: string;
+        /**
+          * Emitted when the user activates the annotation button.
+         */
+        "onDsoAnnotationToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentToggleAnnotationEvent>) => void;
+        /**
+          * Emitted when the user activates the toggle.
+         */
+        "onDsoOpenToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>) => void;
+        /**
+          * This boolean attribute indicates whether the children are visible.
+         */
+        "open"?: boolean;
+        /**
+          * When the Annotation Output is opened, set this to true.
+         */
+        "openAnnotation"?: boolean;
+        /**
+          * The Opschrift XML.
+         */
+        "opschrift"?: string;
+        /**
+          * Type of Document Component.
+         */
+        "type"?: string;
+        /**
+          * Marks the Document Component as expired.
+         */
+        "vervallen"?: boolean;
+        /**
+          * The wijzigactie as in STOP.
+         */
+        "wijzigactie"?: DocumentComponentWijzigactie;
+    }
     interface DsoDropdownMenu {
         /**
           * Selector for the element the dropdown options should not be overflowing.
@@ -1512,32 +1672,6 @@ declare namespace LocalJSX {
           * Set to `true` to expand the content.
          */
         "open"?: boolean;
-    }
-    interface DsoExpandableHeading {
-        /**
-          * The color.
-         */
-        "color"?: "default" | "black";
-        /**
-          * Whether this Expandable Heading has an edit action.  Also known as "wijzigactie" in STOP.
-         */
-        "editAction"?: EditAction;
-        /**
-          * Which heading element to use.
-         */
-        "heading"?: HeadingTags;
-        /**
-          * Emitted when the user activates the toggle button.
-         */
-        "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
-        /**
-          * To open the Expandable Heading.
-         */
-        "open"?: boolean;
-        /**
-          * Marks this element as unavailable.
-         */
-        "suppressed"?: boolean;
     }
     interface DsoHeader {
         /**
@@ -2063,6 +2197,8 @@ declare namespace LocalJSX {
          */
         "overlayOpen"?: boolean;
     }
+    interface DsotDocumentComponentDemo {
+    }
     interface IntrinsicElements {
         "dso-accordion": DsoAccordion;
         "dso-accordion-section": DsoAccordionSection;
@@ -2078,9 +2214,9 @@ declare namespace LocalJSX {
         "dso-card": DsoCard;
         "dso-card-container": DsoCardContainer;
         "dso-date-picker": DsoDatePicker;
+        "dso-document-component": DsoDocumentComponent;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-expandable": DsoExpandable;
-        "dso-expandable-heading": DsoExpandableHeading;
         "dso-header": DsoHeader;
         "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
@@ -2107,6 +2243,7 @@ declare namespace LocalJSX {
         "dso-tooltip": DsoTooltip;
         "dso-tree-view": DsoTreeView;
         "dso-viewer-grid": DsoViewerGrid;
+        "dsot-document-component-demo": DsotDocumentComponentDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -2127,9 +2264,9 @@ declare module "@stencil/core" {
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
+            "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
-            "dso-expandable-heading": LocalJSX.DsoExpandableHeading & JSXBase.HTMLAttributes<HTMLDsoExpandableHeadingElement>;
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
@@ -2156,6 +2293,7 @@ declare module "@stencil/core" {
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
             "dso-viewer-grid": LocalJSX.DsoViewerGrid & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
+            "dsot-document-component-demo": LocalJSX.DsotDocumentComponentDemo & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
         }
     }
 }

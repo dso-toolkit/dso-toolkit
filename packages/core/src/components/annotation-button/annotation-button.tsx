@@ -1,24 +1,37 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
-import { AnnotationService } from "../../services/annotation.service";
+import { h, Component, ComponentInterface, Event, Prop, EventEmitter } from "@stencil/core";
+
+export interface AnnotationButtonClickEvent {
+  originalEvent: Event;
+  open: boolean;
+}
 
 @Component({
   tag: "dso-annotation-button",
   styleUrl: "annotation-button.scss",
-  // We disable shadowdom for a11y reasons (aria-controls pointing to element inside another component)
-  shadow: false,
+  // No shadowdom for a11y reasons (aria-controls pointing to element inside another component)
 })
 export class AnnotationButton implements ComponentInterface {
   /**
    * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
    */
   @Prop()
-  identifier!: string;
+  identifier!: string | undefined;
 
-  private annotationOutput!: HTMLDsoAnnotationOutputElement | null;
+  /**
+   * Set to true when the annotation is open.
+   */
+  @Prop()
+  open = false;
 
-  componentDidLoad() {
-    this.annotationOutput = document.querySelector(`dso-annotation-output[identifier='${this.identifier}']`);
-  }
+  /**
+   * Emitted when user activates the button.
+   */
+  @Event({ bubbles: false })
+  dsoClick!: EventEmitter<AnnotationButtonClickEvent>;
+
+  private handleClick = (e: MouseEvent) => {
+    this.dsoClick.emit({ originalEvent: e, open: !this.open });
+  };
 
   render() {
     return (
@@ -26,8 +39,8 @@ export class AnnotationButton implements ComponentInterface {
         type="button"
         class="dso-tertiary"
         aria-controls={this.identifier}
-        aria-expanded={AnnotationService.state[this.identifier] ? "true" : "false"}
-        onClick={(e) => this.annotationOutput?._toggleAnnotation(e, this.identifier)}
+        aria-expanded={this.open.toString()}
+        onClick={this.handleClick}
       >
         <dso-icon icon="label"></dso-icon>
         <span class="sr-only">Toelichting bekijken</span>

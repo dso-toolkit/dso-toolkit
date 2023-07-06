@@ -28,6 +28,10 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 
 ## Dependencies
 
+### Used by
+
+ - [dso-document-component](../document-component)
+
 ### Depends on
 
 - [dso-icon](../icon)
@@ -38,6 +42,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 graph TD;
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-document-component --> dso-label
   style dso-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

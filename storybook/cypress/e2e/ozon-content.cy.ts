@@ -5,7 +5,7 @@ describe("Ozon Content", () => {
       c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
     });
 
-    cy.get("dso-ozon-content").find("a[href = '#longTitle_inst2']").click();
+    cy.get("dso-ozon-content").shadow().find("a[href = '#longTitle_inst2']").click();
 
     cy.get("@anchorClick").should("have.been.calledOnce");
 
@@ -14,14 +14,17 @@ describe("Ozon Content", () => {
 
   it("should open and close notes", () => {
     function button(n: string) {
-      return cy.get("dso-ozon-content").find(`button[aria-describedby="dso-ozon-note-${n}"]`);
+      return cy.get("dso-ozon-content").shadow().find(`button[aria-describedby="dso-ozon-note-${n}"]`);
     }
 
     function tooltip(n: string) {
-      return cy.get("dso-ozon-content").find(`sup:has(button[aria-describedby="dso-ozon-note-${n}"]) + dso-tooltip`);
+      return cy
+        .get("dso-ozon-content")
+        .shadow()
+        .find(`sup:has(button[aria-describedby="dso-ozon-note-${n}"]) + dso-tooltip`);
     }
 
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot").wait(1000);
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot");
 
     button("N6").should("have.attr", "aria-expanded", "false");
     tooltip("N6").should("be.not.visible");
@@ -54,7 +57,7 @@ describe("Ozon Content", () => {
       c.prop("content", "<aap>baviaan</aap>");
     });
 
-    cy.get("dso-ozon-content").find("span.fallback.od-aap").should("exist").contains("baviaan");
+    cy.get("dso-ozon-content").shadow().find("span.fallback.od-aap").should("exist").contains("baviaan");
 
     cy.percySnapshot();
   });
@@ -66,7 +69,7 @@ describe("Ozon Content", () => {
       c.prop("content", "<e><br /></e>");
     });
 
-    cy.get("dso-ozon-content").find("span.fallback.od-e").children("br").should("exist").and("be.empty");
+    cy.get("dso-ozon-content").shadow().find("span.fallback.od-e").children("br").should("exist").and("be.empty");
 
     cy.percySnapshot();
   });
@@ -78,7 +81,7 @@ describe("Ozon Content", () => {
       c.prop("content", "<Al>Tekst<Al>Meer tekst</Al></Al>");
     });
 
-    cy.get("dso-ozon-content").find("p").should("exist").children('span[role="paragraph"]').should("exist");
+    cy.get("dso-ozon-content").shadow().find("p").should("exist").children('span[role="paragraph"]').should("exist");
 
     cy.percySnapshot();
   });
@@ -94,6 +97,7 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find("span.fallback.od-outer")
       .children("sub")
       .should("exist")
@@ -124,6 +128,7 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find("span.fallback.od-c")
       .children("div.dso-rich-content")
       .should("exist")
@@ -141,6 +146,7 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find("span.fallback.od-c")
       .children("a[href = '#doc']")
       .should("exist")
@@ -154,6 +160,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--intioref");
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
       .should("exist");
 
@@ -167,7 +174,10 @@ describe("Ozon Content", () => {
       c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
     });
 
-    cy.get("dso-ozon-content").find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]').click();
+    cy.get("dso-ozon-content")
+      .shadow()
+      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
+      .click();
 
     cy.get("@anchorClick")
       .should("have.been.calledOnce")
@@ -186,6 +196,7 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find("span.fallback.od-c")
       .children("a[href = 'doc'][target = '_blank'][rel = 'noopener noreferrer']")
       .should("exist")
@@ -202,6 +213,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--extioref");
 
     cy.get("dso-ozon-content")
+      .shadow()
       .contains("/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1")
       .should("have.prop", "tagName", "A")
       .and(
@@ -222,7 +234,10 @@ describe("Ozon Content", () => {
       c.prop("content", "<Illustratie naam='afbeelding.jpg' hoogte='12' breedte='34' />");
     });
 
-    cy.get("dso-ozon-content").find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']").should("exist");
+    cy.get("dso-ozon-content")
+      .shadow()
+      .find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']")
+      .should("exist");
 
     cy.percySnapshot();
   });
@@ -235,7 +250,7 @@ describe("Ozon Content", () => {
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
-    cy.get("dso-ozon-content").find("table").should("exist").children("tbody").as("body");
+    cy.get("dso-ozon-content").shadow().find("table").should("exist").children("tbody").as("body");
     cy.get("@body").should("exist").children("tr").should("exist").children("td").should("exist");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(1)").contains("1");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
@@ -253,7 +268,7 @@ describe("Ozon Content", () => {
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><thead><row><entry>een</entry><entry>twee</entry></row></thead><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
-    cy.get("dso-ozon-content").find("table").should("exist").children("thead").as("head");
+    cy.get("dso-ozon-content").shadow().find("table").should("exist").children("thead").as("head");
     cy.get("@head").should("exist").children("tr").should("exist").children("td").should("exist");
     cy.get("@head").find("tr:nth-child(1) td:nth-child(1)").contains("een");
     cy.get("@head").find("tr:nth-child(1) td:nth-child(2)").contains("twee");
@@ -269,7 +284,7 @@ describe("Ozon Content", () => {
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry morerows='1'>1</entry><entry>2</entry></row><row><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
-    cy.get("dso-ozon-content").find("table").should("exist").children("tbody").as("body");
+    cy.get("dso-ozon-content").shadow().find("table").should("exist").children("tbody").as("body");
     cy.get("@body").should("exist").children("tr").should("exist").children("td").should("exist");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(1)").contains("1").should("have.attr", "rowspan", "2");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
@@ -288,7 +303,7 @@ describe("Ozon Content", () => {
       );
     });
 
-    cy.get("dso-ozon-content").find("table").should("exist").children("tbody").as("body");
+    cy.get("dso-ozon-content").shadow().find("table").should("exist").children("tbody").as("body");
     cy.get("@body").should("exist").children("tr").should("exist").children("td").should("exist");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(1)").contains("1").should("have.attr", "colspan", "2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
@@ -300,7 +315,10 @@ describe("Ozon Content", () => {
   it("should render inline paragraphs in Opschrift", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
-    cy.get('dso-ozon-content > dso-tooltip > span[role="section"] > span[role="paragraph"]').should("exist");
+    cy.get("dso-ozon-content")
+      .shadow()
+      .find('> dso-tooltip > span[role="section"] > span[role="paragraph"]')
+      .should("exist");
 
     cy.percySnapshot();
   });
@@ -322,12 +340,13 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content")
       .invoke("attr", "deleted", "")
+      .shadow()
       .find("> *")
       .should("have.css", "text-decoration-line", "line-through");
 
-    cy.get("dso-ozon-content").find(".deleted-start").should("have.text", "Begin verwijderd element");
+    cy.get("dso-ozon-content").shadow().find(".deleted-start").should("have.text", "Begin verwijderd element");
 
-    cy.get("dso-ozon-content").find(".deleted-end").should("have.text", "Einde verwijderd element");
+    cy.get("dso-ozon-content").shadow().find(".deleted-end").should("have.text", "Einde verwijderd element");
 
     cy.percySnapshot();
   });
@@ -343,6 +362,8 @@ describe("Ozon Content", () => {
       .click()
       .invoke("removeAttr", "interactive")
       .click()
+      .get("dso-ozon-content")
+      .shadow()
       .find("button[aria-describedby='dso-ozon-note-Noot5000']")
       .click();
 
@@ -393,12 +414,15 @@ describe("Ozon Content", () => {
       `
       )
       .get("dso-ozon-content")
+      .shadow()
       .find("dso-image-overlay > img")
       .should("have.attr", "src", "images/houtkachel-of-open-haard-infographic.jpg")
       .and("have.attr", "alt", "Afbeelding 1")
       .and("have.attr", "width", "360")
       .and("have.attr", "height", "562")
-      .get("dso-ozon-content .dso-ozon-figuur > .figuur-bijschrift")
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-ozon-figuur > .figuur-bijschrift")
       .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
 
     cy.percySnapshot();
@@ -408,6 +432,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--lijst");
 
     cy.get("dso-ozon-content")
+      .shadow()
       .invoke(
         "prop",
         "content",
@@ -531,15 +556,19 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
     cy.get("dso-ozon-content")
+      .shadow()
       .find("del")
       .should("have.css", "background-color", "rgb(245, 216, 220)")
       .get("dso-ozon-content")
+      .shadow()
       .find("ins")
       .should("have.css", "background-color", "rgb(228, 241, 212)")
       .get("dso-ozon-content")
+      .shadow()
       .find("table.dso-del")
       .should("have.css", "background-color", "rgb(245, 216, 220)")
       .get("dso-ozon-content")
+      .shadow()
       .find("table.dso-ins")
       .should("have.css", "background-color", "rgb(228, 241, 212)");
 
@@ -549,10 +578,12 @@ describe("Ozon Content", () => {
   it("should show <Bron> at a table", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--table-met-bron")
       .get("dso-ozon-content")
+      .shadow()
       .find("> .dso-rich-content > p")
       .should("exist")
       .and("have.text", "Activiteiten die bomen aantasten. Zie de tabel hieronder.")
       .get("dso-ozon-content")
+      .shadow()
       .find("dso-table > div > .dso-ozon-bron")
       .should("exist")
       .and("have.text", "bron: opent in nieuw venster artikel 4.7 van de wet");

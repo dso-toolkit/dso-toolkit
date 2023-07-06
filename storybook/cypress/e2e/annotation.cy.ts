@@ -9,45 +9,47 @@ describe("Annotation", () => {
 
   it("should be accessible", () => {
     cy.checkA11y("#root-inner");
-    cy.get("dso-annotation-output dso-responsive-element > dso-expandable")
+    cy.get("dso-annotation-button, dso-annotation-output")
+      .should("have.attr", "open")
+      .get("dso-annotation-output dso-expandable")
       .should("have.attr", "id", "annotation-test")
       .get("dso-annotation-button > button")
       .should("have.attr", "aria-controls", "annotation-test")
-      .and("have.attr", "aria-expanded", "false")
-      .click()
+      .and("have.attr", "aria-expanded", "true")
+      .get("dso-annotation-button, dso-annotation-output")
+      .invoke("attr", "open", null)
       .get("dso-annotation-button > button")
-      .should("have.attr", "aria-expanded", "true");
+      .should("have.attr", "aria-expanded", "false");
   });
 
-  it("should open and close annotation output on annotation button click", () => {
-    cy.get("dso-annotation-output")
-      .should("not.be.visible")
+  it("should emit events", () => {
+    cy.get("dso-annotation-button, dso-annotation-output")
+      .should("have.attr", "open")
+      .get("dso-annotation-button")
+      .then(($dsoAnnotationButton) => $dsoAnnotationButton.on("dsoClick", cy.stub().as("dsoClick")))
+      .get("dso-annotation-output")
+      .then(($dsoAnnotationOutput) => $dsoAnnotationOutput.on("dsoClose", cy.stub().as("dsoClose")))
       .get("dso-annotation-button > button")
       .click()
-      .get("@dsoToggleListener")
-      .should("have.been.calledOnce")
-      .get("dso-annotation-output")
-      .should("be.visible")
-      .percySnapshot()
-      .get("dso-annotation-button > button")
+      .get("@dsoClick")
+      .should("be.calledOnce")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail")
+      .as("detail")
+      .its("open")
+      .should("eq", false)
+      .get("@detail")
+      .its("originalEvent")
+      .should("exist")
+      .get("dso-annotation-output .dso-annotation-close-button")
       .click()
-      .get("@dsoToggleListener")
-      .should("have.been.calledTwice")
-      .get("dso-annotation-output")
-      .should("not.be.visible");
-  });
-
-  it("should close annotation output on close button click", () => {
-    cy.get("dso-annotation-button > button")
-      .click()
-      .get("dso-annotation-output")
-      .should("be.visible")
-      .get("dso-annotation-output")
-      .find(".dso-annotation-header > button.dso-annotation-close-button")
-      .click()
-      .get("@dsoToggleListener")
-      .should("have.been.calledTwice")
-      .get("dso-annotation-output")
-      .should("not.be.visible");
+      .get("@dsoClose")
+      .should("be.calledOnce")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail")
+      .its("originalEvent")
+      .should("exist");
   });
 });

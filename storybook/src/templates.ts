@@ -25,11 +25,11 @@ import {
   DatePicker,
   DefinitionList,
   Description,
+  DocumentComponent,
   DocumentHeader,
   DocumentList,
   DropdownMenu,
   Expandable,
-  ExpandableHeading,
   Footnote,
   Form,
   FormGroup,
@@ -121,7 +121,6 @@ import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
-import { coreExpandableHeading } from "./components/expandable-heading/expandable-heading.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
@@ -192,6 +191,7 @@ import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-tem
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
+import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
@@ -217,11 +217,11 @@ export interface Components {
   datePicker: DatePicker;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
+  documentComponent: DocumentComponent<TemplateResult>;
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<TemplateResult>;
-  expandableHeading: ExpandableHeading<TemplateResult>;
   footnote: Footnote;
   footnotes: Footnote[];
   formButtons: FormButtons;
@@ -319,9 +319,9 @@ templateContainer.add(coreBanner);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
+templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
-templateContainer.add(coreExpandableHeading);
 templateContainer.add(coreHeader);
 templateContainer.add(coreHelpcenterPanel);
 templateContainer.add(coreHighlightBox);

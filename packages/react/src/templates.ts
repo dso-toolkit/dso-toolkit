@@ -16,7 +16,6 @@ import {
   DatePicker,
   DropdownMenu,
   Expandable,
-  ExpandableHeading,
   Header,
   HelpcenterPanel,
   HighlightBox,
@@ -58,7 +57,6 @@ import { reactCardContainer } from "./components/card-container/card-container.r
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
 import { reactExpandable } from "./components/expandable/expandable.react-template";
-import { reactExpandableHeading } from "./components/expandable-heading/expandable-heading.react-template";
 import { reactHeader } from "./components/header/header.react-template";
 import { reactHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
@@ -99,7 +97,6 @@ export interface Components {
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<JSX.Element>;
-  expandableHeading: ExpandableHeading<JSX.Element>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<JSX.Element>;
@@ -146,7 +143,6 @@ templateContainer.add(reactCardContainer);
 templateContainer.add(reactDatePicker);
 templateContainer.add(reactDropdownMenu);
 templateContainer.add(reactExpandable);
-templateContainer.add(reactExpandableHeading);
 templateContainer.add(reactHeader);
 templateContainer.add(reactHelpcenterPanel);
 templateContainer.add(reactHighlightBox);

@@ -4,7 +4,7 @@ authors: [tfrijsewijk]
 
 # DSO Toolkit v56.0.0
 
-De vorige breaking release is nog niet afgekoeld of er ligt alweer een nieuwe breaking release op de plank.
+De vorige breaking release is nog niet afgekoeld of er ligt alweer een nieuwe breaking release op de plank. Hoewel v55.0.0 alleen formeel een breaking release was (er ging niets stuk), zal dat voor afnemers van Accordion, Annotation Button, Annotation Output, Expandable en Expandable Heading wel het geval zijn.
 
 ## Accordion
 
@@ -26,3 +26,43 @@ De interne state van de Accordion is verwijderd. Dit betekent dat afnemers meer 
 ### Helper functie `scrollIntoView()`.
 
 Op het `AccordionSectionAnimationEndEvent` object staat een helperfunctie `scrollIntoView()`. De afnemer kan deze aanroepen om de Accordion Section in beeld te scrollen.
+
+## Annotation Button
+
+Dit component is stateless gemaakt. De afnemer moet zorg dragen voor state management. Bij het tonen van Annotation Output moet ook dit component `open="true"` krijgen.
+
+```html
+<dso-annotation-button [...] open>[...]</dso-annotation-button>
+```
+
+## Annotation Output
+
+Het event `dsoToggle` is hernoemd naar `dsoClose`. Daarnaast is dit component stateless gemaakt. Dit betekent dat de content van dit element pas toont als `open="true"` is gezet:
+
+```html
+<dso-annotation-output [...] open>[...]</dso-annotation-output>
+```
+
+## Expandable
+
+Het named slot "expandable-content" is omgezet naar een nameless slot:
+
+```html
+❌
+<dso-expandable>
+  <div slot="expandable-content">
+    [...]
+  </div>
+</div>
+
+✅
+<dso-expandable>
+  <div>
+    [...]
+  </div>
+</div>
+```
+
+## Expandable Heading
+
+Dit component is komen te vervallen met de komst van Document Component.

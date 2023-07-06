@@ -25,14 +25,12 @@
 
  - [dso-accordion-section](../accordion/components)
  - [dso-annotation-output](../annotation-output)
- - [dso-expandable-heading](../expandable-heading)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-expandable
   dso-annotation-output --> dso-expandable
-  dso-expandable-heading --> dso-expandable
   style dso-expandable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

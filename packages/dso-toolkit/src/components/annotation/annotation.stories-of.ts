@@ -1,5 +1,5 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { AnnotationArgs, annotationArgsMapper, annotationArgTypes } from "./annotation.args.js";
+import { AnnotationArgs, annotationArgs, annotationArgsMapper, annotationArgTypes } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 
 export interface AnnotationTemplates<TemplateFnReturnType> {
@@ -18,9 +18,7 @@ export function storiesOfAnnotation<Implementation, Templates, TemplateFnReturnT
   return storiesOfFactory("Annotation", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: annotationArgTypes,
-      args: {
-        identifier: "annotation-test",
-      },
+      args: annotationArgs,
     });
 
     stories.add(

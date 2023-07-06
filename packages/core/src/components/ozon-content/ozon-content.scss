@@ -4,6 +4,8 @@
 @use "~dso-toolkit/src/components/anchor";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
+@use "~dso-toolkit/src/components/rich-content";
 
 :host(:not([inline])) {
   display: block;
@@ -31,6 +33,7 @@
   color: colors.$grijs-90;
 }
 
+.sr-only,
 .deleted-start,
 .deleted-end {
   @include utilities.sr-only();
@@ -45,8 +48,12 @@ span[role="paragraph"] {
   display: block;
 }
 
-.fallback {
+:host(:not([inline])) .fallback {
   display: block;
+}
+
+a {
+  @include anchor.root();
 }
 
 // Styling below copied from DSO Viewer 20211011
@@ -164,4 +171,8 @@ span[role="paragraph"] {
   a {
     color: colors.$zwart;
   }
+}
+
+.dso-rich-content {
+  @include rich-content.children();
 }

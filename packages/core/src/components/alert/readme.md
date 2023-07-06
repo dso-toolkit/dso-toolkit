@@ -13,6 +13,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-document-component](../document-component)
+
 ### Depends on
 
 - [dso-icon](../icon)
@@ -21,6 +25,7 @@
 ```mermaid
 graph TD;
   dso-alert --> dso-icon
+  dso-document-component --> dso-alert
   style dso-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
