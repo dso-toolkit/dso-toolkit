@@ -98,6 +98,54 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
       },
     });
 
+    stories.add("emphasized", template, {
+      args: {
+        emphasized: true,
+        buttons: [
+          {
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+            variant: "tertiary",
+            label: "Naar project overzicht",
+          },
+          {
+            icon: {
+              icon: "redo",
+              iconMode: "before",
+            },
+            variant: "tertiary",
+            label: "Aanvullen",
+          },
+          {
+            icon: {
+              icon: "pencil",
+              iconMode: "before",
+            },
+            variant: "tertiary",
+            label: "Intrekken",
+          },
+          {
+            icon: {
+              icon: "trash",
+              iconMode: "before",
+            },
+            variant: "tertiary",
+            label: "Verwijderen",
+          },
+          {
+            icon: {
+              icon: "download",
+              iconMode: "before",
+            },
+            variant: "tertiary",
+            label: "Download verzoek als PDF",
+          },
+        ],
+      },
+    });
+
     return stories;
   });
 }
