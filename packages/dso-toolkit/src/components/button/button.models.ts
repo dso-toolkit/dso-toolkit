@@ -25,6 +25,7 @@ export interface Button {
   onClick?: (event: MouseEvent) => void;
   tooltip?: Tooltip;
   slot?: string;
+  compact?: boolean;
 }
 
 export interface ButtonAnchor {
