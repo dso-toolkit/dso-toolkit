@@ -49,6 +49,8 @@ export class Scrollable {
 
   private scrollContainerDiv?: HTMLDivElement;
 
+  private shadowContainerDiv?: HTMLDivElement;
+
   @Element()
   host!: HTMLDsoScrollableElement;
 
@@ -114,16 +116,16 @@ export class Scrollable {
       subtree: true,
     });
 
-    if (this.scrollContainerDiv instanceof HTMLDivElement) {
-      resizeObserver.observe(this.scrollContainerDiv);
+    if (this.shadowContainerDiv instanceof HTMLDivElement) {
+      resizeObserver.observe(this.shadowContainerDiv);
     }
 
     this.slottedElements.forEach((element) => resizeObserver.observe(element));
   }
 
   disconnectedCallback(): void {
-    if (this.scrollContainerDiv instanceof HTMLDivElement) {
-      resizeObserver.unobserve(this.scrollContainerDiv);
+    if (this.shadowContainerDiv instanceof HTMLDivElement) {
+      resizeObserver.unobserve(this.shadowContainerDiv);
     }
 
     this.mutationObserver.disconnect();
@@ -133,7 +135,7 @@ export class Scrollable {
 
   render() {
     return (
-      <div class="dso-shadow-container">
+      <div ref={(el) => (this.shadowContainerDiv = el)} class="dso-shadow-container">
         <div
           ref={(el) => (this.scrollContainerDiv = el)}
           class={clsx("dso-scroll-container", {
