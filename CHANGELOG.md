@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
+* Button Row: Nieuwe variant "emphasized". ([#2208](https://github.com/dso-toolkit/dso-toolkit/issues/2208))
 * Map Controls: Kaartlagenknop op kleine viewports: zonder label, alleen met icoon. ([#2180](https://github.com/dso-toolkit/dso-toolkit/issues/2180))
 
 ### Changed
