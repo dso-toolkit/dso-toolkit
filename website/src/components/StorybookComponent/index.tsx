@@ -22,10 +22,12 @@ interface Props {
    */
   implementations?: Implementation[];
 
-  variant?: string;
   /**
    * Which variant of the story to show. If no variant is given, Storybook will redirect to the default.
    */
+  variant?: string;
+
+  args?: Record<string, unknown>;
 }
 
 function getSubDomain(implementation: Implementation) {
@@ -58,15 +60,24 @@ function getStoryUrlId(implementation: Implementation, name: string, variant: st
   return `${implementation}-${joinNameAndVariant(name, variant)}`;
 }
 
-function getStoryIframeUrl(implementation: Implementation, name: string, variant: string | undefined): string {
+function getStoryIframeUrl(
+  implementation: Implementation,
+  name: string,
+  variant: string | undefined,
+  args: Record<string, unknown> = {}
+): string {
   const host = window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host;
   const version = getVersion();
   const subDomain = getSubDomain(implementation);
   const id = getStoryIframeId(implementation, name, variant);
+  const mappedArgs = Object.entries(args).map(
+    ([key, value]) => `${key}:${typeof value === "boolean" ? `!${value}` : value}`
+  );
+  const joinedMappedArgs = `${mappedArgs.join(";")}&`;
 
-  return `https://${host}/!${subDomain}/${
-    version !== "local" ? version : "master"
-  }/iframe.html?id=${id}&viewMode=story`;
+  return `https://${host}/!${subDomain}/${version !== "local" ? version : "master"}/iframe.html?id=${id}&${
+    mappedArgs.length ? `args=${joinedMappedArgs}` : ""
+  }viewMode=story`;
 }
 
 function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
@@ -94,7 +105,7 @@ function getNameFromPathname(pathname: string): string {
   return component;
 }
 
-export function StorybookComponent({ name, implementations, variant }: Props) {
+export function StorybookComponent({ name, implementations, variant, args }: Props) {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   const [implementation, setImplementation] = useState<Implementation>(() => {
@@ -120,7 +131,7 @@ export function StorybookComponent({ name, implementations, variant }: Props) {
             {loading && <div className={styles.loading}>loading</div>}
             <IframeResizer
               onLoad={() => setLoading(false)}
-              src={getStoryIframeUrl(implementation, name ?? getNameFromPathname(pathname), variant)}
+              src={getStoryIframeUrl(implementation, name ?? getNameFromPathname(pathname), variant, args)}
               style={{ width: "1px", minWidth: "100%" }}
               heightCalculationMethod="lowestElement"
             />
