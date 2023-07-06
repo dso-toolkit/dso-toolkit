@@ -25,6 +25,7 @@ import {
   DatePicker,
   DefinitionList,
   Description,
+  DocumentComponent,
   DocumentHeader,
   DocumentList,
   DropdownMenu,
@@ -192,6 +193,7 @@ import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-tem
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
+import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
@@ -217,6 +219,7 @@ export interface Components {
   datePicker: DatePicker;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
+  documentFragment: DocumentComponent<TemplateResult>;
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
@@ -319,6 +322,7 @@ templateContainer.add(coreBanner);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
+templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
 templateContainer.add(coreExpandableHeading);

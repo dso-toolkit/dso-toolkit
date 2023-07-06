@@ -2,11 +2,7 @@
 
 @use "anchor.variables" as anchor-variables;
 
-@mixin root($is-html-a-element: true) {
-  background-color: transparent;
-  color: scaffolding.$link-color;
-  text-decoration: underline;
-
+@mixin pseudo() {
   &:hover,
   &:focus {
     color: anchor-variables.$link-hover-color;
@@ -16,6 +12,14 @@
   &:active {
     text-decoration: none;
   }
+}
+
+@mixin root($is-html-a-element: true) {
+  background-color: transparent;
+  color: scaffolding.$link-color;
+  text-decoration: underline;
+
+  @include pseudo();
 
   @if ($is-html-a-element) {
     &:visited {

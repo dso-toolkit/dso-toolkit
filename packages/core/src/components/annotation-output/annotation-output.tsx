@@ -1,71 +1,53 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Method, Prop } from "@stencil/core";
+import { h, Component, ComponentInterface, Event, EventEmitter, Host, Prop } from "@stencil/core";
 
-import { AnnotationService } from "../../services/annotation.service";
-import { AnnotationToggleEvent } from "./annotation-output.interfaces";
+export interface AnnotationOutputCloseEvent {
+  originalEvent: Event;
+}
 
 @Component({
   tag: "dso-annotation-output",
   styleUrl: "annotation-output.scss",
-  // We disable shadowdom for a11y reasons (aria-controls being set inside another component)
-  shadow: false,
+  // No shadowdom for a11y reasons (aria-controls being set inside another component)
 })
 export class AnnotationOutput implements ComponentInterface {
   /**
    * The annotation-button that toggles this component should have the same identifier.
    */
-  @Prop()
+  @Prop({ reflect: true })
   identifier!: string;
 
   /**
    * This text will be displayed above the annotation-output when opened
    */
-  @Prop()
+  @Prop({ reflect: true })
   annotationPrefix?: string;
+
+  /**
+   * Set to `true` to show content.
+   */
+  @Prop({ reflect: true })
+  open = false;
 
   /**
    * This event is emitted when the user activates the Annotation Button.
    */
   @Event({ bubbles: false })
-  dsoToggle!: EventEmitter<AnnotationToggleEvent>;
+  dsoClose!: EventEmitter<AnnotationOutputCloseEvent>;
 
-  /**
-   * @internal
-   */
-  @Method()
-  async _toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {
-    AnnotationService.toggle(identifier);
-
-    const open = AnnotationService.state[this.identifier];
-    if (open === undefined) {
-      throw new Error(`No state found for ${this.identifier}`);
-    }
-
-    this.dsoToggle.emit({
-      originalEvent: e,
-      open,
-    });
-  }
-
-  private toggleHandler(e: MouseEvent | KeyboardEvent) {
-    this._toggleAnnotation(e, this.identifier);
-  }
+  private toggleHandler = (e: MouseEvent) => {
+    this.dsoClose.emit({ originalEvent: e });
+  };
 
   render() {
-    const expandableProperties = AnnotationService.state[this.identifier] ? { open: true } : {};
-
     return (
-      <dso-responsive-element>
-        <dso-expandable id={this.identifier} {...expandableProperties}>
-          <div slot="expandable-content">
+      <Host id={this.identifier}>
+        <dso-responsive-element>
+          <dso-expandable open={this.open}>
             {this.annotationPrefix && <span class="dso-annotation-prefix">{this.annotationPrefix}</span>}
             <div class="dso-annotation-header">
               <slot name="title" />
               <slot name="addons" />
-              <button
-                type="button"
-                class="dso-tertiary dso-annotation-close-button"
-                onClick={(e) => this.toggleHandler(e)}
-              >
+              <button type="button" class="dso-tertiary dso-annotation-close-button" onClick={this.toggleHandler}>
                 <dso-icon icon="times"></dso-icon>
                 <span class="sr-only">Toelichting sluiten</span>
               </button>
@@ -73,9 +55,9 @@ export class AnnotationOutput implements ComponentInterface {
             <div class="dso-annotation-content">
               <slot />
             </div>
-          </div>
-        </dso-expandable>
-      </dso-responsive-element>
+          </dso-expandable>
+        </dso-responsive-element>
+      </Host>
     );
   }
 }

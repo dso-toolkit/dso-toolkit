@@ -8,11 +8,11 @@ export const reactAnnotationOutput: ComponentImplementation<AnnotationOutput<JSX
   component: "annotationOutput",
   implementation: "react",
   template: () =>
-    function annotationOutputTemplate({ identifier, slotName, content, title, addons, prefix, dsoToggle }) {
+    function annotationOutputTemplate({ identifier, slotName, content, title, addons, prefix, dsoClose }) {
       const slotProp = slotName && { slot: slotName };
 
       return (
-        <DsoAnnotationOutput identifier={identifier} annotationPrefix={prefix} onDsoToggle={dsoToggle} {...slotProp}>
+        <DsoAnnotationOutput identifier={identifier} annotationPrefix={prefix} onDsoClose={dsoClose} {...slotProp}>
           {title}
           {addons && addons}
           {content}

@@ -222,11 +222,7 @@ export class AccordionSection implements ComponentInterface {
           minimumHeight={this.isNeutral ? 0 : 4}
           onDsoExpandableAnimationEnd={this.handleExpandableAnimationEnd}
         >
-          <div
-            slot="expandable-content"
-            class="dso-section-body-content"
-            ref={(element) => (this.sectionBody = element)}
-          >
+          <div class="dso-section-body-content" ref={(element) => (this.sectionBody = element)}>
             <slot />
           </div>
         </dso-expandable>

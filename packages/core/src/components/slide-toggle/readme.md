@@ -23,6 +23,19 @@
 | `dsoActiveChange` | Emitted when user checks or unchecks the Slide Toggle. | `CustomEvent<SlideToggleActiveEvent>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [dsot-document-component-demo](../document-component)
+
+### Graph
+```mermaid
+graph TD;
+  dsot-document-component-demo --> dso-slide-toggle
+  style dso-slide-toggle fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

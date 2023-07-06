@@ -88,11 +88,7 @@ export class Expandable implements ComponentInterface {
   }
 
   private activateObserver() {
-    const bodyContentElement = this.host.querySelector(`[slot="expandable-content"]`);
-
-    if (bodyContentElement) {
-      this.resizeObserver?.observe(bodyContentElement);
-    }
+    this.resizeObserver?.observe(this.host);
   }
 
   disconnectedCallback() {
@@ -108,7 +104,7 @@ export class Expandable implements ComponentInterface {
           "dso-hide": !this.enableAnimation && !this.open,
         })}
       >
-        <slot name="expandable-content" />
+        <slot />
       </Host>
     );
   }

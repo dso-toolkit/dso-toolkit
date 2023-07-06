@@ -7,20 +7,34 @@ import { Annotation } from "./annotation.models.js";
 
 export interface AnnotationArgs {
   identifier: string;
+  open: boolean;
   prefix: string;
-  dsoToggle: HandlerFunction;
+  dsoClose: HandlerFunction;
+  dsoClick: HandlerFunction;
 }
+
+export const annotationArgs: Pick<AnnotationArgs, "open" | "identifier"> = {
+  open: true,
+  identifier: "annotation-test",
+};
 
 export const annotationArgTypes: ArgTypes<AnnotationArgs> = {
   identifier: {
     ...noControl,
   },
+  open: {
+    type: "boolean",
+  },
   prefix: {
     type: "string",
   },
-  dsoToggle: {
+  dsoClick: {
     ...noControl,
-    action: "dsoToggle",
+    action: "dsoClick",
+  },
+  dsoClose: {
+    ...noControl,
+    action: "dsoClose",
   },
 };
 
@@ -35,14 +49,17 @@ export function annotationArgsMapper<TemplateFnReturnType>(
   return {
     annotationButton: {
       identifier: a.identifier,
+      open: a.open,
+      dsoClick: (e) => a.dsoClick(e.detail),
     },
     annotationOutput: {
       identifier: a.identifier,
+      open: a.open,
       prefix: a.prefix,
       title: annotationContent.title,
       addons: annotationContent.addons,
       content: annotationContent.content,
-      dsoToggle: (e) => a.dsoToggle(e.detail),
+      dsoClose: (e) => a.dsoClose(e.detail),
     },
   };
 }

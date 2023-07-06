@@ -29,12 +29,14 @@ Type: `Promise<ResponsiveElementSize>`
 
  - [dso-annotation-output](../annotation-output)
  - [dso-pagination](../pagination)
+ - [dsot-document-component-demo](../document-component)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-annotation-output --> dso-responsive-element
   dso-pagination --> dso-responsive-element
+  dsot-document-component-demo --> dso-responsive-element
   style dso-responsive-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

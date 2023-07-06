@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **BREAKING:** Nieuw component "Document Component" ([#2133](https://github.com/dso-toolkit/dso-toolkit/issues/2133))
+
 ### Changed
 * **BREAKING:** Accordion: Stateless ([#2130](https://github.com/dso-toolkit/dso-toolkit/issues/2130))
 

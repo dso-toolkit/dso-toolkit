@@ -1,0 +1,141 @@
+@use "~dso-toolkit/src/utilities";
+
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/document-component";
+@use "~dso-toolkit/src/components/insert/insert";
+
+.not-applicable {
+  @include utilities.sr-only();
+}
+
+:host {
+  display: block;
+}
+
+:host-context(dso-responsive-element:not([small])) {
+  .content {
+    padding-left: document-component.$indent;
+  }
+}
+
+:host([type="LID"]:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])) {
+  padding-left: units.$u1;
+  margin-right: units.$u1;
+}
+
+:host(:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])),
+:host(:where([wijzigactie="nieuweContainer"], [wijzigactie="verwijderContainer"])) .heading-container {
+  padding-top: units.$u1 * 0.5;
+  padding-bottom: units.$u1 * 0.5;
+}
+
+:host([wijzigactie="verwijderContainer"]) .heading-container,
+:host(:where([wijzigactie="verwijder"])) {
+  background-color: colors.$danger-bg-color;
+  color: colors.$zwart;
+  text-decoration: line-through;
+}
+
+:host([wijzigactie="nieuweContainer"]) .heading-container,
+:host([wijzigactie="voegtoe"]) {
+  background-color: colors.$success-bg-color;
+  box-shadow: insert.$insert-box-shadow;
+  color: colors.$zwart;
+}
+
+:host([filtered]) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 3px;
+    top: 0;
+    bottom: 0;
+    background-color: colors.$lichtblauw;
+  }
+}
+
+:host([open]) {
+  .heading-container {
+    margin-bottom: units.$u1;
+  }
+}
+
+.toggle-button {
+  border: 0;
+  padding: 0;
+  background: 0;
+  color: colors.$bosgroen;
+  cursor: pointer;
+}
+
+.heading-element {
+  align-items: start;
+  display: flex;
+  font-size: 1rem;
+  color: colors.$bosgroen;
+  margin: 0;
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
+:host([type="LID"]) {
+  .heading-container {
+    margin-bottom: 0;
+  }
+
+  .wijzigactie-label {
+    margin-left: 0;
+  }
+
+  .heading-element {
+    color: colors.$zwart;
+  }
+
+  .content {
+    padding-left: 0 !important;
+  }
+}
+
+:host(:not([type="LID"])) {
+  .heading-element {
+    cursor: pointer;
+
+    @include anchor.pseudo();
+  }
+}
+
+.addons {
+  margin-inline-start: auto;
+  display: flex;
+  gap: units.$u1;
+}
+
+.heading {
+  display: flex;
+  gap: units.$u1;
+}
+
+:host([type="ARTIKEL"]) {
+  .heading-element,
+  .toggle-button {
+    color: colors.$zwart;
+  }
+}
+
+.wijzigactie-label {
+  font-style: italic;
+  margin-left: document-component.$indent;
+}
+
+.heading-container {
+  padding-right: units.$u1;
+}

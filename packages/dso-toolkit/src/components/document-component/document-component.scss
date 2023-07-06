@@ -1,0 +1,49 @@
+@use "../../variables/units";
+@use "../list";
+
+@use "document-component.variables" as document-component-variables;
+
+.dso-document-components {
+  ul {
+    @include list.unstyled();
+
+    margin: 0;
+
+    li + li {
+      margin-top: units.$u1;
+    }
+  }
+}
+
+dso-document-component[filtered] {
+  &::before {
+    left: -3px;
+  }
+}
+
+dso-document-component[not-applicable] {
+  opacity: 0.6;
+
+  dso-document-component[not-applicable] {
+    opacity: 1;
+  }
+}
+
+dso-responsive-element:not([small]) {
+  dso-document-component dso-document-component {
+    --depth: var(--x, 1);
+    --y: calc(var(--depth) + 1);
+
+    margin-left: document-component-variables.$indent;
+
+    &[filtered] {
+      &::before {
+        left: calc((var(--depth) * #{document-component-variables.$indent} + 3px) * -1);
+      }
+    }
+
+    li {
+      --x: calc(var(--y));
+    }
+  }
+}

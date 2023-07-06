@@ -116,6 +116,8 @@ export {
 export { Description } from "./components/description/description.models.js";
 export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
 
+export { DocumentComponent } from "./components/document-component/document-component.models.js";
+
 export { DocumentHeader } from "./components/document-header/document-header.models.js";
 export {
   DocumentHeaderTemplates,

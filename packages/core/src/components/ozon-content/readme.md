@@ -37,6 +37,19 @@ export interface OzonContentClick {
 | `dsoClick`       | These events are only emitted when the component is `interactive`. | `CustomEvent<OzonContentClick>`       |
 
 
+## Dependencies
+
+### Used by
+
+ - [dso-document-component](../document-component)
+
+### Graph
+```mermaid
+graph TD;
+  dso-document-component --> dso-ozon-content
+  style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

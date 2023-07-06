@@ -103,8 +103,17 @@ export class Mapper {
   }
 
   transform(xml: string, context: OzonContentContext): JSX.Element {
+    if (!xml) {
+      return <Fragment />;
+    }
+
     if (!this.cache || this.cache.xml !== xml) {
-      this.cache = { xml, document: this.domParser.parseFromString(xml, "text/xml") };
+      const document = this.domParser.parseFromString(xml, "text/xml");
+      if (document.querySelector("html > body > parsererror")) {
+        return <Fragment />;
+      }
+
+      this.cache = { xml, document };
     }
 
     const xmlDocument = this.cache.document;

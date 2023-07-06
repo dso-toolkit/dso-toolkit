@@ -95,7 +95,7 @@ export class ExpandableHeading {
           </div>
         </div>
         <dso-expandable id={this.identifier} {...expandableProperties}>
-          <slot slot="expandable-content"></slot>
+          <slot />
         </dso-expandable>
       </Host>
     );

@@ -21,6 +21,7 @@
  - [dso-annotation-output](../annotation-output)
  - [dso-attachments-counter](../attachments-counter)
  - [dso-date-picker](../date-picker)
+ - [dso-document-component](../document-component)
  - [dso-expandable-heading](../expandable-heading)
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
@@ -46,6 +47,7 @@ graph TD;
   dso-annotation-output --> dso-icon
   dso-attachments-counter --> dso-icon
   dso-date-picker --> dso-icon
+  dso-document-component --> dso-icon
   dso-expandable-heading --> dso-icon
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon

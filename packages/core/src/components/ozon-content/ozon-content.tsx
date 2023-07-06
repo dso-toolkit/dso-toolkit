@@ -9,7 +9,7 @@ import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 @Component({
   tag: "dso-ozon-content",
   styleUrl: "ozon-content.scss",
-  scoped: true,
+  shadow: true,
 })
 export class OzonContent implements ComponentInterface {
   /**

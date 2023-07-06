@@ -6,6 +6,7 @@ import { inlineSvg } from "stencil-inline-svg";
 
 export const config: Config = {
   namespace: "dso-toolkit",
+  tsconfig: process.env.CI === "TRUE" ? "./tsconfig.prod.json" : "./tsconfig.json",
   devServer: {
     port: 45333,
   },

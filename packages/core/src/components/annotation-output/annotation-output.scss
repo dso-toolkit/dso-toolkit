@@ -24,14 +24,14 @@ dso-annotation-output {
   padding-top: units.$u1;
   padding-bottom: units.$u1;
 
-  > *[slot="title"] {
+  > [slot="title"] {
     color: colors.$zwart;
     font-size: 1.25rem;
     margin-bottom: 0;
     margin-top: 0;
   }
 
-  > *:nth-child(2) {
+  > :nth-child(2) {
     margin-left: auto;
   }
 }

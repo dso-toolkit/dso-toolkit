@@ -50,12 +50,14 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [dso-document-component](../document-component)
  - [dso-label](../label)
  - [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-document-component --> dso-tooltip
   dso-label --> dso-tooltip
   dso-toggletip --> dso-tooltip
   style dso-tooltip fill:#f9f,stroke:#333,stroke-width:4px

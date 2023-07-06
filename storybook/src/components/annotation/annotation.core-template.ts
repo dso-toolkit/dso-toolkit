@@ -8,6 +8,6 @@ export const coreAnnotation: ComponentImplementation<Annotation<TemplateResult>>
   implementation: "core",
   template: ({ annotationButtonTemplate, annotationOutputTemplate }: Templates) =>
     function annotation({ annotationButton, annotationOutput }: Annotation<TemplateResult>) {
-      return html` ${annotationButtonTemplate(annotationButton)} ${annotationOutputTemplate(annotationOutput)} `;
+      return html`${annotationButtonTemplate(annotationButton)}${annotationOutputTemplate(annotationOutput)}`;
     },
 };

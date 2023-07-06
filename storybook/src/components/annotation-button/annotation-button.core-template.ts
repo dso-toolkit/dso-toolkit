@@ -8,7 +8,12 @@ export const coreAnnotationButton: ComponentImplementation<AnnotationButton> = {
   component: "annotationButton",
   implementation: "core",
   template: () =>
-    function annotationButtonTemplate({ identifier, slotName }) {
-      return html`<dso-annotation-button slot=${ifDefined(slotName)} identifier=${identifier}></dso-annotation-button>`;
+    function annotationButtonTemplate({ identifier, open, slotName, dsoClick }) {
+      return html`<dso-annotation-button
+        slot=${ifDefined(slotName)}
+        ?open=${open}
+        identifier=${identifier}
+        @dsoClick=${ifDefined(dsoClick)}
+      ></dso-annotation-button>`;
     },
 };

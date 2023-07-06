@@ -1,14 +1,14 @@
 export interface AnnotationOutput<TemplateFnReturnType> {
   identifier: string;
+  open?: boolean;
   slotName?: string;
   title: TemplateFnReturnType;
   addons?: TemplateFnReturnType;
   content: TemplateFnReturnType;
   prefix?: string;
-  dsoToggle?: (e: CustomEvent<AnnotationToggleEvent>) => void;
+  dsoClose?: (e: CustomEvent<AnnotationOutputCloseEvent>) => void;
 }
 
-export interface AnnotationToggleEvent {
+export interface AnnotationOutputCloseEvent {
   originalEvent?: Event;
-  open: boolean;
 }
