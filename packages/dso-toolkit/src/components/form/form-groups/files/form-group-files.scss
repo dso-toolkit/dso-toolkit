@@ -118,10 +118,6 @@
         margin: #{units.$u1 * 0.5} 0 #{units.$u1 * 0.5} units.$u1;
       }
 
-      button.btn-link {
-        color: colors.$grijs-90;
-      }
-
       @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
         @include utilities.clearfix();
 

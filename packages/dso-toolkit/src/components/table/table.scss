@@ -41,8 +41,7 @@ table.table,
   max-width: 100%;
   width: 100%;
 
-  .dso-tertiary,
-  .btn-link {
+  .dso-tertiary {
     position: relative;
     top: -2px;
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- These actions are always accomponied by icons, we always want the icon next to the text

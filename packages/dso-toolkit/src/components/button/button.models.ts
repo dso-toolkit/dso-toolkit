@@ -4,8 +4,8 @@ import { Tooltip } from "../tooltip/tooltip.models.js";
 export interface Button {
   /**
    * * `primary`: Primary button
-   * * `secondary`: Secondary button (aka: btn-default)
-   * * `tertiary`: Tertiary button (aka: btn-link)
+   * * `secondary`: Secondary button
+   * * `tertiary`: Tertiary button
    * * `null` legacy modus, switch to property "modifier"
    */
   variant: "primary" | "secondary" | "tertiary" | null;

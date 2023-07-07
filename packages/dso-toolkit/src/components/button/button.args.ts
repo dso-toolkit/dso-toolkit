@@ -84,12 +84,6 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   },
 };
 
-const legacyVariantMap = {
-  primary: "btn btn-primary",
-  secondary: "btn btn-default",
-  tertiary: "btn btn-link",
-};
-
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
@@ -104,7 +98,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`,
+        modifier: `dso-${a.variant}`,
       };
     case "button":
       return {
@@ -112,7 +106,6 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         truncate: a.truncate,
         onClick: a.click,
         type: a.type,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
         label: a.label,
         id: a.id,
         disabled: a.disabled,

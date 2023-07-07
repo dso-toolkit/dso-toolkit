@@ -50,6 +50,9 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 ### Fixed
 * Action List en Form Buttons hebben geen verticaal ritme ([#2209](https://github.com/dso-toolkit/dso-toolkit/issues/2209))
 
+### Removed
+* Button selectors van Bootstrap (default en link) ([#1776](https://github.com/dso-toolkit/dso-toolkit/issues/1776))
+
 ## 55.0.0 - 10-07-2023
 
 ### Added

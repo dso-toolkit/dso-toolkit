@@ -40,8 +40,7 @@ body.dso-modal-open {
   }
 
   .dso-footer {
-    .dso-tertiary,
-    .btn-link {
+    .dso-tertiary {
       float: left;
       line-height: calc(1.5em - 1px);
       padding: button.$vertical-padding 0;
@@ -58,8 +57,7 @@ dso-modal {
   div[slot="footer"] {
     @include modal.modal-wide-buttons();
 
-    .dso-tertiary,
-    .btn-link {
+    .dso-tertiary {
       float: left;
       line-height: calc(1.5em - 1px);
       padding: button.$vertical-padding 0;
