@@ -1,8 +1,40 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from "@stencil/core";
+import {
+  h,
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Prop,
+  State,
+  Method,
+} from "@stencil/core";
 import { createFocusTrap, FocusTargetValueOrFalse, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
 import { DsoModalCloseEvent } from "./modal.interfaces";
+import debounce from "debounce";
+
+const resizeObserver = new ResizeObserver(
+  debounce((entries) => {
+    entries.forEach(({ target }) => {
+      const dsoModalElement = target.closest(".dso-modal");
+
+      if (
+        dsoModalElement &&
+        dsoModalElement.parentNode instanceof ShadowRoot &&
+        isDsoModalComponent(dsoModalElement.parentNode.host)
+      ) {
+        dsoModalElement.parentNode.host._setCssVariables();
+      }
+    });
+  }, 50)
+);
+
+function isDsoModalComponent(element: Element): element is HTMLDsoModalElement {
+  return element.tagName === "DSO-MODAL";
+}
 
 @Component({
   tag: "dso-modal",
@@ -61,16 +93,39 @@ export class Modal implements ComponentInterface {
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 
+  /**
+   * @internal
+   */
+  @Method()
+  async _setCssVariables() {
+    const header = this.dialogElement?.querySelector(".dso-header");
+    const headerHeight = header ? header.clientHeight : 0;
+    const footer = this.dialogElement?.querySelector(".dso-footer");
+    const footerHeight = footer ? footer.clientHeight : 0;
+
+    this.dialogElement?.setAttribute("style", `--header-height: ${headerHeight}px; --footer-height: ${footerHeight}px`);
+  }
+
   componentWillLoad(): void {
     this.hasFooter = this.host.querySelector("*[slot = 'footer']") !== null;
   }
 
   componentDidLoad(): void {
     this.setFocusTrap();
+
+    if (!(this.dialogElement instanceof HTMLDivElement)) {
+      return;
+    }
+
+    resizeObserver.observe(this.dialogElement);
   }
 
   disconnectedCallback(): void {
     this.trap?.deactivate({ onDeactivate: () => undefined }); // override FocusTrap onDeactivate callback to avoid double event emits
+    if (!(this.dialogElement instanceof HTMLDivElement)) {
+      return;
+    }
+    resizeObserver.unobserve(this.dialogElement);
   }
 
   render() {

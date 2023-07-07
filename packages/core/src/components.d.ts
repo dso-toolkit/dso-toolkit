@@ -573,6 +573,7 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoModal {
+        "_setCssVariables": () => Promise<void>;
         /**
           * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
          */

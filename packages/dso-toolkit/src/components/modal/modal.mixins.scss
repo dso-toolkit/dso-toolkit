@@ -31,23 +31,22 @@
     animation: 1s ease-out 0s 1 slideInFromTop;
     background-color: modal-variables.$content-bg;
     box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: clamp(#{units.$u5}, 15vh, 15vh);
+    margin-inline: auto;
+    margin-block: units.$u5;
     max-width: modal-variables.$max-width;
     opacity: 1;
 
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
-
-    > .dso-body,
     > dso-scrollable {
-      height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-      max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+      max-height: calc(
+        #{modal-variables.$max-height} - #{var(--header-height)} - #{var(--footer-height)} - #{units.$u10}
+      );
       min-height: modal-variables.$body-min-height;
     }
 
     > .dso-body {
+      @include rich-content.children();
+
+      max-height: calc(#{modal-variables.$max-height} - 225px);
       overflow-x: auto;
     }
   }
@@ -105,7 +104,15 @@
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     .dso-dialog {
       max-width: 100%;
-      margin-top: 0;
+      margin: 0;
+
+      > dso-scrollable {
+        max-height: calc(#{modal-variables.$max-height} - #{var(--header-height)} - #{var(--footer-height)});
+      }
+
+      > .dso-body {
+        max-height: calc(#{modal-variables.$max-height} - 145px);
+      }
     }
 
     .dso-footer {
@@ -135,9 +142,18 @@
   // special query for height
   @media screen and (max-height: modal-variables.$small-modal-vh) and (min-width: media-query-breakpoints.$screen-sm-min) {
     .dso-dialog {
-      margin-bottom: units.$u1;
-      margin-top: units.$u1;
-      min-height: modal-variables.$min-modal-height;
+      margin-block: units.$u1;
+
+      > dso-scrollable {
+        max-height: calc(
+          #{modal-variables.$max-height} - #{var(--header-height)} - #{var(--footer-height)} - #{units.$u2}
+        );
+        min-height: units.$u10;
+      }
+
+      > .dso-body {
+      max-height: calc(#{modal-variables.$max-height} - 128px);
+      }
     }
 
     .dso-header {
