@@ -6,6 +6,7 @@ import { Button, ButtonAnchor } from "./button.models.js";
 export interface ButtonArgs {
   element: "button" | "anchor";
   legacy?: boolean;
+  compact?: boolean;
   variant: "primary" | "secondary" | "tertiary";
   click: HandlerFunction;
   type?: "button" | "submit";
@@ -24,6 +25,11 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     },
   },
   legacy: {
+    control: {
+      type: "boolean",
+    },
+  },
+  compact: {
     control: {
       type: "boolean",
     },
@@ -109,6 +115,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
             }
           : undefined,
         iconMode: a.iconMode,
+        compact: a.compact,
       };
     default:
       throw new Error("Unknown element type for Button component");

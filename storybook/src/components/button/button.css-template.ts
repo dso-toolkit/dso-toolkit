@@ -61,6 +61,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       screenreaderSuffix,
       slot,
       tooltip,
+      compact,
       onClick,
     }: Button) {
       type ??= "button";
@@ -70,7 +71,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
         <button
           type=${type}
           id=${ifDefined(id || undefined)}
-          class=${ifDefined(className || undefined)}
+          class=${ifDefined([className, compact ? "btn-sm" : ""].join(" ") || undefined)}
           ?disabled=${disabled}
           aria-describedby=${ifDefined(ariaDescribedby || undefined)}
           aria-expanded=${ifDefined(ariaExpanded || undefined)}
