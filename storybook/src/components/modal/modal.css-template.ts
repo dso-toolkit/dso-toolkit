@@ -3,12 +3,12 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { v4 } from "uuid";
 
-import { ComponentImplementation } from "../../templates";
+import { ComponentImplementation, Templates } from "../../templates";
 
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "html-css",
-  template: () =>
+  template: ({ scrollableTemplate }: Templates) =>
     function modalTemplate({ modalTitle, role, showCloseButton, body, footer }) {
       const ariaId = v4();
 
@@ -37,9 +37,9 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
                   </div>
                 `
               : nothing}
-            <dso-scrollable>
-              <div class="dso-body" tabindex="0">${body}</div>
-            </dso-scrollable>
+            ${scrollableTemplate({
+              children: html`<div class="dso-body" tabindex="0">${body}</div>`,
+            })}
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
         </div>

@@ -36,6 +36,20 @@
     margin-top: clamp(#{units.$u5}, 15vh, 15vh);
     max-width: modal-variables.$max-width;
     opacity: 1;
+
+    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
+      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+
+    > .dso-body,
+    > dso-scrollable {
+      height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+      max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+      min-height: modal-variables.$body-min-height;
+    }
+
+    > .dso-body {
+      overflow-x: auto;
+    }
   }
 
   .dso-header {
@@ -62,32 +76,10 @@
     }
   }
 
-  > .dso-dialog > .dso-body {
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
-
+  .dso-body {
     @include rich-content.children();
 
-    height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-height: 1.5rem;
-    overflow-x: auto;
     padding: modal-variables.$body-padding;
-  }
-
-  > .dso-dialog > dso-scrollable {
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
-
-    height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-height: modal-variables.$body-min-height;
-
-    .dso-body {
-      @include rich-content.children();
-
-      padding: modal-variables.$body-padding;
-    }
   }
 
   .dso-footer {
@@ -141,7 +133,7 @@
   }
 
   // special query for height
-  @media screen and (max-height: modal-variables.$small-modal-vh) {
+  @media screen and (max-height: modal-variables.$small-modal-vh) and (min-width: media-query-breakpoints.$screen-sm-min) {
     .dso-dialog {
       margin-bottom: units.$u1;
       margin-top: units.$u1;

@@ -31,10 +31,10 @@
       left: 0;
       opacity: 0;
       overflow: visible;
+      pointer-events: none;
       position: absolute;
       transition: opacity 150ms ease-in-out;
       width: 100%;
-      pointer-events: none;
     }
 
     &::before {
