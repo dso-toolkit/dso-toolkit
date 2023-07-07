@@ -5,7 +5,6 @@ import { Button, ButtonAnchor } from "./button.models.js";
 
 export interface ButtonArgs {
   element: "button" | "anchor";
-  legacy?: boolean;
   compact?: boolean;
   variant: "primary" | "secondary" | "tertiary";
   truncate?: boolean;
@@ -23,11 +22,6 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     options: ["button", "anchor"],
     control: {
       type: "select",
-    },
-  },
-  legacy: {
-    control: {
-      type: "boolean",
     },
   },
   compact: {
@@ -84,17 +78,11 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   },
 };
 
-const legacyVariantMap = {
-  primary: "btn btn-primary",
-  secondary: "btn btn-default",
-  tertiary: "btn btn-link",
-};
-
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
       return {
-        variant: a.legacy ? null : a.variant,
+        variant: a.variant,
         url: "#",
         label: a.label,
         icon: a.icon
@@ -104,15 +92,13 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`,
       };
     case "button":
       return {
-        variant: a.legacy ? null : a.variant,
+        variant: a.variant,
         truncate: a.truncate,
         onClick: a.click,
         type: a.type,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
         label: a.label,
         id: a.id,
         disabled: a.disabled,

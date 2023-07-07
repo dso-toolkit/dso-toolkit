@@ -54,10 +54,10 @@ export function children({ anchorTemplate, imageTemplate }: Templates) {
             digitaliseren van documenten.
           </p>
           <div class="dso-button-row">
-            <a href="#" class="dso-primary">Primaire button</a>
-            <a href="#" class="dso-secondary">Secundaire button</a>
-            <a href="#" class="dso-tertiary btn-align">
-              Tertiaire button
+            <a href="#" class="dso-primary"><span>Primaire button</span></a>
+            <a href="#" class="dso-secondary"><span>Secundaire button</span></a>
+            <a href="#" class="dso-tertiary">
+              <span>Tertiaire button</span>
               <dso-icon icon="chevron-down"></dso-icon>
             </a>
           </div>

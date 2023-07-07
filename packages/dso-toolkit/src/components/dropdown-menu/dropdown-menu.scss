@@ -5,15 +5,13 @@
 @use "../dropdown-menu";
 
 @mixin icons() {
-  > .dso-primary,
-  > .btn-primary {
+  > .dso-primary {
     &::after {
       @include di.base("chevron-down-wit");
     }
   }
 
-  > .dso-secondary,
-  > .btn-default {
+  > .dso-secondary {
     &::after {
       @include di.base("chevron-down");
     }
@@ -26,8 +24,7 @@
   }
 
   > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
-  > .dso-tertiary,
-  > .btn-link {
+  > .dso-tertiary {
     &::after {
       @include di.base("chevron-down");
 
@@ -45,15 +42,13 @@
 }
 
 @mixin icons-open() {
-  > .dso-primary,
-  > .btn-primary {
+  > .dso-primary {
     &::after {
       @include di.variant("chevron-up-wit");
     }
   }
 
-  > .dso-secondary,
-  > .btn-default {
+  > .dso-secondary {
     &::after {
       @include di.variant("chevron-up");
     }
@@ -64,8 +59,7 @@
   }
 
   > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
-  > .dso-tertiary,
-  > .btn-link {
+  > .dso-tertiary {
     &::after {
       @include di.variant("chevron-up");
     }

@@ -44,8 +44,7 @@
     }
   }
 
-  .dso-tertiary:not([disabled]),
-  .btn-link:not([disabled]) {
+  .dso-tertiary:not([disabled]) {
     color: colors.$zwart;
 
     &:hover,

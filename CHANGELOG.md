@@ -32,6 +32,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))
 
+### Removed
+* Button selectors van Bootstrap (default en link) ([#1776](https://github.com/dso-toolkit/dso-toolkit/issues/1776))
+
 ### Docs
 * Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
 * Stijlen op Web Component attributes ([#2080](https://github.com/dso-toolkit/dso-toolkit/issues/2080))

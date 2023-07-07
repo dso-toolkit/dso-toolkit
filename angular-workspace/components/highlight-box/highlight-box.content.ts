@@ -1,7 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
-import { Templates } from "../../templates";
 
-export function content({ iconTemplate }: Templates): StoryFnAngularReturnType {
+export function content(): StoryFnAngularReturnType {
   return {
     template: `
       <div class="dso-rich-content">
@@ -26,16 +25,18 @@ export function content({ iconTemplate }: Templates): StoryFnAngularReturnType {
           die vergunningvrij, maar niet regelvrij, zijn gerealiseerd. Het vierde en vooralsnog laatste informatieproduct
           is de Digitaliseringshulp, een service voor het centraal en gestandaardiseerd digitaliseren van documenten.
         </p>
-        <a href="#" class="dso-primary">
-          Primaire button
-        </a>
-        <a href="#" class="dso-secondary">
-          Secundaire button
-        </a>
-        <a href="#" class="dso-tertiary btn-align">
-          Tertiaire button
-          ${iconTemplate({ icon: "'chevron-down'" }).template}
-        </a>
+        <div class="dso-button-row">
+          <a href="#" class="dso-primary">
+            <span>Primaire button</span>
+          </a>
+          <a href="#" class="dso-secondary">
+            <span>Secundaire button</span>
+          </a>
+          <a href="#" class="dso-tertiary">
+            <span>Tertiaire button</span>
+            <dso-icon icon="chevron-down"></dso-icon>
+          </a>
+        </div>
       </div>
     `,
   };

@@ -75,54 +75,6 @@ button {
   @include button-mixins.base();
 }
 
-.btn-primary {
-  @include button-mixins.primary($base-styling: false);
-
-  background-color: colors.$invalid-color;
-}
-
-a.btn-primary {
-  @include button-mixins.anchor-primary();
-
-  background-color: colors.$invalid-color;
-}
-
-.btn-default {
-  @include button-mixins.secondary($base-styling: false);
-
-  background-color: colors.$invalid-color;
-}
-
-a.btn-default {
-  @include button-mixins.anchor-secondary();
-
-  background-color: colors.$invalid-color;
-}
-
-.btn-link {
-  @include button-mixins.tertiary($base-styling: false);
-
-  background-color: colors.$invalid-color;
-}
-
-a.btn-link {
-  @include button-mixins.anchor-tertiary();
-
-  background-color: colors.$invalid-color;
-}
-
-.btn-block {
-  @include button-mixins.block(".btn-block");
-}
-
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  &.btn-block {
-    width: 100%;
-  }
-}
-
 a,
 button,
 label {

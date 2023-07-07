@@ -24,16 +24,18 @@ storiesOfInfo({
           consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla
           lectus.
         </p>
-        <a href="#" className="dso-primary">
-          Primaire button
-        </a>
-        <a href="#" className="dso-secondary">
-          Secundaire button
-        </a>
-        <a href="#" className="dso-tertiary btn-align">
-          Tertiaire button
-          {iconTemplate({ icon: "chevron-down" })}
-        </a>
+        <div className="dso-button-row">
+          <a href="#" className="dso-primary">
+            <span>Primaire button</span>
+          </a>
+          <a href="#" className="dso-secondary">
+            <span>Secundaire button</span>
+          </a>
+          <a href="#" className="dso-tertiary">
+            <span>Tertiaire button</span>
+            {iconTemplate({ icon: "chevron-down" })}
+          </a>
+        </div>
       </div>
     ),
   }),

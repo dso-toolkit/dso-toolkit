@@ -5,7 +5,7 @@ import { examplePageFactory } from "../../example-page-factory";
 examplePageFactory(
   "Toepassingen/Componenten",
   "Link",
-  ({ anchorTemplate }) => html`
+  ({ anchorTemplate, buttonTemplate }) => html`
     <div class="container">
       <div class="anchor-example">
         <h2 style="margin-bottom: 24px">Link</h2>
@@ -32,28 +32,28 @@ examplePageFactory(
 
         <h2 style="margin-bottom: 24px">Visueel als buttons</h2>
         <div class="row">
-          <div class="col-md-3">
-            ${anchorTemplate({ label: "Anchor", modifier: "dso-primary", url: "#" })}
-            ${anchorTemplate({ label: "Anchor", modifier: "dso-secondary", url: "#" })}
+          <div class="col-md-4">
+            ${buttonTemplate({ variant: "primary", label: "Primary Anchor", url: "#" })}
+            ${buttonTemplate({ variant: "secondary", label: "Secondary Anchor", url: "#" })}
           </div>
           <div class="col-md-2">
-            ${anchorTemplate({ label: ".btn-align", modifier: "dso-tertiary btn-align", url: "#" })}
+            ${buttonTemplate({ variant: "tertiary", label: "Tertiary Anchor", modifier: "btn-align", url: "#" })}
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            ${anchorTemplate({ label: "Link button", modifier: "dso-tertiary", url: "#" })}
+            ${buttonTemplate({ variant: "tertiary", label: "Link button", url: "#" })}
             <!-- IconOnly bestaat niet op anchorTemplate -->
-            ${anchorTemplate({ label: "Link button", modifier: "dso-tertiary", url: "#", icon: { icon: "info" } })}
-            ${anchorTemplate({
+            ${buttonTemplate({ variant: "tertiary", label: "Link button", url: "#", icon: { icon: "info" } })}
+            ${buttonTemplate({
+              variant: "tertiary",
               label: "Link button",
-              modifier: "dso-tertiary",
               url: "#",
               icon: { icon: "angle-left" },
             })}
-            ${anchorTemplate({
+            ${buttonTemplate({
+              variant: "tertiary",
               label: "Link button",
-              modifier: "dso-tertiary",
               url: "#",
               icon: { icon: "angle-right" },
               iconMode: "after",

@@ -6,5 +6,6 @@ Het label van de button staat altijd in een `<span>`.
 
 ## Modifiers
 
+- `.btn`
 - `.btn-sm`
-- `.btn-block`
+- `.btn-align`

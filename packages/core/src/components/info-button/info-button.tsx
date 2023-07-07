@@ -56,7 +56,7 @@ export class InfoButton {
       <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
         <button
           type="button"
-          class={clsx("btn", { "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })}
+          class={clsx({ "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })}
           aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
           onClick={(e) => this.handleToggle(e)}
           ref={(element) => (this.button = element)}
