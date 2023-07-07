@@ -7,7 +7,7 @@ export const cssButtonRow: ComponentImplementation<ButtonRow> = {
   implementation: "html-css",
   template: ({ buttonTemplate, anchorTemplate }) =>
     function buttonRowTemplate({ buttons, emphasized }) {
-      return html`<div class=${`dso-button-row ${emphasized ? "emphasized" : ""}`.trim()}>
+      return html`<div class=${["dso-button-row", emphasized ? "dso-emphasized" : ""].join(" ")}>
         ${buttons.map((button) => ("variant" in button ? buttonTemplate(button) : anchorTemplate(button)))}
       </div>`;
     },
