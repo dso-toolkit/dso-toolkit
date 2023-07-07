@@ -2,8 +2,6 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Button
 
-<StorybookComponent implementations={["html-css"]} variant="primary" />
-
 Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in een enkele klik. Buttons communiceren acties die gebruikers kunnen nemen. Ze moeten makkelijk te identificeren en makkelijk te vinden zijn. Tegelijkertijd moet een button duidelijk de actie aantonen die de gebruiker moet volbrengen. Gebruik vorm en kleur om een button visueel als button herkenbaar te maken voor de gebruiker.
 
 - Plaats buttons waar gebruikers ze verwachten en makkelijk vindbaar zijn
@@ -13,7 +11,9 @@ Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in
 - Een actieknop moet opvallen: gebruik daarom een contrasterende kleur
 - Gebruik visuele hints om aandacht te vestigen op een actieknop
 
-## Hoe te gebruiken: Primaire buttons
+## Primaire buttons
+
+<StorybookComponent implementations={["html-css"]} variant="primary" />
 
 De primaire actie is die button waarmee de gebruiker de taak volbrengt.
 
@@ -27,13 +27,17 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 - Uitzondering is gebruik in de header of in een modal
 - Niet elk scherm heeft een primaire knop nodig
 
-## Hoe te gebruiken: Secundaire buttons
+## Secundaire buttons
+
+<StorybookComponent implementations={["html-css"]} variant="secondary" />
 
 - Tekst grasgroen, Asap semibold 16
 - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
 - Dit is de standaard button voor de meeste gebruikscasussen
 
-## Hoe te gebruiken: Tertiaire buttons
+## Tertiaire buttons
+
+<StorybookComponent implementations={["html-css"]} variant="tertiary" />
 
 Tertiaire buttons worden gebruikt voor overige diverse acties: de actie is belangrijk maar hoeft niet datgene te zijn waarnaar de gebruiker op dat moment op zoek is.
 
@@ -46,11 +50,11 @@ In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 
 ## Hoe te gebruiken: Kleine buttons
 
+<StorybookComponent implementations={["html-css"]} variant="primary" args={{ compact: true }} />
+
 Door de toevoeging van de class `.btn-sm` worden buttons kleiner getoond.
 
 Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pixels hoog.
-
-<StorybookComponent implementations={["html-css"]} variant="primary" args={{ compact: true }} />
 
 ## Gedrag en toegankelijkheid
 

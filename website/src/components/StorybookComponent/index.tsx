@@ -60,24 +60,42 @@ function getStoryUrlId(implementation: Implementation, name: string, variant: st
   return `${implementation}-${joinNameAndVariant(name, variant)}`;
 }
 
+function stringifyStorybookArg(key: string, value: unknown) {
+  if (typeof value === "boolean") {
+    return `${key}:${`!${value}`}`;
+  }
+
+  return `${key}:${value}`;
+}
+
 function getStoryIframeUrl(
   implementation: Implementation,
   name: string,
-  variant: string | undefined,
-  args: Record<string, unknown> = {}
+  variant?: string,
+  args?: Record<string, unknown>
 ): string {
   const host = window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host;
   const version = getVersion();
   const subDomain = getSubDomain(implementation);
   const id = getStoryIframeId(implementation, name, variant);
-  const mappedArgs = Object.entries(args).map(
-    ([key, value]) => `${key}:${typeof value === "boolean" ? `!${value}` : value}`
-  );
-  const joinedMappedArgs = `${mappedArgs.join(";")}&`;
 
-  return `https://${host}/!${subDomain}/${version !== "local" ? version : "master"}/iframe.html?id=${id}&${
-    mappedArgs.length ? `args=${joinedMappedArgs}` : ""
-  }viewMode=story`;
+  const path = [`!${subDomain}`, version !== "local" ? version : "master", "iframe.html"].join("/");
+  const url = new URL(path, `https://${host}`);
+
+  const searchParamsObject: Record<string, string> = {
+    id,
+    viewMode: "story",
+  };
+
+  if (args) {
+    searchParamsObject.args = Object.entries(args)
+      .map(([key, value]) => stringifyStorybookArg(key, value))
+      .join(";");
+  }
+
+  const searchParams = new URLSearchParams(searchParamsObject);
+
+  return `${url}?${searchParams}`;
 }
 
 function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
