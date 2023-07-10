@@ -1,0 +1,73 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v55.0.0
+
+Het is alweer een aantal releases geleden dat er een blogpost is geplaatst. Maar dat mag de pret voor deze release niet drukken.
+
+## Samenstelling team
+
+Thomas Rijsewijk ([@tfrijsewijk](https://github.com/tfrijsewijk)) is sinds 15 mei Product Owner van de DSO Toolkit. Hans Grimm ([@hansgrimm](https://github.com/hansgrimm)) is sinds 1 juni Front-End Developer en toegankelijkheidsexpert.
+
+In de loop van dit jaar wordt het team nog met een developer versterkt.
+
+## Stateful vs. stateless components
+
+Sinds 3 jaar biedt de toolkit Web Components aan. Sommige componenten waren daarnaast ook voorzien van een interne state. Met name het afgelopen half jaar is duidelijk geworden dat de interne state conflicteert met de wensen van de afnemers.
+
+Daarom gaan wij onze componenten stateless maken. Het gevolg is dat het koppelvlak groter wordt en dat afnemers meer zullen moeten programmeren. Daartegenover staat dat afnemers alle invloed hebben op de state van het component. Een groot voordeel daarvan is dat componenten hun state uit de URL kunnen krijgen en dat de state van de applicatie beter te delen is.
+
+Dit is een breaking change en voor elk component dat is omgebouwd zal een breaking release worden uitgebracht.
+
+De uitverkorenen om op korte termijn te worden aangepakt zijn:
+
+- Accordion.
+- Image Overlay.
+- Viewer Grid.
+
+Dit betekent niet dat toolkitcomponenten stateless _moeten_ zijn. De grens zal liggen tussen de interne werking van een component (bv. de state van animaties) en presentatie (bv. de breedte van een paneel of hoeveel Accordion secties er open staan.) Waar de grens precies ligt zullen we in overleg met afnemers en de UX designers bepalen.
+
+## Uitgelicht
+
+In deze release hebben we 8 bugs gefixed. Daarnaast hebben we twee nieuwe features geintroduceerd en één breaking change doorgevoerd.
+
+Voor alle wijzigingen verwijs ik je naar de [CHANGELOG van deze release](https://github.com/dso-toolkit/dso-toolkit/blob/master/CHANGELOG.md#5500).
+
+### Modal (breaking change)
+
+In ([#2092](https://github.com/dso-toolkit/dso-toolkit/pull/2092)) hebben we de presentatie van het Modal verbeterd. Bij het na-testen kwamen nog twee kleine puntjes aan het licht. Deze worden in ([#2223](https://github.com/dso-toolkit/dso-toolkit/pull/2223)) opgelost.
+
+Dit is een breaking change omdat de markup voorschriften van de HTML/CSS implementatie van Modal zijn gewijzigd. Het element `<div class="dso-body">` moet door een Scrollable worden gewrapped:
+
+```html
+<div class="dso-modal">
+  <!-- [...] -->
+  <div class="dso-dialog">
+    <dso-scrollable>
+      <div class="dso-body">
+        <!-- Inhoud van Modal -->
+      </div>
+    </dso-scrollable>
+  </div>
+</div>
+```
+
+Voor het Web Component zijn er geen breaking changes. Daar krijg je de functionaliteit van Scrollable cadeau.
+
+Voor afnemers die geen gebruik maakt van Web Componenten kan het `<dso-scrollable>` component achterwege worden gelaten. De Modal zal dan nog steeds werken maar zonder de schaduwrandjes die Scrollable levert.
+
+### Button Row
+
+Button Row heeft een nieuwe variant "emphasized" om knoppen uit te lichten.
+
+- HTML/CSS implementatie: Onder de modifier class `.dso-emphasized`.
+- Web Component: Onder het attribuut `[emphasized]` en de property `HTMLDsoButtonRowElement.emphasized = true`.
+
+### Map Controls
+
+De knop waarmee de Map Controls wordt getoond heeft op smalle viewport geen visueel label meer.
+
+### Lifecycle management
+
+We hebben een update naar Storybook 7 gedaan. Dit was niet geheel pijnloos. Wij maken geen gebruik van CSF. De komende periode gaan we onze stories omschrijven naar CSF zodat we ook naar Storybook 8 kunnen.
