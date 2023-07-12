@@ -28,12 +28,6 @@
   }
 }
 
-// Create space between action list and form buttons.
-// To Do: add to/integrate with general vertical rhythm styles (to be built).
-dso-action-list + .dso-form-buttons {
-  margin-block-start: units.$vertical-spacing-xlarge;
-}
-
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {
