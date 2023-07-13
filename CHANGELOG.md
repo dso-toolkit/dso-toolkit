@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))
 
+### Docs
+* Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
+
 ## 56.0.0
 
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
