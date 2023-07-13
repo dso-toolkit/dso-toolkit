@@ -152,7 +152,7 @@
       }
 
       > .dso-body {
-      max-height: calc(#{modal-variables.$max-height} - 128px);
+        max-height: calc(#{modal-variables.$max-height} - 128px);
       }
     }
 

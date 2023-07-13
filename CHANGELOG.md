@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+**BREAKING:** Modal: maakt nu gebruik van dso-scrollable ([#2223](https://github.com/dso-toolkit/dso-toolkit/issues/2223))
+
 ### Fixed
 * Action List en Form Buttons hebben geen verticaal ritme ([#2209](https://github.com/dso-toolkit/dso-toolkit/issues/2209))
 
@@ -23,7 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * List Button: Web Component implementatie heeft onderling geen 4px ruimte ([#2157](https://github.com/dso-toolkit/dso-toolkit/issues/2157))
 * Accordion: Margins specifieker scopen ([#2050](https://github.com/dso-toolkit/dso-toolkit/issues/2050))
 * Header: Uitloggen als `button` krijgt de verkeerde styling ([#2163](https://github.com/dso-toolkit/dso-toolkit/issues/2163))
-* Scrollable: Fader zorgt ervoor dat onderliggende elementen niet interactief zijn ([#2202](https://github.com/dso-toolkit/dso-toolkit/issues/2202)) 
+* Scrollable: Fader zorgt ervoor dat onderliggende elementen niet interactief zijn ([#2202](https://github.com/dso-toolkit/dso-toolkit/issues/2202))
 * Scrollable: Als door een viewport change de content niet meer past verschijnen er geen schaduwrandjes ([#2218](https://github.com/dso-toolkit/dso-toolkit/issues/2218))
 * Selectable: Focus styling toont onterecht bij interactie met muis. ([#2195](https://github.com/dso-toolkit/dso-toolkit/issues/2195))
 * Header: resize met open menu crasht browser ([#2164](https://github.com/dso-toolkit/dso-toolkit/issues/2164))
