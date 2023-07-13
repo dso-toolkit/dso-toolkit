@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Action List en Form Buttons hebben geen verticaal ritme ([#2209](https://github.com/dso-toolkit/dso-toolkit/issues/2209))
+* Label: Documentatie truncate bijgewerkt. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
 
 ## 55.0.0 - 10-07-2023
 
