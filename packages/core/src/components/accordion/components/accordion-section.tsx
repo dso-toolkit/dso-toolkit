@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import { isExpandable } from "../../expandable/expandable.functions";
 
-import { AccordionInternalState } from "../accordion.interfaces";
+import { AccordionInternalState, isAccordion } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
 import { Handle, HandleElement, HandleIcon } from "./handles";
 
@@ -109,19 +109,6 @@ export class AccordionSection implements ComponentInterface {
   }
 
   /**
-   * Toggle this section.
-   * @param scrollIntoView boolean - defaults to true
-   */
-  @Method()
-  async toggleSection(scrollIntoView = true): Promise<void> {
-    await this.accordion?.toggleSection(this.host).then(async () => {
-      if (scrollIntoView) {
-        await this.scrollIntoViewWhenNeeded(true);
-      }
-    });
-  }
-
-  /**
    * Scroll this section into view when needed.
    */
   @Method()
@@ -143,18 +130,16 @@ export class AccordionSection implements ComponentInterface {
       return;
     }
 
-    const waitForAnimationBeforeScrolling = async (state: AccordionInternalState) => {
+    const waitForAnimationBeforeScrolling = async () => {
       this.bodyHeight = await this.expandable?._getBodyHeight();
 
       const sectionBottomOffsetTop =
         this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
 
-      return (
-        sectionToggled && (sectionBottomOffsetTop > document.documentElement.scrollHeight || state.allowMultipleOpen)
-      );
+      return sectionToggled && sectionBottomOffsetTop > document.documentElement.scrollHeight;
     };
 
-    if (await waitForAnimationBeforeScrolling(this.accordionState)) {
+    if (await waitForAnimationBeforeScrolling()) {
       AccordionSection.scrollCandidate = this.host;
       return;
     }
@@ -198,7 +183,7 @@ export class AccordionSection implements ComponentInterface {
             const accordion = section.parentElement;
 
             if (accordion && isAccordion(accordion)) {
-              accordion?.animationEnd(section);
+              accordion?._emitToggleSectionAnimationEndEvent(section);
             }
 
             if (AccordionSection.scrollCandidate === this.host) {
@@ -214,11 +199,7 @@ export class AccordionSection implements ComponentInterface {
   private async toggle(e?: MouseEvent): Promise<void> {
     e?.preventDefault();
 
-    this.accordion?.toggleSection(this.host, e).then(async (isOpen) => {
-      if (isOpen) {
-        await this.scrollIntoViewWhenNeeded(true);
-      }
-    });
+    this.accordion?._emitToggleSectionEvent(this.host, e);
   }
 
   render() {
@@ -296,8 +277,4 @@ export class AccordionSection implements ComponentInterface {
       </Host>
     );
   }
-}
-
-function isAccordion(element: Element): element is HTMLDsoAccordionElement {
-  return element.tagName === "DSO-ACCORDION";
 }

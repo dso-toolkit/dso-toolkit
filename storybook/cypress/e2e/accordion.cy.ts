@@ -4,24 +4,20 @@ describe("Accordion", () => {
       .get("dso-accordion")
       .then(($accordion) => {
         $accordion.on("dsoToggleSection", cy.stub().as("dsoToggleSectionListener"));
+        $accordion.on("dsoToggleSectionAnimationEnd", cy.stub().as("dsoToggleSectionAnimationEndListener"));
       });
   });
 
-  const prepareScrollIntoView = () => {
-    cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .find("dso-accordion-section:nth-child(2)")
-      .then(($element) => {
-        $element.after(`<div class="cy-test-spacer" style="height: 1000px; background-color: yellow;"></div>`);
-      })
-      .wait(200);
+  const closeOpenSections = () => {
+    cy.get("dso-accordion").find("dso-accordion-section[open]").invoke("prop", "open", false);
   };
 
   it("should open and close a section by clicking the handle", () => {
     cy.percySnapshot();
 
+    closeOpenSections();
+
     cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
       .find("dso-accordion-section")
       .first()
       .as("dsoAccordionSection")
@@ -29,7 +25,7 @@ describe("Accordion", () => {
       .get("@dsoAccordionSection")
       .shadow()
       .find(".dso-section-handle")
-      .realClick()
+      .click()
       .get("@dsoAccordionSection")
       .should("have.attr", "open")
       .get("@dsoAccordionSection")
@@ -40,57 +36,8 @@ describe("Accordion", () => {
       .should("not.have.attr", "open");
   });
 
-  it("should open and close a section by index", () => {
+  it("should be accessible", () => {
     cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .find("dso-accordion-section")
-      .first()
-      .as("dsoAccordionSection")
-      .should("not.have.attr", "open")
-      .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.toggleSection(0))
-      .get("@dsoAccordionSection")
-      .should("have.attr", "open")
-      .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.toggleSection(0))
-      .get("@dsoAccordionSection")
-      .should("not.have.attr", "open");
-  });
-
-  it("should open and close a section by element", () => {
-    cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .find("dso-accordion-section")
-      .first()
-      .as("dsoAccordionSection")
-      .should("not.have.attr", "open")
-      .get("dso-accordion")
-      .then(($accordion) => {
-        const accordionElement = $accordion[0];
-        const section = accordionElement.querySelector("dso-accordion-section");
-
-        if (section) {
-          return accordionElement.toggleSection(section);
-        }
-      })
-      .get("@dsoAccordionSection")
-      .should("have.attr", "open")
-      .get("dso-accordion")
-      .then(($accordion) => {
-        const accordionElement = $accordion[0];
-        const section = accordionElement.querySelector("dso-accordion-section");
-
-        if (section) {
-          return accordionElement.toggleSection(section);
-        }
-      })
-      .get("@dsoAccordionSection")
-      .should("not.have.attr", "open");
-  });
-
-  it("should open and close a section by calling toggleSection() on the section (+ a11y)", () => {
-    cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
       .find("dso-accordion-section")
       .first()
       .as("dsoAccordionSection")
@@ -106,78 +53,22 @@ describe("Accordion", () => {
       .find(".dso-section-body")
       .as("dsoSectionBody")
       .should("have.attr", "aria-hidden", "true")
-      .get("dso-accordion")
-      .then(($accordion) => {
-        const accordionElement = $accordion[0];
-        const section = accordionElement.querySelector("dso-accordion-section");
-
-        if (section) {
-          return section.toggleSection();
-        }
-      })
+      .get("@dsoSectionHandle")
+      .click()
       .get("@dsoAccordionSection")
       .should("have.attr", "open")
       .get("@dsoSectionHandle")
       .should("have.attr", "aria-expanded", "true")
       .get("@dsoSectionBody")
       .should("have.attr", "aria-hidden", "false")
-      .get("dso-accordion")
-      .then(($accordion) => {
-        const accordionElement = $accordion[0];
-        const section = accordionElement.querySelector("dso-accordion-section");
-
-        if (section) {
-          return section.toggleSection();
-        }
-      })
+      .get("@dsoSectionHandle")
+      .click()
       .get("@dsoAccordionSection")
       .should("not.have.attr", "open")
       .get("@dsoSectionHandle")
-      .should("have.attr", "aria-expanded", "true")
+      .should("have.attr", "aria-expanded", "false")
       .get("@dsoSectionBody")
-      .should("have.attr", "aria-hidden", "false");
-  });
-
-  it("should keep only one section open when allowMultipleOpen = false", () => {
-    cy.get("dso-accordion")
-      .as("dsoAccordion")
-      .invoke("removeAttr", "allowMultipleOpen")
-      .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .then(async ($accordion) => await $accordion[0]?.toggleSection(0))
-      .get("dso-accordion")
-      .find("dso-accordion-section")
-      .eq(0)
-      .should("have.attr", "open")
-      .get("dso-accordion")
-      .then(async ($accordion) => await $accordion[0]?.toggleSection(1))
-      .get("dso-accordion")
-      .find("dso-accordion-section")
-      .eq(0)
-      .should("not.have.attr", "open")
-      .get("dso-accordion")
-      .find("dso-accordion-section")
-      .eq(1)
-      .should("have.attr", "open");
-  });
-
-  it("should keep allow multiple open sections when allowMultipleOpen = true", () => {
-    cy.get("dso-accordion")
-      .as("dsoAccordion")
-      .invoke("attr", "allow-multiple-open", "")
-      .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .then(async ($accordion) => await $accordion[0]?.toggleSection(0))
-      .get("dso-accordion")
-      .then(async ($accordion) => await $accordion[0]?.toggleSection(1))
-      .get("dso-accordion")
-      .find("dso-accordion-section")
-      .eq(0)
-      .should("have.attr", "open")
-      .get("dso-accordion")
-      .find("dso-accordion-section")
-      .eq(1)
-      .should("have.attr", "open");
+      .should("have.attr", "aria-hidden", "true");
   });
 
   it("should render handle as <a> when href is set", () => {
@@ -272,125 +163,23 @@ describe("Accordion", () => {
       .should("exist");
   });
 
-  it("emit dsoToggleSection event for all toggle methods", () => {
-    // Click
-    cy.get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .find("dso-accordion-section")
-      .first()
-      .shadow()
-      .find(".dso-section-handle")
-      .realClick()
-      .get("@dsoToggleSectionListener")
-      .should("have.been.calledOnce")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail.section.open")
-      .should("equal", true)
-      // Accordion.toggleSection(index)
-      .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.toggleSection(0))
-      .get("@dsoToggleSectionListener")
-      .should("have.been.calledTwice")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail.section.open")
-      .should("equal", false)
-      .get("dso-accordion")
-      // AccordionSection.toggleSection()
-      .then(($accordion) => {
-        const accordionElement = $accordion[0];
-        const section = accordionElement.querySelector("dso-accordion-section");
+  it("emit dsoToggleSection and dsoToggleSectionAnimationEnd events", () => {
+    closeOpenSections();
 
-        if (section) {
-          return section.toggleSection();
-        }
-      })
-      .get("@dsoToggleSectionListener")
-      .should("have.been.calledThrice")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail.section.open")
-      .should("equal", true);
-  });
-
-  it("should scroll section into view when opened", () => {
-    prepareScrollIntoView();
     cy.get("dso-accordion")
-      .find("dso-accordion-section")
-      .last()
-      .shadow()
-      .find(".dso-section-handle")
-      .realClick()
-      .window()
-      .its("scrollY")
-      .should("be.greaterThan", 600);
-  });
-
-  it("should scroll section into view when scrollSectionIntoView is called", () => {
-    prepareScrollIntoView();
-    cy.get("dso-accordion")
-      .find("dso-accordion-section")
-      .last<HTMLDsoAccordionSectionElement>()
-      .then(($sections) => {
-        const sectionElement = $sections[0];
-        if ("scrollSectionIntoView" in sectionElement && typeof sectionElement.scrollSectionIntoView === "function") {
-          sectionElement.scrollSectionIntoView();
-        }
-      })
-      .window()
-      .its("scrollY")
-      .should("be.greaterThan", 560);
-  });
-
-  it("should scroll section into view when toggleSection is called", () => {
-    prepareScrollIntoView();
-    cy.get("dso-accordion")
-      .find("dso-accordion-section")
-      .last<HTMLDsoAccordionSectionElement>()
-      .then(($sections) => {
-        const sectionElement = $sections[0];
-        if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
-          sectionElement.toggleSection();
-        }
-      })
-      .window()
-      .its("scrollY")
-      .should("be.greaterThan", 600);
-  });
-
-  it("should NOT scroll section into view when toggleSection is called with param 'false'", () => {
-    prepareScrollIntoView();
-    cy.get("dso-accordion")
-      .find("dso-accordion-section")
-      .last<HTMLDsoAccordionSectionElement>()
-      .then(($sections) => {
-        const sectionElement = $sections[0];
-        if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
-          sectionElement.toggleSection(false);
-        }
-      })
-      .window()
-      .its("scrollY")
-      .should("equal", 0);
-  });
-
-  it("should emit dsoToggleSectionAnimationEnd event for all toggle animations end", () => {
-    cy.get("dso-accordion")
-      .then(($accordion) => {
-        $accordion.on("dsoToggleSectionAnimationEnd", cy.stub().as("dsoToggleSectionAnimationEndListener"));
-      })
-      .get("dso-accordion")
-      .wait(1500) // https://github.com/dso-toolkit/dso-toolkit/issues/2169
-      .invoke("attr", "allow-multiple-open", "")
-      .invoke("prop", "allowMultipleOpen")
-      .should("eq", true)
-      .get("dso-accordion")
+      .wait(1500)
       .find("dso-accordion-section")
       .first()
       .shadow()
       .find(".dso-section-handle")
       .click()
+      .get("@dsoToggleSectionListener")
+      .should("have.been.calledOnce")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail.section.open")
+      .should("equal", false)
+      .wait(260) // animation time
       .get("@dsoToggleSectionAnimationEndListener")
       .should("have.been.calledOnce")
       .invoke("getCalls")

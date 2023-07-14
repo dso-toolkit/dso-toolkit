@@ -57,30 +57,13 @@ export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 export { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
+        "_emitToggleSectionAnimationEndEvent": (sectionElement: HTMLElement) => Promise<void>;
+        "_emitToggleSectionEvent": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>;
         "_getState": () => Promise<AccordionInternalState>;
-        /**
-          * Allows multiple sections to be open at the same time.
-         */
-        "allowMultipleOpen": boolean;
-        /**
-          * Emitted when the animation of opening or closing ends.
-         */
-        "animationEnd": (sectionElement: HTMLElement) => Promise<void>;
-        /**
-          * Closes all sections belonging to this accordion.
-         */
-        "closeOpenSections": () => Promise<void>;
         /**
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
          */
         "reverseAlign": boolean;
-        /**
-          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
-          * @param sectionElement The section element that needs to toggle
-          * @param event The event that the user triggered
-          * @returns The state of the section
-         */
-        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>;
         /**
           * The variant of the Accordion.
          */
@@ -123,11 +106,6 @@ export namespace Components {
           * The status of the section.
          */
         "status"?: string;
-        /**
-          * Toggle this section.
-          * @param scrollIntoView boolean - defaults to true
-         */
-        "toggleSection": (scrollIntoView?: boolean) => Promise<void>;
     }
     interface DsoActionList {
         /**
@@ -1236,10 +1214,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DsoAccordion {
-        /**
-          * Allows multiple sections to be open at the same time.
-         */
-        "allowMultipleOpen"?: boolean;
         /**
           * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
          */

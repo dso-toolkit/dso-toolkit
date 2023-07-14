@@ -3,7 +3,6 @@ export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral";
 export interface AccordionInternalState {
   variant: AccordionVariant;
   reverseAlign: boolean;
-  allowMultipleOpen: boolean;
 }
 
 export interface AccordionSectionToggleEvent {
@@ -13,7 +12,6 @@ export interface AccordionSectionToggleEvent {
     element: HTMLElement;
     open: boolean;
   };
-  sections: HTMLElement[];
 }
 
 export interface AccordionSectionToggleAnimationEndEvent {
@@ -21,4 +19,8 @@ export interface AccordionSectionToggleAnimationEndEvent {
     element: HTMLElement;
     open: boolean;
   };
+}
+
+export function isAccordion(element: Element): element is HTMLDsoAccordionElement {
+  return element.tagName === "DSO-ACCORDION";
 }

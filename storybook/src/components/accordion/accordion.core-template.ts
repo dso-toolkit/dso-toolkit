@@ -7,19 +7,11 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
   component: "accordion",
   implementation: "core",
   template: () =>
-    function accordionTemplate({
-      variant,
-      reverseAlign,
-      allowMultipleOpen,
-      dsoToggleSection,
-      dsoToggleSectionAnimationEnd,
-      sections,
-    }) {
+    function accordionTemplate({ variant, reverseAlign, dsoToggleSection, dsoToggleSectionAnimationEnd, sections }) {
       return html`
         <dso-accordion
           variant=${ifDefined(variant)}
           ?reverse-align=${reverseAlign}
-          ?allow-multiple-open=${allowMultipleOpen}
           @dsoToggleSection=${dsoToggleSection}
           @dsoToggleSectionAnimationEnd=${dsoToggleSectionAnimationEnd}
         >

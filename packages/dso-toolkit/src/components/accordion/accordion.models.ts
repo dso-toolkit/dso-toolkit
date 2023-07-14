@@ -9,7 +9,6 @@ export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
 export interface Accordion<TemplateFnReturnType> {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
-  allowMultipleOpen?: boolean;
   dsoToggleSection?: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
   dsoToggleSectionAnimationEnd?: (e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => void;
   sections: AccordionSection<TemplateFnReturnType>[];
@@ -34,7 +33,6 @@ export interface AccordionSectionToggleEvent {
     element: HTMLElement;
     open: boolean;
   };
-  sections: HTMLElement[];
 }
 
 export interface AccordionSectionToggleAnimationEndEvent {

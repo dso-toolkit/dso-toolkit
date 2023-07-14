@@ -29,16 +29,6 @@ Type: `Promise<void>`
 
 
 
-### `toggleSection(scrollIntoView?: boolean) => Promise<void>`
-
-Toggle this section.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 

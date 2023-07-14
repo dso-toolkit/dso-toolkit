@@ -9,3 +9,7 @@ export const stateMap: Record<AccordionSectionState, string> = {
   danger: "fout:",
   error: "fout:",
 };
+
+export function isAccordionSection(element: Element): element is HTMLDsoAccordionSectionElement {
+  return element.tagName === "DSO-ACCORDION-SECTION";
+}

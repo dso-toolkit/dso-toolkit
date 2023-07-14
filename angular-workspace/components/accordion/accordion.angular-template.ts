@@ -13,7 +13,6 @@ export const angularAccordion: ComponentImplementation<Accordion<StoryFnAngularR
         toggleSection: (event: CustomEvent) => {
           /* eslint-disable @typescript-eslint/no-explicit-any */
           event.detail.section.element = "elementRef" as any;
-          event.detail.sections = ["elementRef"] as any;
           /* eslint-enable @typescript-eslint/no-explicit-any */
 
           props.dsoToggleSection?.(event);
@@ -32,7 +31,6 @@ export const angularAccordion: ComponentImplementation<Accordion<StoryFnAngularR
           <dso-accordion
             [variant]="variant"
             [reverseAlign]="reverseAlign"
-            [allowMultipleOpen]="allowMultipleOpen"
             (dsoToggleSection)="toggleSection($event)"
             (dsoToggleSectionAnimationEnd)="toggleSectionAnimationEnd($event)"
           >

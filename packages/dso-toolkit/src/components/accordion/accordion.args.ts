@@ -8,7 +8,6 @@ import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion";
   reverseAlign: boolean;
-  allowMultipleOpen: boolean;
   dsoToggleSection: HandlerFunction;
   dsoToggleSectionAnimationEnd: HandlerFunction;
   open: boolean;
@@ -29,11 +28,6 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       labels: {
         undefined: "default",
       },
-    },
-  },
-  allowMultipleOpen: {
-    control: {
-      type: "boolean",
     },
   },
   reverseAlign: {
@@ -114,7 +108,6 @@ export function accordionArgsMapper<TemplateFnReturnType>(
   return {
     variant: a.variant,
     reverseAlign: a.reverseAlign,
-    allowMultipleOpen: a.allowMultipleOpen,
     dsoToggleSection: (e) => a.dsoToggleSection(e.detail),
     dsoToggleSectionAnimationEnd: (e) => a.dsoToggleSectionAnimationEnd(e.detail),
     sections,

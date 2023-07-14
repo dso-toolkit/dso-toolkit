@@ -44,12 +44,6 @@ export class Accordion implements ComponentInterface {
   reverseAlign = false;
 
   /**
-   * Allows multiple sections to be open at the same time.
-   */
-  @Prop({ reflect: true })
-  allowMultipleOpen = false;
-
-  /**
    * Emitted when a section is toggled.
    *
    * `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header
@@ -75,20 +69,6 @@ export class Accordion implements ComponentInterface {
     this.accordionState.reverseAlign = reverseAlign;
   }
 
-  @Watch("allowMultipleOpen")
-  updateAllowMultipleOpen(allowMultipleOpen: boolean) {
-    this.accordionState.allowMultipleOpen = allowMultipleOpen;
-
-    if (!allowMultipleOpen) {
-      const openSections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section[open]"));
-
-      // By removing the first section, it is kept open;
-      openSections.shift();
-
-      openSections.forEach((section) => this.controlOpenAttribute(section, false));
-    }
-  }
-
   /**
    * @internal
    */
@@ -98,55 +78,16 @@ export class Accordion implements ComponentInterface {
   }
 
   /**
-   * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
-   * @param sectionElement The section element that needs to toggle
-   * @param event The event that the user triggered
-   * @returns The state of the section
+   * @internal
    */
   @Method()
-  async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean> {
-    const sections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section"));
-
-    if (typeof sectionElement === "number") {
-      const section = sections[sectionElement];
-      if (section instanceof HTMLElement) {
-        sectionElement = section;
-      }
-    }
-
-    if (!(sectionElement instanceof HTMLElement) || !sections.includes(sectionElement)) {
+  async _emitToggleSectionEvent(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<void> {
+    if (!(sectionElement instanceof HTMLElement)) {
       return;
     }
 
-    const sectionIsOpen = this.isSectionOpen(sectionElement);
-
-    if (this.allowMultipleOpen) {
-      this.controlOpenAttribute(sectionElement, !sectionIsOpen);
-      this.emitToggleEvent(sectionElement, sections, event);
-      return !sectionIsOpen;
-    }
-
-    if (sectionIsOpen) {
-      this.controlOpenAttribute(sectionElement, false);
-      this.emitToggleEvent(sectionElement, sections, event);
-
-      return false;
-    }
-
-    await this.closeOpenSections();
-
-    this.controlOpenAttribute(sectionElement, true);
-    this.emitToggleEvent(sectionElement, sections, event);
-
-    return true;
-  }
-
-  /**
-   * Emitted when the animation of opening or closing ends.
-   */
-  @Method()
-  async animationEnd(sectionElement: HTMLElement): Promise<void> {
-    this.dsoToggleSectionAnimationEnd.emit({
+    this.dsoToggleSection.emit({
+      originalEvent: event,
       section: {
         element: sectionElement,
         open: this.isSectionOpen(sectionElement),
@@ -155,14 +96,20 @@ export class Accordion implements ComponentInterface {
   }
 
   /**
-   * Closes all sections belonging to this accordion.
+   * @internal
    */
   @Method()
-  async closeOpenSections(): Promise<void> {
-    const sections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section"));
+  async _emitToggleSectionAnimationEndEvent(sectionElement: HTMLElement): Promise<void> {
+    if (!(sectionElement instanceof HTMLElement)) {
+      return;
+    }
 
-    const openSections = sections.filter((s) => this.isSectionOpen(s));
-    openSections.forEach((section) => this.controlOpenAttribute(section, false));
+    this.dsoToggleSectionAnimationEnd.emit({
+      section: {
+        element: sectionElement,
+        open: this.isSectionOpen(sectionElement),
+      },
+    });
   }
 
   // These checks are needed for a React timing issue.
@@ -174,17 +121,12 @@ export class Accordion implements ComponentInterface {
     if (this.accordionState.reverseAlign !== this.reverseAlign) {
       this.accordionState.reverseAlign = this.reverseAlign;
     }
-
-    if (this.accordionState.allowMultipleOpen !== this.allowMultipleOpen) {
-      this.accordionState.allowMultipleOpen = this.allowMultipleOpen;
-    }
   }
 
   constructor() {
     const { state } = createStore<AccordionInternalState>({
       variant: this.variant || "default",
       reverseAlign: this.reverseAlign,
-      allowMultipleOpen: this.allowMultipleOpen,
     });
 
     this.accordionState = state;
@@ -192,36 +134,13 @@ export class Accordion implements ComponentInterface {
 
   render() {
     return (
-      <Host
-        class={{
-          "dso-accordion": true,
-        }}
-      >
+      <Host class="dso-accordion">
         <slot></slot>
       </Host>
     );
   }
 
-  private emitToggleEvent(sectionElement: HTMLElement, sections: HTMLElement[], e?: MouseEvent): void {
-    this.dsoToggleSection.emit({
-      originalEvent: e,
-      section: {
-        element: sectionElement,
-        open: this.isSectionOpen(sectionElement),
-      },
-      sections,
-    });
-  }
-
   private isSectionOpen(sectionElement: HTMLElement): boolean {
     return typeof sectionElement.getAttribute("open") === "string";
-  }
-
-  private controlOpenAttribute(sectionElement: HTMLElement, setAttribute: boolean): void {
-    if (setAttribute) {
-      sectionElement.setAttribute("open", "");
-    } else {
-      sectionElement.removeAttribute("open");
-    }
   }
 }

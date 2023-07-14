@@ -13,23 +13,14 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   component: "accordion",
   implementation: "react",
   template: () =>
-    function accordionTemplate({
-      variant,
-      reverseAlign,
-      allowMultipleOpen,
-      dsoToggleSection,
-      dsoToggleSectionAnimationEnd,
-      sections,
-    }) {
+    function accordionTemplate({ variant, reverseAlign, dsoToggleSection, dsoToggleSectionAnimationEnd, sections }) {
       return (
         <DsoAccordion
           variant={variant}
           reverseAlign={reverseAlign}
-          allowMultipleOpen={allowMultipleOpen}
           onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
             /* eslint-disable @typescript-eslint/no-explicit-any */
             e.detail.section.element = "elementRef" as any;
-            e.detail.sections = ["elementRef"] as any;
             /* eslint-enable @typescript-eslint/no-explicit-any */
 
             dsoToggleSection?.(e);
