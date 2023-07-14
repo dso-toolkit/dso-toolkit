@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Accordion: Nieuwe variant "compact-black". ([#2214](https://github.com/dso-toolkit/dso-toolkit/issues/2214))
+* Button: Tertiary button uitbreiden met truncate modifier. ([#2140](https://github.com/dso-toolkit/dso-toolkit/issues/2140))
 
 ### Docs
 * "Web Components vs. HTML/CSS componenten" en "Stateful vs. stateless" documenteren ([#2269](https://github.com/dso-toolkit/dso-toolkit/issues/2269))

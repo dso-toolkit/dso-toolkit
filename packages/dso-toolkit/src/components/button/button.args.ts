@@ -8,6 +8,7 @@ export interface ButtonArgs {
   legacy?: boolean;
   compact?: boolean;
   variant: "primary" | "secondary" | "tertiary";
+  truncate?: boolean;
   click: HandlerFunction;
   type?: "button" | "submit";
   label: string;
@@ -38,6 +39,11 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     options: ["primary", "secondary", "tertiary"],
     control: {
       type: "select",
+    },
+  },
+  truncate: {
+    control: {
+      type: "boolean",
     },
   },
   click: {
@@ -103,6 +109,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
     case "button":
       return {
         variant: a.legacy ? null : a.variant,
+        truncate: a.truncate,
         onClick: a.click,
         type: a.type,
         modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,

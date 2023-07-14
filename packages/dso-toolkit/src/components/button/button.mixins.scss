@@ -378,6 +378,13 @@
     position: relative;
   }
 
+  &.dso-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+  }
+
   &.dso-spinner-left {
     &::before {
       @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: left);

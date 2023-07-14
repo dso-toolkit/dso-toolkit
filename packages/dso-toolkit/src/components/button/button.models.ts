@@ -14,6 +14,7 @@ export interface Button {
   type?: "button" | "submit";
   id?: string;
   disabled?: boolean;
+  truncate?: boolean;
   icon?: Icon;
   iconMode?: "only" | "after";
   ariaDescribedby?: string;

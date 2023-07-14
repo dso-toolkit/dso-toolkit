@@ -30,7 +30,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       return html`
         <a
           href=${url}
-          class=${ifDefined(className || undefined)}
+          class=${ifDefined(className)}
           id=${ifDefined(id || undefined)}
           slot=${ifDefined(slot || undefined)}
         >
@@ -62,16 +62,25 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       slot,
       tooltip,
       compact,
+      truncate,
       onClick,
     }: Button) {
       type ??= "button";
-      const className = getClassName(variant, modifier);
+      const classNames = [getClassName(variant, modifier)];
+
+      if (compact) {
+        classNames.push("btn-sm");
+      }
+
+      if (truncate) {
+        classNames.push("dso-truncate");
+      }
 
       return html`
         <button
           type=${type}
           id=${ifDefined(id || undefined)}
-          class=${ifDefined([className, compact ? "btn-sm" : ""].join(" ") || undefined)}
+          class=${ifDefined(classNames.filter((c) => !!c).join(" ") || undefined)}
           ?disabled=${disabled}
           aria-describedby=${ifDefined(ariaDescribedby || undefined)}
           aria-expanded=${ifDefined(ariaExpanded || undefined)}
