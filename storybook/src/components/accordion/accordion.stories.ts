@@ -25,30 +25,35 @@ storiesOfAccordion({
     anchorSections: anchorSections(templates),
     conclusionSections: basicSections(templates),
     compactSections: basicSections(templates),
+    compactBlackSections: basicSections(templates),
     neutralSections: basicSections(templates),
     subSections: subSections(templates),
   }),
 });
 
-storiesOfAccordion({
-  parameters: {
-    storiesOf,
-    module,
-    readme: `${coreAccordionReadme}\n${coreAccordionSectionReadme}`,
-    root: StoryRoot.Core,
+storiesOfAccordion(
+  {
+    parameters: {
+      storiesOf,
+      module,
+      readme: `${coreAccordionReadme}\n${coreAccordionSectionReadme}`,
+      root: StoryRoot.Core,
+    },
+    templateContainer,
+    storyTemplates: ({ accordionTemplate }, templates) => {
+      return {
+        accordionTemplate,
+        basicSections: basicSections(templates),
+        addonsSections,
+        alignmentSections,
+        anchorSections: anchorSections(templates),
+        conclusionSections: basicSections(templates),
+        compactSections: basicSections(templates),
+        compactBlackSections: basicSections(templates),
+        neutralSections: basicSections(templates),
+        subSections: subSections(templates),
+      };
+    },
   },
-  templateContainer,
-  storyTemplates: ({ accordionTemplate }, templates) => {
-    return {
-      accordionTemplate,
-      basicSections: basicSections(templates),
-      addonsSections,
-      alignmentSections,
-      anchorSections: anchorSections(templates),
-      conclusionSections: basicSections(templates),
-      compactSections: basicSections(templates),
-      neutralSections: basicSections(templates),
-      subSections: subSections(templates),
-    };
-  },
-});
+  true
+);

@@ -9,6 +9,7 @@ export interface AccordionTemplates<TemplateFnReturnType> {
   conclusionSections: AccordionSection<TemplateFnReturnType>[];
   compactSections: AccordionSection<TemplateFnReturnType>[];
   neutralSections: AccordionSection<TemplateFnReturnType>[];
+  compactBlackSections: AccordionSection<TemplateFnReturnType>[];
   anchorSections: AccordionSection<TemplateFnReturnType>[];
   subSections: AccordionSection<TemplateFnReturnType>[];
   addonsSections: AccordionSection<TemplateFnReturnType>[];
@@ -21,7 +22,8 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     AccordionTemplates<TemplateFnReturnType>
-  >
+  >,
+  showNeutralAndCompactBlack = false
 ) {
   return storiesOfFactory("Accordion", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -48,6 +50,32 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       }
     );
 
+    if (showNeutralAndCompactBlack) {
+      stories.add(
+        "compact black",
+        templateMapper<AccordionArgs>((args, { accordionTemplate, compactBlackSections }) =>
+          accordionTemplate(accordionArgsMapper(args, compactBlackSections))
+        ),
+        {
+          args: {
+            variant: "compact-black",
+          },
+        }
+      );
+
+      stories.add(
+        "neutral",
+        templateMapper<AccordionArgs>((args, { accordionTemplate, neutralSections }) =>
+          accordionTemplate(accordionArgsMapper(args, neutralSections))
+        ),
+        {
+          args: {
+            variant: "neutral",
+          },
+        }
+      );
+    }
+
     stories.add(
       "conclusion",
       templateMapper<AccordionArgs>((args, { accordionTemplate, conclusionSections }) =>
@@ -56,18 +84,6 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       {
         args: {
           variant: "conclusion",
-        },
-      }
-    );
-
-    stories.add(
-      "neutral (core only)",
-      templateMapper<AccordionArgs>((args, { accordionTemplate, neutralSections }) =>
-        accordionTemplate(accordionArgsMapper(args, neutralSections))
-      ),
-      {
-        args: {
-          variant: "neutral",
         },
       }
     );

@@ -7,6 +7,7 @@
 @use "~dso-toolkit/src/components/anchor";
 
 @use "accordion-section-theme-compact";
+@use "accordion-section-theme-compact-black";
 @use "accordion-section-theme-conclusion";
 @use "accordion-section-theme-default";
 @use "accordion-section-theme-neutral";
@@ -43,7 +44,7 @@
 
   .dso-section-handle > button,
   .dso-section-handle > a {
-    align-items: flex-start;
+    align-items: center;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -143,6 +144,23 @@
 
 :host(.dso-accordion-compact.dso-nested-accordion[open]:not([open="false"])) {
   @include accordion-section-theme-compact.dso-web-component-accordion-compact-open-nested();
+}
+
+// Compact black
+:host(.dso-accordion-compact-black) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-reverse-align) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-reverse();
+}
+
+:host(.dso-accordion-compact-black[open]:not([open="false"])) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-open();
+}
+
+:host(.dso-accordion-compact-black.dso-nested-accordion[open]:not([open="false"])) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-open-nested();
 }
 
 // Conclusion

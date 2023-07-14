@@ -1,0 +1,84 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/accordion";
+
+@mixin dso-web-component-accordion-compact-black() {
+  .dso-section-handle {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid accordion.$compact-border-color;
+
+    a,
+    button {
+      color: accordion.$compact-black-color;
+      padding-bottom: accordion.$vertical-padding - accordion.$compact-border-width;
+      padding-left: 0;
+      padding-top: accordion.$vertical-padding - accordion.$compact-border-width;
+
+      &:hover,
+      &:active,
+      &.active {
+        color: accordion.$compact-black-color;
+      }
+    }
+  }
+
+  .dso-section-body {
+    .dso-section-body-content {
+      padding-left: units.$u4;
+      padding-top: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+@mixin dso-web-component-accordion-compact-black-reverse() {
+  .dso-section-handle {
+    a,
+    button {
+      padding-left: units.$u2;
+    }
+  }
+
+  .dso-section-body {
+    .dso-section-body-content {
+      padding-left: units.$u2;
+      padding-right: 0;
+    }
+  }
+}
+
+@mixin dso-web-component-accordion-compact-black-open() {
+  > .dso-section-handle {
+    background-color: transparent;
+
+    a,
+    button {
+      color: accordion.$compact-black-color;
+
+      &:hover,
+      &:active,
+      &.active {
+        color: accordion.$compact-black-color;
+      }
+
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{colors.$grijs-60};
+        --dso-icon: var(--di-paperclip-grijs);
+      }
+    }
+  }
+
+  > .dso-section-body {
+    border-top: 0;
+  }
+}
+
+@mixin dso-web-component-accordion-compact-black-open-nested() {
+  > .dso-section-body {
+    padding-bottom: 0;
+
+    dso-accordion-section:last-child {
+      border-bottom: 0;
+    }
+  }
+}

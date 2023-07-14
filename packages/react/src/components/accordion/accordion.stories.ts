@@ -5,22 +5,26 @@ import { addonsSections, alignmentSections, anchorSections, basicSections, subSe
 
 import readme from "./readme.md?raw";
 
-storiesOfAccordion({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
+storiesOfAccordion(
+  {
+    parameters: {
+      module,
+      storiesOf,
+      readme,
+    },
+    templateContainer,
+    storyTemplates: ({ accordionTemplate }, templates) => ({
+      accordionTemplate,
+      basicSections,
+      conclusionSections: basicSections,
+      compactSections: basicSections,
+      compactBlackSections: basicSections,
+      neutralSections: basicSections,
+      anchorSections,
+      subSections: subSections(templates),
+      addonsSections,
+      alignmentSections,
+    }),
   },
-  templateContainer,
-  storyTemplates: ({ accordionTemplate }, templates) => ({
-    accordionTemplate,
-    basicSections,
-    conclusionSections: basicSections,
-    compactSections: basicSections,
-    neutralSections: basicSections,
-    anchorSections,
-    subSections: subSections(templates),
-    addonsSections,
-    alignmentSections,
-  }),
-});
+  true
+);

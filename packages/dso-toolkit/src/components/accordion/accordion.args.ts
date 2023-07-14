@@ -28,7 +28,7 @@ export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoViewAfterOpen" | 
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   variant: {
-    options: [undefined, "compact", "conclusion", "neutral"],
+    options: [undefined, "compact", "conclusion", "neutral", "compact-black"],
     control: {
       type: "select",
       labels: {

@@ -75,7 +75,8 @@
     }
   }
 
-  &.dso-accordion-compact {
+  &.dso-accordion-compact,
+  &.dso-accordion-compact-black {
     &,
     .dso-nested-accordion .dso-accordion {
       @include accordion-theme-compact.compact();
@@ -98,7 +99,7 @@
 
   a,
   button {
-    align-items: baseline;
+    align-items: center;
     background-color: transparent;
     border: 0;
     display: flex;
@@ -144,6 +145,21 @@
   }
 }
 
+// Create space between sections of the default accordion
+// ------------------------------------------------------
+:where(.dso-accordion-section) {
+  & + & {
+    margin-block-start: units.$u1 * 0.5;
+  }
+}
+
+// exceptions to the rule ^^:
+:where(.dso-accordion-compact, .dso-accordion-neutral, .dso-accordion-compact-black) {
+  + :where(.dso-accordion-section) {
+    margin-block-start: 0;
+  }
+}
+
 .dso-accordion-section {
   .dso-section-handle,
   > h1.dso-section-handle,
@@ -158,10 +174,6 @@
     a:active {
       text-decoration: none;
     }
-  }
-
-  &:not(.dso-accordion-compact):not(.dso-accordion-neutral) + .dso-accordion-section {
-    margin-top: units.$u1 * 0.5;
   }
 
   &.dso-success,
@@ -253,7 +265,8 @@ dso-accordion-section {
     margin-bottom: 0;
   }
 
-  &.dso-accordion-compact:last-child {
+  &.dso-accordion-compact:last-child,
+  &.dso-accordion-compact-black:last-child {
     border-bottom: 1px solid accordion.$compact-border-color;
   }
 }
