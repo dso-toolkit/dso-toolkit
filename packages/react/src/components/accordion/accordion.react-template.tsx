@@ -1,6 +1,6 @@
 import {
-  AccordionSectionToggleAnimationEndEvent,
-  AccordionSectionToggleEvent,
+  AccordionSectionAnimationEndEvent,
+  AccordionSectionToggleClickEvent,
 } from "@dso-toolkit/core/dist/types/components/accordion/accordion.interfaces";
 import { Accordion } from "dso-toolkit";
 
@@ -13,40 +13,47 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   component: "accordion",
   implementation: "react",
   template: () =>
-    function accordionTemplate({ variant, reverseAlign, dsoToggleSection, dsoToggleSectionAnimationEnd, sections }) {
+    function accordionTemplate({ variant, reverseAlign, sections }) {
       return (
-        <DsoAccordion
-          variant={variant}
-          reverseAlign={reverseAlign}
-          onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
-            /* eslint-disable @typescript-eslint/no-explicit-any */
-            e.detail.section.element = "elementRef" as any;
-            /* eslint-enable @typescript-eslint/no-explicit-any */
-
-            dsoToggleSection?.(e);
-          }}
-          onDsoToggleSectionAnimationEnd={(e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            e.detail.section.element = "elementRef" as any;
-
-            dsoToggleSectionAnimationEnd?.(e);
-          }}
-        >
-          {sections.map((section, i) => (
-            <DsoAccordionSection
-              key={`dsoAccordionSection-${i}`}
-              open={section.open}
-              handleTitle={section.handleTitle}
-              heading={section.heading}
-              handleUrl={section.handleUrl}
-              state={section.state}
-              status={section.status}
-              icon={section.icon}
-              attachmentCount={section.attachmentCount}
-            >
-              {section.content}
-            </DsoAccordionSection>
-          ))}
+        <DsoAccordion variant={variant} reverseAlign={reverseAlign}>
+          {sections.map(
+            (
+              {
+                handleTitle,
+                heading,
+                attachmentCount,
+                content,
+                dsoAnimationEnd,
+                dsoToggleClick,
+                handleUrl,
+                icon,
+                open,
+                status,
+                statusDescription,
+              },
+              i
+            ) => (
+              <DsoAccordionSection
+                key={`dsoAccordionSection-${i}`}
+                open={open}
+                handleTitle={handleTitle}
+                heading={heading}
+                handleUrl={handleUrl}
+                statusDescription={statusDescription}
+                status={status}
+                icon={icon}
+                attachmentCount={attachmentCount}
+                onDsoToggleClick={(e: CustomEvent<AccordionSectionToggleClickEvent>) => {
+                  dsoToggleClick?.(e);
+                }}
+                onDsoAnimationEnd={(e: CustomEvent<AccordionSectionAnimationEndEvent>) => {
+                  dsoAnimationEnd?.(e);
+                }}
+              >
+                {content}
+              </DsoAccordionSection>
+            )
+          )}
         </DsoAccordion>
       );
     },

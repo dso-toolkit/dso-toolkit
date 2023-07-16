@@ -1,6 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
-import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
+import { AccordionArgs, accordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
 import { Accordion, AccordionSection } from "./accordion.models.js";
 
 export interface AccordionTemplates<TemplateFnReturnType> {
@@ -27,6 +27,7 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
   return storiesOfFactory("Accordion", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: accordionArgTypes,
+      args: accordionArgs,
     });
 
     stories.add(

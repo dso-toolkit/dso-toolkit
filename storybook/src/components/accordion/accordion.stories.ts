@@ -1,12 +1,12 @@
 import { storiesOf } from "@storybook/web-components";
-import { TemplateResult } from "lit-html";
 
-import { AccordionSection, AccordionSectionToggleEvent, storiesOfAccordion, StoryRoot } from "dso-toolkit";
+import { storiesOfAccordion, StoryRoot } from "dso-toolkit";
 
-import coreReadme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
+import coreAccordionReadme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
+import coreAccordionSectionReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
 import cssReadme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
-import { templateContainer, Templates } from "../../templates";
+import { templateContainer } from "../../templates";
 import {
   addonsSections,
   alignmentSections,
@@ -42,35 +42,13 @@ storiesOfAccordion({
   parameters: {
     storiesOf,
     module,
-    readme: coreReadme,
+    readme: `${coreAccordionReadme}\n${coreAccordionSectionReadme}`,
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }: Templates, templates: Templates) => {
-    type AccordionConnector = (
-      parameters: Parameters<
-        ReturnType<Parameters<typeof storiesOfAccordion>[0]["storyTemplates"]>["accordionTemplate"]
-      >
-    ) => Parameters<typeof accordionTemplate>[0];
-
-    const accordionConnector: AccordionConnector = ([props]) => ({
-      ...props,
-      dsoToggleSection(e: CustomEvent<AccordionSectionToggleEvent>) {
-        const section = e.detail.section.element;
-
-        if (isAccordionSection(section)) {
-          e.detail.section.open ? section.removeAttribute("open") : section.setAttribute("open", "");
-        }
-
-        if (props.dsoToggleSection) {
-          props.dsoToggleSection(e);
-        }
-      },
-      sections: props.sections as AccordionSection<TemplateResult>[],
-    });
-
+  storyTemplates: ({ accordionTemplate }, templates) => {
     return {
-      accordionTemplate: (props) => accordionTemplate(accordionConnector([props])),
+      accordionTemplate,
       basicSections: basicSections(templates),
       addonsSections,
       alignmentSections,
@@ -83,7 +61,3 @@ storiesOfAccordion({
     };
   },
 });
-
-function isAccordionSection(element: Element): element is HTMLDsoAccordionSectionElement {
-  return element.tagName === "DSO-ACCORDION-SECTION";
-}

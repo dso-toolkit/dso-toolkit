@@ -176,19 +176,19 @@ export const addonsSections: AccordionSection<JSX.Element>[] = [
   },
   {
     ...section1,
-    state: "error",
+    status: "error",
     icon: "user-line",
     open: true,
   },
   {
     ...section1,
-    state: "error",
-    status: "5 van 8 beantwoord",
+    status: "error",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,
-    state: "error",
-    status: "5 van 8 beantwoord",
+    status: "error",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,

@@ -1,6 +1,5 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import {
-  Accordion,
   ActionList,
   Alert,
   Annotation,
@@ -35,7 +34,6 @@ import {
   Toggletip,
 } from "dso-toolkit";
 
-import { angularAccordion } from "./components/accordion/accordion.angular-template";
 import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
 import { angularAnnotationButton } from "./components/annotation-button/annotation-button.angular-template";
@@ -68,7 +66,6 @@ import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angul
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
-  accordion: Accordion<StoryFnAngularReturnType>;
   actionList: ActionList<StoryFnAngularReturnType>;
   alert: Alert<StoryFnAngularReturnType>;
   annotation: Annotation<StoryFnAngularReturnType>;
@@ -138,7 +135,6 @@ type Implementation = "angular";
 
 export const templateContainer = new TemplateContainer<Implementation, Templates, StoryFnAngularReturnType>();
 
-templateContainer.add(angularAccordion);
 templateContainer.add(angularActionList);
 templateContainer.add(angularAlert);
 templateContainer.add(angularAnnotation);

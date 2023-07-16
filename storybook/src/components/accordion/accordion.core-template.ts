@@ -7,26 +7,35 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
   component: "accordion",
   implementation: "core",
   template: () =>
-    function accordionTemplate({ variant, reverseAlign, dsoToggleSection, dsoToggleSectionAnimationEnd, sections }) {
+    function accordionTemplate({ variant, reverseAlign, sections }) {
       return html`
-        <dso-accordion
-          variant=${ifDefined(variant)}
-          ?reverse-align=${reverseAlign}
-          @dsoToggleSection=${dsoToggleSection}
-          @dsoToggleSectionAnimationEnd=${dsoToggleSectionAnimationEnd}
-        >
+        <dso-accordion variant=${ifDefined(variant)} ?reverse-align=${reverseAlign}>
           ${sections.map(
-            (section) => html`<dso-accordion-section
-              ?open=${ifDefined(section.open)}
-              handle-title=${section.handleTitle}
-              heading=${section.heading}
-              handle-url=${ifDefined(section.handleUrl)}
-              state=${ifDefined(section.state)}
-              status=${ifDefined(section.status)}
-              icon=${ifDefined(section.icon)}
-              attachment-count=${ifDefined(section.attachmentCount)}
+            ({
+              handleTitle,
+              heading,
+              attachmentCount,
+              content,
+              dsoAnimationEnd,
+              dsoToggleClick,
+              handleUrl,
+              icon,
+              open,
+              status,
+              statusDescription,
+            }) => html`<dso-accordion-section
+              ?open=${open}
+              handle-title=${handleTitle}
+              heading=${heading}
+              handle-url=${ifDefined(handleUrl)}
+              statusDescription=${ifDefined(statusDescription)}
+              status=${ifDefined(status)}
+              icon=${ifDefined(icon)}
+              attachment-count=${ifDefined(attachmentCount)}
+              @dsoToggleClick=${dsoToggleClick}
+              @dsoAnimationEnd=${dsoAnimationEnd}
             >
-              ${section.content}
+              ${content}
             </dso-accordion-section>`
           )}
         </dso-accordion>

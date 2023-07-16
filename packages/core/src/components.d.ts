@@ -5,14 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { AnimeInstance } from "animejs";
+import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -30,14 +30,14 @@ import { SelectableChangeEvent } from "./components/selectable/selectable.interf
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
-export { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+export { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-export { AnimeInstance } from "animejs";
+export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 export { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -57,17 +57,15 @@ export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 export { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
-        "_emitToggleSectionAnimationEndEvent": (sectionElement: HTMLElement) => Promise<void>;
-        "_emitToggleSectionEvent": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>;
         "_getState": () => Promise<AccordionInternalState>;
         /**
-          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+          * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
          */
         "reverseAlign": boolean;
         /**
           * The variant of the Accordion.
          */
-        "variant"?: AccordionVariant;
+        "variant": AccordionVariant;
     }
     interface DsoAccordionSection {
         /**
@@ -91,21 +89,17 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * To open the Accordion Section.
+          * Set the Accordion Section open.
          */
         "open": boolean;
         /**
-          * Scroll this section into view when needed.
-         */
-        "scrollSectionIntoView": () => Promise<void>;
-        /**
           * `state` takes precedence over `attachmentCount` and `icon`
          */
-        "state"?: AccordionSectionState;
+        "status"?: AccordionSectionState;
         /**
           * The status of the section.
          */
-        "status"?: string;
+        "statusDescription"?: string;
     }
     interface DsoActionList {
         /**
@@ -319,8 +313,6 @@ export namespace Components {
         "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
-        "_getAnimeInstance": () => Promise<AnimeInstance | undefined>;
-        "_getBodyHeight": () => Promise<number | undefined>;
         /**
           * Set to `true` to show the content animated.
          */
@@ -811,9 +803,9 @@ export namespace Components {
         "overlayOpen": boolean;
     }
 }
-export interface DsoAccordionCustomEvent<T> extends CustomEvent<T> {
+export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLDsoAccordionElement;
+    target: HTMLDsoAccordionSectionElement;
 }
 export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1215,15 +1207,7 @@ declare global {
 declare namespace LocalJSX {
     interface DsoAccordion {
         /**
-          * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
-         */
-        "onDsoToggleSection"?: (event: DsoAccordionCustomEvent<AccordionSectionToggleEvent>) => void;
-        /**
-          * Event emitted when the accordion section completes its toggle animation.
-         */
-        "onDsoToggleSectionAnimationEnd"?: (event: DsoAccordionCustomEvent<AccordionSectionToggleAnimationEndEvent>) => void;
-        /**
-          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+          * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
          */
         "reverseAlign"?: boolean;
         /**
@@ -1253,17 +1237,25 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * To open the Accordion Section.
+          * Event emitted when the Accordion Section completes its toggle animation.
+         */
+        "onDsoAnimationEnd"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionAnimationEndEvent>) => void;
+        /**
+          * Emitted when the user activates the toggle button.
+         */
+        "onDsoToggleClick"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionToggleClickEvent>) => void;
+        /**
+          * Set the Accordion Section open.
          */
         "open"?: boolean;
         /**
           * `state` takes precedence over `attachmentCount` and `icon`
          */
-        "state"?: AccordionSectionState;
+        "status"?: AccordionSectionState;
         /**
           * The status of the section.
          */
-        "status"?: string;
+        "statusDescription"?: string;
     }
     interface DsoActionList {
         /**
@@ -1512,7 +1504,10 @@ declare namespace LocalJSX {
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
         "minimumHeight"?: number;
-        "on_animationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
+        /**
+          * Fired when the animation ends. Only when `enableAnimation = true`.
+         */
+        "onDsoExpandableAnimationEnd"?: (event: DsoExpandableCustomEvent<ExpandableAnimationEndEvent>) => void;
         /**
           * Set to `true` to expand the content.
          */

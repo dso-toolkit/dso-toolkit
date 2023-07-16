@@ -3,18 +3,23 @@ import {
   Component,
   ComponentInterface,
   Element,
+  Event,
   forceUpdate,
   Fragment,
   Host,
-  Method,
   Prop,
   State,
+  EventEmitter,
 } from "@stencil/core";
-import { isExpandable } from "../../expandable/expandable.functions";
 
-import { AccordionInternalState, isAccordion } from "../accordion.interfaces";
+import {
+  AccordionInternalState,
+  AccordionSectionAnimationEndEvent,
+  AccordionSectionToggleClickEvent,
+} from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
 import { Handle, HandleElement, HandleIcon } from "./handles";
+import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 
 @Component({
   tag: "dso-accordion-section",
@@ -22,19 +27,11 @@ import { Handle, HandleElement, HandleIcon } from "./handles";
   shadow: true,
 })
 export class AccordionSection implements ComponentInterface {
-  private static scrollCandidate?: HTMLElement;
-
-  private accordion?: HTMLDsoAccordionElement;
-
   private accordionState?: AccordionInternalState;
 
   private sectionBody?: HTMLDivElement;
 
   private sectionHeading?: HTMLHeadingElement;
-
-  private bodyHeight?: number;
-
-  private expandable?: HTMLDsoExpandableElement;
 
   @Element()
   host!: HTMLDsoAccordionSectionElement;
@@ -61,7 +58,7 @@ export class AccordionSection implements ComponentInterface {
    * `state` takes precedence over `attachmentCount` and `icon`
    */
   @Prop()
-  state?: AccordionSectionState;
+  status?: AccordionSectionState;
 
   /**
    * `attachmentCount` takes precedence over `icon`
@@ -79,50 +76,35 @@ export class AccordionSection implements ComponentInterface {
    * The status of the section.
    */
   @Prop()
-  status?: string;
+  statusDescription?: string;
 
   /**
-   * To open the Accordion Section.
+   * Set the Accordion Section open.
    */
   @Prop({ reflect: true })
   open = false;
 
   @State()
-  hasNestedSection = false;
+  hasNestedAccordion = false;
 
   @State()
   hover = false;
 
   componentWillLoad() {
-    const accordion = this.host.parentElement;
+    this.hasNestedAccordion = this.host.querySelector("dso-accordion") !== null;
 
-    this.hasNestedSection = this.host.querySelector("dso-accordion") !== null;
+    this.accordion?._getState().then((state) => {
+      this.accordionState = state;
 
-    if (accordion && isAccordion(accordion)) {
-      this.accordion = accordion;
-
-      accordion._getState().then((state) => {
-        this.accordionState = state;
-        forceUpdate(this.host);
-      });
-    }
-  }
-
-  /**
-   * Scroll this section into view when needed.
-   */
-  @Method()
-  async scrollSectionIntoView(): Promise<void> {
-    await this.scrollIntoViewWhenNeeded(false);
+      forceUpdate(this.host);
+    });
   }
 
   get isNeutral() {
     return this.accordionState?.variant === "neutral";
   }
 
-  private async scrollIntoViewWhenNeeded(sectionToggled: boolean): Promise<void> {
-    AccordionSection.scrollCandidate = undefined;
-
+  private async scrollIntoView(bodyHeight: number | undefined): Promise<void> {
     const bodyClientRect = this.sectionBody?.getBoundingClientRect();
     const headingClientRect = this.sectionHeading?.getBoundingClientRect();
 
@@ -130,22 +112,8 @@ export class AccordionSection implements ComponentInterface {
       return;
     }
 
-    const waitForAnimationBeforeScrolling = async () => {
-      this.bodyHeight = await this.expandable?._getBodyHeight();
-
-      const sectionBottomOffsetTop =
-        this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
-
-      return sectionToggled && sectionBottomOffsetTop > document.documentElement.scrollHeight;
-    };
-
-    if (await waitForAnimationBeforeScrolling()) {
-      AccordionSection.scrollCandidate = this.host;
-      return;
-    }
-
     // this y is relative to the top of the viewport.
-    const sectionBottomY = headingClientRect.top + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
+    const sectionBottomY = headingClientRect.top + headingClientRect.height + (this.open ? bodyHeight ?? 0 : 0);
     if (sectionBottomY > window.innerHeight) {
       const expandedAccordionHeight = sectionBottomY - headingClientRect.top;
       const shouldScrollToTopOfSection = expandedAccordionHeight > window.innerHeight;
@@ -164,54 +132,46 @@ export class AccordionSection implements ComponentInterface {
     }
   }
 
-  private setAnimationBehaviour(event: Event, section?: HTMLElement): void {
-    const expandableElement = event.target;
-
-    if (!(expandableElement instanceof HTMLElement)) {
-      return;
-    }
-
-    if (isExpandable(expandableElement)) {
-      this.expandable = expandableElement;
-      this.expandable._getAnimeInstance().then((animeInstance) => {
-        if (animeInstance) {
-          animeInstance.changeComplete = async () => {
-            if (!section) {
-              return;
-            }
-
-            const accordion = section.parentElement;
-
-            if (accordion && isAccordion(accordion)) {
-              accordion?._emitToggleSectionAnimationEndEvent(section);
-            }
-
-            if (AccordionSection.scrollCandidate === this.host) {
-              AccordionSection.scrollCandidate = undefined;
-              await this.scrollSectionIntoView();
-            }
-          };
-        }
-      });
-    }
+  private get accordion() {
+    return this.host.closest("dso-accordion");
   }
 
-  private async toggle(e?: MouseEvent): Promise<void> {
-    e?.preventDefault();
+  private handleClick = (event: MouseEvent) => {
+    this.dsoToggleClick.emit({
+      originalEvent: event,
+      open: !this.open,
+    });
+  };
 
-    this.accordion?._emitToggleSectionEvent(this.host, e);
-  }
+  private handleExpandableAnimationEnd = (e: CustomEvent<ExpandableAnimationEndEvent>) => {
+    this.dsoAnimationEnd.emit({
+      open: this.open,
+      scrollIntoView: () => this.scrollIntoView(e.detail.bodyHeight),
+    });
+  };
+
+  /**
+   * Emitted when the user activates the toggle button.
+   */
+  @Event({ bubbles: false })
+  dsoToggleClick!: EventEmitter<AccordionSectionToggleClickEvent>;
+
+  /**
+   * Event emitted when the Accordion Section completes its toggle animation.
+   */
+  @Event({ bubbles: false })
+  dsoAnimationEnd!: EventEmitter<AccordionSectionAnimationEndEvent>;
 
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
-    const hasAddons = !!this.status || !!this.state || !!this.icon || !!this.attachmentCount;
+    const hasAddons = !!this.statusDescription || !!this.status || !!this.icon || !!this.attachmentCount;
 
     return (
       <Host
         class={{
           "dso-accordion-section": true,
           ["dso-accordion-" + variant]: true,
-          "dso-nested-accordion": this.hasNestedSection,
+          "dso-nested-accordion": this.hasNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
         }}
         hidden={!variant}
@@ -219,11 +179,7 @@ export class AccordionSection implements ComponentInterface {
         onMouseleave={() => (this.hover = false)}
       >
         <Handle heading={this.heading} ref={(element) => (this.sectionHeading = element)}>
-          <HandleElement
-            handleUrl={this.handleUrl}
-            onClick={async (event) => await this.toggle(event)}
-            open={this.open}
-          >
+          <HandleElement handleUrl={this.handleUrl} onClick={this.handleClick} open={this.open}>
             {reverseAlign ? (
               <Fragment>
                 {hasAddons && (
@@ -240,7 +196,7 @@ export class AccordionSection implements ComponentInterface {
               <Fragment>
                 <dso-icon class="dso-section-handle-chevron" icon="chevron-right"></dso-icon>
 
-                {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
+                {this.status && <span class="sr-only">{stateMap[this.status]}</span>}
 
                 <span>
                   {this.handleTitle}
@@ -251,8 +207,8 @@ export class AccordionSection implements ComponentInterface {
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
-                    {this.status && <span class="dso-status">{this.status}</span>}
-                    <HandleIcon state={this.state} icon={this.icon} attachmentCount={this.attachmentCount} />
+                    {this.statusDescription && <span class="dso-status">{this.statusDescription}</span>}
+                    <HandleIcon state={this.status} icon={this.icon} attachmentCount={this.attachmentCount} />
                   </div>
                 )}
               </Fragment>
@@ -264,7 +220,7 @@ export class AccordionSection implements ComponentInterface {
           open={this.open}
           enableAnimation
           minimumHeight={this.isNeutral ? 0 : 4}
-          on_animationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
+          onDsoExpandableAnimationEnd={this.handleExpandableAnimationEnd}
         >
           <div
             slot="expandable-content"

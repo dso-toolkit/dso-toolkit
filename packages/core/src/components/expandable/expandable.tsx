@@ -6,7 +6,6 @@ import {
   EventEmitter,
   h,
   Host,
-  Method,
   Prop,
   State,
   Watch,
@@ -14,6 +13,10 @@ import {
 import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
+
+export interface ExpandableAnimationEndEvent {
+  bodyHeight: number | undefined;
+}
 
 @Component({
   tag: "dso-expandable",
@@ -51,12 +54,6 @@ export class Expandable implements ComponentInterface {
   @State()
   animationReady = false;
 
-  /**
-   * @internal
-   */
-  @Event()
-  _animationInstantiated!: EventEmitter<void>;
-
   @Watch("open")
   toggleOpen() {
     if (this.enableAnimation) {
@@ -77,28 +74,16 @@ export class Expandable implements ComponentInterface {
   }
 
   /**
-   * @internal
+   * Fired when the animation ends. Only when `enableAnimation = true`.
    */
-  @Method()
-  async _getAnimeInstance(): Promise<AnimeInstance | undefined> {
-    return this.animeInstance;
-  }
+  @Event({ bubbles: false })
+  dsoExpandableAnimationEnd!: EventEmitter<ExpandableAnimationEndEvent>;
 
-  /**
-   * @internal
-   */
-  @Method()
-  async _getBodyHeight(): Promise<number | undefined> {
-    return this.bodyHeight;
-  }
-
-  componentWillLoad(): void {
+  componentDidLoad(): void {
     if (this.enableAnimation) {
       this.prepareAnimationResizeObserver();
     }
-  }
 
-  componentDidLoad(): void {
     this.activateObserver();
   }
 
@@ -141,10 +126,10 @@ export class Expandable implements ComponentInterface {
         if (this.bodyHeight !== height) {
           this.bodyHeight = height;
         }
-
-        this.instantiateAnimation();
       }, 150)
     );
+
+    this.instantiateAnimation();
   }
 
   private instantiateAnimation(): void {
@@ -156,24 +141,23 @@ export class Expandable implements ComponentInterface {
       autoplay: false,
       direction: "normal",
       begin: () => {
-        if (this.host) {
-          if (this.open) {
-            this.host.style.visibility = "";
-            this.host.style.position = "";
-            this.host.style.bottom = "";
-          }
+        if (this.open) {
+          this.host.style.visibility = "";
+          this.host.style.position = "";
+          this.host.style.bottom = "";
         }
       },
       complete: () => {
-        if (this.host) {
-          this.host.style.height = "";
+        this.host.style.height = "";
 
-          if (!this.open) {
-            this.host.style.visibility = "hidden";
-            this.host.style.position = "absolute";
-            this.host.style.bottom = "100%";
-          }
+        if (!this.open) {
+          this.host.style.visibility = "hidden";
+          this.host.style.position = "absolute";
+          this.host.style.bottom = "100%";
         }
+      },
+      changeComplete: () => {
+        this.dsoExpandableAnimationEnd.emit({ bodyHeight: this.bodyHeight });
       },
     });
 
@@ -187,7 +171,6 @@ export class Expandable implements ComponentInterface {
     }
 
     this.animationReady = !!this.animeInstance;
-    this._animationInstantiated.emit();
   }
 
   private activateAnimation(): void {

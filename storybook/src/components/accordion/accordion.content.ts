@@ -153,19 +153,19 @@ export const addonsSections: AccordionSection<TemplateResult>[] = [
   },
   {
     ...section1,
-    state: "danger",
+    status: "danger",
     icon: "user-line",
     open: true,
   },
   {
     ...section1,
-    state: "danger",
-    status: "5 van 8 beantwoord",
+    status: "danger",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,
-    state: "danger",
-    status: "5 van 8 beantwoord",
+    status: "danger",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,

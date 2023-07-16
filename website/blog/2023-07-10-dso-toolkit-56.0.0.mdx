@@ -1,0 +1,26 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v56.0.0
+
+De vorige breaking release is nog niet afgekoeld of er ligt alweer een nieuwe breaking release op de plank.
+
+## Accordion
+
+Zoals in de vorige blogpost aangekondigd hebben wij onze visie op State en toolkitcomponenten herzien. Accordion is het eerste component wat we bijwerken naar deze nieuwe visie.
+
+### API changes
+
+- De property `status` is hernoemd naar `statusExplanation`. De werking is ongewijzigd.
+- De property `state` is hernoemd naar `status`. De werking is ongewijzigd.
+
+De events `dsoToggleSection` en `dsoToggleSectionAnimationEnd` zitten niet meer op Accordion maar zijn verhuisd naar de Accordion Section en zijn hernoemd naar `dsoToggleClick` en `dsoAnimationEnd`.
+
+### Geen interne state
+
+De interne state van de Accordion is verwijderd. Dit betekent dat afnemers meer moeten aansluiten. Het voordeel is dat afnemers meer invloed op de Accordion hebben en dat de Accordion volledig opgaat in de state van de applicatie.
+
+### Helper functie `scrollIntoView()`.
+
+Op het `AccordionSectionAnimationEndEvent` object staat een helperfunctie `scrollIntoView()`. De afnemer kan deze aanroepen om de Accordion Section in beeld te scrollen.
