@@ -1,18 +1,13 @@
-import { storiesOfAccordion, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 
+import { storiesOfAccordion, StoryRoot } from "dso-toolkit";
+
+import coreAccordionReadme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
+import coreAccordionSectionReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
 import cssReadme from "dso-toolkit/src/components/accordion/readme.md?raw";
-import coreReadme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-import {
-  addonsSections,
-  alignmentSections,
-  allowMultipleOpenSections,
-  anchorSections,
-  basicSections,
-  subSections,
-} from "./accordion.content";
+import { addonsSections, alignmentSections, anchorSections, basicSections, subSections } from "./accordion.content";
 
 storiesOfAccordion({
   parameters: {
@@ -27,7 +22,6 @@ storiesOfAccordion({
     basicSections: basicSections(templates),
     addonsSections,
     alignmentSections,
-    allowMultipleOpenSections: allowMultipleOpenSections(templates),
     anchorSections: anchorSections(templates),
     conclusionSections: basicSections(templates),
     compactSections: basicSections(templates),
@@ -40,20 +34,21 @@ storiesOfAccordion({
   parameters: {
     storiesOf,
     module,
-    readme: coreReadme,
+    readme: `${coreAccordionReadme}\n${coreAccordionSectionReadme}`,
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }, templates) => ({
-    accordionTemplate,
-    basicSections: basicSections(templates),
-    addonsSections,
-    alignmentSections,
-    allowMultipleOpenSections: allowMultipleOpenSections(templates),
-    anchorSections: anchorSections(templates),
-    conclusionSections: basicSections(templates),
-    compactSections: basicSections(templates),
-    neutralSections: basicSections(templates),
-    subSections: subSections(templates),
-  }),
+  storyTemplates: ({ accordionTemplate }, templates) => {
+    return {
+      accordionTemplate,
+      basicSections: basicSections(templates),
+      addonsSections,
+      alignmentSections,
+      anchorSections: anchorSections(templates),
+      conclusionSections: basicSections(templates),
+      compactSections: basicSections(templates),
+      neutralSections: basicSections(templates),
+      subSections: subSections(templates),
+    };
+  },
 });

@@ -25,8 +25,8 @@ export {
   AccordionHandleElement,
   AccordionHeading,
   AccordionSection,
-  AccordionSectionState,
-  AccordionSectionToggleEvent,
+  AccordionSectionStatus,
+  AccordionSectionToggleClickEvent,
   AccordionVariant,
 } from "./components/accordion/accordion.models.js";
 export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/accordion.stories-of.js";

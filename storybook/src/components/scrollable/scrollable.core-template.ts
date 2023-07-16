@@ -8,6 +8,6 @@ export const coreScrollable: ComponentImplementation<Scrollable<TemplateResult>>
   implementation: "core",
   template: () =>
     function scrollableTemplate({ children, dsoScrollEnd }) {
-      return html`<dso-scrollable @dsoScrollEnd=${dsoScrollEnd}> ${children} </dso-scrollable>`;
+      return html`<dso-scrollable @dsoScrollEnd=${dsoScrollEnd}>${children}</dso-scrollable>`;
     },
 };

@@ -56,7 +56,7 @@ describe("Scrollable", () => {
       .and("not.have.class", "dso-scroll-bottom")
       .get("dso-scrollable")
       .find("> dso-accordion > dso-accordion-section[handle-title='Klap Open']")
-      .click()
+      .invoke("attr", "open", true)
       .get("@scrollContainer")
       .should("have.class", "dso-scroll-top");
   });

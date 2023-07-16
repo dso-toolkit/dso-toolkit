@@ -1,6 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
-import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
+import { AccordionArgs, accordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
 import { Accordion, AccordionSection } from "./accordion.models.js";
 
 export interface AccordionTemplates<TemplateFnReturnType> {
@@ -11,7 +11,6 @@ export interface AccordionTemplates<TemplateFnReturnType> {
   neutralSections: AccordionSection<TemplateFnReturnType>[];
   anchorSections: AccordionSection<TemplateFnReturnType>[];
   subSections: AccordionSection<TemplateFnReturnType>[];
-  allowMultipleOpenSections: AccordionSection<TemplateFnReturnType>[];
   addonsSections: AccordionSection<TemplateFnReturnType>[];
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
 }
@@ -27,6 +26,7 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
   return storiesOfFactory("Accordion", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: accordionArgTypes,
+      args: accordionArgs,
     });
 
     stories.add(
@@ -84,18 +84,6 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       templateMapper<AccordionArgs>((args, { accordionTemplate, subSections }) =>
         accordionTemplate(accordionArgsMapper(args, subSections))
       )
-    );
-
-    stories.add(
-      "allowMultipleOpen",
-      templateMapper<AccordionArgs>((args, { accordionTemplate, allowMultipleOpenSections }) =>
-        accordionTemplate(accordionArgsMapper(args, allowMultipleOpenSections))
-      ),
-      {
-        args: {
-          allowMultipleOpen: true,
-        },
-      }
     );
 
     stories.add(

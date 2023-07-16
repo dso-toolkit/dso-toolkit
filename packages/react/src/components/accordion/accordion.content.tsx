@@ -156,19 +156,6 @@ export function subSections({ accordionTemplate }: Templates): AccordionSection<
   ];
 }
 
-export const allowMultipleOpenSections: AccordionSection<JSX.Element>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
 export const addonsSections: AccordionSection<JSX.Element>[] = [
   {
     ...section1,
@@ -176,19 +163,19 @@ export const addonsSections: AccordionSection<JSX.Element>[] = [
   },
   {
     ...section1,
-    state: "error",
+    status: "error",
     icon: "user-line",
     open: true,
   },
   {
     ...section1,
-    state: "error",
-    status: "5 van 8 beantwoord",
+    status: "error",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,
-    state: "error",
-    status: "5 van 8 beantwoord",
+    status: "error",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,

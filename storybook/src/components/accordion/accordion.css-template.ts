@@ -22,7 +22,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         section: AccordionSection<TemplateResult>
       ) {
         return html`
-          ${section.state ? html`<span class="sr-only">${statusMap.get(section.state)}:</span>` : nothing}
+          ${section.status ? html`<span class="sr-only">${statusMap.get(section.status)}:</span>` : nothing}
           ${section.icon && accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
@@ -30,7 +30,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
-          ${section.status ? html`<span class="dso-status">${section.status}</span>` : nothing}
+          ${section.statusDescription ? html`<span class="dso-status">${section.statusDescription}</span>` : nothing}
           ${section.attachmentCount ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}` : nothing}
         `;
       }
@@ -77,7 +77,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         return html`
           <div
             class="dso-accordion-section ${classMap({
-              [`dso-${section.state}`]: !!section.state,
+              [`dso-${section.status}`]: !!section.status,
               "dso-open": !!section.open,
               "dso-nested-accordion": hasNestedAccordion,
             })}"

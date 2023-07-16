@@ -12,6 +12,13 @@
 | `open`            | `open`             | Set to `true` to expand the content.                                                                                                            | `boolean \| undefined` | `undefined` |
 
 
+## Events
+
+| Event                       | Description                                                        | Type                                       |
+| --------------------------- | ------------------------------------------------------------------ | ------------------------------------------ |
+| `dsoExpandableAnimationEnd` | Fired when the animation ends. Only when `enableAnimation = true`. | `CustomEvent<ExpandableAnimationEndEvent>` |
+
+
 ## Dependencies
 
 ### Used by

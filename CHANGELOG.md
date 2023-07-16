@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **BREAKING:** Accordion: Stateless ([#2130](https://github.com/dso-toolkit/dso-toolkit/issues/2130))
+
 ### Fixed
 * Action List en Form Buttons hebben geen verticaal ritme ([#2209](https://github.com/dso-toolkit/dso-toolkit/issues/2209))
 

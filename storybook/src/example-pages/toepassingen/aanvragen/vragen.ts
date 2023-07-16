@@ -35,7 +35,7 @@ examplePageFactory(
                 handleTitle: "Veehouderij",
                 heading: "h4",
                 open: true,
-                status: "0 van 5 vragen beantwoord",
+                statusDescription: "0 van 5 vragen beantwoord",
                 content: html`
                   <fieldset>
                     <legend class="sr-only">Vragenlijst</legend>
@@ -62,32 +62,32 @@ examplePageFactory(
                 handleTitle: "Beschrijving grondstoffen en hulpstoffen",
                 heading: "h4",
                 open: false,
-                status: "2 van 3 vragen beantwoord",
-                state: "danger",
+                statusDescription: "2 van 3 vragen beantwoord",
+                status: "danger",
               },
               {
                 handleTitle: "Energiegebruik en maatregelen",
                 heading: "h4",
                 open: false,
-                status: "0 van 3 vragen beantwoord",
+                statusDescription: "0 van 3 vragen beantwoord",
               },
               {
                 handleTitle: "Emissies, maatregelen en technieken",
                 heading: "h4",
                 open: false,
-                status: "0 van 3 vragen beantwoord",
+                statusDescription: "0 van 3 vragen beantwoord",
               },
               {
                 handleTitle: "Beschrijving toestand van de lokatie",
                 heading: "h4",
                 open: false,
-                status: "0 van 3 vragen beantwoord",
+                statusDescription: "0 van 3 vragen beantwoord",
               },
               {
                 handleTitle: "Afvalstoffen",
                 heading: "h4",
                 open: false,
-                status: "0 van 3 vragen beantwoord",
+                statusDescription: "0 van 3 vragen beantwoord",
               },
             ],
           })}

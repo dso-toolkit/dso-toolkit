@@ -131,21 +131,6 @@ export function subSections(templates: Templates): AccordionSection<TemplateResu
   ];
 }
 
-export function allowMultipleOpenSections(templates: Templates): AccordionSection<TemplateResult>[] {
-  return [
-    {
-      ...section1,
-      open: true,
-    },
-    section2,
-    {
-      ...section3,
-      open: true,
-    },
-    section4(templates),
-  ];
-}
-
 export const addonsSections: AccordionSection<TemplateResult>[] = [
   {
     ...section1,
@@ -153,19 +138,19 @@ export const addonsSections: AccordionSection<TemplateResult>[] = [
   },
   {
     ...section1,
-    state: "danger",
+    status: "danger",
     icon: "user-line",
     open: true,
   },
   {
     ...section1,
-    state: "danger",
-    status: "5 van 8 beantwoord",
+    status: "danger",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,
-    state: "danger",
-    status: "5 van 8 beantwoord",
+    status: "danger",
+    statusDescription: "5 van 8 beantwoord",
   },
   {
     ...section1,
