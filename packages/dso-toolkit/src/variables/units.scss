@@ -30,9 +30,11 @@ $ru8: $_runit * 8;
 $ru9: $_runit * 9;
 $ru10: $_runit * 10;
 
-$font-line-height-h1: 1.25;
-$font-line-height-h2: 1.33;
-$font-line-height-h3: 1.2;
+$font-heading-line-height-base: 1.25;
+
+$font-line-height-h1: $font-heading-line-height-base;
+$font-line-height-h2: $font-heading-line-height-base;
+$font-line-height-h3: $font-heading-line-height-base;
 $font-line-height-h4: 1.5;
 $font-line-height-h5: 1.5;
 $font-line-height-h6: 1.5;
