@@ -28,8 +28,8 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
         ${items.map(
           (item) => html`
             <div
-              tabindex=${item.modifiers === "active" ? 1 : 0}
               role="tabpanel"
+              tabindex="-1"
               id="${item.id}-tab"
               aria-labelledby=${item.id}
               ?hidden=${item.modifiers !== "active"}
