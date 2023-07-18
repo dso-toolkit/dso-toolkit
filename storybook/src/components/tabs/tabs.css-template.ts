@@ -27,7 +27,13 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
         </ul>
         ${items.map(
           (item) => html`
-            <div role="tabpanel" id="${item.id}-tab" aria-labelledby=${item.id} ?hidden=${item.modifiers !== "active"}>
+            <div
+              role="tabpanel"
+              tabindex="-1"
+              id="${item.id}-tab"
+              aria-labelledby=${item.id}
+              ?hidden=${item.modifiers !== "active"}
+            >
               ${item.content}
             </div>
           `
