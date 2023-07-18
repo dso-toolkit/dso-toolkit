@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## Next
+
+### Fixed
+* Tabs: Tabindex op inhoud tabs ([#2117](https://github.com/dso-toolkit/dso-toolkit/issues/2117))
+
 ## 56.0.0
 
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
