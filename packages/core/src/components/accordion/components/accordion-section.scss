@@ -88,7 +88,7 @@
   }
 }
 
-:host([open]) {
+:host([open]:not([open="false"])) {
   .dso-section-handle {
     > button,
     > a {
@@ -120,11 +120,11 @@
   @include accordion-section-theme-default.dso-web-component-accordion-default();
 }
 
-:host(.dso-accordion-default[open]) {
+:host(.dso-accordion-default[open]:not([open="false"])) {
   @include accordion-section-theme-default.dso-web-component-accordion-default-open();
 }
 
-:host(.dso-accordion-default.dso-nested-accordion[open]) {
+:host(.dso-accordion-default.dso-nested-accordion[open]:not([open="false"])) {
   @include accordion-section-theme-default.dso-web-component-accordion-default-open-nested();
 }
 
@@ -137,11 +137,11 @@
   @include accordion-section-theme-compact.dso-web-component-accordion-compact-reverse();
 }
 
-:host(.dso-accordion-compact[open]:not(.dso-nested-accordion)) {
+:host(.dso-accordion-compact[open]:not([open="false"]):not(.dso-nested-accordion)) {
   @include accordion-section-theme-compact.dso-web-component-accordion-compact-open();
 }
 
-:host(.dso-accordion-compact.dso-nested-accordion[open]) {
+:host(.dso-accordion-compact.dso-nested-accordion[open]:not([open="false"])) {
   @include accordion-section-theme-compact.dso-web-component-accordion-compact-open-nested();
 }
 
@@ -150,11 +150,11 @@
   @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion();
 }
 
-:host(.dso-accordion-conclusion[open]:not(.dso-nested-accordion)) {
+:host(.dso-accordion-conclusion[open]:not([open="false"]):not(.dso-nested-accordion)) {
   @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open();
 }
 
-:host(.dso-accordion-conclusion.dso-nested-accordion[open]) {
+:host(.dso-accordion-conclusion.dso-nested-accordion[open]:not([open="false"])) {
   @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open-nested();
 }
 
@@ -163,10 +163,10 @@
   @include accordion-section-theme-neutral.dso-web-component-accordion-neutral();
 }
 
-:host(.dso-accordion-neutral[open]) {
+:host(.dso-accordion-neutral[open]:not([open="false"])) {
   @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open();
 }
 
-:host(.dso-accordion-neutral.dso-nested-accordion[open]) {
+:host(.dso-accordion-neutral.dso-nested-accordion[open]:not([open="false"])) {
   @include accordion-section-theme-neutral.dso-web-component-accordion-neutral-open-nested();
 }
