@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Tabs: Tabindex op inhoud tabs ([#2117](https://github.com/dso-toolkit/dso-toolkit/issues/2117))
+* Viewer grid: sr-only tekst bedieningsknoppen inconsistent ([#2237](https://github.com/dso-toolkit/dso-toolkit/issues/2237))
 
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))

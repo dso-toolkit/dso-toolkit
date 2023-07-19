@@ -205,14 +205,14 @@ export class ViewerGrid {
         <div class="dso-map-panel" ref={(element) => (this.mapPanel = element)}>
           <div class="sizing-buttons">
             <span class="sr-only" aria-live="polite" aria-atomic="true">
-              breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
+              Breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
             </span>
             <button type="button" class="shrink" disabled={this.mainSize === "small"} onClick={this.shrinkMain}>
-              <span class="sr-only">Kaartpaneel smaller maken</span>
+              <span class="sr-only">Tekstpaneel smaller maken</span>
               <dso-icon icon="chevron-left"></dso-icon>
             </button>
             <button type="button" class="expand" disabled={this.mainSize === "large"} onClick={this.expandMain}>
-              <span class="sr-only">Kaartpaneel breder maken</span>
+              <span class="sr-only">Tekstpaneel breder maken</span>
               <dso-icon icon="chevron-right"></dso-icon>
             </button>
           </div>
