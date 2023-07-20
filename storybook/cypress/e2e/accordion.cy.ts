@@ -33,6 +33,10 @@ describe("Accordion", () => {
       .invoke("prop", "open")
       .should("equal", false)
       .get("@accordionSection")
+      .shadow()
+      .find("dso-expandable")
+      .should("have.class", "dso-animate-ready")
+      .get("@accordionSection")
       .then(($accordionSection) => {
         $accordionSection.on("dsoAnimationEnd", cy.stub().as("dsoAnimationEnd"));
       })

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Tabs: Tabindex op inhoud tabs ([#2117](https://github.com/dso-toolkit/dso-toolkit/issues/2117))
 * Viewer Grid: Bedieningsknoppen hebben de verkeerde labels ([#2237](https://github.com/dso-toolkit/dso-toolkit/issues/2237))
 * Accordion: [open="false"] moet geen open stijling tonen ([#2242](https://github.com/dso-toolkit/dso-toolkit/issues/2242))
+* Accordion: Animatie verspringt ([#2245](https://github.com/dso-toolkit/dso-toolkit/issues/2245))
 
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))

@@ -1,7 +1,7 @@
 import {
   AccordionSectionAnimationEndEvent,
   AccordionSectionToggleClickEvent,
-} from "@dso-toolkit/core/dist/types/components/accordion/accordion.interfaces";
+} from "@dso-toolkit/core/dist/types/components/accordion/components/accordion-section.interfaces";
 import { Accordion } from "dso-toolkit";
 
 import * as React from "react";

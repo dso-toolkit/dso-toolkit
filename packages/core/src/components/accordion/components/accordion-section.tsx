@@ -12,12 +12,14 @@ import {
   EventEmitter,
 } from "@stencil/core";
 
+import { AccordionInternalState } from "../accordion.interfaces";
 import {
-  AccordionInternalState,
+  AccordionHeading,
   AccordionSectionAnimationEndEvent,
+  AccordionSectionState,
   AccordionSectionToggleClickEvent,
-} from "../accordion.interfaces";
-import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
+  stateMap,
+} from "./accordion-section.interfaces";
 import { Handle, HandleElement, HandleIcon } from "./handles";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 

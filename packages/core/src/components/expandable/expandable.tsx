@@ -122,10 +122,10 @@ export class Expandable implements ComponentInterface {
         if (this.bodyHeight !== height) {
           this.bodyHeight = height;
         }
+
+        this.instantiateAnimation();
       }, 150)
     );
-
-    this.instantiateAnimation();
   }
 
   private instantiateAnimation(): void {
