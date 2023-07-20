@@ -13,8 +13,6 @@ export interface Accordion<TemplateFnReturnType> {
 }
 
 export interface AccordionSection<TemplateFnReturnType> {
-  dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
-  dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;
   open?: boolean;
   handleTitle: string;
   heading: AccordionHeading;
@@ -24,6 +22,8 @@ export interface AccordionSection<TemplateFnReturnType> {
   icon?: string;
   attachmentCount?: number;
   content?: TemplateFnReturnType;
+  dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
+  dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;
 }
 
 export interface AccordionSectionToggleClickEvent {

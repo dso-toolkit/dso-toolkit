@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
-import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
+import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -31,8 +31,8 @@ import { SelectableChangeEvent } from "./components/selectable/selectable.interf
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
-export { AccordionInternalState, AccordionSectionAnimationEndEvent, AccordionSectionToggleClickEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
-export { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
+export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
