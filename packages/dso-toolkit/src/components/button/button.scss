@@ -75,18 +75,6 @@ button {
   @include button-mixins.base();
 }
 
-.btn-block {
-  @include button-mixins.block(".btn-block");
-}
-
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  &.btn-block {
-    width: 100%;
-  }
-}
-
 a,
 button,
 label {

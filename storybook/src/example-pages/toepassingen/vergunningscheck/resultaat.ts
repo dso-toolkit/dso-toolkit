@@ -128,7 +128,6 @@ examplePageFactory(
               {
                 label: "Vorige stap",
                 variant: "tertiary",
-                modifier: "btn-align",
                 type: "button",
                 icon: { icon: "chevron-left" },
               },

@@ -1,6 +1,7 @@
 import { storiesOf } from "@storybook/angular";
 
 import { storiesOfInfo } from "dso-toolkit";
+
 import { DsoInfo } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { richContent } from "./info.content";
@@ -21,5 +22,5 @@ storiesOfInfo({
     },
   },
   templateContainer,
-  storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) }),
+  storyTemplates: ({ infoTemplate }) => ({ infoTemplate, richContent: richContent() }),
 });
