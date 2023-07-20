@@ -6,7 +6,6 @@ export interface Button {
    * * `primary`: Primary button
    * * `secondary`: Secondary button
    * * `tertiary`: Tertiary button
-   * * `null` legacy modus, switch to property "modifier"
    */
   variant: "primary" | "secondary" | "tertiary" | null;
   label: string;

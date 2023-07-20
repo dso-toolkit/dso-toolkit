@@ -5,7 +5,6 @@ import { Button, ButtonAnchor } from "./button.models.js";
 
 export interface ButtonArgs {
   element: "button" | "anchor";
-  legacy?: boolean;
   compact?: boolean;
   variant: "primary" | "secondary" | "tertiary";
   truncate?: boolean;
@@ -23,11 +22,6 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     options: ["button", "anchor"],
     control: {
       type: "select",
-    },
-  },
-  legacy: {
-    control: {
-      type: "boolean",
     },
   },
   compact: {
@@ -88,7 +82,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
       return {
-        variant: a.legacy ? null : a.variant,
+        variant: a.variant,
         url: "#",
         label: a.label,
         icon: a.icon
@@ -98,11 +92,10 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
-        modifier: `dso-${a.variant}`,
       };
     case "button":
       return {
-        variant: a.legacy ? null : a.variant,
+        variant: a.variant,
         truncate: a.truncate,
         onClick: a.click,
         type: a.type,
