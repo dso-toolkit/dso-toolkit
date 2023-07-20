@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Modal: Modal full-height maken op mobile. ([#2223](https://github.com/dso-toolkit/dso-toolkit/issues/2223))
+
 ### Fixed
 * Action List en Form Buttons hebben geen verticaal ritme ([#2209](https://github.com/dso-toolkit/dso-toolkit/issues/2209))
 

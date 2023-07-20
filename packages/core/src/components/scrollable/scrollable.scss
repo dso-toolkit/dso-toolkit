@@ -1,11 +1,19 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 :host {
   display: block;
-  height: 100%;
+  // height: 100%;
   overflow-y: hidden;
 }
+
+// @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+//   :host {
+//     display: flex;
+//     height: auto;
+//   }
+// }
 
 @include utilities.box-sizing();
 
@@ -26,7 +34,8 @@
       background-repeat: no-repeat;
       background-size: 100% units.$u3;
       content: "";
-      display: block;
+      display: flex;
+      flex-direction: column;
       height: units.$u3;
       left: 0;
       opacity: 0;
