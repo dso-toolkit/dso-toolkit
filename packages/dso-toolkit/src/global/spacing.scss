@@ -5,3 +5,23 @@
 :where(dso-action-list) + :where(.dso-form-buttons) {
   margin-block-start: units.$vertical-spacing-xlarge;
 }
+
+// Original spacing of dso-button-row
+// To Do: re-evaluate vertical rhythm
+:where(.dso-button-row) {
+  margin-block: units.$u2 units.$u4;
+}
+
+// within dso-highlight-box, create space for dso-button-row when preceded and/or followed by other elements
+// To Do: integrate this with things to come within this file, and remove the wildcard!
+:where(dso-highlight-box),
+:where(.dso-highlight-box) {
+  :where(.dso-button-row) {
+    margin-block: 0;
+  }
+
+  :where(*) + :where(.dso-button-row),
+  :where(.dso-button-row) + :where(*) {
+    margin-block-start: units.$vertical-spacing-medium;
+  }
+}

@@ -3,11 +3,11 @@
 .dso-rich-content {
   @include rich-content.children();
 
-  > :first-child:not(hr) {
+  > :first-child:not(hr, .dso-button-row) {
     margin-top: rich-content.$margin-bottom * 0.5;
   }
 
-  > :last-child:not(hr) {
+  > :last-child:not(hr, .dso-button-row) {
     margin-bottom: rich-content.$margin-bottom * 0.5;
   }
 }
