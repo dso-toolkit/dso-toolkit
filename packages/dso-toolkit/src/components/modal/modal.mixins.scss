@@ -31,12 +31,13 @@
     animation: 1s ease-out 0s 1 slideInFromTop;
     background-color: modal-variables.$content-bg;
     box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
-    margin: units.$u5 auto;
+    display: flex;
+    flex-direction: column;
+    margin-block: units.$u5;
+    margin-inline: auto;
     max-height: calc(100vh - units.$u10);
     max-width: modal-variables.$max-width;
     opacity: 1;
-    display: flex;
-    flex-direction: column;
   }
 
   .dso-header {
@@ -64,34 +65,13 @@
   }
 
   > .dso-dialog > .dso-body {
-    // $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-    //   (modal-variables.$footer-button-height + modal-variables.$footer-padding);
-
-    @include rich-content.children();
-
-    // height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    // // max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    // min-height: 1.5rem;
-
-    overflow-x: auto;
-
-    padding: modal-variables.$body-padding;
+    overflow-y: auto;
   }
 
-  > .dso-dialog > dso-scrollable {
-    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+  .dso-body {
+    @include rich-content.children();
 
-    // box-shadow: inset 0 7px 9px -7px rgba(253, 0, 0, 1);
-    flex: 1 1 auto;
-    overflow-y: auto;
-    min-height: 0px;
-
-    .dso-body {
-      @include rich-content.children();
-
-      padding: modal-variables.$body-padding;
-    }
+    padding: modal-variables.$body-padding;
   }
 
   .dso-footer {
@@ -128,25 +108,19 @@
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xxs-max) {
-    // display: flex;
-
     .dso-dialog {
       margin: 0;
       max-height: 100vh;
       max-width: 100%;
     }
-
-    // > .dso-dialog > dso-scrollable {
-    //   flex-grow: 1;
-    // }
   }
 
   // special query for height
   @media screen and (max-height: modal-variables.$small-modal-vh) {
     .dso-dialog {
-      margin-bottom: units.$u1;
-      margin-top: units.$u1;
-      min-height: modal-variables.$min-modal-height;
+      max-height: calc(100vh - units.$u2);
+      margin-block: units.$u1;
+      // min-height: modal-variables.$min-modal-height;
     }
 
     .dso-header {

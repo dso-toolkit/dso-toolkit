@@ -3,30 +3,21 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 :host {
-  display: block;
-  // height: 100%;
+  display: flex;
+  flex: 1;
+  min-height: 0;
   overflow-y: hidden;
 }
-
-// @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
-//   :host {
-//     display: flex;
-//     height: auto;
-//   }
-// }
 
 @include utilities.box-sizing();
 
 .dso-shadow-container {
-  height: 100%;
-  max-height: inherit;
-  min-height: inherit;
+  display: flex;
+  flex: 1;
   position: relative;
 
   .dso-scroll-container {
-    height: 100%;
-    max-height: inherit;
-    min-height: inherit;
+    flex: 1;
     overflow-y: auto;
 
     &::before,

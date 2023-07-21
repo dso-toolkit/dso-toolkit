@@ -38,7 +38,10 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
             @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => dsoToggleOverlay?.(e)}
           ></dso-map-overlays>
           ${richContentTemplate({
-            children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,
+            children: html`
+              <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p>
+              <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p>
+            `,
           })}
         </dso-map-controls>
       `;
