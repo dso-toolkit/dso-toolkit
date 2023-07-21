@@ -9,7 +9,7 @@ export const decorator: Addon_DecoratorFunction<StoryFnAngularReturnType> = (sto
     template: `
     <div
       id="scrollable-mock"
-      style="background-color: #efefef; height: 750px; max-width: 500px"
+      style="background-color: #efefef; display: flex; height: 750px; max-width: 500px"
     >
       ${template}
     </div>
