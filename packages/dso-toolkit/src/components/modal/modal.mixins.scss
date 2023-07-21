@@ -83,6 +83,11 @@
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    .dso-dialog {
+      margin: 0;
+      max-width: 100%;
+    }
+
     .dso-footer {
       #{button.$button-adjacent} {
         margin-left: 0;
@@ -109,9 +114,8 @@
 
   @media screen and (max-width: media-query-breakpoints.$screen-xxs-max) {
     .dso-dialog {
-      margin: 0;
+      background-color: blue;
       max-height: 100vh;
-      max-width: 100%;
     }
   }
 
@@ -120,7 +124,6 @@
     .dso-dialog {
       max-height: calc(100vh - units.$u2);
       margin-block: units.$u1;
-      // min-height: modal-variables.$min-modal-height;
     }
 
     .dso-header {
