@@ -114,6 +114,7 @@
 
   @media screen and (max-width: media-query-breakpoints.$screen-xxs-max) {
     .dso-dialog {
+      height: 100vh;
       max-height: 100vh;
     }
   }
@@ -138,10 +139,16 @@
     }
 
     .dso-footer {
-      min-height: auto;
+      min-height: units.$u8;
       overflow: auto;
       padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
     }
+  }
+}
+
+@media screen and (max-height: modal-variables.$smallest-modal-vh) {
+  .dso-dialog {
+    min-height: modal-variables.$min-modal-height;
   }
 }
 
