@@ -35,8 +35,8 @@ examplePageFactory(
             icon: { icon: "chevron-left" },
           })}
           <section class="dso-filterblok">
-            <div class="dso-highlight-box">
-              ${contextTemplate({
+            ${highlightBoxTemplate({
+              content: contextTemplate({
                 type: "label",
                 label: html`<h3>Uw keuzes</h3>`,
                 content: buttonTemplate({
@@ -63,8 +63,8 @@ examplePageFactory(
                     ],
                   })}
                 `,
-              })}
-            </div>
+              }),
+            })}
           </section>
           <h1>Overzicht op uw locatie</h1>
           ${highlightBoxTemplate({
