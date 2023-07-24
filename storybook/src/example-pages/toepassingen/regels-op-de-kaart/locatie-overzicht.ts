@@ -10,6 +10,7 @@ examplePageFactory(
     {
       viewerGridTemplate,
       buttonTemplate,
+      buttonRowTemplate,
       contextTemplate,
       labelGroupTemplate,
       highlightBoxTemplate,
@@ -79,11 +80,16 @@ examplePageFactory(
                 </h3>
                 <p>Er zijn 51+ documenten gevonden met regels die gelden op uw locatie.</p>
 
-                ${buttonTemplate({
-                  label: "Bekijk documenten",
-                  type: "button",
-                  variant: "tertiary",
-                  icon: { icon: "chevron-right" },
+                ${buttonRowTemplate({
+                  buttons: [
+                    {
+                      label: "Bekijk documenten",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-right" },
+                    },
+                  ],
+                  align: "right",
                 })}
               `,
             }),
@@ -108,11 +114,16 @@ examplePageFactory(
                   icon: true,
                   hideSearchButton: true,
                 })}
-                ${buttonTemplate({
-                  label: "Bekijk alle activiteiten",
-                  type: "button",
-                  variant: "tertiary",
-                  icon: { icon: "chevron-right" },
+                ${buttonRowTemplate({
+                  buttons: [
+                    {
+                      label: "Bekijk alle activiteiten",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-right" },
+                    },
+                  ],
+                  align: "right",
                 })}
               `,
             }),
@@ -130,11 +141,16 @@ examplePageFactory(
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
 
-                ${buttonTemplate({
-                  label: "Bekijk alle gebieden",
-                  type: "button",
-                  variant: "tertiary",
-                  icon: { icon: "chevron-right" },
+                ${buttonRowTemplate({
+                  buttons: [
+                    {
+                      label: "Bekijk alle gebieden",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-right" },
+                    },
+                  ],
+                  align: "right",
                 })}
               `,
             }),
@@ -177,11 +193,16 @@ examplePageFactory(
                     variant: "theme",
                   })}
                 </dso-responsive-element>
-                ${buttonTemplate({
-                  label: "Bekijk alle thema's",
-                  type: "button",
-                  variant: "tertiary",
-                  icon: { icon: "chevron-right" },
+                ${buttonRowTemplate({
+                  buttons: [
+                    {
+                      label: "Bekijk alle thema's",
+                      type: "button",
+                      variant: "tertiary",
+                      icon: { icon: "chevron-right" },
+                    },
+                  ],
+                  align: "right",
                 })}
               `,
             }),
