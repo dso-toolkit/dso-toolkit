@@ -8,6 +8,7 @@ import { noControl } from "../../storybook/no-control.js";
 export interface ButtonRowArgs {
   buttons: Button[];
   emphasized?: boolean;
+  align: "center" | "right" | undefined;
 }
 
 export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
@@ -17,6 +18,12 @@ export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
   emphasized: {
     control: {
       type: "boolean",
+    },
+  },
+  align: {
+    options: ["center", "right", undefined],
+    control: {
+      type: "select",
     },
   },
 };
