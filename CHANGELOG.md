@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Docs
 * Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
+* Stijlen op Web Component attributes ([#2080](https://github.com/dso-toolkit/dso-toolkit/issues/2080))
 
 ## 56.0.0
 
