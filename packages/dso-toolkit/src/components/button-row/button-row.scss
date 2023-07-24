@@ -6,7 +6,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: units.$u2;
-  margin: units.$u2 0 units.$u4;
 
   .btn:not(.dso-list-button),
   .dso-primary,
@@ -30,5 +29,13 @@
     .dso-tertiary {
       color: colors.$zwart;
     }
+  }
+
+  &.dso-align-right {
+    justify-content: flex-end;
+  }
+
+  &.dso-align-center {
+    justify-content: center;
   }
 }
