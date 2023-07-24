@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Button Row: alignment modifiers ([#2234](https://github.com/dso-toolkit/dso-toolkit/issues/2234))
+
 ### Fixed
 * Tabs: Tabindex op inhoud tabs ([#2117](https://github.com/dso-toolkit/dso-toolkit/issues/2117))
 * Viewer Grid: Bedieningsknoppen hebben de verkeerde labels ([#2237](https://github.com/dso-toolkit/dso-toolkit/issues/2237))
@@ -13,7 +16,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))
-* Highlightbox button uitlijning ([#2234](https://github.com/dso-toolkit/dso-toolkit/issues/2234))
 
 ### Docs
 * Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))
