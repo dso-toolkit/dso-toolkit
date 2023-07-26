@@ -40,4 +40,4 @@ then
   rsync --rsh "ssh -p ${DT_DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/core/ ${DT_DEPLOY_USER}@${DT_DEPLOY_HOST}:${DT_DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${TRAVIS_TAG:1}
 fi
 
-ssh -p ${DT_DEPLOY_PORT} ${DT_DEPLOY_USER}@${DT_DEPLOY_HOST} "cd ${DT_DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
+ssh -p ${DT_DEPLOY_PORT} ${DT_DEPLOY_USER}@${DT_DEPLOY_HOST} "cd ${DT_DEPLOY_ROOT}/webhooks.dso-toolkit.nl && powershell -Command \"npm run update-versions\""
