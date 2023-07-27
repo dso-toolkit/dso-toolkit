@@ -3,21 +3,17 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 :host {
-  display: flex;
-  flex: 1;
-  min-height: 0;
+  display: flex; // To do: why do we need this?
   overflow-y: hidden;
 }
 
 @include utilities.box-sizing();
 
 .dso-shadow-container {
-  display: flex;
-  flex: 1;
+  display: flex; // To do: why do we need this?
   position: relative;
 
   .dso-scroll-container {
-    flex: 1;
     overflow-y: auto;
 
     &::before,
@@ -25,12 +21,9 @@
       background-repeat: no-repeat;
       background-size: 100% units.$u3;
       content: "";
-      display: flex;
-      flex-direction: column;
       height: units.$u3;
       left: 0;
       opacity: 0;
-      overflow: visible;
       position: absolute;
       transition: opacity 150ms ease-in-out;
       width: 100%;
