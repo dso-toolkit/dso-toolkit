@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Button & Button Row: Documentatie aangepast en nieuwe varianten gemaakt voor de Button-row om de varianten van de Buttons te demonstreren. ([#1898](https://github.com/dso-toolkit/dso-toolkit/issues/1898)) 
+
 ### Tasks
 * Packages: Dependency updates ([#2241](https://github.com/dso-toolkit/dso-toolkit/issues/2241))
 

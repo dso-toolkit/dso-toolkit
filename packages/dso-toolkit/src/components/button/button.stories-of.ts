@@ -37,6 +37,14 @@ export function storiesOfButton<Implementation, Templates, TemplateFnReturnType>
       },
     });
 
+    stories.add("primary (compact)", template, {
+      args: {
+        variant: "primary",
+        label: "Primary button",
+        compact: true,
+      },
+    });
+
     stories.add("secondary", template, {
       args: {
         variant: "secondary",
