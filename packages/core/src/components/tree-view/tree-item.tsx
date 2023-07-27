@@ -24,7 +24,8 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({
   <li
     key={item.id}
     class={clsx("tree-item", { "has-child": item.hasItems, "is-expanded": !!item.open && !!item.items?.length })}
-    role="none"
+    role="button"
+    aria-label={item.label}
   >
     <div class="tree-branch-control">
       {item.hasItems ? (

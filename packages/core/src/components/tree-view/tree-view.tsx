@@ -113,6 +113,8 @@ export class TreeView implements ComponentInterface {
         TreeView.moveFocus(tree, event.target, "first");
         break;
       case "Enter":
+        TreeView.toggleItemExpandOrCollapse(tree, event.target);
+        break;
       case " ":
         event.target.click();
         break;
@@ -206,6 +208,14 @@ export class TreeView implements ComponentInterface {
       if (controlElement instanceof HTMLElement) {
         controlElement.click();
       }
+    }
+  }
+
+  private static toggleItemExpandOrCollapse(tree: HTMLElement, target: HTMLElement): void {
+    if (target?.getAttribute("aria-expanded") === "true") {
+      TreeView.collapseItemOrFocusParent(tree, target);
+    } else {
+      TreeView.expandItemOrFocusChild(tree, target);
     }
   }
 

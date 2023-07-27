@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed 
+* Case toevoegen aan tree-view zodat tree-item expand of collapsed op keypress "Enter". ([#2247](https://github.com/dso-toolkit/dso-toolkit/issues/2247))
+
 ### Fixed
 * Deploy gaat fout bij het updaten van versies ([#2259](https://github.com/dso-toolkit/dso-toolkit/issues/2259))
 
