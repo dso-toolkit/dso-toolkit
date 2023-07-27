@@ -98,6 +98,246 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
       },
     });
 
+    stories.add("primaire button varianten", template, {
+      args: {
+        buttons: [
+          {
+            variant: "primary",
+            label: "Primary",
+          },
+          {
+            variant: "primary",
+            label: "Disabled",
+            disabled: true,
+          },
+          {
+            variant: "primary",
+            label: "Chevron",
+            icon: {
+              icon: "chevron-right",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "primary",
+            label: "Disabled with icon",
+            disabled: true,
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "primary",
+            label: "Extern",
+            icon: {
+              icon: "external-link",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "primary",
+            label: "Spinner",
+            modifier: "dso-spinner-left",
+          },
+          {
+            variant: "primary",
+            label: "Download",
+            icon: {
+              icon: "download",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "primary",
+            label: "Anchor",
+          },
+          {
+            variant: "primary",
+            label: "Anchor with icon",
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "primary",
+            label: "Small",
+            compact: true,
+          },
+          {
+            variant: "primary",
+            label: "Small",
+            compact: true,
+            icon: {
+              icon: "download",
+              iconMode: "before",
+            },
+          },
+        ],
+      },
+    });
+
+    stories.add("secundaire button varianten", template, {
+      args: {
+        buttons: [
+          {
+            variant: "secondary",
+            label: "Primary",
+          },
+          {
+            variant: "secondary",
+            label: "Disabled",
+            disabled: true,
+          },
+          {
+            variant: "secondary",
+            label: "Chevron",
+            icon: {
+              icon: "chevron-right",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "secondary",
+            label: "Disabled with icon",
+            disabled: true,
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "secondary",
+            label: "Extern",
+            icon: {
+              icon: "external-link",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "secondary",
+            label: "Spinner",
+            modifier: "dso-spinner-left",
+          },
+          {
+            variant: "secondary",
+            label: "Download",
+            icon: {
+              icon: "download",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "secondary",
+            label: "Anchor",
+          },
+          {
+            variant: "secondary",
+            label: "Anchor with icon",
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "secondary",
+            label: "Small",
+            compact: true,
+          },
+          {
+            variant: "secondary",
+            label: "Small",
+            compact: true,
+            icon: {
+              icon: "download",
+              iconMode: "before",
+            },
+          },
+        ],
+      },
+    });
+
+    stories.add("tertiare button varianten", template, {
+      args: {
+        buttons: [
+          {
+            variant: "tertiary",
+            label: "Primary",
+          },
+          {
+            variant: "tertiary",
+            label: "Disabled",
+            disabled: true,
+          },
+          {
+            variant: "tertiary",
+            label: "Chevron",
+            icon: {
+              icon: "chevron-right",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "tertiary",
+            label: "Disabled with icon",
+            disabled: true,
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "tertiary",
+            label: "Extern",
+            icon: {
+              icon: "external-link",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "tertiary",
+            label: "Spinner",
+            modifier: "dso-spinner-left",
+          },
+          {
+            variant: "tertiary",
+            label: "Download",
+            icon: {
+              icon: "download",
+              iconMode: "after",
+            },
+          },
+          {
+            variant: "tertiary",
+            label: "Anchor",
+          },
+          {
+            variant: "tertiary",
+            label: "Anchor with icon",
+            icon: {
+              icon: "chevron-left",
+              iconMode: "before",
+            },
+          },
+          {
+            variant: "tertiary",
+            label: "Small",
+            compact: true,
+          },
+          {
+            variant: "tertiary",
+            label: "Small",
+            compact: true,
+            icon: {
+              icon: "download",
+              iconMode: "before",
+            },
+          },
+        ],
+      },
+    });
+
     stories.add("emphasized", template, {
       args: {
         emphasized: true,

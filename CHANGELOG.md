@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Button: Documentatie bijwerken ([#1898](https://github.com/dso-toolkit/dso-toolkit/issues/1898))
+
 ### Tasks
 * Packages: Dependency updates ([#2241](https://github.com/dso-toolkit/dso-toolkit/issues/2241))
 
