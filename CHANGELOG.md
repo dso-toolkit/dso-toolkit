@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* "Web Components vs. HTML/CSS componenten" en "Stateful vs. stateless" documenteren ([#2269](https://github.com/dso-toolkit/dso-toolkit/issues/2269))
+
 ### Fixed
 * Deploy gaat fout bij het updaten van versies ([#2259](https://github.com/dso-toolkit/dso-toolkit/issues/2259))
 
