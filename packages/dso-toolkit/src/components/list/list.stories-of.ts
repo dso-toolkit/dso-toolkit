@@ -93,6 +93,31 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
+    stories.add("icons", template, {
+      args: {
+        type: Type.Ul,
+        items: [
+          {
+            text: "Cras justo odio",
+          },
+          {
+            text: "Dapibus ac facilisis in",
+            modifier: "forbidden",
+          },
+          {
+            text: "Morbi leo risus",
+          },
+          {
+            text: "Porta ac consectetur ac",
+            modifier: "status-warning",
+          },
+          {
+            text: "Vestibulum at eros",
+          },
+        ],
+      }
+    })
+
     return stories;
   });
 }
