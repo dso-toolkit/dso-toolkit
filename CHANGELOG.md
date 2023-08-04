@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Deploy gaat fout bij het updaten van versies ([#2259](https://github.com/dso-toolkit/dso-toolkit/issues/2259))
+* Header: Buttons in dropdown menu zijn bold, waardoor het een actief menu-item lijkt te representeren. ([#2268](https://github.com/dso-toolkit/dso-toolkit/issues/2268))
 * Button: Element "anchor" :hover/:visited heeft zwarte tekst in Info ([#2270](https://github.com/dso-toolkit/dso-toolkit/issues/2270))
 
 ## 56.1.0 - 24-07-2023

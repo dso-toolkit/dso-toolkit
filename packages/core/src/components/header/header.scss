@@ -170,7 +170,7 @@ dso-dropdown-menu {
       top: 100%;
     }
 
-    button {
+    > button {
       color: colors.$grasgroen;
       font-size: typography.$font-size-base;
       font-weight: 600;
