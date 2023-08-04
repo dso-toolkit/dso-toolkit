@@ -30,12 +30,13 @@
   }
 
   a {
-    &#{button.$not-dso-buttons},
     &:hover,
     &:focus,
     &:active,
     &:visited {
-      color: colors.$zwart;
+      &#{button.$not-dso-buttons} {
+        color: colors.$zwart;
+      }
     }
 
     &:active {

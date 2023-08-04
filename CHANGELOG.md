@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Deploy gaat fout bij het updaten van versies ([#2259](https://github.com/dso-toolkit/dso-toolkit/issues/2259))
+* Button: Element "anchor" :hover/:visited heeft zwarte tekst in Info ([#2270](https://github.com/dso-toolkit/dso-toolkit/issues/2270))
 
 ## 56.1.0 - 24-07-2023
 
