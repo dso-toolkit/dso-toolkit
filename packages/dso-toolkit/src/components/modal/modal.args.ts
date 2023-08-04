@@ -6,6 +6,7 @@ import { noControl } from "../../storybook/index.js";
 import { Modal, ModalRole } from "./modal.models.js";
 
 export interface ModalArgs {
+  fullscreen: boolean;
   modalTitle: string;
   role: ModalRole;
   showCloseButton: boolean;
@@ -14,6 +15,9 @@ export interface ModalArgs {
 }
 
 export const modalArgTypes: ArgTypes<ModalArgs> = {
+  fullscreen: {
+    ...noControl
+  },
   modalTitle: {
     ...noControl,
   },

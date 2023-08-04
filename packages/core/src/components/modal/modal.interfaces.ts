@@ -13,6 +13,7 @@ export interface ModalContent {
 }
 
 export interface ModalOptions {
+  fullscreen?: boolean;
   role?: ModalRole;
   showCloseButton?: boolean;
   initialFocus?: string;

@@ -1,6 +1,7 @@
 export interface Modal<TemplateFnReturnType> {
-  modalTitle?: string;
   body: TemplateFnReturnType;
+  fullscreen?: boolean;
+  modalTitle?: string;
   footer?: TemplateFnReturnType;
   role?: ModalRole;
   showCloseButton?: boolean;

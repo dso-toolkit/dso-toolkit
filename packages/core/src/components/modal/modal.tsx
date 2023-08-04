@@ -14,7 +14,7 @@ export class Modal implements ComponentInterface {
 
   private dialogElement?: HTMLDivElement;
 
-  private modalElement?: HTMLDivElement;
+  private htmlDialogElement?: HTMLDialogElement;
 
   @Element()
   host!: HTMLDsoModalElement;
@@ -24,6 +24,12 @@ export class Modal implements ComponentInterface {
 
   @State()
   hasFooter?: boolean;
+
+  /**
+   * when set the modal will be shown in fullscreen.
+   */
+  @Prop({ reflect: true })
+  fullscreen?: boolean;
 
   /**
    * The title of the Modal.
@@ -66,23 +72,25 @@ export class Modal implements ComponentInterface {
   }
 
   componentDidLoad(): void {
+    this.htmlDialogElement?.showModal();
+    document.body.style.overflow = "hidden";
     this.setFocusTrap();
   }
 
   disconnectedCallback(): void {
     this.trap?.deactivate({ onDeactivate: () => undefined }); // override FocusTrap onDeactivate callback to avoid double event emits
+    document.body.style.removeProperty("overflow");
   }
 
   render() {
     return (
       <Fragment>
-        <div class="dso-modal-overlay"></div>
-        <div
+        <dialog
           class="dso-modal"
           role={this.role ?? undefined}
           aria-modal="true"
           aria-labelledby={this.ariaId}
-          ref={(element) => (this.modalElement = element)}
+          ref={(element) => (this.htmlDialogElement = element)}
         >
           <div class="dso-dialog" role="document" ref={(element) => (this.dialogElement = element)}>
             {this.modalTitle ? (
@@ -113,7 +121,7 @@ export class Modal implements ComponentInterface {
               </div>
             )}
           </div>
-        </div>
+        </dialog>
       </Fragment>
     );
   }
@@ -133,7 +141,7 @@ export class Modal implements ComponentInterface {
 
           return (
             this.host.querySelector<HTMLButtonElement>("div[slot='footer'] .dso-primary") ??
-            this.modalElement?.querySelector<HTMLButtonElement>(".dso-close") ??
+            this.htmlDialogElement?.querySelector<HTMLButtonElement>(".dso-close") ??
             false
           );
         },
@@ -144,7 +152,7 @@ export class Modal implements ComponentInterface {
           getShadowRoot: true,
         },
         clickOutsideDeactivates: (e) => {
-          if (e instanceof MouseEvent && e.composedPath()[0] === this.modalElement) {
+          if (e instanceof MouseEvent && e.composedPath()[0] === this.htmlDialogElement) {
             return true;
           }
 

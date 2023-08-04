@@ -9,7 +9,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "html-css",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, body, footer }) {
+    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, body, footer }) {
       const ariaId = v4();
 
       if (showCloseButton === undefined) {
@@ -23,6 +23,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
           role=${role}
           aria-modal="true"
           aria-labelledby=${ifDefined(modalTitle && ariaId)}
+          ?fullscreen=${ifDefined(fullscreen)}
         >
           <div class="dso-dialog" role="document">
             ${modalTitle && ariaId

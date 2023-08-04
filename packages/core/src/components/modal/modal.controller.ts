@@ -19,7 +19,11 @@ export class DsoModalController {
     }
 
     if (options) {
-      const { role, showCloseButton, initialFocus, returnFocus } = options;
+      const { fullscreen, role, showCloseButton, initialFocus, returnFocus } = options;
+
+      if (fullscreen) {
+        element.fullscreen = fullscreen;
+      }
 
       if (role) {
         element.role = role;

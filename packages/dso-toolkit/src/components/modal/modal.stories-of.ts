@@ -201,6 +201,20 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
       }
     );
 
+    stories.add(
+      "fullscreen",
+      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
+        modalTemplate(modalArgsMapper(args, datePickerBody))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle" | "fullscreen">>({
+          role: "dialog",
+          modalTitle: "Fullscreen",
+          fullscreen: true,
+        }),
+      }
+    );
+
     return stories;
   });
 }
