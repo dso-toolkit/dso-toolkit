@@ -1,20 +1,17 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/zindex";
+@use "../../variables/units";
 @use "../button";
 @use "../rich-content";
 @use "../modal";
 
 @use "../../di";
 
+@use "modal.variables" as modal-variables;
+
 body.dso-modal-open {
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     overflow: hidden;
-
-    &::before {
-      @include modal.overlay();
-
-      content: "";
-    }
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {

@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/modal";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @include utilities.box-sizing();
 
@@ -23,5 +24,52 @@ button {
 .dso-close {
   dso-icon {
     color: modal.$close-icon-color;
+  }
+}
+
+:host([fullscreen]) {
+  .dso-modal {
+    inline-size: 100dvi;
+    block-size: 100dvb;
+  }
+
+  .dso-dialog {
+    display: flex;
+    flex-direction: column;
+
+    max-inline-size: 100%;
+    block-size: 100%;
+
+    > dso-scrollable {
+      flex-grow: 1;
+
+      max-block-size: unset;
+    }
+  }
+}
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  :host {
+    .dso-modal {
+      inline-size: 100dvi;
+      block-size: 100dvb;
+    }
+
+    .dso-dialog {
+      display: flex;
+      flex-direction: column;
+
+      max-inline-size: 100%;
+      block-size: 100%;
+
+      > dso-scrollable {
+        flex-grow: 1;
+
+        max-block-size: unset;
+      }
+    }
+
+    .dso-footer {
+      flex-shrink: 0;
+    }
   }
 }

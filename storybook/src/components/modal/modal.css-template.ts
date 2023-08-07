@@ -17,8 +17,8 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
       }
 
       return html`
-        <div
-          tabindex="-1"
+        <dialog
+          open
           class="dso-modal"
           role=${role}
           aria-modal="true"
@@ -43,7 +43,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
             </dso-scrollable>
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
-        </div>
+        </dialog>
       `;
     },
 };
