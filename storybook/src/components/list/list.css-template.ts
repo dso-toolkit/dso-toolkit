@@ -1,7 +1,9 @@
-import { List, Type } from "dso-toolkit";
+import { List, ListItem, Type } from "dso-toolkit";
 
 import { html, nothing, TemplateResult } from "lit-html";
-import { classMap } from "lit-html/directives/class-map.js";
+import { DirectiveResult } from "lit-html/directive";
+import { ClassInfo, classMap, ClassMapDirective } from "lit-html/directives/class-map.js";
+
 import { ComponentImplementation } from "../../templates";
 
 function ul(children: TemplateResult, modifier?: string) {
@@ -34,6 +36,21 @@ function ol(children: TemplateResult, modifier?: string) {
   `;
 }
 
+function listClassMap(modifier: string | undefined, listItem: ListItem): DirectiveResult<typeof ClassMapDirective> {
+  let classInfo: ClassInfo = {
+    "list-group-item": modifier === "group",
+  };
+
+  if ("status" in listItem) {
+    classInfo = {
+      ...classInfo,
+      [`dso-${listItem.status}`]: !!listItem.status,
+    };
+  }
+
+  return classMap(classInfo);
+}
+
 export const cssList: ComponentImplementation<List> = {
   component: "list",
   implementation: "html-css",
@@ -42,14 +59,12 @@ export const cssList: ComponentImplementation<List> = {
       const children = html`
         ${items.map(
           (item) => html`
-            <li
-              class=${classMap({
-                "list-group-item": modifier === "group",
-                "dso-forbidden": item.status === "forbidden",
-                "dso-status-warning": item.status === "status-warning",
-              })}
-            >
-              ${modifier === "img-list" ? html`<img src=${item.imgSrc} />` : nothing} ${item.text}
+            <li class=${listClassMap(modifier, item)}>
+              ${modifier === "img-list" ? html`<img src=${item.imgSrc} />` : nothing}
+              ${"status" in item && item.statusDescription
+                ? html`<span class="dso-status">${item.statusDescription}:</span>`
+                : nothing}
+              ${item.text}
             </li>
           `
         )}

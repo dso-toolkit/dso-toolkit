@@ -9,8 +9,14 @@ export interface List {
   modifier?: string;
 }
 
-export interface ListItem {
+export type ListItem = ListItemDefault | ListItemWithStatus;
+
+export interface ListItemDefault {
   text: string;
   imgSrc?: string;
-  status?: "forbidden" | "status-warning";
+}
+
+export interface ListItemWithStatus extends ListItemDefault {
+  status: "forbidden" | "status-warning";
+  statusDescription: string;
 }

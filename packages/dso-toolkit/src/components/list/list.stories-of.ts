@@ -102,14 +102,16 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
           },
           {
             text: "Dapibus ac facilisis in",
-            modifier: "forbidden",
+            status: "forbidden",
+            statusDescription: "Niet beschikbaar",
           },
           {
             text: "Morbi leo risus",
           },
           {
             text: "Porta ac consectetur ac",
-            modifier: "status-warning",
+            status: "status-warning",
+            statusDescription: "Let op",
           },
           {
             text: "Vestibulum at eros",
