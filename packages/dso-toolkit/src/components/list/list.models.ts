@@ -12,5 +12,5 @@ export interface List {
 export interface ListItem {
   text: string;
   imgSrc?: string;
-  modifier?: string;
+  status?: "forbidden" | "status-warning";
 }

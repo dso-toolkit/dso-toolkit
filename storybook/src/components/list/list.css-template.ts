@@ -42,11 +42,13 @@ export const cssList: ComponentImplementation<List> = {
       const children = html`
         ${items.map(
           (item) => html`
-            <li class=${classMap({
-              "list-group-item": modifier === "group",
-              "forbidden": item.modifier === "forbidden",
-              "status-warning": item.modifier === "status-warning"
-            })}>
+            <li
+              class=${classMap({
+                "list-group-item": modifier === "group",
+                "dso-forbidden": item.status === "forbidden",
+                "dso-status-warning": item.status === "status-warning",
+              })}
+            >
               ${modifier === "img-list" ? html`<img src=${item.imgSrc} />` : nothing} ${item.text}
             </li>
           `

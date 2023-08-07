@@ -115,8 +115,8 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
             text: "Vestibulum at eros",
           },
         ],
-      }
-    })
+      },
+    });
 
     return stories;
   });
