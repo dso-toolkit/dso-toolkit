@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 57.0.0 - 08-08-2023
+
 Zie de blogpost op dso-toolkit.nl voor een toelichting op de BREAKING changes.
 
 ### Removed
