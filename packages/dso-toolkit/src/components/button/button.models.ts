@@ -26,10 +26,11 @@ export interface Button {
   tooltip?: Tooltip;
   slot?: string;
   compact?: boolean;
+  align?: boolean;
 }
 
 export interface ButtonAnchor {
-  variant: "primary" | "secondary" | "tertiary" | null;
+  variant: "primary" | "secondary" | "tertiary";
   url: string;
   label: string;
   modifier?: string;
@@ -37,6 +38,8 @@ export interface ButtonAnchor {
   icon?: Icon;
   iconMode?: "only" | "after";
   slot?: string;
+  compact?: boolean;
+  align?: boolean;
 }
 
 export function isButtonInterface(object: unknown): object is Button {

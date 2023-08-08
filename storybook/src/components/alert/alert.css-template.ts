@@ -15,7 +15,7 @@ const statusMap = new Map<string, string>([
 export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "html-css",
-  template: ({ buttonTemplate, richContentTemplate }) =>
+  template: ({ richContentTemplate }) =>
     function alertTemplate({ status, message, onClick, withRoleAlert }) {
       return html`
         <div class="alert alert-${status}" role=${ifDefined(withRoleAlert ? "alert" : undefined)}>
@@ -23,7 +23,9 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
           ${richContentTemplate({
             children: html`
               ${typeof message === "string" ? unsafeHTML(message) : message}
-              ${onClick ? buttonTemplate({ label: "Button", onClick, variant: null, modifier: "btn" }) : nothing}
+              ${onClick
+                ? html`<button type="button" class="dso-alert-button" @click=${onClick}><span>Button</span></button>`
+                : nothing}
             `,
           })}
         </div>

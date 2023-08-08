@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+Zie de blogpost op dso-toolkit.nl voor een toelichting op de BREAKING changes.
+
+### Removed
+* **BREAKING:** Button: Legacy Bootstrap selectors verwijderen ([#1776](https://github.com/dso-toolkit/dso-toolkit/issues/1776))
+
 ### Added
 * Accordion: Nieuwe variant "compact-black". ([#2214](https://github.com/dso-toolkit/dso-toolkit/issues/2214))
 * Button: Tertiary button uitbreiden met truncate modifier. ([#2140](https://github.com/dso-toolkit/dso-toolkit/issues/2140))
@@ -31,9 +36,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Headings: Line-height aanpassen van de H1, H2 en H3. ([#2153](https://github.com/dso-toolkit/dso-toolkit/issues/2153))
-
-### Removed
-* Button selectors van Bootstrap (default en link) ([#1776](https://github.com/dso-toolkit/dso-toolkit/issues/1776))
 
 ### Docs
 * Label: Documentatie bijgewerkt mbt. truncate. ([#2144](https://github.com/dso-toolkit/dso-toolkit/issues/2144))

@@ -71,10 +71,6 @@ button {
   @include button-mixins.element();
 }
 
-.btn {
-  @include button-mixins.base();
-}
-
 a,
 button,
 label {
@@ -141,11 +137,9 @@ a {
   }
 }
 
-.btn:not(.dso-list-button),
 .dso-primary,
 .dso-secondary,
 .dso-tertiary {
-  + .btn:not(.dso-list-button),
   + .dso-primary,
   + .dso-secondary,
   + .dso-tertiary {

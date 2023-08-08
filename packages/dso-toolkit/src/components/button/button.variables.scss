@@ -25,35 +25,25 @@ $tertiary-color: colors.$grasgroen;
 $tertiary-hover-color: colors.$bosgroen;
 $tertiary-active-color: colors.$bosgroen-140;
 
-$buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
-$not-dso-buttons: ":not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
+$buttons: ".dso-primary, .dso-secondary, .dso-tertiary";
+$not-dso-buttons: ":not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
 
 // stylelint-disable string-no-newline -- Escaped new lines wanted to improve readability
 $button-adjacent: "\
-  .btn + .btn,\
-  .btn + .dso-primary,\
-  .btn + .dso-secondary,\
-  .btn + .dso-tertiary,\
-\
-  .dso-primary + .btn,\
   .dso-primary + .dso-primary,\
   .dso-primary + .dso-secondary,\
   .dso-primary + .dso-tertiary,\
 \
-  .dso-secondary + .btn,\
   .dso-secondary + .dso-primary,\
   .dso-secondary + .dso-secondary,\
   .dso-secondary + .dso-tertiary,\
 \
-  .dso-tertiary + .btn,\
   .dso-tertiary + .dso-primary,\
   .dso-tertiary + .dso-secondary,\
   .dso-tertiary + .dso-tertiary\
 ";
 
 $button-adjacent-secondary: "\
-  .btn + .dso-secondary,\
-\
   .dso-primary + .dso-secondary,\
 \
   .dso-secondary + .dso-secondary,\
@@ -62,8 +52,6 @@ $button-adjacent-secondary: "\
 ";
 
 $button-adjacent-tertiary: "\
-  .btn + .dso-tertiary,\
-\
   .dso-primary + .dso-tertiary,\
 \
   .dso-secondary + .dso-tertiary,\

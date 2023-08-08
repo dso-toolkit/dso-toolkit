@@ -13,7 +13,7 @@ export const angularAlert: ComponentImplementation<Alert<StoryFnAngularReturnTyp
         template: `<dso-alert [status]="status" [roleAlert]="roleAlert">
           <div class="dso-rich-content">
             ${typeof props.message === "string" ? props.message : props.message.template}
-            <button *ngIf="onClick" type="button" class="btn">Button</button>
+            <button *ngIf="onClick" type="button" class="dso-alert-button" (click)="onClick($event)">Button</button>
           </div>
         </dso-alert>`,
       };

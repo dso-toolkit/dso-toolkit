@@ -6,6 +6,7 @@ import { Button, ButtonAnchor } from "./button.models.js";
 export interface ButtonArgs {
   element: "button" | "anchor";
   compact?: boolean;
+  align?: boolean;
   variant: "primary" | "secondary" | "tertiary";
   truncate?: boolean;
   click: HandlerFunction;
@@ -25,6 +26,11 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     },
   },
   compact: {
+    control: {
+      type: "boolean",
+    },
+  },
+  align: {
     control: {
       type: "boolean",
     },
@@ -81,7 +87,8 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
-      return {
+      // eslint-disable-next-line no-case-declarations -- const anchor is immediately returned and only defined for static type
+      const anchor: ButtonAnchor = {
         variant: a.variant,
         url: "#",
         label: a.label,
@@ -92,7 +99,11 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
+        align: a.align,
+        compact: a.compact,
       };
+
+      return anchor;
     case "button":
       return {
         variant: a.variant,
@@ -109,6 +120,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         compact: a.compact,
+        align: a.align,
       };
     default:
       throw new Error("Unknown element type for Button component");

@@ -29,7 +29,7 @@ examplePageFactory(
             ${buttonRowTemplate({
               buttons: [
                 {
-                  modifier: "dso-tertiary",
+                  variant: "tertiary",
                   label: "Bekijk andere projecten",
                   url: "#",
                   icon: { icon: "chevron-left" },

@@ -37,7 +37,7 @@ examplePageFactory(
             ${buttonTemplate({ variant: "secondary", label: "Secondary Anchor", url: "#" })}
           </div>
           <div class="col-md-2">
-            ${buttonTemplate({ variant: "tertiary", label: "Tertiary Anchor", modifier: "btn-align", url: "#" })}
+            ${buttonTemplate({ variant: "tertiary", label: "Tertiary Anchor", modifier: "dso-align", url: "#" })}
           </div>
         </div>
         <div class="row">
