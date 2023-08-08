@@ -69,7 +69,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       const classNames = [getClassName(variant, modifier)];
 
       if (compact) {
-        classNames.push("btn-sm");
+        classNames.push("dso-small");
       }
 
       if (truncate) {

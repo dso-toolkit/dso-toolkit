@@ -15,8 +15,7 @@
 
   a,
   button {
-    &.dso-tertiary,
-    &.btn-link {
+    &.dso-tertiary {
       line-height: typography.$line-height-base;
       padding: button.$vertical-padding 0; // $horizontal??
     }

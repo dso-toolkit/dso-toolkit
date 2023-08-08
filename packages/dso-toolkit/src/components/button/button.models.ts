@@ -4,9 +4,8 @@ import { Tooltip } from "../tooltip/tooltip.models.js";
 export interface Button {
   /**
    * * `primary`: Primary button
-   * * `secondary`: Secondary button (aka: btn-default)
-   * * `tertiary`: Tertiary button (aka: btn-link)
-   * * `null` legacy modus, switch to property "modifier"
+   * * `secondary`: Secondary button
+   * * `tertiary`: Tertiary button
    */
   variant: "primary" | "secondary" | "tertiary" | null;
   label: string;
@@ -27,10 +26,11 @@ export interface Button {
   tooltip?: Tooltip;
   slot?: string;
   compact?: boolean;
+  align?: boolean;
 }
 
 export interface ButtonAnchor {
-  variant: "primary" | "secondary" | "tertiary" | null;
+  variant: "primary" | "secondary" | "tertiary";
   url: string;
   label: string;
   modifier?: string;
@@ -38,6 +38,8 @@ export interface ButtonAnchor {
   icon?: Icon;
   iconMode?: "only" | "after";
   slot?: string;
+  compact?: boolean;
+  align?: boolean;
 }
 
 export function isButtonInterface(object: unknown): object is Button {

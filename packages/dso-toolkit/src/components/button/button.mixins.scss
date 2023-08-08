@@ -48,7 +48,7 @@
     }
   }
 
-  &.btn-sm {
+  &.dso-small {
     @include small();
   }
 
@@ -156,7 +156,7 @@
   display: inline-block;
   font-size: 1em;
   font-weight: 500;
-  margin-bottom: 0; // For input.btn
+  margin-bottom: 0;
   text-decoration: none;
   touch-action: manipulation;
   text-align: left;
@@ -296,7 +296,7 @@
         }
       }
 
-      &.btn-sm:hover {
+      &.dso-small:hover {
         &::before {
           height: units.$u2;
           width: units.$u2;
@@ -317,7 +317,7 @@
         }
       }
 
-      &.btn-sm:hover {
+      &.dso-small:hover {
         &::after {
           height: units.$u2;
           width: units.$u2;
@@ -372,7 +372,7 @@
     }
   }
 
-  &.btn-align {
+  &.dso-align {
     line-height: calc(1.5em - 1px);
     padding: button-variables.$tertiary-padding-horizontal 0;
     position: relative;

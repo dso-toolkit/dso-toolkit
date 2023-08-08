@@ -7,14 +7,16 @@ import { ComponentImplementation } from "../../templates";
 export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "core",
-  template: ({ buttonTemplate, richContentTemplate }) =>
+  template: ({ richContentTemplate }) =>
     function alertTemplate({ status, message, onClick, withRoleAlert }) {
       return html`
         <dso-alert status=${status} ?role-alert=${withRoleAlert}>
           ${richContentTemplate({
             children: html`
               ${typeof message === "string" ? unsafeHTML(message) : message}
-              ${onClick ? buttonTemplate({ label: "Button", onClick, variant: null, modifier: "btn" }) : nothing}
+              ${onClick
+                ? html`<button type="button" class="dso-alert-button" @click=${onClick}><span>Button</span></button>`
+                : nothing}
             `,
           })}
         </dso-alert>

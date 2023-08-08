@@ -193,7 +193,7 @@ export class ListButton implements ComponentInterface {
     const selected = this.checked || (this.count !== undefined && this.count > 0);
 
     return (
-      <div class={clsx(["dso-btn-group", { "dso-disabled": this.disabled }])}>
+      <div class={clsx(["dso-button-group", { "dso-disabled": this.disabled }])}>
         <div
           class={clsx(["dso-list-button", { "dso-selected": selected, "dso-single-count": this.count === 1 }])}
           onClick={(e) => this.handleSelectClick(e)}

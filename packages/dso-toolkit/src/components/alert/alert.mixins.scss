@@ -30,7 +30,7 @@
       margin-top: units.$u1;
     }
 
-    #{button.$buttons} {
+    .dso-alert-button {
       background-color: rgba(25, 25, 25, 0.05);
       border-radius: button.$border-radius;
       border: 1px solid transparent;
@@ -46,7 +46,7 @@
 
   a {
     &,
-    &:not(.btn):visited {
+    &:not(.dso-alert-button):visited {
       color: colors.$zwart;
     }
 

@@ -7,13 +7,11 @@
   flex-wrap: wrap;
   gap: units.$u2;
 
-  .btn:not(.dso-list-button),
   .dso-primary,
   .dso-secondary,
   .dso-tertiary {
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
 
-    + .btn:not(.dso-list-button),
     + .dso-primary,
     + .dso-secondary,
     + .dso-tertiary {

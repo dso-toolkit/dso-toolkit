@@ -42,7 +42,7 @@ export const cssListButton: ComponentImplementation<ListButton> = {
       return html`
         ${listButton.hasInputNumber && listButton.inputNumber
           ? html`
-              <div class="dso-btn-group">
+              <div class="dso-button-group">
                 ${listButtonComponentTemplate(listButton)}
                 ${inputNumberTemplate({ ...listButton.inputNumber, count: listButton.count ?? 0 })}
               </div>

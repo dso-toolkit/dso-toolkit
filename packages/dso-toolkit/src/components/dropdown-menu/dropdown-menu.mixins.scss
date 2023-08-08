@@ -18,8 +18,7 @@
   > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
   > .dso-primary,
   > .dso-secondary,
-  > .dso-tertiary,
-  > .btn {
+  > .dso-tertiary {
     position: relative;
 
     &::after {
@@ -29,8 +28,7 @@
   }
 
   > .dso-primary,
-  > .dso-secondary,
-  > .btn {
+  > .dso-secondary {
     &::after {
       margin-left: units.$u1;
     }

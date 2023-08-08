@@ -5,8 +5,8 @@ import { Button, ButtonAnchor } from "./button.models.js";
 
 export interface ButtonArgs {
   element: "button" | "anchor";
-  legacy?: boolean;
   compact?: boolean;
+  align?: boolean;
   variant: "primary" | "secondary" | "tertiary";
   truncate?: boolean;
   click: HandlerFunction;
@@ -25,12 +25,12 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
       type: "select",
     },
   },
-  legacy: {
+  compact: {
     control: {
       type: "boolean",
     },
   },
-  compact: {
+  align: {
     control: {
       type: "boolean",
     },
@@ -84,17 +84,12 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   },
 };
 
-const legacyVariantMap = {
-  primary: "btn btn-primary",
-  secondary: "btn btn-default",
-  tertiary: "btn btn-link",
-};
-
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
-      return {
-        variant: a.legacy ? null : a.variant,
+      // eslint-disable-next-line no-case-declarations -- const anchor is immediately returned and only defined for static type
+      const anchor: ButtonAnchor = {
+        variant: a.variant,
         url: "#",
         label: a.label,
         icon: a.icon
@@ -104,15 +99,17 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`,
+        align: a.align,
+        compact: a.compact,
       };
+
+      return anchor;
     case "button":
       return {
-        variant: a.legacy ? null : a.variant,
+        variant: a.variant,
         truncate: a.truncate,
         onClick: a.click,
         type: a.type,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
         label: a.label,
         id: a.id,
         disabled: a.disabled,
@@ -123,6 +120,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
           : undefined,
         iconMode: a.iconMode,
         compact: a.compact,
+        align: a.align,
       };
     default:
       throw new Error("Unknown element type for Button component");

@@ -1,6 +1,7 @@
-import { storiesOf, moduleMetadata } from "@storybook/angular";
+import { moduleMetadata, storiesOf } from "@storybook/angular";
 
 import { storiesOfHighlightBox } from "dso-toolkit";
+
 import { DsoHighlightBox, DsoIcon } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { content } from "./highlight-box.content";
@@ -26,5 +27,5 @@ storiesOfHighlightBox({
     },
   },
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate }, templates) => ({ highlightBoxTemplate, content: content(templates) }),
+  storyTemplates: ({ highlightBoxTemplate }) => ({ highlightBoxTemplate, content: content() }),
 });

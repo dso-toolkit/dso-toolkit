@@ -1,7 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
-import { Templates } from "../../templates";
 
-export function richContent({ iconTemplate }: Templates): StoryFnAngularReturnType {
+export function richContent(): StoryFnAngularReturnType {
   return {
     template: `
       <div class="dso-rich-content">
@@ -15,11 +14,11 @@ export function richContent({ iconTemplate }: Templates): StoryFnAngularReturnTy
         </p>
 
         <div class="dso-button-row">
-          <a href="#" class="dso-primary">Primaire button</a>
-          <a href="#" class="dso-secondary">Secundaire button</a>
-          <a href="#" class="dso-tertiary btn-align">
-            Tertiaire button
-            ${iconTemplate({ icon: "'chevron-down'" }).template}
+          <a href="#" class="dso-primary"><span>Primaire button</span></a>
+          <a href="#" class="dso-secondary"><span>Secundaire button</span></a>
+          <a href="#" class="dso-tertiary">
+            <span>Tertiaire button</span>
+            <dso-icon icon="chevron-down"></dso-icon>
           </a>
         </div>
       </div>

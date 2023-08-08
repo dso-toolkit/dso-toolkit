@@ -30,7 +30,7 @@
   @include input-number.root();
 }
 
-.dso-btn-group {
+.dso-button-group {
   @include list-button.button-group(".dso-input-number", ".dso-list-button");
 }
 
@@ -52,9 +52,9 @@
 }
 
 .dso-list-button,
-.dso-btn-group {
+.dso-button-group {
   + .dso-list-button,
-  + .dso-btn-group {
+  + .dso-button-group {
     @include list-button.sibling();
   }
 }

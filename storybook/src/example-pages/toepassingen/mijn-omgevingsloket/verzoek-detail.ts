@@ -17,7 +17,7 @@ examplePageFactory(
           <div class="col-md-12">
             ${buttonRowTemplate({
               buttons: [
-                { label: "Naar project overzicht", modifier: "dso-tertiary", url: "#", icon: { icon: "chevron-left" } },
+                { label: "Naar project overzicht", variant: "tertiary", url: "#", icon: { icon: "chevron-left" } },
               ],
             })}
             ${applicationHeadingTemplate({

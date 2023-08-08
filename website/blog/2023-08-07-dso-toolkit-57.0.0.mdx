@@ -1,0 +1,105 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v57.0.0
+
+Dit is een breaking release vanwege de volgende issues:
+
+- [#1776 Button: Legacy Bootstrap selectors verwijderen](https://www.github.com/dso-toolkit/dso-toolkit/issues/1776)
+
+## Button: Legacy Bootstrap selectors verwijderen
+
+Lang lang geleden... Was de toolkit bovenop Bootstrap gebouwd. Bootstrap heeft ons een hoop gebracht, maar heeft ons ook in de weg gezeten. Zo'n 4 jaar geleden zijn wij begonnen met loskomen van Bootstrap. Dat is aardig gelukt en met dit issue zijn we er bijna.
+
+## Impact
+
+Deze change heeft impact op de volgende componenten:
+
+- Button: `<button class="btn btn-primary">`, `<button class="btn btn-default">`, `<button class="btn btn-link">`
+- Button Group. Alleen HTML/CSS implementatie: `<div class="dso-btn-group">`.
+- Alert. Alle implementaties: `<div class="alert">`, `<dso-alert>` en `<DsoAlert>`.
+
+### Button
+
+Met de "Legacy Bootstrap selectors" bedoelen we de volgende classes:
+
+- `btn`
+- `btn-primary`
+- `btn-default`
+- `btn-link`
+- `btn-sm`
+
+DSO Toolkit versie 25.0.0 van 2 juli 2021 bevatte issue [#856](https://github.com/dso-toolkit/dso-toolkit/issues/856) waarmee we bovenstaande classes hebben omgezet naar de UX en toolkit classes `dso-tertiary`, `dso-secondary` en `dso-tertiary`. Sinds 2 jaar ontmoedigen we het gebruik van de Bootstrap basis classes.
+
+Zie de volgende tabel hoe de classes gemigreerd worden.
+
+| ❌ Legacy Bootstrap selectors | ✅ DSO Toolkit selectors |
+| ----------------------------- | ------------------------ |
+| `.btn.btn-primary`            | `.dso-primary`           |
+| `.btn.btn-default`            | `.dso-secondary`         |
+| `.btn.btn-link`               | `.dso-tertiary`          |
+| `.btn-sm`                     | `.dso-small`             |
+| `.btn-align`                  | `.dso-align`             |
+
+```html
+❌
+<button type="button" class="btn btn-primary btn-sm btn-align">
+  <span>Dit is een voorbeeld</span>
+</button>
+
+✅
+<button type="button" class="dso-primary dso-small dso-align">
+  <span>Dit is een voorbeeld</span>
+</button>
+```
+
+### Button Group
+
+Dit component had de root selector `.dso-btn-group`. Dat is nu `.dso-button-group`.
+
+```html
+❌
+<div class="dso-btn-group">
+  <button></button>
+  <button></button>
+  <button></button>
+</div>
+
+✅
+<div class="dso-button-group">
+  <button></button>
+  <button></button>
+  <button></button>
+</div>
+```
+
+### Alert
+
+Het Alert component maakte alleen van de basis class `btn` gebruik. Deze class is vervangen door `dso-alert-button`:
+
+Dit geldt voor alle implementaties!
+
+```html
+❌
+<div class="alert alert-success">
+  <!-- of <dso-alert status="success"> of <DsoAlert status="success"> -->
+  <div class="dso-rich-content">
+    <p>Succes!</p>
+    <button type="button" class="btn">
+      <span>Button</span>
+    </button>
+  </div>
+</div>
+
+✅
+<div class="alert alert-success">
+  <div class="dso-rich-content">
+    <p>Succes!</p>
+    <button type="button" class="dso-alert-button">
+      <!--                      👆 -->
+      <span>Button</span>
+    </button>
+  </div>
+</div>
+```

@@ -14,7 +14,7 @@ export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {
           <div className="dso-rich-content">
             {typeof message === "string" ? <div dangerouslySetInnerHTML={{ __html: message }} /> : message}
             {onClick && (
-              <button type="button" className="btn" onClick={(e) => onClick(e.nativeEvent)}>
+              <button type="button" className="dso-alert-button" onClick={(e) => onClick(e.nativeEvent)}>
                 Button
               </button>
             )}
