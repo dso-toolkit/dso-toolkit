@@ -2,6 +2,7 @@
 @use "../../variables/media-query-breakpoints";
 @use "../rich-content";
 @use "../list";
+@use "../../di";
 
 @use "list.variables" as css-list-variables;
 
@@ -91,5 +92,36 @@ ol {
 
   &.dso-list-unstyled {
     @include list.unstyled();
+  }
+}
+
+ul {
+  > li.dso-forbidden,
+  > li.dso-status-warning {
+    list-style: none;
+    position: relative;
+
+    &::before {
+      background-position: center;
+      background-size: cover;
+      content: "";
+      height: 1em;
+      left: -1.2em;
+      position: absolute;
+      top: 0.25em;
+      width: 1em;
+    }
+  }
+
+  > li.dso-forbidden {
+    &::before {
+      @include di.variant("forbidden-rood");
+    }
+  }
+
+  > li.dso-status-warning {
+    &::before {
+      @include di.variant("status-warning");
+    }
   }
 }
