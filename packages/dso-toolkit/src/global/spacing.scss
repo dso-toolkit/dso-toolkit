@@ -12,6 +12,10 @@
 // To Do: re-evaluate vertical rhythm
 :where(.dso-button-row) {
   margin-block: units.$u2 units.$u4;
+
+  &:last-child {
+    margin-block-end: 0;
+  }
 }
 
 // within dso-highlight-box, create space for dso-button-row when preceded and/or followed by other elements
