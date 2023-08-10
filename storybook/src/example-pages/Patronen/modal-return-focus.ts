@@ -1,7 +1,37 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { html } from "lit-html";
+
 import { examplePageFactory } from "../../example-page-factory";
 
-examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTemplate }) => {
+examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate }) => {
+  const createModal = (returnFocus?: any) => {
+    const modal = document.createElement("dso-modal");
+
+    modal.setAttribute("modal-title", "Modal");
+
+    const body = document.createElement("div");
+    body.setAttribute("slot", "body");
+    body.innerText = "test";
+
+    const footer = document.createElement("div");
+    footer.setAttribute("slot", "footer");
+    footer.innerHTML = "<button type='button' class='dso-primary'>Bevestigen</button>";
+
+    modal.appendChild(body);
+    modal.appendChild(footer);
+
+    modal.addEventListener("dsoClose", () => document.querySelector("main")?.removeChild(modal));
+
+    if (returnFocus) {
+      (modal as any).returnFocus = returnFocus;
+    }
+
+    return modal;
+  };
+
+  const openModal = () => document.querySelector("main")?.appendChild(createModal());
+  const openModalWithReturn = (returnFocus: any) => document.querySelector("main")?.appendChild(createModal(returnFocus));
+
   return html`
     <div class="container">
       <main>
@@ -13,16 +43,7 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTem
           id: "activate-modal",
           label: "Open modal",
           variant: "primary",
-          onClick: () => {
-            modalTemplate({
-              modalTitle: "Modal",
-              body: html`test`,
-              footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
-              showCloseButton: true,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              dsoClose: () => (window as any).modalRef.close(),
-            });
-          },
+          onClick: openModal,
         })}
 
         <h2>ModalElement.returnFocus</h2>
@@ -33,24 +54,14 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTem
         ${buttonTemplate({
           label: "Open modal met returnFocus",
           variant: "primary",
-          onClick: () => {
-            modalTemplate({
-              modalTitle: "Modal",
-              body: html`test`,
-              footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
-              showCloseButton: true,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              dsoClose: () => (window as any).modalRef.close(),
-              returnFocus: () => {
-                const button = document.querySelector<HTMLButtonElement>("button#activate-modal");
-                if (!button) {
-                  throw new Error("No button#activate-modal found");
-                }
+          onClick: () => openModalWithReturn(() => {
+            const button = document.querySelector<HTMLButtonElement>("button#activate-modal");
+            if (!button) {
+              throw new Error("No button#activate-modal found");
+            }
 
-                return button;
-              },
-            });
-          },
+            return button;
+          })
         })}
       </main>
     </div>

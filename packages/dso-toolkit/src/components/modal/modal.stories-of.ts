@@ -1,3 +1,4 @@
+import { Addon_DecoratorFunction } from "@storybook/types";
 import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
 
 import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args.js";
@@ -24,56 +25,7 @@ const storyObserver = new MutationObserver(([titleMutationRecord]) => {
   }
 
   if (titleMutationRecord.target.textContent?.startsWith("HTML|CSS / Modal")) {
-    setTimeout(() => {
-      const dialog = document.getElementById("storybook-root")?.querySelector("dialog");
-
-      if (dialog instanceof HTMLDialogElement) {
-        dialog.showModal();
-      }
-    }, 400);
     toggleClass("dso-modal-open");
-  }
-
-  if (titleMutationRecord.target.textContent?.startsWith("Core / Modal")) {
-    setTimeout(
-      () =>
-        onStory(
-          () => null,
-          () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const modalRef = (window as any).modalRef;
-
-            if (modalRef) {
-              modalRef.close();
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              delete (window as any).modalRef;
-            }
-          }
-        ),
-      400
-    );
-  }
-
-  if (titleMutationRecord.target.textContent?.startsWith("Modal")) {
-    setTimeout(
-      () =>
-        onStory(
-          () => null,
-          () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const modalRef = (window as any).modalRef;
-
-            if (modalRef.framework === "angular") {
-              modalRef.ref.close();
-            }
-
-            if (modalRef.framework === "react") {
-              modalRef.ref.remove();
-            }
-          }
-        ),
-      400
-    );
   }
 
   if (onLeave) {
@@ -133,18 +85,27 @@ export interface ModalTemplates<TemplateFnReturnType> {
   datePickerBody: TemplateFnReturnType;
 }
 
+export interface ModalParameters<TemplateFnReturnType> {
+  decorator?: Addon_DecoratorFunction<TemplateFnReturnType>;
+}
+
 export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
   storiesOfArguments: StoriesOfArguments<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ModalTemplates<TemplateFnReturnType>
-  >
+  >,
+  { decorator }: ModalParameters<TemplateFnReturnType>
 ) {
   return storiesOfFactory("Modal", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: modalArgTypes,
     });
+
+    if (decorator) {
+      stories.addDecorator(decorator);
+    }
 
     stories.add(
       "confirm",

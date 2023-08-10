@@ -1,6 +1,7 @@
-import { DsoModalController } from "@dso-toolkit/core";
 import { Modal } from "dso-toolkit";
-import { html, TemplateResult, render } from "lit-html";
+import { html, TemplateResult } from "lit-html";
+
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -8,42 +9,30 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "core",
   template: () =>
-    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose, returnFocus }) {
-      const open = () => {
-        /* eslint-disable @typescript-eslint/no-explicit-any */
-        if ((window as any).modalRef) {
-          (window as any).modalRef.close();
-          delete (window as any).modalRef;
-        }
-        /* eslint-enable @typescript-eslint/no-explicit-any */
-
-        const controller = new DsoModalController();
-
-        const bodyElement = document.createDocumentFragment();
-        const footerElement = document.createDocumentFragment();
-
-        render(body, bodyElement);
-        render(footer, footerElement);
-
-        const modalRef = controller.open(
-          {
-            title: modalTitle,
-            body: bodyElement,
-            footer: footerElement.childElementCount ? footerElement : undefined,
-          },
-          { fullscreen, role, showCloseButton, initialFocus, returnFocus }
-        );
-
-        if (dsoClose) {
-          modalRef.addEventListener("dsoClose", dsoClose as EventListenerOrEventListenerObject);
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any)["modalRef"] = modalRef;
-      };
-
-      open();
-
-      return html``;
+    function modalTemplate({
+      fullscreen,
+      modalTitle,
+      role,
+      showCloseButton,
+      initialFocus,
+      body,
+      footer,
+      dsoClose,
+      returnFocus,
+    }) {
+      return html`
+        <dso-modal
+          role=${role}
+          modal-title=${ifDefined(modalTitle)}
+          show-close-button=${ifDefined(showCloseButton)}
+          initial-focus=${ifDefined(initialFocus)}
+          ?fullscreen=${ifDefined(fullscreen)}
+          return-focus=${ifDefined(returnFocus)}
+          @dsoClose=${dsoClose}
+        >
+          <div slot="body">${body}</div>
+          ${footer && html`<div slot="footer">${footer}</div>`}
+        </dso-modal>
+      `;
     },
 };

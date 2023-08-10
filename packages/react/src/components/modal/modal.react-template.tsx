@@ -4,29 +4,35 @@ import * as React from "react";
 
 import { DsoModal } from "../../components";
 import { ComponentImplementation } from "../../templates";
-import { DsoModalPortal } from "../../react-components/modal-portal.component";
 
 export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
   component: "modal",
   implementation: "react",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose, returnFocus }) {
+    function modalTemplate({
+      fullscreen,
+      modalTitle,
+      role,
+      showCloseButton,
+      initialFocus,
+      body,
+      footer,
+      dsoClose,
+      returnFocus,
+    }) {
       return (
-        <DsoModalPortal>
-          <DsoModal
-            role={role}
-            modalTitle={modalTitle}
-            showCloseButton={showCloseButton ?? true}
-            initialFocus={initialFocus}
-            returnFocus={returnFocus}
-            onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ref={(el) => ((window as any)["modalRef"] = { framework: "react", ref: el })}
-          >
-            <div slot="body">{body}</div>
-            {footer && <div slot="footer">{footer}</div>}
-          </DsoModal>
-        </DsoModalPortal>
+        <DsoModal
+          fullscreen={fullscreen}
+          role={role}
+          modalTitle={modalTitle}
+          showCloseButton={showCloseButton ?? true}
+          initialFocus={initialFocus}
+          returnFocus={returnFocus}
+          onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
+        >
+          <div slot="body">{body}</div>
+          {footer && <div slot="footer">{footer}</div>}
+        </DsoModal>
       );
     },
 };

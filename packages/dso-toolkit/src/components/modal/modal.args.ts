@@ -16,7 +16,7 @@ export interface ModalArgs {
 
 export const modalArgTypes: ArgTypes<ModalArgs> = {
   fullscreen: {
-    ...noControl
+    ...noControl,
   },
   modalTitle: {
     ...noControl,

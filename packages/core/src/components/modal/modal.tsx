@@ -73,13 +73,14 @@ export class Modal implements ComponentInterface {
 
   componentDidLoad(): void {
     this.htmlDialogElement?.showModal();
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("dso-modal-open");
     this.setFocusTrap();
   }
 
   disconnectedCallback(): void {
     this.trap?.deactivate({ onDeactivate: () => undefined }); // override FocusTrap onDeactivate callback to avoid double event emits
-    document.body.style.removeProperty("overflow");
+    document.body.classList.remove("dso-modal-open");
+    this.htmlDialogElement?.close();
   }
 
   render() {
