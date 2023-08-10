@@ -32,22 +32,9 @@
     background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
   }
 
+  // fullscreen optie
   &[fullscreen] {
-    inline-size: 100dvi;
-    block-size: 100dvb;
-    .dso-dialog {
-      display: flex;
-      flex-direction: column;
-
-      max-inline-size: 100%;
-      block-size: 100%;
-
-      > dso-scrollable {
-        flex-grow: 1;
-
-        max-block-size: unset;
-      }
-    }
+    @include fullscreen(htmlcss);
   }
 
   .dso-dialog {
@@ -204,6 +191,11 @@
       padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
     }
   }
+
+  // html/css version fullscreen on =< 480px viewport
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    @include fullscreen(htmlcss);
+  }
 }
 
 @mixin modal-wide-buttons() {
@@ -228,6 +220,38 @@
         }
       }
     }
+  }
+}
+
+@mixin fullscreen($target) { // always declare target
+  @if $target == "core" {
+    .dso-modal {
+      inline-size: 100dvi;
+      block-size: 100dvb;
+    }
+  } @else {
+    @if $target == "htmlcss" {
+      inline-size: 100dvi;
+      block-size: 100dvb;
+    }
+  }
+
+  .dso-dialog {
+    display: flex;
+    flex-direction: column;
+
+    max-inline-size: 100%;
+    block-size: 100%;
+
+    > dso-scrollable {
+      flex-grow: 1;
+
+      max-block-size: unset;
+    }
+  }
+
+  .dso-footer {
+    flex-shrink: 0;
   }
 }
 

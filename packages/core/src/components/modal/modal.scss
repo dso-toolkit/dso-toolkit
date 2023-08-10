@@ -27,49 +27,14 @@ button {
   }
 }
 
+// fullscreen option
 :host([fullscreen]) {
-  .dso-modal {
-    inline-size: 100dvi;
-    block-size: 100dvb;
-  }
-
-  .dso-dialog {
-    display: flex;
-    flex-direction: column;
-
-    max-inline-size: 100%;
-    block-size: 100%;
-
-    > dso-scrollable {
-      flex-grow: 1;
-
-      max-block-size: unset;
-    }
-  }
+  @include modal.fullscreen(core);
 }
+
+// Go to fullscreen on =< 480px viewport
 @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
   :host {
-    .dso-modal {
-      inline-size: 100dvi;
-      block-size: 100dvb;
-    }
-
-    .dso-dialog {
-      display: flex;
-      flex-direction: column;
-
-      max-inline-size: 100%;
-      block-size: 100%;
-
-      > dso-scrollable {
-        flex-grow: 1;
-
-        max-block-size: unset;
-      }
-    }
-
-    .dso-footer {
-      flex-shrink: 0;
-    }
+    @include modal.fullscreen(core);
   }
 }
