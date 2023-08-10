@@ -18,7 +18,6 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
 
       return html`
         <dialog
-          open
           class="dso-modal"
           role=${role}
           aria-modal="true"

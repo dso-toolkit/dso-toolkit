@@ -15,13 +15,22 @@ function onStory(load: () => void, unload: () => void) {
 const storyObserver = new MutationObserver(([titleMutationRecord]) => {
   if (
     !titleMutationRecord ||
-    !(titleMutationRecord instanceof HTMLTitleElement) ||
+    !titleMutationRecord.target.textContent ||
+    /* titleMutationRecord.target is HTMLElement, maar instanceOf geeft false. */
+    // !(titleMutationRecord instanceof HTMLTitleElement) ||
     titleMutationRecord.target.textContent?.includes(" - Docs")
   ) {
     return;
   }
 
   if (titleMutationRecord.target.textContent?.startsWith("HTML|CSS / Modal")) {
+    setTimeout(() => {
+      const dialog = document.getElementById("storybook-root")?.querySelector("dialog");
+
+      if (dialog instanceof HTMLDialogElement) {
+        dialog.showModal();
+      }
+    }, 400);
     toggleClass("dso-modal-open");
   }
 
