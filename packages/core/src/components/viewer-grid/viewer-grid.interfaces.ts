@@ -14,3 +14,9 @@ export interface FilterpanelEvent {
 export type MainSize = "small" | "medium" | "large";
 
 export type LabelSizeMap = { [key in MainSize]: string };
+
+export const tabs = ["main", "map"] as const;
+
+export type Tabs = (typeof tabs)[number];
+
+export type TabLabelMap = { [key in Tabs]: string };

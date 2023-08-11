@@ -3,65 +3,15 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/headings";
+@use "~dso-toolkit/src/components/navbar";
 
 @use "viewer-grid.variables" as core-viewer-grid-variables;
 
 @include utilities.box-sizing();
-
-:host {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-:host([small]) {
-  .dso-map-panel {
-    flex-basis: core-viewer-grid-variables.$small;
-    min-width: 0;
-    max-width: core-viewer-grid-variables.$small;
-
-    @media screen and (max-width: core-viewer-grid-variables.$small) {
-      flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: 0;
-      transition: none;
-    }
-  }
-}
-
-:host([medium]) {
-  .dso-map-panel {
-    flex-basis: core-viewer-grid-variables.$medium;
-    min-width: core-viewer-grid-variables.$small;
-    max-width: core-viewer-grid-variables.$medium;
-
-    @media screen and (max-width: core-viewer-grid-variables.$medium) {
-      flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: core-viewer-grid-variables.$small;
-      transition: none;
-    }
-  }
-}
-
-:host([large]) {
-  .dso-map-panel {
-    flex-basis: core-viewer-grid-variables.$large;
-    min-width: core-viewer-grid-variables.$large-min;
-    max-width: core-viewer-grid-variables.$large-max;
-
-    @media screen and (max-width: core-viewer-grid-variables.$large-min) {
-      flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: core-viewer-grid-variables.$large-min;
-      transition: none;
-    }
-  }
-}
 
 button {
   @include button.element();
@@ -93,10 +43,8 @@ button {
 
 .dso-map-panel {
   background-color: colors.$wit;
-  box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
   flex-grow: 0;
-  padding-right: units.$u1;
   position: relative;
   transition: flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-width core-viewer-grid-variables.$transition-time ease-in,
@@ -110,7 +58,6 @@ button {
 
   .main {
     height: 100%;
-    overflow-y: scroll;
     padding: 0 css-grid.$grid-gutter-width * 0.5 units.$u1;
   }
 }
@@ -237,5 +184,99 @@ button {
 
   .cancel-button + .apply-button {
     margin-left: units.$u2;
+  }
+}
+
+@media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+  :host {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  :host([small]) {
+    .dso-map-panel {
+      flex-basis: core-viewer-grid-variables.$small;
+      min-width: 0;
+      max-width: core-viewer-grid-variables.$small;
+
+      @media screen and (max-width: core-viewer-grid-variables.$small) {
+        flex-basis: 100vw;
+        max-width: 100vw;
+        min-width: 0;
+        transition: none;
+      }
+    }
+  }
+
+  :host([medium]) {
+    .dso-map-panel {
+      flex-basis: core-viewer-grid-variables.$medium;
+      min-width: core-viewer-grid-variables.$small;
+      max-width: core-viewer-grid-variables.$medium;
+
+      @media screen and (max-width: core-viewer-grid-variables.$medium) {
+        flex-basis: 100vw;
+        max-width: 100vw;
+        min-width: core-viewer-grid-variables.$small;
+        transition: none;
+      }
+    }
+  }
+
+  :host([large]) {
+    .dso-map-panel {
+      flex-basis: core-viewer-grid-variables.$large;
+      min-width: core-viewer-grid-variables.$large-min;
+      max-width: core-viewer-grid-variables.$large-max;
+
+      @media screen and (max-width: core-viewer-grid-variables.$large-min) {
+        flex-basis: 100vw;
+        max-width: 100vw;
+        min-width: core-viewer-grid-variables.$large-min;
+        transition: none;
+      }
+    }
+  }
+
+  .dso-map-panel {
+    box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
+    padding-right: units.$u1;
+
+    .main {
+      overflow-y: scroll;
+    }
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  @include navbar.root();
+
+  .dso-navbar {
+    padding-inline: units.$u2;
+  }
+
+  .dso-nav {
+    @include navbar.nav-border();
+
+    display: flex;
+    gap: units.$u2;
+    margin-block-start: 0;
+    width: calc(100vw - units.$u4);
+  }
+
+  .dso-tertiary {
+    @include button.tertiary($modifiers: false);
+
+    font-weight: 300;
+  }
+
+  .filterpanel,
+  .overlay {
+    height: auto;
+    margin: 20px;
+    top: 0;
+    width: calc(100% - 40px);
   }
 }

@@ -1,7 +1,18 @@
 import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
-import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
-import { FilterpanelEvent, LabelSizeMap, MainSize, ViewerGridChangeSizeEvent } from "./viewer-grid.interfaces";
+import clsx from "clsx";
+
+import {
+  FilterpanelEvent,
+  LabelSizeMap,
+  MainSize,
+  TabLabelMap,
+  Tabs,
+  ViewerGridChangeSizeEvent,
+  tabs,
+} from "./viewer-grid.interfaces";
+import { Filterpanel } from "./components/filterpanel";
+import { MapPanel } from "./components/map-panel";
 
 @Component({
   tag: "dso-viewer-grid",
@@ -13,6 +24,11 @@ export class ViewerGrid {
     small: "smal",
     medium: "middel",
     large: "breed",
+  };
+
+  private tabLabelMap: TabLabelMap = {
+    main: "Hoofpaneel",
+    map: "Kaart",
   };
 
   private mapPanel?: HTMLDivElement;
@@ -39,6 +55,12 @@ export class ViewerGrid {
 
   @State()
   mainSize: MainSize = "large";
+
+  @State()
+  tabView = window.innerWidth < 768;
+
+  @State()
+  activeTab: Tabs = "main";
 
   /**
    * Emitted when user wants to close the overlay.
@@ -145,6 +167,10 @@ export class ViewerGrid {
   };
 
   connectedCallback() {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener("change", (largeScreen) => (this.tabView = !largeScreen.matches));
+
     this.filterpanelSlot = this.host.querySelector<HTMLDivElement>("div[slot='filterpanel']");
 
     this.overlaySlot = this.host.querySelector<HTMLDivElement>("div[slot='overlay']");
@@ -189,6 +215,9 @@ export class ViewerGrid {
     this.filterpanelFocustrap?.deactivate();
 
     this.host.removeEventListener("keydown", this.keyDownListener);
+    window
+      .matchMedia("(min-width: 768px)")
+      .removeEventListener("change", (largeScreen) => (this.tabView = !largeScreen.matches));
   }
 
   private handleFilterpanelApply(mouseEvent: MouseEvent) {
@@ -202,45 +231,51 @@ export class ViewerGrid {
   render() {
     return (
       <Host {...{ [this.mainSize]: true }}>
-        <div class="dso-map-panel" ref={(element) => (this.mapPanel = element)}>
-          <div class="sizing-buttons">
-            <span class="sr-only" aria-live="polite" aria-atomic="true">
-              Breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
-            </span>
-            <button type="button" class="shrink" disabled={this.mainSize === "small"} onClick={this.shrinkMain}>
-              <span class="sr-only">Tekstpaneel smaller maken</span>
-              <dso-icon icon="chevron-left"></dso-icon>
-            </button>
-            <button type="button" class="expand" disabled={this.mainSize === "large"} onClick={this.expandMain}>
-              <span class="sr-only">Tekstpaneel breder maken</span>
-              <dso-icon icon="chevron-right"></dso-icon>
-            </button>
-          </div>
-          <div class="main">
-            <slot name="main" />
-          </div>
-        </div>
-        <div
-          id="filterpanel"
-          class="filterpanel"
-          hidden={!this.filterpanelOpen || !this.filterpanelSlot}
+        {this.tabView && (
+          <nav class="dso-navbar">
+            <ul class="dso-nav dso-nav-main">
+              {tabs.map((tab) => (
+                <li class={clsx({ "dso-active": this.activeTab === tab })}>
+                  <button type="button" class="dso-tertiary" onClick={() => (this.activeTab = tab)}>
+                    {this.tabLabelMap[tab]}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+        {(!this.tabView || (this.tabView && this.activeTab === "main")) && (
+          <MapPanel ref={(element) => (this.mapPanel = element)}>
+            {!this.tabView && (
+              <div class="sizing-buttons">
+                <span class="sr-only" aria-live="polite" aria-atomic="true">
+                  Breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
+                </span>
+                <button type="button" class="shrink" disabled={this.mainSize === "small"} onClick={this.shrinkMain}>
+                  <span class="sr-only">Tekstpaneel smaller maken</span>
+                  <dso-icon icon="chevron-left"></dso-icon>
+                </button>
+                <button type="button" class="expand" disabled={this.mainSize === "large"} onClick={this.expandMain}>
+                  <span class="sr-only">Tekstpaneel breder maken</span>
+                  <dso-icon icon="chevron-right"></dso-icon>
+                </button>
+              </div>
+            )}
+          </MapPanel>
+        )}
+        <Filterpanel
           ref={(element) => (this.filterpanel = element)}
-        >
-          <h1>Uw keuzes</h1>
-          <ViewerGridFilterpanelButtons
-            onApply={(e) => this.handleFilterpanelApply(e)}
-            onCancel={(e) => this.handleFilterpanelCancel(e)}
-          />
-          <slot name="filterpanel" />
-          <ViewerGridFilterpanelButtons
-            onApply={(e) => this.handleFilterpanelApply(e)}
-            onCancel={(e) => this.handleFilterpanelCancel(e)}
-          />
-        </div>
-        <div class="map">
-          <slot name="map" />
-        </div>
-        <div hidden={!this.overlayOpen || !this.overlaySlot} class="dimscreen"></div>
+          filterpanelOpen={this.filterpanelOpen}
+          filterpanelSlot={this.filterpanelSlot}
+          onApply={(e) => this.handleFilterpanelApply(e)}
+          onCancel={(e) => this.handleFilterpanelCancel(e)}
+        ></Filterpanel>
+        {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
+          <div class="map">
+            <slot name="map" />
+          </div>
+        )}
+        <div hidden={!this.overlayOpen || !this.overlaySlot || this.tabView} class="dimscreen"></div>
         <div
           class="overlay"
           hidden={!this.overlayOpen || !this.overlaySlot}
