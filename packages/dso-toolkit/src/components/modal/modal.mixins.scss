@@ -110,6 +110,12 @@
     }
   }
 
+  .dso-body {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
   .dso-footer {
     @include modal-wide-buttons();
 
