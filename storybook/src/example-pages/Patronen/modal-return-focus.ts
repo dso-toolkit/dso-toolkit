@@ -30,7 +30,8 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate }) => {
   };
 
   const openModal = () => document.querySelector("main")?.appendChild(createModal());
-  const openModalWithReturn = (returnFocus: any) => document.querySelector("main")?.appendChild(createModal(returnFocus));
+  const openModalWithReturn = (returnFocus: any) =>
+    document.querySelector("main")?.appendChild(createModal(returnFocus));
 
   return html`
     <div class="container">
@@ -54,14 +55,15 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate }) => {
         ${buttonTemplate({
           label: "Open modal met returnFocus",
           variant: "primary",
-          onClick: () => openModalWithReturn(() => {
-            const button = document.querySelector<HTMLButtonElement>("button#activate-modal");
-            if (!button) {
-              throw new Error("No button#activate-modal found");
-            }
+          onClick: () =>
+            openModalWithReturn(() => {
+              const button = document.querySelector<HTMLButtonElement>("button#activate-modal");
+              if (!button) {
+                throw new Error("No button#activate-modal found");
+              }
 
-            return button;
-          })
+              return button;
+            }),
         })}
       </main>
     </div>

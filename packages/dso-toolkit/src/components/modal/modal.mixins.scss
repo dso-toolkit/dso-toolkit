@@ -229,17 +229,18 @@
   }
 }
 
-@mixin fullscreen($target) { // always declare target
+@mixin fullscreen($target) {
+  // always declare target
   @if $target == "core" {
     .dso-modal {
       inline-size: 100dvi;
       block-size: 100dvb;
     }
+  } @else if $target == "htmlcss" {
+    inline-size: 100dvi;
+    block-size: 100dvb;
   } @else {
-    @if $target == "htmlcss" {
-      inline-size: 100dvi;
-      block-size: 100dvb;
-    }
+    @error "Please use 'core' or 'htmlcss'";
   }
 
   .dso-dialog {
