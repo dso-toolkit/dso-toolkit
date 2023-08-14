@@ -7,9 +7,9 @@ git:
   depth: false
 stages:
   - name: ci/cd
-    if: type = push && (branch =~ /^#/ || branch = master || tag =~ /^v/)
+    if: branch =~ /^#/ || branch = master || tag =~ /^v/
 jobs:
   include:
-    - name: dedupe check, npm audit, lint, build, build-www, e2e, deploy
+    - name: dedupe check, npm audit, lint, danger ci, build, build-www, e2e, deploy
       stage: ci/cd
       script: bash cicd.sh

@@ -18,8 +18,13 @@ docker build \
   --tag ghcr.io/dso-toolkit/dso-toolkit:${TAG} \
   --progress plain \
   --build-arg CI \
+  --build-arg DANGER_GITHUB_API_TOKEN \
   --build-arg TRAVIS_BRANCH \
   --build-arg TRAVIS_TAG \
+  --build-arg TRAVIS_PULL_REQUEST \
+  --build-arg TRAVIS_REPO_SLUG \
+  --build-arg TRAVIS_JOB_ID \
+  --build-arg HAS_JOSH_K_SEAL_OF_APPROVAL \
   --pull \
   .
 
@@ -35,7 +40,6 @@ docker run \
 docker run \
   --env CI \
   --env DT_PRIVATE_KEY_BASE64 \
-  --env DANGER_GITHUB_API_TOKEN \
   --env DT_DEPLOY_HOST \
   --env DT_DEPLOY_PORT \
   --env DT_DEPLOY_USER \
