@@ -40,11 +40,19 @@ COPY . .
 RUN yarn dedupe --check
 RUN (yarn npm audit --all --recursive || true)
 RUN yarn lint
-RUN yarn build
 
 ARG CI
-ARG TRAVIS_TAG
+ARG DANGER_GITHUB_API_TOKEN
 ARG TRAVIS_BRANCH
+ARG TRAVIS_TAG
+ARG TRAVIS_PULL_REQUEST
+ARG TRAVIS_REPO_SLUG
+ARG TRAVIS_JOB_ID
+ARG HAS_JOSH_K_SEAL_OF_APPROVAL
+
+RUN yarn danger ci --failOnErrors
+
+RUN yarn build
 
 RUN yarn build-www
 
