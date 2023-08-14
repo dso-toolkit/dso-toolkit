@@ -26,6 +26,11 @@ body.dso-modal-open {
 .dso-modal {
   @include modal.root();
 
+  // fullscreen optie
+  &[fullscreen] {
+    @include modal.fullscreen(htmlcss);
+  }
+
   .dso-close {
     &::before {
       @include di.base("times");
@@ -47,11 +52,11 @@ body.dso-modal-open {
 }
 
 dso-modal {
-  *[slot="body"] {
+  [slot="body"] {
     @include rich-content.children();
   }
 
-  div[slot="footer"] {
+  [slot="footer"] {
     @include modal.modal-wide-buttons();
 
     .dso-tertiary {

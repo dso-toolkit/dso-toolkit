@@ -10,22 +10,25 @@ export interface ModalArgs {
   modalTitle: string;
   role: ModalRole;
   showCloseButton: boolean;
-  initialFocus: string;
   dsoClose: HandlerFunction;
 }
 
 export const modalArgTypes: ArgTypes<ModalArgs> = {
   fullscreen: {
-    ...noControl,
+    control: {
+      type: "boolean",
+    },
   },
   modalTitle: {
-    ...noControl,
+    control: {
+      type: "text",
+    },
   },
   role: {
-    ...noControl,
-  },
-  initialFocus: {
-    type: "string",
+    options: [undefined, "dialog", "alert", "alertdialog"],
+    control: {
+      type: "select",
+    },
   },
   showCloseButton: {
     control: {

@@ -101,6 +101,9 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
   return storiesOfFactory("Modal", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: modalArgTypes,
+      args: {
+        role: undefined,
+      },
     });
 
     if (decorator) {

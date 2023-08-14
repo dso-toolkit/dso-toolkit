@@ -21,8 +21,8 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
           class="dso-modal"
           role=${role}
           aria-modal="true"
-          aria-labelledby=${ifDefined(modalTitle && ariaId)}
-          ?fullscreen=${ifDefined(fullscreen)}
+          aria-labelledby=${ifDefined(modalTitle ? ariaId : undefined)}
+          ?fullscreen=${fullscreen}
         >
           <div class="dso-dialog" role="document">
             ${modalTitle && ariaId

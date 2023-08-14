@@ -23,18 +23,11 @@
   // ------
   // overwrite UA styles:
   overflow: visible;
-
   padding: 0;
-
   border: 0;
 
   &::backdrop {
     background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
-  }
-
-  // fullscreen optie
-  &[fullscreen] {
-    @include fullscreen(htmlcss);
   }
 
   .dso-dialog {

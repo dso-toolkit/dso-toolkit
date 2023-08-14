@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from "@stencil/core";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State } from "@stencil/core";
 import { v4 } from "uuid";
 
 import { DsoModalCloseEvent } from "./modal.interfaces";
@@ -40,15 +40,11 @@ export class Modal implements ComponentInterface {
 
   /**
    * when `false` the close button in the header will not be rendered. Defaults to `true`.
+   *
+   * Needs `modalTitle` to be set.
    */
   @Prop()
   showCloseButton = true;
-
-  /**
-   * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
-   */
-  @Prop()
-  initialFocus?: string;
 
   /**
    * Emitted when the user wants to close the Modal.
@@ -57,7 +53,7 @@ export class Modal implements ComponentInterface {
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 
   componentWillLoad(): void {
-    this.hasFooter = this.host.querySelector("*[slot = 'footer']") !== null;
+    this.hasFooter = this.host.querySelector("[slot='footer']") !== null;
   }
 
   componentDidLoad(): void {
@@ -72,45 +68,43 @@ export class Modal implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
-        <dialog
-          class="dso-modal"
-          role={this.role ?? undefined}
-          aria-modal="true"
-          aria-labelledby={this.ariaId}
-          ref={(element) => (this.htmlDialogElement = element)}
-        >
-          <div class="dso-dialog" role="document">
-            {this.modalTitle ? (
-              <div class="dso-header">
-                <h2 id={this.ariaId}>{this.modalTitle}</h2>
-                {this.showCloseButton && (
-                  <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-                    <dso-icon icon="times"></dso-icon>
-                    <span class="sr-only">Sluiten</span>
-                  </button>
-                )}
-              </div>
-            ) : (
-              <span class="sr-only" id={this.ariaId}>
-                Dialoog
-              </span>
-            )}
+      <dialog
+        class="dso-modal"
+        role={this.role ?? undefined}
+        aria-modal="true"
+        aria-labelledby={this.ariaId}
+        ref={(element) => (this.htmlDialogElement = element)}
+      >
+        <div class="dso-dialog" role="document">
+          {this.modalTitle ? (
+            <div class="dso-header">
+              <h2 id={this.ariaId}>{this.modalTitle}</h2>
+              {this.showCloseButton && (
+                <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
+                  <dso-icon icon="times"></dso-icon>
+                  <span class="sr-only">Sluiten</span>
+                </button>
+              )}
+            </div>
+          ) : (
+            <span class="sr-only" id={this.ariaId}>
+              Dialoog
+            </span>
+          )}
 
-            <dso-scrollable>
-              <div class="dso-body" tabIndex={0}>
-                <slot name="body" />
-              </div>
-            </dso-scrollable>
+          <dso-scrollable>
+            <div class="dso-body" tabIndex={0}>
+              <slot name="body" />
+            </div>
+          </dso-scrollable>
 
-            {this.hasFooter && (
-              <div class="dso-footer">
-                <slot name="footer" />
-              </div>
-            )}
-          </div>
-        </dialog>
-      </Fragment>
+          {this.hasFooter && (
+            <div class="dso-footer">
+              <slot name="footer" />
+            </div>
+          )}
+        </div>
+      </dialog>
     );
   }
 }

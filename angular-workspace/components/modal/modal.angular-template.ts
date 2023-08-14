@@ -16,7 +16,6 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [role]="role"
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
-            [initialFocus]="initialFocus"
             (dsoClose)="dsoClose?.($event)"
           >
             <div slot="body" [innerHTML]="body.template | trustHtml"></div>

@@ -603,10 +603,6 @@ export namespace Components {
          */
         "fullscreen"?: boolean;
         /**
-          * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
-         */
-        "initialFocus"?: string;
-        /**
           * The title of the Modal.
          */
         "modalTitle"?: string;
@@ -615,7 +611,7 @@ export namespace Components {
          */
         "role": string | null;
         /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.
+          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
          */
         "showCloseButton": boolean;
     }
@@ -1905,10 +1901,6 @@ declare namespace LocalJSX {
          */
         "fullscreen"?: boolean;
         /**
-          * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
-         */
-        "initialFocus"?: string;
-        /**
           * The title of the Modal.
          */
         "modalTitle"?: string;
@@ -1921,7 +1913,7 @@ declare namespace LocalJSX {
          */
         "role"?: string | null;
         /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.
+          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
          */
         "showCloseButton"?: boolean;
     }
