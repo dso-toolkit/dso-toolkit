@@ -20,6 +20,8 @@ import { MapPanel } from "./components/map-panel";
   shadow: true,
 })
 export class ViewerGrid {
+  private mediaCondition = `(min-width: ${768 + 40}px)`;
+
   private sizeLabelMap: LabelSizeMap = {
     small: "smal",
     medium: "middel",
@@ -169,7 +171,7 @@ export class ViewerGrid {
   private changeListener = (largeScreen: MediaQueryListEvent) => (this.tabView = !largeScreen.matches);
 
   connectedCallback() {
-    window.matchMedia("(min-width: 768px)").addEventListener("change", this.changeListener);
+    window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
 
     this.filterpanelSlot = this.host.querySelector<HTMLDivElement>("div[slot='filterpanel']");
 
@@ -215,7 +217,7 @@ export class ViewerGrid {
     this.filterpanelFocustrap?.deactivate();
 
     this.host.removeEventListener("keydown", this.keyDownListener);
-    window.matchMedia("(min-width: 768px)").removeEventListener("change", this.changeListener);
+    window.matchMedia(this.mediaCondition).removeEventListener("change", this.changeListener);
   }
 
   private handleFilterpanelApply(mouseEvent: MouseEvent) {
@@ -231,7 +233,7 @@ export class ViewerGrid {
       <Host {...{ [this.mainSize]: true }}>
         {this.tabView && (
           <nav class="dso-navbar">
-            <ul class="dso-nav dso-nav-main">
+            <ul class="dso-nav dso-nav-sub">
               {tabs.map((tab) => (
                 <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
                   <button type="button" class="dso-tertiary" onClick={() => (this.activeTab = tab)}>
