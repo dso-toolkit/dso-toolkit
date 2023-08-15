@@ -187,7 +187,7 @@ button {
   }
 }
 
-@media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+@media screen and (min-width: #{media-query-breakpoints.$screen-sm-min + units.$u5}) {
   :host {
     display: flex;
     height: 100vh;
@@ -250,7 +250,7 @@ button {
   }
 }
 
-@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+@media screen and (max-width: #{media-query-breakpoints.$screen-xs-max + units.$u5}) {
   @include navbar.root();
 
   .dso-navbar {
