@@ -27,7 +27,7 @@ export class ViewerGrid {
   };
 
   private tabLabelMap: TabLabelMap = {
-    main: "Hoofpaneel",
+    main: "Hoofdpaneel",
     map: "Kaart",
   };
 
@@ -166,10 +166,10 @@ export class ViewerGrid {
     this.dsoCloseOverlay.emit(event);
   };
 
+  private changeListener = (largeScreen: MediaQueryListEvent) => (this.tabView = !largeScreen.matches);
+
   connectedCallback() {
-    window
-      .matchMedia("(min-width: 768px)")
-      .addEventListener("change", (largeScreen) => (this.tabView = !largeScreen.matches));
+    window.matchMedia("(min-width: 768px)").addEventListener("change", this.changeListener);
 
     this.filterpanelSlot = this.host.querySelector<HTMLDivElement>("div[slot='filterpanel']");
 
@@ -215,9 +215,7 @@ export class ViewerGrid {
     this.filterpanelFocustrap?.deactivate();
 
     this.host.removeEventListener("keydown", this.keyDownListener);
-    window
-      .matchMedia("(min-width: 768px)")
-      .removeEventListener("change", (largeScreen) => (this.tabView = !largeScreen.matches));
+    window.matchMedia("(min-width: 768px)").removeEventListener("change", this.changeListener);
   }
 
   private handleFilterpanelApply(mouseEvent: MouseEvent) {
@@ -235,7 +233,7 @@ export class ViewerGrid {
           <nav class="dso-navbar">
             <ul class="dso-nav dso-nav-main">
               {tabs.map((tab) => (
-                <li class={clsx({ "dso-active": this.activeTab === tab })}>
+                <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
                   <button type="button" class="dso-tertiary" onClick={() => (this.activeTab = tab)}>
                     {this.tabLabelMap[tab]}
                   </button>
