@@ -21,7 +21,6 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { FocusTargetValueOrFalse } from "focus-trap";
 import { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -47,7 +46,6 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-export { FocusTargetValueOrFalse } from "focus-trap";
 export { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -612,10 +610,6 @@ export namespace Components {
           * The title of the Modal.
          */
         "modalTitle"?: string;
-        /**
-          * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
-         */
-        "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
@@ -1922,10 +1916,6 @@ declare namespace LocalJSX {
           * Emitted when the user wants to close the Modal.
          */
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
-        /**
-          * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
-         */
-        "returnFocus"?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */

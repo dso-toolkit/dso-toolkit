@@ -1,5 +1,4 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from "@stencil/core";
-import { createFocusTrap, FocusTargetValueOrFalse, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
 import { DsoModalCloseEvent } from "./modal.interfaces";
@@ -10,10 +9,6 @@ import { DsoModalCloseEvent } from "./modal.interfaces";
   shadow: true,
 })
 export class Modal implements ComponentInterface {
-  private trap?: FocusTrap;
-
-  private dialogElement?: HTMLDivElement;
-
   private htmlDialogElement?: HTMLDialogElement;
 
   @Element()
@@ -56,12 +51,6 @@ export class Modal implements ComponentInterface {
   initialFocus?: string;
 
   /**
-   * Function that returns the element to focus on Modal close. Return `false` for no focus restore.
-   */
-  @Prop()
-  returnFocus?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => FocusTargetValueOrFalse;
-
-  /**
    * Emitted when the user wants to close the Modal.
    */
   @Event()
@@ -74,11 +63,9 @@ export class Modal implements ComponentInterface {
   componentDidLoad(): void {
     this.htmlDialogElement?.showModal();
     document.body.classList.add("dso-modal-open");
-    this.setFocusTrap();
   }
 
   disconnectedCallback(): void {
-    this.trap?.deactivate({ onDeactivate: () => undefined }); // override FocusTrap onDeactivate callback to avoid double event emits
     document.body.classList.remove("dso-modal-open");
     this.htmlDialogElement?.close();
   }
@@ -93,7 +80,7 @@ export class Modal implements ComponentInterface {
           aria-labelledby={this.ariaId}
           ref={(element) => (this.htmlDialogElement = element)}
         >
-          <div class="dso-dialog" role="document" ref={(element) => (this.dialogElement = element)}>
+          <div class="dso-dialog" role="document">
             {this.modalTitle ? (
               <div class="dso-header">
                 <h2 id={this.ariaId}>{this.modalTitle}</h2>
@@ -125,46 +112,5 @@ export class Modal implements ComponentInterface {
         </dialog>
       </Fragment>
     );
-  }
-
-  private setFocusTrap() {
-    if (this.dialogElement && !this.trap) {
-      this.trap = createFocusTrap(this.dialogElement, {
-        initialFocus: () => {
-          if (this.initialFocus) {
-            const initialFocusElement = this.host.querySelector<HTMLElement>(this.initialFocus);
-            if (!initialFocusElement) {
-              console.warn(`element '${this.initialFocus}' could not be found`);
-            } else {
-              return initialFocusElement;
-            }
-          }
-
-          return (
-            this.host.querySelector<HTMLButtonElement>("div[slot='footer'] .dso-primary") ??
-            this.htmlDialogElement?.querySelector<HTMLButtonElement>(".dso-close") ??
-            false
-          );
-        },
-        allowOutsideClick: true,
-        setReturnFocus: (e) => this.returnFocus?.(e) ?? e,
-        escapeDeactivates: true,
-        tabbableOptions: {
-          getShadowRoot: true,
-        },
-        clickOutsideDeactivates: (e) => {
-          if (e instanceof MouseEvent && e.composedPath()[0] === this.htmlDialogElement) {
-            return true;
-          }
-
-          return false;
-        },
-        onDeactivate: () => {
-          delete this.trap;
-
-          this.dsoClose.emit({ originalEvent: undefined });
-        },
-      }).activate();
-    }
   }
 }

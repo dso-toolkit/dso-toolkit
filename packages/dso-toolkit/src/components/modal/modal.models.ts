@@ -7,7 +7,6 @@ export interface Modal<TemplateFnReturnType> {
   showCloseButton?: boolean;
   initialFocus?: string;
   dsoClose?: (e: CustomEvent<DsoModalCloseEvent>) => void;
-  returnFocus?: (e: HTMLElement | SVGElement) => HTMLElement | SVGElement | string | false;
 }
 
 export interface DsoModalCloseEvent {

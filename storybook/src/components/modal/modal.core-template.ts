@@ -18,7 +18,6 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
       body,
       footer,
       dsoClose,
-      returnFocus,
     }) {
       return html`
         <dso-modal
@@ -27,7 +26,6 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
           show-close-button=${ifDefined(showCloseButton)}
           initial-focus=${ifDefined(initialFocus)}
           ?fullscreen=${ifDefined(fullscreen)}
-          return-focus=${ifDefined(returnFocus)}
           @dsoClose=${dsoClose}
         >
           <div slot="body">${body}</div>

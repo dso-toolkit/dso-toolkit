@@ -9,17 +9,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
   component: "modal",
   implementation: "react",
   template: () =>
-    function modalTemplate({
-      fullscreen,
-      modalTitle,
-      role,
-      showCloseButton,
-      initialFocus,
-      body,
-      footer,
-      dsoClose,
-      returnFocus,
-    }) {
+    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose }) {
       return (
         <DsoModal
           fullscreen={fullscreen}
@@ -27,7 +17,6 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
           modalTitle={modalTitle}
           showCloseButton={showCloseButton ?? true}
           initialFocus={initialFocus}
-          returnFocus={returnFocus}
           onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
         >
           <div slot="body">{body}</div>
