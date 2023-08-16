@@ -191,7 +191,7 @@ describe("Viewer Grid", () => {
       });
   });
 
-  it('should say "Breedte tekstpaneel: [smal / middel / breed]" upon size change', () => {
+  it('should say "Breedte hoofdpaneel: [smal / middel / breed]" upon size change', () => {
     cy.visit(url);
 
     cy.get("dso-viewer-grid")
@@ -248,5 +248,5 @@ function shouldHavePhrase(size: string) {
   cy.get("dso-viewer-grid")
     .shadow()
     .find(".sizing-buttons > span.sr-only")
-    .should("have.text", `Breedte tekstpaneel: ${size}`);
+    .should("have.text", `Breedte hoofdpaneel: ${size}`);
 }
