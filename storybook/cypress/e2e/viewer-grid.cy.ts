@@ -216,6 +216,44 @@ describe("Viewer Grid", () => {
   });
 });
 
+it.only("should show tabs on small screen", () => {
+  cy.visit(url);
+
+  cy.viewport(400, 600)
+    .get('dso-viewer-grid')
+    .shadow()
+    .as("dsoViewerGrid")
+    .find('nav')
+    .should("exist")
+    .and("be.visible")
+    .get("@dsoViewerGrid")
+    .find("nav > ul > li")
+    .should("have.length", 2)
+    .eq(0)
+    .should("have.text", "Hoofdpaneel")
+    .get("@dsoViewerGrid")
+    .find(".map")
+    .should("not.exist")
+    .get("@dsoViewerGrid")
+    .find(".dso-map-panel")
+    .should("exist")
+    .and("be.visible")
+    .get("@dsoViewerGrid")
+    .find("nav > ul > li")
+    .should("have.length", 2)
+    .eq(1)
+    .should("have.text", "Kaart")
+    .find("button")
+    .realClick()
+    .get("@dsoViewerGrid")
+    .find(".dso-map-panel")
+    .should("not.exist")
+    .get("@dsoViewerGrid")
+    .find(".map")
+    .should("exist")
+    .and("be.visible");
+})
+
 function filterPanelEventTest(eventName: string, buttonSelector: string) {
   cy.visit(url);
 
