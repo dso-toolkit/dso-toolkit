@@ -23,6 +23,29 @@ Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` geze
 | `dsoClose` | Emitted when the user wants to close the Modal. | `CustomEvent<DsoModalCloseEvent>` |
 
 
+## Methods
+
+### `close() => Promise<void>`
+
+Closes modal
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `show() => Promise<void>`
+
+Shows modal
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

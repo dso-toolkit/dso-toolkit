@@ -50,31 +50,15 @@ describe("Modal", () => {
       .realPress("Tab")
       .get("@dsoModal")
       .find(".dso-close")
-      .should("not.have.focus")
-      .realPress(["Shift", "Tab"])
-      .get("dso-modal")
-      .find("[slot='footer'] button.dso-primary")
-      .should("have.focus");
+      .should("not.have.focus");
   });
 
   it("should emit dsoClose event when user closes modal", () => {
     cy.get("@dsoModal").find(".dso-close").click().get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
-  it.skip("should emit dsoClose event on outside click", () => {
-    cy.get("dso-modal")
-      .find("[slot='footer'] .dso-primary")
-      .should("have.focus")
-      .get("body")
-      .realClick({ y: 50, x: 50 })
-      .get("@dsoCloseListener")
-      .should("have.been.calledOnce");
-  });
-
-  it.skip("should emit dsoClose event on escape press", () => {
-    cy.get("dso-modal")
-      .find("[slot='footer'] .dso-primary")
-      .should("have.focus")
+  it("should emit dsoClose event on escape press", () => {
+    cy.get("dso-modal:focus-within")
       .realPress("Escape")
       .get("@dsoCloseListener")
       .should("have.been.calledOnce");

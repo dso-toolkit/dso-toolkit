@@ -13,12 +13,14 @@ function onStory(load: () => void, unload: () => void) {
   load();
 }
 
+function isTitleElement(node: Node): node is HTMLTitleElement {
+  return node.nodeName === "TITLE";
+}
+
 const storyObserver = new MutationObserver(([titleMutationRecord]) => {
   if (
     !titleMutationRecord ||
-    !titleMutationRecord.target.textContent ||
-    /* titleMutationRecord.target is HTMLElement, maar instanceOf geeft false. */
-    // !(titleMutationRecord instanceof HTMLTitleElement) ||
+    !isTitleElement(titleMutationRecord.target) ||
     titleMutationRecord.target.textContent?.includes(" - Docs")
   ) {
     return;

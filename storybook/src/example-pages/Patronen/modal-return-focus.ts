@@ -1,32 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 
 import { examplePageFactory } from "../../example-page-factory";
 
-examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate }) => {
-  const createModal = () => {
-    const modal = document.createElement("dso-modal");
-
-    modal.setAttribute("modal-title", "Modal");
-
-    const body = document.createElement("div");
-    body.setAttribute("slot", "body");
-    body.innerText = "test";
-
-    const footer = document.createElement("div");
-    footer.setAttribute("slot", "footer");
-    footer.innerHTML = "<button type='button' class='dso-primary'>Bevestigen</button>";
-
-    modal.appendChild(body);
-    modal.appendChild(footer);
-
-    modal.addEventListener("dsoClose", () => document.querySelector("main")?.removeChild(modal));
-
-    return modal;
-  };
-
-  const openModal = () => document.querySelector("main")?.appendChild(createModal());
-
+examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTemplate }) => {
   return html`
     <div class="container">
       <main>
@@ -38,7 +15,32 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate }) => {
           id: "activate-modal",
           label: "Open modal",
           variant: "primary",
-          onClick: openModal,
+          onClick: () => {
+            const container = document.querySelector("main");
+
+            const modal = document.querySelector("dso-modal");
+
+            if (container && !modal) {
+              render(
+                modalTemplate({
+                  modalTitle: "Modal",
+                  body: html`test`,
+                  footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
+                  showCloseButton: true,
+                  dsoClose: () => {
+                    const modal = document.querySelector("dso-modal");
+
+                    if (modal) {
+                      modal.close();
+                    }
+                  },
+                }),
+                container
+              );
+            } else if (modal) {
+              modal.show();
+            }
+          },
         })}
       </main>
     </div>

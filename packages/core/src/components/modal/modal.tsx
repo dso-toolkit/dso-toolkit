@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State } from "@stencil/core";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Method, Prop, State } from "@stencil/core";
 import { v4 } from "uuid";
 
 import { DsoModalCloseEvent } from "./modal.interfaces";
@@ -52,6 +52,22 @@ export class Modal implements ComponentInterface {
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 
+  /**
+   * Shows modal
+   */
+  @Method()
+  async show(): Promise<void> {
+    this.htmlDialogElement?.showModal();
+  }
+
+  /**
+   * Closes modal
+   */
+  @Method()
+  async close(): Promise<void> {
+    this.htmlDialogElement?.close();
+  }
+
   componentWillLoad(): void {
     this.hasFooter = this.host.querySelector("[slot='footer']") !== null;
   }
@@ -74,6 +90,11 @@ export class Modal implements ComponentInterface {
         aria-modal="true"
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
+        onCancel={(e) => {
+          e.preventDefault();
+
+          this.dsoClose.emit({ originalEvent: e });
+        }}
       >
         <div class="dso-dialog" role="document">
           {this.modalTitle ? (

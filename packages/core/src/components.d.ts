@@ -599,6 +599,10 @@ export namespace Components {
     }
     interface DsoModal {
         /**
+          * Closes modal
+         */
+        "close": () => Promise<void>;
+        /**
           * when set the modal will be shown in fullscreen.
          */
         "fullscreen"?: boolean;
@@ -610,6 +614,10 @@ export namespace Components {
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "role": string | null;
+        /**
+          * Shows modal
+         */
+        "show": () => Promise<void>;
         /**
           * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
          */

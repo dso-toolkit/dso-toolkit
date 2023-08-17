@@ -1,5 +1,5 @@
 export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
+  originalEvent?: MouseEvent | Event;
 }
 
 export type ModalRole = "dialog" | "alert" | "alertdialog";
