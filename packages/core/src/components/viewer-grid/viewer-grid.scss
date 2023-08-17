@@ -104,18 +104,19 @@ button {
 .filterpanel,
 .overlay {
   background-color: colors.$wit;
+  border: 0;
   height: 100%;
+  margin-block: 0;
+  max-height: 100vh;
+  max-width: 100vw;
   overflow-y: auto;
   position: absolute;
   z-index: zindex.$viewer-grid-map-panel + 1;
 }
 
 .filterpanel {
-  box-shadow: 2px 0 5px colors.$grijs-60;
   padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
   left: 0;
-  max-width: core-viewer-grid-variables.$filterpanel-max-width;
-  width: calc(100vw - 40px);
 
   @media screen and (max-width: core-viewer-grid-variables.$filterpanel-width) {
     width: 100vw;
@@ -129,22 +130,6 @@ button {
     @include headings.base();
     @include headings.margin-large();
     @include headings.h1();
-  }
-
-  &::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: core-viewer-grid-variables.$filterpanel-max-width;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-width + 40px}) {
-      left: auto;
-      width: 40px;
-    }
   }
 }
 
@@ -248,9 +233,37 @@ button {
       overflow-y: scroll;
     }
   }
+
+  .filterpanel {
+    box-shadow: 2px 0 5px colors.$grijs-60;
+    margin-inline: 0 auto;
+    max-width: core-viewer-grid-variables.$filterpanel-max-width;
+    width: calc(100vw - 40px);
+
+    &::before {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: core-viewer-grid-variables.$filterpanel-max-width;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-width + 40px}) {
+        left: auto;
+        width: 40px;
+      }
+    }
+  }
+
+  .overlay {
+    box-shadow: -2px 0 5px colors.$grijs-60;
+    margin-inline: auto 0;
+  }
 }
 
-@media screen and (max-width: #{media-query-breakpoints.$screen-xs-max + units.$u5}) {
+@media screen and (max-width: #{media-query-breakpoints.$screen-xs-max + units.$u5 + 0.99}) {
   @include navbar.root();
 
   .dso-navbar {
@@ -274,9 +287,8 @@ button {
 
   .filterpanel,
   .overlay {
-    height: auto;
-    margin: 20px;
+    margin-inline: 0;
     top: 0;
-    width: calc(100% - 40px);
+    width: 100vw;
   }
 }

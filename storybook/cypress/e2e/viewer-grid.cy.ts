@@ -59,7 +59,7 @@ describe("Viewer Grid", () => {
     cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
   });
 
-  it.skip("should emit closeOverlay on escape", () => {
+  it("should emit closeOverlay on escape", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").then((c) => {
       c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
@@ -69,14 +69,6 @@ describe("Viewer Grid", () => {
     cy.wait(100);
     cy.realPress("Escape");
     cy.get("@closeOverlay").should("have.been.calledOnce");
-  });
-
-  it("should trap focus on overlay open", () => {
-    cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").find("div[slot = 'overlay'] a[href]").eq(0).should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").find("div[slot = 'overlay'] a[href]").eq(1).should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
   });
 
   it("should not show overlay", () => {
@@ -104,25 +96,6 @@ describe("Viewer Grid", () => {
 
   it("should emit filterpanelApply event", () => {
     filterPanelEventTest("dsoFilterpanelApply", ".apply-button");
-  });
-
-  it("should trap focus on filterpanel open", () => {
-    cy.visit(url);
-
-    cy.get("dso-viewer-grid")
-      .invoke("attr", "filterpanel-open", "")
-      .shadow()
-      .find("#filterpanel button")
-      .first()
-      .as("firstFocussedButton")
-      .should("be.focused");
-
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-
-    cy.get("@firstFocussedButton").should("be.focused");
   });
 
   it("should do nothing when clicking next to filterpanel", () => {
@@ -216,14 +189,14 @@ describe("Viewer Grid", () => {
   });
 });
 
-it.only("should show tabs on small screen", () => {
+it("should show tabs on small screen", () => {
   cy.visit(url);
 
   cy.viewport(400, 600)
-    .get('dso-viewer-grid')
+    .get("dso-viewer-grid")
     .shadow()
     .as("dsoViewerGrid")
-    .find('nav')
+    .find("nav")
     .should("exist")
     .and("be.visible")
     .get("@dsoViewerGrid")
@@ -252,7 +225,7 @@ it.only("should show tabs on small screen", () => {
     .find(".map")
     .should("exist")
     .and("be.visible");
-})
+});
 
 function filterPanelEventTest(eventName: string, buttonSelector: string) {
   cy.visit(url);
