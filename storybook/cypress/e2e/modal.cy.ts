@@ -58,10 +58,7 @@ describe("Modal", () => {
   });
 
   it("should emit dsoClose event on escape press", () => {
-    cy.get("dso-modal:focus-within")
-      .realPress("Escape")
-      .get("@dsoCloseListener")
-      .should("have.been.calledOnce");
+    cy.get("dso-modal:focus-within").realPress("Escape").get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
   it("should not emit dsoClose upon disconnecting", () => {

@@ -3,8 +3,10 @@ import { html, render } from "lit-html";
 
 import { examplePageFactory } from "../../example-page-factory";
 
-examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTemplate }) => {
-  return html`
+examplePageFactory(
+  "Patronen",
+  "Modal return focus",
+  ({ buttonTemplate, modalTemplate }) => html`
     <div class="container">
       <main>
         <h1>Modal focus return</h1>
@@ -18,9 +20,7 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTem
           onClick: () => {
             const container = document.querySelector("main");
 
-            const modal = document.querySelector("dso-modal");
-
-            if (container && !modal) {
+            if (container) {
               render(
                 modalTemplate({
                   modalTitle: "Modal",
@@ -31,18 +31,16 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTem
                     const modal = document.querySelector("dso-modal");
 
                     if (modal) {
-                      modal.close();
+                      container.removeChild(modal);
                     }
                   },
                 }),
                 container
               );
-            } else if (modal) {
-              modal.show();
             }
           },
         })}
       </main>
     </div>
-  `;
-});
+  `
+);
