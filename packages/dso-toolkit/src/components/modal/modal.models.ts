@@ -5,11 +5,11 @@ export interface Modal<TemplateFnReturnType> {
   footer?: TemplateFnReturnType;
   role?: ModalRole;
   showCloseButton?: boolean;
-  dsoClose?: (e: CustomEvent<DsoModalCloseEvent>) => void;
+  dsoClose?: (e: CustomEvent<ModalCloseEvent>) => void;
 }
 
-export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
+export interface ModalCloseEvent {
+  originalEvent?: MouseEvent | Event;
 }
 
 export type ModalRole = "alert" | "dialog" | "alertdialog";

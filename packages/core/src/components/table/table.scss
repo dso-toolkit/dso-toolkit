@@ -1,4 +1,5 @@
 @use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
+@use "~dso-toolkit/src/components/modal/modal.variables" as modal-variables;
 
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
@@ -42,6 +43,8 @@
 .dso-modal .dso-dialog.dso-table-dialog {
   margin-top: 1rem;
   max-width: calc(100% - 2rem);
+  margin-left: auto;
+  margin-right: auto;
 
   .dso-body {
     $dso-body-unavailable-height: (2 * modal.$header-padding) + (modal.$footer-button-height + modal.$footer-padding);
@@ -105,7 +108,14 @@
 }
 
 .dso-modal-overlay {
-  @include modal.overlay();
+  background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: zindex.$modal-background-overlay;
 }
 
 .dso-table-placeholder {

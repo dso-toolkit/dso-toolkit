@@ -4,6 +4,7 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { v4 } from "uuid";
 
 import { ComponentImplementation } from "../../templates";
+import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
@@ -18,11 +19,10 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
 
       return html`
         <dialog
-          class="dso-modal"
+          class="dso-modal ${classMap({ "dso-fullscreen": !!fullscreen })}"
           role=${role}
           aria-modal="true"
           aria-labelledby=${ifDefined(modalTitle ? ariaId : undefined)}
-          ?fullscreen=${fullscreen}
         >
           <div class="dso-dialog" role="document">
             ${modalTitle && ariaId

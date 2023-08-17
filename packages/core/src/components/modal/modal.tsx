@@ -1,7 +1,7 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State } from "@stencil/core";
 import { v4 } from "uuid";
 
-import { DsoModalCloseEvent } from "./modal.interfaces";
+import { ModalCloseEvent } from "./modal.interfaces";
 
 @Component({
   tag: "dso-modal",
@@ -50,7 +50,7 @@ export class Modal implements ComponentInterface {
    * Emitted when the user wants to close the Modal.
    */
   @Event()
-  dsoClose!: EventEmitter<DsoModalCloseEvent>;
+  dsoClose!: EventEmitter<ModalCloseEvent>;
 
   componentWillLoad(): void {
     this.hasFooter = this.host.querySelector("[slot='footer']") !== null;

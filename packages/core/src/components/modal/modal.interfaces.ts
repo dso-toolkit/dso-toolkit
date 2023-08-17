@@ -1,4 +1,4 @@
-export interface DsoModalCloseEvent {
+export interface ModalCloseEvent {
   originalEvent?: MouseEvent | Event;
 }
 

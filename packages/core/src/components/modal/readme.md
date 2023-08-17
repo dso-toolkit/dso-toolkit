@@ -18,9 +18,9 @@ Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` geze
 
 ## Events
 
-| Event      | Description                                     | Type                              |
-| ---------- | ----------------------------------------------- | --------------------------------- |
-| `dsoClose` | Emitted when the user wants to close the Modal. | `CustomEvent<DsoModalCloseEvent>` |
+| Event      | Description                                     | Type                           |
+| ---------- | ----------------------------------------------- | ------------------------------ |
+| `dsoClose` | Emitted when the user wants to close the Modal. | `CustomEvent<ModalCloseEvent>` |
 
 
 ## Dependencies

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { html, render } from "lit-html";
+import { html, nothing, render } from "lit-html";
 
 import { examplePageFactory } from "../../example-page-factory";
 
@@ -24,16 +23,13 @@ examplePageFactory(
               render(
                 modalTemplate({
                   modalTitle: "Modal",
-                  body: html`test`,
+                  body: html`<p>${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" })}</p>
+                    <p>
+                      ${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary", autofocus: true })}
+                    </p>`,
                   footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
                   showCloseButton: true,
-                  dsoClose: () => {
-                    const modal = document.querySelector("dso-modal");
-
-                    if (modal) {
-                      container.removeChild(modal);
-                    }
-                  },
+                  dsoClose: () => render(nothing, container),
                 }),
                 container
               );

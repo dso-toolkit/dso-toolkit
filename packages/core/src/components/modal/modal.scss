@@ -5,6 +5,22 @@
 
 @include utilities.box-sizing();
 
+:host {
+  display: block;
+}
+
+// fullscreen option
+:host([fullscreen]) dialog {
+  @include modal.fullscreen();
+}
+
+// Go to fullscreen on =< 480px viewport
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  :host dialog {
+    @include modal.fullscreen();
+  }
+}
+
 .sr-only {
   @include utilities.sr-only();
 }
@@ -17,24 +33,8 @@ button {
   @include modal.root();
 }
 
-.dso-modal-overlay {
-  @include modal.overlay();
-}
-
 .dso-close {
   dso-icon {
     color: modal.$close-icon-color;
-  }
-}
-
-// fullscreen option
-:host([fullscreen]) {
-  @include modal.fullscreen();
-}
-
-// Go to fullscreen on =< 480px viewport
-@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-  :host {
-    @include modal.fullscreen();
   }
 }

@@ -24,7 +24,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       return undefined;
     }
 
-    function anchorElement({ variant, url, label, modifier, id, icon, iconMode, slot }: ButtonAnchor) {
+    function anchorElement({ variant, url, label, modifier, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
       const className = getClassName(variant, modifier);
 
       return html`
@@ -33,6 +33,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
           class=${ifDefined(className)}
           id=${ifDefined(id || undefined)}
           slot=${ifDefined(slot || undefined)}
+          ?autofocus=${autofocus}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
@@ -64,6 +65,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       compact,
       truncate,
       onClick,
+      autofocus,
     }: Button) {
       type ??= "button";
       const classNames = [getClassName(variant, modifier)];
@@ -88,6 +90,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
           aria-roledescription=${ifDefined(ariaRoledescription || undefined)}
           @click=${ifDefined(onClick)}
           slot=${ifDefined(slot || undefined)}
+          ?autofocus=${autofocus}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}

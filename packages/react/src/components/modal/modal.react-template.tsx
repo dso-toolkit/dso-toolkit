@@ -1,5 +1,5 @@
-import { DsoModalCloseEvent } from "@dso-toolkit/core";
 import { Modal } from "dso-toolkit";
+import { DsoModalCustomEvent, ModalCloseEvent } from "@dso-toolkit/core";
 import * as React from "react";
 
 import { DsoModal } from "../../components";
@@ -16,7 +16,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
           role={role}
           modalTitle={modalTitle}
           showCloseButton={showCloseButton ?? true}
-          onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
+          onDsoClose={(e: DsoModalCustomEvent<ModalCloseEvent>) => dsoClose?.(e)}
         >
           <div slot="body">{body}</div>
           {footer && <div slot="footer">{footer}</div>}

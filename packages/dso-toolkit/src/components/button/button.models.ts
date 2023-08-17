@@ -27,6 +27,7 @@ export interface Button {
   slot?: string;
   compact?: boolean;
   align?: boolean;
+  autofocus?: boolean;
 }
 
 export interface ButtonAnchor {
@@ -40,6 +41,7 @@ export interface ButtonAnchor {
   slot?: string;
   compact?: boolean;
   align?: boolean;
+  autofocus?: boolean;
 }
 
 export function isButtonInterface(object: unknown): object is Button {

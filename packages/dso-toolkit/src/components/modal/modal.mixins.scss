@@ -218,11 +218,8 @@
 }
 
 @mixin fullscreen() {
-  &.dso-modal,
-  .dso-modal {
-    inline-size: 100dvi;
-    block-size: 100dvb;
-  }
+  inline-size: 100dvi;
+  block-size: 100dvb;
 
   .dso-dialog {
     display: flex;
@@ -241,15 +238,4 @@
   .dso-footer {
     flex-shrink: 0;
   }
-}
-
-@mixin overlay() {
-  // TEMP until dialog is implemented
-  position: fixed;
-  inset: 0;
-  z-index: zindex.$modal-background-overlay;
-
-  display: block;
-
-  background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
 }
