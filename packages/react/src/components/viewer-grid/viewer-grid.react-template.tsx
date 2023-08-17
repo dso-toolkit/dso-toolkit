@@ -28,7 +28,7 @@ export const reactViewerGrid: ComponentImplementation<ViewerGrid<JSX.Element>> =
           overlayOpen={overlayOpen}
           initialMainSize={initialMainSize}
           onDsoMainSizeChange={dsoMainSizeChange}
-          onDsoCloseOverlay={(e) => dsoCloseOverlay?.(e.detail)}
+          onDsoCloseOverlay={(e) => dsoCloseOverlay?.(e.detail.originalEvent)}
           onDsoFilterpanelApply={(e) => dsoFilterpanelApply?.(e.detail.originalEvent)}
           onDsoFilterpanelCancel={(e) => dsoFilterpanelCancel?.(e.detail.originalEvent)}
         >
