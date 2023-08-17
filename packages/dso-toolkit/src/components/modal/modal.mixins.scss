@@ -190,11 +190,6 @@
       padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
     }
   }
-
-  // html/css version fullscreen on =< 480px viewport
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    @include fullscreen(htmlcss);
-  }
 }
 
 @mixin modal-wide-buttons() {
@@ -222,18 +217,12 @@
   }
 }
 
-@mixin fullscreen($target) {
-  // always declare target
-  @if $target == "core" {
-    .dso-modal {
-      inline-size: 100dvi;
-      block-size: 100dvb;
-    }
-  } @else if $target == "htmlcss" {
+@mixin fullscreen() {
+  
+  &.dso-modal,
+  .dso-modal {
     inline-size: 100dvi;
     block-size: 100dvb;
-  } @else {
-    @error "Please use 'core' or 'htmlcss'";
   }
 
   .dso-dialog {

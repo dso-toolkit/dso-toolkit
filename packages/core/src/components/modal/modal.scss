@@ -29,12 +29,12 @@ button {
 
 // fullscreen option
 :host([fullscreen]) {
-  @include modal.fullscreen(core);
+  @include modal.fullscreen();
 }
 
 // Go to fullscreen on =< 480px viewport
 @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
   :host {
-    @include modal.fullscreen(core);
+    @include modal.fullscreen();
   }
 }

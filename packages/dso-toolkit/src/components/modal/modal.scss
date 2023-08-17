@@ -28,7 +28,7 @@ body.dso-modal-open {
 
   // fullscreen optie
   &[fullscreen] {
-    @include modal.fullscreen(htmlcss);
+    @include modal.fullscreen();
   }
 
   .dso-close {
@@ -48,6 +48,10 @@ body.dso-modal-open {
       padding: button.$vertical-padding 0;
       position: relative;
     }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    @include modal.fullscreen();
   }
 }
 
