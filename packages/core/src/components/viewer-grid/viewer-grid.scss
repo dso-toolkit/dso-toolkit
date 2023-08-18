@@ -41,7 +41,7 @@ button {
   right: css-grid.$grid-gutter-width * 0.5;
 }
 
-.dso-map-panel {
+.dso-main-panel {
   background-color: colors.$wit;
   flex-shrink: 0;
   flex-grow: 0;
@@ -49,7 +49,7 @@ button {
   transition: flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-width core-viewer-grid-variables.$transition-time ease-in,
     min-width core-viewer-grid-variables.$transition-time ease-in;
-  z-index: zindex.$viewer-grid-map-panel;
+  z-index: zindex.$viewer-grid-main-panel;
 
   .dso-filterblok-address {
     font-weight: bold;
@@ -110,7 +110,7 @@ button {
   margin-block: 0;
   max-height: 100vh;
   overflow-y: auto;
-  z-index: zindex.$viewer-grid-map-panel + 1;
+  z-index: zindex.$viewer-grid-main-panel + 1;
 }
 
 .filterpanel {
@@ -173,7 +173,7 @@ button {
   }
 
   :host([small]) {
-    .dso-map-panel {
+    .dso-main-panel {
       flex-basis: core-viewer-grid-variables.$small;
       min-width: 0;
       max-width: core-viewer-grid-variables.$small;
@@ -188,7 +188,7 @@ button {
   }
 
   :host([medium]) {
-    .dso-map-panel {
+    .dso-main-panel {
       flex-basis: core-viewer-grid-variables.$medium;
       min-width: core-viewer-grid-variables.$small;
       max-width: core-viewer-grid-variables.$medium;
@@ -203,7 +203,7 @@ button {
   }
 
   :host([large]) {
-    .dso-map-panel {
+    .dso-main-panel {
       flex-basis: core-viewer-grid-variables.$large;
       min-width: core-viewer-grid-variables.$large-min;
       max-width: core-viewer-grid-variables.$large-max;
@@ -217,7 +217,7 @@ button {
     }
   }
 
-  .dso-map-panel {
+  .dso-main-panel {
     box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
     padding-right: units.$u1;
 

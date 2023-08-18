@@ -7,12 +7,16 @@ export interface ViewerGridChangeSizeEvent {
   currentSize: MainSize;
 }
 
-export interface FilterpanelEvent {
-  originalEvent: MouseEvent | KeyboardEvent | Event;
+export interface ViewerGridCloseOverlayEvent {
+  originalEvent: MouseEvent | Event;
 }
 
-export interface OverlayEvent {
-  originalEvent: MouseEvent | KeyboardEvent | Event;
+export interface ViewerGridFilterpanelCancelEvent {
+  originalEvent: MouseEvent | Event;
+}
+
+export interface ViewerGridFilterpanelApplyEvent {
+  originalEvent: MouseEvent | Event;
 }
 
 export type MainSize = "small" | "medium" | "large";

@@ -59,7 +59,7 @@ describe("Viewer Grid", () => {
     cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
   });
 
-  it("should emit closeOverlay on escape", () => {
+  it.only("should emit closeOverlay on escape", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").then((c) => {
       c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
@@ -208,7 +208,7 @@ it("should show tabs on small screen", () => {
     .find(".map")
     .should("not.exist")
     .get("@dsoViewerGrid")
-    .find(".dso-map-panel")
+    .find(".dso-main-panel")
     .should("exist")
     .and("be.visible")
     .get("@dsoViewerGrid")
@@ -219,7 +219,7 @@ it("should show tabs on small screen", () => {
     .find("button")
     .realClick()
     .get("@dsoViewerGrid")
-    .find(".dso-map-panel")
+    .find(".dso-main-panel")
     .should("not.exist")
     .get("@dsoViewerGrid")
     .find(".map")

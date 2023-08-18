@@ -2,16 +2,18 @@ import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } 
 import clsx from "clsx";
 
 import {
-  FilterpanelEvent,
-  LabelSizeMap,
   MainSize,
-  OverlayEvent,
   TabLabelMap,
   Tabs,
   ViewerGridChangeSizeEvent,
+  ViewerGridCloseOverlayEvent,
+  ViewerGridFilterpanelApplyEvent,
+  ViewerGridFilterpanelCancelEvent,
   tabs,
 } from "./viewer-grid.interfaces";
-import { Filterpanel, MapPanel, Overlay } from "./components";
+import { Filterpanel, MainPanel, Overlay } from "./components";
+
+const tabViewWidth = 768 + 40;
 
 @Component({
   tag: "dso-viewer-grid",
@@ -19,20 +21,14 @@ import { Filterpanel, MapPanel, Overlay } from "./components";
   shadow: true,
 })
 export class ViewerGrid {
-  private mediaCondition = `(min-width: ${768 + 40}px)`;
-
-  private sizeLabelMap: LabelSizeMap = {
-    small: "smal",
-    medium: "middel",
-    large: "breed",
-  };
+  private mediaCondition = `(min-width: ${tabViewWidth}px)`;
 
   private tabLabelMap: TabLabelMap = {
     main: "Hoofdpaneel",
     map: "Kaart",
   };
 
-  private mapPanel?: HTMLDivElement;
+  private mainPanel?: HTMLDivElement;
 
   /**
    * Set to true when filterpanel should show.
@@ -58,7 +54,7 @@ export class ViewerGrid {
   mainSize: MainSize = "large";
 
   @State()
-  tabView = window.innerWidth < 768;
+  tabView = window.innerWidth < tabViewWidth;
 
   @State()
   activeTab: Tabs = "main";
@@ -67,19 +63,19 @@ export class ViewerGrid {
    * Emitted when user wants to close the overlay.
    */
   @Event()
-  dsoCloseOverlay!: EventEmitter<OverlayEvent>;
+  dsoCloseOverlay!: EventEmitter<ViewerGridCloseOverlayEvent>;
 
   /**
    * Emitted when user cancels filterpanel.
    */
   @Event()
-  dsoFilterpanelCancel!: EventEmitter<FilterpanelEvent>;
+  dsoFilterpanelCancel!: EventEmitter<ViewerGridFilterpanelCancelEvent>;
 
   /**
    * Emitted when user applies filterpanel options.
    */
   @Event()
-  dsoFilterpanelApply!: EventEmitter<FilterpanelEvent>;
+  dsoFilterpanelApply!: EventEmitter<ViewerGridFilterpanelApplyEvent>;
 
   /**
    * Emitted before and after main size animation. Inspect `detail` property for more information.
@@ -106,7 +102,7 @@ export class ViewerGrid {
       currentSize,
     });
 
-    this.mapPanel?.addEventListener(
+    this.mainPanel?.addEventListener(
       "transitionend",
       (e) => {
         if (e.propertyName === "flex-basis") {
@@ -155,14 +151,6 @@ export class ViewerGrid {
     this.mainSize = this.mainSize === "small" ? "medium" : "large";
   };
 
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (event.key !== "Escape") {
-      return;
-    }
-
-    this.dsoCloseOverlay.emit({ originalEvent: event });
-  };
-
   private changeListener = (largeScreen: MediaQueryListEvent) => (this.tabView = !largeScreen.matches);
 
   connectedCallback() {
@@ -190,7 +178,6 @@ export class ViewerGrid {
   }
 
   disconnectedCallback() {
-    this.host.removeEventListener("keydown", this.keyDownListener);
     window.matchMedia(this.mediaCondition).removeEventListener("change", this.changeListener);
   }
 
@@ -219,23 +206,13 @@ export class ViewerGrid {
           </nav>
         )}
         {(!this.tabView || (this.tabView && this.activeTab === "main")) && (
-          <MapPanel ref={(element) => (this.mapPanel = element)}>
-            {!this.tabView && (
-              <div class="sizing-buttons">
-                <span class="sr-only" aria-live="polite" aria-atomic="true">
-                  Breedte hoofdpaneel: {this.sizeLabelMap[this.mainSize]}
-                </span>
-                <button type="button" class="shrink" disabled={this.mainSize === "small"} onClick={this.shrinkMain}>
-                  <span class="sr-only">Hoofdpaneel smaller maken</span>
-                  <dso-icon icon="chevron-left"></dso-icon>
-                </button>
-                <button type="button" class="expand" disabled={this.mainSize === "large"} onClick={this.expandMain}>
-                  <span class="sr-only">Hoofdpaneel breder maken</span>
-                  <dso-icon icon="chevron-right"></dso-icon>
-                </button>
-              </div>
-            )}
-          </MapPanel>
+          <MainPanel
+            ref={(element: HTMLDivElement | undefined) => (this.mainPanel = element)}
+            tabView={this.tabView}
+            mainSize={this.mainSize}
+            shrinkMain={this.shrinkMain}
+            expandMain={this.expandMain}
+          ></MainPanel>
         )}
         <Filterpanel
           ref={(element) => (this.filterpanel = element)}
