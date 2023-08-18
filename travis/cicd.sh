@@ -1,20 +1,21 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-TRAVIS_BRANCH_SLUG=${TRAVIS_BRANCH/\#/}
-TAG=${TRAVIS_BRANCH_SLUG:-local}
-
-echo $DT_DOCKER_PAT | docker login ghcr.io --username $DT_DOCKER_USERNAME --password-stdin
-
 mkdir --verbose --parents ~/.docker/cli-plugins/
 curl --silent --location "https://github.com/docker/buildx/releases/download/v0.11.2/buildx-v0.11.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
 chmod a+x ~/.docker/cli-plugins/docker-buildx
 docker buildx install
 
+echo $DT_DOCKER_PAT | docker login ghcr.io --username $DT_DOCKER_USERNAME --password-stdin
+
+TAG=${TRAVIS_BRANCH/\#/}
+
+# dedupe check, npm audit, lint, build, build-www
 docker build \
   --cache-to type=inline \
   --cache-from ghcr.io/dso-toolkit/dso-toolkit:master \
   --cache-from ghcr.io/dso-toolkit/dso-toolkit:${TAG} \
+  --cache-from ghcr.io/dso-toolkit/dso-toolkit:${TAG}-source \
   --tag ghcr.io/dso-toolkit/dso-toolkit:${TAG} \
   --progress plain \
   --build-arg CI \
@@ -25,6 +26,7 @@ docker build \
 
 docker push ghcr.io/dso-toolkit/dso-toolkit:${TAG} &
 
+# e2e
 docker run \
   --env CI \
   --env PERCY_TOKEN \
@@ -32,10 +34,10 @@ docker run \
   ghcr.io/dso-toolkit/dso-toolkit:${TAG} \
   "yarn e2e"
 
+# deploy
 docker run \
   --env CI \
   --env DT_PRIVATE_KEY_BASE64 \
-  --env DANGER_GITHUB_API_TOKEN \
   --env DT_DEPLOY_HOST \
   --env DT_DEPLOY_PORT \
   --env DT_DEPLOY_USER \
