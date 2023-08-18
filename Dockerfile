@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-12.12.0-node-18.16.0-chrome-113.0.5672.92-1-ff-113.0-edge-113.0.1774.35-1
+FROM cypress/included:cypress-12.12.0-node-18.16.0-chrome-113.0.5672.92-1-ff-113.0-edge-113.0.1774.35-1 AS build
 
 RUN apt-get update && apt-get install --yes \
   libx11-xcb1 \
@@ -33,18 +33,23 @@ COPY website/package.json ./website/package.json
 COPY .yarn ./.yarn
 COPY patches ./patches
 
+ARG CI
+
 RUN yarn install --immutable
 
 COPY . .
 
+FROM build
+
 RUN yarn dedupe --check
 RUN (yarn npm audit --all --recursive || true)
 RUN yarn lint
+
 RUN yarn build
 
 ARG CI
-ARG TRAVIS_TAG
 ARG TRAVIS_BRANCH
+ARG TRAVIS_TAG
 
 RUN yarn build-www
 
