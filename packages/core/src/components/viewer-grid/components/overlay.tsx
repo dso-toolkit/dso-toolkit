@@ -2,14 +2,12 @@ import { FunctionalComponent, h } from "@stencil/core";
 
 export interface ViewerGridOverlayProps {
   ref: ((elm?: HTMLDialogElement | undefined) => void) | undefined;
-  overlaySlot: HTMLDivElement | null;
   dsoCloseOverlay: (mouseEvent: MouseEvent | Event) => void;
 }
 
-export const Overlay: FunctionalComponent<ViewerGridOverlayProps> = ({ ref, overlaySlot, dsoCloseOverlay }) => (
+export const Overlay: FunctionalComponent<ViewerGridOverlayProps> = ({ ref, dsoCloseOverlay }) => (
   <dialog
     class="overlay"
-    hidden={!overlaySlot}
     ref={ref}
     onCancel={(e) => {
       e?.preventDefault();
