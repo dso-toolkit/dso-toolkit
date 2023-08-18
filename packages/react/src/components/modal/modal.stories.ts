@@ -14,22 +14,25 @@ import {
 } from "./modal.content";
 import readme from "./readme.md?raw";
 
-storiesOfModal({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
+storiesOfModal(
+  {
+    parameters: {
+      module,
+      storiesOf,
+      readme,
+    },
+    templateContainer,
+    storyTemplates: ({ modalTemplate }, templates) => ({
+      modalTemplate,
+      activeBody,
+      activeFooter,
+      passiveBody,
+      passiveFooter,
+      confirmBody,
+      confirmFooter,
+      loadingBody: loadingBody(templates),
+      datePickerBody: datePickerBody(templates),
+    }),
   },
-  templateContainer,
-  storyTemplates: ({ modalTemplate }, templates) => ({
-    modalTemplate,
-    activeBody,
-    activeFooter,
-    passiveBody,
-    passiveFooter,
-    confirmBody,
-    confirmFooter,
-    loadingBody: loadingBody(templates),
-    datePickerBody: datePickerBody(templates),
-  }),
-});
+  {}
+);

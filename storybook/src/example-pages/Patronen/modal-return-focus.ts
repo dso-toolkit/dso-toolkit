@@ -1,8 +1,11 @@
-import { html } from "lit-html";
+import { html, nothing, render } from "lit-html";
+
 import { examplePageFactory } from "../../example-page-factory";
 
-examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTemplate }) => {
-  return html`
+examplePageFactory(
+  "Patronen",
+  "Modal return focus",
+  ({ buttonTemplate, modalTemplate }) => html`
     <div class="container">
       <main>
         <h1>Modal focus return</h1>
@@ -14,45 +17,26 @@ examplePageFactory("Patronen", "Modal return focus", ({ buttonTemplate, modalTem
           label: "Open modal",
           variant: "primary",
           onClick: () => {
-            modalTemplate({
-              modalTitle: "Modal",
-              body: html`test`,
-              footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
-              showCloseButton: true,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              dsoClose: () => (window as any).modalRef.close(),
-            });
-          },
-        })}
+            const container = document.querySelector("main");
 
-        <h2>ModalElement.returnFocus</h2>
-        <p>
-          Er kan ook een element worden aangewezen. In dit voorbeeld zal de focus naar bovenstaande knop "Open modal"
-          gaan. teruggaan.
-        </p>
-        ${buttonTemplate({
-          label: "Open modal met returnFocus",
-          variant: "primary",
-          onClick: () => {
-            modalTemplate({
-              modalTitle: "Modal",
-              body: html`test`,
-              footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
-              showCloseButton: true,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              dsoClose: () => (window as any).modalRef.close(),
-              returnFocus: () => {
-                const button = document.querySelector<HTMLButtonElement>("button#activate-modal");
-                if (!button) {
-                  throw new Error("No button#activate-modal found");
-                }
-
-                return button;
-              },
-            });
+            if (container) {
+              render(
+                modalTemplate({
+                  modalTitle: "Modal",
+                  body: html`<p>${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" })}</p>
+                    <p>
+                      ${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary", autofocus: true })}
+                    </p>`,
+                  footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
+                  showCloseButton: true,
+                  dsoClose: () => render(nothing, container),
+                }),
+                container
+              );
+            }
           },
         })}
       </main>
     </div>
-  `;
-});
+  `
+);

@@ -4,12 +4,13 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import { v4 } from "uuid";
 
 import { ComponentImplementation } from "../../templates";
+import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "html-css",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, body, footer }) {
+    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, body, footer }) {
       const ariaId = v4();
 
       if (showCloseButton === undefined) {
@@ -17,12 +18,11 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
       }
 
       return html`
-        <div
-          tabindex="-1"
-          class="dso-modal"
+        <dialog
+          class="dso-modal ${classMap({ "dso-fullscreen": !!fullscreen })}"
           role=${role}
           aria-modal="true"
-          aria-labelledby=${ifDefined(modalTitle && ariaId)}
+          aria-labelledby=${ifDefined(modalTitle ? ariaId : undefined)}
         >
           <div class="dso-dialog" role="document">
             ${modalTitle && ariaId
@@ -42,7 +42,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
             </dso-scrollable>
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
-        </div>
+        </dialog>
       `;
     },
 };

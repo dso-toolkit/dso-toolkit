@@ -9,12 +9,6 @@
 body.dso-modal-open {
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     overflow: hidden;
-
-    &::before {
-      @include modal.overlay();
-
-      content: "";
-    }
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
@@ -28,6 +22,10 @@ body.dso-modal-open {
 
 .dso-modal {
   @include modal.root();
+
+  &.dso-fullscreen {
+    @include modal.fullscreen();
+  }
 
   .dso-close {
     &::before {
@@ -47,14 +45,18 @@ body.dso-modal-open {
       position: relative;
     }
   }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    @include modal.fullscreen();
+  }
 }
 
 dso-modal {
-  *[slot="body"] {
+  [slot="body"] {
     @include rich-content.children();
   }
 
-  div[slot="footer"] {
+  [slot="footer"] {
     @include modal.modal-wide-buttons();
 
     .dso-tertiary {

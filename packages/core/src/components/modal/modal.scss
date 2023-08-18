@@ -1,8 +1,25 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/modal";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+// fullscreen option
+:host([fullscreen]) dialog {
+  @include modal.fullscreen();
+}
+
+// Go to fullscreen on =< 480px viewport
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  :host dialog {
+    @include modal.fullscreen();
+  }
+}
 
 .sr-only {
   @include utilities.sr-only();
@@ -14,10 +31,6 @@ button {
 
 .dso-modal {
   @include modal.root();
-}
-
-.dso-modal-overlay {
-  @include modal.overlay();
 }
 
 .dso-close {

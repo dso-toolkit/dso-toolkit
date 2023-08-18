@@ -7,6 +7,7 @@
     "noEmitOnError": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "types": ["@dso-toolkit/core"],
     "lib": ["dom", "es2019"],
     "moduleResolution": "node",
     "module": "esnext",

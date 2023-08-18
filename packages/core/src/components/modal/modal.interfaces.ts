@@ -1,20 +1,7 @@
-export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
+export interface ModalCloseEvent {
+  originalEvent?: MouseEvent | Event;
 }
 
 export type ModalRole = "dialog" | "alert" | "alertdialog";
 
 export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
-
-export interface ModalContent {
-  title?: string;
-  body: AllowedModalContentTypes;
-  footer?: AllowedModalContentTypes;
-}
-
-export interface ModalOptions {
-  role?: ModalRole;
-  showCloseButton?: boolean;
-  initialFocus?: string;
-  returnFocus?: (nodeFocusedBeforeActivation: HTMLElement | SVGElement) => HTMLElement | SVGElement | string | false;
-}

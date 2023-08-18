@@ -19,46 +19,58 @@
 }
 
 @mixin root() {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: zindex.$modal;
+  // dialog
+  // ------
+  // overwrite UA styles:
+  overflow: visible;
+  padding: 0;
+  border: 0;
+
+  &::backdrop {
+    background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
+  }
 
   .dso-dialog {
-    animation: 1s ease-out 0s 1 slideInFromTop;
+    max-inline-size: modal-variables.$max-width;
+
     background-color: modal-variables.$content-bg;
-    box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: clamp(#{units.$u5}, 15vh, 15vh);
-    max-width: modal-variables.$max-width;
+
     opacity: 1;
+
+    box-shadow: 0 #{units.$u1} #{units.$u3} 0 rgba(25, 25, 25, 0.4);
+    animation: 1s ease-out 0s 1 slideInFromTop;
   }
 
   .dso-header {
-    border-bottom: 1px solid modal-variables.$border-color;
-    padding: modal-variables.$header-padding;
     position: relative;
 
+    padding: modal-variables.$header-padding;
+
+    border-block-end: 1px solid modal-variables.$border-color;
+
     h2 {
-      color: colors.$bosgroen;
+      max-inline-size: calc(100% - #{units.$u3});
+
       margin: 0;
-      max-width: calc(100% - #{units.$u3});
+
+      color: colors.$bosgroen;
     }
 
     .dso-close {
-      background-color: transparent;
-      border: 0;
-      height: modal-variables.$close-icon-size;
-      padding: 0;
       position: absolute;
-      right: 13px;
+      inset-block-start: units.$u2;
+      inset-inline-end: 13px;
+
+      block-size: modal-variables.$close-icon-size;
+      inline-size: modal-variables.$close-icon-size;
+
+      padding: 0;
+
+      background-color: transparent;
+
+      border: 0;
+
       text-align: center;
-      top: units.$u2;
-      width: modal-variables.$close-icon-size;
     }
   }
 
@@ -68,10 +80,11 @@
 
     @include rich-content.children();
 
-    height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-height: 1.5rem;
+    block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+    max-block-size: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    min-block-size: 1.5rem;
     overflow-x: auto;
+
     padding: modal-variables.$body-padding;
   }
 
@@ -79,9 +92,9 @@
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-height + modal-variables.$footer-padding);
 
-    height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-height: modal-variables.$body-min-height;
+    block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+    max-block-size: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    min-block-size: modal-variables.$body-min-height;
 
     .dso-body {
       @include rich-content.children();
@@ -90,43 +103,53 @@
     }
   }
 
+  .dso-body {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
   .dso-footer {
     @include modal-wide-buttons();
 
-    min-height: modal-variables.$footer-button-height + modal-variables.$footer-padding;
+    min-block-size: modal-variables.$footer-button-height + modal-variables.$footer-padding;
+
     padding: calc(modal-variables.$footer-padding / 2) modal-variables.$footer-padding;
-    text-align: right;
+
+    text-align: end;
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .dso-footer {
       #{button.$button-adjacent-secondary} {
-        margin-left: units.$u2;
+        margin-inline-start: units.$u2;
       }
 
       #{button.$button-adjacent-tertiary} {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     .dso-dialog {
-      max-width: 100%;
-      margin-top: 0;
+      max-inline-size: 100%;
+
+      margin-block-start: 0;
     }
 
     .dso-footer {
       #{button.$button-adjacent} {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
 
       button {
+        inline-size: 100%;
+
         text-align: center;
-        width: 100%;
 
         + button {
-          margin-top: units.$u1;
+          margin-block-start: units.$u1;
         }
 
         &.dso-tertiary {
@@ -142,16 +165,17 @@
   // special query for height
   @media screen and (max-height: modal-variables.$small-modal-vh) {
     .dso-dialog {
-      margin-bottom: units.$u1;
-      margin-top: units.$u1;
-      min-height: modal-variables.$min-modal-height;
+      min-block-size: modal-variables.$min-modal-height;
+
+      margin-block-start: units.$u1;
+      margin-block-end: units.$u1;
     }
 
     .dso-header {
       padding: #{units.$u1} #{units.$u2};
 
       .dso-close {
-        top: units.$u1;
+        inset-block-start: units.$u1;
       }
     }
 
@@ -160,8 +184,9 @@
     }
 
     .dso-footer {
-      min-height: auto;
+      min-block-size: auto;
       overflow: auto;
+
       padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
     }
   }
@@ -170,15 +195,16 @@
 @mixin modal-wide-buttons() {
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     #{button.$button-adjacent} {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
 
     button {
+      inline-size: 100%;
+
       text-align: center;
-      width: 100%;
 
       + button {
-        margin-top: units.$u1;
+        margin-block-start: units.$u1;
       }
 
       &.dso-tertiary {
@@ -191,13 +217,25 @@
   }
 }
 
-@mixin overlay() {
-  background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
-  bottom: 0;
-  display: block;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: zindex.$modal-background-overlay;
+@mixin fullscreen() {
+  inline-size: 100dvi;
+  block-size: 100dvb;
+
+  .dso-dialog {
+    display: flex;
+    flex-direction: column;
+
+    max-inline-size: 100%;
+    block-size: 100%;
+
+    > dso-scrollable {
+      flex-grow: 1;
+
+      max-block-size: unset;
+    }
+  }
+
+  .dso-footer {
+    flex-shrink: 0;
+  }
 }

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING:** Modal: Groot onderhoud (dialog element, responsive bugfix, geen ModalControllers meer, fullscreen support) ([#2223](https://github.com/dso-toolkit/dso-toolkit/issues/2223))
+
 ### Fixed
 * Button Row: heeft onterecht ondermarge als last-child in container ([#2279](https://github.com/dso-toolkit/dso-toolkit/issues/2279))
 

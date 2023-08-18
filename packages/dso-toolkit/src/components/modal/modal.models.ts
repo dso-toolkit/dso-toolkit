@@ -1,16 +1,15 @@
 export interface Modal<TemplateFnReturnType> {
-  modalTitle?: string;
   body: TemplateFnReturnType;
+  fullscreen?: boolean;
+  modalTitle?: string;
   footer?: TemplateFnReturnType;
   role?: ModalRole;
   showCloseButton?: boolean;
-  initialFocus?: string;
-  dsoClose?: (e: CustomEvent<DsoModalCloseEvent>) => void;
-  returnFocus?: (e: HTMLElement | SVGElement) => HTMLElement | SVGElement | string | false;
+  dsoClose?: (e: CustomEvent<ModalCloseEvent>) => void;
 }
 
-export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
+export interface ModalCloseEvent {
+  originalEvent?: MouseEvent | Event;
 }
 
 export type ModalRole = "alert" | "dialog" | "alertdialog";

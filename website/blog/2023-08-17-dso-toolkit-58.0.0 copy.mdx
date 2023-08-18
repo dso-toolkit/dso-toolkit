@@ -1,0 +1,65 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v58.0.0
+
+Een spiksplinternieuwe Modal is de oorzaak van deze breaking release!
+
+## Modal
+
+Modal heeft het HTML5 element `dialog` geadopteerd en ondersteunt nu ook een fullscreen modus.
+
+### HTML/CSS component `.dso-modal`
+
+Het root element waar de class `.dso-modal` is vanaf nu een `dialog`. Voor afnemers van het HTML/CSS component moet het dialog nog worden geactiveerd met `HTMLDialogElement.showModal()`.
+
+#### Fullscreen
+
+De modifier class `.dso-fullscreen` zorgt voor volledige scherm weergave:
+
+```html
+<dialog class="dso-modal dso-fullscreen"></dialog>
+```
+
+### Web Component `<dso-modal>`
+
+#### Fullscreen
+
+Het attribute `[fullscreen]` zorgt voor volledige scherm weergave:
+
+```html
+<dso-modal fullscreen></dso-modal>
+```
+
+#### Return Focus (`returnFocus`)
+
+Het HTML5 element `dialog` heeft ingebouwde functionaliteit die dit vervangt. Zo wordt bij het sluiten van een `dialog` de focus teruggezet naar het element wat focus had bij het openen van `dialog`.
+
+Het migratiepad geeft geen alternatieve oplossing. Het nieuwe inzicht is dat we die overlaten aan de user agent. Dit betekent dat de afnemer het gebruik van `returnFocus` moet verwijderen.
+
+#### Initial Focus (`initialFocus`)
+
+Dit wordt nu met het `autofocus` attribuut geregeld. Zet dit attribuut op het interactieve element in de Modal. Als er geen `autofocus` attribuut is, zet `dialog` de focus standaard op het eerste focusable element binnen de dialog.
+
+```html
+❌
+<dso-modal initial-focus="#mijn-knop">
+  <button type="button" class="dso-primary" id="mijn-knop">
+    <span>Klik!</span>
+  </button>
+</dso-modal>
+
+✅
+<dso-modal>
+  <button type="button" class="dso-primary" autofocus>
+    <span>Klik!</span>
+  </button>
+</dso-modal>
+```
+
+#### Modal Factories
+
+De ModalController voor Angular en de ModalRef voor React zijn met `dialog` niet meer nodig en dus verwijderd.
+
+Migratiepad: Maak direct `<dso-dialog>` of `<DsoDialog>` waar nodig. De nieuwe top-layer zorgt ervoor dat je zelfs meerdere Modals tegelijkertijd kan openen.
