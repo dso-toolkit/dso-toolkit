@@ -6,12 +6,12 @@ const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;
 describe("Viewer Grid", () => {
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("not.be.visible");
+    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
   });
 
   it("should show overlay", () => {
     cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("be.visible");
+    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("have.attr", "open");
     cy.percySnapshot();
   });
 

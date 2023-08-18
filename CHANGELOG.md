@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING:** Modal: Groot onderhoud (dialog element, responsive bugfix, geen ModalControllers meer, fullscreen support) ([#2223](https://github.com/dso-toolkit/dso-toolkit/issues/2223))
+* **BREAKING** Viewer Grid: Tab view op smal scherm  ([#2254](https://github.com/dso-toolkit/dso-toolkit/issues/2254))\
+`dsoCloseOverlay` event `detail` is gevuld met `{ originalEvent: PointerEvent }` i.p.v `PointerEvent`.
 
 ### Fixed
 * Button Row: heeft onterecht ondermarge als last-child in container ([#2279](https://github.com/dso-toolkit/dso-toolkit/issues/2279))

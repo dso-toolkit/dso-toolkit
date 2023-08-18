@@ -123,6 +123,10 @@ export class ViewerGrid {
 
   @Watch("filterpanelOpen")
   filterpanelOpenWatcher(open: boolean) {
+    if (!this.filterpanelSlot) {
+      console.warn("slot 'filterpanel' has not been set");
+    }
+
     if (open) {
       this.filterpanel?.showModal();
     } else {
@@ -132,6 +136,10 @@ export class ViewerGrid {
 
   @Watch("overlayOpen")
   overlayOpenWatcher(open: boolean) {
+    if (!this.overlaySlot) {
+      console.warn("slot 'overlay' has not been set");
+    }
+
     if (open) {
       this.overlay?.showModal();
     } else {
@@ -166,11 +174,11 @@ export class ViewerGrid {
   }
 
   componentDidLoad() {
-    if (this.filterpanelOpen) {
+    if (this.filterpanelOpen && this.filterpanelSlot) {
       this.filterpanel?.showModal();
     }
 
-    if (this.overlayOpen) {
+    if (this.overlayOpen && this.overlaySlot) {
       this.overlay?.showModal();
     }
   }
@@ -231,8 +239,6 @@ export class ViewerGrid {
         )}
         <Filterpanel
           ref={(element) => (this.filterpanel = element)}
-          filterpanelOpen={this.filterpanelOpen}
-          filterpanelSlot={this.filterpanelSlot}
           onApply={(e) => this.handleFilterpanelApply(e)}
           onCancel={(e) => this.handleFilterpanelCancel(e)}
         ></Filterpanel>
@@ -241,10 +247,8 @@ export class ViewerGrid {
             <slot name="map" />
           </div>
         )}
-        <div hidden={!this.overlayOpen || !this.overlaySlot || this.tabView} class="dimscreen"></div>
         <Overlay
           ref={(element) => (this.overlay = element)}
-          overlaySlot={this.overlaySlot}
           dsoCloseOverlay={(e) => this.dsoCloseOverlay.emit({ originalEvent: e })}
         ></Overlay>
       </Host>
