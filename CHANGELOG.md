@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Button Row: heeft onterecht ondermarge als last-child in container ([#2279](https://github.com/dso-toolkit/dso-toolkit/issues/2279))
 
+### Tasks
+* DangerJS in CI ([#2225](https://github.com/dso-toolkit/dso-toolkit/issues/2225))
+
 ## 57.0.0 - 08-08-2023
 
 Zie de blogpost op dso-toolkit.nl voor een toelichting op de BREAKING changes.
