@@ -29,7 +29,7 @@ import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { FilterpanelEvent, MainSize, OverlayEvent, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
+import { MainSize, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
@@ -54,7 +54,7 @@ export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-export { FilterpanelEvent, MainSize, OverlayEvent, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
+export { MainSize, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
@@ -2169,15 +2169,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when user wants to close the overlay.
          */
-        "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<OverlayEvent>) => void;
+        "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<ViewerGridCloseOverlayEvent>) => void;
         /**
           * Emitted when user applies filterpanel options.
          */
-        "onDsoFilterpanelApply"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        "onDsoFilterpanelApply"?: (event: DsoViewerGridCustomEvent<ViewerGridFilterpanelApplyEvent>) => void;
         /**
           * Emitted when user cancels filterpanel.
          */
-        "onDsoFilterpanelCancel"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        "onDsoFilterpanelCancel"?: (event: DsoViewerGridCustomEvent<ViewerGridFilterpanelCancelEvent>) => void;
         /**
           * Emitted before and after main size animation. Inspect `detail` property for more information.
          */

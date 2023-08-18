@@ -1,3 +1,3 @@
 export { Filterpanel } from "./filterpanel";
-export { MapPanel } from "./map-panel";
+export { MainPanel } from "./main-panel";
 export { Overlay } from "./overlay";

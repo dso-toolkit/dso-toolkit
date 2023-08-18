@@ -3,9 +3,9 @@ import { FunctionalComponent, h } from "@stencil/core";
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
 
 export interface ViewerGridFilterpanelProps {
-  ref: ((elm?: HTMLDialogElement | undefined) => void) | undefined;
-  onApply: (mouseEvent: MouseEvent | Event) => void;
-  onCancel: (mouseEvent: MouseEvent | Event) => void;
+  ref: ((element: HTMLDialogElement | undefined) => void) | undefined;
+  onApply: (mouseEvent: MouseEvent) => void;
+  onCancel: (event: MouseEvent | Event) => void;
 }
 
 export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({ ref, onApply, onCancel }) => (
@@ -14,7 +14,7 @@ export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({ r
     class="filterpanel"
     ref={ref}
     onCancel={(e) => {
-      e?.preventDefault();
+      e.preventDefault();
 
       onCancel(e);
     }}
