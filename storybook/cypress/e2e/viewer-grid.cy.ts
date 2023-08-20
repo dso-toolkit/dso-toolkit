@@ -59,7 +59,7 @@ describe("Viewer Grid", () => {
     cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
   });
 
-  it.only("should emit closeOverlay on escape", () => {
+  it("should emit closeOverlay on escape", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").then((c) => {
       c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
