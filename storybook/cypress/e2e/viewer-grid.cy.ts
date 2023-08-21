@@ -60,15 +60,20 @@ describe("Viewer Grid", () => {
   });
 
   it("should emit closeOverlay on escape", () => {
-    cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").then((c) => {
-      c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
-    });
-    cy.wait(100);
-    cy.realPress("Tab"); // We're not focused in the page on visit.
-    cy.wait(100);
-    cy.realPress("Escape");
-    cy.get("@closeOverlay").should("have.been.calledOnce");
+    cy.visit(url)
+      .get("dso-viewer-grid")
+      .then((c) => {
+        c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
+      })
+      .invoke("attr", "overlay-open", "")
+      .get("dso-viewer-grid")
+      .shadow()
+      .find(".overlay")
+      .should("exist")
+      .and("have.attr", "open")
+      .realPress("Escape")
+      .get("@closeOverlay")
+      .should("have.been.calledOnce");
   });
 
   it("should not show overlay", () => {
