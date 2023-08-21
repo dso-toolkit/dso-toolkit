@@ -63,3 +63,31 @@ Dit wordt nu met het `autofocus` attribuut geregeld. Zet dit attribuut op het in
 De ModalController voor Angular en de ModalRef voor React zijn met `dialog` niet meer nodig en dus verwijderd.
 
 Migratiepad: Maak direct `<dso-dialog>` of `<DsoDialog>` waar nodig. De nieuwe top-layer zorgt ervoor dat je zelfs meerdere Modals tegelijkertijd kan openen.
+
+## Viewer Grid
+
+Bij een functionele uitbreiding kwamen er bij de events wat inconsistenties naar voren.
+
+| Breaking | Event                | Oud model                                               | Nieuw model                                                  |
+| -------- | -------------------- | ------------------------------------------------------- | ------------------------------------------------------------ |
+| Ja       | DsoCloseOverlay      | `DsoViewerGridCustomEvent<MouseEvent \| KeyboardEvent>` | `DsoViewerGridCustomEvent<ViewerGridCloseOverlayEvent>`      |
+|          | DsoFilterpanelApply  | `DsoViewerGridCustomEvent<FilterpanelEvent>`            | `DsoViewerGridCustomEvent<ViewerGridFilterpanelApplyEvent>`  |
+|          | DsoFilterpanelCancel | `DsoViewerGridCustomEvent<FilterpanelEvent>`            | `DsoViewerGridCustomEvent<ViewerGridFilterpanelCancelEvent>` |
+
+_(De `*CustomEvent` modellen zijn aliassen voor `CustomEvent` met een typed `.target` element.)_
+
+```ts
+export interface ViewerGridCloseOverlayEvent {
+  originalEvent: MouseEvent | Event;
+}
+
+export interface ViewerGridFilterpanelCancelEvent {
+  originalEvent: MouseEvent | Event;
+}
+
+export interface ViewerGridFilterpanelApplyEvent {
+  originalEvent: MouseEvent | Event;
+}
+```
+
+Dit betekent dat bij DsoCloseOverlay het originele event niet meer op `DsoViewerGridCustomEvent.detail` zit, maar op `DsoViewerGridCustomEvent.detail.originalEvent`. De andere twee changes zijn geen breaking changes per se, maar de naam van het model is gewijzigd.

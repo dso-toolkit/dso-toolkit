@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+Zie de blogpost van deze release op [dso-toolkit.nl](https://www.dso-toolkit.nl) voor een toelichting op de BREAKING changes.
+
+### Added
+* **BREAKING** Viewer Grid: Panelen als Tabs op smalle viewport ([#2254](https://github.com/dso-toolkit/dso-toolkit/issues/2254))
+
 ### Changed
 * **BREAKING:** Modal: Groot onderhoud (dialog element, responsive bugfix, geen ModalControllers meer, fullscreen support) ([#2223](https://github.com/dso-toolkit/dso-toolkit/issues/2223))
 

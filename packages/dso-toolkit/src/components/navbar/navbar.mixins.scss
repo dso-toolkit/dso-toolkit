@@ -1,0 +1,101 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "../../variables/media-query-breakpoints";
+@use "../anchor";
+@use "./navbar.variables.scss" as navbar;
+
+@mixin root() {
+  .dso-navbar {
+    min-height: units.$u4;
+
+    .dso-navbar-header {
+      float: left;
+    }
+
+    .dso-navbar-toggle {
+      border-radius: 4px;
+      min-width: auto;
+      padding: #{units.$padding-base-vertical - 1} 0;
+
+      dso-icon,
+      svg.di {
+        margin-left: units.$u1;
+        margin-right: units.$u1;
+      }
+
+      @media screen and (min-width: media-query-breakpoints.$screen-md-min) {
+        display: none;
+      }
+    }
+  }
+
+  .dso-nav {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    > li {
+      > a,
+      > button {
+        display: block;
+
+        &,
+        &:hover,
+        &:focus,
+        &:visited {
+          color: colors.$bosgroen;
+        }
+      }
+
+      &.dso-active,
+      &.is-active {
+        > a,
+        > button {
+          @include nav-item-border(navbar.$selected-color);
+
+          font-weight: bold;
+        }
+      }
+    }
+
+    &.dso-nav-main {
+      > li {
+        display: inline-block;
+
+        > a,
+        > button {
+          @include anchor.reverse();
+
+          font-size: 1.25em;
+          line-height: 1;
+          margin-top: units.$u1;
+          padding: units.$u1 units.$u2 #{units.$u1 - 1px};
+        }
+      }
+    }
+
+    &.dso-nav-sub {
+      > li {
+        display: inline-block;
+
+        > a,
+        > button {
+          @include anchor.reverse();
+
+          font-size: typography.$root-font-size-base;
+          margin-top: (units.$u1 * 0.5);
+          padding: (units.$u1 * 0.5) units.$u1 #{units.$u1 * 0.5 - 1px};
+        }
+      }
+    }
+  }
+}
+
+@mixin nav-item-border($color) {
+  border-bottom: 4px solid $color;
+}
+
+@mixin nav-border() {
+  border-bottom: 1px solid colors.$grijs-20;
+}

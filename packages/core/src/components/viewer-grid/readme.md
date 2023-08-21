@@ -14,26 +14,13 @@
 
 ## Events
 
-| Event                  | Description                                                                                   | Type                                       |
-| ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `dsoCloseOverlay`      | Emitted when user wants to close the overlay.                                                 | `CustomEvent<KeyboardEvent \| MouseEvent>` |
-| `dsoFilterpanelApply`  | Emitted when user applies filterpanel options.                                                | `CustomEvent<FilterpanelEvent>`            |
-| `dsoFilterpanelCancel` | Emitted when user cancels filterpanel.                                                        | `CustomEvent<FilterpanelEvent>`            |
-| `dsoMainSizeChange`    | Emitted before and after main size animation. Inspect `detail` property for more information. | `CustomEvent<ViewerGridChangeSizeEvent>`   |
+| Event                  | Description                                                                                   | Type                                            |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `dsoCloseOverlay`      | Emitted when user wants to close the overlay.                                                 | `CustomEvent<ViewerGridCloseOverlayEvent>`      |
+| `dsoFilterpanelApply`  | Emitted when user applies filterpanel options.                                                | `CustomEvent<ViewerGridFilterpanelApplyEvent>`  |
+| `dsoFilterpanelCancel` | Emitted when user cancels filterpanel.                                                        | `CustomEvent<ViewerGridFilterpanelCancelEvent>` |
+| `dsoMainSizeChange`    | Emitted before and after main size animation. Inspect `detail` property for more information. | `CustomEvent<ViewerGridChangeSizeEvent>`        |
 
-
-## Dependencies
-
-### Depends on
-
-- [dso-icon](../icon)
-
-### Graph
-```mermaid
-graph TD;
-  dso-viewer-grid --> dso-icon
-  style dso-viewer-grid fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

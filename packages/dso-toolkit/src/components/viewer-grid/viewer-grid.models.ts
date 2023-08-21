@@ -9,9 +9,9 @@ export interface ViewerGrid<TemplateFnReturnType> {
   overlayOpen?: boolean;
   initialMainSize?: "small" | "medium" | "large";
   dsoMainSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
-  dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent) => void;
-  dsoFilterpanelCancel?: (e: MouseEvent) => void;
-  dsoFilterpanelApply?: (e: MouseEvent) => void;
+  dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
+  dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
+  dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
 }
 
 export interface ViewerGridChangeSizeEvent {

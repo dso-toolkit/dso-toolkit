@@ -6,12 +6,12 @@ const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;
 describe("Viewer Grid", () => {
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("not.be.visible");
+    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
   });
 
   it("should show overlay", () => {
     cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("be.visible");
+    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("have.attr", "open");
     cy.percySnapshot();
   });
 
@@ -59,24 +59,21 @@ describe("Viewer Grid", () => {
     cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
   });
 
-  it.skip("should emit closeOverlay on escape", () => {
-    cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").then((c) => {
-      c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
-    });
-    cy.wait(100);
-    cy.realPress("Tab"); // We're not focused in the page on visit.
-    cy.wait(100);
-    cy.realPress("Escape");
-    cy.get("@closeOverlay").should("have.been.calledOnce");
-  });
-
-  it("should trap focus on overlay open", () => {
-    cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").find("div[slot = 'overlay'] a[href]").eq(0).should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").find("div[slot = 'overlay'] a[href]").eq(1).should("be.focused").realPress("Tab");
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
+  it("should emit closeOverlay on escape", () => {
+    cy.visit(url)
+      .get("dso-viewer-grid")
+      .then((c) => {
+        c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
+      })
+      .invoke("attr", "overlay-open", "")
+      .get("dso-viewer-grid")
+      .shadow()
+      .find(".overlay:focus-within")
+      .should("exist")
+      .and("have.attr", "open")
+      .realPress("Escape")
+      .get("@closeOverlay")
+      .should("have.been.calledOnce");
   });
 
   it("should not show overlay", () => {
@@ -104,25 +101,6 @@ describe("Viewer Grid", () => {
 
   it("should emit filterpanelApply event", () => {
     filterPanelEventTest("dsoFilterpanelApply", ".apply-button");
-  });
-
-  it("should trap focus on filterpanel open", () => {
-    cy.visit(url);
-
-    cy.get("dso-viewer-grid")
-      .invoke("attr", "filterpanel-open", "")
-      .shadow()
-      .find("#filterpanel button")
-      .first()
-      .as("firstFocussedButton")
-      .should("be.focused");
-
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-    cy.realPress("Tab");
-
-    cy.get("@firstFocussedButton").should("be.focused");
   });
 
   it("should do nothing when clicking next to filterpanel", () => {
@@ -191,7 +169,7 @@ describe("Viewer Grid", () => {
       });
   });
 
-  it('should say "Breedte tekstpaneel: [smal / middel / breed]" upon size change', () => {
+  it('should say "Breedte hoofdpaneel: [smal / middel / breed]" upon size change', () => {
     cy.visit(url);
 
     cy.get("dso-viewer-grid")
@@ -214,6 +192,44 @@ describe("Viewer Grid", () => {
 
     shouldHavePhrase("middel");
   });
+});
+
+it("should show tabs on small screen", () => {
+  cy.visit(url);
+
+  cy.viewport(400, 600)
+    .get("dso-viewer-grid")
+    .shadow()
+    .as("dsoViewerGrid")
+    .find("nav")
+    .should("exist")
+    .and("be.visible")
+    .get("@dsoViewerGrid")
+    .find("nav > ul > li")
+    .should("have.length", 2)
+    .eq(0)
+    .should("have.text", "Hoofdpaneel")
+    .get("@dsoViewerGrid")
+    .find(".map")
+    .should("not.exist")
+    .get("@dsoViewerGrid")
+    .find(".dso-main-panel")
+    .should("exist")
+    .and("be.visible")
+    .get("@dsoViewerGrid")
+    .find("nav > ul > li")
+    .should("have.length", 2)
+    .eq(1)
+    .should("have.text", "Kaart")
+    .find("button")
+    .realClick()
+    .get("@dsoViewerGrid")
+    .find(".dso-main-panel")
+    .should("not.exist")
+    .get("@dsoViewerGrid")
+    .find(".map")
+    .should("exist")
+    .and("be.visible");
 });
 
 function filterPanelEventTest(eventName: string, buttonSelector: string) {
@@ -248,5 +264,5 @@ function shouldHavePhrase(size: string) {
   cy.get("dso-viewer-grid")
     .shadow()
     .find(".sizing-buttons > span.sr-only")
-    .should("have.text", `Breedte tekstpaneel: ${size}`);
+    .should("have.text", `Breedte hoofdpaneel: ${size}`);
 }
