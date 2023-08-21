@@ -16,6 +16,9 @@ Zie de blogpost van deze release op [dso-toolkit.nl](https://www.dso-toolkit.nl)
 ### Fixed
 * Button Row: heeft onterecht ondermarge als last-child in container ([#2279](https://github.com/dso-toolkit/dso-toolkit/issues/2279))
 
+### Deprecated
+* **BREAKING:** Tooltip: Deprecate HTML/CSS implementatie ([#2289](https://github.com/dso-toolkit/dso-toolkit/issues/2289))
+
 ### Tasks
 * DangerJS in CI ([#2225](https://github.com/dso-toolkit/dso-toolkit/issues/2225))
 

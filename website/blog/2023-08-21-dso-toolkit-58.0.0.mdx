@@ -4,7 +4,9 @@ authors: [tfrijsewijk]
 
 # DSO Toolkit v58.0.0
 
-Een spiksplinternieuwe Modal is de oorzaak van deze breaking release!
+Een spiksplinternieuwe Modal is de oorzaak van deze breaking release! Daarnaast zijn er wat kleine (maar breaking) changes voor het Viewer Grid.
+
+Verder hebben we van het Tooltip component de HTML/CSS implementatie deprecated. In sprint 27.6 verwijderen we de code. Tot die tijd werkt het component **ongewijzigd**.
 
 ## Modal
 
@@ -91,3 +93,30 @@ export interface ViewerGridFilterpanelApplyEvent {
 ```
 
 Dit betekent dat bij DsoCloseOverlay het originele event niet meer op `DsoViewerGridCustomEvent.detail` zit, maar op `DsoViewerGridCustomEvent.detail.originalEvent`. De andere twee changes zijn geen breaking changes per se, maar de naam van het model is gewijzigd.
+
+## Tooltip: HTML/CSS implementatie
+
+Een toegankelijke tooltip is heel veel werk. Bij de HTML/CSS implementatie is het voornamelijk documentatie. Na de zoveelste bevinding hebben we besloten het Tooltip component te deprecaten ten gunste van de Web Component implementatie.
+
+### Migratie naar Web Component
+
+<!-- prettier-ignore -->
+```html
+❌
+<div class="tooltip fade in top|right|bottom|left" aria-hidden="true">
+  <div class="tooltip-arrow"></div>
+  <div class="tooltip-inner">LABEL</div>
+</div>
+
+✅
+<dso-tooltip position="POSITION" descriptive>
+  LABEL
+</dso-tooltip>
+```
+
+| Functionaliteit | HTML/CSS                                                                    | Web Component                                                                 |
+| --------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Root element    | `<div class="tooltip fade in">`                                             | `<dso-tooltip>`                                                               |
+| Position        | `<div class="tooltip fade in top\|right\|bottom\|left">`                    | `<dso-tooltip position="top\|right\|bottom\|left">` (Default position: `top`) |
+| Descriptive     | `<div class="tooltip fade in" aria-hidden="true">`                          | `<dso-tooltip descriptive>`                                                   |
+| Label           | `<div class="tooltip fade in"><div class="tooltip-arrow">LABEL</div></div>` | `<dso-tooltip>LABEL</dso-tooltip>`                                            |
