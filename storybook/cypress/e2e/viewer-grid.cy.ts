@@ -68,7 +68,7 @@ describe("Viewer Grid", () => {
       .invoke("attr", "overlay-open", "")
       .get("dso-viewer-grid")
       .shadow()
-      .find(".overlay")
+      .find(".overlay:focus-within")
       .should("exist")
       .and("have.attr", "open")
       .realPress("Escape")
