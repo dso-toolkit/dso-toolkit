@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 58.0.1 - 22-08-2023
+
+### Added
+* Auto Suggest: Stil laten falen ([#2292](https://github.com/dso-toolkit/dso-toolkit/issues/2292))
+
 ## 58.0.0 - 21-08-2023
 
 Zie de blogpost van deze release op [dso-toolkit.nl](https://www.dso-toolkit.nl) voor een toelichting op de BREAKING changes.

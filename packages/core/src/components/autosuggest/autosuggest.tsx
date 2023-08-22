@@ -124,7 +124,8 @@ export class Autosuggest {
 
   private onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
-      throw new Error("event.target is not instanceof HTMLInputElement");
+      return;
+      // throw new Error("event.target is not instanceof HTMLInputElement"); #2293
     }
 
     this.showLoading = !this.loadingDelayed;
@@ -155,7 +156,8 @@ export class Autosuggest {
     setTimeout(() => {
       const input = this.host.querySelector('input[type="text"]');
       if (!(input instanceof HTMLInputElement)) {
-        throw new ReferenceError("Mandatory text input not found");
+        return;
+        // throw new ReferenceError("Mandatory text input not found"); #2293
       }
 
       this.input = input;
@@ -166,7 +168,8 @@ export class Autosuggest {
       }
 
       if (!this.input.labels || this.input.labels.length < 1) {
-        throw new ReferenceError("Mandatory label for text input not found");
+        return;
+        // throw new ReferenceError("Mandatory label for text input not found"); #2293
       }
 
       const label = this.input.labels[0];
