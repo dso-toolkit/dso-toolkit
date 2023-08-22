@@ -3,6 +3,8 @@
 @use "../../variables/typography";
 @use "../../variables/media-query-breakpoints";
 
+@use "../../di";
+
 @use "banner.variables" as banner-variables;
 
 @mixin _variant($background, $border, $text-color) {
@@ -44,14 +46,6 @@
         }
       }
 
-      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
-        padding-left: banner-variables.$left-padding;
-      }
-
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-        padding-top: banner-variables.$small-padding-top;
-      }
-
       > .dso-rich-content {
         padding-right: units.$u3;
 
@@ -87,10 +81,6 @@
         *:last-child {
           margin-bottom: 0;
         }
-
-        @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-          padding-right: 0;
-        }
       }
     }
   }
@@ -104,6 +94,10 @@
   @include _variant(banner-variables.$error-bg, banner-variables.$error-border, banner-variables.$error-text);
 }
 
+@mixin info() {
+  @include _variant(banner-variables.$info-bg, banner-variables.$info-border, banner-variables.$info-text);
+}
+
 @mixin warning() {
   @include _variant(banner-variables.$warning-bg, banner-variables.$warning-border, banner-variables.$warning-text);
 }
@@ -111,4 +105,16 @@
 @mixin root() {
   padding: units.$u2 0;
   position: relative;
+
+  &.dso-compact {
+    padding: 12px 0;
+  }
+}
+
+@mixin with-icon($variant) {
+  .row > div {
+    &::before {
+      @include di.base("status-#{$variant}");
+    }
+  }
 }

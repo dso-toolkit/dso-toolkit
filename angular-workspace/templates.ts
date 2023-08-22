@@ -7,7 +7,6 @@ import {
   AnnotationOutput,
   AttachmentsCounter,
   Badge,
-  Banner,
   BaseComponentImplementation,
   DatePicker,
   DropdownMenu,
@@ -40,7 +39,6 @@ import { angularAnnotationOutput } from "./components/annotation-output/annotati
 import { angularAnnotation } from "./components/annotation/annotation.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
-import { angularBanner } from "./components/banner/banner.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
@@ -72,7 +70,6 @@ export interface Components {
   // autosuggest: Autosuggest<StoryFnAngularReturnType>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
-  banner: Banner<StoryFnAngularReturnType>;
   // card: Card<StoryFnAngularReturnType>;
   // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
@@ -138,7 +135,6 @@ templateContainer.add(angularAnnotationButton);
 templateContainer.add(angularAnnotationOutput);
 templateContainer.add(angularAttachmentsCounter);
 templateContainer.add(angularBadge);
-templateContainer.add(angularBanner);
 templateContainer.add(angularDatePicker);
 templateContainer.add(angularDropdownMenu);
 templateContainer.add(angularExpandable);

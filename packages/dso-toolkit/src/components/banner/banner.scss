@@ -1,9 +1,11 @@
-@use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/units";
 
 @use "../../di";
 
-@use "../banner";
+@use "banner.mixins" as banner-mixins;
+@use "banner.variables" as banner-variables;
 
 .banner {
   background-color: colors.$invalid-color !important;
@@ -12,8 +14,8 @@
 // HTML/CSS
 .banner,
 .dso-banner:not(.row) {
-  @include banner.root();
-  @include banner.children();
+  @include banner-mixins.root();
+  @include banner-mixins.children();
 
   .row > div::before {
     content: "";
@@ -23,27 +25,51 @@
     top: 0;
   }
 
-  &.alert-danger {
-    @include banner.danger();
+  &:not(.dso-no-icon) {
+    .row > div {
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
+        padding-left: banner-variables.$left-padding;
+      }
 
-    .row > div::before {
-      @include di.base("status-danger");
+      @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
+        padding-top: banner-variables.$small-padding-top;
+
+        > .dso-rich-content {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  &.alert-danger {
+    @include banner-mixins.danger();
+
+    &:not(.dso-no-icon) {
+      @include banner-mixins.with-icon("danger");
     }
   }
 
   &.alert-error {
-    @include banner.error();
+    @include banner-mixins.error();
 
-    .row > div::before {
-      @include di.base("status-error");
+    &:not(.dso-no-icon) {
+      @include banner-mixins.with-icon("error");
+    }
+  }
+
+  &.alert-info {
+    @include banner-mixins.info();
+
+    &:not(.dso-no-icon) {
+      @include banner-mixins.with-icon("info");
     }
   }
 
   &.alert-warning {
-    @include banner.warning();
+    @include banner-mixins.warning();
 
-    .row > div::before {
-      @include di.base("status-warning");
+    &:not(.dso-no-icon) {
+      @include banner-mixins.with-icon("warning");
     }
   }
 
@@ -64,37 +90,62 @@
 
 // Web Component
 dso-banner {
-  @include banner.children();
+  @include banner-mixins.children();
 
   .row > div::before {
     content: "";
+
     display: inline-block;
     left: units.$u2;
     position: absolute;
     top: 0;
   }
 
-  &[status="danger"] {
-    @include banner.danger();
+  &:not([no-icon]) {
+    .row > div {
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
+        padding-left: banner-variables.$left-padding;
+      }
 
-    .row > div::before {
-      @include di.base("status-danger");
+      @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
+        padding-top: banner-variables.$small-padding-top;
+
+        > .dso-rich-content {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  &[status="danger"] {
+    @include banner-mixins.danger();
+
+    &:not([no-icon]) {
+      @include banner-mixins.with-icon("danger");
     }
   }
 
   &[status="error"] {
-    @include banner.error();
+    @include banner-mixins.error();
 
-    .row > div::before {
-      @include di.base("status-error");
+    &:not([no-icon]) {
+      @include banner-mixins.with-icon("error");
+    }
+  }
+
+  &[status="info"] {
+    @include banner-mixins.info();
+
+    &:not([no-icon]) {
+      @include banner-mixins.with-icon("info");
     }
   }
 
   &[status="warning"] {
-    @include banner.warning();
+    @include banner-mixins.warning();
 
-    .row > div::before {
-      @include di.base("status-warning");
+    &:not([no-icon]) {
+      @include banner-mixins.with-icon("warning");
     }
   }
 
