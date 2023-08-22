@@ -2,38 +2,85 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export function warningRichContent({ anchorTemplate, richContentTemplate }: Templates) {
-  return richContentTemplate({
-    children: html`
-      <h2>Onderhoudsmelding:</h2>
-      <p>
-        Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
-        Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#" })}
-      </p>
-    `,
+function closeButton({ buttonTemplate }: Templates) {
+  return buttonTemplate({
+    label: "Sluiten",
+    type: "button",
+    variant: "tertiary",
+    onClick: () => null,
+    icon: { icon: "times" },
+    iconMode: "only",
   });
 }
 
-export function dangerRichContent({ richContentTemplate }: Templates) {
+export function warningRichContent(templates: Templates) {
+  const { anchorTemplate, richContentTemplate } = templates;
+
+  return html`
+    ${richContentTemplate({
+      children: html`
+        <h2>Onderhoudsmelding:</h2>
+        <p>
+          Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
+          Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#" })}
+        </p>
+      `,
+    })}
+    ${closeButton(templates)}
+  `;
+}
+
+export function warningNonRemovableRichContent({ richContentTemplate }: Templates) {
   return richContentTemplate({
+    children: html` <p>Een waarschuwende banner met icon die je niet weg kan klikken.</p> `,
+  });
+}
+
+export function dangerRichContent(templates: Templates) {
+  const { richContentTemplate } = templates;
+
+  return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
       <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
     `,
-  });
+  })}
+  ${closeButton(templates)} `;
 }
 
-export function errorRichContent({ richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function errorRichContent(templates: Templates) {
+  const { richContentTemplate } = templates;
+
+  return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
       <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
     `,
+  })}
+  ${closeButton(templates)} `;
+}
+
+export function infoRichContent(templates: Templates) {
+  const { richContentTemplate } = templates;
+
+  return html`${richContentTemplate({
+    children: html` <p>Een informatieve banner die je weg kan klikken.</p> `,
+  })}
+  ${closeButton(templates)} `;
+}
+
+export function infoCompactNonRemovableRichContent({ richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
+      <p>Deze minder hoge variant van de banner met links uitgelijnde tekst is wat minder opvallend.</p>
+    `,
   });
 }
 
-export function richWarningRichContent({ richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function richWarningRichContent(templates: Templates) {
+  const { richContentTemplate } = templates;
+
+  return html`${richContentTemplate({
     children: html`
       <h2>Onderhoudsmelding:</h2>
       <p>
@@ -45,11 +92,26 @@ export function richWarningRichContent({ richContentTemplate }: Templates) {
         <li>een <code>&lt;p&gt;</code>-tag om paragrafen</li>
       </ul>
     `,
+  })}
+  ${closeButton(templates)} `;
+}
+
+export function richInfoRichContent({ richContentTemplate, toggletipTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
+      <p>
+        Deze variant van de <strong>banner</strong> is wat minder opvallend.
+        ${toggletipTemplate({ position: "right", secondary: true, children: html`<p>Een toggletip bij de banner</p>` })}
+      </p>
+      <p>Maar kan ook rich content bevatten, bijvoorbeeld een extra paragraaf om meer uit te kunnen leggen</p>
+    `,
   });
 }
 
-export function dangerWithHeadingsRichContent({ anchorTemplate, richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function dangerWithHeadingsRichContent(templates: Templates) {
+  const { anchorTemplate, richContentTemplate } = templates;
+
+  return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
       <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
@@ -67,5 +129,6 @@ export function dangerWithHeadingsRichContent({ anchorTemplate, richContentTempl
       <h6>Dit is een H6</h6>
       <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
     `,
-  });
+  })}
+  ${closeButton(templates)} `;
 }

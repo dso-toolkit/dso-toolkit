@@ -7,8 +7,12 @@ export interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
   dangerRichContent: TemplateFnReturnType;
   errorRichContent: TemplateFnReturnType;
+  infoRichContent: TemplateFnReturnType;
+  infoCompactNonRemovableRichContent: TemplateFnReturnType;
   warningRichContent: TemplateFnReturnType;
+  warningNonRemovableRichContent: TemplateFnReturnType;
   richWarningRichContent: TemplateFnReturnType;
+  richInfoRichContent: TemplateFnReturnType;
   dangerWithHeadingsRichContent: TemplateFnReturnType;
 }
 
@@ -23,6 +27,9 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
   return storiesOfFactory("Banner", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: bannerArgTypes,
+      args: {
+        closeButton: true,
+      },
     });
 
     stories.add(
@@ -50,6 +57,32 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
     );
 
     stories.add(
+      "info",
+      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+      ),
+      {
+        args: {
+          status: "info",
+        },
+      }
+    );
+
+    stories.add(
+      "info compact non removable",
+      templateMapper<BannerArgs>((args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent))
+      ),
+      {
+        args: {
+          status: "info",
+          compact: true,
+          noIcon: true,
+        },
+      }
+    );
+
+    stories.add(
       "warning",
       templateMapper<BannerArgs>((args, { bannerTemplate, warningRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, warningRichContent))
@@ -62,6 +95,18 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
     );
 
     stories.add(
+      "info non removable",
+      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+      ),
+      {
+        args: {
+          status: "info",
+        },
+      }
+    );
+
+    stories.add(
       "rich warning",
       templateMapper<BannerArgs>((args, { bannerTemplate, richWarningRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, richWarningRichContent))
@@ -69,6 +114,20 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
       {
         args: {
           status: "warning",
+        },
+      }
+    );
+
+    stories.add(
+      "rich info",
+      templateMapper<BannerArgs>((args, { bannerTemplate, richInfoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, richInfoRichContent))
+      ),
+      {
+        args: {
+          status: "info",
+          compact: true,
+          noIcon: true,
         },
       }
     );

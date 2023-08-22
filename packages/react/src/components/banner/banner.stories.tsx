@@ -4,9 +4,13 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
-  errorRichContent,
   dangerWithHeadingsRichContent,
+  errorRichContent,
+  infoCompactNonRemovableRichContent,
+  infoRichContent,
+  richInfoRichContent,
   richWarningRichContent,
+  warningNonRemovableRichContent,
   warningRichContent,
 } from "./banner.content";
 
@@ -19,12 +23,16 @@ storiesOfBanner({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ bannerTemplate }) => ({
+  storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
-    dangerRichContent,
-    errorRichContent,
-    dangerWithHeadingsRichContent,
-    richWarningRichContent,
-    warningRichContent,
+    dangerRichContent: dangerRichContent(templates),
+    errorRichContent: errorRichContent(templates),
+    infoRichContent: infoRichContent(templates),
+    infoCompactNonRemovableRichContent,
+    warningRichContent: warningRichContent(templates),
+    warningNonRemovableRichContent,
+    richWarningRichContent: richWarningRichContent(templates),
+    richInfoRichContent: richInfoRichContent(templates),
+    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
   }),
 });

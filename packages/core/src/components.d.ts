@@ -203,9 +203,17 @@ export namespace Components {
     }
     interface DsoBanner {
         /**
+          * compact mode.
+         */
+        "compact": boolean;
+        /**
+          * *Only available when `compact` is set to `true`.  Option to show banner icon.
+         */
+        "noIcon": boolean;
+        /**
           * The status of the banner.
          */
-        "status": "warning" | "danger" | "error";
+        "status": "danger" | "error" | "info" | "warning";
     }
     interface DsoCard {
         /**
@@ -1443,9 +1451,17 @@ declare namespace LocalJSX {
     }
     interface DsoBanner {
         /**
+          * compact mode.
+         */
+        "compact"?: boolean;
+        /**
+          * *Only available when `compact` is set to `true`.  Option to show banner icon.
+         */
+        "noIcon"?: boolean;
+        /**
           * The status of the banner.
          */
-        "status": "warning" | "danger" | "error";
+        "status": "danger" | "error" | "info" | "warning";
     }
     interface DsoCard {
         /**
