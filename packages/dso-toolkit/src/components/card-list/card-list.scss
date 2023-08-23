@@ -7,7 +7,6 @@ ol {
     @include list.unstyled();
 
     border-bottom: card-list.$border-width solid card-list.$border-color;
-    margin-top: card-list.$border-width * -1;
 
     > li {
       border-top: card-list.$border-width solid card-list.$border-color;

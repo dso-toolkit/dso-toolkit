@@ -15,9 +15,9 @@ footer {
   border-top: 1px solid css-footer-variables.$border-color;
   color: colors.$zwart;
   display: block;
-  margin-top: units.$u6;
-  padding-bottom: units.$u6;
-  padding-top: units.$u3;
+  margin-block-start: units.$u6;
+  padding-block-end: units.$u6;
+  padding-block-start: units.$u3;
 
   .dso-link-list {
     @include link-list.exotic();

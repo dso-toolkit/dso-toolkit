@@ -8,9 +8,6 @@
 @use "definition-list.variables" as css-definition-list-variables;
 
 dl {
-  margin-bottom: css-definition-list-variables.$vertical-space * 2;
-  margin-top: 0;
-
   + dl {
     &::before {
       border-bottom: 1px solid colors.$grijs-20;

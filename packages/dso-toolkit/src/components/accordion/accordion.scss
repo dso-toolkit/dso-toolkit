@@ -10,13 +10,6 @@
 @use "accordion-theme-default";
 
 .dso-accordion {
-  margin-bottom: units.$vertical-spacing-xlarge;
-
-  // dit is een nested accordion.
-  .dso-accordion {
-    margin-bottom: 0;
-  }
-
   .dso-section-body {
     border-top: 0;
     margin-top: accordion.$border-radius * -1;

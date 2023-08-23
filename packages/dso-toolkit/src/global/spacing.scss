@@ -1,57 +1,221 @@
-@use "../variables/units.scss";
+@use "../variables/media-query-breakpoints";
 
-// Create space between action list and form buttons
-// -------------------------------------------------
-// To Do: integrate this with things to come within this file.
-:where(dso-action-list) + :where(.dso-form-buttons) {
-  margin-block-start: units.$vertical-spacing-xlarge;
-}
+// ### SPACING ###
+// ===============
 
-// Original spacing of dso-button-row
-// ----------------------------------
-// To Do: re-evaluate vertical rhythm
-:where(.dso-button-row) {
-  margin-block: units.$u2 units.$u4;
+// variables
+// =========
 
-  &:last-child {
-    margin-block-end: 0;
+// variables kept close for now. move to var-file later.
+$spacing-components-core: "dso-accordion, dso-action-list, dso-card-container, dso-highlight-box, dso-info, dso-pagination, dso-table";
+$spacing-components-css: ".dso-accordion, .dso-app-heading, .dso-card-grid, .dso-highlight-box, .dso-info, .dso-label-group, .dso-link-list, .pagination, .dso-tile-grid, .dso-form-buttons";
+$spacing-components-css-medium: ".dso-search-bar, .dso-app-heading";
+$spacing-content-elements: "p, blockquote, table, dso-table, form, fieldset, img, hr, pre, ul, ol, dl, h1, h2, h3, h4, h5, h6, figure, picture, video, audio, canvas";
+$spacing-block-containers: "div:not([slot], .dso-card-heading), section, article, aside, header, footer, nav, main";
+$spacing-headings: "h1, h2, h3, h4, h5, h6";
+
+// general spacing rules
+// =====================
+
+// components
+// ----------
+
+:where(#{$spacing-components-core}, #{$spacing-components-css}) {
+  margin-block: 0;
+
+  & + & {
+    margin-block-start: var(--vertical-spacing-xlarge);
   }
 }
 
-// within dso-highlight-box, create space for dso-button-row when preceded and/or followed by other elements
-// ---------------------------------------------------------------------------------------------------------
-// To Do: integrate this with things to come within this file, and remove the wildcard!
-:where(dso-highlight-box),
-:where(.dso-highlight-box) {
-  :where(.dso-button-row) {
+:where(#{$spacing-components-css-medium}) {
+  margin-block: 0;
+
+  & + & {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// Elements - general
+// ------------------
+
+:where(#{$spacing-content-elements}) {
+  margin-block: 0;
+
+  & + & {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// Elements - rich content
+// -----------------------
+
+.dso-rich-content {
+  :where(#{$spacing-content-elements}) {
     margin-block: 0;
   }
 
-  :where(*) + :where(.dso-button-row),
-  :where(.dso-button-row) + :where(*) {
-    margin-block-start: units.$vertical-spacing-medium;
+  :where(#{$spacing-content-elements}) + :where(#{$spacing-content-elements}) {
+    margin-block-start: var(--vertical-spacing-medium);
   }
 }
 
-// TEMP fix for excessive whitespace within the accordion rich content
-// To do: a more permanent solution for vertical rhythm!
-.dso-accordion-section {
-  // specificity increase necessary..
-  &.dso-accordion-default,
-  &.dso-accordion-compact,
-  &.dso-accordion-neutral,
-  &.dso-accordion-compact-black {
-    .dso-rich-content {
-      ul ul {
-        margin-block-end: 0;
-      }
-      > :first-child {
+// General spacing overrides
+// =========================
+
+// components
+// ----------
+
+// header
+:where(dso-header) {
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// context wrapper
+:where(.dso-context-wrapper) {
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-small);
+  }
+}
+
+// highlight box
+:where(dso-highlight-box) {
+  & + & {
+    margin-block-start: var(--vertical-spacing-large);
+  }
+}
+
+// button row
+:where(.dso-button-row) {
+  &:only-child,
+  &:first-child {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-large);
+  }
+}
+
+:where(:has(.dso-button-row:only-child)) {
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// pagination
+:where(#{$spacing-components-core}, #{$spacing-components-css}) {
+  + :where(dso-pagination, .pagination) {
+    margin-block-start: var(--vertical-spacing-large);
+  }
+}
+
+// rich content vs various
+:where(.dso-rich-content) {
+  + :where(.dso-tile-grid, .dso-search-bar, .dso-context-wrapper) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// various vs rich content
+:where(#{$spacing-block-containers}) {
+  + :where(.dso-rich-content) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// rich content in action list
+// (:is i/o :where for 2 points specificity bump)
+:is(dso-action-list) {
+  :is(.dso-rich-content) {
+    :is(#{$spacing-headings}) {
+      + :is(p) {
         margin-block-start: 0;
       }
-
-      > :last-child {
-        margin-block-end: 0;
+    }
+    :is(p) {
+      + :is(#{$spacing-headings}) {
+        margin-block-start: var(--vertical-spacing-medium);
       }
     }
+  }
+}
+
+// all vs various
+:where(#{$spacing-content-elements}) {
+  + :where(
+      .dso-rich-content,
+      .dso-button-row,
+      .dso-shopping-cart,
+      .dso-accordion,
+      div:has(.dso-app-heading),
+      .dso-tile-grid
+    ) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// various vs all
+:where(.dso-rich-content, .dso-button-row, .dso-app-heading, .dso-shopping-cart, .dso-accordion) {
+  + :where(#{$spacing-content-elements}) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+  + :where(form, .dso-table-responsive, .dso-app-heading) {
+    margin-block-start: var(--vertical-spacing-xlarge);
+  }
+  + .form-group {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// app heading
+:where(.dso-app-heading),
+:where(:has(.dso-app-heading)) {
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// nested rich content vs nested elements
+// this feels contrived (and, :has() not yet supported by firefox)
+// this one begs for a container query, as soon as I can think of a genius way to reference a container here...
+:where(div:has(> .dso-rich-content)) {
+  + :where(div:has(> :where(#{$spacing-content-elements}))) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+  // when the container switches to horizontal 50%, remove margin
+  + :where(.col-md-6:has(> :where(#{$spacing-content-elements}))) {
+    @media screen and (min-width: #{media-query-breakpoints.$screen-sm-max}) {
+      margin-block-start: 0;
+    }
+  }
+}
+
+// Elements
+// --------
+
+// button (:is i/o :where for 2 points specificity bump)
+// NOTE: when using :is(), do NOT combine selectors with different specificity!
+:is(#{$spacing-content-elements}) {
+  + :is(button) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+  + :where(.dso-primary, .dso-secondary, .dso-tertiary) {
+    margin-block-start: var(--vertical-spacing-medium);
+  }
+}
+
+// headings need some additional attention
+:where(#{$spacing-headings}) {
+  // only-child headings get margin below
+  &:only-child {
+    margin-block-end: var(--vertical-spacing-medium);
+  }
+
+  // block containers under headings will be pushed down
+  + :where(#{$spacing-block-containers}) {
+    margin-block-start: var(--vertical-spacing-medium);
   }
 }
