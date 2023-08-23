@@ -7,7 +7,8 @@
   @include list.unstyled();
 
   border-top: 1px solid colors.$grijs-20;
-  padding-top: #{units.$u1 * 1.5};
+  padding-block-start: #{units.$u1 * 1.5};
+  margin-block-start: units.$u2;
 
   .dso-footnote-backlink::after {
     content: "^";

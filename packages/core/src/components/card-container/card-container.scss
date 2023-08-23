@@ -5,6 +5,8 @@
 @use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
 
 :host {
+  display: block;
+
   .dso-card-list {
     @include list.unstyled();
 

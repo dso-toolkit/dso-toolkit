@@ -3,30 +3,15 @@
 @use "rich-content.variables" as rich-content-variables;
 
 @mixin children() {
-  p {
-    margin: 0 0 rich-content-variables.$margin-bottom;
-  }
-
   ul,
   ol {
-    margin-bottom: rich-content-variables.$margin-bottom;
-
     &:not(.list-group):not(.dso-link-list):not(.dso-columns-list) {
       padding-inline-start: units.$u3;
     }
   }
 
-  pre {
-    margin: 0 0 rich-content-variables.$margin-bottom;
-  }
-
   blockquote {
     padding: rich-content-variables.$margin-bottom typography.$line-height-computed;
-  }
-
-  dso-highlight-box,
-  .dso-highlight-box {
-    margin-bottom: typography.$line-height-computed;
   }
 
   img {

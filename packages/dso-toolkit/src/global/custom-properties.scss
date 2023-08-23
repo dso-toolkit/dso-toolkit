@@ -1,7 +1,15 @@
-@use "../components/anchor/anchor.variables.scss" as anchor-variables;
+@use "../components/anchor";
+@use "../variables/units.scss";
 
 :root {
-  --link-color: #{anchor-variables.$link-color};
-  --link-hover-color: #{anchor-variables.$link-hover-color};
-  --link-visited-color: #{anchor-variables.$link-visited-color};
+  // link colors
+  --link-color: #{anchor.$link-color};
+  --link-hover-color: #{anchor.$link-hover-color};
+  --link-visited-color: #{anchor.$link-visited-color};
+
+  // vertical spacing
+  --vertical-spacing-small: #{units.$vertical-spacing-small};
+  --vertical-spacing-medium: #{units.$vertical-spacing-medium};
+  --vertical-spacing-large: #{units.$vertical-spacing-large};
+  --vertical-spacing-xlarge: #{units.$vertical-spacing-xlarge};
 }

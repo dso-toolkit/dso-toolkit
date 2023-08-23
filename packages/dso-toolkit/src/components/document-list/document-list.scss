@@ -8,7 +8,12 @@
 .dso-document-list {
   @include list.unstyled();
 
-  margin: 0 css-grid-variables.$grid-gutter-width * -0.5 0 css-grid-variables.$grid-gutter-width * -0.5;
+  margin-block: 0;
+  margin-inline: css-grid-variables.$grid-gutter-width * -0.5;
+
+  > li + li {
+    margin-block-start: units.$vertical-spacing-medium;
+  }
 }
 
 .dso-document-list-item {
@@ -46,6 +51,7 @@
 
     .dso-document-list-item-container {
       position: relative;
+      margin-block-start: 0;
     }
 
     .dso-document-list-item-type,
