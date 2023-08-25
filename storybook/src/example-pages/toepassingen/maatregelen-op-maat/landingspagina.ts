@@ -24,8 +24,9 @@ examplePageFactory(
                 children: html`
                   <h1>Maatregelen op maat</h1>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quisno
+                    De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet
+                    zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
+                    bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
                   </p>
                   <p>${anchorTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
                 `,
@@ -56,7 +57,7 @@ examplePageFactory(
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", modifier: "extern" })}.
+                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
                   </p>
                 `,
               }),

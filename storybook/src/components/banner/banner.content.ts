@@ -118,7 +118,7 @@ export function dangerWithHeadingsRichContent(templates: Templates) {
       <h2>Dit is een H2</h2>
       <p>
         Dit is een informatiemelding. Deze wordt gebruikt voor
-        ${anchorTemplate({ label: "aanvullende", url: "#", modifier: "extern" })} informatie of tips.
+        ${anchorTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
       </p>
       <h3>Dit is een H3</h3>
       <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>

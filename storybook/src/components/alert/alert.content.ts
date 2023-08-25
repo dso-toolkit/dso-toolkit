@@ -8,7 +8,7 @@ export const successMessage = html`<p>
 export function infoMessage({ anchorTemplate }: Templates) {
   return html`<p>
     Dit is een informatiemelding. Deze wordt gebruikt voor
-    ${anchorTemplate({ label: "aanvullende", url: "#", modifier: "extern" })} informatie of tips.
+    ${anchorTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
   </p>`;
 }
 

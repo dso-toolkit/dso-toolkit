@@ -63,10 +63,10 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                 type="file"
                 aria-describedby=${ifDefined(ariaDescribedBy)}
                 aria-errormessage=${ifDefined(ariaErrorMessage)}
-                ?id=${formGroup.id}
+                id=${formGroup.id}
                 ?disabled=${formGroup.disabled}
               />
-              <label class="dso-${formGroup.addFileButtonVariant}" for="{ ${formGroup.id} }">
+              <label class="dso-${formGroup.addFileButtonVariant}" for=${formGroup.id}>
                 ${iconTemplate({ icon: "plus" })}
                 <span>Document toevoegen</span>
               </label>

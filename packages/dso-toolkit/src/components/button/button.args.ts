@@ -16,6 +16,7 @@ export interface ButtonArgs {
   disabled?: boolean;
   icon?: string;
   iconMode?: "only" | "after";
+  mode?: "download" | "extern";
 }
 
 export const buttonArgTypes: ArgTypes<ButtonArgs> = {
@@ -37,6 +38,12 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   },
   variant: {
     options: ["primary", "secondary", "tertiary"],
+    control: {
+      type: "select",
+    },
+  },
+  mode: {
+    options: [undefined, "download", "extern"],
     control: {
       type: "select",
     },
@@ -92,6 +99,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         variant: a.variant,
         url: "#",
         label: a.label,
+        mode: a.mode,
         icon: a.icon
           ? {
               icon: a.icon,
@@ -109,6 +117,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         variant: a.variant,
         truncate: a.truncate,
         onClick: a.click,
+        mode: a.mode,
         type: a.type,
         label: a.label,
         id: a.id,

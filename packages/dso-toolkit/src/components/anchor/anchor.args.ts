@@ -6,6 +6,7 @@ export interface AnchorArgs {
   icon?: string;
   iconMode?: "after";
   label: string;
+  mode?: "download" | "extern" | undefined;
   modifier?: string;
   url: string;
   ariaCurrent?: string;
@@ -23,15 +24,15 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
       type: "select",
     },
   },
-  label: {
-    control: {
-      type: "text",
-    },
-  },
-  modifier: {
+  mode: {
     options: [undefined, "download", "extern"],
     control: {
       type: "select",
+    },
+  },
+  label: {
+    control: {
+      type: "text",
     },
   },
   url: {
@@ -48,15 +49,11 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
 
 export function anchorArgsMapper(a: AnchorArgs): Anchor {
   return {
+    ...a,
     icon: a.icon
       ? {
           icon: a.icon,
         }
       : undefined,
-    iconMode: a.iconMode,
-    label: a.label,
-    modifier: a.modifier,
-    url: a.url,
-    ariaCurrent: a.ariaCurrent,
   };
 }

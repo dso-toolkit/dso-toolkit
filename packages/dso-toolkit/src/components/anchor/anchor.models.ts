@@ -5,6 +5,7 @@ export interface Anchor {
   iconMode?: "after";
   label: string;
   modifier?: string;
+  mode?: "download" | "extern";
   url: string;
   ariaCurrent?: string;
 }

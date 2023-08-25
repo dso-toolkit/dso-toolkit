@@ -59,5 +59,5 @@ export const formGroup: JustifyFormGroups<TemplateResult> = {
       value: "4.26389251",
     },
   ],
-  buttons: [{ label: "Zoeken", type: "button", variant: "secondary", modifier: "dso-small" }],
+  buttons: [{ label: "Zoeken", type: "button", variant: "secondary", compact: true }],
 };

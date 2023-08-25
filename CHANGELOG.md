@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Dangerfile: verduidelijk de foutmeldingen ([#2330](https://github.com/dso-toolkit/dso-toolkit/issues/2330))
+* Templates: Kleine template verbeteringen ([#2278](https://github.com/dso-toolkit/dso-toolkit/issues/2278))
 
 ### Removed
 * **BREAKING** Banner: Legacy selector verwijderen ([#2304](https://github.com/dso-toolkit/dso-toolkit/issues/2304))
