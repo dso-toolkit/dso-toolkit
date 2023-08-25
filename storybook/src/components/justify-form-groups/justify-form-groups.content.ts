@@ -37,7 +37,7 @@ export const content: JustifyFormGroups<TemplateResult> = {
   buttons: [
     {
       type: "button",
-      modifier: "dso-small",
+      compact: true,
       variant: "secondary",
       label: "Zoeken",
     },

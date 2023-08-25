@@ -1,30 +1,31 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export function richContent({ anchorTemplate, buttonTemplate, richContentTemplate }: Templates) {
+export function richContent({ anchorTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       <h2>Heading 2</h2>
 
       <p>
-        Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nullam non metus dolor. Pellentesque
-        velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl
-        lacinia et. Integer quis sollicitudin arcu. ${anchorTemplate({ label: "Nullam", url: "#" })} lacinia non ipsum
-        sit amet varius. Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed
-        tellus eu, faucibus fringilla lectus.
+        De ${anchorTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle
+        <strong>bouwregelgeving</strong> in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die
+        voldoet aan de eisen van de Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van
+        ieder bouwwerk.
       </p>
 
-      <div class="dso-button-row">
-        ${buttonTemplate({ variant: "primary", label: "Primaire button", url: "#" })}
-        ${buttonTemplate({ variant: "secondary", label: "Secundaire button", url: "#" })}
-        ${buttonTemplate({
-          variant: "tertiary",
-          label: "Tertiare button",
-          icon: { icon: "chevron-down" },
-          iconMode: "after",
-          url: "#",
-        })}
-      </div>
+      ${buttonRowTemplate({
+        buttons: [
+          { label: "Primaire button", variant: "primary", url: "#" },
+          { label: "Secundaire button", variant: "secondary", url: "#" },
+          {
+            label: "Tertiare button",
+            variant: "tertiary",
+            url: "#",
+            icon: { icon: "chevron-down" },
+            iconMode: "after",
+          },
+        ],
+      })}
     `,
   });
 }

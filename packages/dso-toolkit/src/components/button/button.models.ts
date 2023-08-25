@@ -28,6 +28,7 @@ export interface Button {
   compact?: boolean;
   align?: boolean;
   autofocus?: boolean;
+  mode?: "download" | "extern";
 }
 
 export interface ButtonAnchor {
@@ -35,6 +36,7 @@ export interface ButtonAnchor {
   url: string;
   label: string;
   modifier?: string;
+  mode?: "download" | "extern";
   id?: string;
   icon?: Icon;
   iconMode?: "only" | "after";

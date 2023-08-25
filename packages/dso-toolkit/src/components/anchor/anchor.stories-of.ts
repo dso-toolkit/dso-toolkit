@@ -33,7 +33,7 @@ export function storiesOfAnchor<Implementation, Templates, TemplateFnReturnType>
       args: {
         label: "Download Afvalkalender 2017",
         url: "afvalkalender.pdf",
-        modifier: "download",
+        mode: "download",
       },
     });
 
@@ -41,7 +41,7 @@ export function storiesOfAnchor<Implementation, Templates, TemplateFnReturnType>
       args: {
         label: "Een link naar Google",
         url: "http://www.google.nl",
-        modifier: "extern",
+        mode: "extern",
       },
     });
 

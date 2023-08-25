@@ -7,14 +7,14 @@ export const cssAnchor: ComponentImplementation<Anchor> = {
   component: "anchor",
   implementation: "html-css",
   template: ({ iconTemplate }) =>
-    function anchorTemplate({ icon, iconMode, label, modifier, url, ariaCurrent }) {
+    function anchorTemplate({ icon, iconMode, label, modifier, mode, url, ariaCurrent }) {
       return html`<a
         href=${url}
-        class=${ifDefined(modifier)}
+        class=${ifDefined([modifier, mode].filter((c) => !!c).join(" ") || undefined)}
         aria-current=${ifDefined(ariaCurrent)}
-        target=${ifDefined(modifier?.includes("extern") ? "_blank" : undefined)}
-        rel=${ifDefined(modifier?.includes("extern") ? "noopener noreferrer" : undefined)}
-        >${icon && iconMode !== "after" ? iconTemplate(icon) : nothing}${label}${modifier?.includes("extern")
+        target=${ifDefined(mode === "extern" ? "_blank" : undefined)}
+        rel=${ifDefined(mode === "extern" ? "noopener noreferrer" : undefined)}
+        >${icon && iconMode !== "after" ? iconTemplate(icon) : nothing}${label}${mode === "extern"
           ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
           : nothing}${icon && iconMode === "after" ? iconTemplate(icon) : nothing}</a
       >`;

@@ -4,12 +4,12 @@ export const links: Anchor[] = [
   {
     url: "#",
     label: "Externe link",
-    modifier: "extern",
+    mode: "extern",
   },
   {
     url: "#",
     label: "Download",
-    modifier: "download",
+    mode: "download",
   },
   {
     url: "#",

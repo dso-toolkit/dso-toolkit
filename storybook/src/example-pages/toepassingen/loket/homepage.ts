@@ -44,20 +44,22 @@ examplePageFactory(
                 children: html`
                   <div class="row">
                     <div class="col-md-5 col-md-push-7">
-                      <div class="dso-rich-content">
-                        <h2>Check of u een vergunning nodig heeft</h2>
-                        <p>Wilt u iets veranderen aan het huis, tuin of bedrijf</p>
-                        <p>
-                          Doe hier de vergunningcheck om te kijken of u een vergunning nodig heeft of een melding moet
-                          doen.
-                        </p>
-                        ${anchorTemplate({ label: "Vergunningcheck", url: "#", modifier: "dso-secondary" })}
-                      </div>
+                      ${richContentTemplate({
+                        children: html`
+                          <h2>Check of u een vergunning nodig heeft</h2>
+                          <p>Wilt u iets veranderen aan het huis, tuin of bedrijf</p>
+                          <p>
+                            Doe hier de vergunningcheck om te kijken of u een vergunning nodig heeft of een melding moet
+                            doen.
+                          </p>
+                          ${anchorTemplate({ label: "Vergunningcheck", url: "#", modifier: "dso-secondary" })}
+                        `,
+                      })}
                     </div>
                     <div class="col-md-7 col-md-pull-5">
-                      <div class="dso-rich-content">
-                        <h3>Meest gekozen werkzaamheden</h3>
-                      </div>
+                      ${richContentTemplate({
+                        children: html` <h3>Meest gekozen werkzaamheden</h3> `,
+                      })}
                       <div class="dso-tile-grid">
                         ${tileTemplate({
                           anchor: "#",

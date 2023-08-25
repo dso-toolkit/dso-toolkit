@@ -120,14 +120,16 @@ examplePageFactory(
         </div>
         <div class="row">
           <div class="col-md-12">
-            <div class="dso-button-row">
-              ${anchorTemplate({
-                label: "Bekijk andere projecten",
-                url: "#",
-                modifier: "dso-tertiary",
-                icon: { icon: "chevron-left" },
-              })}
-            </div>
+            ${buttonRowTemplate({
+              buttons: [
+                {
+                  variant: "tertiary",
+                  label: "Bekijk andere projecten",
+                  url: "#",
+                  icon: { icon: "chevron-left" },
+                },
+              ],
+            })}
           </div>
         </div>
       </main>

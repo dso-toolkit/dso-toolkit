@@ -42,9 +42,9 @@ function section4({ richContentTemplate }: Templates): AccordionSection<Template
           <li>
             Locatie 2
             <div class="dso-info">
-              <div class="dso-rich-content">
-                <p><strong>Let op:</strong> <i>voorbehoud A bij Locatie 2.</i></p>
-              </div>
+              ${richContentTemplate({
+                children: html`<p><strong>Let op:</strong> <i>voorbehoud A bij Locatie 2.</i></p>`,
+              })}
             </div>
           </li>
           <li>

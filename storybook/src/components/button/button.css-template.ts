@@ -8,37 +8,39 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
   implementation: "html-css",
   template: ({ iconTemplate, tooltipTemplate }) => {
-    function getClassName(variant: "primary" | "secondary" | "tertiary" | null, modifier: string | undefined) {
-      if (variant && modifier) {
-        return `dso-${variant} ${modifier}`;
-      }
+    function getClassName(variant: "primary" | "secondary" | "tertiary" | null, modifier?: string, mode?: string) {
+      const classNames = [];
 
       if (variant) {
-        return `dso-${variant}`;
+        classNames.push(`dso-${variant}`);
+      }
+
+      if (mode) {
+        classNames.push(mode);
       }
 
       if (modifier) {
-        return modifier;
+        classNames.push(modifier);
       }
 
-      return undefined;
+      return classNames;
     }
 
-    function anchorElement({ variant, url, label, modifier, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
-      const className = getClassName(variant, modifier);
+    function anchorElement({ variant, url, label, modifier, mode, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
+      const className = getClassName(variant, modifier, mode);
 
       return html`
         <a
           href=${url}
           class=${ifDefined(className)}
-          id=${ifDefined(id || undefined)}
-          slot=${ifDefined(slot || undefined)}
+          id=${ifDefined(id)}
+          slot=${ifDefined(slot)}
           ?autofocus=${autofocus}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
             >${label}</span
-          >${modifier?.includes("extern")
+          >${mode === "extern"
             ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
             : nothing}${icon && iconMode ? iconTemplate(icon) : nothing}
         </a>
@@ -66,9 +68,10 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       truncate,
       onClick,
       autofocus,
+      mode,
     }: Button) {
       type ??= "button";
-      const classNames = [getClassName(variant, modifier)];
+      const classNames = getClassName(variant, modifier, mode);
 
       if (compact) {
         classNames.push("dso-small");
@@ -81,15 +84,15 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       return html`
         <button
           type=${type}
-          id=${ifDefined(id || undefined)}
-          class=${ifDefined(classNames.filter((c) => !!c).join(" ") || undefined)}
+          id=${ifDefined(id)}
+          class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
           ?disabled=${disabled}
-          aria-describedby=${ifDefined(ariaDescribedby || undefined)}
-          aria-expanded=${ifDefined(ariaExpanded || undefined)}
-          aria-haspopup=${ifDefined(ariaHaspopup || undefined)}
-          aria-roledescription=${ifDefined(ariaRoledescription || undefined)}
+          aria-describedby=${ifDefined(ariaDescribedby)}
+          aria-expanded=${ifDefined(ariaExpanded)}
+          aria-haspopup=${ifDefined(ariaHaspopup)}
+          aria-roledescription=${ifDefined(ariaRoledescription)}
           @click=${ifDefined(onClick)}
-          slot=${ifDefined(slot || undefined)}
+          slot=${ifDefined(slot)}
           ?autofocus=${autofocus}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span

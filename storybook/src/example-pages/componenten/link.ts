@@ -11,21 +11,18 @@ examplePageFactory(
         <h2 style="margin-bottom: 24px">Link</h2>
         <div class="row">
           <div class="col-md-3">${anchorTemplate({ label: "Link voorbeeld", url: "#" })}</div>
-          <div class="col-md-3">${anchorTemplate({ label: "Externe link", url: "#", modifier: "extern" })}</div>
-          <div class="col-md-3">${anchorTemplate({ label: "Download link", url: "#", modifier: "download" })}</div>
+          <div class="col-md-3">${anchorTemplate({ label: "Externe link", url: "#", mode: "extern" })}</div>
+          <div class="col-md-3">${anchorTemplate({ label: "Download link", url: "#", mode: "download" })}</div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
             <h3 class="toolkit-example-label">Voorbeeld in lopende tekst:</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Nullam dictum
-              felis eu pede ${anchorTemplate({ label: "mollis pretium", url: "#", modifier: "extern" })}. Integer
-              tincidunt. Cras dapibus. Vivamus ${anchorTemplate({ label: "elementum", url: "#", modifier: "extern" })}
-              semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
-              ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut
-              metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
-              ullamcorper ${anchorTemplate({ label: "ultricies nisi", url: "#", modifier: "download" })}.
+              De ${anchorTemplate({ label: "Bouwregelgeving", url: "#", mode: "extern" })} is een database met alle
+              bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan
+              de ${anchorTemplate({ label: "eisen", url: "#", mode: "download" })} van de Omgevingswet (3B's), en
+              daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
             </p>
           </div>
         </div>

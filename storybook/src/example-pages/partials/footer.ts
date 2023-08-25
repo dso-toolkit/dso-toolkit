@@ -18,9 +18,9 @@ export function footerPartial({ linkListTemplate, anchorTemplate }: Templates) {
           <h2>Externe links</h2>
           ${linkListTemplate({
             links: [
-              { label: "Externe link", url: "#", modifier: "extern" },
-              { label: "Extra externe link", url: "#", modifier: "extern" },
-              { label: "Laatste externe link", url: "#", modifier: "extern" },
+              { label: "Externe link", url: "#", mode: "extern" },
+              { label: "Extra externe link", url: "#", mode: "extern" },
+              { label: "Laatste externe link", url: "#", mode: "extern" },
             ],
           })}
         </div>
