@@ -85,7 +85,7 @@ export interface Components {
   label: Label;
   listButton: ListButton;
   modal: Modal<StoryFnAngularReturnType>;
-  ozonContent: OzonContent<StoryFnAngularReturnType>;
+  ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;

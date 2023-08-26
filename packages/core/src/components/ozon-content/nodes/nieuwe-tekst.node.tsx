@@ -7,6 +7,6 @@ export class OzonContentNieuweTekstNode implements OzonContentNode {
   name = "NieuweTekst";
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <ins>{mapNodeToJsx(node.childNodes)}</ins>;
+    return <ins class="nieuwe-tekst">{mapNodeToJsx(node.childNodes)}</ins>;
   }
 }

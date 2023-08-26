@@ -7,6 +7,15 @@ export class OzonContentOpschriftNode implements OzonContentNode {
   name = "Opschrift";
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <Fragment>{mapNodeToJsx(node.childNodes)}</Fragment>;
+    let content = mapNodeToJsx(node.childNodes);
+    const wijzigactie = node.getAttribute("wijzigactie");
+
+    if (wijzigactie === "voegtoe") {
+      content = <ins class="nieuwe-tekst">{content}</ins>;
+    } else if (wijzigactie === "verwijder") {
+      content = <del class="verwijderde-tekst">{content}</del>;
+    }
+
+    return <>{content}</>;
   }
 }

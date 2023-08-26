@@ -5,22 +5,57 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property                   | Attribute                    | Description                                                           | Type                                                                                 | Default     |
+| -------------------------- | ---------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `alternativeTitle`         | `alternative-title`          | An alternative title to show when there is nothing to create a title. | `string \| undefined`                                                                | `undefined` |
+| `annotated`                | `annotated`                  | Enables annotations.                                                  | `boolean`                                                                            | `false`     |
+| `bevatOntwerpInformatie`   | `bevat-ontwerp-informatie`   | Marks as draft.                                                       | `boolean`                                                                            | `false`     |
+| `filtered`                 | `filtered`                   | Marks this Document Component as belonging to an active filter.       | `boolean`                                                                            | `false`     |
+| `genesteOntwerpInformatie` | `geneste-ontwerp-informatie` | When a child Document Component has a status "Draft".                 | `boolean`                                                                            | `false`     |
+| `gereserveerd`             | `gereserveerd`               | Marks Document Component as reserved.                                 | `boolean`                                                                            | `false`     |
+| `heading`                  | `heading`                    | The heading element to use.                                           | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"`                                               | `"h2"`      |
+| `inhoud`                   | `inhoud`                     | The Inhoud XML.                                                       | `string \| undefined`                                                                | `undefined` |
+| `label`                    | `label`                      | The Label XML.                                                        | `string \| undefined`                                                                | `undefined` |
+| `notApplicable`            | `not-applicable`             | Marks this Document Component as not-applicable.                      | `boolean`                                                                            | `false`     |
+| `nummer`                   | `nummer`                     | The Nummer XML.                                                       | `string \| undefined`                                                                | `undefined` |
+| `open`                     | `open`                       | This boolean attribute indicates whether the children are visible.    | `boolean`                                                                            | `false`     |
+| `openAnnotation`           | `open-annotation`            | When the Annotation Output is opened, set this to true.               | `boolean`                                                                            | `false`     |
+| `opschrift`                | `opschrift`                  | The Opschrift XML.                                                    | `string \| undefined`                                                                | `undefined` |
+| `type`                     | `type`                       | Type of Document Component.                                           | `string \| undefined`                                                                | `undefined` |
+| `vervallen`                | `vervallen`                  | Marks the Document Component as expired.                              | `boolean`                                                                            | `false`     |
+| `wijzigactie`              | `wijzigactie`                | The wijzigactie as in STOP.                                           | `"nieuweContainer" \| "verwijder" \| "verwijderContainer" \| "voegtoe" \| undefined` | `undefined` |
+
+
+## Events
+
+| Event                       | Description                                                              | Type                                                        |
+| --------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| `dsoAnnotationToggle`       | Emitted when the user activates the annotation button.                   | `CustomEvent<DocumentComponentToggleAnnotationEvent>`       |
+| `dsoOpenToggle`             | Emitted when the user activates the toggle.                              | `CustomEvent<DocumentComponentOpenToggleEvent>`             |
+| `dsoOzonContentAnchorClick` | Emitted when the user actives intRef or intIoRef anchors in Ozon Content | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
+
+
 ## Dependencies
+
+### Used by
+
+ - [dsot-document-component-demo](../document-component-demo)
 
 ### Depends on
 
-- [dso-document-component](.)
-- [dso-annotation-output](../annotation-output)
-- [dso-slide-toggle](../slide-toggle)
-- [dso-responsive-element](../responsive-element)
+- [dso-icon](../icon)
+- [dso-ozon-content](../ozon-content)
+- [dso-badge](../badge)
+- [dso-tooltip](../tooltip)
+- [dso-label](../label)
+- [dso-annotation-button](../annotation-button)
+- [dso-alert](../alert)
 
 ### Graph
 ```mermaid
 graph TD;
-  dsot-document-component-demo --> dso-document-component
-  dsot-document-component-demo --> dso-annotation-output
-  dsot-document-component-demo --> dso-slide-toggle
-  dsot-document-component-demo --> dso-responsive-element
   dso-document-component --> dso-icon
   dso-document-component --> dso-ozon-content
   dso-document-component --> dso-badge
@@ -32,10 +67,8 @@ graph TD;
   dso-label --> dso-tooltip
   dso-annotation-button --> dso-icon
   dso-alert --> dso-icon
-  dso-annotation-output --> dso-responsive-element
-  dso-annotation-output --> dso-expandable
-  dso-annotation-output --> dso-icon
-  style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
+  dsot-document-component-demo --> dso-document-component
+  style dso-document-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

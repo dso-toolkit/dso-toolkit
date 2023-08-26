@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Document Component: Diverse bevindingen ([#2240](https://github.com/dso-toolkit/dso-toolkit/issues/2240))
+
 ### Fixed
 * Modal: Bij weinig content krimpt de Modal ([#2340](https://github.com/dso-toolkit/dso-toolkit/issues/2340))
 

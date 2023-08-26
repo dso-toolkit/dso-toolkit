@@ -18,7 +18,8 @@ export interface DocumentComponentArgs {
   genesteOntwerpInformatie: boolean;
   gereserveerd: boolean;
   heading: DocumentComponentHeading;
-  inhoud: string;
+  inhoud?: string;
+  content?: string;
   label: string;
   notApplicable: boolean;
   nummer: string;
@@ -55,7 +56,9 @@ export const documentComponentArgs: Omit<DocumentComponentArgs, "dsoAnnotationTo
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   alternativeTitle: {
-    control: "text",
+    control: {
+      type: "text",
+    },
   },
   annotated: {
     control: {
@@ -144,6 +147,11 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     options: [undefined, "voegtoe", "verwijder", "nieuweContainer", "verwijderContainer"],
     control: {
       type: "select",
+    },
+  },
+  content: {
+    control: {
+      type: "text",
     },
   },
 };

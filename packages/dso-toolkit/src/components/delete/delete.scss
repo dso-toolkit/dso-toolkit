@@ -1,6 +1,5 @@
-@use "../../variables/colors";
+@use "delete.mixins" as delete-mixins;
 
 del {
-  background-color: colors.$danger-bg-color;
-  color: colors.$zwart;
+  @include delete-mixins.root();
 }

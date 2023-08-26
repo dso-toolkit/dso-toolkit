@@ -4,9 +4,10 @@
 @use "~dso-toolkit/src/variables/units";
 
 @use "~dso-toolkit/src/components/anchor";
-@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/button/button";
 @use "~dso-toolkit/src/components/document-component";
-@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete";
+@use "~dso-toolkit/src/components/insert";
 
 .not-applicable {
   @include utilities.sr-only();
@@ -14,12 +15,6 @@
 
 :host {
   display: block;
-}
-
-:host-context(dso-responsive-element:not([small])) {
-  .content {
-    padding-left: document-component.$indent;
-  }
 }
 
 :host([type="LID"]:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])) {
@@ -35,16 +30,12 @@
 
 :host([wijzigactie="verwijderContainer"]) .heading-container,
 :host(:where([wijzigactie="verwijder"])) {
-  background-color: colors.$danger-bg-color;
-  color: colors.$zwart;
-  text-decoration: line-through;
+  @include delete.root();
 }
 
 :host([wijzigactie="nieuweContainer"]) .heading-container,
 :host([wijzigactie="voegtoe"]) {
-  background-color: colors.$success-bg-color;
-  box-shadow: insert.$insert-box-shadow;
-  color: colors.$zwart;
+  @include insert.root();
 }
 
 :host([filtered]) {
@@ -72,7 +63,6 @@
   padding: 0;
   background: 0;
   color: colors.$bosgroen;
-  cursor: pointer;
 }
 
 .heading-element {
@@ -99,10 +89,6 @@
   .heading-element {
     color: colors.$zwart;
   }
-
-  .content {
-    padding-left: 0 !important;
-  }
 }
 
 :host(:not([type="LID"])) {
@@ -110,6 +96,23 @@
     cursor: pointer;
 
     @include anchor.pseudo();
+  }
+
+  .wijzigactie-label {
+    margin-left: document-component.$indent;
+  }
+}
+
+:host-context(dso-responsive-element[small]),
+:host(:not([type="LID"])) {
+  .content {
+    padding-left: document-component.$indent;
+  }
+}
+
+:host-context(dso-responsive-element[small]):host([type="LID"]) {
+  .heading-container {
+    padding-left: document-component.$indent;
   }
 }
 
@@ -133,9 +136,10 @@
 
 .wijzigactie-label {
   font-style: italic;
-  margin-left: document-component.$indent;
+  margin-left: units.$u1;
 }
 
+.content,
 .heading-container {
   padding-right: units.$u1;
 }

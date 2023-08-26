@@ -5,6 +5,7 @@ import coreReadme from "@dso-toolkit/core/src/components/document-component/read
 
 import { templateContainer } from "../../templates";
 import { html } from "lit-html";
+import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 
 storiesOfDocumentComponent({
   parameters: {
@@ -16,6 +17,14 @@ storiesOfDocumentComponent({
   templateContainer,
   storyTemplates: ({ documentComponentTemplate }) => ({
     documentComponentTemplate,
-    demo: html`<dsot-document-component-demo></dsot-document-component-demo>`,
+    demoTemplate: (jsonFile, openDefault, showCanvas, ozonContentAnchorClick) =>
+      html`<dsot-document-component-demo
+        @dsotOzonContentAnchorClick=${(
+          e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>
+        ) => ozonContentAnchorClick(e.detail)}
+        .jsonFile=${jsonFile}
+        ?open-default=${openDefault}
+        ?show-canvas=${showCanvas}
+      ></dsot-document-component-demo>`,
   }),
 });

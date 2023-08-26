@@ -29,7 +29,7 @@ Type: `Promise<ResponsiveElementSize>`
 
  - [dso-annotation-output](../annotation-output)
  - [dso-pagination](../pagination)
- - [dsot-document-component-demo](../document-component)
+ - [dsot-document-component-demo](../document-component-demo)
 
 ### Graph
 ```mermaid

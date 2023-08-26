@@ -1,30 +1,20 @@
-@use "../anchor";
 @use "../icon";
 
-@use "../../di";
+@use "anchor.mixins" as anchor-mixins;
 
 a {
-  @include anchor.root();
+  @include anchor-mixins.root();
 
   &.download,
   &.extern {
-    &::after {
-      content: "";
-      display: inline-block;
-      margin-left: anchor.$spacer-width;
-      vertical-align: icon.$vertical-align;
-    }
+    @include anchor-mixins.mode-base();
   }
 
   &.download {
-    &::after {
-      @include di.base("download");
-    }
+    @include anchor-mixins.mode-download();
   }
 
   &.extern {
-    &::after {
-      @include di.base("external-link");
-    }
+    @include anchor-mixins.mode-extern();
   }
 }

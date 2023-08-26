@@ -255,7 +255,7 @@ export interface Components {
   mapControls: MapControls;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
-  ozonContent: OzonContent<TemplateResult>;
+  ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
