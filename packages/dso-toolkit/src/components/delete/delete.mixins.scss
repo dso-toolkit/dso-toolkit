@@ -1,0 +1,11 @@
+@use "../../variables/colors";
+
+@mixin root() {
+  background-color: colors.$danger-bg-color;
+  color: colors.$zwart;
+  text-decoration: line-through;
+
+  a {
+    color: colors.$zwart;
+  }
+}

@@ -1,8 +1,8 @@
 export const content = [
   {
     title: "Al",
-    content:
-      "<Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>",
+    content: `<Inhoud><Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>
+      <Al wijzigactie='verwijder'><ExtIoRef xmlns='' wId='gm1979_1__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1</ExtIoRef></Al><Al wijzigactie='voegtoe'><ExtIoRef xmlns='' wId='gm1979_2__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4</ExtIoRef></Al></Inhoud>`,
   },
   {
     title: "Inhoud",
@@ -130,6 +130,7 @@ export const content = [
     // De Noot in deze content is verzonnen. Volgens STOP kan dit voorkomen maar ik heb geen echte content gevonden.
     title: "Opschrift",
     content: `
+    <Kop>
       <Opschrift
         xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
         xmlns:ns6='http://www.w3.org/1999/xlink'
@@ -142,20 +143,59 @@ export const content = [
         xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
         xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
         xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
-      >Programma's met programmatische aanpak <Noot id="Noot5000" type="voet">
+      >
+        Programma's met programmatische aanpak <Noot id="Noot5000" type="voet">
         <NootNummer>5</NootNummer>
         <Al>
           Een Testnoot
         </Al>
       </Noot></Opschrift>
+      <Opschrift
+        wijzigactie="voegtoe"
+        xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
+        xmlns:ns6='http://www.w3.org/1999/xlink'
+        xmlns:ns5='http://www.opengis.net/se'
+        xmlns:ns8='http://www.opengis.net/gml'
+        xmlns:ns7='http://www.opengis.net/ogc'
+        xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
+        xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
+        xmlns:ns9='http://www.w3.org/2001/SMIL20/'
+        xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
+        xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
+        xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
+      >
+        Programma's met programmatische aanpak <Noot id="Noot5001" type="voet">
+        <NootNummer>5</NootNummer>
+        <Al>
+          Een Testnoot
+        </Al>
+      </Noot>
+    </Opschrift>
+    <Opschrift
+      wijzigactie="verwijder"
+      xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
+      xmlns:ns6='http://www.w3.org/1999/xlink'
+      xmlns:ns5='http://www.opengis.net/se'
+      xmlns:ns8='http://www.opengis.net/gml'
+      xmlns:ns7='http://www.opengis.net/ogc'
+      xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
+      xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
+      xmlns:ns9='http://www.w3.org/2001/SMIL20/'
+      xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
+      xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
+      xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
+    >
+      Programma's met programmatische aanpak <Noot id="Noot5002" type="voet">
+        <NootNummer>5</NootNummer>
+        <Al>
+          Een Testnoot
+        </Al>
+      </Noot>
+    </Opschrift>
+  </Kop>
     `,
     args: {
       inline: true,
-      interactive: true,
-      prefix: "Afdeling 4.1 ",
-      suffix: " [gereserveerd]",
-      // prefix: `<span slot="prefix">Afdeling 4.1 </span>`,
-      // suffix: `<span slot="suffix"> [gereserveerd]</span>`,
     },
   },
   {

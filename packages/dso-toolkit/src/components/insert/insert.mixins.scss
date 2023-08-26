@@ -1,0 +1,17 @@
+@use "../../variables/colors";
+
+@use "insert.variables" as insert-variables;
+
+@mixin element() {
+  text-decoration: none;
+}
+
+@mixin root() {
+  background-color: colors.$success-bg-color;
+  box-shadow: insert-variables.$box-shadow;
+  color: colors.$zwart;
+
+  a {
+    color: colors.$zwart;
+  }
+}

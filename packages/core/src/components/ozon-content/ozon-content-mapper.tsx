@@ -23,8 +23,6 @@ import { OzonContentContext } from "./ozon-content-context.interface";
 import { OzonContentNode } from "./ozon-content-node.interface";
 
 export class Mapper {
-  private cache: { xml: string; document: Document } | undefined;
-
   private mappers: OzonContentNode[] = [
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
@@ -94,6 +92,7 @@ export class Mapper {
     const setState = identity ? (s: unknown) => context.setState({ ...context.state, [identity]: s }) : undefined;
 
     return mapper.render(node, {
+      inline: context.inline,
       mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
       emitAnchorClick: context.emitAnchorClick,
       setState,
@@ -107,19 +106,18 @@ export class Mapper {
       return <Fragment />;
     }
 
-    if (!this.cache || this.cache.xml !== xml) {
-      const document = this.domParser.parseFromString(xml, "text/xml");
-      if (document.querySelector("html > body > parsererror")) {
-        console.error(document);
+    const document = this.domParser.parseFromString(xml, "text/xml");
+    if (document.querySelector("parsererror")) {
+      console.error({
+        message: "[DSO Toolkit: Ozon Content Mapper] Unable to parse XML",
+        context,
+        xml,
+        document,
+      });
 
-        return <Fragment />;
-      }
-
-      this.cache = { xml, document };
+      return <Fragment />;
     }
 
-    const xmlDocument = this.cache.document;
-
-    return this.mapNodeToJsx(xmlDocument.getRootNode(), context, []);
+    return this.mapNodeToJsx(document.getRootNode(), context, []);
   }
 }

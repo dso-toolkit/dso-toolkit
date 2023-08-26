@@ -2,9 +2,13 @@ import { h, Component, ComponentInterface, Event, EventEmitter, Fragment, Prop }
 import {
   DocumentComponentOpenToggleEvent,
   DocumentComponentToggleAnnotationEvent,
+  DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentWijzigactie,
-} from "./document-component.types";
+} from "./document-component.models";
+import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
+
+import { DsoOzonContentCustomEvent } from "../../components";
 
 const wijzigActieLabels: { [wijzigActie in DocumentComponentWijzigactie]: string } = {
   nieuweContainer: "Toegevoegd",
@@ -128,6 +132,12 @@ export class DocumentComponent implements ComponentInterface {
   dsoOpenToggle!: EventEmitter<DocumentComponentOpenToggleEvent>;
 
   /**
+   * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
+   */
+  @Event({ bubbles: false })
+  dsoOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+
+  /**
    * Emitted when the user activates the annotation button.
    */
   @Event({ bubbles: false })
@@ -155,6 +165,10 @@ export class DocumentComponent implements ComponentInterface {
     return undefined;
   }
 
+  private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
+    this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
+  };
+
   render() {
     const suffix = this.suffix();
 
@@ -176,19 +190,31 @@ export class DocumentComponent implements ComponentInterface {
                     {this.label && (
                       <>
                         {" "}
-                        <dso-ozon-content content={this.label} inline></dso-ozon-content>
+                        <dso-ozon-content
+                          content={this.label}
+                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          inline
+                        ></dso-ozon-content>
                       </>
                     )}
                     {this.nummer && (
                       <>
                         {" "}
-                        <dso-ozon-content content={this.nummer} inline></dso-ozon-content>
+                        <dso-ozon-content
+                          content={this.nummer}
+                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          inline
+                        ></dso-ozon-content>
                       </>
                     )}
                     {this.opschrift && (
                       <>
                         {" "}
-                        <dso-ozon-content content={this.opschrift} inline></dso-ozon-content>
+                        <dso-ozon-content
+                          content={this.opschrift}
+                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          inline
+                        ></dso-ozon-content>
                       </>
                     )}
                   </>
@@ -225,12 +251,18 @@ export class DocumentComponent implements ComponentInterface {
           </div>
         </div>
         <slot name="annotation" />
-        {this.open && (this.inhoud || this.gereserveerd) && (
+        {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
           <div class="content">
             {this.gereserveerd && (
               <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>
             )}
-            <dso-ozon-content content={this.inhoud}></dso-ozon-content>
+            {this.vervallen && <dso-alert status="info">Dit onderdeel is vervallen.</dso-alert>}
+            {this.inhoud && (
+              <dso-ozon-content
+                content={this.inhoud}
+                onDsoAnchorClick={this.handleOzonContentAnchorClick}
+              ></dso-ozon-content>
+            )}
           </div>
         )}
         <slot />

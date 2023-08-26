@@ -2,10 +2,14 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/anchor";
-@use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/insert/insert";
-@use "~dso-toolkit/src/components/delete/delete";
+@use "~dso-toolkit/src/components/button/button";
+@use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
 @use "~dso-toolkit/src/components/rich-content";
+@use "~dso-toolkit/src/components/superscript/superscript";
+@use "~dso-toolkit/src/components/subscript/subscript";
+@use "~dso-toolkit/src/components/table/table";
 
 :host(:not([inline])) {
   display: block;
@@ -15,32 +19,12 @@
   display: inline;
 }
 
-:host([deleted]) {
-  * {
-    text-decoration: line-through !important;
-  }
-}
-
-:host([interactive]) {
-  @include anchor.root($is-html-a-element: false);
-
-  color: colors.$bosgroen;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-:host([interactive="sub"]) {
-  color: colors.$grijs-90;
-}
-
-.sr-only,
-.deleted-start,
-.deleted-end {
+.sr-only {
   @include utilities.sr-only();
 }
 
 button.toggle-note {
-  @include button.tertiary($modifiers: false);
+  @include button-mixins.tertiary($modifiers: false);
 }
 
 span[role="section"],
@@ -91,7 +75,7 @@ a {
 }
 
 .dso-ozon-figuur {
-  margin-bottom: units.$u2;
+  margin-bottom: units.$u1;
 
   .figuur-bijschrift {
     display: block;
@@ -122,10 +106,17 @@ a {
 .dso-ozon-lijst {
   span.od-Lijstaanhef,
   span.od-Lijstsluiting {
-    margin-bottom: units.$ru2;
+    margin-bottom: units.$u1;
   }
 
   ul {
+    margin-bottom: units.$u1 !important;
+    margin-top: units.$u1;
+
+    p {
+      margin-bottom: units.$u1;
+    }
+
     &.expliciet {
       list-style: none;
 
@@ -141,6 +132,10 @@ a {
       }
     }
   }
+
+  p {
+    margin: 0;
+  }
 }
 
 .od-Tabel thead {
@@ -149,28 +144,29 @@ a {
 
 .od-Kadertekst {
   border: 1px solid #e5e5e5;
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: units.$u1;
+  padding: units.$u1;
 }
 
-.dso-del {
-  background-color: colors.$danger-bg-color;
-  color: colors.$zwart;
-  text-decoration: line-through;
+p,
+span[role="paragraph"],
+table {
+  &.wijzigactie-voegtoe {
+    @include insert.root();
+  }
 
-  a {
-    color: colors.$zwart;
+  &.wijzigactie-verwijder {
+    @include delete.root();
   }
 }
 
-.dso-ins {
-  background-color: colors.$success-bg-color;
-  box-shadow: insert.$insert-box-shadow;
-  color: colors.$zwart;
+ins.nieuwe-tekst {
+  @include insert.element();
+  @include insert.root();
+}
 
-  a {
-    color: colors.$zwart;
-  }
+del.verwijderde-tekst {
+  @include delete.root();
 }
 
 .dso-rich-content {

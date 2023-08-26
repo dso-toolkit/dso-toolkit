@@ -3085,6 +3085,9 @@ __metadata:
     "@types/animejs": ^3.1.7
     "@types/concurrently": ^7.0.0
     "@types/debounce": ^1.2.1
+    "@types/lodash.kebabcase": ^4.1.7
+    "@types/lodash.random": ^3.2.7
+    "@types/lodash.samplesize": ^4.2.7
     "@types/sass": ^1.45.0
     "@types/uuid": ^9.0.2
     animejs: 3.2.1
@@ -3094,6 +3097,9 @@ __metadata:
     dso-toolkit: "workspace:^"
     escape-string-regexp: ^5.0.0
     focus-trap: ^7.5.2
+    lodash.kebabcase: ^4.1.1
+    lodash.random: ^3.2.0
+    lodash.samplesize: ^4.2.0
     popper-max-size-modifier: ^0.2.0
     rimraf: ^5.0.1
     stencil-inline-svg: ^1.1.0
@@ -7779,10 +7785,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.167":
-  version: 4.14.195
-  resolution: "@types/lodash@npm:4.14.195"
-  checksum: 39b75ca635b3fa943d17d3d3aabc750babe4c8212485a4df166fe0516e39288e14b0c60afc6e21913cc0e5a84734633c71e617e2bd14eaa1cf51b8d7799c432e
+"@types/lodash.kebabcase@npm:^4.1.7":
+  version: 4.1.7
+  resolution: "@types/lodash.kebabcase@npm:4.1.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 8c28dae574d0d15d316b8412f1edf7628398f0d1d34bec978af9d8b9f1286749492c23680817e74c6bd15e14b45b0006c79b320ebd260f9b8c0ac85668e0c409
+  languageName: node
+  linkType: hard
+
+"@types/lodash.random@npm:^3.2.7":
+  version: 3.2.7
+  resolution: "@types/lodash.random@npm:3.2.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 2c1fc0d327bf2b2ea1be0898c6e3f4b3c4c7b434515279b5c53f2eaf8b2efd7aa0ae68ed91c744bdddc340e0acb09b10827770f1a786d0493e43d45f353cf387
+  languageName: node
+  linkType: hard
+
+"@types/lodash.samplesize@npm:^4.2.7":
+  version: 4.2.7
+  resolution: "@types/lodash.samplesize@npm:4.2.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 15bd069da58e3bcd1c72592e9770765e9f7f9bb418d354ab583ea6162de464bd6dfa92236a6a01b89965c9f965be8f67d8505106b8f9dd8deb74e204dee5f398
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*, @types/lodash@npm:^4.14.167":
+  version: 4.14.197
+  resolution: "@types/lodash@npm:4.14.197"
+  checksum: 53d7567d1704de76cf33266c78062e0fd722d4b846e5b1417d0b6ef0ee41c0d9c451b92bc34f73d5f1fcc45c7d36511e92f6f47a9279b48157ba60a92ddaa078
   languageName: node
   linkType: hard
 
@@ -19187,6 +19220,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.kebabcase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.kebabcase@npm:4.1.1"
+  checksum: 5a6c59161914e1bae23438a298c7433e83d935e0f59853fa862e691164696bc07f6dfa4c313d499fbf41ba8d53314e9850416502376705a357d24ee6ca33af78
+  languageName: node
+  linkType: hard
+
 "lodash.keys@npm:^4.0.8":
   version: 4.2.0
   resolution: "lodash.keys@npm:4.2.0"
@@ -19236,6 +19276,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.random@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "lodash.random@npm:3.2.0"
+  checksum: a731327ee8aba7ac199ea8715fe8890f8665e025207db6ff1768f0feb357f9ca51ec700a6fb2d99421cbe7cd978b17d170633444db6be2e815037ac46df961c5
+  languageName: node
+  linkType: hard
+
 "lodash.reduce@npm:^4.4.0":
   version: 4.6.0
   resolution: "lodash.reduce@npm:4.6.0"
@@ -19247,6 +19294,13 @@ __metadata:
   version: 4.6.0
   resolution: "lodash.reject@npm:4.6.0"
   checksum: 730acc78d29ab0a60e0f3cd87bbfe9071625a835791ef66daac7a405c43ec21209fd795fdf9b7485aecead4869f645801bd65c27b9acadce80dee26393793111
+  languageName: node
+  linkType: hard
+
+"lodash.samplesize@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "lodash.samplesize@npm:4.2.0"
+  checksum: 1c617b25bf1ce95f61a19ce5d6e3d7c2f939ecd8381a82a7121618f632953df34306ecf63b968e067717d156d8f2aab58c90a52f80365b193707fd711c801ed7
   languageName: node
   linkType: hard
 

@@ -1,10 +1,6 @@
-@use "../../variables/colors";
-
-$insert-box-shadow: 0 1px 3px 1px rgb(0 0 0 / 25%);
+@use "insert.mixins" as insert-mixins;
 
 ins {
-  background-color: colors.$success-bg-color;
-  box-shadow: $insert-box-shadow;
-  color: colors.$zwart;
-  text-decoration: none;
+  @include insert-mixins.element();
+  @include insert-mixins.root();
 }

@@ -27,7 +27,7 @@
 
 ### Used by
 
- - [dsot-document-component-demo](../document-component)
+ - [dsot-document-component-demo](../document-component-demo)
 
 ### Graph
 ```mermaid

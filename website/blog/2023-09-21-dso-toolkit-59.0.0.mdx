@@ -4,7 +4,7 @@ authors: [anneke, tfrijsewijk]
 
 # DSO Toolkit v59.0.0
 
-In deze breaking release zijn de API's van Banner en Tooltip aangepast.
+In deze breaking release zijn de API's van Banner, Tooltip en Ozon Content aangepast.
 
 ## Banner
 
@@ -41,3 +41,17 @@ Het migratiepad omvat het gebruik van het Web Component.
   LABEL
 </dso-tooltip>
 ```
+
+## Ozon Content
+
+Een deel van de functionaliteit van dit component is verhuisd naar Document Component.
+
+Concreet betekent dit:
+
+- De property `deleted` bestaat niet meer.
+- De property `interactive` bestaat niet meer.
+- Het event `dsoClick` met bijbehorend event model `OzonContentClick` bestaat niet meer.
+- Het model `OzonContentAnchorClick` van het event `dsoAnchorClick` is hernoemd naar `OzonContentAnchorClickEvent`
+- De slots `prefix` en `suffix` zijn verwijderd.
+
+Er is geen uitgestippeld migratiepad. Hoogstwaarschijnlijk wil je als high-level afnemer gebruik maken van Document Component. Ozon Content kan gezien worden als een "Low Level component".

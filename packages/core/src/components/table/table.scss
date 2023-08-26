@@ -7,7 +7,7 @@
 @use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/utilities";
 
-@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/button/button";
 @use "~dso-toolkit/src/components/modal";
 @use "~dso-toolkit/src/components/rich-content";
 @use "~dso-toolkit/src/components/table";
@@ -95,12 +95,6 @@
   margin-bottom: units.$u1;
   position: relative;
   text-align: center;
-}
-
-.dso-tertiary {
-  @include button.tertiary($modifiers: false);
-
-  cursor: pointer;
 }
 
 .sr-only {

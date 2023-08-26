@@ -40,8 +40,7 @@ export class OzonContentTableNode implements OzonContentNode {
       <dso-table>
         <table
           class={clsx("table dso-table-vertical-lines", {
-            "dso-del": editAction === "verwijder",
-            "dso-ins": editAction === "voegtoe",
+            [`wijzigactie-${editAction}`]: editAction,
           })}
           {...(bron ? { "aria-describedby": this.id } : {})}
         >

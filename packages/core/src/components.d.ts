@@ -13,7 +13,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { DocumentComponentOpenToggleEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.types";
+import { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -22,7 +22,7 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -38,7 +38,7 @@ export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-export { DocumentComponentOpenToggleEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.types";
+export { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -47,7 +47,7 @@ export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
+export { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -629,17 +629,9 @@ export namespace Components {
          */
         "content": string | undefined;
         /**
-          * Marks content as deleted using visual and accessible clues.
-         */
-        "deleted": boolean;
-        /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline": boolean;
-        /**
-          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
-         */
-        "interactive": "sub" | "" | boolean;
     }
     interface DsoPagination {
         /**
@@ -862,6 +854,18 @@ export namespace Components {
         "overlayOpen": boolean;
     }
     interface DsotDocumentComponentDemo {
+        /**
+          * Name of the file to load.
+         */
+        "jsonFile"?: string;
+        /**
+          * The default state for all Document Components.
+         */
+        "openDefault": boolean;
+        /**
+          * Show canvas to where Document Component extends.
+         */
+        "showCanvas": boolean;
     }
 }
 export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
@@ -963,6 +967,10 @@ export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
 export interface DsoViewerGridCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoViewerGridElement;
+}
+export interface DsotDocumentComponentDemoCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsotDocumentComponentDemoElement;
 }
 declare global {
     interface HTMLDsoAccordionElement extends Components.DsoAccordion, HTMLStencilElement {
@@ -1615,6 +1623,10 @@ declare namespace LocalJSX {
          */
         "onDsoOpenToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>) => void;
         /**
+          * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
+         */
+        "onDsoOzonContentAnchorClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        /**
           * This boolean attribute indicates whether the children are visible.
          */
         "open"?: boolean;
@@ -1939,25 +1951,13 @@ declare namespace LocalJSX {
          */
         "content"?: string | undefined;
         /**
-          * Marks content as deleted using visual and accessible clues.
-         */
-        "deleted"?: boolean;
-        /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline"?: boolean;
         /**
-          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
-         */
-        "interactive"?: "sub" | "" | boolean;
-        /**
           * Emitted when `<a>` is clicked.
          */
-        "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClick>) => void;
-        /**
-          * These events are only emitted when the component is `interactive`.
-         */
-        "onDsoClick"?: (event: DsoOzonContentCustomEvent<OzonContentClick>) => void;
+        "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => void;
     }
     interface DsoPagination {
         /**
@@ -2204,6 +2204,22 @@ declare namespace LocalJSX {
         "overlayOpen"?: boolean;
     }
     interface DsotDocumentComponentDemo {
+        /**
+          * Name of the file to load.
+         */
+        "jsonFile"?: string;
+        /**
+          * To demo user interacting with IntRef or IntIoRef elements.
+         */
+        "onDsotOzonContentAnchorClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        /**
+          * The default state for all Document Components.
+         */
+        "openDefault"?: boolean;
+        /**
+          * Show canvas to where Document Component extends.
+         */
+        "showCanvas"?: boolean;
     }
     interface IntrinsicElements {
         "dso-accordion": DsoAccordion;

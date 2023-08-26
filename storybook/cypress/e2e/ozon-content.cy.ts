@@ -317,8 +317,12 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content")
       .shadow()
-      .find('> dso-tooltip > span[role="section"] > span[role="paragraph"]')
-      .should("exist");
+      .as("shadowRoot")
+      .find('span[role="paragraph"]')
+      .should("exist")
+      .get("@shadowRoot")
+      .find("p")
+      .should("not.exist");
 
     cy.percySnapshot();
   });
@@ -331,59 +335,6 @@ describe("Ozon Content", () => {
       .and("have.css", "display", "inline")
       .invoke("attr", "inline", null)
       .should("have.css", "display", "block");
-
-    cy.percySnapshot();
-  });
-
-  it("should mark and denote deleted content", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
-
-    cy.get("dso-ozon-content")
-      .invoke("attr", "deleted", "")
-      .shadow()
-      .find("> *")
-      .should("have.css", "text-decoration-line", "line-through");
-
-    cy.get("dso-ozon-content").shadow().find(".deleted-start").should("have.text", "Begin verwijderd element");
-
-    cy.get("dso-ozon-content").shadow().find(".deleted-end").should("have.text", "Einde verwijderd element");
-
-    cy.percySnapshot();
-  });
-
-  it("when interactive it should emit events", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
-
-    cy.get("dso-ozon-content")
-      .invoke("attr", "interactive", "")
-      .should("have.attr", "interactive")
-      .get("dso-ozon-content")
-      .then(($dsoOzonContent) => $dsoOzonContent.on("dsoClick", cy.stub().as("click")))
-      .click()
-      .invoke("removeAttr", "interactive")
-      .click()
-      .get("dso-ozon-content")
-      .shadow()
-      .find("button[aria-describedby='dso-ozon-note-Noot5000']")
-      .click();
-
-    cy.get("@click").should("have.been.calledOnce");
-
-    cy.percySnapshot();
-  });
-
-  it("when interactive it should appear like a link", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
-
-    cy.get("dso-ozon-content")
-      .invoke("attr", "interactive", "")
-      .should("have.attr", "interactive")
-      .get("dso-ozon-content")
-      .should("have.css", "text-decoration-line", "none")
-      .and("have.css", "color", "rgb(39, 89, 55)") // $bosgroen
-      .invoke("attr", "interactive", "sub")
-      .should("have.css", "text-decoration-line", "none")
-      .and("have.css", "color", "rgb(25, 25, 25)"); // $grijs-90
 
     cy.percySnapshot();
   });
@@ -565,11 +516,11 @@ describe("Ozon Content", () => {
       .should("have.css", "background-color", "rgb(228, 241, 212)")
       .get("dso-ozon-content")
       .shadow()
-      .find("table.dso-del")
+      .find("table.wijzigactie-verwijder")
       .should("have.css", "background-color", "rgb(245, 216, 220)")
       .get("dso-ozon-content")
       .shadow()
-      .find("table.dso-ins")
+      .find("table.wijzigactie-voegtoe")
       .should("have.css", "background-color", "rgb(228, 241, 212)");
 
     cy.percySnapshot();
