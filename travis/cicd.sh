@@ -30,6 +30,12 @@ docker push ghcr.io/dso-toolkit/dso-toolkit:${TAG} &
 docker run \
   --env CI \
   --env PERCY_TOKEN \
+  --env TRAVIS_BRANCH \
+  --env TRAVIS_BUILD_ID \
+  --env TRAVIS_BUILD_NUMBER \
+  --env TRAVIS_COMMIT \
+  --env TRAVIS_PULL_REQUEST \
+  --env TRAVIS_PULL_REQUEST_BRANCH \
   --volume /home/travis/build/dso-toolkit/dso-toolkit/storybook/cypress-parallel:/usr/src/app/storybook/cypress-parallel \
   ghcr.io/dso-toolkit/dso-toolkit:${TAG} \
   "yarn e2e"
