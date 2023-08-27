@@ -1,5 +1,6 @@
 {
   "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "name": "website",
   "targets": {
     "build-www": {
       "executor": "nx:run-commands",
@@ -12,9 +13,15 @@
         "^styles",
         "^assets",
         "default",
-        { "env": "DT_VERSION" },
-        { "env": "TRAVIS_TAG" },
-        { "env": "TRAVIS_BRANCH" }
+        {
+          "env": "DT_VERSION"
+        },
+        {
+          "env": "TRAVIS_TAG"
+        },
+        {
+          "env": "TRAVIS_BRANCH"
+        }
       ],
       "outputs": ["{projectRoot}/www"]
     }

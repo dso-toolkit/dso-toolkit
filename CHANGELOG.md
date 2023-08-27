@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Build: Percy finalize en missende CI_ environment variables ([#2272](https://github.com/dso-toolkit/dso-toolkit/issues/2272))
+* Packages: Dependency updates ([#2241](https://github.com/dso-toolkit/dso-toolkit/issues/2241))
 
 ## 58.0.1 - 22-08-2023
 

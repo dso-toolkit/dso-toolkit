@@ -1,6 +1,6 @@
 import { StorybookConfig } from "@storybook/web-components-webpack5";
 import { readdirSync } from "fs";
-import { sep, resolve, dirname, parse } from "path";
+import { sep, resolve, dirname, parse, join } from "path";
 
 function getVersion() {
   if (process.env.CI) {
@@ -65,7 +65,11 @@ const config: StorybookConfig = {
 
     return {};
   },
-  addons: ["@storybook/addon-essentials", "@whitespace/storybook-addon-html", "@storybook/addon-a11y"],
+  addons: [
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@whitespace/storybook-addon-html"),
+    getAbsolutePath("@storybook/addon-a11y"),
+  ],
   stories: ["../src/components/**/*.stories.ts", "../src/example-pages/**/*.ts"],
   previewHead: (head) => `
     ${head}
@@ -90,7 +94,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: "@storybook/web-components-webpack5",
+    name: getAbsolutePath("@storybook/web-components-webpack5"),
     options: {},
   },
   docs: {
@@ -102,3 +106,7 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}
