@@ -1,3 +1,4 @@
+import { dirname, join } from "path";
 import { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
@@ -15,20 +16,25 @@ const config: StorybookConfig = {
       to: "iframe-resizer",
     },
   ],
-  addons: ["@storybook/addon-essentials", "storybook-addon-jsx", "@storybook/addon-a11y"],
+  addons: [
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("storybook-addon-jsx"),
+    getAbsolutePath("@storybook/addon-a11y"),
+  ],
   stories: ["../src/**/*.stories.@(ts|tsx)"],
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
     <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
-  previewBody: (body) =>
-    !process.env.CI
-      ? `
-      ${body}
-      <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
-    `
-      : body,
+  // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
+  // previewBody: (body) =>
+  //   !process.env.CI
+  //     ? `
+  //     ${body}
+  //     <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
+  //   `
+  //     : body,
   webpackFinal: async (config, { configType }) => {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
@@ -39,7 +45,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: "@storybook/react-webpack5",
+    name: getAbsolutePath("@storybook/react-webpack5"),
     options: {},
   },
   docs: {
@@ -51,3 +57,7 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}
