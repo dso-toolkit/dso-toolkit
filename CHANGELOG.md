@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Banner: Nieuwe variant "info", nieuwe functionaliteit "noIcon" en "compact" ([#2255](https://github.com/dso-toolkit/dso-toolkit/issues/2255))
+* Button Row: Nieuwe optie "no-wrap" ([#2299](https://github.com/dso-toolkit/dso-toolkit/issues/2299))
 
 ## 58.0.1 - 22-08-2023
 
