@@ -30,57 +30,56 @@
     }
   }
 
-  .row {
-    > div {
-      line-height: typography.$line-height-base;
-      position: relative;
+  > .dso-rich-content,
+  .row > div {
+    line-height: typography.$line-height-base;
+    position: relative;
 
-      button {
-        position: absolute;
-        right: units.$u2;
-        top: 0;
+    button {
+      position: absolute;
+      right: units.$u2;
+      top: 0;
 
-        dso-icon,
-        svg.di {
-          color: colors.$zwart;
+      dso-icon,
+      svg.di {
+        color: colors.$zwart;
+      }
+    }
+
+    > .dso-rich-content {
+      padding-right: units.$u3;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: colors.$zwart;
+        font-size: 1rem;
+        line-height: typography.$line-height-base;
+        margin-bottom: 0;
+
+        + p {
+          display: inline;
+
+          + * {
+            margin-top: units.$u2;
+          }
         }
       }
 
-      > .dso-rich-content {
-        padding-right: units.$u3;
+      > h2:first-child {
+        float: left;
+        margin-right: units.$u1;
+      }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: colors.$zwart;
-          font-size: 1rem;
-          line-height: typography.$line-height-base;
-          margin-bottom: 0;
+      *:first-child {
+        margin-top: 0;
+      }
 
-          + p {
-            display: inline;
-
-            + * {
-              margin-top: units.$u2;
-            }
-          }
-        }
-
-        > h2:first-child {
-          float: left;
-          margin-right: units.$u1;
-        }
-
-        *:first-child {
-          margin-top: 0;
-        }
-
-        *:last-child {
-          margin-bottom: 0;
-        }
+      *:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -112,6 +111,7 @@
 }
 
 @mixin with-icon($variant) {
+  > .dso-rich-content,
   .row > div {
     &::before {
       @include di.base("status-#{$variant}");

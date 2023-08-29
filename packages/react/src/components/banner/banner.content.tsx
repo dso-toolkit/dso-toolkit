@@ -11,6 +11,14 @@ const closeButton = ({ iconTemplate }: Templates) => {
   );
 };
 
+export const inGrid = (children: React.ReactNode) => (
+  <div className="container">
+    <div className="row">
+      <div className="col-sm-12">{children}</div>
+    </div>
+  </div>
+);
+
 export const warningRichContent = (templates: Templates) => (
   <>
     <div className="dso-rich-content">

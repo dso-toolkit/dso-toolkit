@@ -1,4 +1,4 @@
-import { html } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 import { Templates } from "../../templates";
 
@@ -11,6 +11,16 @@ function closeButton({ buttonTemplate }: Templates) {
     icon: { icon: "times" },
     iconMode: "only",
   });
+}
+
+export function inGrid(children: TemplateResult): TemplateResult {
+  return html`
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">${children}</div>
+      </div>
+    </div>
+  `;
 }
 
 export function warningRichContent(templates: Templates) {

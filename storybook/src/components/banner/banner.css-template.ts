@@ -14,15 +14,11 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
           class=${clsx("dso-banner", {
             [`alert-${status}`]: status,
             ["dso-compact"]: compact,
-            ["dso-no-icon"]: compact && noIcon,
+            ["dso-no-icon"]: noIcon,
           })}
           role="alert"
         >
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">${content}</div>
-            </div>
-          </div>
+          ${content}
         </section>
       `;
     },

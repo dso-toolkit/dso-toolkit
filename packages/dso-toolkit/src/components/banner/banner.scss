@@ -13,19 +13,23 @@
 
 // HTML/CSS
 .banner,
-.dso-banner:not(.row) {
+.dso-banner {
   @include banner-mixins.root();
   @include banner-mixins.children();
 
-  .row > div::before {
-    content: "";
-    display: inline-block;
-    left: units.$u2;
-    position: absolute;
-    top: 0;
-  }
-
   &:not(.dso-no-icon) {
+    > .dso-rich-content,
+    .row > div {
+      &::before {
+        content: "";
+        display: inline-block;
+        left: units.$u2;
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    > .dso-rich-content,
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-left: banner-variables.$left-padding;
@@ -92,16 +96,18 @@
 dso-banner {
   @include banner-mixins.children();
 
-  .row > div::before {
-    content: "";
-
-    display: inline-block;
-    left: units.$u2;
-    position: absolute;
-    top: 0;
-  }
-
   &:not([no-icon]) {
+    > .dso-rich-content,
+    .row > div {
+      &::before {
+        content: "";
+        display: inline-block;
+        left: units.$u2;
+        position: absolute;
+        top: 0;
+      }
+    }
+
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-left: banner-variables.$left-padding;

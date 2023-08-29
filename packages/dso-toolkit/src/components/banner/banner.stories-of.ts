@@ -5,6 +5,7 @@ import { Banner } from "./banner.models.js";
 
 export interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
+  inGrid: (children: TemplateFnReturnType) => TemplateFnReturnType;
   dangerRichContent: TemplateFnReturnType;
   errorRichContent: TemplateFnReturnType;
   infoRichContent: TemplateFnReturnType;
@@ -29,13 +30,14 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
       argTypes: bannerArgTypes,
       args: {
         closeButton: true,
+        inGrid: true,
       },
     });
 
     stories.add(
       "danger",
-      templateMapper<BannerArgs>((args, { bannerTemplate, dangerRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, dangerRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, dangerRichContent))
       ),
       {
         args: {
@@ -46,8 +48,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "error",
-      templateMapper<BannerArgs>((args, { bannerTemplate, errorRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, errorRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, errorRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, errorRichContent))
       ),
       {
         args: {
@@ -58,8 +60,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "info",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, infoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, infoRichContent))
       ),
       {
         args: {
@@ -70,8 +72,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "info compact non removable",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, infoCompactNonRemovableRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, infoCompactNonRemovableRichContent))
       ),
       {
         args: {
@@ -84,8 +86,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "warning",
-      templateMapper<BannerArgs>((args, { bannerTemplate, warningRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, warningRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, warningRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, warningRichContent))
       ),
       {
         args: {
@@ -96,8 +98,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "info non removable",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, infoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, infoRichContent))
       ),
       {
         args: {
@@ -108,8 +110,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "rich warning",
-      templateMapper<BannerArgs>((args, { bannerTemplate, richWarningRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, richWarningRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, richWarningRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, richWarningRichContent))
       ),
       {
         args: {
@@ -120,8 +122,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "rich info",
-      templateMapper<BannerArgs>((args, { bannerTemplate, richInfoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, richInfoRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, richInfoRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, richInfoRichContent))
       ),
       {
         args: {
@@ -134,8 +136,8 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
 
     stories.add(
       "danger with headings",
-      templateMapper<BannerArgs>((args, { bannerTemplate, dangerWithHeadingsRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent))
+      templateMapper<BannerArgs>((args, { bannerTemplate, inGrid, dangerWithHeadingsRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, inGrid, dangerWithHeadingsRichContent))
       ),
       {
         args: {

@@ -6,6 +6,7 @@ export interface BannerArgs {
   status: BannerStatus;
   compact: boolean;
   noIcon: boolean;
+  inGrid: boolean;
 }
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
@@ -21,14 +22,20 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
   noIcon: {
     type: "boolean",
   },
+  inGrid: {
+    control: {
+      type: "boolean",
+    },
+  },
 };
 
 export function bannerArgsMapper<TemplateFnReturnType>(
   a: BannerArgs,
+  inGrid: (children: TemplateFnReturnType) => TemplateFnReturnType,
   content: TemplateFnReturnType
 ): Banner<TemplateFnReturnType> {
   return {
     ...a,
-    content,
+    content: a.inGrid ? inGrid(content) : content,
   };
 }

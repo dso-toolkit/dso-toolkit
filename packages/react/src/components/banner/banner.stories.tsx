@@ -4,6 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
+  inGrid,
   dangerWithHeadingsRichContent,
   errorRichContent,
   infoCompactNonRemovableRichContent,
@@ -25,6 +26,7 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
+    inGrid,
     dangerRichContent: dangerRichContent(templates),
     errorRichContent: errorRichContent(templates),
     infoRichContent: infoRichContent(templates),

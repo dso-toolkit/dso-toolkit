@@ -6,6 +6,7 @@ import coreReadme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import {
+  inGrid,
   dangerRichContent,
   errorRichContent,
   dangerWithHeadingsRichContent,
@@ -27,6 +28,7 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
+    inGrid,
     dangerRichContent: dangerRichContent(templates),
     errorRichContent: errorRichContent(templates),
     infoRichContent: infoRichContent(templates),
@@ -49,6 +51,7 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
+    inGrid,
     dangerRichContent: dangerRichContent(templates),
     errorRichContent: errorRichContent(templates),
     infoRichContent: infoRichContent(templates),
