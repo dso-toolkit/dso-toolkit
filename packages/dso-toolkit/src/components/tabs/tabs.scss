@@ -49,7 +49,7 @@
     &:hover,
     &:focus {
       background-color: css-tabs-variables.$nav-link-hover-bg;
-      border-color: scaffolding.$link-color;
+      border-color: var(--link-color);
     }
   }
 }

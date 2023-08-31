@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Toggletip: Open Toggletip scrolled mee met de pagina ([#2301](https://github.com/dso-toolkit/dso-toolkit/issues/2301))
+* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
 
 ### Docs
 * Button: Documentatie bijwerken ([#1898](https://github.com/dso-toolkit/dso-toolkit/issues/1898))

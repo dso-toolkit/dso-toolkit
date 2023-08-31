@@ -7,8 +7,6 @@
 }
 
 :host-context(dso-toggletip) {
-  color: red !important;
-
   *[data-popper-placement="top"] {
     .tooltip-arrow {
       margin-left: 3px;

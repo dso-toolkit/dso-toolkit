@@ -14,6 +14,8 @@
 }
 
 @mixin children() {
+  --link-color: #{colors.$zwart};
+
   a {
     text-decoration: underline;
 
@@ -22,7 +24,7 @@
     &:focus,
     &:active,
     &:visited {
-      color: colors.$zwart;
+      color: var(--link-color);
     }
 
     &:active {
