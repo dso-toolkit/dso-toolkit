@@ -13118,7 +13118,6 @@ __metadata:
     del: ^7.0.0
     escape-string-regexp: ^5.0.0
     fancy-log: ^2.0.0
-    genversion: ^3.1.1
     gulp: ^4.0.2
     gulp-cheerio: ^1.0.0
     gulp-filter: ^8.0.0
@@ -14931,15 +14930,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-package@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "find-package@npm:1.0.0"
-  dependencies:
-    parents: ^1.0.1
-  checksum: 48840557446ffbd5d461080be9d55ee0858a493678b9fdf03512ce0f69b20572a990d2b9489f50f762164e6021fe9421d92b9d578779bf343af775a69185fc95
-  languageName: node
-  linkType: hard
-
 "find-up@npm:5.0.0, find-up@npm:^5.0.0":
   version: 5.0.0
   resolution: "find-up@npm:5.0.0"
@@ -15487,18 +15477,6 @@ __metadata:
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
   checksum: a7437e58c6be12aa6c90f7730eac7fa9833dc78872b4ad2963d2031b00a3367a93f98aec75f9aaac7220848e4026d67a8655e870b24f20a543d103c0d65952ec
-  languageName: node
-  linkType: hard
-
-"genversion@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "genversion@npm:3.1.1"
-  dependencies:
-    commander: ^7.2.0
-    find-package: ^1.0.0
-  bin:
-    genversion: bin/genversion.js
-  checksum: 6cc575683f0a68e4a6d58e3e2087cc9a32522048ce7b1fc999eec8fba71deb74f9bd78f10724a0cf6e9fb836bdcae1258b1f199eb0fe6c4cc5adedb9055c0037
   languageName: node
   linkType: hard
 
@@ -21531,15 +21509,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parents@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "parents@npm:1.0.1"
-  dependencies:
-    path-platform: ~0.11.15
-  checksum: 094fc817d5e8d94e9f9d38c2618a2822f2960b7a268183a36326c5d1cf6ff32f97b1158b0f9b32ab126573996dfe6db104feda6d26e8531d762d178ef4488fc8
-  languageName: node
-  linkType: hard
-
 "parse-diff@npm:^0.7.0":
   version: 0.7.1
   resolution: "parse-diff@npm:0.7.1"
@@ -21816,13 +21785,6 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7"
   checksum: 49abf3d81115642938a8700ec580da6e830dde670be21893c62f4e10bd7dd4c3742ddc603fe24f898cba7eb0c6bc1777f8d9ac14185d34540c6d4d80cd9cae8a
-  languageName: node
-  linkType: hard
-
-"path-platform@npm:~0.11.15":
-  version: 0.11.15
-  resolution: "path-platform@npm:0.11.15"
-  checksum: 239f2eae720531ff5a48837de68f94ebd7cf6cd2bf295b39beb97c5bafc34a34a683b62f9f5ad5ca5e78d71d7d44c29e7c56373c1c8473ab128a4e648bb898f0
   languageName: node
   linkType: hard
 

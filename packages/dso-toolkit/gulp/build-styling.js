@@ -8,12 +8,33 @@ import * as dartSass from "sass";
 
 import { plugins } from "../postcss.config.js";
 
-import { version } from "./version.js";
-
 const sass = gulpSass(dartSass);
+
+function getVersion() {
+  if (process.env.DT_VERSION) {
+    return process.env.DT_VERSION;
+  }
+
+  if (process.env.CI) {
+    if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
+      return process.env.TRAVIS_TAG.substring(1);
+    }
+
+    if (
+      typeof process.env.TRAVIS_BRANCH === "string" &&
+      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
+    ) {
+      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
+    }
+  }
+
+  return undefined;
+}
 
 export function buildStyling() {
   const sassCompiler = sass().on("error", sass.logError);
+
+  const version = getVersion();
 
   return gulp
     .src("src/dso.scss", { sourcemaps: true })

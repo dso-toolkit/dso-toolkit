@@ -9,7 +9,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "genversion --es6 --semi ./gulp/version.js && gulp build",
+        "command": "gulp build",
         "cwd": "packages/dso-toolkit"
       },
       "outputs": ["{projectRoot}/CHANGELOG.md", "{projectRoot}/README.md", "{projectRoot}/dist"]
