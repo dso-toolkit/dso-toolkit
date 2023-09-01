@@ -2,3 +2,5 @@
 /README.md
 /CHANGELOG.md
 /*.tgz
+
+/gulp/version.js

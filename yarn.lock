@@ -7615,6 +7615,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gulp-header@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/gulp-header@npm:2.0.2"
+  dependencies:
+    "@types/node": "*"
+  checksum: 0c1984416ce94777be002791f29b77f4e11cf32498d50493a5267d722807daece70a4e392266a426729d2e6e0e7f7ffd2722bc25174e7c0f853214ec37cbd399
+  languageName: node
+  linkType: hard
+
 "@types/gulp-postcss@npm:^8.0.3":
   version: 8.0.3
   resolution: "@types/gulp-postcss@npm:8.0.3"
@@ -11285,6 +11294,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concat-with-sourcemaps@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "concat-with-sourcemaps@npm:1.1.0"
+  dependencies:
+    source-map: ^0.6.1
+  checksum: 57faa6f4a6f38a1846a58f96b2745ec8435755e0021f069e89085c651d091b78d9bc20807ea76c38c85021acca80dc2fa4cedda666aade169b602604215d25b9
+  languageName: node
+  linkType: hard
+
 "concurrently@npm:*, concurrently@npm:^8.2.1":
   version: 8.2.1
   resolution: "concurrently@npm:8.2.1"
@@ -13089,6 +13107,7 @@ __metadata:
     "@types/gulp": ^4.0.13
     "@types/gulp-cheerio": ^0.0.35
     "@types/gulp-filter": ^3.0.36
+    "@types/gulp-header": ^2.0.2
     "@types/gulp-postcss": ^8.0.3
     "@types/gulp-rename": ^2.0.2
     "@types/gulp-sass": ^5.0.1
@@ -13099,9 +13118,11 @@ __metadata:
     del: ^7.0.0
     escape-string-regexp: ^5.0.0
     fancy-log: ^2.0.0
+    genversion: ^3.1.1
     gulp: ^4.0.2
     gulp-cheerio: ^1.0.0
     gulp-filter: ^8.0.0
+    gulp-header: ^2.0.9
     gulp-postcss: ^9.0.1
     gulp-prettier: ^4.0.0
     gulp-rename: ^2.0.0
@@ -14910,6 +14931,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"find-package@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "find-package@npm:1.0.0"
+  dependencies:
+    parents: ^1.0.1
+  checksum: 48840557446ffbd5d461080be9d55ee0858a493678b9fdf03512ce0f69b20572a990d2b9489f50f762164e6021fe9421d92b9d578779bf343af775a69185fc95
+  languageName: node
+  linkType: hard
+
 "find-up@npm:5.0.0, find-up@npm:^5.0.0":
   version: 5.0.0
   resolution: "find-up@npm:5.0.0"
@@ -15457,6 +15487,18 @@ __metadata:
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
   checksum: a7437e58c6be12aa6c90f7730eac7fa9833dc78872b4ad2963d2031b00a3367a93f98aec75f9aaac7220848e4026d67a8655e870b24f20a543d103c0d65952ec
+  languageName: node
+  linkType: hard
+
+"genversion@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "genversion@npm:3.1.1"
+  dependencies:
+    commander: ^7.2.0
+    find-package: ^1.0.0
+  bin:
+    genversion: bin/genversion.js
+  checksum: 6cc575683f0a68e4a6d58e3e2087cc9a32522048ce7b1fc999eec8fba71deb74f9bd78f10724a0cf6e9fb836bdcae1258b1f199eb0fe6c4cc5adedb9055c0037
   languageName: node
   linkType: hard
 
@@ -16040,6 +16082,18 @@ __metadata:
     gulp:
       optional: true
   checksum: 00928df3e5d76cf20204ff69adbc51a823905d2c42c17478e443d73ef720f06b399684c9a9d7499fc28bded5ef2fe1a75f611c400e742e4dc00d93e019ddc730
+  languageName: node
+  linkType: hard
+
+"gulp-header@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "gulp-header@npm:2.0.9"
+  dependencies:
+    concat-with-sourcemaps: ^1.1.0
+    lodash.template: ^4.5.0
+    map-stream: 0.0.7
+    through2: ^2.0.0
+  checksum: c4f4329669055812c3b3f84840fd41c75cf07053e8e83816dbe77d2091679f22f7fe0679f11c060adaf857d9112bd8188708b5ef198fca06f46a296c0e31cb00
   languageName: node
   linkType: hard
 
@@ -19050,6 +19104,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash._reinterpolate@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "lodash._reinterpolate@npm:3.0.0"
+  checksum: 06d2d5f33169604fa5e9f27b6067ed9fb85d51a84202a656901e5ffb63b426781a601508466f039c720af111b0c685d12f1a5c14ff8df5d5f27e491e562784b2
+  languageName: node
+  linkType: hard
+
 "lodash.assignin@npm:^4.0.9":
   version: 4.2.0
   resolution: "lodash.assignin@npm:4.2.0"
@@ -19215,6 +19276,25 @@ __metadata:
   version: 4.6.0
   resolution: "lodash.some@npm:4.6.0"
   checksum: 4469e76a389446d1166a29f844fb21398c36060d00258ce799710e046c55ed3c1af150c31b4856504e252bc813ba3fdcb6f255c490d9846738dd363a44665322
+  languageName: node
+  linkType: hard
+
+"lodash.template@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.template@npm:4.5.0"
+  dependencies:
+    lodash._reinterpolate: ^3.0.0
+    lodash.templatesettings: ^4.0.0
+  checksum: ca64e5f07b6646c9d3dbc0fe3aaa995cb227c4918abd1cef7a9024cd9c924f2fa389a0ec4296aa6634667e029bc81d4bbdb8efbfde11df76d66085e6c529b450
+  languageName: node
+  linkType: hard
+
+"lodash.templatesettings@npm:^4.0.0":
+  version: 4.2.0
+  resolution: "lodash.templatesettings@npm:4.2.0"
+  dependencies:
+    lodash._reinterpolate: ^3.0.0
+  checksum: 863e025478b092997e11a04e9d9e735875eeff1ffcd6c61742aa8272e3c2cddc89ce795eb9726c4e74cef5991f722897ff37df7738a125895f23fc7d12a7bb59
   languageName: node
   linkType: hard
 
@@ -21451,6 +21531,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parents@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "parents@npm:1.0.1"
+  dependencies:
+    path-platform: ~0.11.15
+  checksum: 094fc817d5e8d94e9f9d38c2618a2822f2960b7a268183a36326c5d1cf6ff32f97b1158b0f9b32ab126573996dfe6db104feda6d26e8531d762d178ef4488fc8
+  languageName: node
+  linkType: hard
+
 "parse-diff@npm:^0.7.0":
   version: 0.7.1
   resolution: "parse-diff@npm:0.7.1"
@@ -21727,6 +21816,13 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7"
   checksum: 49abf3d81115642938a8700ec580da6e830dde670be21893c62f4e10bd7dd4c3742ddc603fe24f898cba7eb0c6bc1777f8d9ac14185d34540c6d4d80cd9cae8a
+  languageName: node
+  linkType: hard
+
+"path-platform@npm:~0.11.15":
+  version: 0.11.15
+  resolution: "path-platform@npm:0.11.15"
+  checksum: 239f2eae720531ff5a48837de68f94ebd7cf6cd2bf295b39beb97c5bafc34a34a683b62f9f5ad5ca5e78d71d7d44c29e7c56373c1c8473ab128a4e648bb898f0
   languageName: node
   linkType: hard
 
