@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Packages: Dependency updates ([#2241](https://github.com/dso-toolkit/dso-toolkit/issues/2241))
+* Website: Code voorbeelden in DSO Toolkit kunnen kopiëren ([#1986](https://github.com/dso-toolkit/dso-toolkit/issues/1986))
 
 ## 58.1.0 - 28-08-2023
 

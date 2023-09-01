@@ -1,11 +1,11 @@
-import IframeResizer from "iframe-resizer-react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import React, { useEffect, useState } from "react";
-
-import { getVersion } from "@site/src/functions/versions.function";
-import styles from "./styles.module.scss";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
+import { getVersion } from "@site/src/functions/versions.function";
+import IframeResizer from "iframe-resizer-react";
+import React, { useEffect, useState } from "react";
+
+import styles from "./styles.module.scss";
 
 type Implementation = "core" | "angular" | "html-css" | "react";
 
@@ -31,6 +31,11 @@ interface Props {
    * Optional arguments to pass on, to show specific states of the component. If no arguments are given, Storybook will redirect to the default arguments.
    */
   args?: Record<string, unknown>;
+
+  /**
+   * Code example which can be copied.
+   */
+  code?: string;
 }
 
 function getSubDomain(implementation: Implementation) {
@@ -145,7 +150,35 @@ function getStoryUrl(
   )}&${searchParams}`;
 }
 
-export function StorybookComponent({ name, implementations, variant, args }: Props) {
+async function copyCode(e: React.MouseEvent) {
+  const button = e.currentTarget;
+  if (!(button instanceof HTMLButtonElement)) {
+    return;
+  }
+  const block = button.closest("pre");
+
+  if (!(block instanceof HTMLPreElement)) {
+    return;
+  }
+
+  const code = block.querySelector("code");
+
+  if (!(code instanceof HTMLElement)) {
+    return;
+  }
+
+  const text = code.innerText;
+
+  await navigator.clipboard.writeText(text);
+
+  button.innerText = "Copied";
+
+  setTimeout(() => {
+    button.innerText = "Copy";
+  }, 700);
+}
+
+export function StorybookComponent({ name, implementations, variant, args, code }: Props) {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   const [implementation, setImplementation] = useState<Implementation>(() => {
@@ -195,6 +228,16 @@ export function StorybookComponent({ name, implementations, variant, args }: Pro
                 Open in Storybook
               </Link>
             </div>
+            {code && (
+              <pre className={styles.codePre} tabIndex={0}>
+                <code className={styles.codeBlock}>{code}</code>
+                <div className={styles.codeButton}>
+                  <button className={styles.copyButton} type="button" onClick={copyCode}>
+                    Copy
+                  </button>
+                </div>
+              </pre>
+            )}
           </>
         )}
       </BrowserOnly>
