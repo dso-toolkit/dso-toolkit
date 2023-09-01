@@ -397,13 +397,15 @@ export class Autosuggest {
                   aria-selected={(suggestion === this.selectedSuggestion).toString()}
                   aria-label={suggestion.value}
                 >
-                  <span class="value">{this.markTerms(suggestion.value, terms)}</span>
+                  <span class="value" aria-live="polite">
+                    {this.markTerms(suggestion.value, terms)}
+                  </span>
                   {suggestion.type ? <span class="type">{suggestion.type}</span> : undefined}
                 </li>
               ))) ||
               (this.notFound && (
                 <li>
-                  <span class="value">
+                  <span class="value" aria-live="polite">
                     {!this.notFoundLabel ? (
                       this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
                     ) : (
