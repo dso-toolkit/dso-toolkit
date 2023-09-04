@@ -379,6 +379,7 @@ export class Autosuggest {
         ) : (
           <ul
             role="listbox"
+            aria-live="polite"
             id={this.listboxId}
             aria-labelledby={this.labelId}
             ref={(element) => (this.listbox = element)}
@@ -397,15 +398,13 @@ export class Autosuggest {
                   aria-selected={(suggestion === this.selectedSuggestion).toString()}
                   aria-label={suggestion.value}
                 >
-                  <span class="value" aria-live="polite">
-                    {this.markTerms(suggestion.value, terms)}
-                  </span>
+                  <span class="value">{this.markTerms(suggestion.value, terms)}</span>
                   {suggestion.type ? <span class="type">{suggestion.type}</span> : undefined}
                 </li>
               ))) ||
               (this.notFound && (
                 <li>
-                  <span class="value" aria-live="polite">
+                  <span class="value">
                     {!this.notFoundLabel ? (
                       this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
                     ) : (
