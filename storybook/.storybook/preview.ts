@@ -5,7 +5,7 @@ const preview: Preview = {
     html: {
       root: "#root-inner", // default: #root
       removeEmptyComments: true, // default: false
-      removeComments: /\?lit\$.*\$/,
+      removeComments: /\?.*/, // default: false
     },
   },
 };
