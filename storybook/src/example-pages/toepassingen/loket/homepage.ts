@@ -16,6 +16,10 @@ examplePageFactory(
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
+        <dso-helpcenter-panel
+          label="Hulp nodig"
+          url="https://storybook.dso-toolkit.nl/iframe.html?id=helpcenter-panel--helpcenter-panel&amp;viewMode=docs"
+        ></dso-helpcenter-panel>
         <div
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"

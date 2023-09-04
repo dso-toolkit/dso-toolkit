@@ -35,8 +35,21 @@
 
 .open-button {
   @include button.primary($modifiers: false);
-
+  background-color: colors.$mauve;
   border: 0;
+  border-radius: 50px;
+  padding: 8px;
+  width: 56px;
+  height: 56px;
+  z-index: 1000;
+  dso-icon {
+    margin: 0px;
+    height: 40px;
+    width: 40px;
+  }
+
+  text-align: center;
+  min-width: 0;
   bottom: units.$u2;
   font-family: typography.$font-family-base;
   position: fixed;
@@ -45,6 +58,7 @@
 
   &:hover {
     cursor: pointer;
+    background-color: colors.$grijs-60;
   }
 
   &.open {
@@ -83,6 +97,29 @@
 
   &.close {
     display: none;
+  }
+}
+
+@media screen and (min-width: (media-query-breakpoints.$screen-xs-min + 1)) and (max-width: media-query-breakpoints.$screen-xs-max) {
+  .open-button {
+    width: 48px;
+    height: 48px;
+    dso-icon {
+      margin: 0px;
+      height: 32px;
+      width: 32px;
+    }
+  }
+}
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  .open-button {
+    width: 48px;
+    height: 48px;
+    dso-icon {
+      margin: 0px;
+      height: 32px;
+      width: 32px;
+    }
   }
 }
 

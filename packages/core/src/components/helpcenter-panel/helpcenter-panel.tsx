@@ -134,7 +134,7 @@ export class HelpcenterPanel {
           ref={(element) => (this.openButtonElement = element)}
         >
           <dso-icon icon="help"></dso-icon>
-          <span>{this.label}</span>
+          <span class="sr-only">{this.label}</span>
         </button>
         <div
           id="dso-panel-wrapper"
