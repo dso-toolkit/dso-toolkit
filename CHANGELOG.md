@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 58.2.0 - 07-09-2023
+
 ### Added
 * Autosuggest: niet gevonden melding en eerste suggestie voorlezen ([#2267](https://github.com/dso-toolkit/dso-toolkit/issues/2267))
 
