@@ -379,6 +379,7 @@ export class Autosuggest {
         ) : (
           <ul
             role="listbox"
+            aria-live="polite"
             id={this.listboxId}
             aria-labelledby={this.labelId}
             ref={(element) => (this.listbox = element)}
