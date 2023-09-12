@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Selectable: Label in Web Component gaat stuk in Firefox ([#2318](https://github.com/dso-toolkit/dso-toolkit/issues/2318))
+
 ## 58.2.0 - 07-09-2023
 
 ### Added
