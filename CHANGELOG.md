@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Repository Readme: voeg Angular toe ([#2319](https://github.com/dso-toolkit/dso-toolkit/issues/2319)) 
+
 ## 58.2.0 - 07-09-2023
 
 ### Added
