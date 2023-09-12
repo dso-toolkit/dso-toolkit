@@ -3,9 +3,11 @@
 - [Slack chat](https://dso-toolkit.slack.com/)
 - [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA)
 
-# DSO Toolkit - Design System van het Digitaal Stelsel Omgevingswet (DSO)
+# DSO Toolkit - Design System of the Digitaal Stelsel Omgevingswet (DSO)
 
-De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: CSS en Web Components. De Web Components krijgen voor Angular en React wrappers, zie issue #915.
+(Digitaal Stelsel Omgevingswet, translated, stands for Digital System for the Environment and Planning Act of the Netherlands)
+
+The DSO Toolkit consists of documentation and a style guide. In addition, two implementations are provided: CSS and Web Components. The Web Components for Angular and React get wrappers, see issue #915.
 
 ## Getting started
 
