@@ -70,7 +70,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@whitespace/storybook-addon-html"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
-  stories: ["../src/components/**/*.stories.ts", "../src/example-pages/**/*.ts"],
+  stories: ["../src/components/**/*.{core-,css-,}stories.ts"],
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">

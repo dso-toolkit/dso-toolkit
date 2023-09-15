@@ -1,4 +1,11 @@
-import { Addon_StoryFn } from "@storybook/types";
+import { Addon_StoryFn, Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
+
+export type StoryObj<TArgs, TRenderer extends Renderer> = StoryAnnotations<TRenderer, TArgs>;
+
+export interface StoriesParameters<Implementation, Templates, TemplateFnReturnType, StoryTemplates> {
+  templateContainer: TemplateContainer<Implementation, Templates, TemplateFnReturnType>;
+  storyTemplates: (templates: Templates) => StoryTemplates;
+}
 
 export interface BaseComponentImplementation<
   Model,
@@ -79,6 +86,21 @@ export class TemplateContainer<
       delete args["preferredImplementation"];
 
       return mapper(args as StoryArgs, this.create(preferredImplementation, context.kind));
+    };
+  }
+
+  render<StoryTemplates, TRenderer extends Renderer, TArgs extends Args>(
+    storyTemplates: (templates: Templates) => StoryTemplates,
+    callback: (args: TArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
+  ): ArgsStoryFn<TRenderer, TArgs & { preferredImplementation?: Implementation }> {
+    return (a, context) => {
+      const { preferredImplementation } = a;
+      const args = { ...a };
+      delete args.preferredImplementation;
+
+      const templates = this.create(preferredImplementation, context.kind);
+
+      return callback(args, storyTemplates(templates));
     };
   }
 

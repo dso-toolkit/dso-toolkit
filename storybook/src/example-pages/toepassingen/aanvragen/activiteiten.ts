@@ -1,4 +1,4 @@
-import { AlertType } from "dso-toolkit";
+import { AlertStatus } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
@@ -31,7 +31,7 @@ examplePageFactory(
           ${alertTemplate({
             message: html`Hulp nodig bij kiezen? Doe dan eerst de
             ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
-            status: AlertType.Info,
+            status: AlertStatus.Info,
           })}
           ${shoppingCartTemplate(shoppingCart)}
           ${highlightBoxTemplate({

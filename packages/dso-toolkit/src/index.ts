@@ -1,4 +1,4 @@
-/* Storybook can't handle wildcard exports (export * from "...";). Apparently this is fixed in Storyobok 7, but at the time of writing that alpha. */
+/* Since Storybook 7 we have support for export * from ''; */
 
 export {
   BaseComponentImplementation,
@@ -34,8 +34,7 @@ export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/a
 export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
 export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
 
-export { Alert, AlertType } from "./components/alert/alert.models.js";
-export { AlertTemplates, storiesOfAlert } from "./components/alert/alert.stories-of.js";
+export * from "./components/alert";
 
 export { Anchor } from "./components/anchor/anchor.models.js";
 export { AnchorTemplates, storiesOfAnchor } from "./components/anchor/anchor.stories-of.js";

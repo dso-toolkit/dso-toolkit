@@ -1,4 +1,4 @@
-import { AlertType } from "dso-toolkit";
+import { AlertStatus } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
@@ -12,7 +12,7 @@ examplePageFactory(
       <main>
         ${applicationHeadingTemplate({ title: "Aanvragen", subtitle: "1. Project", step: "Stap 1/7" })}
         ${alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: html`Hulp nodig bij kiezen? Doe dan eerst de
           ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
         })}

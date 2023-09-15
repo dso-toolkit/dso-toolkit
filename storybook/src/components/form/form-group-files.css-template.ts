@@ -1,4 +1,4 @@
-import { AlertType, FormGroupFiles } from "dso-toolkit";
+import { AlertStatus, FormGroupFiles } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
@@ -56,7 +56,7 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
               )}
             </ul>
             ${formGroup.files.some((file) => !!file.confidential)
-              ? alertTemplate({ status: AlertType.Warning, message: formGroup.warning })
+              ? alertTemplate({ status: AlertStatus.Warning, message: formGroup.warning })
               : nothing}
             <div class="dso-file-upload">
               <input
