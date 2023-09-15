@@ -777,6 +777,8 @@ export namespace Components {
          */
         "noModal": boolean;
     }
+    interface DsoTabs {
+    }
     interface DsoToggletip {
         /**
           * Toggletip label.
@@ -1213,6 +1215,12 @@ declare global {
         prototype: HTMLDsoTableElement;
         new (): HTMLDsoTableElement;
     };
+    interface HTMLDsoTabsElement extends Components.DsoTabs, HTMLStencilElement {
+    }
+    var HTMLDsoTabsElement: {
+        prototype: HTMLDsoTabsElement;
+        new (): HTMLDsoTabsElement;
+    };
     interface HTMLDsoToggletipElement extends Components.DsoToggletip, HTMLStencilElement {
     }
     var HTMLDsoToggletipElement: {
@@ -1283,6 +1291,7 @@ declare global {
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-table": HTMLDsoTableElement;
+        "dso-tabs": HTMLDsoTabsElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
@@ -2117,6 +2126,8 @@ declare namespace LocalJSX {
          */
         "noModal"?: boolean;
     }
+    interface DsoTabs {
+    }
     interface DsoToggletip {
         /**
           * Toggletip label.
@@ -2271,6 +2282,7 @@ declare namespace LocalJSX {
         "dso-selectable": DsoSelectable;
         "dso-slide-toggle": DsoSlideToggle;
         "dso-table": DsoTable;
+        "dso-tabs": DsoTabs;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
         "dso-tree-view": DsoTreeView;
@@ -2321,6 +2333,7 @@ declare module "@stencil/core" {
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
+            "dso-tabs": LocalJSX.DsoTabs & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
