@@ -1,8 +1,10 @@
 ---
-authors: [anneke]
+authors: [anneke, tfrijsewijk]
 ---
 
 # DSO Toolkit v59.0.0
+
+In deze breaking release zijn de API's van Banner en Tooltip aangepast.
 
 ## Banner
 
@@ -16,4 +18,26 @@ Het migratiepad is gebruik maken van de namespaced CSS selector: `dso-banner`.
 
 ✅
 <div class="dso-banner"></div>
+```
+
+## Tooltip
+
+Zoals in 58.0.0 aangekondigd, is de HTML/CSS implementatie van Tooltip verwijderd. Zie de blogpost van versie 58.0.0 voor de onderbouwing.
+
+Het migratiepad omvat het gebruik van het Web Component.
+
+### Migratie naar Web Component
+
+<!-- prettier-ignore -->
+```html
+❌
+<div class="tooltip fade in top|right|bottom|left" aria-hidden="true">
+  <div class="tooltip-arrow"></div>
+  <div class="tooltip-inner">LABEL</div>
+</div>
+
+✅
+<dso-tooltip position="POSITION" descriptive>
+  LABEL
+</dso-tooltip>
 ```

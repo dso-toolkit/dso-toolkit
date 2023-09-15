@@ -1,6 +1,10 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/tooltip";
+@use "~dso-toolkit/src/variables/zindex";
+
+@use "tooltip.variables" as tooltip-variables;
 
 :host(.hidden) {
   visibility: hidden;
@@ -37,37 +41,108 @@
 @include utilities.box-sizing();
 
 .tooltip {
-  @include tooltip.root();
+  font-family: typography.$font-family-base;
+  // We deliberately do NOT reset font-size.
+  font-style: normal;
+  font-weight: 400;
+  line-height: typography.$line-height-base;
+  line-break: auto;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+
+  --link-color: #{colors.$grasgroen};
+
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  font-size: typography.$font-size-small;
+  opacity: 0;
+  position: absolute;
+  transition: opacity tooltip-variables.$transition-duration linear;
+  z-index: zindex.$tooltip;
+
+  &.in {
+    opacity: tooltip-variables.$opacity;
+  }
+
+  .tooltip-inner {
+    background-color: colors.$wit;
+    border-radius: tooltip-variables.$border-radius;
+    color: colors.$grijs-90;
+    display: inline-block;
+    font-size: typography.$root-font-size-base;
+    max-width: tooltip-variables.$max-width;
+    padding: tooltip-variables.$padding-horizontal tooltip-variables.$padding-vertical;
+    position: relative;
+
+    &.dso-small {
+      max-width: tooltip-variables.$max-width-small;
+    }
+  }
+
+  .tooltip-arrow {
+    border-color: transparent;
+    border-style: solid;
+    height: 0;
+    width: 0;
+  }
 
   &[data-popper-placement="top"] {
-    @include tooltip.arrowTop();
+    margin-top: -3px;
+    padding: tooltip-variables.$arrow-width 0;
 
     .tooltip-arrow {
-      margin-left: tooltip.$arrow-margin * -1;
+      border-top-color: tooltip-variables.$arrow-color;
+      border-width: tooltip-variables.$arrow-width tooltip-variables.$arrow-width 0;
+      bottom: 0;
+
+      margin-left: tooltip-variables.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="right"] {
-    @include tooltip.arrowRight();
+    margin-left: 3px;
+    padding: 0 tooltip-variables.$arrow-width;
 
     .tooltip-arrow {
-      margin-top: tooltip.$arrow-margin * -1;
+      border-right-color: tooltip-variables.$arrow-color;
+      border-width: tooltip-variables.$arrow-width tooltip-variables.$arrow-width tooltip-variables.$arrow-width 0;
+      left: 0;
+
+      margin-top: tooltip-variables.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="bottom"] {
-    @include tooltip.arrowBottom();
+    margin-top: 3px;
+    padding: tooltip-variables.$arrow-width 0;
 
     .tooltip-arrow {
-      margin-left: tooltip.$arrow-margin * -1;
+      border-bottom-color: tooltip-variables.$arrow-color;
+      border-width: 0 tooltip-variables.$arrow-width tooltip-variables.$arrow-width;
+      top: 0;
+
+      margin-left: tooltip-variables.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="left"] {
-    @include tooltip.arrowLeft();
+    margin-left: -3px;
+    padding: 0 tooltip-variables.$arrow-width;
 
     .tooltip-arrow {
-      margin-top: tooltip.$arrow-margin * -1;
+      border-left-color: tooltip-variables.$arrow-color;
+      border-width: tooltip-variables.$arrow-width 0 tooltip-variables.$arrow-width tooltip-variables.$arrow-width;
+      right: 0;
+
+      margin-top: tooltip-variables.$arrow-margin * -1;
     }
   }
 }
