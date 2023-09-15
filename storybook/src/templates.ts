@@ -157,7 +157,6 @@ import { coreHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-pa
 import { cssLabel } from "./components/label/label.css-template";
 import { coreLabel } from "./components/label/label.core-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
-import { cssTooltip } from "./components/tooltip/tooltip.css-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
 import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-template";
@@ -407,5 +406,4 @@ templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTabs);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
-templateContainer.add(cssTooltip);
 templateContainer.add(cssWhitebox);
