@@ -1,5 +1,5 @@
 import {
-  AlertType,
+  AlertStatus,
   DocumentList,
   DocumentListItemStatusDemoContent,
   storiesOfViewerGrid,
@@ -211,7 +211,7 @@ storiesOfViewerGrid({
             ${anchorTemplate({ label: "bekijk ontwerpen waarvan inzagetermijn voorbij is", url: "#" })}
           `,
         }),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -223,7 +223,7 @@ storiesOfViewerGrid({
             status: html`${badgeTemplate(item.status.badge)} ${item.status.date}`,
           })),
         }),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -250,7 +250,7 @@ storiesOfViewerGrid({
             </div>
           </section>
         `,
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -261,14 +261,14 @@ storiesOfViewerGrid({
           <p>Bekijk regels en beleid rond een bepaald thema.</p>
           ${tileGridTemplate({ tiles })}
         `,
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
     return {
       viewerGridTemplate,
       example: {
-        main: alertTemplate({ status: AlertType.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>` }),
+        main: alertTemplate({ status: AlertStatus.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>` }),
         map: html`<div class="alert alert-info">Dit is <code>slot="map"</code>.</div>`,
         filterpanel: html`<div class="alert alert-info">Dit is <code>slot="filterpanel"</code>.</div>`,
         overlay: html`<div class="alert alert-info">Dit is <code>slot="overlay"</code></div>

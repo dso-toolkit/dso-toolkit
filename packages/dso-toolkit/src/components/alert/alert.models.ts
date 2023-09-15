@@ -1,4 +1,4 @@
-export enum AlertType {
+export enum AlertStatus {
   Error = "error",
   Warning = "warning",
   Info = "info",
@@ -6,7 +6,7 @@ export enum AlertType {
 }
 
 export interface Alert<TemplateFnReturnType> {
-  status: AlertType;
+  status: AlertStatus;
   message: TemplateFnReturnType | string;
   onClick?: (e: MouseEvent) => void;
   withRoleAlert?: boolean;

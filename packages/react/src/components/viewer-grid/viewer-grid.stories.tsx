@@ -2,7 +2,7 @@ import * as React from "react";
 
 import {
   storiesOfViewerGrid,
-  AlertType,
+  AlertStatus,
   DocumentList,
   DocumentListItemStatusDemoContent,
   Tile,
@@ -186,7 +186,7 @@ storiesOfViewerGrid({
             </div>
           </DsoResponsiveElement>
         ),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -202,7 +202,7 @@ storiesOfViewerGrid({
             ),
           })),
         }),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -231,7 +231,7 @@ storiesOfViewerGrid({
             </div>
           </section>
         ),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -263,7 +263,7 @@ storiesOfViewerGrid({
             </DsoResponsiveElement>
           </>
         ),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertStatus.Info }),
       });
     }
 
@@ -271,7 +271,7 @@ storiesOfViewerGrid({
       viewerGridTemplate,
       example: {
         main: alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: (
             <p>
               Dit is <code>slot="main"</code>.

@@ -2,14 +2,19 @@ import { ArgTypes } from "@storybook/types";
 
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { Alert, AlertType } from "./alert.models.js";
+import { Alert, AlertStatus } from "./alert.models.js";
 
 export interface AlertArgs {
-  status: AlertType;
+  status: AlertStatus;
   click: HandlerFunction;
   withRoleAlert: boolean;
   withButton: boolean;
 }
+
+export const alertArgs: Pick<AlertArgs, "withButton" | "withRoleAlert"> = {
+  withButton: true,
+  withRoleAlert: false,
+};
 
 export const alertArgTypes: ArgTypes<AlertArgs> = {
   status: {

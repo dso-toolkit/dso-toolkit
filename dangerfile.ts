@@ -34,7 +34,8 @@ import { danger, fail } from "danger";
 
   // Changelog check
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
-  if (!hasChangelog) {
+  // The storiesOf to CSF migration is exempted from a CHANGELOG entry - https://github.com/dso-toolkit/dso-toolkit/issues/2316
+  if (!hasChangelog && firstCommitMessage?.issueId !== 2316) {
     fail("Please add a changelog entry for your changes.");
   }
 
