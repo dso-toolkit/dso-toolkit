@@ -127,7 +127,7 @@ export class HelpcenterPanel {
         <button
           type="button"
           onClick={this.openClick}
-          class={`open-button ${this.isOpen}`}
+          class={`open-button ${this.isOpen} ${this.slideState}`}
           aria-expanded={this.isOpen === "open" ? "true" : "false"}
           aria-haspopup="dialog"
           aria-controls="dso-panel-wrapper"

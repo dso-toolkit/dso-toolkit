@@ -14,6 +14,7 @@
 }
 
 .wrapper {
+  z-index: 998;
   height: 100%;
   left: 0;
   position: fixed;
@@ -35,34 +36,40 @@
 
 .open-button {
   @include button.primary($modifiers: false);
-  background-color: colors.$mauve;
-  border: 0;
-  border-radius: 50px;
+  background-color: colors.$grasgroen;
+  border: 2px solid colors.$wit;
+  border-radius: 8px;
   padding: 8px;
-  width: 56px;
-  height: 56px;
-  z-index: 1000;
+  width: 68px;
+  height: 60px;
+  z-index: 997;
+  transition: right 0.5s;
   dso-icon {
-    margin: 0px;
+    margin-left: 2px;
     height: 40px;
     width: 40px;
   }
 
   text-align: center;
   min-width: 0;
-  bottom: units.$u2;
+  bottom: 25%;
   font-family: typography.$font-family-base;
   position: fixed;
-  right: units.$u2;
+  right: -8px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 
-  &:hover {
-    cursor: pointer;
-    background-color: colors.$grijs-60;
-  }
-
   &.open {
-    display: none;
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      right: 312px;
+    }
+
+    @media screen and (min-width: (media-query-breakpoints.$screen-xs-min + 1)) and (max-width: media-query-breakpoints.$screen-xs-max) {
+      right: 472px;
+    }
+
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      right: 632px;
+    }
   }
 }
 
@@ -79,7 +86,7 @@
   right: 0;
   width: units.$u5;
   top: 0;
-
+  z-index: 1001;
   dso-icon {
     margin-left: 0;
     margin-right: 0;
@@ -132,7 +139,7 @@
   position: absolute;
   top: 0;
   transition: right 0.5s;
-
+  z-index: 1000;
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     right: -320px;
     width: 320px;

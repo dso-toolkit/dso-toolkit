@@ -22,6 +22,10 @@ examplePageFactory(
   ) => html`
     ${headerPartial(templates, header)}
     <main>
+      <dso-helpcenter-panel
+        label="Hulp nodig"
+        url="https://storybook.dso-toolkit.nl/iframe.html?id=helpcenter-panel--helpcenter-panel&amp;viewMode=docs"
+      ></dso-helpcenter-panel>
       ${viewerGridTemplate({
         filterpanelOpen: false,
         initialMainSize: "medium",
