@@ -9,6 +9,7 @@ export interface ButtonRowArgs {
   buttons: Button[];
   emphasized?: boolean;
   align: "center" | "right" | undefined;
+  noWrap?: boolean;
 }
 
 export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
@@ -24,6 +25,11 @@ export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
     options: ["center", "right", undefined],
     control: {
       type: "select",
+    },
+  },
+  noWrap: {
+    control: {
+      type: "boolean",
     },
   },
 };

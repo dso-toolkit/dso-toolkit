@@ -11,6 +11,10 @@ import {
   dangerWithHeadingsRichContent,
   richWarningRichContent,
   warningRichContent,
+  infoRichContent,
+  infoCompactNonRemovableRichContent,
+  warningNonRemovableRichContent,
+  richInfoRichContent,
 } from "./banner.content";
 
 storiesOfBanner({
@@ -23,11 +27,15 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
-    errorRichContent: errorRichContent(templates),
     dangerRichContent: dangerRichContent(templates),
-    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
-    richWarningRichContent: richWarningRichContent(templates),
+    errorRichContent: errorRichContent(templates),
+    infoRichContent: infoRichContent(templates),
+    infoCompactNonRemovableRichContent: infoCompactNonRemovableRichContent(templates),
     warningRichContent: warningRichContent(templates),
+    warningNonRemovableRichContent: warningNonRemovableRichContent(templates),
+    richWarningRichContent: richWarningRichContent(templates),
+    richInfoRichContent: richInfoRichContent(templates),
+    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
   }),
 });
 
@@ -41,10 +49,14 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
-    errorRichContent: errorRichContent(templates),
     dangerRichContent: dangerRichContent(templates),
-    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
-    richWarningRichContent: richWarningRichContent(templates),
+    errorRichContent: errorRichContent(templates),
+    infoRichContent: infoRichContent(templates),
+    infoCompactNonRemovableRichContent: infoCompactNonRemovableRichContent(templates),
     warningRichContent: warningRichContent(templates),
+    warningNonRemovableRichContent: warningNonRemovableRichContent(templates),
+    richWarningRichContent: richWarningRichContent(templates),
+    richInfoRichContent: richInfoRichContent(templates),
+    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
   }),
 });

@@ -5,7 +5,7 @@
 @mixin pseudo() {
   &:hover,
   &:focus {
-    color: anchor-variables.$link-hover-color;
+    color: var(--link-hover-color);
     text-decoration: underline;
   }
 
@@ -16,14 +16,14 @@
 
 @mixin root($is-html-a-element: true) {
   background-color: transparent;
-  color: scaffolding.$link-color;
+  color: var(--link-color);
   text-decoration: underline;
 
   @include pseudo();
 
   @if ($is-html-a-element) {
     &:visited {
-      color: anchor-variables.$visited-color;
+      color: var(--link-visited-color);
     }
   } @else {
     cursor: pointer;

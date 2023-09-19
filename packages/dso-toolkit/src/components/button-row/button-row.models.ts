@@ -5,6 +5,7 @@ export interface ButtonRow {
   buttons: (Anchor | Button)[];
   emphasized?: boolean;
   align?: ButtonRowAlign;
+  noWrap?: boolean;
 }
 
 export type ButtonRowAlign = "center" | "right";

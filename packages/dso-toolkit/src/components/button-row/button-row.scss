@@ -36,4 +36,8 @@
   &.dso-align-center {
     justify-content: center;
   }
+
+  &.dso-no-wrap {
+    flex-wrap: nowrap;
+  }
 }

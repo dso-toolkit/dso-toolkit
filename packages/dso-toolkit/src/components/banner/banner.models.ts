@@ -1,5 +1,10 @@
 export interface Banner<TemplateFnReturnType> {
-  status: "warning" | "danger" | "error";
+  status: BannerStatus;
+  compact?: boolean;
+  noIcon?: boolean;
   content: TemplateFnReturnType;
-  onClick?: (e: Event) => void;
 }
+
+export const bannerStatus = ["danger", "error", "info", "warning"] as const;
+
+export type BannerStatus = (typeof bannerStatus)[number];

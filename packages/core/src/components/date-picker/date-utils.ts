@@ -1,3 +1,4 @@
+// eslint-disable-next-line @stencil-community/ban-exported-const-enums -- This enum is not part of public API
 export enum DaysOfWeek {
   Sunday = 0,
   Monday = 1,

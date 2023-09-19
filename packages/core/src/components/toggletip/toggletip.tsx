@@ -81,7 +81,15 @@ export class Toggletip {
           secondary={this.secondary}
           ref={(element) => (this.infoButton = element)}
         />
-        <dso-tooltip stateless descriptive id="toggle" active={this.active} position={this.position} small={this.small}>
+        <dso-tooltip
+          stateless
+          descriptive
+          id="toggle"
+          strategy="absolute"
+          active={this.active}
+          position={this.position}
+          small={this.small}
+        >
           <slot />
         </dso-tooltip>
       </>

@@ -2,6 +2,32 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Button Row
 
-<StorybookComponent implementations={["html-css"]} />
+<StorybookComponent implementations={["html-css"]} variant="default" />
 
-🚧 Documentatie volgt 🚧
+Button rows geven de gebruiker de mogelijkheid om meerdere buttons achter elkaar te plaatsen. Dit kan dienen om bijvoorbeeld een 'toolbar' na te bootsen of om te laten zien welke opties er mogelijk zijn voor het desbetreffende onderdeel of sector op de pagina. Er gaan maximaal 6 buttons in een `button-row`. Anders wordt het te onoverzichtelijk en verliest het zijn functie.
+
+De buttons die achter elkaar geplaatst worden dienen dezelfde `variant` te hebben: `primary`, `secondary` of `tertiary`. Ze worden niet door elkaar gebruikt.
+
+### Emphasized
+
+<StorybookComponent implementations={["html-css"]} variant="emphasized" />
+
+Een variant van de button-row is de `emphasized` variant. Hierin worden `tertiaire` buttons geplaatst die zwart zijn en de row heeft een grijze achtergrond.
+
+### Primaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="primaire-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de primaire button en zijn varianten. Deze zijn hier in de `button-row` gepresenteerd zodat men ook het gebruik van de `row` ziet.
+
+### Secundaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="secundaire-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de secundaire button.
+
+### Tertiaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="tertiary-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de tertiare button.

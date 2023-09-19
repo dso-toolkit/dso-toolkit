@@ -1,6 +1,6 @@
 import { StorybookConfig } from "@storybook/web-components-webpack5";
 import { readdirSync } from "fs";
-import { sep, resolve, dirname, parse } from "path";
+import { sep, resolve, dirname, parse, join } from "path";
 
 function getVersion() {
   if (process.env.CI) {
@@ -65,7 +65,11 @@ const config: StorybookConfig = {
 
     return {};
   },
-  addons: ["@storybook/addon-essentials", "@whitespace/storybook-addon-html", "@storybook/addon-a11y"],
+  addons: [
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@whitespace/storybook-addon-html"),
+    getAbsolutePath("@storybook/addon-a11y"),
+  ],
   stories: ["../src/components/**/*.stories.ts", "../src/example-pages/**/*.ts"],
   previewHead: (head) => `
     ${head}
@@ -73,13 +77,14 @@ const config: StorybookConfig = {
     <script type="module" src="core/dso-toolkit.esm.js"></script>
     <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
-  previewBody: (body) =>
-    !process.env.CI
-      ? `
-      ${body}
-      <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
-    `
-      : body,
+  // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
+  // previewBody: (body) =>
+  //   !process.env.CI
+  //     ? `
+  //     ${body}
+  //     <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
+  //   `
+  //     : body,
   webpackFinal: async (config, { configType }) => {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
@@ -90,7 +95,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: "@storybook/web-components-webpack5",
+    name: getAbsolutePath("@storybook/web-components-webpack5"),
     options: {},
   },
   docs: {
@@ -102,3 +107,7 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}

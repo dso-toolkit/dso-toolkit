@@ -5,8 +5,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 58.2.0 - 07-09-2023
+
+### Added
+* Autosuggest: niet gevonden melding en eerste suggestie voorlezen ([#2267](https://github.com/dso-toolkit/dso-toolkit/issues/2267))
+
+### Fixed
+* Toggletip: Open Toggletip scrolled mee met de pagina ([#2301](https://github.com/dso-toolkit/dso-toolkit/issues/2301))
+* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
+
+### Docs
+* Button: Documentatie bijwerken ([#1898](https://github.com/dso-toolkit/dso-toolkit/issues/1898))
+
+### Tasks
+* Packages: Dependency updates ([#2241](https://github.com/dso-toolkit/dso-toolkit/issues/2241))
+* Storybook: Lit comments in HTML tab verwijderen ([#1987](https://github.com/dso-toolkit/dso-toolkit/issues/1987))
+* Build: Custom property met toolkit versie ([#2184](https://github.com/dso-toolkit/dso-toolkit/issues/2184))
+
+## 58.1.0 - 28-08-2023
+
 ### Tasks
 * Build: Percy finalize en missende CI_ environment variables ([#2272](https://github.com/dso-toolkit/dso-toolkit/issues/2272))
+
+### Added
+* Banner: Nieuwe variant "info", nieuwe functionaliteit "noIcon" en "compact" ([#2255](https://github.com/dso-toolkit/dso-toolkit/issues/2255))
+* Button Row: Nieuwe optie "no-wrap" ([#2299](https://github.com/dso-toolkit/dso-toolkit/issues/2299))
 
 ## 58.0.1 - 22-08-2023
 

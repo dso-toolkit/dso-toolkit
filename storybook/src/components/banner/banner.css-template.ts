@@ -1,26 +1,26 @@
 import { Banner } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+import clsx from "clsx";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
   implementation: "html-css",
-  template: ({ buttonTemplate }) =>
-    function bannerTemplate({ status, content, onClick }) {
+  template: () =>
+    function bannerTemplate({ status, compact, noIcon, content }) {
       return html`
-        <section class="dso-banner ${status ? `alert-${status}` : ""}" role="alert">
+        <section
+          class=${clsx("dso-banner", {
+            [`alert-${status}`]: status,
+            ["dso-compact"]: compact,
+            ["dso-no-icon"]: compact && noIcon,
+          })}
+          role="alert"
+        >
           <div class="container">
             <div class="row">
-              <div class="col-sm-12">
-                ${content}
-                ${buttonTemplate({
-                  label: "Sluiten",
-                  variant: "tertiary",
-                  onClick,
-                  icon: { icon: "times" },
-                  iconMode: "only",
-                })}
-              </div>
+              <div class="col-sm-12">${content}</div>
             </div>
           </div>
         </section>

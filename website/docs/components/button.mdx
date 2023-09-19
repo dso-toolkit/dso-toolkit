@@ -27,6 +27,22 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 - Uitzondering is gebruik in de header of in een modal
 - Niet elk scherm heeft een primaire knop nodig
 
+### Primaire button varianten
+
+#### Disabled
+
+<StorybookComponent implementations={["html-css"]} variant="primary" args={{ disabled: true, label: "Disabled" }} />
+
+#### Anchor
+
+<StorybookComponent implementations={["html-css"]} variant="primary" args={{ label: "Anchor", element: "anchor" }} />
+
+#### Small
+
+<StorybookComponent implementations={["html-css"]} variant="primary" args={{ label: "Small", compact: true }} />
+
+✨ Zie voor meer voorbeelden en het gebruik van de primaire button de [button-row](/components/button-row) pagina.
+
 ## Secundaire buttons
 
 <StorybookComponent implementations={["html-css"]} variant="secondary" />
@@ -34,6 +50,8 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 - Tekst grasgroen, Asap semibold 16
 - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
 - Dit is de standaard button voor de meeste gebruikscasussen
+
+✨ Zie voor meer voorbeelden en het gebruik van de secondary button de [button-row](/components/button-row) pagina.
 
 ## Tertiaire buttons
 
@@ -47,6 +65,8 @@ In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 
 - Tekst grasgroen (`#39870c`), Asap semibold 16
 - En/of icoon in grasgroen (`#39870c`)
+
+✨ Zie voor meer voorbeelden en het gebruik van de tertiare button de [button-row](/components/button-row) pagina.
 
 ### Afbrekingen met ellipsis
 

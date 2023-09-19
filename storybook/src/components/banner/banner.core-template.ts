@@ -5,23 +5,13 @@ import { ComponentImplementation } from "../../templates";
 export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
   implementation: "core",
-  template: ({ buttonTemplate }) =>
-    function bannerTemplate({ status, content, onClick }) {
+  template: () =>
+    function bannerTemplate({ status, compact, noIcon, content }) {
       return html`
-        <dso-banner status=${status}>
+        <dso-banner status=${status} ?compact=${compact} ?no-icon=${noIcon}>
           <div class="container">
             <div class="row">
-              <div class="col-sm-12">
-                ${content}
-                ${buttonTemplate({
-                  label: "Sluiten",
-                  type: "button",
-                  variant: "tertiary",
-                  onClick,
-                  icon: { icon: "times" },
-                  iconMode: "only",
-                })}
-              </div>
+              <div class="col-sm-12">${content}</div>
             </div>
           </div>
         </dso-banner>
