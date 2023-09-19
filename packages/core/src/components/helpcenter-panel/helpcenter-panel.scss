@@ -109,10 +109,11 @@
 
 @media screen and (min-width: (media-query-breakpoints.$screen-xs-min + 1)) and (max-width: media-query-breakpoints.$screen-xs-max) {
   .open-button {
-    width: 48px;
+    width: 56px;
     height: 48px;
     dso-icon {
       margin: 0px;
+      margin-top: -2px;
       height: 32px;
       width: 32px;
     }
@@ -120,10 +121,12 @@
 }
 @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
   .open-button {
-    width: 48px;
+    width: 56px;
     height: 48px;
+
     dso-icon {
       margin: 0px;
+      margin-top: -2px;
       height: 32px;
       width: 32px;
     }
