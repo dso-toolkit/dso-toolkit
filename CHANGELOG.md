@@ -3,7 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## Next
+## 58.3.0 - 20-09-2023
+
+### Added
+* Illustraties: Nieuwe illustratie "Bodem in ontwikkeling" ([#2317](https://github.com/dso-toolkit/dso-toolkit/issues/2317))
+
+### Fixed
+* Selectable: Label in Web Component gaat stuk in Firefox ([#2318](https://github.com/dso-toolkit/dso-toolkit/issues/2318))
+* Angular: Componenten worden niet meer bij customElements geregistreerd ([#2328](https://github.com/dso-toolkit/dso-toolkit/issues/2328))
 
 ### Docs
 * Repository Readme: voeg Angular toe ([#2319](https://github.com/dso-toolkit/dso-toolkit/issues/2319)) 

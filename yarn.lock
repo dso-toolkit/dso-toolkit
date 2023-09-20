@@ -3077,7 +3077,7 @@ __metadata:
   resolution: "@dso-toolkit/core@workspace:packages/core"
   dependencies:
     "@popperjs/core": ^2.11.8
-    "@stencil/angular-output-target": ^0.8.1
+    "@stencil/angular-output-target": 0.7.1
     "@stencil/core": ^4.1.0
     "@stencil/react-output-target": ^0.5.3
     "@stencil/sass": ^3.0.5
@@ -5664,12 +5664,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/angular-output-target@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "@stencil/angular-output-target@npm:0.8.1"
+"@stencil/angular-output-target@npm:0.7.1":
+  version: 0.7.1
+  resolution: "@stencil/angular-output-target@npm:0.7.1"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0"
-  checksum: 76f1afadf71f47d035954f598ac61bc9ab4cf37576b0847c96abafa67c9b6386369fd8e30d4cb657af0be6aac4af65ad110e14f81f66ad39809667ec4a1b7878
+  checksum: 87d3994dbfe3f7018bf32132e757c9222d31417d1adee1814c08f51567e8a8e6c9a869dc3183701b08a1251d419d391580bec334244f90e7d0fa81632a436da3
   languageName: node
   linkType: hard
 
