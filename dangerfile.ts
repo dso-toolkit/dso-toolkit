@@ -29,44 +29,54 @@ import { danger, fail } from "danger";
   const firstCommitMessageLine = firstCommit.message.split("\n")[0];
   const firstCommitMessage = parseFirstCommitMessage(firstCommitMessageLine);
   if (!firstCommitMessage) {
-    fail(`De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`);
+    fail(
+      `De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`
+    );
   }
 
   // Changelog check
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
   if (!hasChangelog) {
-    fail(`Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`);
+    fail(
+      `Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`
+    );
   }
 
   if (firstCommitMessage) {
     if (firstCommitMessage.scope.split(" ").some((w) => w[0].toLocaleUpperCase() !== w[0])) {
-      fail(`Het scopegedeelte van het eerste commit-bericht ('${firstCommitMessage.scope}') is niet geschreven in gespatieerde Pascal-casing. Alle woorden in de scope moeten met een hoofdletter beginnen.`);
+      fail(
+        `Het scopegedeelte van het eerste commit-bericht ('${firstCommitMessage.scope}') is niet geschreven in gespatieerde Pascal-casing. Alle woorden in de scope moeten met een hoofdletter beginnen.`
+      );
     }
 
     for (let i = 0; i++; i < remainingCommits.length) {
       const commitMessage = remainingCommits[i];
       const commitMessageLine = commitMessage.message.split("\n")[0];
       if (!commitMessageLine.startsWith(`#${firstCommitMessage.issueId}`)) {
-        fail(`Commit ${i + 1} (${commitMessage.sha}) met commit-bericht '${commitMessageLine}' moet beginnen met het nummer van de GitHub issue waar je aan gewerkt hebt.`);
+        fail(
+          `Commit ${i + 1} (${
+            commitMessage.sha
+          }) met commit-bericht '${commitMessageLine}' moet beginnen met het nummer van de GitHub issue waar je aan gewerkt hebt.`
+        );
       }
     }
 
     const githubIssue = await getGithubIssue(firstCommitMessage.issueId);
     if (!githubIssue) {
       fail(
-          `Ik kan GitHub issue '${firstCommitMessage.issueId}' niet vinden. Controleer of het issuenummer klopt en of de issue bestaat.`
+        `Ik kan GitHub issue '${firstCommitMessage.issueId}' niet vinden. Controleer of het issuenummer klopt en of de issue bestaat.`
       );
     } else {
       if (firstCommitMessage.issueTitle !== githubIssue.title) {
         fail(
-            `Het scopegedeelte en de samenvatting in je eerste commit-bericht moeten overeenkomen met de titel van het GitHub-issue, maar dat doen ze momenteel niet: Vergelijk '${firstCommitMessage.issueTitle}' met de titel van het issue: '${githubIssue.title}'.`
+          `Het scopegedeelte en de samenvatting in je eerste commit-bericht moeten overeenkomen met de titel van het GitHub-issue, maar dat doen ze momenteel niet: Vergelijk '${firstCommitMessage.issueTitle}' met de titel van het issue: '${githubIssue.title}'.`
         );
       }
 
       const githubLabel = labelMap[firstCommitMessage.type];
       if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
         fail(
-            `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`
+          `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`
         );
       }
     }
@@ -79,7 +89,9 @@ import { danger, fail } from "danger";
     } else {
       const changelogEntry = parseChangelogEntry(diff.after, firstCommitMessage.issueId);
       if (!changelogEntry) {
-        fail(`De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`);
+        fail(
+          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`
+        );
       } else {
         if (firstCommitMessage?.issueId !== changelogEntry.linkIssueId) {
           fail(
@@ -106,7 +118,9 @@ import { danger, fail } from "danger";
         }
 
         if (changelogEntry.release !== "Next") {
-          fail(`Je CHANGELOG-aantekening staat niet onder het kopje van de eerstvolgende release ('Next'), maar onder '${changelogEntry.release}'. Verplaats deze naar de juiste locatie, zodat wanneer je pull-verzoek wordt samengevoegd, de CHANGELOG-geschiedenis correct je werk weergeeft in de juiste release.`);
+          fail(
+            `Je CHANGELOG-aantekening staat niet onder het kopje van de eerstvolgende release ('Next'), maar onder '${changelogEntry.release}'. Verplaats deze naar de juiste locatie, zodat wanneer je pull-verzoek wordt samengevoegd, de CHANGELOG-geschiedenis correct je werk weergeeft in de juiste release.`
+          );
         }
       }
     }
@@ -118,7 +132,9 @@ import { danger, fail } from "danger";
     .forEach((file) =>
       danger.git.diffForFile(file).then((diff) => {
         if (diff?.after.includes("Lorem")) {
-          fail(`Gebruik alsjeblieft geen 'Lorem ipsum' als content. Het lijkt er op dat je dat hebt gedaan in het volgende bestand: ${file}`);
+          fail(
+            `Gebruik alsjeblieft geen 'Lorem ipsum' als content. Het lijkt er op dat je dat hebt gedaan in het volgende bestand: ${file}`
+          );
         }
       })
     );
