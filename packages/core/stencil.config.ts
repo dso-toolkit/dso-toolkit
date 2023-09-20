@@ -19,6 +19,7 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage: "@dso-toolkit/core",
       customElementsDir: "dist/components",
+      includeImportCustomElements: true,
       directivesProxyFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
     }),
