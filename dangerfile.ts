@@ -148,7 +148,8 @@ import { danger, fail } from "danger";
 
   function parseChangelogEntry(changelog: string, issueId: number) {
     const changelogRegex = new RegExp(
-      `^\\* (?:\\*\\*(?<breaking>BREAKING)\\*\\* )?(?<scope>[^\\s].+[^\\s]): (?<summary>[^\\s].+[^\\s]) \\(\\[#${issueId}\\]\\(https:\\/\\/github\\.com\\/dso-toolkit\\/dso-toolkit\\/issues\\/(?<linkIssueId>\\d+)\\)\\)$`,
+      `^\* (?:\*\*(?<breaking>BREAKING)\*\* )?(?<scope>[^\s].+[^\s]): (?<summary>[^\s].+[^\s]) \(\[#(?<issuenr>\d+)\]\(https://github\.com/dso-toolkit/dso-toolkit/issues/(?<linkedIssue>\d+)+\)\)`,
+      
       "m"
     );
 
