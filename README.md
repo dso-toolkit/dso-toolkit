@@ -3,9 +3,11 @@
 - [Slack chat](https://dso-toolkit.slack.com/)
 - [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA)
 
-# DSO Toolkit - Design System van het Digitaal Stelsel Omgevingswet (DSO)
+# DSO Toolkit - Design System of the Digitaal Stelsel Omgevingswet (DSO)
 
-De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: CSS en Web Components. De Web Components krijgen voor Angular en React wrappers, zie issue #915.
+(Digitaal Stelsel Omgevingswet, translated, stands for Digital System for the Environment and Planning Act of the Netherlands)
+
+The DSO Toolkit consists of documentation and a style guide. In addition, two implementations are provided: CSS and Web Components. The Web Components for Angular and React get wrappers, see issue #915.
 
 ## Getting started
 
@@ -85,6 +87,7 @@ The easiest way to start this environment is with one of the following commands:
 ```
 yarn start
 yarn start --react
+yarn start --angular
 yarn start --all
 ```
 
@@ -94,7 +97,8 @@ The following processes are started:
 
 - **default**: CSS in watch mode, Stencil in watch mode, Storybook and Cypress
 - **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
-- **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React components
+- **--react**: CSS in watch mode, Stencil in watch mode, Storybook for Angular components
+- **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React and Angular components
 
 This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
