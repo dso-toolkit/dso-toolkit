@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Angular: Componenten worden niet meer bij customElements geregistreerd, poging 2 ([#2328](https://github.com/dso-toolkit/dso-toolkit/issues/2328))
 
 ### Docs
+* Repository Readme: voeg Angular toe ([#2319](https://github.com/dso-toolkit/dso-toolkit/issues/2319))
 * Button Row: Tertiare variant toont niet in documentatie ([#2326](https://github.com/dso-toolkit/dso-toolkit/issues/2326))
 
 ## 58.3.0 - 20-09-2023
