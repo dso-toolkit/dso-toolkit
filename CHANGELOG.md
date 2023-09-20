@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Illustraties: Nieuwe illustratie "Bodem in ontwikkeling" ([#2317](https://github.com/dso-toolkit/dso-toolkit/issues/2317))
+
 ### Fixed
 * Selectable: Label in Web Component gaat stuk in Firefox ([#2318](https://github.com/dso-toolkit/dso-toolkit/issues/2318))
 
