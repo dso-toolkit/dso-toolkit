@@ -29,13 +29,13 @@ import { danger, fail } from "danger";
   const firstCommitMessageLine = firstCommit.message.split("\n")[0];
   const firstCommitMessage = parseFirstCommitMessage(firstCommitMessageLine);
   if (!firstCommitMessage) {
-    fail(`De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/58.2.0/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`);
+    fail(`De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`);
   }
 
   // Changelog check
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
   if (!hasChangelog) {
-    fail(`Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/58.2.0/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`);
+    fail(`Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`);
   }
 
   if (firstCommitMessage) {
@@ -79,7 +79,7 @@ import { danger, fail } from "danger";
     } else {
       const changelogEntry = parseChangelogEntry(diff.after, firstCommitMessage.issueId);
       if (!changelogEntry) {
-        fail(`De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/58.2.0/voor-maintainers/change-management-notatie).`);
+        fail(`De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`);
       } else {
         if (firstCommitMessage?.issueId !== changelogEntry.linkIssueId) {
           fail(
@@ -95,7 +95,7 @@ import { danger, fail } from "danger";
 
         if (firstCommitMessage?.scope !== changelogEntry.scope) {
           fail(
-            `Het scopegedeelte van je eerste commit-bericht ('${firstCommitMessage.scope}') verschilt van de scope in het CHANGELOG ('${changelogEntry.scope}'). Het toevoegen van het juiste scopegedeelte maakt het gemakkelijker om later in het CHANGELOG te zien welke wijzigingen er zijn aangebracht aan een specifiek aspect van de codebase. Voor meer informatie, raadpleeg de [Change management-notatie](https://www.dso-toolkit.nl/58.2.0/voor-maintainers/change-management-notatie).`
+            `Het scopegedeelte van je eerste commit-bericht ('${firstCommitMessage.scope}') verschilt van de scope in het CHANGELOG ('${changelogEntry.scope}'). Het toevoegen van het juiste scopegedeelte maakt het gemakkelijker om later in het CHANGELOG te zien welke wijzigingen er zijn aangebracht aan een specifiek aspect van de codebase. Voor meer informatie, raadpleeg de [Change management-notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`
           );
         }
 
