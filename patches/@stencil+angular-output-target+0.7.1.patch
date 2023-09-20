@@ -41,23 +41,23 @@ index 58ed93b..b77e640 100644
        proxyInputs(cls, inputs);
      }
 diff --git a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
-index e989788..bfa280d 100644
+index aa00d18..a6bfe59 100644
 --- a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
 +++ b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.d.ts
-@@ -11,7 +11,7 @@ import type { OutputType } from './types';
-  * @param standalone Whether to define the component as a standalone component.
+@@ -9,7 +9,7 @@ import type { ComponentCompilerEvent } from '@stencil/core/internal';
+  * @param includeImportCustomElements Whether to define the component as a custom element.
   * @returns The component declaration as a string.
   */
--export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly string[], methods: readonly string[], includeImportCustomElements?: boolean, standalone?: boolean) => string;
-+export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly ComponentCompilerEvent[], methods: readonly string[], includeImportCustomElements?: boolean, standalone?: boolean) => string;
+-export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly string[], methods: readonly string[], includeImportCustomElements?: boolean) => string;
++export declare const createAngularComponentDefinition: (tagName: string, inputs: readonly string[], outputs: readonly ComponentCompilerEvent[], methods: readonly string[], includeImportCustomElements?: boolean) => string;
  /**
   * Creates the component interface type definition.
-  * @param outputType The output type.
+  * @param tagNameAsPascal The tag name as PascalCase.
 diff --git a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
-index 3a5ae44..dff58bb 100644
+index b1b095f..1238ffd 100644
 --- a/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
 +++ b/node_modules/@stencil/angular-output-target/dist/generate-angular-component.js
-@@ -18,7 +18,7 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
+@@ -17,7 +17,7 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
      // Formats the input strings into comma separated, single quoted values.
      const formattedInputs = formatToQuotedList(inputs);
      // Formats the output strings into comma separated, single quoted values.
@@ -66,21 +66,9 @@ index 3a5ae44..dff58bb 100644
      // Formats the method strings into comma separated, single quoted values.
      const formattedMethods = formatToQuotedList(methods);
      const proxyCmpOptions = [];
-@@ -32,36 +32,59 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
+@@ -31,32 +31,54 @@ export const createAngularComponentDefinition = (tagName, inputs, outputs, metho
      if (hasMethods) {
          proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
-     }
--    let standaloneOption = '';
-+    const output = [
-+        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
-+        `@Component({`,
-+        `  selector: '${tagName}',`,
-+        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
-+        `  template: '<ng-content></ng-content>',`,
-+    ];
-     if (standalone && includeImportCustomElements) {
--        standaloneOption = `\n  standalone: true`;
-+        output.push(`  standalone: true`);
      }
 -    /**
 -     * Notes on the generated output:
@@ -95,7 +83,7 @@ index 3a5ae44..dff58bb 100644
 -  changeDetection: ChangeDetectionStrategy.OnPush,
 -  template: '<ng-content></ng-content>',
 -  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
--  inputs: [${formattedInputs}],${standaloneOption}
+-  inputs: [${formattedInputs}],
 -})
 -export class ${tagNameAsPascal} {
 -  protected el: HTMLElement;
@@ -108,7 +96,12 @@ index 3a5ae44..dff58bb 100644
 -  }
 -}`;
 -    return output;
-+    output.push(...[
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
 +        /**
 +         * We disable @angular-eslint/no-inputs-metadata-property, so that
 +         * Angular does not complain about the inputs property. The output target
@@ -119,7 +112,7 @@ index 3a5ae44..dff58bb 100644
 +        `  inputs: [${formattedInputs}],`,
 +        `})`,
 +        `export class ${tagNameAsPascal} {`,
-+    ]);
++    ];
 +    if (hasOutputs) {
 +        for (let compilerEvent of outputs) {
 +            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
@@ -155,10 +148,10 @@ index 3a5ae44..dff58bb 100644
  /**
   * Sanitizes and formats the component event type.
 diff --git a/node_modules/@stencil/angular-output-target/dist/index.cjs.js b/node_modules/@stencil/angular-output-target/dist/index.cjs.js
-index 36ad6c8..d537584 100644
+index 7d8a725..6cf6861 100644
 --- a/node_modules/@stencil/angular-output-target/dist/index.cjs.js
 +++ b/node_modules/@stencil/angular-output-target/dist/index.cjs.js
-@@ -163,7 +163,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+@@ -148,7 +148,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
      // Formats the input strings into comma separated, single quoted values.
      const formattedInputs = formatToQuotedList(inputs);
      // Formats the output strings into comma separated, single quoted values.
@@ -167,21 +160,9 @@ index 36ad6c8..d537584 100644
      // Formats the method strings into comma separated, single quoted values.
      const formattedMethods = formatToQuotedList(methods);
      const proxyCmpOptions = [];
-@@ -177,36 +177,59 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+@@ -162,32 +162,54 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
      if (hasMethods) {
          proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
-     }
--    let standaloneOption = '';
-+    const output = [
-+        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
-+        `@Component({`,
-+        `  selector: '${tagName}',`,
-+        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
-+        `  template: '<ng-content></ng-content>',`,
-+    ];
-     if (standalone && includeImportCustomElements) {
--        standaloneOption = `\n  standalone: true`;
-+        output.push(`  standalone: true`);
      }
 -    /**
 -     * Notes on the generated output:
@@ -196,7 +177,7 @@ index 36ad6c8..d537584 100644
 -  changeDetection: ChangeDetectionStrategy.OnPush,
 -  template: '<ng-content></ng-content>',
 -  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
--  inputs: [${formattedInputs}],${standaloneOption}
+-  inputs: [${formattedInputs}],
 -})
 -export class ${tagNameAsPascal} {
 -  protected el: HTMLElement;
@@ -209,7 +190,12 @@ index 36ad6c8..d537584 100644
 -  }
 -}`;
 -    return output;
-+    output.push(...[
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
 +        /**
 +         * We disable @angular-eslint/no-inputs-metadata-property, so that
 +         * Angular does not complain about the inputs property. The output target
@@ -220,7 +206,7 @@ index 36ad6c8..d537584 100644
 +        `  inputs: [${formattedInputs}],`,
 +        `})`,
 +        `export class ${tagNameAsPascal} {`,
-+    ]);
++    ];
 +    if (hasOutputs) {
 +        for (let compilerEvent of outputs) {
 +            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
@@ -255,7 +241,7 @@ index 36ad6c8..d537584 100644
  };
  /**
   * Sanitizes and formats the component event type.
-@@ -420,6 +443,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
+@@ -399,6 +421,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
      const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
      if (includeOutputImports) {
          angularCoreImports.push('EventEmitter');
@@ -263,7 +249,7 @@ index 36ad6c8..d537584 100644
      }
      angularCoreImports.push('NgZone');
      /**
-@@ -481,7 +505,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+@@ -468,7 +491,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
          inputs.sort();
          const outputs = [];
          if (cmpMeta.events) {
@@ -273,10 +259,10 @@ index 36ad6c8..d537584 100644
          const methods = [];
          if (cmpMeta.methods) {
 diff --git a/node_modules/@stencil/angular-output-target/dist/index.js b/node_modules/@stencil/angular-output-target/dist/index.js
-index 4c0c9ca..df213e3 100644
+index df5aeb9..61fc2c6 100644
 --- a/node_modules/@stencil/angular-output-target/dist/index.js
 +++ b/node_modules/@stencil/angular-output-target/dist/index.js
-@@ -155,7 +155,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+@@ -140,7 +140,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
      // Formats the input strings into comma separated, single quoted values.
      const formattedInputs = formatToQuotedList(inputs);
      // Formats the output strings into comma separated, single quoted values.
@@ -285,21 +271,9 @@ index 4c0c9ca..df213e3 100644
      // Formats the method strings into comma separated, single quoted values.
      const formattedMethods = formatToQuotedList(methods);
      const proxyCmpOptions = [];
-@@ -169,36 +169,59 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+@@ -154,32 +154,54 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
      if (hasMethods) {
          proxyCmpOptions.push(`\n  methods: [${formattedMethods}]`);
-     }
--    let standaloneOption = '';
-+    const output = [
-+        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
-+        `@Component({`,
-+        `  selector: '${tagName}',`,
-+        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
-+        `  template: '<ng-content></ng-content>',`,
-+    ];
-     if (standalone && includeImportCustomElements) {
--        standaloneOption = `\n  standalone: true`;
-+        output.push(`  standalone: true`);
      }
 -    /**
 -     * Notes on the generated output:
@@ -314,7 +288,7 @@ index 4c0c9ca..df213e3 100644
 -  changeDetection: ChangeDetectionStrategy.OnPush,
 -  template: '<ng-content></ng-content>',
 -  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
--  inputs: [${formattedInputs}],${standaloneOption}
+-  inputs: [${formattedInputs}],
 -})
 -export class ${tagNameAsPascal} {
 -  protected el: HTMLElement;
@@ -327,7 +301,12 @@ index 4c0c9ca..df213e3 100644
 -  }
 -}`;
 -    return output;
-+    output.push(...[
++    const output = [
++        `@ProxyCmp({${proxyCmpOptions.join(',')}\n})`,
++        `@Component({`,
++        `  selector: '${tagName}',`,
++        `  changeDetection: ChangeDetectionStrategy.OnPush,`,
++        `  template: '<ng-content></ng-content>',`,
 +        /**
 +         * We disable @angular-eslint/no-inputs-metadata-property, so that
 +         * Angular does not complain about the inputs property. The output target
@@ -338,7 +317,7 @@ index 4c0c9ca..df213e3 100644
 +        `  inputs: [${formattedInputs}],`,
 +        `})`,
 +        `export class ${tagNameAsPascal} {`,
-+    ]);
++    ];
 +    if (hasOutputs) {
 +        for (let compilerEvent of outputs) {
 +            output.push(`  ${createAngularOutputDecorator(tagName, compilerEvent)}`);
@@ -373,7 +352,7 @@ index 4c0c9ca..df213e3 100644
  };
  /**
   * Sanitizes and formats the component event type.
-@@ -412,6 +435,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
+@@ -391,6 +413,7 @@ function generateProxies(components, pkgData, outputTarget, rootDir) {
      const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
      if (includeOutputImports) {
          angularCoreImports.push('EventEmitter');
@@ -381,7 +360,7 @@ index 4c0c9ca..df213e3 100644
      }
      angularCoreImports.push('NgZone');
      /**
-@@ -473,7 +497,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+@@ -460,7 +483,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
          inputs.sort();
          const outputs = [];
          if (cmpMeta.events) {
@@ -391,10 +370,10 @@ index 4c0c9ca..df213e3 100644
          const methods = [];
          if (cmpMeta.methods) {
 diff --git a/node_modules/@stencil/angular-output-target/dist/output-angular.js b/node_modules/@stencil/angular-output-target/dist/output-angular.js
-index 8d23de7..30f1b26 100644
+index c84fc38..36cffed 100644
 --- a/node_modules/@stencil/angular-output-target/dist/output-angular.js
 +++ b/node_modules/@stencil/angular-output-target/dist/output-angular.js
-@@ -49,6 +49,7 @@ export function generateProxies(components, pkgData, outputTarget, rootDir) {
+@@ -47,6 +47,7 @@ export function generateProxies(components, pkgData, outputTarget, rootDir) {
      const angularCoreImports = ['ChangeDetectionStrategy', 'ChangeDetectorRef', 'Component', 'ElementRef'];
      if (includeOutputImports) {
          angularCoreImports.push('EventEmitter');
@@ -402,7 +381,7 @@ index 8d23de7..30f1b26 100644
      }
      angularCoreImports.push('NgZone');
      /**
-@@ -110,7 +111,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
+@@ -116,7 +117,7 @@ ${createImportStatement(componentLibImports, './angular-component-lib/utils')}\n
          inputs.sort();
          const outputs = [];
          if (cmpMeta.events) {
