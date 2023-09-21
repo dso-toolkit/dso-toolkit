@@ -43,14 +43,6 @@ import { danger, fail } from "danger";
       fail(`First commit message scope is not written in spaced Pascal Case: ${firstCommitMessage.scope}`);
     }
 
-    for (let i = 0; i++; i < remainingCommits.length) {
-      const commitMessage = remainingCommits[i];
-      const commitMessageLine = commitMessage.message.split("\n")[0];
-      if (!commitMessageLine.startsWith(`#${firstCommitMessage.issueId}`)) {
-        fail(`Commit ${i + 1} (${commitMessage.sha}) has invalid format: "${commitMessageLine}".`);
-      }
-    }
-
     const githubIssue = await getGithubIssue(firstCommitMessage.issueId);
     if (!githubIssue) {
       fail("Unable to fetch GitHub issue data.");
@@ -65,6 +57,14 @@ import { danger, fail } from "danger";
       if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
         fail(`GitHub issue does not have proper label "${githubLabel}".`);
       }
+    }
+  }
+
+  for (let i = 0; i++; i < remainingCommits.length) {
+    const commitMessage = remainingCommits[i];
+    const commitMessageLine = commitMessage.message.split("\n")[0];
+    if (!commitMessageLine.startsWith(`#${firstCommitMessage.issueId}`)) {
+      fail(`Commit ${i + 1} (${commitMessage.sha}) has invalid format: "${commitMessageLine}".`);
     }
   }
 
