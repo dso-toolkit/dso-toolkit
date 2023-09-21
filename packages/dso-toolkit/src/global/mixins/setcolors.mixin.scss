@@ -4,7 +4,6 @@
   $c-bg-color: null;
 
   --c-txt-color: #{colors.$grijs-90};
-  --c-link-color: #{colors.$grasgroen};
 
   @if $bgcolor == "grey" {
     $c-bg-color: colors.$grijs-5;
@@ -33,6 +32,8 @@
 
   @if lightness($c-bg-color) < 100% {
     --c-link-color: currentColor;
+  } @else {
+    --c-link-color: #{colors.$grasgroen};
   }
 
   background-color: var(--c-bg-color);
@@ -42,4 +43,3 @@
     color: var(--c-link-color);
   }
 }
-

@@ -1,6 +1,11 @@
 @use "../global/mixins/setcolors.mixin.scss" as color-mixin;
 
-.box {
+.box-test-1 {
+  // zonder argument, default = witte achtergrond
   @include color-mixin.setColors;
 }
 
+.box-test-2 {
+  // blauwe achtergrond
+  @include color-mixin.setColors("blue");
+}
