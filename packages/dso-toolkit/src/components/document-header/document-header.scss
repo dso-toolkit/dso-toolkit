@@ -8,10 +8,11 @@
 @use "../icon";
 
 @use "../grid/grid.variables.scss" as grid-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 .dso-document-header {
-  background-color: colors.$grijs-5;
-  color: colors.$zwart;
+  @include set-colors.apply(colors.$grijs-5);
+
   padding: grid-variables.$grid-gutter-width * 0.5;
   margin-left: grid-variables.$grid-gutter-width * -0.5;
   margin-right: grid-variables.$grid-gutter-width * -0.5;
@@ -66,10 +67,6 @@
     .dso-document-header-container {
       display: none;
     }
-  }
-
-  a {
-    color: colors.$zwart;
   }
 
   > :first-child {

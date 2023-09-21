@@ -6,6 +6,7 @@
 @use "../../di";
 
 @use "banner.variables" as banner-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin _variant($background, $border, $text-color) {
   color: $text-color;
@@ -14,18 +15,8 @@
 }
 
 @mixin children() {
-  --link-color: #{colors.$zwart};
-
   a {
     text-decoration: underline;
-
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &:visited {
-      color: var(--link-color);
-    }
 
     &:active {
       text-decoration: none;
@@ -89,19 +80,19 @@
 }
 
 @mixin danger() {
-  @include _variant(banner-variables.$danger-bg, banner-variables.$danger-border, banner-variables.$danger-text);
+  @include set-colors.apply(banner-variables.$danger-bg, banner-variables.$danger-border);
 }
 
 @mixin error() {
-  @include _variant(banner-variables.$error-bg, banner-variables.$error-border, banner-variables.$error-text);
+  @include set-colors.apply(banner-variables.$error-bg, banner-variables.$error-border);
 }
 
 @mixin info() {
-  @include _variant(banner-variables.$info-bg, banner-variables.$info-border, banner-variables.$info-text);
+  @include set-colors.apply(banner-variables.$info-bg, banner-variables.$info-border);
 }
 
 @mixin warning() {
-  @include _variant(banner-variables.$warning-bg, banner-variables.$warning-border, banner-variables.$warning-text);
+  @include set-colors.apply(banner-variables.$warning-bg, banner-variables.$warning-border);
 }
 
 @mixin root() {

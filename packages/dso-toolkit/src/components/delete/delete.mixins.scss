@@ -1,11 +1,8 @@
 @use "../../variables/colors";
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin root() {
-  background-color: colors.$danger-bg-color;
-  color: colors.$zwart;
-  text-decoration: line-through;
+  @include set-colors.apply(colors.$rood-20);
 
-  a {
-    color: colors.$zwart;
-  }
+  text-decoration: line-through;
 }

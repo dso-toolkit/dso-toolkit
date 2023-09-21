@@ -1,10 +1,9 @@
 @use "../../variables/units";
 @use "../../variables/colors";
 @use "../button";
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin root() {
-  background-color: colors.$grijs-5;
-  color: colors.$zwart;
   padding: units.$u2 units.$u4 units.$u2 units.$u2;
   position: relative;
 
@@ -63,4 +62,6 @@
   .dso-rich-content {
     @include richContent();
   }
+
+  @include set-colors.apply(colors.$grijs-5);
 }

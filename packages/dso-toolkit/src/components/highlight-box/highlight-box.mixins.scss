@@ -1,5 +1,7 @@
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../global/mixins/set-colors.mixin" as set-colors;
+@use "../../di";
 
 @use "../button";
 @use "../step-counter";
@@ -7,38 +9,42 @@
 @use "highlight-box.variables" as highlight-box-variables;
 
 @mixin root() {
-  background-color: colors.$grijs-5;
-  color: colors.$zwart;
+  @include step-counter.step-counter();
+
   margin-top: units.$u2;
   padding: units.$u2;
   margin-bottom: units.$vertical-spacing-large;
+}
 
-  &.dso-white {
-    background-color: colors.$wit;
+@mixin children($white-selector, $yellow-selector, $drop-shadow-selector, $border-selector, $has-counter-selector) {
+  &:not(#{$white-selector, #{$border-selector}}) {
+    // ^^ add specificity bump to override default styling
+    @include set-colors.apply(colors.$grijs-5);
   }
 
-  &.dso-yellow {
-    background-color: colors.$warning-bg-color;
+  &#{$white-selector} {
+    @include set-colors.apply(colors.$wit);
   }
 
-  &.dso-drop-shadow {
+  &#{$yellow-selector} {
+    @include set-colors.apply(colors.$geel-20);
+  }
+
+  &#{$drop-shadow-selector} {
     box-shadow: highlight-box-variables.$box-shadow;
   }
 
-  &.dso-border {
-    background-color: colors.$wit;
+  &#{$border-selector} {
+    @include set-colors.apply(colors.$wit);
+
     border: 1px solid colors.$grijs-20;
     padding: units.$u2 - 1;
   }
 
-  &.dso-has-counter {
+  &#{$has-counter-selector} {
     margin-top: highlight-box-variables.$margin-top;
   }
 
-  @include step-counter.step-counter();
-}
-
-@mixin children() {
   > .dso-highlight-box-banner {
     aspect-ratio: 2.38 / 1;
     margin-left: units.$u2 * -1;
@@ -86,12 +92,5 @@
 @mixin exoticChildren() {
   .dso-tertiary:not([disabled]) {
     color: colors.$zwart;
-  }
-
-  a,
-  a:visited {
-    &#{button.$not-dso-buttons} {
-      color: colors.$zwart;
-    }
   }
 }

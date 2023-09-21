@@ -5,6 +5,7 @@
 
 @use "../button";
 @use "alert.variables" as alert-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin icon-position() {
   left: alert-variables.$horizontal-padding - 1px; // 1px border
@@ -45,28 +46,30 @@
   }
 
   a {
-    &,
-    &:not(.dso-alert-button):visited {
-      color: colors.$zwart;
-    }
-
-    &:hover,
-    &:focus,
-    &:active,
-    &:visited {
-      color: colors.$zwart;
-    }
-
     &:active {
       text-decoration: none;
     }
   }
-}
 
-@mixin _variant($background, $border, $text-color) {
-  color: $text-color;
-  background-color: $background;
-  border-color: $border;
+  &.alert-success,
+  &[status="success"] {
+    @include set-colors.apply(alert-variables.$success-bg, alert-variables.$success-border);
+  }
+
+  &.alert-error,
+  &[status="error"] {
+    @include set-colors.apply(alert-variables.$danger-bg, alert-variables.$danger-border);
+  }
+
+  &.alert-warning,
+  &[status="warning"] {
+    @include set-colors.apply(alert-variables.$warning-bg, alert-variables.$warning-border);
+  }
+
+  &.alert-info,
+  &[status="info"] {
+    @include set-colors.apply(alert-variables.$info-bg, alert-variables.$info-border);
+  }
 }
 
 @mixin root() {
@@ -87,21 +90,5 @@
 
   &:not(:first-child) {
     margin-top: units.$u3;
-  }
-
-  &.alert-success {
-    @include _variant(alert-variables.$success-bg, alert-variables.$success-border, alert-variables.$success-text);
-  }
-
-  &.alert-error {
-    @include _variant(alert-variables.$danger-bg, alert-variables.$danger-border, alert-variables.$danger-text);
-  }
-
-  &.alert-warning {
-    @include _variant(alert-variables.$warning-bg, alert-variables.$warning-border, alert-variables.$warning-text);
-  }
-
-  &.alert-info {
-    @include _variant(alert-variables.$info-bg, alert-variables.$info-border, alert-variables.$info-text);
   }
 }

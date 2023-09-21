@@ -6,10 +6,11 @@
 @use "../form-control";
 
 @use "shopping-cart.variables" as css-shopping-cart-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 .dso-shopping-cart {
   .dso-status {
-    background-color: colors.$grijs-5;
+    @include set-colors.apply(colors.$grijs-5);
     border: 0;
     border-radius: css-shopping-cart-variables.$radius;
     box-shadow: none;
@@ -52,7 +53,8 @@
   }
 
   .dso-contents {
-    background-color: colors.$grijs-5;
+    @include set-colors.apply(colors.$grijs-5);
+
     border: 0;
     border-radius: css-shopping-cart-variables.$radius;
     color: colors.$zwart;
@@ -77,7 +79,8 @@
   ol {
     @include list.unstyled();
 
-    background-color: colors.$grijs-5;
+    @include set-colors.apply(colors.$grijs-5, $icons: false);
+
     border-radius: css-shopping-cart-variables.$radius;
     margin-bottom: 0;
     margin-top: 0;

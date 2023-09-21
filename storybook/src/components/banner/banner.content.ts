@@ -22,7 +22,7 @@ export function warningRichContent(templates: Templates) {
         <h2>Onderhoudsmelding:</h2>
         <p>
           Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
-          Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#" })}
+          Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
         </p>
       `,
     })}
@@ -37,34 +37,55 @@ export function warningNonRemovableRichContent({ richContentTemplate }: Template
 }
 
 export function dangerRichContent(templates: Templates) {
-  const { richContentTemplate } = templates;
+  const { anchorTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+      <p>
+        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
+        ${anchorTemplate({
+          label: "aanvraag",
+          url: "#",
+          mode: "download",
+        })}
+        of melding indienen.
+      </p>
     `,
   })}
   ${closeButton(templates)} `;
 }
 
 export function errorRichContent(templates: Templates) {
-  const { richContentTemplate } = templates;
+  const { anchorTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+      <p>
+        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
+        ${anchorTemplate({
+          label: "aanvraag",
+          url: "#",
+          mode: "download",
+        })}
+        of melding indienen.
+      </p>
     `,
   })}
   ${closeButton(templates)} `;
 }
 
 export function infoRichContent(templates: Templates) {
-  const { richContentTemplate } = templates;
+  const { anchorTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
-    children: html` <p>Een informatieve banner die je weg kan klikken.</p> `,
+    children: html`
+      <p>
+        Een informatieve banner die je weg kan klikken.
+        ${anchorTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
+      </p>
+    `,
   })}
   ${closeButton(templates)} `;
 }

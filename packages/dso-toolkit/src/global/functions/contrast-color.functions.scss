@@ -1,0 +1,48 @@
+@use "../../variables/colors.scss" as colors;
+@use "sass:math";
+
+// CONTRAST COLOR FUNCTIONS
+// ========================
+// Source: https://epiph.yt/en/blog/2023/fix-your-scss-color-contrast-function/
+
+// DE-GAMMA AND RE-GAMMA
+@function de-gamma($n) {
+  @if $n <=0.03928 {
+    @return math.div($n, 12.92);
+  } @else {
+    @return math.pow((math.div(($n + 0.055), 1.055)), 2.4);
+  }
+}
+
+@function re-gamma($n) {
+  @if $n <=0.0031308 {
+    @return $n * 12.92;
+  } @else {
+    @return 1.055 * math.pow($n, math.div(1, 2.4)) - 0.055;
+  }
+}
+
+// sRGB BT-709 BRIGHTNESS
+@function brightness($c) {
+  $rlin: de-gamma(math.div(red($c), 255));
+  $glin: de-gamma(math.div(green($c), 255));
+  $blin: de-gamma(math.div(blue($c), 255));
+  @return re-gamma(0.2126 * $rlin + 0.7152 * $glin + 0.0722 * $blin) * 100;
+}
+
+// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
+@function apply($color, $dark: colors.$contrast-dark, $light: colors.$contrast-light) {
+  @if $color ==null {
+    @return null;
+  } @else {
+    $color-brightness: brightness($color);
+    $light-text-brightness: brightness($light);
+    $dark-text-brightness: brightness($dark);
+
+    @return if(
+      abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness),
+      $light,
+      $dark
+    );
+  }
+}

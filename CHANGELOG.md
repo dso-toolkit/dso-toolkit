@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Accessibility: Mixin voor achter- en voorgrondkleur ([#2154](https://github.com/dso-toolkit/dso-toolkit/issues/2154))
+
 ### Changed
 * Modal: Fade in animatietijd naar 200ms ([#2463](https://github.com/dso-toolkit/dso-toolkit/issues/2463))
 * Form Buttons: Responsive behavior ([#2464](https://github.com/dso-toolkit/dso-toolkit/issues/2464))

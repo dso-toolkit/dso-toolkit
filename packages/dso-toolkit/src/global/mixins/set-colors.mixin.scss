@@ -1,0 +1,102 @@
+@use "../../variables/colors.scss" as colors;
+@use "../../components/anchor/anchor.variables" as anchor-variables;
+@use "../functions/contrast-color.functions" as contrast-color;
+@use "../../di";
+@use "sass:map";
+
+// SET COLORS
+// ==========
+// USAGE: @include setColors($bgcolor, $bordercolor: transparent, $links: true);
+// $background-color: background color of the element (required)
+// $border-color: border color of the element (optional)
+// $icons: boolean to set link icon colors according to background color (optional). set to false if you don't want to change the link icon colors.
+// $links: boolean to set link colors according to background color (optional). set to false if you don't want to change the link colors.
+// $reverse: in case the combination chosen by this mixin & contrast-color function still does not meet WCAG requirements, set $reverse to true. If this combination does not comply either, find another background-color.
+
+@mixin apply($background-color, $border-color: null, $icons: true, $links: true, $reverse: false) {
+  $icon-color: ""; // placeholder for icon color
+
+  // run contrast-color function to determine WCAG-compliant text color
+  $contrast-color: contrast-color.apply($background-color);
+
+  // set link and icon color according to text color
+  @if lightness($background-color) < 100% {
+    @if $links == true {
+      --link-color: currentColor;
+      --link-hover-color: currentColor;
+      --link-visited-color: currentColor;
+    }
+    // set according to contrast color determined by contrast-color function
+    @if $contrast-color == colors.$contrast-dark {
+      $icon-color: "-zwart";
+    } @else if $contrast-color == colors.$contrast-light {
+      $icon-color: "-wit";
+    }
+    // if contrast-color function gets it wrong, and therefore $reverse is set to true
+    @if $contrast-color == colors.$contrast-dark and $reverse == true {
+      $icon-color: "-wit";
+      $contrast-color: colors.$contrast-light;
+    } @else if $contrast-color == colors.$contrast-light and $reverse == true {
+      $icon-color: "-zwart";
+      $contrast-color: colors.$contrast-dark;
+    }
+  }
+
+  // set css properties
+  background-color: $background-color;
+  @if $border-color != null {
+    border-color: $border-color;
+  } @else {
+    border-color: $background-color;
+  }
+  color: $contrast-color;
+
+  // implement icon color according to background color
+  @if $icon-color != "" and $icons == true {
+    @include _anchorIconColors($icon-color);
+  }
+}
+
+// ANCHOR ICON COLORS
+// ==================
+@mixin _anchorIconColors($icon-color) {
+  // loop through map to find icon mode
+  @each $mode, $value in anchor-variables.$anchorIcons {
+    a:is(
+        #{map-get($value, "selector")},
+        #{map-get($value, "selector")}:hover,
+        #{map-get($value, "selector")}:focus-visible
+      ) {
+      // set icon color
+      @include di.variant(map-get($value, "icon") + $icon-color);
+    }
+  }
+}
+
+// TEST
+// ====
+// uncomment the following lines to test the mixin
+
+// .setcolor-test1 {
+//   @include apply(colors.$lime-20);
+// }
+
+// .setcolor-test2 {
+//   @include apply(colors.$grijs-5, #777);
+// }
+
+// .setcolor-test3 {
+//   @include apply(colors.$lichtblauw-20, $icons: false);
+// }
+
+// .setcolor-test4 {
+//   @include apply(colors.$wit);
+// }
+
+// .setcolor-test5 {
+//   @include apply(colors.$geel-20, #000, $icons: false);
+// }
+
+// .setcolor-test6 {
+//   @include apply(colors.$donkerblauw);
+// }
