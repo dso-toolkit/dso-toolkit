@@ -1,10 +1,11 @@
 import * as React from "react";
 import { storiesOfDatePicker } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
-import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.react-template";
+
+import { templateContainer } from "../../templates";
+import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 storiesOfDatePicker(
   {
@@ -17,7 +18,6 @@ storiesOfDatePicker(
     storyTemplates: ({ datePickerTemplate }) => ({
       datePickerTemplate,
       datePickerWithLabelTemplate,
-      datePickerShowByScriptingTemplate,
     }),
   },
   {

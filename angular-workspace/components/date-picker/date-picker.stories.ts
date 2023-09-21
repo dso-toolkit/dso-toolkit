@@ -1,9 +1,10 @@
 import { storiesOf } from "@storybook/angular";
 
 import { storiesOfDatePicker } from "dso-toolkit";
+
 import { DsoDatePicker } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.content";
+import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 import readme from "./readme.md?raw";
 
@@ -25,7 +26,6 @@ storiesOfDatePicker(
     storyTemplates: ({ datePickerTemplate }) => ({
       datePickerTemplate,
       datePickerWithLabelTemplate,
-      datePickerShowByScriptingTemplate,
     }),
   },
   {

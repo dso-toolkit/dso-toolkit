@@ -6,7 +6,6 @@ export interface DatePickerArgs {
   id: string;
   label: string;
   dsoDateChange: HandlerFunction;
-  direction: "left" | "right";
   value: string;
   min: string;
   max: string;
@@ -30,17 +29,6 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   disabled: {
     control: {
       type: "boolean",
-    },
-  },
-  direction: {
-    options: [undefined, "left", "right"],
-    control: {
-      type: "select",
-      labels: {
-        undefined: "default",
-        left: "left",
-        right: "right",
-      },
     },
   },
   value: {

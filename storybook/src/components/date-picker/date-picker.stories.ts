@@ -2,24 +2,23 @@ import { storiesOfDatePicker, StoryRoot } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import cssReadme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 
-import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.content";
 import { templateContainer } from "../../templates";
+import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 storiesOfDatePicker(
   {
     parameters: {
       module,
       storiesOf,
-      readme: cssReadme,
+      readme,
       root: StoryRoot.Core,
     },
     templateContainer,
     storyTemplates: ({ datePickerTemplate }) => ({
       datePickerTemplate,
       datePickerWithLabelTemplate,
-      datePickerShowByScriptingTemplate,
     }),
   },
   {

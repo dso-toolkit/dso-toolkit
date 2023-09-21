@@ -6,19 +6,3 @@ export function datePickerWithLabelTemplate(datePicker: TemplateResult, id: stri
     ${datePicker}
   `;
 }
-
-export function datePickerShowByScriptingTemplate(datePicker: TemplateResult, id: string) {
-  return html`
-    ${datePicker}
-
-    <button
-      type="button"
-      @click=${() =>
-        Array.from(document.querySelectorAll("dso-date-picker"))
-          .filter((e) => e.id === id)[0]
-          ?.show()}
-    >
-      Open
-    </button>
-  `;
-}

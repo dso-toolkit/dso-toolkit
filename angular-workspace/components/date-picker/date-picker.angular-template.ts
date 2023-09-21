@@ -11,7 +11,6 @@ export const angularDatePicker: ComponentImplementation<DatePicker> = {
         template: `
           <dso-date-picker
             [identifier]="id"
-            [direction]="direction"
             [value]="value"
             [min]="min"
             [max]="max"

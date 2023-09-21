@@ -12,7 +12,7 @@ import { AnnotationOutputCloseEvent } from "./components/annotation-output/annot
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
-import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
@@ -38,7 +38,7 @@ export { AnnotationOutputCloseEvent } from "./components/annotation-output/annot
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
-export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
@@ -247,10 +247,6 @@ export namespace Components {
          */
         "describedBy"?: string;
         /**
-          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-         */
-        "direction": DsoDatePickerDirection;
-        /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
          */
         "disabled": boolean;
@@ -258,10 +254,6 @@ export namespace Components {
           * Should the input be focused on load?
          */
         "dsoAutofocus": boolean;
-        /**
-          * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
-         */
-        "hide": (moveFocusToButton?: boolean) => Promise<void>;
         /**
           * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
          */
@@ -286,18 +278,6 @@ export namespace Components {
           * Should the input be marked as required?
          */
         "required": boolean;
-        /**
-          * Defines a specific role attribute for the date picker input.
-         */
-        "role": string | null;
-        /**
-          * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
-         */
-        "setFocus": () => Promise<void | undefined>;
-        /**
-          * Show the calendar modal, moving focus to the calendar inside.
-         */
-        "show": () => Promise<void>;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
@@ -1536,10 +1516,6 @@ declare namespace LocalJSX {
          */
         "describedBy"?: string;
         /**
-          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-         */
-        "direction"?: DsoDatePickerDirection;
-        /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
          */
         "disabled"?: boolean;
@@ -1570,31 +1546,27 @@ declare namespace LocalJSX {
         /**
           * Event emitted the date picker input is blurred.
          */
-        "onDsoBlur"?: (event: DsoDatePickerCustomEvent<DsoDatePickerFocusEvent>) => void;
+        "onDsoBlur"?: (event: DsoDatePickerCustomEvent<DatePickerFocusEvent>) => void;
         /**
           * Event emitted when a date is selected.
          */
-        "onDsoDateChange"?: (event: DsoDatePickerCustomEvent<DsoDatePickerChangeEvent>) => void;
+        "onDsoDateChange"?: (event: DsoDatePickerCustomEvent<DatePickerChangeEvent>) => void;
         /**
           * Event emitted the date picker input is focused.
          */
-        "onDsoFocus"?: (event: DsoDatePickerCustomEvent<DsoDatePickerFocusEvent>) => void;
+        "onDsoFocus"?: (event: DsoDatePickerCustomEvent<DatePickerFocusEvent>) => void;
         /**
           * Event emitted on key down in the date picker input.
          */
-        "onDsoKeyDown"?: (event: DsoDatePickerCustomEvent<DsoDatePickerKeyboardEvent>) => void;
+        "onDsoKeyDown"?: (event: DsoDatePickerCustomEvent<DatePickerKeyboardEvent>) => void;
         /**
           * Event emitted on key up in the date picker input.
          */
-        "onDsoKeyUp"?: (event: DsoDatePickerCustomEvent<DsoDatePickerKeyboardEvent>) => void;
+        "onDsoKeyUp"?: (event: DsoDatePickerCustomEvent<DatePickerKeyboardEvent>) => void;
         /**
           * Should the input be marked as required?
          */
         "required"?: boolean;
-        /**
-          * Defines a specific role attribute for the date picker input.
-         */
-        "role"?: string | null;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */

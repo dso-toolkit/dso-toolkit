@@ -1,17 +1,17 @@
-export type DsoDatePickerChangeEvent = {
+export interface DatePickerChangeEvent {
+  originalEvent: Event;
   component: "dso-date-picker";
   valueAsDate: Date | undefined;
   value: string;
   error?: "invalid" | "required" | "min-range" | "max-range";
-};
+}
 
-export type DsoDatePickerFocusEvent = {
+export interface DatePickerFocusEvent {
+  originalEvent: FocusEvent;
   component: "dso-date-picker";
-};
+}
 
-export type DsoDatePickerKeyboardEvent = {
-  component: "dso-date-picker";
+export interface DatePickerKeyboardEvent {
   originalEvent: KeyboardEvent;
-};
-
-export type DsoDatePickerDirection = "left" | "right";
+  component: "dso-date-picker";
+}

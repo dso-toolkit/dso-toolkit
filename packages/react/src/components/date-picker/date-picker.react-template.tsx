@@ -1,4 +1,4 @@
-import { DsoDatePickerChangeEvent } from "@dso-toolkit/core/dist/types/components/date-picker/date-picker.interfaces";
+import { DsoDatePickerCustomEvent, DatePickerChangeEvent } from "@dso-toolkit/core";
 import { DatePicker } from "dso-toolkit";
 import * as React from "react";
 
@@ -9,23 +9,11 @@ export const reactDatePicker: ComponentImplementation<DatePicker> = {
   component: "datePicker",
   implementation: "react",
   template: () =>
-    function datePickerTemplate({
-      id,
-      dsoDateChange,
-      value,
-      min,
-      max,
-      disabled,
-      invalid,
-      autofocus,
-      direction,
-      describedBy,
-    }) {
+    function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, invalid, autofocus, describedBy }) {
       return (
         <DsoDatePicker
-          onDsoDateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}
+          onDsoDateChange={(e: DsoDatePickerCustomEvent<DatePickerChangeEvent>) => dsoDateChange?.(e)}
           identifier={id}
-          direction={direction}
           value={value}
           min={min}
           max={max}
@@ -37,30 +25,3 @@ export const reactDatePicker: ComponentImplementation<DatePicker> = {
       );
     },
 };
-
-export function datePickerWithLabelTemplate(datePicker: JSX.Element, id: string, label: string) {
-  return (
-    <>
-      <label htmlFor={id}>{label}</label>
-      {datePicker}
-    </>
-  );
-}
-
-export function datePickerShowByScriptingTemplate(datePicker: JSX.Element, id: string) {
-  return (
-    <>
-      {datePicker}
-      <button
-        type="button"
-        onClick={() =>
-          Array.from(document.querySelectorAll("dso-date-picker"))
-            .filter((e) => e.id === id)[0]
-            ?.show()
-        }
-      >
-        Open
-      </button>
-    </>
-  );
-}

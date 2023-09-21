@@ -9,7 +9,6 @@ import { DatePicker } from "./date-picker.models.js";
 export interface DatePickerTemplates<TemplateFnReturnType> {
   datePickerTemplate: (datePickerProperties: DatePicker) => TemplateFnReturnType;
   datePickerWithLabelTemplate: (datePicker: TemplateFnReturnType, id: string, label: string) => TemplateFnReturnType;
-  datePickerShowByScriptingTemplate: (datePicker: TemplateFnReturnType, id: string) => TemplateFnReturnType;
 }
 
 export interface DatePickerParameters<TemplateFnReturnType> {
@@ -84,18 +83,6 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
           args.id || uuidv4(),
           "Selecteer datum"
         )
-      ),
-      {
-        args: {
-          id: uuidv4(),
-        },
-      }
-    );
-
-    stories.add(
-      "show by scripting",
-      templateMapper<DatePickerArgs>((args, { datePickerTemplate, datePickerShowByScriptingTemplate }) =>
-        datePickerShowByScriptingTemplate(datePickerTemplate(datePickerArgsMapper(args)), args.id || uuidv4())
       ),
       {
         args: {

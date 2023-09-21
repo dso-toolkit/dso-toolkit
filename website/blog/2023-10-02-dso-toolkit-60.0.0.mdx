@@ -1,10 +1,8 @@
 ---
-authors: [anneke, tfrijsewijk]
+authors: [tfrijsewijk]
 ---
 
 # DSO Toolkit v60.0.0
-
-In deze breaking release zijn de API's van Banner, Tooltip en Ozon Content aangepast.
 
 ## Viewer Grid
 
@@ -20,12 +18,12 @@ Hierdoor is de property `initialMainSize` komen te vervallen.
 
 ### Interfaces
 
-| Oud                                    | Nieuw                                 | Opmerkingen                                                                                                        |
-| -------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| MainSize                               | ViewerGridMainSize                    |                                                                                                                    |
-| ViewerGridChangeSizeEvent.stage        | ViewerGridChangeSizeAnimationEndEvent | Deze property is verplaatst naar een eigen event `DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
-| ViewerGridChangeSizeEvent.previousSize | ViewerGridChangeSizeEvent.currentSize |                                                                                                                    |
-| ViewerGridChangeSizeEvent.currentSize  | ViewerGridChangeSizeEvent.nextSize    |                                                                                                                    |
+| Oud                                      | Nieuw                                   | Opmerkingen                                                                                                        |
+| ---------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `MainSize`                               | `ViewerGridMainSize`                    |                                                                                                                    |
+| `ViewerGridChangeSizeEvent.stage`        | `ViewerGridChangeSizeAnimationEndEvent` | Deze property is verplaatst naar een eigen event `DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
+| `ViewerGridChangeSizeEvent.previousSize` | `ViewerGridChangeSizeEvent.currentSize` |                                                                                                                    |
+| `ViewerGridChangeSizeEvent.currentSize`  | `ViewerGridChangeSizeEvent.nextSize`    |                                                                                                                    |
 
 ### API
 
@@ -47,3 +45,30 @@ Bovenstaande opmerkingen komen enigszins in onderstaande markup voorschriften sa
   (dsoMainSizeChangeAnimationEnd)="resizeMap()"
 ></dso-viewer-grid>
 ```
+
+## Date Picker
+
+In [#2226](https://github.com/dso-toolkit/dso-toolkit/issues/2226) is de maatwerk Date Picker vervangen door een browser natve `<input type="date">` implementatie. Dit betekent iets minder invloed maar veel betere toegankelijkheid.
+
+### Properties
+
+De volgende properties zijn komen te vervallen:
+
+| Property     | Migratie                                                      |
+| ------------ | ------------------------------------------------------------- |
+| `direction`  | Geen: Is met browser native control niet meer van toepassing. |
+| `role`       | Geen: Is met browser native control niet meer van toepassing. |
+| `show()`     | Geen: Is met browser native control niet meer van toepassing. |
+| `hide()`     | Geen: Is met browser native control niet meer van toepassing. |
+| `setFocus()` | `<dso-date-picker dso-autofocus>`                             |
+
+### Interfaces hernoemd
+
+De interfaces van de Date Picker waren onterecht geprefixed met `Dso`.
+
+| Oud                          | Nieuw                     |
+| ---------------------------- | ------------------------- |
+| `DsoDatePickerChangeEvent`   | `DatePickerChangeEvent`   |
+| `DsoDatePickerFocusEvent`    | `DatePickerFocusEvent`    |
+| `DsoDatePickerKeyboardEvent` | `DatePickerKeyboardEvent` |
+| `DsoDatePickerDirection`     | ❌ Verwijderd             |

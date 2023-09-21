@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Accordion: tooltip wordt afgesneden binnen accordion secties ([#2362](https://github.com/dso-toolkit/dso-toolkit/issues/2362))
 
+### Changed
+* **BREAKING** Date Picker: vervangen door `<input type="date">` ([#2226](https://github.com/dso-toolkit/dso-toolkit/issues/2226))
+
 ### Docs
 * Docusaurus: toon versie in navigatie ([#2353](https://github.com/dso-toolkit/dso-toolkit/issues/2353))
 
