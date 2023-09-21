@@ -1,5 +1,10 @@
 tfrijsewijk:
   name: Thomas Rijsewijk
-  title: DSO Toolkit Architect
+  title: DSO Toolkit Product Owner & Architect
   url: https://github.com/tfrijsewijk
   image_url: https://github.com/tfrijsewijk.png
+anneke:
+  name: Anneke Sinnema
+  title: DSO Toolkit Maintainer
+  url: https://github.com/anneke
+  image_url: https://github.com/anneke.png

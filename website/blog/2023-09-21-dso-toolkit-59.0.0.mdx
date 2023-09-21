@@ -1,0 +1,19 @@
+---
+authors: [anneke]
+---
+
+# DSO Toolkit v59.0.0
+
+## Banner
+
+In deze breaking release hebben we de legacy CSS selector voor Banner verwijderd. Deze is sinds v22.0.0 deprecated.
+
+Het migratiepad is gebruik maken van de namespaced CSS selector: `dso-banner`.
+
+```html
+❌
+<div class="banner"></div>
+
+✅
+<div class="dso-banner"></div>
+```

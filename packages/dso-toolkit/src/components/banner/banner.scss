@@ -7,12 +7,7 @@
 @use "banner.mixins" as banner-mixins;
 @use "banner.variables" as banner-variables;
 
-.banner {
-  background-color: colors.$invalid-color !important;
-}
-
 // HTML/CSS
-.banner,
 .dso-banner:not(.row) {
   @include banner-mixins.root();
   @include banner-mixins.children();
