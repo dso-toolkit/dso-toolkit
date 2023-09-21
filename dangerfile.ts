@@ -49,7 +49,7 @@ import { danger, fail } from "danger";
       );
     }
 
-    for (let i = 0; i++; i < remainingCommits.length) {
+    for (let i = 0; i < remainingCommits.length, i++; ) {
       const commitMessage = remainingCommits[i];
       const commitMessageLine = commitMessage.message.split("\n")[0];
       if (!commitMessageLine.startsWith(`#${firstCommitMessage.issueId}`)) {
