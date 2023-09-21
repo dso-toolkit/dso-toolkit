@@ -1,0 +1,22 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/tabs";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+.nav {
+  @include tabs.nav();
+}
+
+.nav.nav-tabs {
+  @include tabs.nav-tabs();
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: units.$u2;
+}

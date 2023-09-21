@@ -1,4 +1,4 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import { TabsArgs, tabsArgsMapper, tabsArgTypes } from "./tabs.args.js";
 import { Tabs } from "./tabs.models.js";
@@ -25,7 +25,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
     );
 
     stories.add("default", template, {
-      args: componentArgs<TabsArgs<TemplateFnReturnType>>({
+      args: {
         items: [
           {
             label: "Zoek op adres",
@@ -49,11 +49,11 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
             content: "Inhoud Coordinaten",
           },
         ],
-      }),
+      },
     });
 
     stories.add("inactief", template, {
-      args: componentArgs<TabsArgs<TemplateFnReturnType>>({
+      args: {
         items: [
           {
             label: "Zoek op adres",
@@ -78,7 +78,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
             content: "Inhoud Coordinaten",
           },
         ],
-      }),
+      },
     });
 
     return stories;

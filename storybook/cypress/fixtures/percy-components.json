@@ -171,5 +171,7 @@
   "core-progress-indicator--small",
   "core-progress-indicator--medium",
   "core-progress-indicator--large",
-  "core-responsive-element--responsive-element"
+  "core-responsive-element--responsive-element",
+  "core-tabs--default",
+  "core-tabs--inactief"
 ]
