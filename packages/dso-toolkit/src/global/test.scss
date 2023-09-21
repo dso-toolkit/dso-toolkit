@@ -1,0 +1,6 @@
+@use "../global/mixins/setcolors.mixin.scss" as color-mixin;
+
+.box {
+  @include color-mixin.setColors;
+}
+

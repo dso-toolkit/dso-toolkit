@@ -1,0 +1,45 @@
+@use "../../variables/colors.scss";
+
+@mixin setColors($bgcolor: null) {
+  $c-bg-color: null;
+
+  --c-txt-color: #{colors.$grijs-90};
+  --c-link-color: #{colors.$grasgroen};
+
+  @if $bgcolor == "grey" {
+    $c-bg-color: colors.$grijs-5;
+    --c-bg-color: #{$c-bg-color};
+  }
+  @if $bgcolor == "blue" {
+    $c-bg-color: colors.$lichtblauw-20;
+    --c-bg-color: #{$c-bg-color};
+  }
+  @if $bgcolor == "green" {
+    $c-bg-color: colors.$lime-20;
+    --c-bg-color: #{$c-bg-color};
+  }
+  @if $bgcolor == "yellow" {
+    $c-bg-color: colors.$geel-20;
+    --c-bg-color: #{$c-bg-color};
+  }
+  @if $bgcolor == "red" {
+    $c-bg-color: colors.$rood-20;
+    --c-bg-color: #{$c-bg-color};
+  }
+  @if $bgcolor == "white" or $bgcolor == null {
+    $c-bg-color: colors.$wit;
+    --c-bg-color: #{$c-bg-color};
+  }
+
+  @if lightness($c-bg-color) < 100% {
+    --c-link-color: currentColor;
+  }
+
+  background-color: var(--c-bg-color);
+  color: var(--c-txt-color);
+
+  a {
+    color: var(--c-link-color);
+  }
+}
+
