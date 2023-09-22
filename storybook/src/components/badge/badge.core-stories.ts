@@ -5,7 +5,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   component: "dso-badge",
-  title: "React/Badge",
+  title: "Core/Badge",
   argTypes: badgeArgTypes,
 };
 

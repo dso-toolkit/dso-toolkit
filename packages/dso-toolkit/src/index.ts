@@ -61,8 +61,7 @@ export {
 export { Autosuggest, AutosuggestSuggestion } from "./components/autosuggest/autosuggest.models.js";
 export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosuggest/autosuggest.stories-of.js";
 
-export { Badge } from "./components/badge/badge.models.js";
-export { BadgeTemplates, storiesOfBadge } from "./components/badge/badge.stories-of.js";
+export * from "./components/badge";
 
 export { Banner } from "./components/banner/banner.models.js";
 export { BannerTemplates, storiesOfBanner } from "./components/banner/banner.stories-of.js";

@@ -1,89 +1,115 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { WebComponentsRenderer } from "@storybook/web-components";
 
-import { BadgeArgs, badgeArgsMapper, badgeArgTypes } from "./badge.args.js";
+import { BadgeArgs, badgeArgsMapper } from "./badge.args.js";
 import { Badge } from "./badge.models.js";
 
-export interface BadgeTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+type BadgeStory = StoryObj<BadgeArgs, WebComponentsRenderer>;
+
+interface BadgeStories {
+  Plain: BadgeStory;
+  Primary: BadgeStory;
+  Success: BadgeStory;
+  Info: BadgeStory;
+  Warning: BadgeStory;
+  Danger: BadgeStory;
+  Error: BadgeStory;
+  Outline: BadgeStory;
+  Attention: BadgeStory;
+}
+
+interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, BadgeTemplates<TemplateFnReturnType>> {}
+
+interface BadgeTemplates<TemplateFnReturnType> {
   badgeTemplate: (badgeProperties: Badge) => TemplateFnReturnType;
 }
 
-export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    BadgeTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Badge", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: badgeArgTypes,
-    });
-
-    const template = templateMapper<BadgeArgs>((args, { badgeTemplate }) => badgeTemplate(badgeArgsMapper(args)));
-
-    stories.add("plain", template, {
+export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType>): BadgeStories {
+  return {
+    Plain: {
       args: {
         message: "Plain",
       },
-    });
-
-    stories.add("primary", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Primary: {
       args: {
         status: "primary",
         message: "Primary",
       },
-    });
-
-    stories.add("success", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Success: {
       args: {
         status: "success",
         message: "Success",
       },
-    });
-
-    stories.add("info", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Info: {
       args: {
         status: "info",
         message: "Info",
       },
-    });
-
-    stories.add("warning", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Warning: {
       args: {
         status: "warning",
         message: "Warning",
       },
-    });
-
-    stories.add("danger", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Danger: {
       args: {
         status: "danger",
         message: "Danger",
       },
-    });
-
-    stories.add("error", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Error: {
       args: {
         status: "error",
         message: "Error",
       },
-    });
-
-    stories.add("outline", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Outline: {
       args: {
         status: "outline",
         message: "Outline",
       },
-    });
-
-    stories.add("attention", template, {
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+    Attention: {
       args: {
         status: "attention",
         message: "Attention",
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
+        badgeTemplate(badgeArgsMapper(args))
+      ),
+    },
+  };
 }
