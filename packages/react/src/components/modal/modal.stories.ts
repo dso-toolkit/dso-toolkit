@@ -7,7 +7,7 @@ import {
   activeFooter,
   confirmBody,
   confirmFooter,
-  datePickerBody,
+  fullscreenBody,
   loadingBody,
   passiveBody,
   passiveFooter,
@@ -31,7 +31,7 @@ storiesOfModal(
       confirmBody,
       confirmFooter,
       loadingBody: loadingBody(templates),
-      datePickerBody: datePickerBody(templates),
+      fullscreenBody,
     }),
   },
   {}

@@ -13,7 +13,7 @@ import {
   passiveBody,
   passiveFooter,
   loadingBody,
-  datePickerBody,
+  fullscreenBody,
 } from "./modal.content";
 
 storiesOfModal(
@@ -27,14 +27,14 @@ storiesOfModal(
     templateContainer,
     storyTemplates: ({ modalTemplate }, templates) => ({
       modalTemplate,
-      activeBody: activeBody(),
+      activeBody,
       activeFooter: activeFooter(templates),
       passiveBody: passiveBody(templates),
       passiveFooter: passiveFooter(templates),
       confirmBody: confirmBody(templates),
       confirmFooter: confirmFooter(templates),
       loadingBody: loadingBody(templates),
-      datePickerBody: datePickerBody(templates),
+      fullscreenBody,
     }),
   },
   {
@@ -53,14 +53,14 @@ storiesOfModal(
     templateContainer,
     storyTemplates: ({ modalTemplate }, templates) => ({
       modalTemplate,
-      activeBody: activeBody(),
+      activeBody,
       activeFooter: activeFooter(templates),
       passiveBody: passiveBody(templates),
       passiveFooter: passiveFooter(templates),
       confirmBody: confirmBody(templates),
       confirmFooter: confirmFooter(templates),
       loadingBody: loadingBody(templates),
-      datePickerBody: datePickerBody(templates),
+      fullscreenBody,
     }),
   },
   {}

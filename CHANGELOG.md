@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Modal: Bij weinig content krimpt de Modal ([#2340](https://github.com/dso-toolkit/dso-toolkit/issues/2340))
+
 ## 58.3.1
 * Angular: Componenten worden niet meer bij customElements geregistreerd, poging 2 ([#2328](https://github.com/dso-toolkit/dso-toolkit/issues/2328))
 

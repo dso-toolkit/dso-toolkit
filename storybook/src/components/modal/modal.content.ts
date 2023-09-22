@@ -1,12 +1,10 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export function activeBody() {
-  return html`<p>
-    U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op de
-    vragen worden dan ook verwijderd. Wilt u doorgaan?
-  </p>`;
-}
+export const activeBody = html`<p>
+  U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op de
+  vragen worden dan ook verwijderd. Wilt u doorgaan?
+</p>`;
 
 export function activeFooter({ buttonTemplate }: Templates) {
   return html`
@@ -79,44 +77,147 @@ export function loadingBody({ progressIndicatorTemplate }: Templates) {
   });
 }
 
-export function datePickerBody({ datePickerTemplate }: Templates) {
-  return html`
-    ${datePickerTemplate({ id: "modal-id", disabled: false })}
+export const fullscreenBody = html`
+  <h1>Introductie</h1>
+  <blockquote><p>De DSO Toolkit: wat is het, voor wie is het en hoe werkt het?</p></blockquote>
+  <p>
+    De DSO Toolkit is een set van ontwerpprincipes, componenten, en templates waarmee een consistente gebruikerservaring
+    gemaakt kan worden. Het helpt tijd en middelen te besparen bij het starten of het verder ontwikkelen van een
+    platform voor het Omgevingsloket.
+  </p>
+  <h2 class="anchor anchorWithStickyNavbar_JmGV" id="waar-kan-de-dso-toolkit-mij-bij-helpen">
+    Waar kan de DSO Toolkit mij bij helpen?<a
+      href="#waar-kan-de-dso-toolkit-mij-bij-helpen"
+      class="hash-link"
+      aria-label="Direct link naar Waar kan de DSO Toolkit mij bij helpen?"
+      title="Direct link naar Waar kan de DSO Toolkit mij bij helpen?"
+      >&ZeroWidthSpace;</a
+    >
+  </h2>
+  <p>Per teamrol is beschreven welke secties, tools, en ondersteunende middelen interessant zijn.</p>
+  <ul class="">
+    <li><a href="/58.3.1/voor-developers">Developers</a></li>
+    <li><a href="/58.3.1/voor-designers">Ontwerpers</a></li>
+    <li><a href="/58.3.1/voor-productowners">Product owners</a></li>
+  </ul>
+  <h3 class="anchor anchorWithStickyNavbar_JmGV" id="slack">
+    Slack<a href="#slack" class="hash-link" aria-label="Direct link naar Slack" title="Direct link naar Slack"
+      >&ZeroWidthSpace;</a
+    >
+  </h3>
+  <p>Voor de communicatie binnen de toolkit is een Slack omgeving beschikbaar:</p>
+  <ul class="">
+    <li>
+      <a href="https://dso-toolkit.slack.com/" target="_blank" rel="noopener noreferrer"
+        >direct naar DSO-toolkit Slack</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA"
+        target="_blank"
+        rel="noopener noreferrer"
+        >join DSO-toolkit Slack</a
+      >
+    </li>
+  </ul>
+  <h2
+    class="anchor anchorWithStickyNavbar_JmGV"
+    id="een-platform-proces-of-dienst-is-nooit-af-daarom-iteratief-ontwerpen"
+  >
+    Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen.<a
+      href="#een-platform-proces-of-dienst-is-nooit-af-daarom-iteratief-ontwerpen"
+      class="hash-link"
+      aria-label="Direct link naar Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen."
+      title="Direct link naar Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen."
+      >&ZeroWidthSpace;</a
+    >
+  </h2>
+  <p>
+    Iteratief ontwerpen is een continu verbeteringsproces van een website, product of dienst. Dit wordt georganiseerd
+    door verschillende cycli van tests en gebruikersevaluaties te organiseren, om verbeteringen te vinden, te verwerken
+    en vervolgens weer te testen.
+  </p>
+  <p>
+    De beste manier om deze tests uit te voeren is in zo realistisch mogelijke condities. Wees daarom voorbereid op het
+    moment van live gaan met een testplan om meteen inzichten te verzamelen, zodat de cycli van verbeteren en testen
+    meteen kan beginnen.
+  </p>
+  <p>
+    Het platform waar je aan werkt zal daarom nooit compleet af zal zijn. Developers, ontwerpers en stakeholders zijn
+    altijd op zoek naar manieren om de gebruikerservaring te verbeteren. Zijn er in de toekomst verbeteringen die zo
+    onmisbaar zijn dat ze opgenomen moeten worden in de toolkit, kijk dan naar de procespagina over hoe je kan bijdragen
+    aan de toolkit.
+  </p>
+  <p>Links naar relevante pagina's:</p>
+  <ul class="">
+    <li>Gebruikerstesten organiseren en resultaten verwerken (onder ontwikkeling)</li>
+    <li>Data analyse voor het verbeteren van je platform (onder ontwikkeling)</li>
+  </ul>
+  <h2 class="anchor anchorWithStickyNavbar_JmGV" id="digitale-toegankelijkheid">
+    Digitale toegankelijkheid<a
+      href="#digitale-toegankelijkheid"
+      class="hash-link"
+      aria-label="Direct link naar Digitale toegankelijkheid"
+      title="Direct link naar Digitale toegankelijkheid"
+      >&ZeroWidthSpace;</a
+    >
+  </h2>
+  <p>
+    Per 1 juli 2018 is het
+    <em
+      ><a href="https://www.digitoegankelijk.nl/wetgeving/wat-verplicht" target="_blank" rel="noopener noreferrer"
+        >Tijdelijk besluit digitale toegankelijkheid</a
+      ></em
+    >
+    van toepassing. Dit betekent dat elke overheidswebsite aan de digitale toegankelijkheidseisen moet voldoen. De
+    website van
+    <a href="https://www.digitoegankelijk.nl" target="_blank" rel="noopener noreferrer">digitoegankelijk.nl</a> legt uit
+    waarom dit zo belangrijk is:
+  </p>
+  <blockquote>
     <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-      pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
-      vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-      mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-      feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-      ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-      tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-      blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien
-      ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
-      fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue
-      velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam,
-      scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit
-      fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis
-      mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet
-      iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.
-      Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium
-      libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy
-      id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque
-      facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit
-      quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada.
-      Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan
-      cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam,
-      nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer
-      vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit
-      amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc
-      augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a,
-      suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat
-      nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-      posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis
-      diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-      egestas.
+      Ieder mens heeft het recht om te leven als ieder ander en mee te doen in de maatschappij. Gebruikmaken van de
+      mogelijkheden die het internet, computers en smartphones ons bieden hoort daar natuurlijk bij. Juist daarom is het
+      belangrijk dat digitale dienstverlening toegankelijk is voor iedereen.
     </p>
-    ${datePickerTemplate({ id: "modal-id-2", disabled: false })}
-  `;
-}
+    <p>
+      -- Bron:
+      <em
+        ><a
+          href="https://www.digitoegankelijk.nl/aanpak/wat-is-digitale-toegankelijkheid"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Wat is digitale toegankelijkheid?</a
+        ></em
+      >
+    </p>
+  </blockquote>
+  <p>
+    De eisen van digitale toegankelijkheid zijn de
+    <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer"
+      >Web Content Accessibility Guidelines (WCAG) versie 2.1</a
+    >. Digitale toegankelijkheid omvat veel verschillende onderwerpen: Kleur, typografie, lay-out en code. De beste
+    manier om de digitale toegankelijkheid te borgen binnen een team is door de verantwoordelijkheid te delen en samen
+    een toegankelijk platform neer te zetten.
+  </p>
+  <p>
+    In de toolkit is er documentatie (bij enkele componenten nog in ontwikkeling) waar uitleg en hulp wordt gegeven per
+    component om te helpen bij het voldoen aan de eisen en richtlijnen van de digitale toegankelijkheid.
+  </p>
+  <h2 class="anchor anchorWithStickyNavbar_JmGV" id="disclaimer">
+    Disclaimer<a
+      href="#disclaimer"
+      class="hash-link"
+      aria-label="Direct link naar Disclaimer"
+      title="Direct link naar Disclaimer"
+      >&ZeroWidthSpace;</a
+    >
+  </h2>
+  <p>
+    De DSO Toolkit is bedoeld voor gebruik binnen het programma Aan de slag met de Omgevingswet. Het is daarom niet
+    toegestaan dat derden - zonder voorafgaande schriftelijke toestemming van het programma Aan de slag met de
+    Omgevingswet - de informatie en/of de huisstijl kopiëren, vermenigvuldigen, bewerken of doorleveren anders dan voor
+    persoonlijk, niet-commercieel gebruik.
+  </p>
+`;

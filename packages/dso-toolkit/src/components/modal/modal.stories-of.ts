@@ -13,7 +13,7 @@ export interface ModalTemplates<TemplateFnReturnType> {
   confirmBody: TemplateFnReturnType;
   confirmFooter: TemplateFnReturnType;
   loadingBody: TemplateFnReturnType;
-  datePickerBody: TemplateFnReturnType;
+  fullscreenBody: TemplateFnReturnType;
 }
 
 export interface ModalParameters<TemplateFnReturnType> {
@@ -93,21 +93,8 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
     );
 
     stories.add(
-      "with datepicker",
-      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
-        modalTemplate(modalArgsMapper(args, datePickerBody))
-      ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
-          role: "dialog",
-          modalTitle: "Zet een datum",
-        }),
-      }
-    );
-
-    stories.add(
       "fullscreen",
-      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
+      templateMapper<ModalArgs>((args, { modalTemplate, fullscreenBody: datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody))
       ),
       {
