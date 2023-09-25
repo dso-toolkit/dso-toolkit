@@ -1,29 +1,25 @@
-import { storiesOfBadge, StoryRoot } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
-
-import cssReadme from "dso-toolkit/src/components/badge/readme.md?raw";
-import coreReadme from "@dso-toolkit/core/src/components/badge/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
+import { badgeArgTypes, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-storiesOfBadge({
-  parameters: {
-    storiesOf,
-    module,
-    readme: cssReadme,
-    root: StoryRoot.HtmlCss,
-  },
+const meta: Meta = {
+  component: "dso-badge",
+  title: "Core/Badge",
+  argTypes: badgeArgTypes,
+};
+
+export default meta;
+
+const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention } = badgeStories({
   templateContainer,
-  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),
+  storyTemplates: (templates) => {
+    const { badgeTemplate } = templates;
+
+    return {
+      badgeTemplate,
+    };
+  },
 });
 
-storiesOfBadge({
-  parameters: {
-    module,
-    storiesOf,
-    readme: coreReadme,
-    root: StoryRoot.Core,
-  },
-  templateContainer,
-  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),
-});
+export { Primary, Success, Info, Warning, Error, Danger, Outline, Attention };
