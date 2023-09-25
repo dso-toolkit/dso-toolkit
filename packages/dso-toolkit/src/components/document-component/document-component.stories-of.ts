@@ -55,7 +55,7 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
       ),
       {
         args: {
-          jsonFile: "ozon-response.json",
+          jsonFile: "ozon-response-bal.json",
           openDefault: true,
           showCanvas: false,
         },
