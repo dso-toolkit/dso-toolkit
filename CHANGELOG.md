@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 59.0.1 - 26-09-2023
+
 ### Fixed
 * Accordion: Reverse align werkt niet in compact ([#2343](https://github.com/dso-toolkit/dso-toolkit/issues/2343))
 * Header: bij kleine viewport vallen de menu-items onder het 'meer' knopje buitenbeeld ([#2342](https://github.com/dso-toolkit/dso-toolkit/issues/2342))
