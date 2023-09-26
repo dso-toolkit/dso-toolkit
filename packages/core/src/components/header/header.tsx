@@ -373,7 +373,7 @@ export class Header {
                         .map(this.MenuItem)}
                     {this.overflowMenuItems > 0 && (
                       <li>
-                        <dso-dropdown-menu dropdown-align="left">
+                        <dso-dropdown-menu placement="bottom">
                           <button type="button" slot="toggle">
                             <span>Meer</span>
                           </button>

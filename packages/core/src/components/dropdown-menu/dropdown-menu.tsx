@@ -1,4 +1,4 @@
-import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import { createPopper, Placement, Instance as PopperInstance } from "@popperjs/core";
 import { h, Component, Element, Host, Prop, Watch } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
@@ -43,11 +43,20 @@ export class DropdownMenu {
   boundary?: string;
 
   /**
+   * Force placement of dropdown.
+   *
+   * This property overrides `dropdownAlign`.
+   */
+  @Prop()
+  placement?: Placement;
+
+  /**
    * Set position strategy of dropdown options
    */
   @Prop()
   strategy: "auto" | "absolute" | "fixed" = "auto";
 
+  @Watch("placement")
   @Watch("dropdownAlign")
   watchPosition() {
     if (!this.popper) {
@@ -55,7 +64,7 @@ export class DropdownMenu {
     }
 
     this.popper.setOptions({
-      placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
     });
   }
 
@@ -167,7 +176,7 @@ export class DropdownMenu {
     }
 
     this.popper = createPopper(this.button, dropdownOptionsElement, {
-      placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
       modifiers: [
         {
           name: "offset",

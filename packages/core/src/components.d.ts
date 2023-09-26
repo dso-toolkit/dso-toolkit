@@ -14,6 +14,7 @@ import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfac
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -39,6 +40,7 @@ export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfac
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -392,6 +394,10 @@ export namespace Components {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
+        /**
+          * Force placement of dropdown.  This property overrides `dropdownAlign`.
+         */
+        "placement"?: Placement;
         /**
           * Set position strategy of dropdown options
          */
@@ -1672,6 +1678,10 @@ declare namespace LocalJSX {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
+        /**
+          * Force placement of dropdown.  This property overrides `dropdownAlign`.
+         */
+        "placement"?: Placement;
         /**
           * Set position strategy of dropdown options
          */
