@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Accordion: Reverse align werkt niet in compact ([#2343](https://github.com/dso-toolkit/dso-toolkit/issues/2343))
+
 ## 59.0.0 - 24-09-2023
 
 ### Added

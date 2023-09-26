@@ -5,52 +5,6 @@
 @use "../../di";
 
 @mixin compact() {
-  &.dso-accordion-reverse-align {
-    .dso-section-handle {
-      a,
-      button {
-        padding-left: units.$u2;
-
-        &::before {
-          @include di.base("chevron-down-grasgroen");
-
-          left: auto;
-        }
-      }
-    }
-
-    > .dso-accordion-section > .dso-section-body {
-      padding-left: units.$u2;
-      padding-right: 0;
-    }
-
-    .dso-accordion-section {
-      &.dso-open {
-        &:not(.dso-nested-accordion) {
-          > .dso-section-handle {
-            a,
-            button {
-              &::before {
-                @include di.base("chevron-up-grasgroen");
-              }
-            }
-          }
-        }
-
-        &.dso-nested-accordion {
-          > .dso-section-handle {
-            a,
-            button {
-              &::before {
-                @include di.variant("chevron-down-grasgroen");
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   > .dso-accordion-section {
     > .dso-section-handle {
       border-bottom: 1px solid transparent;
@@ -143,6 +97,52 @@
 
           .dso-accordion-section:last-child {
             border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        padding-left: units.$u2;
+
+        &::before {
+          @include di.base("chevron-down-grasgroen");
+
+          left: auto;
+        }
+      }
+    }
+
+    > .dso-accordion-section > .dso-section-body {
+      padding-left: units.$u2;
+      padding-right: 0;
+    }
+
+    .dso-accordion-section {
+      &.dso-open {
+        &:not(.dso-nested-accordion) {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.base("chevron-up-grasgroen");
+              }
+            }
+          }
+        }
+
+        &.dso-nested-accordion {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.variant("chevron-down-grasgroen");
+              }
+            }
           }
         }
       }
