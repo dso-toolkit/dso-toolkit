@@ -1,11 +1,39 @@
 @use "../global/mixins/setcolors.mixin.scss" as color-mixin;
 
+/* start of test TEMP */
+
 .box-test-1 {
-  // zonder argument, default = witte achtergrond
+  /* zonder argument, default = witte achtergrond */
   @include color-mixin.setColors;
 }
 
 .box-test-2 {
-  // blauwe achtergrond
+  /* blauwe achtergrond */
   @include color-mixin.setColors("blue");
 }
+
+.box-test-3 {
+  /* gele achtergrond */
+  @include color-mixin.setColors("yellow");
+}
+
+.box-test-4 {
+  /* grijze achtergrond */
+  @include color-mixin.setColors("grey");
+}
+
+.box-test-5 {
+  /* blauwe achtergrond */
+  @include color-mixin.setColors("green");
+}
+
+.box-test-6 {
+  /* rode achtergrond */
+  @include color-mixin.setColors("red");
+}
+
+.box-test-7 {
+  /* witte achtergrond (expliciet) */
+  @include color-mixin.setColors("white");
+}
+/* end of test TEMP */
