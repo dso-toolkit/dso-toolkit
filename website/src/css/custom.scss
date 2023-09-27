@@ -39,3 +39,39 @@
 hr.dropdown-separator {
   margin: 0.3rem 0;
 }
+
+.navbar-sidebar {
+  .navbar__item {
+    display: block;
+  }
+
+  .dropdown--right .navbar__link {
+    font-weight: normal;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .dropdown .dropdown__menu {
+    right: inherit;
+    max-height: inherit;
+    box-shadow: none;
+    position: relative;
+    top: 0;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    padding: 1rem;
+    padding-block-start: 0;
+  }
+
+  .dropdown__menu .dropdown__link {
+    white-space: pre-wrap;
+  }
+
+  .dropdown__menu li:last-of-type .dropdown__link {
+    background: transparent;
+    color: inherit;
+  }
+}
