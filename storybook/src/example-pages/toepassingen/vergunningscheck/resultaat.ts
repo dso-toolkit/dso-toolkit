@@ -1,143 +1,225 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { accordionSections1, accordionSections2 } from "./resultaat.content";
+import { headerPartial } from "../../partials/header";
+import { footerPartial } from "../../partials/footer";
+import { header } from "../../partials/header.content";
+import { AlertType } from "dso-toolkit";
 
 examplePageFactory(
   "Toepassingen/Vergunningscheck",
   "Resultaat",
-  ({ applicationHeadingTemplate, accordionTemplate, infoTemplate, formButtonsTemplate, richContentTemplate }) => html`
+  (
+    {
+      applicationHeadingTemplate,
+      formButtonsTemplate,
+      richContentTemplate,
+      actionListTemplate,
+      alertTemplate,
+      helpcenterPanelTemplate,
+    },
+    templates
+  ) => html`
     <div class="container">
+      ${headerPartial(templates, header)}
       <main>
         <form>
           ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}
+
+          <h2>Wat gaat u doen?</h2>
+
           ${richContentTemplate({
             children: html`
-              <p>
-                Hieronder staan de werkzaamheden die u heeft gekozen. Per werkzaamheid leest u voor welke juridische
-                activiteiten u iets moet doen.
-              </p>
-              <p>Als u direct een aanvraag start, worden alle activiteiten opgeslagen in Mijn Omgevingsloket.</p>
+              <p>U heeft een vergunningscheck gedaan voor de volgende werkzaamheden:</p>
+              <ul>
+                <li>Bedrijf dat afvalwater zuivert</li>
+                <li>Antenne plaatsen, verplaatsen of vervangen</li>
+              </ul>
+              <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
             `,
           })}
-
-          <h3>Werkzaamheid verschillende acties</h3>
-          ${accordionTemplate({ variant: "conclusion", reverseAlign: true, sections: accordionSections1 })}
-
-          <h3>Werkzaamheid verboden</h3>
-          ${accordionTemplate({ variant: "conclusion", reverseAlign: true, sections: accordionSections2 })}
-
-          <h3>Werkzaamheid niet van toepassing</h3>
-          ${richContentTemplate({
-            children: html`
-              <p>
-                Het systeem heeft geen regels kunnen vinden voor uw situatie. Kijk of u de juiste werkzaamheid heeft
-                ingevuld en of u de vragen correct heeft beantwoord. Zo ja, neem dan contact op met uw gemeente en
-                waterschap.
-              </p>
-            `,
-          })}
-
-          <h3>Werkzaamheid - content</h3>
-          ${accordionTemplate({
-            variant: "conclusion",
-            reverseAlign: true,
-            sections: [
+          ${actionListTemplate({
+            title: "Actielijst Omgevingsloket",
+            actionListItems: [
               {
-                handleTitle: "H4 actie nodig van de gebruiker voor 5 activiteiten.",
-                heading: "h4",
-                icon: "forbidden",
-                open: true,
+                flowLine: true,
+                content: html`<button class="dso-secondary">
+                  <dso-icon icon="download"></dso-icon>
+                  Download de actielijst als PDF
+                </button>`,
+              },
+              {
+                title: "Neem contact op met het waterschap en de gemeente",
+                flowLine: true,
                 content: html`
-                  <ul>
-                    <li>Activiteit 1</li>
-                    <li>
-                      Activiteit 2
-                      ${infoTemplate({
-                        fixed: true,
-                        content: html`<strong>Let op:</strong> <i>voorbehoud A bij activiteit 2.</i>`,
-                      })}
-                      ${infoTemplate({
-                        fixed: true,
-                        content: html`<strong>Let op:</strong> <i>voorbehoud B bij activiteit 2.</i>`,
-                      })}
-                      ${infoTemplate({
-                        fixed: true,
-                        content: html`Toelichting bij activiteit 2.`,
-                      })}
-                    </li>
-                    <li>
-                      Activiteit 3
-                      <ul>
-                        <li>
-                          Activiteit 3.1
-                          ${infoTemplate({
-                            fixed: true,
-                            content: html`<strong>Let op:</strong> <i>voorbehoud bij activiteit 3.1.</i>`,
-                          })}
-                          ${infoTemplate({
-                            fixed: true,
-                            content: html`Toelichting bij activiteit 3.1.`,
-                          })}
-                        </li>
-                        <li>
-                          Activiteit 3.2
-                          ${infoTemplate({
-                            fixed: true,
-                            content: html`<strong>Let op:</strong> <i>voorbehoud bij activiteit 3.2.</i>`,
-                          })}
-                          ${infoTemplate({
-                            fixed: true,
-                            content: html`Toelichting bij activiteit 3.2.`,
-                          })}
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <p class="text-muted">
-                    Voor deze vragen missen we vragen van de Rijksoverheid. Dit betekent dat u misschien toch een
-                    vergunning of melding nodig heeft. De gemeente kan u vertellen van wat u moet indienen. Neem voor de
-                    volgende activiteiten contact op:
-                  </p>
-                  <ul>
-                    <li>
-                      Activiteit 4
-                      <ul>
-                        <li>Activiteit 4.1</li>
-                      </ul>
-                    </li>
-                    <li>Activiteit 5</li>
-                  </ul>
+                  <div class="dso-rich-content">
+                    <dso-accordion variant="neutral">
+                      <dso-accordion-section
+                        handle-title='Waterschap: Wat u moet regelen voor "Wegen en bijbehorende constructies plaatsen of verwijderen waterkering"'
+                        heading="h4"
+                      >
+                        <div class="dso-rich-content">
+                          <h5>Algemene toelichting</h5>
+                          <p>
+                            Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u
+                            moet regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
+                            melding doen of informatie geven.
+                          </p>
+                          <h5>Voorbereiding</h5>
+                          <p>
+                            Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding
+                            aanbrengen of vervangen".
+                          </p>
+                          <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
+                          <span><dso-icon icon="call"></dso-icon> Telefoon: 0900 9394</span>
+                          <span
+                            ><dso-icon icon="air"></dso-icon>
+                            <a href="#">www.agv.nl <dso-icon icon="external-link"></dso-icon></a
+                          ></span>
+                          <span
+                            ><dso-icon icon="buildings"></dso-icon> Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC
+                            Amsterdam</span
+                          >
+                        </div>
+                      </dso-accordion-section>
+
+                      <dso-accordion-section
+                        handle-title='Waterschap: Wat u moet regelen voor "Verharding aanbrengen of verwijderen bij oppervlaktewater"'
+                        heading="h4"
+                      ></dso-accordion-section>
+
+                      <dso-accordion-section
+                        handle-title='Gemeente: Wat u moet regelen voor "Verhard oppervlak en stedelijke uitbreiding"'
+                        heading="h4"
+                      ></dso-accordion-section>
+                    </dso-accordion>
+                  </div>
                 `,
               },
-            ],
-          })}
-          ${formButtonsTemplate({
-            asideButtons: [
               {
-                label: "Download resultaat als pdf",
-                type: "button",
-                variant: "secondary",
-                icon: { icon: "download" },
+                title: "Vergunning aanvragen",
+                flowLine: true,
+                content: html`
+                  <div class="dso-rich-content">
+                    <dso-accordion variant="neutral">
+                      <dso-accordion-section
+                        open="true"
+                        handle-title='Vraag een vergunning aan voor "Afvalwater, afkomstig van een zuiveringsvoorziening voor ingezameld of afgegeven afvalwater, lozen op een oppervlaktelichaam"'
+                        heading="h4"
+                        ><div class="dso-rich-content">
+                          <h5>Algemene informatie</h5>
+                          <p>
+                            U heeft de vergunning nodig voordat u mag beginnen met hieronder genoemde werkzaamheden.
+                            Houd rekening met een doorlooptijd voor de behandeling van uw aanvraag.
+                          </p>
+                          <h5>Toelichting</h5>
+                          <p>
+                            U moet zich naast de regels uit de vergunning ook houden aan de algemene regels voor deze
+                            activiteit. In
+                            <span>
+                              <a href="#">Maatregelen op Maat<dso-icon icon="external-link"></dso-icon></a
+                            ></span>
+                            vindt u de maatregelen waarmee u aan deze regels kunt voldoen.
+                          </p>
+                          <h5>Voorbereiding op uw aanvraag</h5>
+                          <p>
+                            Houd de informatie bij de hand die te maken heeft met de werkzaamheden 'Bedrijf dat
+                            afvalwater zuivert'.
+                          </p>
+                          ${formButtonsTemplate({
+                            buttons: [
+                              {
+                                label: "Aanvraag voorbereiden",
+                                icon: { icon: "chevron-right" },
+                                iconMode: "after",
+                                type: "button",
+                                variant: "secondary",
+                              },
+                            ],
+                          })}
+                        </div>
+                      </dso-accordion-section>
+                      <dso-accordion-section
+                        handle-title='Vraag een vergunning aan voor "Zuiveringsvoorziening voor ingezameld of afgegeven afvalwater"'
+                        heading="h4"
+                      ></dso-accordion-section>
+                      <dso-accordion-section
+                        handle-title='Vraag een vergunning aan voor "Bouwactiviteit (technisch)"'
+                        heading="h4"
+                      ></dso-accordion-section>
+                    </dso-accordion>
+                  </div>
+                `,
               },
-            ],
-            buttons: [],
-          })}
-          ${formButtonsTemplate({
-            asideButtons: [
               {
-                label: "Vorige stap",
-                variant: "tertiary",
-                type: "button",
-                icon: { icon: "chevron-left" },
+                title: "Melden en informatie geven",
+                flowLine: true,
+                content: html`
+                  <div class="dso-rich-content">
+                    <dso-accordion variant="neutral">
+                      <dso-accordion-section
+                        handle-title='Geef informatie over "Geluid veroorzaakt door activiteiten"'
+                        heading="h4"
+                      >
+                      </dso-accordion-section>
+
+                      <dso-accordion-section
+                        handle-title='Geef informatie over "Bouwactiviteit (technisch)"'
+                        heading="h4"
+                      ></dso-accordion-section>
+                    </dso-accordion>
+                  </div>
+                `,
               },
-            ],
-            buttons: [
-              { label: "Opslaan in Mijn Omgevingsloket", type: "button", variant: "secondary" },
-              { label: "Naar aanvragen", type: "button", variant: "primary" },
+              {
+                title: "Om rekening mee te houden",
+                flowLine: true,
+                divider: true,
+                content: html`
+                  <div class="dso-rich-content">
+                    <dso-accordion variant="neutral">
+                      <dso-accordion-section
+                        handle-title="Bedrijf dat afvalwater zuivert"
+                        heading="h4"
+                      ></dso-accordion-section>
+                    </dso-accordion>
+                  </div>
+                `,
+              },
+              {
+                title: "Start de werkzaamheden",
+              },
             ],
           })}
         </form>
+
+        ${alertTemplate({
+          message: html` <h2>Let op!</h2>
+            <p>
+              De actielijst wordt niet bewaard. Download daarom de actielijst. Ga daarna door naar "Aanvragen en
+              voorbereiden", dan wordt de informatie uit de actielijst meegenomen in uw aanvraag.
+            </p>`,
+          status: AlertType.Warning,
+        })}
+        ${formButtonsTemplate({
+          asideButtons: [
+            {
+              label: "Antwoorden aanpassen",
+              variant: "secondary",
+              type: "button",
+              icon: { icon: "chevron-left" },
+            },
+          ],
+          buttons: [
+            {
+              label: "Actielijst downloaden",
+              variant: "secondary",
+              type: "button",
+              icon: { icon: "download" },
+            },
+            { label: "Aanvragen en voorbereiden", type: "button", variant: "primary" },
+          ],
+        })}
 
         <hr />
 
@@ -158,6 +240,7 @@ examplePageFactory(
           `,
         })}
       </main>
+      ${footerPartial(templates)} ${helpcenterPanelTemplate({ label: "Hulp nodig?", url: "#" })}
     </div>
   `
 );
