@@ -21,7 +21,32 @@ examplePageFactory(
     templates
   ) => html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(templates, {
+        ...header,
+        mainMenu: [
+          {
+            label: "Home",
+            url: "#",
+          },
+          {
+            label: "Vergunningscheck",
+            url: "#",
+            active: true,
+          },
+          {
+            label: "Aanvragen",
+            url: "#",
+          },
+          {
+            label: "Regels op de kaart",
+            url: "#",
+          },
+          {
+            label: "Mijn Omgevingsloket",
+            url: "#",
+          },
+        ],
+      })}
       <main>
         <form>
           ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}
