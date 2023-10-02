@@ -38,11 +38,7 @@ export * from "./components/alert";
 
 export * from "./components/anchor";
 
-export { ApplicationHeading } from "./components/application-heading/application-heading.models.js";
-export {
-  ApplicationHeadingTemplates,
-  storiesOfApplicationHeading,
-} from "./components/application-heading/application-heading.stories-of.js";
+export * from "./components/application-heading";
 
 export { Annotation } from "./components/annotation/annotation.models.js";
 export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";

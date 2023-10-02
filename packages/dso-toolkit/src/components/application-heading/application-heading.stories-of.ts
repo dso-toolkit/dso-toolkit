@@ -1,67 +1,80 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { WebComponentsRenderer } from "@storybook/web-components";
 
-import {
-  ApplicationHeadingArgs,
-  applicationHeadingArgsMapper,
-  applicationHeadingArgTypes,
-} from "./application-heading.args.js";
+import { ApplicationHeadingArgs, applicationHeadingArgsMapper } from "./application-heading.args.js";
 import { ApplicationHeading } from "./application-heading.models.js";
 
-export interface ApplicationHeadingTemplates<TemplateFnReturnType> {
-  applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, WebComponentsRenderer>;
+
+interface ApplicationHeadingStories {
+  Default: ApplicationHeadingStory;
+  WithSubtitel: ApplicationHeadingStory;
+  WithSubtitelAndSteps: ApplicationHeadingStory;
+  SubtitleOnly: ApplicationHeadingStory;
+  SubtitleAndStepsOnly: ApplicationHeadingStory;
 }
 
-export function storiesOfApplicationHeading<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface ApplicationHeadingStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ApplicationHeadingTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Application Heading", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: applicationHeadingArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<ApplicationHeadingArgs>((args, { applicationHeadingTemplate }) =>
-      applicationHeadingTemplate(applicationHeadingArgsMapper(args))
-    );
+interface ApplicationHeadingTemplates<TemplateFnReturnType> {
+  applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
+}
 
-    stories.add("default", template, {
+export function applicationHeadingStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ApplicationHeadingStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ApplicationHeadingStories {
+  return {
+    Default: {
       args: {
         title: "H1 Paginatitel",
       },
-    });
-
-    stories.add("with subtitle", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    WithSubtitel: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",
       },
-    });
-
-    stories.add("with subtitle and steps", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    WithSubtitelAndSteps: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",
         step: "Stap x van x",
       },
-    });
-
-    stories.add("subtitle only", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    SubtitleOnly: {
       args: {
         subtitle: "H2 Subtitel",
       },
-    });
-
-    stories.add("subtitle and steps only", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    SubtitleAndStepsOnly: {
       args: {
         subtitle: "H2 Subtitel",
         step: "Stap x van x",
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+  };
 }
