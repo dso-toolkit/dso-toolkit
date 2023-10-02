@@ -2,19 +2,35 @@
 
 @use "anchor.mixins" as anchor-mixins;
 
+@use "config";
+
 a {
-  @include anchor-mixins.root();
+    @include anchor-mixins.root();
 
-  &.download,
-  &.extern {
-    @include anchor-mixins.mode-base();
-  }
+    &.download,
+    &.extern {
+        @include anchor-mixins.mode-base();
+    }
 
-  &.download {
-    @include anchor-mixins.mode-download();
-  }
+    &.download {
+        @include anchor-mixins.mode-download();
+    }
 
-  &.extern {
-    @include anchor-mixins.mode-extern();
-  }
+    &.extern {
+        @include anchor-mixins.mode-extern();
+    }
+}
+
+a[href^="tel:"]::before {
+    background-image: url("#{config.$icons-path}dso-icons.svg#call");
+    width: 24px;
+    height: 24px;
+    content: " ";
+}
+
+a[href^="mailto:"]:not[class]::before {
+    background-image: url("#{config.$icons-path}dso-icons.svg#email");
+    width: 24px;
+    height: 24px;
+    content: " ";
 }

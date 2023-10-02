@@ -53,6 +53,22 @@ export function storiesOfAnchor<Implementation, Templates, TemplateFnReturnType>
       },
     });
 
+    stories.add("mail link with icon", template, {
+      args: {
+        label: "noreply@dso-toolkit.nl",
+        url: "mailto:no-reply@dso-toolkit.nl",
+        icon: "",
+      },
+    });
+
+    stories.add("phone link with icon", template, {
+      args: {
+        label: "Bel ons",
+        url: "tel:012-34567891",
+        icon: "",
+      },
+    });
+
     return stories;
   });
 }
