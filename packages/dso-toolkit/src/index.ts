@@ -36,8 +36,7 @@ export { ActionListTemplates, storiesOfActionList } from "./components/action-li
 
 export * from "./components/alert";
 
-export { Anchor } from "./components/anchor/anchor.models.js";
-export { AnchorTemplates, storiesOfAnchor } from "./components/anchor/anchor.stories-of.js";
+export * from "./components/anchor";
 
 export { ApplicationHeading } from "./components/application-heading/application-heading.models.js";
 export {
