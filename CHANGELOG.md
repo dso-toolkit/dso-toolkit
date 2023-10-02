@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Accordion: tooltip wordt afgesneden binnen accordion secties ([#2362](https://github.com/dso-toolkit/dso-toolkit/issues/2362))
+
 ### Docs
 * Docusaurus: toon versie in navigatie ([#2353](https://github.com/dso-toolkit/dso-toolkit/issues/2353))
 

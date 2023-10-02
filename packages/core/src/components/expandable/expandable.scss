@@ -17,6 +17,7 @@
 :host([open]) {
   position: inherit;
   visibility: inherit;
+  overflow-y: visible;
 }
 
 @include utilities.box-sizing();

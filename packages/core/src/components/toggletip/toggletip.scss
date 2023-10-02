@@ -1,4 +1,5 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/zindex";
 
 @include utilities.box-sizing();
 
@@ -8,4 +9,5 @@
 
 :host(:focus) {
   outline: none;
+  z-index: zindex.$tooltip;
 }
