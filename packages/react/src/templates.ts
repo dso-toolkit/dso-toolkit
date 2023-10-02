@@ -39,7 +39,6 @@ import {
   Toggletip,
   Tooltip,
   TreeView,
-  ViewerGrid,
 } from "dso-toolkit";
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
@@ -79,7 +78,6 @@ import { reactTable } from "./components/table/table.react-template";
 import { reactToggletip } from "./components/toggletip/toggletip.react-template";
 import { reactTooltip } from "./components/tooltip/tooltip.react-template";
 import { reactTreeView } from "./components/tree-view/tree-view.react-template";
-import { reactViewerGrid } from "./components/viewer-grid/viewer-grid.react-template";
 
 export interface Components {
   accordion: Accordion<JSX.Element>;
@@ -119,7 +117,6 @@ export interface Components {
   toggletip: Toggletip<JSX.Element>;
   tooltip: Tooltip;
   treeView: TreeView;
-  viewerGrid: ViewerGrid<JSX.Element>;
 }
 
 type Implementation = "react";
@@ -165,4 +162,3 @@ templateContainer.add(reactTable);
 templateContainer.add(reactToggletip);
 templateContainer.add(reactTooltip);
 templateContainer.add(reactTreeView);
-templateContainer.add(reactViewerGrid);

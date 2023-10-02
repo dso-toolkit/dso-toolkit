@@ -1,34 +1,69 @@
-import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, Method, Prop, State, Watch, h } from "@stencil/core";
 import clsx from "clsx";
+import debounce from "debounce";
 
+import { DocumentPanel, Filterpanel, MainPanel, Overlay } from "./components";
 import {
-  MainSize,
-  TabLabelMap,
-  Tabs,
+  ViewerGridPanelSize,
+  ViewerGridVdkTab,
+  ViewerGridVrkTab,
+  ViewerGridChangeSizeAnimationEndEvent,
   ViewerGridChangeSizeEvent,
   ViewerGridCloseOverlayEvent,
   ViewerGridFilterpanelApplyEvent,
   ViewerGridFilterpanelCancelEvent,
-  tabs,
+  ViewerGridMainExpandEvent,
+  ViewerGridMainToggleEvent,
+  ViewerGridActiveTabSwitchEvent,
+  ViewerGridMode,
+  viewerGridTabLabelMap,
+  viewerGridVdkTabs,
+  viewerGridVrkTabs,
+  ViewerGridTab,
 } from "./viewer-grid.interfaces";
-import { Filterpanel, MainPanel, Overlay } from "./components";
 
-const tabViewWidth = 768 + 40;
+const resizeObserver = new ResizeObserver(
+  debounce(([entry]) => {
+    const shadowRoot = entry?.target.getRootNode();
+    if (shadowRoot instanceof ShadowRoot && isDsoViewerGridComponent(shadowRoot.host)) {
+      shadowRoot.host._checkMainPanelVisibility();
+    }
+  }, 50)
+);
 
+function isDsoViewerGridComponent(element: Element): element is HTMLDsoViewerGridElement {
+  return element.tagName === "DSO-VIEWER-GRID";
+}
+
+const buttonWidth = 40;
+
+const tabViewBreakpoint = 768 + buttonWidth;
+
+const minMapElementWidth = 440;
+
+/**
+ * @slot main
+ * @slot map
+ * @slot filterpanel
+ * @slot overlay
+ * @slot document-panel - VDK only
+ * @slot main-expanded - VDK only
+ */
 @Component({
   tag: "dso-viewer-grid",
   styleUrl: "viewer-grid.scss",
   shadow: true,
 })
 export class ViewerGrid {
-  private mediaCondition = `(min-width: ${tabViewWidth}px)`;
+  private mediaCondition = `(min-width: ${tabViewBreakpoint}px)`;
 
-  private tabLabelMap: TabLabelMap = {
-    main: "Hoofdpaneel",
-    map: "Kaart",
-  };
+  private mapElement?: HTMLDivElement;
 
-  private mainPanel?: HTMLDivElement;
+  /**
+   * VRK or VDK implementation.
+   */
+  @Prop()
+  mode: ViewerGridMode = "vrk";
 
   /**
    * Set to true when filterpanel should show.
@@ -43,21 +78,44 @@ export class ViewerGrid {
   overlayOpen = false;
 
   /**
-   * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+   * **VDK only.** Set to true when document panel should show.
+   */
+  @Prop({ reflect: true })
+  documentPanelOpen = false;
+
+  /**
+   * Size of the panel when component loads.
    *
    * Default size is `large`.
    */
   @Prop()
-  initialMainSize?: MainSize;
+  mainSize: ViewerGridPanelSize = "large";
 
-  @State()
-  mainSize: MainSize = "large";
+  /**
+   * Set active tab in tab view.
+   */
+  @Prop()
+  activeTab?: ViewerGridVdkTab | ViewerGridVrkTab;
 
-  @State()
-  tabView = window.innerWidth < tabViewWidth;
+  /**
+   * **VDK only.** Size of the panel when component loads.
+   *
+   * Default size is `large`.
+   */
+  @Prop()
+  documentPanelSize: ViewerGridPanelSize = "large";
 
-  @State()
-  activeTab: Tabs = "main";
+  /**
+   * **VDK only.** Set to show main panel expanded.
+   */
+  @Prop()
+  mainPanelExpanded = false;
+
+  /**
+   * **VDK only.** Set to hide the main panel.
+   */
+  @Prop()
+  mainPanelHidden = false;
 
   /**
    * Emitted when user wants to close the overlay.
@@ -78,43 +136,72 @@ export class ViewerGrid {
   dsoFilterpanelApply!: EventEmitter<ViewerGridFilterpanelApplyEvent>;
 
   /**
-   * Emitted before and after main size animation. Inspect `detail` property for more information.
+   * Emitted when user applies filterpanel options.
+   */
+  @Event()
+  dsoActiveTabSwitch!: EventEmitter<ViewerGridActiveTabSwitchEvent>;
+
+  /**
+   * Emitted on interaction with sizing buttons.
    */
   @Event()
   dsoMainSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
 
+  /**
+   * Emitted after main size animation.
+   */
+  @Event()
+  dsoMainSizeChangeAnimationEnd!: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
+
+  /**
+   * **VDK only.** Emitted on interaction with sizing buttons.
+   */
+  @Event()
+  dsoDocumentPanelSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
+
+  /**
+   * **VDK only.** Emitted after main size animation.
+   */
+  @Event()
+  dsoDocumentPanelSizeChangeAnimationEnd!: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
+
+  /**
+   * **VDK only.** Emitted when the user wants to expand the main panel.
+   */
+  @Event()
+  dsoMainPanelExpand!: EventEmitter<ViewerGridMainExpandEvent>;
+
+  /**
+   * **VDK only.** Emitted when the user toggles the visibility of the main panel.
+   *
+   * Also emitted by scripting when the panels do not fit anymore.
+   */
+  @Event()
+  dsoMainPanelToggle!: EventEmitter<ViewerGridMainToggleEvent>;
+
   @Element()
   host!: HTMLDsoViewerGridElement;
 
+  @State()
+  tabView = window.innerWidth < tabViewBreakpoint;
+
   private filterpanel: HTMLDialogElement | undefined;
 
-  private filterpanelSlot: HTMLElement | null = null;
+  private get filterpanelSlot() {
+    return this.host.querySelector("[slot='filterpanel']");
+  }
+
+  private get overlaySlot() {
+    return this.host.querySelector("[slot='overlay']");
+  }
 
   private overlay: HTMLDialogElement | undefined;
 
-  private overlaySlot: HTMLDivElement | null = null;
-
-  @Watch("mainSize")
-  mainSizeWatcher(currentSize: MainSize, previousSize: MainSize) {
-    this.dsoMainSizeChange.emit({
-      stage: "start",
-      previousSize,
-      currentSize,
-    });
-
-    this.mainPanel?.addEventListener(
-      "transitionend",
-      (e) => {
-        if (e.propertyName === "flex-basis") {
-          this.dsoMainSizeChange.emit({
-            stage: "end",
-            previousSize,
-            currentSize,
-          });
-        }
-      },
-      { once: true }
-    );
+  @Watch("documentPanelOpen")
+  documentPanelOpenWatcher(open: boolean) {
+    if (open) {
+      this._checkMainPanelVisibility();
+    }
   }
 
   @Watch("filterpanelOpen")
@@ -143,22 +230,90 @@ export class ViewerGrid {
     }
   }
 
-  private shrinkMain = () => {
-    this.mainSize = this.mainSize === "large" ? "medium" : "small";
+  /**
+   * @internal
+   */
+  @Method()
+  async _checkMainPanelVisibility() {
+    if (
+      this.mode === "vdk" &&
+      this.documentPanelOpen &&
+      !this.mainPanelHidden &&
+      this.mapElement instanceof HTMLDivElement &&
+      ((this.mapElement.clientWidth <= minMapElementWidth + buttonWidth + buttonWidth && !this.mainPanelExpanded) ||
+        (this.mapElement.clientWidth <= buttonWidth + buttonWidth && this.mainPanelExpanded))
+    ) {
+      this.dsoMainPanelToggle.emit({
+        hide: true,
+      });
+    }
+  }
+
+  private switchActiveTab = (tab: ViewerGridTab) => {
+    this.dsoActiveTabSwitch.emit({
+      tab,
+    });
   };
 
-  private expandMain = () => {
-    this.mainSize = this.mainSize === "small" ? "medium" : "large";
+  private emitShrinkMain = () => {
+    this.dsoMainSizeChange.emit({
+      currentSize: this.mainSize,
+      nextSize: this.mainSize === "large" ? "medium" : "small",
+    });
+  };
+
+  private emitExpandMain = () => {
+    this.dsoMainSizeChange.emit({
+      currentSize: this.mainSize,
+      nextSize: (this.mainSize = this.mainSize === "small" ? "medium" : "large"),
+    });
+  };
+
+  private shrinkDocumentPanel = () => {
+    this.dsoDocumentPanelSizeChange.emit({
+      currentSize: this.documentPanelSize,
+      nextSize: this.documentPanelSize === "large" ? "medium" : "small",
+    });
+  };
+
+  private expandDocumentPanel = () => {
+    this.dsoDocumentPanelSizeChange.emit({
+      currentSize: this.documentPanelSize,
+      nextSize: (this.documentPanelSize = this.mainSize === "small" ? "medium" : "large"),
+    });
+  };
+
+  private expandContent = () => {
+    this.dsoMainPanelExpand.emit({
+      expand: !this.mainPanelExpanded,
+    });
+  };
+
+  private toggleMainPanel = () => {
+    if (
+      this.mapElement instanceof HTMLDivElement &&
+      this.mapElement.clientWidth <= minMapElementWidth + buttonWidth + buttonWidth
+    ) {
+      this.mainSize = "small";
+    }
+
+    this.dsoMainPanelToggle.emit({
+      hide: !this.mainPanelHidden,
+    });
   };
 
   private changeListener = (largeScreen: MediaQueryListEvent) => (this.tabView = !largeScreen.matches);
 
+  private handleFilterpanelApply = (mouseEvent: MouseEvent | Event) => {
+    this.dsoFilterpanelApply.emit({ originalEvent: mouseEvent });
+  };
+
+  private handleFilterpanelCancel = (mouseEvent: MouseEvent | Event) => {
+    this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
+  };
+
   connectedCallback() {
     window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
-
-    this.filterpanelSlot = this.host.querySelector<HTMLDivElement>("div[slot='filterpanel']");
-
-    this.overlaySlot = this.host.querySelector<HTMLDivElement>("div[slot='overlay']");
   }
 
   componentDidLoad() {
@@ -169,66 +324,77 @@ export class ViewerGrid {
     if (this.overlayOpen && this.overlaySlot) {
       this.overlay?.showModal();
     }
-  }
 
-  componentWillLoad() {
-    if (this.initialMainSize) {
-      this.mainSize = this.initialMainSize;
+    if (this.mode === "vdk" && this.mapElement instanceof HTMLDivElement) {
+      resizeObserver.observe(this.mapElement);
     }
   }
 
   disconnectedCallback() {
     window.matchMedia(this.mediaCondition).removeEventListener("change", this.changeListener);
-  }
 
-  private handleFilterpanelApply(mouseEvent: MouseEvent | Event) {
-    this.dsoFilterpanelApply.emit({ originalEvent: mouseEvent });
-  }
-
-  private handleFilterpanelCancel(mouseEvent: MouseEvent | Event) {
-    this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
+    if (this.mode === "vdk" && this.mapElement) {
+      resizeObserver.unobserve(this.mapElement);
+    }
   }
 
   render() {
+    const tabLabels = this.mode === "vdk" ? viewerGridVdkTabs : viewerGridVrkTabs;
+
     return (
-      <Host {...{ [this.mainSize]: true }}>
+      <>
         {this.tabView && (
           <nav class="dso-navbar">
             <ul class="dso-nav dso-nav-sub">
-              {tabs.map((tab) => (
+              {tabLabels.map((tab) => (
                 <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
-                  <button type="button" class="dso-tertiary" onClick={() => (this.activeTab = tab)}>
-                    {this.tabLabelMap[tab]}
+                  <button type="button" class="dso-tertiary" onClick={() => this.switchActiveTab(tab)}>
+                    {viewerGridTabLabelMap[tab]}
                   </button>
                 </li>
               ))}
             </ul>
           </nav>
         )}
-        {(!this.tabView || (this.tabView && this.activeTab === "main")) && (
+        {(!this.tabView || (this.tabView && (this.activeTab === "main" || this.activeTab === "search"))) && (
           <MainPanel
-            ref={(element: HTMLDivElement | undefined) => (this.mainPanel = element)}
+            mode={this.mode}
             tabView={this.tabView}
             mainSize={this.mainSize}
-            shrinkMain={this.shrinkMain}
-            expandMain={this.expandMain}
+            documentPanelOpen={this.documentPanelOpen}
+            mainPanelExpanded={this.mainPanelExpanded}
+            mainPanelHidden={this.mainPanelHidden}
+            shrinkMain={this.emitShrinkMain}
+            expandMain={this.emitExpandMain}
+            expandContent={this.expandContent}
+            toggleMainPanel={this.toggleMainPanel}
+            dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
           ></MainPanel>
         )}
         <Filterpanel
           ref={(element) => (this.filterpanel = element)}
-          onApply={(e) => this.handleFilterpanelApply(e)}
-          onCancel={(e) => this.handleFilterpanelCancel(e)}
+          onApply={this.handleFilterpanelApply}
+          onCancel={this.handleFilterpanelCancel}
         ></Filterpanel>
         {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
-          <div class="map">
+          <div class="map" ref={(element) => (this.mapElement = element)}>
             <slot name="map" />
           </div>
+        )}
+        {((!this.tabView && this.documentPanelOpen) || (this.tabView && this.activeTab === "document")) && (
+          <DocumentPanel
+            tabView={this.tabView}
+            panelSize={this.documentPanelSize}
+            shrinkDocumentPanel={this.shrinkDocumentPanel}
+            expandDocumentPanel={this.expandDocumentPanel}
+            dsoDocumentPanelSizeChangeAnimationEnd={this.dsoDocumentPanelSizeChangeAnimationEnd}
+          ></DocumentPanel>
         )}
         <Overlay
           ref={(element) => (this.overlay = element)}
           dsoCloseOverlay={(e) => this.dsoCloseOverlay.emit({ originalEvent: e })}
         ></Overlay>
-      </Host>
+      </>
     );
   }
 }

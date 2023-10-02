@@ -73,6 +73,7 @@ storiesOfViewerGrid({
     labelTemplate,
     viewerGridTemplate,
     alertTemplate,
+    richContentTemplate,
     documentHeaderTemplate,
     documentListTemplate,
     labelGroupTemplate,
@@ -269,11 +270,28 @@ storiesOfViewerGrid({
       viewerGridTemplate,
       example: {
         main: alertTemplate({ status: AlertType.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>` }),
-        map: html`<div class="alert alert-info">Dit is <code>slot="map"</code>.</div>`,
-        filterpanel: html`<div class="alert alert-info">Dit is <code>slot="filterpanel"</code>.</div>`,
-        overlay: html`<div class="alert alert-info">Dit is <code>slot="overlay"</code></div>
-          <div>
-            <p>
+        mainExpanded: alertTemplate({
+          status: AlertType.Info,
+          message: html`<p>Dit is <code>slot="main-expanded"</code>.</p>`,
+        }),
+        map: alertTemplate({
+          status: AlertType.Info,
+          message: html`<p>Dit is <code>slot="map"</code>.</p>`,
+        }),
+        documentPanel: alertTemplate({
+          status: AlertType.Info,
+          message: html`Dit is <code>slot="document-panel"</code>.`,
+        }),
+        filterpanel: alertTemplate({
+          status: AlertType.Info,
+          message: html`Dit is <code>slot="filterpanel"</code>.`,
+        }),
+        overlay: html`${alertTemplate({
+          status: AlertType.Info,
+          message: html`Dit is <code>slot="overlay"</code>.`,
+        })}
+        ${richContentTemplate({
+          children: html`<p>
               Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at felis quam. Nullam commodo ex
               ultrices, viverra urna a, pretium arcu. Nunc eget cursus lorem. Sed massa nunc, maximus sodales
               ${anchorTemplate({ label: "ultrices", url: "#" })} nec, luctus et lectus. Interdum et malesuada fames ac
@@ -293,8 +311,8 @@ storiesOfViewerGrid({
               Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam vel ex nec eros porttitor
               aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
-            </p>
-          </div>`,
+            </p>`,
+        })}`,
       },
       tilesExampleTemplate,
       filterblokExampleTemplate,

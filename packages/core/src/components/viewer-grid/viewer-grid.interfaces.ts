@@ -1,10 +1,10 @@
 export interface ViewerGridChangeSizeEvent {
-  /**
-   * Indicates whether it's before or after the animation
-   */
-  stage: "start" | "end";
-  previousSize: MainSize;
-  currentSize: MainSize;
+  currentSize: ViewerGridPanelSize;
+  nextSize: ViewerGridPanelSize;
+}
+
+export interface ViewerGridChangeSizeAnimationEndEvent {
+  currentSize: ViewerGridPanelSize;
 }
 
 export interface ViewerGridCloseOverlayEvent {
@@ -19,12 +19,43 @@ export interface ViewerGridFilterpanelApplyEvent {
   originalEvent: MouseEvent | Event;
 }
 
-export type MainSize = "small" | "medium" | "large";
+export interface ViewerGridActiveTabSwitchEvent {
+  tab: ViewerGridTab;
+}
 
-export type LabelSizeMap = { [key in MainSize]: string };
+export interface ViewerGridMainExpandEvent {
+  expand: boolean;
+}
 
-export const tabs = ["main", "map"] as const;
+export interface ViewerGridMainToggleEvent {
+  hide: boolean;
+}
 
-export type Tabs = (typeof tabs)[number];
+export type ViewerGridMode = "vdk" | "vrk";
 
-export type TabLabelMap = { [key in Tabs]: string };
+export type ViewerGridPanelSize = "small" | "medium" | "large";
+
+export type ViewerGridLabelSizeMap = { [key in ViewerGridPanelSize]: string };
+
+export const viewerGridVrkTabs = ["main", "map"] as const;
+export type ViewerGridVrkTab = (typeof viewerGridVrkTabs)[number];
+
+export const viewerGridVdkTabs = ["search", "map", "document"] as const;
+export type ViewerGridVdkTab = (typeof viewerGridVdkTabs)[number];
+
+export type ViewerGridTab = ViewerGridVrkTab | ViewerGridVdkTab;
+
+export type ViewerGridTabLabelMap = { [key in ViewerGridTab]: string };
+
+export const viewerGridTabLabelMap: ViewerGridTabLabelMap = {
+  main: "Hoofdpaneel",
+  map: "Kaart",
+  document: "Document",
+  search: "Zoeken",
+};
+
+export const viewerGridSizeLabelMap: ViewerGridLabelSizeMap = {
+  small: "smal",
+  medium: "middel",
+  large: "breed",
+};

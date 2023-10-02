@@ -5,6 +5,7 @@ import { Tile } from "../tile/tile.models.js";
 import {
   viewerGridArgTypes,
   ViewerGridArgs,
+  viewerGridArgsMapper,
   viewerGridDocumentHeaderArgs,
   ViewerGridDocumentHeaderArgs,
 } from "./viewer-grid.args.js";
@@ -14,7 +15,9 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
   example: {
     main: TemplateFnReturnType;
+    mainExpanded: TemplateFnReturnType;
     map: TemplateFnReturnType;
+    documentPanel: TemplateFnReturnType;
     filterpanel: TemplateFnReturnType;
     overlay: TemplateFnReturnType;
   };
@@ -45,16 +48,35 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "Viewer Grid",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate({
-          ...args,
-          ...example,
-        })
+        viewerGridTemplate(viewerGridArgsMapper(args, example))
       ),
       {
         argTypes: viewerGridArgTypes,
-        args: componentArgs<Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen">>({
+        args: componentArgs<
+          Pick<
+            ViewerGridArgs,
+            | "mode"
+            | "mainSize"
+            | "filterpanelOpen"
+            | "overlayOpen"
+            | "documentPanelOpen"
+            | "documentPanelSize"
+            | "mainPanelExpanded"
+            | "mainPanelHidden"
+            | "vrkActiveTab"
+            | "vdkActiveTab"
+          >
+        >({
+          mode: "vrk",
+          mainSize: "large",
           filterpanelOpen: false,
           overlayOpen: false,
+          documentPanelOpen: false,
+          documentPanelSize: "large",
+          mainPanelExpanded: false,
+          mainPanelHidden: false,
+          vrkActiveTab: "main",
+          vdkActiveTab: "search",
         }),
       }
     );
@@ -62,16 +84,35 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "Filterpanel",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate({
-          ...args,
-          ...example,
-        })
+        viewerGridTemplate(viewerGridArgsMapper(args, example))
       ),
       {
         argTypes: viewerGridArgTypes,
-        args: componentArgs<Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen">>({
+        args: componentArgs<
+          Pick<
+            ViewerGridArgs,
+            | "mode"
+            | "mainSize"
+            | "filterpanelOpen"
+            | "overlayOpen"
+            | "documentPanelOpen"
+            | "documentPanelSize"
+            | "mainPanelExpanded"
+            | "mainPanelHidden"
+            | "vrkActiveTab"
+            | "vdkActiveTab"
+          >
+        >({
+          mode: "vrk",
+          mainSize: "large",
           filterpanelOpen: true,
           overlayOpen: false,
+          documentPanelOpen: false,
+          documentPanelSize: "large",
+          mainPanelExpanded: false,
+          mainPanelHidden: false,
+          vrkActiveTab: "main",
+          vdkActiveTab: "search",
         }),
       }
     );

@@ -2,15 +2,31 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
+import { ViewerGridPanelSize, ViewerGridMode, Tab, ViewerGrid } from "./viewer-grid.models.js";
+import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
+
+const panelSizes = ["small", "medium", "large"];
 
 export interface ViewerGridArgs {
+  mode: ViewerGridMode;
   overlayOpen: boolean;
   filterpanelOpen: boolean;
-  initialMainSize: "small" | "medium" | "large";
+  documentPanelOpen?: boolean;
+  mainSize: ViewerGridPanelSize;
+  vrkActiveTab?: Tab;
+  vdkActiveTab?: Tab;
+  documentPanelSize: ViewerGridPanelSize;
+  mainPanelExpanded?: boolean;
+  mainPanelHidden?: boolean;
   dsoMainSizeChange: HandlerFunction;
+  dsoMainSizeChangeAnimationEnd: HandlerFunction;
   dsoCloseOverlay: HandlerFunction;
   dsoFilterpanelCancel: HandlerFunction;
   dsoFilterpanelApply: HandlerFunction;
+  dsoDocumentPanelSizeChange: HandlerFunction;
+  dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
+  dsoMainPanelExpand: HandlerFunction;
+  dsoMainPanelToggle: HandlerFunction;
 }
 
 export interface ViewerGridDocumentHeaderArgs {
@@ -21,25 +37,68 @@ export interface ViewerGridDocumentHeaderArgs {
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
-  filterpanelOpen: {
+  mode: {
+    options: ["vrk", "vdk"],
     control: {
-      type: "boolean",
+      type: "select",
+      labels: {
+        vrk: "VRK",
+        vdk: "VDK",
+      },
     },
+  },
+  filterpanelOpen: {
+    type: "boolean",
   },
   overlayOpen: {
-    control: {
-      type: "boolean",
-    },
+    type: "boolean",
   },
-  initialMainSize: {
-    options: ["small", "medium", "large"],
+  vrkActiveTab: {
+    options: [undefined, "main", "map"],
+    control: {
+      type: "select",
+    },
+    if: { arg: "mode", eq: "vrk" },
+  },
+  vdkActiveTab: {
+    options: [undefined, "search", "map", "document"],
+    control: {
+      type: "select",
+    },
+    if: { arg: "mode", eq: "vdk" },
+  },
+  documentPanelOpen: {
+    type: "boolean",
+    if: { arg: "mode", eq: "vdk" },
+  },
+  mainSize: {
+    options: panelSizes,
     control: {
       type: "select",
     },
   },
+  documentPanelSize: {
+    options: panelSizes,
+    control: {
+      type: "select",
+    },
+    if: { arg: "mode", eq: "vdk" },
+  },
+  mainPanelExpanded: {
+    type: "boolean",
+    if: { arg: "mode", eq: "vdk" },
+  },
+  mainPanelHidden: {
+    type: "boolean",
+    if: { arg: "mode", eq: "vdk" },
+  },
   dsoMainSizeChange: {
     ...noControl,
     action: "dsoMainSizeChange",
+  },
+  dsoMainSizeChangeAnimationEnd: {
+    ...noControl,
+    action: "dsoMainSizeChangeAnimationEnd",
   },
   dsoCloseOverlay: {
     ...noControl,
@@ -53,34 +112,47 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     ...noControl,
     action: "dsoFilterpanelApply",
   },
+  dsoDocumentPanelSizeChange: {
+    ...noControl,
+    action: "dsoDocumentPanelSizeChange",
+  },
+  dsoDocumentPanelSizeChangeAnimationEnd: {
+    ...noControl,
+    action: "dsoDocumentPanelSizeChangeAnimationEnd",
+  },
+  dsoMainPanelExpand: {
+    ...noControl,
+    action: "dsoMainPanelExpand",
+  },
+  dsoMainPanelToggle: {
+    ...noControl,
+    action: "dsoMainPanelToggle",
+  },
 };
 
 export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs> = {
   documentHeaderFeaturesOpen: {
-    control: {
-      type: "boolean",
-    },
+    type: "boolean",
   },
   documentHeaderStatusOpen: {
-    control: {
-      type: "boolean",
-    },
+    type: "boolean",
   },
   documentHeaderFeatureAction: {
     ...noControl,
     action: "documentHeaderFeatureAction",
   },
   documentHeaderSticky: {
-    control: {
-      type: "boolean",
-    },
+    type: "boolean",
   },
 };
 
-export function viewerGridArgsMapper(a: ViewerGridArgs): Required<unknown> {
-  return { ...a };
-}
-
-export function viewerGridDocumentHeaderArgsMapper(a: ViewerGridDocumentHeaderArgs): Required<unknown> {
-  return { ...a };
+export function viewerGridArgsMapper<TemplateFnReturnType>(
+  a: ViewerGridArgs,
+  example: ViewerGridTemplates<TemplateFnReturnType>["example"]
+): ViewerGrid<TemplateFnReturnType> {
+  return {
+    ...a,
+    ...example,
+    activeTab: a.mode === "vdk" ? a.vdkActiveTab : a.vrkActiveTab,
+  };
 }

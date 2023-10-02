@@ -1,33 +1,78 @@
 import { Label } from "../label/label.models.js";
 
 export interface ViewerGrid<TemplateFnReturnType> {
-  filterpanel?: TemplateFnReturnType;
+  mode?: ViewerGridMode;
   filterpanelOpen?: boolean;
-  main: TemplateFnReturnType;
-  map: TemplateFnReturnType;
-  overlay?: TemplateFnReturnType;
   overlayOpen?: boolean;
-  initialMainSize?: "small" | "medium" | "large";
+  documentPanelOpen?: boolean;
+  mainSize?: ViewerGridPanelSize;
+  activeTab?: Tab;
+  documentPanelSize?: ViewerGridPanelSize;
+  mainPanelExpanded?: boolean;
+  mainPanelHidden?: boolean;
   dsoMainSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+  dsoMainSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
   dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
   dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
+  dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+  dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
+  dsoMainPanelExpand?: (e: CustomEvent<ViewerGridMainExpandEvent>) => void;
+  dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
+  filterpanel?: TemplateFnReturnType;
+  main: TemplateFnReturnType;
+  mainExpanded?: TemplateFnReturnType;
+  map: TemplateFnReturnType;
+  documentPanel?: TemplateFnReturnType;
+  overlay?: TemplateFnReturnType;
 }
 
+export type ViewerGridMode = "vdk" | "vrk";
+export type ViewerGridPanelSize = "small" | "medium" | "large";
+export type Tab = "search" | "map" | "document" | "main";
+
 export interface ViewerGridChangeSizeEvent {
-  stage: "start" | "end";
-  previousSize: string;
-  currentSize: string;
+  currentSize: ViewerGridPanelSize;
+  nextSize: ViewerGridPanelSize;
+}
+
+export interface ViewerGridChangeSizeAnimationEndEvent {
+  currentSize: ViewerGridPanelSize;
+}
+
+export interface ViewerGridActiveTabSwitchEvent {
+  tab: Tab;
+}
+
+export interface ViewerGridMainExpandEvent {
+  expand: boolean;
+}
+
+export interface ViewerGridMainToggleEvent {
+  hide: boolean;
 }
 
 export interface ViewerGridProperties {
-  filterpanelOpen: boolean;
-  overlayOpen: boolean;
-  initialMainSize?: "small" | "medium" | "large";
-  mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
-  closeOverlay: (e: MouseEvent) => void;
-  filterpanelCancel: (e: MouseEvent) => void;
-  filterpanelApply: (e: MouseEvent) => void;
+  mode?: ViewerGridMode;
+  filterpanelOpen?: boolean;
+  overlayOpen?: boolean;
+  documentPanelOpen?: boolean;
+  mainSize?: ViewerGridPanelSize;
+  activeTab?: Tab;
+  documentPanelSize?: ViewerGridPanelSize;
+  mainPanelExpanded?: boolean;
+  mainPanelHidden?: boolean;
+  dsoMainSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+  dsoMainSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
+  dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
+  dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
+  dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
+  dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+  dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
+  dsoMainPanelExpand?: (e: CustomEvent<ViewerGridMainExpandEvent>) => void;
+  dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
 }
 
 export interface ViewerGridFilterblokProperties<TemplateFnReturnType> {

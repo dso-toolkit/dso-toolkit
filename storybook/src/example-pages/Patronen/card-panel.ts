@@ -19,7 +19,7 @@ examplePageFactory(
   }) => html`
     <div class="container">
       ${viewerGridTemplate({
-        initialMainSize: "large",
+        mainSize: "large",
         map: html``,
         main: html`
           <h1>Overzicht op uw locatie</h1>

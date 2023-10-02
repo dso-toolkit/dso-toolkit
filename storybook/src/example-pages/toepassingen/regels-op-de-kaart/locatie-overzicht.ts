@@ -26,7 +26,7 @@ examplePageFactory(
     <main>
       ${viewerGridTemplate({
         filterpanelOpen: false,
-        initialMainSize: "medium",
+        mainSize: "medium",
         main: html`
           ${buttonTemplate({
             label: "Terug",

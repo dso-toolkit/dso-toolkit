@@ -30,7 +30,7 @@ import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { MainSize, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent } from "./components/viewer-grid/viewer-grid.interfaces";
+import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
@@ -56,7 +56,7 @@ export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-export { MainSize, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent } from "./components/viewer-grid/viewer-grid.interfaces";
+export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
@@ -846,14 +846,39 @@ export namespace Components {
         "focusItem": (path: TreeViewItem[]) => Promise<boolean>;
     }
     interface DsoViewerGrid {
+        "_checkMainPanelVisibility": () => Promise<void>;
+        /**
+          * Set active tab in tab view.
+         */
+        "activeTab"?: ViewerGridVdkTab | ViewerGridVrkTab;
+        /**
+          * **VDK only.** Set to true when document panel should show.
+         */
+        "documentPanelOpen": boolean;
+        /**
+          * **VDK only.** Size of the panel when component loads.  Default size is `large`.
+         */
+        "documentPanelSize": ViewerGridPanelSize;
         /**
           * Set to true when filterpanel should show.
          */
         "filterpanelOpen": boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
+          * **VDK only.** Set to show main panel expanded.
          */
-        "initialMainSize"?: MainSize;
+        "mainPanelExpanded": boolean;
+        /**
+          * **VDK only.** Set to hide the main panel.
+         */
+        "mainPanelHidden": boolean;
+        /**
+          * Size of the panel when component loads.  Default size is `large`.
+         */
+        "mainSize": ViewerGridPanelSize;
+        /**
+          * VRK or VDK implementation.
+         */
+        "mode": ViewerGridMode;
         /**
           * Set to true when overlay should show.
          */
@@ -2185,17 +2210,53 @@ declare namespace LocalJSX {
     }
     interface DsoViewerGrid {
         /**
+          * Set active tab in tab view.
+         */
+        "activeTab"?: ViewerGridVdkTab | ViewerGridVrkTab;
+        /**
+          * **VDK only.** Set to true when document panel should show.
+         */
+        "documentPanelOpen"?: boolean;
+        /**
+          * **VDK only.** Size of the panel when component loads.  Default size is `large`.
+         */
+        "documentPanelSize"?: ViewerGridPanelSize;
+        /**
           * Set to true when filterpanel should show.
          */
         "filterpanelOpen"?: boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
+          * **VDK only.** Set to show main panel expanded.
          */
-        "initialMainSize"?: MainSize;
+        "mainPanelExpanded"?: boolean;
+        /**
+          * **VDK only.** Set to hide the main panel.
+         */
+        "mainPanelHidden"?: boolean;
+        /**
+          * Size of the panel when component loads.  Default size is `large`.
+         */
+        "mainSize"?: ViewerGridPanelSize;
+        /**
+          * VRK or VDK implementation.
+         */
+        "mode"?: ViewerGridMode;
+        /**
+          * Emitted when user applies filterpanel options.
+         */
+        "onDsoActiveTabSwitch"?: (event: DsoViewerGridCustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
         /**
           * Emitted when user wants to close the overlay.
          */
         "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<ViewerGridCloseOverlayEvent>) => void;
+        /**
+          * **VDK only.** Emitted on interaction with sizing buttons.
+         */
+        "onDsoDocumentPanelSizeChange"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeEvent>) => void;
+        /**
+          * **VDK only.** Emitted after main size animation.
+         */
+        "onDsoDocumentPanelSizeChangeAnimationEnd"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
         /**
           * Emitted when user applies filterpanel options.
          */
@@ -2205,9 +2266,21 @@ declare namespace LocalJSX {
          */
         "onDsoFilterpanelCancel"?: (event: DsoViewerGridCustomEvent<ViewerGridFilterpanelCancelEvent>) => void;
         /**
-          * Emitted before and after main size animation. Inspect `detail` property for more information.
+          * **VDK only.** Emitted when the user wants to expand the main panel.
+         */
+        "onDsoMainPanelExpand"?: (event: DsoViewerGridCustomEvent<ViewerGridMainExpandEvent>) => void;
+        /**
+          * **VDK only.** Emitted when the user toggles the visibility of the main panel.  Also emitted by scripting when the panels do not fit anymore.
+         */
+        "onDsoMainPanelToggle"?: (event: DsoViewerGridCustomEvent<ViewerGridMainToggleEvent>) => void;
+        /**
+          * Emitted on interaction with sizing buttons.
          */
         "onDsoMainSizeChange"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeEvent>) => void;
+        /**
+          * Emitted after main size animation.
+         */
+        "onDsoMainSizeChangeAnimationEnd"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
         /**
           * Set to true when overlay should show.
          */

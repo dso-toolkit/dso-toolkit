@@ -1,0 +1,49 @@
+---
+authors: [anneke, tfrijsewijk]
+---
+
+# DSO Toolkit v60.0.0
+
+In deze breaking release zijn de API's van Banner, Tooltip en Ozon Content aangepast.
+
+## Viewer Grid
+
+In [#2161](https://github.com/dso-toolkit/dso-toolkit/issues/2161) hebben we ondersteuning voor de VDK layout gemaakt. Tegelijkertijd hebben we het component stateless gemaakt, in lijn met onze visie op stateful vs. stateless components.
+
+Dit betekent dat afnemers van het Viewer Grid met de VRK layout ook werk moeten verzetten.
+
+### Stateless
+
+Voorheen was de breedte van het linkerpaneel onderdeel van de interne state. Nu moet de afnemer dit bijhouden. Hetzelfde geldt voor de "responsive tab view".
+
+Hierdoor is de property `initialMainSize` komen te vervallen.
+
+### Interfaces
+
+| Oud                                    | Nieuw                                 | Opmerkingen                                                                                                        |
+| -------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| MainSize                               | ViewerGridMainSize                    |                                                                                                                    |
+| ViewerGridChangeSizeEvent.stage        | ViewerGridChangeSizeAnimationEndEvent | Deze property is verplaatst naar een eigen event `DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
+| ViewerGridChangeSizeEvent.previousSize | ViewerGridChangeSizeEvent.currentSize |                                                                                                                    |
+| ViewerGridChangeSizeEvent.currentSize  | ViewerGridChangeSizeEvent.nextSize    |                                                                                                                    |
+
+### API
+
+Bovenstaande opmerkingen komen enigszins in onderstaande markup voorschriften samen. Dit is exclusief de nieuwe functionaliteit die is ontwikkeld voor VDK.
+
+```html
+❌
+<dso-viewer-grid
+  [initialMainSize]="'medium'"
+  (dsoMainSizeChange)="$event.detail.stage === 'end' && resizeMap()"
+></dso-viewer-grid>
+
+✅
+<dso-viewer-grid
+  [mainSize]="mainSize"
+  (dsoMainSizeChange)="mainSize = $event.detail.nextSize"
+  [activeTab]="activeTab"
+  (dsoActiveTabSwitch)="activeTab = $event.detail.tab"
+  (dsoMainSizeChangeAnimationEnd)="resizeMap()"
+></dso-viewer-grid>
+```
