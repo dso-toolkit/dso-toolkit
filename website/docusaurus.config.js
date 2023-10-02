@@ -110,12 +110,12 @@ const config = {
             position: "left",
           },
           {
-            type: "custom-dsoVersionSelector",
+            href: "https://github.com/dso-toolkit/dso-toolkit",
+            label: "GitHub",
             position: "right",
           },
           {
-            href: "https://github.com/dso-toolkit/dso-toolkit",
-            label: "GitHub",
+            type: "custom-dsoVersionSelector",
             position: "right",
           },
         ],

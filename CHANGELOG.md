@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Docusaurus: toon versie in navigatie ([#2353](https://github.com/dso-toolkit/dso-toolkit/issues/2353))
+
 ## 59.0.1 - 26-09-2023
 
 ### Fixed
