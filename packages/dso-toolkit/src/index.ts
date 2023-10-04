@@ -61,8 +61,7 @@ export * from "./components/breadcrumbs";
 export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
 export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
 
-export { ButtonRow } from "./components/button-row/button-row.models.js";
-export { ButtonRowTemplates, storiesOfButtonRow } from "./components/button-row/button-row.stories-of.js";
+export * from "./components/button-row";
 
 export { Card, DsoCardClickedEvent } from "./components/card/card.models.js";
 export { CardTemplates, storiesOfCard } from "./components/card/card.stories-of.js";
