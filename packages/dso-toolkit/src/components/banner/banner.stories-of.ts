@@ -1,9 +1,28 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { WebComponentsRenderer } from "@storybook/web-components";
 
-import { BannerArgs, bannerArgsMapper, bannerArgTypes } from "./banner.args.js";
+import { BannerArgs, bannerArgsMapper } from "./banner.args.js";
 import { Banner } from "./banner.models.js";
 
-export interface BannerTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+type BannerStory = StoryObj<BannerArgs, WebComponentsRenderer>;
+
+interface BannerStories {
+  Danger: BannerStory;
+  Error: BannerStory;
+  Info: BannerStory;
+  InfoCompactNonRemovable: BannerStory;
+  Warning: BannerStory;
+  InfoNonRemovable: BannerStory;
+  RichWarning: BannerStory;
+  RichInfo: BannerStory;
+  DangerWithHeadings: BannerStory;
+}
+
+interface BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, BannerTemplates<TemplateFnReturnType>> {}
+
+interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
   dangerRichContent: TemplateFnReturnType;
   errorRichContent: TemplateFnReturnType;
@@ -16,134 +35,86 @@ export interface BannerTemplates<TemplateFnReturnType> {
   dangerWithHeadingsRichContent: TemplateFnReturnType;
 }
 
-export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    BannerTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Banner", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: bannerArgTypes,
+export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>): BannerStories {
+  return {
+    Danger: {
       args: {
-        closeButton: true,
+        status: "danger",
       },
-    });
-
-    stories.add(
-      "danger",
-      templateMapper<BannerArgs>((args, { bannerTemplate, dangerRichContent }) =>
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, dangerRichContent))
       ),
-      {
-        args: {
-          status: "danger",
-        },
-      }
-    );
-
-    stories.add(
-      "error",
-      templateMapper<BannerArgs>((args, { bannerTemplate, errorRichContent }) =>
+    },
+    Error: {
+      args: {
+        status: "error",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, errorRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, errorRichContent))
       ),
-      {
-        args: {
-          status: "error",
-        },
-      }
-    );
-
-    stories.add(
-      "info",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
+    },
+    Info: {
+      args: {
+        status: "info",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, infoRichContent))
       ),
-      {
-        args: {
-          status: "info",
-        },
-      }
-    );
-
-    stories.add(
-      "info compact non removable",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
+    },
+    InfoCompactNonRemovable: {
+      args: {
+        status: "info",
+        compact: true,
+        noIcon: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent))
       ),
-      {
-        args: {
-          status: "info",
-          compact: true,
-          noIcon: true,
-        },
-      }
-    );
-
-    stories.add(
-      "warning",
-      templateMapper<BannerArgs>((args, { bannerTemplate, warningRichContent }) =>
+    },
+    Warning: {
+      args: {
+        status: "warning",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, warningRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, warningRichContent))
       ),
-      {
-        args: {
-          status: "warning",
-        },
-      }
-    );
-
-    stories.add(
-      "info non removable",
-      templateMapper<BannerArgs>((args, { bannerTemplate, infoRichContent }) =>
+    },
+    InfoNonRemovable: {
+      args: {
+        status: "info",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, infoRichContent))
       ),
-      {
-        args: {
-          status: "info",
-        },
-      }
-    );
-
-    stories.add(
-      "rich warning",
-      templateMapper<BannerArgs>((args, { bannerTemplate, richWarningRichContent }) =>
+    },
+    RichWarning: {
+      args: {
+        status: "warning",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richWarningRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, richWarningRichContent))
       ),
-      {
-        args: {
-          status: "warning",
-        },
-      }
-    );
-
-    stories.add(
-      "rich info",
-      templateMapper<BannerArgs>((args, { bannerTemplate, richInfoRichContent }) =>
+    },
+    RichInfo: {
+      args: {
+        status: "info",
+        compact: true,
+        noIcon: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richInfoRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, richInfoRichContent))
       ),
-      {
-        args: {
-          status: "info",
-          compact: true,
-          noIcon: true,
-        },
-      }
-    );
-
-    stories.add(
-      "danger with headings",
-      templateMapper<BannerArgs>((args, { bannerTemplate, dangerWithHeadingsRichContent }) =>
+    },
+    DangerWithHeadings: {
+      args: {
+        status: "danger",
+      },
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerWithHeadingsRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent))
       ),
-      {
-        args: {
-          status: "danger",
-        },
-      }
-    );
-
-    return stories;
-  });
+    },
+  };
 }

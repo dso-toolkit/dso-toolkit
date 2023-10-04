@@ -54,8 +54,7 @@ export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosug
 
 export * from "./components/badge";
 
-export { Banner } from "./components/banner/banner.models.js";
-export { BannerTemplates, storiesOfBanner } from "./components/banner/banner.stories-of.js";
+export * from "./components/banner";
 
 export { Breadcrumb, Breadcrumbs } from "./components/breadcrumbs/breadcrumbs.models.js";
 export { BreadcrumbsTemplates, storiesOfBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.stories-of.js";

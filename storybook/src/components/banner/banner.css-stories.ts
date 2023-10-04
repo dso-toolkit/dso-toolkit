@@ -16,7 +16,7 @@ import {
 
 const meta: Meta = {
   component: "dso-banner",
-  title: "Core/Banner",
+  title: "HTML|CSS/Banner",
   argTypes: bannerArgTypes,
 };
 
@@ -42,9 +42,9 @@ const {
       dangerRichContent: dangerRichContent(templates),
       errorRichContent: errorRichContent(templates),
       infoRichContent: infoRichContent(templates),
-      infoCompactNonRemovableRichContent,
+      infoCompactNonRemovableRichContent: infoCompactNonRemovableRichContent(templates),
       warningRichContent: warningRichContent(templates),
-      warningNonRemovableRichContent,
+      warningNonRemovableRichContent: warningNonRemovableRichContent(templates),
       richWarningRichContent: richWarningRichContent(templates),
       richInfoRichContent: richInfoRichContent(templates),
       dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
