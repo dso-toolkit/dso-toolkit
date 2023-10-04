@@ -3,12 +3,14 @@
 @use "~dso-toolkit/src/variables/typography";
 
 :host {
-  max-inline-size: 100%;
+  max-inline-size: max-content;
+  block-size: 40px;
   display: grid;
   grid-template-areas: "target wordmark label";
   grid-template-columns: repeat(3, max-content);
+  grid-template-rows: 100%;
   gap: 16px;
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-weight: 600;
   align-items: center;
 }
@@ -32,7 +34,7 @@
 .logo-content-label {
   grid-area: label;
   color: colors.$bosgroen;
-  margin-inline-start: 32px;
+  margin-inline-start: 16px;
 }
 
 .logo-ribbon {
@@ -55,12 +57,12 @@
 }
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-  // if the logo has a label, hide the wordmark on smaller screens
-  // and replace it with the label
+  // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
   :host(.logo-content--haslabel) {
     grid-template-areas: "target wordmark";
-    grid-template-columns: max-content calc(100% - 4rem);
-    line-height: 24px;
+    grid-template-columns: minmax(max-content, min-content);
+    line-height: 1;
+    font-size: 1rem;
 
     .logo-content-omgevings,
     .logo-content-loket {
@@ -71,7 +73,13 @@
       grid-area: wordmark;
       margin-inline-start: 0;
       text-wrap: balance;
-      overflow-wrap: break-word;
+      overflow-wrap: normal;
     }
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  .logo-ribbon {
+    transform: rotate(3deg) translateY(-6px);
   }
 }

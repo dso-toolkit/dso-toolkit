@@ -414,6 +414,7 @@ export namespace Components {
           * The main menu items.
          */
         "mainMenu"?: HeaderMenuItem[];
+        "ribbon": string;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
@@ -1740,6 +1741,7 @@ declare namespace LocalJSX {
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
+        "ribbon"?: string;
         /**
           * Either have the dropdown menu appear automatically or always.
          */

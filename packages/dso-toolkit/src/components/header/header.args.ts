@@ -6,9 +6,8 @@ import { noControl } from "../../storybook/index.js";
 import { Header } from "./header.models.js";
 
 export interface HeaderArgs {
-  logo: string;
   subLogo: string;
-  showSubLogo: boolean;
+  ribbon: string;
   mainMenu: {
     label: string;
     url: string;
@@ -26,11 +25,8 @@ export interface HeaderArgs {
 }
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
-  logo: noControl,
   subLogo: noControl,
-  showSubLogo: {
-    ...noControl,
-  },
+  ribbon: noControl,
   mainMenu: noControl,
   noMainMenu: {
     name: "Geen menu",
@@ -87,7 +83,6 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
 export function headerArgsMapper(a: HeaderArgs): Required<Header> {
   return {
     ...a,
-    subLogo: a.showSubLogo ? a.subLogo : "",
     mainMenu: a.noMainMenu ? [] : a.mainMenu,
     dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();

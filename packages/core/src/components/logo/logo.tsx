@@ -23,7 +23,7 @@ export class Logo implements ComponentInterface {
   ribbon?: string;
 
   render() {
-    if (this.label != "") {
+    if (this.label !== "") {
       this.hasLabelClass = "logo-content--haslabel";
     }
 
@@ -36,8 +36,7 @@ export class Logo implements ComponentInterface {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 48 48"
-          width="48"
-          height="48"
+          height="100%"
           aria-hidden="true"
           focusable="false"
           class="logo-target"

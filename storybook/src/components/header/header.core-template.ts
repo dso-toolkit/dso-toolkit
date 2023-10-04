@@ -9,6 +9,7 @@ export const coreHeader: ComponentImplementation<Header> = {
   template: () =>
     function headerTemplate({
       subLogo,
+      ribbon,
       mainMenu,
       useDropDownMenu,
       authStatus,
@@ -33,9 +34,8 @@ export const coreHeader: ComponentImplementation<Header> = {
         @dsoHeaderClick=${dsoHeaderClick}
       >
         <div slot="logo">
-          <dso-logo label="Beheerportaal" ribbon="Beta"></dso-logo>
+          <dso-logo label=${ifDefined(subLogo)} ribbon=${ifDefined(ribbon)}></dso-logo>
         </div>
-        ${subLogo ? html`<img slot="sub-logo" alt="Regels op de kaart" src=${subLogo} />` : null}
       </dso-header>`;
     },
 };

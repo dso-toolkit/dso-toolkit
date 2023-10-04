@@ -1,6 +1,6 @@
 export interface Header {
-  logo: string;
   subLogo?: string;
+  ribbon?: string;
   mainMenu?: {
     label: string;
     url: string;
