@@ -47,11 +47,7 @@ export { AnnotationButton } from "./components/annotation-button/annotation-butt
 
 export { AnnotationOutput } from "./components/annotation-output/annotation-output.models.js";
 
-export { AttachmentsCounter } from "./components/attachments-counter/attachments-counter.models.js";
-export {
-  AttachmentsCounterTemplates,
-  storiesOfAttachmentsCounter,
-} from "./components/attachments-counter/attachments-counter.stories-of.js";
+export * from "./components/attachments-counter";
 
 export { Autosuggest, AutosuggestSuggestion } from "./components/autosuggest/autosuggest.models.js";
 export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosuggest/autosuggest.stories-of.js";
