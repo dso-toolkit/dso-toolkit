@@ -3,63 +3,75 @@
 @use "~dso-toolkit/src/variables/typography";
 
 :host {
-  display: block;
-}
-
-svg {
-  display: block;
   max-inline-size: 100%;
-}
-
-.logo_content_omgevings {
-  white-space: pre;
+  display: grid;
+  grid-template-areas: "target wordmark label";
+  grid-template-columns: repeat(3, max-content);
+  gap: 16px;
   font-size: 25px;
   font-weight: 600;
-  letter-spacing: 0.0045rem;
-  fill: colors.$grasgroen;
+  align-items: center;
 }
 
-.logo_content_loket {
-  white-space: pre;
-  font-size: 25px;
-  font-weight: 600;
-  letter-spacing: 0.006rem;
-  fill: colors.$bosgroen;
+.logo-target {
+  grid-area: target;
 }
 
-.logo_content_label {
-  fill: colors.$bosgroen;
-  font-size: 25px;
-  font-weight: 600;
-  white-space: pre;
+.logo_omgevingsloket {
+  grid-area: wordmark;
 }
 
-.logo_ribbon_background {
-  fill: colors.$oranje; /* #b85c00 would give more contrast with text */
+.logo-content-omgevings {
+  color: colors.$grasgroen;
 }
 
-.logo_ribbon_content {
-  fill: colors.$wit;
-  font-size: 12px;
+.logo-content-loket {
+  color: colors.$bosgroen;
+}
+
+.logo-content-label {
+  grid-area: label;
+  color: colors.$bosgroen;
+  margin-inline-start: 32px;
+}
+
+.logo-ribbon {
+  grid-area: wordmark;
+  align-self: flex-start;
+  justify-self: flex-end;
+  background-color: colors.$oranje;
+  border-radius: 3px;
+  transform: rotate(3deg);
+  height: 14px;
+  padding: 1px 5px;
+}
+
+.logo-ribbon-content {
+  color: colors.$wit;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: normal;
-  letter-spacing: 0.0045rem;
   text-transform: uppercase;
-  white-space: pre;
 }
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-  .logo_content--has-label {
-    .logo_omgevingsloket {
+  // if the logo has a label, hide the wordmark on smaller screens
+  // and replace it with the label
+  :host(.logo-content--haslabel) {
+    grid-template-areas: "target wordmark";
+    grid-template-columns: max-content calc(100% - 4rem);
+    line-height: 24px;
+
+    .logo-content-omgevings,
+    .logo-content-loket {
       display: none;
     }
-  }
 
-  .logo_content_label tspan {
-    baseline-shift: 28px;
-    white-space: pre;
-    font-size: 22px; /* to be the same size as the current logo, it should be 25px */
-    font-weight: 600;
-    letter-spacing: 0.0045rem;
-    fill: colors.$grasgroen;
+    .logo-content-label {
+      grid-area: wordmark;
+      margin-inline-start: 0;
+      text-wrap: balance;
+      overflow-wrap: break-word;
+    }
   }
 }

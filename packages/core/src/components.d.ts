@@ -562,7 +562,7 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'.
+          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 20 characters.
          */
         "ribbon"?: string;
     }
@@ -1903,7 +1903,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'.
+          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 20 characters.
          */
         "ribbon"?: string;
     }

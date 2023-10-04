@@ -38,7 +38,7 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
 
     stories.add("with label", template, {
       args: {
-        label: "Beheer Stelselcatalogus",
+        label: "Regels op de kaart",
       },
     });
 
@@ -51,7 +51,7 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
     stories.add("with label and ribbon", template, {
       args: {
         ribbon: "beta",
-        label: "Beheerportaal",
+        label: "Regels op de kaart",
       },
     });
 

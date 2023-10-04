@@ -36,10 +36,10 @@ Als er een label wordt toegevoegd, en een ribbon, worden deze op het component g
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                          | Type                  | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
-| `label`  | `label`   | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). | `string \| undefined` | `undefined` |
-| `ribbon` | `ribbon`  | The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'.                 | `string \| undefined` | `undefined` |
+| Property | Attribute | Description                                                                                                                                     | Type                  | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `label`  | `label`   | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).            | `string \| undefined` | `undefined` |
+| `ribbon` | `ribbon`  | The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 20 characters. | `string \| undefined` | `undefined` |
 
 
 ----------------------------------------------
