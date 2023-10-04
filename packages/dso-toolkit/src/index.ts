@@ -56,8 +56,7 @@ export * from "./components/badge";
 
 export * from "./components/banner";
 
-export { Breadcrumb, Breadcrumbs } from "./components/breadcrumbs/breadcrumbs.models.js";
-export { BreadcrumbsTemplates, storiesOfBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.stories-of.js";
+export * from "./components/breadcrumbs";
 
 export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
 export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
