@@ -29,9 +29,7 @@
 
   .dso-selectable-input-wrapper {
     display: inline-block;
-    margin-inline: -#{units.$u4};
     min-height: units.$u3;
-    padding-inline: units.$u4;
 
     &:focus-within.dso-keyboard-focus {
       @include utilities.focus-outline();

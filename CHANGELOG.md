@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Selectable: Styling aanpassingen ([#2368](https://github.com/dso-toolkit/dso-toolkit/issues/2368))
+
 ## 60.0.0 - 02-10-2023
 
 ### Added
