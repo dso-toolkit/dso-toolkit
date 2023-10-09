@@ -18,13 +18,18 @@ storiesOfDocumentComponent({
   storyTemplates: ({ documentComponentTemplate }) => ({
     documentComponentTemplate,
     demoTemplate: (jsonFile, openDefault, showCanvas, ozonContentAnchorClick) =>
-      html`<dsot-document-component-demo
-        @dsotOzonContentAnchorClick=${(
-          e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>
-        ) => ozonContentAnchorClick(e.detail)}
-        .jsonFile=${jsonFile}
-        ?open-default=${openDefault}
-        ?show-canvas=${showCanvas}
-      ></dsot-document-component-demo>`,
+      html`<style>
+          body {
+            overflow: hidden;
+          }
+        </style>
+        <dsot-document-component-demo
+          @dsotOzonContentAnchorClick=${(
+            e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>
+          ) => ozonContentAnchorClick(e.detail)}
+          .jsonFile=${jsonFile}
+          ?open-default=${openDefault}
+          ?show-canvas=${showCanvas}
+        ></dsot-document-component-demo>`,
   }),
 });
