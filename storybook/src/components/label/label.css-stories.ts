@@ -1,14 +1,16 @@
-// import { decorator } from "./label.decorator";
-
 import type { Meta } from "@storybook/web-components";
-import { labelArgTypes, labelStories } from "dso-toolkit";
+import { labelStories, labelMeta, LabelArgs } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta = {
+import { decorator } from "./label.decorator";
+
+import readme from "dso-toolkit/src/components/label/readme.md?raw";
+
+const meta: Meta<LabelArgs> = {
+  ...labelMeta({ readme }),
   component: "dso-label",
   title: "HTML|CSS/Label",
-  argTypes: labelArgTypes,
 };
 
 export default meta;
@@ -22,6 +24,7 @@ const { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor } = labelS
       labelTemplate,
     };
   },
+  decorator,
 });
 
 export { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor };

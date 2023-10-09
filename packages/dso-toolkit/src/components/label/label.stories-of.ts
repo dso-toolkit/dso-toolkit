@@ -1,14 +1,16 @@
-// import { action } from "@storybook/addon-actions";
-// import { Addon_PartialStoryFn } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
-import { WebComponentsRenderer } from "@storybook/web-components";
-
-import { LabelArgs, labelArgsMapper } from "./label.args.js";
+import { LabelArgs, labelArgTypes, labelArgsMapper } from "./label.args.js";
 import { Label } from "./label.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { css } from "./label.demo.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
-type LabelStory = StoryObj<LabelArgs, WebComponentsRenderer>;
+export type LabelDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: string) => TemplateFnReturnType;
+
+type LabelStory = StoryObj<LabelArgs, Renderer>;
 
 interface LabelStories {
   Plain: LabelStory;
@@ -18,20 +20,35 @@ interface LabelStories {
   WithSymbolColor: LabelStory;
 }
 
-// export interface LabelParameters<TemplateFnReturnType> {
-//   decorator: (story: Addon_PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
-// }
-
 interface LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LabelTemplates<TemplateFnReturnType>> {}
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LabelTemplates<TemplateFnReturnType>> {
+  decorator: LabelDecorator<TemplateFnReturnType>;
+}
 
 interface LabelTemplates<TemplateFnReturnType> {
   labelTemplate: (labelProperties: Label) => TemplateFnReturnType;
 }
 
+export function labelMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  LabelArgs
+> {
+  return {
+    argTypes: labelArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
 export function labelStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
+  decorator,
 }: LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LabelStories {
   return {
     Plain: {
@@ -46,11 +63,6 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         label: "Label",
         removable: true,
-        // button: {
-        //   title: "Verwijder",
-        //   icon: "times",
-        //   onClick: action("Clicked remove"),
-        // },
       },
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
         labelTemplate(labelArgsMapper(args))
@@ -71,6 +83,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
         status: "bright",
         symbol: '<span class="symboolcode" data-symboolcode="vag000"></span>',
       },
+      decorators: [(story) => decorator(story, css)],
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
         labelTemplate(labelArgsMapper(args))
       ),
@@ -81,6 +94,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
         status: "bright",
         symbol: '<span class="symboolcode" data-symboolcode="vszt030"></span>',
       },
+      decorators: [(story) => decorator(story, css)],
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
         labelTemplate(labelArgsMapper(args))
       ),

@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { ButtonRowArgs, buttonRowArgsMapper } from "./button-row.args.js";
 import { ButtonRow } from "./button-row.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type ButtonRowStory = StoryObj<ButtonRowArgs, WebComponentsRenderer>;
+type ButtonRowStory = StoryObj<ButtonRowArgs, Renderer>;
 
 interface ButtonRowStories {
   Default: ButtonRowStory;

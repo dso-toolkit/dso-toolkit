@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { AnchorArgs, anchorArgsMapper } from "./anchor.args.js";
 import { Anchor } from "./anchor.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type AnchorStory = StoryObj<AnchorArgs, WebComponentsRenderer>;
+type AnchorStory = StoryObj<AnchorArgs, Renderer>;
 
 interface AnchorStories {
   Default: AnchorStory;

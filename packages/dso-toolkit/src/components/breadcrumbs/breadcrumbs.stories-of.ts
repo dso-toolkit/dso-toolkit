@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { BreadcrumbsArgs, breadcrumbsArgsMapper } from "./breadcrumbs.args.js";
 import { Breadcrumbs } from "./breadcrumbs.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type BreadcrumbsStory = StoryObj<BreadcrumbsArgs, WebComponentsRenderer>;
+type BreadcrumbsStory = StoryObj<BreadcrumbsArgs, Renderer>;
 
 interface BreadcrumbsStories {
   Breadcrumb: BreadcrumbsStory;

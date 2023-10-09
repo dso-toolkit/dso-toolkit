@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { AttachmentsCounterArgs, attachmentsCounterArgsMapper } from "./attachments-counter.args.js";
 import { AttachmentsCounter } from "./attachments-counter.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, WebComponentsRenderer>;
+type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, Renderer>;
 
 interface AttachmentsCounterStories {
   Count: AttachmentsCounterStory;

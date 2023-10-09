@@ -1,7 +1,7 @@
-import { LabelParameters } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { LabelDecorator } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
-export const decorator: LabelParameters<TemplateResult>["decorator"] = (story, css) => html`
+export const decorator: LabelDecorator<TemplateResult> = (story, css) => html`
   ${story()}
 
   <style>

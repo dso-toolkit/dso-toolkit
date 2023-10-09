@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { AlertArgs, alertArgsMapper } from "./alert.args.js";
 import { Alert, AlertStatus } from "./alert.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type AlertStory = StoryObj<AlertArgs, WebComponentsRenderer>;
+type AlertStory = StoryObj<AlertArgs, Renderer>;
 
 interface AlertStories {
   Success: AlertStory;

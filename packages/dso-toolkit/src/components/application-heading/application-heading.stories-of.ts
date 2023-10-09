@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { ApplicationHeadingArgs, applicationHeadingArgsMapper } from "./application-heading.args.js";
 import { ApplicationHeading } from "./application-heading.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, WebComponentsRenderer>;
+type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, Renderer>;
 
 interface ApplicationHeadingStories {
   Default: ApplicationHeadingStory;

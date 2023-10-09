@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { BannerArgs, bannerArgsMapper } from "./banner.args.js";
 import { Banner } from "./banner.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type BannerStory = StoryObj<BannerArgs, WebComponentsRenderer>;
+type BannerStory = StoryObj<BannerArgs, Renderer>;
 
 interface BannerStories {
   Danger: BannerStory;

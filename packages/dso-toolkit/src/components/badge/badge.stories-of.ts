@@ -1,11 +1,11 @@
-import { WebComponentsRenderer } from "@storybook/web-components";
+import { Renderer } from "@storybook/types";
 
 import { BadgeArgs, badgeArgsMapper } from "./badge.args.js";
 import { Badge } from "./badge.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-type BadgeStory = StoryObj<BadgeArgs, WebComponentsRenderer>;
+type BadgeStory = StoryObj<BadgeArgs, Renderer>;
 
 interface BadgeStories {
   Plain: BadgeStory;

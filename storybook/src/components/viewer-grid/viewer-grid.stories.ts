@@ -290,19 +290,19 @@ storiesOfViewerGrid({
           })
         )}`,
         map: alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: html`<p>Dit is <code>slot="map"</code>.</p>`,
         }),
         documentPanel: alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: html`Dit is <code>slot="document-panel"</code>.`,
         }),
         filterpanel: alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: html`Dit is <code>slot="filterpanel"</code>.`,
         }),
         overlay: html`${alertTemplate({
-          status: AlertType.Info,
+          status: AlertStatus.Info,
           message: html`Dit is <code>slot="overlay"</code>.`,
         })}
         ${richContentTemplate({
@@ -336,3 +336,4 @@ storiesOfViewerGrid({
     };
   },
 });
+
