@@ -414,7 +414,6 @@ export namespace Components {
           * The main menu items.
          */
         "mainMenu"?: HeaderMenuItem[];
-        "ribbon": string;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
@@ -559,11 +558,11 @@ export namespace Components {
     }
     interface DsoLogo {
         /**
-          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). Max-length: 20 characters.
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 20 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 5 characters.
          */
         "ribbon"?: string;
     }
@@ -1741,7 +1740,6 @@ declare namespace LocalJSX {
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
-        "ribbon"?: string;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
@@ -1901,11 +1899,11 @@ declare namespace LocalJSX {
     }
     interface DsoLogo {
         /**
-          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). Max-length: 20 characters.
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 20 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 5 characters.
          */
         "ribbon"?: string;
     }

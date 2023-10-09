@@ -90,12 +90,6 @@ export class Header {
   @State()
   showDropDown?: boolean;
 
-  /**
-   * The ribbon takes a short string and is shown as a label over the logo text.
-   */
-  @Prop()
-  ribbon = "Beta";
-
   @State()
   overflowMenuItems = 0;
 

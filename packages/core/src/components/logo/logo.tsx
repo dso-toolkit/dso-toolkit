@@ -11,13 +11,14 @@ export class Logo implements ComponentInterface {
   /**
    * The label clarifies the service within the Omgevingsloket, shown
    * as a subtitle (and on smaller screens as the main wordmark itself).
+   * Max-length: 20 characters.
    */
   @Prop()
   label?: string;
 
   /**
-   * The ribbon contains the text for a possible tag on top of the logo.
-   * Used to clarify status of the page, like 'beta'. Max-length: 20 characters.
+   * The ribbon contains the text for a possible 'sticker' on top of the logo.
+   * Used to clarify status of the page, like 'beta'. Max-length: 5 characters.
    */
   @Prop()
   ribbon?: string;
