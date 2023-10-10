@@ -3,24 +3,44 @@
 @use "~dso-toolkit/src/variables/typography";
 
 :host {
+  min-inline-size: 100%;
   max-inline-size: max-content;
-  block-size: 40px;
+  max-block-size: 48px;
+  block-size: 48px;
   display: grid;
   grid-template-areas: "target wordmark label";
   grid-template-columns: repeat(3, max-content);
   grid-template-rows: 100%;
   gap: 16px;
   font-size: 1.5625rem;
-  font-weight: 600;
+  font-weight: 500;
   align-items: center;
+
+  container-type: size;
+  container-name: logo;
 }
 
 .logo-target {
   grid-area: target;
+  max-block-size: 48px;
+  max-inline-size: 48px;
+  inline-size: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
 }
 
 .logo_omgevingsloket {
   grid-area: wordmark;
+  font-size: 1.5625rem;
+}
+
+@container logo (max-height: 47px) {
+  .logo_omgevingsloket,
+  .logo-content-label {
+    font-size: 1.3019rem;
+    font-size: 50cqb;
+    line-height: 1;
+  }
 }
 
 .logo-content-omgevings {
@@ -44,25 +64,33 @@
   background-color: colors.$oranje;
   border-radius: 3px;
   transform: rotate(3deg);
-  height: 14px;
+  block-size: 14px;
   padding: 1px 5px;
-}
-
-.logo-ribbon-content {
   color: colors.$wit;
   font-size: 0.75rem;
-  line-height: 1rem;
+  line-height: 1;
   font-weight: normal;
   text-transform: uppercase;
+  display: flex;
+  place-items: center;
+
+  @container logo (max-height: 47px) {
+    block-size: 28cqb;
+    font-size: 0.6509rem;
+    font-size: 25cqb !important;
+  }
 }
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  .logo_omgevingsloket {
+    line-height: 1;
+    font-size: 1rem;
+  }
+
   // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
   :host(.logo-content--haslabel) {
     grid-template-areas: "target wordmark";
     grid-template-columns: minmax(max-content, min-content);
-    line-height: 1;
-    font-size: 1rem;
 
     .logo-content-omgevings,
     .logo-content-loket {
@@ -74,12 +102,8 @@
       margin-inline-start: 0;
       text-wrap: balance;
       overflow-wrap: normal;
+      line-height: 1;
+      font-size: 1rem;
     }
-  }
-}
-
-@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-  .logo-ribbon {
-    transform: rotate(3deg) translateY(-6px);
   }
 }

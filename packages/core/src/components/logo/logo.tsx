@@ -24,14 +24,14 @@ export class Logo implements ComponentInterface {
   ribbon?: string;
 
   render() {
-    if (this.label !== "") {
+    if (this.label) {
       this.hasLabelClass = "logo-content--haslabel";
     }
 
     return (
       <Host
-        aria-label={`Omgevingsloket ${this.label} ${this.ribbon && "(" + this.ribbon + ")"}`}
-        class={`${this.hasLabelClass ? this.hasLabelClass : ""}`}
+        aria-label={`Omgevingsloket ${this.label && this.label} ${this.ribbon && "(" + this.ribbon + ")"}`}
+        class={`${this.label && this.hasLabelClass}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
