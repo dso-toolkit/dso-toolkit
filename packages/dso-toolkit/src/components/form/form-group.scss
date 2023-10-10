@@ -60,6 +60,10 @@
     text-align: left;
   }
 
+  .dso-rich-content {
+    overflow-x: auto;
+  }
+
   legend + .dso-label-container {
     margin-bottom: units.$u1;
   }
