@@ -53,11 +53,7 @@ export class Logo implements ComponentInterface {
         </div>
 
         {this.label && <span class="logo-content-label">{this.label}</span>}
-        {this.ribbon && (
-          <div class="logo-ribbon">
-            <div class="logo-ribbon-content">{this.ribbon}</div>
-          </div>
-        )}
+        {this.ribbon && <div class="logo-ribbon">{this.ribbon}</div>}
       </Host>
     );
   }

@@ -7,7 +7,7 @@ describe("Logo", () => {
     cy.get("dso-logo")
       .invoke("attr", "label", "Beheerportaal")
       .shadow()
-      .find(".logo_content_label")
+      .find(".logo-content-label")
       .should("be.visible");
   });
 
@@ -16,14 +16,14 @@ describe("Logo", () => {
     cy.get("dso-logo")
       .invoke("attr", "label", "Beheerportaal")
       .shadow()
-      .find(".logo_content_label")
+      .find(".logo-content-label")
       .should("be.visible")
-      .find(".logo_omgevingsloket")
+      .find(".logo-omgevingsloket")
       .should("not.exist");
   });
 
   it("shows the beta tag", () => {
-    cy.get("dso-logo").invoke("attr", "ribbon", "beta").shadow().find(".logo_ribbon").should("be.visible");
+    cy.get("dso-logo").invoke("attr", "ribbon", "beta").shadow().find(".logo-ribbon").should("be.visible");
   });
 
   it("should be accessible", () => {
