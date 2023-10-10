@@ -156,13 +156,11 @@ dso-dropdown-menu {
 
 .dropdown {
   margin-left: auto;
+  display: flex;
+  align-items: center;
 
   dso-dropdown-menu {
     position: static;
-
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      margin-top: units.$u1 * 3.5;
-    }
 
     .dso-dropdown-options {
       right: 0;
