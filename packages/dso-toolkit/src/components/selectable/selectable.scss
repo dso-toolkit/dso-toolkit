@@ -3,6 +3,8 @@
 
 // HTML/CSS
 .dso-selectable {
+  display: var(--dso-selectable-display);
+
   @include selectable.root(".dso-info");
 
   &:not(:last-child) {

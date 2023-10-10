@@ -12,8 +12,6 @@
 }
 
 @mixin inline($siblingSelectableSelector) {
-  display: inline-block;
-
   + #{$siblingSelectableSelector} {
     margin-left: units.$u3;
   }

@@ -18,6 +18,8 @@
   }
 
   &.dso-inline {
+    --dso-selectable-display: inline-block;
+
     .dso-selectable {
       @include selectable.inline(".dso-selectable");
     }
