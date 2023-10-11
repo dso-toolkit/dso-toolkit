@@ -25,7 +25,7 @@ export class Logo implements ComponentInterface {
 
   render() {
     if (this.label) {
-      this.hasLabelClass = "logo-content--haslabel";
+      this.hasLabelClass = "logo-content-haslabel";
     }
 
     return (
@@ -47,7 +47,7 @@ export class Logo implements ComponentInterface {
           <path class="logo_orange" fill="#E17000" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
         </svg>
 
-        <div class="logo_omgevingsloket">
+        <div class="logo-omgevingsloket">
           <span class="logo-content-omgevings">Omgevings</span>
           <span class="logo-content-loket">loket</span>
         </div>

@@ -1,21 +1,21 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   min-inline-size: 100%;
   max-inline-size: max-content;
-  max-block-size: 48px;
-  block-size: 48px;
+  max-block-size: units.$ru6;
+  block-size: units.$ru6;
   display: grid;
   grid-template-areas: "target wordmark label";
   grid-template-columns: repeat(3, max-content);
   grid-template-rows: 100%;
-  gap: 16px;
+  gap: units.$ru2;
   font-size: 1.5625rem;
   font-weight: 500;
   align-items: center;
-
   container-type: size;
   container-name: logo;
 }
@@ -29,15 +29,14 @@
   aspect-ratio: 1 / 1;
 }
 
-.logo_omgevingsloket {
+.logo-omgevingsloket {
   grid-area: wordmark;
   font-size: 1.5625rem;
 }
 
 @container logo (max-height: 47px) {
-  .logo_omgevingsloket,
+  .logo-omgevingsloket,
   .logo-content-label {
-    font-size: 1.3019rem;
     font-size: 50cqb;
     line-height: 1;
   }
@@ -54,57 +53,51 @@
 .logo-content-label {
   grid-area: label;
   color: colors.$bosgroen;
-  margin-inline-start: 16px;
+  margin-inline-start: units.$ru2;
 }
 
 .logo-ribbon {
   grid-area: wordmark;
-  align-self: flex-start;
-  justify-self: flex-end;
-  background-color: colors.$oranje;
-  border-radius: 3px;
-  transform: rotate(3deg);
-  block-size: 14px;
-  padding: 1px 5px;
-  color: colors.$wit;
-  font-size: 0.75rem;
-  line-height: 1;
-  font-weight: normal;
-  text-transform: uppercase;
+  place-self: start end;
   display: flex;
   place-items: center;
 
+  background-color: colors.$oranje;
+  border-radius: 3px;
+  transform: rotate(3deg);
+  padding: 0 5px;
+
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: colors.$wit;
+
   @container logo (max-height: 47px) {
     block-size: 28cqb;
-    font-size: 0.6509rem;
     font-size: 25cqb !important;
   }
 }
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-  .logo_omgevingsloket {
-    line-height: 1;
-    font-size: 1rem;
+  .logo-omgevingsloket {
+    font-size: initial;
   }
 
   // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
-  :host(.logo-content--haslabel) {
+  :host(.logo-content-haslabel) {
     grid-template-areas: "target wordmark";
-    grid-template-columns: minmax(max-content, min-content);
 
-    .logo-content-omgevings,
-    .logo-content-loket {
+    .logo-omgevingsloket {
       display: none;
     }
 
     .logo-content-label {
       grid-area: wordmark;
       margin-inline-start: 0;
+      max-inline-size: 50vw;
+      font-size: initial;
       text-wrap: balance;
       overflow-wrap: normal;
-      line-height: 1;
-      font-size: 1rem;
-      max-inline-size: 50vw;
     }
   }
 }
