@@ -3,7 +3,7 @@
 @use "~dso-toolkit/src/variables/units";
 
 :host {
-  display: var(--dso-selectable-display);
+  display: var(--dso-selectable-display, block);
 
   @include selectable.root("dso-info", false);
 

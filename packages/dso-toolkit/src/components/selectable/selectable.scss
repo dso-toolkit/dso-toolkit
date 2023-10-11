@@ -3,7 +3,7 @@
 
 // HTML/CSS
 .dso-selectable {
-  display: var(--dso-selectable-display);
+  display: var(--dso-selectable-display, block);
 
   @include selectable.root(".dso-info");
 

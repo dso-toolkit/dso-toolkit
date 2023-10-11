@@ -20,6 +20,7 @@ export interface FormGroupRadiosArgs {
   infoText: string;
   infoCloseHandler: HandlerFunction;
   infoFixed: boolean;
+  inline?: boolean;
 }
 
 export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
@@ -87,6 +88,11 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
       type: "boolean",
     },
   },
+  inline: {
+    control: {
+      type: "boolean",
+    },
+  },
 };
 
 export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
@@ -101,6 +107,7 @@ export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
     state: a.state,
     errorText: a.errorText,
     helpText: a.helpText,
+    inline: a.inline,
     selectables: [
       {
         id: uuidv4(),
