@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreHeader: ComponentImplementation<Header> = {
   component: "header",
   implementation: "core",
-  template: () =>
+  template: ({ logoTemplate }) =>
     function headerTemplate({
       label,
       ribbon,
@@ -33,9 +33,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-home-active=${ifDefined(userHomeActive)}
         @dsoHeaderClick=${dsoHeaderClick}
       >
-        <div slot="logo">
-          <dso-logo label=${ifDefined(subLogo)} ribbon=${ifDefined(ribbon)}></dso-logo>
-        </div>
+        <div slot="logo">${logoTemplate({ label, ribbon })}</div>
       </dso-header>`;
     },
 };
