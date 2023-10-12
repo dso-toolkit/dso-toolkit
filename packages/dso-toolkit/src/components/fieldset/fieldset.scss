@@ -5,7 +5,7 @@
 fieldset {
   border: 0;
   margin: 0;
-  min-width: 0;
+  min-inline-size: 0;
   padding: 0;
 }
 
@@ -14,9 +14,9 @@ legend {
   color: css-fieldset-variables.$legend-color;
   font-size: typography.$root-font-size-base * 1.5;
   line-height: inherit;
-  margin-bottom: typography.$line-height-computed;
+  margin-block-end: typography.$line-height-computed;
   padding: 0;
-  width: 100%;
+  inline-size: 100%;
 }
 
 fieldset fieldset legend {
