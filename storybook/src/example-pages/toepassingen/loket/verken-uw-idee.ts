@@ -8,10 +8,7 @@ import { header } from "../../partials/header.content";
 examplePageFactory(
   "Toepassingen/Loket",
   "Verken uw idee",
-  (
-    { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
-    templates
-  ) => html`
+  ({ anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -19,7 +16,7 @@ examplePageFactory(
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"
         >
-          <div class="col-lg-6 col-sm-8">
+          <div class="col-lg-6 col-sm-8 col-xs-12">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
