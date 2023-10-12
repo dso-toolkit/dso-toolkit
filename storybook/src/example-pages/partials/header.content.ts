@@ -1,7 +1,7 @@
 import { Breadcrumbs, Header } from "dso-toolkit";
 
 export const header: Header = {
-  subLogo: "",
+  label: "",
   ribbon: "",
   mainMenu: [
     {

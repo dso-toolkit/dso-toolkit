@@ -1,5 +1,5 @@
 export interface Header {
-  subLogo?: string;
+  label?: string;
   ribbon?: string;
   mainMenu?: {
     label: string;

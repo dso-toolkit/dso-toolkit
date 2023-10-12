@@ -8,7 +8,7 @@ export const coreHeader: ComponentImplementation<Header> = {
   implementation: "core",
   template: () =>
     function headerTemplate({
-      subLogo,
+      label,
       ribbon,
       mainMenu,
       useDropDownMenu,

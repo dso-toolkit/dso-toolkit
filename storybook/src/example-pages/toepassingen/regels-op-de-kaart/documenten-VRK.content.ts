@@ -2,7 +2,7 @@ import { Breadcrumbs, CardContainer, Header } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
 export const header: Header = {
-  subLogo: "Regels op de kaart",
+  label: "Regels op de kaart",
   ribbon: "Beta",
   mainMenu: [
     {

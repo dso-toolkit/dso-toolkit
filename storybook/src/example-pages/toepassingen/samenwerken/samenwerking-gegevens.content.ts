@@ -3,7 +3,7 @@ import { html, TemplateResult } from "lit-html";
 import { Templates } from "../../../templates";
 
 export const header: Header = {
-  subLogo: "Regels op de kaart",
+  label: "Regels op de kaart",
   ribbon: "Beta",
   mainMenu: [
     {

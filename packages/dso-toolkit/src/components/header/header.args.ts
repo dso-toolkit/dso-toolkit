@@ -6,7 +6,7 @@ import { noControl } from "../../storybook/index.js";
 import { Header } from "./header.models.js";
 
 export interface HeaderArgs {
-  subLogo: string;
+  label: string;
   ribbon: string;
   mainMenu: {
     label: string;
@@ -25,7 +25,7 @@ export interface HeaderArgs {
 }
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
-  subLogo: noControl,
+  label: noControl,
   ribbon: noControl,
   mainMenu: noControl,
   noMainMenu: {

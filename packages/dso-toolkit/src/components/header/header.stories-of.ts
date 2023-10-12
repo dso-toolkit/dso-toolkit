@@ -62,7 +62,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
 
     stories.add("with label", template, {
       args: {
-        subLogo: "Maatregelen op maat",
+        label: "Maatregelen op maat",
       },
     });
 
@@ -74,7 +74,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
 
     stories.add("with label and ribbon", template, {
       args: {
-        subLogo: "Maatregelen op maat",
+        label: "Maatregelen op maat",
         ribbon: "beta",
       },
     });
