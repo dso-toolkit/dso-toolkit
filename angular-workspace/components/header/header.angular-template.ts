@@ -10,7 +10,7 @@ export const angularHeader: ComponentImplementation<Header> = {
       return {
         props,
         template: `
-          <dso-header
+            <dso-header
             [mainMenu]="mainMenu"
             [useDropDownMenu]="useDropDownMenu"
             [authStatus]="authStatus"
@@ -20,14 +20,10 @@ export const angularHeader: ComponentImplementation<Header> = {
             [userHomeUrl]="userHomeUrl"
             [userHomeActive]="userHomeActive"
             (dsoHeaderClick)="dsoHeaderClick()"
-          >
-            <div slot="logo"><img alt="Omgevingsloket" [src]="logo | trustUrl" /></div>
-            <img
-              *ngIf="subLogo"
-              slot="sub-logo"
-              alt="Regels op de kaart"
-              [src]="subLogo | trustUrl"
-            />
+            >
+            <div slot="logo">
+              <dso-logo [label]="label" [ribbon]="ribbon"></dso-logo>
+            </div>
           </dso-header>
         `,
       };
