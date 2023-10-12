@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Selectable: Styling aanpassingen ([#2368](https://github.com/dso-toolkit/dso-toolkit/issues/2368))
 * Form group: Table overflow in rich content ([#2358](https://github.com/dso-toolkit/dso-toolkit/issues/2358))
 * Selectable: Inline werkt niet als verwacht ([#2370](https://github.com/dso-toolkit/dso-toolkit/issues/2370))
+* Legend: teveel witruimte onder filter titel ([#2373](https://github.com/dso-toolkit/dso-toolkit/issues/2373))
 
 ### Tasks
 * Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))
