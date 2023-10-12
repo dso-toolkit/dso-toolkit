@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Form group: Table overflow in rich content ([#2358](https://github.com/dso-toolkit/dso-toolkit/issues/2358))
 * Selectable: Inline werkt niet als verwacht ([#2370](https://github.com/dso-toolkit/dso-toolkit/issues/2370))
 * Legend: teveel witruimte onder filter titel ([#2373](https://github.com/dso-toolkit/dso-toolkit/issues/2373))
+* Accordion: Verticale uitlijning chevron ([#2376](https://github.com/dso-toolkit/dso-toolkit/issues/2376))
 
 ### Tasks
 * Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))
