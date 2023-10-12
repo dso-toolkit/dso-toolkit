@@ -104,7 +104,7 @@ examplePageFactory(
                     },
                     {
                       label: "Boom kappen in de achtertuin 3",
-                      interactions: [{ type: "button", label: "Omgevingsoverleg", variant: "tertiary" }],
+                      interactions: [{ type: "button", label: "Conceptverzoek", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>
                         <dd>Melding</dd>
