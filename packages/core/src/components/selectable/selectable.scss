@@ -3,8 +3,6 @@
 @use "~dso-toolkit/src/variables/units";
 
 :host {
-  display: block;
-
   @include selectable.root("dso-info", false);
 
   &[invalid]:not([invalid="false"]) {
