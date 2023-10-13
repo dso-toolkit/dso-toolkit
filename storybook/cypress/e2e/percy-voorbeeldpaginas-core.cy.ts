@@ -1,4 +1,4 @@
-import voorbeeldpaginasCore from "../fixtures/percy-voorbeeldpaginas-core.json";
+import voorbeeldpaginas from "../fixtures/percy-voorbeeldpaginas.json";
 
 import { percyHeaderFix } from "../support/percy-header-fix";
 
@@ -11,13 +11,13 @@ describe("Percy", () => {
     return;
   }
 
-  it("take screenshot of all in /cypress/fixtures/percy-voorbeeldpaginas-core.json", () => {
-    for (const id of voorbeeldpaginasCore) {
+  it("take screenshot of all in /cypress/fixtures/percy-voorbeeldpaginas.json (Core)", () => {
+    for (const id of voorbeeldpaginas) {
       cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
       percyHeaderFix();
 
-      cy.percySnapshot(id);
+      cy.percySnapshot(`${id} (Core)`);
     }
   });
 });
