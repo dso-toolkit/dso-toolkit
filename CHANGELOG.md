@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Selectable: Styling aanpassingen ([#2368](https://github.com/dso-toolkit/dso-toolkit/issues/2368))
 * Form group: Table overflow in rich content ([#2358](https://github.com/dso-toolkit/dso-toolkit/issues/2358))
+* Selectable: Inline werkt niet als verwacht ([#2370](https://github.com/dso-toolkit/dso-toolkit/issues/2370)) 
 
 ### Tasks
 * Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))
