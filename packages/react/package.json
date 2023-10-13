@@ -29,6 +29,7 @@
     "@storybook/channels": "7.3.2",
     "@storybook/components": "7.3.2",
     "@storybook/core-events": "7.3.2",
+    "@storybook/manager-api": "7.3.2",
     "@storybook/react": "7.3.2",
     "@storybook/react-webpack5": "7.3.2",
     "@storybook/theming": "7.3.2",

@@ -76,20 +76,37 @@ function getStoryIframeId(implementation: Implementation, name: string, variant:
 }
 
 function getNameFromPathname(pathname: string): string {
-  let path: string | undefined;
-  let component: string | undefined;
+  let root: string | undefined;
+  let path: string[] | undefined;
 
   if (window.location.hostname === "localhost") {
-    [, path, component] = pathname.split("/");
+    [, root, ...path] = pathname.split("/");
   } else {
-    [, , path, component] = pathname.split("/");
+    [, , root, ...path] = pathname.split("/");
   }
 
-  if (path !== "components" || !component) {
-    throw new Error(`Unable to get name from non-components location: ${location.pathname}`);
+  if (root !== "components" || !path || path.length === 0) {
+    throw new Error(`Unable to get name from non-components location: ${location.pathname} (${root})`);
+  }
+
+  const component = path.at(-1);
+  if (!component) {
+    throw new Error(`No component found for ${location.pathname}`);
   }
 
   return component;
+}
+
+function getStoryIframeUrlLocalhost() {
+  return new URL("iframe.html", "http://localhost:45000");
+}
+
+function getStoryIframeUrlRemote(implementation: Implementation) {
+  const version = getVersion();
+  const subDomain = getSubDomain(implementation);
+
+  const path = [`!${subDomain}`, version !== "local" ? version : "master", "iframe.html"].join("/");
+  return new URL(path, `https://${window.location.host}`);
 }
 
 function getStoryIframeUrl(
@@ -98,13 +115,9 @@ function getStoryIframeUrl(
   variant?: string,
   args?: Record<string, unknown>
 ): string {
-  const host = window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host;
-  const version = getVersion();
-  const subDomain = getSubDomain(implementation);
+  const url =
+    window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote(implementation);
   const id = getStoryIframeId(implementation, name, variant);
-
-  const path = [`!${subDomain}`, version !== "local" ? version : "master", "iframe.html"].join("/");
-  const url = new URL(path, `https://${host}`);
 
   const searchParamsObject: Record<string, string> = {
     id,
@@ -120,6 +133,14 @@ function getStoryIframeUrl(
   return `${url}?${searchParams}`;
 }
 
+function getStoryUrlLocalhost() {
+  return "http://localhost:45000";
+}
+
+function getStoryUrlRemote(version: string) {
+  return `https://storybook.dso-toolkit.nl/${version !== "local" ? version : "master"}`;
+}
+
 function getStoryUrl(
   implementation: Implementation,
   name: string,
@@ -127,6 +148,7 @@ function getStoryUrl(
   args?: Record<string, unknown>
 ): string {
   const version = getVersion();
+  const url = window.location.hostname === "localhost" ? getStoryUrlLocalhost() : getStoryUrlRemote(version);
 
   const searchParamsObject: Record<string, string> = {
     viewMode: "story",
@@ -138,11 +160,7 @@ function getStoryUrl(
 
   const searchParams = new URLSearchParams(searchParamsObject);
 
-  return `https://storybook.dso-toolkit.nl/${version !== "local" ? version : "master"}/?path=/story/${getStoryUrlId(
-    implementation,
-    name,
-    variant
-  )}&${searchParams}`;
+  return `${url}/?path=/story/${getStoryUrlId(implementation, name, variant)}&${searchParams}`;
 }
 
 export function StorybookComponent({ name, implementations, variant, args }: Props) {

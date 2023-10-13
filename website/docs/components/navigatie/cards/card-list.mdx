@@ -1,0 +1,49 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Card List
+
+<StorybookComponent implementations={["html-css"]} variant="card-list" />
+
+Cards zijn containers voor korte stukken informatie die met elkaar te maken hebben. Qua grootte en vorm lijken ze op speelkaarten. Ze hebben de volgende eigenschappen:
+
+- Cards zijn een visuele groep van verschillende elementen. Meestal gaat het om beeld en tekst, maar het kunnen ook andere elementen zijn.
+- Ze linken door naar aanvullende details.
+- Ze houden rekening met een flexibele indeling.
+- Ze kunnen verschillen in hoogte als de content ook verschilt. Wel is de breedte dan gelijk.
+
+## Wanneer te gebruiken
+
+Cards passen beter in een situatie waarbij gebruikers browsen voor informatie dan wanneer ze een zoekveld gebruiken. Gebruik ze in de volgende situaties:
+
+- Bij interactieve content en content met veel verschillende lengtes, zoals commentaar of bijschriften.
+- Om stukken informatie visueel te groeperen, waarbij de gebruiker een actie moet ondernemen. Denk bijvoorbeeld aan een serie links waar de gebruiker op kan klikken.
+- Om een samenhangend stuk content te maken door informatie over één onderwerp te verzamelen.
+- Om content te laten zien die uit verschillende elementen bestaat.
+
+## Wanneer niet te gebruiken
+
+Onder de volgende omstandigheden is het beter om geen cards te gebruiken:
+
+- Als content al als samenhangend geheel bij elkaar staat. Bijvoorbeeld bij een lijst met dezelfde producten of een fotogalerij. Cards zouden dan afleiden, teveel ruimte innemen en minder snel te bekijken zijn.
+- Als u de content in een vaste volgorde moet laten zien. Visueel hebben cards geen specifieke volgorde, waardoor het lastig is om een rangorde aan te geven.
+
+## Hoe te gebruiken
+
+Let op de volgende dingen als u cards gebruikt:
+
+- Er kunnen verschillende elementen in een card staan. Zorg er wel voor dat die elementen allemaal over hetzelfde onderwerp gaan.
+- Geef elke card genoeg witruimte. Zo wordt de card goed gezien, gelezen en begrepen.
+- Zet alleen essentiële informatie in een card. Geef de gebruiker daarna een startpunt om door te klikken.
+- Maak een rangorde in de content. De belangrijkste informatie staat bovenin. Gebruik tekstopmaak om de rangorde duidelijk te maken.
+- Maak de hele card klikbaar, niet delen van de card.
+- Gebruik visuele hints en animaties om de gebruiker te laten begrijpen hoe de interactie werkt.
+- Visueel heeft de card ronde hoeken en een lichte drop shadow.
+
+## Gedrag en toegankelijkheid
+
+- Geef het informatieknopje het `sr-only`tekstalternatief "toon informatie over [titel cards]". Zo voegt u de titel aan het tekstalternatief toe. Screenreadergebruikers snappen zo welke card bij het knopje hoort. Dat voorkomt misverstanden.
+
+## Bronvermelding
+
+- NN/g Nielsen Norman Group. Cards: UI-Component Definition Geraadpleegd op 20 maart 2020, van https://www.nngroup.com/articles/cards-component/
+- U.S. Web Design System (USWDS). Cards contain content and actions about a single subject. Geraadpleegd op 20 maart 2020, van https://designsystem.digital.gov/components/card/
