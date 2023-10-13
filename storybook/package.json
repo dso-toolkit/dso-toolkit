@@ -24,6 +24,7 @@
     "@storybook/api": "^7.3.2",
     "@storybook/components": "^7.3.2",
     "@storybook/core-events": "^7.3.2",
+    "@storybook/manager-api": "7.3.2",
     "@storybook/theming": "^7.3.2",
     "@storybook/types": "7.3.2",
     "@storybook/web-components": "7.3.2",

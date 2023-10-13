@@ -33,6 +33,7 @@
     "@storybook/addon-interactions": "7.3.2",
     "@storybook/addon-links": "7.3.2",
     "@storybook/angular": "7.3.2",
+    "@storybook/manager-api": "7.3.2",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/types": "7.3.2",
     "@types/jasmine": "^4.3.5",
