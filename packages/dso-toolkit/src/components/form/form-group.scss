@@ -191,6 +191,11 @@
   }
 }
 
+// to do: integrate this into spacing.scss [#2217]
+.dso-img-list + .form-group {
+  margin-block-start: units.$vertical-spacing-xlarge;
+}
+
 #{css-form-variables.$form-selectors} {
   .dso-field-container {
     position: relative;
