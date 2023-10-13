@@ -12,8 +12,6 @@
 }
 
 @mixin inline($siblingSelectableSelector) {
-  display: inline-block;
-
   + #{$siblingSelectableSelector} {
     margin-left: units.$u3;
   }
@@ -21,6 +19,8 @@
 
 @mixin root($info-selector, $set-padding: true) {
   position: relative;
+
+  display: var(--dso-selectable-display, block);
 
   @if ($set-padding) {
     padding: 0 0 0 units.$u4;
