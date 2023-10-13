@@ -38,7 +38,7 @@ export const definitionList1: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: html`Omgevingsoverleg mogelijk:`,
+      term: html`Conceptverzoek mogelijk:`,
       descriptions: [
         {
           content: "Nee",
@@ -83,7 +83,7 @@ export const definitionlist2: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: html`Omgevingsoverleg mogelijk:`,
+      term: html`Conceptverzoek mogelijk:`,
       descriptions: [
         {
           content: "Ja",
@@ -96,53 +96,50 @@ export const definitionlist2: DefinitionList<TemplateResult> = {
 export function radios({ richContentTemplate }: Templates): FormGroupRadios<TemplateResult> {
   return {
     group: "radios",
-    id: "omgevings-overleg-radio",
-    label: "Wilt u uw verzoeken definitief of als Omgevingsoverleg indienen?",
+    id: "conceptverzoek-radio",
+    label: "Wilt u uw verzoeken definitief of als conceptverzoek indienen?",
     inline: true,
+    selectables: [
+      {
+        id: "conceptverzoek-radio-1",
+        label: "Conceptverzoek",
+        value: "conceptverzoek",
+        type: "radio",
+        info: {
+          id: "conceptverzoek-radio-1-info",
+          content: html`<div slot="info">Dit is een conceptverzoek</div>`,
+          fixed: false,
+        },
+      },
+      {
+        id: "conceptverzoek-radio-2",
+        label: "Definitief",
+        value: "definitief",
+        type: "radio",
+        info: {
+          id: "conceptverzoek-radio-2-info",
+          content: html`<div slot="info">Dit is een definitief verzoek</div>`,
+          fixed: false,
+        },
+      },
+    ],
     info: {
       fixed: true,
       active: true,
       content: richContentTemplate({
         children: html`
           <p>
-            Als u wilt, kunt u een aanvraag doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig
-            proces waarin u uw plan bespreekt met uw gemeente, waterschap of provincie en andere betrokkenen. Samen
-            kijkt u dan naar hoe haalbaar uw plan is, en hoe u uw plan het beste mogelijk kunt maken. Bij elk verzoek
-            staat aangegeven of het mogelijk is om een Omgevingsoverleg in te dienen.
+            U kunt uw aanvraag indienen als conceptverzoek. Met deze optie controleert de gemeente, waterschap of
+            provincie of u de juiste informatie heeft ingevuld voordat u het verzoek definitief indient. Zo voorkomt u
+            onnodige vertraging in de behandeling van het definitieve verzoek.
           </p>
+          <p>Bij elk verzoek staat aangegeven of het mogelijk is een conceptverzoek in te dienen.</p>
           <p>
-            Twijfelt u over uw plan, of heeft u een vraag? Neem dan contact op met uw gemeente, waterschap of provincie.
-          </p>
-          <p>
-            Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> voor de mogelijke kosten van een
-            Omgevingsoverleg.
+            Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> of er mogelijk kosten zijn voor het
+            indienen van een conceptverzoek.
           </p>
         `,
       }),
     },
-    selectables: [
-      {
-        id: "omgevings-overleg-radio-1",
-        label: "Omgevingsoverleg",
-        value: "Omgevingsoverleg",
-        type: "radio",
-        info: {
-          id: "omgevings-overleg-radio-1-info",
-          content: html`<div slot="info">Dit is een omgevingsoverleg</div>`,
-          fixed: false,
-        },
-      },
-      {
-        id: "omgevings-overleg-radio-2",
-        label: "Definitief verzoek",
-        value: "definitiefverzoek",
-        type: "radio",
-        info: {
-          id: "omgevings-overleg-radio-2-info",
-          content: html`<div slot="info">Dit is een definitief verzoek</div>`,
-          fixed: false,
-        },
-      },
-    ],
   };
 }

@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))
 * Fundament: Categorisering componenten ([#2137](https://github.com/dso-toolkit/dso-toolkit/issues/2137))
 
+### Docs
+* Voorbeeldpagina Aanvragen/Omgevingsoverleg: Tekst aanpassen ([#2348](https://github.com/dso-toolkit/dso-toolkit/issues/2348))
+
 ## 60.0.0 - 02-10-2023
 
 ### Added
