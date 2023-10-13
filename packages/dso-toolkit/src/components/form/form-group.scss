@@ -189,7 +189,11 @@
     margin: units.$u2;
     width: calc(100% - #{units.$u4});
   }
-}
+  
+  // to do: integrate this into spacing.scss [#2217]
+  .dso-img-list + .form-group {
+    margin-block-start: $vertical-spacing-xlarge;
+  }
 
 #{css-form-variables.$form-selectors} {
   .dso-field-container {
