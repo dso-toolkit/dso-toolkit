@@ -10,7 +10,32 @@ examplePageFactory(
   "Landingspagina",
   ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(templates, {
+        ...header,
+        mainMenu: [
+          {
+            label: "Home",
+            url: "#",
+          },
+          {
+            label: "Vergunningscheck",
+            url: "#",
+          },
+          {
+            label: "Aanvragen",
+            url: "#",
+            active: true,
+          },
+          {
+            label: "Regels op de kaart",
+            url: "#",
+          },
+          {
+            label: "Mijn Omgevingsloket",
+            url: "#",
+          },
+        ],
+      })}
       <main>
         <div class="row dso-banner dso-banner-implementation-specific-image" style="background-image: url('images/hands-on-trackpad.jpg')">
           <div class="col-lg-6 col-sm-8">
