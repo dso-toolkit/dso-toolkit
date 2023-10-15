@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Legend: teveel witruimte onder filter titel ([#2373](https://github.com/dso-toolkit/dso-toolkit/issues/2373))
 * Accordion: Verticale uitlijning chevron ([#2376](https://github.com/dso-toolkit/dso-toolkit/issues/2376))
 * Form Group: Top spacing after image list ([#2357](https://github.com/dso-toolkit/dso-toolkit/issues/2357))
+* Viewer Grid: Prop mainSize reflecteert niet naar attribuut ([#2367](https://github.com/dso-toolkit/dso-toolkit/issues/2367))
 
 ### Tasks
 * Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))

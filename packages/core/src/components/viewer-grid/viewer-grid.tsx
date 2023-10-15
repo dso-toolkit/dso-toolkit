@@ -62,7 +62,7 @@ export class ViewerGrid {
   /**
    * VRK or VDK implementation.
    */
-  @Prop()
+  @Prop({ reflect: true })
   mode: ViewerGridMode = "vrk";
 
   /**
@@ -88,7 +88,7 @@ export class ViewerGrid {
    *
    * Default size is `large`.
    */
-  @Prop()
+  @Prop({ reflect: true })
   mainSize: ViewerGridPanelSize = "large";
 
   /**
@@ -102,7 +102,7 @@ export class ViewerGrid {
    *
    * Default size is `large`.
    */
-  @Prop()
+  @Prop({ reflect: true })
   documentPanelSize: ViewerGridPanelSize = "large";
 
   /**
