@@ -47,12 +47,12 @@ export class Logo implements ComponentInterface {
           <path class="logo_orange" fill="#E17000" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
         </svg>
 
-        <div class="logo-omgevingsloket">
-          <span class="logo-content-omgevings">Omgevings</span>
-          <span class="logo-content-loket">loket</span>
+        <div class="logo-wordmark">
+          <span class="logo-wordmark-omgevings">Omgevings</span>
+          <span class="logo-wordmark-loket">loket</span>
         </div>
 
-        {this.label && <span class="logo-content-label">{this.label}</span>}
+        {this.label && <span class="logo-label">{this.label}</span>}
         {this.ribbon && <div class="logo-ribbon">{this.ribbon}</div>}
       </Host>
     );

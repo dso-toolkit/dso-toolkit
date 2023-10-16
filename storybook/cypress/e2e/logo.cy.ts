@@ -4,11 +4,7 @@ describe("Logo", () => {
   });
 
   it("shows a label", () => {
-    cy.get("dso-logo")
-      .invoke("attr", "label", "Beheerportaal")
-      .shadow()
-      .find(".logo-content-label")
-      .should("be.visible");
+    cy.get("dso-logo").invoke("attr", "label", "Beheerportaal").shadow().find(".logo-label").should("be.visible");
   });
 
   it("only shows a label on smaller screens", () => {
@@ -16,9 +12,9 @@ describe("Logo", () => {
     cy.get("dso-logo")
       .invoke("attr", "label", "Beheerportaal")
       .shadow()
-      .find(".logo-content-label")
+      .find(".logo-label")
       .should("be.visible")
-      .find(".logo-omgevingsloket")
+      .find(".logo-wordmark")
       .should("not.exist");
   });
 
