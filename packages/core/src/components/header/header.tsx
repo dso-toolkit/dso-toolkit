@@ -236,7 +236,6 @@ export class Header {
           <div class="logo-container">
             <slot name="logo" />
           </div>
-          {/* </div> */}
           {this.showDropDown &&
             this.mainMenu &&
             (this.mainMenu.length > 0 || this.userHomeUrl || this.authStatus !== "none") && (

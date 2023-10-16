@@ -10,7 +10,7 @@ export const angularHeader: ComponentImplementation<Header> = {
       return {
         props,
         template: `
-            <dso-header
+          <dso-header
             [mainMenu]="mainMenu"
             [useDropDownMenu]="useDropDownMenu"
             [authStatus]="authStatus"
@@ -20,7 +20,7 @@ export const angularHeader: ComponentImplementation<Header> = {
             [userHomeUrl]="userHomeUrl"
             [userHomeActive]="userHomeActive"
             (dsoHeaderClick)="dsoHeaderClick()"
-            >
+          >
             <div slot="logo">
               <dso-logo [label]="label" [ribbon]="ribbon"></dso-logo>
             </div>
