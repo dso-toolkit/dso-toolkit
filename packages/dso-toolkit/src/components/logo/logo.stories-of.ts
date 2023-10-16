@@ -23,10 +23,12 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
 ) {
   return storiesOfFactory("Logo", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      argTypes: logoArgTypes,
+      argTypes: {
+        logoArgTypes,
+      },
       args: {
-        label: "Beheerportaal",
-        ribbon: "beta",
+        label: "",
+        ribbon: "",
       },
     });
 
@@ -36,13 +38,20 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
 
     stories.add("with label", template, {
       args: {
-        label: "Iets anders",
+        label: "Beheer Stelselcatalogus",
       },
     });
 
     stories.add("with (beta) ribbon", template, {
       args: {
-        ribbon: "Alpha",
+        ribbon: "beta",
+      },
+    });
+
+    stories.add("with label and ribbon", template, {
+      args: {
+        ribbon: "beta",
+        label: "Beheerportaal",
       },
     });
 
