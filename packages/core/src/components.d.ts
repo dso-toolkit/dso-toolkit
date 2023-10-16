@@ -557,7 +557,13 @@ export namespace Components {
         "sublabel"?: string;
     }
     interface DsoLogo {
+        /**
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+         */
         "label"?: string;
+        /**
+          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'.
+         */
         "ribbon"?: string;
     }
     interface DsoMapBaseLayers {
@@ -1892,7 +1898,13 @@ declare namespace LocalJSX {
         "sublabel"?: string;
     }
     interface DsoLogo {
+        /**
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+         */
         "label"?: string;
+        /**
+          * The ribbon contains the text for a possible tag on top of the logo. Used to clarify status of the page, like 'beta'.
+         */
         "ribbon"?: string;
     }
     interface DsoMapBaseLayers {

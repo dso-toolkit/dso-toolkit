@@ -8,7 +8,6 @@ export const coreHeader: ComponentImplementation<Header> = {
   implementation: "core",
   template: () =>
     function headerTemplate({
-      logo,
       subLogo,
       mainMenu,
       useDropDownMenu,
@@ -33,7 +32,9 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-home-active=${ifDefined(userHomeActive)}
         @dsoHeaderClick=${dsoHeaderClick}
       >
-        <div slot="logo"><img alt="Omgevingsloket" src=${logo} /></div>
+        <div slot="logo">
+          <dso-logo label="Beheerportaal" ribbon="Beta"></dso-logo>
+        </div>
         ${subLogo ? html`<img slot="sub-logo" alt="Regels op de kaart" src=${subLogo} />` : null}
       </dso-header>`;
     },

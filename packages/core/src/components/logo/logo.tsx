@@ -8,6 +8,7 @@ import { Component, ComponentInterface, Host, Prop, h } from "@stencil/core";
 export class Logo implements ComponentInterface {
   private svgWidth?: number | 243;
   private svgHeight?: number | 48;
+  private hasLabelClass?: string | " ";
 
   /**
    * The label clarifies the service within the Omgevingsloket, shown
@@ -25,15 +26,19 @@ export class Logo implements ComponentInterface {
 
   render() {
     if (this.label != "") {
-      this.svgWidth = 308;
-      this.svgHeight = 64;
+      this.svgWidth = 703;
+      this.svgHeight = 48;
+      this.hasLabelClass = "logo_content--haslabel";
     } else {
       this.svgWidth = 255;
       this.svgHeight = 48;
     }
 
     return (
-      <Host>
+      <Host
+        aria-label={`Omgevingsloket
+                ${this.label} ${this.ribbon && "(" + this.ribbon + ")"}`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -46,16 +51,18 @@ export class Logo implements ComponentInterface {
             {this.label && ` ${this.label}`}
             {this.ribbon && ` (${this.ribbon})`}
           </title>
-          <g class="logo_content">
-            <text xmlSpace="preserve" class="logo_content_omgevings" x="63" y="31">
-              Omgevings
-            </text>
-            <text xmlSpace="preserve" class="logo_content_loket" x="188" y="31">
-              loket
-            </text>
+          <g class={`logo_content ${this.hasLabelClass ? "logo_content--has-label" : ""}`}>
+            <g class="logo_omgevingsloket">
+              <text xmlSpace="preserve" class="logo_content_omgevings" x="63" y="31">
+                Omgevings
+              </text>
+              <text xmlSpace="preserve" class="logo_content_loket" x="188" y="31">
+                loket
+              </text>
+            </g>
             {this.label && (
               <text xmlSpace="preserve" class="logo_content_label">
-                <tspan x="63" y="59">
+                <tspan x="314" y="31">
                   {this.label}
                 </tspan>
               </text>

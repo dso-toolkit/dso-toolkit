@@ -3,64 +3,63 @@
 @use "~dso-toolkit/src/variables/typography";
 
 :host {
-    display: block;
-    font-family: typography.$font-family-base;
+  display: block;
 }
 
 svg {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-inline-size: 100%;
 }
 
 .logo_content_omgevings {
-    white-space: pre;
-    font-size: 25px;
-    font-weight: 600;
-    letter-spacing: 0.0045rem;
-    fill: colors.$grasgroen;
+  white-space: pre;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.0045rem;
+  fill: colors.$grasgroen;
 }
 
 .logo_content_loket {
-    white-space: pre;
-    font-size: 25px;
-    font-weight: 600;
-    letter-spacing: 0.006rem;
-    fill: colors.$bosgroen;
+  white-space: pre;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.006rem;
+  fill: colors.$bosgroen;
 }
 
 .logo_content_label {
-    fill: colors.$grijs-60;
-    font-size: 20px;
-    white-space: pre;
+  fill: colors.$bosgroen;
+  font-size: 25px;
+  font-weight: 600;
+  white-space: pre;
 }
 
 .logo_ribbon_background {
-    fill: colors.$oranje; /* #b85c00 would give more contrast with text */
+  fill: colors.$oranje; /* #b85c00 would give more contrast with text */
 }
 
 .logo_ribbon_content {
-    fill: colors.$wit;
-    font-size: 12px;
-    font-weight: normal;
-    letter-spacing: 0.0045rem;
-    text-transform: uppercase;
-    white-space: pre;
+  fill: colors.$wit;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.0045rem;
+  text-transform: uppercase;
+  white-space: pre;
 }
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    .logo_content:has(.logo_content_label) {
-        .logo_content_omgevings,
-        .logo_content_loket {
-            display: none;
-        }
+  .logo_content--has-label {
+    .logo_omgevingsloket {
+      display: none;
     }
+  }
 
-    .logo_content_label tspan {
-        baseline-shift: 28px;
-        white-space: pre;
-        font-size: 22px; /* to be the same size as the current logo, it should be 25px */
-        font-weight: 600;
-        letter-spacing: 0.0045rem;
-        fill: colors.$grasgroen;
-    }
+  .logo_content_label tspan {
+    baseline-shift: 28px;
+    white-space: pre;
+    font-size: 22px; /* to be the same size as the current logo, it should be 25px */
+    font-weight: 600;
+    letter-spacing: 0.0045rem;
+    fill: colors.$grasgroen;
+  }
 }

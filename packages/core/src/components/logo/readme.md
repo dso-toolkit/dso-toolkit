@@ -1,6 +1,6 @@
 # dso-logo
 
-Een Web Component waarmee een slim, toegankelijk en uniform logo in applicaties kan worden getoond.
+Een Web Component waarmee een slim, toegankelijk en uniform logo in applicaties kan worden getoond. Het ontwerp van het logo is [nagemaakt in Figma](https://www.figma.com/file/F9VXMV09Zj1tbkVU5ncTyE/Untitled?type=design&node-id=0%3A1&mode=design&t=XWWG6MnFI2VO7A6o-1) voor het genereren van de SVG. 
 
 ## Gebruik
 
