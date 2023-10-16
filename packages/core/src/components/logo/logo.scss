@@ -94,7 +94,6 @@
 
     .logo-ribbon {
       grid-area: label;
-    transform: rotate(3deg) translateY(-5px);
     }
 
     .logo-label {
@@ -103,5 +102,11 @@
       text-wrap: balance;
       overflow-wrap: normal;
     }
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  .logo-ribbon {
+    transform: rotate(3deg) translateY(-7px);
   }
 }
