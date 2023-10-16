@@ -4,8 +4,6 @@
 @use "~dso-toolkit/src/variables/units";
 
 :host {
-  min-inline-size: 100%;
-  max-inline-size: max-content;
   max-block-size: units.$ru6;
   block-size: units.$ru6;
   display: grid;
@@ -73,8 +71,10 @@
   color: colors.$wit;
 
   @container logo (max-height: 47px) {
-    block-size: 28cqb;
-    font-size: 25cqb !important;
+    & {
+      block-size: 28cqb;
+      font-size: 25cqb;
+    }
   }
 }
 
@@ -86,6 +86,7 @@
   // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
   :host(.logo-content-haslabel) {
     grid-template-areas: "target label";
+    grid-template-columns: max-content minmax(130px, max-content);
 
     .logo-wordmark {
       display: none;
@@ -93,11 +94,11 @@
 
     .logo-ribbon {
       grid-area: label;
+    transform: rotate(3deg) translateY(-5px);
     }
 
     .logo-label {
       margin-inline-start: 0;
-      max-inline-size: 40vw;
       font-size: initial;
       text-wrap: balance;
       overflow-wrap: normal;
