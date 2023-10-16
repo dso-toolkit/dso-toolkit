@@ -65,7 +65,7 @@
   background-color: colors.$oranje;
   border-radius: 3px;
   transform: rotate(3deg);
-  padding: 0 5px;
+  padding: 0 8px;
 
   font-size: 0.75rem;
   font-weight: normal;
@@ -91,9 +91,13 @@
       display: none;
     }
 
+    .logo-ribbon {
+      grid-area: label;
+    }
+
     .logo-label {
       margin-inline-start: 0;
-      max-inline-size: 50vw;
+      max-inline-size: 40vw;
       font-size: initial;
       text-wrap: balance;
       overflow-wrap: normal;
