@@ -2,7 +2,7 @@ import { Breadcrumbs, DefinitionList, Header } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
 export const header: Header = {
-  ribbon: "Beta",
+  ribbon: "beta",
   mainMenu: [
     {
       label: "Menu titel A",

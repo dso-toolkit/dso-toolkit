@@ -3,7 +3,7 @@ import { html, TemplateResult } from "lit-html";
 
 export const header: Header = {
   label: "Regels op de kaart",
-  ribbon: "Beta",
+  ribbon: "beta",
   mainMenu: [
     {
       label: "Home",

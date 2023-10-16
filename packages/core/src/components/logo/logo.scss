@@ -78,13 +78,25 @@
   }
 }
 
+.inner {
+  fill: colors.$oranje;
+}
+
+.middle {
+  fill: colors.$bosgroen;
+}
+
+.outer {
+  fill: colors.$grasgroen;
+}
+
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
   .logo-wordmark {
     font-size: initial;
   }
 
   // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
-  :host(.logo-content-haslabel) {
+  :host([label]) {
     grid-template-areas: "target label";
     grid-template-columns: max-content minmax(130px, max-content);
 

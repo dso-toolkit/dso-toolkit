@@ -8,6 +8,6 @@ export const coreLogo: ComponentImplementation<Logo> = {
   implementation: "core",
   template: () =>
     function logoTemplate({ label, ribbon }) {
-      return html`<dso-logo label=${ifDefined(label)} ribbon=${ifDefined(ribbon)}></dso-logo> `;
+      return html`<dso-logo label=${ifDefined(label)} ribbon=${ifDefined(ribbon)}></dso-logo>`;
     },
 };

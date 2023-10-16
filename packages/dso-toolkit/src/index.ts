@@ -238,7 +238,7 @@ export {
 export { ListButtonTemplates, storiesOfListButton } from "./components/list-button/list-button.stories-of.js";
 
 export { Logo } from "./components/logo/logo.models.js";
-export { LogoTemplates, LogoParameters, storiesOfLogo } from "./components/logo/logo.stories-of.js";
+export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.js";
 
 export { Modal, ModalCloseEvent, ModalRole } from "./components/modal/modal.models.js";
 export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";

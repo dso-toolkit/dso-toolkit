@@ -1,5 +1,3 @@
-import { Addon_PartialStoryFn } from "@storybook/types";
-
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import { LogoArgs, logoArgsMapper, logoArgTypes } from "./logo.args.js";
@@ -7,10 +5,6 @@ import { Logo } from "./logo.models.js";
 
 export interface LogoTemplates<TemplateFnReturnType> {
   logoTemplate: (logoProperties: Logo) => TemplateFnReturnType;
-}
-
-export interface LogoParameters<TemplateFnReturnType> {
-  decorator: (story: Addon_PartialStoryFn<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
@@ -26,10 +20,7 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
       argTypes: {
         logoArgTypes,
       },
-      args: {
-        label: "",
-        ribbon: "",
-      },
+      args: {},
     });
 
     const template = templateMapper<LogoArgs>((args, { logoTemplate }) => logoTemplate(logoArgsMapper(args)));

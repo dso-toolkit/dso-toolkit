@@ -558,11 +558,11 @@ export namespace Components {
     }
     interface DsoLogo {
         /**
-          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). Max-length: 20 characters.
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 5 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Suggested maximum length: 5 characters.
          */
         "ribbon"?: string;
     }
@@ -1899,11 +1899,11 @@ declare namespace LocalJSX {
     }
     interface DsoLogo {
         /**
-          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). Max-length: 20 characters.
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Max-length: 5 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Suggested maximum length: 5 characters.
          */
         "ribbon"?: string;
     }
