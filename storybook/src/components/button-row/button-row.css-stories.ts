@@ -1,12 +1,14 @@
 import type { Meta } from "@storybook/web-components";
-import { buttonRowArgTypes, buttonRowStories } from "dso-toolkit";
+import { ButtonRowArgs, buttonRowMeta, buttonRowStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta = {
+import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
+
+const meta: Meta<ButtonRowArgs> = {
+  ...buttonRowMeta({ readme }),
   component: "dso-button-row",
-  title: "HTML|CSS/Button Row",
-  argTypes: buttonRowArgTypes,
+  title: "Button Row",
 };
 
 export default meta;

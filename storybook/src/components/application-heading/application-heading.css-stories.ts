@@ -1,12 +1,14 @@
 import type { Meta } from "@storybook/web-components";
-import { applicationHeadingArgTypes, applicationHeadingStories } from "dso-toolkit";
+import { ApplicationHeadingArgs, applicationHeadingMeta, applicationHeadingStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-const meta: Meta = {
+import readme from "dso-toolkit/src/components/application-heading/readme.md?raw";
+
+const meta: Meta<ApplicationHeadingArgs> = {
+  ...applicationHeadingMeta({ readme }),
   component: "dso-application-heading",
-  title: "HTML|CSS/Application Heading",
-  argTypes: applicationHeadingArgTypes,
+  title: "Application Heading",
 };
 
 export default meta;

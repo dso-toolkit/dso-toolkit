@@ -1,9 +1,15 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { ApplicationHeadingArgs, applicationHeadingArgsMapper } from "./application-heading.args.js";
+import {
+  ApplicationHeadingArgs,
+  applicationHeadingArgTypes,
+  applicationHeadingArgsMapper,
+} from "./application-heading.args.js";
 import { ApplicationHeading } from "./application-heading.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, Renderer>;
 
@@ -25,6 +31,22 @@ interface ApplicationHeadingStoriesParameters<Implementation, Templates, Templat
 
 interface ApplicationHeadingTemplates<TemplateFnReturnType> {
   applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
+}
+
+export function applicationHeadingMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ApplicationHeadingArgs
+> {
+  return {
+    argTypes: applicationHeadingArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
 export function applicationHeadingStories<Implementation, Templates, TemplateFnReturnType>({

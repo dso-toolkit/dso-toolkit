@@ -1,6 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
-import { Banner, BannerStatus, bannerStatus } from "./banner.models.js";
+import { Banner, BannerStatus } from "./banner.models.js";
 
 export interface BannerArgs {
   status: BannerStatus;
@@ -10,7 +10,7 @@ export interface BannerArgs {
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
   status: {
-    options: bannerStatus,
+    options: ["danger", "error", "info", "warning"],
     control: {
       type: "select",
     },

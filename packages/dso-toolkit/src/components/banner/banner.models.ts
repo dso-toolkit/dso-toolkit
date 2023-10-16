@@ -5,6 +5,4 @@ export interface Banner<TemplateFnReturnType> {
   content: TemplateFnReturnType;
 }
 
-export const bannerStatus = ["danger", "error", "info", "warning"] as const;
-
-export type BannerStatus = (typeof bannerStatus)[number];
+export type BannerStatus = "danger" | "error" | "info" | "warning";

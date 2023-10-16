@@ -1,15 +1,16 @@
 import type { Meta } from "@storybook/web-components";
-import { alertArgTypes, alertStories, alertArgs } from "dso-toolkit";
+import { AlertArgs, alertMeta, alertStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
-const meta: Meta = {
+import readme from "dso-toolkit/src/components/alert/readme.md?raw";
+
+const meta: Meta<AlertArgs> = {
+  ...alertMeta({ readme }),
   component: "dso-alert",
-  title: "HTML|CSS/Alert",
-  args: alertArgs,
-  argTypes: alertArgTypes,
+  title: "Alert",
 };
 
 export default meta;

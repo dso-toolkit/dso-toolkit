@@ -1,9 +1,4 @@
-export enum AlertStatus {
-  Error = "error",
-  Warning = "warning",
-  Info = "info",
-  Success = "success",
-}
+export type AlertStatus = "success" | "info" | "warning" | "error";
 
 export interface Alert<TemplateFnReturnType> {
   status: AlertStatus;

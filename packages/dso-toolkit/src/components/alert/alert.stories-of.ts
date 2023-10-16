@@ -1,9 +1,11 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AlertArgs, alertArgsMapper } from "./alert.args.js";
-import { Alert, AlertStatus } from "./alert.models.js";
+import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
+import { Alert } from "./alert.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type AlertStory = StoryObj<AlertArgs, Renderer>;
 
@@ -27,6 +29,22 @@ interface AlertTemplates<TemplateFnReturnType> {
   alertWithHeadingsContent: TemplateFnReturnType;
 }
 
+export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AlertArgs
+> {
+  return {
+    argTypes: alertArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
 export function alertStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
@@ -34,7 +52,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
   return {
     Success: {
       args: {
-        status: AlertStatus.Success,
+        status: "success",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, successMessage }) =>
         alertTemplate(alertArgsMapper(args, successMessage))
@@ -42,7 +60,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
     },
     Info: {
       args: {
-        status: AlertStatus.Info,
+        status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, infoMessage }) =>
         alertTemplate(alertArgsMapper(args, infoMessage))
@@ -50,7 +68,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
     },
     Warning: {
       args: {
-        status: AlertStatus.Warning,
+        status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, warningMessage }) =>
         alertTemplate(alertArgsMapper(args, warningMessage))
@@ -58,7 +76,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
     },
     Error: {
       args: {
-        status: AlertStatus.Warning,
+        status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, errorMessage }) =>
         alertTemplate(alertArgsMapper(args, errorMessage))
@@ -66,7 +84,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
     },
     WithHeadings: {
       args: {
-        status: AlertStatus.Info,
+        status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, alertWithHeadingsContent }) =>
         alertTemplate(alertArgsMapper(args, alertWithHeadingsContent))

@@ -1,30 +1,31 @@
-import { storiesOf } from "@storybook/angular";
+import { type Meta } from "@storybook/angular";
+import { labelStories, labelMeta, LabelArgs } from "dso-toolkit";
 
-import { storiesOfLabel } from "dso-toolkit";
 import { DsoLabel } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./label.decorator";
 
 import readme from "./readme.md?raw";
 
-storiesOfLabel(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
-      storyApiOptions: {
-        parameters: [
-          {
-            component: DsoLabel,
-          },
-        ],
-      },
-    },
-    templateContainer,
-    storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
+const meta: Meta<LabelArgs> = {
+  ...labelMeta({ readme }),
+  component: DsoLabel,
+  title: "Label",
+};
+
+export default meta;
+
+const { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor } = labelStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { labelTemplate } = templates;
+
+    return {
+      labelTemplate,
+    };
   },
-  {
-    decorator,
-  }
-);
+  decorator,
+});
+
+export { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor };

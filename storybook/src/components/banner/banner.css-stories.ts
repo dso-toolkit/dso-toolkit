@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components";
-import { bannerArgTypes, bannerStories } from "dso-toolkit";
+import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 import {
@@ -14,10 +14,12 @@ import {
   richInfoRichContent,
 } from "./banner.content";
 
-const meta: Meta = {
+import readme from "dso-toolkit/src/components/banner/readme.md?raw";
+
+const meta: Meta<BannerArgs> = {
+  ...bannerMeta({ readme }),
   component: "dso-banner",
   title: "HTML|CSS/Banner",
-  argTypes: bannerArgTypes,
 };
 
 export default meta;

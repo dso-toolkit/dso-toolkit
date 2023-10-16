@@ -1,9 +1,11 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { BannerArgs, bannerArgsMapper } from "./banner.args.js";
+import { BannerArgs, bannerArgTypes, bannerArgsMapper } from "./banner.args.js";
 import { Banner } from "./banner.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type BannerStory = StoryObj<BannerArgs, Renderer>;
 
@@ -33,6 +35,22 @@ interface BannerTemplates<TemplateFnReturnType> {
   richWarningRichContent: TemplateFnReturnType;
   richInfoRichContent: TemplateFnReturnType;
   dangerWithHeadingsRichContent: TemplateFnReturnType;
+}
+
+export function bannerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  BannerArgs
+> {
+  return {
+    argTypes: bannerArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
 export function bannerStories<Implementation, Templates, TemplateFnReturnType>({

@@ -1,5 +1,4 @@
 import { html } from "lit-html";
-import { AlertType } from "dso-toolkit";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
@@ -236,7 +235,7 @@ examplePageFactory(
               De actielijst wordt niet bewaard. Download daarom de actielijst. Ga daarna door naar "Aanvragen en
               voorbereiden", dan wordt de informatie uit de actielijst meegenomen in uw aanvraag.
             </p>`,
-          status: AlertType.Warning,
+          status: "warning",
         })}
         ${formButtonsTemplate({
           asideButtons: [

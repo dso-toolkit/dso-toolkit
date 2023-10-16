@@ -1,9 +1,11 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { BadgeArgs, badgeArgsMapper } from "./badge.args.js";
+import { BadgeArgs, badgeArgTypes, badgeArgsMapper } from "./badge.args.js";
 import { Badge } from "./badge.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type BadgeStory = StoryObj<BadgeArgs, Renderer>;
 
@@ -24,6 +26,22 @@ interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType
 
 interface BadgeTemplates<TemplateFnReturnType> {
   badgeTemplate: (badgeProperties: Badge) => TemplateFnReturnType;
+}
+
+export function badgeMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  BadgeArgs
+> {
+  return {
+    argTypes: badgeArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
 export function badgeStories<Implementation, Templates, TemplateFnReturnType>({

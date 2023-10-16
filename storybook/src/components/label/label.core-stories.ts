@@ -28,35 +28,3 @@ const { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor } = labelS
 });
 
 export { Plain, WithAction, Truncate, WithSymbolImage, WithSymbolColor };
-
-// storiesOfLabel(
-//   {
-//     parameters: {
-//       module,
-//       storiesOf,
-//       readme: cssReadme,
-//       root: StoryRoot.HtmlCss,
-//     },
-//     templateContainer,
-//     storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
-//   },
-//   {
-//     decorator,
-//   }
-// );
-
-// storiesOfLabel(
-//   {
-//     parameters: {
-//       module,
-//       storiesOf,
-//       readme: coreReadme,
-//       root: StoryRoot.Core,
-//     },
-//     templateContainer,
-//     storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
-//   },
-//   {
-//     decorator,
-//   }
-// );

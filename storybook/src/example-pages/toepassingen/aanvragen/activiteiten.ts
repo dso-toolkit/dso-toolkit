@@ -1,4 +1,3 @@
-import { AlertStatus } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
@@ -31,7 +30,7 @@ examplePageFactory(
           ${alertTemplate({
             message: html`Hulp nodig bij kiezen? Doe dan eerst de
             ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
-            status: AlertStatus.Info,
+            status: "info",
           })}
           ${shoppingCartTemplate(shoppingCart)}
           ${highlightBoxTemplate({

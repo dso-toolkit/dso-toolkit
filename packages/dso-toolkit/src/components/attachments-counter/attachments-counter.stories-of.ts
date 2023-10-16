@@ -1,9 +1,15 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AttachmentsCounterArgs, attachmentsCounterArgsMapper } from "./attachments-counter.args.js";
+import {
+  AttachmentsCounterArgs,
+  attachmentsCounterArgTypes,
+  attachmentsCounterArgsMapper,
+} from "./attachments-counter.args.js";
 import { AttachmentsCounter } from "./attachments-counter.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, Renderer>;
 
@@ -23,6 +29,22 @@ interface AttachmentsCounterTemplates<TemplateFnReturnType> {
   attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;
 }
 
+export function attachmentsCounterMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AttachmentsCounterArgs
+> {
+  return {
+    argTypes: attachmentsCounterArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
 export function attachmentsCounterStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
@@ -38,30 +60,3 @@ export function attachmentsCounterStories<Implementation, Templates, TemplateFnR
     },
   };
 }
-
-// export function storiesOfAttachmentsCounter<Implementation, Templates, TemplateFnReturnType>(
-//   storiesOfArguments: StoriesOfArguments<
-//     Implementation,
-//     Templates,
-//     TemplateFnReturnType,
-//     AttachmentsCounterTemplates<TemplateFnReturnType>
-//   >
-// ) {
-//   return storiesOfFactory("Attachments Counter", storiesOfArguments, (stories, templateMapper) => {
-//     stories.addParameters({
-//       argTypes: attachmentsCounterArgTypes,
-//     });
-
-//     const template = templateMapper<AttachmentsCounterArgs>((args, { attachmentsCounterTemplate }) =>
-//       attachmentsCounterTemplate(attachmentsCounterArgsMapper(args))
-//     );
-
-//     stories.add("Attachments Counter", template, {
-//       args: {
-//         count: 3,
-//       },
-//     });
-
-//     return stories;
-//   });
-// }

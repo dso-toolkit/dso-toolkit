@@ -1,9 +1,11 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { ButtonRowArgs, buttonRowArgsMapper } from "./button-row.args.js";
+import { ButtonRowArgs, buttonRowArgTypes, buttonRowArgsMapper } from "./button-row.args.js";
 import { ButtonRow } from "./button-row.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type ButtonRowStory = StoryObj<ButtonRowArgs, Renderer>;
 
@@ -26,6 +28,22 @@ interface ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturn
 
 interface ButtonRowTemplates<TemplateFnReturnType> {
   buttonRowTemplate: (buttonRowProperties: ButtonRow) => TemplateFnReturnType;
+}
+
+export function buttonRowMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ButtonRowArgs
+> {
+  return {
+    argTypes: buttonRowArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
 export function buttonRowStories<Implementation, Templates, TemplateFnReturnType>({

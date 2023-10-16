@@ -1,12 +1,15 @@
-import type { Meta } from "@storybook/web-components";
-import { attachmentsCounterArgTypes, attachmentsCounterStories } from "dso-toolkit";
+import type { Meta } from "@storybook/react";
+import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+import { DsoAttachmentsCounter } from "../../components";
 
-const meta: Meta = {
-  component: "dso-attachments-counter",
-  title: "React/Attachments Counter",
-  argTypes: attachmentsCounterArgTypes,
+import readme from "@dso-toolkit/react/src/components/attachments-counter/readme.md?raw";
+
+const meta: Meta<AttachmentsCounterArgs> = {
+  ...attachmentsCounterMeta({ readme }),
+  component: DsoAttachmentsCounter,
+  title: "Attachments Counter",
 };
 
 export default meta;

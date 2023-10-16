@@ -1,9 +1,11 @@
-import { Renderer } from "@storybook/types";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AnchorArgs, anchorArgsMapper } from "./anchor.args.js";
+import { AnchorArgs, anchorArgTypes, anchorArgsMapper } from "./anchor.args.js";
 import { Anchor } from "./anchor.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type AnchorStory = StoryObj<AnchorArgs, Renderer>;
 
@@ -19,6 +21,22 @@ interface AnchorStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface AnchorTemplates<TemplateFnReturnType> {
   anchorTemplate: (anchorProperties: Anchor) => TemplateFnReturnType;
+}
+
+export function anchorMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AnchorArgs
+> {
+  return {
+    argTypes: anchorArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
 export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
