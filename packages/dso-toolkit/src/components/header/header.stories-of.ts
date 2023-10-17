@@ -1,6 +1,5 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { HeaderArgs, headerArgsMapper, headerArgTypes } from "./header.args.js";
-import { logo, subLogo } from "./header.logos.js";
 import { Header } from "./header.models.js";
 
 export interface HeaderTemplates<TemplateFnReturnType> {
@@ -19,9 +18,6 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
     stories.addParameters({
       argTypes: headerArgTypes,
       args: {
-        logo,
-        subLogo,
-        showSubLogo: false,
         mainMenu: [
           {
             label: "Home",
@@ -64,9 +60,22 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
 
     stories.add("default", template);
 
-    stories.add("with sub logo", template, {
+    stories.add("with label", template, {
       args: {
-        showSubLogo: true,
+        label: "Maatregelen op maat",
+      },
+    });
+
+    stories.add("with ribbon", template, {
+      args: {
+        ribbon: "beta",
+      },
+    });
+
+    stories.add("with label and ribbon", template, {
+      args: {
+        label: "Maatregelen op maat",
+        ribbon: "beta",
       },
     });
 

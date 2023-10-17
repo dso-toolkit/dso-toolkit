@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Logo: Nieuw component ([#2265](https://github.com/dso-toolkit/dso-toolkit/issues/2265))
+
 ### Fixed
 * Selectable: Styling aanpassingen ([#2368](https://github.com/dso-toolkit/dso-toolkit/issues/2368))
 * Form group: Table overflow in rich content ([#2358](https://github.com/dso-toolkit/dso-toolkit/issues/2358))

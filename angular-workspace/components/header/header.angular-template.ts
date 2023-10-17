@@ -21,13 +21,9 @@ export const angularHeader: ComponentImplementation<Header> = {
             [userHomeActive]="userHomeActive"
             (dsoHeaderClick)="dsoHeaderClick()"
           >
-            <div slot="logo"><img alt="Omgevingsloket" [src]="logo | trustUrl" /></div>
-            <img
-              *ngIf="subLogo"
-              slot="sub-logo"
-              alt="Regels op de kaart"
-              [src]="subLogo | trustUrl"
-            />
+            <div slot="logo">
+              <dso-logo [label]="label" [ribbon]="ribbon"></dso-logo>
+            </div>
           </dso-header>
         `,
       };

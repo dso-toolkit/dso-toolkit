@@ -1,0 +1,124 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  max-block-size: units.$ru6;
+  block-size: units.$ru6;
+  display: grid;
+  grid-template-areas: "target wordmark label";
+  grid-template-columns: repeat(3, max-content);
+  grid-template-rows: 100%;
+  gap: units.$u2;
+  font-size: 1.5625rem;
+  font-weight: 500;
+  align-items: center;
+  container-type: size;
+  container-name: logo;
+}
+
+.logo-target {
+  grid-area: target;
+  max-block-size: units.$u6;
+  max-inline-size: units.$u6;
+  inline-size: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.logo-wordmark {
+  grid-area: wordmark;
+  font-size: 1.5625rem;
+}
+
+@container logo (max-height: 47px) {
+  .logo-wordmark,
+  .logo-label {
+    font-size: 50cqb;
+    line-height: 1;
+  }
+}
+
+.logo-wordmark-omgevings {
+  color: colors.$grasgroen;
+}
+
+.logo-wordmark-loket {
+  color: colors.$bosgroen;
+}
+
+.logo-label {
+  grid-area: label;
+  color: colors.$bosgroen;
+  margin-inline-start: units.$ru2;
+}
+
+.logo-ribbon {
+  grid-area: wordmark;
+  place-self: start end;
+  display: flex;
+  place-items: center;
+
+  background-color: colors.$oranje;
+  border-radius: 3px;
+  transform: rotate(3deg);
+  padding: 0 8px;
+
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: colors.$wit;
+
+  @container logo (max-height: 47px) {
+    & {
+      block-size: 28cqb;
+      font-size: 25cqb;
+    }
+  }
+}
+
+.inner {
+  fill: colors.$oranje;
+}
+
+.middle {
+  fill: colors.$bosgroen;
+}
+
+.outer {
+  fill: #80bc00;
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  .logo-wordmark {
+    font-size: initial;
+  }
+
+  // if the logo has a label, hide the wordmark on smaller screens and replace it with the label
+  :host([label]) {
+    grid-template-areas: "target label";
+    grid-template-columns: max-content minmax(130px, max-content);
+
+    .logo-wordmark {
+      display: none;
+    }
+
+    .logo-ribbon {
+      grid-area: label;
+    }
+
+    .logo-label {
+      margin-inline-start: 0;
+      font-size: initial;
+      text-wrap: balance;
+      overflow-wrap: normal;
+    }
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  .logo-ribbon {
+    transform: rotate(3deg) translateY(-7px);
+  }
+}

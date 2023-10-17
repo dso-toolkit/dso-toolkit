@@ -1,0 +1,60 @@
+---
+authors: [anneke]
+---
+
+# DSO Toolkit Next
+
+🚨 Breaking release! We hebben een nieuw component erbij: het logo! Je kunt nu door middel van dit component gemakkelijk een smal logo in de header plaatsen. Om te laten zien hoe dat werkt hebben we het header component in Storybook ook aangepast. De wijzigingen in het logo maken dit een breaking change.
+
+## Logo
+
+In de oude situatie gaf je één of twee statische afbeeldingen door aan het header component. Een afbeelding voor het logo (een afbeelding van het beeldmerk en het woordmerk) en een afbeelding met daarin de applicatienaam.
+
+In het component laden we nu alleen het beeldmerk als afbeelding in (als inline SVG), en komen het woordmerk, de 'ribbon' en de applicatienaam terug als tekst. Dit maakt het gebruik van het logo flexibeler en toegankelijker, en bovendien konden we het bepaald gewenst responsive gedrag meegeven.
+
+Vanaf nu kun je op deze manier het logo tonen in je applicatie:
+
+```html
+<dso-logo label="Regels op de kaart" ribbon="beta"></dso-logo>
+```
+
+De applicatienaam geven we mee als `label` op het `dso-logo` component. Dit `label` is optioneel.
+
+Het 'beta' blokje dat in deze fase op het logo staat kan worden ingezet door het logo component het attribuut `ribbon` mee te geven met de gewenste tekst. Zo kunnen we het logo straks ook gebruiken om visueel te communiceren dat we bijvoorbeeld op de pre- of acceptatie omgeving zijn. Ook dit attribuut is optioneel.
+
+### Opgelet: de header verandert ook
+
+Om het logo in het header component te plaatsen en goed te laten zien, is ook het header component aangepast. Er is nu geen `sub-logo` `slot` meer.
+
+```html
+❌
+<dso-header>
+  <div slot="logo">
+    <img alt="Omgevingsloket" src="LOGO" />
+  </div>
+  <img slot="sub-logo" alt="Regels op de kaart" src="LABEL" />
+</dso-header>
+
+✅
+<dso-header>
+  <div slot="logo">
+    <dso-logo label="Regels op de kaart" ribbon="beta"></dso-logo>
+  </div>
+</dso-header>
+```
+
+### Responsive gedrag
+
+Het nieuwe logo component wordt zo breed als nodig, maar als er niet genoeg ruimte is krimpt het vanzelf.
+
+<img src="img/2023-10-16-logo-laptop.png" alt="" />
+
+Op beeldschermen waar er genoeg ruimte is om het hoofdmenu volledig te tonen, ziet de bezoeker het beeldmerk, de tekst 'Omgevingsloket' met een beta `ribbon`, en de applicatienaam. In dit geval de tekst 'Maatregelen op maat'.
+
+<img src="img/2023-10-16-logo-small-tablet.png" alt="" />
+
+Als het scherm minder breed is, bijvoorbeeld bij tablets, verdwijnt de tekst Omgevingsloket en wordt alleen de applicatienaam Maatregelen op maat getoond. Deze tekst lijnt uit met een knop waarmee het menu kan worden geopend.
+
+<img src="img/2023-10-16-logo-phone.png" alt="" />
+
+Op kleine telefoons waar de applicatienaam niet op één regel past, wordt de tekst vanzelf verdeeld over twee regels. De tekst blijft verticaal gecentreerd uitgelijnd ten opzichte van het logo.

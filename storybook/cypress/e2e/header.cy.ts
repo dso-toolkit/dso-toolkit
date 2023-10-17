@@ -2,7 +2,7 @@ import { HeaderMenuItem } from "../../../packages/core/src/components/header/hea
 
 describe("Header", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-sub-logo").injectAxe();
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label").injectAxe();
   });
 
   const defaultMenuItems = [
@@ -133,7 +133,7 @@ describe("Header", () => {
   });
 
   it("should not show menu", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-sub-logo&args=noMainMenu:true")
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true")
       .get("dso-header")
       .invoke("removeAttr", "user-home-url")
       .find("nav")

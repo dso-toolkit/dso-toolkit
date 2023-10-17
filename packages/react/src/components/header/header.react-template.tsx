@@ -1,7 +1,7 @@
 import { Header } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoHeader } from "../../components";
+import { DsoHeader, DsoLogo } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -10,8 +10,8 @@ export const reactHeader: ComponentImplementation<Header> = {
   implementation: "react",
   template: () =>
     function headerTemplate({
-      logo,
-      subLogo,
+      label,
+      ribbon,
       mainMenu,
       useDropDownMenu,
       authStatus,
@@ -37,9 +37,8 @@ export const reactHeader: ComponentImplementation<Header> = {
           onDsoHeaderClick={dsoHeaderClick}
         >
           <div slot="logo">
-            <img alt="Omgevingsloket" src={logo} />
+            <DsoLogo label={label} ribbon={ribbon}></DsoLogo>
           </div>
-          {subLogo ? <img slot="sub-logo" alt="Regels op de kaart" src={subLogo} /> : null}
         </DsoHeader>
       );
     },
