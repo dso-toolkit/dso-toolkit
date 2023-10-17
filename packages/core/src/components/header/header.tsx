@@ -91,9 +91,6 @@ export class Header {
   showDropDown?: boolean;
 
   @State()
-  hasSubLogo = false;
-
-  @State()
   overflowMenuItems = 0;
 
   @State()
@@ -121,10 +118,6 @@ export class Header {
   private wrapper: HTMLDivElement | undefined;
 
   private nav: HTMLUListElement | undefined;
-
-  componentWillLoad() {
-    this.hasSubLogo = this.host.querySelector("*[slot = 'sub-logo']") !== null;
-  }
 
   private shrinkMenuToFit() {
     if (!this.wrapper || !this.nav) {
@@ -237,17 +230,11 @@ export class Header {
         <div
           class={clsx("dso-header", {
             ["use-drop-down"]: this.showDropDown,
-            ["has-sub-logo"]: this.hasSubLogo,
           })}
           ref={(element) => (this.wrapper = element)}
         >
           <div class="logo-container">
-            <div class="logo">
-              <slot name="logo" />
-            </div>
-            <div class="sub-logo">
-              <slot name="sub-logo" />
-            </div>
+            <slot name="logo" />
           </div>
           {this.showDropDown &&
             this.mainMenu &&

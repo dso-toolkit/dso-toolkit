@@ -44,9 +44,8 @@
 }
 
 .logo-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 units.$u3;
+  flex: 1 1 12.5rem;
+  margin-inline-end: units.$u3;
   padding-bottom: units.$u2;
   padding-top: units.$u2;
 }
@@ -157,13 +156,11 @@ dso-dropdown-menu {
 
 .dropdown {
   margin-left: auto;
+  display: flex;
+  align-items: center;
 
   dso-dropdown-menu {
     position: static;
-
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      margin-top: units.$u1 * 3.5;
-    }
 
     .dso-dropdown-options {
       right: 0;

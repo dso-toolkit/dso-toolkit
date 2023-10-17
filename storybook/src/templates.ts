@@ -86,6 +86,7 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
+  Logo,
 } from "dso-toolkit";
 
 import { TemplateResult } from "lit-html";
@@ -131,6 +132,7 @@ import { cssListButton } from "./components/list-button/list-button.css-template
 import { coreListButton } from "./components/list-button/list-button.core-template";
 import { cssInputNumber } from "./components/input-number/input-number.css-template";
 import { cssList } from "./components/list/list.css-template";
+import { coreLogo } from "./components/logo/logo.core-template";
 import { cssNavbar } from "./components/navbar/navbar.css-template";
 import { cssPagination } from "./components/pagination/pagination.css-template";
 import { corePagination } from "./components/pagination/pagination.core-template";
@@ -252,6 +254,7 @@ export interface Components {
   linkList: LinkList;
   listButton: ListButton;
   list: List;
+  logo: Logo;
   mapControls: MapControls;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
@@ -330,6 +333,7 @@ templateContainer.add(coreInfo);
 templateContainer.add(coreInfoButton);
 templateContainer.add(coreLabel);
 templateContainer.add(coreListButton);
+templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
 templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);

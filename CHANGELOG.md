@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Logo: Nieuw component ([#2265](https://github.com/dso-toolkit/dso-toolkit/issues/2265))
+
 ### Fixed
 * Selectable: Styling aanpassingen ([#2368](https://github.com/dso-toolkit/dso-toolkit/issues/2368))
 * Form group: Table overflow in rich content ([#2358](https://github.com/dso-toolkit/dso-toolkit/issues/2358))
@@ -21,6 +24,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Docs
 * Voorbeeldpagina Aanvragen/Omgevingsoverleg: Tekst aanpassen ([#2348](https://github.com/dso-toolkit/dso-toolkit/issues/2348))
 * Resultaat: Vergunningscheck voorbeeldpagina update qua elementen ([#2349](https://github.com/dso-toolkit/dso-toolkit/issues/2349))
+
+### Tasks
+* Build: Percy visueel regressie-testen stabiel maken ([#2030](https://github.com/dso-toolkit/dso-toolkit/issues/2030))
 
 ## 60.0.0 - 02-10-2023
 

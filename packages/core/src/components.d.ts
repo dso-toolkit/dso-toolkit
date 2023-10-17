@@ -556,6 +556,16 @@ export namespace Components {
          */
         "sublabel"?: string;
     }
+    interface DsoLogo {
+        /**
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+         */
+        "label"?: string;
+        /**
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'.
+         */
+        "ribbon"?: string;
+    }
     interface DsoMapBaseLayers {
         /**
           * The base layers.
@@ -1140,6 +1150,12 @@ declare global {
         prototype: HTMLDsoListButtonElement;
         new (): HTMLDsoListButtonElement;
     };
+    interface HTMLDsoLogoElement extends Components.DsoLogo, HTMLStencilElement {
+    }
+    var HTMLDsoLogoElement: {
+        prototype: HTMLDsoLogoElement;
+        new (): HTMLDsoLogoElement;
+    };
     interface HTMLDsoMapBaseLayersElement extends Components.DsoMapBaseLayers, HTMLStencilElement {
     }
     var HTMLDsoMapBaseLayersElement: {
@@ -1275,6 +1291,7 @@ declare global {
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-list-button": HTMLDsoListButtonElement;
+        "dso-logo": HTMLDsoLogoElement;
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
@@ -1880,6 +1897,16 @@ declare namespace LocalJSX {
          */
         "sublabel"?: string;
     }
+    interface DsoLogo {
+        /**
+          * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
+         */
+        "label"?: string;
+        /**
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'.
+         */
+        "ribbon"?: string;
+    }
     interface DsoMapBaseLayers {
         /**
           * The base layers.
@@ -2303,6 +2330,7 @@ declare namespace LocalJSX {
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
         "dso-list-button": DsoListButton;
+        "dso-logo": DsoLogo;
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
@@ -2353,6 +2381,7 @@ declare module "@stencil/core" {
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
+            "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
