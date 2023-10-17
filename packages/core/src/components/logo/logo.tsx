@@ -15,7 +15,8 @@ export class Logo implements ComponentInterface {
 
   /**
    * The ribbon contains the text for a possible 'sticker' on top of the logo.
-   * Used to clarify status of the page, like 'beta'. Suggested maximum length: 5 characters.
+   * Used to clarify status of the page, like 'beta'.
+   *
    */
   @Prop()
   ribbon?: string;
@@ -23,7 +24,7 @@ export class Logo implements ComponentInterface {
   render() {
     return (
       <Host aria-label={["Omgevingsloket", this.label, this.ribbon && `(${this.ribbon})`].filter((s) => !!s).join(" ")}>
-        <svg fill="none" viewBox="0 0 48 48" height="100%" aria-hidden="true" focusable="false" class="logo-target">
+        <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
           <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
           <path class="middle" d="M24 8A16 16 0 0 0 8 24 16 16 0 1 0 24 8Z" />
           <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />

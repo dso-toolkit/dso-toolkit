@@ -562,7 +562,7 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Suggested maximum length: 5 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'.
          */
         "ribbon"?: string;
     }
@@ -1903,7 +1903,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'. Suggested maximum length: 5 characters.
+          * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'.
          */
         "ribbon"?: string;
     }
