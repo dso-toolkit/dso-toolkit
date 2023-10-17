@@ -10,7 +10,7 @@
   grid-template-areas: "target wordmark label";
   grid-template-columns: repeat(3, max-content);
   grid-template-rows: 100%;
-  gap: units.$ru2;
+  gap: units.$u2;
   font-size: 1.5625rem;
   font-weight: 500;
   align-items: center;
@@ -20,8 +20,8 @@
 
 .logo-target {
   grid-area: target;
-  max-block-size: 48px;
-  max-inline-size: 48px;
+  max-block-size: units.$u6;
+  max-inline-size: units.$u6;
   inline-size: 100%;
   display: block;
   aspect-ratio: 1 / 1;
