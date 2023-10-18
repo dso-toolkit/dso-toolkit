@@ -29,12 +29,17 @@ Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` geze
 
 - [dso-icon](../icon)
 - [dso-scrollable](../scrollable)
+- [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-modal --> dso-icon
   dso-modal --> dso-scrollable
+  dso-modal --> dso-toggletip
+  dso-toggletip --> dso-info-button
+  dso-toggletip --> dso-tooltip
+  dso-info-button --> dso-icon
   style dso-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

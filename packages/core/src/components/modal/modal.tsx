@@ -99,6 +99,9 @@ export class Modal implements ComponentInterface {
 
           <dso-scrollable>
             <div class="dso-body" tabIndex={0}>
+              <dso-toggletip label="Toelichting" position="top">
+                Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het loket.
+              </dso-toggletip>
               <slot name="body" />
             </div>
           </dso-scrollable>

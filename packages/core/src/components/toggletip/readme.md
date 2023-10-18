@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-modal](../modal)
+
 ### Depends on
 
 - [dso-info-button](../info-button)
@@ -26,6 +30,7 @@ graph TD;
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon
+  dso-modal --> dso-toggletip
   style dso-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

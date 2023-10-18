@@ -85,7 +85,7 @@ export class Toggletip {
           stateless
           descriptive
           id="toggle"
-          strategy="absolute"
+          strategy="fixed"
           active={this.active}
           position={this.position}
           small={this.small}
