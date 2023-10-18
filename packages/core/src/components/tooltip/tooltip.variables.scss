@@ -10,6 +10,7 @@ $arrow-color: colors.$wit;
 $arrow-margin: $arrow-width * 0.5;
 $arrow-offset: 50%;
 $max-width: 80 * units.$u1;
+$min-width: 20ch;
 $max-width-small: 40 * units.$u1;
 
 // Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss

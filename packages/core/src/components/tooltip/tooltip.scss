@@ -78,13 +78,14 @@
     color: colors.$grijs-90;
     display: inline-block;
     font-size: typography.$root-font-size-base;
-    max-width: tooltip-variables.$max-width;
+    max-inline-size: tooltip-variables.$max-width;
+    min-inline-size: 10ch;
     padding-block: tooltip-variables.$padding-vertical;
     padding-inline: tooltip-variables.$padding-horizontal;
     position: relative;
 
     &.dso-small {
-      max-width: tooltip-variables.$max-width-small;
+      max-inline-size: tooltip-variables.$max-width-small;
     }
   }
 

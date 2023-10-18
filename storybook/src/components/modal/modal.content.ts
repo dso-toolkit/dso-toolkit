@@ -54,6 +54,16 @@ export function passiveFooter({ buttonTemplate }: Templates) {
 export function confirmBody({ anchorTemplate }: Templates) {
   return html`
     <p>
+      <dso-toggletip label="Toelichting" position="top">
+        Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het loket.
+      </dso-toggletip>
+    </p>
+    <p>
+      <dso-tooltip active="true" position="top">
+        Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het loket.
+      </dso-toggletip>
+    </p>
+    <p>
       Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog
       niet beschikbaar zijn. En dat u geen rechten kunt ontlenen aan de teksten in de vergunningcheck en regels op de
       kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.
@@ -67,6 +77,9 @@ export function confirmBody({ anchorTemplate }: Templates) {
 }
 export function confirmFooter({ buttonTemplate }: Templates) {
   return html`
+    <dso-toggletip label="Toelichting" position="top">
+      Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het loket.
+    </dso-toggletip>
     ${buttonTemplate({ label: "Secundaire actie", variant: "secondary", type: "button" })}
     ${buttonTemplate({ label: "Bevestigen", variant: "primary", type: "button" })}
   `;

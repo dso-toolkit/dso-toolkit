@@ -21,6 +21,8 @@ import { InfoButtonToggleEvent } from "./components/info-button/info-button.inte
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+import { ButtonLabelMode, DisableZoom, MapControlsToggleEvent as MapControlsToggleEvent1 } from "./components/map-controls-buttons/map-controls-buttons.interfaces";
+import { MapControlsPanelCloseEvent, MapControlsPanelMode } from "./components/map-controls-panel/map-controls-panel.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
@@ -47,6 +49,8 @@ export { InfoButtonToggleEvent } from "./components/info-button/info-button.inte
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+export { ButtonLabelMode, DisableZoom, MapControlsToggleEvent as MapControlsToggleEvent1 } from "./components/map-controls-buttons/map-controls-buttons.interfaces";
+export { MapControlsPanelCloseEvent, MapControlsPanelMode } from "./components/map-controls-panel/map-controls-panel.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
@@ -591,6 +595,47 @@ export namespace Components {
          */
         "toggleVisibility": (e: MouseEvent | KeyboardEvent) => Promise<void>;
     }
+    interface DsoMapControlsButtons {
+        /**
+          * Text shown on the panel toggle button.
+         */
+        "buttonLabel": string;
+        /**
+          * When 'hidden', the button label will not be shown on large viewport.
+         */
+        "buttonLabelMode": ButtonLabelMode;
+        /**
+          * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
+         */
+        "disableZoom"?: DisableZoom;
+        /**
+          * To enable native map layers
+         */
+        "enableMapLayers": boolean;
+        /**
+          * To link the Map Controls Toggle Button with `aria-controls` to a different element, most likely an Map Controls Panel.
+         */
+        "identifier": string | undefined;
+        /**
+          * To show and hide the Map Controls.
+         */
+        "open": boolean;
+        "setMapButtonsWidth": (width: number) => Promise<void>;
+    }
+    interface DsoMapControlsPanel {
+        /**
+          * How the panel is presented.   * `sidebar`: Panel is presented as sidebar.  * `floating`: Panel is presented as modal.
+         */
+        "mode": MapControlsPanelMode;
+        /**
+          * To show and hide the Map Controls Panel.
+         */
+        "open": boolean;
+        /**
+          * Text shown in the header of the panel.
+         */
+        "panelTitle": string;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -949,6 +994,14 @@ export interface DsoMapControlsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapControlsElement;
 }
+export interface DsoMapControlsButtonsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapControlsButtonsElement;
+}
+export interface DsoMapControlsPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapControlsPanelElement;
+}
 export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapOverlaysElement;
@@ -1168,6 +1221,18 @@ declare global {
         prototype: HTMLDsoMapControlsElement;
         new (): HTMLDsoMapControlsElement;
     };
+    interface HTMLDsoMapControlsButtonsElement extends Components.DsoMapControlsButtons, HTMLStencilElement {
+    }
+    var HTMLDsoMapControlsButtonsElement: {
+        prototype: HTMLDsoMapControlsButtonsElement;
+        new (): HTMLDsoMapControlsButtonsElement;
+    };
+    interface HTMLDsoMapControlsPanelElement extends Components.DsoMapControlsPanel, HTMLStencilElement {
+    }
+    var HTMLDsoMapControlsPanelElement: {
+        prototype: HTMLDsoMapControlsPanelElement;
+        new (): HTMLDsoMapControlsPanelElement;
+    };
     interface HTMLDsoMapOverlaysElement extends Components.DsoMapOverlays, HTMLStencilElement {
     }
     var HTMLDsoMapOverlaysElement: {
@@ -1294,6 +1359,8 @@ declare global {
         "dso-logo": HTMLDsoLogoElement;
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
+        "dso-map-controls-buttons": HTMLDsoMapControlsButtonsElement;
+        "dso-map-controls-panel": HTMLDsoMapControlsPanelElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-modal": HTMLDsoModalElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
@@ -1943,6 +2010,62 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface DsoMapControlsButtons {
+        /**
+          * Text shown on the panel toggle button.
+         */
+        "buttonLabel"?: string;
+        /**
+          * When 'hidden', the button label will not be shown on large viewport.
+         */
+        "buttonLabelMode"?: ButtonLabelMode;
+        /**
+          * To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out.
+         */
+        "disableZoom"?: DisableZoom;
+        /**
+          * To enable native map layers
+         */
+        "enableMapLayers"?: boolean;
+        /**
+          * To link the Map Controls Toggle Button with `aria-controls` to a different element, most likely an Map Controls Panel.
+         */
+        "identifier": string | undefined;
+        /**
+          * emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes.
+         */
+        "onDsoToggle"?: (event: DsoMapControlsButtonsCustomEvent<MapControlsToggleEvent1>) => void;
+        /**
+          * Emitted when the user activates the zoom in button.
+         */
+        "onDsoZoomIn"?: (event: DsoMapControlsButtonsCustomEvent<MouseEvent>) => void;
+        /**
+          * Emitted when the user activates the zoom out button.
+         */
+        "onDsoZoomOut"?: (event: DsoMapControlsButtonsCustomEvent<MouseEvent>) => void;
+        /**
+          * To show and hide the Map Controls.
+         */
+        "open"?: boolean;
+    }
+    interface DsoMapControlsPanel {
+        /**
+          * How the panel is presented.   * `sidebar`: Panel is presented as sidebar.  * `floating`: Panel is presented as modal.
+         */
+        "mode"?: MapControlsPanelMode;
+        /**
+          * This event is emitted when the user activates the close button.
+         */
+        "onDsoClose"?: (event: DsoMapControlsPanelCustomEvent<MapControlsPanelCloseEvent>) => void;
+        /**
+          * To show and hide the Map Controls Panel.
+         */
+        "open"?: boolean;
+        /**
+          * Text shown in the header of the panel.
+         */
+        "panelTitle"?: string;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -2333,6 +2456,8 @@ declare namespace LocalJSX {
         "dso-logo": DsoLogo;
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
+        "dso-map-controls-buttons": DsoMapControlsButtons;
+        "dso-map-controls-panel": DsoMapControlsPanel;
         "dso-map-overlays": DsoMapOverlays;
         "dso-modal": DsoModal;
         "dso-ozon-content": DsoOzonContent;
@@ -2384,6 +2509,8 @@ declare module "@stencil/core" {
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
+            "dso-map-controls-buttons": LocalJSX.DsoMapControlsButtons & JSXBase.HTMLAttributes<HTMLDsoMapControlsButtonsElement>;
+            "dso-map-controls-panel": LocalJSX.DsoMapControlsPanel & JSXBase.HTMLAttributes<HTMLDsoMapControlsPanelElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
