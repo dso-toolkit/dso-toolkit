@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Map Controls: buttonLabel, buttonLabelMode, button slot & buttons uitlijnen ([#2196](https://github.com/dso-toolkit/dso-toolkit/issues/2196))
+
 ## 🚒 61.0.0 - 17-10-2023
 
 ### Added

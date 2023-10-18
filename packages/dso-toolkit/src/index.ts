@@ -256,6 +256,17 @@ export {
   storiesOfMapControls,
 } from "./components/map-controls/map-controls.stories-of.js";
 
+export { MapControlsV2 } from "./components/map-controls-v2/map-controls.models.js";
+export {
+  MapControlsV2Parameters,
+  MapControlsV2Templates,
+  storiesOfMapControlsV2,
+} from "./components/map-controls-v2/map-controls.stories-of.js";
+
+export { MapControlsButtons } from "./components/map-controls-buttons/map-controls-buttons.models.js";
+
+export { MapControlsPanel } from "./components/map-controls-panel/map-controls-panel.models.js";
+
 export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
 export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
 

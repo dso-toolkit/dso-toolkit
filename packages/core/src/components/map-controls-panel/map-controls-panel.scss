@@ -1,0 +1,111 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/button";
+
+@use "map-controls-panel.variables" as map-controls-panel-variables;
+
+:host {
+  background-color: colors.$wit;
+  border: 1px solid colors.$grijs-20;
+  display: block;
+  font-family: typography.$font-family-base;
+  position: absolute;
+  transition: transform map-controls-panel-variables.$transition-duration ease;
+  width: 300px;
+}
+
+@include utilities.box-sizing();
+
+:host([mode="sidebar"]) {
+  bottom: 0;
+  left: 100%;
+  top: 0;
+
+  dialog:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+:host([open][mode="sidebar"]) {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%);
+
+  dialog {
+    height: 100%;
+  }
+}
+
+:host([open][mode="floating"]) {
+  height: 100%;
+
+  dialog {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+button {
+  @include button.element();
+}
+
+.dso-close-button {
+  @include button.tertiary($modifiers: false, $icon-only: true);
+
+  padding: 0;
+  position: absolute;
+  right: map-controls-panel-variables.$controls-margin;
+  top: map-controls-panel-variables.$controls-margin;
+}
+
+dialog {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header,
+.dso-layer-content {
+  padding: units.$u2;
+}
+
+.dso-layer-content {
+  overflow-x: hidden;
+}
+
+header {
+  border-bottom: 1px solid colors.$grijs-20;
+  flex-grow: 0;
+  position: relative;
+
+  h2 {
+    color: colors.$bosgroen;
+    font-family: typography.$headings-font-family;
+    line-height: 1;
+    margin: 0;
+    padding-inline-end: units.$u3;
+  }
+}
+
+@media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
+  :host([open][mode="floating"]) {
+    bottom: units.$u4;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    left: units.$u4;
+    max-height: calc(100% - units.$u8);
+  }
+}
+
+@media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.01}) {
+  :host([open]),
+  dialog {
+    height: 100%;
+    width: 100%;
+  }
+}

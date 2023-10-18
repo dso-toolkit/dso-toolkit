@@ -28,7 +28,8 @@
  - [dso-info-button](../info-button)
  - [dso-label](../label)
  - [dso-list-button](../list-button)
- - [dso-map-controls](../map-controls)
+ - [dso-map-controls-buttons](../map-controls-buttons)
+ - [dso-map-controls-panel](../map-controls-panel)
  - [dso-modal](../modal)
  - [dso-pagination](../pagination)
  - [dso-table](../table)
@@ -51,7 +52,8 @@ graph TD;
   dso-info-button --> dso-icon
   dso-label --> dso-icon
   dso-list-button --> dso-icon
-  dso-map-controls --> dso-icon
+  dso-map-controls-buttons --> dso-icon
+  dso-map-controls-panel --> dso-icon
   dso-modal --> dso-icon
   dso-pagination --> dso-icon
   dso-table --> dso-icon

@@ -25,6 +25,14 @@ export interface OverlayChangeEvent {
   checked: boolean;
 }
 
+export const disableZoom = ["in", "out", "both"] as const;
+
+export type DisableZoom = (typeof disableZoom)[number];
+
+export const buttonLabelMode = ["hidden", "responsive"] as const;
+
+export type ButtonLabelMode = (typeof buttonLabelMode)[number];
+
 export interface MapControls {
   dsoZoomIn?: (e: CustomEvent<MouseEvent>) => void;
   dsoZoomOut?: (e: CustomEvent<MouseEvent>) => void;
@@ -34,7 +42,11 @@ export interface MapControls {
   dsoBaseLayerChange?: (e: CustomEvent<BaseLayerChangeEvent>) => void;
   overlays: typeof overlays;
   dsoToggleOverlay?: (e: CustomEvent<OverlayChangeEvent>) => void;
-  disableZoom?: "both" | "in" | "out" | undefined;
+  disableZoom?: DisableZoom;
+  enableMapLayers?: boolean;
+  buttonLabel?: string;
+  panelTitle?: string;
+  buttonLabelMode?: ButtonLabelMode;
 }
 
 export interface MapControlsToggleEvent {

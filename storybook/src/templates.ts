@@ -62,6 +62,9 @@ import {
   List,
   ListButton,
   MapControls,
+  MapControlsV2,
+  MapControlsButtons,
+  MapControlsPanel,
   Modal,
   Navbar,
   OzonContent,
@@ -161,6 +164,9 @@ import { coreLabel } from "./components/label/label.core-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
+import { coreMapControlsV2 } from "./components/map-controls-v2/map-controls.core-template";
+import { coreMapControlsButtons } from "./components/map-controls-buttons/map-controls-buttons.core-template";
+import { coreMapControlsPanel } from "./components/map-controls-panel/map-controls-panel.core-template";
 import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-template";
 import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { cssFormButtons } from "./components/form/form-buttons.css-template";
@@ -256,6 +262,9 @@ export interface Components {
   list: List;
   logo: Logo;
   mapControls: MapControls;
+  mapControlsV2: MapControlsV2;
+  mapControlsButtons: MapControlsButtons;
+  mapControlsPanel: MapControlsPanel;
   modal: Modal<TemplateResult>;
   navbar: Navbar;
   ozonContent: OzonContent;
@@ -335,6 +344,9 @@ templateContainer.add(coreLabel);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
+templateContainer.add(coreMapControlsV2);
+templateContainer.add(coreMapControlsButtons);
+templateContainer.add(coreMapControlsPanel);
 templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);

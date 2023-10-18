@@ -30,6 +30,10 @@ export function storiesOfMapControls<Implementation, Templates, TemplateFnReturn
           open: false,
           baseLayers,
           overlays,
+          enableMapLayers: true,
+          buttonLabel: "Kaartlagen",
+          panelTitle: "Kaartlagen",
+          buttonLabelMode: "responsive",
         },
         html: {
           root: "#map-container-mock",
@@ -40,7 +44,7 @@ export function storiesOfMapControls<Implementation, Templates, TemplateFnReturn
 
     stories.add(
       "Map Controls",
-      templateMapper<MapControlsArgs>((args, { mapControlsTemplate }) =>
+      templateMapper<MapControlsArgs>((args, { mapControlsTemplate: mapControlsTemplate }) =>
         mapControlsTemplate(mapControlsArgsMapper(args))
       )
     );

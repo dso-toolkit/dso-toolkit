@@ -14,7 +14,7 @@ examplePageFactory(
       contextTemplate,
       labelGroupTemplate,
       toggletipTemplate,
-      mapControlsTemplate,
+      mapControlsV2Template,
       accordionTemplate,
       cardListTemplate,
     },
@@ -97,7 +97,10 @@ examplePageFactory(
         `,
         map: html`
           <img src="images/kaart.png" aria-hidden="true" />
-          ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
+          ${mapControlsV2Template({
+            mapControlsButtons: { identifier: "map-controls", open: false },
+            mapControlsPanel: { identifier: "map-controls", open: false, baseLayers: [], overlays: [] },
+          })}
         `,
       })}
     </main>

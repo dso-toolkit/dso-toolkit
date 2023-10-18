@@ -14,13 +14,13 @@
 
 ### Used by
 
- - [dso-map-controls](../map-controls)
+ - [dso-map-controls-panel](../map-controls-panel)
  - [dso-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-map-controls --> dso-scrollable
+  dso-map-controls-panel --> dso-scrollable
   dso-modal --> dso-scrollable
   style dso-scrollable fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,21 +1,17 @@
-import { Component, h, Host, Prop, Event, EventEmitter, State, Watch, Method } from "@stencil/core";
-import { MapControlsToggleEvent } from "./map-controls.interfaces";
+import { Component, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
+import { v4 } from "uuid";
 
-// Sync with $transition-duration in ./map-controls.scss
-const transitionDuration = 300;
+import { ButtonLabelMode, DisableZoom, MapControlsToggleEvent } from "./map-controls.interfaces";
 
 @Component({
   tag: "dso-map-controls",
-  styleUrl: "./map-controls.scss",
   shadow: true,
 })
 export class MapControls {
-  private panelTitle = "Kaartlagen";
-
   /**
    * To show and hide the Map Controls.
    */
-  @Prop({ reflect: true, mutable: true })
+  @Prop({ reflect: true })
   open = false;
 
   /**
@@ -26,7 +22,31 @@ export class MapControls {
    * * `both`: Disable zoom in and zoom out.
    */
   @Prop()
-  disableZoom?: "in" | "out" | "both";
+  disableZoom?: DisableZoom;
+
+  /**
+   * Text shown on the panel toggle button.
+   */
+  @Prop()
+  buttonLabel = "Kaartlagen";
+
+  /**
+   * Text shown in the header of the panel.
+   */
+  @Prop()
+  panelTitle = "Kaartlagen";
+
+  /**
+   * When 'hidden', the button label will not be shown on large viewport.
+   */
+  @Prop()
+  buttonLabelMode: ButtonLabelMode = "responsive";
+
+  /**
+   * To enable native map layers
+   */
+  @Prop()
+  enableMapLayers = true;
 
   /**
    * Emitted when the user activates the zoom in button.
@@ -49,94 +69,50 @@ export class MapControls {
   @Event()
   dsoToggle!: EventEmitter<MapControlsToggleEvent>;
 
-  @State()
-  hideContent = !this.open;
+  private identifier = v4();
 
-  @Watch("open")
-  watchOpen(open: boolean) {
-    if (open) {
-      this.hideContent = false;
-
-      setTimeout(() => this.#closeButtonElement?.focus(), transitionDuration);
-    } else {
-      setTimeout(() => {
-        this.hideContent = true;
-
-        this.#toggleButtonElement?.focus();
-      }, transitionDuration);
-    }
-  }
-
-  /**
-   * Emitted when the visibility is toggled.
-   *
-   * Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
-   * @param e
-   */
-  @Method()
-  async toggleVisibility(e: MouseEvent | KeyboardEvent) {
-    this.open = !this.open;
-
+  private toggleVisibility(e: MouseEvent | KeyboardEvent, open: boolean) {
     this.dsoToggle.emit({
       originalEvent: e,
-      open: this.open,
+      open,
     });
   }
 
-  #closeButtonElement: HTMLButtonElement | undefined;
-  #toggleButtonElement: HTMLButtonElement | undefined;
-
   render() {
     return (
-      <Host>
-        <button
-          type="button"
-          id="toggle-visibility-button"
-          class="toggle-visibility-button"
-          onClick={(e) => this.toggleVisibility(e)}
-          ref={(element) => (this.#toggleButtonElement = element)}
+      <Fragment>
+        <dso-map-controls-buttons
+          identifier={this.identifier}
+          open={this.open}
+          disableZoom={this.disableZoom}
+          buttonLabel={this.buttonLabel}
+          buttonLabelMode={this.buttonLabelMode}
+          enableMapLayers={this.enableMapLayers}
+          onDsoZoomIn={(e) => {
+            e?.stopImmediatePropagation();
+            this.dsoZoomIn.emit(e.detail);
+          }}
+          onDsoZoomOut={(e) => {
+            e?.stopImmediatePropagation();
+            this.dsoZoomOut.emit(e.detail);
+          }}
+          onDsoToggle={(e) => {
+            e?.stopImmediatePropagation();
+            this.dsoToggle.emit(e.detail);
+          }}
         >
-          <dso-icon icon="layers"></dso-icon>
-          <span>Kaartlagen</span>
-        </button>
-        <div class="zoom-buttons">
-          <button
-            type="button"
-            onClick={(e) => this.dsoZoomIn.emit(e)}
-            disabled={this.disableZoom === "in" || this.disableZoom === "both"}
-          >
-            <span>Zoom in</span>
-            <dso-icon icon="plus"></dso-icon>
-          </button>
-          <button
-            type="button"
-            onClick={(e) => this.dsoZoomOut.emit(e)}
-            disabled={this.disableZoom === "out" || this.disableZoom === "both"}
-          >
-            <span>Zoom uit</span>
-            <dso-icon icon="minus"></dso-icon>
-          </button>
-        </div>
-        <section hidden={this.hideContent}>
-          <header>
-            <h2>{this.panelTitle}</h2>
-            <button
-              type="button"
-              class="close-button"
-              onClick={(e) => this.toggleVisibility(e)}
-              ref={(element) => (this.#closeButtonElement = element)}
-            >
-              <span>Verberg paneel {this.panelTitle}</span>
-              <dso-icon icon="times"></dso-icon>
-            </button>
-          </header>
-          <dso-scrollable>
-            <div class="content">
-              <slot></slot>
-            </div>
-          </dso-scrollable>
-        </section>
-      </Host>
+          <slot name="custom-buttons" />
+        </dso-map-controls-buttons>
+        <dso-map-controls-panel
+          id={this.identifier}
+          mode="sidebar"
+          open={this.open}
+          panelTitle={this.panelTitle}
+          onDsoClose={(e) => this.toggleVisibility(e.detail.originalEvent, false)}
+        >
+          <slot></slot>
+        </dso-map-controls-panel>
+      </Fragment>
     );
   }
 }

@@ -4,7 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 
 import { baseLayers, overlays } from "./map-controls.content.js";
-import { MapControls } from "./map-controls.models.js";
+import { ButtonLabelMode, DisableZoom, MapControls, buttonLabelMode, disableZoom } from "./map-controls.models.js";
 
 export interface MapControlsArgs {
   dsoZoomIn: HandlerFunction;
@@ -15,7 +15,11 @@ export interface MapControlsArgs {
   dsoBaseLayerChange: HandlerFunction;
   overlays: typeof overlays;
   dsoToggleOverlay: HandlerFunction;
-  disableZoom: "both" | "in" | "out";
+  disableZoom: DisableZoom;
+  enableMapLayers: boolean;
+  buttonLabel: string;
+  panelTitle: string;
+  buttonLabelMode: ButtonLabelMode;
 }
 
 export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
@@ -49,7 +53,22 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
     action: "dsoToggleOverlay",
   },
   disableZoom: {
-    options: ["both", "in", "out"],
+    options: ["none", ...disableZoom],
+    control: {
+      type: "select",
+    },
+  },
+  enableMapLayers: {
+    type: "boolean",
+  },
+  buttonLabel: {
+    type: "string",
+  },
+  panelTitle: {
+    type: "string",
+  },
+  buttonLabelMode: {
+    options: buttonLabelMode,
     control: {
       type: "select",
     },

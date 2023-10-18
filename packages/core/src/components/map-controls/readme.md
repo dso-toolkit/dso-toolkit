@@ -5,10 +5,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                                              | Type                                   | Default     |
-| ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
-| `disableZoom` | `disable-zoom` | To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out. | `"both" \| "in" \| "out" \| undefined` | `undefined` |
-| `open`        | `open`         | To show and hide the Map Controls.                                                                                                       | `boolean`                              | `false`     |
+| Property          | Attribute           | Description                                                                                                                              | Type                                   | Default        |
+| ----------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------- |
+| `buttonLabel`     | `button-label`      | Text shown on the panel toggle button.                                                                                                   | `string`                               | `"Kaartlagen"` |
+| `buttonLabelMode` | `button-label-mode` | When 'hidden', the button label will not be shown on large viewport.                                                                     | `"hidden" \| "responsive"`             | `"responsive"` |
+| `disableZoom`     | `disable-zoom`      | To disable the zoom controls:  * `in`: Disable zoom in button. * `out`: Disable zoom out button. * `both`: Disable zoom in and zoom out. | `"both" \| "in" \| "out" \| undefined` | `undefined`    |
+| `enableMapLayers` | `enable-map-layers` | To enable native map layers                                                                                                              | `boolean`                              | `true`         |
+| `open`            | `open`              | To show and hide the Map Controls.                                                                                                       | `boolean`                              | `false`        |
+| `panelTitle`      | `panel-title`       | Text shown in the header of the panel.                                                                                                   | `string`                               | `"Kaartlagen"` |
 
 
 ## Events
@@ -20,33 +24,21 @@
 | `dsoZoomOut` | Emitted when the user activates the zoom out button.                                                                                                                                                                                                                                          | `CustomEvent<MouseEvent>`             |
 
 
-## Methods
-
-### `toggleVisibility(e: MouseEvent | KeyboardEvent) => Promise<void>`
-
-Emitted when the visibility is toggled.
-
-Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Depends on
 
-- [dso-icon](../icon)
-- [dso-scrollable](../scrollable)
+- [dso-map-controls-buttons](../map-controls-buttons)
+- [dso-map-controls-panel](../map-controls-panel)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-map-controls --> dso-icon
-  dso-map-controls --> dso-scrollable
+  dso-map-controls --> dso-map-controls-buttons
+  dso-map-controls --> dso-map-controls-panel
+  dso-map-controls-buttons --> dso-icon
+  dso-map-controls-panel --> dso-icon
+  dso-map-controls-panel --> dso-scrollable
   style dso-map-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

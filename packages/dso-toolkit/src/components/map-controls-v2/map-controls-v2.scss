@@ -4,15 +4,13 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
 
-dso-map-controls {
-  [slot="custom-buttons"] > button,
-  button[slot="custom-buttons"] {
+dso-map-controls-buttons {
+  button {
     @include button.secondary($modifiers: false, $icon-only: true);
     @include button.map-focus();
 
     border: 0;
     padding: units.$u1;
-    flex: 0 0 100%;
     height: units.$u5;
     margin-top: 0;
     min-width: auto;
@@ -24,8 +22,7 @@ dso-map-controls {
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    [slot="custom-buttons"] > button,
-    button[slot="custom-buttons"] {
+    button {
       border-radius: 4px 4px 0 0;
 
       + button {
@@ -40,12 +37,12 @@ dso-map-controls {
   }
 
   @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.01}) {
-    [slot="custom-buttons"] > button,
-    button[slot="custom-buttons"] {
+    button {
       border-radius: 4px 0 0 4px;
 
       + button {
         border-inline-start: 1px solid colors.$grijs-20;
+        margin-left: -4px;
 
         &:last-child {
           border-bottom-right-radius: 4px;
