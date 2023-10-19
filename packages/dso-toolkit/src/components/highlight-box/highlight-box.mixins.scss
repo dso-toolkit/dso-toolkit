@@ -7,6 +7,7 @@
 @use "highlight-box.variables" as highlight-box-variables;
 
 @mixin root() {
+  container-type: inline-size;
   background-color: colors.$grijs-5;
   color: colors.$zwart;
   margin-top: units.$u2;
@@ -46,6 +47,18 @@
     margin-top: units.$u2 * -1;
     object-fit: cover;
     width: calc(100% + #{units.$u4});
+
+    @container (min-width: 360px) and (max-width: 470px) {
+      & {
+        aspect-ratio: 3 / 1;
+      }
+    }
+
+    @container (min-width: 471px) {
+      & {
+        aspect-ratio: 3.5 / 1;
+      }
+    }
   }
 
   > .dso-step-counter:first-child + .dso-rich-content,
