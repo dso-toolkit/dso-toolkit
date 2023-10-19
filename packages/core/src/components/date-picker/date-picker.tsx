@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, Prop, Element, h, Event, EventEmitter } from "@stencil/core";
 
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./date-picker.interfaces";
-import { clamp, parseDate, parseToValueFormat, printDutchDate } from "./date-utils";
+import { parseToValueFormat, parseToDutchFormat } from "./date-utils";
 
 @Component({
   tag: "dso-date-picker",
@@ -10,8 +10,6 @@ import { clamp, parseDate, parseToValueFormat, printDutchDate } from "./date-uti
   scoped: true,
 })
 export class DsoDatePicker implements ComponentInterface {
-  private previousValue?: string;
-
   /**
    * Reference to host HTML element.
    */
@@ -64,7 +62,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
-  @Prop()
+  @Prop({ reflect: true })
   value = "";
 
   /**
@@ -158,47 +156,29 @@ export class DsoDatePicker implements ComponentInterface {
       return;
     }
 
-    const { value } = target;
+    const { valueAsDate, validity } = target;
 
     const event: DatePickerChangeEvent = {
-      originalEvent: e,
       component: "dso-date-picker",
-      value,
-      valueAsDate: parseDate(value),
+      originalEvent: e,
+      validity,
+      value: parseToDutchFormat(valueAsDate),
+      valueAsDate: valueAsDate ?? undefined,
     };
 
-    if (event.valueAsDate) {
-      event.value = printDutchDate(event.valueAsDate);
-    }
-
-    if (!event.valueAsDate && this.required) {
+    if (validity.valueMissing) {
       event.error = "required";
-    }
-
-    if (event.value && !event.valueAsDate) {
+    } else if (validity.rangeUnderflow) {
+      event.error = "min-range";
+      event.valueAsDate = undefined;
+    } else if (validity.rangeOverflow) {
+      event.error = "max-range";
+      event.valueAsDate = undefined;
+    } else if (!validity.valid) {
       event.error = "invalid";
     }
 
-    if (event.valueAsDate && (this.min || this.max)) {
-      const min = parseDate(this.min);
-      const max = parseDate(this.max);
-      const clampValue = clamp(event.valueAsDate, min, max);
-
-      if (clampValue !== event.valueAsDate && clampValue === min) {
-        event.valueAsDate = undefined;
-        event.error = "min-range";
-      } else if (clampValue !== event.valueAsDate && clampValue === max) {
-        event.valueAsDate = undefined;
-        event.error = "max-range";
-      }
-    }
-
-    this.value = typeof value === "string" ? value : event.value;
-
-    if (this.value !== this.previousValue) {
-      this.dsoDateChange.emit(event);
-      this.previousValue = this.value;
-    }
+    this.dsoDateChange.emit(event);
   };
 
   render() {

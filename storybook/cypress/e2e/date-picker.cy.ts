@@ -12,62 +12,36 @@ describe("Date Picker", () => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
       });
 
+    cy.checkA11y("#root-inner");
     cy.percySnapshot();
   });
 
-  it("should emit changed event", () => {
-    cy.get("dso-date-picker").then((e) => {
-      e.get(0).addEventListener("dsoDateChange", cy.stub().as("dateChange"));
+  it("should emit dsoDateChange event", () => {
+    cy.get("dso-date-picker").then(($datePicker) => {
+      $datePicker.on("dsoDateChange", cy.stub().as("dateChange"));
     });
 
     cy.get("dso-date-picker")
       .find("input.dso-date__input")
       .focus()
-      .realPress("0")
-      .realPress("5")
-      .realPress("0")
-      .realPress("2")
-      .realPress("2")
-      .realPress("0")
-      .realPress("1")
-      .realPress("5")
+      .realType("02042013")
       .get("@dateChange")
-      .should("have.been.called");
-  });
-
-  it.skip("should emit changed event on valid input", () => {
-    cy.get("dso-date-picker").then((e) => {
-      e.get(0).addEventListener("dsoDateChange", cy.stub().as("dateChange"));
-    });
-
-    cy.get("dso-date-picker")
-      .find("input.dso-date__input")
-      .focus()
-      .realPress("1")
-      .realPress("1")
-      .realPress("0")
-      .realPress("4")
-      .realPress("1")
-      .realPress("9")
-      .realPress("7")
-      .realPress("0")
-      .get("@dateChange")
-      .and("have.been.calledWith", Cypress.sinon.match.object)
       .its("lastCall.args.0.detail")
-      .should("deep.equal", { value: "11-4-1970", valueAsDate: new Date(1970, 3, 11) });
-  });
-
-  it("should padStart days and months with 0", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker--with-label&args=value:1-1-2000");
-    cy.get("dso-date-picker").find("input.dso-date__input").should("have.value", "2000-01-01");
-  });
-
-  it.skip("should autofocus", () => {
-    cy.get("dso-date-picker").find("input.dso-date__input").should("not.have.focus");
-
-    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker--with-label&args=autofocus:!true");
-
-    cy.get("dso-date-picker").find("input.dso-date__input").should("have.focus");
+      .as("result")
+      .its("value")
+      .should("equal", "02-04-2013")
+      .get("@result")
+      .its("valueAsDate")
+      .should("exist")
+      .get("@result")
+      .its("component")
+      .should("equal", "dso-date-picker")
+      .get("@result")
+      .its("originalEvent")
+      .should("exist")
+      .get("@result")
+      .its("validity")
+      .should("exist");
   });
 
   it("should emit keyboard events", () => {
@@ -90,38 +64,50 @@ describe("Date Picker", () => {
       });
   });
 
-  it.skip("should allow and show invalid input", () => {
-    const details = [];
-    cy.get("dso-date-picker").then((datePicker) => {
-      datePicker.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
-    });
-
-    cy.get("dso-date-picker input.dso-date__input")
-      .as("input")
-      .type("11-04-1970")
-      .realPress("{backspace}")
-      .get("@input")
-      .should("have.value", "11-04-197")
-      .wrap(details)
-      .invoke("at", -1)
-      .should("deep.equal", {
-        component: "dso-date-picker",
-        error: "invalid",
-        value: "11-04-197",
-        valueAsDate: undefined,
-      });
-  });
-
-  it.skip("keep cursor in correct position when editing date", () => {
+  it.only("should emit errors for invalid inputs", () => {
     cy.get("dso-date-picker")
-      .find("input.dso-date__input")
-      .type("11-04-1970")
-      .should("have.prop", "selectionStart", 10)
-      .invoke("prop", "selectionStart", 2)
-      .invoke("prop", "selectionEnd", 2)
+      .invoke("attr", "min", "01-01-2024")
+      .invoke("attr", "max", "31-12-2025")
+      .get("dso-date-picker")
+      .then(($datePicker) => $datePicker.on("dsoDateChange", cy.stub().as("dateChange")))
+      .get("dso-date-picker")
+      .find('input[type="date"]')
+      .as("input")
+      .focus()
+      .wait(1)
+      .realType("01012024")
+      .get("@dateChange")
+      .its("lastCall.args.0.detail.value")
+      .should("equal", "01-01-2024")
+      .get("@input")
+      .focus()
+      .wait(1)
       .realPress("{backspace}")
-      .get("dso-date-picker input.dso-date__input")
-      .should("have.prop", "selectionStart", 1);
+      .get("@dateChange")
+      .its("lastCall.args.0.detail")
+      .as("detail")
+      .its("value")
+      .should("equal", "")
+      .get("@detail")
+      .its("valueAsDate")
+      .should("be.undefined")
+      .get("@detail")
+      .its("error")
+      .should("equal", "invalid")
+      .get("@input")
+      .focus()
+      .wait(1)
+      .realType("2028")
+      .get("@dateChange")
+      .its("lastCall.args.0.detail.error")
+      .should("equal", "max-range")
+      .get("@input")
+      .focus()
+      .wait(1)
+      .realType("2020")
+      .get("@dateChange")
+      .its("lastCall.args.0.detail.error")
+      .should("equal", "min-range");
   });
 
   it("should have an invalid state", () => {

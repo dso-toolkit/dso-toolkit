@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## Fixed
+* Date Picker: Bij handmatige invoer van datum buiten min/max, geen event met error ([#2380](https://github.com/dso-toolkit/dso-toolkit/issues/2380))
+* **BREAKING** Date Picker: Output date als dd-mm-jjjj ([#2391](https://github.com/dso-toolkit/dso-toolkit/issues/2391))
+
 ## 🚒 61.0.0 - 17-10-2023
 
 ### Added
