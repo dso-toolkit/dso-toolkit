@@ -38,7 +38,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             aria-describedby=${ifDefined(ariaDescribedBy)}
             aria-labelledby=${ifDefined(labelledById)}
             slot=${ifDefined(slot)}
-            @change=${(e: Event) => dsoChange?.(e)}
+            @change=${(e: CustomEvent) => dsoChange?.(e.detail)}
             ?disabled=${disabled}
             ?required=${required}
             ?checked=${checked}

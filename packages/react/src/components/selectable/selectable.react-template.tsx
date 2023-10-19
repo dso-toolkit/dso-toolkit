@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { DsoSelectable } from "../../components";
 import { ComponentImplementation } from "../../templates";
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
 
 export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> = {
   component: "selectable",
@@ -40,7 +41,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           indeterminate={indeterminate}
           infoFixed={info?.fixed}
           slot={slot}
-          onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
+          onDsoChange={(e: DsoSelectableCustomEvent<SelectableChangeEvent>) => dsoChange?.(e.detail)}
         >
           {label ?? ""}
           {info?.content ?? ""}

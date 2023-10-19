@@ -3,6 +3,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { ComponentImplementation } from "../../templates";
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
 
 export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
   component: "selectable",
@@ -40,7 +41,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           ?checked=${checked}
           ?indeterminate=${indeterminate}
           ?info-fixed=${info?.fixed}
-          @dsoChange=${(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
+          @dsoChange=${(e: DsoSelectableCustomEvent<SelectableChangeEvent>) => dsoChange?.(e.detail)}
         >
           ${ifDefined(label)} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
         </dso-selectable>

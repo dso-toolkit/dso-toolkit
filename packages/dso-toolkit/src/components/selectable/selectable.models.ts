@@ -13,7 +13,12 @@ export interface Selectable<TemplateFnReturnType> {
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
-  dsoChange?: (e: Event) => void;
+  dsoChange?: (e: SelectableChangeEvent) => void;
   info?: Info<TemplateFnReturnType>;
   slot?: string;
+}
+
+export interface SelectableChangeEvent {
+  originalEvent: Event;
+  checked: boolean;
 }

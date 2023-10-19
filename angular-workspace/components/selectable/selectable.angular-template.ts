@@ -47,26 +47,25 @@ export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngula
       return {
         props,
         template: `
-        <dso-selectable
-          [type]="${type}"
-          [identifier]="${identifier}"
-          [value]="${value}"
-          ${props.name ? `[name] = "${name}"` : ""}
-          ${props.describedById ? `[describedById]="${describedById}"` : ""}
-          ${props.labelledById ? `[labelledById]="${labelledById}"` : ""}
-          ${props.invalid ? `[invalid]="${invalid}"` : ""}
-          ${props.disabled ? `[disabled]="${disabled}"` : ""}
-          ${props.required ? `[required]="${required}"` : ""}
-          ${props.checked ? `[checked]="${checked}"` : ""}
-          ${props.indeterminate ? `[indeterminate]="${indeterminate}"` : ""}
-          [infoFixed]="${infoFixed}"
-          ${props.slot ? `[slot]="${slot}"` : ""}
-          ${props.dsoChange ? `(dsoChange)="${dsoChange}"` : ""}
-        >
-          {{ ${label} }}
-          ${props.info?.content ?? ""}
-        </dso-selectable>
-      `,
+          <dso-selectable
+            [type]="${type}"
+            [identifier]="${identifier}"
+            [value]="${value}"
+            ${props.name ? `[name] = "${name}"` : ""}
+            ${props.describedById ? `[describedById]="${describedById}"` : ""}
+            ${props.labelledById ? `[labelledById]="${labelledById}"` : ""}
+            ${props.invalid ? `[invalid]="${invalid}"` : ""}
+            ${props.disabled ? `[disabled]="${disabled}"` : ""}
+            ${props.required ? `[required]="${required}"` : ""}
+            ${props.checked ? `[checked]="${checked}"` : ""}
+            ${props.indeterminate ? `[indeterminate]="${indeterminate}"` : ""}
+            [infoFixed]="${infoFixed}"
+            ${props.slot ? `[slot]="${slot}"` : ""}
+            ${props.dsoChange ? `(dsoChange)="${dsoChange}"` : ""}
+          >
+            {{ ${label} }}
+          </dso-selectable>
+        `,
       };
     },
 };

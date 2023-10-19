@@ -1,1 +1,4 @@
-export interface SelectableChangeEvent extends Event {}
+export interface SelectableChangeEvent {
+  originalEvent: Event;
+  checked: boolean;
+}

@@ -33,7 +33,7 @@ export class MapOverlays implements ComponentInterface {
   dsoToggleOverlay!: EventEmitter<OverlayChangeEvent>;
 
   private overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {
-    const checked = e.detail.target instanceof HTMLInputElement ? !!e.detail.target.checked : false;
+    const { checked } = e.detail;
 
     this.dsoToggleOverlay.emit({ overlay, checked });
   }

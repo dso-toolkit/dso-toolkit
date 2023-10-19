@@ -130,6 +130,15 @@ export class Selectable {
 
   private input: HTMLInputElement | undefined;
 
+  private handleOnChange = (e: Event) => {
+    const { target } = e;
+
+    this.dsoChange.emit({
+      originalEvent: e,
+      checked: target instanceof HTMLInputElement && target.checked,
+    });
+  };
+
   componentDidLoad() {
     this.mutationObserver?.disconnect();
 
@@ -172,7 +181,7 @@ export class Selectable {
               disabled={this.disabled}
               required={this.required}
               checked={this.checked}
-              onChange={(e) => this.dsoChange.emit(e)}
+              onChange={this.handleOnChange}
               onBlur={() => (this.keyboardFocus = false)}
               onKeyUp={() => (this.keyboardFocus = true)}
               ref={(el) => (this.input = el)}
