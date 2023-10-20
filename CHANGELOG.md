@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🎤 62.0.0 - 20-10-2023
+
 ## Added
 * **BREAKING** Selectable: SelectableChangeEvent voorzien van `checked` ([#2389](https://github.com/dso-toolkit/dso-toolkit/issues/2389))
 
