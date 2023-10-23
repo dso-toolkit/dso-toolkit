@@ -57,11 +57,14 @@
 }
 
 @mixin mode-base() {
+  padding-inline-end: 1.3em;
+
+  background-repeat: no-repeat;
+  background-size: 1.2em 1.2em;
+  background-position: bottom 0 right 0;
+
   &::after {
     content: "";
-    display: inline-block;
-    margin-left: anchor-variables.$spacer-width;
-    vertical-align: icon.$vertical-align;
   }
 }
 
@@ -70,9 +73,7 @@
     @include mode-base();
   }
 
-  &::after {
-    @include di.base("download");
-  }
+  @include di.variant("download");
 }
 
 @mixin mode-extern($base-styling: false) {
@@ -80,7 +81,5 @@
     @include mode-base();
   }
 
-  &::after {
-    @include di.base("external-link");
-  }
+  @include di.variant("external-link");
 }
