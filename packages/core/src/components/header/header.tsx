@@ -321,7 +321,7 @@ export class Header {
                             <dso-icon icon="help"></dso-icon>
                           </a>
                         ) : (
-                          <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                          <button type="button" onClick={(e) => this.clickHandler(e, "help")}>
                             <span>Help</span>
                             <dso-icon icon="help"></dso-icon>
                           </button>
@@ -339,6 +339,7 @@ export class Header {
                   <div class="profile">
                     <a
                       href={this.userProfileUrl}
+                      class="dso-tertiary"
                       onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
                     >
                       {this.userProfileName}
@@ -348,7 +349,11 @@ export class Header {
                 {this.authStatus === "loggedOut" && (
                   <div class="login">
                     {this.loginUrl ? (
-                      <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
+                      <a
+                        href={this.loginUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
+                      >
                         Inloggen
                       </a>
                     ) : (
@@ -361,7 +366,11 @@ export class Header {
                 {this.authStatus === "loggedIn" && (
                   <div class="logout">
                     {this.logoutUrl ? (
-                      <a href={this.logoutUrl} onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}>
+                      <a
+                        href={this.logoutUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+                      >
                         Uitloggen
                       </a>
                     ) : (
@@ -373,12 +382,18 @@ export class Header {
                 )}
                 <div class="help">
                   {this.helpUrl ? (
-                    <a href={this.helpUrl} onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
-                      <span>Help</span> <dso-icon icon="help"></dso-icon>
+                    <a
+                      href={this.helpUrl}
+                      class="dso-tertiary"
+                      onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                    >
+                      <span>Help</span>
+                      <dso-icon icon="help"></dso-icon>
                     </a>
                   ) : (
                     <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
-                      <span>Help</span> <dso-icon icon="help"></dso-icon>
+                      <span>Help</span>
+                      <dso-icon icon="help"></dso-icon>
                     </button>
                   )}
                 </div>
