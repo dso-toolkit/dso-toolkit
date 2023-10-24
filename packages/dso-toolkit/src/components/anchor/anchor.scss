@@ -5,16 +5,19 @@
 a {
   @include anchor-mixins.root();
 
-  &.download,
-  &.extern {
-    @include anchor-mixins.mode-base();
-  }
+  &:not(.dso-primary, .dso-secondary, .dso-tertiary) {
+    // todo: alternative for :not
+    &.download,
+    &.extern {
+      @include anchor-mixins.mode-base();
+    }
 
-  &.download {
-    @include anchor-mixins.mode-download();
-  }
+    &.download {
+      @include anchor-mixins.mode-download();
+    }
 
-  &.extern {
-    @include anchor-mixins.mode-extern();
+    &.extern {
+      @include anchor-mixins.mode-extern();
+    }
   }
 }

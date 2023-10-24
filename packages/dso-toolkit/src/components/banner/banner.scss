@@ -70,15 +70,11 @@
 
   a {
     &.download {
-      &::after {
-        @include di.base("download-grijs90");
-      }
+      @include di.variant("download-grijs90");
     }
 
     &.extern {
-      &::after {
-        @include di.base("external-link-grijs90");
-      }
+      @include di.variant("external-link-grijs90");
     }
   }
 }
@@ -146,15 +142,11 @@ dso-banner {
 
   a {
     &.download {
-      &::after {
-        @include di.base("download-grijs90");
-      }
+      @include di.variant("download-grijs90");
     }
 
     &.extern {
-      &::after {
-        @include di.base("external-link-grijs90");
-      }
+      @include di.variant("external-link-grijs90");
     }
   }
 }

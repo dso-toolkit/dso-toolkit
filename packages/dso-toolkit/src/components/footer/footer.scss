@@ -33,15 +33,11 @@ footer {
       }
 
       &.download {
-        &::after {
-          @include di.base("download-zwart");
-        }
+        @include di.variant("download-zwart");
       }
 
       &.extern {
-        &::after {
-          @include di.base("external-link-zwart");
-        }
+        @include di.variant("external-link-zwart");
       }
     }
   }
