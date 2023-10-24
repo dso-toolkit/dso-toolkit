@@ -50,46 +50,23 @@
   padding-top: units.$u2;
 }
 
-.login,
-.logout,
-.help {
-  .dso-tertiary {
-    cursor: pointer;
-    font-family: typography.$font-family-base;
-    font-weight: 600;
-    vertical-align: text-bottom;
-  }
-}
-
-.profile,
-.logout,
-.login,
-.help {
-  a {
-    @include anchor.reverse();
-
-    color: colors.$grasgroen;
-    font-weight: 600;
-  }
-}
-
-.help {
-  a {
-    @include anchor.clean();
-  }
-  a span {
-    @include anchor.reverse();
-  }
-}
-
 .dso-header-session {
   display: flex;
   margin-left: auto;
 
-  .profile {
-    a {
-      margin-left: units.$u1;
+  .profile,
+  .login,
+  .logout,
+  .help {
+    .dso-tertiary {
+      cursor: pointer;
+      font-family: typography.$font-family-base;
+      font-weight: 600;
     }
+  }
+
+  .profile {
+    margin-left: units.$u1;
 
     + .logout,
     ~ .help {
@@ -146,10 +123,6 @@ dso-dropdown-menu {
           background-color: colors.$wit;
           color: colors.$bosgroen;
           text-decoration: underline;
-        }
-
-        dso-icon {
-          margin-left: units.$u1;
         }
       }
 
