@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Anchor: Icon no wrap ([#2329](https://github.com/dso-toolkit/dso-toolkit/issues/2329))
 
+### Added
+* Graphics: Foutmelding ([#2388](https://github.com/dso-toolkit/dso-toolkit/issues/2388))
+
 ## 🎤 62.0.0 - 20-10-2023
 
 ## Added
