@@ -57,10 +57,10 @@
 }
 
 @mixin mode-base() {
-  padding-inline-end: 1.3em;
+  padding-inline-end: 1.5em;
 
   background-repeat: no-repeat;
-  background-size: 1.2em 1.2em;
+  background-size: 1.25em 1.25em;
   background-position: bottom 0 right 0;
 
   &::after {
