@@ -7,7 +7,6 @@
 @use "highlight-box.variables" as highlight-box-variables;
 
 @mixin root() {
-  container-type: inline-size;
   background-color: colors.$grijs-5;
   color: colors.$zwart;
   margin-top: units.$u2;
