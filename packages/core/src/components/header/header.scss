@@ -52,6 +52,7 @@
 
 .dso-header-session {
   display: flex;
+  align-items: center;
   margin-left: auto;
 
   .profile,
@@ -62,6 +63,7 @@
       cursor: pointer;
       font-family: typography.$font-family-base;
       font-weight: 600;
+      line-height: 1.5;
     }
   }
 
@@ -73,6 +75,13 @@
       border-left: 3px solid colors.$grijs-20;
       margin-left: units.$u1;
       padding-left: units.$u1;
+    }
+  }
+
+  .help {
+    a,
+    button {
+      display: flex;
     }
   }
 }
