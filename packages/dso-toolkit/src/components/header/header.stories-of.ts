@@ -50,7 +50,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
         authStatus: "loggedIn",
         loginUrl: "#login",
         logoutUrl: "#logout",
-        helpUrl: "#help",
+        helpUrl: "",
         userProfileName: "J.A. Jansen",
         userProfileUrl: "#profiel",
         userHomeUrl: "#myhome",
@@ -109,6 +109,12 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
           },
         ],
         userHomeActive: true,
+      },
+    });
+
+    stories.add("with link to help", template, {
+      args: {
+        helpUrl: "#help",
       },
     });
 
