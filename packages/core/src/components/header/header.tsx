@@ -316,12 +316,16 @@ export class Header {
                       )}
                       <li>
                         {this.helpUrl ? (
-                          <a href={this.helpUrl} onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
+                          <a
+                            href={this.helpUrl}
+                            class="dso-tertiary"
+                            onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                          >
                             <span>Help</span>
                             <dso-icon icon="help"></dso-icon>
                           </a>
                         ) : (
-                          <button type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                          <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
                             <span>Help</span>
                             <dso-icon icon="help"></dso-icon>
                           </button>
