@@ -52,19 +52,22 @@ export class Header {
   authStatus: "none" | "loggedIn" | "loggedOut" = "none";
 
   /**
-   * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+   * When the `authStatus` is `loggedOut` a loginUrl can be provided.
+   * The login button will then render as an anchor.
    */
   @Prop()
   loginUrl?: string;
 
   /**
    * The URL to open when the user activates "logout".
+   * If no URL is specified, a button element is used instead.
    */
   @Prop()
   logoutUrl?: string;
 
   /**
    * The URL to open when the user activates "help".
+   * If no URL is specified, a button element is used instead.
    */
   @Prop()
   helpUrl?: string;
