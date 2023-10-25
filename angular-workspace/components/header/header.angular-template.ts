@@ -16,6 +16,7 @@ export const angularHeader: ComponentImplementation<Header> = {
             [authStatus]="authStatus"
             [loginUrl]="loginUrl"
             [logoutUrl]="logoutUrl"
+            [helpUrl]="helpUrl"
             [userProfileName]="userProfileName"
             [userHomeUrl]="userHomeUrl"
             [userHomeActive]="userHomeActive"

@@ -24,7 +24,7 @@ export interface HeaderMenuItem {
   active?: boolean;
 }
 
-export type HeaderNavigationType = "menuItem" | "profile" | "logout" | "login" | "userHome";
+export type HeaderNavigationType = "menuItem" | "profile" | "logout" | "login" | "userHome" | "help";
 
 export interface HeaderClickEvent {
   originalEvent: MouseEvent;
