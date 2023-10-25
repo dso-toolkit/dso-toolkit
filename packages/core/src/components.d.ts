@@ -427,6 +427,10 @@ export namespace Components {
          */
         "mainMenu"?: HeaderMenuItem[];
         /**
+          * Show a help-button or link in the header
+         */
+        "showHelp"?: boolean;
+        /**
           * Either have the dropdown menu appear automatically or always.
          */
         "useDropDownMenu": "always" | "auto";
@@ -1768,6 +1772,10 @@ declare namespace LocalJSX {
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
+        /**
+          * Show a help-button or link in the header
+         */
+        "showHelp"?: boolean;
         /**
           * Either have the dropdown menu appear automatically or always.
          */

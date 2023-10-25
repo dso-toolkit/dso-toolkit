@@ -17,6 +17,7 @@ export const reactHeader: ComponentImplementation<Header> = {
       authStatus,
       loginUrl,
       logoutUrl,
+      showHelp,
       helpUrl,
       userProfileUrl,
       userProfileName,
@@ -31,6 +32,7 @@ export const reactHeader: ComponentImplementation<Header> = {
           authStatus={authStatus}
           loginUrl={loginUrl}
           logoutUrl={logoutUrl}
+          showHelp={showHelp}
           helpUrl={helpUrl}
           userProfileUrl={userProfileUrl}
           userProfileName={userProfileName}

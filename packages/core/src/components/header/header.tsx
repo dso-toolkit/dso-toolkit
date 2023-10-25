@@ -66,6 +66,12 @@ export class Header {
   logoutUrl?: string;
 
   /**
+   * Show a help-button or link in the header
+   */
+  @Prop()
+  showHelp?: boolean;
+
+  /**
    * The URL to open when the user activates "help".
    * If no URL is specified, a button element is used instead.
    */
@@ -314,23 +320,25 @@ export class Header {
                           )}
                         </li>
                       )}
-                      <li>
-                        {this.helpUrl ? (
-                          <a
-                            href={this.helpUrl}
-                            class="dso-tertiary"
-                            onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
-                          >
-                            <span>Help</span>
-                            <dso-icon icon="help"></dso-icon>
-                          </a>
-                        ) : (
-                          <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
-                            <span>Help</span>
-                            <dso-icon icon="help"></dso-icon>
-                          </button>
-                        )}
-                      </li>
+                      {this.showHelp && (
+                        <li>
+                          {this.helpUrl ? (
+                            <a
+                              href={this.helpUrl}
+                              class="dso-tertiary"
+                              onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                            >
+                              <span>Help</span>
+                              <dso-icon icon="help"></dso-icon>
+                            </a>
+                          ) : (
+                            <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
+                              <span>Help</span>
+                              <dso-icon icon="help"></dso-icon>
+                            </button>
+                          )}
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </dso-dropdown-menu>
@@ -384,23 +392,25 @@ export class Header {
                     )}
                   </div>
                 )}
-                <div class="help">
-                  {this.helpUrl ? (
-                    <a
-                      href={this.helpUrl}
-                      class="dso-tertiary"
-                      onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
-                    >
-                      <span>Help</span>
-                      <dso-icon icon="help"></dso-icon>
-                    </a>
-                  ) : (
-                    <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
-                      <span>Help</span>
-                      <dso-icon icon="help"></dso-icon>
-                    </button>
-                  )}
-                </div>
+                {this.showHelp && (
+                  <div class="help">
+                    {this.helpUrl ? (
+                      <a
+                        href={this.helpUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                      >
+                        <span>Help</span>
+                        <dso-icon icon="help"></dso-icon>
+                      </a>
+                    ) : (
+                      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                        <span>Help</span>
+                        <dso-icon icon="help"></dso-icon>
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
               {((this.mainMenu && this.mainMenu.length > 0) || this.userHomeUrl) && (
                 <nav class="dso-navbar">
