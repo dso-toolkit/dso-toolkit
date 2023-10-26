@@ -226,11 +226,12 @@ describe("Viewer Grid", () => {
       .invoke("attr", "main-size", "small")
       .invoke("attr", "document-panel-size", "small")
       .invoke("attr", "document-panel-open", "true")
-      .then((e) => {
-        e.on("dsoDocumentPanelSizeChange", cy.stub().as("dsoDocumentPanelSizeChange"));
-        e.on("dsoDocumentPanelSizeChangeAnimationEnd", cy.stub().as("dsoDocumentPanelSizeChangeAnimationEnd"));
-        e.on("dsoMainPanelExpand", cy.stub().as("dsoMainPanelExpand"));
-        e.on("dsoMainPanelToggle", cy.stub().as("dsoMainPanelToggle"));
+      .then(($viewerGrid) => {
+        $viewerGrid
+          .on("dsoDocumentPanelSizeChange", cy.stub().as("dsoDocumentPanelSizeChange"))
+          .on("dsoDocumentPanelSizeChangeAnimationEnd", cy.stub().as("dsoDocumentPanelSizeChangeAnimationEnd"))
+          .on("dsoMainPanelExpand", cy.stub().as("dsoMainPanelExpand"))
+          .on("dsoMainPanelToggle", cy.stub().as("dsoMainPanelToggle"));
       })
       .shadow()
       .as("viewerGrid")
@@ -269,6 +270,85 @@ describe("Viewer Grid", () => {
       .get("@viewerGrid")
       .find(".dso-main-panel .content")
       .should("have.class", "invisible");
+  });
+
+  it("should emit correct currentSize and nextSize", () => {
+    cy.visit(url)
+      .get("dso-viewer-grid")
+      .then(($viewerGrid) =>
+        $viewerGrid
+          .on("dsoMainSizeChange", cy.stub().as("mainSizeChange"))
+          .on("dsoDocumentPanelSizeChange", cy.stub().as("documentPanelSizeChange"))
+      )
+      .invoke("attr", "main-size")
+      .should("equal", "large")
+      .get("dso-viewer-grid")
+      .invoke("attr", "mode")
+      .should("equal", "vrk")
+      .get("dso-viewer-grid")
+      .shadow()
+      .as("shadowRoot")
+      .find(".dso-main-panel .shrink")
+      .as("mainShrinkButton")
+      .click()
+      .get("@mainSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "large", nextSize: "medium" })
+      .get("dso-viewer-grid")
+      .invoke("attr", "main-size", "medium")
+      .get("@mainShrinkButton")
+      .click()
+      .get("@mainSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "medium", nextSize: "small" })
+      .get("@shadowRoot")
+      .find(".dso-main-panel .expand")
+      .as("mainExpandButton")
+      .click()
+      .get("@mainSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "medium", nextSize: "large" })
+      .get("dso-viewer-grid")
+      .invoke("attr", "main-size", "small")
+      .get("@mainExpandButton")
+      .click()
+      .get("@mainSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "small", nextSize: "medium" })
+      .get("dso-viewer-grid")
+      .invoke("attr", "document-panel-size")
+      .should("equal", "large")
+      .get("dso-viewer-grid")
+      .invoke("attr", "mode", "vdk")
+      .invoke("attr", "document-panel-open", "")
+      .get("@shadowRoot")
+      .find(".dso-document-panel .shrink")
+      .as("documentPanelShrinkButton")
+      .click()
+      .get("@documentPanelSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "large", nextSize: "medium" })
+      .get("dso-viewer-grid")
+      .invoke("attr", "document-panel-size", "medium")
+      .get("@documentPanelShrinkButton")
+      .click()
+      .get("@documentPanelSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "medium", nextSize: "small" })
+      .get("@shadowRoot")
+      .find(".dso-document-panel .expand")
+      .as("documentPanelExpandButton")
+      .click()
+      .get("@documentPanelSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "medium", nextSize: "large" })
+      .get("dso-viewer-grid")
+      .invoke("attr", "document-panel-size", "small")
+      .get("@documentPanelExpandButton")
+      .click()
+      .get("@documentPanelSizeChange")
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", { currentSize: "small", nextSize: "medium" });
   });
 });
 

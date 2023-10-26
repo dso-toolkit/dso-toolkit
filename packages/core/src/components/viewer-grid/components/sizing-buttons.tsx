@@ -11,7 +11,7 @@ interface SizingButtonProps {
 export const SizingButtons: FunctionalComponent<SizingButtonProps> = ({ shrink, expand, size, panelLabel }) => (
   <div class="sizing-buttons">
     <span class="sr-only" aria-live="polite" aria-atomic="true">
-      Breedte {panelLabel}: {viewerGridSizeLabelMap[size]}
+      Breedte {panelLabel.toLocaleLowerCase()}: {viewerGridSizeLabelMap[size]}
     </span>
     {size !== "small" && (
       <button type="button" class="shrink" onClick={shrink}>

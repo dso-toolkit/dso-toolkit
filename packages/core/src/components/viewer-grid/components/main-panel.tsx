@@ -44,7 +44,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
     }}
   >
     {!tabView &&
-      (((mode === "vrk" || documentPanelOpen) && (
+      (((mode === "vrk" || (documentPanelOpen && !mainPanelExpanded)) && (
         <SizingButtons
           panelLabel={mode === "vdk" ? "Zoeken paneel" : "Hoofdpaneel"}
           size={mainSize}

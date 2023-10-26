@@ -265,7 +265,7 @@ export class ViewerGrid {
   private emitExpandMain = () => {
     this.dsoMainSizeChange.emit({
       currentSize: this.mainSize,
-      nextSize: (this.mainSize = this.mainSize === "small" ? "medium" : "large"),
+      nextSize: this.mainSize === "small" ? "medium" : "large",
     });
   };
 
@@ -279,7 +279,7 @@ export class ViewerGrid {
   private expandDocumentPanel = () => {
     this.dsoDocumentPanelSizeChange.emit({
       currentSize: this.documentPanelSize,
-      nextSize: (this.documentPanelSize = this.mainSize === "small" ? "medium" : "large"),
+      nextSize: this.documentPanelSize === "small" ? "medium" : "large",
     });
   };
 

@@ -161,6 +161,10 @@ button {
   }
 }
 
+.dso-document-panel .sizing-buttons {
+  top: calc(50vh - #{core-viewer-grid-variables.$resize-button-size});
+}
+
 .map {
   height: 100%;
   width: 100%;
