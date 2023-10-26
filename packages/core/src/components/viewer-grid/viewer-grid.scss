@@ -296,7 +296,6 @@ button {
   .dso-main-panel,
   .dso-document-panel {
     box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
-    padding-right: units.$u1;
 
     .content {
       overflow-y: scroll;
