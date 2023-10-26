@@ -16,6 +16,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               heading,
               attachmentCount,
               content,
+              dsoAnimationStart,
               dsoAnimationEnd,
               dsoToggleClick,
               handleUrl,
@@ -33,6 +34,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               icon=${ifDefined(icon)}
               attachment-count=${ifDefined(attachmentCount)}
               @dsoToggleClick=${dsoToggleClick}
+              @dsoAnimationStart=${dsoAnimationStart}
               @dsoAnimationEnd=${dsoAnimationEnd}
             >
               ${content}

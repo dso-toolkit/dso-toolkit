@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
-import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -15,7 +15,7 @@ import { CardContainerMode } from "./components/card-container/card-container.in
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
-import { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
+import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -32,7 +32,7 @@ import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.i
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
-export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -41,7 +41,7 @@ export { CardContainerMode } from "./components/card-container/card-container.in
 export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
-export { ExpandableAnimationEndEvent } from "./components/expandable/expandable";
+export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -75,6 +75,10 @@ export namespace Components {
          */
         "attachmentCount"?: number;
         /**
+          * Calling this method will set focus to the handle.
+         */
+        "focusHandle": () => Promise<void>;
+        /**
           * The title of the handle
          */
         "handleTitle"?: string;
@@ -82,6 +86,10 @@ export namespace Components {
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
         "handleUrl"?: string;
+        /**
+          * Set when this Accordion Section contains or will contain an Accordion.
+         */
+        "hasNestedAccordion": boolean;
         /**
           * Which heading element to use.
          */
@@ -1337,6 +1345,10 @@ declare namespace LocalJSX {
          */
         "handleUrl"?: string;
         /**
+          * Set when this Accordion Section contains or will contain an Accordion.
+         */
+        "hasNestedAccordion"?: boolean;
+        /**
           * Which heading element to use.
          */
         "heading"?: AccordionHeading;
@@ -1348,6 +1360,10 @@ declare namespace LocalJSX {
           * Event emitted when the Accordion Section completes its toggle animation.
          */
         "onDsoAnimationEnd"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionAnimationEndEvent>) => void;
+        /**
+          * Event emitted when the Accordion Section starts its toggle animation.
+         */
+        "onDsoAnimationStart"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionAnimationStartEvent>) => void;
         /**
           * Emitted when the user activates the toggle button.
          */
@@ -1711,9 +1727,13 @@ declare namespace LocalJSX {
          */
         "minimumHeight"?: number;
         /**
-          * Fired when the animation ends. Only when `enableAnimation = true`.
+          * Fired after expanding.
          */
         "onDsoExpandableAnimationEnd"?: (event: DsoExpandableCustomEvent<ExpandableAnimationEndEvent>) => void;
+        /**
+          * Fired before expanding.
+         */
+        "onDsoExpandableAnimationStart"?: (event: DsoExpandableCustomEvent<ExpandableAnimationStartEvent>) => void;
         /**
           * Set to `true` to expand the content.
          */

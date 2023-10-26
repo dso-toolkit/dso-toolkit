@@ -9,6 +9,7 @@ export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion";
   reverseAlign: boolean;
   dsoToggleClick: HandlerFunction;
+  dsoAnimationStart: HandlerFunction;
   dsoAnimationEnd: HandlerFunction;
   open: boolean;
   statusDescription: string;
@@ -18,12 +19,12 @@ export interface AccordionArgs {
   heading: AccordionHeading;
   handleUrl: string;
   handleTitle: string;
-  demoScrollIntoViewAfterOpen: boolean;
+  demoScrollIntoView: "start" | "end" | undefined;
 }
 
-export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoViewAfterOpen" | "open"> = {
+export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {
   open: false,
-  demoScrollIntoViewAfterOpen: true,
+  demoScrollIntoView: undefined,
 };
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -45,6 +46,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   dsoToggleClick: {
     ...noControl,
     action: "dsoToggleClick",
+  },
+  dsoAnimationStart: {
+    ...noControl,
+    action: "dsoAnimationStart",
   },
   dsoAnimationEnd: {
     ...noControl,
@@ -94,9 +99,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   /** demo args */
-  demoScrollIntoViewAfterOpen: {
+  demoScrollIntoView: {
+    options: [undefined, "start", "end"],
     control: {
-      type: "boolean",
+      type: "select",
     },
   },
 };
@@ -122,8 +128,16 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         section.icon = a.icon;
         section.heading = a.heading;
         section.handleUrl = a.handleUrl;
+        section.dsoAnimationStart = (e) => {
+          if (a.demoScrollIntoView === "start" && a.open) {
+            e.detail.scrollIntoView();
+          }
+
+          a.dsoAnimationStart(e.detail);
+        };
+
         section.dsoAnimationEnd = (e) => {
-          if (a.demoScrollIntoViewAfterOpen && a.open) {
+          if (a.demoScrollIntoView === "end" && a.open) {
             e.detail.scrollIntoView();
           }
 
@@ -131,7 +145,7 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         };
       }
 
-      if (a.demoScrollIntoViewAfterOpen) {
+      if (a.demoScrollIntoView === "end") {
         if (i === 0) {
           section.open = true;
         }

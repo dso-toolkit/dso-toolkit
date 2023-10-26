@@ -24,11 +24,23 @@ export interface AccordionSectionToggleClickEvent {
   open: boolean;
 }
 
+export interface AccordionSectionAnimationStartEvent {
+  /**
+   * Helper function to scroll the Accordion Section into view.
+   */
+  scrollIntoView(behavior?: ScrollBehavior): void;
+
+  /**
+   * Whether or not the Accordion opening or closing.
+   */
+  animation: "opening" | "closing";
+}
+
 export interface AccordionSectionAnimationEndEvent {
   /**
    * Helper function to scroll the Accordion Section into view.
    */
-  scrollIntoView(): void;
+  scrollIntoView(behavior?: ScrollBehavior): void;
 
   /**
    * The state of the Accordion Section after animation.

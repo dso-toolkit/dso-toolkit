@@ -156,4 +156,13 @@ describe("Accordion", () => {
       .find("dso-icon:last-child")
       .should("exist");
   });
+
+  it("should focus handle element with AccordionSection.focusHandle()", () => {
+    cy.get("dso-accordion-section")
+      .invoke("get", 0)
+      .as("section")
+      .invoke("focusHandle")
+      .get("@section")
+      .should("have.focus");
+  });
 });
