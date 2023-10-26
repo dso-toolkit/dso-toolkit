@@ -12,13 +12,15 @@ export function parseToValueFormat(value: string | undefined): string | undefine
     matches.length === 3 &&
     typeof matches[0] === "string" &&
     typeof matches[1] === "string" &&
-    typeof matches[2] === "string" &&
-    matches[2].length === 4
+    typeof matches[2] === "string"
   ) {
-    return matches
-      .map((match) => (match.length === 1 ? `0${match}` : match))
-      .reverse()
-      .join("-");
+    const [d, m, y] = matches;
+
+    const dd = d.padStart(2, "0");
+    const mm = m.padStart(2, "0");
+    const yyyy = y.padStart(4, "0");
+
+    return [yyyy, mm, dd].join("-");
   }
 
   return value;
@@ -34,7 +36,7 @@ export function parseToDutchFormat(date: Date | null): string {
 
   const dd = date.getDate().toString(10).padStart(2, "0");
   const mm = (date.getMonth() + 1).toString(10).padStart(2, "0");
-  const yyyy = date.getFullYear().toString(10);
+  const yyyy = date.getFullYear().toString(10).padStart(4, "0");
 
-  return `${dd}-${mm}-${yyyy}`;
+  return [dd, mm, yyyy].join("-");
 }
