@@ -13,7 +13,6 @@ export interface ViewerGridMainPanelProps {
   mainPanelHidden: boolean;
   shrinkMain: () => void;
   expandMain: () => void;
-  expandContent: () => void;
   toggleMainPanel: () => void;
   dsoMainSizeChangeAnimationEnd: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
 }
@@ -27,7 +26,6 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
   mainPanelHidden,
   shrinkMain,
   expandMain,
-  expandContent,
   toggleMainPanel,
   dsoMainSizeChangeAnimationEnd,
 }) => (
@@ -64,13 +62,6 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
         )))}
     <div class={clsx("content", { invisible: mainPanelHidden })}>
       <slot name="main" />
-      {!tabView && documentPanelOpen && (
-        <button class="dso-tertiary expand-button" onClick={expandContent}>
-          <dso-icon icon={mainPanelExpanded ? "chevron-up" : "chevron-down"}></dso-icon>
-          <span>{mainPanelExpanded ? "Verberg" : "Toon"} documenten op gekozen locatie</span>
-        </button>
-      )}
-      {documentPanelOpen && mainPanelExpanded && <slot name="main-expanded" />}
     </div>
   </div>
 );

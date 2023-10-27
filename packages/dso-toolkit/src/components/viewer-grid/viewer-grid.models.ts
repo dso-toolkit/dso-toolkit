@@ -22,7 +22,6 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
   filterpanel?: TemplateFnReturnType;
   main: TemplateFnReturnType;
-  mainExpanded?: TemplateFnReturnType;
   map: TemplateFnReturnType;
   documentPanel?: TemplateFnReturnType;
   overlay?: TemplateFnReturnType;

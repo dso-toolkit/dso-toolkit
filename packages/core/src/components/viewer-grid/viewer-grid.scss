@@ -102,12 +102,6 @@ button {
       border-top-right-radius: 4px;
     }
   }
-
-  .expand-button {
-    @include button.tertiary($modifiers: false);
-
-    padding-block: units.$u2;
-  }
 }
 
 .dso-document-panel {
@@ -302,7 +296,7 @@ button {
     box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
 
     .content {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 

@@ -153,6 +153,7 @@ export function viewerGridArgsMapper<TemplateFnReturnType>(
   return {
     ...a,
     ...example,
+    main: example.main(a.mainPanelExpanded!),
     activeTab: a.mode === "vdk" ? a.vdkActiveTab : a.vrkActiveTab,
   };
 }

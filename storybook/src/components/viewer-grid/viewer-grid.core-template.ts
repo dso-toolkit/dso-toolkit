@@ -1,7 +1,6 @@
 import { ViewerGrid } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-import { when } from "lit-html/directives/when.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -31,7 +30,6 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       dsoMainPanelToggle,
       filterpanel,
       main,
-      mainExpanded,
       map,
       documentPanel,
       overlay,
@@ -60,10 +58,6 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
         >
           ${filterpanel ? html`<div slot="filterpanel">${filterpanel}</div>` : nothing}
           <div slot="main">${main}</div>
-          ${when(
-            documentPanelOpen && mainPanelExpanded && mainExpanded,
-            () => html`<div slot="main-expanded">${mainExpanded}</div>`
-          )}
           <div slot="map">${map}</div>
           ${documentPanel ? html`<div slot="document-panel">${documentPanel}</div>` : nothing}
           ${overlay ? html`<div slot="overlay">${overlay}</div>` : nothing}

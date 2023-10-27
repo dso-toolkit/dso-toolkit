@@ -429,7 +429,7 @@ export namespace Components {
         /**
           * Show a help-button or link in the header
          */
-        "showHelp"?: boolean;
+        "showHelp"?: boolean | undefined;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
@@ -1775,7 +1775,7 @@ declare namespace LocalJSX {
         /**
           * Show a help-button or link in the header
          */
-        "showHelp"?: boolean;
+        "showHelp"?: boolean | undefined;
         /**
           * Either have the dropdown menu appear automatically or always.
          */

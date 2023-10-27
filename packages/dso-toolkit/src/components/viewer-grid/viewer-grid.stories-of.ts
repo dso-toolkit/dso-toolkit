@@ -14,8 +14,7 @@ import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.mo
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
   example: {
-    main: TemplateFnReturnType;
-    mainExpanded: TemplateFnReturnType;
+    main: (mainExpanded: boolean) => TemplateFnReturnType;
     map: TemplateFnReturnType;
     documentPanel: TemplateFnReturnType;
     filterpanel: TemplateFnReturnType;
@@ -72,7 +71,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           filterpanelOpen: false,
           overlayOpen: false,
           documentPanelOpen: false,
-          documentPanelSize: "large",
+          documentPanelSize: "small",
           mainPanelExpanded: false,
           mainPanelHidden: false,
           vrkActiveTab: "main",
@@ -108,7 +107,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           filterpanelOpen: true,
           overlayOpen: false,
           documentPanelOpen: false,
-          documentPanelSize: "large",
+          documentPanelSize: "small",
           mainPanelExpanded: false,
           mainPanelHidden: false,
           vrkActiveTab: "main",

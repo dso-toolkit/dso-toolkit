@@ -41,7 +41,6 @@
 | `"document-panel"` | VDK only    |
 | `"filterpanel"`    |             |
 | `"main"`           |             |
-| `"main-expanded"`  | VDK only    |
 | `"map"`            |             |
 | `"overlay"`        |             |
 
