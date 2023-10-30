@@ -411,6 +411,10 @@ export namespace Components {
          */
         "authStatus": "none" | "loggedIn" | "loggedOut";
         /**
+          * The URL to open when the user activates "help".
+         */
+        "helpUrl"?: string;
+        /**
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */
         "loginUrl"?: string;
@@ -1744,6 +1748,10 @@ declare namespace LocalJSX {
           * Used to show the login/logout option. 'none' renders nothing.
          */
         "authStatus"?: "none" | "loggedIn" | "loggedOut";
+        /**
+          * The URL to open when the user activates "help".
+         */
+        "helpUrl"?: string;
         /**
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */

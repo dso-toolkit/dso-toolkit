@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Header: "Help"-button toevoegen ([#2334](https://github.com/dso-toolkit/dso-toolkit/issues/2334))
+
 ## 🐼 62.1.0 - 27-10-2023
 
 ### Added

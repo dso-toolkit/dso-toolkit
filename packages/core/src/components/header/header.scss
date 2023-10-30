@@ -51,7 +51,8 @@
 }
 
 .login,
-.logout {
+.logout,
+.help {
   .dso-tertiary {
     cursor: pointer;
     font-family: typography.$font-family-base;
@@ -62,16 +63,22 @@
 
 .profile,
 .logout,
-.login {
+.login,
+.help {
   a {
-    @include anchor.clean();
+    @include anchor.reverse();
 
     color: colors.$grasgroen;
     font-weight: 600;
+  }
+}
 
-    &:focus {
-      color: colors.$wit;
-    }
+.help {
+  a {
+    @include anchor.clean();
+  }
+  a span {
+    @include anchor.reverse();
   }
 }
 
@@ -84,10 +91,11 @@
       margin-left: units.$u1;
     }
 
-    + .logout {
+    + .logout,
+    ~ .help {
       border-left: 3px solid colors.$grijs-20;
-      margin-left: units.$u2;
-      padding-left: units.$u2;
+      margin-left: units.$u1;
+      padding-left: units.$u1;
     }
   }
 }
@@ -138,6 +146,10 @@ dso-dropdown-menu {
           background-color: colors.$wit;
           color: colors.$bosgroen;
           text-decoration: underline;
+        }
+
+        dso-icon {
+          margin-left: units.$u1;
         }
       }
 

@@ -28,6 +28,7 @@ export const header: Header = {
   authStatus: "none",
   loginUrl: "#login",
   logoutUrl: "#logout",
+  helpUrl: "#help",
   userProfileName: "J.A. Jansen",
   userProfileUrl: "#profiel",
   userHomeUrl: "#myhome",

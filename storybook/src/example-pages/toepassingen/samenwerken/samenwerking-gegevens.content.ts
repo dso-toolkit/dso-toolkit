@@ -15,6 +15,7 @@ export const header: Header = {
   authStatus: "loggedIn",
   loginUrl: "#login",
   logoutUrl: "#logout",
+  helpUrl: "#help",
   userProfileName: "J.A. Jansen",
   userProfileUrl: "#profiel",
 };

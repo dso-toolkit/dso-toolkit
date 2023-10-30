@@ -64,6 +64,12 @@ export class Header {
   logoutUrl?: string;
 
   /**
+   * The URL to open when the user activates "help".
+   */
+  @Prop()
+  helpUrl?: string;
+
+  /**
    * The name to show when the user is logged in.
    */
   @Prop()
@@ -305,6 +311,19 @@ export class Header {
                           )}
                         </li>
                       )}
+                      <li>
+                        {this.helpUrl ? (
+                          <a href={this.helpUrl} onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
+                            <span>Help</span>
+                            <dso-icon icon="help"></dso-icon>
+                          </a>
+                        ) : (
+                          <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                            <span>Help</span>
+                            <dso-icon icon="help"></dso-icon>
+                          </button>
+                        )}
+                      </li>
                     </ul>
                   </div>
                 </dso-dropdown-menu>
@@ -315,7 +334,6 @@ export class Header {
               <div class="dso-header-session">
                 {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
                   <div class="profile">
-                    <span class="profile-label">Welkom:</span>
                     <a
                       href={this.userProfileUrl}
                       onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
@@ -350,6 +368,17 @@ export class Header {
                     )}
                   </div>
                 )}
+                <div class="help">
+                  {this.helpUrl ? (
+                    <a href={this.helpUrl} onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}>
+                      <span>Help</span> <dso-icon icon="help"></dso-icon>
+                    </a>
+                  ) : (
+                    <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                      <span>Help</span> <dso-icon icon="help"></dso-icon>
+                    </button>
+                  )}
+                </div>
               </div>
               {((this.mainMenu && this.mainMenu.length > 0) || this.userHomeUrl) && (
                 <nav class="dso-navbar">

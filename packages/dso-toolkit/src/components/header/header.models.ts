@@ -10,6 +10,7 @@ export interface Header {
   authStatus?: "none" | "loggedOut" | "loggedIn";
   loginUrl?: string;
   logoutUrl?: string;
+  helpUrl?: string;
   userProfileName?: string;
   userProfileUrl?: string;
   userHomeUrl?: string;

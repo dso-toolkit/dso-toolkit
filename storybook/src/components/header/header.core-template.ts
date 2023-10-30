@@ -15,6 +15,7 @@ export const coreHeader: ComponentImplementation<Header> = {
       authStatus,
       loginUrl,
       logoutUrl,
+      helpUrl,
       userProfileUrl,
       userProfileName,
       userHomeUrl,
@@ -27,6 +28,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         auth-status=${ifDefined(authStatus)}
         login-url=${ifDefined(loginUrl)}
         logout-url=${ifDefined(logoutUrl)}
+        help-url=${ifDefined(helpUrl)}
         user-profile-url=${ifDefined(userProfileUrl)}
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
