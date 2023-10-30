@@ -37,7 +37,10 @@ examplePageFactory(
         ],
       })}
       <main>
-        <div class="row dso-banner dso-banner-implementation-specific-image" style="background-image: url('images/hands-on-trackpad.jpg')">
+        <div
+          class="row dso-banner dso-banner-implementation-specific-image"
+          style="background-image: url('images/hands-on-trackpad.jpg')"
+        >
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
@@ -120,9 +123,9 @@ examplePageFactory(
         </div>
         <div class="row dso-featured">
           <div class="col-xs-12">
-            <h2>De stappen</h1>
+            <h2>De stappen</h2>
             <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -138,7 +141,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -151,7 +154,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -164,7 +167,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -182,7 +185,7 @@ examplePageFactory(
               </div>
             </div>
             <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -195,7 +198,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -208,7 +211,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,

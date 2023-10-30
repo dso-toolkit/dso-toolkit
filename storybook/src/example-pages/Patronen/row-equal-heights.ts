@@ -35,22 +35,22 @@ examplePageFactory(
         ${headerPartial(templates, header)}
         <main>
           <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
           </div>
 
           <div class="row dso-equal-heights">
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 1,
@@ -70,7 +70,7 @@ examplePageFactory(
                 }),
               })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 yellow: true,
                 dropShadow: true,
@@ -87,7 +87,7 @@ examplePageFactory(
                 }),
               })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 3,
@@ -99,7 +99,7 @@ examplePageFactory(
                 }),
               })}
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 4,

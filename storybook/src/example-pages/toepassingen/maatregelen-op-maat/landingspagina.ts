@@ -47,7 +47,7 @@ examplePageFactory(
               ${anchorTemplate({ label: "de Vergunningscheck", url: "#" })}
             </p>
           </div>
-          <div class="col-lg-4">
+          <div class="col-xs-12 col-lg-4">
             ${highlightBoxTemplate({
               white: true,
               border: true,
@@ -68,7 +68,7 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>De stappen</h2>
             <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -81,7 +81,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -94,7 +94,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -110,7 +110,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-xs-12 col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
