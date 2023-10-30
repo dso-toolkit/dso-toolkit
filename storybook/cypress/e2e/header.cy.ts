@@ -235,9 +235,7 @@ describe("Header", () => {
       .find('.dso-nav-main > li > a[href="#vergunningscheck"]')
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#vergunningscheck",
@@ -252,9 +250,7 @@ describe("Header", () => {
       .find(".menu-user-home > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#userHomeUrl",
@@ -266,9 +262,7 @@ describe("Header", () => {
       .find(".login > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#loginUrl",
@@ -282,9 +276,7 @@ describe("Header", () => {
       .find(".logout > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#logoutUrl",
@@ -296,9 +288,7 @@ describe("Header", () => {
       .find(".dso-header-session .profile > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#profileUrl",
@@ -310,9 +300,7 @@ describe("Header", () => {
       .find(".dso-header-session .help > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#help",
