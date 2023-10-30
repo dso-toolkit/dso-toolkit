@@ -50,8 +50,6 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
         authStatus: "loggedIn",
         loginUrl: "#login",
         logoutUrl: "#logout",
-        showHelp: false,
-        helpUrl: "",
         userProfileName: "J.A. Jansen",
         userProfileUrl: "#profiel",
         userHomeUrl: "#myhome",
@@ -123,7 +121,6 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
     stories.add("with button to help", template, {
       args: {
         showHelp: true,
-        helpUrl: "",
       },
     });
 

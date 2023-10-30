@@ -31,7 +31,7 @@ interface HeaderMenuLogoutClick {
 | `loginUrl`        | `login-url`          | When the `authStatus` is `loggedOut` a loginUrl can be provided. The login button will then render as an anchor. | `string \| undefined`                 | `undefined` |
 | `logoutUrl`       | `logout-url`         | The URL to open when the user activates "logout". If no URL is specified, a button element is used instead.      | `string \| undefined`                 | `undefined` |
 | `mainMenu`        | --                   | The main menu items.                                                                                             | `HeaderMenuItem[] \| undefined`       | `[]`        |
-| `showHelp`        | `show-help`          | Show a help-button or link in the header                                                                         | `boolean \| undefined`                | `undefined` |
+| `showHelp`        | `show-help`          | Show a help-button or link in the header                                                                         | `boolean \| undefined`                | `false`     |
 | `useDropDownMenu` | `use-drop-down-menu` | Either have the dropdown menu appear automatically or always.                                                    | `"always" \| "auto"`                  | `"auto"`    |
 | `userHomeActive`  | `user-home-active`   | Set this to true when the user is at "Mijn Omgevingsloket".                                                      | `boolean \| undefined`                | `undefined` |
 | `userHomeUrl`     | `user-home-url`      | The URL to open when the user activates "Mijn Omgevingsloket".                                                   | `string \| undefined`                 | `undefined` |
