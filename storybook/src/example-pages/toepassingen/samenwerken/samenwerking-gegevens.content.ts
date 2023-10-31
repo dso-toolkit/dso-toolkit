@@ -15,6 +15,8 @@ export const header: Header = {
   authStatus: "loggedIn",
   loginUrl: "#login",
   logoutUrl: "#logout",
+  showHelp: true,
+  helpUrl: "#help",
   userProfileName: "J.A. Jansen",
   userProfileUrl: "#profiel",
 };
@@ -44,10 +46,7 @@ export function items({ buttonRowTemplate, definitionListTemplate }: Templates):
             <div class="col-md-4">${definitionListTemplate(definitions)}</div>
             <div class="col-md-4">
               <p><strong>Beschrijving</strong></p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              </p>
+              <p>Een korte paragraaf over deze samenwerkingspartner in het algemeen.</p>
             </div>
           </div>
         `,

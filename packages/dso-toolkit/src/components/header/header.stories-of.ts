@@ -47,7 +47,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
         ],
         noMainMenu: false,
         useDropDownMenu: "auto",
-        authStatus: "none",
+        authStatus: "loggedIn",
         loginUrl: "#login",
         logoutUrl: "#logout",
         userProfileName: "J.A. Jansen",
@@ -108,6 +108,19 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
           },
         ],
         userHomeActive: true,
+      },
+    });
+
+    stories.add("with link to help", template, {
+      args: {
+        showHelp: true,
+        helpUrl: "#help",
+      },
+    });
+
+    stories.add("with button to help", template, {
+      args: {
+        showHelp: true,
       },
     });
 

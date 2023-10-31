@@ -132,6 +132,21 @@ describe("Header", () => {
       .should("not.exist");
   });
 
+  it("should act on show-help attribute", () => {
+    cy.get("dso-header")
+      .invoke("attr", "show-help", true)
+      .find(".dso-header-session .help button")
+      .should("be.visible");
+  });
+
+  it("should use an anchor if help-url is passed", () => {
+    cy.get("dso-header")
+      .invoke("attr", "show-help", true)
+      .invoke("attr", "help-url", "#help")
+      .find(".dso-header-session .help a")
+      .should("be.visible");
+  });
+
   it("should not show menu", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true")
       .get("dso-header")
@@ -213,14 +228,14 @@ describe("Header", () => {
       .invoke("attr", "login-url", "#loginUrl")
       .invoke("attr", "logout-url", "#logoutUrl")
       .invoke("attr", "auth-status", "loggedOut")
+      .invoke("attr", "show-help", true)
+      .invoke("attr", "help-url", "#help")
       // MenuItem
       .get("@dsoHeaderShadow")
       .find('.dso-nav-main > li > a[href="#vergunningscheck"]')
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#vergunningscheck",
@@ -235,9 +250,7 @@ describe("Header", () => {
       .find(".menu-user-home > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#userHomeUrl",
@@ -249,9 +262,7 @@ describe("Header", () => {
       .find(".login > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#loginUrl",
@@ -265,9 +276,7 @@ describe("Header", () => {
       .find(".logout > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#logoutUrl",
@@ -279,14 +288,24 @@ describe("Header", () => {
       .find(".dso-header-session .profile > a")
       .click()
       .get("@headerListener")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
+      .its("lastCall.args.0.detail")
       .should("deep.contain", {
         isModifiedEvent: false,
         url: "#profileUrl",
         menuItem: undefined,
         type: "profile",
+      })
+      // Help
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#help",
+        menuItem: undefined,
+        type: "help",
       });
   });
 
