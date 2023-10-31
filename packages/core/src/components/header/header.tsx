@@ -69,7 +69,7 @@ export class Header {
    * Show a help-button or link in the header
    */
   @Prop()
-  showHelp?: boolean = false;
+  showHelp? = false;
 
   /**
    * The URL to open when the user activates "help".
