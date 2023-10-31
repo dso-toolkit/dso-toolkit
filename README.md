@@ -42,7 +42,7 @@ The same goes for the component library:
 ```html
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.css" />
 
-of minified:
+or minified:
 
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.min.css" />
 ```

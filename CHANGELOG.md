@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Readme: Verwijs naar de juiste dso.css ([#2377](https://github.com/dso-toolkit/dso-toolkit/issues/2377))
+
 ## 🐼 62.1.0 - 27-10-2023
 
 ### Added
@@ -13,9 +16,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Date Picker: Input en output worden niet prepadded met "0" ([#2409](https://github.com/dso-toolkit/dso-toolkit/issues/2409))
-
-### Docs
-* Docs: Verwijs naar de juiste dso.css ([#2377](https://github.com/dso-toolkit/dso-toolkit/issues/2377))
 
 ## 🎤 62.0.0 - 20-10-2023
 
