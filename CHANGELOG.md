@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Storybook: vervang 'lorem ipsum' door meer echt lijkende content ([#2412](https://github.com/dso-toolkit/dso-toolkit/issues/2412))
+
 ## 🐼 62.1.0 - 27-10-2023
 
 ### Added
