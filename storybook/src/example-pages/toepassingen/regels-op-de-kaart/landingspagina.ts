@@ -17,7 +17,7 @@ examplePageFactory(
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/herok.png')"
         >
-          <div class="col-lg-6 col-sm-8">
+          <div class="col-xs-12 col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({

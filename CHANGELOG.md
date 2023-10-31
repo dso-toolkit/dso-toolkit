@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Header: "Help"-button toevoegen ([#2334](https://github.com/dso-toolkit/dso-toolkit/issues/2334))
 
+### Changed
+* Highlight Box: aspect ratio banner aanpassen ([#2383](https://github.com/dso-toolkit/dso-toolkit/issues/2383))
+
 ### Docs
 * Logo: Documenteer afgesproken waardes van het ribbon attribuut ([#2399](https://github.com/dso-toolkit/dso-toolkit/issues/2399))
 * Storybook: vervang 'lorem ipsum' door meer echt lijkende content ([#2412](https://github.com/dso-toolkit/dso-toolkit/issues/2412))
