@@ -50,44 +50,38 @@
   padding-top: units.$u2;
 }
 
-.login,
-.logout {
-  .dso-tertiary {
-    cursor: pointer;
-    font-family: typography.$font-family-base;
-    font-weight: 600;
-    vertical-align: text-bottom;
-  }
-}
-
-.profile,
-.logout,
-.login {
-  a {
-    @include anchor.clean();
-
-    color: colors.$grasgroen;
-    font-weight: 600;
-
-    &:focus {
-      color: colors.$wit;
-    }
-  }
-}
-
 .dso-header-session {
   display: flex;
+  align-items: center;
   margin-left: auto;
 
-  .profile {
-    a {
-      margin-left: units.$u1;
+  .profile,
+  .login,
+  .logout,
+  .help {
+    .dso-tertiary {
+      cursor: pointer;
+      font-family: typography.$font-family-base;
+      font-weight: 600;
+      line-height: 1.5;
     }
+  }
 
-    + .logout {
+  .profile {
+    margin-left: units.$u1;
+
+    + .logout,
+    ~ .help {
       border-left: 3px solid colors.$grijs-20;
-      margin-left: units.$u2;
-      padding-left: units.$u2;
+      margin-left: units.$u1;
+      padding-left: units.$u1;
+    }
+  }
+
+  .help {
+    a,
+    button {
+      display: flex;
     }
   }
 }
@@ -102,7 +96,7 @@
 
 dso-dropdown-menu {
   button {
-    align-items: flex-end;
+    align-items: center;
     background-color: transparent;
     border: 0;
     display: flex;

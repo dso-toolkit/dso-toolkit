@@ -411,17 +411,25 @@ export namespace Components {
          */
         "authStatus": "none" | "loggedIn" | "loggedOut";
         /**
-          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+          * The URL to open when the user activates "help". If no URL is specified, a button element is used instead.
+         */
+        "helpUrl"?: string;
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided. The login button will then render as an anchor.
          */
         "loginUrl"?: string;
         /**
-          * The URL to open when the user activates "logout".
+          * The URL to open when the user activates "logout". If no URL is specified, a button element is used instead.
          */
         "logoutUrl"?: string;
         /**
           * The main menu items.
          */
         "mainMenu"?: HeaderMenuItem[];
+        /**
+          * Show a help-button or link in the header
+         */
+        "showHelp"?: boolean;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
@@ -1745,11 +1753,15 @@ declare namespace LocalJSX {
          */
         "authStatus"?: "none" | "loggedIn" | "loggedOut";
         /**
-          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+          * The URL to open when the user activates "help". If no URL is specified, a button element is used instead.
+         */
+        "helpUrl"?: string;
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided. The login button will then render as an anchor.
          */
         "loginUrl"?: string;
         /**
-          * The URL to open when the user activates "logout".
+          * The URL to open when the user activates "logout". If no URL is specified, a button element is used instead.
          */
         "logoutUrl"?: string;
         /**
@@ -1760,6 +1772,10 @@ declare namespace LocalJSX {
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
+        /**
+          * Show a help-button or link in the header
+         */
+        "showHelp"?: boolean;
         /**
           * Either have the dropdown menu appear automatically or always.
          */
