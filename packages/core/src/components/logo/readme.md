@@ -18,8 +18,18 @@ Eventueel kunnen een `label` (applicatienaam, portaalnaam of kruimelpadlocatie) 
 
 Een `label` toont de titel of naam van de applicatie waar je je als bezoeker in bevindt.
 
-Een `ribbon` is een soort sticker die overlapt met het woordmerk, waar een maximaal vijf-letterige tekst in kan komen te staan om de status van de pagina aan te duiden. Bijvoorbeeld "beta", "test", "acc", of "pre".
+Een `ribbon` is een soort sticker die overlapt met het woordmerk, waar een maximaal vijf-letterige tekst in kan komen te staan om de status van de pagina aan te duiden. 
+ 
+Als we de ontwikkelomgeving willen aanduiden door middel van gebruik van het `ribbon` gebruiken we daarvoor de prefix van het domein: 
 
+| Naam omgeving | Ribbon tekst |
+| ------------- | ------------ |
+| int-omgeving  | "int"        |
+| kta-omgeving  | "kta"        |
+| pfm-omgeving  | "pfm"        |
+| pre-omgeving  | "pre"        |
+| dmo-omgeving  | "dmo"        |
+| pro-omgeving  | **geen ribbon**  |
 
 ## Responsive gedrag
 
@@ -38,10 +48,10 @@ Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het comp
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                          | Type                  | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
-| `label`  | `label`   | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself). | `string \| undefined` | `undefined` |
-| `ribbon` | `ribbon`  | The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify status of the page, like 'beta'.           | `string \| undefined` | `undefined` |
+| Property | Attribute | Description                                                                                                                                                              | Type                  | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
+| `label`  | `label`   | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).                                     | `string \| undefined` | `undefined` |
+| `ribbon` | `ribbon`  | The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo") | `string \| undefined` | `undefined` |
 
 
 ----------------------------------------------
