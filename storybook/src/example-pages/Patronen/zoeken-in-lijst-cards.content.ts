@@ -4,8 +4,8 @@ import { html, TemplateResult } from "lit-html";
 export const cardList: CardList<TemplateResult> = {
   cards: [
     {
-      label: "Omgevingsplan industrieterrein Lange Voorden",
-      content: html`Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+      label: "Omgevingsplan industrieterrein Het Klooster",
+      content: html`het Klooster is een industrieterrein in de Gemeente Nieuwegein.`,
       interactions: [
         {
           type: "button",
@@ -17,8 +17,9 @@ export const cardList: CardList<TemplateResult> = {
       ],
     },
     {
-      label: "Omgevingsplan Gemeente Den Haag",
-      content: html`Brouwersmolen eget iaculis nisi quam in libero.`,
+      label: "Omgevingsplan Binckhorst",
+      content: html`De Binckhorst was een groot industrieterrein met 3 binnenhavens langs het water van de Trekvliet. De
+      gemeente Den Haag zet zich vanaf 2009 in om een deel van de bedrijven te vervangen door enkele duizenden woningen.`,
       interactions: [
         {
           type: "button",
@@ -31,7 +32,8 @@ export const cardList: CardList<TemplateResult> = {
     },
     {
       label: "Flora en Fauna beslissing 2019",
-      content: html`Brouwersmolen eget iaculis nisi quam in libero.`,
+      content: html`Besluit van de Minister van Landbouw, Natuur en Voedselkwaliteit van 22 februari 2019,
+      DGNVLG/19045629, houdende vaststelling van een geactualiseerde Rode Lijst Dagvlinders.`,
       interactions: [
         {
           type: "button",
@@ -44,7 +46,8 @@ export const cardList: CardList<TemplateResult> = {
     },
     {
       label: "Bestemmingsplan Zuiderpark",
-      content: html`Zuiderpark eget iaculis nisi quam in libero.`,
+      content: html`Zuiderpark is een stadspark, wijk en buurt in Den Haag. De wijk is onderdeel van stadsdeel Escamp.
+      De wijk grenst aan de wijken Moerwijk, Morgenstond, Leyenburg en Rustenburg en Oostbroek.`,
       interactions: [
         {
           type: "button",
