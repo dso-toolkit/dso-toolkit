@@ -24,7 +24,7 @@ examplePageFactory(
       ${headerPartial(templates, header)}
       <main>
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-xs-12 col-lg-8">
             ${highlightBoxTemplate({
               yellow: true,
               content: richContentTemplate({
@@ -57,7 +57,7 @@ examplePageFactory(
               `,
             })}
           </div>
-          <div class="col-lg-4">
+          <div class="col-xs-12 col-lg-4">
             ${highlightBoxTemplate({
               white: true,
               border: true,

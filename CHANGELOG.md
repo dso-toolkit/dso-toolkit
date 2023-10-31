@@ -9,7 +9,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Anchor: Icon no wrap ([#2329](https://github.com/dso-toolkit/dso-toolkit/issues/2329))
 
 ### Added
+* Header: "Help"-button toevoegen ([#2334](https://github.com/dso-toolkit/dso-toolkit/issues/2334))
+
+### Changed
+* Highlight Box: aspect ratio banner aanpassen ([#2383](https://github.com/dso-toolkit/dso-toolkit/issues/2383))
+
+### Docs
+* Logo: Documenteer afgesproken waardes van het ribbon attribuut ([#2399](https://github.com/dso-toolkit/dso-toolkit/issues/2399))
+* Storybook: vervang 'lorem ipsum' door meer echt lijkende content ([#2412](https://github.com/dso-toolkit/dso-toolkit/issues/2412))
+* Readme: Verwijs naar de juiste dso.css ([#2377](https://github.com/dso-toolkit/dso-toolkit/issues/2377))
+
+## 🐼 62.1.0 - 27-10-2023
+
+### Added
 * Graphics: Foutmelding ([#2388](https://github.com/dso-toolkit/dso-toolkit/issues/2388))
+* Accordion: `onDsoAnimationStartEvent`, instant `scrollIntoView()`, `hasNestedAccordion` prop en `AccordionSection.focusHandle()` ([#2408](https://github.com/dso-toolkit/dso-toolkit/issues/2408))
+
+### Fixed
+* Date Picker: Input en output worden niet prepadded met "0" ([#2409](https://github.com/dso-toolkit/dso-toolkit/issues/2409))
 
 ## 🎤 62.0.0 - 20-10-2023
 

@@ -10,6 +10,8 @@ export interface Header {
   authStatus?: "none" | "loggedOut" | "loggedIn";
   loginUrl?: string;
   logoutUrl?: string;
+  showHelp?: boolean;
+  helpUrl?: string;
   userProfileName?: string;
   userProfileUrl?: string;
   userHomeUrl?: string;
@@ -23,7 +25,7 @@ export interface HeaderMenuItem {
   active?: boolean;
 }
 
-export type HeaderNavigationType = "menuItem" | "profile" | "logout" | "login" | "userHome";
+export type HeaderNavigationType = "menuItem" | "profile" | "logout" | "login" | "userHome" | "help";
 
 export interface HeaderClickEvent {
   originalEvent: MouseEvent;

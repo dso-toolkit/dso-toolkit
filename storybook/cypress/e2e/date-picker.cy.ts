@@ -24,12 +24,12 @@ describe("Date Picker", () => {
     cy.get("dso-date-picker")
       .find("input.dso-date__input")
       .focus()
-      .realType("02042013")
+      .realType("01011")
       .get("@dateChange")
       .its("lastCall.args.0.detail")
       .as("result")
       .its("value")
-      .should("equal", "02-04-2013")
+      .should("equal", "01-01-0001")
       .get("@result")
       .its("valueAsDate")
       .should("exist")
@@ -64,7 +64,7 @@ describe("Date Picker", () => {
       });
   });
 
-  it.only("should emit errors for invalid inputs", () => {
+  it("should emit errors for invalid inputs", () => {
     cy.get("dso-date-picker")
       .invoke("attr", "min", "01-01-2024")
       .invoke("attr", "max", "31-12-2025")
@@ -123,5 +123,12 @@ describe("Date Picker", () => {
       .invoke("attr", "described-by", "id-van-ander-element")
       .find(".dso-date__input")
       .should("have.attr", "aria-describedby", "id-van-ander-element");
+  });
+
+  it("should set value", () => {
+    cy.get("dso-date-picker")
+      .invoke("attr", "value", "1-1-3")
+      .find(".dso-date__input")
+      .should("have.value", "0003-01-01");
   });
 });

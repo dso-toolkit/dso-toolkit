@@ -10,6 +10,8 @@ import {
   Prop,
   State,
   EventEmitter,
+  FunctionalComponent,
+  Method,
 } from "@stencil/core";
 
 import { AccordionInternalState } from "../accordion.interfaces";
@@ -18,10 +20,104 @@ import {
   AccordionSectionAnimationEndEvent,
   AccordionSectionState,
   AccordionSectionToggleClickEvent,
+  AccordionSectionAnimationStartEvent,
   stateMap,
 } from "./accordion-section.interfaces";
-import { Handle, HandleElement, HandleIcon } from "./handles";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
+
+const HandleElement: FunctionalComponent<{
+  handleUrl: string | undefined;
+  open: boolean;
+  handleElementRef: (element: HTMLAnchorElement | HTMLButtonElement | undefined) => void;
+  onClick: (e: MouseEvent) => void;
+}> = ({ handleUrl, onClick, open, handleElementRef }, children) => {
+  if (handleUrl) {
+    return (
+      <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+      {children}
+    </button>
+  );
+};
+
+const Handle: FunctionalComponent<{
+  heading: AccordionHeading;
+  ref: (element: HTMLHeadingElement | undefined) => void;
+}> = ({ heading, ref }, children) => {
+  switch (heading) {
+    default:
+    case "h2":
+      return (
+        <h2 ref={ref} class="dso-section-handle">
+          {children}
+        </h2>
+      );
+    case "h3":
+      return (
+        <h3 ref={ref} class="dso-section-handle">
+          {children}
+        </h3>
+      );
+    case "h4":
+      return (
+        <h4 ref={ref} class="dso-section-handle">
+          {children}
+        </h4>
+      );
+    case "h5":
+      return (
+        <h5 ref={ref} class="dso-section-handle">
+          {children}
+        </h5>
+      );
+  }
+};
+
+const HandleIcon: FunctionalComponent<{
+  state?: AccordionSectionState;
+  icon?: string;
+  attachmentCount?: number;
+}> = ({ state, icon, attachmentCount }) => {
+  if (state) {
+    return <HandleStateIcon state={state} />;
+  }
+
+  if (attachmentCount) {
+    return <dso-attachments-counter count={attachmentCount}></dso-attachments-counter>;
+  }
+
+  if (icon) {
+    return <dso-icon icon={icon}></dso-icon>;
+  }
+};
+
+const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = ({ state }) => {
+  if (state === "error") {
+    return <dso-icon icon="status-error"></dso-icon>;
+  }
+
+  if (state === "danger") {
+    return <dso-icon icon="status-danger"></dso-icon>;
+  }
+
+  if (state === "success") {
+    return <dso-icon icon="status-success"></dso-icon>;
+  }
+
+  if (state === "info") {
+    return <dso-icon icon="status-info"></dso-icon>;
+  }
+
+  if (state === "warning") {
+    return <dso-icon icon="status-warning"></dso-icon>;
+  }
+};
 
 @Component({
   tag: "dso-accordion-section",
@@ -86,15 +182,28 @@ export class AccordionSection implements ComponentInterface {
   @Prop({ reflect: true })
   open = false;
 
-  @State()
+  /**
+   * Set when this Accordion Section contains or will contain an Accordion.
+   */
+  @Prop({ reflect: true })
   hasNestedAccordion = false;
+
+  /**
+   * Calling this method will set focus to the handle.
+   */
+  @Method()
+  async focusHandle() {
+    this.handleElementRef?.focus();
+  }
 
   @State()
   hover = false;
 
-  componentWillLoad() {
-    this.hasNestedAccordion = this.host.querySelector("dso-accordion") !== null;
+  get containsNestedAccordion() {
+    return this.host.querySelector("dso-accordion") !== null;
+  }
 
+  componentWillLoad() {
     this.accordion?._getState().then((state) => {
       this.accordionState = state;
 
@@ -106,7 +215,7 @@ export class AccordionSection implements ComponentInterface {
     return this.accordionState?.variant === "neutral";
   }
 
-  private async scrollIntoView(bodyHeight: number | undefined): Promise<void> {
+  private async scrollIntoView(bodyHeight: number | undefined, behavior: ScrollBehavior = "auto"): Promise<void> {
     const bodyClientRect = this.sectionBody?.getBoundingClientRect();
     const headingClientRect = this.sectionHeading?.getBoundingClientRect();
 
@@ -124,12 +233,12 @@ export class AccordionSection implements ComponentInterface {
         top: shouldScrollToTopOfSection
           ? this.host.offsetTop
           : this.host.offsetTop - (window.innerHeight - expandedAccordionHeight),
-        behavior: "smooth",
+        behavior,
       });
     } else if (headingClientRect.top < 0) {
       window.scrollTo({
         top: this.host.offsetTop,
-        behavior: "smooth",
+        behavior,
       });
     }
   }
@@ -145,10 +254,17 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
+  private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
+    this.dsoAnimationStart.emit({
+      animation: this.open ? "opening" : "closing",
+      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
+    });
+  };
+
   private handleExpandableAnimationEnd = (e: CustomEvent<ExpandableAnimationEndEvent>) => {
     this.dsoAnimationEnd.emit({
       open: this.open,
-      scrollIntoView: () => this.scrollIntoView(e.detail.bodyHeight),
+      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
     });
   };
 
@@ -159,10 +275,18 @@ export class AccordionSection implements ComponentInterface {
   dsoToggleClick!: EventEmitter<AccordionSectionToggleClickEvent>;
 
   /**
+   * Event emitted when the Accordion Section starts its toggle animation.
+   */
+  @Event({ bubbles: false })
+  dsoAnimationStart!: EventEmitter<AccordionSectionAnimationStartEvent>;
+
+  /**
    * Event emitted when the Accordion Section completes its toggle animation.
    */
   @Event({ bubbles: false })
   dsoAnimationEnd!: EventEmitter<AccordionSectionAnimationEndEvent>;
+
+  private handleElementRef?: HTMLAnchorElement | HTMLButtonElement;
 
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
@@ -173,7 +297,7 @@ export class AccordionSection implements ComponentInterface {
         class={{
           "dso-accordion-section": true,
           ["dso-accordion-" + variant]: true,
-          "dso-nested-accordion": this.hasNestedAccordion,
+          "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
         }}
         hidden={!variant}
@@ -181,7 +305,12 @@ export class AccordionSection implements ComponentInterface {
         onMouseleave={() => (this.hover = false)}
       >
         <Handle heading={this.heading} ref={(element) => (this.sectionHeading = element)}>
-          <HandleElement handleUrl={this.handleUrl} onClick={this.handleClick} open={this.open}>
+          <HandleElement
+            handleUrl={this.handleUrl}
+            onClick={this.handleClick}
+            open={this.open}
+            handleElementRef={(e) => (this.handleElementRef = e)}
+          >
             {reverseAlign ? (
               <Fragment>
                 {hasAddons && (
@@ -222,6 +351,7 @@ export class AccordionSection implements ComponentInterface {
           open={this.open}
           enableAnimation
           minimumHeight={this.isNeutral ? 0 : 4}
+          onDsoExpandableAnimationStart={this.handleExpandableAnimationStart}
           onDsoExpandableAnimationEnd={this.handleExpandableAnimationEnd}
         >
           <div class="dso-section-body-content" ref={(element) => (this.sectionBody = element)}>

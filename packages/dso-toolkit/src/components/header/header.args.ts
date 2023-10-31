@@ -17,6 +17,8 @@ export interface HeaderArgs {
   authStatus: "none" | "loggedOut" | "loggedIn";
   loginUrl: string;
   logoutUrl: string;
+  showHelp: boolean;
+  helpUrl: string;
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
@@ -56,6 +58,18 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   },
   logoutUrl: {
     name: "Uitloggen url",
+    control: {
+      type: "text",
+    },
+  },
+  showHelp: {
+    name: "Show help link or button",
+    control: {
+      type: "boolean",
+    },
+  },
+  helpUrl: {
+    name: "Help url",
     control: {
       type: "text",
     },

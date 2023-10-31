@@ -23,6 +23,7 @@ export interface AccordionSection<TemplateFnReturnType> {
   attachmentCount?: number;
   content?: TemplateFnReturnType;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
+  dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;
   dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;
 }
 
@@ -38,6 +39,13 @@ export interface AccordionSectionToggleClickEvent {
    * The requested state. If the Accordion Section is closed, `open = true`.
    */
   open: boolean;
+}
+
+export interface AccordionSectionAnimationStartEvent {
+  /**
+   * Helper function to scroll the Accordion Section into view.
+   */
+  scrollIntoView(): void;
 }
 
 export interface AccordionSectionAnimationEndEvent {

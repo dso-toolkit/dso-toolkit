@@ -8,7 +8,7 @@ examplePageFactory(
   ({ applicationHeadingTemplate }) => html`
     <div class="container">
       ${applicationHeadingTemplate({
-        subtitle: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+        subtitle: "Kies werkzaamheden",
       })}
     </div>
   `

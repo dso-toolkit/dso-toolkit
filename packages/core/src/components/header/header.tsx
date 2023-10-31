@@ -52,16 +52,31 @@ export class Header {
   authStatus: "none" | "loggedIn" | "loggedOut" = "none";
 
   /**
-   * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+   * When the `authStatus` is `loggedOut` a loginUrl can be provided.
+   * The login button will then render as an anchor.
    */
   @Prop()
   loginUrl?: string;
 
   /**
    * The URL to open when the user activates "logout".
+   * If no URL is specified, a button element is used instead.
    */
   @Prop()
   logoutUrl?: string;
+
+  /**
+   * Show a help-button or link in the header
+   */
+  @Prop()
+  showHelp? = false;
+
+  /**
+   * The URL to open when the user activates "help".
+   * If no URL is specified, a button element is used instead.
+   */
+  @Prop()
+  helpUrl?: string;
 
   /**
    * The name to show when the user is logged in.
@@ -305,6 +320,25 @@ export class Header {
                           )}
                         </li>
                       )}
+                      {this.showHelp && (
+                        <li>
+                          {this.helpUrl ? (
+                            <a
+                              href={this.helpUrl}
+                              class="dso-tertiary"
+                              onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                            >
+                              <span>Help</span>
+                              <dso-icon icon="help"></dso-icon>
+                            </a>
+                          ) : (
+                            <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
+                              <span>Help</span>
+                              <dso-icon icon="help"></dso-icon>
+                            </button>
+                          )}
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </dso-dropdown-menu>
@@ -315,9 +349,9 @@ export class Header {
               <div class="dso-header-session">
                 {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
                   <div class="profile">
-                    <span class="profile-label">Welkom:</span>
                     <a
                       href={this.userProfileUrl}
+                      class="dso-tertiary"
                       onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
                     >
                       {this.userProfileName}
@@ -327,7 +361,11 @@ export class Header {
                 {this.authStatus === "loggedOut" && (
                   <div class="login">
                     {this.loginUrl ? (
-                      <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
+                      <a
+                        href={this.loginUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
+                      >
                         Inloggen
                       </a>
                     ) : (
@@ -340,12 +378,35 @@ export class Header {
                 {this.authStatus === "loggedIn" && (
                   <div class="logout">
                     {this.logoutUrl ? (
-                      <a href={this.logoutUrl} onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}>
+                      <a
+                        href={this.logoutUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+                      >
                         Uitloggen
                       </a>
                     ) : (
                       <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
                         Uitloggen
+                      </button>
+                    )}
+                  </div>
+                )}
+                {this.showHelp && (
+                  <div class="help">
+                    {this.helpUrl ? (
+                      <a
+                        href={this.helpUrl}
+                        class="dso-tertiary"
+                        onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
+                      >
+                        <span>Help</span>
+                        <dso-icon icon="help"></dso-icon>
+                      </a>
+                    ) : (
+                      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
+                        <span>Help</span>
+                        <dso-icon icon="help"></dso-icon>
                       </button>
                     )}
                   </div>

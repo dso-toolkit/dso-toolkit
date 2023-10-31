@@ -17,7 +17,7 @@ examplePageFactory(
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"
         >
-          <div class="col-lg-6 col-sm-8">
+          <div class="col-xs-12 col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
@@ -73,7 +73,7 @@ examplePageFactory(
         <hr />
         <h2>Overige Vragen</h2>
         <div class="row dso-equal-heights">
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
@@ -90,7 +90,7 @@ examplePageFactory(
               }),
             })}
           </div>
-          <div class="col-md-6">
+          <div class="col-xs-12 col-md-6">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,

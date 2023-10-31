@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event                       | Description                                                        | Type                                       |
-| --------------------------- | ------------------------------------------------------------------ | ------------------------------------------ |
-| `dsoExpandableAnimationEnd` | Fired when the animation ends. Only when `enableAnimation = true`. | `CustomEvent<ExpandableAnimationEndEvent>` |
+| Event                         | Description             | Type                                         |
+| ----------------------------- | ----------------------- | -------------------------------------------- |
+| `dsoExpandableAnimationEnd`   | Fired after expanding.  | `CustomEvent<ExpandableAnimationEndEvent>`   |
+| `dsoExpandableAnimationStart` | Fired before expanding. | `CustomEvent<ExpandableAnimationStartEvent>` |
 
 
 ## Dependencies

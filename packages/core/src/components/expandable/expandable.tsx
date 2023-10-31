@@ -14,6 +14,8 @@ import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
 
+export interface ExpandableAnimationStartEvent {}
+
 export interface ExpandableAnimationEndEvent {
   bodyHeight: number | undefined;
 }
@@ -74,7 +76,13 @@ export class Expandable implements ComponentInterface {
   }
 
   /**
-   * Fired when the animation ends. Only when `enableAnimation = true`.
+   * Fired before expanding.
+   */
+  @Event({ bubbles: false })
+  dsoExpandableAnimationStart!: EventEmitter<ExpandableAnimationStartEvent>;
+
+  /**
+   * Fired after expanding.
    */
   @Event({ bubbles: false })
   dsoExpandableAnimationEnd!: EventEmitter<ExpandableAnimationEndEvent>;
@@ -136,6 +144,9 @@ export class Expandable implements ComponentInterface {
       duration: 260,
       autoplay: false,
       direction: "normal",
+      changeBegin: () => {
+        this.dsoExpandableAnimationStart.emit({});
+      },
       begin: () => {
         if (this.open) {
           this.host.style.visibility = "";
