@@ -40,7 +40,11 @@ The same goes for the component library:
 | _tags only_ | _releases_ | `https://www.dso-toolkit.nl/VERSION/` |
 
 ```html
-<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/dso.css" />
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.css" />
+
+or minified:
+
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/[master|VERSION]/dist/dso.min.css" />
 ```
 
 For Web Components:

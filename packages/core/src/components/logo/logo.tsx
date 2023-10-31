@@ -15,7 +15,7 @@ export class Logo implements ComponentInterface {
 
   /**
    * The ribbon contains the text for a possible 'sticker' on top of the logo.
-   * Used to clarify status of the page, like 'beta'.
+   * Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
    *
    */
   @Prop()
