@@ -2,6 +2,8 @@
 
 @use "anchor.mixins" as anchor-mixins;
 
+@use "config";
+
 a {
   @include anchor-mixins.root();
 
@@ -18,6 +20,14 @@ a {
 
     &.extern {
       @include anchor-mixins.mode-extern();
+    }
+
+    &[href^="tel:"] {
+      @include anchor-mixins.mode-phone();
+    }
+
+    &[href^="mailto:"] {
+      @include anchor-mixins.mode-email();
     }
   }
 }

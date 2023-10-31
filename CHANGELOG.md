@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Anchor: Custom opmaak van hyperlinks in toelichtingen ([#2351](https://github.com/dso-toolkit/dso-toolkit/issues/2351))
+
 ### Docs
 * Form: Documentatie legacy van fractal ([#1894](https://github.com/dso-toolkit/dso-toolkit/issues/1894))
 

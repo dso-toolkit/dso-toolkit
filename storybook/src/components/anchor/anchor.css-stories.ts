@@ -12,7 +12,7 @@ const meta: Meta<AnchorArgs> = {
 
 export default meta;
 
-const { Default, DownloadLink, ExternalLink, LinkWithIcon } = anchorStories({
+const { Default, DownloadLink, ExternalLink, LinkWithIcon, MailLinkWithIcon, PhoneLinkWithIcon } = anchorStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { anchorTemplate } = templates;
@@ -23,4 +23,4 @@ const { Default, DownloadLink, ExternalLink, LinkWithIcon } = anchorStories({
   },
 });
 
-export { Default, DownloadLink, ExternalLink, LinkWithIcon };
+export { Default, DownloadLink, ExternalLink, LinkWithIcon, MailLinkWithIcon, PhoneLinkWithIcon };

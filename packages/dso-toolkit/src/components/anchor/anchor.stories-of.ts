@@ -14,6 +14,8 @@ interface AnchorStories {
   DownloadLink: AnchorStory;
   ExternalLink: AnchorStory;
   LinkWithIcon: AnchorStory;
+  MailLinkWithIcon: AnchorStory;
+  PhoneLinkWithIcon: AnchorStory;
 }
 
 interface AnchorStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -78,6 +80,24 @@ export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Product zoeken",
         url: "#",
         icon: "search",
+      },
+      render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
+        anchorTemplate(anchorArgsMapper(args)),
+      ),
+    },
+    MailLinkWithIcon: {
+      args: {
+        label: "noreply@dso-toolkit.nl",
+        url: "mailto:no-reply@dso-toolkit.nl",
+      },
+      render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
+        anchorTemplate(anchorArgsMapper(args)),
+      ),
+    },
+    PhoneLinkWithIcon: {
+      args: {
+        label: "Bel ons",
+        url: "tel:012-34567891",
       },
       render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
         anchorTemplate(anchorArgsMapper(args)),

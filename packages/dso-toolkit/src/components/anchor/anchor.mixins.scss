@@ -1,6 +1,6 @@
 @use "../../di";
 @use "../../variables/scaffolding";
-
+@use "../../variables/colors";
 @use "../icon";
 
 @use "anchor.variables" as anchor-variables;
@@ -68,6 +68,13 @@
   }
 }
 
+@mixin mode-base-before() {
+  padding-inline-start: 1.5em;
+  background-repeat: no-repeat;
+  background-size: 1.25em 1.25em;
+  background-position: bottom 0 left 0;
+}
+
 @mixin mode-download($base-styling: false) {
   @if ($base-styling) {
     @include mode-base();
@@ -82,4 +89,54 @@
   }
 
   @include di.variant("external-link");
+}
+
+@mixin mode-phone($base-styling: true) {
+  @if ($base-styling) {
+    @include mode-base-before();
+  }
+
+  @include di.variant("call-grasgroen");
+
+  &:hover,
+  &:focus {
+    @include di.variant("call-scampi");
+  }
+
+  footer &,
+  &.contrast {
+    color: colors.$zwart;
+
+    @include di.variant("call-zwart");
+
+    &:hover,
+    &:focus {
+      @include di.variant("call-zwart");
+    }
+  }
+}
+
+@mixin mode-email($base-styling: true) {
+  @if ($base-styling) {
+    @include mode-base-before();
+  }
+
+  @include di.variant("email-grasgroen");
+
+  &:hover,
+  &:focus {
+    @include di.variant("email-scampi");
+  }
+
+  footer &,
+  &.contrast {
+    color: colors.$zwart;
+
+    @include di.variant("email-zwart");
+
+    &:hover,
+    &:focus {
+      @include di.variant("email-zwart");
+    }
+  }
 }
