@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Feature
+Headings: Responsive fontsize ([#2210](https://github.com/dso-toolkit/dso-toolkit/issues/2210))
+
 ### Changed
 * Ozon Content: Expliciete dependencies voor Web Componenten ([#2419](https://github.com/dso-toolkit/dso-toolkit/issues/2419))
 
