@@ -1,6 +1,7 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 @use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
 
 @mixin base() {
   color: colors.$bosgroen;
@@ -21,20 +22,29 @@
 }
 
 @mixin h1() {
-  font-size: units.$font-size-h1;
+  font-size: units.$font-size-h2;
   font-weight: 700;
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    font-size: units.$font-size-h1;
+  }
 }
 
 @mixin h2() {
   color: colors.$bosgroen;
-  font-size: units.$font-size-h2;
+  font-size: units.$font-size-h3;
   font-weight: 700;
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    font-size: units.$font-size-h2;
+  }
 }
 
 @mixin h3() {
   color: colors.$bosgroen;
-  font-size: units.$font-size-h3;
+  font-size: units.$font-size-h3s;
   font-weight: 600;
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    font-size: units.$font-size-h3;
+  }
 }
 
 @mixin h4() {

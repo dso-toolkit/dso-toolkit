@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Zoekoverlay: Uitbreiding "extension" op Nav en nieuw component "Mark Bar" ([#2387](https://github.com/dso-toolkit/dso-toolkit/issues/2387))
+* Headings: Responsive font size ([#2210](https://github.com/dso-toolkit/dso-toolkit/issues/2210))
 
 ## 🍬 62.3.2 - 13-11-2023
 
