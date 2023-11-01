@@ -1,5 +1,6 @@
 @use "../../variables/units";
 @use "../../variables/media-query-breakpoints";
+@use "../../components/button";
 
 @use "../grid/grid.variables" as css-grid-variables;
 
@@ -20,5 +21,11 @@ dso-viewer-grid {
         }
       }
     }
+  }
+
+  .dso-toggle-main-button {
+    @include button.tertiary($modifiers: false);
+
+    padding-block: units.$u2;
   }
 }

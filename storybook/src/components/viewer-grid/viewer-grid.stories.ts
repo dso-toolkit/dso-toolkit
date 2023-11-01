@@ -9,6 +9,7 @@ import {
 } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
+import { when } from "lit-html/directives/when.js";
 
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 
@@ -269,11 +270,25 @@ storiesOfViewerGrid({
     return {
       viewerGridTemplate,
       example: {
-        main: alertTemplate({ status: AlertType.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>` }),
-        mainExpanded: alertTemplate({
+        main: (mainExpanded) => html`${alertTemplate({
           status: AlertType.Info,
-          message: html`<p>Dit is <code>slot="main-expanded"</code>.</p>`,
-        }),
+          message: html`<p>Dit is <code>slot="main"</code>.</p>`,
+        })}
+        ${buttonTemplate({
+          variant: "tertiary",
+          modifier: "dso-toggle-main-button",
+          label: mainExpanded ? "Verberg" : "Toon",
+          icon: {
+            icon: mainExpanded ? "chevron-up" : "chevron-down",
+          },
+        })}
+        ${when(mainExpanded, () =>
+          alertTemplate({
+            status: AlertType.Success,
+            // eslint-disable-next-line lit/no-useless-template-literals -- template literal is to trigger lit-html html escaping.
+            message: html`Dit is de rest in <code>${'<div class="main">'}</code>.`,
+          })
+        )}`,
         map: alertTemplate({
           status: AlertType.Info,
           message: html`<p>Dit is <code>slot="map"</code>.</p>`,

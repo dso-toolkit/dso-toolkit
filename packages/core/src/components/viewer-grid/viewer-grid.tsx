@@ -47,7 +47,6 @@ const minMapElementWidth = 440;
  * @slot filterpanel
  * @slot overlay
  * @slot document-panel - VDK only
- * @slot main-expanded - VDK only
  */
 @Component({
   tag: "dso-viewer-grid",
@@ -265,7 +264,7 @@ export class ViewerGrid {
   private emitExpandMain = () => {
     this.dsoMainSizeChange.emit({
       currentSize: this.mainSize,
-      nextSize: (this.mainSize = this.mainSize === "small" ? "medium" : "large"),
+      nextSize: this.mainSize === "small" ? "medium" : "large",
     });
   };
 
@@ -279,13 +278,7 @@ export class ViewerGrid {
   private expandDocumentPanel = () => {
     this.dsoDocumentPanelSizeChange.emit({
       currentSize: this.documentPanelSize,
-      nextSize: (this.documentPanelSize = this.mainSize === "small" ? "medium" : "large"),
-    });
-  };
-
-  private expandContent = () => {
-    this.dsoMainPanelExpand.emit({
-      expand: !this.mainPanelExpanded,
+      nextSize: this.documentPanelSize === "small" ? "medium" : "large",
     });
   };
 
@@ -366,7 +359,6 @@ export class ViewerGrid {
             mainPanelHidden={this.mainPanelHidden}
             shrinkMain={this.emitShrinkMain}
             expandMain={this.emitExpandMain}
-            expandContent={this.expandContent}
             toggleMainPanel={this.toggleMainPanel}
             dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
           ></MainPanel>

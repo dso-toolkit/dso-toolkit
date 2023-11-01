@@ -102,12 +102,6 @@ button {
       border-top-right-radius: 4px;
     }
   }
-
-  .expand-button {
-    @include button.tertiary($modifiers: false);
-
-    padding-block: units.$u2;
-  }
 }
 
 .dso-document-panel {
@@ -121,6 +115,7 @@ button {
   z-index: zindex.$viewer-grid-main-panel;
 
   .sizing-buttons {
+    top: calc(50vh - #{core-viewer-grid-variables.$resize-button-size});
     right: calc(100% + 1px);
     transition: right core-viewer-grid-variables.$transition-time ease-in;
     padding: 0 0 units.$u1 * 0.5 units.$u1 * 0.5;
@@ -296,10 +291,9 @@ button {
   .dso-main-panel,
   .dso-document-panel {
     box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
-    padding-right: units.$u1;
 
     .content {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 
