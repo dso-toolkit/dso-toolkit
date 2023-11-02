@@ -13,7 +13,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { DocumentComponentInputType, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -23,7 +23,7 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClickEvent, OzonContentInputType } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -39,7 +39,7 @@ export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-export { DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { DocumentComponentInputType, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -49,7 +49,7 @@ export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OzonContentAnchorClickEvent } from "./components/ozon-content/ozon-content.interfaces";
+export { OzonContentAnchorClickEvent, OzonContentInputType } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -323,11 +323,11 @@ export namespace Components {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: string;
+        "inhoud"?: DocumentComponentInputType;
         /**
           * The Label XML.
          */
-        "label"?: string;
+        "label"?: DocumentComponentInputType;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -335,7 +335,7 @@ export namespace Components {
         /**
           * The Nummer XML.
          */
-        "nummer"?: string;
+        "nummer"?: DocumentComponentInputType;
         /**
           * This boolean attribute indicates whether the children are visible.
          */
@@ -347,7 +347,7 @@ export namespace Components {
         /**
           * The Opschrift XML.
          */
-        "opschrift"?: string;
+        "opschrift"?: DocumentComponentInputType;
         /**
           * Type of Document Component.
          */
@@ -639,7 +639,7 @@ export namespace Components {
         /**
           * The XML to be rendered.
          */
-        "content": string | undefined;
+        "content"?: OzonContentInputType;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
@@ -1645,11 +1645,11 @@ declare namespace LocalJSX {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: string;
+        "inhoud"?: DocumentComponentInputType;
         /**
           * The Label XML.
          */
-        "label"?: string;
+        "label"?: DocumentComponentInputType;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -1657,7 +1657,7 @@ declare namespace LocalJSX {
         /**
           * The Nummer XML.
          */
-        "nummer"?: string;
+        "nummer"?: DocumentComponentInputType;
         /**
           * Emitted when the user activates the annotation button.
          */
@@ -1681,7 +1681,7 @@ declare namespace LocalJSX {
         /**
           * The Opschrift XML.
          */
-        "opschrift"?: string;
+        "opschrift"?: DocumentComponentInputType;
         /**
           * Type of Document Component.
          */
@@ -2019,7 +2019,7 @@ declare namespace LocalJSX {
         /**
           * The XML to be rendered.
          */
-        "content"?: string | undefined;
+        "content"?: OzonContentInputType;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */

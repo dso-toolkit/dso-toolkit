@@ -7,3 +7,5 @@ export interface OzonContentAnchorClickEvent {
   documentComponent: string;
   originalEvent: MouseEvent;
 }
+
+export type OzonContentInputType = XMLDocument | string;

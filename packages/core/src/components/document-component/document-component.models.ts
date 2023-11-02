@@ -16,3 +16,5 @@ export interface DocumentComponentOzonContentAnchorClickEvent {
   originalEvent: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>;
   ozonContentAnchorClick: OzonContentAnchorClickEvent;
 }
+
+export type DocumentComponentInputType = XMLDocument | string;
