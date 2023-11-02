@@ -119,6 +119,7 @@ dso-card {
     display: flex;
     height: units.$u3;
     width: units.$u3;
+    max-inline-size: unset;
   }
 
   &.dso-wide-image img,

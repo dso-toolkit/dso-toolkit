@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Anchor: Icon no wrap ([#2329](https://github.com/dso-toolkit/dso-toolkit/issues/2329))
 * Viewer Grid (VDK): Diverse bevindingen ([#2410](https://github.com/dso-toolkit/dso-toolkit/issues/2410))
+* Image: Large image overflows container ([#2401](https://github.com/dso-toolkit/dso-toolkit/issues/2401))
 
 ### Added
 * Header: "Help"-button toevoegen ([#2334](https://github.com/dso-toolkit/dso-toolkit/issues/2334))
