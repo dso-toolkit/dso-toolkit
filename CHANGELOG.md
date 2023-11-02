@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Header: "Help"-button toevoegen ([#2334](https://github.com/dso-toolkit/dso-toolkit/issues/2334))
+* Ozon Content: Ondersteuning voor XMLDocument ([#2416](https://github.com/dso-toolkit/dso-toolkit/issues/2416))
 
 ### Changed
 * Highlight Box: aspect ratio banner aanpassen ([#2383](https://github.com/dso-toolkit/dso-toolkit/issues/2383))

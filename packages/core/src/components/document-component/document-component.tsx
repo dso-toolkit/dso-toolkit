@@ -4,6 +4,7 @@ import {
   DocumentComponentToggleAnnotationEvent,
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentWijzigactie,
+  DocumentComponentInputType,
 } from "./document-component.models";
 import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
@@ -33,25 +34,25 @@ export class DocumentComponent implements ComponentInterface {
    * The Label XML.
    */
   @Prop()
-  label?: string;
+  label?: DocumentComponentInputType;
 
   /**
    * The Nummer XML.
    */
   @Prop()
-  nummer?: string;
+  nummer?: DocumentComponentInputType;
 
   /**
    * The Opschrift XML.
    */
   @Prop()
-  opschrift?: string;
+  opschrift?: DocumentComponentInputType;
 
   /**
    * The Inhoud XML.
    */
   @Prop()
-  inhoud?: string;
+  inhoud?: DocumentComponentInputType;
 
   /**
    * This boolean attribute indicates whether the children are visible.

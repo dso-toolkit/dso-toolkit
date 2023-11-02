@@ -18,10 +18,10 @@ export interface OzonContentAnchorClickEvent {
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                  | Type                  | Default     |
-| --------- | --------- | -------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `content` | `content` | The XML to be rendered.                                                                      | `string \| undefined` | `undefined` |
-| `inline`  | `inline`  | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`             | `false`     |
+| Property  | Attribute | Description                                                                                  | Type                                 | Default     |
+| --------- | --------- | -------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `content` | `content` | The XML to be rendered.                                                                      | `XMLDocument \| string \| undefined` | `undefined` |
+| `inline`  | `inline`  | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`                            | `false`     |
 
 
 ## Events

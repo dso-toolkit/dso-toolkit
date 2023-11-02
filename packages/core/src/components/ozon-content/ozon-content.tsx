@@ -13,7 +13,7 @@ import {
 
 import { Mapper } from "./ozon-content-mapper";
 import { OzonContentContext } from "./ozon-content-context.interface";
-import { OzonContentAnchorClickEvent } from "./ozon-content.interfaces";
+import { OzonContentAnchorClickEvent, OzonContentInputType } from "./ozon-content.interfaces";
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 const mapper = new Mapper();
@@ -28,7 +28,7 @@ export class OzonContent implements ComponentInterface {
    * The XML to be rendered.
    */
   @Prop()
-  content: string | undefined;
+  content?: OzonContentInputType;
 
   /**
    * Setting this property creates dso-ozon-content as inline element instead of a block element.
@@ -58,7 +58,7 @@ export class OzonContent implements ComponentInterface {
       emitAnchorClick: this.dsoAnchorClick.emit,
     };
 
-    const transformed = mapper.transform(this.content ?? "", context);
+    const transformed = mapper.transform(this.content, context);
 
     return <Fragment>{transformed}</Fragment>;
   }

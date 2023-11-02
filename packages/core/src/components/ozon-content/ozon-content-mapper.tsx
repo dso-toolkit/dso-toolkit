@@ -21,6 +21,7 @@ import { OzonContentTextNode } from "./nodes/text.node";
 import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";
 import { OzonContentContext } from "./ozon-content-context.interface";
 import { OzonContentNode } from "./ozon-content-node.interface";
+import { OzonContentInputType } from "./ozon-content.interfaces";
 
 export class Mapper {
   private mappers: OzonContentNode[] = [
@@ -53,7 +54,7 @@ export class Mapper {
 
   private fallbackNode = new OzonContentFallbackNode();
 
-  private domParser = new DOMParser();
+  private domParser?: DOMParser;
 
   private findMapper(name: string): OzonContentNode | undefined {
     if (this.skip.includes(name)) {
@@ -101,17 +102,17 @@ export class Mapper {
     });
   }
 
-  transform(xml: string, context: OzonContentContext): JSX.Element {
-    if (!xml) {
+  transform(input: OzonContentInputType | undefined, context: OzonContentContext): JSX.Element {
+    if (!input) {
       return <Fragment />;
     }
 
-    const document = this.domParser.parseFromString(xml, "text/xml");
+    const document = this.inputToXmlDocument(input);
     if (document.querySelector("parsererror")) {
       console.error({
         message: "[DSO Toolkit: Ozon Content Mapper] Unable to parse XML",
         context,
-        xml,
+        input,
         document,
       });
 
@@ -119,5 +120,19 @@ export class Mapper {
     }
 
     return this.mapNodeToJsx(document.getRootNode(), context, []);
+  }
+
+  private inputToXmlDocument(input: OzonContentInputType): XMLDocument {
+    if (input instanceof XMLDocument) {
+      return input;
+    }
+
+    if (typeof input === "string") {
+      this.domParser ??= new DOMParser();
+
+      return this.domParser.parseFromString(input, "text/xml");
+    }
+
+    return document.implementation.createDocument(null, null);
   }
 }
