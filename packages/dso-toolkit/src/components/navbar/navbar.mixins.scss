@@ -2,6 +2,7 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 @use "../../variables/media-query-breakpoints";
+@use "../../variables/scaffolding";
 @use "../anchor";
 @use "./navbar.variables.scss" as navbar;
 
@@ -32,8 +33,8 @@
 
   .dso-nav {
     list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
 
     > li {
       > a,
@@ -56,6 +57,9 @@
 
           font-weight: bold;
         }
+      }
+      &:last-child {
+        margin-inline-end: 7rem;
       }
     }
 
@@ -99,3 +103,196 @@
 @mixin nav-border() {
   border-bottom: 1px solid colors.$grijs-20;
 }
+
+// start dso-document-search styling
+// =================================
+
+.dso-document-search {
+  // component
+  position: relative;
+  isolation: isolate;
+
+  .dso-expander {
+    // open/close - closed
+    position: relative;
+    inset-block-start: -1px;
+
+    display: grid;
+    grid-template-rows: 0fr;
+
+    margin-block-end: 0;
+
+    visibility: hidden;
+
+    inline-size: 100%;
+  }
+
+  .dso-expand-button {
+    // controller
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 1px;
+    z-index: 1;
+
+    translate: 0 -100%;
+
+    background-color: transparent;
+
+    padding-inline: units.$u2;
+    padding-block: 6px;
+
+    border: 2px solid transparent;
+    border-start-start-radius: scaffolding.$border-radius-base;
+    border-start-end-radius: scaffolding.$border-radius-base;
+
+    font-weight: 600;
+    color: colors.$grasgroen;
+
+    dso-icon {
+      margin-inline-end: units.$u1;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    .text-stop {
+      // text toggle
+      display: none;
+    }
+  }
+  .dso-expand-button.active {
+    // active controller
+    background-color: colors.$grijs-5;
+
+    border-color: colors.$grijs-20;
+
+    color: colors.$grijs-90;
+
+    &::after {
+      // mask border
+      content: "";
+
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: -2px;
+
+      inline-size: 100%;
+      block-size: 2px;
+
+      background-color: colors.$grijs-5;
+    }
+
+    .text-start {
+      // text toggle
+      display: none;
+    }
+
+    .text-stop {
+      // text toggle
+      display: block;
+    }
+
+    + .dso-expander {
+      // open/close - open
+      visibility: visible;
+
+      grid-template-rows: 1fr;
+
+      margin-block-end: units.$u1;
+
+      .dso-expand-container {
+        border: 2px solid colors.$grijs-20;
+      }
+    }
+  }
+  .dso-expand-container {
+    // content
+    overflow: hidden;
+
+    padding-inline: units.$u2;
+
+    background-color: colors.$grijs-5;
+
+    border-start-start-radius: scaffolding.$border-radius-base;
+    border-end-end-radius: scaffolding.$border-radius-base;
+    border-end-start-radius: scaffolding.$border-radius-base;
+
+    .dso-search-bar {
+      // search bar context overrides
+      flex-grow: 1;
+
+      margin-block: units.$u1;
+
+      .dso-search-bar-input {
+        display: flex;
+
+        [type="text"] {
+          border-start-end-radius: 0;
+          border-end-end-radius: 0;
+          border-inline-end: 0;
+        }
+      }
+    }
+
+    .dso-button-container {
+      // search nav buttons
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      gap: units.$u1;
+      flex-shrink: 0;
+
+      padding-inline: units.$u1;
+
+      background-color: colors.$wit;
+
+      border: 1px solid colors.$bosgroen;
+      border-inline-start: 0;
+      border-start-end-radius: scaffolding.$border-radius-base;
+      border-end-end-radius: scaffolding.$border-radius-base;
+
+      button {
+        // up / down
+        appearance: none;
+
+        padding: 0;
+
+        border: 0;
+
+        background-color: transparent;
+
+        color: colors.$grasgroen;
+
+        &:disabled {
+          color: colors.$grijs-20;
+        }
+      }
+
+      &::before {
+        // divider
+        content: "";
+
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: units.$u1;
+        inset-block-end: units.$u1;
+
+        inline-size: 1px;
+
+        background-color: colors.$grijs-20;
+      }
+    }
+  }
+
+  &.dso-animate {
+    .dso-expander {
+      transition: grid-template-rows 0.5s, visibility 0.5s, margin-block-end 0.5s;
+    }
+  }
+}
+
+// end dso-document-search styling
+// ===============================
