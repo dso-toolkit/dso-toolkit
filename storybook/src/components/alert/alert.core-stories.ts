@@ -9,8 +9,7 @@ import readme from "@dso-toolkit/core/src/components/alert/readme.md?raw";
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
-  component: "dso-alert",
-  title: "Alert",
+  title: "Core/Alert",
 };
 
 export default meta;

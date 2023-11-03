@@ -7,8 +7,7 @@ import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
 
 const meta: Meta<ButtonRowArgs> = {
   ...buttonRowMeta({ readme }),
-  component: "dso-button-row",
-  title: "Button Row",
+  title: "HTML|CSS/Button Row",
 };
 
 export default meta;

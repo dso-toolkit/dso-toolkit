@@ -7,13 +7,12 @@ import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),
-  component: "dso-attachments-counter",
-  title: "Attachments Counter",
+  title: "Core/Attachments Counter",
 };
 
 export default meta;
 
-const { Count } = attachmentsCounterStories({
+const { AttachmentsCounter } = attachmentsCounterStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { attachmentsCounterTemplate } = templates;
@@ -24,4 +23,4 @@ const { Count } = attachmentsCounterStories({
   },
 });
 
-export { Count };
+export { AttachmentsCounter };

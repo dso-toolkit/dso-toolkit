@@ -13,7 +13,7 @@ export type LabelDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: 
 type LabelStory = StoryObj<LabelArgs, Renderer>;
 
 interface LabelStories {
-  Plain: LabelStory;
+  Default: LabelStory;
   WithAction: LabelStory;
   Truncate: LabelStory;
   WithSymbolImage: LabelStory;
@@ -51,7 +51,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
   decorator,
 }: LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LabelStories {
   return {
-    Plain: {
+    Default: {
       args: {
         label: "Label",
       },

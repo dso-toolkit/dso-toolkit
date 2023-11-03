@@ -14,7 +14,7 @@ import { MetaOptions } from "../../storybook/meta-options.interface.js";
 type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, Renderer>;
 
 interface AttachmentsCounterStories {
-  Count: AttachmentsCounterStory;
+  AttachmentsCounter: AttachmentsCounterStory;
 }
 
 interface AttachmentsCounterStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -50,7 +50,7 @@ export function attachmentsCounterStories<Implementation, Templates, TemplateFnR
   templateContainer,
 }: AttachmentsCounterStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AttachmentsCounterStories {
   return {
-    Count: {
+    AttachmentsCounter: {
       args: {
         count: 3,
       },

@@ -7,8 +7,7 @@ import readme from "dso-toolkit/src/components/application-heading/readme.md?raw
 
 const meta: Meta<ApplicationHeadingArgs> = {
   ...applicationHeadingMeta({ readme }),
-  component: "dso-application-heading",
-  title: "Application Heading",
+  title: "HTML|CSS/Application Heading",
 };
 
 export default meta;

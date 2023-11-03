@@ -1,7 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 
-import { DsoBanner } from "../../components";
 import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
@@ -19,7 +18,6 @@ import readme from "@dso-toolkit/react/src/components/banner/readme.md?raw";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
-  component: DsoBanner,
   title: "Banner",
 };
 

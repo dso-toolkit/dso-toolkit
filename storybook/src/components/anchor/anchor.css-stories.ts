@@ -7,8 +7,7 @@ import readme from "dso-toolkit/src/components/anchor/readme.md?raw";
 
 const meta: Meta<AnchorArgs> = {
   ...anchorMeta({ readme }),
-  component: "dso-alert",
-  title: "Anchor",
+  title: "HTML|CSS/Anchor",
 };
 
 export default meta;

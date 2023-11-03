@@ -18,7 +18,6 @@ import readme from "dso-toolkit/src/components/banner/readme.md?raw";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
-  component: "dso-banner",
   title: "HTML|CSS/Banner",
 };
 

@@ -7,8 +7,7 @@ import readme from "dso-toolkit/src/components/breadcrumbs/readme.md?raw";
 
 const meta: Meta<BreadcrumbsArgs> = {
   ...breadcrumbsMeta({ readme }),
-  component: "dso-breadcrumbs",
-  title: "Breadcrumbs",
+  title: "HTML|CSS/Breadcrumbs",
 };
 
 export default meta;

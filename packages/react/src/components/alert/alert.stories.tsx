@@ -3,14 +3,12 @@ import { AlertArgs, alertMeta, alertStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { DsoAlert } from "../../components";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
 import readme from "@dso-toolkit/react/src/components/alert/readme.md?raw";
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
-  component: DsoAlert,
   title: "Alert",
 };
 

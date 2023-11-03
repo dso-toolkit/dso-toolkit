@@ -7,13 +7,12 @@ import readme from "dso-toolkit/src/components/badge/readme.md?raw";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
-  component: "dso-badge",
-  title: "Badge",
+  title: "HTML|CSS/Badge",
 };
 
 export default meta;
 
-const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention } = badgeStories({
+const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain } = badgeStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { badgeTemplate } = templates;
@@ -24,4 +23,4 @@ const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention } = b
   },
 });
 
-export { Primary, Success, Info, Warning, Error, Danger, Outline, Attention };
+export { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain };

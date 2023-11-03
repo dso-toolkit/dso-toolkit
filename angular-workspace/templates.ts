@@ -18,7 +18,6 @@ import {
   ImageOverlay,
   Info,
   InfoButton,
-  Label,
   ListButton,
   Modal,
   OzonContent,
@@ -49,7 +48,6 @@ import { angularIcon } from "./components/icon/icon.angular-template";
 import { angularImageOverlay } from "./components/image-overlay/image-overlay.angular-template";
 import { angularInfoButton } from "./components/info-button/info-button.angular-template";
 import { angularInfo } from "./components/info/info.angular-template";
-import { angularLabel } from "./components/label/label.angular-template";
 import { angularListButton } from "./components/list-button/list-button.angular-template";
 import { angularModal } from "./components/modal/modal.angular-template";
 import { angularOzonContent } from "./components/ozon-content/ozon-content.angular-template";
@@ -82,7 +80,7 @@ export interface Components {
   imageOverlay: ImageOverlay;
   info: Info<StoryFnAngularReturnType>;
   infoButton: InfoButton;
-  label: Label;
+  // label: Label;
   listButton: ListButton;
   modal: Modal<StoryFnAngularReturnType>;
   ozonContent: OzonContent;
@@ -145,7 +143,6 @@ templateContainer.add(angularIcon);
 templateContainer.add(angularImageOverlay);
 templateContainer.add(angularInfo);
 templateContainer.add(angularInfoButton);
-templateContainer.add(angularLabel);
 templateContainer.add(angularListButton);
 templateContainer.add(angularModal);
 templateContainer.add(angularOzonContent);
