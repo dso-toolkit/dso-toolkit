@@ -5,7 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### 🦴 62.2.0 - 02-11-2023
+## 🛹 62.2.1 - 03-11-2023
+
+### Fixed
+* Viewer Grid: De sizing buttons zijn bij het document panel verkeerd om ([#2418](https://github.com/dso-toolkit/dso-toolkit/issues/2418))
+
+## 🦴 62.2.0 - 02-11-2023
 
 ### Fixed
 * Anchor: Icon no wrap ([#2329](https://github.com/dso-toolkit/dso-toolkit/issues/2329))

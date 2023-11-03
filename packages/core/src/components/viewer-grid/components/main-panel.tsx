@@ -48,6 +48,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
           size={mainSize}
           expand={expandMain}
           shrink={shrinkMain}
+          placement="left"
         />
       )) ||
         (mode === "vdk" && documentPanelOpen && (

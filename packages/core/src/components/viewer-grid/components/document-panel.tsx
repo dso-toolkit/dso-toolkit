@@ -32,6 +32,7 @@ export const DocumentPanel: FunctionalComponent<ViewerGridDocumentPanelProps> = 
         size={panelSize}
         expand={expandDocumentPanel}
         shrink={shrinkDocumentPanel}
+        placement="right"
       />
     )}
     <div class="content">
