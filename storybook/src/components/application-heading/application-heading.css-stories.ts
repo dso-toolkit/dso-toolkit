@@ -12,7 +12,7 @@ const meta: Meta<ApplicationHeadingArgs> = {
 
 export default meta;
 
-const { Default, WithSubtitel, WithSubtitelAndSteps, SubtitleOnly, SubtitleAndStepsOnly } = applicationHeadingStories({
+const { Default, WithSubtitle, WithSubtitleAndSteps, SubtitleOnly, SubtitleAndStepsOnly } = applicationHeadingStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { applicationHeadingTemplate } = templates;
@@ -23,4 +23,4 @@ const { Default, WithSubtitel, WithSubtitelAndSteps, SubtitleOnly, SubtitleAndSt
   },
 });
 
-export { Default, WithSubtitel, WithSubtitelAndSteps, SubtitleOnly, SubtitleAndStepsOnly };
+export { Default, WithSubtitle, WithSubtitleAndSteps, SubtitleOnly, SubtitleAndStepsOnly };

@@ -15,8 +15,8 @@ type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, Renderer>;
 
 interface ApplicationHeadingStories {
   Default: ApplicationHeadingStory;
-  WithSubtitel: ApplicationHeadingStory;
-  WithSubtitelAndSteps: ApplicationHeadingStory;
+  WithSubtitle: ApplicationHeadingStory;
+  WithSubtitleAndSteps: ApplicationHeadingStory;
   SubtitleOnly: ApplicationHeadingStory;
   SubtitleAndStepsOnly: ApplicationHeadingStory;
 }
@@ -62,7 +62,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         applicationHeadingTemplate(applicationHeadingArgsMapper(args))
       ),
     },
-    WithSubtitel: {
+    WithSubtitle: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",
@@ -71,7 +71,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         applicationHeadingTemplate(applicationHeadingArgsMapper(args))
       ),
     },
-    WithSubtitelAndSteps: {
+    WithSubtitleAndSteps: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",

@@ -35,6 +35,9 @@ export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
 > {
   return {
     argTypes: alertArgTypes,
+    args: {
+      withButton: true,
+    },
     parameters: {
       docs: readme
         ? {

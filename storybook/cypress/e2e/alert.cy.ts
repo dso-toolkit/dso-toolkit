@@ -25,11 +25,14 @@ describe("Alert", () => {
         .shadow()
         .find(".alert > span.sr-only")
         .invoke("text")
-        .should("equal", `${message}:`);
+        .should("equal", `${message}:`)
+        .get("dso-alert")
+        .shadow()
+        .find(".alert > dso-icon")
+        .invoke("prop", "icon")
+        .should("equal", icon);
 
       cy.percySnapshot();
-
-      cy.get("dso-alert").shadow().find(".alert > dso-icon").invoke("prop", "icon").should("equal", icon);
     });
   }
 });
