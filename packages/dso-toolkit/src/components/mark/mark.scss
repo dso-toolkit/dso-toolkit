@@ -1,8 +1,14 @@
-@use "../../variables/states";
 @use "../../variables/colors";
 
+$mark-color: #f8f5ce;
+$highlight-color: #dbd136;
+
 mark {
-  background-color: states.$warning-bg;
+  background-color: $mark-color;
   color: colors.$zwart;
-  padding: 0.2em;
+  padding-block: 0.2rem;
+
+  &.dso-highlight {
+    background-color: $highlight-color;
+  }
 }

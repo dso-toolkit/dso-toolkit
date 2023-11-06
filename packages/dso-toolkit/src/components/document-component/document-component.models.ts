@@ -1,3 +1,5 @@
+import { OzonContentText } from "../ozon-content/ozon-content.models";
+
 export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;
   annotated?: boolean;
@@ -20,6 +22,8 @@ export interface DocumentComponent<TemplateFnReturnType> {
   type: DocumentComponentType;
   vervallen?: boolean;
   wijzigactie?: DocumentComponentWijzigActie;
+  mark?: DocumentComponentMarkFunction;
+  dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
 }
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
@@ -41,3 +45,13 @@ export interface DocumentComponentToggleEvent {
 }
 
 export interface DocumentComponentAnnotationToggleEvent {}
+
+export type DocumentComponentSource = "label" | "nummer" | "opschrift" | "inhoud";
+
+export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
+
+export interface DocumentComponentMarkItemHighlightEvent {
+  source: DocumentComponentSource;
+  text: string;
+  elementRef: HTMLElement;
+}

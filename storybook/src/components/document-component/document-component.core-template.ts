@@ -31,6 +31,8 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       vervallen,
       wijzigactie,
       content,
+      mark,
+      dsoMarkItemHighlight,
     }) {
       return html`<dso-responsive-element>
         <dso-document-component
@@ -51,6 +53,8 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .label=${ifDefined(label)}
           .type=${type}
           .wijzigactie=${ifDefined(wijzigactie)}
+          .mark=${ifDefined(mark)}
+          @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}
           @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}
           @dsoToggle=${ifDefined(dsoToggle)}
         >

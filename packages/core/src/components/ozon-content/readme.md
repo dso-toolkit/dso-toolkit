@@ -18,17 +18,19 @@ export interface OzonContentAnchorClickEvent {
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                  | Type                                 | Default     |
-| --------- | --------- | -------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `content` | `content` | The XML to be rendered.                                                                      | `XMLDocument \| string \| undefined` | `undefined` |
-| `inline`  | `inline`  | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`                            | `false`     |
+| Property  | Attribute | Description                                                                                  | Type                                                              | Default     |
+| --------- | --------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
+| `content` | `content` | The XML to be rendered.                                                                      | `XMLDocument \| string \| undefined`                              | `undefined` |
+| `inline`  | `inline`  | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`                                                         | `false`     |
+| `mark`    | --        | To mark text.                                                                                | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event            | Description                    | Type                                       |
-| ---------------- | ------------------------------ | ------------------------------------------ |
-| `dsoAnchorClick` | Emitted when `<a>` is clicked. | `CustomEvent<OzonContentAnchorClickEvent>` |
+| Event                             | Description                                | Type                                             |
+| --------------------------------- | ------------------------------------------ | ------------------------------------------------ |
+| `dsoAnchorClick`                  | Emitted when `<a>` is clicked.             | `CustomEvent<OzonContentAnchorClickEvent>`       |
+| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted. | `CustomEvent<OzonContentMarkItemHighlightEvent>` |
 
 
 ## Dependencies

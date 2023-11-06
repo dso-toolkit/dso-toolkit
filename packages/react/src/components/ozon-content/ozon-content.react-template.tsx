@@ -8,9 +8,18 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
   component: "ozonContent",
   implementation: "react",
   template: () =>
-    function ozonContentTemplate({ slotName, content, dsoAnchorClick }) {
+    function ozonContentTemplate({ slotName, content, inline, mark, dsoAnchorClick, dsoOzonContentMarkItemHighlight }) {
       const slotProp = slotName && { slot: slotName };
 
-      return <DsoOzonContent content={content} onDsoAnchorClick={dsoAnchorClick} {...slotProp} />;
+      return (
+        <DsoOzonContent
+          content={content}
+          inline={inline}
+          mark={mark}
+          onDsoAnchorClick={dsoAnchorClick}
+          onDsoOzonContentMarkItemHighlight={dsoOzonContentMarkItemHighlight}
+          {...slotProp}
+        />
+      );
     },
 };

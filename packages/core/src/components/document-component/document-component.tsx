@@ -5,6 +5,8 @@ import {
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentWijzigactie,
   DocumentComponentInputType,
+  DocumentComponentMarkFunction,
+  DocumentComponentMarkItemHighlightEvent,
 } from "./document-component.models";
 import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
@@ -127,6 +129,12 @@ export class DocumentComponent implements ComponentInterface {
   wijzigactie?: DocumentComponentWijzigactie;
 
   /**
+   * Voor het markeren in content.
+   */
+  @Prop()
+  mark?: DocumentComponentMarkFunction;
+
+  /**
    * Emitted when the user activates the toggle.
    */
   @Event({ bubbles: false })
@@ -143,6 +151,12 @@ export class DocumentComponent implements ComponentInterface {
    */
   @Event({ bubbles: false })
   dsoAnnotationToggle!: EventEmitter<DocumentComponentToggleAnnotationEvent>;
+
+  /**
+   * Emitted each time a marked item gets highlighted.
+   */
+  @Event({ bubbles: false })
+  dsoMarkItemHighlight!: EventEmitter<DocumentComponentMarkItemHighlightEvent>;
 
   private get wijzigactieLabel(): string | undefined {
     return this.wijzigactie && wijzigActieLabels[this.wijzigactie];
@@ -194,6 +208,10 @@ export class DocumentComponent implements ComponentInterface {
                         <dso-ozon-content
                           content={this.label}
                           onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          mark={this.mark && ((text) => this.mark?.(text, "label"))}
+                          onDsoOzonContentMarkItemHighlight={(e) =>
+                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "label" })
+                          }
                           inline
                         ></dso-ozon-content>
                       </>
@@ -204,6 +222,10 @@ export class DocumentComponent implements ComponentInterface {
                         <dso-ozon-content
                           content={this.nummer}
                           onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          mark={this.mark && ((text) => this.mark?.(text, "nummer"))}
+                          onDsoOzonContentMarkItemHighlight={(e) =>
+                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "nummer" })
+                          }
                           inline
                         ></dso-ozon-content>
                       </>
@@ -214,6 +236,10 @@ export class DocumentComponent implements ComponentInterface {
                         <dso-ozon-content
                           content={this.opschrift}
                           onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                          mark={this.mark && ((text) => this.mark?.(text, "opschrift"))}
+                          onDsoOzonContentMarkItemHighlight={(e) =>
+                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "opschrift" })
+                          }
                           inline
                         ></dso-ozon-content>
                       </>
@@ -262,6 +288,10 @@ export class DocumentComponent implements ComponentInterface {
               <dso-ozon-content
                 content={this.inhoud}
                 onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
+                onDsoOzonContentMarkItemHighlight={(e) =>
+                  this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })
+                }
               ></dso-ozon-content>
             )}
           </div>
