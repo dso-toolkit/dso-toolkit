@@ -13,6 +13,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-ozon-content](../ozon-content)
+
 ### Depends on
 
 - [dso-icon](../icon)
@@ -21,6 +25,7 @@
 ```mermaid
 graph TD;
   dso-table --> dso-icon
+  dso-ozon-content --> dso-table
   style dso-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

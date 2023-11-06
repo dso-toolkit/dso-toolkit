@@ -37,9 +37,22 @@ export interface OzonContentAnchorClickEvent {
 
  - [dso-document-component](../document-component)
 
+### Depends on
+
+- [dso-icon](../icon)
+- [dso-image-overlay](../image-overlay)
+- [dso-tooltip](../tooltip)
+- [dso-table](../table)
+
 ### Graph
 ```mermaid
 graph TD;
+  dso-ozon-content --> dso-icon
+  dso-ozon-content --> dso-image-overlay
+  dso-ozon-content --> dso-tooltip
+  dso-ozon-content --> dso-table
+  dso-image-overlay --> dso-icon
+  dso-table --> dso-icon
   dso-document-component --> dso-ozon-content
   style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -63,6 +63,12 @@ graph TD;
   dso-document-component --> dso-label
   dso-document-component --> dso-annotation-button
   dso-document-component --> dso-alert
+  dso-ozon-content --> dso-icon
+  dso-ozon-content --> dso-image-overlay
+  dso-ozon-content --> dso-tooltip
+  dso-ozon-content --> dso-table
+  dso-image-overlay --> dso-icon
+  dso-table --> dso-icon
   dso-label --> dso-icon
   dso-label --> dso-tooltip
   dso-annotation-button --> dso-icon

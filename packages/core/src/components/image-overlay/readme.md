@@ -7,6 +7,10 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 
 ## Dependencies
 
+### Used by
+
+ - [dso-ozon-content](../ozon-content)
+
 ### Depends on
 
 - [dso-icon](../icon)
@@ -15,6 +19,7 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 ```mermaid
 graph TD;
   dso-image-overlay --> dso-icon
+  dso-ozon-content --> dso-image-overlay
   style dso-image-overlay fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

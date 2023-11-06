@@ -63,3 +63,16 @@ export class OzonContent implements ComponentInterface {
     return <Fragment>{transformed}</Fragment>;
   }
 }
+
+const dependencies = () => {
+  dependencies();
+
+  return (
+    <>
+      <dso-icon />
+      <dso-image-overlay />
+      <dso-tooltip />
+      <dso-table />
+    </>
+  );
+};
