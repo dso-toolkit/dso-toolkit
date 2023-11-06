@@ -13,7 +13,12 @@ import {
 
 import { Mapper } from "./ozon-content-mapper";
 import { OzonContentContext } from "./ozon-content-context.interface";
-import { OzonContentAnchorClickEvent, OzonContentInputType } from "./ozon-content.interfaces";
+import {
+  OzonContentAnchorClickEvent,
+  OzonContentInputType,
+  OzonContentMarkFunction,
+  OzonContentMarkItemHighlightEvent,
+} from "./ozon-content.interfaces";
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 const mapper = new Mapper();
@@ -37,10 +42,22 @@ export class OzonContent implements ComponentInterface {
   inline = false;
 
   /**
+   * To mark text.
+   */
+  @Prop()
+  mark?: OzonContentMarkFunction;
+
+  /**
    * Emitted when `<a>` is clicked.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoAnchorClick!: EventEmitter<OzonContentAnchorClickEvent>;
+
+  /**
+   * Emitted when a marked item is highlighted.
+   */
+  @Event({ bubbles: false })
+  dsoOzonContentMarkItemHighlight!: EventEmitter<OzonContentMarkItemHighlightEvent>;
 
   @Watch("content")
   contentWatcher() {
@@ -50,11 +67,17 @@ export class OzonContent implements ComponentInterface {
   @State()
   state: OzonContentNodeState = {};
 
+  private handleMarkItemHighlight = (text: string, elementRef: HTMLElement) => {
+    this.dsoOzonContentMarkItemHighlight.emit({ text, elementRef });
+  };
+
   render(): JSX.Element {
     const context: OzonContentContext = {
       state: this.state,
       inline: this.inline,
+      mark: this.mark,
       setState: (state) => (this.state = state),
+      emitMarkItemHighlight: this.handleMarkItemHighlight,
       emitAnchorClick: this.dsoAnchorClick.emit,
     };
 

@@ -5,7 +5,10 @@ import { ComponentImplementation } from "../../templates";
 const defaultPropValues = {
   slotName: "slotName",
   content: "content",
+  inline: "inline",
+  mark: "mark",
   dsoAnchorClick: "dsoAnchorClick($event.detail)",
+  dsoOzonContentMarkItemHighlight: "dsoOzonContentMarkItemHighlight($event.detail)",
 };
 
 export const angularOzonContent: ComponentImplementation<OzonContent> = {
@@ -13,7 +16,10 @@ export const angularOzonContent: ComponentImplementation<OzonContent> = {
   implementation: "angular",
   template: () =>
     function ozonContentTemplate(props, propValues) {
-      const { slotName, content, dsoAnchorClick } = { ...defaultPropValues, ...propValues };
+      const { slotName, content, dsoAnchorClick, inline, mark, dsoOzonContentMarkItemHighlight } = {
+        ...defaultPropValues,
+        ...propValues,
+      };
 
       return {
         props,
@@ -21,7 +27,10 @@ export const angularOzonContent: ComponentImplementation<OzonContent> = {
           <dso-ozon-content
             ${props.slotName ? `[slot]="${slotName}"` : ""}
             [content]="${content}"
+            [inline]="${inline}"
+            [mark]="${mark}"
             (dsoAnchorClick)="${dsoAnchorClick}"
+            (dsoOzonContentMarkItemHighlight)="${dsoOzonContentMarkItemHighlight}"
           ></dso-ozon-content>
         `,
       };

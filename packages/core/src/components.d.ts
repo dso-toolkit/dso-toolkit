@@ -13,7 +13,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { DocumentComponentInputType, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -23,7 +23,7 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OzonContentAnchorClickEvent, OzonContentInputType } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -39,7 +39,7 @@ export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-export { DocumentComponentInputType, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -49,7 +49,7 @@ export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OzonContentAnchorClickEvent, OzonContentInputType } from "./components/ozon-content/ozon-content.interfaces";
+export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
@@ -328,6 +328,10 @@ export namespace Components {
           * The Label XML.
          */
         "label"?: DocumentComponentInputType;
+        /**
+          * Voor het markeren in content.
+         */
+        "mark"?: DocumentComponentMarkFunction;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -644,6 +648,10 @@ export namespace Components {
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline": boolean;
+        /**
+          * To mark text.
+         */
+        "mark"?: OzonContentMarkFunction;
     }
     interface DsoPagination {
         /**
@@ -1651,6 +1659,10 @@ declare namespace LocalJSX {
          */
         "label"?: DocumentComponentInputType;
         /**
+          * Voor het markeren in content.
+         */
+        "mark"?: DocumentComponentMarkFunction;
+        /**
           * Marks this Document Component as not-applicable.
          */
         "notApplicable"?: boolean;
@@ -1662,6 +1674,10 @@ declare namespace LocalJSX {
           * Emitted when the user activates the annotation button.
          */
         "onDsoAnnotationToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentToggleAnnotationEvent>) => void;
+        /**
+          * Emitted each time a marked item gets highlighted.
+         */
+        "onDsoMarkItemHighlight"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
         /**
           * Emitted when the user activates the toggle.
          */
@@ -2025,9 +2041,17 @@ declare namespace LocalJSX {
          */
         "inline"?: boolean;
         /**
+          * To mark text.
+         */
+        "mark"?: OzonContentMarkFunction;
+        /**
           * Emitted when `<a>` is clicked.
          */
         "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => void;
+        /**
+          * Emitted when a marked item is highlighted.
+         */
+        "onDsoOzonContentMarkItemHighlight"?: (event: DsoOzonContentCustomEvent<OzonContentMarkItemHighlightEvent>) => void;
     }
     interface DsoPagination {
         /**

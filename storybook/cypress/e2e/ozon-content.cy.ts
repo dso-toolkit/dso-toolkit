@@ -556,4 +556,29 @@ describe("Ozon Content", () => {
       .invoke("text")
       .should("equal", "De content wordt als XMLDocument aangeleverd.");
   });
+
+  it("should mark and highlight", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al")
+      .get("dso-ozon-content")
+      .invoke("prop", "content", "<Label>Dit is absoluut fantastisch gemaakt!</Label>")
+      .get("dso-ozon-content")
+      .then(
+        ($ozonContent) =>
+          ($ozonContent[0].mark = (text) =>
+            text
+              .split(new RegExp(`(is)`, "gi"))
+              .map((item, index) => (isOdd(index) ? { text: item, highlight: index === 1 } : item)))
+      )
+      .get("dso-ozon-content")
+      .shadow()
+      .find("mark")
+      .should("have.length", 2)
+      .each((element, index) => {
+        cy.wrap(element).should(index === 0 ? "have.class" : "not.have.class", "dso-highlight");
+      });
+  });
 });
+
+function isOdd(n: number): boolean {
+  return Math.abs(n % 2) === 1;
+}

@@ -94,9 +94,11 @@ export class Mapper {
 
     return mapper.render(node, {
       inline: context.inline,
+      mark: context.mark,
       mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
       emitAnchorClick: context.emitAnchorClick,
       setState,
+      emitMarkItemHighlight: context.emitMarkItemHighlight,
       state,
       path,
     });

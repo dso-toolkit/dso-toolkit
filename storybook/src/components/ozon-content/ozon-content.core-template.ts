@@ -8,13 +8,15 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
   component: "ozonContent",
   implementation: "core",
   template: () =>
-    function ozonContentTemplate({ slotName, content, inline, dsoAnchorClick }) {
+    function ozonContentTemplate({ slotName, content, inline, mark, dsoAnchorClick, dsoOzonContentMarkItemHighlight }) {
       return html`
         <dso-ozon-content
           slot=${ifDefined(slotName)}
           .content=${content}
+          .mark=${ifDefined(mark)}
           ?inline=${inline}
-          @dsoAnchorClick=${dsoAnchorClick}
+          @dsoAnchorClick=${ifDefined(dsoAnchorClick)}
+          @dsoOzonContentMarkItemHighlight=${ifDefined(dsoOzonContentMarkItemHighlight)}
         >
         </dso-ozon-content>
       `;
