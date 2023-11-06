@@ -1,9 +1,10 @@
 import { Selectable } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { ComponentImplementation } from "../../templates";
 import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
+import { when } from "lit-html/directives/when.js";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
   component: "selectable",
@@ -24,8 +25,9 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
       disabled,
       dsoChange,
       info,
+      options,
       slot,
-    }) {
+    }): TemplateResult {
       return html`
         <dso-selectable
           type=${type}
@@ -43,7 +45,14 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           ?info-fixed=${info?.fixed}
           @dsoChange=${(e: DsoSelectableCustomEvent<SelectableChangeEvent>) => dsoChange?.(e.detail)}
         >
-          ${ifDefined(label)} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
+          ${label} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
+          ${when(
+            options?.length,
+            () =>
+              html`<ul class="dso-selectable-options" slot="options">
+                ${options?.map((option) => html`<li>${selectableTemplate(option)}</li>`)}
+              </ul>`
+          )}
         </dso-selectable>
       `;
     },

@@ -17,13 +17,45 @@
   }
 }
 
-@mixin root($info-selector, $set-padding: true) {
+@mixin root($set-padding: true) {
   position: relative;
 
   display: var(--dso-selectable-display, block);
 
   @if ($set-padding) {
     padding: 0 0 0 units.$u4;
+  }
+
+  label {
+    font-weight: 400;
+    line-height: selectable-variables.$size;
+    margin: 0;
+  }
+
+  input[type="checkbox"][disabled],
+  input[type="radio"][disabled] {
+    @include _selectableFunctionalStylingDisabled();
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @include _selectableFunctionalStyling();
+  }
+
+  input[type="checkbox"] {
+    @include _selectableFunctionalStylingCheckbox();
+  }
+
+  input[type="radio"] {
+    @include _selectableFunctionalStylingRadio();
+  }
+}
+
+@mixin children($info-selector) {
+  > #{$info-selector} {
+    float: none;
+    margin: units.$u1 units.$u2 0 0;
+    width: 100%;
   }
 
   .dso-selectable-options {
@@ -35,36 +67,6 @@
       margin-top: units.$u1;
     }
   }
-
-  label {
-    font-weight: 400;
-    line-height: selectable-variables.$size;
-    margin: 0;
-  }
-
-  input[type="checkbox"][disabled],
-  input[type="radio"][disabled] {
-    @include selectableFunctionalStylingDisabled();
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    @include selectableFunctionalStyling();
-  }
-
-  input[type="checkbox"] {
-    @include selectableFunctionalStylingCheckbox();
-  }
-
-  input[type="radio"] {
-    @include selectableFunctionalStylingRadio();
-  }
-
-  > #{$info-selector} {
-    float: none;
-    margin: units.$u1 units.$u2 0 0;
-    width: 100%;
-  }
 }
 
 @mixin selectableBoxShadow($border-width, $color) {
@@ -75,7 +77,7 @@
   width: selectable-variables.$size - 2 * $border-width;
 }
 
-@mixin selectableFunctionalStylingDisabled() {
+@mixin _selectableFunctionalStylingDisabled() {
   &,
   &:active,
   &:focus {
@@ -88,7 +90,7 @@
   }
 }
 
-@mixin selectableFunctionalStyling() {
+@mixin _selectableFunctionalStyling() {
   height: selectable-variables.$size;
   left: 0;
   margin: 0;
@@ -152,7 +154,7 @@
   }
 }
 
-@mixin selectableFunctionalStylingCheckbox() {
+@mixin _selectableFunctionalStylingCheckbox() {
   + label {
     &::before {
       border-radius: 4px;
@@ -203,7 +205,7 @@
   }
 }
 
-@mixin selectableFunctionalStylingRadio() {
+@mixin _selectableFunctionalStylingRadio() {
   + label {
     &::before {
       border-radius: 50%;

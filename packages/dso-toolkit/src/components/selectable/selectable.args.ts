@@ -22,6 +22,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   infoActive?: boolean;
   infoClosed: HandlerFunction;
   infoToggled: HandlerFunction;
+  options?: Selectable<TemplateFnReturnType>[];
 }
 
 export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
@@ -105,11 +106,16 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
   infoToggled: {
     action: "infoToggled",
   },
+  options: {
+    control: {
+      type: "object",
+    },
+  },
 };
 
 export function selectableArgsMapper<TemplateFnReturnType>(
   a: SelectableArgs<TemplateFnReturnType>,
-  infoRichContent: TemplateFnReturnType
+  infoRichContent: TemplateFnReturnType | undefined
 ): Selectable<TemplateFnReturnType> {
   return {
     ...a,
