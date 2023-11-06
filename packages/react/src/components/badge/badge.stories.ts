@@ -1,15 +1,26 @@
-import { storiesOfBadge } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
+import type { Meta } from "@storybook/react";
+import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/react/src/components/badge/readme.md?raw";
 
-storiesOfBadge({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<BadgeArgs> = {
+  ...badgeMeta({ readme }),
+  title: "Badge",
+};
+
+export default meta;
+
+const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain } = badgeStories({
   templateContainer,
-  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),
+  storyTemplates: (templates) => {
+    const { badgeTemplate } = templates;
+
+    return {
+      badgeTemplate,
+    };
+  },
 });
+
+export { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain };

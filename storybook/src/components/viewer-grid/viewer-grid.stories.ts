@@ -1,5 +1,4 @@
 import {
-  AlertType,
   DocumentList,
   DocumentListItemStatusDemoContent,
   storiesOfViewerGrid,
@@ -213,7 +212,7 @@ storiesOfViewerGrid({
             ${anchorTemplate({ label: "bekijk ontwerpen waarvan inzagetermijn voorbij is", url: "#" })}
           `,
         }),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });
     }
 
@@ -225,7 +224,7 @@ storiesOfViewerGrid({
             status: html`${badgeTemplate(item.status.badge)} ${item.status.date}`,
           })),
         }),
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });
     }
 
@@ -252,7 +251,7 @@ storiesOfViewerGrid({
             </div>
           </section>
         `,
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });
     }
 
@@ -263,7 +262,7 @@ storiesOfViewerGrid({
           <p>Bekijk regels en beleid rond een bepaald thema.</p>
           ${tileGridTemplate({ tiles })}
         `,
-        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
+        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });
     }
 
@@ -271,7 +270,7 @@ storiesOfViewerGrid({
       viewerGridTemplate,
       example: {
         main: (mainExpanded) => html`${alertTemplate({
-          status: AlertType.Info,
+          status: "info",
           message: html`<p>Dit is <code>slot="main"</code>.</p>`,
         })}
         ${buttonTemplate({
@@ -284,25 +283,25 @@ storiesOfViewerGrid({
         })}
         ${when(mainExpanded, () =>
           alertTemplate({
-            status: AlertType.Success,
+            status: "success",
             // eslint-disable-next-line lit/no-useless-template-literals -- template literal is to trigger lit-html html escaping.
             message: html`Dit is de rest in <code>${'<div class="main">'}</code>.`,
           })
         )}`,
         map: alertTemplate({
-          status: AlertType.Info,
+          status: "info",
           message: html`<p>Dit is <code>slot="map"</code>.</p>`,
         }),
         documentPanel: alertTemplate({
-          status: AlertType.Info,
+          status: "info",
           message: html`Dit is <code>slot="document-panel"</code>.`,
         }),
         filterpanel: alertTemplate({
-          status: AlertType.Info,
+          status: "info",
           message: html`Dit is <code>slot="filterpanel"</code>.`,
         }),
         overlay: html`${alertTemplate({
-          status: AlertType.Info,
+          status: "info",
           message: html`Dit is <code>slot="overlay"</code>.`,
         })}
         ${richContentTemplate({

@@ -1,4 +1,4 @@
-/* Storybook can't handle wildcard exports (export * from "...";). Apparently this is fixed in Storyobok 7, but at the time of writing that alpha. */
+/* Since Storybook 7 we have support for export * from ''; */
 
 export {
   BaseComponentImplementation,
@@ -34,17 +34,11 @@ export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/a
 export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
 export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
 
-export { Alert, AlertType } from "./components/alert/alert.models.js";
-export { AlertTemplates, storiesOfAlert } from "./components/alert/alert.stories-of.js";
+export * from "./components/alert";
 
-export { Anchor } from "./components/anchor/anchor.models.js";
-export { AnchorTemplates, storiesOfAnchor } from "./components/anchor/anchor.stories-of.js";
+export * from "./components/anchor";
 
-export { ApplicationHeading } from "./components/application-heading/application-heading.models.js";
-export {
-  ApplicationHeadingTemplates,
-  storiesOfApplicationHeading,
-} from "./components/application-heading/application-heading.stories-of.js";
+export * from "./components/application-heading";
 
 export { Annotation } from "./components/annotation/annotation.models.js";
 export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";
@@ -53,29 +47,21 @@ export { AnnotationButton } from "./components/annotation-button/annotation-butt
 
 export { AnnotationOutput } from "./components/annotation-output/annotation-output.models.js";
 
-export { AttachmentsCounter } from "./components/attachments-counter/attachments-counter.models.js";
-export {
-  AttachmentsCounterTemplates,
-  storiesOfAttachmentsCounter,
-} from "./components/attachments-counter/attachments-counter.stories-of.js";
+export * from "./components/attachments-counter";
 
 export { Autosuggest, AutosuggestSuggestion } from "./components/autosuggest/autosuggest.models.js";
 export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosuggest/autosuggest.stories-of.js";
 
-export { Badge } from "./components/badge/badge.models.js";
-export { BadgeTemplates, storiesOfBadge } from "./components/badge/badge.stories-of.js";
+export * from "./components/badge";
 
-export { Banner } from "./components/banner/banner.models.js";
-export { BannerTemplates, storiesOfBanner } from "./components/banner/banner.stories-of.js";
+export * from "./components/banner";
 
-export { Breadcrumb, Breadcrumbs } from "./components/breadcrumbs/breadcrumbs.models.js";
-export { BreadcrumbsTemplates, storiesOfBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.stories-of.js";
+export * from "./components/breadcrumbs";
 
 export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
 export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
 
-export { ButtonRow } from "./components/button-row/button-row.models.js";
-export { ButtonRowTemplates, storiesOfButtonRow } from "./components/button-row/button-row.stories-of.js";
+export * from "./components/button-row";
 
 export { Card, DsoCardClickedEvent } from "./components/card/card.models.js";
 export { CardTemplates, storiesOfCard } from "./components/card/card.stories-of.js";
@@ -218,8 +204,7 @@ export {
   storiesOfJustifyFormGroups,
 } from "./components/justify-form-groups/justify-form-groups.stories-of.js";
 
-export { Label, isLabelInterface } from "./components/label/label.models.js";
-export { LabelParameters, LabelTemplates, storiesOfLabel } from "./components/label/label.stories-of.js";
+export * from "./components/label";
 
 export { LabelGroup } from "./components/label-group/label-group.models.js";
 export { LabelGroupTemplates, storiesOfLabelGroup } from "./components/label-group/label-group.stories-of.js";

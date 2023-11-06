@@ -1,80 +1,103 @@
-import { action } from "@storybook/addon-actions";
-import { Addon_PartialStoryFn } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-
-import { LabelArgs, labelArgsMapper, labelArgTypes } from "./label.args.js";
-import { css } from "./label.demo.js";
+import { LabelArgs, labelArgTypes, labelArgsMapper } from "./label.args.js";
 import { Label } from "./label.models.js";
 
-export interface LabelTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { css } from "./label.demo.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+export type LabelDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: string) => TemplateFnReturnType;
+
+type LabelStory = StoryObj<LabelArgs, Renderer>;
+
+interface LabelStories {
+  Default: LabelStory;
+  WithAction: LabelStory;
+  Truncate: LabelStory;
+  WithSymbolImage: LabelStory;
+  WithSymbolColor: LabelStory;
+}
+
+interface LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LabelTemplates<TemplateFnReturnType>> {
+  decorator: LabelDecorator<TemplateFnReturnType>;
+}
+
+interface LabelTemplates<TemplateFnReturnType> {
   labelTemplate: (labelProperties: Label) => TemplateFnReturnType;
 }
 
-export interface LabelParameters<TemplateFnReturnType> {
-  decorator: (story: Addon_PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
+export function labelMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  LabelArgs
+> {
+  return {
+    argTypes: labelArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
-export function storiesOfLabel<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    LabelTemplates<TemplateFnReturnType>
-  >,
-  { decorator }: LabelParameters<TemplateFnReturnType>
-) {
-  return storiesOfFactory("Label", storiesOfArguments, (stories, templateMapper) => {
-    stories
-      .addParameters({
-        argTypes: labelArgTypes,
-        args: {
-          label: "Label",
-        },
-      })
-      .addDecorator((story) => decorator(story, css));
-
-    const template = templateMapper<LabelArgs>((args, { labelTemplate }) => labelTemplate(labelArgsMapper(args)));
-
-    stories.add("default", template);
-
-    stories.add("with action", template, {
+export function labelStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  decorator,
+}: LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LabelStories {
+  return {
+    Default: {
       args: {
-        removable: true,
-        button: {
-          title: "Verwijder",
-          icon: "times",
-          onClick: action("Clicked remove"),
-        },
+        label: "Label",
       },
-    });
-
-    stories.add("truncate", template, {
+      render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
+        labelTemplate(labelArgsMapper(args))
+      ),
+    },
+    WithAction: {
+      args: {
+        label: "Label",
+        removable: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
+        labelTemplate(labelArgsMapper(args))
+      ),
+    },
+    Truncate: {
       args: {
         label: "Een hele lange label die je eigenlijk visueel wil afbreken.",
         truncate: true,
-        button: {
-          title: "Verwijder",
-          icon: "times",
-          onClick: action("Clicked remove"),
-        },
       },
-    });
-
-    stories.add("with symbol (image)", template, {
+      render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
+        labelTemplate(labelArgsMapper(args))
+      ),
+    },
+    WithSymbolImage: {
       args: {
+        label: "Label",
         status: "bright",
         symbol: '<span class="symboolcode" data-symboolcode="vag000"></span>',
       },
-    });
-
-    stories.add("with symbol (color)", template, {
+      decorators: [(story) => decorator(story, css)],
+      render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
+        labelTemplate(labelArgsMapper(args))
+      ),
+    },
+    WithSymbolColor: {
       args: {
+        label: "Label",
         status: "bright",
         symbol: '<span class="symboolcode" data-symboolcode="vszt030"></span>',
       },
-    });
-
-    return stories;
-  });
+      decorators: [(story) => decorator(story, css)],
+      render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
+        labelTemplate(labelArgsMapper(args))
+      ),
+    },
+  };
 }

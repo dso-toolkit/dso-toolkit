@@ -1,30 +1,52 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { BreadcrumbsArgs, breadcrumbsArgsMapper, breadcrumbsArgTypes } from "./breadcrumbs.args.js";
+import { BreadcrumbsArgs, breadcrumbsArgTypes, breadcrumbsArgsMapper } from "./breadcrumbs.args.js";
 import { Breadcrumbs } from "./breadcrumbs.models.js";
 
-export interface BreadcrumbsTemplates<TemplateFnReturnType> {
-  breadcrumbsTemplate: (breadcrumbsProperties: Breadcrumbs) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type BreadcrumbsStory = StoryObj<BreadcrumbsArgs, Renderer>;
+
+interface BreadcrumbsStories {
+  Breadcrumb: BreadcrumbsStory;
 }
 
-export function storiesOfBreadcrumbs<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     BreadcrumbsTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Breadcrumbs", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: breadcrumbsArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<BreadcrumbsArgs>((args, { breadcrumbsTemplate }) =>
-      breadcrumbsTemplate(breadcrumbsArgsMapper(args))
-    );
+interface BreadcrumbsTemplates<TemplateFnReturnType> {
+  breadcrumbsTemplate: (breadcrumbsProperties: Breadcrumbs) => TemplateFnReturnType;
+}
 
-    stories.add("breadcrumb", template, {
+export function breadcrumbsMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  BreadcrumbsArgs
+> {
+  return {
+    argTypes: breadcrumbsArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function breadcrumbsStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): BreadcrumbsStories {
+  return {
+    Breadcrumb: {
       args: {
         breadcrumbs: [
           {
@@ -40,8 +62,9 @@ export function storiesOfBreadcrumbs<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { breadcrumbsTemplate }) =>
+        breadcrumbsTemplate(breadcrumbsArgsMapper(args))
+      ),
+    },
+  };
 }

@@ -1,67 +1,102 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import {
   ApplicationHeadingArgs,
-  applicationHeadingArgsMapper,
   applicationHeadingArgTypes,
+  applicationHeadingArgsMapper,
 } from "./application-heading.args.js";
 import { ApplicationHeading } from "./application-heading.models.js";
 
-export interface ApplicationHeadingTemplates<TemplateFnReturnType> {
-  applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type ApplicationHeadingStory = StoryObj<ApplicationHeadingArgs, Renderer>;
+
+interface ApplicationHeadingStories {
+  Default: ApplicationHeadingStory;
+  WithSubtitle: ApplicationHeadingStory;
+  WithSubtitleAndSteps: ApplicationHeadingStory;
+  SubtitleOnly: ApplicationHeadingStory;
+  SubtitleAndStepsOnly: ApplicationHeadingStory;
 }
 
-export function storiesOfApplicationHeading<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface ApplicationHeadingStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ApplicationHeadingTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Application Heading", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: applicationHeadingArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<ApplicationHeadingArgs>((args, { applicationHeadingTemplate }) =>
-      applicationHeadingTemplate(applicationHeadingArgsMapper(args))
-    );
+interface ApplicationHeadingTemplates<TemplateFnReturnType> {
+  applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
+}
 
-    stories.add("default", template, {
+export function applicationHeadingMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ApplicationHeadingArgs
+> {
+  return {
+    argTypes: applicationHeadingArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function applicationHeadingStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ApplicationHeadingStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ApplicationHeadingStories {
+  return {
+    Default: {
       args: {
         title: "H1 Paginatitel",
       },
-    });
-
-    stories.add("with subtitle", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    WithSubtitle: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",
       },
-    });
-
-    stories.add("with subtitle and steps", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    WithSubtitleAndSteps: {
       args: {
         title: "H1 Paginatitel",
         subtitle: "H2 Subtitel",
         step: "Stap x van x",
       },
-    });
-
-    stories.add("subtitle only", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    SubtitleOnly: {
       args: {
         subtitle: "H2 Subtitel",
       },
-    });
-
-    stories.add("subtitle and steps only", template, {
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+    SubtitleAndStepsOnly: {
       args: {
         subtitle: "H2 Subtitel",
         step: "Stap x van x",
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+      ),
+    },
+  };
 }

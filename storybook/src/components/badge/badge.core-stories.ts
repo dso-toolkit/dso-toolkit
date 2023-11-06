@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/badge/readme.md?raw";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
-  title: "Badge",
+  title: "Core/Badge",
 };
 
 export default meta;

@@ -1,30 +1,57 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { ButtonRowArgs, buttonRowArgsMapper, buttonRowArgTypes } from "./button-row.args.js";
+import { ButtonRowArgs, buttonRowArgTypes, buttonRowArgsMapper } from "./button-row.args.js";
 import { ButtonRow } from "./button-row.models.js";
 
-export interface ButtonRowTemplates<TemplateFnReturnType> {
-  buttonRowTemplate: (buttonRowProperties: ButtonRow) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type ButtonRowStory = StoryObj<ButtonRowArgs, Renderer>;
+
+interface ButtonRowStories {
+  Default: ButtonRowStory;
+  AlleButtonVarianten: ButtonRowStory;
+  PrimaireButtonVarianten: ButtonRowStory;
+  SecundaireButtonVarianten: ButtonRowStory;
+  TertiaireButtonVarianten: ButtonRowStory;
+  Emphasized: ButtonRowStory;
 }
 
-export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ButtonRowTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Button Row", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: buttonRowArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<ButtonRowArgs>((args, { buttonRowTemplate }) =>
-      buttonRowTemplate(buttonRowArgsMapper(args))
-    );
+interface ButtonRowTemplates<TemplateFnReturnType> {
+  buttonRowTemplate: (buttonRowProperties: ButtonRow) => TemplateFnReturnType;
+}
 
-    stories.add("default", template, {
+export function buttonRowMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ButtonRowArgs
+> {
+  return {
+    argTypes: buttonRowArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function buttonRowStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ButtonRowStories {
+  return {
+    Default: {
       args: {
         buttons: [
           {
@@ -49,15 +76,16 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           },
         ],
       },
-    });
-
-    stories.add("alle button varianten", template, {
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+    AlleButtonVarianten: {
       args: {
         buttons: [
           {
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Naar project overzicht",
@@ -65,7 +93,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "redo",
-              iconMode: "before",
             },
             variant: "secondary",
             label: "Aanvullen",
@@ -73,7 +100,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "pencil",
-              iconMode: "before",
             },
             variant: "secondary",
             label: "Intrekken",
@@ -81,7 +107,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "trash",
-              iconMode: "before",
             },
             variant: "secondary",
             label: "Verwijderen",
@@ -89,16 +114,17 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "download",
-              iconMode: "before",
             },
             variant: "secondary",
             label: "Download verzoek als PDF",
           },
         ],
       },
-    });
-
-    stories.add("primaire button varianten", template, {
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+    PrimaireButtonVarianten: {
       args: {
         buttons: [
           {
@@ -115,7 +141,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Chevron",
             icon: {
               icon: "chevron-right",
-              iconMode: "before",
             },
           },
           {
@@ -124,7 +149,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             disabled: true,
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -132,8 +156,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Extern",
             icon: {
               icon: "external-link",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "primary",
@@ -145,8 +169,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Download",
             icon: {
               icon: "download",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "primary",
@@ -157,7 +181,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Anchor with icon",
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -171,14 +194,15 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             compact: true,
             icon: {
               icon: "download",
-              iconMode: "before",
             },
           },
         ],
       },
-    });
-
-    stories.add("secundaire button varianten", template, {
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+    SecundaireButtonVarianten: {
       args: {
         buttons: [
           {
@@ -195,8 +219,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Chevron",
             icon: {
               icon: "chevron-right",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "secondary",
@@ -204,7 +228,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             disabled: true,
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -212,8 +235,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Extern",
             icon: {
               icon: "external-link",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "secondary",
@@ -225,8 +248,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Download",
             icon: {
               icon: "download",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "secondary",
@@ -237,7 +260,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Anchor with icon",
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -251,14 +273,15 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             compact: true,
             icon: {
               icon: "download",
-              iconMode: "before",
             },
           },
         ],
       },
-    });
-
-    stories.add("tertiare button varianten", template, {
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+    TertiaireButtonVarianten: {
       args: {
         buttons: [
           {
@@ -275,8 +298,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Chevron",
             icon: {
               icon: "chevron-right",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "tertiary",
@@ -284,7 +307,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             disabled: true,
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -292,8 +314,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Extern",
             icon: {
               icon: "external-link",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "tertiary",
@@ -305,8 +327,8 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Download",
             icon: {
               icon: "download",
-              iconMode: "after",
             },
+            iconMode: "after",
           },
           {
             variant: "tertiary",
@@ -317,7 +339,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             label: "Anchor with icon",
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
           },
           {
@@ -331,21 +352,21 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
             compact: true,
             icon: {
               icon: "download",
-              iconMode: "before",
             },
           },
         ],
       },
-    });
-
-    stories.add("emphasized", template, {
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+    Emphasized: {
       args: {
         emphasized: true,
         buttons: [
           {
             icon: {
               icon: "chevron-left",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Naar project overzicht",
@@ -353,7 +374,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "redo",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Aanvullen",
@@ -361,7 +381,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "pencil",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Intrekken",
@@ -369,7 +388,6 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "trash",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Verwijderen",
@@ -377,15 +395,15 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
           {
             icon: {
               icon: "download",
-              iconMode: "before",
             },
             variant: "tertiary",
             label: "Download verzoek als PDF",
           },
         ],
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
+        buttonRowTemplate(buttonRowArgsMapper(args))
+      ),
+    },
+  };
 }

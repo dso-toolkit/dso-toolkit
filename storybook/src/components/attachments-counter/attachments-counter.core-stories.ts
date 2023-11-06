@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),
-  title: "Attachments Counter",
+  title: "Core/Attachments Counter",
 };
 
 export default meta;

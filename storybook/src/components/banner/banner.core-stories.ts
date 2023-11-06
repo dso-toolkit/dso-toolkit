@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -14,11 +14,11 @@ import {
   richInfoRichContent,
 } from "./banner.content";
 
-import readme from "@dso-toolkit/react/src/components/banner/readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/banner/readme.md?raw";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
-  title: "Banner",
+  title: "Core/Banner",
 };
 
 export default meta;
@@ -43,9 +43,9 @@ const {
       dangerRichContent: dangerRichContent(templates),
       errorRichContent: errorRichContent(templates),
       infoRichContent: infoRichContent(templates),
-      infoCompactNonRemovableRichContent,
+      infoCompactNonRemovableRichContent: infoCompactNonRemovableRichContent(templates),
       warningRichContent: warningRichContent(templates),
-      warningNonRemovableRichContent,
+      warningNonRemovableRichContent: warningNonRemovableRichContent(templates),
       richWarningRichContent: richWarningRichContent(templates),
       richInfoRichContent: richInfoRichContent(templates),
       dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),

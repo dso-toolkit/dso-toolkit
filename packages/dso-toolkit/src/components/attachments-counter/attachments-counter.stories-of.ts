@@ -1,39 +1,62 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import {
   AttachmentsCounterArgs,
-  attachmentsCounterArgsMapper,
   attachmentsCounterArgTypes,
+  attachmentsCounterArgsMapper,
 } from "./attachments-counter.args.js";
 import { AttachmentsCounter } from "./attachments-counter.models.js";
 
-export interface AttachmentsCounterTemplates<TemplateFnReturnType> {
-  attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type AttachmentsCounterStory = StoryObj<AttachmentsCounterArgs, Renderer>;
+
+interface AttachmentsCounterStories {
+  AttachmentsCounter: AttachmentsCounterStory;
 }
 
-export function storiesOfAttachmentsCounter<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface AttachmentsCounterStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     AttachmentsCounterTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Attachments Counter", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: attachmentsCounterArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<AttachmentsCounterArgs>((args, { attachmentsCounterTemplate }) =>
-      attachmentsCounterTemplate(attachmentsCounterArgsMapper(args))
-    );
+interface AttachmentsCounterTemplates<TemplateFnReturnType> {
+  attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;
+}
 
-    stories.add("Attachments Counter", template, {
+export function attachmentsCounterMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AttachmentsCounterArgs
+> {
+  return {
+    argTypes: attachmentsCounterArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function attachmentsCounterStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: AttachmentsCounterStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AttachmentsCounterStories {
+  return {
+    AttachmentsCounter: {
       args: {
         count: 3,
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { attachmentsCounterTemplate }) =>
+        attachmentsCounterTemplate(attachmentsCounterArgsMapper(args))
+      ),
+    },
+  };
 }

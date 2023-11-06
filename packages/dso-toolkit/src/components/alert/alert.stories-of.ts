@@ -1,9 +1,26 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AlertArgs, alertArgsMapper, alertArgTypes } from "./alert.args.js";
+import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
 import { Alert } from "./alert.models.js";
 
-export interface AlertTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type AlertStory = StoryObj<AlertArgs, Renderer>;
+
+interface AlertStories {
+  Success: AlertStory;
+  Info: AlertStory;
+  Warning: AlertStory;
+  Error: AlertStory;
+  WithHeadings: AlertStory;
+}
+
+interface AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, AlertTemplates<TemplateFnReturnType>> {}
+
+interface AlertTemplates<TemplateFnReturnType> {
   alertTemplate: (alertProperties: Alert<TemplateFnReturnType>) => TemplateFnReturnType;
   errorMessage: TemplateFnReturnType;
   infoMessage: TemplateFnReturnType;
@@ -12,90 +29,69 @@ export interface AlertTemplates<TemplateFnReturnType> {
   alertWithHeadingsContent: TemplateFnReturnType;
 }
 
-export function storiesOfAlert<Implementation, Templates, TemplateFnReturnType>(
-  storyFunctionArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AlertTemplates<TemplateFnReturnType>
-  >
-) {
-  return storiesOfFactory("Alert", storyFunctionArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: alertArgTypes,
-      args: {
-        withRoleAlert: false,
-        withButton: true,
-      },
-    });
+export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AlertArgs
+> {
+  return {
+    argTypes: alertArgTypes,
+    args: {
+      withButton: true,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "success",
-      templateMapper<AlertArgs>((args, { alertTemplate, successMessage }) =>
+export function alertStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AlertStories {
+  return {
+    Success: {
+      args: {
+        status: "success",
+      },
+      render: templateContainer.render(storyTemplates, (args, { alertTemplate, successMessage }) =>
         alertTemplate(alertArgsMapper(args, successMessage))
       ),
-      {
-        args: {
-          status: "success",
-        },
-      }
-    );
-
-    stories.add(
-      "info",
-      templateMapper<AlertArgs>((args, { alertTemplate, infoMessage }) =>
+    },
+    Info: {
+      args: {
+        status: "info",
+      },
+      render: templateContainer.render(storyTemplates, (args, { alertTemplate, infoMessage }) =>
         alertTemplate(alertArgsMapper(args, infoMessage))
       ),
-      {
-        args: {
-          status: "info",
-        },
-      }
-    );
-
-    stories.add(
-      "warning",
-      templateMapper<AlertArgs>((args, { alertTemplate, warningMessage }) =>
+    },
+    Warning: {
+      args: {
+        status: "warning",
+      },
+      render: templateContainer.render(storyTemplates, (args, { alertTemplate, warningMessage }) =>
         alertTemplate(alertArgsMapper(args, warningMessage))
       ),
-      {
-        args: {
-          status: "warning",
-        },
-      }
-    );
-
-    stories.add(
-      "error",
-      templateMapper<AlertArgs>((args, { alertTemplate, errorMessage }) =>
+    },
+    Error: {
+      args: {
+        status: "warning",
+      },
+      render: templateContainer.render(storyTemplates, (args, { alertTemplate, errorMessage }) =>
         alertTemplate(alertArgsMapper(args, errorMessage))
       ),
-      {
-        args: {
-          status: "error",
-        },
-      }
-    );
-
-    stories.add(
-      "with headings",
-      templateMapper<AlertArgs>((args, { alertTemplate, alertWithHeadingsContent }) =>
+    },
+    WithHeadings: {
+      args: {
+        status: "info",
+      },
+      render: templateContainer.render(storyTemplates, (args, { alertTemplate, alertWithHeadingsContent }) =>
         alertTemplate(alertArgsMapper(args, alertWithHeadingsContent))
       ),
-      {
-        argTypes: {
-          message: {
-            control: {
-              disable: true,
-            },
-          },
-        },
-        args: {
-          status: "info",
-        },
-      }
-    );
-
-    return stories;
-  });
+    },
+  };
 }
