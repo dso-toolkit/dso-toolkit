@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### Feature
+### Changed
 Headings: Responsive fontsize ([#2210](https://github.com/dso-toolkit/dso-toolkit/issues/2210))
 
 ## 🍂 62.2.2 - 06-11-2023
