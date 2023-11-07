@@ -16,6 +16,7 @@ export interface Selectable<TemplateFnReturnType> {
   dsoChange?: (e: SelectableChangeEvent) => void;
   info?: Info<TemplateFnReturnType>;
   slot?: string;
+  options?: Selectable<TemplateFnReturnType>[];
 }
 
 export interface SelectableChangeEvent {

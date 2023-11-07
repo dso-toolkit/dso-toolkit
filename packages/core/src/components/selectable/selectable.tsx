@@ -15,6 +15,11 @@ import clsx from "clsx";
 import { createIdentifier } from "../../utils/create-identifier";
 import { SelectableChangeEvent } from "./selectable.interfaces";
 
+/**
+ * @slot - The label for this control
+ * @slot info - Rich Content to be slotted in Info.
+ * @slot options - for further nested selectable options: `<ul class="dso-selectable-options" slot="options">` and wrap each Selectable in a `<li>`.
+ */
 @Component({
   tag: "dso-selectable",
   styleUrl: "selectable.scss",
@@ -168,7 +173,7 @@ export class Selectable {
 
     return (
       <Fragment>
-        <div class={clsx("dso-selectable-container", { "has-info-button": hasInfo })}>
+        <div class="dso-selectable-container">
           <div class={clsx("dso-selectable-input-wrapper", { "dso-keyboard-focus": this.keyboardFocus })}>
             <input
               type={this.type}
@@ -188,21 +193,19 @@ export class Selectable {
             />
             {!this.labelledById ? (
               <label htmlFor={this.getIdentifier()}>
-                <slot></slot>
+                <slot />
               </label>
             ) : (
-              <label></label>
+              <label>
+                <slot />
+              </label>
             )}
           </div>
-          {hasInfo && (
-            <Fragment>
-              {!this.infoFixed && (
-                <dso-info-button
-                  active={this.infoActive}
-                  onDsoToggle={(e) => (this.infoActive = e.detail.active)}
-                ></dso-info-button>
-              )}
-            </Fragment>
+          {hasInfo && !this.infoFixed && (
+            <dso-info-button
+              active={this.infoActive}
+              onDsoToggle={(e) => (this.infoActive = e.detail.active)}
+            ></dso-info-button>
           )}
         </div>
         {hasInfo && (
@@ -217,6 +220,7 @@ export class Selectable {
             </div>
           </dso-info>
         )}
+        <slot name="options" />
       </Fragment>
     );
   }

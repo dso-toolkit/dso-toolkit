@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Feature
 Headings: Responsive fontsize ([#2210](https://github.com/dso-toolkit/dso-toolkit/issues/2210))
 
+## 🍂 62.2.2 - 06-11-2023
+
+### Fixed
+* Accordion: Inhoud is al zichtbaar voordat de animatie klaar is ([#2420](https://github.com/dso-toolkit/dso-toolkit/issues/2420))
+* Selectable: Web Component implementatie heeft geen ondersteuning voor selectable options ([#2421](https://github.com/dso-toolkit/dso-toolkit/issues/2421))
+
 ### Changed
 * Ozon Content: Expliciete dependencies voor Web Componenten ([#2419](https://github.com/dso-toolkit/dso-toolkit/issues/2419))
 

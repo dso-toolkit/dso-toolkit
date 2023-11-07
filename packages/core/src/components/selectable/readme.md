@@ -45,6 +45,15 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot        | Description                                                                                                                       |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+|             | The label for this control                                                                                                        |
+| `"info"`    | Rich Content to be slotted in Info.                                                                                               |
+| `"options"` | for further nested selectable options: `<ul class="dso-selectable-options" slot="options">` and wrap each Selectable in a `<li>`. |
+
+
 ## Dependencies
 
 ### Used by

@@ -2,6 +2,7 @@ import { Selectable } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { ComponentImplementation } from "../../templates";
+import { when } from "lit-html/directives/when.js";
 
 export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
   component: "selectable",
@@ -20,10 +21,11 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
       checked,
       indeterminate,
       disabled,
+      options,
       dsoChange,
       info,
       slot,
-    }) {
+    }): TemplateResult {
       const ariaDescribedBy =
         [describedById, info?.fixed ? info.id : undefined].filter((id) => !!id).join(" ") || undefined;
 
@@ -50,13 +52,20 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             : html`<script>
                 document.getElementById("${id}").indeterminate = false;
               </script>`}
-          ${!labelledById ? html`<label for=${id}>${label}</label>` : html`<label></label>`}
+          ${!labelledById ? html`<label for=${id}>${label}</label>` : html`<label>${label}</label>`}
           ${info
             ? html`
                 ${!info.fixed ? infoButtonTemplate({ active: info.active }) : nothing}
                 ${info.active || info.fixed ? infoTemplate({ ...info, id: info ? describedById : undefined }) : nothing}
               `
             : nothing}
+          ${when(
+            options?.length,
+            () =>
+              html`<ul class="dso-selectable-options">
+                ${options?.map((option) => html`<li>${selectableTemplate(option)}</li>`)}
+              </ul>`
+          )}
         </div>
       `;
     },

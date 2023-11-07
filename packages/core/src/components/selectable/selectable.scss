@@ -3,7 +3,9 @@
 @use "~dso-toolkit/src/variables/units";
 
 :host {
-  @include selectable.root("dso-info", false);
+  @include selectable.root(false);
+
+  padding-inline-start: units.$u4;
 
   &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();
@@ -18,12 +20,6 @@
 
 .dso-selectable-container {
   display: inline-block;
-  position: relative;
-  padding-inline-start: units.$u4;
-
-  &.has-info-button {
-    padding-inline-end: units.$u4;
-  }
 
   .dso-selectable-input-wrapper {
     display: inline-block;
@@ -43,10 +39,4 @@
       }
     }
   }
-}
-
-dso-info-button {
-  position: absolute;
-  right: 0;
-  top: 0;
 }
