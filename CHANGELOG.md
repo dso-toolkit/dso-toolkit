@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Document Component: Mark en highlight functionaliteit ([#2386](https://github.com/dso-toolkit/dso-toolkit/issues/2386))
 
+### Fixed
+* Highlight Box: Stacking issue ([#2427](https://github.com/dso-toolkit/dso-toolkit/issues/2427))
+
 ## 🍂 62.2.2 - 06-11-2023
 
 ### Fixed
