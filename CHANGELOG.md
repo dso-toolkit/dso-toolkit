@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Document Component: Mark en highlight functionaliteit ([#2386](https://github.com/dso-toolkit/dso-toolkit/issues/2386))
+* Date Picker: vorige implementatie herintroduceren als "Date Picker Legacy" ([#2430](https://github.com/dso-toolkit/dso-toolkit/issues/2430))
 
 ### Fixed
 * Highlight Box: Stacking issue ([#2427](https://github.com/dso-toolkit/dso-toolkit/issues/2427))

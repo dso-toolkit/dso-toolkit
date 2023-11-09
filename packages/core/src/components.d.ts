@@ -13,6 +13,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -39,6 +40,7 @@ export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -286,6 +288,68 @@ export namespace Components {
           * Should the input be marked as required?
          */
         "required": boolean;
+        /**
+          * Date value. Must be in Dutch date format: DD-MM-YYYY.
+         */
+        "value": string;
+    }
+    interface DsoDatePickerLegacy {
+        /**
+          * ID of element that describes the input element
+         */
+        "describedBy"?: string;
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction": DsoDatePickerLegacyDirection;
+        /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled": boolean;
+        /**
+          * Should the input be focused on load?
+         */
+        "dsoAutofocus": boolean;
+        /**
+          * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
+         */
+        "hide": (moveFocusToButton?: boolean) => Promise<void>;
+        /**
+          * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
+         */
+        "identifier": string | undefined;
+        /**
+          * Is input invalid?
+         */
+        "invalid"?: boolean;
+        /**
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+         */
+        "max": string | undefined;
+        /**
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+         */
+        "min": string | undefined;
+        /**
+          * Name of the date picker input.
+         */
+        "name": string;
+        /**
+          * Should the input be marked as required?
+         */
+        "required": boolean;
+        /**
+          * Defines a specific role attribute for the date picker input.
+         */
+        "role": string | null;
+        /**
+          * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
+         */
+        "setFocus": () => Promise<void | undefined>;
+        /**
+          * Show the calendar modal, moving focus to the calendar inside.
+         */
+        "show": () => Promise<void>;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
@@ -937,6 +1001,10 @@ export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
 }
+export interface DsoDatePickerLegacyCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDatePickerLegacyElement;
+}
 export interface DsoDocumentComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDocumentComponentElement;
@@ -1101,6 +1169,12 @@ declare global {
     var HTMLDsoDatePickerElement: {
         prototype: HTMLDsoDatePickerElement;
         new (): HTMLDsoDatePickerElement;
+    };
+    interface HTMLDsoDatePickerLegacyElement extends Components.DsoDatePickerLegacy, HTMLStencilElement {
+    }
+    var HTMLDsoDatePickerLegacyElement: {
+        prototype: HTMLDsoDatePickerLegacyElement;
+        new (): HTMLDsoDatePickerLegacyElement;
     };
     interface HTMLDsoDocumentComponentElement extends Components.DsoDocumentComponent, HTMLStencilElement {
     }
@@ -1303,6 +1377,7 @@ declare global {
         "dso-card": HTMLDsoCardElement;
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
+        "dso-date-picker-legacy": HTMLDsoDatePickerLegacyElement;
         "dso-document-component": HTMLDsoDocumentComponentElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-expandable": HTMLDsoExpandableElement;
@@ -1616,6 +1691,76 @@ declare namespace LocalJSX {
           * Should the input be marked as required?
          */
         "required"?: boolean;
+        /**
+          * Date value. Must be in Dutch date format: DD-MM-YYYY.
+         */
+        "value"?: string;
+    }
+    interface DsoDatePickerLegacy {
+        /**
+          * ID of element that describes the input element
+         */
+        "describedBy"?: string;
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction"?: DsoDatePickerLegacyDirection;
+        /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled"?: boolean;
+        /**
+          * Should the input be focused on load?
+         */
+        "dsoAutofocus"?: boolean;
+        /**
+          * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
+         */
+        "identifier"?: string | undefined;
+        /**
+          * Is input invalid?
+         */
+        "invalid"?: boolean;
+        /**
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+         */
+        "max"?: string | undefined;
+        /**
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+         */
+        "min"?: string | undefined;
+        /**
+          * Name of the date picker input.
+         */
+        "name"?: string;
+        /**
+          * Event emitted the date picker input is blurred.
+         */
+        "onDsoBlur"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyFocusEvent>) => void;
+        /**
+          * Event emitted when a date is selected.
+         */
+        "onDsoDateChange"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyChangeEvent>) => void;
+        /**
+          * Event emitted the date picker input is focused.
+         */
+        "onDsoFocus"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyFocusEvent>) => void;
+        /**
+          * Event emitted on key down in the date picker input.
+         */
+        "onDsoKeyDown"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyKeyboardEvent>) => void;
+        /**
+          * Event emitted on key up in the date picker input.
+         */
+        "onDsoKeyUp"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyKeyboardEvent>) => void;
+        /**
+          * Should the input be marked as required?
+         */
+        "required"?: boolean;
+        /**
+          * Defines a specific role attribute for the date picker input.
+         */
+        "role"?: string | null;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
@@ -2378,6 +2523,7 @@ declare namespace LocalJSX {
         "dso-card": DsoCard;
         "dso-card-container": DsoCardContainer;
         "dso-date-picker": DsoDatePicker;
+        "dso-date-picker-legacy": DsoDatePickerLegacy;
         "dso-document-component": DsoDocumentComponent;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-expandable": DsoExpandable;
@@ -2429,6 +2575,7 @@ declare module "@stencil/core" {
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
+            "dso-date-picker-legacy": LocalJSX.DsoDatePickerLegacy & JSXBase.HTMLAttributes<HTMLDsoDatePickerLegacyElement>;
             "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
