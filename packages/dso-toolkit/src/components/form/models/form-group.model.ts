@@ -1,6 +1,7 @@
 import { FormGroupCheckboxes } from "./form-group-checkboxes.model.js";
 import { FormGroupConfirm } from "./form-group-confirm.model.js";
 import { FormGroupDatePicker } from "./form-group-date-picker.model.js";
+import { FormGroupDatePickerLegacy } from "./form-group-date-picker-legacy.model.js";
 import { FormGroupFiles } from "./form-group-files.model.js";
 import { FormGroupInput, FormGroupInputDate } from "./form-group-input.model.js";
 import { FormGroupInputNumber } from "./form-group-input-number.model.js";
@@ -18,6 +19,7 @@ export type FormGroup<TemplateFnReturnType> =
   | FormGroupInput<TemplateFnReturnType>
   | FormGroupInputNumber<TemplateFnReturnType>
   | FormGroupInputDate<TemplateFnReturnType>
+  | FormGroupDatePickerLegacy<TemplateFnReturnType>
   | FormGroupRadios<TemplateFnReturnType>
   | FormGroupSearchBar<TemplateFnReturnType>
   | FormGroupSelect<TemplateFnReturnType>

@@ -23,6 +23,7 @@ import {
   ComponentsToTemplates,
   Context,
   DatePicker,
+  DatePickerLegacy,
   DefinitionList,
   Description,
   DocumentComponent,
@@ -36,6 +37,7 @@ import {
   FormGroupCheckboxes,
   FormGroupConfirm,
   FormGroupDatePicker,
+  FormGroupDatePickerLegacy,
   FormGroupFiles,
   FormGroupInput,
   FormGroupInputDate,
@@ -121,6 +123,7 @@ import { coreAutosuggest } from "./components/autosuggest/autosuggest.core-templ
 import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
+import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
@@ -175,6 +178,7 @@ import { cssForm } from "./components/form/form.css-template";
 import { cssFormGroupCheckboxes } from "./components/form/form-group-checkboxes.css-template";
 import { cssFormGroupConfirm } from "./components/form/form-group-confirm.css-template";
 import { cssFormGroupDatePicker } from "./components/form/form-group-date-picker.css-template";
+import { cssFormGroupDatePickerLegacy } from "./components/form/form-group-date-picker-legacy.css-template";
 import { cssFormGroupFiles } from "./components/form/form-group-files.css-template";
 import { cssFormGroupInputNumber } from "./components/form/form-group-input-number.css-template";
 import { cssFormGroupInput } from "./components/form/form-group-input.css-template";
@@ -216,6 +220,7 @@ export interface Components {
   cardContainer: CardContainer<TemplateResult>;
   context: Context<TemplateResult>;
   datePicker: DatePicker;
+  datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
   documentComponent: DocumentComponent<TemplateResult>;
@@ -231,6 +236,7 @@ export interface Components {
   formGroupCheckboxes: FormGroupCheckboxes<TemplateResult>;
   formGroupConfirm: FormGroupConfirm<TemplateResult>;
   formGroupDatePicker: FormGroupDatePicker<TemplateResult>;
+  formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateResult>;
   formGroupFiles: FormGroupFiles<TemplateResult>;
   formGroupInput: FormGroupInput<TemplateResult> | FormGroupInputDate<TemplateResult>;
   formGroupInputNumber: FormGroupInputNumber<TemplateResult>;
@@ -321,6 +327,7 @@ templateContainer.add(coreBanner);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
+templateContainer.add(coreDatePickerLegacy);
 templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
@@ -377,6 +384,7 @@ templateContainer.add(cssFormGroup);
 templateContainer.add(cssFormGroupCheckboxes);
 templateContainer.add(cssFormGroupConfirm);
 templateContainer.add(cssFormGroupDatePicker);
+templateContainer.add(cssFormGroupDatePickerLegacy);
 templateContainer.add(cssFormGroupFiles);
 templateContainer.add(cssFormGroupInput);
 templateContainer.add(cssFormGroupInputNumber);

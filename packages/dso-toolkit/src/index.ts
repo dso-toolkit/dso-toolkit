@@ -88,6 +88,13 @@ export {
   storiesOfDatePicker,
 } from "./components/date-picker/date-picker.stories-of.js";
 
+export { DatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.models.js";
+export {
+  DatePickerLegacyParameters,
+  DatePickerLegacyTemplates,
+  storiesOfDatePickerLegacy,
+} from "./components/date-picker-legacy/date-picker-legacy.stories-of.js";
+
 export {
   Definition,
   DefinitionDescriptionContent,
@@ -143,6 +150,7 @@ export {
   FormGroupCheckboxes,
   FormGroupConfirm,
   FormGroupDatePicker,
+  FormGroupDatePickerLegacy,
   FormGroupFiles,
   FormGroupFilesFile,
   FormGroupInput,

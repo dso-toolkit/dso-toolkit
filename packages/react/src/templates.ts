@@ -14,6 +14,7 @@ import {
   CardContainer,
   ComponentsToTemplates,
   DatePicker,
+  DatePickerLegacy,
   DropdownMenu,
   Expandable,
   Header,
@@ -54,6 +55,7 @@ import { reactBanner } from "./components/banner/banner.react-template";
 import { reactCard } from "./components/card/card.react-template";
 import { reactCardContainer } from "./components/card-container/card-container.react-template";
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
+import { reactDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
 import { reactExpandable } from "./components/expandable/expandable.react-template";
 import { reactHeader } from "./components/header/header.react-template";
@@ -93,6 +95,7 @@ export interface Components {
   card: Card<JSX.Element>;
   cardContainer: CardContainer<JSX.Element>;
   datePicker: DatePicker;
+  datePickerLegacy: DatePickerLegacy;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<JSX.Element>;
   header: Header;
@@ -138,6 +141,7 @@ templateContainer.add(reactBanner);
 templateContainer.add(reactCard);
 templateContainer.add(reactCardContainer);
 templateContainer.add(reactDatePicker);
+templateContainer.add(reactDatePickerLegacy);
 templateContainer.add(reactDropdownMenu);
 templateContainer.add(reactExpandable);
 templateContainer.add(reactHeader);
