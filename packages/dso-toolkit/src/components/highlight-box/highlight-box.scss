@@ -9,6 +9,8 @@
   @include highlight-box.root();
   @include highlight-box.children();
   container-type: inline-size;
+  position: relative;
+  z-index: 1;
 
   &.dso-yellow,
   &:not(.dso-border):not(.dso-white) {
