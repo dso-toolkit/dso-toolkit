@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⛑️ 62.3.1 - 10-11-2023
+
+### Fixed
+* Accordion: Scrollen in non-static gepositioneerd element geeft onverwacht gedrag ([#2434](https://github.com/dso-toolkit/dso-toolkit/issues/2434))
+
 ## 🐜 62.3.0 - 10-11-2023
 
 ### Added
