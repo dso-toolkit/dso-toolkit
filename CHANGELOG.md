@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍬 62.3.2 - 13-11-2023
+
+### Fixed
+* Viewer Grid: Geen sizing buttons bij VDK, alleen toggle buttons als documentPanel is geopend ([#2425](https://github.com/dso-toolkit/dso-toolkit/issues/2425))
+
 ## ⛑️ 62.3.1 - 10-11-2023
 
 ### Fixed
