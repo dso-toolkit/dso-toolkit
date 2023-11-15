@@ -4,7 +4,8 @@ import { NavbarArgs, navbarArgsMapper, navbarArgTypes } from "./navbar.args.js";
 import { Navbar } from "./navbar.models.js";
 
 export interface NavbarTemplates<TemplateFnReturnType> {
-  navbarTemplate: (navbarProperties: Navbar) => TemplateFnReturnType;
+  navbarTemplate: (navbarProperties: Navbar<TemplateFnReturnType>) => TemplateFnReturnType;
+  extension: TemplateFnReturnType;
 }
 
 export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>(
@@ -18,7 +19,7 @@ export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>
   return storiesOfFactory("Navbar", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: navbarArgTypes,
-      args: componentArgs<NavbarArgs>({
+      args: componentArgs<Omit<NavbarArgs, "extension" | "extensionOpen" | "dsoExtensionToggle">>({
         open: false,
         modifier: "",
         items: [],
@@ -56,26 +57,41 @@ export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>
       }),
     });
 
-    stories.add("secondary", template, {
-      args: componentArgs<Pick<NavbarArgs, "modifier" | "items">>({
-        modifier: "sub",
-        items: [
-          {
-            label: "Deze locatie",
-            active: true,
-            href: "#",
-          },
-          {
-            label: "Regels",
-            href: "#",
-          },
-          {
-            label: "Overige informatie",
-            href: "#",
-          },
-        ],
-      }),
+    const secondaryArgs = componentArgs<Pick<NavbarArgs, "modifier" | "items">>({
+      modifier: "sub",
+      items: [
+        {
+          label: "Deze locatie",
+          active: true,
+          href: "#",
+        },
+        {
+          label: "Regels",
+          href: "#",
+        },
+        {
+          label: "Overige informatie",
+          href: "#",
+        },
+      ],
     });
+
+    stories.add("secondary", template, {
+      args: secondaryArgs,
+    });
+
+    stories.add(
+      "with extension",
+      templateMapper<NavbarArgs>((args, { navbarTemplate, extension }) =>
+        navbarTemplate(navbarArgsMapper(args, extension))
+      ),
+      {
+        args: {
+          ...secondaryArgs,
+          extensionOpen: true,
+        },
+      }
+    );
 
     return stories;
   });

@@ -89,6 +89,7 @@ import {
   ViewerGrid,
   Whitebox,
   Logo,
+  MarkBar,
 } from "dso-toolkit";
 
 import { TemplateResult } from "lit-html";
@@ -197,6 +198,7 @@ import { cssRichContent } from "./components/rich-content/rich-content.css-templ
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
+import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
@@ -262,8 +264,9 @@ export interface Components {
   list: List;
   logo: Logo;
   mapControls: MapControls;
+  markBar: MarkBar;
   modal: Modal<TemplateResult>;
-  navbar: Navbar;
+  navbar: Navbar<TemplateResult>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
@@ -342,6 +345,7 @@ templateContainer.add(coreLabel);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
+templateContainer.add(coreMarkBar);
 templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);

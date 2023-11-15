@@ -23,6 +23,7 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
+import { MarkBarClearEvent, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -50,6 +51,7 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
+export { MarkBarClearEvent, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -685,6 +687,24 @@ export namespace Components {
          */
         "overlays": Overlay[];
     }
+    interface DsoMarkBar {
+        /**
+          * The current (one-based) highlighted search item.
+         */
+        "current"?: number;
+        /**
+          * The label for the input field.
+         */
+        "label": string;
+        /**
+          * Total number of search results.
+         */
+        "totalCount"?: number;
+        /**
+          * The current search value.
+         */
+        "value"?: string;
+    }
     interface DsoModal {
         /**
           * when set the modal will be shown in fullscreen.
@@ -1045,6 +1065,10 @@ export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapOverlaysElement;
 }
+export interface DsoMarkBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMarkBarElement;
+}
 export interface DsoModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoModalElement;
@@ -1272,6 +1296,12 @@ declare global {
         prototype: HTMLDsoMapOverlaysElement;
         new (): HTMLDsoMapOverlaysElement;
     };
+    interface HTMLDsoMarkBarElement extends Components.DsoMarkBar, HTMLStencilElement {
+    }
+    var HTMLDsoMarkBarElement: {
+        prototype: HTMLDsoMarkBarElement;
+        new (): HTMLDsoMarkBarElement;
+    };
     interface HTMLDsoModalElement extends Components.DsoModal, HTMLStencilElement {
     }
     var HTMLDsoModalElement: {
@@ -1394,6 +1424,7 @@ declare global {
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
+        "dso-mark-bar": HTMLDsoMarkBarElement;
         "dso-modal": HTMLDsoModalElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
@@ -2154,6 +2185,40 @@ declare namespace LocalJSX {
          */
         "overlays": Overlay[];
     }
+    interface DsoMarkBar {
+        /**
+          * The current (one-based) highlighted search item.
+         */
+        "current"?: number;
+        /**
+          * The label for the input field.
+         */
+        "label"?: string;
+        /**
+          * Emitted when user activates "clear search result" button.
+         */
+        "onDsoClear"?: (event: DsoMarkBarCustomEvent<MarkBarClearEvent>) => void;
+        /**
+          * Emitted each time the user types in the search field.
+         */
+        "onDsoInput"?: (event: DsoMarkBarCustomEvent<MarkBarInputEvent>) => void;
+        /**
+          * Emitted when user activates "next search result" button.
+         */
+        "onDsoNext"?: (event: DsoMarkBarCustomEvent<MarkBarPaginationEvent>) => void;
+        /**
+          * Emitted when user activates "previous search result" button.
+         */
+        "onDsoPrevious"?: (event: DsoMarkBarCustomEvent<MarkBarPaginationEvent>) => void;
+        /**
+          * Total number of search results.
+         */
+        "totalCount"?: number;
+        /**
+          * The current search value.
+         */
+        "value"?: string;
+    }
     interface DsoModal {
         /**
           * when set the modal will be shown in fullscreen.
@@ -2540,6 +2605,7 @@ declare namespace LocalJSX {
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
+        "dso-mark-bar": DsoMarkBar;
         "dso-modal": DsoModal;
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
@@ -2592,6 +2658,7 @@ declare module "@stencil/core" {
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
+            "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;

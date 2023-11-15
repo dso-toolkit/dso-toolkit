@@ -1,0 +1,130 @@
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/zindex";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/components/form-control";
+@use "~dso-toolkit/src/components/button/button";
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+$height: units.$ru5;
+$focus-border-width: 1px;
+
+.dso-mark-bar {
+  display: flex;
+  flex-grow: 1;
+  margin-block: units.$u1;
+
+  .dso-mark-bar-input {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    label {
+      bottom: units.$u1;
+      height: $height;
+      left: 0;
+      padding: units.$u1;
+      position: absolute;
+      top: 0;
+
+      dso-icon {
+        color: colors.$grasgroen;
+      }
+    }
+
+    input {
+      @include utilities.placeholder(colors.$input-color-placeholder);
+
+      background-color: colors.$wit;
+      background-image: none;
+      border: 1px solid form-control.$focus-border-color;
+      border-radius: 4px;
+      border-width: 1px;
+      box-shadow: none;
+      display: block;
+      font-size: typography.$root-font-size-base;
+      height: $height;
+      line-height: $height;
+      padding: 6px $height 6px units.$u1;
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      width: 100%;
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+      border-inline-end: 0;
+      padding-left: $height;
+
+      &:focus {
+        border-color: form-control.$focus-border-color;
+        box-shadow: inset 0 0 0 form-control.$focus-border-width form-control.$focus-border-color;
+        outline: 0;
+      }
+
+      &::-ms-clear {
+        display: none;
+      }
+    }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      color: colors.$grasgroen;
+      font-size: 0;
+      height: $height;
+      padding: units.$u1;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: $height;
+    }
+  }
+}
+
+.dso-button-container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: units.$u1;
+  flex-shrink: 0;
+
+  padding-inline: units.$u1;
+
+  background-color: colors.$wit;
+
+  border: 1px solid colors.$bosgroen;
+  border-inline-start: 0;
+  border-start-end-radius: scaffolding.$border-radius-base;
+  border-end-end-radius: scaffolding.$border-radius-base;
+
+  button {
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: colors.$grasgroen;
+
+    &:disabled {
+      color: colors.$grijs-20;
+    }
+  }
+
+  .divider {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: units.$u1;
+    inset-block-end: units.$u1;
+
+    inline-size: 1px;
+
+    background-color: colors.$grijs-20;
+  }
+}
