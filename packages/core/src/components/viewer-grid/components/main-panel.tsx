@@ -42,9 +42,9 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
     }}
   >
     {!tabView &&
-      (((mode === "vrk" || (documentPanelOpen && !mainPanelExpanded)) && (
+      ((mode === "vrk" && (
         <SizingButtons
-          panelLabel={mode === "vdk" ? "Zoeken paneel" : "Hoofdpaneel"}
+          panelLabel="Hoofdpaneel"
           size={mainSize}
           expand={expandMain}
           shrink={shrinkMain}
@@ -54,9 +54,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
         (mode === "vdk" && documentPanelOpen && (
           <div class="toggle-button">
             <button type="button" onClick={toggleMainPanel}>
-              <span class="sr-only">
-                {mode === "vdk" ? "Zoeken paneel" : "Hoofdpaneel"} {mainPanelHidden ? "Tonen" : "Verbergen"}
-              </span>
+              <span class="sr-only">Zoeken paneel {mainPanelHidden ? "tonen" : "verbergen"}</span>
               <dso-icon icon={mainPanelHidden ? "chevron-right" : "chevron-left"}></dso-icon>
             </button>
           </div>

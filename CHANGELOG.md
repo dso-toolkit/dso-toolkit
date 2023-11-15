@@ -8,6 +8,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 Headings: Responsive fontsize ([#2210](https://github.com/dso-toolkit/dso-toolkit/issues/2210))
 
+## 🍬 62.3.2 - 13-11-2023
+
+### Fixed
+* Viewer Grid: Geen sizing buttons bij VDK, alleen toggle buttons als documentPanel is geopend ([#2425](https://github.com/dso-toolkit/dso-toolkit/issues/2425))
+
+## ⛑️ 62.3.1 - 10-11-2023
+
+### Fixed
+* Accordion: Scrollen in non-static gepositioneerd element geeft onverwacht gedrag ([#2434](https://github.com/dso-toolkit/dso-toolkit/issues/2434))
+
+## 🐜 62.3.0 - 10-11-2023
+
+### Added
+* Document Component: Mark en highlight functionaliteit ([#2386](https://github.com/dso-toolkit/dso-toolkit/issues/2386))
+* Date Picker: vorige implementatie herintroduceren als "Date Picker Legacy" ([#2430](https://github.com/dso-toolkit/dso-toolkit/issues/2430))
+* Accordion: AccordionSection.scrollIntoView() voorzien van logging ([#2431](https://github.com/dso-toolkit/dso-toolkit/issues/2431))
+
+### Fixed
+* Highlight Box: Stacking issue ([#2427](https://github.com/dso-toolkit/dso-toolkit/issues/2427))
+
 ## 🍂 62.2.2 - 06-11-2023
 
 ### Fixed

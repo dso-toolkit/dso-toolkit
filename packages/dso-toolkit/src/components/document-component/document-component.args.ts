@@ -7,6 +7,7 @@ import {
   DocumentComponentWijzigActie,
 } from "./document-component.models";
 import { HandlerFunction } from "@storybook/addon-actions/*";
+import escapeStringRegexp from "escape-string-regexp";
 
 export interface DocumentComponentArgs {
   alternativeTitle?: string;
@@ -14,6 +15,7 @@ export interface DocumentComponentArgs {
   bevatOntwerpInformatie: boolean;
   dsoAnnotationToggle: HandlerFunction;
   dsoToggle: HandlerFunction;
+  dsoMarkItemHighlight: HandlerFunction;
   filtered: boolean;
   genesteOntwerpInformatie: boolean;
   gereserveerd: boolean;
@@ -29,9 +31,13 @@ export interface DocumentComponentArgs {
   type: DocumentComponentType;
   vervallen: boolean;
   wijzigactie: DocumentComponentWijzigActie | undefined;
+  mark?: string;
 }
 
-export const documentComponentArgs: Omit<DocumentComponentArgs, "dsoAnnotationToggle" | "dsoToggle"> = {
+export const documentComponentArgs: Omit<
+  DocumentComponentArgs,
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight"
+> = {
   annotated: true,
   bevatOntwerpInformatie: true,
   filtered: true,
@@ -75,6 +81,9 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   },
   dsoToggle: {
     action: "dsoToggle",
+  },
+  dsoMarkItemHighlight: {
+    action: "dsoMarkItemHighlight",
   },
   filtered: {
     control: {
@@ -154,12 +163,33 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "text",
     },
   },
+  mark: {
+    control: {
+      type: "text",
+    },
+  },
 };
 
 export function documentComponentMapper<TemplateFnReturnType>(
   a: DocumentComponentArgs
 ): DocumentComponent<TemplateFnReturnType> {
+  const { mark } = a;
+
+  let highlighted = false;
+
   return {
     ...a,
+    mark: mark
+      ? (text) =>
+          text
+            .split(new RegExp(`(${escapeStringRegexp(mark)})`, "gi"))
+            .map((item, index) =>
+              isOdd(index) ? { text: item, highlight: !highlighted && (highlighted = true) } : item
+            )
+      : undefined,
   };
+}
+
+function isOdd(n: number): boolean {
+  return Math.abs(n % 2) === 1;
 }

@@ -1313,7 +1313,7 @@ export const content = [
                   </row>
                   <row>
                     <entry align="left" nameend="col2" namest="col2">
-                      <Al>Tabelcel met enkele alinea</Al>
+                      <Al>Tabelcel met unieke alinea</Al>
                     </entry>
                     <entry align="left" nameend="col3" namest="col3">
                       <Al>Tabelcel met meerdere alinea's.</Al>

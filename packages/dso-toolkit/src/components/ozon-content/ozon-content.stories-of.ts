@@ -27,7 +27,7 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
 
     content.forEach((story) => {
       stories.add(story.title, template, {
-        args: componentArgs<Omit<OzonContentArgs, "dsoAnchorClick" | "dsoClick">>({
+        args: componentArgs<Omit<OzonContentArgs, "dsoAnchorClick" | "dsoClick" | "dsoOzonContentMarkItemHighlight">>({
           content: story.content,
           inline: false,
           ...story.args,
