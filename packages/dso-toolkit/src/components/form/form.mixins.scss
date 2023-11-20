@@ -1,10 +1,16 @@
-@use "form.variables" as css-form-variables;
+@use "config";
 
 @mixin form-group-required {
-  color: css-form-variables.$required-color;
-  content: css-form-variables.$required-string;
-  font-size: 0.85em;
-  font-style: italic;
-  font-weight: 400;
-  margin-left: 4px;
+  content: "";
+
+  display: inline-block;
+
+  inline-size: 1rem;
+  block-size: 1rem;
+
+  margin-inline-start: 4px;
+
+  background-image: url("#{config.$icons-path}dso-icons.svg#img-asterisk");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
