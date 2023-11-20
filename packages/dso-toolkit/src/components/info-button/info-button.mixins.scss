@@ -16,12 +16,17 @@
 
 @mixin controlLabelSibling() {
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    margin-top: #{units.$u1 - 1};
+    margin-block-start: #{units.$u1 - 1};
 
     .dso-radios &,
     .dso-checkboxes &,
-    .dso-files & {
-      margin-top: 0;
+    .dso-files &,
+    .dso-input-text &,
+    .dso-form-group-search-bar &,
+    .dso-select &,
+    .dso-static &,
+    .dso-textarea & {
+      margin-block-start: 0;
     }
   }
 }
