@@ -1,17 +1,26 @@
 import { Navbar, NavbarItem } from "dso-toolkit";
 
-import { html, nothing } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { ComponentImplementation } from "../../templates";
+import { when } from "lit-html/directives/when.js";
 
-export const cssNavbar: ComponentImplementation<Navbar> = {
+export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
   component: "navbar",
   implementation: "html-css",
   template: ({ iconTemplate, anchorTemplate }) =>
-    function navbarTemplate({ items, modifier, open }) {
+    function navbarTemplate({
+      items,
+      modifier,
+      open,
+      extension,
+      extensionOpen,
+      dsoExtensionToggle,
+      extensionAnimation,
+    }) {
       return html`
-        <nav class="dso-navbar ${classMap({ "dso-open": !!open })}">
+        <nav class="dso-navbar ${classMap({ "dso-open": !!open, "dso-has-navbar-extension": !!extension })}">
           ${modifier === "main"
             ? html`
                 <div class="dso-navbar-header">
@@ -40,6 +49,37 @@ export const cssNavbar: ComponentImplementation<Navbar> = {
             )}
           </ul>
         </nav>
+        ${when(
+          extension,
+          () => html`<div class="dso-navbar-extension ${classMap({ "dso-animate": !!extensionAnimation })}">
+            <button
+              type="button"
+              class="dso-navbar-extension-expand-button ${classMap({ "dso-active": !!extensionOpen })}"
+              aria-controls="expand-container"
+              aria-expanded=${!!extensionOpen}
+              @click=${ifDefined(
+                dsoExtensionToggle
+                  ? (e: MouseEvent) =>
+                      dsoExtensionToggle({ current: !!extensionOpen, next: !extensionOpen, originalEvent: e })
+                  : undefined
+              )}
+            >
+              ${when(
+                !extensionOpen,
+                () => html`${iconTemplate({ icon: "search" })}Zoeken`,
+                () => html`${iconTemplate({ icon: "times" })}Stoppen`
+              )}
+            </button>
+            ${when(
+              extensionOpen,
+              () => html`
+                <div class="dso-navbar-extension-container" id="expand-container">
+                  <div class="dso-navbar-extension-content">${extension}</div>
+                </div>
+              `
+            )}
+          </div>`
+        )}
       `;
     },
 };

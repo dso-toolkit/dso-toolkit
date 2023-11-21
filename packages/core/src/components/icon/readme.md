@@ -30,6 +30,7 @@
  - [dso-label](../label)
  - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
+ - [dso-mark-bar](../mark-bar)
  - [dso-modal](../modal)
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
@@ -55,6 +56,7 @@ graph TD;
   dso-label --> dso-icon
   dso-list-button --> dso-icon
   dso-map-controls --> dso-icon
+  dso-mark-bar --> dso-icon
   dso-modal --> dso-icon
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon

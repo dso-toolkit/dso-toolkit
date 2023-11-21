@@ -12,5 +12,8 @@ storiesOfNavbar({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ navbarTemplate }) => ({ navbarTemplate }),
+  storyTemplates: ({ navbarTemplate, markBarTemplate }) => ({
+    navbarTemplate,
+    extension: markBarTemplate({ current: 1, totalCount: 10 }),
+  }),
 });

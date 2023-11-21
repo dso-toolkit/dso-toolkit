@@ -28,12 +28,20 @@
         display: none;
       }
     }
+
+    &.dso-has-navbar-extension {
+      .dso-nav {
+        > li:last-child {
+          margin-inline-end: 8rem;
+        }
+      }
+    }
   }
 
   .dso-nav {
     list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
 
     > li {
       > a,
