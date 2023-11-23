@@ -54,7 +54,7 @@
     "rxjs": "~7.8.1",
     "storybook": "7.5.3",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.2",
+    "typescript": "<5.3.0",
     "wait-on": "^7.0.1",
     "webpack": "^5.88.2",
     "zone.js": "~0.14.2"
