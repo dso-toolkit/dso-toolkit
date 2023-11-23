@@ -5,6 +5,7 @@ import angleDown from "dso-toolkit/src/icons/angle-down.svg";
 import angleLeft from "dso-toolkit/src/icons/angle-left.svg";
 import angleRight from "dso-toolkit/src/icons/angle-right.svg";
 import angleUp from "dso-toolkit/src/icons/angle-up.svg";
+import asterisk from "dso-toolkit/src/icons/asterisk.svg";
 import balloon from "dso-toolkit/src/icons/balloon.svg";
 import bars from "dso-toolkit/src/icons/bars.svg";
 import buildings from "dso-toolkit/src/icons/buildings.svg";
@@ -104,6 +105,7 @@ const icons = [
   { alias: "angle-left", svg: angleLeft },
   { alias: "angle-right", svg: angleRight },
   { alias: "angle-up", svg: angleUp },
+  { alias: "asterisk", svg: asterisk },
   { alias: "balloon", svg: balloon },
   { alias: "bars", svg: bars },
   { alias: "buildings", svg: buildings },
