@@ -50,7 +50,7 @@ export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
         url: "#",
       },
       render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
-        anchorTemplate(anchorArgsMapper(args))
+        anchorTemplate(anchorArgsMapper(args)),
       ),
     },
     DownloadLink: {
@@ -60,7 +60,7 @@ export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
         mode: "download",
       },
       render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
-        anchorTemplate(anchorArgsMapper(args))
+        anchorTemplate(anchorArgsMapper(args)),
       ),
     },
     ExternalLink: {
@@ -70,7 +70,7 @@ export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
         mode: "extern",
       },
       render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
-        anchorTemplate(anchorArgsMapper(args))
+        anchorTemplate(anchorArgsMapper(args)),
       ),
     },
     LinkWithIcon: {
@@ -80,7 +80,7 @@ export function anchorStories<Implementation, Templates, TemplateFnReturnType>({
         icon: "search",
       },
       render: templateContainer.render(storyTemplates, (args, { anchorTemplate }) =>
-        anchorTemplate(anchorArgsMapper(args))
+        anchorTemplate(anchorArgsMapper(args)),
       ),
     },
   };

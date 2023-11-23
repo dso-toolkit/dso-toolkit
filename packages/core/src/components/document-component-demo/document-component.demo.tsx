@@ -110,10 +110,10 @@ export class DocumentComponentDemo implements ComponentInterface {
 
   private selectRandomDocumentComponents(
     documentComponent: DocumentComponent,
-    exclude: DocumentComponent[] = []
+    exclude: DocumentComponent[] = [],
   ): DocumentComponent[] {
     const documentComponents = this.concatEmbeddedDocumentComponents(documentComponent).filter(
-      (d) => !exclude.includes(d)
+      (d) => !exclude.includes(d),
     );
     const size = random(0, Math.floor(documentComponents.length / 10));
 
@@ -129,7 +129,7 @@ export class DocumentComponentDemo implements ComponentInterface {
 
     const data = await fetch(this.jsonFile).then((r) => r.json());
     const lichaam = this.getEmbeddedDocumentComponents(data)?.find(
-      (documentComponent) => documentComponent.type === "LICHAAM"
+      (documentComponent) => documentComponent.type === "LICHAAM",
     );
 
     if (lichaam) {
@@ -142,7 +142,7 @@ export class DocumentComponentDemo implements ComponentInterface {
 
   private handleOpenToggle(
     _e: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>,
-    documentComponent: DocumentComponent
+    documentComponent: DocumentComponent,
   ) {
     const isOpenOrClosed = this.openOrClosed.includes(documentComponent);
 
@@ -168,7 +168,7 @@ export class DocumentComponentDemo implements ComponentInterface {
   }
 
   private handleOzonContentAnchorClick(
-    e: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>
+    e: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
   ) {
     this.dsotOzonContentAnchorClick.emit(e.detail);
   }
@@ -205,7 +205,7 @@ export class DocumentComponentDemo implements ComponentInterface {
   private hasNestedDraft(documentComponent: DocumentComponent): boolean {
     return (
       this.getEmbeddedDocumentComponents(documentComponent)?.some(
-        (d) => !!d.bevatOntwerpInformatie || this.hasNestedDraft(d)
+        (d) => !!d.bevatOntwerpInformatie || this.hasNestedDraft(d),
       ) ?? false
     );
   }

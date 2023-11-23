@@ -10,7 +10,7 @@ examplePageFactory(
   "Row Equal Heights",
   (
     { highlightBoxTemplate, richContentTemplate, rowEqualHeightsTemplate, tileTemplate, whiteboxTemplate },
-    templates
+    templates,
   ) => {
     const shortTile = () =>
       html`${tileTemplate({ label: "Kort verhaal", anchor: "#", image: { alt: "", source: "images/icon-tree.png" } })}`;
@@ -133,5 +133,5 @@ examplePageFactory(
         ${footerPartial(templates)}
       </div>
     `;
-  }
+  },
 );

@@ -23,7 +23,7 @@ export function storiesOfRowEqualHeights<Implementation, Templates, TemplateFnRe
     TemplateFnReturnType,
     RowEqualHeightsTemplates<TemplateFnReturnType>
   >,
-  { decorator }: RowEqualHeightsParameters<TemplateFnReturnType>
+  { decorator }: RowEqualHeightsParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Row Equal Heights", storiesOfArguments, (stories, templateMapper) => {
     stories
@@ -36,17 +36,17 @@ export function storiesOfRowEqualHeights<Implementation, Templates, TemplateFnRe
 
     stories.add(
       "highlight boxes",
-      templateMapper((_args, { highlightBoxExample }) => highlightBoxExample(highlightBoxes))
+      templateMapper((_args, { highlightBoxExample }) => highlightBoxExample(highlightBoxes)),
     );
 
     stories.add(
       "tiles",
-      templateMapper((_args, { tileExample }) => tileExample(tiles))
+      templateMapper((_args, { tileExample }) => tileExample(tiles)),
     );
 
     stories.add(
       "whiteboxes",
-      templateMapper((_args, { whiteboxExample }) => whiteboxExample(whiteboxes))
+      templateMapper((_args, { whiteboxExample }) => whiteboxExample(whiteboxes)),
     );
 
     return stories;

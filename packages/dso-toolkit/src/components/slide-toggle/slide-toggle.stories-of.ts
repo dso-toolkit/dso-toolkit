@@ -18,7 +18,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     SlideToggleTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Slide Toggle", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -27,7 +27,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<SlideToggleArgs>((args, { slideToggleTemplate }) =>
-      slideToggleTemplate(slideToggleArgsMapper(args))
+      slideToggleTemplate(slideToggleArgsMapper(args)),
     );
 
     stories.add("default", template, {

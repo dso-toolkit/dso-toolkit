@@ -24,21 +24,22 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               open,
               status,
               statusDescription,
-            }) => html`<dso-accordion-section
-              ?open=${open}
-              handle-title=${handleTitle}
-              heading=${heading}
-              handle-url=${ifDefined(handleUrl)}
-              statusDescription=${ifDefined(statusDescription)}
-              status=${ifDefined(status)}
-              icon=${ifDefined(icon)}
-              attachment-count=${ifDefined(attachmentCount)}
-              @dsoToggleClick=${dsoToggleClick}
-              @dsoAnimationStart=${dsoAnimationStart}
-              @dsoAnimationEnd=${dsoAnimationEnd}
-            >
-              ${content}
-            </dso-accordion-section>`
+            }) =>
+              html`<dso-accordion-section
+                ?open=${open}
+                handle-title=${handleTitle}
+                heading=${heading}
+                handle-url=${ifDefined(handleUrl)}
+                statusDescription=${ifDefined(statusDescription)}
+                status=${ifDefined(status)}
+                icon=${ifDefined(icon)}
+                attachment-count=${ifDefined(attachmentCount)}
+                @dsoToggleClick=${dsoToggleClick}
+                @dsoAnimationStart=${dsoAnimationStart}
+                @dsoAnimationEnd=${dsoAnimationEnd}
+              >
+                ${content}
+              </dso-accordion-section>`,
           )}
         </dso-accordion>
       `;

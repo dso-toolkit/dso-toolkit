@@ -31,7 +31,7 @@ describe("Card", () => {
       .find("div[slot='interactions']")
       .then(($cardInteractions) => {
         $cardInteractions.append(
-          '<div class="dso-card-interaction"><dso-toggletip label="Toon informatie" position="left" class="hydrated">Extra informatie</dso-toggletip></div>'
+          '<div class="dso-card-interaction"><dso-toggletip label="Toon informatie" position="left" class="hydrated">Extra informatie</dso-toggletip></div>',
         );
       })
       .get("dso-card")

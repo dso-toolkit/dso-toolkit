@@ -31,12 +31,12 @@ examplePageFactory(
                   showCloseButton: true,
                   dsoClose: () => render(nothing, container),
                 }),
-                container
+                container,
               );
             }
           },
         })}
       </main>
     </div>
-  `
+  `,
 );

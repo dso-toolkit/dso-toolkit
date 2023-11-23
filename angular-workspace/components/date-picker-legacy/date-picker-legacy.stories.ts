@@ -33,5 +33,5 @@ storiesOfDatePickerLegacy(
   },
   {
     decorator: (story) => ({ template: `<div style="width: 175px;">${story().template}</div>` }),
-  }
+  },
 );

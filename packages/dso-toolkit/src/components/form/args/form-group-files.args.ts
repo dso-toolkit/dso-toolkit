@@ -61,7 +61,7 @@ export const formGroupFilesArgTypes: ArgTypes<FormGroupFilesArgs> = {
 };
 
 export function formGroupFilesArgsMapper<TemplateFnReturnType>(
-  a: FormGroupFilesArgs
+  a: FormGroupFilesArgs,
 ): FormGroupFiles<TemplateFnReturnType> {
   return {
     id: a.id,

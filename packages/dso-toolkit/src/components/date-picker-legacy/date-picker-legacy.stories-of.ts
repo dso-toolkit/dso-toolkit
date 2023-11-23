@@ -15,7 +15,7 @@ export interface DatePickerLegacyTemplates<TemplateFnReturnType> {
   datePickerLegacyWithLabelTemplate: (
     datePickerLegacy: TemplateFnReturnType,
     id: string,
-    label: string
+    label: string,
   ) => TemplateFnReturnType;
   datePickerLegacyShowByScriptingTemplate: (datePickerLegacy: TemplateFnReturnType, id: string) => TemplateFnReturnType;
 }
@@ -31,7 +31,7 @@ export function storiesOfDatePickerLegacy<Implementation, Templates, TemplateFnR
     TemplateFnReturnType,
     DatePickerLegacyTemplates<TemplateFnReturnType>
   >,
-  { decorator }: DatePickerLegacyParameters<TemplateFnReturnType>
+  { decorator }: DatePickerLegacyParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Date Picker (Legacy)", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -47,7 +47,7 @@ export function storiesOfDatePickerLegacy<Implementation, Templates, TemplateFnR
     });
 
     const template = templateMapper<DatePickerLegacyArgs>((args, { datePickerLegacyTemplate }) =>
-      datePickerLegacyTemplate(DatePickerLegacyArgsMapper(args))
+      datePickerLegacyTemplate(DatePickerLegacyArgsMapper(args)),
     );
 
     stories.add("default", template);
@@ -90,14 +90,14 @@ export function storiesOfDatePickerLegacy<Implementation, Templates, TemplateFnR
         datePickerLegacyWithLabelTemplate(
           datePickerLegacyTemplate(DatePickerLegacyArgsMapper(args)),
           args.id || uuidv4(),
-          "Selecteer datum"
-        )
+          "Selecteer datum",
+        ),
       ),
       {
         args: {
           id: uuidv4(),
         },
-      }
+      },
     );
 
     stories.add(
@@ -106,14 +106,14 @@ export function storiesOfDatePickerLegacy<Implementation, Templates, TemplateFnR
         (args, { datePickerLegacyTemplate, datePickerLegacyShowByScriptingTemplate }) =>
           datePickerLegacyShowByScriptingTemplate(
             datePickerLegacyTemplate(DatePickerLegacyArgsMapper(args)),
-            args.id || uuidv4()
-          )
+            args.id || uuidv4(),
+          ),
       ),
       {
         args: {
           id: uuidv4(),
         },
-      }
+      },
     );
 
     stories.add("narrow input", template, {

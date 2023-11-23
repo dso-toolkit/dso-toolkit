@@ -6,7 +6,7 @@ import { breadcrumbs } from "./header.content";
 export function headerPartial(
   { headerTemplate, breadcrumbsTemplate }: Templates,
   header: Header,
-  showBreadcrumbs = false
+  showBreadcrumbs = false,
 ) {
   return html`<header>
     ${headerTemplate(header)} ${showBreadcrumbs ? breadcrumbsTemplate(breadcrumbs) : nothing}

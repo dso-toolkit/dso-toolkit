@@ -171,7 +171,7 @@ export class TreeView implements ComponentInterface {
 
   private static moveFocus(tree: HTMLElement, el: HTMLElement, moveTo: "first" | "previous" | "next" | "last"): void {
     const focusableItems = (Array.from(tree.querySelectorAll("p")) as HTMLElement[]).filter(
-      (item) => item.offsetWidth > 0 && item.offsetHeight > 0
+      (item) => item.offsetWidth > 0 && item.offsetHeight > 0,
     );
 
     let index = 0;
@@ -227,10 +227,10 @@ export class TreeView implements ComponentInterface {
     tree: HTMLElement,
     el: HTMLElement,
     char: string,
-    backwards: boolean
+    backwards: boolean,
   ): boolean {
     const focusableItems = (Array.from(tree.querySelectorAll("p")) as HTMLElement[]).filter(
-      (item) => item.offsetWidth > 0 && item.offsetHeight > 0
+      (item) => item.offsetWidth > 0 && item.offsetHeight > 0,
     );
 
     if (backwards) {
@@ -241,11 +241,11 @@ export class TreeView implements ComponentInterface {
 
     char = char.toLowerCase();
     let nextItem = focusableItems.find(
-      (item, index) => index > current && item.textContent?.toLowerCase().startsWith(char)
+      (item, index) => index > current && item.textContent?.toLowerCase().startsWith(char),
     );
     if (!nextItem) {
       nextItem = focusableItems.find(
-        (item, index) => index < current && item.textContent?.toLowerCase().startsWith(char)
+        (item, index) => index < current && item.textContent?.toLowerCase().startsWith(char),
       );
     }
 

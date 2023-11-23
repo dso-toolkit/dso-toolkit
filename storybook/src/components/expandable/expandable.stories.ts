@@ -23,5 +23,5 @@ storiesOfExpandable(
   },
   {
     decorator,
-  }
+  },
 );

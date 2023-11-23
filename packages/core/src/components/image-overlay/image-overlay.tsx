@@ -52,7 +52,7 @@ export class ImageOverlay implements ComponentInterface {
         if (imgElement instanceof HTMLImageElement) {
           this.setZoomable(imgElement);
         }
-      }, 200)
+      }, 200),
     );
 
     this.mutationObserver = new MutationObserver((e) => {

@@ -22,7 +22,7 @@ const resizeObserver = new ResizeObserver(
         target._truncateLabel();
       }
     });
-  }, 150)
+  }, 150),
 );
 
 function isDsoLabelComponent(element: Element): element is HTMLDsoLabelElement {

@@ -9,6 +9,6 @@ import { watcher } from "./gulp/watcher.js";
 
 gulp.task(
   "build",
-  gulp.series(cleanDist, gulp.parallel(copyMiscellaneous, buildScripting, buildStyling, buildSvgSpritesheet))
+  gulp.series(cleanDist, gulp.parallel(copyMiscellaneous, buildScripting, buildStyling, buildSvgSpritesheet)),
 );
 gulp.task("default", gulp.series("build", watcher));

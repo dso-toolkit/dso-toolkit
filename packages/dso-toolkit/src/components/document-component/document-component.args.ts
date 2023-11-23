@@ -171,7 +171,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
 };
 
 export function documentComponentMapper<TemplateFnReturnType>(
-  a: DocumentComponentArgs
+  a: DocumentComponentArgs,
 ): DocumentComponent<TemplateFnReturnType> {
   const { mark } = a;
 
@@ -184,7 +184,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
           text
             .split(new RegExp(`(${escapeStringRegexp(mark)})`, "gi"))
             .map((item, index) =>
-              isOdd(index) ? { text: item, highlight: !highlighted && (highlighted = true) } : item
+              isOdd(index) ? { text: item, highlight: !highlighted && (highlighted = true) } : item,
             )
       : undefined,
   };

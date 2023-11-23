@@ -51,5 +51,5 @@ storiesOfForm(
           ${story()}
         </fieldset>
       </form>`,
-  }
+  },
 );

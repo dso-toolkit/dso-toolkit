@@ -45,40 +45,41 @@ export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
                     ariaCurrent: item.active ? "page" : undefined,
                   })}
                 </li>
-              `
+              `,
             )}
           </ul>
         </nav>
         ${when(
           extension,
-          () => html`<div class="dso-navbar-extension ${classMap({ "dso-animate": !!extensionAnimation })}">
-            <button
-              type="button"
-              class="dso-navbar-extension-expand-button ${classMap({ "dso-active": !!extensionOpen })}"
-              aria-controls="expand-container"
-              aria-expanded=${!!extensionOpen}
-              @click=${ifDefined(
-                dsoExtensionToggle
-                  ? (e: MouseEvent) =>
-                      dsoExtensionToggle({ current: !!extensionOpen, next: !extensionOpen, originalEvent: e })
-                  : undefined
-              )}
-            >
+          () =>
+            html`<div class="dso-navbar-extension ${classMap({ "dso-animate": !!extensionAnimation })}">
+              <button
+                type="button"
+                class="dso-navbar-extension-expand-button ${classMap({ "dso-active": !!extensionOpen })}"
+                aria-controls="expand-container"
+                aria-expanded=${!!extensionOpen}
+                @click=${ifDefined(
+                  dsoExtensionToggle
+                    ? (e: MouseEvent) =>
+                        dsoExtensionToggle({ current: !!extensionOpen, next: !extensionOpen, originalEvent: e })
+                    : undefined,
+                )}
+              >
+                ${when(
+                  !extensionOpen,
+                  () => html`${iconTemplate({ icon: "search" })}Zoeken`,
+                  () => html`${iconTemplate({ icon: "times" })}Stoppen`,
+                )}
+              </button>
               ${when(
-                !extensionOpen,
-                () => html`${iconTemplate({ icon: "search" })}Zoeken`,
-                () => html`${iconTemplate({ icon: "times" })}Stoppen`
+                extensionOpen,
+                () => html`
+                  <div class="dso-navbar-extension-container" id="expand-container">
+                    <div class="dso-navbar-extension-content">${extension}</div>
+                  </div>
+                `,
               )}
-            </button>
-            ${when(
-              extensionOpen,
-              () => html`
-                <div class="dso-navbar-extension-container" id="expand-container">
-                  <div class="dso-navbar-extension-content">${extension}</div>
-                </div>
-              `
-            )}
-          </div>`
+            </div>`,
         )}
       `;
     },

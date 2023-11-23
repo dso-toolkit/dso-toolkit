@@ -120,7 +120,7 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
 };
 
 export function formGroupTextareaArgsMapper<TemplateFnReturnType>(
-  a: FormGroupTextareaArgs
+  a: FormGroupTextareaArgs,
 ): FormGroupTextarea<TemplateFnReturnType> {
   return {
     group: "textarea",

@@ -19,7 +19,7 @@ export function contextArgsMapper<TemplateFnReturnType>(
   a: ContextArgs,
   content: TemplateFnReturnType,
   children: TemplateFnReturnType,
-  label: TemplateFnReturnType
+  label: TemplateFnReturnType,
 ): Context<TemplateFnReturnType> {
   return {
     content,

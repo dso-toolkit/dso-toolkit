@@ -21,7 +21,7 @@ export const cssFootnotes: ComponentImplementation<Footnote[]> = {
                 ></a>
                 ${f.label}
               </li>
-            `
+            `,
           )}
         </ol>
       `;

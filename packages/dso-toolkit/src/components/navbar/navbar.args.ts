@@ -45,7 +45,7 @@ export const navbarArgTypes: ArgTypes<NavbarArgs> = {
 
 export function navbarArgsMapper<TemplateFnReturnType>(
   a: NavbarArgs,
-  extension?: TemplateFnReturnType
+  extension?: TemplateFnReturnType,
 ): Navbar<TemplateFnReturnType> {
   return {
     items: a.items,

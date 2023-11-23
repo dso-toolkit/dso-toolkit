@@ -3,7 +3,7 @@ import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 export function datePickerLegacyWithLabelTemplate(
   datePickerLegacy: StoryFnAngularReturnType,
   id: string,
-  label: string
+  label: string,
 ) {
   return {
     template: `

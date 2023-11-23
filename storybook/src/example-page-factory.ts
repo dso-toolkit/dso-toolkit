@@ -7,7 +7,7 @@ import { templateContainer, Templates } from "./templates";
 export function examplePageFactory(
   location: string | null,
   name: string,
-  storyTemplates: (templates: Templates, allTemplates: Templates) => TemplateResult
+  storyTemplates: (templates: Templates, allTemplates: Templates) => TemplateResult,
 ) {
   storiesOfFactory(
     `Voorbeeldpagina's/${[location, name].filter((s) => s).join("/")}`,
@@ -27,8 +27,8 @@ export function examplePageFactory(
         })
         .add(
           name,
-          templateMapper((_args, storyTemplates) => storyTemplates)
+          templateMapper((_args, storyTemplates) => storyTemplates),
         );
-    }
+    },
   );
 }

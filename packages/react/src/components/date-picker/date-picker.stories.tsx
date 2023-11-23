@@ -22,5 +22,5 @@ storiesOfDatePicker(
   },
   {
     decorator: (story) => <div style={{ width: "175px" }}>{story()}</div>,
-  }
+  },
 );

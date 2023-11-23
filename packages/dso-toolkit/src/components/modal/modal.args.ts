@@ -44,7 +44,7 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
 export function modalArgsMapper<TemplateFnReturnType>(
   a: ModalArgs,
   body: TemplateFnReturnType,
-  footer?: TemplateFnReturnType
+  footer?: TemplateFnReturnType,
 ): Modal<TemplateFnReturnType> {
   return {
     ...a,

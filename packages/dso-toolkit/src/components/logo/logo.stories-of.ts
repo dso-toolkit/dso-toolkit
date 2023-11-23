@@ -13,7 +13,7 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     LogoTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Logo", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({

@@ -28,7 +28,7 @@ const resizeObserver = new ResizeObserver(
     if (shadowRoot instanceof ShadowRoot && isDsoViewerGridComponent(shadowRoot.host)) {
       shadowRoot.host._checkMainPanelVisibility();
     }
-  }, 50)
+  }, 50),
 );
 
 function isDsoViewerGridComponent(element: Element): element is HTMLDsoViewerGridElement {

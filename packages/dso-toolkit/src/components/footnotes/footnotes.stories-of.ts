@@ -25,13 +25,13 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     FootnotesTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Footnotes", storiesOfArguments, (stories, templateMapper) => {
     stories.add(
       "example",
       templateMapper<FootnotesExampleArgs>((args, { footnotesExampleTemplate }) =>
-        footnotesExampleTemplate(args.footnote14, args.footnote15, footnotes)
+        footnotesExampleTemplate(args.footnote14, args.footnote15, footnotes),
       ),
       {
         argTypes: footnotesExampleArgTypes,
@@ -40,13 +40,13 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
           footnote15: footnotes[1],
           footnotes,
         },
-      }
+      },
     );
 
     stories.add(
       "reference",
       templateMapper<FootnotesReferenceArgs>((args, { footnoteTemplate: footnotesReferenceTemplate }) =>
-        footnotesReferenceTemplate(footnotesReferenceArgsMapper(args))
+        footnotesReferenceTemplate(footnotesReferenceArgsMapper(args)),
       ),
       {
         argTypes: footnotesReferenceArgTypes,
@@ -54,20 +54,20 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
           label: footnotes[0]?.label,
           number: footnotes[0]?.number,
         },
-      }
+      },
     );
 
     stories.add(
       "list",
       templateMapper<FootnotesListArgs>((args, { footnotesTemplate }) =>
-        footnotesTemplate(footnotesListArgsMapper(args))
+        footnotesTemplate(footnotesListArgsMapper(args)),
       ),
       {
         argTypes: footnotesListArgTypes,
         args: componentArgs<FootnotesListArgs>({
           footnotes,
         }),
-      }
+      },
     );
 
     return stories;

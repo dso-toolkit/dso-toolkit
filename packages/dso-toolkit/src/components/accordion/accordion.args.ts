@@ -109,7 +109,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
 
 export function accordionArgsMapper<TemplateFnReturnType>(
   a: AccordionArgs,
-  sections: AccordionSection<TemplateFnReturnType>[]
+  sections: AccordionSection<TemplateFnReturnType>[],
 ): Accordion<TemplateFnReturnType> {
   return {
     variant: a.variant,

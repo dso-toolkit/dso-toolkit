@@ -34,14 +34,14 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
                     <span class="dso-search-icon" aria-hidden="true"></span>
                   `
                 : label && !icon && !hiddenLabel // else if
-                ? html`<label for=${id}>${label}</label>`
-                : label && hiddenLabel && icon // else if
-                ? html`<label for=${id} class="dso-search-icon">${label}</label>`
-                : label && hiddenLabel && !icon // else if
-                ? html`<label for=${id} class="sr-only">${label}</label>`
-                : !label && !hiddenLabel && icon // else if
-                ? html`<span class="dso-search-icon" aria-hidden="true"></span>`
-                : nothing // else
+                  ? html`<label for=${id}>${label}</label>`
+                  : label && hiddenLabel && icon // else if
+                    ? html`<label for=${id} class="dso-search-icon">${label}</label>`
+                    : label && hiddenLabel && !icon // else if
+                      ? html`<label for=${id} class="sr-only">${label}</label>`
+                      : !label && !hiddenLabel && icon // else if
+                        ? html`<span class="dso-search-icon" aria-hidden="true"></span>`
+                        : nothing // else
             }
             <input
               type="text"

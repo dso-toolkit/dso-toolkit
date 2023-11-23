@@ -32,7 +32,7 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
 
 export function infoArgsMapper<TemplateFnReturnType>(
   a: InfoArgs,
-  content: TemplateFnReturnType
+  content: TemplateFnReturnType,
 ): Required<Info<TemplateFnReturnType>> {
   return {
     id: a.id,

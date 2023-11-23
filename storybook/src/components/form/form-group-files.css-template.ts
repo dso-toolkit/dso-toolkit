@@ -52,7 +52,7 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                       modifier: "dso-remove",
                       ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
                     })}
-                  </li>`
+                  </li>`,
               )}
             </ul>
             ${formGroup.files.some((file) => !!file.confidential)

@@ -79,7 +79,7 @@ export class Pagination implements ComponentInterface {
       ?.getSize()
       .then(
         (size: ResponsiveElementSize) =>
-          (this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[size]))
+          (this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[size])),
       );
   }
 

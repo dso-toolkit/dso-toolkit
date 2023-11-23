@@ -13,7 +13,7 @@ export function storiesOfTile<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     TileTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Tile", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({

@@ -8,6 +8,6 @@ export default function middleware(app) {
       changeOrigin: true,
       logLevel: "silent",
       ws: true,
-    })
+    }),
   );
 }

@@ -15,7 +15,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     DropdownMenuTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Dropdown Menu", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -26,7 +26,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
     });
 
     const template = templateMapper<DropdownMenuArgs>((args, { dropdownMenuTemplate }) =>
-      dropdownMenuTemplate(dropdownMenuArgsMapper(args))
+      dropdownMenuTemplate(dropdownMenuArgsMapper(args)),
     );
 
     stories.add("anchors", template, {

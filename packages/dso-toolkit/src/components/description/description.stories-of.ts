@@ -21,7 +21,7 @@ export function storiesOfDescription<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     DescriptionTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Description", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -31,25 +31,25 @@ export function storiesOfDescription<Implementation, Templates, TemplateFnReturn
     stories.add(
       "term",
       templateMapper<DescriptionArgs>((args, { descriptionTemplate }) =>
-        descriptionTemplate(descriptionArgsMapper(args))
+        descriptionTemplate(descriptionArgsMapper(args)),
       ),
       {
         argTypes: descriptionArgTypes,
         args: termContent,
-      }
+      },
     );
 
     stories.add(
       "example",
       templateMapper<DescriptionExampleArgs>((args, { exampleTemplate }) =>
-        exampleTemplate(descriptionExample(args.openTerm))
+        exampleTemplate(descriptionExample(args.openTerm)),
       ),
       {
         argTypes: descriptionExampleArgTypes,
         args: {
           openTerm: false,
         },
-      }
+      },
     );
 
     return stories;

@@ -39,7 +39,7 @@ storiesOfModal(
   },
   {
     decorator,
-  }
+  },
 );
 
 storiesOfModal(
@@ -63,5 +63,5 @@ storiesOfModal(
       datePickerBody: datePickerBody(templates),
     }),
   },
-  {}
+  {},
 );

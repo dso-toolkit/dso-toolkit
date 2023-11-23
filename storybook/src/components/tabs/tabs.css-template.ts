@@ -22,7 +22,7 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
               >
                 <a href="#" role="tab">${item.label}</a>
               </li>
-            `
+            `,
           )}
         </ul>
         ${items.map(
@@ -36,7 +36,7 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
             >
               ${item.content}
             </div>
-          `
+          `,
         )}
       `;
     },

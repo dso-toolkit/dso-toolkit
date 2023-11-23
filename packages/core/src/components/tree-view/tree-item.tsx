@@ -56,9 +56,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({
       ) : (
         <span>{item.label}</span>
       )}
-      {item.icons?.map((icon: TreeViewItemIcon) => (
-        <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
-      ))}
+      {item.icons?.map((icon: TreeViewItemIcon) => <dso-icon icon={icon.icon} title={icon.label}></dso-icon>)}
     </p>
     {item.open && (
       <>

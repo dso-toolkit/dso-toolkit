@@ -13,7 +13,7 @@ export function storiesOfProgressBar<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     ProgressBarTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Progress Bar", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfProgressBar<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<ProgressBarArgs>((args, { progressBarTemplate }) =>
-      progressBarTemplate(progressBarArgsMapper(args))
+      progressBarTemplate(progressBarArgsMapper(args)),
     );
 
     stories.add("default", template, {

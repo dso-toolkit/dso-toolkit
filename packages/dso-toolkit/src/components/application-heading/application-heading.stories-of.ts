@@ -59,7 +59,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         title: "H1 Paginatitel",
       },
       render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
-        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
       ),
     },
     WithSubtitle: {
@@ -68,7 +68,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         subtitle: "H2 Subtitel",
       },
       render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
-        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
       ),
     },
     WithSubtitleAndSteps: {
@@ -78,7 +78,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         step: "Stap x van x",
       },
       render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
-        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
       ),
     },
     SubtitleOnly: {
@@ -86,7 +86,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         subtitle: "H2 Subtitel",
       },
       render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
-        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
       ),
     },
     SubtitleAndStepsOnly: {
@@ -95,7 +95,7 @@ export function applicationHeadingStories<Implementation, Templates, TemplateFnR
         step: "Stap x van x",
       },
       render: templateContainer.render(storyTemplates, (args, { applicationHeadingTemplate }) =>
-        applicationHeadingTemplate(applicationHeadingArgsMapper(args))
+        applicationHeadingTemplate(applicationHeadingArgsMapper(args)),
       ),
     },
   };

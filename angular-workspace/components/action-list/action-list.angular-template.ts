@@ -25,7 +25,7 @@ export const angularActionList: ComponentImplementation<ActionList<StoryFnAngula
               >
                 ${item.content?.template ?? ""}
               </dso-action-list-item>
-            `
+            `,
             )
             .join("")}
           <div class="dso-rich-content">

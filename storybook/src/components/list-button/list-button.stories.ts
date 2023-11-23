@@ -29,7 +29,7 @@ storiesOfListButton({
     type ListButtonConnector = (
       parameters: Parameters<
         ReturnType<Parameters<typeof storiesOfListButton>[0]["storyTemplates"]>["listButtonTemplate"]
-      >
+      >,
     ) => Parameters<typeof listButtonTemplate>[0];
 
     const listButtonConnector: ListButtonConnector = ([props]) => ({

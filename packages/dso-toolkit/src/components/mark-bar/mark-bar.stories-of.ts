@@ -43,7 +43,7 @@ export function markBarStories<Implementation, Templates, TemplateFnReturnType>(
   return {
     Default: {
       render: templateContainer.render(storyTemplates, (args, { markBarTemplate }) =>
-        markBarTemplate(markBarArgsMapper(args))
+        markBarTemplate(markBarArgsMapper(args)),
       ),
     },
   };

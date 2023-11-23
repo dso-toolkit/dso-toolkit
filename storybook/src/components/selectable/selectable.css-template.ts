@@ -64,7 +64,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             () =>
               html`<ul class="dso-selectable-options">
                 ${options?.map((option) => html`<li>${selectableTemplate(option)}</li>`)}
-              </ul>`
+              </ul>`,
           )}
         </div>
       `;

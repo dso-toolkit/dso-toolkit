@@ -12,7 +12,7 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
     Templates,
     TemplateFnReturnType,
     HelpcenterPanelTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Helpcenter Panel", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -22,7 +22,7 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
     stories.add(
       "Helpcenter Panel",
       templateMapper<HelpcenterPanelArgs>((args, { helpcenterPanelTemplate }) =>
-        helpcenterPanelTemplate(helpcenterPanelArgsMapper(args))
+        helpcenterPanelTemplate(helpcenterPanelArgsMapper(args)),
       ),
       {
         args: {
@@ -33,7 +33,7 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
               window.location.port === "45000" ? "core-" : ""
             }helpcenter-panel--helpcenter-panel&viewMode=docs`,
         },
-      }
+      },
     );
 
     return stories;

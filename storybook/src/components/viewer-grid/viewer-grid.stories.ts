@@ -269,25 +269,26 @@ storiesOfViewerGrid({
     return {
       viewerGridTemplate,
       example: {
-        main: (mainExpanded) => html`${alertTemplate({
-          status: "info",
-          message: html`<p>Dit is <code>slot="main"</code>.</p>`,
-        })}
-        ${buttonTemplate({
-          variant: "tertiary",
-          modifier: "dso-toggle-main-button",
-          label: mainExpanded ? "Verberg" : "Toon",
-          icon: {
-            icon: mainExpanded ? "chevron-up" : "chevron-down",
-          },
-        })}
-        ${when(mainExpanded, () =>
-          alertTemplate({
-            status: "success",
-            // eslint-disable-next-line lit/no-useless-template-literals -- template literal is to trigger lit-html html escaping.
-            message: html`Dit is de rest in <code>${'<div class="main">'}</code>.`,
-          })
-        )}`,
+        main: (mainExpanded) =>
+          html`${alertTemplate({
+            status: "info",
+            message: html`<p>Dit is <code>slot="main"</code>.</p>`,
+          })}
+          ${buttonTemplate({
+            variant: "tertiary",
+            modifier: "dso-toggle-main-button",
+            label: mainExpanded ? "Verberg" : "Toon",
+            icon: {
+              icon: mainExpanded ? "chevron-up" : "chevron-down",
+            },
+          })}
+          ${when(mainExpanded, () =>
+            alertTemplate({
+              status: "success",
+              // eslint-disable-next-line lit/no-useless-template-literals -- template literal is to trigger lit-html html escaping.
+              message: html`Dit is de rest in <code>${'<div class="main">'}</code>.`,
+            }),
+          )}`,
         map: alertTemplate({
           status: "info",
           message: html`<p>Dit is <code>slot="map"</code>.</p>`,

@@ -13,7 +13,7 @@ export function storiesOfButton<Implementation, Templates, TemplateFnReturnType>
     Templates,
     TemplateFnReturnType,
     ButtonTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Button", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({

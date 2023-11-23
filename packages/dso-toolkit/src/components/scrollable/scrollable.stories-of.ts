@@ -21,7 +21,7 @@ export function storiesOfScrollable<Implementation, Templates, TemplateFnReturnT
     TemplateFnReturnType,
     ScrollableTemplates<TemplateFnReturnType>
   >,
-  { decorator }: ScrollableParameters<TemplateFnReturnType>
+  { decorator }: ScrollableParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Scrollable", storyFunctionArguments, (stories, templateMapper) => {
     stories
@@ -38,15 +38,15 @@ export function storiesOfScrollable<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "default",
       templateMapper<ScrollableArgs>((args, { scrollableTemplate, defaultContent }) =>
-        scrollableTemplate(scrollableArgsMapper(args, defaultContent))
-      )
+        scrollableTemplate(scrollableArgsMapper(args, defaultContent)),
+      ),
     );
 
     stories.add(
       "dynamic content",
       templateMapper<ScrollableArgs>((args, { scrollableTemplate, dynamicContent }) =>
-        scrollableTemplate(scrollableArgsMapper(args, dynamicContent))
-      )
+        scrollableTemplate(scrollableArgsMapper(args, dynamicContent)),
+      ),
     );
 
     return stories;

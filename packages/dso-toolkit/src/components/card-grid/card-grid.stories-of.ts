@@ -15,11 +15,11 @@ export function storiesOfCardGrid<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     CardGridTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Card Grid", storiesOfArguments, (stories, templateMapper) => {
     const template = templateMapper((_args, { cardGridTemplate, cards }) =>
-      cardGridTemplate(cardGridArgsMapper(cards))
+      cardGridTemplate(cardGridArgsMapper(cards)),
     );
 
     stories.add("Card Grid", template);

@@ -19,7 +19,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
 
       function accordionHandleChildren(
         accordion: Accordion<TemplateResult>,
-        section: AccordionSection<TemplateResult>
+        section: AccordionSection<TemplateResult>,
       ) {
         return html`
           ${section.status ? html`<span class="sr-only">${statusMap.get(section.status)}:</span>` : nothing}
@@ -48,7 +48,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
 
       function accordionHandleTemplate(
         accordion: Accordion<TemplateResult>,
-        section: AccordionSection<TemplateResult>
+        section: AccordionSection<TemplateResult>,
       ) {
         const content = accordionHandleContent(accordion, section);
 
@@ -66,7 +66,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
 
       function accordionSectionTemplate(
         accordion: Accordion<TemplateResult>,
-        section: AccordionSection<TemplateResult>
+        section: AccordionSection<TemplateResult>,
       ): TemplateResult {
         const hasNestedAccordion = section.content?.strings.includes("<dso-accordion") ?? false;
 

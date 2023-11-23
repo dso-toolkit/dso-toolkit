@@ -20,7 +20,7 @@ storiesOfDocumentComponent({
     demoTemplate: (jsonFile, openDefault, showCanvas, ozonContentAnchorClick) =>
       html`<dsot-document-component-demo
         @dsotOzonContentAnchorClick=${(
-          e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>
+          e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
         ) => ozonContentAnchorClick(e.detail)}
         .jsonFile=${jsonFile}
         ?open-default=${openDefault}

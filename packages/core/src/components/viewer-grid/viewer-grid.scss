@@ -62,7 +62,8 @@ button {
   flex-shrink: 0;
   flex-grow: 0;
   position: relative;
-  transition: flex-basis core-viewer-grid-variables.$transition-time ease-in,
+  transition:
+    flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-width core-viewer-grid-variables.$transition-time ease-in,
     min-width core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
@@ -109,7 +110,8 @@ button {
   flex-shrink: 0;
   flex-grow: 0;
   position: relative;
-  transition: flex-basis core-viewer-grid-variables.$transition-time ease-in,
+  transition:
+    flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-width core-viewer-grid-variables.$transition-time ease-in,
     min-width core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;

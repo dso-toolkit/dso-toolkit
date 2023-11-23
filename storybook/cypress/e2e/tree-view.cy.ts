@@ -43,7 +43,7 @@ describe("Tree View", () => {
       startElement: string,
       level: number,
       setSize: number,
-      posInSet: number
+      posInSet: number,
     ): Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
       return cy
         .get(`@${startElement}`)
@@ -53,13 +53,13 @@ describe("Tree View", () => {
     }
 
     shouldHaveCorrectAriaTreeItemAttributes("first-tree-item", 1, 2, 1).then((subject: JQuery<HTMLElement>) =>
-      firstChildItem(subject, "bouwelementen")
+      firstChildItem(subject, "bouwelementen"),
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwelementen", 2, 4, 1).then((subject: JQuery<HTMLElement>) =>
-      nextSiblingItem(subject, "bouwonderdelen")
+      nextSiblingItem(subject, "bouwonderdelen"),
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwonderdelen", 2, 4, 2).then((subject: JQuery<HTMLElement>) =>
-      nextSiblingItem(subject, "bouwwerken")
+      nextSiblingItem(subject, "bouwwerken"),
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwwerken", 2, 4, 3);
 
@@ -145,7 +145,7 @@ describe("Tree View", () => {
     function shouldHaveExpandedBehaviour(
       startElement: string,
       expanded: boolean,
-      keys: Parameters<(typeof cy)["realPress"]>[0] = null
+      keys: Parameters<(typeof cy)["realPress"]>[0] = null,
     ): Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
       let cursor = cy.get(`@${startElement}`).then(shouldHaveFocusAndTabIndex);
 
@@ -190,7 +190,7 @@ describe("Tree View", () => {
       startElement: string,
       selectorFunc: (subject: JQuery<HTMLElement>, label: string) => Cypress.Chainable<JQuery<HTMLElement>>,
       targetElement: string,
-      keys: Parameters<(typeof cy)["realPress"]>[0]
+      keys: Parameters<(typeof cy)["realPress"]>[0],
     ) {
       cy.get(`@${startElement}`)
         .then((subject) => (selectorFunc ? selectorFunc(subject, targetElement) : subject))
@@ -284,8 +284,9 @@ describe("Tree View", () => {
       .prev()
       .click()
       .get("dso-tree-view")
-      .then(($treeView) =>
-        $treeView.get(0)?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[])
+      .then(
+        ($treeView) =>
+          $treeView.get(0)?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[]),
       )
       .then((result) => expect(result).to.be.true)
       .get("@tree-view")

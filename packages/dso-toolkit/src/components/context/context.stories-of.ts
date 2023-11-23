@@ -16,7 +16,7 @@ export function storiesOfContext<Implementation, Templates, TemplateFnReturnType
     Templates,
     TemplateFnReturnType,
     ContextTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Context", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -24,7 +24,7 @@ export function storiesOfContext<Implementation, Templates, TemplateFnReturnType
     });
 
     const template = templateMapper<ContextArgs>((args, { contextTemplate, children, content, label }) =>
-      contextTemplate(contextArgsMapper(args, content, children, label))
+      contextTemplate(contextArgsMapper(args, content, children, label)),
     );
 
     stories.add("Label", template, {

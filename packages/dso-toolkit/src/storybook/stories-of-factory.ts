@@ -15,8 +15,8 @@ export interface StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates> {
   (
     stories: Addon_StoryApi<TemplateFnReturnType>,
     templateMapper: <StoryVariantArgs>(
-      cb: (args: StoryVariantArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
-    ) => (args: Args) => TemplateFnReturnType
+      cb: (args: StoryVariantArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType,
+    ) => (args: Args) => TemplateFnReturnType,
   ): Addon_StoryApi<TemplateFnReturnType>;
 }
 
@@ -27,7 +27,7 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
     storyTemplates,
     templateContainer,
   }: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, StoryTemplates>,
-  factory: StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates>
+  factory: StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates>,
 ) {
   const stories = createStories(name, parameters);
 

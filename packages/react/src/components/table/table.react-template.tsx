@@ -38,7 +38,7 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
                       <td key={cellIndex} dangerouslySetInnerHTML={{ __html: col }}></td>
                     ) : (
                       <td key={cellIndex}>{col}</td>
-                    )
+                    ),
                   )}
                 </tr>
               ))}

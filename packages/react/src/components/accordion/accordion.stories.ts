@@ -26,5 +26,5 @@ storiesOfAccordion(
       alignmentSections,
     }),
   },
-  true
+  true,
 );

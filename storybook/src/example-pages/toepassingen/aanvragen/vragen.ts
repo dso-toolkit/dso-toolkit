@@ -16,7 +16,7 @@ examplePageFactory(
       formGroupInputTemplate,
       buttonTemplate,
     },
-    templates
+    templates,
   ) => html`
     <div class="container">
       <main>
@@ -108,5 +108,5 @@ examplePageFactory(
         </form>
       </main>
     </div>
-  `
+  `,
 );

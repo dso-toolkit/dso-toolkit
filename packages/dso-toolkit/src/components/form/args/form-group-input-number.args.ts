@@ -58,7 +58,7 @@ export const formGroupInputNumberArgTypes: ArgTypes<FormGroupInputNumberArgs> = 
 };
 
 export function formGroupInputNumberArgsMapper<TemplateFnReturnType>(
-  a: FormGroupInputNumberArgs
+  a: FormGroupInputNumberArgs,
 ): FormGroupInputNumber<TemplateFnReturnType> {
   return {
     group: "input-number",

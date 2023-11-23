@@ -47,10 +47,10 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
                               </button>
                             `}
                       </li>
-                    `
+                    `,
                   )}
                 </ul>
-              `
+              `,
             )}
           </div>
         </div>

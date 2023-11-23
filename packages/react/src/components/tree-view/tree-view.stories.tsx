@@ -21,7 +21,7 @@ storiesOfTreeView({
       dsoClickItem: (
         path: TreeViewItem[],
         originalEvent: MouseEvent,
-        callback: (collection: TreeViewItem[]) => void
+        callback: (collection: TreeViewItem[]) => void,
       ) => void;
       onFilter: (value: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void;
     }
@@ -53,7 +53,7 @@ storiesOfTreeView({
                   this.props.dsoCloseItem(e.detail, (collection) => this.setState({ ...this.state, collection })),
                 dsoClickItem: (e) =>
                   this.props.dsoClickItem(e.detail.path, e.detail.originalEvent, (collection) =>
-                    this.setState({ ...this.state, collection })
+                    this.setState({ ...this.state, collection }),
                   ),
               })}
             </div>
@@ -64,7 +64,7 @@ storiesOfTreeView({
                 id="treeViewSearchInput"
                 onChange={(e) =>
                   this.props.onFilter(e.target.value, (collection, searchResultCountText) =>
-                    this.setState({ ...this.state, collection, searchResultCountText })
+                    this.setState({ ...this.state, collection, searchResultCountText }),
                   )
                 }
               />

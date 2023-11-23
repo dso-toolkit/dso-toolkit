@@ -11,5 +11,5 @@ examplePageFactory(
         title: "Vergunningcheck",
       })}
     </div>
-  `
+  `,
 );

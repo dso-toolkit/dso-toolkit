@@ -13,7 +13,7 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     ListTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({

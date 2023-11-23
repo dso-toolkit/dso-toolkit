@@ -20,7 +20,7 @@ export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnT
     TemplateFnReturnType,
     ExpandableTemplates<TemplateFnReturnType>
   >,
-  { decorator }: ExpandableParameters<TemplateFnReturnType>
+  { decorator }: ExpandableParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Expandable", storyFunctionArguments, (stories, templateMapper) => {
     stories
@@ -37,14 +37,14 @@ export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "default",
       templateMapper<ExpandableArgs>((args, { expandableTemplate, expandableContent }) =>
-        expandableTemplate(expandableArgsMapper(args, expandableContent))
+        expandableTemplate(expandableArgsMapper(args, expandableContent)),
       ),
       {
         args: {
           open: false,
           enableAnimation: false,
         },
-      }
+      },
     );
 
     stories.add(
@@ -57,7 +57,7 @@ export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnT
           open: false,
           enableAnimation: true,
         },
-      }
+      },
     );
 
     return stories;

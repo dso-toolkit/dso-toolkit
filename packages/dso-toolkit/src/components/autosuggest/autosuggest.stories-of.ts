@@ -14,7 +14,7 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingLabel: string,
   loadingDelayed: number,
   notFoundLabel: string,
-  minimalCharacters?: number
+  minimalCharacters?: number,
 ) => TemplateFnReturnType;
 
 export interface AutosuggestTemplates<TemplateFnReturnType> {
@@ -28,7 +28,7 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     AutosuggestTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Autosuggest", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -51,9 +51,9 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           args.loading,
           args.loadingLabel,
           args.loadingDelayed,
-          args.notFoundLabel
-        )
-      )
+          args.notFoundLabel,
+        ),
+      ),
     );
 
     stories.add(
@@ -69,9 +69,9 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           args.loadingLabel,
           args.loadingDelayed,
           args.notFoundLabel,
-          3
-        )
-      )
+          3,
+        ),
+      ),
     );
 
     stories.add(
@@ -86,9 +86,9 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           args.loading,
           args.loadingLabel,
           args.loadingDelayed,
-          args.notFoundLabel
-        )
-      )
+          args.notFoundLabel,
+        ),
+      ),
     );
 
     return stories;

@@ -80,7 +80,7 @@ storiesOfAutosuggest({
         loading,
         loadingLabel,
         loadingDelay,
-        notFoundLabel
+        notFoundLabel,
       ) => (
         <AutosuggestDemoTemplate
           fetchSuggestions={fetchSuggestions}

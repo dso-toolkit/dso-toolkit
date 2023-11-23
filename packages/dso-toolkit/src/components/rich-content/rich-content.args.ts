@@ -20,7 +20,7 @@ export const richContentArgTypes: ArgTypes<RichContentArgs<unknown>> = {
 
 export function richContentArgsMapper<TemplateFnReturnType>(
   a: RichContentArgs<TemplateFnReturnType>,
-  children: TemplateFnReturnType
+  children: TemplateFnReturnType,
 ): RichContent<TemplateFnReturnType> {
   return { ...a, children };
 }

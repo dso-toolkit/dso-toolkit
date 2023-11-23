@@ -29,5 +29,5 @@ examplePageFactory(
         })}
       </main>
     </div>
-  `
+  `,
 );

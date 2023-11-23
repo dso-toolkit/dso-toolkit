@@ -221,8 +221,8 @@ export class AccordionSection implements ComponentInterface {
   private async scrollIntoView(bodyHeight: number | undefined, behavior: ScrollBehavior = "auto"): Promise<void> {
     log(
       `DSO Toolkit [Accordion Section] scrollIntoView(bodyHeight: ${JSON.stringify(
-        bodyHeight
-      )}, behavior: ${JSON.stringify(behavior)})`
+        bodyHeight,
+      )}, behavior: ${JSON.stringify(behavior)})`,
     );
 
     const bodyClientRect = this.sectionBody?.getBoundingClientRect();
@@ -256,20 +256,20 @@ export class AccordionSection implements ComponentInterface {
     if (sectionBottomY > window.innerHeight) {
       log(
         `DSO Toolkit [Accordion Section] sectionBottomY > window.innerHeight === ${JSON.stringify(
-          sectionBottomY > window.innerHeight
-        )};`
+          sectionBottomY > window.innerHeight,
+        )};`,
       );
 
       const expandedAccordionHeight = sectionBottomY - headingClientRect.top;
       const shouldScrollToTopOfSection = expandedAccordionHeight > window.innerHeight;
 
       log(
-        `DSO Toolkit [Accordion Section] const expandedAccordionHeight = ${JSON.stringify(expandedAccordionHeight)};`
+        `DSO Toolkit [Accordion Section] const expandedAccordionHeight = ${JSON.stringify(expandedAccordionHeight)};`,
       );
       log(
         `DSO Toolkit [Accordion Section] const shouldScrollToTopOfSection = ${JSON.stringify(
-          shouldScrollToTopOfSection
-        )};`
+          shouldScrollToTopOfSection,
+        )};`,
       );
 
       window.scrollTo({
@@ -278,7 +278,7 @@ export class AccordionSection implements ComponentInterface {
       });
     } else if (headingClientRect.top < 0) {
       log(
-        `DSO Toolkit [Accordion Section] headingClientRect.top < 0 === ${JSON.stringify(headingClientRect.top < 0)};`
+        `DSO Toolkit [Accordion Section] headingClientRect.top < 0 === ${JSON.stringify(headingClientRect.top < 0)};`,
       );
 
       window.scrollTo({

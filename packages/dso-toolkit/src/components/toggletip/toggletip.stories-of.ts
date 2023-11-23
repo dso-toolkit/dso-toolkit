@@ -14,7 +14,7 @@ export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     ToggletipTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Toggletip", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -22,7 +22,7 @@ export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnTy
     });
 
     const template = templateMapper<ToggletipArgs>((args, { toggletipTemplate, children }) =>
-      toggletipTemplate(toggletipArgsMapper(args, children))
+      toggletipTemplate(toggletipArgsMapper(args, children)),
     );
 
     stories.add("Toggletip", template, {});

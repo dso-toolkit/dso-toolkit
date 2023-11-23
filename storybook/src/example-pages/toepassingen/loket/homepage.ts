@@ -11,7 +11,7 @@ examplePageFactory(
   "Homepage",
   (
     { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
-    templates
+    templates,
   ) => html`
     <div class="container">
       ${headerPartial(templates, header)}
@@ -161,5 +161,5 @@ examplePageFactory(
       </main>
       ${footerPartial(templates)}
     </div>
-  `
+  `,
 );

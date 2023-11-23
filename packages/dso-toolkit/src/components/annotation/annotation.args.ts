@@ -44,7 +44,7 @@ export function annotationArgsMapper<TemplateFnReturnType>(
     title: TemplateFnReturnType;
     addons?: TemplateFnReturnType;
     content: TemplateFnReturnType;
-  }
+  },
 ): Annotation<TemplateFnReturnType> {
   return {
     annotationButton: {

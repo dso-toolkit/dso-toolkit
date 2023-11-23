@@ -22,7 +22,7 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
     TemplateFnReturnType,
     DatePickerTemplates<TemplateFnReturnType>
   >,
-  { decorator }: DatePickerParameters<TemplateFnReturnType>
+  { decorator }: DatePickerParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Date Picker", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -38,7 +38,7 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
     });
 
     const template = templateMapper<DatePickerArgs>((args, { datePickerTemplate }) =>
-      datePickerTemplate(datePickerArgsMapper(args))
+      datePickerTemplate(datePickerArgsMapper(args)),
     );
 
     stories.add("default", template);
@@ -81,14 +81,14 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
         datePickerWithLabelTemplate(
           datePickerTemplate(datePickerArgsMapper(args)),
           args.id || uuidv4(),
-          "Selecteer datum"
-        )
+          "Selecteer datum",
+        ),
       ),
       {
         args: {
           id: uuidv4(),
         },
-      }
+      },
     );
 
     stories.add("narrow input", template, {

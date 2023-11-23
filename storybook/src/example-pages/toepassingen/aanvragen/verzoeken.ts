@@ -121,5 +121,5 @@ examplePageFactory(
         </form>
       </main>
     </div>
-  `
+  `,
 );

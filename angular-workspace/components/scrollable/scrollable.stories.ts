@@ -32,5 +32,5 @@ storiesOfScrollable(
   },
   {
     decorator,
-  }
+  },
 );

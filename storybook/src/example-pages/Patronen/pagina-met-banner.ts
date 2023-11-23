@@ -78,5 +78,5 @@ examplePageFactory(
       ${footerPartial(templates)}
       </div>
     </div>
-  `
+  `,
 );

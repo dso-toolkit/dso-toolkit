@@ -12,5 +12,5 @@ examplePageFactory(
         step: "Stap 2 van 4",
       })}
     </div>
-  `
+  `,
 );

@@ -77,7 +77,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
     AlleButtonVarianten: {
@@ -121,7 +121,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
     PrimaireButtonVarianten: {
@@ -199,7 +199,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
     SecundaireButtonVarianten: {
@@ -278,7 +278,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
     TertiaireButtonVarianten: {
@@ -357,7 +357,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
     Emphasized: {
@@ -402,7 +402,7 @@ export function buttonRowStories<Implementation, Templates, TemplateFnReturnType
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { buttonRowTemplate }) =>
-        buttonRowTemplate(buttonRowArgsMapper(args))
+        buttonRowTemplate(buttonRowArgsMapper(args)),
       ),
     },
   };

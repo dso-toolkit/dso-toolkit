@@ -17,7 +17,7 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
     Templates,
     TemplateFnReturnType,
     TooltipTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Tooltip", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -27,27 +27,27 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
     stories.add(
       "as child",
       templateMapper<TooltipArgs>((args, { tooltipTemplate, asChildTemplate }) =>
-        asChildTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action)
+        asChildTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action),
       ),
       {
         args: {
           id: uuidv4(),
           position: "right",
         },
-      }
+      },
     );
 
     stories.add(
       "as sibling",
       templateMapper<TooltipArgs>((args, { tooltipTemplate, asSiblingTemplate }) =>
-        asSiblingTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action)
+        asSiblingTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action),
       ),
       {
         args: {
           id: uuidv4(),
           position: "bottom",
         },
-      }
+      },
     );
 
     return stories;

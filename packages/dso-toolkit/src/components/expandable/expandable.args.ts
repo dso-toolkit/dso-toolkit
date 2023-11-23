@@ -23,7 +23,7 @@ export const expandableArgTypes: ArgTypes<ExpandableArgs> = {
 
 export function expandableArgsMapper<TemplateFnReturnType>(
   a: ExpandableArgs,
-  content: TemplateFnReturnType
+  content: TemplateFnReturnType,
 ): Expandable<TemplateFnReturnType> {
   return {
     ...a,

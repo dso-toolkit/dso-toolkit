@@ -16,7 +16,7 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     SelectableTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Selectable", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -37,7 +37,8 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
     });
 
     const template = templateMapper<SelectableArgs<TemplateFnReturnType>>(
-      (args, { selectableTemplate, infoRichContent }) => selectableTemplate(selectableArgsMapper(args, infoRichContent))
+      (args, { selectableTemplate, infoRichContent }) =>
+        selectableTemplate(selectableArgsMapper(args, infoRichContent)),
     );
 
     stories.add("radio", template, {

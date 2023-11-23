@@ -46,7 +46,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
                   ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                   ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
                 </div>
-              `
+              `,
             )}
           </div>`}
           ${richContentTemplate({ children: content, slot: "content" })}

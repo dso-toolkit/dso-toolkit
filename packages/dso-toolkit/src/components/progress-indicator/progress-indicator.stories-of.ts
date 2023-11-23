@@ -17,7 +17,7 @@ export function storiesOfProgressIndicator<Implementation, Templates, TemplateFn
     Templates,
     TemplateFnReturnType,
     ProgressIndicatorTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Progress Indicator", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -25,7 +25,7 @@ export function storiesOfProgressIndicator<Implementation, Templates, TemplateFn
     });
 
     const template = templateMapper<ProgressIndicatorArgs>((args, { progressIndicatorTemplate }) =>
-      progressIndicatorTemplate(progressIndicatorArgsMapper(args))
+      progressIndicatorTemplate(progressIndicatorArgsMapper(args)),
     );
 
     stories.add("small", template, {

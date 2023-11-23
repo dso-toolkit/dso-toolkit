@@ -14,7 +14,7 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     ListButtonTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("List Button", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -28,7 +28,7 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
     });
 
     const template = templateMapper<ListButtonArgs>((args, { listButtonTemplate }) =>
-      listButtonTemplate(listButtonArgsMapper(args))
+      listButtonTemplate(listButtonArgsMapper(args)),
     );
 
     stories.add("single select", template, { args: {} });

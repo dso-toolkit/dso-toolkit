@@ -41,8 +41,8 @@ export function buildStyling() {
     .pipe(sassCompiler)
     .pipe(
       header(
-        [`/* DSO Toolkit version: ${version} */`, `:root { --dso-toolkit-version: ${version} }`, "", ""].join("\n")
-      )
+        [`/* DSO Toolkit version: ${version} */`, `:root { --dso-toolkit-version: ${version} }`, "", ""].join("\n"),
+      ),
     )
     .pipe(gulp.dest("dist", { sourcemaps: "." }))
     .pipe(filter("dso.css"))

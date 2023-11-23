@@ -17,7 +17,7 @@ export class Header {
   private clickHandler(
     e: MouseEvent,
     type: HeaderNavigationType,
-    options?: { menuItem?: HeaderMenuItem; url?: string }
+    options?: { menuItem?: HeaderMenuItem; url?: string },
   ) {
     this.dsoHeaderClick.emit({
       originalEvent: e,
@@ -431,7 +431,7 @@ export class Header {
                                 this.mainMenu
                                   .filter(
                                     (_, index) =>
-                                      this.mainMenu && index >= this.mainMenu.length - this.overflowMenuItems
+                                      this.mainMenu && index >= this.mainMenu.length - this.overflowMenuItems,
                                   )
                                   .map(this.MenuItem)}
                             </ul>

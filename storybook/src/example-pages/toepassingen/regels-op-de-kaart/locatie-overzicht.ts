@@ -20,7 +20,7 @@ examplePageFactory(
       mapControlsTemplate,
       tileTemplate,
     },
-    templates
+    templates,
   ) => html`
     ${headerPartial(templates, header)}
     <main>
@@ -214,5 +214,5 @@ examplePageFactory(
         `,
       })}
     </main>
-  `
+  `,
 );

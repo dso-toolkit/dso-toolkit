@@ -14,7 +14,7 @@ export function storiesOfInputNumber<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     InputNumberTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Input Number", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -27,7 +27,7 @@ export function storiesOfInputNumber<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<InputNumberArgs>((args, { inputNumberTemplate }) =>
-      inputNumberTemplate(inputNumberArgsMapper(args))
+      inputNumberTemplate(inputNumberArgsMapper(args)),
     );
 
     stories.add("Input Number", template);

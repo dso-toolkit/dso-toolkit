@@ -9,7 +9,7 @@ declare const require: {
   context(
     path: string,
     deep?: boolean,
-    filter?: RegExp
+    filter?: RegExp,
   ): {
     <T>(id: string): T;
     keys(): string[];

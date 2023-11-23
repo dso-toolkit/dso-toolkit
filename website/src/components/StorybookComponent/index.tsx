@@ -113,7 +113,7 @@ function getStoryIframeUrl(
   implementation: Implementation,
   name: string,
   variant?: string,
-  args?: Record<string, unknown>
+  args?: Record<string, unknown>,
 ): string {
   const url =
     window.location.hostname === "localhost" ? getStoryIframeUrlLocalhost() : getStoryIframeUrlRemote(implementation);
@@ -145,7 +145,7 @@ function getStoryUrl(
   implementation: Implementation,
   name: string,
   variant?: string,
-  args?: Record<string, unknown>
+  args?: Record<string, unknown>,
 ): string {
   const version = getVersion();
   const url = window.location.hostname === "localhost" ? getStoryUrlLocalhost() : getStoryUrlRemote(version);

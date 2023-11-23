@@ -36,19 +36,19 @@ export function content(templates: Templates, { role, actions }: Options = {}): 
       head: ["#", "Documentnaam", "Eigenaar", "Upload datum"].concat(actions ? "Acties" : []),
       rows: [
         ["1", anchorTemplate({ label: "Tekening.jpg", url: "#tekening" }), "P.K. Puk", "21-07-2019"].concat(
-          actions ? actionsTemplate(templates) : []
+          actions ? actionsTemplate(templates) : [],
         ),
         ["2", anchorTemplate({ label: "Omgevingsplan.jpg", url: "#omgevingsplan" }), "H.G. Griff", "22-07-2019"].concat(
-          actions ? actionsTemplate(templates) : []
+          actions ? actionsTemplate(templates) : [],
         ),
         ["3", anchorTemplate({ label: "Bodemonderzoek.jpg", url: "#bodemonderzoek" }), "P.K. Puk", "23-07-2019"].concat(
-          actions ? actionsTemplate(templates) : []
+          actions ? actionsTemplate(templates) : [],
         ),
         ["4", anchorTemplate({ label: "Maatregelen.jpg", url: "#maatregelen" }), "P.K. Puk", "23-07-2019"].concat(
-          actions ? actionsTemplate(templates) : []
+          actions ? actionsTemplate(templates) : [],
         ),
         ["5", anchorTemplate({ label: "Plattegrond.jpg", url: "#omgevingsplan" }), "P.K. Puk", "28-07-2019"].concat(
-          actions ? actionsTemplate(templates) : []
+          actions ? actionsTemplate(templates) : [],
         ),
       ],
     },

@@ -13,7 +13,7 @@ export function storiesOfAnnotation<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     AnnotationTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Annotation", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -24,20 +24,20 @@ export function storiesOfAnnotation<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "default",
       templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
-        annotationTemplate(annotationArgsMapper(args, annotationContent))
-      )
+        annotationTemplate(annotationArgsMapper(args, annotationContent)),
+      ),
     );
 
     stories.add(
       "met lid",
       templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
-        annotationTemplate(annotationArgsMapper(args, annotationContent))
+        annotationTemplate(annotationArgsMapper(args, annotationContent)),
       ),
       {
         args: {
           prefix: "Dit lid heeft annotaties:",
         },
-      }
+      },
     );
 
     return stories;

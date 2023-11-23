@@ -28,7 +28,7 @@ export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     LinkListTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Link List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -39,7 +39,7 @@ export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnTyp
     });
 
     const template = templateMapper<LinkListArgs>((args, { linkListTemplate }) =>
-      linkListTemplate(linkListArgsMapper(args))
+      linkListTemplate(linkListArgsMapper(args)),
     );
 
     stories.add("ul", template, {
@@ -57,8 +57,8 @@ export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnTyp
     stories.add(
       "in highlight box",
       templateMapper<LinkListArgs>((args, { inHighlightBoxTemplate, linkListTemplate }) =>
-        inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args)))
-      )
+        inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args))),
+      ),
     );
 
     stories.add("in nav", template, {
@@ -72,8 +72,8 @@ export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnTyp
     stories.add(
       "in footer",
       templateMapper<LinkListArgs>((args, { inFooterTemplate, linkListTemplate }) =>
-        inFooterTemplate(linkListTemplate(linkListArgsMapper(args)))
-      )
+        inFooterTemplate(linkListTemplate(linkListArgsMapper(args))),
+      ),
     );
 
     return stories;

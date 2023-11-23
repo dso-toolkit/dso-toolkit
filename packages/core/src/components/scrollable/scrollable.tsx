@@ -6,9 +6,10 @@ import { DsoScrollEndEvent, ScrollPosition } from "./scrollable.interfaces";
 
 const resizeObserver = new ResizeObserver(
   debounce(
-    (entries: ResizeObserverEntry[]) => entries.forEach((entry) => getScrollableComponentFromResizeObserverEntry(entry)?._setScrollState()),
-    50
-  )
+    (entries: ResizeObserverEntry[]) =>
+      entries.forEach((entry) => getScrollableComponentFromResizeObserverEntry(entry)?._setScrollState()),
+    50,
+  ),
 );
 
 function getScrollableComponentFromResizeObserverEntry({
@@ -44,7 +45,7 @@ export class Scrollable {
       }
 
       this._setScrollState();
-    })
+    }),
   );
 
   private scrollContainerDiv?: HTMLDivElement;

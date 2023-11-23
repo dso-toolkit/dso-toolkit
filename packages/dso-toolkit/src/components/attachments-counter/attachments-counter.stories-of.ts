@@ -55,7 +55,7 @@ export function attachmentsCounterStories<Implementation, Templates, TemplateFnR
         count: 3,
       },
       render: templateContainer.render(storyTemplates, (args, { attachmentsCounterTemplate }) =>
-        attachmentsCounterTemplate(attachmentsCounterArgsMapper(args))
+        attachmentsCounterTemplate(attachmentsCounterArgsMapper(args)),
       ),
     },
   };

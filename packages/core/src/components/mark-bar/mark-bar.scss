@@ -53,7 +53,9 @@ $focus-border-width: 1px;
       height: $height;
       line-height: $height;
       padding: 6px $height 6px units.$u1;
-      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      transition:
+        border-color ease-in-out 0.15s,
+        box-shadow ease-in-out 0.15s;
       width: 100%;
       border-start-end-radius: 0;
       border-end-end-radius: 0;
