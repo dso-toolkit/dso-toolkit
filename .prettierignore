@@ -1,4 +1,4 @@
-/.cache
+/.nx
 **/CHANGELOG.md
 /.yarn
 /dependency-graph.svg

@@ -75,7 +75,7 @@ export async function buildSvgSpritesheet() {
   return new Promise((resolve, reject) => {
     gulp
       .src(`${iconsPath}/*.svg`)
-      .pipe(prettier())
+      .pipe(prettier({ plugins: ['@prettier/plugin-xml'] }))
       .pipe(
         svgstore({
           inlineSvg: true,
@@ -140,7 +140,7 @@ export async function buildSvgSpritesheet() {
           parserOptions: { xmlMode: true },
         })
       )
-      .pipe(prettier())
+      .pipe(prettier({ plugins: ['@prettier/plugin-xml'] }))
       .pipe(rename("dso-icons.svg"))
       .pipe(gulp.dest(distPath))
       .on("end", resolve)

@@ -3,7 +3,7 @@
 **/www
 
 .git
-.cache
+.nx
 .dockerignore
 Dockerfile
 .travis.yml

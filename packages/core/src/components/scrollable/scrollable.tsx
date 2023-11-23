@@ -6,7 +6,7 @@ import { DsoScrollEndEvent, ScrollPosition } from "./scrollable.interfaces";
 
 const resizeObserver = new ResizeObserver(
   debounce(
-    (entries) => entries.forEach((entry) => getScrollableComponentFromResizeObserverEntry(entry)?._setScrollState()),
+    (entries: ResizeObserverEntry[]) => entries.forEach((entry) => getScrollableComponentFromResizeObserverEntry(entry)?._setScrollState()),
     50
   )
 );

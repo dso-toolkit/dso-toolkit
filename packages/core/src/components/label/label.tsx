@@ -13,10 +13,10 @@ import {
   Listen,
 } from "@stencil/core";
 import clsx from "clsx";
-import { debounce } from "debounce";
+import debounce from "debounce";
 
 const resizeObserver = new ResizeObserver(
-  debounce((entries) => {
+  debounce((entries: ResizeObserverEntry[]) => {
     entries.forEach(({ target }) => {
       if (isDsoLabelComponent(target)) {
         target._truncateLabel();

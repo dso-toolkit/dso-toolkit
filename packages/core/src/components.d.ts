@@ -1116,7 +1116,20 @@ declare global {
         prototype: HTMLDsoAccordionElement;
         new (): HTMLDsoAccordionElement;
     };
+    interface HTMLDsoAccordionSectionElementEventMap {
+        "dsoToggleClick": AccordionSectionToggleClickEvent;
+        "dsoAnimationStart": AccordionSectionAnimationStartEvent;
+        "dsoAnimationEnd": AccordionSectionAnimationEndEvent;
+    }
     interface HTMLDsoAccordionSectionElement extends Components.DsoAccordionSection, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAccordionSectionElementEventMap>(type: K, listener: (this: HTMLDsoAccordionSectionElement, ev: DsoAccordionSectionCustomEvent<HTMLDsoAccordionSectionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAccordionSectionElementEventMap>(type: K, listener: (this: HTMLDsoAccordionSectionElement, ev: DsoAccordionSectionCustomEvent<HTMLDsoAccordionSectionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAccordionSectionElement: {
         prototype: HTMLDsoAccordionSectionElement;
@@ -1140,13 +1153,35 @@ declare global {
         prototype: HTMLDsoAlertElement;
         new (): HTMLDsoAlertElement;
     };
+    interface HTMLDsoAnnotationButtonElementEventMap {
+        "dsoClick": AnnotationButtonClickEvent;
+    }
     interface HTMLDsoAnnotationButtonElement extends Components.DsoAnnotationButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAnnotationButtonElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationButtonElement, ev: DsoAnnotationButtonCustomEvent<HTMLDsoAnnotationButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAnnotationButtonElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationButtonElement, ev: DsoAnnotationButtonCustomEvent<HTMLDsoAnnotationButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAnnotationButtonElement: {
         prototype: HTMLDsoAnnotationButtonElement;
         new (): HTMLDsoAnnotationButtonElement;
     };
+    interface HTMLDsoAnnotationOutputElementEventMap {
+        "dsoClose": AnnotationOutputCloseEvent;
+    }
     interface HTMLDsoAnnotationOutputElement extends Components.DsoAnnotationOutput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAnnotationOutputElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOutputElement, ev: DsoAnnotationOutputCustomEvent<HTMLDsoAnnotationOutputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAnnotationOutputElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOutputElement, ev: DsoAnnotationOutputCustomEvent<HTMLDsoAnnotationOutputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAnnotationOutputElement: {
         prototype: HTMLDsoAnnotationOutputElement;
@@ -1158,7 +1193,20 @@ declare global {
         prototype: HTMLDsoAttachmentsCounterElement;
         new (): HTMLDsoAttachmentsCounterElement;
     };
+    interface HTMLDsoAutosuggestElementEventMap {
+        "dsoSelect": Suggestion;
+        "dsoChange": string;
+        "dsoSearch": string;
+    }
     interface HTMLDsoAutosuggestElement extends Components.DsoAutosuggest, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAutosuggestElementEventMap>(type: K, listener: (this: HTMLDsoAutosuggestElement, ev: DsoAutosuggestCustomEvent<HTMLDsoAutosuggestElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAutosuggestElementEventMap>(type: K, listener: (this: HTMLDsoAutosuggestElement, ev: DsoAutosuggestCustomEvent<HTMLDsoAutosuggestElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAutosuggestElement: {
         prototype: HTMLDsoAutosuggestElement;
@@ -1176,7 +1224,18 @@ declare global {
         prototype: HTMLDsoBannerElement;
         new (): HTMLDsoBannerElement;
     };
+    interface HTMLDsoCardElementEventMap {
+        "dsoCardClicked": DsoCardClickedEvent;
+    }
     interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoCardElementEventMap>(type: K, listener: (this: HTMLDsoCardElement, ev: DsoCardCustomEvent<HTMLDsoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoCardElementEventMap>(type: K, listener: (this: HTMLDsoCardElement, ev: DsoCardCustomEvent<HTMLDsoCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoCardElement: {
         prototype: HTMLDsoCardElement;
@@ -1188,19 +1247,63 @@ declare global {
         prototype: HTMLDsoCardContainerElement;
         new (): HTMLDsoCardContainerElement;
     };
+    interface HTMLDsoDatePickerElementEventMap {
+        "dsoDateChange": DatePickerChangeEvent;
+        "dsoBlur": DatePickerFocusEvent;
+        "dsoKeyUp": DatePickerKeyboardEvent;
+        "dsoKeyDown": DatePickerKeyboardEvent;
+        "dsoFocus": DatePickerFocusEvent;
+    }
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDatePickerElementEventMap>(type: K, listener: (this: HTMLDsoDatePickerElement, ev: DsoDatePickerCustomEvent<HTMLDsoDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDatePickerElementEventMap>(type: K, listener: (this: HTMLDsoDatePickerElement, ev: DsoDatePickerCustomEvent<HTMLDsoDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoDatePickerElement: {
         prototype: HTMLDsoDatePickerElement;
         new (): HTMLDsoDatePickerElement;
     };
+    interface HTMLDsoDatePickerLegacyElementEventMap {
+        "dsoDateChange": DsoDatePickerLegacyChangeEvent;
+        "dsoBlur": DsoDatePickerLegacyFocusEvent;
+        "dsoKeyUp": DsoDatePickerLegacyKeyboardEvent;
+        "dsoKeyDown": DsoDatePickerLegacyKeyboardEvent;
+        "dsoFocus": DsoDatePickerLegacyFocusEvent;
+    }
     interface HTMLDsoDatePickerLegacyElement extends Components.DsoDatePickerLegacy, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDatePickerLegacyElementEventMap>(type: K, listener: (this: HTMLDsoDatePickerLegacyElement, ev: DsoDatePickerLegacyCustomEvent<HTMLDsoDatePickerLegacyElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDatePickerLegacyElementEventMap>(type: K, listener: (this: HTMLDsoDatePickerLegacyElement, ev: DsoDatePickerLegacyCustomEvent<HTMLDsoDatePickerLegacyElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoDatePickerLegacyElement: {
         prototype: HTMLDsoDatePickerLegacyElement;
         new (): HTMLDsoDatePickerLegacyElement;
     };
+    interface HTMLDsoDocumentComponentElementEventMap {
+        "dsoOpenToggle": DocumentComponentOpenToggleEvent;
+        "dsoOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+        "dsoAnnotationToggle": DocumentComponentToggleAnnotationEvent;
+        "dsoMarkItemHighlight": DocumentComponentMarkItemHighlightEvent;
+    }
     interface HTMLDsoDocumentComponentElement extends Components.DsoDocumentComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDocumentComponentElementEventMap>(type: K, listener: (this: HTMLDsoDocumentComponentElement, ev: DsoDocumentComponentCustomEvent<HTMLDsoDocumentComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDocumentComponentElementEventMap>(type: K, listener: (this: HTMLDsoDocumentComponentElement, ev: DsoDocumentComponentCustomEvent<HTMLDsoDocumentComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoDocumentComponentElement: {
         prototype: HTMLDsoDocumentComponentElement;
@@ -1212,13 +1315,36 @@ declare global {
         prototype: HTMLDsoDropdownMenuElement;
         new (): HTMLDsoDropdownMenuElement;
     };
+    interface HTMLDsoExpandableElementEventMap {
+        "dsoExpandableAnimationStart": ExpandableAnimationStartEvent;
+        "dsoExpandableAnimationEnd": ExpandableAnimationEndEvent;
+    }
     interface HTMLDsoExpandableElement extends Components.DsoExpandable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoExpandableElementEventMap>(type: K, listener: (this: HTMLDsoExpandableElement, ev: DsoExpandableCustomEvent<HTMLDsoExpandableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoExpandableElementEventMap>(type: K, listener: (this: HTMLDsoExpandableElement, ev: DsoExpandableCustomEvent<HTMLDsoExpandableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoExpandableElement: {
         prototype: HTMLDsoExpandableElement;
         new (): HTMLDsoExpandableElement;
     };
+    interface HTMLDsoHeaderElementEventMap {
+        "dsoHeaderClick": HeaderEvent;
+    }
     interface HTMLDsoHeaderElement extends Components.DsoHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoHeaderElementEventMap>(type: K, listener: (this: HTMLDsoHeaderElement, ev: DsoHeaderCustomEvent<HTMLDsoHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoHeaderElementEventMap>(type: K, listener: (this: HTMLDsoHeaderElement, ev: DsoHeaderCustomEvent<HTMLDsoHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoHeaderElement: {
         prototype: HTMLDsoHeaderElement;
@@ -1248,25 +1374,70 @@ declare global {
         prototype: HTMLDsoImageOverlayElement;
         new (): HTMLDsoImageOverlayElement;
     };
+    interface HTMLDsoInfoElementEventMap {
+        "dsoClose": MouseEvent;
+    }
     interface HTMLDsoInfoElement extends Components.DsoInfo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoInfoElementEventMap>(type: K, listener: (this: HTMLDsoInfoElement, ev: DsoInfoCustomEvent<HTMLDsoInfoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoInfoElementEventMap>(type: K, listener: (this: HTMLDsoInfoElement, ev: DsoInfoCustomEvent<HTMLDsoInfoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoInfoElement: {
         prototype: HTMLDsoInfoElement;
         new (): HTMLDsoInfoElement;
     };
+    interface HTMLDsoInfoButtonElementEventMap {
+        "dsoToggle": InfoButtonToggleEvent;
+    }
     interface HTMLDsoInfoButtonElement extends Components.DsoInfoButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoInfoButtonElementEventMap>(type: K, listener: (this: HTMLDsoInfoButtonElement, ev: DsoInfoButtonCustomEvent<HTMLDsoInfoButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoInfoButtonElementEventMap>(type: K, listener: (this: HTMLDsoInfoButtonElement, ev: DsoInfoButtonCustomEvent<HTMLDsoInfoButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoInfoButtonElement: {
         prototype: HTMLDsoInfoButtonElement;
         new (): HTMLDsoInfoButtonElement;
     };
+    interface HTMLDsoLabelElementEventMap {
+        "dsoRemoveClick": MouseEvent;
+    }
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoLabelElementEventMap>(type: K, listener: (this: HTMLDsoLabelElement, ev: DsoLabelCustomEvent<HTMLDsoLabelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoLabelElementEventMap>(type: K, listener: (this: HTMLDsoLabelElement, ev: DsoLabelCustomEvent<HTMLDsoLabelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoLabelElement: {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoListButtonElementEventMap {
+        "dsoCountChange": ListButtonChangeEvent;
+        "dsoSelectedChange": ListButtonSelectedEvent;
+    }
     interface HTMLDsoListButtonElement extends Components.DsoListButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoListButtonElementEventMap>(type: K, listener: (this: HTMLDsoListButtonElement, ev: DsoListButtonCustomEvent<HTMLDsoListButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoListButtonElementEventMap>(type: K, listener: (this: HTMLDsoListButtonElement, ev: DsoListButtonCustomEvent<HTMLDsoListButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoListButtonElement: {
         prototype: HTMLDsoListButtonElement;
@@ -1278,43 +1449,126 @@ declare global {
         prototype: HTMLDsoLogoElement;
         new (): HTMLDsoLogoElement;
     };
+    interface HTMLDsoMapBaseLayersElementEventMap {
+        "dsoBaseLayerChange": BaseLayerChangeEvent;
+    }
     interface HTMLDsoMapBaseLayersElement extends Components.DsoMapBaseLayers, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapBaseLayersElementEventMap>(type: K, listener: (this: HTMLDsoMapBaseLayersElement, ev: DsoMapBaseLayersCustomEvent<HTMLDsoMapBaseLayersElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapBaseLayersElementEventMap>(type: K, listener: (this: HTMLDsoMapBaseLayersElement, ev: DsoMapBaseLayersCustomEvent<HTMLDsoMapBaseLayersElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoMapBaseLayersElement: {
         prototype: HTMLDsoMapBaseLayersElement;
         new (): HTMLDsoMapBaseLayersElement;
     };
+    interface HTMLDsoMapControlsElementEventMap {
+        "dsoZoomIn": MouseEvent;
+        "dsoZoomOut": MouseEvent;
+        "dsoToggle": MapControlsToggleEvent;
+    }
     interface HTMLDsoMapControlsElement extends Components.DsoMapControls, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapControlsElementEventMap>(type: K, listener: (this: HTMLDsoMapControlsElement, ev: DsoMapControlsCustomEvent<HTMLDsoMapControlsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapControlsElementEventMap>(type: K, listener: (this: HTMLDsoMapControlsElement, ev: DsoMapControlsCustomEvent<HTMLDsoMapControlsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoMapControlsElement: {
         prototype: HTMLDsoMapControlsElement;
         new (): HTMLDsoMapControlsElement;
     };
+    interface HTMLDsoMapOverlaysElementEventMap {
+        "dsoToggleOverlay": OverlayChangeEvent;
+    }
     interface HTMLDsoMapOverlaysElement extends Components.DsoMapOverlays, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapOverlaysElementEventMap>(type: K, listener: (this: HTMLDsoMapOverlaysElement, ev: DsoMapOverlaysCustomEvent<HTMLDsoMapOverlaysElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapOverlaysElementEventMap>(type: K, listener: (this: HTMLDsoMapOverlaysElement, ev: DsoMapOverlaysCustomEvent<HTMLDsoMapOverlaysElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoMapOverlaysElement: {
         prototype: HTMLDsoMapOverlaysElement;
         new (): HTMLDsoMapOverlaysElement;
     };
+    interface HTMLDsoMarkBarElementEventMap {
+        "dsoInput": MarkBarInputEvent;
+        "dsoNext": MarkBarPaginationEvent;
+        "dsoPrevious": MarkBarPaginationEvent;
+        "dsoClear": MarkBarClearEvent;
+    }
     interface HTMLDsoMarkBarElement extends Components.DsoMarkBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMarkBarElementEventMap>(type: K, listener: (this: HTMLDsoMarkBarElement, ev: DsoMarkBarCustomEvent<HTMLDsoMarkBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMarkBarElementEventMap>(type: K, listener: (this: HTMLDsoMarkBarElement, ev: DsoMarkBarCustomEvent<HTMLDsoMarkBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoMarkBarElement: {
         prototype: HTMLDsoMarkBarElement;
         new (): HTMLDsoMarkBarElement;
     };
+    interface HTMLDsoModalElementEventMap {
+        "dsoClose": ModalCloseEvent;
+    }
     interface HTMLDsoModalElement extends Components.DsoModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoModalElementEventMap>(type: K, listener: (this: HTMLDsoModalElement, ev: DsoModalCustomEvent<HTMLDsoModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoModalElementEventMap>(type: K, listener: (this: HTMLDsoModalElement, ev: DsoModalCustomEvent<HTMLDsoModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoModalElement: {
         prototype: HTMLDsoModalElement;
         new (): HTMLDsoModalElement;
     };
+    interface HTMLDsoOzonContentElementEventMap {
+        "dsoAnchorClick": OzonContentAnchorClickEvent;
+        "dsoOzonContentMarkItemHighlight": OzonContentMarkItemHighlightEvent;
+    }
     interface HTMLDsoOzonContentElement extends Components.DsoOzonContent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoOzonContentElementEventMap>(type: K, listener: (this: HTMLDsoOzonContentElement, ev: DsoOzonContentCustomEvent<HTMLDsoOzonContentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoOzonContentElementEventMap>(type: K, listener: (this: HTMLDsoOzonContentElement, ev: DsoOzonContentCustomEvent<HTMLDsoOzonContentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoOzonContentElement: {
         prototype: HTMLDsoOzonContentElement;
         new (): HTMLDsoOzonContentElement;
     };
+    interface HTMLDsoPaginationElementEventMap {
+        "dsoSelectPage": PaginationSelectPageEvent;
+    }
     interface HTMLDsoPaginationElement extends Components.DsoPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPaginationElementEventMap>(type: K, listener: (this: HTMLDsoPaginationElement, ev: DsoPaginationCustomEvent<HTMLDsoPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPaginationElementEventMap>(type: K, listener: (this: HTMLDsoPaginationElement, ev: DsoPaginationCustomEvent<HTMLDsoPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoPaginationElement: {
         prototype: HTMLDsoPaginationElement;
@@ -1332,25 +1586,69 @@ declare global {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
     };
+    interface HTMLDsoResponsiveElementElementEventMap {
+        "dsoSizeChange": ResponsiveElementSize;
+    }
     interface HTMLDsoResponsiveElementElement extends Components.DsoResponsiveElement, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoResponsiveElementElementEventMap>(type: K, listener: (this: HTMLDsoResponsiveElementElement, ev: DsoResponsiveElementCustomEvent<HTMLDsoResponsiveElementElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoResponsiveElementElementEventMap>(type: K, listener: (this: HTMLDsoResponsiveElementElement, ev: DsoResponsiveElementCustomEvent<HTMLDsoResponsiveElementElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoResponsiveElementElement: {
         prototype: HTMLDsoResponsiveElementElement;
         new (): HTMLDsoResponsiveElementElement;
     };
+    interface HTMLDsoScrollableElementEventMap {
+        "dsoScrollEnd": DsoScrollEndEvent;
+    }
     interface HTMLDsoScrollableElement extends Components.DsoScrollable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoScrollableElementEventMap>(type: K, listener: (this: HTMLDsoScrollableElement, ev: DsoScrollableCustomEvent<HTMLDsoScrollableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoScrollableElementEventMap>(type: K, listener: (this: HTMLDsoScrollableElement, ev: DsoScrollableCustomEvent<HTMLDsoScrollableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoScrollableElement: {
         prototype: HTMLDsoScrollableElement;
         new (): HTMLDsoScrollableElement;
     };
+    interface HTMLDsoSelectableElementEventMap {
+        "dsoChange": SelectableChangeEvent;
+    }
     interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSelectableElementEventMap>(type: K, listener: (this: HTMLDsoSelectableElement, ev: DsoSelectableCustomEvent<HTMLDsoSelectableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSelectableElementEventMap>(type: K, listener: (this: HTMLDsoSelectableElement, ev: DsoSelectableCustomEvent<HTMLDsoSelectableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoSelectableElement: {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSlideToggleElementEventMap {
+        "dsoActiveChange": SlideToggleActiveEvent;
+    }
     interface HTMLDsoSlideToggleElement extends Components.DsoSlideToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSlideToggleElementEventMap>(type: K, listener: (this: HTMLDsoSlideToggleElement, ev: DsoSlideToggleCustomEvent<HTMLDsoSlideToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSlideToggleElementEventMap>(type: K, listener: (this: HTMLDsoSlideToggleElement, ev: DsoSlideToggleCustomEvent<HTMLDsoSlideToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoSlideToggleElement: {
         prototype: HTMLDsoSlideToggleElement;
@@ -1374,19 +1672,63 @@ declare global {
         prototype: HTMLDsoTooltipElement;
         new (): HTMLDsoTooltipElement;
     };
+    interface HTMLDsoTreeViewElementEventMap {
+        "dsoOpenItem": TreeViewItem[];
+        "dsoCloseItem": TreeViewItem[];
+        "dsoClickItem": TreeViewPointerEvent;
+    }
     interface HTMLDsoTreeViewElement extends Components.DsoTreeView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoTreeViewElementEventMap>(type: K, listener: (this: HTMLDsoTreeViewElement, ev: DsoTreeViewCustomEvent<HTMLDsoTreeViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoTreeViewElementEventMap>(type: K, listener: (this: HTMLDsoTreeViewElement, ev: DsoTreeViewCustomEvent<HTMLDsoTreeViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoTreeViewElement: {
         prototype: HTMLDsoTreeViewElement;
         new (): HTMLDsoTreeViewElement;
     };
+    interface HTMLDsoViewerGridElementEventMap {
+        "dsoCloseOverlay": ViewerGridCloseOverlayEvent;
+        "dsoFilterpanelCancel": ViewerGridFilterpanelCancelEvent;
+        "dsoFilterpanelApply": ViewerGridFilterpanelApplyEvent;
+        "dsoActiveTabSwitch": ViewerGridActiveTabSwitchEvent;
+        "dsoMainSizeChange": ViewerGridChangeSizeEvent;
+        "dsoMainSizeChangeAnimationEnd": ViewerGridChangeSizeAnimationEndEvent;
+        "dsoDocumentPanelSizeChange": ViewerGridChangeSizeEvent;
+        "dsoDocumentPanelSizeChangeAnimationEnd": ViewerGridChangeSizeAnimationEndEvent;
+        "dsoMainPanelExpand": ViewerGridMainExpandEvent;
+        "dsoMainPanelToggle": ViewerGridMainToggleEvent;
+    }
     interface HTMLDsoViewerGridElement extends Components.DsoViewerGrid, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoViewerGridElementEventMap>(type: K, listener: (this: HTMLDsoViewerGridElement, ev: DsoViewerGridCustomEvent<HTMLDsoViewerGridElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoViewerGridElementEventMap>(type: K, listener: (this: HTMLDsoViewerGridElement, ev: DsoViewerGridCustomEvent<HTMLDsoViewerGridElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoViewerGridElement: {
         prototype: HTMLDsoViewerGridElement;
         new (): HTMLDsoViewerGridElement;
     };
+    interface HTMLDsotDocumentComponentDemoElementEventMap {
+        "dsotOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+    }
     interface HTMLDsotDocumentComponentDemoElement extends Components.DsotDocumentComponentDemo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsotDocumentComponentDemoElementEventMap>(type: K, listener: (this: HTMLDsotDocumentComponentDemoElement, ev: DsotDocumentComponentDemoCustomEvent<HTMLDsotDocumentComponentDemoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsotDocumentComponentDemoElementEventMap>(type: K, listener: (this: HTMLDsotDocumentComponentDemoElement, ev: DsotDocumentComponentDemoCustomEvent<HTMLDsotDocumentComponentDemoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsotDocumentComponentDemoElement: {
         prototype: HTMLDsotDocumentComponentDemoElement;
