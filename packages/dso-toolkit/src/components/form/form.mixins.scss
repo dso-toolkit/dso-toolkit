@@ -1,16 +1,12 @@
 @use "config";
+@use "../../di";
 
 @mixin form-group-required {
   content: "";
 
   display: inline-block;
 
-  inline-size: 1rem;
-  block-size: 1rem;
-
   margin-inline-start: 4px;
 
-  background-image: url("#{config.$icons-path}dso-icons.svg#img-asterisk");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  @include di.base(asterisk, 1rem, unset);
 }
