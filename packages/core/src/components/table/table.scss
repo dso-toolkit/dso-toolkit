@@ -45,6 +45,7 @@
   max-width: calc(100% - 2rem);
   margin-left: auto;
   margin-right: auto;
+  inline-size: auto;
 
   .dso-body {
     $dso-body-unavailable-height: (2 * modal.$header-padding) + (modal.$footer-button-height + modal.$footer-padding);
