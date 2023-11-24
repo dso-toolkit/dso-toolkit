@@ -3,6 +3,7 @@ import { FormGroupDatePicker } from "../models/form-group-date-picker.model.js";
 
 export interface FormGroupDatePickerArgs {
   id: string;
+  label: string;
   state?: "invalid" | "valid";
   required: boolean;
   disabled: boolean;
@@ -12,6 +13,11 @@ export interface FormGroupDatePickerArgs {
 
 export const formGroupDatePickerArgTypes: ArgTypes<FormGroupDatePickerArgs> = {
   id: {
+    control: {
+      type: "text",
+    },
+  },
+  label: {
     control: {
       type: "text",
     },
@@ -50,6 +56,7 @@ export function formGroupDatePickerArgsMapper<TemplateFnReturnType>(
   return {
     group: "date-picker",
     id: a.id,
+    label: a.label,
     required: a.required,
     disabled: a.disabled,
     state: a.state,

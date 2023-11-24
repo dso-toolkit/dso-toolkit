@@ -1,5 +1,5 @@
 import { Form } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
@@ -7,8 +7,8 @@ import { ComponentImplementation } from "../../templates";
 export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
   implementation: "html-css",
-  template: ({ formGroupTemplate }) =>
-    function formTemplate({ legend, legendHeading, mode, formGroups }) {
+  template: ({ formGroupTemplate, formButtonsTemplate }) =>
+    function formTemplate({ legend, legendHeading, mode, formGroups, formButtons }) {
       return html`
         <form class=${ifDefined(mode === "horizontal" ? "form-horizontal" : undefined)}>
           <fieldset>
@@ -28,6 +28,7 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
                           : html`${legend}`}
             </legend>
             ${"_$litType$" in formGroups ? formGroups : formGroups.map((formGroup) => formGroupTemplate(formGroup))}
+            ${formButtons ? formButtonsTemplate(formButtons) : nothing}
           </fieldset>
         </form>
       `;
