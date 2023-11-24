@@ -66,7 +66,7 @@ export const cssList: ComponentImplementation<List> = {
                 : nothing}
               ${item.text}
             </li>
-          `
+          `,
         )}
       `;
 

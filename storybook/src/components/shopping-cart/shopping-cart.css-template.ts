@@ -156,13 +156,13 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                                                 iconMode: "only",
                                               })}
                                             </li>
-                                          `
+                                          `,
                                         )}
                                       </ul>
                                     `
                                   : nothing}
                               </li>
-                            `
+                            `,
                           )}
                         </ul>
                       `

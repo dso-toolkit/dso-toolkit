@@ -63,7 +63,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "danger",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerRichContent))
+        bannerTemplate(bannerArgsMapper(args, dangerRichContent)),
       ),
     },
     Error: {
@@ -71,7 +71,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "error",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, errorRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, errorRichContent))
+        bannerTemplate(bannerArgsMapper(args, errorRichContent)),
       ),
     },
     Info: {
@@ -79,7 +79,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+        bannerTemplate(bannerArgsMapper(args, infoRichContent)),
       ),
     },
     InfoCompactNonRemovable: {
@@ -89,7 +89,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         noIcon: true,
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent))
+        bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent)),
       ),
     },
     Warning: {
@@ -97,7 +97,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, warningRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, warningRichContent))
+        bannerTemplate(bannerArgsMapper(args, warningRichContent)),
       ),
     },
     InfoNonRemovable: {
@@ -105,7 +105,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, infoRichContent))
+        bannerTemplate(bannerArgsMapper(args, infoRichContent)),
       ),
     },
     RichWarning: {
@@ -113,7 +113,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richWarningRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, richWarningRichContent))
+        bannerTemplate(bannerArgsMapper(args, richWarningRichContent)),
       ),
     },
     RichInfo: {
@@ -123,7 +123,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         noIcon: true,
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richInfoRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, richInfoRichContent))
+        bannerTemplate(bannerArgsMapper(args, richInfoRichContent)),
       ),
     },
     DangerWithHeadings: {
@@ -131,7 +131,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
         status: "danger",
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerWithHeadingsRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent))
+        bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent)),
       ),
     },
   };

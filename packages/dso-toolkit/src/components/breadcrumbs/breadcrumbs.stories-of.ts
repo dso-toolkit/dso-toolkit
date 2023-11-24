@@ -63,7 +63,7 @@ export function breadcrumbsStories<Implementation, Templates, TemplateFnReturnTy
         ],
       },
       render: templateContainer.render(storyTemplates, (args, { breadcrumbsTemplate }) =>
-        breadcrumbsTemplate(breadcrumbsArgsMapper(args))
+        breadcrumbsTemplate(breadcrumbsArgsMapper(args)),
       ),
     },
   };

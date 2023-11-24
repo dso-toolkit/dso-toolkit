@@ -16,7 +16,7 @@ storiesOfSlideToggle({
     type SlideToggleConnector = (
       parameters: Parameters<
         ReturnType<Parameters<typeof storiesOfSlideToggle>[0]["storyTemplates"]>["slideToggleTemplate"]
-      >
+      >,
     ) => Parameters<typeof slideToggleTemplate>[0];
 
     const slideToggleConnector: SlideToggleConnector = ([props]) => ({

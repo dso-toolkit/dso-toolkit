@@ -58,7 +58,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
         status: "success",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, successMessage }) =>
-        alertTemplate(alertArgsMapper(args, successMessage))
+        alertTemplate(alertArgsMapper(args, successMessage)),
       ),
     },
     Info: {
@@ -66,7 +66,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
         status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, infoMessage }) =>
-        alertTemplate(alertArgsMapper(args, infoMessage))
+        alertTemplate(alertArgsMapper(args, infoMessage)),
       ),
     },
     Warning: {
@@ -74,7 +74,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
         status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, warningMessage }) =>
-        alertTemplate(alertArgsMapper(args, warningMessage))
+        alertTemplate(alertArgsMapper(args, warningMessage)),
       ),
     },
     Error: {
@@ -82,7 +82,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
         status: "warning",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, errorMessage }) =>
-        alertTemplate(alertArgsMapper(args, errorMessage))
+        alertTemplate(alertArgsMapper(args, errorMessage)),
       ),
     },
     WithHeadings: {
@@ -90,7 +90,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
         status: "info",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, alertWithHeadingsContent }) =>
-        alertTemplate(alertArgsMapper(args, alertWithHeadingsContent))
+        alertTemplate(alertArgsMapper(args, alertWithHeadingsContent)),
       ),
     },
   };

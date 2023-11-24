@@ -64,7 +64,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
                       ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                       ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
                     </div>
-                  `
+                  `,
                 )}
               </div>
             `}

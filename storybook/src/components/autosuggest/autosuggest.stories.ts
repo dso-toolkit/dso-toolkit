@@ -18,7 +18,7 @@ storiesOfAutosuggest({
     type AutosuggestConnector = (
       parameters: Parameters<
         ReturnType<Parameters<typeof storiesOfAutosuggest>[0]["storyTemplates"]>["autosuggestDemoTemplate"]
-      >
+      >,
     ) => Parameters<typeof autosuggestTemplate>[0];
 
     const autosuggestConnector: AutosuggestConnector = ([
@@ -81,7 +81,7 @@ storiesOfAutosuggest({
         loadingLabel,
         loadingDelayed,
         notFoundLabel,
-        minimalCharacters
+        minimalCharacters,
       ) => html`
         <label for="autosuggestInputId">Label voor input</label>
         ${autosuggestTemplate(
@@ -96,7 +96,7 @@ storiesOfAutosuggest({
             loadingDelayed,
             notFoundLabel,
             minimalCharacters,
-          ])
+          ]),
         )}
         <pre id="suggestions-demo">null</pre>
       `,
@@ -109,7 +109,7 @@ storiesOfAutosuggest({
         loading,
         loadingLabel,
         loadingDelayed,
-        notFoundLabel
+        notFoundLabel,
       ) => html`
         <div class="dso-search-bar">
           <div class="dso-search-bar-input">

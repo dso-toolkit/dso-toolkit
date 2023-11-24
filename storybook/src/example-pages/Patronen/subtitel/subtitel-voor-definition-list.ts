@@ -18,5 +18,5 @@ examplePageFactory(
         ${definitionListTemplate(definitionList)}
       </main>
     </div>
-  `
+  `,
 );

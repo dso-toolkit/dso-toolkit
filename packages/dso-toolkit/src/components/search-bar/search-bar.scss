@@ -58,7 +58,9 @@
       height: css-search-bar-variables.$height;
       line-height: css-search-bar-variables.$height;
       padding: 6px css-search-bar-variables.$height 6px units.$u1;
-      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      transition:
+        border-color ease-in-out 0.15s,
+        box-shadow ease-in-out 0.15s;
       width: 100%;
 
       &:focus {

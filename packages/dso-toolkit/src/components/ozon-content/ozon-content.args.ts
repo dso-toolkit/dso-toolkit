@@ -60,7 +60,7 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
             .map((item, index) =>
               isOdd(index)
                 ? { text: item, highlight: !!highlight && index === 1 && !highlighted && (highlighted = true) }
-                : item
+                : item,
             )
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),

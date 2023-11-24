@@ -18,7 +18,7 @@ export function annotationContent({ selectableTemplate }: Templates) {
           label: "'Toon uitgebreide weergave'",
           slot: "'addons'",
           value: "''",
-        }
+        },
       ).template,
     },
     content: {

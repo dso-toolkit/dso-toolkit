@@ -54,7 +54,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Plain",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Primary: {
@@ -63,7 +63,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Primary",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Success: {
@@ -72,7 +72,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Success",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Info: {
@@ -81,7 +81,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Info",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Warning: {
@@ -90,7 +90,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Warning",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Danger: {
@@ -99,7 +99,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Danger",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Error: {
@@ -108,7 +108,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Error",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Outline: {
@@ -117,7 +117,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Outline",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
     Attention: {
@@ -126,7 +126,7 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
         message: "Attention",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args))
+        badgeTemplate(badgeArgsMapper(args)),
       ),
     },
   };

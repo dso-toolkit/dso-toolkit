@@ -1,7 +1,6 @@
 import { defineConfig } from "cypress";
 
 export default defineConfig({
-  video: false,
   env: {
     PERCY: !!process.env.PERCY_TOKEN,
   },

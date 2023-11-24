@@ -11,7 +11,7 @@ const demoGrid = [
 
 type ResponsiveElementTemplateFnType<TemplateFnReturnType> = (
   dsoSizeChange: (event: CustomEvent<string>) => void,
-  grid: string[][]
+  grid: string[][],
 ) => TemplateFnReturnType;
 
 export interface ResponsiveElementTemplates<TemplateFnReturnType> {
@@ -24,7 +24,7 @@ export function storiesOfResponsiveElement<Implementation, Templates, TemplateFn
     Templates,
     TemplateFnReturnType,
     ResponsiveElementTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Responsive Element", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -33,7 +33,7 @@ export function storiesOfResponsiveElement<Implementation, Templates, TemplateFn
 
     stories.add(
       "Responsive Element",
-      templateMapper<ResponsiveElementArgs>((args, { gridTemplate }) => gridTemplate(args.dsoSizeChange, demoGrid))
+      templateMapper<ResponsiveElementArgs>((args, { gridTemplate }) => gridTemplate(args.dsoSizeChange, demoGrid)),
     );
 
     return stories;

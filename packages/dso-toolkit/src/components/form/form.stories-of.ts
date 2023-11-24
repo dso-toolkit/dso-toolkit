@@ -92,14 +92,14 @@ export interface FormTemplates<TemplateFnReturnType> {
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupDatePickerTemplate: (formGroupDatePicker: FormGroupDatePicker<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupDatePickerLegacyTemplate: (
-    formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateFnReturnType>
+    formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
   formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (
-    formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>
+    formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
   formGroupInputNumberTemplate: (
-    formGroupInputNumber: FormGroupInputNumber<TemplateFnReturnType>
+    formGroupInputNumber: FormGroupInputNumber<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
   formGroupRadiosTemplate: (formGroupRadios: FormGroupRadios<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupSearchBarTemplate: (formGroupSearchBar: FormGroupSearchBar<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -116,7 +116,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
   templateContainer: TemplateContainer<Implementation, Templates, TemplateFnReturnType>,
   storyTemplates: (templates: Templates) => FormTemplates<TemplateFnReturnType>,
-  { formGroupDecorator }: FormParameters<TemplateFnReturnType>
+  { formGroupDecorator }: FormParameters<TemplateFnReturnType>,
 ) {
   storiesOf(`${StoryRoot.HtmlCss}/Form/form`, mainModule)
     .addParameters({
@@ -134,7 +134,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formTemplate } = storyTemplates(templates);
 
         return formTemplate(formArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/checkboxes`, mainModule)
@@ -152,7 +152,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupCheckboxesTemplate } = storyTemplates(templates);
 
         return formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/confirm`, mainModule)
@@ -170,7 +170,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupConfirmTemplate } = storyTemplates(templates);
 
         return formGroupConfirmTemplate(formGroupConfirmArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/date-picker`, mainModule)
@@ -188,7 +188,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupDatePickerTemplate } = storyTemplates(templates);
 
         return formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/date-picker-legacy`, mainModule)
@@ -206,7 +206,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupDatePickerLegacyTemplate } = storyTemplates(templates);
 
         return formGroupDatePickerLegacyTemplate(formGroupDatePickerLegacyArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/files`, mainModule)
@@ -224,7 +224,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupFilesTemplate } = storyTemplates(templates);
 
         return formGroupFilesTemplate(formGroupFilesArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/input`, mainModule)
@@ -242,7 +242,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupInputTemplate } = storyTemplates(templates);
 
         return formGroupInputTemplate(formGroupInputArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/input-number`, mainModule)
@@ -260,7 +260,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupInputNumberTemplate } = storyTemplates(templates);
 
         return formGroupInputNumberTemplate(formGroupInputNumberArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/radios`, mainModule)
@@ -278,7 +278,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupRadiosTemplate } = storyTemplates(templates);
 
         return formGroupRadiosTemplate(formGroupRadiosArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/search bar`, mainModule)
@@ -296,7 +296,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupSearchBarTemplate } = storyTemplates(templates);
 
         return formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/select`, mainModule)
@@ -314,7 +314,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupSelectTemplate } = storyTemplates(templates);
 
         return formGroupSelectTemplate(formGroupSelectArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/static`, mainModule)
@@ -332,7 +332,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupStaticTemplate } = storyTemplates(templates);
 
         return formGroupStaticTemplate(formGroupStaticArgsMapper(args));
-      })
+      }),
     );
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/textarea`, mainModule)
@@ -350,6 +350,6 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupTextareaTemplate } = storyTemplates(templates);
 
         return formGroupTextareaTemplate(formGroupTextareaArgsMapper(args));
-      })
+      }),
     );
 }

@@ -15,7 +15,7 @@ export function storiesOfActionList<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     ActionListTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Action List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -28,15 +28,15 @@ export function storiesOfActionList<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "default",
       templateMapper<ActionListArgs>((args, { actionListTemplate, actionListItems }) =>
-        actionListTemplate(actionListArgsMapper(args, actionListItems))
-      )
+        actionListTemplate(actionListArgsMapper(args, actionListItems)),
+      ),
     );
 
     stories.add(
       "with warning",
       templateMapper<ActionListArgs>((args, { actionListTemplate, actionListWithWarningItems }) =>
-        actionListTemplate(actionListArgsMapper(args, actionListWithWarningItems))
-      )
+        actionListTemplate(actionListArgsMapper(args, actionListWithWarningItems)),
+      ),
     );
 
     return stories;

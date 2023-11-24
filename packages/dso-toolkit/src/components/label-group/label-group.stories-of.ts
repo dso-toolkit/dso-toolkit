@@ -13,7 +13,7 @@ export function storiesOfLabelGroup<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     LabelGroupTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Label Group", storiesOfArguments, (stories, templateMapper) => {
     const template = templateMapper((_args, { labelGroupTemplate }) => labelGroupTemplate(labelGroupArgsMapper()));

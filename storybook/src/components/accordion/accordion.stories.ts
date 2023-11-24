@@ -55,5 +55,5 @@ storiesOfAccordion(
       };
     },
   },
-  true
+  true,
 );

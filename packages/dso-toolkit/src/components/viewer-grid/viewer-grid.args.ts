@@ -148,7 +148,7 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
 
 export function viewerGridArgsMapper<TemplateFnReturnType>(
   a: ViewerGridArgs,
-  example: ViewerGridTemplates<TemplateFnReturnType>["example"]
+  example: ViewerGridTemplates<TemplateFnReturnType>["example"],
 ): ViewerGrid<TemplateFnReturnType> {
   return {
     ...a,

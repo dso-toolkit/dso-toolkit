@@ -14,7 +14,7 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     ShoppingCartTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Shopping Cart", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -32,7 +32,7 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
     });
 
     const template = templateMapper<ShoppingCartArgs>((args, { shoppingCartTemplate }) =>
-      shoppingCartTemplate(shoppingCartArgsMapper(args))
+      shoppingCartTemplate(shoppingCartArgsMapper(args)),
     );
 
     stories.add("default", template);

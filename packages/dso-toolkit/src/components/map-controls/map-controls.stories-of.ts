@@ -20,7 +20,7 @@ export function storiesOfMapControls<Implementation, Templates, TemplateFnReturn
     TemplateFnReturnType,
     MapControlsTemplates<TemplateFnReturnType>
   >,
-  { decorator }: MapControlsParameters<TemplateFnReturnType>
+  { decorator }: MapControlsParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Map Controls", storiesOfArguments, (stories, templateMapper) => {
     stories
@@ -41,8 +41,8 @@ export function storiesOfMapControls<Implementation, Templates, TemplateFnReturn
     stories.add(
       "Map Controls",
       templateMapper<MapControlsArgs>((args, { mapControlsTemplate }) =>
-        mapControlsTemplate(mapControlsArgsMapper(args))
-      )
+        mapControlsTemplate(mapControlsArgsMapper(args)),
+      ),
     );
 
     return stories;

@@ -27,7 +27,7 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
 
 export function tableArgsMapper<TemplateFnReturnType>(
   a: TableArgs,
-  content: TableContent<TemplateFnReturnType>
+  content: TableContent<TemplateFnReturnType>,
 ): Table<TemplateFnReturnType> {
   return { ...a, content };
 }

@@ -20,7 +20,7 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
                 warning=${ifDefined(item.warning)}
                 divider=${ifDefined(item.divider)}
                 >${item.content}</dso-action-list-item
-              >`
+              >`,
           )}
           ${richContentTemplate({
             children: html`

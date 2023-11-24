@@ -14,7 +14,7 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     OzonContentTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Ozon Content", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -22,7 +22,7 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<OzonContentArgs>((args, { ozonContentTemplate }) =>
-      ozonContentTemplate(ozonContentArgsMapper(args))
+      ozonContentTemplate(ozonContentArgsMapper(args)),
     );
 
     content.forEach((story) => {

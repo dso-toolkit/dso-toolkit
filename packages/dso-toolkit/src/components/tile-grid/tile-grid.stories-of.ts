@@ -13,7 +13,7 @@ export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     TileGridTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Tile Grid", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -25,7 +25,7 @@ export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnTyp
 
     stories.add(
       "Tile Grid",
-      templateMapper<TileGridArgs>((_args, { tileGridTemplate }) => tileGridTemplate({ tiles }))
+      templateMapper<TileGridArgs>((_args, { tileGridTemplate }) => tileGridTemplate({ tiles })),
     );
 
     return stories;

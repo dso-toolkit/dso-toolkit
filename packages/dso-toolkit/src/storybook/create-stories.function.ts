@@ -4,7 +4,7 @@ import { StorybookParameters } from "./storybook-parameters.interface.js";
 
 export function createStories(
   name: string,
-  { storiesOf, readme, module: mainModule, root, storyApiOptions }: StorybookParameters
+  { storiesOf, readme, module: mainModule, root, storyApiOptions }: StorybookParameters,
 ) {
   const stories = storiesOf(root ? `${root}/${name}` : name, mainModule).addParameters({
     docs: {

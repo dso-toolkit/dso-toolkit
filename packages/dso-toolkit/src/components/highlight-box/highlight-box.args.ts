@@ -54,7 +54,7 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
 
 export function highlightBoxArgsMapper<TemplateFnReturnType>(
   a: HighlightBoxArgs,
-  content: TemplateFnReturnType
+  content: TemplateFnReturnType,
 ): HighlightBox<TemplateFnReturnType> {
   return {
     border: a.border,

@@ -4,7 +4,7 @@ import { JustifyFormGroups } from "./justify-form-groups.models.js";
 
 export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
   justifyFormGroupsTemplate: (
-    justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>
+    justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
 }
 
@@ -19,12 +19,12 @@ export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFn
     TemplateFnReturnType,
     JustifyFormGroupsTemplates<TemplateFnReturnType>
   >,
-  { content }: JustifyFormGroupsParameters<TemplateFnReturnType>
+  { content }: JustifyFormGroupsParameters<TemplateFnReturnType>,
 ) {
   return storiesOfFactory("Form/justify form groups", storiesOfArguments, (stories, templateMapper) => {
     stories.add(
       "justify form groups",
-      templateMapper((_args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(content))
+      templateMapper((_args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(content)),
     );
 
     return stories;

@@ -39,7 +39,7 @@ export const SizingButtons: FunctionalComponent<SizingButtonProps> = ({
         label={`${panelLabel} smaller maken`}
         icon={placement === "right" ? "chevron-right" : "chevron-left"}
         className="shrink"
-      />
+      />,
     );
   }
 
@@ -50,7 +50,7 @@ export const SizingButtons: FunctionalComponent<SizingButtonProps> = ({
         label={`${panelLabel} breder maken`}
         icon={placement === "right" ? "chevron-left" : "chevron-right"}
         className="expand"
-      />
+      />,
     );
   }
 

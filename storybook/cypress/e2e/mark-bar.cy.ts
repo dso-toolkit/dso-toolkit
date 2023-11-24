@@ -48,7 +48,7 @@ describe("Mark Bar", () => {
           .on("dsoInput", cy.stub().as("dsoInput"))
           .on("dsoNext", cy.stub().as("dsoNext"))
           .on("dsoPrevious", cy.stub().as("dsoPrevious"))
-          .on("dsoClear", cy.stub().as("dsoClear"))
+          .on("dsoClear", cy.stub().as("dsoClear")),
       )
       .shadow()
       .as("shadow")

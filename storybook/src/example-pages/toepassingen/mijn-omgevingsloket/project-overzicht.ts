@@ -19,7 +19,7 @@ examplePageFactory(
       linkListTemplate,
       richContentTemplate,
     },
-    templates
+    templates,
   ) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu })}
@@ -135,5 +135,5 @@ examplePageFactory(
       </main>
       ${footerPartial(templates)}
     </div>
-  `
+  `,
 );

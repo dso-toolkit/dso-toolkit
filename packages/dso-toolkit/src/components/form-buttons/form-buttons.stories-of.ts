@@ -13,7 +13,7 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     FormButtonsTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Form/Form Buttons", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<FormButtonsArgs>((args, { formButtonsTemplate }) =>
-      formButtonsTemplate(formButtonsArgsMapper(args))
+      formButtonsTemplate(formButtonsArgsMapper(args)),
     );
 
     stories.add("default", template, {

@@ -8,7 +8,7 @@ examplePageFactory(
   "Beheer Basis",
   (
     { headerTemplate, breadcrumbsTemplate, buttonTemplate, paginationTemplate, definitionListTemplate, tableTemplate },
-    templates
+    templates,
   ) => {
     const rowActions = () =>
       html`${buttonTemplate({
@@ -60,5 +60,5 @@ examplePageFactory(
         ${footerPartial(templates)}
       </div>
     `;
-  }
+  },
 );

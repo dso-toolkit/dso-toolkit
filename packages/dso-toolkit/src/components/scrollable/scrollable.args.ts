@@ -15,7 +15,7 @@ export const scrollableArgTypes: ArgTypes<ScrollableArgs> = {
 
 export function scrollableArgsMapper<TemplateFnReturnType>(
   a: ScrollableArgs,
-  children: TemplateFnReturnType
+  children: TemplateFnReturnType,
 ): Scrollable<TemplateFnReturnType> {
   return { ...a, children };
 }

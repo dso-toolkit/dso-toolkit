@@ -91,7 +91,10 @@
   top: 100%;
   transform: scale(0.96) translateZ(0) translateY(-20px);
   transform-origin: top right;
-  transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease,
+    visibility 300ms ease;
   visibility: hidden;
   will-change: transform, opacity, visibility;
   z-index: zindex.$datepicker-dialog;
@@ -151,7 +154,8 @@
     padding: 0 8% 20px;
     position: absolute;
     transform: translateZ(0) translateY(100%);
-    transition: transform core-date-picker-legacy-variables.$transition-duration ease,
+    transition:
+      transform core-date-picker-legacy-variables.$transition-duration ease,
       opacity core-date-picker-legacy-variables.$transition-duration ease,
       visibility core-date-picker-legacy-variables.$transition-duration ease;
     visibility: hidden;

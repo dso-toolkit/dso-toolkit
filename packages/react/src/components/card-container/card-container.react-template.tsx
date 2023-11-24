@@ -12,7 +12,7 @@ export const reactCardContainer: ComponentImplementation<CardContainer<JSX.Eleme
       return (
         <DsoCardContainer mode={mode}>
           {cards.map((card, index) =>
-            mode === "list" ? <li key={index}>{cardTemplate(card)}</li> : cardTemplate(card)
+            mode === "list" ? <li key={index}>{cardTemplate(card)}</li> : cardTemplate(card),
           )}
         </DsoCardContainer>
       );

@@ -45,7 +45,7 @@ export const formGroupDatePickerLegacyArgTypes: ArgTypes<FormGroupDatePickerLega
 };
 
 export function formGroupDatePickerLegacyArgsMapper<TemplateFnReturnType>(
-  a: FormGroupDatePickerLegacyArgs
+  a: FormGroupDatePickerLegacyArgs,
 ): FormGroupDatePickerLegacy<TemplateFnReturnType> {
   return {
     group: "date-picker-legacy",

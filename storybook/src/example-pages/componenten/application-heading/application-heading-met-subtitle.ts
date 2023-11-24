@@ -12,5 +12,5 @@ examplePageFactory(
         subtitle: "2. Kies werkzaamheden",
       })}
     </div>
-  `
+  `,
 );

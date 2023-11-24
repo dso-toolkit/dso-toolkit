@@ -14,7 +14,7 @@ export function storiesOfDocumentList<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     DocumentListTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Document List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -26,15 +26,15 @@ export function storiesOfDocumentList<Implementation, Templates, TemplateFnRetur
     stories.add(
       "default",
       templateMapper((_args, { documentListTemplate, statusDemoMap }) =>
-        documentListTemplate(documentListMapper(statusDemoMap))
-      )
+        documentListTemplate(documentListMapper(statusDemoMap)),
+      ),
     );
 
     stories.add(
       "sticky",
       templateMapper((_args, { documentListTemplate, statusDemoMap }) =>
-        documentListTemplate(documentListStickyMapper(statusDemoMap))
-      )
+        documentListTemplate(documentListStickyMapper(statusDemoMap)),
+      ),
     );
 
     return stories;

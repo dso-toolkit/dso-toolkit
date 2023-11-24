@@ -14,7 +14,7 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     CardTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Card", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -22,7 +22,7 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
     });
 
     const template = templateMapper<CardArgs>((args, { cardTemplate, content }) =>
-      cardTemplate(cardArgsMapper(args, content))
+      cardTemplate(cardArgsMapper(args, content)),
     );
 
     stories.add("default", template, {

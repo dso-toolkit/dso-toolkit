@@ -79,7 +79,7 @@ describe("Viewer Grid", () => {
     const eventListener = cy.stub();
 
     cy.get("dso-viewer-grid").then((e) =>
-      e.on("filterpanelCancel", eventListener).on("filterpanelApply", eventListener)
+      e.on("filterpanelCancel", eventListener).on("filterpanelApply", eventListener),
     );
 
     cy.get("dso-viewer-grid").invoke("attr", "filterpanel-open", "");
@@ -263,7 +263,7 @@ describe("Viewer Grid", () => {
       .then(($viewerGrid) =>
         $viewerGrid
           .on("dsoMainSizeChange", cy.stub().as("mainSizeChange"))
-          .on("dsoDocumentPanelSizeChange", cy.stub().as("documentPanelSizeChange"))
+          .on("dsoDocumentPanelSizeChange", cy.stub().as("documentPanelSizeChange")),
       )
       .invoke("attr", "main-size")
       .should("equal", "large")

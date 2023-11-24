@@ -24,7 +24,7 @@ export const cardContainerArgTypes: ArgTypes<CardContainerArgs> = {
 
 export function cardContainerArgsMapper<TemplateFnReturnType>(
   a: CardContainerArgs,
-  content: TemplateFnReturnType[]
+  content: TemplateFnReturnType[],
 ): CardContainer<TemplateFnReturnType> {
   return {
     ...a,

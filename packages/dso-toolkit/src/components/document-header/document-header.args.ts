@@ -56,7 +56,7 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
   status: TemplateFnReturnType,
   features: DefinitionList<TemplateFnReturnType>,
-  statusContent: TemplateFnReturnType
+  statusContent: TemplateFnReturnType,
 ): DocumentHeader<TemplateFnReturnType> {
   return {
     title: a.title,

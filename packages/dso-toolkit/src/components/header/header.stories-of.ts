@@ -12,7 +12,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
     Templates,
     TemplateFnReturnType,
     HeaderTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Header", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({

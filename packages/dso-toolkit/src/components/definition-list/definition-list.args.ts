@@ -16,7 +16,7 @@ export const definitionListArgTypes: ArgTypes<DefinitionListArgs> = {
 
 export function definitionListArgsMapper<TemplateFnReturnType>(
   a: DefinitionListArgs,
-  definitions: Definition<TemplateFnReturnType>[]
+  definitions: Definition<TemplateFnReturnType>[],
 ): DefinitionList<TemplateFnReturnType> {
   return {
     definitions,

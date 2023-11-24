@@ -36,7 +36,7 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
 
 export function toggletipArgsMapper<TemplateFnReturnType>(
   a: ToggletipArgs,
-  children: TemplateFnReturnType
+  children: TemplateFnReturnType,
 ): Toggletip<TemplateFnReturnType> {
   return {
     children,

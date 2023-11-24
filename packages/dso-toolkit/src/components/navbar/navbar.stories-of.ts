@@ -14,7 +14,7 @@ export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>
     Templates,
     TemplateFnReturnType,
     NavbarTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Navbar", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -83,14 +83,14 @@ export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>
     stories.add(
       "with extension",
       templateMapper<NavbarArgs>((args, { navbarTemplate, extension }) =>
-        navbarTemplate(navbarArgsMapper(args, extension))
+        navbarTemplate(navbarArgsMapper(args, extension)),
       ),
       {
         args: {
           ...secondaryArgs,
           extensionOpen: true,
         },
-      }
+      },
     );
 
     return stories;

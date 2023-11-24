@@ -51,7 +51,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
             () =>
               html`<ul class="dso-selectable-options" slot="options">
                 ${options?.map((option) => html`<li>${selectableTemplate(option)}</li>`)}
-              </ul>`
+              </ul>`,
           )}
         </dso-selectable>
       `;

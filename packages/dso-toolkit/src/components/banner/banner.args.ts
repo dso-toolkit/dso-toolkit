@@ -25,7 +25,7 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
 
 export function bannerArgsMapper<TemplateFnReturnType>(
   a: BannerArgs,
-  content: TemplateFnReturnType
+  content: TemplateFnReturnType,
 ): Banner<TemplateFnReturnType> {
   return {
     ...a,

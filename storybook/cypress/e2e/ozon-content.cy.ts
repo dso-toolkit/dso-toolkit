@@ -92,7 +92,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<outer><sub><sup><strong><b><i><u><inner>text</inner></u></i></b></strong></sup></sub></outer>"
+        "<outer><sub><sup><strong><b><i><u><inner>text</inner></u></i></b></strong></sup></sub></outer>",
       );
     });
 
@@ -123,7 +123,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<ns4:c xmlns:ns4='https://standaarden.overheid.nl/stop/imop/tekst/'><ns4:Inhoud><ns4:e>de inhoud</ns4:e></ns4:Inhoud></ns4:c>"
+        "<ns4:c xmlns:ns4='https://standaarden.overheid.nl/stop/imop/tekst/'><ns4:Inhoud><ns4:e>de inhoud</ns4:e></ns4:Inhoud></ns4:c>",
       );
     });
 
@@ -219,7 +219,7 @@ describe("Ozon Content", () => {
       .and(
         "have.attr",
         "href",
-        "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1"
+        "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1",
       )
       .contains("opent in nieuw venster")
       .should("exist");
@@ -247,7 +247,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
+        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>",
       );
     });
     cy.get("dso-ozon-content").shadow().find("table").should("exist").children("tbody").as("body");
@@ -265,7 +265,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><thead><row><entry>een</entry><entry>twee</entry></row></thead><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
+        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><thead><row><entry>een</entry><entry>twee</entry></row></thead><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>",
       );
     });
     cy.get("dso-ozon-content").shadow().find("table").should("exist").children("thead").as("head");
@@ -281,7 +281,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry morerows='1'>1</entry><entry>2</entry></row><row><entry>4</entry></row></tbody></tgroup></table>"
+        "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry morerows='1'>1</entry><entry>2</entry></row><row><entry>4</entry></row></tbody></tgroup></table>",
       );
     });
     cy.get("dso-ozon-content").shadow().find("table").should("exist").children("tbody").as("body");
@@ -299,7 +299,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").then((c) => {
       c.prop(
         "content",
-        "<table><tgroup cols='2'><colspec colnum='1' colname='een' /><colspec colnum='2' colname='twee' /><tbody><row><entry namest='een' nameend='twee'>1</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
+        "<table><tgroup cols='2'><colspec colnum='1' colname='een' /><colspec colnum='2' colname='twee' /><tbody><row><entry namest='een' nameend='twee'>1</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>",
       );
     });
 
@@ -362,7 +362,7 @@ describe("Ozon Content", () => {
           <Bijschrift locatie="onder">Bijschrift bij het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
         </Figuur>
-      `
+      `,
       )
       .get("dso-ozon-content")
       .shadow()
@@ -484,7 +484,7 @@ describe("Ozon Content", () => {
             </Li>
             <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
           </Lijst>
-        `
+        `,
       )
       .find("> .dso-ozon-lijst")
       .as("dsoOzonLijst")
@@ -567,7 +567,7 @@ describe("Ozon Content", () => {
           ($ozonContent[0].mark = (text) =>
             text
               .split(new RegExp(`(is)`, "gi"))
-              .map((item, index) => (isOdd(index) ? { text: item, highlight: index === 1 } : item)))
+              .map((item, index) => (isOdd(index) ? { text: item, highlight: index === 1 } : item))),
       )
       .get("dso-ozon-content")
       .shadow()

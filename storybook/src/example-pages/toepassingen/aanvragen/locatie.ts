@@ -56,5 +56,5 @@ examplePageFactory(
         </form>
       </main>
     </div>
-  `
+  `,
 );

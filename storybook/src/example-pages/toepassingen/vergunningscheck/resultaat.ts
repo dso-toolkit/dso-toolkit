@@ -21,7 +21,7 @@ examplePageFactory(
       iconTemplate,
       richContentTemplate,
     },
-    templates
+    templates,
   ) => html`
     <div class="container">
       ${headerPartial(templates, {
@@ -282,5 +282,5 @@ examplePageFactory(
       </main>
       ${footerPartial(templates)} ${helpcenterPanelTemplate({ label: "Hulp nodig?", url: "#" })}
     </div>
-  `
+  `,
 );

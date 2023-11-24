@@ -40,7 +40,7 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
 
 export function alertArgsMapper<TemplateFnReturnType>(
   a: AlertArgs,
-  message: TemplateFnReturnType
+  message: TemplateFnReturnType,
 ): Alert<TemplateFnReturnType> {
   return {
     message,

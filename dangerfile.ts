@@ -30,7 +30,7 @@ import { danger, fail } from "danger";
   const firstCommitMessage = parseFirstCommitMessage(firstCommitMessageLine);
   if (!firstCommitMessage) {
     fail(
-      `De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`
+      `De eerste commit ('${firstCommitMessageLine}') volgt niet de vereiste formule. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) voor voorbeelden van wat het moet zijn, en uitleg waarom.`,
     );
   }
 
@@ -38,14 +38,14 @@ import { danger, fail } from "danger";
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
   if (!hasChangelog && firstCommitMessage?.issueId !== 2316) {
     fail(
-      `Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`
+      `Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`,
     );
   }
 
   if (firstCommitMessage) {
     if (firstCommitMessage.scope.split(" ").some((w) => w[0].toLocaleUpperCase() !== w[0])) {
       fail(
-        `Het scopegedeelte van het eerste commit-bericht ('${firstCommitMessage.scope}') is niet geschreven in gespatieerde Pascal-casing. Alle woorden in de scope moeten met een hoofdletter beginnen.`
+        `Het scopegedeelte van het eerste commit-bericht ('${firstCommitMessage.scope}') is niet geschreven in gespatieerde Pascal-casing. Alle woorden in de scope moeten met een hoofdletter beginnen.`,
       );
     }
 
@@ -56,7 +56,7 @@ import { danger, fail } from "danger";
         fail(
           `Commit ${i + 1} (${
             commitMessage.sha
-          }) met commit-bericht '${commitMessageLine}' moet beginnen met het nummer van de GitHub issue waar je aan gewerkt hebt.`
+          }) met commit-bericht '${commitMessageLine}' moet beginnen met het nummer van de GitHub issue waar je aan gewerkt hebt.`,
         );
       }
     }
@@ -64,19 +64,19 @@ import { danger, fail } from "danger";
     const githubIssue = await getGithubIssue(firstCommitMessage.issueId);
     if (!githubIssue) {
       fail(
-        `Ik kan GitHub issue '${firstCommitMessage.issueId}' niet vinden. Controleer of het issuenummer klopt en of de issue bestaat.`
+        `Ik kan GitHub issue '${firstCommitMessage.issueId}' niet vinden. Controleer of het issuenummer klopt en of de issue bestaat.`,
       );
     } else {
       if (firstCommitMessage.issueTitle !== githubIssue.title) {
         fail(
-          `Het scopegedeelte en de samenvatting in je eerste commit-bericht moeten overeenkomen met de titel van het GitHub-issue, maar dat doen ze momenteel niet: Vergelijk '${firstCommitMessage.issueTitle}' met de titel van het issue: '${githubIssue.title}'.`
+          `Het scopegedeelte en de samenvatting in je eerste commit-bericht moeten overeenkomen met de titel van het GitHub-issue, maar dat doen ze momenteel niet: Vergelijk '${firstCommitMessage.issueTitle}' met de titel van het issue: '${githubIssue.title}'.`,
         );
       }
 
       const githubLabel = labelMap[firstCommitMessage.type];
       if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
         fail(
-          `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`
+          `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`,
         );
       }
     }
@@ -90,36 +90,36 @@ import { danger, fail } from "danger";
       const changelogEntry = parseChangelogEntry(diff.after, firstCommitMessage.issueId);
       if (!changelogEntry) {
         fail(
-          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`
+          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
         );
       } else {
         if (firstCommitMessage?.issueId !== changelogEntry.linkIssueId) {
           fail(
-            `Het issuenummer dat is gebruikt in je eerste commit-bericht verschilt van het issuenummer waarnaar je hebt verwezen in je CHANGELOG-aantekening: vergelijk '${firstCommitMessage.issueId}' met '${changelogEntry.linkIssueId}'. Zorg ervoor dat deze twee hetzelfde zijn.`
+            `Het issuenummer dat is gebruikt in je eerste commit-bericht verschilt van het issuenummer waarnaar je hebt verwezen in je CHANGELOG-aantekening: vergelijk '${firstCommitMessage.issueId}' met '${changelogEntry.linkIssueId}'. Zorg ervoor dat deze twee hetzelfde zijn.`,
           );
         }
 
         if (firstCommitMessage?.summary !== changelogEntry.summary) {
           fail(
-            `Er is een verschil in de samenvatting (van het werk dat je hebt gedaan) zoals beschreven in je eerste commit-bericht ('${firstCommitMessage.summary}'), en de aantekening in het CHANGELOG ('${changelogEntry.summary}'). Zorg ervoor dat ze exact hetzelfde zijn.`
+            `Er is een verschil in de samenvatting (van het werk dat je hebt gedaan) zoals beschreven in je eerste commit-bericht ('${firstCommitMessage.summary}'), en de aantekening in het CHANGELOG ('${changelogEntry.summary}'). Zorg ervoor dat ze exact hetzelfde zijn.`,
           );
         }
 
         if (firstCommitMessage?.scope !== changelogEntry.scope) {
           fail(
-            `Het scopegedeelte van je eerste commit-bericht ('${firstCommitMessage.scope}') verschilt van de scope in het CHANGELOG ('${changelogEntry.scope}'). Het toevoegen van het juiste scopegedeelte maakt het gemakkelijker om later in het CHANGELOG te zien welke wijzigingen er zijn aangebracht aan een specifiek aspect van de codebase. Voor meer informatie, raadpleeg de [Change management-notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`
+            `Het scopegedeelte van je eerste commit-bericht ('${firstCommitMessage.scope}') verschilt van de scope in het CHANGELOG ('${changelogEntry.scope}'). Het toevoegen van het juiste scopegedeelte maakt het gemakkelijker om later in het CHANGELOG te zien welke wijzigingen er zijn aangebracht aan een specifiek aspect van de codebase. Voor meer informatie, raadpleeg de [Change management-notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
           );
         }
 
         if (firstCommitMessage?.group !== changelogEntry.group) {
           fail(
-            `Het groupgedeelte in het eerste commit-bericht ('${firstCommitMessage.group}') verschilt van de group in de CHANGELOG-aantekening ('${changelogEntry.group}'). Met 'group' bedoelen we het type wijzigingen dat is aangebracht. Dit moet een van de volgende trefwoorden zijn: 'Added', 'Changed', 'Deprecated', 'Docs', 'Fixed', 'Removed' of 'Tasks', en moet worden gebruikt in het commit-bericht zoals in dit voorbeeld: "#2241 [Task] Packages: Dependency updates". In het CHANGELOG zijn deze trefwoorden subkoppen binnen de 'Volgende' release, zodat alle wijzigingen in de resulterende release gemakkelijk te zien zijn gegroepeerd op soort wijziging.`
+            `Het groupgedeelte in het eerste commit-bericht ('${firstCommitMessage.group}') verschilt van de group in de CHANGELOG-aantekening ('${changelogEntry.group}'). Met 'group' bedoelen we het type wijzigingen dat is aangebracht. Dit moet een van de volgende trefwoorden zijn: 'Added', 'Changed', 'Deprecated', 'Docs', 'Fixed', 'Removed' of 'Tasks', en moet worden gebruikt in het commit-bericht zoals in dit voorbeeld: "#2241 [Task] Packages: Dependency updates". In het CHANGELOG zijn deze trefwoorden subkoppen binnen de 'Volgende' release, zodat alle wijzigingen in de resulterende release gemakkelijk te zien zijn gegroepeerd op soort wijziging.`,
           );
         }
 
         if (changelogEntry.release !== "Next") {
           fail(
-            `Je CHANGELOG-aantekening staat niet onder het kopje van de eerstvolgende release ('Next'), maar onder '${changelogEntry.release}'. Verplaats deze naar de juiste locatie, zodat wanneer je pull-verzoek wordt samengevoegd, de CHANGELOG-geschiedenis correct je werk weergeeft in de juiste release.`
+            `Je CHANGELOG-aantekening staat niet onder het kopje van de eerstvolgende release ('Next'), maar onder '${changelogEntry.release}'. Verplaats deze naar de juiste locatie, zodat wanneer je pull-verzoek wordt samengevoegd, de CHANGELOG-geschiedenis correct je werk weergeeft in de juiste release.`,
           );
         }
       }
@@ -133,15 +133,15 @@ import { danger, fail } from "danger";
       danger.git.diffForFile(file).then((diff) => {
         if (diff?.after.includes("Lorem")) {
           fail(
-            `Gebruik alsjeblieft geen 'Lorem ipsum' als content. Het lijkt er op dat je dat hebt gedaan in het volgende bestand: ${file}`
+            `Gebruik alsjeblieft geen 'Lorem ipsum' als content. Het lijkt er op dat je dat hebt gedaan in het volgende bestand: ${file}`,
           );
         }
-      })
+      }),
     );
 
   function parseFirstCommitMessage(commitMessage: string) {
     const commitMessageRegex = new RegExp(
-      `^#(?<issueId>\\d+) \\[(?<type>${types.join("|")})\\] (?<scope>[^\\s].+[^\\s]): (?<summary>[^\\s].+[^\\s])`
+      `^#(?<issueId>\\d+) \\[(?<type>${types.join("|")})\\] (?<scope>[^\\s].+[^\\s]): (?<summary>[^\\s].+[^\\s])`,
     );
 
     const match = commitMessage.match(commitMessageRegex);
@@ -169,7 +169,7 @@ import { danger, fail } from "danger";
   function parseChangelogEntry(changelog: string, issueId: number) {
     const changelogRegex = new RegExp(
       `^\\* (?:\\*\\*(?<breaking>BREAKING)\\*\\* )?(?<scope>[^\\s].+[^\\s]): (?<summary>[^\\s].+[^\\s]) \\(\\[#${issueId}\\]\\(https:\\/\\/github\\.com\\/dso-toolkit\\/dso-toolkit\\/issues\\/(?<linkIssueId>\\d+)\\)\\)$`,
-      "m"
+      "m",
     );
 
     const match = changelog.match(changelogRegex);

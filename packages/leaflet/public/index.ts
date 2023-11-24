@@ -85,7 +85,7 @@ if (nativeControls) {
   const layersControl = L.control
     .layers(
       baseLayers.reduce((obj, l) => Object.assign(obj, { [l.name]: l.layer }), {}),
-      overlays.reduce((obj, l) => Object.assign(obj, { [l.name]: l.layer }), {})
+      overlays.reduce((obj, l) => Object.assign(obj, { [l.name]: l.layer }), {}),
     )
     .addTo(map);
 
@@ -130,5 +130,5 @@ render(
         `
       : nothing}
   `,
-  document.getElementById("devtools")
+  document.getElementById("devtools"),
 );

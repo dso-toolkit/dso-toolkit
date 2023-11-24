@@ -19,7 +19,7 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
       }
 
       function definitionContentTemplate(
-        description: DefinitionDescriptionContent<TemplateResult> | DefinitionDescriptionItems
+        description: DefinitionDescriptionContent<TemplateResult> | DefinitionDescriptionItems,
       ) {
         if ("content" in description) {
           if (typeof description.content === "string") {
@@ -37,7 +37,7 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
           ${definitions.map((definition) =>
             modifier?.split(" ").includes("dso-columns")
               ? html`<div>${definitionTemplate(definition)}</div>`
-              : definitionTemplate(definition)
+              : definitionTemplate(definition),
           )}
         </dl>
       `;

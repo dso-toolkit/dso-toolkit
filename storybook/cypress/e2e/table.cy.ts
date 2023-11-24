@@ -15,7 +15,7 @@ describe("Table", () => {
       .shadow()
       .find(".dso-table-body")
       .then(($tableBody) =>
-        expect($tableBody[0].scrollWidth).to.be.greaterThan($tableBody[0].getBoundingClientRect().width)
+        expect($tableBody[0].scrollWidth).to.be.greaterThan($tableBody[0].getBoundingClientRect().width),
       );
 
     cy.percySnapshot();

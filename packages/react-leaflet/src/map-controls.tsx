@@ -91,7 +91,7 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
           }
         }
       },
-      [mapControls, map]
+      [mapControls, map],
     );
 
     const removeLayer = React.useCallback(
@@ -99,12 +99,12 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
         mapControls?.removeLayer(layerToRemove);
         setLayer(null);
       },
-      [mapControls]
+      [mapControls],
     );
 
     const context = React.useMemo(
       () => ({ ...parentContext, layerContainer: { addLayer, removeLayer } }),
-      [parentContext, addLayer, removeLayer]
+      [parentContext, addLayer, removeLayer],
     );
 
     React.useEffect(() => {
@@ -132,7 +132,7 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
 MapControls.BaseLayer = createControlledLayer(function addBaseLayer(
   mapControls: DsoLeafletMapControls,
   layer: Layer,
-  name: string
+  name: string,
 ) {
   mapControls.addBaseLayer(layer, name);
 });
@@ -140,7 +140,7 @@ MapControls.BaseLayer = createControlledLayer(function addBaseLayer(
 MapControls.Overlay = createControlledLayer(function addOverlay(
   mapControls: DsoLeafletMapControls,
   layer: Layer,
-  name: string
+  name: string,
 ) {
   mapControls.addOverlay(layer, name);
 });

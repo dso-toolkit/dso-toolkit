@@ -27,7 +27,7 @@ describe("Map Controls", () => {
     function testLayer<Layer extends Overlay | BaseLayer>(
       element: "dso-map-overlays" | "dso-map-base-layers",
       property: "overlays" | "baseLayers",
-      label: string
+      label: string,
     ) {
       cy.get(element)
         .shadow()
@@ -42,7 +42,7 @@ describe("Map Controls", () => {
 
       // Emulate zoom change
       cy.get(element).invoke("prop", property, (_: unknown, layers: Layer[]) =>
-        layers.map<Layer>((o) => (o.name === label ? { ...o, disabled: false } : o))
+        layers.map<Layer>((o) => (o.name === label ? { ...o, disabled: false } : o)),
       );
 
       cy.get("@selectable").find("dso-info").should("not.be.visible");

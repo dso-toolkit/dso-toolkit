@@ -17,7 +17,7 @@ export const cardListArgTypes: ArgTypes<CardListArgs> = {
 
 export function cardListArgsMapper<TemplateFnReturnType>(
   a: CardListArgs,
-  content: TemplateFnReturnType[]
+  content: TemplateFnReturnType[],
 ): CardList<TemplateFnReturnType> {
   return {
     ...a,

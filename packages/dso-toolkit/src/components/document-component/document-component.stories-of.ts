@@ -13,13 +13,13 @@ import { imroContent } from "./document-component.content.js";
 
 export interface DocumentComponentTemplates<TemplateFnReturnType> {
   documentComponentTemplate: (
-    documentComponentProperties: DocumentComponent<TemplateFnReturnType>
+    documentComponentProperties: DocumentComponent<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
   demoTemplate: (
     jsonFile: string,
     openDefault: boolean,
     showCanvas: boolean,
-    ozonContentAnchorClick: HandlerFunction
+    ozonContentAnchorClick: HandlerFunction,
   ) => TemplateFnReturnType;
 }
 
@@ -29,18 +29,18 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
     Templates,
     TemplateFnReturnType,
     DocumentComponentTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Document Component", storiesOfArguments, (stories, templateMapper) => {
     stories.add(
       "default",
       templateMapper<DocumentComponentArgs>((args, { documentComponentTemplate }) =>
-        documentComponentTemplate(documentComponentMapper(args))
+        documentComponentTemplate(documentComponentMapper(args)),
       ),
       {
         args: documentComponentArgs,
         argTypes: documentComponentArgTypes,
-      }
+      },
     );
 
     stories.add(
@@ -51,7 +51,7 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
         showCanvas: boolean;
         ozonContentAnchorClick: HandlerFunction;
       }>((args, { demoTemplate }) =>
-        demoTemplate(args.jsonFile, args.openDefault, args.showCanvas, args.ozonContentAnchorClick)
+        demoTemplate(args.jsonFile, args.openDefault, args.showCanvas, args.ozonContentAnchorClick),
       ),
       {
         args: {
@@ -81,13 +81,13 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
           },
         },
         layout: "fullscreen",
-      }
+      },
     );
 
     stories.add(
       "IMRO",
       templateMapper<DocumentComponentArgs>((args, { documentComponentTemplate }) =>
-        documentComponentTemplate(documentComponentMapper(args))
+        documentComponentTemplate(documentComponentMapper(args)),
       ),
       {
         argTypes: documentComponentArgTypes,
@@ -110,7 +110,7 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
           alternativeTitle: "Adequaat aanbod openbaar vervoer",
           content: imroContent,
         },
-      }
+      },
     );
 
     return stories;

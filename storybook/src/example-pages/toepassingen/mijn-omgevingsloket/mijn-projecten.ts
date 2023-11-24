@@ -20,7 +20,7 @@ examplePageFactory(
       labelTemplate,
       helpcenterPanelTemplate,
     },
-    templates
+    templates,
   ) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu })}
@@ -171,5 +171,5 @@ examplePageFactory(
       })}
       ${footerPartial(templates)}
     </div>
-  `
+  `,
 );

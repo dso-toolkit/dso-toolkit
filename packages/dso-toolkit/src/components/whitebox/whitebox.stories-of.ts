@@ -13,7 +13,7 @@ export function storiesOfWhitebox<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     WhiteboxTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Whitebox", storiesOfArguments, (stories, templateMapper) => {
     type ComponentArgs = Pick<WhiteboxArgs, "title" | "description" | "label" | "imageSource" | "imageAlt">;
@@ -30,7 +30,7 @@ export function storiesOfWhitebox<Implementation, Templates, TemplateFnReturnTyp
     });
 
     const template = templateMapper<WhiteboxArgs>((args, { whiteboxTemplate }) =>
-      whiteboxTemplate(whiteboxArgsMapper(args))
+      whiteboxTemplate(whiteboxArgsMapper(args)),
     );
 
     stories.add("default", template);

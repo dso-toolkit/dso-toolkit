@@ -11,5 +11,5 @@ examplePageFactory(
         subtitle: "Kies werkzaamheden",
       })}
     </div>
-  `
+  `,
 );

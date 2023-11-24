@@ -115,7 +115,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
 
 export function selectableArgsMapper<TemplateFnReturnType>(
   a: SelectableArgs<TemplateFnReturnType>,
-  infoRichContent: TemplateFnReturnType | undefined
+  infoRichContent: TemplateFnReturnType | undefined,
 ): Selectable<TemplateFnReturnType> {
   return {
     ...a,

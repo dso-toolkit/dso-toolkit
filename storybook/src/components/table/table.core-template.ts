@@ -32,10 +32,10 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
                     ${row.map((col, index) =>
                       index === 0 && headingColumns
                         ? html`<th scope="row">${typeof col === "string" ? unsafeHTML(col) : col}</th>`
-                        : html`<td>${typeof col === "string" ? unsafeHTML(col) : col}</td>`
+                        : html`<td>${typeof col === "string" ? unsafeHTML(col) : col}</td>`,
                     )}
                   </tr>
-                `
+                `,
               )}
             </tbody>
           </table>

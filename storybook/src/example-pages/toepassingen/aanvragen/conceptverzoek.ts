@@ -11,7 +11,7 @@ examplePageFactory(
   "Conceptverzoek",
   (
     { applicationHeadingTemplate, definitionListTemplate, formButtonsTemplate, formGroupRadiosTemplate },
-    templates
+    templates,
   ) => html`
     <div class="container">
       ${headerPartial(templates, {
@@ -63,5 +63,5 @@ examplePageFactory(
       </main>
       ${footerPartial(templates)}
     </div>
-  `
+  `,
 );

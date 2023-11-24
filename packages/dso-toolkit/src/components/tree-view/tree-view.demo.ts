@@ -50,7 +50,7 @@ export function onCloseItem(path: TreeViewItem[], callback: (collection: TreeVie
 export function onClickItem(
   path: TreeViewItem[],
   originalEvent: MouseEvent,
-  callback: (collection: TreeViewItem[]) => void
+  callback: (collection: TreeViewItem[]) => void,
 ) {
   const currentItem = path.length > 0 ? path[path.length - 1] : null;
 
@@ -91,7 +91,7 @@ export function onFilter(value: string, callback: (collection: TreeViewItem[], r
 function updateDeepTree(
   collection: TreeViewItem[],
   path: TreeViewItem[],
-  updater: (item: TreeViewItem) => TreeViewItem
+  updater: (item: TreeViewItem) => TreeViewItem,
 ): TreeViewItem[] {
   const id = path[0]?.id;
   if (!id) {

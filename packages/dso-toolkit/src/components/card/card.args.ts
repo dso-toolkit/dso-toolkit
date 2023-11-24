@@ -52,7 +52,7 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
 
 export function cardArgsMapper<TemplateFnReturnType>(
   a: CardArgs,
-  content: TemplateFnReturnType
+  content: TemplateFnReturnType,
 ): Card<TemplateFnReturnType> {
   return {
     ...a,

@@ -58,7 +58,7 @@ export const cssFormGroupSelect: ComponentImplementation<FormGroupSelect<Templat
                       <optgroup label=${item.label} ?disabled=${item.disabled}>
                         ${item.options.map((o) => selectOptionTemplate(o))}
                       </optgroup>
-                    `
+                    `,
               )}
             </select>
             ${formGroup.feedback

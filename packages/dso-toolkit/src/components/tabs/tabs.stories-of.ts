@@ -13,7 +13,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     TabsTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Tabs", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
     });
 
     const template = templateMapper<TabsArgs<TemplateFnReturnType>>((args, { tabsTemplate }) =>
-      tabsTemplate(tabsArgsMapper(args))
+      tabsTemplate(tabsArgsMapper(args)),
     );
 
     stories.add("default", template, {

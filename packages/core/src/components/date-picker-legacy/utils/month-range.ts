@@ -4,7 +4,7 @@ export function monthRange(
   localization: DsoLocalizedText,
   selectedYear: number,
   minDate?: Date,
-  maxDate?: Date
+  maxDate?: Date,
 ): string[] {
   if (minDate && maxDate) {
     const { minYear, minMonth } = { minYear: minDate.getFullYear(), minMonth: minDate.getMonth() };

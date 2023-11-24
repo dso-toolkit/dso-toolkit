@@ -120,5 +120,5 @@ examplePageFactory(
         </table>
       </div>
     </div>
-  `
+  `,
 );

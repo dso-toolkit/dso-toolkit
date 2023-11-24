@@ -14,7 +14,7 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     HighlightBoxTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Highlight Box", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -31,7 +31,7 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
     });
 
     const template = templateMapper<HighlightBoxArgs>((args, { highlightBoxTemplate, content }) =>
-      highlightBoxTemplate(highlightBoxArgsMapper(args, content))
+      highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
     );
 
     stories.add("default", template);

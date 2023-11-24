@@ -164,7 +164,7 @@ describe("Date Picker (Legacy)", () => {
         `${now.getDate().toString(10).padStart(2, "0")}-${(now.getMonth() + 1).toString(10).padStart(2, "0")}-${now
           .getFullYear()
           .toString(10)
-          .padStart(2, "0")}`
+          .padStart(2, "0")}`,
       );
   });
 
@@ -374,10 +374,10 @@ describe("Date Picker (Legacy)", () => {
     const keys = [];
     cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoKeyDown", (event: CustomEvent) =>
-        keys.push(event.detail.originalEvent.key)
+        keys.push(event.detail.originalEvent.key),
       );
       DatePickerLegacy.get(0).addEventListener("dsoKeyUp", (event: CustomEvent) =>
-        keys.push(event.detail.originalEvent.key)
+        keys.push(event.detail.originalEvent.key),
       );
     });
 
@@ -446,7 +446,7 @@ describe("Date Picker (Legacy)", () => {
       .wait(300)
       .get("dso-date-picker-legacy")
       .find<HTMLOptionElement>(
-        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
       .then((options) => {
         const actual = [...options].map((o) => o.text);
@@ -461,7 +461,7 @@ describe("Date Picker (Legacy)", () => {
       .wait(300)
       .get("dso-date-picker-legacy")
       .find<HTMLOptionElement>(
-        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
       .then((options) => {
         const actual = [...options].map((o) => o.text);
@@ -490,7 +490,7 @@ describe("Date Picker (Legacy)", () => {
       .should("be.selected")
       .get("dso-date-picker-legacy")
       .find<HTMLOptionElement>(
-        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option"
+        ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
       .then((options) => {
         const actual = [...options].map((o) => o.text);

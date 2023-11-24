@@ -132,7 +132,7 @@ export class Expandable implements ComponentInterface {
         }
 
         this.instantiateAnimation();
-      }, 150)
+      }, 150),
     );
   }
 

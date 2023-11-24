@@ -70,7 +70,7 @@ export const formGroupStaticArgTypes: ArgTypes<FormGroupStaticArgs> = {
 };
 
 export function formGroupStaticArgsMapper<TemplateFnReturnType>(
-  a: FormGroupStaticArgs
+  a: FormGroupStaticArgs,
 ): FormGroupStatic<TemplateFnReturnType> {
   return {
     group: "static",

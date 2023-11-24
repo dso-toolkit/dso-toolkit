@@ -13,7 +13,7 @@ export function storiesOfSearchBar<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     SearchBarTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Search Bar", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -36,7 +36,7 @@ export function storiesOfSearchBar<Implementation, Templates, TemplateFnReturnTy
     });
 
     const template = templateMapper<SearchBarArgs>((args, { searchBarTemplate }) =>
-      searchBarTemplate(searchBarArgsMapper(args))
+      searchBarTemplate(searchBarArgsMapper(args)),
     );
 
     stories.add("visual label with icon", template);

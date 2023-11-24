@@ -14,7 +14,7 @@ export const actionListArgTypes: ArgTypes<ActionListArgs> = {
 
 export function actionListArgsMapper<TemplateFnReturnType>(
   a: ActionListArgs,
-  actionListItems: ActionListItem<TemplateFnReturnType>[]
+  actionListItems: ActionListItem<TemplateFnReturnType>[],
 ): ActionList<TemplateFnReturnType> {
   return { ...a, actionListItems };
 }

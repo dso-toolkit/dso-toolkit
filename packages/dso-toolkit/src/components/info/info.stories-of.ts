@@ -13,7 +13,7 @@ export function storiesOfInfo<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     InfoTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Info", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfInfo<Implementation, Templates, TemplateFnReturnType>(
     });
 
     const template = templateMapper<InfoArgs>((args, { infoTemplate, richContent }) =>
-      infoTemplate(infoArgsMapper(args, richContent))
+      infoTemplate(infoArgsMapper(args, richContent)),
     );
 
     stories.add("default", template);

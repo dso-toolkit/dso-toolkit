@@ -23,7 +23,7 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     TemplateFnReturnType,
     AccordionTemplates<TemplateFnReturnType>
   >,
-  showNeutralAndCompactBlack = false
+  showNeutralAndCompactBlack = false,
 ) {
   return storiesOfFactory("Accordion", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -34,86 +34,86 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     stories.add(
       "default",
       templateMapper<AccordionArgs>((args, { accordionTemplate, basicSections }) =>
-        accordionTemplate(accordionArgsMapper(args, basicSections))
-      )
+        accordionTemplate(accordionArgsMapper(args, basicSections)),
+      ),
     );
 
     stories.add(
       "compact",
       templateMapper<AccordionArgs>((args, { accordionTemplate, compactSections }) =>
-        accordionTemplate(accordionArgsMapper(args, compactSections))
+        accordionTemplate(accordionArgsMapper(args, compactSections)),
       ),
       {
         args: {
           variant: "compact",
         },
-      }
+      },
     );
 
     if (showNeutralAndCompactBlack) {
       stories.add(
         "compact black",
         templateMapper<AccordionArgs>((args, { accordionTemplate, compactBlackSections }) =>
-          accordionTemplate(accordionArgsMapper(args, compactBlackSections))
+          accordionTemplate(accordionArgsMapper(args, compactBlackSections)),
         ),
         {
           args: {
             variant: "compact-black",
           },
-        }
+        },
       );
 
       stories.add(
         "neutral",
         templateMapper<AccordionArgs>((args, { accordionTemplate, neutralSections }) =>
-          accordionTemplate(accordionArgsMapper(args, neutralSections))
+          accordionTemplate(accordionArgsMapper(args, neutralSections)),
         ),
         {
           args: {
             variant: "neutral",
           },
-        }
+        },
       );
     }
 
     stories.add(
       "conclusion",
       templateMapper<AccordionArgs>((args, { accordionTemplate, conclusionSections }) =>
-        accordionTemplate(accordionArgsMapper(args, conclusionSections))
+        accordionTemplate(accordionArgsMapper(args, conclusionSections)),
       ),
       {
         args: {
           variant: "conclusion",
         },
-      }
+      },
     );
 
     stories.add(
       "handle anchors",
       templateMapper<AccordionArgs>((args, { accordionTemplate, anchorSections }) =>
-        accordionTemplate(accordionArgsMapper(args, anchorSections))
-      )
+        accordionTemplate(accordionArgsMapper(args, anchorSections)),
+      ),
     );
 
     stories.add(
       "nested",
       templateMapper<AccordionArgs>((args, { accordionTemplate, subSections }) =>
-        accordionTemplate(accordionArgsMapper(args, subSections))
-      )
+        accordionTemplate(accordionArgsMapper(args, subSections)),
+      ),
     );
 
     stories.add(
       "addonsSections",
       templateMapper<AccordionArgs>((args, { accordionTemplate, addonsSections }) =>
-        accordionTemplate(accordionArgsMapper(args, addonsSections))
-      )
+        accordionTemplate(accordionArgsMapper(args, addonsSections)),
+      ),
     );
 
     stories.add(
       "alignmentSections",
       templateMapper<AccordionArgs>((args, { accordionTemplate, alignmentSections }) =>
-        accordionTemplate(accordionArgsMapper(args, alignmentSections))
-      )
+        accordionTemplate(accordionArgsMapper(args, alignmentSections)),
+      ),
     );
 
     return stories;

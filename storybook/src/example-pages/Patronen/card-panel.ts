@@ -186,5 +186,5 @@ examplePageFactory(
         `,
       })}
     </div>
-  `
+  `,
 );

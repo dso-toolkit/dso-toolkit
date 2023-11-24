@@ -1,4 +1,4 @@
-/.cache
+/.nx
 /angular-workspace/.angular
 /angular-workspace/dist
 /angular-workspace/projects/component-library/src/lib/stencil-generated

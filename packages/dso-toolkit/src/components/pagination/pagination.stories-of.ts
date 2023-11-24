@@ -13,7 +13,7 @@ export function storiesOfPagination<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     PaginationTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Pagination", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfPagination<Implementation, Templates, TemplateFnReturnT
     });
 
     const template = templateMapper<PaginationArgs>((args, { paginationTemplate }) =>
-      paginationTemplate(paginationArgsMapper(args))
+      paginationTemplate(paginationArgsMapper(args)),
     );
 
     stories.add("Pagination", template, {

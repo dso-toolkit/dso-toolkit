@@ -27,10 +27,10 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
                           ? html`<a href=${item.url}>${item.label}</a>`
                           : html`<button type="button">${item.label}</button>`}
                       </li>
-                    `
+                    `,
                   )}
                 </ul>
-              `
+              `,
             )}
           </div>
         </dso-dropdown-menu>

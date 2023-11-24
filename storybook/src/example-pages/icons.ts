@@ -12,8 +12,8 @@ examplePageFactory(
           html`<li style="flex: 0 0 calc(25% - 4px); text-align: center; padding: 8px; background-color: #efefef;">
             ${iconTemplate({ icon })}
             <br /><code>${icon}</code>
-          </li>`
+          </li>`,
       )}
     </ul>
-  `
+  `,
 );

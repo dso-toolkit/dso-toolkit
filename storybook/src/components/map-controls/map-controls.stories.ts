@@ -19,5 +19,5 @@ storiesOfMapControls(
   },
   {
     decorator,
-  }
+  },
 );

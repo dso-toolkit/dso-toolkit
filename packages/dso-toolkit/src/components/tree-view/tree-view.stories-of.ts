@@ -12,9 +12,9 @@ export interface TreeViewTemplates<TemplateFnReturnType> {
     dsoClickItem: (
       path: TreeViewItem[],
       originalEvent: MouseEvent,
-      callback: (collection: TreeViewItem[]) => void
+      callback: (collection: TreeViewItem[]) => void,
     ) => void,
-    onFilterInput: (text: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void
+    onFilterInput: (text: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void,
   ) => TemplateFnReturnType;
 }
 
@@ -24,7 +24,7 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     TreeViewTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Tree View", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -44,7 +44,7 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
         const click = (
           path: TreeViewItem[],
           originalEvent: MouseEvent,
-          callback: (collection: TreeViewItem[]) => void
+          callback: (collection: TreeViewItem[]) => void,
         ) => {
           args.dsoClickItem(path, originalEvent, callback);
           TreeViewDemo.onClickItem(path, originalEvent, callback);
@@ -55,9 +55,9 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
           TreeViewDemo.onOpenItem,
           TreeViewDemo.onCloseItem,
           click,
-          TreeViewDemo.onFilter
+          TreeViewDemo.onFilter,
         );
-      })
+      }),
     );
 
     return stories;

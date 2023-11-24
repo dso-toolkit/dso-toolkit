@@ -13,7 +13,7 @@ export function storiesOfRichContent<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     RichContentTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Rich Content", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,7 +21,7 @@ export function storiesOfRichContent<Implementation, Templates, TemplateFnReturn
     });
 
     const template = templateMapper<RichContentArgs<TemplateFnReturnType>>((args, { richContentTemplate, children }) =>
-      richContentTemplate(richContentArgsMapper(args, children))
+      richContentTemplate(richContentArgsMapper(args, children)),
     );
 
     stories.add("Rich Content", template);

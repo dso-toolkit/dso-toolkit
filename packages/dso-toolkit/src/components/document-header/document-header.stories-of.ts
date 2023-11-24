@@ -19,7 +19,7 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
     Templates,
     TemplateFnReturnType,
     DocumentHeaderTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Document Header", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -34,8 +34,8 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
     const template = templateMapper<DocumentHeaderArgs>(
       (args, { documentHeaderTemplate, features, status, statusContent }) =>
         documentHeaderTemplate(
-          documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)
-        )
+          documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent),
+        ),
     );
 
     stories.add("default", template, {

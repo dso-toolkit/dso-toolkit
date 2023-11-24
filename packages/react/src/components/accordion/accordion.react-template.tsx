@@ -31,7 +31,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 status,
                 statusDescription,
               },
-              i
+              i,
             ) => (
               <DsoAccordionSection
                 key={`dsoAccordionSection-${i}`}
@@ -52,7 +52,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
               >
                 {content}
               </DsoAccordionSection>
-            )
+            ),
           )}
         </DsoAccordion>
       );

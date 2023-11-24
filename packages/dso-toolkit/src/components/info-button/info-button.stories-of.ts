@@ -13,7 +13,7 @@ export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     InfoButtonTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Info Button", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -24,7 +24,7 @@ export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnT
     });
 
     const template = templateMapper<InfoButtonArgs>((args, { infoButtonTemplate }) =>
-      infoButtonTemplate(infoButtonArgsMapper(args))
+      infoButtonTemplate(infoButtonArgsMapper(args)),
     );
 
     stories.add("inactive", template, {

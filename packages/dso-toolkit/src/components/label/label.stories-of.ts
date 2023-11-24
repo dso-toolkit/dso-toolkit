@@ -56,7 +56,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Label",
       },
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
-        labelTemplate(labelArgsMapper(args))
+        labelTemplate(labelArgsMapper(args)),
       ),
     },
     WithAction: {
@@ -65,7 +65,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
         removable: true,
       },
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
-        labelTemplate(labelArgsMapper(args))
+        labelTemplate(labelArgsMapper(args)),
       ),
     },
     Truncate: {
@@ -74,7 +74,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
         truncate: true,
       },
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
-        labelTemplate(labelArgsMapper(args))
+        labelTemplate(labelArgsMapper(args)),
       ),
     },
     WithSymbolImage: {
@@ -85,7 +85,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
       },
       decorators: [(story) => decorator(story, css)],
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
-        labelTemplate(labelArgsMapper(args))
+        labelTemplate(labelArgsMapper(args)),
       ),
     },
     WithSymbolColor: {
@@ -96,7 +96,7 @@ export function labelStories<Implementation, Templates, TemplateFnReturnType>({
       },
       decorators: [(story) => decorator(story, css)],
       render: templateContainer.render(storyTemplates, (args, { labelTemplate }) =>
-        labelTemplate(labelArgsMapper(args))
+        labelTemplate(labelArgsMapper(args)),
       ),
     },
   };

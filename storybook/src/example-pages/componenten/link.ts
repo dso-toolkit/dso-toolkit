@@ -59,5 +59,5 @@ examplePageFactory(
         </div>
       </div>
     </div>
-  `
+  `,
 );

@@ -12,7 +12,7 @@ export function storiesOfImageOverlay<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     ImageOverlayTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Image Overlay", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -24,7 +24,7 @@ export function storiesOfImageOverlay<Implementation, Templates, TemplateFnRetur
     });
 
     const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) =>
-      imageOverlayTemplate(imageOverlayArgsMapper(args))
+      imageOverlayTemplate(imageOverlayArgsMapper(args)),
     );
 
     stories.add("Image Overlay", template);

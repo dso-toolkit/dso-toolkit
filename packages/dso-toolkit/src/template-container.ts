@@ -12,7 +12,7 @@ export interface BaseComponentImplementation<
   Implementation,
   Templates,
   TemplateFnReturnType,
-  TemplateFunction = DefaultTemplateFunction<Model, TemplateFnReturnType>
+  TemplateFunction = DefaultTemplateFunction<Model, TemplateFnReturnType>,
 > {
   component: string;
   implementation: Implementation;
@@ -39,7 +39,7 @@ export class TemplateContainer<
   Implementation,
   Templates,
   TemplateFnReturnType,
-  TemplateFunction = DefaultTemplateFunction<never, TemplateFnReturnType>
+  TemplateFunction = DefaultTemplateFunction<never, TemplateFnReturnType>,
 > {
   private getNameByKind: Options["getNameByKind"] | undefined;
 
@@ -62,7 +62,7 @@ export class TemplateContainer<
       Templates,
       TemplateFnReturnType,
       TemplateFunction
-    >
+    >,
   ) {
     this.componentImplementations.push(componentImplementation);
   }
@@ -73,12 +73,12 @@ export class TemplateContainer<
         types.includes(componentImplementation.implementation)
           ? types
           : [...types, componentImplementation.implementation],
-      []
+      [],
     );
   }
 
   fromArgs<StoryArgs>(
-    mapper: (args: StoryArgs, templates: Templates) => TemplateFnReturnType
+    mapper: (args: StoryArgs, templates: Templates) => TemplateFnReturnType,
   ): Addon_StoryFn<TemplateFnReturnType> {
     return (a, context) => {
       const { preferredImplementation } = a;
@@ -91,7 +91,7 @@ export class TemplateContainer<
 
   render<StoryTemplates, TRenderer extends Renderer, TArgs extends Args>(
     storyTemplates: (templates: Templates) => StoryTemplates,
-    callback: (args: TArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
+    callback: (args: TArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType,
   ): ArgsStoryFn<TRenderer, TArgs & { preferredImplementation?: Implementation }> {
     return (a, context) => {
       const { preferredImplementation } = a;

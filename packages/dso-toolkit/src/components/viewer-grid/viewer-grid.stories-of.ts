@@ -23,7 +23,7 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
   tilesExampleTemplate: (tiles: Tile[]) => TemplateFnReturnType;
   filterblokExampleTemplate: () => TemplateFnReturnType;
   documentHeaderExampleTemplate: (
-    ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties
+    ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties,
   ) => TemplateFnReturnType;
   documentListExampleTemplate: (documentList: typeof documentListContent) => TemplateFnReturnType;
 }
@@ -34,7 +34,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     ViewerGridTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Viewer Grid", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -47,7 +47,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
     stories.add(
       "Viewer Grid",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate(viewerGridArgsMapper(args, example))
+        viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
       {
         argTypes: viewerGridArgTypes,
@@ -77,13 +77,13 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           vrkActiveTab: "main",
           vdkActiveTab: "search",
         }),
-      }
+      },
     );
 
     stories.add(
       "Filterpanel",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
-        viewerGridTemplate(viewerGridArgsMapper(args, example))
+        viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
       {
         argTypes: viewerGridArgTypes,
@@ -113,17 +113,17 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           vrkActiveTab: "main",
           vdkActiveTab: "search",
         }),
-      }
+      },
     );
 
     stories.add(
       'Voorbeeldpagina "Tiles"',
-      templateMapper((_args, { tilesExampleTemplate }) => tilesExampleTemplate(tiles))
+      templateMapper((_args, { tilesExampleTemplate }) => tilesExampleTemplate(tiles)),
     );
 
     stories.add(
       'Voorbeeldpagina "Filterblok"',
-      templateMapper((_args, { filterblokExampleTemplate }) => filterblokExampleTemplate())
+      templateMapper((_args, { filterblokExampleTemplate }) => filterblokExampleTemplate()),
     );
 
     stories.add(
@@ -134,7 +134,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           documentHeaderFeatureAction: args.documentHeaderFeatureAction,
           documentHeaderStatusOpen: args.documentHeaderStatusOpen,
           documentHeaderSticky: args.documentHeaderSticky,
-        })
+        }),
       ),
       {
         args: componentArgs<
@@ -148,12 +148,12 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           documentHeaderSticky: false,
         }),
         argTypes: viewerGridDocumentHeaderArgs,
-      }
+      },
     );
 
     stories.add(
       'Voorbeeldpagina "Document list"',
-      templateMapper((_args, { documentListExampleTemplate }) => documentListExampleTemplate(documentListContent))
+      templateMapper((_args, { documentListExampleTemplate }) => documentListExampleTemplate(documentListContent)),
     );
 
     return stories;

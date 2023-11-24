@@ -13,7 +13,7 @@ export function storiesOfIcon<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     IconTemplates<TemplateFnReturnType>
-  >
+  >,
 ) {
   return storiesOfFactory("Icon", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
