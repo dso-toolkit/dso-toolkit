@@ -159,14 +159,6 @@ const config = {
                 label: "@dso-toolkit/react",
                 href: "https://www.npmjs.com/package/@dso-toolkit/react",
               },
-              {
-                label: "@dso-toolkit/leaflet",
-                href: "https://www.npmjs.com/package/@dso-toolkit/leaflet",
-              },
-              {
-                label: "@dso-toolkit/react-leaflet",
-                href: "https://www.npmjs.com/package/@dso-toolkit/react-leaflet",
-              },
             ],
           },
           {

@@ -24,9 +24,7 @@ COPY package.json yarn.lock .yarnrc.yml ./
 COPY angular-workspace/package.json ./angular-workspace/package.json
 COPY packages/core/package.json ./packages/core/package.json
 COPY packages/dso-toolkit/package.json ./packages/dso-toolkit/package.json
-COPY packages/leaflet/package.json ./packages/leaflet/package.json
 COPY packages/react/package.json ./packages/react/package.json
-COPY packages/react-leaflet/package.json ./packages/react-leaflet/package.json
 COPY storybook/package.json ./storybook/package.json
 COPY website/package.json ./website/package.json
 

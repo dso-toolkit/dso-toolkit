@@ -3072,7 +3072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dso-toolkit/core@npm:*, @dso-toolkit/core@workspace:^, @dso-toolkit/core@workspace:packages/core":
+"@dso-toolkit/core@workspace:^, @dso-toolkit/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@dso-toolkit/core@workspace:packages/core"
   dependencies:
@@ -3108,51 +3108,6 @@ __metadata:
     uuid: "npm:^9.0.1"
   peerDependencies:
     dso-toolkit: ">=45"
-  languageName: unknown
-  linkType: soft
-
-"@dso-toolkit/leaflet@workspace:packages/leaflet":
-  version: 0.0.0-use.local
-  resolution: "@dso-toolkit/leaflet@workspace:packages/leaflet"
-  dependencies:
-    "@dso-toolkit/core": "npm:*"
-    "@types/fs-extra": "npm:^11.0.4"
-    "@types/leaflet": "npm:^1.9.8"
-    concurrently: "npm:^8.2.2"
-    dso-toolkit: "workspace:^"
-    fs-extra: "npm:^11.1.1"
-    klap: "npm:^7.0.11"
-    leaflet: "npm:^1.9.4"
-    lit-html: "npm:^3.1.0"
-    minimist: "npm:^1.2.8"
-    sass: "npm:^1.69.5"
-    typescript: "npm:<5.3.0"
-  peerDependencies:
-    "@dso-toolkit/core": ">=45"
-    leaflet: ^1.8.0
-  languageName: unknown
-  linkType: soft
-
-"@dso-toolkit/react-leaflet@workspace:packages/react-leaflet":
-  version: 0.0.0-use.local
-  resolution: "@dso-toolkit/react-leaflet@workspace:packages/react-leaflet"
-  dependencies:
-    "@react-leaflet/core": "npm:^2.1.0"
-    "@types/fs-extra": "npm:^11.0.4"
-    "@types/leaflet": "npm:^1.9.8"
-    "@types/react": "npm:^18.2.38"
-    "@types/react-dom": "npm:^18.2.17"
-    concurrently: "npm:^8.2.2"
-    fs-extra: "npm:^11.1.1"
-    klap: "npm:^7.0.11"
-    leaflet: "npm:^1.9.4"
-    react-leaflet: "npm:^4.2.1"
-    typescript: "npm:<5.3.0"
-  peerDependencies:
-    "@dso-toolkit/leaflet": ^1.2.4
-    leaflet: ^1.8.0
-    react: ^17.0.2 || ^18.2.0
-    react-dom: ^17.0.2 || ^18.2.0
   languageName: unknown
   linkType: soft
 
@@ -5405,17 +5360,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-leaflet/core@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@react-leaflet/core@npm:2.1.0"
-  peerDependencies:
-    leaflet: ^1.9.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  checksum: 12ce28b85cf6712a1a7b7c49466b941fc619bc7b1535308bc5711a35f7e89eb16298babfd62f6b3a92e64abf94dcf517b2bc460f59fcf20599821bc6ab3b3048
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-json@npm:^6.0.1":
   version: 6.0.1
   resolution: "@rollup/plugin-json@npm:6.0.1"
@@ -7595,23 +7539,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^11.0.4":
-  version: 11.0.4
-  resolution: "@types/fs-extra@npm:11.0.4"
-  dependencies:
-    "@types/jsonfile": "npm:*"
-    "@types/node": "npm:*"
-  checksum: acc4c1eb0cde7b1f23f3fe6eb080a14832d8fa9dc1761aa444c5e2f0f6b6fa657ed46ebae32fb580a6700fc921b6165ce8ac3e3ba030c3dd15f10ad4dd4cae98
-  languageName: node
-  linkType: hard
-
-"@types/geojson@npm:*":
-  version: 7946.0.10
-  resolution: "@types/geojson@npm:7946.0.10"
-  checksum: 12c407c2dc93ecb26c08af533ee732f1506a9b29456616ba7ba1d525df96206c28ddf44a528f6a5415d7d22893e9d967420940a9c095ee5e539c1eba5fefc1f4
-  languageName: node
-  linkType: hard
-
 "@types/glob-stream@npm:*":
   version: 8.0.0
   resolution: "@types/glob-stream@npm:8.0.0"
@@ -7799,30 +7726,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonfile@npm:*":
-  version: 6.1.1
-  resolution: "@types/jsonfile@npm:6.1.1"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 0f8fe0a9221a00e8413cffba723dfe16553868724b830237256fb0052ecd5cac96498189d1235a001cfa815f352008261c9ceb373f0aa58227f891e0c7a12c4d
-  languageName: node
-  linkType: hard
-
 "@types/keyv@npm:^3.1.4":
   version: 3.1.4
   resolution: "@types/keyv@npm:3.1.4"
   dependencies:
     "@types/node": "npm:*"
   checksum: e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
-  languageName: node
-  linkType: hard
-
-"@types/leaflet@npm:^1.9.8":
-  version: 1.9.8
-  resolution: "@types/leaflet@npm:1.9.8"
-  dependencies:
-    "@types/geojson": "npm:*"
-  checksum: c0c68ae0d1ccbed60e08ad82670df48f8bb6f19e3abaf84a9cd0a6cbc6d6efdd46852ee7be56744dfa7f3d8665adb56bb06ab02d09f979d3367c941a1fd90f2f
   languageName: node
   linkType: hard
 
@@ -19050,15 +18959,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"klap@npm:^7.0.11":
-  version: 7.0.11
-  resolution: "klap@npm:7.0.11"
-  bin:
-    klap: cli.js
-  checksum: 10534b8285df4a6fd7b12c482b8123f16275e66f1570e3b33620caccb2a17cd532feaf077cf7f30fe4f6dc493b0add8d1d334e86a15131fe9a7a5a03b64ae2dc
-  languageName: node
-  linkType: hard
-
 "klaw-sync@npm:^6.0.0":
   version: 6.0.0
   resolution: "klaw-sync@npm:6.0.0"
@@ -19160,13 +19060,6 @@ __metadata:
   dependencies:
     flush-write-stream: "npm:^1.0.2"
   checksum: f08a9f45ac39b8d1fecf31de4d97a8fa2aa7e233e99bb61fd443414fc8055331224490698e186cb614aa3ea2f2695d71c42afc85415fa680b078d640efadab50
-  languageName: node
-  linkType: hard
-
-"leaflet@npm:^1.9.4":
-  version: 1.9.4
-  resolution: "leaflet@npm:1.9.4"
-  checksum: 7b6a74d503980961a85bdabebf9d1162c26db0e88195800ceea311682b653d621718f2ada3c9aab903a735af9862c9ae278ba550d4429acbd954d43449cd0d77
   languageName: node
   linkType: hard
 
@@ -24935,19 +24828,6 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 200cd65bf2e0be7ba6055f647091b725a45dd2a6abef03bf2380ce701fd5edccee40b49b9d15edab7ac08a762bf83cb4081e31ec2673a5bfb549a36ba21570df
-  languageName: node
-  linkType: hard
-
-"react-leaflet@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "react-leaflet@npm:4.2.1"
-  dependencies:
-    "@react-leaflet/core": "npm:^2.1.0"
-  peerDependencies:
-    leaflet: ^1.9.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  checksum: 01cee12dc32e86d0153c989894fdba1c5c50fa41ad8d712352fa616f7b0dd32844aa17bb06c66f7569133675e2946c669090b4c496610cce3fa37c22254ca89f
   languageName: node
   linkType: hard
 

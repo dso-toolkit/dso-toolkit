@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Packages: Dependencies updates ([#2442](https://github.com/dso-toolkit/dso-toolkit/issues/2442))
+* Packages: `@dso-toolkit/leaflet` en `@dso-toolkit/react-leaflet` verwijderen ([#2450](https://github.com/dso-toolkit/dso-toolkit/issues/2450))
 
 ## 🕯️ 62.4.0 - 21-11-2023
 

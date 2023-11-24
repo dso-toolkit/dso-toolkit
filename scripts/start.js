@@ -10,8 +10,6 @@ rimraf.sync("packages/react/src/components.ts");
 rimraf.sync("packages/react/src/react-component-lib");
 rimraf.sync("packages/react/dist");
 rimraf.sync("packages/react/www");
-rimraf.sync("packages/leaflet/dist");
-rimraf.sync("packages/react-leaflet/dist");
 rimraf.sync("angular-workspace/.angular");
 rimraf.sync("angular-workspace/www");
 rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
@@ -51,25 +49,6 @@ const startAngular = {
   name: "angular",
 };
 
-const startLeaflet = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/leaflet start",
-  name: "leaflet",
-  prefixColor: "green",
-};
-
-const buildLeaflet = {
-  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn nx run leaflet:build",
-  name: "leaflet",
-  prefixColor: "green",
-};
-
-const startReactLeaflet = {
-  command: "wait-on file:./packages/leaflet/dist/leaflet.js && yarn workspace @dso-toolkit/react-leaflet start",
-  name: "leaflet",
-  prefixColor: "green",
-};
-
 if (!argv.mode) {
   if (argv.all) {
     // --all
@@ -92,14 +71,6 @@ if (!argv.mode) {
       killOthers: ["failure", "success"],
     });
   }
-} else if (argv.mode === "leaflet") {
-  concurrently([watchToolkit, watchCore, startLeaflet], {
-    killOthers: ["failure", "success"],
-  });
-} else if (argv.mode === "react-leaflet") {
-  concurrently([watchToolkit, watchCore, buildLeaflet, startReactLeaflet], {
-    killOthers: ["failure"],
-  });
 } else {
   // nothing
 }

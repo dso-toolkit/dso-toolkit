@@ -12,8 +12,6 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 - `@dso-toolkit/core`
 - `@dso-toolkit/react`
 - `@dso-toolkit/angular`
-- `@dso-toolkit/leaflet`
-- `@dso-toolkit/react-leaflet`
 
 ![DSO Toolkit dependency graph](dependency-graph.svg)
 

@@ -1,8 +1,0 @@
-@use "../../dso-toolkit/src/components/button";
-
-@use "styles/leaflet";
-@use "map-controls/map-controls";
-
-.dso-leaflet-button {
-  @include button.map();
-}
