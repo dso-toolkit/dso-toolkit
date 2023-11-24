@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Form: Documentatie legacy van fractal ([#1894](https://github.com/dso-toolkit/dso-toolkit/issues/1894))
+
 ### Fixed
 * Table: Modal pakt niet maximale breedte ([#2411](https://github.com/dso-toolkit/dso-toolkit/issues/2411))
 

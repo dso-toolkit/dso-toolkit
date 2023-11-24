@@ -1,6 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
-import { content } from "./content/form.content.js";
+import { content, buttons } from "./content/form.content.js";
 import { Form } from "./models/form.model.js";
 
 export interface FormArgs {
@@ -35,5 +35,6 @@ export function formArgsMapper<TemplateFnReturnType>(a: FormArgs): Form<Template
     legendHeading: a.legendHeading,
     mode: a.mode,
     formGroups: content,
+    formButtons: buttons,
   };
 }

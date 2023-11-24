@@ -118,11 +118,32 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
   storyTemplates: (templates: Templates) => FormTemplates<TemplateFnReturnType>,
   { formGroupDecorator }: FormParameters<TemplateFnReturnType>,
 ) {
-  storiesOf(`${StoryRoot.HtmlCss}/Form/form`, mainModule)
+  storiesOf(`${StoryRoot.HtmlCss}/Form/vertical`, mainModule)
     .addParameters({
       argTypes: formArgTypes,
       args: {
-        legend: "Formulier",
+        legend: "Formulier Verticaal",
+        mode: "vertical",
+      },
+      docs: {
+        page: () => compiler(readme, { forceBlock: true }),
+      },
+    })
+    .add(
+      "form",
+      templateContainer.fromArgs<FormArgs>((args, templates) => {
+        const { formTemplate } = storyTemplates(templates);
+
+        return formTemplate(formArgsMapper(args));
+      }),
+    );
+
+  storiesOf(`${StoryRoot.HtmlCss}/Form/horizontal`, mainModule)
+    .addParameters({
+      argTypes: formArgTypes,
+      args: {
+        legend: "Formulier Horizontaal",
+        mode: "horizontal",
       },
       docs: {
         page: () => compiler(readme, { forceBlock: true }),
