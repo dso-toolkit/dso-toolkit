@@ -28,6 +28,7 @@
 - [dso-document-component](../document-component)
 - [dso-annotation-output](../annotation-output)
 - [dso-slide-toggle](../slide-toggle)
+- [dso-ozon-content](../ozon-content)
 - [dso-responsive-element](../responsive-element)
 
 ### Graph
@@ -36,6 +37,7 @@ graph TD;
   dsot-document-component-demo --> dso-document-component
   dsot-document-component-demo --> dso-annotation-output
   dsot-document-component-demo --> dso-slide-toggle
+  dsot-document-component-demo --> dso-ozon-content
   dsot-document-component-demo --> dso-responsive-element
   dso-document-component --> dso-icon
   dso-document-component --> dso-ozon-content
