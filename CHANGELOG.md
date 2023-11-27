@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦗 62.5.0 - 27-11-2023
+
 ### Docs
 * Form: Documentatie legacy van fractal ([#1894](https://github.com/dso-toolkit/dso-toolkit/issues/1894))
 
