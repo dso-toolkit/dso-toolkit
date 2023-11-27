@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, State, Prop, Watch, Event, EventEmitter } from "@stencil/core";
+import { h, Component, ComponentInterface, State, Prop, Watch, Event, EventEmitter, Fragment } from "@stencil/core";
 import sampleSize from "lodash.samplesize";
 import random from "lodash.random";
 
@@ -8,26 +8,30 @@ import {
 } from "../document-component/document-component.models";
 import { DsoDocumentComponentCustomEvent } from "../../components";
 
-interface DocumentComponent {
-  documentTechnischId: string;
-  type?: string;
-  labelXml?: string;
-  nummerXml?: string;
-  opschrift?: string;
-  inhoud?: string;
-  gereserveerd?: boolean;
-  vervallen?: boolean;
-  bevatOntwerpInformatie?: boolean;
-  wijzigactie?: "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+interface DocumentEmbedded {
   _embedded?: {
     ontwerpTekststructuurDocumentComponenten?: DocumentComponent[];
     tekststructuurDocumentComponenten?: DocumentComponent[];
   };
 }
 
+interface DocumentComponent extends DocumentEmbedded {
+  documentTechnischId: string;
+  type?: string;
+  labelXml?: string;
+  nummerXml?: string;
+  volgordeNummer: number;
+  opschrift?: string;
+  inhoud?: string;
+  gereserveerd?: boolean;
+  vervallen?: boolean;
+  bevatOntwerpInformatie?: boolean;
+  wijzigactie?: "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+}
+
 @Component({
   tag: "dsot-document-component-demo",
-  scoped: true,
+  scoped: true, // scoped because we are immitating the usage of <dso-document-component> in a page
   styleUrl: "document-component.demo.scss",
 })
 export class DocumentComponentDemo implements ComponentInterface {
@@ -56,7 +60,10 @@ export class DocumentComponentDemo implements ComponentInterface {
   dsotOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
 
   @State()
-  response?: DocumentComponent;
+  response?: DocumentEmbedded;
+
+  @State()
+  document?: DocumentComponent;
 
   @State()
   openOrClosed: DocumentComponent[] = [];
@@ -91,15 +98,26 @@ export class DocumentComponentDemo implements ComponentInterface {
     await this.loadData();
   }
 
-  private getEmbeddedDocumentComponents(documentComponent: DocumentComponent | undefined) {
-    return (
-      documentComponent?._embedded?.ontwerpTekststructuurDocumentComponenten ??
-      documentComponent?._embedded?.tekststructuurDocumentComponenten
-    );
+  private getEmbeddedDocumentComponents(documentEmbedded: DocumentEmbedded | undefined) {
+    if (documentEmbedded?._embedded?.ontwerpTekststructuurDocumentComponenten) {
+      return {
+        documentComponents: documentEmbedded._embedded.ontwerpTekststructuurDocumentComponenten,
+        ontwerp: true,
+      };
+    }
+
+    if (documentEmbedded?._embedded?.tekststructuurDocumentComponenten) {
+      return {
+        documentComponents: documentEmbedded._embedded.tekststructuurDocumentComponenten,
+        ontwerp: false,
+      };
+    }
+
+    return undefined;
   }
 
   private concatEmbeddedDocumentComponents(documentComponent: DocumentComponent): DocumentComponent[] {
-    const embeddedDocuments = [...(this.getEmbeddedDocumentComponents(documentComponent) ?? [])];
+    const embeddedDocuments = [...(this.getEmbeddedDocumentComponents(documentComponent)?.documentComponents ?? [])];
 
     for (const d of embeddedDocuments) {
       embeddedDocuments.push(...this.concatEmbeddedDocumentComponents(d));
@@ -123,20 +141,20 @@ export class DocumentComponentDemo implements ComponentInterface {
   private async loadData() {
     if (!this.jsonFile) {
       this.response = undefined;
+      this.document = undefined;
 
       return;
     }
 
-    const data = await fetch(this.jsonFile).then((r) => r.json());
-    const lichaam = this.getEmbeddedDocumentComponents(data)?.find(
-      (documentComponent) => documentComponent.type === "LICHAAM",
-    );
+    this.response = await fetch(this.jsonFile).then((r) => r.json());
+    this.document = this.getEmbeddedDocumentComponents(this.response)?.documentComponents[0];
 
-    if (lichaam) {
-      this.response = lichaam;
-
-      this.notApplicable = this.selectRandomDocumentComponents(lichaam);
-      this.filtered = this.selectRandomDocumentComponents(lichaam, this.notApplicable);
+    if (this.document?.type === "LICHAAM") {
+      this.notApplicable = this.selectRandomDocumentComponents(this.document);
+      this.filtered = this.selectRandomDocumentComponents(this.document, this.notApplicable);
+    } else {
+      this.notApplicable = [];
+      this.filtered = [];
     }
   }
 
@@ -180,7 +198,10 @@ export class DocumentComponentDemo implements ComponentInterface {
   private hasFilteredChildren(documentComponent: DocumentComponent): boolean {
     return (
       this.filtered.includes(documentComponent) ||
-      (this.getEmbeddedDocumentComponents(documentComponent)?.some((d) => this.hasFilteredChildren(d)) ?? false)
+      (this.getEmbeddedDocumentComponents(documentComponent)?.documentComponents.some((d) =>
+        this.hasFilteredChildren(d),
+      ) ??
+        false)
     );
   }
 
@@ -204,7 +225,7 @@ export class DocumentComponentDemo implements ComponentInterface {
 
   private hasNestedDraft(documentComponent: DocumentComponent): boolean {
     return (
-      this.getEmbeddedDocumentComponents(documentComponent)?.some(
+      this.getEmbeddedDocumentComponents(documentComponent)?.documentComponents.some(
         (d) => !!d.bevatOntwerpInformatie || this.hasNestedDraft(d),
       ) ?? false
     );
@@ -213,74 +234,125 @@ export class DocumentComponentDemo implements ComponentInterface {
   private showContent(documentComponent: DocumentComponent): boolean {
     return (
       this.isOpen(documentComponent) &&
-      !!(this.getEmbeddedDocumentComponents(documentComponent)?.length || documentComponent.inhoud)
+      !!(this.getEmbeddedDocumentComponents(documentComponent)?.documentComponents.length || documentComponent.inhoud)
     );
   }
 
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
+    if (!documentComponent) {
+      return <Fragment />;
+    }
 
     const { DocumentComponent } = this;
 
+    const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
+
     return (
-      <ul>
-        {documentComponent &&
-          this.getEmbeddedDocumentComponents(documentComponent)?.map((d, i) => (
-            <li key={d.documentTechnischId}>
-              <dso-document-component
-                annotated={i % 3 === 2}
-                bevatOntwerpInformatie={!!d.bevatOntwerpInformatie}
-                filtered={this.isOpen(d) ? this.isFiltered(d) : this.hasFilteredChildren(d)}
-                genesteOntwerpInformatie={this.hasNestedDraft(d)}
-                gereserveerd={d.gereserveerd}
-                heading="h2"
-                inhoud={d.inhoud}
-                label={d.labelXml}
-                openAnnotation={this.isOpenedAnnotation(d)}
-                notApplicable={this.isNotApplicable(d) || path.some((p) => this.isNotApplicable(p))}
-                nummer={d.nummerXml}
-                onDsoAnnotationToggle={() => this.handleAnnotationToggle(d)}
-                onDsoOpenToggle={(e) => this.handleOpenToggle(e, d)}
-                onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
-                open={this.isOpen(d)}
-                opschrift={d.opschrift}
-                type={d.type}
-                vervallen={d.vervallen}
-                wijzigactie={d.wijzigactie}
-              >
-                {this.isOpenedAnnotation(d) && (
-                  <dso-annotation-output
-                    slot="annotation"
-                    open
-                    identifier="test"
-                    onDsoClose={() => this.handleAnnotationToggle(d)}
-                  >
-                    <span slot="title">Annotaties</span>
-                    <dso-slide-toggle
-                      checked={this.isCheckedSlideToggle(d)}
-                      onDsoActiveChange={() => this.handleSelectableChange(d)}
-                    >
-                      Delfzijl
-                    </dso-slide-toggle>
-                  </dso-annotation-output>
-                )}
-                {this.showContent(d) && <DocumentComponent path={[...path, d]} />}
-              </dso-document-component>
-            </li>
-          ))}
-      </ul>
+      <dso-document-component
+        annotated={documentComponent.volgordeNummer % 4 === 2}
+        bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
+        filtered={
+          this.isOpen(documentComponent)
+            ? this.isFiltered(documentComponent)
+            : this.hasFilteredChildren(documentComponent)
+        }
+        genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
+        gereserveerd={documentComponent.gereserveerd}
+        heading="h2"
+        inhoud={documentComponent.inhoud}
+        label={documentComponent.labelXml}
+        openAnnotation={this.isOpenedAnnotation(documentComponent)}
+        notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
+        nummer={documentComponent.nummerXml}
+        onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
+        onDsoOpenToggle={(e) => this.handleOpenToggle(e, documentComponent)}
+        onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
+        open={this.isOpen(documentComponent)}
+        opschrift={documentComponent.opschrift}
+        type={documentComponent.type}
+        vervallen={documentComponent.vervallen}
+        wijzigactie={documentComponent.wijzigactie}
+      >
+        {this.isOpenedAnnotation(documentComponent) && (
+          <dso-annotation-output
+            slot="annotation"
+            open
+            identifier="test"
+            onDsoClose={() => this.handleAnnotationToggle(documentComponent)}
+          >
+            <span slot="title">Annotaties</span>
+            <dso-slide-toggle
+              checked={this.isCheckedSlideToggle(documentComponent)}
+              onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
+            >
+              Delfzijl
+            </dso-slide-toggle>
+          </dso-annotation-output>
+        )}
+        {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
+          <ul>
+            {embeddedDocuments.documentComponents.map((d) => (
+              <li key={d.documentTechnischId}>
+                <DocumentComponent path={[...path, d]} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </dso-document-component>
     );
   };
 
   render() {
-    const { DocumentComponent } = this;
+    const { DocumentComponent, MenuButton } = this;
 
     return (
       <dso-responsive-element class="dso-document-components">
-        {this.response && <DocumentComponent path={[this.response]} />}
+        <div class="dso-navbar">
+          <ul class="dso-nav dso-nav-sub">
+            {this.getEmbeddedDocumentComponents(this.response)?.documentComponents?.map((d) => (
+              <li class={this.document === d ? "dso-active" : undefined}>
+                <MenuButton documentComponent={d} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        {this.document && <DocumentComponent path={[this.document]} />}
       </dso-responsive-element>
     );
   }
+
+  private MenuButton = ({ documentComponent }: MenuItemProps) => {
+    const { labelXml, nummerXml, type } = documentComponent;
+
+    return (
+      <button type="button" onClick={() => (this.document = documentComponent)}>
+        {!labelXml && !nummerXml ? (
+          <span>
+            <i>{type}</i>
+          </span>
+        ) : (
+          <>
+            {labelXml && (
+              <>
+                <dso-ozon-content content={labelXml} inline></dso-ozon-content>
+              </>
+            )}
+            {nummerXml && (
+              <>
+                {" "}
+                <dso-ozon-content content={nummerXml} inline></dso-ozon-content>
+              </>
+            )}
+          </>
+        )}
+      </button>
+    );
+  };
+}
+
+interface MenuItemProps {
+  documentComponent: DocumentComponent;
 }
 
 interface DocumentComponentProps {
