@@ -104,6 +104,8 @@
   }
 
   footer &,
+  dso-action-list &,
+  .dso-highlight-box:not(.dso-white, .dso-border) &,
   &.contrast {
     color: colors.$zwart;
 
@@ -129,6 +131,8 @@
   }
 
   footer &,
+  dso-action-list &,
+  .dso-highlight-box:not(.dso-white, .dso-border) &,
   &.contrast {
     color: colors.$zwart;
 
