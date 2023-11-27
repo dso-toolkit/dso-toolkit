@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
 @use "~dso-toolkit/src/components/step-counter";
 
@@ -22,9 +23,17 @@
       content: "";
       display: block;
       height: units.$u3;
-      left: units.$u10;
       position: absolute;
-      width: calc(100% + 16px);
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        left: units.$u8;
+        width: calc(100% - units.$u8);
+      }
+
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+        left: units.$u10;
+        width: calc(100% - units.$u10);
+      }
     }
   }
 }
@@ -41,7 +50,14 @@ h3 {
 
 .dso-action-list-item {
   display: grid;
-  grid-template-columns: units.$u10 1fr;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    grid-template-columns: units.$u8 1fr;
+  }
+
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    grid-template-columns: units.$u10 1fr;
+  }
 
   .dso-step-counter {
     position: unset;
@@ -49,7 +65,9 @@ h3 {
 
   .dso-step-counter,
   dso-icon {
-    margin-inline-start: units.$u1;
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+      margin-inline-start: units.$u1;
+    }
   }
 
   .action-list-item-content {

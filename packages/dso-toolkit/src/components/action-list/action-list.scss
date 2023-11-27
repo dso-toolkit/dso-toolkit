@@ -1,5 +1,6 @@
 @use "../../variables/colors";
 @use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
 @use "../headings";
 
 dso-action-list {
@@ -17,10 +18,17 @@ dso-action-list {
       content: "";
       background-color: colors.$bosgroen;
       height: calc(100% - 48px);
-      left: -50px;
       position: absolute;
       top: 64px;
       width: 4px;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        left: -58px;
+      }
+
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+        left: -50px;
+      }
     }
   }
 

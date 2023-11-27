@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
 
 :host {
@@ -9,6 +10,12 @@
   padding-block: units.$u2;
   padding-inline-start: units.$u2;
   padding-inline-end: units.$u10 + units.$u2;
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  :host {
+    padding-inline-end: units.$u2;
+  }
 }
 
 @include utilities.box-sizing();
