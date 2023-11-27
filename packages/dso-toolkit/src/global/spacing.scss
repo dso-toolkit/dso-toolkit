@@ -158,11 +158,11 @@ $spacing-headings: "h1, h2, h3, h4, h5, h6";
 }
 
 // various vs all
-:where(.dso-rich-content, .dso-button-row, .dso-app-heading, .dso-shopping-cart, .dso-accordion) {
+:where(.dso-rich-content, .dso-button-row, .dso-app-heading, .dso-shopping-cart, .dso-accordion, .dso-img-list) {
   + :where(#{$spacing-content-elements}) {
     margin-block-start: var(--vertical-spacing-medium);
   }
-  + :where(form, .dso-table-responsive, .dso-app-heading) {
+  + :where(form, .form-group, .dso-table-responsive, .dso-app-heading) {
     margin-block-start: var(--vertical-spacing-xlarge);
   }
   + .form-group {
