@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🚦 62.3.3 - 29-11-2023 (Upstream merge)
+
+### Added
+* Selectable: Controlled Input support ([#2456](https://github.com/dso-toolkit/dso-toolkit/issues/2456))
+
 ## 🦗 62.5.0 - 27-11-2023
 
 ### Docs

@@ -19,4 +19,28 @@ describe("Selectable", () => {
       cy.get("dso-selectable").then(($s) => $s[0].toggleInfo(active));
     }
   });
+
+  it("supports controlled input", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
+
+    cy.get("dso-selectable").invoke("prop", "checked", "true").find('input[type="checkbox"]').should("be.checked");
+
+    cy.get("dso-selectable").click("left");
+
+    cy.get("dso-selectable").find('input[type="checkbox"]').should("be.checked");
+  });
+
+  it("supports uncontrolled input", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
+
+    cy.get("dso-selectable")
+      .should("not.have.a.property", "checked")
+      .get("dso-selectable")
+      .find('input[type="checkbox"]')
+      .should("not.be.checked");
+
+    cy.get("dso-selectable").click("left");
+
+    cy.get("dso-selectable").find('input[type="checkbox"]').should("be.checked");
+  });
 });
