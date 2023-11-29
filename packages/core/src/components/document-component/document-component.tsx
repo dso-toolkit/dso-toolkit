@@ -7,6 +7,8 @@ import {
   DocumentComponentInputType,
   DocumentComponentMarkFunction,
   DocumentComponentMarkItemHighlightEvent,
+  DocumentComponentRecursiveToggleEvent,
+  DocumentComponentRecursiveToggleState,
 } from "./document-component.models";
 import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
@@ -129,10 +131,22 @@ export class DocumentComponent implements ComponentInterface {
   wijzigactie?: DocumentComponentWijzigactie;
 
   /**
-   * Voor het markeren in content.
+   * To mark text.
    */
   @Prop()
   mark?: DocumentComponentMarkFunction;
+
+  /**
+   * Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted.
+   */
+  @Prop()
+  recursiveToggle: DocumentComponentRecursiveToggleState;
+
+  /**
+   * Emitted when the user activates the recursive toggle.
+   */
+  @Event({ bubbles: false })
+  dsoRecursiveToggle!: EventEmitter<DocumentComponentRecursiveToggleEvent>;
 
   /**
    * Emitted when the user activates the toggle.
@@ -182,6 +196,14 @@ export class DocumentComponent implements ComponentInterface {
 
   private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
     this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
+  };
+
+  private handleRecursiveToggleClick = (e: MouseEvent) => {
+    this.dsoRecursiveToggle.emit({
+      originalEvent: e,
+      current: this.recursiveToggle,
+      next: this.recursiveToggle === true ? false : true,
+    });
   };
 
   render() {
@@ -266,6 +288,16 @@ export class DocumentComponent implements ComponentInterface {
                   {suffix && <span> - [{suffix}]</span>}
                 </div>
               </Heading>
+              {this.recursiveToggle !== undefined && this.open && (
+                <button
+                  type="button"
+                  class="recursive-toggle"
+                  title={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
+                  onClick={this.handleRecursiveToggleClick}
+                >
+                  <dso-icon icon={this.recursiveToggle === true ? "eye" : "eye-slash"} />
+                </button>
+              )}
               {this.genesteOntwerpInformatie && !this.open && !this.bevatOntwerpInformatie && (
                 <>
                   <dso-badge status="warning" aria-describedby="nested-draft-description">

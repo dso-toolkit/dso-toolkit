@@ -61,6 +61,7 @@
   }
 }
 
+.recursive-toggle,
 .toggle-button {
   border: 0;
   padding: 0;
@@ -151,6 +152,7 @@
 
 .heading {
   display: flex;
+  align-items: start;
   gap: units.$u1;
 }
 

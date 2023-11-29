@@ -28,3 +28,11 @@ export interface DocumentComponentMarkItemHighlightEvent {
   text: string;
   elementRef: HTMLElement;
 }
+
+export type DocumentComponentRecursiveToggleState = undefined | boolean | "indeterminate";
+
+export interface DocumentComponentRecursiveToggleEvent {
+  originalEvent: MouseEvent;
+  current: DocumentComponentRecursiveToggleState;
+  next: boolean;
+}

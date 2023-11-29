@@ -4,7 +4,7 @@ import random from "lodash.random";
 
 import {
   DocumentComponentOzonContentAnchorClickEvent,
-  DocumentComponentOpenToggleEvent,
+  DocumentComponentRecursiveToggleEvent,
 } from "../document-component/document-component.models";
 import { DsoDocumentComponentCustomEvent } from "../../components";
 
@@ -158,15 +158,14 @@ export class DocumentComponentDemo implements ComponentInterface {
     }
   }
 
-  private handleOpenToggle(
-    _e: DsoDocumentComponentCustomEvent<DocumentComponentOpenToggleEvent>,
-    documentComponent: DocumentComponent,
-  ) {
-    const isOpenOrClosed = this.openOrClosed.includes(documentComponent);
+  private handleOpenToggle(documentComponent: DocumentComponent, force?: boolean) {
+    const isOpenOrClosed = typeof force === "boolean" ? force : this.openOrClosed.includes(documentComponent);
 
-    this.openOrClosed = !isOpenOrClosed
-      ? [...this.openOrClosed, documentComponent]
-      : this.openOrClosed.filter((d) => d !== documentComponent);
+    if (isOpenOrClosed && this.openOrClosed.includes(documentComponent)) {
+      this.openOrClosed = this.openOrClosed.filter((d) => d !== documentComponent);
+    } else if (!isOpenOrClosed && !this.openOrClosed.includes(documentComponent)) {
+      this.openOrClosed = [...this.openOrClosed, documentComponent];
+    }
   }
 
   private handleAnnotationToggle(documentComponent: DocumentComponent) {
@@ -238,6 +237,34 @@ export class DocumentComponentDemo implements ComponentInterface {
     );
   }
 
+  private recursiveToggleState(documentComponent: DocumentComponent): undefined | boolean | "indeterminate" {
+    const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
+
+    if (
+      !embeddedDocuments ||
+      embeddedDocuments.documentComponents.length <= 1 ||
+      !embeddedDocuments.documentComponents.some((d) => d.type === "ARTIKEL")
+    ) {
+      return undefined;
+    }
+
+    return embeddedDocuments.documentComponents.every((d) => this.isOpen(d));
+  }
+
+  private handleRecursiveToggle = (
+    documentComponent: DocumentComponent,
+    detail: DocumentComponentRecursiveToggleEvent,
+  ) => {
+    const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
+    if (!embeddedDocuments) {
+      return;
+    }
+
+    for (const d of embeddedDocuments.documentComponents) {
+      this.handleOpenToggle(d, detail.next);
+    }
+  };
+
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
     if (!documentComponent) {
@@ -266,13 +293,15 @@ export class DocumentComponentDemo implements ComponentInterface {
         notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
         nummer={documentComponent.nummerXml}
         onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
-        onDsoOpenToggle={(e) => this.handleOpenToggle(e, documentComponent)}
+        onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
         onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
         open={this.isOpen(documentComponent)}
         opschrift={documentComponent.opschrift}
         type={documentComponent.type}
         vervallen={documentComponent.vervallen}
         wijzigactie={documentComponent.wijzigactie}
+        recursiveToggle={this.recursiveToggleState(documentComponent)}
+        onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <dso-annotation-output

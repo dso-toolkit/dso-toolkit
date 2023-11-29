@@ -22,6 +22,7 @@ export interface DocumentComponent<TemplateFnReturnType> {
   type: DocumentComponentType;
   vervallen?: boolean;
   wijzigactie?: DocumentComponentWijzigActie;
+  enableRecursiveToggle?: boolean;
   mark?: DocumentComponentMarkFunction;
   dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
 }

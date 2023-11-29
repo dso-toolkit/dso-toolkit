@@ -14,7 +14,7 @@ import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfac
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
-import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -42,7 +42,7 @@ export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfac
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
-export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -395,7 +395,7 @@ export namespace Components {
          */
         "label"?: DocumentComponentInputType;
         /**
-          * Voor het markeren in content.
+          * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
         /**
@@ -418,6 +418,10 @@ export namespace Components {
           * The Opschrift XML.
          */
         "opschrift"?: DocumentComponentInputType;
+        /**
+          * Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted.
+         */
+        "recursiveToggle": DocumentComponentRecursiveToggleState;
         /**
           * Type of Document Component.
          */
@@ -1290,6 +1294,7 @@ declare global {
         new (): HTMLDsoDatePickerLegacyElement;
     };
     interface HTMLDsoDocumentComponentElementEventMap {
+        "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
         "dsoOpenToggle": DocumentComponentOpenToggleEvent;
         "dsoOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
         "dsoAnnotationToggle": DocumentComponentToggleAnnotationEvent;
@@ -2177,7 +2182,7 @@ declare namespace LocalJSX {
          */
         "label"?: DocumentComponentInputType;
         /**
-          * Voor het markeren in content.
+          * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
         /**
@@ -2205,6 +2210,10 @@ declare namespace LocalJSX {
          */
         "onDsoOzonContentAnchorClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
         /**
+          * Emitted when the user activates the recursive toggle.
+         */
+        "onDsoRecursiveToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentRecursiveToggleEvent>) => void;
+        /**
           * This boolean attribute indicates whether the children are visible.
          */
         "open"?: boolean;
@@ -2216,6 +2225,10 @@ declare namespace LocalJSX {
           * The Opschrift XML.
          */
         "opschrift"?: DocumentComponentInputType;
+        /**
+          * Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted.
+         */
+        "recursiveToggle"?: DocumentComponentRecursiveToggleState;
         /**
           * Type of Document Component.
          */

@@ -32,6 +32,7 @@ export interface DocumentComponentArgs {
   vervallen: boolean;
   wijzigactie: DocumentComponentWijzigActie | undefined;
   mark?: string;
+  enableRecursiveToggle?: boolean;
 }
 
 export const documentComponentArgs: Omit<
@@ -166,6 +167,11 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   mark: {
     control: {
       type: "text",
+    },
+  },
+  enableRecursiveToggle: {
+    control: {
+      type: "boolean",
     },
   },
 };
