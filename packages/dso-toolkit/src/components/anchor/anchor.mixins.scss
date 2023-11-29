@@ -56,46 +56,34 @@
   }
 }
 
-@mixin mode-base() {
-  padding-inline-end: 1.5em;
-
+// provide base styling icon placement
+@mixin mode-base($pos: null) {
   background-repeat: no-repeat;
   background-size: 1.25em 1.25em;
-  background-position: bottom 0 right 0;
 
-  &::after {
-    content: "";
+  @if $pos == before {
+    padding-inline-start: 1.5em;
+    background-position: bottom 0 left 0;
+  }
+
+  @if $pos == after {
+    padding-inline-end: 1.5em;
+    background-position: bottom 0 right 0;
   }
 }
 
-@mixin mode-base-before() {
-  padding-inline-start: 1.5em;
-  background-repeat: no-repeat;
-  background-size: 1.25em 1.25em;
-  background-position: bottom 0 left 0;
-}
-
-@mixin mode-download($base-styling: false) {
-  @if ($base-styling) {
-    @include mode-base();
-  }
-
+@mixin mode-download() {
+  @include mode-base(after);
   @include di.variant("download");
 }
 
-@mixin mode-extern($base-styling: false) {
-  @if ($base-styling) {
-    @include mode-base();
-  }
-
+@mixin mode-extern() {
+  @include mode-base(after);
   @include di.variant("external-link");
 }
 
-@mixin mode-phone($base-styling: true) {
-  @if ($base-styling) {
-    @include mode-base-before();
-  }
-
+@mixin mode-phone() {
+  @include mode-base(before);
   @include di.variant("call-grasgroen");
 
   &:hover,
@@ -103,6 +91,7 @@
     @include di.variant("call-scampi");
   }
 
+  // find another placwe for this
   footer &,
   dso-action-list &,
   .dso-highlight-box:not(.dso-white, .dso-border) &,
@@ -118,11 +107,8 @@
   }
 }
 
-@mixin mode-email($base-styling: true) {
-  @if ($base-styling) {
-    @include mode-base-before();
-  }
-
+@mixin mode-email() {
+  @include mode-base(before);
   @include di.variant("email-grasgroen");
 
   &:hover,
@@ -130,6 +116,7 @@
     @include di.variant("email-scampi");
   }
 
+  // find another place for this
   footer &,
   dso-action-list &,
   .dso-highlight-box:not(.dso-white, .dso-border) &,
