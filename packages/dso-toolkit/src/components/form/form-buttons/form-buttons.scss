@@ -1,6 +1,5 @@
 @use "../../../utilities";
 @use "../../../variables/units";
-@use "../../../variables/media-query-breakpoints";
 @use "../../../variables/typography";
 @use "../../button";
 
@@ -9,12 +8,6 @@
 
   margin-bottom: units.$vertical-spacing-medium;
   text-align: right;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    display: flex;
-    flex-direction: column;
-    gap: units.$u2;
-  }
 
   &:last-child {
     margin-bottom: units.$vertical-spacing-xlarge;
@@ -31,23 +24,6 @@
   .dso-aside {
     clear: both;
     float: left;
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    .dso-aside,
-    button {
-      width: 100%;
-    }
-
-    .dso-primary,
-    .dso-secondary,
-    .dso-tertiary {
-      + .dso-primary,
-      + .dso-secondary,
-      + .dso-tertiary {
-        margin-left: 0;
-      }
-    }
   }
 }
 
