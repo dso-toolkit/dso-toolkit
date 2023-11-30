@@ -56,8 +56,12 @@
   }
 }
 
-// provide base styling icon placement
-@mixin mode-base($pos: null) {
+// provide base styling icon placement (before or after)
+@mixin mode-base($pos) {
+  @if $pos != after and $pos != before {
+    @error "Use mixin argument 'before' or 'after' (w/o quotes)";
+  }
+
   background-repeat: no-repeat;
   background-size: 1.25em 1.25em;
 
