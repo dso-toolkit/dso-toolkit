@@ -1,8 +1,6 @@
 /* eslint-env node */
 
 import gulp from "gulp";
-import gulpSass from "gulp-sass";
-import * as dartSass from "sass";
 import { basename } from "path";
 import { obj } from "list-stream";
 import { parse } from "css";
@@ -11,22 +9,22 @@ import cheerio from "gulp-cheerio";
 import prettier from "gulp-prettier";
 import rename from "gulp-rename";
 
-const sass = gulpSass(dartSass);
+import { sassTransformer } from "./transformers/sass.transformer.js";
 
 const iconsPath = "src/icons";
 const distPath = "dist";
 
 export async function buildSvgSpritesheet() {
-  const sassCompiler = sass().on("error", sass.logError);
-
   const stylesheets = await new Promise((resolve, reject) => {
     gulp
       .src(`${iconsPath}/*.scss`)
-      .pipe(sassCompiler)
+      .pipe(sassTransformer())
       .pipe(
         obj((error, data) => {
           if (error) {
             reject(error);
+
+            return;
           }
 
           resolve(

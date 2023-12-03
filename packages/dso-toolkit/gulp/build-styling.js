@@ -3,12 +3,9 @@ import filter from "gulp-filter";
 import header from "gulp-header";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
-import gulpSass from "gulp-sass";
-import * as dartSass from "sass";
 
 import { plugins } from "../postcss.config.js";
-
-const sass = gulpSass(dartSass);
+import { sassTransformer } from "./transformers/sass.transformer.js";
 
 function getVersion() {
   if (process.env.DT_VERSION) {
@@ -32,13 +29,11 @@ function getVersion() {
 }
 
 export function buildStyling() {
-  const sassCompiler = sass().on("error", sass.logError);
-
   const version = getVersion();
 
   return gulp
     .src("src/dso.scss", { sourcemaps: true })
-    .pipe(sassCompiler)
+    .pipe(sassTransformer())
     .pipe(
       header(
         [`/* DSO Toolkit version: ${version} */`, `:root { --dso-toolkit-version: ${version} }`, "", ""].join("\n"),
