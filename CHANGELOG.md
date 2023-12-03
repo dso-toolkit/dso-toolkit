@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Document Component: Ondersteuning voor vrije tekstdocumenten zonder titel & IMRO documenten inspringen ([#2346](https://github.com/dso-toolkit/dso-toolkit/issues/2346))
 
+### Fixed
+* Build: SCSS compileert niet meer ([#2452](https://github.com/dso-toolkit/dso-toolkit/issues/2452))
+
 ## 🚦 62.3.3 - 29-11-2023 (Upstream merge)
 
 ### Added
