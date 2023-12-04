@@ -4,6 +4,7 @@ import { Context } from "./context.models.js";
 
 export interface ContextArgs {
   type: "legend" | "label";
+  alignLeft: boolean;
 }
 
 export const contextArgTypes: ArgTypes<ContextArgs> = {
@@ -11,6 +12,11 @@ export const contextArgTypes: ArgTypes<ContextArgs> = {
     options: ["legend", "label"],
     control: {
       type: "select",
+    },
+  },
+  alignLeft: {
+    control: {
+      type: "boolean",
     },
   },
 };
@@ -26,5 +32,6 @@ export function contextArgsMapper<TemplateFnReturnType>(
     children,
     label,
     type: a.type,
+    alignLeft: a.alignLeft,
   };
 }

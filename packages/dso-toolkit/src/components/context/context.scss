@@ -14,6 +14,16 @@
   margin-bottom: units.$u1;
   row-gap: units.$u2;
 
+  &.dso-align-left {
+    justify-content: flex-start;
+    column-gap: units.$u3;
+    row-gap: units.$u1;
+
+    .dso-context-container {
+      margin-left: 0;
+    }
+  }
+
   .dso-context-container {
     margin-left: auto;
   }

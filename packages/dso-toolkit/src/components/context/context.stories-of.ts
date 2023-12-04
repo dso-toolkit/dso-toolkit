@@ -39,6 +39,20 @@ export function storiesOfContext<Implementation, Templates, TemplateFnReturnType
       },
     });
 
+    stories.add("Label - align left", template, {
+      args: {
+        type: "label",
+        alignLeft: true,
+      },
+    });
+
+    stories.add("Legend - align left", template, {
+      args: {
+        type: "legend",
+        alignLeft: true,
+      },
+    });
+
     return stories;
   });
 }

@@ -3,4 +3,5 @@ export interface Context<TemplateFnReturnType> {
   content: TemplateFnReturnType;
   label: TemplateFnReturnType;
   type: "legend" | "label";
+  alignLeft?: boolean;
 }
