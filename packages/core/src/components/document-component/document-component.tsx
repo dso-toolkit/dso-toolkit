@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Event, EventEmitter, Fragment, Prop } from "@stencil/core";
+import { h, Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, Host } from "@stencil/core";
 import {
   DocumentComponentOpenToggleEvent,
   DocumentComponentToggleAnnotationEvent,
@@ -186,98 +186,116 @@ export class DocumentComponent implements ComponentInterface {
 
   render() {
     const suffix = this.suffix();
+    const collapsible = !!(
+      (this.label || this.nummer || this.opschrift || this.alternativeTitle) &&
+      this.type !== "LID"
+    );
+    const showHeading = !!(
+      this.wijzigactie ||
+      collapsible ||
+      this.label ||
+      this.nummer ||
+      this.opschrift ||
+      this.alternativeTitle ||
+      this.bevatOntwerpInformatie ||
+      this.annotated
+    );
 
     return (
-      <>
-        <div class="heading-container">
-          {this.wijzigactie && <span class="wijzigactie-label">{this.wijzigactieLabel}:</span>}
-          <div class="heading">
-            <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
-              {this.type !== "LID" && (
-                <button type="button" class="toggle-button">
-                  <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
-                </button>
+      <Host not-collapsible={!collapsible}>
+        {showHeading && (
+          <div class="heading-container">
+            {this.wijzigactie && <span class="wijzigactie-label">{this.wijzigactieLabel}:</span>}
+            <div class="heading">
+              <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
+                {collapsible && (
+                  <button type="button" class="toggle-button">
+                    <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
+                  </button>
+                )}
+                <div class="title">
+                  {this.notApplicable && <span class="not-applicable">Niet van toepassing:</span>}
+                  {this.label || this.nummer || this.opschrift ? (
+                    <>
+                      {this.label && (
+                        <>
+                          {" "}
+                          <dso-ozon-content
+                            content={this.label}
+                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            mark={this.mark && ((text) => this.mark?.(text, "label"))}
+                            onDsoOzonContentMarkItemHighlight={(e) =>
+                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "label" })
+                            }
+                            inline
+                          ></dso-ozon-content>
+                        </>
+                      )}
+                      {this.nummer && (
+                        <>
+                          {" "}
+                          <dso-ozon-content
+                            content={this.nummer}
+                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            mark={this.mark && ((text) => this.mark?.(text, "nummer"))}
+                            onDsoOzonContentMarkItemHighlight={(e) =>
+                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "nummer" })
+                            }
+                            inline
+                          ></dso-ozon-content>
+                        </>
+                      )}
+                      {this.opschrift && (
+                        <>
+                          {" "}
+                          <dso-ozon-content
+                            content={this.opschrift}
+                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            mark={this.mark && ((text) => this.mark?.(text, "opschrift"))}
+                            onDsoOzonContentMarkItemHighlight={(e) =>
+                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "opschrift" })
+                            }
+                            inline
+                          ></dso-ozon-content>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    this.alternativeTitle
+                  )}
+                  {suffix && <span> - [{suffix}]</span>}
+                </div>
+              </Heading>
+              {this.genesteOntwerpInformatie && !this.open && !this.bevatOntwerpInformatie && (
+                <>
+                  <dso-badge status="warning" aria-describedby="nested-draft-description">
+                    !
+                  </dso-badge>
+                  <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
+                </>
               )}
-              <div class="title">
-                {this.notApplicable && <span class="not-applicable">Niet van toepassing:</span>}
-                {this.label || this.nummer || this.opschrift ? (
-                  <>
-                    {this.label && (
-                      <>
-                        {" "}
-                        <dso-ozon-content
-                          content={this.label}
-                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                          mark={this.mark && ((text) => this.mark?.(text, "label"))}
-                          onDsoOzonContentMarkItemHighlight={(e) =>
-                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "label" })
-                          }
-                          inline
-                        ></dso-ozon-content>
-                      </>
-                    )}
-                    {this.nummer && (
-                      <>
-                        {" "}
-                        <dso-ozon-content
-                          content={this.nummer}
-                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                          mark={this.mark && ((text) => this.mark?.(text, "nummer"))}
-                          onDsoOzonContentMarkItemHighlight={(e) =>
-                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "nummer" })
-                          }
-                          inline
-                        ></dso-ozon-content>
-                      </>
-                    )}
-                    {this.opschrift && (
-                      <>
-                        {" "}
-                        <dso-ozon-content
-                          content={this.opschrift}
-                          onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                          mark={this.mark && ((text) => this.mark?.(text, "opschrift"))}
-                          onDsoOzonContentMarkItemHighlight={(e) =>
-                            this.dsoMarkItemHighlight.emit({ ...e.detail, source: "opschrift" })
-                          }
-                          inline
-                        ></dso-ozon-content>
-                      </>
-                    )}
-                  </>
-                ) : (
-                  this.alternativeTitle
-                )}
-                {suffix && <span> - [{suffix}]</span>}
-              </div>
-            </Heading>
-            {this.genesteOntwerpInformatie && !this.open && !this.bevatOntwerpInformatie && (
-              <>
-                <dso-badge status="warning" aria-describedby="nested-draft-description">
-                  !
-                </dso-badge>
-                <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
-              </>
-            )}
-            {(this.bevatOntwerpInformatie || this.annotated) && (
-              <div class="addons">
-                {this.bevatOntwerpInformatie && (
-                  <dso-label status="warning" compact>
-                    Ontwerp
-                  </dso-label>
-                )}
-                {this.annotated && (
-                  <dso-annotation-button
-                    identifier="expandable"
-                    open={this.openAnnotation}
-                    onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
-                  ></dso-annotation-button>
-                )}
-              </div>
-            )}
+              {(this.bevatOntwerpInformatie || this.annotated) && (
+                <div class="addons">
+                  {this.bevatOntwerpInformatie && (
+                    <dso-label status="warning" compact>
+                      Ontwerp
+                    </dso-label>
+                  )}
+                  {this.annotated && (
+                    <dso-annotation-button
+                      identifier="expandable"
+                      open={this.openAnnotation}
+                      onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
+                    ></dso-annotation-button>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
+        )}
+        <div class="annotation-container">
+          <slot name="annotation" />
         </div>
-        <slot name="annotation" />
         {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
           <div class="content">
             {this.gereserveerd && (
@@ -292,12 +310,14 @@ export class DocumentComponent implements ComponentInterface {
                 onDsoOzonContentMarkItemHighlight={(e) =>
                   this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })
                 }
-              ></dso-ozon-content>
+              />
             )}
           </div>
         )}
-        <slot />
-      </>
+        <div class="children-container">
+          <slot />
+        </div>
+      </Host>
     );
   }
 }

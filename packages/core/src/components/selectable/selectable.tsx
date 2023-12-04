@@ -10,6 +10,7 @@ import {
   forceUpdate,
   Watch,
   Method,
+  ComponentInterface,
 } from "@stencil/core";
 import clsx from "clsx";
 import { createIdentifier } from "../../utils/create-identifier";
@@ -25,7 +26,7 @@ import { SelectableChangeEvent } from "./selectable.interfaces";
   styleUrl: "selectable.scss",
   scoped: true,
 })
-export class Selectable {
+export class Selectable implements ComponentInterface {
   /**
    * Type of Selectable.
    *
@@ -86,7 +87,7 @@ export class Selectable {
   /**
    * Mark the Selectable as checked
    */
-  @Prop()
+  @Prop({ reflect: true })
   checked?: boolean;
 
   /**
@@ -142,6 +143,8 @@ export class Selectable {
       originalEvent: e,
       checked: target instanceof HTMLInputElement && target.checked,
     });
+
+    forceUpdate(this.host);
   };
 
   componentDidLoad() {
@@ -223,6 +226,12 @@ export class Selectable {
         <slot name="options" />
       </Fragment>
     );
+  }
+
+  componentDidRender(): void {
+    if (this.input && typeof this.checked === "boolean" && this.input.checked !== this.checked) {
+      this.input.checked = this.checked;
+    }
   }
 
   private getIdentifier(): string {

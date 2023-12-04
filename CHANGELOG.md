@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Anchor: Custom opmaak van hyperlinks in toelichtingen ([#2351](https://github.com/dso-toolkit/dso-toolkit/issues/2351))
+* Ondersteuning voor vrije tekstdocumenten zonder titel & IMRO documenten inspringen ([#2346](https://github.com/dso-toolkit/dso-toolkit/issues/2346))
+
+## 🚦 62.3.3 - 29-11-2023 (Upstream merge)
+
+### Added
+* Selectable: Controlled Input support ([#2456](https://github.com/dso-toolkit/dso-toolkit/issues/2456))
 
 ## 🦗 62.5.0 - 27-11-2023
 

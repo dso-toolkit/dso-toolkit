@@ -44,6 +44,11 @@
     padding-inline-start: 0;
 
     > li {
+      > button {
+        border: 0;
+        background-color: transparent;
+      }
+
       > a,
       > button {
         display: block;
