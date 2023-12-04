@@ -79,11 +79,21 @@
 @mixin mode-download() {
   @include mode-base("after");
   @include di.variant("download");
+
+  &:hover,
+  &:focus {
+    @include di.variant("download-scampi");
+  }
 }
 
 @mixin mode-extern() {
   @include mode-base("after");
   @include di.variant("external-link");
+
+  &:hover,
+  &:focus {
+    @include di.variant("external-link-scampi");
+  }
 }
 
 @mixin mode-phone() {
