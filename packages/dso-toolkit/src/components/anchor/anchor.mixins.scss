@@ -1,8 +1,4 @@
 @use "../../di";
-@use "../../variables/scaffolding";
-@use "../../variables/colors";
-@use "../icon";
-
 @use "anchor.variables" as anchor-variables;
 
 @mixin pseudo() {
