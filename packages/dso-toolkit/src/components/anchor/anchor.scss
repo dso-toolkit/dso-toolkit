@@ -1,8 +1,4 @@
-@use "../icon";
-
 @use "anchor.mixins" as anchor-mixins;
-
-@use "config";
 
 a {
   @include anchor-mixins.root();

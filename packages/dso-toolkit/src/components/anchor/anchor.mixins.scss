@@ -58,8 +58,8 @@
 
 // provide base styling icon placement (before or after)
 @mixin mode-base($pos) {
-  @if $pos != after and $pos != before {
-    @error "Use mixin argument 'before' or 'after' (w/o quotes)";
+  @if $pos != "after" and $pos != "before" {
+    @error 'Use mixin argument "before" or "after".';
   }
 
   background-repeat: no-repeat;
@@ -77,17 +77,17 @@
 }
 
 @mixin mode-download() {
-  @include mode-base(after);
+  @include mode-base("after");
   @include di.variant("download");
 }
 
 @mixin mode-extern() {
-  @include mode-base(after);
+  @include mode-base("after");
   @include di.variant("external-link");
 }
 
 @mixin mode-phone() {
-  @include mode-base(before);
+  @include mode-base("before");
   @include di.variant("call-grasgroen");
 
   &:hover,
@@ -97,7 +97,7 @@
 }
 
 @mixin mode-email() {
-  @include mode-base(before);
+  @include mode-base("before");
   @include di.variant("email-grasgroen");
 
   &:hover,
