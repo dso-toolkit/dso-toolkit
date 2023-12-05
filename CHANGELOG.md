@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🎁 62.6.0 - 05-12-2023
+
 ### Added
 * Document Component: Ondersteuning voor vrije tekstdocumenten zonder titel & IMRO documenten inspringen ([#2346](https://github.com/dso-toolkit/dso-toolkit/issues/2346))
 * Document Component: Recursief in- en uitklappen van geneste document componenten ([#2449](https://github.com/dso-toolkit/dso-toolkit/issues/2449))
