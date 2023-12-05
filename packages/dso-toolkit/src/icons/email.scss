@@ -1,0 +1,17 @@
+@use "../variables/colors";
+
+email {
+  color: colors.$grijs-90;
+}
+
+email:grasgroen {
+  color: colors.$grasgroen;
+}
+
+email:scampi {
+  color: colors.$scampi;
+}
+
+email:zwart {
+  color: colors.$zwart;
+}

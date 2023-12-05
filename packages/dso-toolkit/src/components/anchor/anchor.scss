@@ -1,5 +1,3 @@
-@use "../icon";
-
 @use "anchor.mixins" as anchor-mixins;
 
 a {
@@ -7,17 +5,20 @@ a {
 
   &:not(.dso-primary, .dso-secondary, .dso-tertiary) {
     // todo: alternative for :not
-    &.download,
-    &.extern {
-      @include anchor-mixins.mode-base();
-    }
-
     &.download {
       @include anchor-mixins.mode-download();
     }
 
     &.extern {
       @include anchor-mixins.mode-extern();
+    }
+
+    &[href^="tel:"] {
+      @include anchor-mixins.mode-phone();
+    }
+
+    &[href^="mailto:"] {
+      @include anchor-mixins.mode-email();
     }
   }
 }

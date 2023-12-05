@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Document Component: Ondersteuning voor vrije tekstdocumenten zonder titel & IMRO documenten inspringen ([#2346](https://github.com/dso-toolkit/dso-toolkit/issues/2346))
 * Document Component: Recursief in- en uitklappen van geneste document componenten ([#2449](https://github.com/dso-toolkit/dso-toolkit/issues/2449))
+* Anchor: Ondersteuning voor `tel:` en `mailto:` ([#2351](https://github.com/dso-toolkit/dso-toolkit/issues/2351))
 
 ### Fixed
 * Build: SCSS compileert niet meer ([#2452](https://github.com/dso-toolkit/dso-toolkit/issues/2452))
