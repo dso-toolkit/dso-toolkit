@@ -6,8 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Added
-* Ondersteuning voor vrije tekstdocumenten zonder titel & IMRO documenten inspringen ([#2346](https://github.com/dso-toolkit/dso-toolkit/issues/2346))
-* Context component: elementen links uitlijnen ([#2400](https://github.com/dso-toolkit/dso-toolkit/issues/2400))
+* Context: elementen links uitlijnen ([#2400](https://github.com/dso-toolkit/dso-toolkit/issues/2400))
 
 ## 🎁 62.6.0 - 05-12-2023
 

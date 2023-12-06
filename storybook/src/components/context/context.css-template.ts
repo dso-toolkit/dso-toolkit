@@ -4,12 +4,7 @@ import { html, TemplateResult } from "lit-html";
 import { ComponentImplementation } from "../../templates";
 import { classMap } from "lit-html/directives/class-map.js";
 
-function contextLabelTemplate(
-  label: TemplateResult,
-  content: TemplateResult,
-  children: TemplateResult,
-  alignLeft?: boolean,
-) {
+function contextLabelTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
   return html`
     <div
       class="dso-context-wrapper ${classMap({
@@ -23,12 +18,7 @@ function contextLabelTemplate(
   `;
 }
 
-function contextFieldsetTemplate(
-  label: TemplateResult,
-  content: TemplateResult,
-  children: TemplateResult,
-  alignLeft?: boolean,
-) {
+function contextFieldsetTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
   return html`
     <fieldset>
       <legend class="sr-only">${label}</legend>
@@ -49,12 +39,12 @@ export const cssContext: ComponentImplementation<Context<TemplateResult>> = {
   component: "context",
   implementation: "html-css",
   template: () =>
-    function contextTemplate({ label, type, content, children, alignLeft }) {
-      switch (type) {
+    function contextTemplate(context) {
+      switch (context.type) {
         case "label":
-          return contextLabelTemplate(label, content, children, alignLeft);
+          return contextLabelTemplate(context);
         case "legend":
-          return contextFieldsetTemplate(label, content, children, alignLeft);
+          return contextFieldsetTemplate(context);
         default:
           throw new TypeError("type can only be label or legend");
       }
