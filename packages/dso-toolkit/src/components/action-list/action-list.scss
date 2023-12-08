@@ -8,7 +8,6 @@ dso-action-list {
     margin-inline-start: -#{units.$u10};
 
     &::after {
-      margin-inline-start: units.$u10;
       width: calc(100% + #{units.$u2});
     }
   }
@@ -17,17 +16,17 @@ dso-action-list {
     &::after {
       content: "";
       background-color: colors.$bosgroen;
-      height: calc(100% - 48px);
+      height: calc(100% - #{units.$u6});
       position: absolute;
-      top: 64px;
-      width: 4px;
+      top: #{units.$u8};
+      width: #{units.$u1 * 0.5};
 
       @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-        left: -58px;
+        left: #{units.$u3 - units.$u1 * 0.25};
       }
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        left: -50px;
+        left: #{units.$u4 - units.$u1 * 0.25};
       }
     }
   }
