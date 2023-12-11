@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Form Group "input", "select" & "textarea": Ongeldige waarde in `aria-invalid` ([#2467](https://github.com/dso-toolkit/dso-toolkit/issues/2467))
+* Button Row: Verticale ruimte ontbreekt ([#2440](https://github.com/dso-toolkit/dso-toolkit/issues/2440))
 
 ### Tasks
 * Build: `gulp-sass` verwijderen ([#2454](https://github.com/dso-toolkit/dso-toolkit/issues/2454))

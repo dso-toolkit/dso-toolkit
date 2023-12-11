@@ -55,3 +55,12 @@
     }
   }
 }
+
+// #2440 temp fix
+// --------------
+// To do: integrate this with #2217 (103)
+:where(.row:has(.dso-button-row)) {
+  + :where(.row:has(:only-child > dl)) {
+    margin-block-start: units.$vertical-spacing-medium;
+  }
+}
