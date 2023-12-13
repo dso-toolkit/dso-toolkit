@@ -61,7 +61,7 @@ export const cssFormGroupInput: ComponentImplementation<
                     autocomplete=${ifDefined(formGroup.autocomplete)}
                     aria-describedby=${ifDefined(ariaDescribedBy)}
                     aria-errormessage=${ifDefined(ariaErrorMessage)}
-                    aria-invalid=${ifDefined(formGroup.state)}
+                    aria-invalid=${formGroup.state === "invalid"}
                     ?disabled=${formGroup.disabled}
                     ?readonly=${formGroup.readonly}
                     ?required=${formGroup.required}

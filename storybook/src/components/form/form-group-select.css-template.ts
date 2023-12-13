@@ -46,7 +46,7 @@ export const cssFormGroupSelect: ComponentImplementation<FormGroupSelect<Templat
               class="form-control"
               aria-describedby=${ifDefined(ariaDescribedBy)}
               aria-errormessage=${ifDefined(ariaErrorMessage)}
-              aria-invalid=${ifDefined(formGroup.state)}
+              aria-invalid=${formGroup.state === "invalid"}
               ?disabled=${formGroup.disabled}
               ?multiple=${formGroup.multiple}
               ?required=${formGroup.required}

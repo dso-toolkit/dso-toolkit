@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Context: elementen links uitlijnen ([#2400](https://github.com/dso-toolkit/dso-toolkit/issues/2400))
 
+### Fixed
+* Form Group "input", "select" & "textarea": Ongeldige waarde in `aria-invalid` ([#2467](https://github.com/dso-toolkit/dso-toolkit/issues/2467))
+
 ### Tasks
 * Build: `gulp-sass` verwijderen ([#2454](https://github.com/dso-toolkit/dso-toolkit/issues/2454))
 
