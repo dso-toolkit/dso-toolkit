@@ -1,6 +1,18 @@
+interface TableHeadingUnsortable {
+  label: string;
+}
+
+interface TableHeadingSortable {
+  label: string;
+  sortable: true;
+  sorting?: TableSorting;
+}
+
+export type TableSorting = "ascending" | "descending";
+
 export interface TableContent<TemplateFnReturnType> {
   caption: string;
-  head: string[];
+  head: (TableHeadingUnsortable | TableHeadingSortable)[];
   rows: (TemplateFnReturnType | string)[][];
 }
 

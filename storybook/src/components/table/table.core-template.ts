@@ -1,8 +1,9 @@
 import clsx from "clsx";
 
-import { Table } from "dso-toolkit";
+import { Table, TableSorting } from "dso-toolkit";
 
 import { html, TemplateResult } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
@@ -13,6 +14,18 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
   implementation: "core",
   template: () =>
     function tableTemplate({ noModal, content, headingColumns, role, verticalLines }) {
+      function getAriaRoledescription(sorting: TableSorting | undefined): string | undefined {
+        if (sorting === "ascending") {
+          return "sorteer oplopend knop";
+        }
+
+        if (sorting === "descending") {
+          return "sorteer aflopend knop";
+        }
+
+        return undefined;
+      }
+
       return html`
         <dso-table ?no-modal=${noModal}>
           <table class=${clsx("table", { ["dso-table-vertical-lines"]: verticalLines })} role=${ifDefined(role)}>
@@ -22,7 +35,20 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
 
             <thead>
               <tr>
-                ${content.head.map((col) => html`<th scope="col">${col}</th>`)}
+                ${content.head.map((col) =>
+                  "sortable" in col
+                    ? html`<th scope="col" aria-sort=${ifDefined(col.sorting)}>
+                        <button
+                          type="button"
+                          aria-roledescription=${ifDefined(getAriaRoledescription(col.sorting))}
+                          class="dso-tertiary dso-sort ${classMap({ "dso-sort-active": !!col.sorting })}"
+                        >
+                          <span>${col.label}</span>
+                          <dso-icon icon=${col.sorting ? "sort-" + col.sorting : "sort"}></dso-icon>
+                        </button>
+                      </th>`
+                    : html`<th scope="col">${col.label}</th> `,
+                )}
               </tr>
             </thead>
             <tbody>

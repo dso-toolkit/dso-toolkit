@@ -40,7 +40,7 @@ examplePageFactory(
             noModal: true,
             content: {
               caption: "Titel van de tabel voor screenreaders",
-              head: ["Ketenpartner", "Toegang", "Acties"],
+              head: [{ label: "Ketenpartner" }, { label: "Toegang" }, { label: "Acties" }],
               rows: [
                 ["Gemeente Den Haag", "Alle documenten", rowActions()],
                 ["Gemeente Rotterdam", "Alle documenten", rowActions()],

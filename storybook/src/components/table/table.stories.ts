@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/web-components";
 import coreReadme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-import { defaultTable, imageOverlayTable } from "./table.content";
+import { defaultTable, imageOverlayTable, sortedAscendingTable, sortedDescendingTable } from "./table.content";
 
 storiesOfTable({
   parameters: {
@@ -18,5 +18,7 @@ storiesOfTable({
     tableTemplate,
     defaultTable: defaultTable(templates),
     imageOverlayTable: imageOverlayTable(templates),
+    sortedAscendingTable: sortedAscendingTable(templates),
+    sortedDescendingTable: sortedDescendingTable(templates),
   }),
 });

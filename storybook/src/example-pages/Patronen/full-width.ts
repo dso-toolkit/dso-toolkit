@@ -42,7 +42,13 @@ examplePageFactory(
               headingColumns: true,
               content: {
                 caption: "Titel van de tabel voor screenreaders",
-                head: ["Nummer", "Voornaam", "Achternaam", "Github gebruikersnaam", "Modifier"],
+                head: [
+                  { label: "Nummer" },
+                  { label: "Voornaam" },
+                  { label: "Achternaam" },
+                  { label: "Github gebruikersnaam" },
+                  { label: "Modifier" },
+                ],
                 rows: [
                   ["1", anchorTemplate({ label: "Fabien", url: "#" }), "Potentier", "fabpot", html`<code>tr</code>`],
                   ["2", anchorTemplate({ label: "Andrew", url: "#" }), "Nesbitt", "andrew", html`<code>tr</code>`],

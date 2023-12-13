@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Dropdown Menu: focus trap hamburger menu ([#2392](https://github.com/dso-toolkit/dso-toolkit/issues/2392))
 * Webfont Asap: Semibold displays as bold ([#2437](https://github.com/dso-toolkit/dso-toolkit/issues/2437))
 
+### Docs
+* Table Component: Sort ascending/descending ([#2436](https://github.com/dso-toolkit/dso-toolkit/issues/2436))
+
 ## 🪨 62.10.0 - 21-01-2024
 
 ### Added

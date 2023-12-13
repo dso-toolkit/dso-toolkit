@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { defaultTable, imageOverlayTable } from "./table.content";
+import { defaultTable, imageOverlayTable, sortedAscendingTable, sortedDescendingTable } from "./table.content";
 
 storiesOfTable({
   parameters: {
@@ -12,5 +12,11 @@ storiesOfTable({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ tableTemplate }) => ({ tableTemplate, defaultTable, imageOverlayTable }),
+  storyTemplates: ({ tableTemplate }) => ({
+    tableTemplate,
+    defaultTable,
+    imageOverlayTable,
+    sortedAscendingTable,
+    sortedDescendingTable,
+  }),
 });

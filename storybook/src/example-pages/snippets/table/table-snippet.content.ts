@@ -33,7 +33,9 @@ export function content(templates: Templates, { role, actions }: Options = {}): 
     role,
     content: {
       caption: "Overzicht toegevoegde documenten",
-      head: ["#", "Documentnaam", "Eigenaar", "Upload datum"].concat(actions ? "Acties" : []),
+      head: [{ label: "#" }, { label: "Documentnaam" }, { label: "Eigenaar" }, { label: "Upload datum" }].concat(
+        actions ? { label: "Acties" } : [],
+      ),
       rows: [
         ["1", anchorTemplate({ label: "Tekening.jpg", url: "#tekening" }), "P.K. Puk", "21-07-2019"].concat(
           actions ? actionsTemplate(templates) : [],

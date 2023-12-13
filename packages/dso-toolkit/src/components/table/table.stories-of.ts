@@ -6,6 +6,8 @@ export interface TableTemplates<TemplateFnReturnType> {
   tableTemplate: (TableProperties: Table<TemplateFnReturnType>) => TemplateFnReturnType;
   defaultTable: TableContent<TemplateFnReturnType>;
   imageOverlayTable: TableContent<TemplateFnReturnType>;
+  sortedAscendingTable: TableContent<TemplateFnReturnType>;
+  sortedDescendingTable: TableContent<TemplateFnReturnType>;
 }
 
 export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
@@ -54,6 +56,30 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
         args: {
           noModal: false,
           verticalLines: true,
+        },
+      },
+    );
+
+    stories.add(
+      "sorted ascending",
+      templateMapper<TableArgs>((args, { tableTemplate, sortedAscendingTable }) =>
+        tableTemplate(tableArgsMapper(args, sortedAscendingTable)),
+      ),
+      {
+        args: {
+          noModal: false,
+        },
+      },
+    );
+
+    stories.add(
+      "sorted descending",
+      templateMapper<TableArgs>((args, { tableTemplate, sortedDescendingTable }) =>
+        tableTemplate(tableArgsMapper(args, sortedDescendingTable)),
+      ),
+      {
+        args: {
+          noModal: false,
         },
       },
     );

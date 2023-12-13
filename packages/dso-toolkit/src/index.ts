@@ -303,7 +303,7 @@ export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopp
 export { SlideToggle } from "./components/slide-toggle/slide-toggle.models.js";
 export { SlideToggleTemplates, storiesOfSlideToggle } from "./components/slide-toggle/slide-toggle.stories-of.js";
 
-export { Table, TableContent } from "./components/table/table.models.js";
+export { Table, TableContent, TableSorting } from "./components/table/table.models.js";
 export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
 
 export { Tabs, TabsItem } from "./components/tabs/tabs.models.js";
