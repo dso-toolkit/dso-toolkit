@@ -4,6 +4,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
 @use "~dso-toolkit/src/components/step-counter";
+@use "~dso-toolkit/src/components/action-list/components/action-list-item.variables" as action-list-item-variables;
 
 @include utilities.box-sizing();
 
@@ -11,7 +12,7 @@
   @include step-counter.step-counter();
 
   display: block;
-  padding-block: units.$u2;
+  padding-block: action-list-item-variables.$padding-vertical;
   position: relative;
 }
 
@@ -66,7 +67,7 @@ h3 {
   .dso-step-counter,
   dso-icon {
     @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-      margin-inline-start: units.$u1;
+      margin-inline-start: action-list-item-variables.$step-counter-margin;
     }
   }
 

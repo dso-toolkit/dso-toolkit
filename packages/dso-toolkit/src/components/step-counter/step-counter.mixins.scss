@@ -11,7 +11,7 @@
 
   .dso-step-counter {
     background-color: colors.$bosgroen;
-    border: units.$u1 solid colors.$lime;
+    border: step-counter-variables.$border-size solid colors.$lime;
     border-radius: 50%;
     box-sizing: content-box;
     color: colors.$wit;

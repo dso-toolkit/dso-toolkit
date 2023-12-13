@@ -1,14 +1,16 @@
 @use "../../variables/colors";
 @use "../../variables/units";
 @use "../../variables/media-query-breakpoints";
+@use "../../components/step-counter";
 @use "../headings";
+
+@use "action-list.variables" as action-list-variables;
+@use "components/action-list-item.variables" as action-list-item-variables;
 
 dso-action-list {
   dso-action-list-item {
-    margin-inline-start: -#{units.$u10};
-
     &::after {
-      width: calc(100% + #{units.$u2});
+      width: calc(100% + units.$u2);
     }
   }
 
@@ -16,17 +18,20 @@ dso-action-list {
     &::after {
       content: "";
       background-color: colors.$bosgroen;
-      height: calc(100% - #{units.$u6});
+      height: calc(100% - units.$u6);
       position: absolute;
-      top: #{units.$u8};
-      width: #{units.$u1 * 0.5};
+      top: calc(action-list-item-variables.$padding-vertical + action-list-variables.$step-counter-size);
+      width: action-list-variables.$flow-line-width;
 
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-        left: #{units.$u3 - units.$u1 * 0.25};
+      @media screen and (max-width: calc(media-query-breakpoints.$screen-xs-min + 1px)) {
+        left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
       }
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        left: #{units.$u4 - units.$u1 * 0.25};
+        left: calc(
+          (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5) +
+            action-list-item-variables.$step-counter-margin
+        );
       }
     }
   }

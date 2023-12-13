@@ -1,0 +1,5 @@
+@use "../../variables/units";
+@use "../step-counter";
+
+$step-counter-size: calc(step-counter.$size + (step-counter.$border-size * 2));
+$flow-line-width: units.$u1 * 0.5;
