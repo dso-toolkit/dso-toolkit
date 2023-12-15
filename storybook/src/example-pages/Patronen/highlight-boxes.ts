@@ -18,7 +18,7 @@ examplePageFactory(
           De banners/afbeeldingen in deze blokjes hebben een aspect-ratio van 3.5 op desktop <ul><li>Standaard aspect-ratio: 2.38 / 1;</li><li>Tussen 360px en 470px breedte van een blokje: 3 / 1</li><li>Als het blokje breder is dan 471px: 3.5 / 1</li></ul>
           </p>
         <div class="row dso-featured dso-equal-heights">
-          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6">
             <div class="dso-highlight-box dso-white dso-drop-shadow">
               <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
               <div class="dso-rich-content functie-blok">
@@ -37,7 +37,7 @@ examplePageFactory(
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6">
             <div class="dso-highlight-box dso-white dso-drop-shadow">
               <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
               <div class="dso-rich-content functie-blok">
@@ -56,7 +56,7 @@ examplePageFactory(
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6">
             <div class="dso-highlight-box dso-white dso-drop-shadow">
               <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
               <div class="dso-rich-content functie-blok">
@@ -78,7 +78,7 @@ examplePageFactory(
 
         <!-- rij met twee boxes -->
         <div class="row dso-featured dso-equal-heights">
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6">
             <div class="dso-highlight-box dso-white dso-drop-shadow">
               <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
               <div class="dso-rich-content functie-blok">
@@ -97,7 +97,7 @@ examplePageFactory(
             </div>
           </div>
 
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6">
             <div class="dso-highlight-box dso-white dso-drop-shadow">
               <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
               <div class="dso-rich-content functie-blok">

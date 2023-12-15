@@ -17,7 +17,7 @@ examplePageFactory(
           class="row dso-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hero2.jpeg')"
         >
-          <div class="col-xs-12 col-lg-6 col-sm-8">
+          <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
@@ -50,7 +50,7 @@ examplePageFactory(
               `,
             })}
           </div>
-          <div class="col-xs-12 col-lg-4">
+          <div class="col-lg-4">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
@@ -70,7 +70,7 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>De stappen</h2>
             <div class="row dso-equal-heights">
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -83,7 +83,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -96,7 +96,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -112,7 +112,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -130,7 +130,7 @@ examplePageFactory(
               </div>
             </div>
             <div class="row dso-equal-heights">
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -150,7 +150,7 @@ examplePageFactory(
           </div>
         </div>
         <div class="row dso-equal-heights">
-          <div class="col-xs-12 col-md-8">
+          <div class="col-md-8">
             <h2>Veel gestelde vragen</h2>
             ${accordionTemplate({ variant: "compact", sections: accordionSections })}
           </div>

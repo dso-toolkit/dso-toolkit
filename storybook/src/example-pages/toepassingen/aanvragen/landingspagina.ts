@@ -41,7 +41,7 @@ examplePageFactory(
           class="row dso-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/hands-on-trackpad.jpg')"
         >
-          <div class="col-xs-12 col-lg-6 col-sm-8">
+          <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
@@ -59,7 +59,7 @@ examplePageFactory(
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12 col-lg-8">
+          <div class="col-lg-8">
             ${highlightBoxTemplate({
               yellow: true,
               content: richContentTemplate({
@@ -104,7 +104,7 @@ examplePageFactory(
               `,
             })}
           </div>
-          <div class="col-xs-12 col-lg-4">
+          <div class="col-lg-4">
             ${highlightBoxTemplate({
               border: true,
               white: true,
@@ -125,7 +125,7 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>De stappen</h2>
             <div class="row dso-equal-heights">
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -141,7 +141,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -154,7 +154,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -167,7 +167,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -185,7 +185,7 @@ examplePageFactory(
               </div>
             </div>
             <div class="row dso-equal-heights">
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -198,7 +198,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -211,7 +211,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-xs-12 col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -234,7 +234,7 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>Wat gebeurt er nadat mijn verzoek is verstuurd?</h2>
           </div>
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
@@ -249,7 +249,7 @@ examplePageFactory(
               }),
             })}
           </div>
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
@@ -265,7 +265,7 @@ examplePageFactory(
               }),
             })}
           </div>
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
@@ -282,7 +282,7 @@ examplePageFactory(
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12 text-center">
+          <div class="text-center">
             <h2>Klaar om uw aanvraag te starten?</h2>
             ${buttonTemplate({ label: "Start aanvraag", variant: "primary", type: "button" })}
           </div>

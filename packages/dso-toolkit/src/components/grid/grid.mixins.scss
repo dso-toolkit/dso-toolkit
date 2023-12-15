@@ -28,16 +28,8 @@
     min-height: 1px; // Prevent columns from collapsing when empty
     padding-right: math.floor(css-grid-variables.$grid-gutter-width * 0.5);
     padding-left: math.ceil(css-grid-variables.$grid-gutter-width * 0.5);
-  }
-}
-
-@mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-  @for $i from (1 + 1) through css-grid-variables.$grid-columns {
-    $list: "#{$list}, .col-#{$class}-#{$i}";
-  }
-
-  #{$list} {
     float: left;
+    width: 100%;
   }
 }
 
@@ -86,7 +78,6 @@
 }
 
 @mixin make-grid($class) {
-  @include float-grid-columns($class);
   @include loop-grid-columns(css-grid-variables.$grid-columns, $class, width);
   @include loop-grid-columns(css-grid-variables.$grid-columns, $class, pull);
   @include loop-grid-columns(css-grid-variables.$grid-columns, $class, push);
