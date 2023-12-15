@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Grid: In xs-viewport krijgt een kolom zonder `col-xs-12` geen basisstyling ([#2472](https://github.com/dso-toolkit/dso-toolkit/issues/2472))
 
 ### Changed
-* Vergunningscheck: Smalle viewport ([#2438](https://github.com/dso-toolkit/dso-toolkit/issues/2438))
+* Action List: Smalle viewport ([#2438](https://github.com/dso-toolkit/dso-toolkit/issues/2438))
 
 ### Tasks
 * Build: `gulp-sass` verwijderen ([#2454](https://github.com/dso-toolkit/dso-toolkit/issues/2454))
