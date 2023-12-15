@@ -38,10 +38,10 @@ examplePageFactory(
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-12">${definitionListTemplate(definitions)}</div>
+          <div class="col-md-6">${definitionListTemplate(definitions)}</div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-md-6">
             ${buttonRowTemplate({
               buttons: [
                 { label: "Download verzoek als PDF", type: "button", variant: "secondary", icon: { icon: "download" } },
