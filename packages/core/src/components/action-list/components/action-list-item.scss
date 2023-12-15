@@ -26,11 +26,8 @@
       display: block;
       height: units.$u3;
       position: absolute;
-
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-        left: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
-        width: calc(100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin));
-      }
+      left: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
+      width: calc(100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin));
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
         left: action-list-variables.$content-indent;
@@ -52,10 +49,7 @@ h3 {
 
 .dso-action-list-item {
   display: grid;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    grid-template-columns: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) 1fr;
-  }
+  grid-template-columns: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) 1fr;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
     grid-template-columns: action-list-variables.$content-indent 1fr;
@@ -63,13 +57,6 @@ h3 {
 
   .dso-step-counter {
     position: unset;
-  }
-
-  .dso-step-counter,
-  dso-icon {
-    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-      margin-inline-start: action-list-item-variables.$step-counter-margin;
-    }
   }
 
   .action-list-item-content {

@@ -45,9 +45,7 @@
     }
 
     .dso-section-body-content {
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-        padding: units.$u2 units.$u2 units.$u3;
-      }
+      padding: units.$u2 units.$u2 units.$u3;
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
         padding: units.$u2 units.$u4 units.$u3;

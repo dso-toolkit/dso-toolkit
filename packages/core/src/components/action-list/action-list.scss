@@ -11,13 +11,10 @@
   background-color: colors.$lichtblauw-20;
   display: block;
   padding-block: action-list-variables.$padding-block;
-  padding-inline-start: units.$u2;
-  padding-inline-end: units.$u10 + units.$u2;
-}
+  padding-inline: units.$u2;
 
-@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-  :host {
-    padding-inline-end: units.$u2;
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    padding-inline-end: units.$u12;
   }
 }
 
@@ -31,9 +28,7 @@ h2 {
 }
 
 .dso-action-list-content {
-  @media screen and (max-width: calc(media-query-breakpoints.$screen-xs-min + 1px)) {
-    padding-inline-start: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
-  }
+  padding-inline-start: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
     padding-inline-start: action-list-variables.$content-indent;

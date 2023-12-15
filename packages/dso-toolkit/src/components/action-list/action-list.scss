@@ -9,19 +9,7 @@
 
 dso-action-list {
   dso-action-list-item {
-    @media screen and (max-width: calc(media-query-breakpoints.$screen-xs-min + 1px)) {
-      margin-inline-start: calc(
-        (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
-      );
-    }
-
-    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-      margin-inline-start: calc(action-list-variables.$content-indent * -1);
-    }
-
-    &::after {
-      width: calc(100% + units.$u2);
-    }
+    margin-inline-start: calc(action-list-variables.$content-indent * -1);
   }
 
   .flow-line {
@@ -32,16 +20,10 @@ dso-action-list {
       position: absolute;
       top: calc(action-list-item-variables.$padding-vertical + action-list-variables.$step-counter-size);
       width: action-list-variables.$flow-line-width;
-
-      @media screen and (max-width: calc(media-query-breakpoints.$screen-xs-min + 1px)) {
-        left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
-      }
+      left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        left: calc(
-          (action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5) +
-            action-list-item-variables.$step-counter-margin
-        );
+        left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
       }
     }
   }
