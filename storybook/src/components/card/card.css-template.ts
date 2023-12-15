@@ -44,7 +44,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             : nothing}
           <div class="dso-card-heading">
             ${clickable
-              ? html`<a href="#">
+              ? html`<a href="#" @click=${(e: MouseEvent) => e.preventDefault()}>
                   <h2>
                     <span id="card-title">${label}</span>
                     ${iconTemplate({ icon: "chevron-right" })}

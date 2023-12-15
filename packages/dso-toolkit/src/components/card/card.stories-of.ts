@@ -18,6 +18,9 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
 ) {
   return storiesOfFactory("Card", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
+      args: {
+        href: "#",
+      },
       argTypes: cardArgTypes,
     });
 

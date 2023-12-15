@@ -7,6 +7,8 @@ export const imageShapes = ["normal", "wide"] as const;
 
 export interface Card<TemplateFnReturnType> {
   label: string;
+  href: string;
+  legacy?: boolean;
   selectable?: Selectable<TemplateFnReturnType>;
   content: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType>>;

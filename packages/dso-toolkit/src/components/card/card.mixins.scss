@@ -30,8 +30,11 @@
     }
   }
 
+  &:not([clickable]),
+  &[clickable="false"],
   &.dso-not-clickable {
-    h2 {
+    > h2,
+    :not(a) > h2 {
       color: colors.$zwart;
     }
 

@@ -235,17 +235,13 @@ export namespace Components {
          */
         "clickable": boolean;
         /**
-          * Do not use, this is set programmatically by the component.
+          * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
          */
-        "hasImage": boolean;
+        "href"?: string;
         /**
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape": ImageShape;
-        /**
-          * Do not use, this is set programmatically by the component.
-         */
-        "isSelectable": boolean;
     }
     interface DsoCardContainer {
         /**
@@ -1990,17 +1986,13 @@ declare namespace LocalJSX {
          */
         "clickable"?: boolean;
         /**
-          * Do not use, this is set programmatically by the component.
+          * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
          */
-        "hasImage"?: boolean;
+        "href"?: string;
         /**
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape"?: ImageShape;
-        /**
-          * Do not use, this is set programmatically by the component.
-         */
-        "isSelectable"?: boolean;
         /**
           * Emitted when the Card is clickable and the user clicked the Card.
          */

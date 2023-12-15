@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                     | Type                 | Default    |
-| -------------- | --------------- | ------------------------------------------------------------------------------- | -------------------- | ---------- |
-| `clickable`    | `clickable`     | Whether or not the Card is clickable.                                           | `boolean`            | `true`     |
-| `hasImage`     | `has-image`     | Do not use, this is set programmatically by the component.                      | `boolean`            | `false`    |
-| `imageShape`   | `image-shape`   | Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26") | `"normal" \| "wide"` | `"normal"` |
-| `isSelectable` | `is-selectable` | Do not use, this is set programmatically by the component.                      | `boolean`            | `false`    |
+| Property     | Attribute     | Description                                                                                      | Type                  | Default     |
+| ------------ | ------------- | ------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
+| `clickable`  | `clickable`   | Whether or not the Card is clickable.                                                            | `boolean`             | `true`      |
+| `href`       | `href`        | The URL to which the Card heading links. If the Card is not clickable, this property is ignored. | `string \| undefined` | `undefined` |
+| `imageShape` | `image-shape` | Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")                  | `"normal" \| "wide"`  | `"normal"`  |
 
 
 ## Events

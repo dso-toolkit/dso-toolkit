@@ -83,6 +83,7 @@ examplePageFactory(
                 ${cardListTemplate({
                   cards: [
                     {
+                      href: "#",
                       label: "Boom kappen in de achtertuin 1",
                       interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
@@ -93,6 +94,7 @@ examplePageFactory(
                       </dl>`,
                     },
                     {
+                      href: "#",
                       label: "Boom kappen in de achtertuin 2",
                       interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
@@ -103,6 +105,7 @@ examplePageFactory(
                       </dl>`,
                     },
                     {
+                      href: "#",
                       label: "Boom kappen in de achtertuin 3",
                       interactions: [{ type: "button", label: "Conceptverzoek", variant: "tertiary" }],
                       content: html`<dl>

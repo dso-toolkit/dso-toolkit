@@ -9,16 +9,22 @@ import { Card, imageShapes } from "./card.models.js";
 
 export interface CardArgs {
   label: string;
+  href: string;
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never>>;
   image: string | undefined;
   imageShape: (typeof imageShapes)[number];
-  clickable: boolean;
+  clickable: boolean | "legacy";
   dsoCardClicked: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {
   label: {
+    control: {
+      type: "text",
+    },
+  },
+  href: {
     control: {
       type: "text",
     },
@@ -33,8 +39,8 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
     ...noControl,
   },
   imageShape: {
+    options: imageShapes,
     control: {
-      options: imageShapes,
       type: "select",
     },
     if: { arg: "image" },
@@ -44,8 +50,9 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
     action: "dsoCardClicked",
   },
   clickable: {
+    options: [false, true, "legacy"],
     control: {
-      type: "boolean",
+      type: "select",
     },
   },
 };
@@ -66,7 +73,8 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
-    clickable: a.clickable ?? true,
+    clickable: a.clickable !== false,
+    legacy: a.clickable === "legacy",
     dsoCardClicked: (e) => a.dsoCardClicked(e.detail),
   };
 }

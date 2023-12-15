@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Form Group "input", "select" & "textarea": Ongeldige waarde in `aria-invalid` ([#2467](https://github.com/dso-toolkit/dso-toolkit/issues/2467))
 * Button Row: Verticale ruimte ontbreekt ([#2440](https://github.com/dso-toolkit/dso-toolkit/issues/2440))
 * Grid: In xs-viewport krijgt een kolom zonder `col-xs-12` geen basisstyling ([#2472](https://github.com/dso-toolkit/dso-toolkit/issues/2472))
+* Card: Clickable icm. `<a>` is suboptimaal ([#2390](https://github.com/dso-toolkit/dso-toolkit/issues/2390))
 
 ### Changed
 * Action List: Smalle viewport ([#2438](https://github.com/dso-toolkit/dso-toolkit/issues/2438))

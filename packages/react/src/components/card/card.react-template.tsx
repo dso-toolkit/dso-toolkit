@@ -9,16 +9,28 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, imageShape, clickable, dsoCardClicked }) {
+    function cardTemplate({
+      label,
+      selectable,
+      href,
+      legacy,
+      content,
+      interactions,
+      image,
+      imageShape,
+      clickable,
+      dsoCardClicked,
+    }) {
       return (
         <DsoCard
           clickable={clickable}
+          href={href}
           imageShape={imageShape}
           onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}
         >
           {selectable && selectableTemplate(selectable)}
           {image && <img slot="image" src={image} />}
-          {clickable ? (
+          {legacy ? (
             <a slot="heading" href="#">
               <h2>
                 <span id="card-title">{label}</span>

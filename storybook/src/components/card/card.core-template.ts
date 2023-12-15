@@ -3,6 +3,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
+import { DsoCardCustomEvent, DsoCardClickedEvent } from "@dso-toolkit/core";
 
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
@@ -11,23 +12,32 @@ export const coreCard: ComponentImplementation<Card<never>> = {
     function cardTemplate({
       label,
       selectable,
+      legacy,
       content,
       interactions,
       image,
       imageShape,
-      clickable = true,
+      clickable,
+      href,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
         <dso-card
+          href=${ifDefined(href)}
           clickable=${ifDefined(clickable)}
           image-shape=${ifDefined(imageShape)}
-          @dsoCardClicked=${dsoCardClicked}
+          @dsoCardClicked=${(e: DsoCardCustomEvent<DsoCardClickedEvent>) => {
+            if (!e.detail.isModifiedEvent) {
+              e.detail.originalEvent?.preventDefault();
+            }
+
+            dsoCardClicked?.(e);
+          }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}
           ${image ? html`<img slot="image" src=${image} />` : nothing}
-          ${clickable
-            ? html`<a href="#" slot="heading">
+          ${legacy
+            ? html`<a href="#" slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
                 <h2>
                   <span id="card-title">${label}</span>
                   <dso-icon icon="chevron-right"></dso-icon>
@@ -42,9 +52,13 @@ export const coreCard: ComponentImplementation<Card<never>> = {
             ${interactions.map(
               (interaction) => html`
                 <div class="dso-card-interaction">
-                  ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
-                  ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
-                  ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
+                  ${isButtonInterface(interaction)
+                    ? buttonTemplate(interaction)
+                    : isLabelInterface(interaction)
+                      ? labelTemplate(interaction)
+                      : isToggletipInterface(interaction)
+                        ? toggletipTemplate(interaction)
+                        : nothing}
                 </div>
               `,
             )}
