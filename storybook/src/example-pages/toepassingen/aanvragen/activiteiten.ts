@@ -47,7 +47,7 @@ examplePageFactory(
             `,
           })}
           <div class="row">
-            <div class="col-xs-12 col-sm-3">
+            <div class="col-sm-3">
               <fieldset>
                 <legend><h4>Filters</h4></legend>
                 ${formGroupCheckboxesTemplate({
@@ -64,7 +64,7 @@ examplePageFactory(
                 })}
               </fieldset>
             </div>
-            <div class="col-xs-12 col-sm-9">
+            <div class="col-sm-9">
               <fieldset>
                 <legend class="sr-only">
                   <h4>5 activiteiten</h4>

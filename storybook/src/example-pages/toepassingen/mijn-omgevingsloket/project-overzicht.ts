@@ -42,7 +42,7 @@ examplePageFactory(
         <div class="row">
           <div class="col-md-4">
             <div class="row dso-equal-heights">
-              <div class="col-md-12 col-sm-6 col-xs-12">
+              <div class="col-md-12 col-sm-6">
                 ${highlightBoxTemplate({
                   border: true,
                   content: richContentTemplate({
@@ -53,7 +53,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-12 col-sm-6 col-xs-12">
+              <div class="col-md-12 col-sm-6">
                 ${highlightBoxTemplate({
                   border: true,
                   content: richContentTemplate({

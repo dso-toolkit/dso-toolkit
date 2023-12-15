@@ -20,8 +20,7 @@ storiesOfRowEqualHeights(
       highlightBoxExample: (highlightboxes) =>
         rowEqualHeightsTemplate({
           children: html`${highlightboxes.map(
-            (highlightbox) =>
-              html`<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">${highlightBoxTemplate(highlightbox)}</div>`,
+            (highlightbox) => html`<div class="col-md-6 col-lg-3">${highlightBoxTemplate(highlightbox)}</div>`,
           )}`,
         }),
       tileExample: (tiles) =>
@@ -33,7 +32,7 @@ storiesOfRowEqualHeights(
       whiteboxExample: (whiteboxes) =>
         rowEqualHeightsTemplate({
           children: html`${whiteboxes.map(
-            (whitebox) => html`<div class="col-md-4 col-sm-6 col-xs-12">${whiteboxTemplate(whitebox)}</div>`,
+            (whitebox) => html`<div class="col-md-4 col-sm-6">${whiteboxTemplate(whitebox)}</div>`,
           )}`,
         }),
     }),

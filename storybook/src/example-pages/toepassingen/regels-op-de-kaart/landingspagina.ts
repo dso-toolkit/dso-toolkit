@@ -17,7 +17,7 @@ examplePageFactory(
           class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
           style="background-image: url('images/herok.png')"
         >
-          <div class="col-xs-12 col-lg-6 col-sm-8">
+          <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
               content: richContentTemplate({
@@ -36,7 +36,7 @@ examplePageFactory(
         <div class="row dso-featured">
           <div class="col-xs-12">
             <div class="row dso-equal-heights">
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -44,10 +44,10 @@ examplePageFactory(
                     children: html`
                       <h2>Regels die nu gelden op uw locatie</h2>
                       <div class="row">
-                        <div class="col-md-4 col-xs-12">
+                        <div class="col-md-4">
                           <img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" />
                         </div>
-                        <div class="col-md-8 col-xs-12">
+                        <div class="col-md-8">
                           <p>Regels voor bouwen, slopen en andere activiteiten kunnen per locatie anders zijn.</p>
                           <button type="button" class="dso-primary">
                             <span>Zoek regels die nu gelden</span>
@@ -58,7 +58,7 @@ examplePageFactory(
                   }),
                 })}
               </div>
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -66,10 +66,10 @@ examplePageFactory(
                     children: html`
                       <h2>Regels in voorbereiding</h2>
                       <div class="row">
-                        <div class="col-md-4 col-xs-12">
+                        <div class="col-md-4">
                           <img src="images/sneeuwpop.png" class="img-circle" aria-hidden="true" />
                         </div>
-                        <div class="col-md-8 col-xs-12">
+                        <div class="col-md-8">
                           <p>
                             U kunt ook plannen van de overheid bekijken voor de toekomst. Zo weet u wat er gaat
                             veranderen op uw locatie.
@@ -88,13 +88,13 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>Documenten met regels zoeken</h2>
             <div class="row dso-equal-heights">
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 <p>
                   U kunt ook een bepaald document opzoeken. Dat is handig als u al weet in welk document de regels staan
                   die u zoekt.
                 </p>
               </div>
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 <p>
                   ${anchorTemplate({
                     label: "Zoek documenten via eigenschappen",
@@ -108,13 +108,13 @@ examplePageFactory(
           <div class="col-xs-12">
             <h2>Regels die in het verleden geldig waren</h2>
             <div class="row dso-equal-heights">
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 <p>
                   Voor een juridisch geschil kan het nodig zijn om regels uit het verleden op te zoeken. U kunt regels
                   vinden terug in de tijd tot 1-2-2022.
                 </p>
               </div>
-              <div class="col-md-6 col-xs-12">
+              <div class="col-md-6">
                 <p>
                   ${anchorTemplate({
                     label: "Bekijk regels uit het verleden",
@@ -127,7 +127,7 @@ examplePageFactory(
           </div>
         </div>
         <div class="row">
-          <div class="col-md-8 col-xs-12">
+          <div class="col-md-8">
             <h2>Regels van alle overheden bij elkaar</h2>
             <p>In Regels op de kaart vindt u de regels van alle overheden bij elkaar. Dat is handig als u bijvoorbeeld een schuur wilt gaan bouwen. U kunt dan zien hoe hoog de schuur mag zijn.
             Vaak heeft u niet alleen de gemeente regels voor een bepaalde plek, maar ook het waterschap of de provincie. Op de kaart ziet u de regels van al deze overheden bij elkaar. U kunt ook nog oude regels uit bestemmingsplannen zien als die nog geldig zijn.
@@ -139,7 +139,7 @@ examplePageFactory(
             <h2>Veelgestelde vragen</h2>
             ${accordionTemplate({ variant: "compact", reverseAlign: true, sections: accordionSections })}
           </div>
-          <div class="col-sm-4 col-xs-12">
+          <div class="col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               border: true,
@@ -156,7 +156,7 @@ examplePageFactory(
             })}
           </div>
 
-          <div class="col-xs-12 col-sm-4">
+          <div class="col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               border: true,
