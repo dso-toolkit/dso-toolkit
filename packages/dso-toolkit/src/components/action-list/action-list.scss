@@ -9,7 +9,9 @@
 
 dso-action-list {
   dso-action-list-item {
-    margin-inline-start: calc(action-list-variables.$content-indent * -1);
+    margin-inline-start: calc(
+      (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
+    );
   }
 
   .flow-line {
