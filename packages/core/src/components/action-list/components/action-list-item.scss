@@ -4,6 +4,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
 @use "~dso-toolkit/src/components/step-counter";
+@use "~dso-toolkit/src/components/action-list/action-list.variables" as action-list-variables;
 @use "~dso-toolkit/src/components/action-list/components/action-list-item.variables" as action-list-item-variables;
 
 @include utilities.box-sizing();
@@ -27,13 +28,13 @@
       position: absolute;
 
       @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-        left: units.$u8;
-        width: calc(100% - units.$u8);
+        left: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
+        width: calc(100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin));
       }
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        left: units.$u10;
-        width: calc(100% - units.$u10);
+        left: action-list-variables.$content-indent;
+        width: calc(100% - action-list-variables.$content-indent);
       }
     }
   }
@@ -53,11 +54,11 @@ h3 {
   display: grid;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    grid-template-columns: units.$u8 1fr;
+    grid-template-columns: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) 1fr;
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    grid-template-columns: units.$u10 1fr;
+    grid-template-columns: action-list-variables.$content-indent 1fr;
   }
 
   .dso-step-counter {

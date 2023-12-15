@@ -1,5 +1,11 @@
 @use "../../variables/units";
 @use "../step-counter";
 
+$_step-counter-margin-right: units.$u2;
+
+$padding-block: units.$u2;
 $step-counter-size: calc(step-counter.$size + (step-counter.$border-size * 2));
 $flow-line-width: units.$u1 * 0.5;
+$content-indent: calc(
+  step-counter.$size + (step-counter.$border-size * 2) + $padding-block + $_step-counter-margin-right
+);

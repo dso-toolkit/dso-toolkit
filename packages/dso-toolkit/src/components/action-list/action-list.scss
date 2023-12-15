@@ -9,6 +9,16 @@
 
 dso-action-list {
   dso-action-list-item {
+    @media screen and (max-width: calc(media-query-breakpoints.$screen-xs-min + 1px)) {
+      margin-inline-start: calc(
+        (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
+      );
+    }
+
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+      margin-inline-start: calc(action-list-variables.$content-indent * -1);
+    }
+
     &::after {
       width: calc(100% + units.$u2);
     }
