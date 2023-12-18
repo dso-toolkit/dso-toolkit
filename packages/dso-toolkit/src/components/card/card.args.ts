@@ -75,6 +75,6 @@ export function cardArgsMapper<TemplateFnReturnType>(
     content,
     clickable: a.clickable !== false,
     legacy: a.clickable === "legacy",
-    dsoCardClicked: (e) => a.dsoCardClicked(e.detail),
+    dsoCardClicked: (e) => a.dsoCardClicked?.(e.detail),
   };
 }

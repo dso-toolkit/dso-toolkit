@@ -88,6 +88,10 @@ export class Card implements ComponentInterface {
     return this.host.querySelector("[slot='heading']");
   }
 
+  get interactionsSlottedElement() {
+    return this.host.querySelector("[slot='interactions']");
+  }
+
   render() {
     const isSelectable = this.selectableSlottedElement !== null;
     const hasImage = this.imageSlottedElement !== null;
@@ -109,8 +113,7 @@ export class Card implements ComponentInterface {
               <dso-icon icon="chevron-right"></dso-icon>
             </a>
           )}
-          <slot name="heading" />
-          <slot name="interactions" />
+          {this.interactionsSlottedElement !== null && <slot name="interactions" />}
         </div>
         <div class="dso-card-content">
           <slot name="content" />

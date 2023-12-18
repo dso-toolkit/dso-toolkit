@@ -76,9 +76,11 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
               ))}
             </div>
           )}
-          <div slot="content" className="dso-rich-content">
-            {content}
-          </div>
+          {content && (
+            <div slot="content" className="dso-rich-content">
+              {content}
+            </div>
+          )}
         </DsoCard>
       );
     },

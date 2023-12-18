@@ -25,5 +25,8 @@
 .heading-anchor {
   color: card.$heading-anchor-color;
   display: flex;
-  align-items: center;
+
+  dso-icon {
+    flex-shrink: 0;
+  }
 }

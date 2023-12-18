@@ -63,7 +63,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
               `,
             )}
           </div>`}
-          ${richContentTemplate({ children: content, slot: "content" })}
+          ${content && richContentTemplate({ children: content, slot: "content" })}
         </dso-card>
       `;
     },

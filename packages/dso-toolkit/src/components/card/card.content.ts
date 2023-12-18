@@ -1,11 +1,12 @@
-const cardContent = {
+import { Card } from "./card.models";
+
+const cardContent: Card<unknown> = {
   label: "Omgevingsplan Nieuwegein",
-  selectable: false,
   image: undefined,
   clickable: true,
 };
 
-export const cardContentButton = {
+export const cardContentButton: Card<unknown> = {
   ...cardContent,
   interactions: [
     {
@@ -19,7 +20,7 @@ export const cardContentButton = {
   ],
 };
 
-export const cardContentToggletip = {
+export const cardContentToggletip: Card<unknown> = {
   ...cardContent,
   interactions: [
     {
@@ -32,7 +33,7 @@ export const cardContentToggletip = {
   ],
 };
 
-export const cardContentLabel = {
+export const cardContentLabel: Card<unknown> = {
   ...cardContent,
   interactions: [
     {

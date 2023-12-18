@@ -69,7 +69,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
               </div>
             `}
           </div>
-          ${richContentTemplate({ children: content })}
+          ${content && richContentTemplate({ children: content })}
         </div>
       `;
     },
