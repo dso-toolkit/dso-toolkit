@@ -91,11 +91,11 @@ dso-card {
       &#{button.$not-dso-buttons}:visited,
       &:active,
       &:focus {
-        color: colors.$bosgroen;
+        color: card-variables.$heading-anchor-color;
       }
 
       &:hover {
-        color: colors.$bosgroen;
+        color: card-variables.$heading-anchor-color;
         text-decoration: underline;
       }
     }

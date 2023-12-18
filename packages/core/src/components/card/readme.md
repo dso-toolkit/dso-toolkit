@@ -21,6 +21,19 @@
 | `dsoCardClicked` | Emitted when the Card is clickable and the user clicked the Card. | `CustomEvent<DsoCardClickedEvent>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  dso-card --> dso-icon
+  style dso-card fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

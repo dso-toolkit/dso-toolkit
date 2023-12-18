@@ -21,3 +21,9 @@
 .dso-card-heading a {
   text-decoration: none;
 }
+
+.heading-anchor {
+  color: card.$heading-anchor-color;
+  display: flex;
+  align-items: center;
+}

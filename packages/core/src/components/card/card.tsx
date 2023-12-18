@@ -17,7 +17,7 @@ export class Card implements ComponentInterface {
   /**
    * Whether or not the Card is clickable.
    */
-  @Prop()
+  @Prop({ reflect: true })
   clickable = true;
 
   /**
@@ -31,7 +31,7 @@ export class Card implements ComponentInterface {
   /**
    * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
    */
-  @Prop()
+  @Prop({ reflect: true })
   href?: string;
 
   /**
@@ -101,11 +101,12 @@ export class Card implements ComponentInterface {
           <slot name="image" />
         </div>
         <div class="dso-card-heading">
-          {this.headingSlottedElement instanceof HTMLAnchorElement || !this.clickable ? (
+          {this.headingSlottedElement instanceof HTMLAnchorElement || !this.clickable || !this.href ? (
             <slot name="heading" />
           ) : (
-            <a href={this.href}>
+            <a href={this.href} class="heading-anchor">
               <slot name="heading" />
+              <dso-icon icon="chevron-right"></dso-icon>
             </a>
           )}
           <slot name="heading" />

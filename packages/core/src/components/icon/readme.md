@@ -20,6 +20,7 @@
  - [dso-annotation-button](../annotation-button)
  - [dso-annotation-output](../annotation-output)
  - [dso-attachments-counter](../attachments-counter)
+ - [dso-card](../card)
  - [dso-date-picker-legacy](../date-picker-legacy)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
@@ -46,6 +47,7 @@ graph TD;
   dso-annotation-button --> dso-icon
   dso-annotation-output --> dso-icon
   dso-attachments-counter --> dso-icon
+  dso-card --> dso-icon
   dso-date-picker-legacy --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
