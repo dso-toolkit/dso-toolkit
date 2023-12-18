@@ -1,8 +1,11 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
 @use "~dso-toolkit/src/components/step-counter";
+@use "~dso-toolkit/src/components/action-list/action-list.variables" as action-list-variables;
+@use "~dso-toolkit/src/components/action-list/components/action-list-item.variables" as action-list-item-variables;
 
 @include utilities.box-sizing();
 
@@ -10,7 +13,7 @@
   @include step-counter.step-counter();
 
   display: block;
-  padding-block: units.$u2;
+  padding-block: action-list-item-variables.$padding-vertical;
   position: relative;
 }
 
@@ -22,9 +25,14 @@
       content: "";
       display: block;
       height: units.$u3;
-      left: units.$u10;
       position: absolute;
-      width: calc(100% + 16px);
+      left: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
+      width: calc(100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin));
+
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+        left: action-list-variables.$content-indent;
+        width: calc(100% - action-list-variables.$content-indent);
+      }
     }
   }
 }
@@ -41,15 +49,14 @@ h3 {
 
 .dso-action-list-item {
   display: grid;
-  grid-template-columns: units.$u10 1fr;
+  grid-template-columns: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) 1fr;
+
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+    grid-template-columns: action-list-variables.$content-indent 1fr;
+  }
 
   .dso-step-counter {
     position: unset;
-  }
-
-  .dso-step-counter,
-  dso-icon {
-    margin-inline-start: units.$u1;
   }
 
   .action-list-item-content {

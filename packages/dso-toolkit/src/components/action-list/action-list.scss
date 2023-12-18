@@ -1,26 +1,32 @@
 @use "../../variables/colors";
 @use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
+@use "../../components/step-counter";
 @use "../headings";
+
+@use "action-list.variables" as action-list-variables;
+@use "components/action-list-item.variables" as action-list-item-variables;
 
 dso-action-list {
   dso-action-list-item {
-    margin-inline-start: -#{units.$u10};
-
-    &::after {
-      margin-inline-start: units.$u10;
-      width: calc(100% + #{units.$u2});
-    }
+    margin-inline-start: calc(
+      (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
+    );
   }
 
   .flow-line {
     &::after {
       content: "";
       background-color: colors.$bosgroen;
-      height: calc(100% - 48px);
-      left: -50px;
+      height: calc(100% - units.$u6);
       position: absolute;
-      top: 64px;
-      width: 4px;
+      top: calc(action-list-item-variables.$padding-vertical + action-list-variables.$step-counter-size);
+      width: action-list-variables.$flow-line-width;
+      left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
+
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+        left: calc((action-list-variables.$step-counter-size * 0.5) - (action-list-variables.$flow-line-width * 0.5));
+      }
     }
   }
 
