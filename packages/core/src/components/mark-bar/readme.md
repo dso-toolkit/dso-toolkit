@@ -25,6 +25,19 @@
 | `dsoPrevious` | Emitted when user activates "previous search result" button. | `CustomEvent<MarkBarPaginationEvent>` |
 
 
+## Methods
+
+### `dsoFocus(options?: MarkBarFocusOptions) => Promise<void>`
+
+Focuses the input field.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

@@ -14,6 +14,6 @@ storiesOfNavbar({
   templateContainer,
   storyTemplates: ({ navbarTemplate, markBarTemplate }) => ({
     navbarTemplate,
-    extension: markBarTemplate({ current: 1, totalCount: 10 }),
+    extension: markBarTemplate({ label: "Zoeken", current: 1, totalCount: 10 }),
   }),
 });

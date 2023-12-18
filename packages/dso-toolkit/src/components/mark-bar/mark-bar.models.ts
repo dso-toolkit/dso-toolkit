@@ -1,6 +1,6 @@
 export interface MarkBar {
   value?: string;
-  label?: string;
+  label: string;
   current: number;
   totalCount: number;
   dsoInput?: (e: MarkBarInputEvent) => void;
@@ -15,7 +15,7 @@ export interface MarkBarInputEvent {
 }
 
 export interface MarkBarPaginationEvent {
-  originalEvent: MouseEvent;
+  originalEvent: MouseEvent | KeyboardEvent;
 }
 
 export interface MarkBarClearEvent {

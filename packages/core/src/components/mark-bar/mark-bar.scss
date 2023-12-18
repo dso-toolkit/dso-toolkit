@@ -5,9 +5,13 @@
 @use "~dso-toolkit/src/variables/scaffolding";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/components/form-control";
-@use "~dso-toolkit/src/components/button/button";
 
 @include utilities.box-sizing();
+
+:host {
+  display: block;
+  background-color: colors.$wit;
+}
 
 .sr-only {
   @include utilities.sr-only();
@@ -19,30 +23,14 @@ $focus-border-width: 1px;
 .dso-mark-bar {
   display: flex;
   flex-grow: 1;
-  margin-block: units.$u1;
 
   .dso-mark-bar-input {
     display: flex;
     position: relative;
     width: 100%;
 
-    label {
-      bottom: units.$u1;
-      height: $height;
-      left: 0;
-      padding: units.$u1;
-      position: absolute;
-      top: 0;
-
-      dso-icon {
-        color: colors.$grasgroen;
-      }
-    }
-
     input {
-      @include utilities.placeholder(colors.$input-color-placeholder);
-
-      background-color: colors.$wit;
+      background-color: transparent;
       background-image: none;
       border: 1px solid form-control.$focus-border-color;
       border-radius: 4px;
@@ -52,7 +40,8 @@ $focus-border-width: 1px;
       font-size: typography.$root-font-size-base;
       height: $height;
       line-height: $height;
-      padding: 6px $height 6px units.$u1;
+      padding-inline: $height;
+      padding-block: 6px;
       transition:
         border-color ease-in-out 0.15s,
         box-shadow ease-in-out 0.15s;
@@ -60,7 +49,6 @@ $focus-border-width: 1px;
       border-start-end-radius: 0;
       border-end-end-radius: 0;
       border-inline-end: 0;
-      padding-left: $height;
 
       &:focus {
         border-color: form-control.$focus-border-color;
@@ -70,6 +58,46 @@ $focus-border-width: 1px;
 
       &::-ms-clear {
         display: none;
+      }
+
+      &:not(:placeholder-shown) + label {
+        width: $height;
+        padding-inline-end: units.$u1;
+
+        .label-text {
+          @include utilities.sr-only();
+        }
+      }
+    }
+
+    label {
+      bottom: units.$u1;
+      height: $height;
+      left: 0;
+      right: units.$u5;
+      padding-block: units.$u1;
+      padding-inline-start: units.$u1;
+      cursor: text;
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+      /* stylelint-disable declaration-property-value-disallowed-list -- The following properties are needed to emulate the browser native placeholder attribute behavior */
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      /* stylelint-enable-next-line declaration-property-value-disallowed-list */
+
+      dso-icon {
+        color: colors.$grasgroen;
+        cursor: default;
+        margin: -8px;
+        padding: 8px;
+        width: $height;
+        height: $height;
+      }
+
+      .label-text {
+        margin-left: units.$u1;
+        color: colors.$grijs-60;
       }
     }
 
@@ -99,8 +127,6 @@ $focus-border-width: 1px;
   flex-shrink: 0;
 
   padding-inline: units.$u1;
-
-  background-color: colors.$wit;
 
   border: 1px solid colors.$bosgroen;
   border-inline-start: 0;
