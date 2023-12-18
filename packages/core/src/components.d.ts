@@ -23,7 +23,7 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { MarkBarClearEvent, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -51,7 +51,7 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-export { MarkBarClearEvent, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -693,6 +693,10 @@ export namespace Components {
           * The current (one-based) highlighted search item.
          */
         "current"?: number;
+        /**
+          * Focuses the input field.
+         */
+        "dsoFocus": (options?: MarkBarFocusOptions) => Promise<void>;
         /**
           * The label for the input field.
          */

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Context: elementen links uitlijnen ([#2400](https://github.com/dso-toolkit/dso-toolkit/issues/2400))
+* Mark Bar: Placeholder, `.dsoFocus()`, Enter emits `dsoNext` ([#2446](https://github.com/dso-toolkit/dso-toolkit/issues/2446))
 
 ### Fixed
 * Form Group "input", "select" & "textarea": Ongeldige waarde in `aria-invalid` ([#2467](https://github.com/dso-toolkit/dso-toolkit/issues/2467))

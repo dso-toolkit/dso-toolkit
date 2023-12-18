@@ -7,6 +7,19 @@ describe("Mark Bar", () => {
     cy.get("dso-mark-bar").invoke("prop", "current", 1).invoke("prop", "totalCount", 10).shadow().contains("1/10");
   });
 
+  it("sets label", () => {
+    cy.get("dso-mark-bar")
+      .invoke("prop", "label", "test")
+      .shadow()
+      .as("shadowRoot")
+      .find("label")
+      .contains("test")
+      .get("@shadowRoot")
+      .find('input[type="text"]')
+      .invoke("attr", "placeholder")
+      .should("equal", " ");
+  });
+
   it("sets disabled states", () => {
     cy.get("dso-mark-bar")
       .invoke("prop", "current", 1)
@@ -58,7 +71,8 @@ describe("Mark Bar", () => {
       .contains("Volgend zoekresultaat")
       .click()
       .get("@shadow")
-      .find("input")
+      .find('input[type="text"]')
+      .focus()
       .type("test")
       .get("@shadow")
       .contains("Zoekopdracht legen")
@@ -77,6 +91,38 @@ describe("Mark Bar", () => {
       .get("@dsoPrevious")
       .should("have.been.calledOnce")
       .get("@dsoClear")
+      .should("have.been.calledOnce");
+  });
+
+  it("focuses the input when dsoFocus() is called", () => {
+    cy.get("dso-mark-bar")
+      .invoke("get", 0)
+      .as("markBarElement")
+      .invoke("dsoFocus")
+      .get("dso-mark-bar")
+      .shadow()
+      .find('input[type="text"]')
+      .as("markBarInput")
+      .should("be.focused")
+      .type("test")
+      .get("@markBarElement")
+      .invoke("dsoFocus", { select: true })
+      .get<HTMLInputElement>("@markBarInput")
+      .then(([input]) => [input.selectionStart, input.selectionEnd])
+      .should("deep.equal", [0, 4]);
+  });
+
+  it('emits "dsoNext" when Enter is pressed', () => {
+    cy.get("dso-mark-bar")
+      .invoke("prop", "current", 2)
+      .invoke("prop", "totalCount", 10)
+      .then(($markBar) => $markBar.on("dsoNext", cy.stub().as("dsoNext")))
+      .get("dso-mark-bar")
+      .shadow()
+      .find('label[for="search-input"]')
+      .click()
+      .type("{enter}")
+      .get("@dsoNext")
       .should("have.been.calledOnce");
   });
 });

@@ -2,6 +2,7 @@
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "stylelint.validate": ["css", "scss"],
   "search.exclude": {
     ".yarn": true,
     "**/dist": true,

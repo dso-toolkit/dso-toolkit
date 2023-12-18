@@ -1,5 +1,10 @@
-import { h, Component, ComponentInterface, Prop, Event, EventEmitter } from "@stencil/core";
-import { MarkBarInputEvent, MarkBarClearEvent, MarkBarPaginationEvent } from "./mark-bar.interfaces";
+import { h, Component, ComponentInterface, Prop, Event, EventEmitter, Method } from "@stencil/core";
+import {
+  MarkBarInputEvent,
+  MarkBarClearEvent,
+  MarkBarPaginationEvent,
+  MarkBarFocusOptions,
+} from "./mark-bar.interfaces";
 
 @Component({
   tag: "dso-mark-bar",
@@ -32,6 +37,18 @@ export class MarkBar implements ComponentInterface {
   totalCount?: number;
 
   /**
+   * Focuses the input field.
+   */
+  @Method()
+  async dsoFocus(options: MarkBarFocusOptions = {}) {
+    this.inputElement?.focus();
+
+    if (options.select) {
+      this.inputElement?.select();
+    }
+  }
+
+  /**
    * Emitted each time the user types in the search field.
    */
   @Event({ bubbles: false })
@@ -55,6 +72,8 @@ export class MarkBar implements ComponentInterface {
   @Event({ bubbles: false })
   dsoClear!: EventEmitter<MarkBarClearEvent>;
 
+  private inputElement?: HTMLInputElement;
+
   private handleInput = (e: Event) => {
     if (!(e.target instanceof HTMLInputElement)) {
       return;
@@ -66,7 +85,7 @@ export class MarkBar implements ComponentInterface {
     });
   };
 
-  private handleNext = (e: MouseEvent) => {
+  private handleNext = (e: MouseEvent | KeyboardEvent) => {
     this.dsoNext.emit({ originalEvent: e });
   };
 
@@ -78,6 +97,12 @@ export class MarkBar implements ComponentInterface {
     this.dsoClear.emit({ originalEvent: e });
   };
 
+  private handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      this.handleNext(e);
+    }
+  };
+
   render() {
     const current = this.current || 0;
     const totalCount = this.totalCount || 0;
@@ -85,11 +110,19 @@ export class MarkBar implements ComponentInterface {
     return (
       <div class="dso-mark-bar">
         <div class="dso-mark-bar-input">
+          <input
+            type="text"
+            id="search-input"
+            value={this.value}
+            onInput={this.handleInput}
+            onKeyDown={this.handleKeyDown}
+            placeholder=" "
+            ref={(element) => (this.inputElement = element)}
+          />
           <label htmlFor="search-input">
             <dso-icon class="dso-search-icon" icon="search"></dso-icon>
-            <span class="sr-only">{this.label}</span>
+            <span class="label-text">{this.label}</span>
           </label>
-          <input type="text" id="search-input" value={this.value} onInput={this.handleInput} />
           <button type="button" onClick={this.handleClear}>
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">Zoekopdracht legen</span>
