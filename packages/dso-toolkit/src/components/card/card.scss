@@ -2,11 +2,13 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
 
+@use "card.mixins" as card-mixins;
+@use "card.variables" as card-variables;
+
 @use "../button";
-@use "../card";
 
 .dso-card {
-  @include card.root();
+  @include card-mixins.root();
 }
 
 dso-card {
@@ -24,14 +26,14 @@ dso-card {
   }
 
   &:hover a[slot="heading"] {
-    color: colors.$bosgroen;
+    color: card-variables.$heading-anchor-hover-color;
     text-decoration: underline;
   }
 }
 
 .dso-card,
 dso-card {
-  @include card.base();
+  @include card-mixins.base();
 
   &.dso-is-selectable,
   &.dso-has-image {
@@ -89,11 +91,11 @@ dso-card {
       &#{button.$not-dso-buttons}:visited,
       &:active,
       &:focus {
-        color: colors.$bosgroen;
+        color: card-variables.$heading-anchor-color;
       }
 
       &:hover {
-        color: colors.$bosgroen;
+        color: card-variables.$heading-anchor-color;
         text-decoration: underline;
       }
     }
@@ -112,7 +114,7 @@ dso-card {
 
   .dso-selectable,
   dso-selectable {
-    @include card.selectable();
+    @include card-mixins.selectable();
   }
 
   img {
@@ -131,7 +133,7 @@ dso-card {
 
 .dso-card-interactions,
 [slot="interactions"] {
-  @include card.interactions();
+  @include card-mixins.interactions();
 
   .dso-card-interaction {
     align-items: center;

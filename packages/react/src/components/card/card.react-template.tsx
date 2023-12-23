@@ -9,17 +9,28 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, imageShape, clickable, dsoCardClicked }) {
+    function cardTemplate({
+      label,
+      selectable,
+      href,
+      content,
+      interactions,
+      image,
+      imageShape,
+      clickable,
+      dsoCardClicked,
+    }) {
       return (
         <DsoCard
           clickable={clickable}
+          href={href}
           imageShape={imageShape}
           onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}
         >
           {selectable && selectableTemplate(selectable)}
           {image && <img slot="image" src={image} />}
-          {clickable ? (
-            <a slot="heading" href="#">
+          {clickable && href ? (
+            <a slot="heading" href={href}>
               <h2>
                 <span id="card-title">{label}</span>
                 {iconTemplate({ icon: "chevron-right" })}
@@ -64,9 +75,11 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
               ))}
             </div>
           )}
-          <div slot="content" className="dso-rich-content">
-            {content}
-          </div>
+          {content && (
+            <div slot="content" className="dso-rich-content">
+              {content}
+            </div>
+          )}
         </DsoCard>
       );
     },

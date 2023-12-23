@@ -18,13 +18,16 @@ storiesOfCard({
   storyTemplates: ({ cardTemplate }) => ({ cardTemplate, content }),
 });
 
-storiesOfCard({
-  parameters: {
-    module,
-    storiesOf,
-    readme: coreReadme,
-    root: StoryRoot.Core,
+storiesOfCard(
+  {
+    parameters: {
+      module,
+      storiesOf,
+      readme: coreReadme,
+      root: StoryRoot.Core,
+    },
+    templateContainer,
+    storyTemplates: ({ cardTemplate }) => ({ cardTemplate, content }),
   },
-  templateContainer,
-  storyTemplates: ({ cardTemplate }) => ({ cardTemplate, content }),
-});
+  { showLegacy: true },
+);

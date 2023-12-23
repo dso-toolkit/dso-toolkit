@@ -1,12 +1,19 @@
-export const cardContainerContent = {
+import { Card } from "../card/card.models";
+
+export const cardContainerContent: { cards: Card<unknown>[] } = {
   cards: [
     {
       label: "Begrippen uit de Omgevingswet",
-      selectable: true,
+      href: "#",
+      selectable: {
+        id: "begrippen-uit-de-omgevingswet",
+        type: "checkbox",
+        value: "begrippen-uit-de-omgevingswet",
+      },
     },
     {
       label: "Activiteiten",
-      selectable: false,
+      href: "#",
       interactions: [
         {
           type: "button",
@@ -20,20 +27,20 @@ export const cardContainerContent = {
     },
     {
       label: "Werkzaamheden",
-      selectable: false,
+      href: "#",
       image: "images/rectangle1.png",
     },
     {
       label: "Waardelijsten",
-      selectable: false,
+      href: "#",
     },
     {
       label: "Bronnen",
-      selectable: false,
+      href: "#",
     },
     {
       label: "Informatieproducten",
-      selectable: false,
+      href: "#",
     },
   ],
 };

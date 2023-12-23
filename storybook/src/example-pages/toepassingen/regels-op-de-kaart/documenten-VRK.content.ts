@@ -49,6 +49,7 @@ export const cardList: CardContainer<TemplateResult> = {
   mode: "list",
   cards: [
     {
+      href: "#",
       label: "Omgevingsplan gemeente Utrecht",
       content: html`<p>
         Omgevingsplan gemeente Utrecht <br />
@@ -75,6 +76,7 @@ export const cardList: CardContainer<TemplateResult> = {
       ],
     },
     {
+      href: "#",
       label: "Chw bestemmingsplan Algemene regels Utrecht",
       content: html`<p>
         Omgevingsplan gemeente Utrecht <br />
@@ -101,6 +103,7 @@ export const cardList: CardContainer<TemplateResult> = {
       ],
     },
     {
+      href: "#",
       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
       content: html`<p>
         Omgevingsplan gemeente Utrecht <br />

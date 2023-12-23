@@ -1,16 +1,20 @@
-export const cardListContent = {
+import { Card } from "../card/card.models";
+
+export const cardListContent: { cards: Card<unknown>[] } = {
   cards: [
     {
       label: "Omgevingsplan Nieuwegein",
-      selectable: true,
+      selectable: {
+        id: "omgevingsplan-nieuwegein",
+        type: "checkbox",
+        value: "omgevingsplan-nieuwegein",
+      },
     },
     {
       label: "Brouwersmolen",
-      selectable: false,
     },
     {
       label: "Maximum bouwhoogte",
-      selectable: false,
       image: "images/rectangle1.png",
     },
   ],

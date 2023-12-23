@@ -1,5 +1,4 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
-import clsx from "clsx";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, forceUpdate } from "@stencil/core";
 
 import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -16,21 +15,11 @@ export class Card implements ComponentInterface {
   host!: HTMLDsoCardElement;
 
   /**
-   * Do not use, this is set programmatically by the component.
+   * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
+   *
+   * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
    */
   @Prop({ reflect: true })
-  isSelectable = false;
-
-  /**
-   * Do not use, this is set programmatically by the component.
-   */
-  @Prop({ reflect: true })
-  hasImage = false;
-
-  /**
-   * Whether or not the Card is clickable.
-   */
-  @Prop()
   clickable = true;
 
   /**
@@ -42,13 +31,33 @@ export class Card implements ComponentInterface {
   imageShape: ImageShape = "normal";
 
   /**
+   * The URL to which the Card heading links.
+   */
+  @Prop({ reflect: true })
+  href?: string;
+
+  /**
    * Emitted when the Card is clickable and the user clicked the Card.
    */
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
 
+  private mutationObserver?: MutationObserver;
+
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+
+    this.mutationObserver.observe(this.host, { attributes: true, childList: true });
+  }
+
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+
+    delete this.mutationObserver;
+  }
+
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.clickable) {
+    if (!(e.target instanceof HTMLElement) || (!this.clickable && !this.href)) {
       return;
     }
 
@@ -69,26 +78,44 @@ export class Card implements ComponentInterface {
     return this.dsoCardClicked.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
-  componentWillLoad() {
-    this.isSelectable = this.host.querySelector("*[slot = 'selectable']") !== null;
-    this.hasImage = this.host.querySelector("*[slot = 'image']") !== null;
+  get selectableSlottedElement() {
+    return this.host.querySelector("[slot='selectable']");
+  }
+
+  get imageSlottedElement() {
+    return this.host.querySelector("[slot='image']");
+  }
+
+  get headingSlottedElement() {
+    return this.host.querySelector("[slot='heading']");
+  }
+
+  get interactionsSlottedElement() {
+    return this.host.querySelector("[slot='interactions']");
   }
 
   render() {
+    const isSelectable = this.selectableSlottedElement !== null;
+    const hasImage = this.imageSlottedElement !== null;
+
     return (
-      <Host
-        class={clsx({ "dso-not-clickable": !this.clickable })}
-        onClick={(e: MouseEvent) => this.clickEventHandler(e)}
-      >
-        <div class="dso-card-selectable" hidden={!this.isSelectable}>
+      <Host onClick={(e: MouseEvent) => this.clickEventHandler(e)} is-selectable={isSelectable} has-image={hasImage}>
+        <div class="dso-card-selectable" hidden={!isSelectable}>
           <slot name="selectable" />
         </div>
-        <div class="dso-card-image" hidden={!this.hasImage}>
+        <div class="dso-card-image" hidden={!hasImage}>
           <slot name="image" />
         </div>
         <div class="dso-card-heading">
-          <slot name="heading" />
-          <slot name="interactions" />
+          {this.headingSlottedElement instanceof HTMLAnchorElement || !this.href ? (
+            <slot name="heading" />
+          ) : (
+            <a href={this.href} class="heading-anchor">
+              <slot name="heading" />
+              <dso-icon icon="chevron-right"></dso-icon>
+            </a>
+          )}
+          {this.interactionsSlottedElement !== null && <slot name="interactions" />}
         </div>
         <div class="dso-card-content">
           <slot name="content" />

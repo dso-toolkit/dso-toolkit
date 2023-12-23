@@ -22,8 +22,9 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
       content,
       interactions,
       image,
+      href,
       imageShape = "normal",
-      clickable = true,
+      clickable,
       dsoCardClicked,
     }) {
       return html`
@@ -44,7 +45,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             : nothing}
           <div class="dso-card-heading">
             ${clickable
-              ? html`<a href="#">
+              ? html`<a href=${ifDefined(href)} @click=${(e: MouseEvent) => e.preventDefault()}>
                   <h2>
                     <span id="card-title">${label}</span>
                     ${iconTemplate({ icon: "chevron-right" })}
@@ -69,7 +70,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
               </div>
             `}
           </div>
-          ${richContentTemplate({ children: content })}
+          ${content && richContentTemplate({ children: content })}
         </div>
       `;
     },
