@@ -231,11 +231,12 @@ export namespace Components {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable.
+          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
+          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
          */
         "clickable": boolean;
         /**
-          * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
+          * The URL to which the Card heading links.
          */
         "href"?: string;
         /**
@@ -1982,11 +1983,12 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable.
+          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
+          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
          */
         "clickable"?: boolean;
         /**
-          * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
+          * The URL to which the Card heading links.
          */
         "href"?: string;
         /**

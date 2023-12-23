@@ -1,11 +1,15 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { StoriesOfArguments, noControl, storiesOfFactory } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper, cardArgTypes } from "./card.args.js";
-import { cardContentButton, cardContentLabel, cardContentToggletip } from "./card.content.js";
+import { cardContent, cardContentButton, cardContentLabel, cardContentToggletip } from "./card.content.js";
 import { Card } from "./card.models.js";
 
 export interface CardTemplates<TemplateFnReturnType> {
   cardTemplate: (cardProperties: Card<TemplateFnReturnType>) => TemplateFnReturnType;
   content: TemplateFnReturnType;
+}
+
+interface StoriesOfCardOptions {
+  showLegacy?: boolean;
 }
 
 export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
@@ -15,6 +19,7 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
     TemplateFnReturnType,
     CardTemplates<TemplateFnReturnType>
   >,
+  { showLegacy }: StoriesOfCardOptions = {},
 ) {
   return storiesOfFactory("Card", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -28,25 +33,37 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       cardTemplate(cardArgsMapper(args, content)),
     );
 
-    stories.add("default", template, {
-      args: cardContentButton,
-    });
-
-    stories.add("selectable", template, {
+    stories.add("static", template, {
+      argTypes: {
+        clickable: {
+          ...noControl,
+        },
+        href: {
+          ...noControl,
+        },
+      },
       args: {
-        ...cardContentButton,
-        selectable: true,
+        ...cardContent,
+        href: undefined,
       },
     });
 
-    stories.add("with image", template, {
+    stories.add("href", template, {
+      args: cardContent,
+    });
+
+    stories.add("href with button", template, {
+      args: cardContentButton,
+    });
+
+    stories.add("href with image and button", template, {
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
       },
     });
 
-    stories.add("with wide image", template, {
+    stories.add("href with wide image and button", template, {
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
@@ -54,22 +71,31 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
-    stories.add("with toggletip", template, {
+    stories.add("href with toggletip", template, {
       args: cardContentToggletip,
     });
 
-    stories.add("with label", template, {
+    stories.add("href with label", template, {
       args: {
         ...cardContentLabel,
       },
     });
 
-    stories.add("not clickable", template, {
+    stories.add("href and selectable with button", template, {
       args: {
         ...cardContentButton,
-        clickable: false,
+        selectable: true,
       },
     });
+
+    if (showLegacy) {
+      stories.add("clickable (legacy)", template, {
+        args: {
+          ...cardContentButton,
+          clickable: true,
+        },
+      });
+    }
 
     return stories;
   });

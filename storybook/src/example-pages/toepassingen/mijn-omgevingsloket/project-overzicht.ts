@@ -84,7 +84,8 @@ examplePageFactory(
                   cards: [
                     {
                       href: "#",
-                      label: "Boom kappen in de achtertuin 1",
+                      clickable: true,
+                      label: "Boom kappen op de oude manier",
                       interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>
@@ -95,7 +96,7 @@ examplePageFactory(
                     },
                     {
                       href: "#",
-                      label: "Boom kappen in de achtertuin 2",
+                      label: "Boom kappen op de nieuwe manier",
                       interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>

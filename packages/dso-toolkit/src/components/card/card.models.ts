@@ -7,13 +7,14 @@ export const imageShapes = ["normal", "wide"] as const;
 
 export interface Card<TemplateFnReturnType> {
   label: string;
+  /** Use only with `clickable: false`. */
   href?: string;
-  legacy?: boolean;
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType>>;
   image?: string;
   imageShape?: (typeof imageShapes)[number];
+  /** @deprecated use `href` */
   clickable?: boolean;
   dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
 }

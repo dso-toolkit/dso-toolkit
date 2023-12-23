@@ -15,7 +15,9 @@ export class Card implements ComponentInterface {
   host!: HTMLDsoCardElement;
 
   /**
-   * Whether or not the Card is clickable.
+   * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
+   *
+   * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
    */
   @Prop({ reflect: true })
   clickable = true;
@@ -29,7 +31,7 @@ export class Card implements ComponentInterface {
   imageShape: ImageShape = "normal";
 
   /**
-   * The URL to which the Card heading links. If the Card is not clickable, this property is ignored.
+   * The URL to which the Card heading links.
    */
   @Prop({ reflect: true })
   href?: string;
@@ -55,7 +57,7 @@ export class Card implements ComponentInterface {
   }
 
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement) || !this.clickable) {
+    if (!(e.target instanceof HTMLElement) || (!this.clickable && !this.href)) {
       return;
     }
 
@@ -105,7 +107,7 @@ export class Card implements ComponentInterface {
           <slot name="image" />
         </div>
         <div class="dso-card-heading">
-          {this.headingSlottedElement instanceof HTMLAnchorElement || !this.clickable || !this.href ? (
+          {this.headingSlottedElement instanceof HTMLAnchorElement || !this.href ? (
             <slot name="heading" />
           ) : (
             <a href={this.href} class="heading-anchor">

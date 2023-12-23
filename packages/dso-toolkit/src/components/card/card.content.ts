@@ -1,9 +1,9 @@
 import { Card } from "./card.models";
 
-const cardContent: Card<unknown> = {
+export const cardContent: Card<unknown> = {
   label: "Omgevingsplan Nieuwegein",
   image: undefined,
-  clickable: true,
+  href: "#",
 };
 
 export const cardContentButton: Card<unknown> = {

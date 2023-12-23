@@ -30,8 +30,8 @@
     }
   }
 
-  &:not([clickable]),
-  &[clickable="false"],
+  &:not([href]):not([clickable]),
+  &:not([href])[clickable="false"],
   &.dso-not-clickable {
     > h2,
     :not(a) > h2 {

@@ -1,6 +1,6 @@
 describe("Card", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--selectable")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--href-and-selectable-with-button")
       .get("dso-card")
       .then(($card) => {
         $card.on("dsoCardClicked", cy.stub().as("dsoCardClickedListener"));
@@ -54,7 +54,7 @@ describe("Card", () => {
   });
 
   it("should have correct image dimensions", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--with-image")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--href-with-image")
       .get("dso-card")
       .find("img[slot='image']")
       .should("have.css", "height", "24px")
@@ -64,5 +64,14 @@ describe("Card", () => {
       .find("img[slot='image']")
       .should("have.css", "height", "26px")
       .and("have.css", "width", "30px");
+  });
+
+  it("creates anchor when href is set", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
+      .get("dso-card")
+      .invoke("prop", "href", "#")
+      .shadow()
+      .find("a.heading-anchor")
+      .should("have.attr", "href", "#");
   });
 });

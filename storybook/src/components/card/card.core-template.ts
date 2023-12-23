@@ -12,19 +12,18 @@ export const coreCard: ComponentImplementation<Card<never>> = {
     function cardTemplate({
       label,
       selectable,
-      legacy,
       content,
       interactions,
       image,
       imageShape,
-      clickable,
+      clickable = false,
       href,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
         <dso-card
-          href=${ifDefined(href)}
-          clickable=${ifDefined(clickable)}
+          href=${ifDefined((!clickable && href) || undefined)}
+          clickable=${clickable}
           image-shape=${ifDefined(imageShape)}
           @dsoCardClicked=${(e: DsoCardCustomEvent<DsoCardClickedEvent>) => {
             if (!e.detail.isModifiedEvent) {
@@ -36,8 +35,8 @@ export const coreCard: ComponentImplementation<Card<never>> = {
         >
           ${selectable ? selectableTemplate(selectable) : nothing}
           ${image ? html`<img slot="image" src=${image} />` : nothing}
-          ${legacy
-            ? html`<a href="#" slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
+          ${clickable && href
+            ? html`<a href=${href} slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
                 <h2>
                   <span id="card-title">${label}</span>
                   <dso-icon icon="chevron-right"></dso-icon>

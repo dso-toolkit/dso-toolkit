@@ -13,7 +13,6 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
       label,
       selectable,
       href,
-      legacy,
       content,
       interactions,
       image,
@@ -30,8 +29,8 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
         >
           {selectable && selectableTemplate(selectable)}
           {image && <img slot="image" src={image} />}
-          {legacy ? (
-            <a slot="heading" href="#">
+          {clickable && href ? (
+            <a slot="heading" href={href}>
               <h2>
                 <span id="card-title">{label}</span>
                 {iconTemplate({ icon: "chevron-right" })}
