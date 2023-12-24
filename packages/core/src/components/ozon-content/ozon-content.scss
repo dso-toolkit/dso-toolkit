@@ -1,13 +1,16 @@
 @use "~dso-toolkit/src/utilities";
+
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+
 @use "~dso-toolkit/src/components/anchor";
-@use "~dso-toolkit/src/components/button/button";
 @use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
 @use "~dso-toolkit/src/components/insert";
 @use "~dso-toolkit/src/components/delete";
-@use "~dso-toolkit/src/components/mark/mark";
 @use "~dso-toolkit/src/components/rich-content";
+
+@use "~dso-toolkit/src/components/button/button";
+@use "~dso-toolkit/src/components/mark/mark";
 @use "~dso-toolkit/src/components/superscript/superscript";
 @use "~dso-toolkit/src/components/subscript/subscript";
 @use "~dso-toolkit/src/components/table/table";

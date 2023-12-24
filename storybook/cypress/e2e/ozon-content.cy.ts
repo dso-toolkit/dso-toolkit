@@ -192,19 +192,14 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
     cy.get("dso-ozon-content").then((c) => {
-      c.prop("content", "<c><ExtRef ref='doc'><e>document</e></ExtRef></c>");
+      c.prop("content", "<ExtRef ref='doc'>document</ExtRef>");
     });
 
     cy.get("dso-ozon-content")
       .shadow()
-      .find("span.fallback.od-c")
-      .children("a[href = 'doc'][target = '_blank'][rel = 'noopener noreferrer']")
+      .find("a[href='doc'][target='_blank'][rel='noopener noreferrer']")
       .should("exist")
-      .children("span.sr-only")
-      .contains("opent in nieuw venster")
-      .parent()
-      .children("span.fallback.od-e")
-      .contains("document");
+      .and("have.text", "document (Opent andere website in nieuw tabblad)");
 
     cy.percySnapshot();
   });
@@ -221,8 +216,10 @@ describe("Ozon Content", () => {
         "href",
         "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1",
       )
-      .contains("opent in nieuw venster")
-      .should("exist");
+      .and(
+        "have.text",
+        "/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1 (Opent andere website in nieuw tabblad)",
+      );
 
     cy.percySnapshot();
   });
@@ -537,7 +534,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("dso-table > div > .dso-ozon-bron")
       .should("exist")
-      .and("have.text", "bron: opent in nieuw venster artikel 4.7 van de wet");
+      .and("have.text", "bron: artikel 4.7 van de wet (Opent andere website in nieuw tabblad)");
   });
 
   it("should accept XMLDocument", () => {
