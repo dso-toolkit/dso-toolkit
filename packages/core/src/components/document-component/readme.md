@@ -41,6 +41,16 @@
 | `dsoRecursiveToggle`        | Emitted when the user activates the recursive toggle.                    | `CustomEvent<DocumentComponentRecursiveToggleEvent>`        |
 
 
+## Shadow Parts
+
+| Part                      | Description                 |
+| ------------------------- | --------------------------- |
+| `"_annotation-container"` | private part, do not touch. |
+| `"_children-container"`   | private part, do not touch. |
+| `"_content"`              | private part, do not touch. |
+| `"_heading-container"`    | private part, do not touch. |
+
+
 ## Dependencies
 
 ### Used by

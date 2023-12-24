@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Grid: In xs-viewport krijgt een kolom zonder `col-xs-12` geen basisstyling ([#2472](https://github.com/dso-toolkit/dso-toolkit/issues/2472))
 * Card: Clickable icm. `<a>` is suboptimaal ([#2390](https://github.com/dso-toolkit/dso-toolkit/issues/2390))
 * Ozon Content: ExtRef mapping is ontoegankelijk ([#2481](https://github.com/dso-toolkit/dso-toolkit/issues/2481))
+* Document Component: Inspringen werkt niet in Firefox en Safari ([#2479](https://github.com/dso-toolkit/dso-toolkit/issues/2479))
 
 ### Changed
 * Action List: Smalle viewport ([#2438](https://github.com/dso-toolkit/dso-toolkit/issues/2438))

@@ -3,6 +3,57 @@
 
 @use "document-component.variables" as document-component-variables;
 
+dso-responsive-element {
+  &[small] {
+    dso-document-component {
+      &::part(_annotation-container),
+      &::part(_content) {
+        padding-left: document-component-variables.$indent;
+      }
+
+      &[not-collapsible] {
+        &::part(_heading-container) {
+          padding-left: document-component-variables.$indent;
+        }
+      }
+
+      &:not([not-collapsible]) {
+        &::part(_children-container) {
+          padding-left: document-component-variables.$indent;
+        }
+
+        dso-document-component {
+          margin-left: document-component-variables.$indent * -1;
+        }
+      }
+    }
+  }
+
+  &:not([small]) {
+    dso-document-component {
+      &[filtered] {
+        &::before {
+          left: calc((var(--depth) * #{document-component-variables.$indent} + 3px) * -1);
+        }
+      }
+
+      &:not([not-collapsible]) {
+        --b: calc(var(--depth) + 1);
+
+        &::part(_annotation-container),
+        &::part(_content),
+        &::part(_children-container) {
+          padding-left: document-component-variables.$indent;
+        }
+
+        li {
+          --a: var(--b);
+        }
+      }
+    }
+  }
+}
+
 .dso-document-components {
   ul {
     @include list.unstyled();
@@ -20,23 +71,5 @@ dso-document-component[not-applicable] {
 
   dso-document-component[not-applicable] {
     opacity: 1;
-  }
-}
-
-dso-responsive-element[small] {
-  dso-document-component:not([not-collapsible]) {
-    dso-document-component {
-      margin-left: document-component-variables.$indent * -1;
-    }
-  }
-}
-
-dso-responsive-element:not([small]) {
-  dso-document-component {
-    &:not([not-collapsible]) {
-      li {
-        --a: var(--b);
-      }
-    }
   }
 }

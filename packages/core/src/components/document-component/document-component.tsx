@@ -22,6 +22,12 @@ const wijzigActieLabels: { [wijzigActie in DocumentComponentWijzigactie]: string
   voegtoe: "Toegevoegd",
 };
 
+/**
+ * @part _annotation-container - private part, do not touch.
+ * @part _children-container - private part, do not touch.
+ * @part _content - private part, do not touch.
+ * @part _heading-container - private part, do not touch.
+ */
 @Component({
   tag: "dso-document-component",
   styleUrl: "document-component.scss",
@@ -226,7 +232,7 @@ export class DocumentComponent implements ComponentInterface {
     return (
       <Host not-collapsible={!collapsible}>
         {showHeading && (
-          <div class="heading-container">
+          <div class="heading-container" part="_heading-container">
             {this.wijzigactie && <span class="wijzigactie-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
               <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
@@ -325,11 +331,11 @@ export class DocumentComponent implements ComponentInterface {
             </div>
           </div>
         )}
-        <div class="annotation-container">
+        <div class="annotation-container" part="_annotation-container">
           <slot name="annotation" />
         </div>
         {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
-          <div class="content">
+          <div class="content" part="_content">
             {this.gereserveerd && (
               <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>
             )}
@@ -346,7 +352,7 @@ export class DocumentComponent implements ComponentInterface {
             )}
           </div>
         )}
-        <div class="children-container">
+        <div class="children-container" part="_children-container">
           <slot />
         </div>
       </Host>
