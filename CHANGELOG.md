@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🎅 62.7.0 - 27-12-2023
+
 ### Added
 * Context: elementen links uitlijnen ([#2400](https://github.com/dso-toolkit/dso-toolkit/issues/2400))
 * Mark Bar: Placeholder, `.dsoFocus()`, Enter emits `dsoNext` ([#2446](https://github.com/dso-toolkit/dso-toolkit/issues/2446))
