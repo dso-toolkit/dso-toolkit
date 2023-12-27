@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## Tasks
+* Build: Stylelint 16 ([#2123](https://github.com/dso-toolkit/dso-toolkit/issues/2123))
+
 ## 🎅 62.7.0 - 27-12-2023
 
 ### Added

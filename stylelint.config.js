@@ -1,8 +1,22 @@
+/** @type {import("stylelint").Config} */
 module.exports = {
-  extends: ["@infoprojects/stylelint-config-scss", "stylelint-config-prettier-scss"],
+  extends: "stylelint-config-recommended-scss",
+  reportNeedlessDisables: true,
+  reportInvalidScopeDisables: true,
+  reportDescriptionlessDisables: true,
+  defaultSeverity: "error",
+  rules: {
+    // ex @infoprojects/stylelint-config-scss
+    "no-descending-specificity": null,
+    "scss/at-mixin-argumentless-call-parentheses": "always",
+    // local
+    "declaration-property-value-disallowed-list": {
+      "text-overflow": ["ellipsis"],
+      "white-space": ["nowrap"],
+    },
+  },
   overrides: [
     {
-      extends: ["@infoprojects/stylelint-config-scss", "stylelint-config-prettier-scss"],
       files: ["packages/dso-toolkit/src/icons/**.scss"],
       rules: {
         "selector-pseudo-class-no-unknown": null,
@@ -10,10 +24,4 @@ module.exports = {
       },
     },
   ],
-  rules: {
-    "declaration-property-value-disallowed-list": {
-      "text-overflow": ["ellipsis"],
-      "white-space": ["nowrap"],
-    },
-  },
 };
