@@ -1,6 +1,7 @@
-FROM cypress/included:cypress-12.12.0-node-18.16.0-chrome-113.0.5672.92-1-ff-113.0-edge-113.0.1774.35-1 AS source
+FROM cypress/included:cypress-13.6.1-node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1 AS source
 
 RUN apt-get update && apt-get install --yes \
+  curl \
   libx11-xcb1 \
   libxcomposite1 \
   libxcursor1 \
@@ -16,6 +17,13 @@ RUN apt-get update && apt-get install --yes \
   libatk-bridge2.0-0 \
   libgtk-3-0 \
   rsync=3.2.3-4+deb11u1
+
+# https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt (but without curl installation)
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+  && apt update \
+  && apt install gh=2.40.1 -y
 
 WORKDIR /usr/src/app
 
