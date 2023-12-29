@@ -49,7 +49,7 @@ docker run \
   --env DT_DEPLOY_USER \
   --env DT_DEPLOY_ROOT \
   --env DT_DEPLOY_NPM_TOKEN \
-  --env DT_DEPLOY_GITHUB_TOKEN \
+  --env GH_TOKEN \
   --env TRAVIS_BRANCH \
   --env TRAVIS_TAG \
   ghcr.io/dso-toolkit/dso-toolkit:${TAG} \

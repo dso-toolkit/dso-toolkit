@@ -12160,9 +12160,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-parallel@npm:0.13.0":
-  version: 0.13.0
-  resolution: "cypress-parallel@npm:0.13.0"
+"cypress-parallel@npm:0.14.0":
+  version: 0.14.0
+  resolution: "cypress-parallel@npm:0.14.0"
   dependencies:
     "@colors/colors": "npm:^1.5.0"
     cli-table3: "npm:^0.6.0"
@@ -12177,7 +12177,7 @@ __metadata:
     cypress-multi-reporters: ^1.5.0
   bin:
     cypress-parallel: cli.js
-  checksum: 4115a00e43e0531a210f1f81d09f3ea196f75f5e29941c342b5635a5f403f2bea705f18850c8e2bf72745f0a58051940731f03d7e19faef193b3645b1b4a8a29
+  checksum: 650fb5ffc9dc769a4c2d69e26db38373b8ed8ecbcd7144242007fb3cf34dc15153825709c09b125155d8f46c7dc2ec1441a44dfc131a04f8f816e2bd26bd4cc2
   languageName: node
   linkType: hard
 
@@ -12190,9 +12190,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^13.6.0":
-  version: 13.6.0
-  resolution: "cypress@npm:13.6.0"
+"cypress@npm:^13.6.2":
+  version: 13.6.2
+  resolution: "cypress@npm:13.6.2"
   dependencies:
     "@cypress/request": "npm:^3.0.0"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -12239,7 +12239,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 345e295c305a9574f5de433c216c9734eab5c8594bd32b7c1a74e2d71a6c7aa5a8228f7031c3fc6bd488319c0f50c906d323d00dab5c9445c43594a41af0d23d
+  checksum: b6b27f94d98c873cde18a466ab3763e13ee157b78307ae3e3cf93b4fc04cbe1f616c2b7da8cc3354aed1ab2636629ce208533d70bd60cf38ad01675e19e3058d
   languageName: node
   linkType: hard
 
@@ -13126,10 +13126,10 @@ __metadata:
     "@storybook/web-components-webpack5": "npm:7.5.3"
     "@whitespace/storybook-addon-html": "npm:5.1.6"
     axe-core: "npm:^4.8.2"
-    cypress: "npm:^13.6.0"
+    cypress: "npm:^13.6.2"
     cypress-axe: "npm:^1.5.0"
     cypress-multi-reporters: "npm:1.6.4"
-    cypress-parallel: "npm:0.13.0"
+    cypress-parallel: "npm:0.14.0"
     cypress-real-events: "npm:^1.11.0"
     dso-toolkit: "workspace:^"
     http-proxy-middleware: "npm:^2.0.6"
