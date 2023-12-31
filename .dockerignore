@@ -2,7 +2,6 @@
 **/dist
 **/www
 
-.git
 .nx
 .dockerignore
 Dockerfile

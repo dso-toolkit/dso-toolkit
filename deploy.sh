@@ -32,9 +32,6 @@ then
   npm publish
   cd ../../..
 
-  pwd
-  ls -alh
-
   gh release create ${TRAVIS_TAG} --generate-notes --verify-tag
 
   rsync --rsh "ssh -p ${DT_DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DT_DEPLOY_USER}@${DT_DEPLOY_HOST}:${DT_DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1}
