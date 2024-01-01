@@ -6,7 +6,7 @@
       "dependsOn": ["^build"],
       "executor": "nx:run-commands",
       "options": {
-        "command": "stencil build",
+        "command": "stencil build && tsx scripts/readme.ts",
         "cwd": "packages/core"
       },
       "outputs": [

@@ -6,7 +6,6 @@ Scriptend de tooltip tonen/verbergen kan met de instance methods `activate()` en
 
 Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaan.
 
-
 <!-- Auto Generated Below -->
 
 

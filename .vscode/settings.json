@@ -11,7 +11,5 @@
     "angular-workspace/.angular": true,
     "angular-workspace/documentation.json": true
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "html.customData": ["packages/core/vscode-data.json"]
 }

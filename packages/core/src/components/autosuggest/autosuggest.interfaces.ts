@@ -1,4 +1,3 @@
-// Keep in sync with readme.md
 export interface Suggestion {
   /**
    * The text that will be displayed as the suggestion.

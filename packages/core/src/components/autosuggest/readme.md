@@ -14,29 +14,6 @@ De events van dit Web Component heten `dsoChange` en `dsoSelect` omdat `change` 
 
 Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar een HTML/CSS component is en dat de afnemer zelf de eventuele "Zoekopdracht legen" knop moet aansluiten.
 
-## Models
-
-<!-- Keep in sync with autosuggest.tsx:Suggestion -->
-
-```typescript
-export interface Suggestion {
-  /**
-   * The text that will be displayed as the suggestion.
-   */
-  value: string;
-
-  /**
-   * The type of suggestion.
-   */
-  type?: string;
-
-  /**
-   * A reference to the original object that was used to create the suggestion.
-   */
-  item?: unknown;
-}
-```
-
 <!-- Auto Generated Below -->
 
 
