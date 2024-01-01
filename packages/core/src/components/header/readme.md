@@ -1,24 +1,5 @@
 # dso-header
 
-## Models
-
-```typescript
-interface HeaderMenuItem {
-  label: string;
-  url: string;
-  active?: boolean;
-}
-
-interface HeaderMenuItemClickEvent {
-  originalEvent: MouseEvent;
-  menuItem: HeaderMenuItem;
-}
-
-interface HeaderMenuLogoutClick {
-  originalEvent: MouseEvent;
-}
-```
-
 <!-- Auto Generated Below -->
 
 

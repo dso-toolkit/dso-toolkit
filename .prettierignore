@@ -12,6 +12,9 @@
 /packages/core/loader
 /packages/core/src/components.d.ts
 /packages/core/src/components/**/README.md
+/packages/core/docs.d.ts
+/packages/core/docs.json
+/packages/core/vscode-data.json
 /packages/dso-toolkit/assets/graphics/*.svg
 /packages/dso-toolkit/src/icons/*.svg
 /packages/react/src/components.ts

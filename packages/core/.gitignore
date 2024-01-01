@@ -23,3 +23,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+vscode-data.json
+docs.d.ts
+docs.json

@@ -19,6 +19,6 @@
     "jsxFragmentFactory": "Fragment",
     "jsxFactory": "h"
   },
-  "include": ["src"],
+  "include": ["src", "scripts/readme.ts"],
   "exclude": ["node_modules"]
 }

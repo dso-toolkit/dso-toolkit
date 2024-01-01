@@ -18,22 +18,22 @@ Eventueel kunnen een `label` (applicatienaam, portaalnaam of kruimelpadlocatie) 
 
 Een `label` toont de titel of naam van de applicatie waar je je als bezoeker in bevindt.
 
-Een `ribbon` is een soort sticker die overlapt met het woordmerk, waar een maximaal vijf-letterige tekst in kan komen te staan om de status van de pagina aan te duiden. 
- 
-Als we de ontwikkelomgeving willen aanduiden door middel van gebruik van het `ribbon` gebruiken we daarvoor de prefix van het domein: 
+Een `ribbon` is een soort sticker die overlapt met het woordmerk, waar een maximaal vijf-letterige tekst in kan komen te staan om de status van de pagina aan te duiden.
 
-| Naam omgeving | Ribbon tekst |
-| ------------- | ------------ |
-| int-omgeving  | "int"        |
-| kta-omgeving  | "kta"        |
-| pfm-omgeving  | "pfm"        |
-| pre-omgeving  | "pre"        |
-| dmo-omgeving  | "dmo"        |
-| pro-omgeving  | **geen ribbon**  |
+Als we de ontwikkelomgeving willen aanduiden door middel van gebruik van het `ribbon` gebruiken we daarvoor de prefix van het domein:
+
+| Naam omgeving | Ribbon tekst    |
+| ------------- | --------------- |
+| int-omgeving  | "int"           |
+| kta-omgeving  | "kta"           |
+| pfm-omgeving  | "pfm"           |
+| pre-omgeving  | "pre"           |
+| dmo-omgeving  | "dmo"           |
+| pro-omgeving  | **geen ribbon** |
 
 ## Responsive gedrag
 
-Op schermen die breed genoeg zijn om het beeldmerk, het woordmerk en de applicatienaam (of portaalnaam of kruimelpadlocatie) volledig te tonen, komen deze naast elkaar in beeld. 
+Op schermen die breed genoeg zijn om het beeldmerk, het woordmerk en de applicatienaam (of portaalnaam of kruimelpadlocatie) volledig te tonen, komen deze naast elkaar in beeld.
 
 Op schermen die wat smaller zijn (maximaal 767px) vervalt het woordmerk en wordt alleen de applicatienaam, portaalnaam of kruimelpadlocatie getoond naast het beeldmerk.
 

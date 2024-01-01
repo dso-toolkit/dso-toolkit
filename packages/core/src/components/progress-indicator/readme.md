@@ -5,7 +5,6 @@
 - icm. `size="medium"` zorgt dit voor een (afhankelijk van de inhoud) minimaal 64px hoge progress indicator;
 - icm. `size="large"` zorgt dit voor een (afhankelijk van de inhoud) minimaal 96px hoge progress indicator;
 
-
 <!-- Auto Generated Below -->
 
 

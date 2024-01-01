@@ -2,17 +2,6 @@
 
 Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
-## Custom Event interfaces
-
-```typescript
-export interface OzonContentAnchorClickEvent {
-  node: string;
-  href: string;
-  documentComponent: string;
-  originalEvent: MouseEvent;
-}
-```
-
 <!-- Auto Generated Below -->
 
 
