@@ -1,5 +1,7 @@
 os: linux
 dist: jammy
+git:
+  depth: false
 stages:
   - name: prepare
     if: branch =~ /^#/ || branch = master || tag =~ /^v/
