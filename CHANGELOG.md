@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Expandable: Overflow stays hidden when fully expanded ([#2471](https://github.com/dso-toolkit/dso-toolkit/issues/2471))
+
 ### Docs
 * Web Components: Extra interfaces meedocumenteren in readme.md ([#2381](https://github.com/dso-toolkit/dso-toolkit/issues/2381))
 
