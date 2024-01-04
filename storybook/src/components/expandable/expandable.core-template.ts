@@ -11,7 +11,7 @@ export const coreExpandable: ComponentImplementation<Expandable<TemplateResult>>
     function expandableTemplate({ open, enableAnimation, minimumHeight, content }: Expandable<TemplateResult>) {
       return html`
         <dso-expandable
-          enable-animation=${ifDefined(enableAnimation)}
+          ?enable-animation=${enableAnimation}
           minimum-height=${ifDefined(minimumHeight)}
           ?open=${ifDefined(open)}
         >

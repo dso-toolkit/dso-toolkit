@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  overflow-y: hidden;
 }
 
 :host(.dso-hide) {
@@ -17,6 +16,10 @@
 :host([open]) {
   position: inherit;
   visibility: inherit;
+}
+
+:host(:not([is-open])) {
+  overflow-y: hidden;
 }
 
 @include utilities.box-sizing();
