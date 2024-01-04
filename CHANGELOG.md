@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Logo: Fix contrast in ribbon and enable accessibility test ([#2384](https://github.com/dso-toolkit/dso-toolkit/issues/2384))
+
 ### Docs
 * Web Components: Extra interfaces meedocumenteren in readme.md ([#2381](https://github.com/dso-toolkit/dso-toolkit/issues/2381))
 
