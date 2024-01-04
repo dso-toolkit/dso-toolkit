@@ -20,7 +20,7 @@ const section2: AccordionSection<TemplateResult> = {
   heading: "h2",
   content: html`<p>
       De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen?
-      Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen..
+      Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen.
     </p>
     <dso-date-picker-legacy></dso-date-picker-legacy> `,
 };
