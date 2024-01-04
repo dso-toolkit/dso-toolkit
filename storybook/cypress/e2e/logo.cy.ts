@@ -33,8 +33,8 @@ describe("Logo", () => {
       .should("be.visible")
       .should("have.text", "beta");
     cy.percySnapshot();
-    // cy.injectAxe();
-    // cy.checkA11y("dso-logo");
+    cy.injectAxe();
+    cy.checkA11y("dso-logo");
   });
 
   it("should be accessible", () => {
