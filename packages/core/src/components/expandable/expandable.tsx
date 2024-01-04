@@ -14,10 +14,14 @@ import anime, { AnimeInstance } from "animejs";
 import clsx from "clsx";
 import debounce from "debounce";
 
-export interface ExpandableAnimationStartEvent {}
+export interface ExpandableAnimationStartEvent {
+  currentOpen: boolean;
+  nextOpen: boolean;
+}
 
 export interface ExpandableAnimationEndEvent {
   bodyHeight: number | undefined;
+  open: boolean;
 }
 
 @Component({
@@ -44,7 +48,7 @@ export class Expandable implements ComponentInterface {
   /**
    * Set to `true` to show the content animated.
    */
-  @Prop()
+  @Prop({ reflect: true })
   enableAnimation = false;
 
   /**
@@ -55,6 +59,9 @@ export class Expandable implements ComponentInterface {
 
   @State()
   animationReady = false;
+
+  @State()
+  isOpen = this.open;
 
   @Watch("open")
   toggleOpen() {
@@ -111,6 +118,7 @@ export class Expandable implements ComponentInterface {
           "dso-animate-ready": this.enableAnimation && this.animationReady,
           "dso-hide": !this.enableAnimation && !this.open,
         })}
+        is-open={this.isOpen}
       >
         <slot />
       </Host>
@@ -145,13 +153,18 @@ export class Expandable implements ComponentInterface {
       autoplay: false,
       direction: "normal",
       changeBegin: () => {
-        this.dsoExpandableAnimationStart.emit({});
+        this.dsoExpandableAnimationStart.emit({
+          currentOpen: !!this.open,
+          nextOpen: !this.open,
+        });
       },
       begin: () => {
         if (this.open) {
           this.host.style.visibility = "";
           this.host.style.position = "";
           this.host.style.bottom = "";
+        } else {
+          this.isOpen = false;
         }
       },
       complete: () => {
@@ -161,10 +174,12 @@ export class Expandable implements ComponentInterface {
           this.host.style.visibility = "hidden";
           this.host.style.position = "absolute";
           this.host.style.bottom = "100%";
+        } else {
+          this.isOpen = true;
         }
       },
       changeComplete: () => {
-        this.dsoExpandableAnimationEnd.emit({ bodyHeight: this.bodyHeight });
+        this.dsoExpandableAnimationEnd.emit({ bodyHeight: this.bodyHeight, open: !!this.open });
       },
     });
 
