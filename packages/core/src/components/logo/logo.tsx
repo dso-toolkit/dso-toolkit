@@ -10,7 +10,7 @@ export class Logo implements ComponentInterface {
    * The label clarifies the service within the Omgevingsloket, shown
    * as a subtitle (and on smaller screens as the main wordmark itself).
    */
-  @Prop({reflect: true})
+  @Prop({ reflect: true })
   label?: string;
 
   /**

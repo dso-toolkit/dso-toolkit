@@ -5,14 +5,11 @@ describe("Logo", () => {
 
   it("not shows a label", () => {
     cy.get("dso-logo")
-      .should("not.have.attr", "label","Beheerportaal")
+      .should("not.have.attr", "label", "Beheerportaal")
       .shadow()
       .find(".logo-label")
       .should("not.exist");
-    cy.get("dso-logo")
-      .shadow()
-      .find(".logo-wordmark")
-      .should("exist");
+    cy.get("dso-logo").shadow().find(".logo-wordmark").should("exist");
     cy.percySnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
@@ -21,15 +18,11 @@ describe("Logo", () => {
   it("shows a label and logo-wordmark on screens wider than 767px", () => {
     cy.get("dso-logo")
       .invoke("prop", "label", "Beheerportaal")
-      .should("have.attr", "label","Beheerportaal")
+      .should("have.attr", "label", "Beheerportaal")
       .shadow()
       .find(".logo-label")
       .should("be.visible");
-    cy.get("dso-logo")
-      .invoke("prop", "label", "Beheerportaal")
-      .shadow()
-      .find(".logo-wordmark")
-      .should("be.visible");
+    cy.get("dso-logo").invoke("prop", "label", "Beheerportaal").shadow().find(".logo-wordmark").should("be.visible");
     cy.percySnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
@@ -39,7 +32,7 @@ describe("Logo", () => {
     cy.viewport(400, 720);
     cy.get("dso-logo")
       .invoke("prop", "label", "Beheerportaal")
-      .should("have.attr", "label","Beheerportaal")
+      .should("have.attr", "label", "Beheerportaal")
       .shadow()
       .find(".logo-label")
       .should("be.visible")
