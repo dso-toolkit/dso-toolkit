@@ -9,7 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Expandable: Overflow stays hidden when fully expanded ([#2471](https://github.com/dso-toolkit/dso-toolkit/issues/2471))
 * Logo: Fix contrast in ribbon and enable accessibility test ([#2384](https://github.com/dso-toolkit/dso-toolkit/issues/2384))
 * Logo: Responsiveness stuk ([#2489](https://github.com/dso-toolkit/dso-toolkit/issues/2489))
-* List Button: Trefwoorden worden niet voorgelezen als onderdeel van het resultaat/werkzaamheid ([#2294](https://github.com/dso-toolkit/dso-toolkit/issues/2294))
+* List Button: Trefwoorden worden niet voorgelezen als onderdeel van het resultaat/werkzaamheid. ([#2294]
+  (https://github.com/dso-toolkit/dso-toolkit/issues/2294))
 
 ### Docs
 * Web Components: Extra interfaces meedocumenteren in readme.md ([#2381](https://github.com/dso-toolkit/dso-toolkit/issues/2381))
