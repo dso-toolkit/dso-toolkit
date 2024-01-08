@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  State,
+  Watch,
+  forceUpdate,
+} from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import { createFocusTrap, FocusTrap } from "focus-trap";
@@ -10,7 +21,14 @@ import clsx from "clsx";
   styleUrl: "list-button.scss",
 })
 export class ListButton implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoListButtonElement;
+
   private trap?: FocusTrap;
+
+  private mutationObserver?: MutationObserver;
+
+  private subcontentSlot: HTMLElement | null = null;
 
   @State()
   private manualInputWrapperElement?: HTMLDivElement;
@@ -92,6 +110,18 @@ export class ListButton implements ComponentInterface {
   }
 
   componentDidRender(): void {
+    this.mutationObserver = new MutationObserver(() => {
+      this.subcontentSlot = this.host.querySelector<HTMLElement>("[slot='subcontent']");
+      forceUpdate(this.host);
+    });
+
+    this.mutationObserver.observe(this.host, {
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
       this.trap = createFocusTrap(this.manualInputWrapperElement, {
         escapeDeactivates: true,
@@ -114,6 +144,9 @@ export class ListButton implements ComponentInterface {
 
   disconnectedCallback(): void {
     this.trap?.deactivate();
+
+    this.mutationObserver?.disconnect();
+    delete this.mutationObserver;
   }
 
   private handleOnChange({ target }: Event): void {
@@ -126,7 +159,7 @@ export class ListButton implements ComponentInterface {
     if (typeof this.count === "number") {
       const newValue = direction === "increment" ? this.count + 1 : this.count - 1;
 
-      if (this.isNewCountValid(newValue) === false) {
+      if (!this.isNewCountValid(newValue)) {
         return;
       }
 
@@ -176,15 +209,11 @@ export class ListButton implements ComponentInterface {
   }
 
   private isNewCountValid(newValue: number): boolean {
-    if (
+    return !(
       this.min !== undefined &&
       this.max !== undefined &&
       (newValue < Number(this.min) || newValue > Number(this.max))
-    ) {
-      return false;
-    }
-
-    return true;
+    );
   }
 
   render() {
@@ -204,11 +233,14 @@ export class ListButton implements ComponentInterface {
               type="checkbox"
               value="list-button"
               name="naam"
+              aria-describedby={this.subcontentSlot ? "description" : null}
               checked={selected}
               disabled={this.disabled}
-              aria-label={this.label}
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
+            {this.subcontentSlot && (
+              <div aria-hidden="true" class="sr-only" id="description" innerHTML={this.subcontentSlot.innerHTML}></div>
+            )}
           </div>
           {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
           <slot name="subcontent" />
@@ -253,7 +285,7 @@ export class ListButton implements ComponentInterface {
                   />
                 </div>
 
-                {this.manual === true && (
+                {this.manual && (
                   <button
                     class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
                     type={!showButtonInputs ? "submit" : "button"}
