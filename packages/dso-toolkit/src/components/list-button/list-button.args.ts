@@ -11,6 +11,7 @@ export interface ListButtonArgs {
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
+  subcontentPrefix?: string;
   checked?: boolean;
   count?: number;
   min?: number;
@@ -40,6 +41,11 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
     },
   },
   subcontent: {
+    control: {
+      type: "text",
+    },
+  },
+  subcontentPrefix: {
     control: {
       type: "text",
     },

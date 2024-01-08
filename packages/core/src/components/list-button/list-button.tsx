@@ -81,6 +81,12 @@ export class ListButton implements ComponentInterface {
   disabled = false;
 
   /**
+   * Prefix to subcontent for the purpose of screenreading.
+   */
+  @Prop()
+  subcontentPrefix?: string;
+
+  /**
    * Allow user to directly input a value.
    *
    * Set to `false` to force users to use plus/minus buttons.
@@ -239,7 +245,10 @@ export class ListButton implements ComponentInterface {
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
             {this.subcontentSlot && (
-              <div aria-hidden="true" class="sr-only" id="description" innerHTML={this.subcontentSlot.innerHTML}></div>
+              <div aria-hidden="true" class="sr-only" id="description">
+                {this.subcontentPrefix}
+                <div innerHTML={this.subcontentSlot.innerHTML}></div>
+              </div>
             )}
           </div>
           {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
