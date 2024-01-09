@@ -26,10 +26,12 @@ describe("ListButton", () => {
       .get("@dsoListButtonShadow")
       .find(".dso-sublabel")
       .should("contain.text", "Sublabel")
-      .get("@dsoListButtonShadow");
+      .get("@dsoListButtonShadow")
+      .find(".dso-selectable > #dso-list-button-checkbox")
+      .should("not.have.attr", "aria-describedby");
   });
 
-  it("should render subcontent in slot", () => {
+  it("should render subcontent in slot without prefix", () => {
     cy.get("dso-list-button").invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
 
     cy.get("dso-list-button")
@@ -41,6 +43,30 @@ describe("ListButton", () => {
         cy.get('dso-list-button > [slot="subcontent"]').invoke("get", 0).should("equal", assignedNodes[0]);
       })
       .percySnapshot();
+
+    cy.get("dso-list-button")
+      .shadow()
+      .as("dsoListButtonShadow")
+      .find(".dso-selectable > #dso-list-button-checkbox")
+      .should("have.attr", "aria-describedby", "description")
+      .get("@dsoListButtonShadow")
+      .find(".dso-selectable > #description")
+      .should("have.class", "sr-only")
+      .and("have.attr", "aria-hidden", "true")
+      .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
+  });
+
+  it("should render subcontent in slot with prefix", () => {
+    cy.get("dso-list-button")
+      .invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`)
+      .get("dso-list-button")
+      .invoke("prop", "subcontentPrefix", "subcontentPrefix")
+      .shadow()
+      .find(".dso-selectable > #description")
+      .should("have.class", "sr-only")
+      .and("have.attr", "aria-hidden", "true")
+      .and("contain", "subcontentPrefix")
+      .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
   });
 
   it("should be accessible", () => {
