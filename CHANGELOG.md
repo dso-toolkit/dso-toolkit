@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🚙 62.9.0
+
 ### Fixed
 * Expandable: Overflow stays hidden when fully expanded ([#2471](https://github.com/dso-toolkit/dso-toolkit/issues/2471))
 * Logo: Fix contrast in ribbon and enable accessibility test ([#2384](https://github.com/dso-toolkit/dso-toolkit/issues/2384))
