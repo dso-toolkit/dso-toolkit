@@ -117,5 +117,5 @@ Ports used during development:
 - 43300 - Docusaurus
 - 45333 - Stencil
 - 45000 - Storybook for HTML/CSS + Web Components
-- 56406 - Storybook for React components
+- 45600 - Storybook for React components
 - 46006 - Storybook for Angular Components
