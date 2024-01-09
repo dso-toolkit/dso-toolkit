@@ -101,7 +101,7 @@ The following processes are started:
 
 - **default**: CSS in watch mode, Stencil in watch mode, Storybook and Cypress
 - **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
-- **--react**: CSS in watch mode, Stencil in watch mode, Storybook for Angular components
+- **--angular**: CSS in watch mode, Stencil in watch mode, Storybook for Angular components
 - **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React and Angular components
 
 This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
