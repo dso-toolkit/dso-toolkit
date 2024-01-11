@@ -28,7 +28,9 @@ export class ListButton implements ComponentInterface {
 
   private mutationObserver?: MutationObserver;
 
-  private subcontentSlot: HTMLElement | null = null;
+  private get subcontentSlot() {
+    return this.host.querySelector<HTMLElement>("[slot='subcontent']");
+  }
 
   @State()
   private manualInputWrapperElement?: HTMLDivElement;
@@ -115,11 +117,8 @@ export class ListButton implements ComponentInterface {
     }
   }
 
-  componentDidRender(): void {
-    this.mutationObserver = new MutationObserver(() => {
-      this.subcontentSlot = this.host.querySelector<HTMLElement>("[slot='subcontent']");
-      forceUpdate(this.host);
-    });
+  connectedCallback() {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
     this.mutationObserver.observe(this.host, {
       characterData: true,
@@ -127,7 +126,9 @@ export class ListButton implements ComponentInterface {
       subtree: true,
       attributes: true,
     });
+  }
 
+  componentDidRender(): void {
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
       this.trap = createFocusTrap(this.manualInputWrapperElement, {
         escapeDeactivates: true,
@@ -246,7 +247,7 @@ export class ListButton implements ComponentInterface {
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
             {this.subcontentSlot && (
               <div aria-hidden="true" class="sr-only" id="description">
-                {this.subcontentPrefix}
+                {this.subcontentPrefix && this.subcontentPrefix + ":"}
                 <div innerHTML={this.subcontentSlot.innerHTML}></div>
               </div>
             )}

@@ -27,7 +27,7 @@ describe("ListButton", () => {
       .find(".dso-sublabel")
       .should("contain.text", "Sublabel")
       .get("@dsoListButtonShadow")
-      .find(".dso-selectable > #dso-list-button-checkbox")
+      .find("#dso-list-button-checkbox")
       .should("not.have.attr", "aria-describedby");
   });
 
@@ -47,10 +47,10 @@ describe("ListButton", () => {
     cy.get("dso-list-button")
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-selectable > #dso-list-button-checkbox")
+      .find("#dso-list-button-checkbox")
       .should("have.attr", "aria-describedby", "description")
       .get("@dsoListButtonShadow")
-      .find(".dso-selectable > #description")
+      .find("#description")
       .should("have.class", "sr-only")
       .and("have.attr", "aria-hidden", "true")
       .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
@@ -62,10 +62,10 @@ describe("ListButton", () => {
       .get("dso-list-button")
       .invoke("prop", "subcontentPrefix", "subcontentPrefix")
       .shadow()
-      .find(".dso-selectable > #description")
+      .find("#description")
       .should("have.class", "sr-only")
       .and("have.attr", "aria-hidden", "true")
-      .and("contain", "subcontentPrefix")
+      .and("contain", "subcontentPrefix:")
       .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
   });
 
