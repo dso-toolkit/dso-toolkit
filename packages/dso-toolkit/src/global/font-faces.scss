@@ -2,88 +2,19 @@
 
 @font-face {
   font-family: "Asap";
-  font-style: normal;
-  font-weight: 400;
   src:
-    local("Asap Regular"),
-    local("Asap-Regular"),
-    url("#{config.$asap-font-path}Asap-Regular.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-Regular.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-VariableFont_wdth,wght.ttf") format("truetype supports variations"),
+    url("#{config.$asap-font-path}Asap-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Asap";
   font-style: italic;
-  font-weight: 400;
   src:
-    local("Asap Regular italic"),
-    local("Asap-Regularitalic"),
-    url("#{config.$asap-font-path}Asap-Italic.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-Italic.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: normal;
-  font-weight: 500;
-  src:
-    local("Asap Bold"),
-    local("Asap-Bold"),
-    url("#{config.$asap-font-path}Asap-Medium.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-Medium.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: italic;
-  font-weight: 500;
-  src:
-    local("Asap Bold italic"),
-    local("Asap-Bolditalic"),
-    url("#{config.$asap-font-path}Asap-MediumItalic.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-MediumItalic.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: normal;
-  font-weight: 600;
-  src:
-    local("Asap Bold"),
-    local("Asap-Bold"),
-    url("#{config.$asap-font-path}Asap-SemiBold.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-SemiBold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: italic;
-  font-weight: 600;
-  src:
-    local("Asap Bold italic"),
-    local("Asap-Bolditalic"),
-    url("#{config.$asap-font-path}Asap-SemiBoldItalic.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-SemiBoldItalic.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: normal;
-  font-weight: 700;
-  src:
-    local("Asap Bold"),
-    local("Asap-Bold"),
-    url("#{config.$asap-font-path}Asap-Bold.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-Bold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Asap";
-  font-style: italic;
-  font-weight: 700;
-  src:
-    local("Asap Bold italic"),
-    local("Asap-Bolditalic"),
-    url("#{config.$asap-font-path}Asap-BoldItalic.woff2") format("woff2"),
-    url("#{config.$asap-font-path}Asap-BoldItalic.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-Italic-VariableFont_wdth,wght.ttf") format("truetype supports variations"),
+    url("#{config.$asap-font-path}Asap-Italic-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-display: swap;
 }
