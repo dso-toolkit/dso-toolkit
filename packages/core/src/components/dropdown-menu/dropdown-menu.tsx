@@ -4,6 +4,7 @@ import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 import { hasOverflow } from "../../utils/has-overflow";
+import { createFocusTrap, FocusTrap } from "focus-trap";
 
 @Component({
   tag: "dso-dropdown-menu",
@@ -11,6 +12,7 @@ import { hasOverflow } from "../../utils/has-overflow";
   shadow: true,
 })
 export class DropdownMenu {
+  private trap?: FocusTrap;
   /**
    * Whether the menu is open or closed.
    * This attribute is reflected and mutable.
@@ -85,6 +87,32 @@ export class DropdownMenu {
   @Watch("strategy")
   watchStrategy() {
     this.setStrategy();
+  }
+
+  private createTrap() {
+    this.trap = createFocusTrap(this.host, {
+      clickOutsideDeactivates: () => {
+        this.open = false;
+        this.trap?.deactivate();
+        delete this.trap;
+
+        return true;
+      },
+      escapeDeactivates: (event) => {
+        if (event instanceof KeyboardEvent) {
+          this.open = false;
+          this.trap?.deactivate();
+          delete this.trap;
+        }
+
+        return true;
+      },
+      tabbableOptions: {
+        getShadowRoot: true,
+      },
+      setReturnFocus: this.button ?? false,
+      initialFocus: this.button ?? false,
+    }).activate();
   }
 
   private setStrategy() {
@@ -199,6 +227,11 @@ export class DropdownMenu {
     this.setStrategy();
     if (this.open) {
       this.popper?.update();
+      this.createTrap();
+    } else {
+      this.trap?.deactivate();
+
+      delete this.trap;
     }
 
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
@@ -228,12 +261,6 @@ export class DropdownMenu {
   disconnectedCallback() {
     this.popper?.destroy();
   }
-
-  private focusOutListener = (event: FocusEvent) => {
-    if (!this.tabbables.includes(event.relatedTarget as FocusableElement)) {
-      this.open = false;
-    }
-  };
 
   private keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
@@ -302,7 +329,7 @@ export class DropdownMenu {
 
   render() {
     return (
-      <Host onFocusout={this.focusOutListener} tabindex={this.open ? "-1" : undefined}>
+      <Host tabindex={this.open ? "-1" : undefined}>
         <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />
