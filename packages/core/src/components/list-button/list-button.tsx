@@ -147,6 +147,8 @@ export class ListButton implements ComponentInterface {
 
       delete this.trap;
     }
+
+    this.subcontentSlot?.setAttribute("aria-hidden", "true");
   }
 
   disconnectedCallback(): void {
@@ -246,7 +248,7 @@ export class ListButton implements ComponentInterface {
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
             {this.subcontentSlot && (
-              <div aria-hidden="true" class="sr-only" id="description">
+              <div class="sr-only" id="description">
                 {this.subcontentPrefix && this.subcontentPrefix + ":"}
                 <div innerHTML={this.subcontentSlot.innerHTML}></div>
               </div>

@@ -52,7 +52,6 @@ describe("ListButton", () => {
       .get("@dsoListButtonShadow")
       .find("#description")
       .should("have.class", "sr-only")
-      .and("have.attr", "aria-hidden", "true")
       .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
   });
 
@@ -64,7 +63,6 @@ describe("ListButton", () => {
       .shadow()
       .find("#description")
       .should("have.class", "sr-only")
-      .and("have.attr", "aria-hidden", "true")
       .and("contain", "subcontentPrefix:")
       .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
   });
