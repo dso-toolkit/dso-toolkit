@@ -32,7 +32,7 @@ export const reactListButton: ComponentImplementation<ListButton> = {
           max={max}
           disabled={disabled}
           checked={checked}
-          subcontentPrefix={subcontentPrefix}
+          subcontentPrefix={subcontentPrefix || null}
           onDsoCountChange={dsoCountChange}
           onDsoSelectedChange={dsoSelectedChange}
         >

@@ -242,7 +242,9 @@ export class ListButton implements ComponentInterface {
               type="checkbox"
               value="list-button"
               name="naam"
-              aria-describedby={this.subcontentSlot ? "description" : null}
+              aria-describedby={
+                [this.sublabel && "sublabel", this.subcontentSlot && "description"].filter((s) => !!s).join(" ") || null
+              }
               checked={selected}
               disabled={this.disabled}
             />
@@ -254,7 +256,11 @@ export class ListButton implements ComponentInterface {
               </div>
             )}
           </div>
-          {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
+          {this.sublabel && (
+            <span class="dso-sublabel" id="sublabel">
+              {this.sublabel}
+            </span>
+          )}
           <slot name="subcontent" />
         </div>
 

@@ -33,7 +33,7 @@ export const coreListButton: ComponentImplementation<ListButton> = {
           ?manual=${manual}
           ?disabled=${disabled}
           ?checked=${checked}
-          subcontent-prefix=${subcontentPrefix}
+          subcontent-prefix=${ifDefined(subcontentPrefix || undefined)}
           @dsoCountChange=${dsoCountChange}
           @dsoSelectedChange=${dsoSelectedChange}
         >

@@ -28,7 +28,21 @@ describe("ListButton", () => {
       .should("contain.text", "Sublabel")
       .get("@dsoListButtonShadow")
       .find("#dso-list-button-checkbox")
-      .should("not.have.attr", "aria-describedby");
+      .should("have.attr", "aria-describedby", "sublabel")
+      .get("@dsoListButton")
+      .then(($listButton) => {
+        $listButton.append('<span slot="subcontent">Subcontent</span>');
+      })
+      .get("@dsoListButtonShadow")
+      .find("#dso-list-button-checkbox")
+      .should("have.attr", "aria-describedby", "sublabel description")
+      .get("@dsoListButtonShadow")
+      .find("#description")
+      .should("have.class", "sr-only")
+      .and("contain", "Subcontent")
+      .get("@dsoListButton")
+      .find('> [slot="subcontent"]')
+      .should("have.attr", "aria-hidden", "true");
   });
 
   it("should render subcontent in slot without prefix", () => {
