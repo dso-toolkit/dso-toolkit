@@ -12,7 +12,7 @@ import { AnnotationOutputCloseEvent } from "./components/annotation-output/annot
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
-import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
@@ -40,7 +40,7 @@ export { AnnotationOutputCloseEvent } from "./components/annotation-output/annot
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
-export { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
@@ -1258,7 +1258,7 @@ declare global {
     };
     interface HTMLDsoDatePickerElementEventMap {
         "dsoDateChange": DatePickerChangeEvent;
-        "dsoBlur": DatePickerFocusEvent;
+        "dsoBlur": DatePickerBlurEvent;
         "dsoKeyUp": DatePickerKeyboardEvent;
         "dsoKeyDown": DatePickerKeyboardEvent;
         "dsoFocus": DatePickerFocusEvent;
@@ -2050,7 +2050,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted the date picker input is blurred.
          */
-        "onDsoBlur"?: (event: DsoDatePickerCustomEvent<DatePickerFocusEvent>) => void;
+        "onDsoBlur"?: (event: DsoDatePickerCustomEvent<DatePickerBlurEvent>) => void;
         /**
           * Event emitted when a date is selected.
          */

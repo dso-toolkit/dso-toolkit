@@ -35,7 +35,7 @@ export interface DatePickerChangeEvent {
    *
    * For more data on the validity of the input, refer to the property `validity`.
    */
-  error?: "required" | "min-range" | "max-range" | "invalid";
+  error?: DatePickerError;
 }
 
 export interface DatePickerFocusEvent {
@@ -43,7 +43,13 @@ export interface DatePickerFocusEvent {
   component: "dso-date-picker";
 }
 
+export interface DatePickerBlurEvent extends DatePickerChangeEvent {
+  originalEvent: FocusEvent;
+}
+
 export interface DatePickerKeyboardEvent {
   originalEvent: KeyboardEvent;
   component: "dso-date-picker";
 }
+
+export type DatePickerError = "required" | "min-range" | "max-range" | "invalid";

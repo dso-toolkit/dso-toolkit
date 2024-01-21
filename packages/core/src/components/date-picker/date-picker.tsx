@@ -1,6 +1,12 @@
 import { Component, ComponentInterface, Prop, Element, h, Event, EventEmitter } from "@stencil/core";
 
-import { DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./date-picker.interfaces";
+import {
+  DatePickerBlurEvent,
+  DatePickerChangeEvent,
+  DatePickerError,
+  DatePickerFocusEvent,
+  DatePickerKeyboardEvent,
+} from "./date-picker.interfaces";
 import { parseToValueFormat, parseToDutchFormat } from "./date-utils";
 
 @Component({
@@ -93,7 +99,7 @@ export class DsoDatePicker implements ComponentInterface {
    * Event emitted the date picker input is blurred.
    */
   @Event()
-  dsoBlur!: EventEmitter<DatePickerFocusEvent>;
+  dsoBlur!: EventEmitter<DatePickerBlurEvent>;
 
   /**
    * Event emitted on key up in the date picker input.
@@ -113,13 +119,29 @@ export class DsoDatePicker implements ComponentInterface {
   @Event()
   dsoFocus!: EventEmitter<DatePickerFocusEvent>;
 
-  private handleBlur = (event: FocusEvent) => {
-    event.stopPropagation();
+  private handleBlur = (e: FocusEvent) => {
+    e.stopPropagation();
 
-    this.dsoBlur.emit({
-      originalEvent: event,
+    const { target } = e;
+
+    if (!(target instanceof HTMLInputElement)) {
+      return;
+    }
+
+    const { validity } = target;
+    const { value, valueAsDate } = this.dateValues(target);
+    const error = this.validityToError(validity);
+
+    const event: DatePickerBlurEvent = {
       component: "dso-date-picker",
-    });
+      originalEvent: e,
+      validity,
+      value,
+      valueAsDate,
+      error,
+    };
+
+    this.dsoBlur.emit(event);
   };
 
   private handleFocus = (event: FocusEvent) => {
@@ -156,30 +178,50 @@ export class DsoDatePicker implements ComponentInterface {
       return;
     }
 
-    const { valueAsDate, validity } = target;
+    const { validity } = target;
+    const { value, valueAsDate } = this.dateValues(target);
+    const error = this.validityToError(validity);
 
     const event: DatePickerChangeEvent = {
       component: "dso-date-picker",
       originalEvent: e,
       validity,
-      value: parseToDutchFormat(valueAsDate),
-      valueAsDate: valueAsDate ?? undefined,
+      value,
+      valueAsDate,
+      error,
     };
-
-    if (validity.valueMissing) {
-      event.error = "required";
-    } else if (validity.rangeUnderflow) {
-      event.error = "min-range";
-      event.valueAsDate = undefined;
-    } else if (validity.rangeOverflow) {
-      event.error = "max-range";
-      event.valueAsDate = undefined;
-    } else if (!validity.valid) {
-      event.error = "invalid";
-    }
 
     this.dsoDateChange.emit(event);
   };
+
+  private dateValues(target: HTMLInputElement): { value: string; valueAsDate: Date | undefined } {
+    const { valueAsDate, validity } = target;
+
+    return {
+      value: parseToDutchFormat(valueAsDate),
+      valueAsDate: (!validity.rangeOverflow && !validity.rangeUnderflow && valueAsDate) || undefined,
+    };
+  }
+
+  private validityToError(validity: ValidityState): DatePickerError | undefined {
+    if (validity.valueMissing) {
+      return "required";
+    }
+
+    if (validity.rangeUnderflow) {
+      return "min-range";
+    }
+
+    if (validity.rangeOverflow) {
+      return "max-range";
+    }
+
+    if (!validity.valid) {
+      return "invalid";
+    }
+
+    return undefined;
+  }
 
   render() {
     return (

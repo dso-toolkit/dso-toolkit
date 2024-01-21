@@ -23,7 +23,7 @@
 
 | Event           | Description                                         | Type                                   |
 | --------------- | --------------------------------------------------- | -------------------------------------- |
-| `dsoBlur`       | Event emitted the date picker input is blurred.     | `CustomEvent<DatePickerFocusEvent>`    |
+| `dsoBlur`       | Event emitted the date picker input is blurred.     | `CustomEvent<DatePickerBlurEvent>`     |
 | `dsoDateChange` | Event emitted when a date is selected.              | `CustomEvent<DatePickerChangeEvent>`   |
 | `dsoFocus`      | Event emitted the date picker input is focused.     | `CustomEvent<DatePickerFocusEvent>`    |
 | `dsoKeyDown`    | Event emitted on key down in the date picker input. | `CustomEvent<DatePickerKeyboardEvent>` |

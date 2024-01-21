@@ -6,6 +6,10 @@ export interface DatePickerArgs {
   id: string;
   label: string;
   dsoDateChange: HandlerFunction;
+  dsoBlur: HandlerFunction;
+  dsoKeyUp: HandlerFunction;
+  dsoKeyDown: HandlerFunction;
+  dsoFocus: HandlerFunction;
   value: string;
   min: string;
   max: string;
@@ -13,6 +17,7 @@ export interface DatePickerArgs {
   autofocus: boolean;
   invalid: boolean;
   describedBy: string;
+  required?: boolean;
 }
 
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
@@ -62,9 +67,26 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   dsoDateChange: {
     action: "dsoDateChange",
   },
+  dsoBlur: {
+    action: "dsoBlur",
+  },
+  dsoFocus: {
+    action: "dsoFocus",
+  },
+  dsoKeyDown: {
+    action: "dsoKeyDown",
+  },
+  dsoKeyUp: {
+    action: "dsoKeyUp",
+  },
+  required: {
+    control: {
+      type: "boolean",
+    },
+  },
 };
 
-export function datePickerArgsMapper(a: DatePickerArgs): Required<DatePicker> {
+export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
   return {
     ...a,
     dsoDateChange: (e) => a.dsoDateChange(e.detail),
