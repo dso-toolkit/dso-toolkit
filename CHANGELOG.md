@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪨 62.10.0 - 21-01-2024
+
 ### Added
 * Date Picker: onDsoBlur uitbreiden met Validity object ([#2502](https://github.com/dso-toolkit/dso-toolkit/issues/2502))
 
