@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * List Button: Trefwoorden worden niet voorgelezen als onderdeel van het resultaat/werkzaamheid ([#2294](https://github.com/dso-toolkit/dso-toolkit/issues/2294))
+* Modal: showModal() alleen aanroepen als dialog.isConnected ([#2512](https://github.com/dso-toolkit/dso-toolkit/issues/2512))
 
 ## 🚙 62.9.0
 

@@ -57,7 +57,10 @@ export class Modal implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    this.htmlDialogElement?.showModal();
+    if (this.htmlDialogElement?.isConnected) {
+      this.htmlDialogElement.showModal();
+    }
+
     document.body.classList.add("dso-modal-open");
   }
 
