@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  State,
+  Watch,
+  forceUpdate,
+} from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import { createFocusTrap, FocusTrap } from "focus-trap";
@@ -10,7 +21,16 @@ import clsx from "clsx";
   styleUrl: "list-button.scss",
 })
 export class ListButton implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoListButtonElement;
+
   private trap?: FocusTrap;
+
+  private mutationObserver?: MutationObserver;
+
+  private get subcontentSlot() {
+    return this.host.querySelector<HTMLElement>("[slot='subcontent']");
+  }
 
   @State()
   private manualInputWrapperElement?: HTMLDivElement;
@@ -63,6 +83,12 @@ export class ListButton implements ComponentInterface {
   disabled = false;
 
   /**
+   * Prefix to subcontent for the purpose of screenreading.
+   */
+  @Prop()
+  subcontentPrefix?: string;
+
+  /**
    * Allow user to directly input a value.
    *
    * Set to `false` to force users to use plus/minus buttons.
@@ -91,6 +117,17 @@ export class ListButton implements ComponentInterface {
     }
   }
 
+  connectedCallback() {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+
+    this.mutationObserver.observe(this.host, {
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+  }
+
   componentDidRender(): void {
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
       this.trap = createFocusTrap(this.manualInputWrapperElement, {
@@ -110,10 +147,15 @@ export class ListButton implements ComponentInterface {
 
       delete this.trap;
     }
+
+    this.subcontentSlot?.setAttribute("aria-hidden", "true");
   }
 
   disconnectedCallback(): void {
     this.trap?.deactivate();
+
+    this.mutationObserver?.disconnect();
+    delete this.mutationObserver;
   }
 
   private handleOnChange({ target }: Event): void {
@@ -126,7 +168,7 @@ export class ListButton implements ComponentInterface {
     if (typeof this.count === "number") {
       const newValue = direction === "increment" ? this.count + 1 : this.count - 1;
 
-      if (this.isNewCountValid(newValue) === false) {
+      if (!this.isNewCountValid(newValue)) {
         return;
       }
 
@@ -176,15 +218,11 @@ export class ListButton implements ComponentInterface {
   }
 
   private isNewCountValid(newValue: number): boolean {
-    if (
+    return !(
       this.min !== undefined &&
       this.max !== undefined &&
       (newValue < Number(this.min) || newValue > Number(this.max))
-    ) {
-      return false;
-    }
-
-    return true;
+    );
   }
 
   render() {
@@ -204,13 +242,25 @@ export class ListButton implements ComponentInterface {
               type="checkbox"
               value="list-button"
               name="naam"
+              aria-describedby={
+                [this.sublabel && "sublabel", this.subcontentSlot && "description"].filter((s) => !!s).join(" ") || null
+              }
               checked={selected}
               disabled={this.disabled}
-              aria-label={this.label}
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
+            {this.subcontentSlot && (
+              <div class="sr-only" id="description">
+                {this.subcontentPrefix && this.subcontentPrefix + ":"}
+                <div innerHTML={this.subcontentSlot.innerHTML}></div>
+              </div>
+            )}
           </div>
-          {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
+          {this.sublabel && (
+            <span class="dso-sublabel" id="sublabel">
+              {this.sublabel}
+            </span>
+          )}
           <slot name="subcontent" />
         </div>
 
@@ -253,7 +303,7 @@ export class ListButton implements ComponentInterface {
                   />
                 </div>
 
-                {this.manual === true && (
+                {this.manual && (
                   <button
                     class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
                     type={!showButtonInputs ? "submit" : "button"}

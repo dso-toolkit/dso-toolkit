@@ -8,6 +8,7 @@ export interface ListButton {
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
+  subcontentPrefix?: string;
   count?: number;
   min?: number;
   max?: number;

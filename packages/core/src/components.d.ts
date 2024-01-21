@@ -639,6 +639,10 @@ export namespace Components {
          */
         "min"?: string | number;
         /**
+          * Prefix to subcontent for the purpose of screenreading.
+         */
+        "subcontentPrefix"?: string;
+        /**
           * The sublabel of the List Button.
          */
         "sublabel"?: string;
@@ -2473,6 +2477,10 @@ declare namespace LocalJSX {
           * Emitted when the user activates the List Button itself.  Does not fire when the user activates the count controls.
          */
         "onDsoSelectedChange"?: (event: DsoListButtonCustomEvent<ListButtonSelectedEvent>) => void;
+        /**
+          * Prefix to subcontent for the purpose of screenreading.
+         */
+        "subcontentPrefix"?: string;
         /**
           * The sublabel of the List Button.
          */

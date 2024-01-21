@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                     | Type                            | Default     |
-| ---------- | ---------- | ----------------------------------------------------------------------------------------------- | ------------------------------- | ----------- |
-| `checked`  | `checked`  | Whether the List Button is checked.                                                             | `boolean`                       | `false`     |
-| `count`    | `count`    | When defined the count can show on the List Button.                                             | `number \| undefined`           | `undefined` |
-| `disabled` | `disabled` | Whether the List Button is disabled.                                                            | `boolean`                       | `false`     |
-| `label`    | `label`    | The label of the List Button.                                                                   | `string \| undefined`           | `undefined` |
-| `manual`   | `manual`   | Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons. | `boolean`                       | `true`      |
-| `max`      | `max`      | The maximum value.                                                                              | `number \| string \| undefined` | `undefined` |
-| `min`      | `min`      | The minimum value.                                                                              | `number \| string \| undefined` | `undefined` |
-| `sublabel` | `sublabel` | The sublabel of the List Button.                                                                | `string \| undefined`           | `undefined` |
+| Property           | Attribute           | Description                                                                                     | Type                            | Default     |
+| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------- | ----------- |
+| `checked`          | `checked`           | Whether the List Button is checked.                                                             | `boolean`                       | `false`     |
+| `count`            | `count`             | When defined the count can show on the List Button.                                             | `number \| undefined`           | `undefined` |
+| `disabled`         | `disabled`          | Whether the List Button is disabled.                                                            | `boolean`                       | `false`     |
+| `label`            | `label`             | The label of the List Button.                                                                   | `string \| undefined`           | `undefined` |
+| `manual`           | `manual`            | Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons. | `boolean`                       | `true`      |
+| `max`              | `max`               | The maximum value.                                                                              | `number \| string \| undefined` | `undefined` |
+| `min`              | `min`               | The minimum value.                                                                              | `number \| string \| undefined` | `undefined` |
+| `subcontentPrefix` | `subcontent-prefix` | Prefix to subcontent for the purpose of screenreading.                                          | `string \| undefined`           | `undefined` |
+| `sublabel`         | `sublabel`          | The sublabel of the List Button.                                                                | `string \| undefined`           | `undefined` |
 
 
 ## Events
