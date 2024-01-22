@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Dropdown Menu: focus trap hamburger menu ([#2392](https://github.com/dso-toolkit/dso-toolkit/issues/2392))
+
 ## 🪨 62.10.0 - 21-01-2024
 
 ### Added

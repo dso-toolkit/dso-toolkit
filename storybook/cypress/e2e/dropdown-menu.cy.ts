@@ -64,7 +64,7 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("have.attr", "role", "menuitem");
   });
 
-  it("tab should tab out and close menu at the bottom", { browser: "!firefox" }, () => {
+  it("tab should cycle through options and button", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     for (const _ of [1, 2, 3]) {
@@ -77,12 +77,12 @@ describe("Dropdown menu - anchors", () => {
       cy.realPress("Tab");
     }
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@button").should("have.focus");
 
-    cy.get("@button").should("not.have.focus");
+    cy.get("@menuitems").should("be.visible");
   });
 
-  it("shift-tab should tab out and close menu at the top", { browser: "!firefox" }, () => {
+  it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("Tab");
@@ -91,9 +91,9 @@ describe("Dropdown menu - anchors", () => {
 
     cy.realPress(["Shift", "Tab"]);
 
-    cy.get("@options").should("not.be.visible");
-
     cy.get("@button").should("have.focus");
+
+    cy.get("@menuitems").should("be.visible");
   });
 
   it("arrow down should cycle menu", { browser: "!firefox" }, () => {
@@ -240,7 +240,7 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
   });
 
-  it("tab should tab out and close menu at the bottom", { browser: "!firefox" }, () => {
+  it("tab should cycle through options and button", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("Tab");
@@ -250,12 +250,12 @@ describe("Dropdown menu - buttons", () => {
 
     cy.realPress("Tab");
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@button").should("have.focus");
 
-    cy.get("@button").should("not.have.focus");
+    cy.get("@options").should("be.visible");
   });
 
-  it("shift-tab should tab out and close menu at the top", { browser: "!firefox" }, () => {
+  it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("Tab");
@@ -264,7 +264,7 @@ describe("Dropdown menu - buttons", () => {
 
     cy.realPress(["Shift", "Tab"]);
 
-    cy.get("@options").should("not.be.visible");
+    cy.get("@options").should("be.visible");
 
     cy.get("@button").should("have.focus");
   });
