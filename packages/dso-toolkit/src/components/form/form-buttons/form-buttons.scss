@@ -1,37 +1,64 @@
-@use "../../../utilities";
 @use "../../../variables/units";
 @use "../../../variables/typography";
 @use "../../button";
+@use "../../../variables/media-query-breakpoints";
+@use "../../../variables/colors.scss";
+@use "../../button/button.variables.scss" as button-variables;
 
 .dso-form-buttons {
-  @include utilities.clearfix();
+  display: flex;
+  flex-direction: column;
+  gap: units.$u2;
 
-  margin-bottom: units.$vertical-spacing-medium;
-  text-align: right;
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  margin-block-end: units.$vertical-spacing-medium;
 
   &:last-child {
-    margin-bottom: units.$vertical-spacing-xlarge;
+    margin-block-end: units.$vertical-spacing-xlarge;
+  }
+
+  .dso-secondary + .dso-primary,
+  .dso-primary + .dso-secondary {
+    margin-inline: 0; // reset
   }
 
   a,
   button {
     &.dso-tertiary {
       line-height: typography.$line-height-base;
-      padding: button.$vertical-padding 0; // $horizontal??
+
+      padding: button.$vertical-padding 0;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+        display: block;
+
+        inline-size: 100%;
+
+        background-color: colors.$grasgroen-10;
+
+        border-radius: button-variables.$border-radius;
+
+        text-align: center;
+        color: colors.$bosgroen;
+      }
+    }
+    &.dso-primary,
+    &.dso-secondary {
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+        text-align: center;
+      }
     }
   }
 
   .dso-aside {
-    clear: both;
-    float: left;
-  }
-}
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      display: inline-block;
 
-.dso-single-page {
-  &.dso-form-buttons,
-  .dso-form-buttons {
-    #{button.$buttons} {
-      float: left;
+      margin-inline-end: auto;
     }
   }
 }
