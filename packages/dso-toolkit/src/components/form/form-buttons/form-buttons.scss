@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: units.$u2;
 
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
     flex-direction: row;
     justify-content: flex-end;
   }
@@ -33,10 +33,12 @@
 
       padding: button.$vertical-padding 0;
 
-      @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
         display: block;
 
         inline-size: 100%;
+
+        padding-inline: button-variables.$horizontal-padding;
 
         background-color: colors.$grasgroen-10;
 
@@ -48,14 +50,14 @@
     }
     &.dso-primary,
     &.dso-secondary {
-      @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
         text-align: center;
       }
     }
   }
 
   .dso-aside {
-    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
       display: inline-block;
 
       margin-inline-end: auto;
