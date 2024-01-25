@@ -33,7 +33,7 @@
 
       padding: button.$vertical-padding 0;
 
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      @media screen and (max-width: media-query-breakpoints.$screen-xxs-max) {
         display: block;
 
         inline-size: 100%;
@@ -50,7 +50,7 @@
     }
     &.dso-primary,
     &.dso-secondary {
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      @media screen and (max-width: media-query-breakpoints.$screen-xxs-max) {
         text-align: center;
       }
     }
