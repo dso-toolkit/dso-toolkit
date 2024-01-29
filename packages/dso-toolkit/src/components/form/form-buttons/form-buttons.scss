@@ -3,7 +3,6 @@
 @use "../../button";
 @use "../../../variables/media-query-breakpoints";
 @use "../../../variables/colors.scss";
-@use "../../button/button.variables.scss" as button-variables;
 
 .dso-form-buttons {
   display: flex;
@@ -32,7 +31,7 @@
   button {
     &.dso-tertiary {
       padding-block: button.$vertical-padding;
-      padding-inline-end: button-variables.$horizontal-padding;
+      padding-inline-end: button.$horizontal-padding;
 
       line-height: typography.$line-height-base;
 
@@ -41,11 +40,11 @@
 
         inline-size: 100%;
 
-        padding-inline-start: button-variables.$horizontal-padding;
+        padding-inline-start: button.$horizontal-padding;
 
         background-color: colors.$grasgroen-10;
 
-        border-radius: button-variables.$border-radius;
+        border-radius: button.$border-radius;
 
         color: colors.$bosgroen;
       }
