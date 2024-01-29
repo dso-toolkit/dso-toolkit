@@ -1,57 +1,86 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { WhiteboxArgs, whiteboxArgsMapper, whiteboxArgTypes } from "./whitebox.args.js";
 import { Whitebox } from "./whitebox.models.js";
 
-export interface WhiteboxTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type WhiteboxStory = StoryObj<WhiteboxArgs, Renderer>;
+
+interface WhiteboxStories {
+  Default: WhiteboxStory;
+  WithCounter: WhiteboxStory;
+  WithIcon: WhiteboxStory;
+}
+
+interface WhiteboxStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, WhiteboxTemplates<TemplateFnReturnType>> {}
+
+interface WhiteboxTemplates<TemplateFnReturnType> {
   whiteboxTemplate: (whiteboxProperties: Whitebox) => TemplateFnReturnType;
 }
 
-export function storiesOfWhitebox<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    WhiteboxTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Whitebox", storiesOfArguments, (stories, templateMapper) => {
-    type ComponentArgs = Pick<WhiteboxArgs, "title" | "description" | "label" | "imageSource" | "imageAlt">;
+export function whiteboxMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  WhiteboxArgs
+> {
+  return {
+    argTypes: whiteboxArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.addParameters({
-      argTypes: whiteboxArgTypes,
-      args: componentArgs<ComponentArgs>({
+export function whiteboxStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: WhiteboxStoriesParameters<Implementation, Templates, TemplateFnReturnType>): WhiteboxStories {
+  return {
+    Default: {
+      args: {
         title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
         description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
         label: "Direct naar aanvragen",
         imageSource: "images/indienen.png",
         imageAlt: "",
-      }),
-    });
-
-    const template = templateMapper<WhiteboxArgs>((args, { whiteboxTemplate }) =>
-      whiteboxTemplate(whiteboxArgsMapper(args)),
-    );
-
-    stories.add("default", template);
-
-    type WithCounterArgs = Pick<WhiteboxArgs, "count">;
-
-    stories.add("with counter", template, {
-      args: componentArgs<WithCounterArgs>({
+      },
+      render: templateContainer.render(storyTemplates, (args, { whiteboxTemplate }) =>
+        whiteboxTemplate(whiteboxArgsMapper(args)),
+      ),
+    },
+    WithCounter: {
+      args: {
         count: 3,
-      }),
-    });
-
-    type WithIconArgs = Pick<WhiteboxArgs, "icon" | "iconLabel">;
-
-    stories.add("with icon", template, {
-      args: componentArgs<WithIconArgs>({
+        title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
+        description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
+        label: "Direct naar aanvragen",
+        imageSource: "images/indienen.png",
+        imageAlt: "",
+      },
+      render: templateContainer.render(storyTemplates, (args, { whiteboxTemplate }) =>
+        whiteboxTemplate(whiteboxArgsMapper(args)),
+      ),
+    },
+    WithIcon: {
+      args: {
         icon: "check",
         iconLabel: "afgerond",
-      }),
-    });
-
-    return stories;
-  });
+        title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
+        description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
+        label: "Direct naar aanvragen",
+        imageSource: "images/indienen.png",
+        imageAlt: "",
+      },
+      render: templateContainer.render(storyTemplates, (args, { whiteboxTemplate }) =>
+        whiteboxTemplate(whiteboxArgsMapper(args)),
+      ),
+    },
+  };
 }
