@@ -345,5 +345,4 @@ export {
 } from "./components/viewer-grid/viewer-grid.models.js";
 export { ViewerGridTemplates, storiesOfViewerGrid } from "./components/viewer-grid/viewer-grid.stories-of.js";
 
-export { Whitebox } from "./components/whitebox/whitebox.models.js";
-export { WhiteboxTemplates, storiesOfWhitebox } from "./components/whitebox/whitebox.stories-of.js";
+export * from "./components/whitebox";
