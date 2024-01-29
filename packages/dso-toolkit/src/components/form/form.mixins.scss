@@ -5,7 +5,7 @@
 
   display: inline-block;
 
-  margin-inline-start: 4px;
+  margin-inline-start: 2px;
 
-  @include di.base(asterisk, 1rem, unset);
+  @include di.base(asterisk-grasgroen, 0.75rem, text-top);
 }
