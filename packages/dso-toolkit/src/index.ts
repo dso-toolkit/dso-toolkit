@@ -312,8 +312,7 @@ export { SlideToggleTemplates, storiesOfSlideToggle } from "./components/slide-t
 export { Table, TableContent, TableSorting } from "./components/table/table.models.js";
 export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
 
-export { Tabs, TabsItem } from "./components/tabs/tabs.models.js";
-export { TabsTemplates, storiesOfTabs } from "./components/tabs/tabs.stories-of.js";
+export * from "./components/tabs";
 
 export * from "./components/tile";
 

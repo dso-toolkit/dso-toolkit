@@ -1,31 +1,48 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { TabsArgs, tabsArgsMapper, tabsArgTypes } from "./tabs.args.js";
 import { Tabs } from "./tabs.models.js";
 
-export interface TabsTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type TabsStory<TemplateFnReturnType> = StoryObj<TabsArgs<TemplateFnReturnType>, Renderer>;
+
+interface TabsStories<TemplateFnReturnType> {
+  Default: TabsStory<TemplateFnReturnType>;
+  Inactief: TabsStory<TemplateFnReturnType>;
+}
+
+interface TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TabsTemplates<TemplateFnReturnType>> {}
+
+interface TabsTemplates<TemplateFnReturnType> {
   tabsTemplate: (tabsProperties: Tabs<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TabsTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Tabs", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: tabsArgTypes,
-    });
+export function tabsMeta<TRenderer extends Renderer, TemplateFnReturnType>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer, TabsArgs<TemplateFnReturnType>> {
+  return {
+    argTypes: tabsArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    const template = templateMapper<TabsArgs<TemplateFnReturnType>>((args, { tabsTemplate }) =>
-      tabsTemplate(tabsArgsMapper(args)),
-    );
-
-    stories.add("default", template, {
-      args: componentArgs<TabsArgs<TemplateFnReturnType>>({
+export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TabsStories<TemplateFnReturnType> {
+  return {
+    Default: {
+      args: {
         items: [
           {
             label: "Zoek op adres",
@@ -49,11 +66,11 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
             content: "Inhoud Coordinaten",
           },
         ],
-      }),
-    });
-
-    stories.add("inactief", template, {
-      args: componentArgs<TabsArgs<TemplateFnReturnType>>({
+      },
+      render: templateContainer.render(storyTemplates, (args, { tabsTemplate }) => tabsTemplate(tabsArgsMapper(args))),
+    },
+    Inactief: {
+      args: {
         items: [
           {
             label: "Zoek op adres",
@@ -78,9 +95,8 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
             content: "Inhoud Coordinaten",
           },
         ],
-      }),
-    });
-
-    return stories;
-  });
+      },
+      render: templateContainer.render(storyTemplates, (args, { tabsTemplate }) => tabsTemplate(tabsArgsMapper(args))),
+    },
+  };
 }
