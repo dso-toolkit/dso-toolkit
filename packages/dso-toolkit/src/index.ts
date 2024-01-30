@@ -321,8 +321,7 @@ export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/til
 export { Toggletip, isToggletipInterface } from "./components/toggletip/toggletip.models.js";
 export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/toggletip.stories-of.js";
 
-export { Tooltip, tooltipPositions, tooltipStrategy } from "./components/tooltip/tooltip.models.js";
-export { TooltipTemplates, storiesOfTooltip } from "./components/tooltip/tooltip.stories-of.js";
+export * from "./components/tooltip";
 
 export { collection, onClickItem, onCloseItem, onFilter, onOpenItem } from "./components/tree-view/tree-view.demo.js";
 export {
