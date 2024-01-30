@@ -309,8 +309,7 @@ export { TableTemplates, storiesOfTable } from "./components/table/table.stories
 export { Tabs, TabsItem } from "./components/tabs/tabs.models.js";
 export { TabsTemplates, storiesOfTabs } from "./components/tabs/tabs.stories-of.js";
 
-export { Tile } from "./components/tile/tile.models.js";
-export { TileTemplates, storiesOfTile } from "./components/tile/tile.stories-of.js";
+export * from "./components/tile";
 
 export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
 export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
