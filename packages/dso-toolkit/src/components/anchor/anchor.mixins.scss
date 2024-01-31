@@ -1,6 +1,7 @@
+@use "sass:map";
+
 @use "../../di";
 @use "anchor.variables" as anchor-variables;
-@use "sass:map";
 
 @mixin pseudo() {
   &:hover,
@@ -55,112 +56,65 @@
 
 @mixin anchorIcons() {
   @each $mode, $value in anchor-variables.$anchorIcons {
-    &#{map-get($value, "selector")} {
-      background-repeat: no-repeat;
-      background-size: 1.25em 1.25em;
-
-      @if map-get($value, "icon-placement") == "before" {
-        padding-inline-start: 1.5em;
-        background-position: bottom 0 left 0;
-      }
-
-      @if map-get($value, "icon-placement") == "after" {
-        padding-inline-end: 1.5em;
-        background-position: bottom 0 right 0;
-      }
-
-      @include di.variant(map-get($value, "icon") + map-get($value, "icon-color"));
-
-      &:hover,
-      &:focus-visible {
-        @include di.variant(map-get($value, "icon") + map-get($value, "icon-hover-color"));
-      }
+    &#{map.get($value, "selector")} {
+      @include _mode-base($value);
     }
   }
 }
 
-// Mixins supplied in support of CMS wysiwyg editor
-// ------------------------------------------------
+@mixin _mode-base($anchor-map) {
+  $icon-placement: map.get($anchor-map, "icon-placement");
 
-@mixin mode-base($pos) {
-  @if $pos != "after" and $pos != "before" {
+  @if $icon-placement != "after" and $icon-placement != "before" {
     @error 'Use mixin argument "before" or "after".';
   }
 
   background-repeat: no-repeat;
   background-size: 1.25em 1.25em;
 
-  @if $pos == "before" {
+  @if $icon-placement == "before" {
     padding-inline-start: 1.5em;
     background-position: bottom 0 left 0;
   }
 
-  @if $pos == "after" {
+  @if $icon-placement == "after" {
     padding-inline-end: 1.5em;
     background-position: bottom 0 right 0;
+  }
+
+  $icon: if(
+    map.has-key($anchor-map, "icon-color"),
+    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-color"),
+    map.get($anchor-map, "icon")
+  );
+  $icon-hover: if(
+    map.has-key($anchor-map, "icon-hover-color"),
+    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-hover-color"),
+    map.get($anchor-map, "icon")
+  );
+
+  @include di.variant($icon);
+
+  @if ($icon != $icon-hover) {
+    &:hover,
+    &:focus-visible {
+      @include di.variant($icon-hover);
+    }
   }
 }
 
 @mixin mode-download() {
-  @include mode-base(map.get(anchor-variables.$anchorIcons, "download", "icon-placement"));
-  @include di.variant(
-    map.get(anchor-variables.$anchorIcons, "download", "icon") +
-      map.get(anchor-variables.$anchorIcons, "download", "icon-color")
-  );
-
-  &:hover,
-  &:focus-visible {
-    @include di.variant(
-      map.get(anchor-variables.$anchorIcons, "download", "icon") +
-        map.get(anchor-variables.$anchorIcons, "download", "icon-hover-color")
-    );
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "download"));
 }
 
 @mixin mode-extern() {
-  @include mode-base(map.get(anchor-variables.$anchorIcons, "extern", "icon-placement"));
-  @include di.variant(
-    map.get(anchor-variables.$anchorIcons, "extern", "icon") +
-      map.get(anchor-variables.$anchorIcons, "extern", "icon-color")
-  );
-
-  &:hover,
-  &:focus-visible {
-    @include di.variant(
-      map.get(anchor-variables.$anchorIcons, "extern", "icon") +
-        map.get(anchor-variables.$anchorIcons, "extern", "icon-hover-color")
-    );
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "extern"));
 }
 
 @mixin mode-phone() {
-  @include mode-base(map.get(anchor-variables.$anchorIcons, "phone", "icon-placement"));
-  @include di.variant(
-    map.get(anchor-variables.$anchorIcons, "phone", "icon") +
-      map.get(anchor-variables.$anchorIcons, "phone", "icon-color")
-  );
-
-  &:hover,
-  &:focus-visible {
-    @include di.variant(
-      map.get(anchor-variables.$anchorIcons, "phone", "icon") +
-        map.get(anchor-variables.$anchorIcons, "phone", "icon-hover-color")
-    );
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "phone"));
 }
 
 @mixin mode-email() {
-  @include mode-base(map.get(anchor-variables.$anchorIcons, "mail", "icon-placement"));
-  @include di.variant(
-    map.get(anchor-variables.$anchorIcons, "mail", "icon") +
-      map.get(anchor-variables.$anchorIcons, "mail", "icon-color")
-  );
-
-  &:hover,
-  &:focus-visible {
-    @include di.variant(
-      map.get(anchor-variables.$anchorIcons, "mail", "icon") +
-        map.get(anchor-variables.$anchorIcons, "mail", "icon-hover-color")
-    );
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "mail"));
 }
