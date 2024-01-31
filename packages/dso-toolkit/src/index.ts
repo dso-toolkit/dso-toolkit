@@ -41,8 +41,7 @@ export * from "./components/anchor";
 
 export * from "./components/application-heading";
 
-export { Annotation } from "./components/annotation/annotation.models.js";
-export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";
+export * from "./components/annotation";
 
 export { AnnotationButton } from "./components/annotation-button/annotation-button.models.js";
 
