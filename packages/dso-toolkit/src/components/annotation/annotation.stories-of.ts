@@ -1,45 +1,64 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { AnnotationArgs, annotationArgs, annotationArgsMapper, annotationArgTypes } from "./annotation.args.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
+import { annotationArgs, AnnotationArgs, annotationArgsMapper, annotationArgTypes } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 
-export interface AnnotationTemplates<TemplateFnReturnType> {
-  annotationTemplate: (annotationProperties: Annotation<TemplateFnReturnType>) => TemplateFnReturnType;
-  annotationContent: { title: TemplateFnReturnType; addons?: TemplateFnReturnType; content: TemplateFnReturnType };
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type AnnotationStory = StoryObj<AnnotationArgs, Renderer>;
+
+interface AnnotationStories {
+  Default: AnnotationStory;
+  MetLid: AnnotationStory;
 }
 
-export function storiesOfAnnotation<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     AnnotationTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Annotation", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: annotationArgTypes,
+  > {}
+
+interface AnnotationTemplates<TemplateFnReturnType> {
+  annotationTemplate: (annotationProperties: Annotation<TemplateFnReturnType>) => TemplateFnReturnType;
+  annotationContent: { title: TemplateFnReturnType; addons?: TemplateFnReturnType; content: TemplateFnReturnType };
+}
+
+export function annotationMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AnnotationArgs
+> {
+  return {
+    argTypes: annotationArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function annotationStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AnnotationStories {
+  return {
+    Default: {
       args: annotationArgs,
-    });
-
-    stories.add(
-      "default",
-      templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate, annotationContent }) =>
         annotationTemplate(annotationArgsMapper(args, annotationContent)),
       ),
-    );
-
-    stories.add(
-      "met lid",
-      templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
+    },
+    MetLid: {
+      args: { ...annotationArgs, prefix: "Dit lid heeft annotaties:" },
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate, annotationContent }) =>
         annotationTemplate(annotationArgsMapper(args, annotationContent)),
       ),
-      {
-        args: {
-          prefix: "Dit lid heeft annotaties:",
-        },
-      },
-    );
-
-    return stories;
-  });
+    },
+  };
 }

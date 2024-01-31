@@ -4,11 +4,11 @@ import { AnnotationArgs, annotationMeta, annotationStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 import { annotationContent } from "./annotation.content";
 
-import readme from "./readme.md?raw";
+import readme from "dso-toolkit/src/components/annotation/readme.md?raw";
 
 const meta: Meta<AnnotationArgs> = {
   ...annotationMeta({ readme }),
-  title: "Annotation",
+  title: "Core/Annotation",
 };
 
 export default meta;

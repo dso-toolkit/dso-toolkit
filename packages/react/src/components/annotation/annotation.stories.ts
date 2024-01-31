@@ -1,20 +1,28 @@
-import { storiesOf } from "@storybook/react";
-import { storiesOfAnnotation } from "dso-toolkit";
+import type { Meta } from "@storybook/web-components";
+import { AnnotationArgs, annotationMeta, annotationStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 import { annotationContent } from "./annotation.content";
 
 import readme from "./readme.md?raw";
 
-storiesOfAnnotation({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<AnnotationArgs> = {
+  ...annotationMeta({ readme }),
+  title: "Annotation",
+};
+
+export default meta;
+
+const { Default, MetLid } = annotationStories({
   templateContainer,
-  storyTemplates: ({ annotationTemplate }, templates) => ({
-    annotationTemplate,
-    annotationContent: annotationContent(templates),
-  }),
+  storyTemplates: (templates) => {
+    const { annotationTemplate } = templates;
+
+    return {
+      annotationTemplate,
+      annotationContent: annotationContent(templates),
+    };
+  },
 });
+
+export { Default, MetLid };
