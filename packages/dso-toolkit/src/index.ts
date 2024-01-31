@@ -78,8 +78,7 @@ export { CardGridTemplates, storiesOfCardGrid } from "./components/card-grid/car
 export { CardList } from "./components/card-list/card-list.models.js";
 export { CardListTemplates, storiesOfCardList } from "./components/card-list/card-list.stories-of.js";
 
-export { Context } from "./components/context/context.models.js";
-export { ContextTemplates, storiesOfContext } from "./components/context/context.stories-of.js";
+export * from "./components/context";
 
 export { DatePicker } from "./components/date-picker/date-picker.models.js";
 export {
