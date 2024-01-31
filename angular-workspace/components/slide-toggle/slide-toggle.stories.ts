@@ -1,20 +1,28 @@
-import { storiesOf } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
+import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
-import { storiesOfSlideToggle } from "dso-toolkit";
 import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 
-storiesOfSlideToggle({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    storyApiOptions: {
-      parameters: [{ component: DsoSlideToggle }],
-    },
-  },
+const meta: Meta<SlideToggleArgs> = {
+  ...slideToggleMeta({ readme }),
+  title: "Slide Toggle",
+  parameters: [{ component: DsoSlideToggle }],
+};
+
+export default meta;
+
+const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
   templateContainer,
-  storyTemplates: ({ slideToggleTemplate }) => ({ slideToggleTemplate }),
+  storyTemplates: (templates) => {
+    const { slideToggleTemplate } = templates;
+
+    return {
+      slideToggleTemplate,
+    };
+  },
 });
+
+export { Default, Disabled, ZichtbaarLabel, LabelledById };
