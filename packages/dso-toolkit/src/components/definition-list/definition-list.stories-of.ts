@@ -1,9 +1,39 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { DefinitionListArgs, definitionListArgsMapper, definitionListArgTypes } from "./definition-list.args.js";
 import { Definition, DefinitionList } from "./definition-list.models.js";
 
-export interface DefinitionListTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type DefinitionListStory = StoryObj<DefinitionListArgs, Renderer>;
+
+interface DefinitionListStories {
+  Default: DefinitionListStory;
+  Vertical: DefinitionListStory;
+  EmphasizeDescription: DefinitionListStory;
+  VerticalWithEmphasizeDescription: DefinitionListStory;
+  ColumnVariantOneThree: DefinitionListStory;
+  ColumnVariantTwoTwo: DefinitionListStory;
+  ColumnVariantThreeOne: DefinitionListStory;
+  TwoColumnsSmall: DefinitionListStory;
+  TwoColumns: DefinitionListStory;
+  ThreeColumnsSmall: DefinitionListStory;
+  ThreeColumns: DefinitionListStory;
+  Bordered: DefinitionListStory;
+  ColumnsList: DefinitionListStory;
+}
+
+interface DefinitionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    DefinitionListTemplates<TemplateFnReturnType>
+  > {}
+
+interface DefinitionListTemplates<TemplateFnReturnType> {
   definitionListTemplate: (definitionListProperties: DefinitionList<TemplateFnReturnType>) => TemplateFnReturnType;
   definitions: Definition<TemplateFnReturnType>[];
   definitionsSrOnlyColon: Definition<TemplateFnReturnType>[];
@@ -12,170 +42,127 @@ export interface DefinitionListTemplates<TemplateFnReturnType> {
   listDefinitions: Definition<TemplateFnReturnType>[];
 }
 
-export function storiesOfDefinitionList<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DefinitionListTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Definition List", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: definitionListArgTypes,
-    });
+export function definitionListMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  DefinitionListArgs
+> {
+  return {
+    argTypes: definitionListArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "default",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
+export function definitionListStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: DefinitionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DefinitionListStories {
+  return {
+    Default: {
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),
-    );
-
-    stories.add(
-      "vertical",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
-        definitionListTemplate(definitionListArgsMapper(args, definitions)),
-      ),
-      {
-        args: {
-          modifier: "dso-vertical",
-        },
+    },
+    Vertical: {
+      args: {
+        modifier: "dso-vertical",
       },
-    );
-
-    stories.add(
-      "emphasize description",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),
-      {
-        args: {
-          modifier: "dso-emphasize-description",
-        },
+    },
+    EmphasizeDescription: {
+      args: {
+        modifier: "dso-emphasize-description",
       },
-    );
-
-    stories.add(
-      "vertical with emphasized description",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),
-      {
-        args: {
-          modifier: "dso-vertical dso-emphasize-description",
-        },
+    },
+    VerticalWithEmphasizeDescription: {
+      args: {
+        modifier: "dso-vertical dso-emphasize-description",
       },
-    );
-
-    stories.add(
-      "columns 1-3",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, columnDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
+        definitionListTemplate(definitionListArgsMapper(args, definitions)),
+      ),
+    },
+    ColumnVariantOneThree: {
+      args: {
+        modifier: "dso-columns-1-3 dso-with-header",
+      },
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, columnDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, columnDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns-1-3 dso-with-header",
-        },
+    },
+    ColumnVariantTwoTwo: {
+      args: {
+        modifier: "dso-columns-2-2 dso-with-header",
       },
-    );
-
-    stories.add(
-      "columns 2-2",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, columnDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, columnDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, columnDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns-2-2 dso-with-header",
-        },
+    },
+    ColumnVariantThreeOne: {
+      args: {
+        modifier: "dso-columns-3-1",
       },
-    );
-
-    stories.add(
-      "columns 3-1",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, columnDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, columnDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, columnDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns-3-1",
-        },
+    },
+    TwoColumnsSmall: {
+      args: {
+        modifier: "dso-columns dso-2-columns",
       },
-    );
-
-    stories.add(
-      "two columns small-content",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, smallContentDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, smallContentDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, smallContentDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns dso-2-columns",
-        },
+    },
+    TwoColumns: {
+      args: {
+        modifier: "dso-columns dso-2-columns",
       },
-    );
-
-    stories.add(
-      "two columns",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns dso-2-columns",
-        },
+    },
+    ThreeColumnsSmall: {
+      args: {
+        modifier: "dso-columns dso-3-columns",
       },
-    );
-
-    stories.add(
-      "three columns small-content",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, smallContentDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, smallContentDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, smallContentDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns dso-3-columns",
-        },
+    },
+    ThreeColumns: {
+      args: {
+        modifier: "dso-columns dso-3-columns",
       },
-    );
-
-    stories.add(
-      "three columns",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns dso-3-columns",
-        },
+    },
+    Bordered: {
+      args: {
+        modifier: "dso-bordered",
       },
-    );
-
-    stories.add(
-      "bordered",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, definitionsSrOnlyColon }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, definitionsSrOnlyColon }) =>
         definitionListTemplate(definitionListArgsMapper(args, definitionsSrOnlyColon)),
       ),
-      {
-        args: {
-          modifier: "dso-bordered",
-        },
+    },
+    ColumnsList: {
+      args: {
+        modifier: "dso-columns-list",
       },
-    );
-
-    stories.add(
-      "columns list",
-      templateMapper<DefinitionListArgs>((args, { definitionListTemplate, listDefinitions }) =>
+      render: templateContainer.render(storyTemplates, (args, { definitionListTemplate, listDefinitions }) =>
         definitionListTemplate(definitionListArgsMapper(args, listDefinitions)),
       ),
-      {
-        args: {
-          modifier: "dso-columns-list",
-        },
-      },
-    );
-
-    return stories;
-  });
+    },
+  };
 }
