@@ -2,11 +2,10 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 @use "label.variables" as label-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin root() {
-  background-color: label-variables.$default-bg-color;
   border-radius: 4px;
-  color: label-variables.$default-color;
   display: inline-block;
   line-height: 1.5;
   max-width: 100%;
@@ -40,46 +39,42 @@
     }
   }
 
+  & {
+    @include set-colors.apply(label-variables.$default-bg-color, $icons: false, $links: false);
+  }
+
   &.dso-label-info {
-    background-color: label-variables.$info-bg-color;
-    color: label-variables.$info-color;
+    @include set-colors.apply(label-variables.$info-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-primary {
-    background-color: label-variables.$primary-bg-color;
-    color: label-variables.$primary-color;
+    @include set-colors.apply(label-variables.$primary-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-success {
-    background-color: label-variables.$success-bg-color;
-    color: label-variables.$success-color;
+    @include set-colors.apply(label-variables.$success-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-warning {
-    background-color: label-variables.$warning-bg-color;
-    color: label-variables.$warning-color;
+    @include set-colors.apply(label-variables.$warning-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-danger {
-    background-color: label-variables.$danger-bg-color;
-    color: label-variables.$danger-color;
+    @include set-colors.apply(label-variables.$danger-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-error {
-    background-color: label-variables.$error-bg-color;
-    color: label-variables.$error-color;
+    @include set-colors.apply(label-variables.$error-bg-color, $icons: false, $links: false);
   }
 
   &.dso-label-bright {
-    background-color: label-variables.$bright-bg-color;
-    color: label-variables.$bright-color;
+    @include set-colors.apply(label-variables.$bright-bg-color, $icons: false, $links: false);
     outline: 1px solid label-variables.$bright-border-color;
     outline-offset: -1px;
   }
 
   &.dso-label-attention {
-    background-color: label-variables.$attention-bg-color;
-    color: label-variables.$attention-color;
+    @include set-colors.apply(label-variables.$attention-bg-color, $icons: false, $links: false);
   }
 
   &.dso-compact {

@@ -3,22 +3,7 @@
 a {
   @include anchor-mixins.root();
 
-  &:not(.dso-primary, .dso-secondary, .dso-tertiary) {
-    // todo: alternative for :not
-    &.download {
-      @include anchor-mixins.mode-download();
-    }
-
-    &.extern {
-      @include anchor-mixins.mode-extern();
-    }
-
-    &[href^="tel:"] {
-      @include anchor-mixins.mode-phone();
-    }
-
-    &[href^="mailto:"] {
-      @include anchor-mixins.mode-email();
-    }
+  &:where(:not(.dso-primary, .dso-secondary, .dso-tertiary)) {
+    @include anchor-mixins.anchorIcons();
   }
 }

@@ -3,12 +3,12 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/headings";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 @use "~dso-toolkit/src/components/action-list/action-list.variables" as action-list-variables;
 @use "~dso-toolkit/src/components/action-list/components/action-list-item.variables" as action-list-item-variables;
 
 :host {
-  background-color: colors.$lichtblauw-20;
   display: block;
   padding-block: action-list-variables.$padding-block;
   padding-inline: units.$u2;
@@ -16,6 +16,8 @@
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     padding-inline-end: units.$u12;
   }
+
+  @include set-colors.apply(colors.$lichtblauw-20);
 }
 
 @include utilities.box-sizing();

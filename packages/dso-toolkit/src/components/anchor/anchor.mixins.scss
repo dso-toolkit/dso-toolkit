@@ -1,9 +1,11 @@
+@use "sass:map";
+
 @use "../../di";
 @use "anchor.variables" as anchor-variables;
 
 @mixin pseudo() {
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: var(--link-hover-color);
     text-decoration: underline;
   }
@@ -33,7 +35,7 @@
   text-decoration: none;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-decoration: none;
   }
 
@@ -46,68 +48,73 @@
   text-decoration: none;
 
   &:hover,
-  &:focus,
+  &:focus-visible,
   &:active {
     text-decoration: underline;
   }
 }
 
-// provide base styling icon placement (before or after)
-@mixin mode-base($pos) {
-  @if $pos != "after" and $pos != "before" {
+@mixin anchorIcons() {
+  @each $mode, $value in anchor-variables.$anchorIcons {
+    &#{map.get($value, "selector")} {
+      @include _mode-base($value);
+    }
+  }
+}
+
+@mixin _mode-base($anchor-map) {
+  $icon-placement: map.get($anchor-map, "icon-placement");
+
+  @if $icon-placement != "after" and $icon-placement != "before" {
     @error 'Use mixin argument "before" or "after".';
   }
 
   background-repeat: no-repeat;
   background-size: 1.25em 1.25em;
 
-  @if $pos == before {
+  @if $icon-placement == "before" {
     padding-inline-start: 1.5em;
     background-position: bottom 0 left 0;
   }
 
-  @if $pos == after {
+  @if $icon-placement == "after" {
     padding-inline-end: 1.5em;
     background-position: bottom 0 right 0;
+  }
+
+  $icon: if(
+    map.has-key($anchor-map, "icon-color"),
+    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-color"),
+    map.get($anchor-map, "icon")
+  );
+  $icon-hover: if(
+    map.has-key($anchor-map, "icon-hover-color"),
+    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-hover-color"),
+    map.get($anchor-map, "icon")
+  );
+
+  @include di.variant($icon);
+
+  @if ($icon != $icon-hover) {
+    &:hover,
+    &:focus-visible {
+      @include di.variant($icon-hover);
+    }
   }
 }
 
 @mixin mode-download() {
-  @include mode-base("after");
-  @include di.variant("download");
-
-  &:hover,
-  &:focus {
-    @include di.variant("download-scampi");
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "download"));
 }
 
 @mixin mode-extern() {
-  @include mode-base("after");
-  @include di.variant("external-link");
-
-  &:hover,
-  &:focus {
-    @include di.variant("external-link-scampi");
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "extern"));
 }
 
 @mixin mode-phone() {
-  @include mode-base("before");
-  @include di.variant("call-grasgroen");
-
-  &:hover,
-  &:focus {
-    @include di.variant("call-scampi");
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "phone"));
 }
 
 @mixin mode-email() {
-  @include mode-base("before");
-  @include di.variant("email-grasgroen");
-
-  &:hover,
-  &:focus {
-    @include di.variant("email-scampi");
-  }
+  @include _mode-base(map.get(anchor-variables.$anchorIcons, "mail"));
 }

@@ -36,6 +36,15 @@
   }
 
   @include step-counter.step-counter();
+
+  &.dso-has-counter {
+    @include step-counter.has-step-counter();
+  }
+
+  .dso-step-counter > svg.di,
+  .dso-step-counter > dso-icon {
+    @include step-counter.icon();
+  }
 }
 
 @mixin equal-heights() {

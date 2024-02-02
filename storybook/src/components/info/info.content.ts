@@ -9,8 +9,13 @@ export function richContent({ anchorTemplate, richContentTemplate, buttonRowTemp
       <p>
         De ${anchorTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle
         <strong>bouwregelgeving</strong> in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die
-        voldoet aan de eisen van de Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van
-        ieder bouwwerk.
+        voldoet aan
+        ${anchorTemplate({
+          label: "de eisen van de Omgevingswet (3B's)",
+          url: "#",
+          mode: "download",
+        })},
+        en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
       </p>
 
       ${buttonRowTemplate({

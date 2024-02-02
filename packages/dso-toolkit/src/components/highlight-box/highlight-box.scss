@@ -7,7 +7,17 @@
 // HTML/CSS
 .dso-highlight-box {
   @include highlight-box.root();
-  @include highlight-box.children();
+  @include highlight-box.children(
+    $white-selector: ".dso-white",
+    $yellow-selector: ".dso-yellow",
+    $drop-shadow-selector: ".dso-drop-shadow",
+    $border-selector: ".dso-border",
+    $has-counter-selector: ".dso-has-counter",
+    $step-counter-selector: ".dso-step-counter:first-child"
+  );
+
+  @include step-counter.step-counter();
+
   container-type: inline-size;
   position: relative;
   z-index: 1;
@@ -15,6 +25,11 @@
   &.dso-yellow,
   &:not(.dso-border):not(.dso-white) {
     @include highlight-box.exoticChildren();
+  }
+
+  .dso-step-counter > svg.di,
+  .dso-step-counter > dso-icon {
+    @include step-counter.icon();
   }
 
   &:not(.dso-border):not(.dso-white) {
@@ -45,8 +60,19 @@
 
 // Web Component
 dso-highlight-box {
-  @include highlight-box.children();
-  @include step-counter.step-counter();
+  @include highlight-box.children(
+    $white-selector: "[white]",
+    $yellow-selector: "[yellow]",
+    $drop-shadow-selector: "[drop-shadow]",
+    $border-selector: "[border]",
+    $has-counter-selector: "[has-counter]",
+    $step-counter-selector: '[slot="icon"]:first-child'
+  );
+
+  svg.di[slot="icon"],
+  dso-icon[slot="icon"] {
+    @include step-counter.icon();
+  }
 
   &[yellow],
   &:not([border]):not([white]) {

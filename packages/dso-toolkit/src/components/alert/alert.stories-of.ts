@@ -79,7 +79,7 @@ export function alertStories<Implementation, Templates, TemplateFnReturnType>({
     },
     Error: {
       args: {
-        status: "warning",
+        status: "error",
       },
       render: templateContainer.render(storyTemplates, (args, { alertTemplate, errorMessage }) =>
         alertTemplate(alertArgsMapper(args, errorMessage)),

@@ -1,13 +1,12 @@
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @use "badge.variables" as badge-variables;
 
 @mixin root() {
-  background-color: badge-variables.$default-bg-color;
-  border: 1px solid badge-variables.$default-bg-color;
+  border: 1px solid;
   border-radius: 1em;
-  color: colors.$wit;
   display: inline-block;
   font-size: 0.875em;
   line-height: badge-variables.$line-height;
@@ -15,51 +14,39 @@
   padding: #{units.$u1 * 0.5} units.$u1;
   text-align: center;
 
+  & {
+    @include set-colors.apply(badge-variables.$default-bg-color, $icons: false, $links: false);
+  }
+
   &.badge-info {
-    background-color: badge-variables.$info-bg-color;
-    border-color: badge-variables.$info-bg-color;
-    color: colors.$zwart;
+    @include set-colors.apply(badge-variables.$info-bg-color, $icons: false, $links: false);
   }
 
   &.badge-primary {
-    background-color: badge-variables.$primary-bg-color;
-    border-color: badge-variables.$primary-bg-color;
-    color: colors.$wit;
+    @include set-colors.apply(badge-variables.$primary-bg-color, $icons: false, $links: false);
   }
 
   &.badge-success {
-    background-color: badge-variables.$success-bg-color;
-    border-color: badge-variables.$success-bg-color;
-    color: colors.$wit;
+    @include set-colors.apply(badge-variables.$success-bg-color, $icons: false, $links: false);
   }
 
   &.badge-warning {
-    background-color: badge-variables.$warning-bg-color;
-    border-color: badge-variables.$warning-bg-color;
-    color: colors.$zwart;
+    @include set-colors.apply(badge-variables.$warning-bg-color, $icons: false, $links: false);
   }
 
   &.badge-danger {
-    background-color: badge-variables.$danger-bg-color;
-    border-color: badge-variables.$danger-bg-color;
-    color: colors.$wit;
+    @include set-colors.apply(badge-variables.$danger-bg-color, $icons: false, $links: false);
   }
 
   &.badge-error {
-    background-color: badge-variables.$error-bg-color;
-    border-color: badge-variables.$error-bg-color;
-    color: colors.$wit;
+    @include set-colors.apply(badge-variables.$error-bg-color, $icons: false, $links: false);
   }
 
   &.badge-outline {
-    background-color: colors.$wit;
-    border-color: colors.$grijs-90;
-    color: colors.$grijs-90;
+    @include set-colors.apply(colors.$wit, colors.$grijs-90, $icons: false, $links: false);
   }
 
   &.badge-attention {
-    background-color: badge-variables.$attention-bg-color;
-    border-color: badge-variables.$attention-bg-color;
-    color: colors.$wit;
+    @include set-colors.apply(badge-variables.$attention-bg-color, $icons: false, $links: false);
   }
 }

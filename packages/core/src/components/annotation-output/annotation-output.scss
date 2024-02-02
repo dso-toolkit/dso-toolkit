@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 @include utilities.box-sizing();
 
@@ -63,7 +64,8 @@ dso-responsive-element[medium] {
 }
 
 .dso-annotation-content {
-  background-color: colors.$grijs-5;
+  @include set-colors.apply(colors.$grijs-5);
+
   padding-left: units.$u2;
   padding-right: units.$u1;
   padding-top: units.$u1;

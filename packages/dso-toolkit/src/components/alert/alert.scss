@@ -37,37 +37,9 @@
       @include di.base("status-info", alert.$icon-size);
     }
   }
-
-  a {
-    &.download {
-      &::after {
-        @include di.variant("download-grijs90");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di.variant("external-link-grijs90");
-      }
-    }
-  }
 }
 
 // Web Component
 dso-alert {
   @include alert.children();
-
-  a {
-    &.download {
-      &::after {
-        @include di.variant("download-grijs90");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di.variant("external-link-grijs90");
-      }
-    }
-  }
 }

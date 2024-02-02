@@ -7,13 +7,14 @@
 
 @use "../grid" as css-grid;
 @use "footer.variables" as css-footer-variables;
+@use "../../global/mixins/set-colors.mixin" as set-colors;
 
 footer {
   @include css-grid.full-width-row();
 
-  background-color: colors.$grijs-5;
+  @include set-colors.apply(colors.$grijs-5);
+
   border-top: 1px solid css-footer-variables.$border-color;
-  color: colors.$zwart;
   display: block;
   margin-top: units.$u6;
   padding-bottom: units.$u6;
@@ -31,14 +32,6 @@ footer {
           @include di.base("chevron-right-zwart");
         }
       }
-
-      &.download {
-        @include di.variant("download-zwart");
-      }
-
-      &.extern {
-        @include di.variant("external-link-zwart");
-      }
     }
   }
 
@@ -53,21 +46,13 @@ footer {
   }
 
   a {
-    &,
-    &:hover,
-    &.active,
-    &:active,
-    &:focus {
-      color: colors.$zwart;
-    }
-
     &#{button.$not-dso-buttons}:visited {
       &,
       &:hover,
       &.active,
       &:active,
       &:focus {
-        color: colors.$zwart;
+        color: currentColor;
       }
     }
   }

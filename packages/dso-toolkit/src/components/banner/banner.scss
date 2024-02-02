@@ -139,14 +139,4 @@ dso-banner {
       @include banner-mixins.with-icon("warning");
     }
   }
-
-  a {
-    &.download {
-      @include di.variant("download-grijs90");
-    }
-
-    &.extern {
-      @include di.variant("external-link-grijs90");
-    }
-  }
 }

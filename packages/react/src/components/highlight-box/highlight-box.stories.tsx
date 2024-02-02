@@ -28,9 +28,13 @@ storiesOfHighlightBox({
           inspecties).
         </p>
         <p>
-          De <a href="#">Bouwregelgeving</a> is een database met alle bouwregelgeving in Nederland, die op zodanige
-          wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-          bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+          De
+          <a href="#" className="download">
+            Bouwregelgeving
+          </a>
+          is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten
+          dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en
+          toetsingsfase van ieder bouwwerk.
         </p>
         <p>
           Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken
