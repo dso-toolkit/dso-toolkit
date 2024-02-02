@@ -1,37 +1,65 @@
-@use "../../../utilities";
 @use "../../../variables/units";
 @use "../../../variables/typography";
 @use "../../button";
+@use "../../../variables/media-query-breakpoints";
+@use "../../../variables/colors.scss";
 
 .dso-form-buttons {
-  @include utilities.clearfix();
+  display: flex;
+  justify-content: flex-end;
+  gap: units.$u2;
 
-  margin-bottom: units.$vertical-spacing-medium;
-  text-align: right;
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-direction: column;
+  }
+
+  margin-block-end: units.$vertical-spacing-medium;
 
   &:last-child {
-    margin-bottom: units.$vertical-spacing-xlarge;
+    margin-block-end: units.$vertical-spacing-xlarge;
+  }
+
+  :is(.dso-primary, .dso-secondary, .dso-tertiary) {
+    text-align: center;
+  }
+
+  :is(.dso-primary, .dso-secondary, .dso-tertiary) + :is(.dso-primary, .dso-secondary, .dso-tertiary) {
+    margin-inline: 0; // reset
   }
 
   a,
   button {
     &.dso-tertiary {
+      padding-block: button.$vertical-padding;
+      padding-inline-end: button.$horizontal-padding;
+
       line-height: typography.$line-height-base;
-      padding: button.$vertical-padding 0; // $horizontal??
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+        display: block;
+
+        inline-size: 100%;
+
+        padding-inline-start: button.$horizontal-padding;
+
+        background-color: colors.$grasgroen-10;
+
+        border-radius: button.$border-radius;
+
+        color: colors.$bosgroen;
+      }
     }
   }
 
   .dso-aside {
-    clear: both;
-    float: left;
-  }
-}
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min + 1) {
+      display: inline-block;
 
-.dso-single-page {
-  &.dso-form-buttons,
-  .dso-form-buttons {
-    #{button.$buttons} {
-      float: left;
+      margin-inline-end: auto;
     }
+  }
+
+  .dso-single-page & {
+    justify-content: flex-start;
   }
 }
