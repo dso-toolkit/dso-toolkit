@@ -94,16 +94,7 @@ export {
   storiesOfDatePickerLegacy,
 } from "./components/date-picker-legacy/date-picker-legacy.stories-of.js";
 
-export {
-  Definition,
-  DefinitionDescriptionContent,
-  DefinitionDescriptionItems,
-  DefinitionList,
-} from "./components/definition-list/definition-list.models.js";
-export {
-  DefinitionListTemplates,
-  storiesOfDefinitionList,
-} from "./components/definition-list/definition-list.stories-of.js";
+export * from "./components/definition-list";
 
 export { Description } from "./components/description/description.models.js";
 export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
