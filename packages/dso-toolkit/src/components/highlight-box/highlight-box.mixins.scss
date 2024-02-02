@@ -9,16 +9,20 @@
 @use "highlight-box.variables" as highlight-box-variables;
 
 @mixin root() {
-  @include step-counter.step-counter();
-
   margin-top: units.$u2;
   padding: units.$u2;
   margin-bottom: units.$vertical-spacing-large;
 }
 
-@mixin children($white-selector, $yellow-selector, $drop-shadow-selector, $border-selector, $has-counter-selector) {
-  &:not(#{$white-selector, #{$border-selector}}) {
-    // ^^ add specificity bump to override default styling
+@mixin children(
+  $white-selector,
+  $yellow-selector,
+  $drop-shadow-selector,
+  $border-selector,
+  $has-counter-selector,
+  $step-counter-selector
+) {
+  &:not(#{$white-selector}, #{$yellow-selector}, #{$border-selector}) {
     @include set-colors.apply(colors.$grijs-5);
   }
 
@@ -43,6 +47,8 @@
 
   &#{$has-counter-selector} {
     margin-top: highlight-box-variables.$margin-top;
+
+    @include step-counter.has-step-counter();
   }
 
   > .dso-highlight-box-banner {
@@ -67,7 +73,7 @@
     }
   }
 
-  > .dso-step-counter:first-child + .dso-rich-content,
+  > #{$step-counter-selector} + .dso-rich-content,
   > .dso-rich-content:first-child {
     *:first-child {
       margin-top: 0 !important;

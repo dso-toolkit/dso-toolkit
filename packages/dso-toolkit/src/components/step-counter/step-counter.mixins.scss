@@ -3,12 +3,12 @@
 
 @use "step-counter.variables" as step-counter-variables;
 
-@mixin step-counter() {
-  &.dso-has-counter {
-    padding-top: units.$ru5;
-    position: relative;
-  }
+@mixin has-step-counter() {
+  padding-top: units.$ru5;
+  position: relative;
+}
 
+@mixin step-counter() {
   .dso-step-counter {
     background-color: colors.$bosgroen;
     border: step-counter-variables.$border-size solid colors.$lime;
@@ -24,15 +24,9 @@
     text-align: center;
     top: step-counter-variables.$icon-size * -1;
     width: step-counter-variables.$size;
-
-    svg.di {
-      height: step-counter-variables.$icon-size;
-      margin-top: units.$ru1 * 0.5;
-      width: step-counter-variables.$icon-size;
-    }
   }
+}
 
-  > dso-icon {
-    vertical-align: text-top;
-  }
+@mixin icon() {
+  margin-top: units.$ru1 * 0.5;
 }

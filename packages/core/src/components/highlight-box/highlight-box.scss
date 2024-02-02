@@ -1,8 +1,11 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/highlight-box";
+@use "~dso-toolkit/src/components/step-counter";
 
 @include utilities.box-sizing();
+
+@include step-counter.step-counter();
 
 :host {
   @include highlight-box.root();

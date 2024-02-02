@@ -9,31 +9,31 @@ export class HighlightBox {
   /**
    * For yellow Highlight Box.
    */
-  @Prop()
+  @Prop({ reflect: true })
   yellow?: boolean;
 
   /**
    * For a bordered Highlight Box.
    */
-  @Prop()
+  @Prop({ reflect: true })
   border?: boolean;
 
   /**
    * For a while Highlight Box.
    */
-  @Prop()
+  @Prop({ reflect: true })
   white?: boolean;
 
   /**
    * For an Highlight Box with a drop shadow.
    */
-  @Prop()
+  @Prop({ reflect: true })
   dropShadow?: boolean;
 
   /**
    * To create a step indicator.
    */
-  @Prop()
+  @Prop({ reflect: true })
   step?: number;
 
   @Element()

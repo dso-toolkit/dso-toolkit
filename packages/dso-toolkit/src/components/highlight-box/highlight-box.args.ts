@@ -40,9 +40,9 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
     },
   },
   icon: {
+    options: [undefined, "plus", "table"],
     control: {
       type: "select",
-      options: [undefined, "plus", "table"],
     },
   },
   bannerImage: {
