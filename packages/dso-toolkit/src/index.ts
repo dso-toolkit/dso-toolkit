@@ -162,11 +162,7 @@ export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-bu
 
 export * from "./components/header";
 
-export { HelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.models.js";
-export {
-  HelpcenterPanelTemplates,
-  storiesOfHelpcenterPanel,
-} from "./components/helpcenter-panel/helpcenter-panel.stories-of.js";
+export * from "./components/helpcenter-panel";
 
 export { HighlightBox } from "./components/highlight-box/highlight-box.models.js";
 export { HighlightBoxTemplates, storiesOfHighlightBox } from "./components/highlight-box/highlight-box.stories-of.js";
