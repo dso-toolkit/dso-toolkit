@@ -1,86 +1,129 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { HighlightBoxArgs, highlightBoxArgsMapper, highlightBoxArgTypes } from "./highlight-box.args.js";
 import { HighlightBox } from "./highlight-box.models.js";
 
-export interface HighlightBoxTemplates<TemplateFnReturnType> {
-  highlightBoxTemplate: (highlightBoxProperties: HighlightBox<TemplateFnReturnType>) => TemplateFnReturnType;
-  content: TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type HighlightBoxStory = StoryObj<HighlightBoxArgs, Renderer>;
+
+interface HighlightBoxStories {
+  Default: HighlightBoxStory;
+  Yellow: HighlightBoxStory;
+  Grey: HighlightBoxStory;
+  GreyWithBorder: HighlightBoxStory;
+  WhiteWithDropshadow: HighlightBoxStory;
+  WithBorder: HighlightBoxStory;
+  WithIcon: HighlightBoxStory;
+  WithBannerImage: HighlightBoxStory;
 }
 
-export function storiesOfHighlightBox<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     HighlightBoxTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Highlight Box", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: highlightBoxArgTypes,
-      args: {
-        yellow: false,
-        white: false,
-        border: false,
-        dropShadow: false,
-        step: null,
-        icon: null,
-        bannerImage: false,
-      },
-    });
+  > {}
 
-    const template = templateMapper<HighlightBoxArgs>((args, { highlightBoxTemplate, content }) =>
-      highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
-    );
+interface HighlightBoxTemplates<TemplateFnReturnType> {
+  highlightBoxTemplate: (highlightBoxProperties: HighlightBox<TemplateFnReturnType>) => TemplateFnReturnType;
+  content: TemplateFnReturnType;
+}
 
-    stories.add("default", template);
+export function highlightBoxMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  HighlightBoxArgs
+> {
+  return {
+    argTypes: highlightBoxArgTypes,
+    args: {
+      yellow: false,
+      white: false,
+      border: false,
+      dropShadow: false,
+      bannerImage: false,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("yellow", template, {
+export function highlightBoxStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnReturnType>): HighlightBoxStories {
+  return {
+    Default: {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    Yellow: {
       args: {
         yellow: true,
       },
-    });
-
-    stories.add("grey", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    Grey: {
       args: {
         grey: true,
       },
-    });
-
-    stories.add("grey with border", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    GreyWithBorder: {
       args: {
         grey: true,
         border: true,
       },
-    });
-
-    stories.add("white with dropshadow", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    WhiteWithDropshadow: {
       args: {
         white: true,
         dropShadow: true,
       },
-    });
-
-    stories.add("with border", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    WithBorder: {
       args: {
         border: true,
       },
-    });
-
-    stories.add("with icon", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    WithIcon: {
       args: {
         yellow: true,
         icon: "plus",
       },
-    });
-
-    stories.add("with banner image", template, {
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    WithBannerImage: {
       args: {
         bannerImage: true,
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+  };
 }

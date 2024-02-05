@@ -164,8 +164,7 @@ export * from "./components/header";
 
 export * from "./components/helpcenter-panel";
 
-export { HighlightBox } from "./components/highlight-box/highlight-box.models.js";
-export { HighlightBoxTemplates, storiesOfHighlightBox } from "./components/highlight-box/highlight-box.stories-of.js";
+export * from "./components/highlight-box";
 
 export { Icon } from "./components/icon/icon.models.js";
 export { IconTemplates, storiesOfIcon } from "./components/icon/icon.stories-of.js";
