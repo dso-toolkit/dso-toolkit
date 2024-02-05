@@ -1,15 +1,26 @@
-import { storiesOfHelpcenterPanel } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
+import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 
-storiesOfHelpcenterPanel({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<HelpcenterPanelArgs> = {
+  ...helpcenterPanelMeta({ readme }),
+  title: "Helpcenter Panel",
+};
+
+export default meta;
+
+const { HelpcenterPanel } = helpcenterPanelStories({
   templateContainer,
-  storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
+  storyTemplates: (templates) => {
+    const { helpcenterPanelTemplate } = templates;
+
+    return {
+      helpcenterPanelTemplate,
+    };
+  },
 });
+
+export { HelpcenterPanel };

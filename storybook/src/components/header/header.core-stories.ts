@@ -7,7 +7,7 @@ import readme from "@dso-toolkit/core/src/components/header/readme.md?raw";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),
-  title: "HTML|CSS/Header",
+  title: "Core/Header",
 };
 
 export default meta;
