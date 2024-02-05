@@ -160,14 +160,7 @@ export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/
 export { FormButtons } from "./components/form-buttons/form-buttons.models.js";
 export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-buttons/form-buttons.stories-of.js";
 
-export {
-  Header,
-  HeaderClickEvent,
-  HeaderClickMenuItemEvent,
-  HeaderMenuItem,
-  HeaderNavigationType,
-} from "./components/header/header.models.js";
-export { HeaderTemplates, storiesOfHeader } from "./components/header/header.stories-of.js";
+export * from "./components/header";
 
 export { HelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.models.js";
 export {
