@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Banner: Responsive behavior ([#2414](https://github.com/dso-toolkit/dso-toolkit/issues/2414))
+
 ## 🌉 62.11.0 - 07-02-2024
 
 ### Added

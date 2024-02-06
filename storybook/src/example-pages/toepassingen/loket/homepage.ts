@@ -17,9 +17,11 @@ examplePageFactory(
       ${headerPartial(templates, header)}
       <main>
         <div
-          class="row dso-banner no-button-banner dso-banner-implementation-specific-image"
+          class="row dso-banner no-button-banner my-beautiful-image"
           style="background-image: url('images/hero2.jpeg')"
         >
+          <!-- ^^ background-image set by inline style purely for demo purposes. Please use a class (like the
+             dummy class above) to set your desired background-image! -->
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
