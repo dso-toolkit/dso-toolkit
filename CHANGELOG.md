@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Modal: Fade in animatietijd naar 200ms ([#2463](https://github.com/dso-toolkit/dso-toolkit/issues/2463))
 * Form Buttons: Responsive behavior ([#2464](https://github.com/dso-toolkit/dso-toolkit/issues/2464))
 * Form: Vervang asterisk ([#2509](https://github.com/dso-toolkit/dso-toolkit/issues/2509))
+* Banner: Responsive behavior ([#2414](https://github.com/dso-toolkit/dso-toolkit/issues/2414))
 
 ### Fixed
 * Dropdown Menu: focus trap hamburger menu ([#2392](https://github.com/dso-toolkit/dso-toolkit/issues/2392))
