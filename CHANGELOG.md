@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Form: Explanation required field ([#2453](https://github.com/dso-toolkit/dso-toolkit/issues/2453))
+
 ### Changed
 * Accessibility: Links en iconen op achtergrondkleur altijd zwart ([#2154](https://github.com/dso-toolkit/dso-toolkit/issues/2154))
 * Modal: Fade in animatietijd naar 200ms ([#2463](https://github.com/dso-toolkit/dso-toolkit/issues/2463))

@@ -1,0 +1,25 @@
+@use "form.mixins" as css-form-mixins;
+@use "../../variables/units.scss";
+@use "../../variables/colors.scss";
+
+.form-explanation {
+  &:first-child {
+    margin-block-end: units.$u1;
+  }
+
+  &:last-child {
+    padding-block-start: units.$u1;
+
+    border-block-start: 2px solid colors.$grijs-20;
+  }
+}
+
+.form-explanation-text {
+  margin-block: 0;
+}
+
+.form-explanation-required {
+  &::after {
+    @include css-form-mixins.form-group-required();
+  }
+}
