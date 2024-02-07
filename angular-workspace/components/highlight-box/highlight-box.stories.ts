@@ -1,31 +1,70 @@
-import { moduleMetadata, storiesOf } from "@storybook/angular";
+// import { moduleMetadata, storiesOf } from "@storybook/angular";
 
-import { storiesOfHighlightBox } from "dso-toolkit";
+// import { storiesOfHighlightBox } from "dso-toolkit";
 
-import { DsoHighlightBox, DsoIcon } from "../../projects/component-library/src/public-api";
+// import { templateContainer } from "../../templates";
+
+// import readme from "./readme.md?raw";
+
+import type { Meta } from "@storybook/web-components";
+import { moduleMetadata } from "@storybook/angular";
+import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
+import { DsoHighlightBox, DsoIcon } from "../../projects/component-library/src/public-api";
 import { content } from "./highlight-box.content";
 
 import readme from "./readme.md?raw";
 
-storiesOfHighlightBox({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    storyApiOptions: {
-      decorators: [
-        moduleMetadata({
-          declarations: [DsoIcon],
-        }),
-      ],
-      parameters: [
-        {
-          component: DsoHighlightBox,
-        },
-      ],
+const meta: Meta<HighlightBoxArgs> = {
+  ...highlightBoxMeta({ readme }),
+  title: "Highlight Box",
+  decorators: [
+    moduleMetadata({
+      declarations: [DsoIcon],
+    }),
+  ],
+  parameters: [
+    {
+      component: DsoHighlightBox,
     },
-  },
+  ],
+};
+
+export default meta;
+
+const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } = highlightBoxStories({
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate }) => ({ highlightBoxTemplate, content: content() }),
+  storyTemplates: (templates) => {
+    const { highlightBoxTemplate } = templates;
+
+    return {
+      highlightBoxTemplate,
+      content: content(),
+    };
+  },
 });
+
+export { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage };
+
+// storiesOfHighlightBox({
+//   parameters: {
+//     module,
+//     storiesOf,
+//     readme,
+//     storyApiOptions: {
+//       decorators: [
+//         moduleMetadata({
+//           declarations: [DsoIcon],
+//         }),
+//       ],
+//       parameters: [
+//         {
+//           component: DsoHighlightBox,
+//         },
+//       ],
+//     },
+//   },
+//   templateContainer,
+//   storyTemplates: ({ highlightBoxTemplate }) => ({ highlightBoxTemplate, content: content() }),
+// });
