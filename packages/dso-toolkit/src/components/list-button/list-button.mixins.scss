@@ -105,6 +105,7 @@
   text-align: left;
   white-space: normal;
   width: 100%;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -145,6 +146,10 @@
           colors.$grasgroen 0px -1px 0px 0px inset;
       }
     }
+  }
+
+  label {
+    cursor: inherit;
   }
 
   > span {

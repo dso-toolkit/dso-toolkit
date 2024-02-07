@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## Fixed
+* List Button: Cursor pointer ([#2504](https://github.com/dso-toolkit/dso-toolkit/issues/2504))
+
 ### Changed
 * Banner: Responsive behavior ([#2414](https://github.com/dso-toolkit/dso-toolkit/issues/2414))
 
