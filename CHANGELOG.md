@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🌉 62.11.0 - 07-02-2024
+
 ### Added
 * Form: Explanation required field ([#2453](https://github.com/dso-toolkit/dso-toolkit/issues/2453))
 
