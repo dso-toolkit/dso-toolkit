@@ -8,16 +8,18 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
   implementation: "html-css",
   template: ({ formGroupTemplate, formButtonsTemplate }) =>
-    function formTemplate({ legend, legendHeading, mode, formGroups, formButtons }) {
+    function formTemplate({ asteriskExplanation, legend, legendHeading, mode, formGroups, formButtons }) {
+      function asteriskExplanationTemplate() {
+        return html`<div class="form-explanation" aria-hidden="true">
+          <p class="form-explanation-text">
+            Velden met een <span class="form-explanation-required"></span> zijn verplicht.
+          </p>
+        </div>`;
+      }
+
       return html`
         <form class=${ifDefined(mode === "horizontal" ? "form-horizontal" : undefined)}>
-          <!-- form explanation WIP -->
-          <div class="form-explanation" aria-hidden="true">
-            <p class="form-explanation-text">
-              Velden met een <span class="form-explanation-required"></span> zijn verplicht.
-            </p>
-          </div>
-          <!-- /form explanation WIP -->
+          ${asteriskExplanation === "top" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing}
           <fieldset>
             <legend>
               ${legendHeading === "h1" // if
@@ -37,13 +39,9 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
             ${"_$litType$" in formGroups ? formGroups : formGroups.map((formGroup) => formGroupTemplate(formGroup))}
             ${formButtons ? formButtonsTemplate(formButtons) : nothing}
           </fieldset>
-          <!-- form explanation WIP -->
-          <div class="form-explanation" aria-hidden="true">
-            <p class="form-explanation-text">
-              Velden met een <span class="form-explanation-required"></span> zijn verplicht.
-            </p>
-          </div>
-          <!-- /form explanation WIP -->
+          ${asteriskExplanation === "bottom" || asteriskExplanation === "both"
+            ? asteriskExplanationTemplate()
+            : nothing}
         </form>
       `;
     },
