@@ -26,6 +26,10 @@
   color: card.$heading-anchor-color;
   display: flex;
 
+  &:visited {
+    color: card.$heading-anchor-color;
+  }
+
   dso-icon {
     flex-shrink: 0;
   }
