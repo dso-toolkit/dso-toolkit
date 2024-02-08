@@ -1,7 +1,6 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/angular";
 import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
-import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
@@ -9,7 +8,6 @@ import readme from "./readme.md?raw";
 const meta: Meta<SlideToggleArgs> = {
   ...slideToggleMeta({ readme }),
   title: "Slide Toggle",
-  parameters: [{ component: DsoSlideToggle }],
 };
 
 export default meta;
