@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-## Fixed
+### Fixed
 * List Button: Cursor pointer ([#2504](https://github.com/dso-toolkit/dso-toolkit/issues/2504))
 * Card: Anchor chevron visited color ([#2510](https://github.com/dso-toolkit/dso-toolkit/issues/2510))
 
