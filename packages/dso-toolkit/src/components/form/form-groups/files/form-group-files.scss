@@ -98,7 +98,7 @@
         padding: units.$u1 * 0.5;
 
         &::before {
-          @include di.base("times-bosgroen");
+          @include di.base("trash-bosgroen");
 
           content: "";
           display: block;
