@@ -47,6 +47,12 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                     })}
                     ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
                     ${buttonTemplate({
+                      label: "download document",
+                      variant: "tertiary",
+                      modifier: "dso-download",
+                      ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
+                    })}
+                    ${buttonTemplate({
                       label: "Verwijder document",
                       variant: "tertiary",
                       modifier: "dso-remove",
