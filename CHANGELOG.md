@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Form: File add download button ([#2531](https://github.com/dso-toolkit/dso-toolkit/issues/2531))
+
 ### Fixed
 * List Button: Cursor pointer ([#2504](https://github.com/dso-toolkit/dso-toolkit/issues/2504))
 * Card: Anchor chevron visited color ([#2510](https://github.com/dso-toolkit/dso-toolkit/issues/2510))
@@ -12,9 +15,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Banner: Responsive behavior ([#2414](https://github.com/dso-toolkit/dso-toolkit/issues/2414))
 * Form: Remove icon replace times by trash ([#2527](https://github.com/dso-toolkit/dso-toolkit/issues/2527))
-
-### Added
-* Form: File add download button ([#2531](https://github.com/dso-toolkit/dso-toolkit/issues/2531))
 
 ## 🌉 62.11.0 - 07-02-2024
 
