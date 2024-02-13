@@ -101,8 +101,6 @@
         margin-inline-start: units.$u1 * 0.5;
 
         &::before {
-          @include di.base("trash-bosgroen");
-
           content: "";
           display: block;
           font-size: typography.$root-font-size-base;
