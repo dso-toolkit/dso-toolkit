@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -35,6 +36,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+export { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -142,6 +144,16 @@ export namespace Components {
           * When there is a warning.
          */
         "warning": boolean;
+    }
+    interface DsoAdvancedSelect {
+        /**
+          * The active option. By object reference.
+         */
+        "active"?: AdvancedSelectOption;
+        /**
+          * The options to display in the select.
+         */
+        "options": AdvancedSelectOptionsOrGroup[];
     }
     interface DsoAlert {
         /**
@@ -1164,6 +1176,12 @@ declare global {
         prototype: HTMLDsoActionListItemElement;
         new (): HTMLDsoActionListItemElement;
     };
+    interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
+    }
+    var HTMLDsoAdvancedSelectElement: {
+        prototype: HTMLDsoAdvancedSelectElement;
+        new (): HTMLDsoAdvancedSelectElement;
+    };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
     var HTMLDsoAlertElement: {
@@ -1757,6 +1775,7 @@ declare global {
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-action-list": HTMLDsoActionListElement;
         "dso-action-list-item": HTMLDsoActionListItemElement;
+        "dso-advanced-select": HTMLDsoAdvancedSelectElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-output": HTMLDsoAnnotationOutputElement;
@@ -1890,6 +1909,16 @@ declare namespace LocalJSX {
           * When there is a warning.
          */
         "warning"?: boolean;
+    }
+    interface DsoAdvancedSelect {
+        /**
+          * The active option. By object reference.
+         */
+        "active"?: AdvancedSelectOption;
+        /**
+          * The options to display in the select.
+         */
+        "options"?: AdvancedSelectOptionsOrGroup[];
     }
     interface DsoAlert {
         /**
@@ -2955,6 +2984,7 @@ declare namespace LocalJSX {
         "dso-accordion-section": DsoAccordionSection;
         "dso-action-list": DsoActionList;
         "dso-action-list-item": DsoActionListItem;
+        "dso-advanced-select": DsoAdvancedSelect;
         "dso-alert": DsoAlert;
         "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-output": DsoAnnotationOutput;
@@ -3008,6 +3038,7 @@ declare module "@stencil/core" {
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
             "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
+            "dso-advanced-select": LocalJSX.DsoAdvancedSelect & JSXBase.HTMLAttributes<HTMLDsoAdvancedSelectElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;

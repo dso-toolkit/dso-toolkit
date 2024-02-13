@@ -1,6 +1,7 @@
 import {
   Accordion,
   ActionList,
+  AdvancedSelect,
   Alert,
   Annotation,
   AnnotationButton,
@@ -196,6 +197,7 @@ import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-hei
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
+import { coreAdvancedSelect } from "./components/advanced-select/advanced-select.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
@@ -203,6 +205,7 @@ import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 export interface Components {
   accordion: Accordion<TemplateResult>;
   actionList: ActionList<TemplateResult>;
+  advancedSelect: AdvancedSelect;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   annotation: Annotation<TemplateResult>;
@@ -319,6 +322,7 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(coreAccordion);
 templateContainer.add(coreActionList);
+templateContainer.add(coreAdvancedSelect);
 templateContainer.add(coreAlert);
 templateContainer.add(coreAnnotation);
 templateContainer.add(coreAnnotationButton);
