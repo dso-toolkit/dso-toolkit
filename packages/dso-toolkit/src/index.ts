@@ -34,6 +34,8 @@ export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/a
 export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
 export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
 
+export * from "./components/advanced-select";
+
 export * from "./components/alert";
 
 export * from "./components/anchor";
