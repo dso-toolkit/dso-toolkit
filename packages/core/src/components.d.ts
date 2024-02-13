@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.models";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -35,6 +36,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.models";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -142,6 +144,20 @@ export namespace Components {
           * When there is a warning.
          */
         "warning": boolean;
+    }
+    interface DsoAdvancedSelect {
+        /**
+          * The active option. By object reference.
+         */
+        "active"?: AdvancedSelectOption<never>;
+        /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
+        /**
+          * The options to display in the select.
+         */
+        "options": AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -1018,6 +1034,10 @@ export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionSectionElement;
 }
+export interface DsoAdvancedSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAdvancedSelectElement;
+}
 export interface DsoAnnotationButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationButtonElement;
@@ -1163,6 +1183,24 @@ declare global {
     var HTMLDsoActionListItemElement: {
         prototype: HTMLDsoActionListItemElement;
         new (): HTMLDsoActionListItemElement;
+    };
+    interface HTMLDsoAdvancedSelectElementEventMap {
+        "dsoChange": AdvancedSelectChangeEvent<never>;
+        "dsoRedirect": AdvancedSelectRedirectEvent;
+    }
+    interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoAdvancedSelectElement: {
+        prototype: HTMLDsoAdvancedSelectElement;
+        new (): HTMLDsoAdvancedSelectElement;
     };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
@@ -1757,6 +1795,7 @@ declare global {
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-action-list": HTMLDsoActionListElement;
         "dso-action-list-item": HTMLDsoActionListItemElement;
+        "dso-advanced-select": HTMLDsoAdvancedSelectElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-output": HTMLDsoAnnotationOutputElement;
@@ -1890,6 +1929,28 @@ declare namespace LocalJSX {
           * When there is a warning.
          */
         "warning"?: boolean;
+    }
+    interface DsoAdvancedSelect {
+        /**
+          * The active option. By object reference.
+         */
+        "active"?: AdvancedSelectOption<never>;
+        /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
+        /**
+          * Emitted when user selects an option
+         */
+        "onDsoChange"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectChangeEvent<never>>) => void;
+        /**
+          * Emitted when user activates a group redirect link.
+         */
+        "onDsoRedirect"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectEvent>) => void;
+        /**
+          * The options to display in the select.
+         */
+        "options"?: AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -2955,6 +3016,7 @@ declare namespace LocalJSX {
         "dso-accordion-section": DsoAccordionSection;
         "dso-action-list": DsoActionList;
         "dso-action-list-item": DsoActionListItem;
+        "dso-advanced-select": DsoAdvancedSelect;
         "dso-alert": DsoAlert;
         "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-output": DsoAnnotationOutput;
@@ -3008,6 +3070,7 @@ declare module "@stencil/core" {
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
             "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
+            "dso-advanced-select": LocalJSX.DsoAdvancedSelect & JSXBase.HTMLAttributes<HTMLDsoAdvancedSelectElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;
