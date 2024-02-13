@@ -87,8 +87,7 @@
 
       .dso-selectable,
       dso-selectable {
-        + .dso-remove,
-        + .dso-download {
+        + .dso-remove {
           margin-inline-start: units.$u4 + units.$u1;
         }
       }
@@ -153,6 +152,25 @@
 
     + .dso-file-upload {
       margin-top: units.$u2;
+    }
+
+    &:has(.dso-download) {
+      .dso-selectable,
+      dso-selectable {
+        + .dso-remove {
+          margin-inline-start: (units.$u4 * 2) + (units.$u1 * 1.5);
+        }
+        + .dso-download {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      dso-icon,
+      svg.di {
+        + .dso-remove {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
     }
   }
 }
