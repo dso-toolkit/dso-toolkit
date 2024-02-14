@@ -243,6 +243,10 @@ export namespace Components {
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape": ImageShape;
+        /**
+          * Display the link as an external link or a download link  - "download"  - "extern"
+         */
+        "mode"?: string;
     }
     interface DsoCardContainer {
         /**
@@ -2003,6 +2007,10 @@ declare namespace LocalJSX {
           * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
          */
         "imageShape"?: ImageShape;
+        /**
+          * Display the link as an external link or a download link  - "download"  - "extern"
+         */
+        "mode"?: string;
         /**
           * Emitted when the Card is clickable and the user clicked the Card.
          */
