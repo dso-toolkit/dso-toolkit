@@ -88,21 +88,33 @@
       .dso-selectable,
       dso-selectable {
         + .dso-remove {
-          margin-left: units.$u4;
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      .dso-remove,
+      .dso-download {
+        font-size: 0;
+        min-width: auto;
+        padding: units.$u1 * 0.5;
+        margin-inline-start: units.$u1 * 0.5;
+
+        &::before {
+          content: "";
+          display: block;
+          font-size: typography.$root-font-size-base;
         }
       }
 
       .dso-remove {
-        font-size: 0;
-        min-width: auto;
-        padding: units.$u1 * 0.5;
-
         &::before {
           @include di.base("trash-bosgroen");
+        }
+      }
 
-          content: "";
-          display: block;
-          font-size: typography.$root-font-size-base;
+      .dso-download {
+        &::before {
+          @include di.base("download-bosgroen");
         }
       }
 
@@ -115,7 +127,7 @@
       > svg.di {
         flex: 0 0 24px;
         height: 24px;
-        margin: #{units.$u1 * 0.5} 0 #{units.$u1 * 0.5} units.$u1;
+        margin: #{units.$u1 * 0.5} #{units.$u1 * 0.5} #{units.$u1 * 0.5} units.$u1;
       }
 
       @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
@@ -126,7 +138,8 @@
         .dso-confidential,
         > dso-icon,
         > svg.di,
-        .dso-remove {
+        .dso-remove,
+        .dso-download {
           display: block;
           float: left;
         }
@@ -139,6 +152,25 @@
 
     + .dso-file-upload {
       margin-top: units.$u2;
+    }
+
+    &:has(.dso-download) {
+      .dso-selectable,
+      dso-selectable {
+        + .dso-remove {
+          margin-inline-start: (units.$u4 * 2) + (units.$u1 * 1.5);
+        }
+        + .dso-download {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      dso-icon,
+      svg.di {
+        + .dso-remove {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
     }
   }
 }
