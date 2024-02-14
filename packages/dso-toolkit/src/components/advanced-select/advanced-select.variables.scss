@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "../../variables/scaffolding";
+
+$border-color: colors.$bosgroen;
+$border-radius: scaffolding.$border-radius-base;
+
+$bg-color: colors.$wit;
+
+$icon-color: colors.$bosgroen;
+$redirect-icon-color: colors.$grasgroen;
+
+$hr-color: colors.$grijs-20;
+
+$horizontal-padding: units.$u2;
+$vertical-padding: math.div(units.$u1, 2);
+
+$option-dot-size: 10px;
+
+$group-label-color: colors.$grijs-60;
+$group-label-font-size: typography.$font-size-small;
+$group-label-font-weight: 500;
+
+$group-link-horizontal-padding: units.$u1;
+$group-link-vertical-padding: math.div(units.$u1, 2);
+$group-link-color: colors.$zwart;
+
+$option-color: colors.$zwart;
+$option-font-size: typography.$font-family-base;
+$option-font-weight: 400;
+
+$option-active-color: colors.$grasgroen;
+$option-active-font-weight: bold;
+
+$option-hover-color: $option-active-color;
+$option-hover-bg-color: colors.$grasgroen-10;
+$option-hover-font-weight: $option-active-font-weight;
+
+$default-variant-color: colors.$grijs-20;
+$info-variant-color: colors.$info-color;
+$primary-variant-color: colors.$bosgroen;
+$success-variant-color: colors.$success-color;
+$warning-variant-color: colors.$warning-color;
+$danger-variant-color: colors.$danger-color;
+$error-variant-color: colors.$error-color;
+$attention-variant-color: colors.$mauve;

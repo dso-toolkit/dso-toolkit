@@ -205,7 +205,7 @@ import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 export interface Components {
   accordion: Accordion<TemplateResult>;
   actionList: ActionList<TemplateResult>;
-  advancedSelect: AdvancedSelect;
+  advancedSelect: AdvancedSelect<unknown>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   annotation: Annotation<TemplateResult>;

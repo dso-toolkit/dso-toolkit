@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
+import { AdvancedSelectOption, AdvancedSelectOptionClickEvent, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.models";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -36,7 +36,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-export { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
+export { AdvancedSelectOption, AdvancedSelectOptionClickEvent, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.models";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -149,11 +149,15 @@ export namespace Components {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption;
+        "active"?: AdvancedSelectOption<never>;
+        /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
         /**
           * The options to display in the select.
          */
-        "options": AdvancedSelectOptionsOrGroup[];
+        "options": AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -1030,6 +1034,10 @@ export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionSectionElement;
 }
+export interface DsoAdvancedSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAdvancedSelectElement;
+}
 export interface DsoAnnotationButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationButtonElement;
@@ -1176,7 +1184,19 @@ declare global {
         prototype: HTMLDsoActionListItemElement;
         new (): HTMLDsoActionListItemElement;
     };
+    interface HTMLDsoAdvancedSelectElementEventMap {
+        "dsoOptionClick": AdvancedSelectOptionClickEvent<never>;
+        "dsoRedirectClick": AdvancedSelectRedirectClickEvent;
+    }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAdvancedSelectElement: {
         prototype: HTMLDsoAdvancedSelectElement;
@@ -1914,11 +1934,23 @@ declare namespace LocalJSX {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption;
+        "active"?: AdvancedSelectOption<never>;
+        /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
+        /**
+          * Emitted when user clicks an option
+         */
+        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent<never>>) => void;
+        /**
+          * Emitted when user clicks a redirect link.
+         */
+        "onDsoRedirectClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectClickEvent>) => void;
         /**
           * The options to display in the select.
          */
-        "options"?: AdvancedSelectOptionsOrGroup[];
+        "options"?: AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**

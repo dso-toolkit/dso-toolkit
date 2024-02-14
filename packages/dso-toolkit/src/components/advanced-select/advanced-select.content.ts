@@ -1,6 +1,6 @@
-import { AdvancedSelectOptionsOrGroup } from "./advanced-select.models";
+import { AdvancedSelectOptionOrGroup } from "./advanced-select.models";
 
-export const options: AdvancedSelectOptionsOrGroup[] = [
+export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
   {
     label: "Geldende versie",
     variant: "success",
@@ -16,7 +16,6 @@ export const options: AdvancedSelectOptionsOrGroup[] = [
   },
   {
     label: "Toekomstige versies",
-    variant: "bright",
     summaryCounter: true,
     options: [
       {
@@ -30,6 +29,10 @@ export const options: AdvancedSelectOptionsOrGroup[] = [
   {
     label: "Ontwerp versies ter inzage",
     variant: "warning",
+    redirect: {
+      href: "#",
+      label: "Bekijk ontwerpen met afgeronde inzage termijn",
+    },
     summaryCounter: true,
     options: [
       {

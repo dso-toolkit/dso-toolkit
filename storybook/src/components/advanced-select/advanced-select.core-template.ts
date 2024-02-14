@@ -4,11 +4,17 @@ import { html } from "lit-html";
 import { ComponentImplementation } from "../../templates";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect> = {
+export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect<unknown>> = {
   component: "advancedSelect",
   implementation: "core",
   template: () =>
-    function advancedSelectTemplate({ options, active }) {
-      return html`<dso-advanced-select .options=${options} .active=${ifDefined(active)}></dso-advanced-select>`;
+    function advancedSelectTemplate({ options, active, activeHint, dsoOptionClick, dsoRedirectClick }) {
+      return html` <dso-advanced-select
+        .options=${options}
+        .active=${ifDefined(active)}
+        .activeHint=${ifDefined(activeHint)}
+        @dsoOptionClick=${dsoOptionClick}
+        @dsoRedirectClick=${dsoRedirectClick}
+      ></dso-advanced-select>`;
     },
 };
