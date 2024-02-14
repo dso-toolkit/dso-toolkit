@@ -64,25 +64,42 @@
 
   .dso-filelist {
     list-style: none;
+
     margin-bottom: 0;
     padding-left: 0;
 
     li {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+
       background-color: colors.$grijs-5;
       border: 1px solid colors.$grijs-10;
       border-radius: button.$border-radius;
-      display: flex;
+
       padding: #{units.$u1 * 0.5 - 1} #{units.$u1 - 1} #{units.$u1 * 0.5 - 2};
 
       + li {
         margin-top: units.$u1;
       }
 
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        flex-wrap: wrap;
+      }
+
       .dso-filename {
-        font-weight: 600;
+        flex-grow: 1;
+
         padding-right: units.$u1;
-        width: calc(100% - #{units.$u1});
+
+        font-weight: 600;
         word-break: break-all;
+
+        @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+          inline-size: 100%;
+
+          padding-inline-end: 0;
+        }
       }
 
       .dso-selectable,
@@ -129,25 +146,6 @@
         height: 24px;
         margin: #{units.$u1 * 0.5} #{units.$u1 * 0.5} #{units.$u1 * 0.5} units.$u1;
       }
-
-      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
-        @include utilities.clearfix();
-
-        display: block;
-
-        .dso-confidential,
-        > dso-icon,
-        > svg.di,
-        .dso-remove,
-        .dso-download {
-          display: block;
-          float: left;
-        }
-
-        .dso-confidential {
-          width: calc(100% - #{units.$u8});
-        }
-      }
     }
 
     + .dso-file-upload {
@@ -169,6 +167,42 @@
       svg.di {
         + .dso-remove {
           margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        li:has(.dso-download) {
+          .dso-selectable,
+          dso-selectable,
+          dso-icon,
+          svg.di {
+            + .dso-download {
+              margin-inline-start: auto;
+            }
+          }
+        }
+
+        li:not(:has(.dso-download)) {
+          .dso-selectable,
+          dso-selectable,
+          dso-icon,
+          svg.di {
+            + .dso-remove {
+              margin-inline-start: auto;
+            }
+          }
+        }
+      }
+    }
+    &:not(:has(.dso-download)) {
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        .dso-selectable,
+        dso-selectable,
+        dso-icon,
+        svg.di {
+          + .dso-remove {
+            margin-inline-start: auto;
+          }
         }
       }
     }
