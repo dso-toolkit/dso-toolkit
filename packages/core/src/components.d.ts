@@ -151,6 +151,10 @@ export namespace Components {
          */
         "active"?: AdvancedSelectOption;
         /**
+          * The open state of the options list.
+         */
+        "open"?: boolean;
+        /**
           * The options to display in the select.
          */
         "options": AdvancedSelectOptionsOrGroup[];
@@ -1907,6 +1911,10 @@ declare namespace LocalJSX {
           * The active option. By object reference.
          */
         "active"?: AdvancedSelectOption;
+        /**
+          * The open state of the options list.
+         */
+        "open"?: boolean;
         /**
           * The options to display in the select.
          */

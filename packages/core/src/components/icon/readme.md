@@ -16,6 +16,7 @@
 
  - [dso-accordion-section](../accordion/components)
  - [dso-action-list-item](../action-list/components)
+ - [dso-advanced-select](../advanced-select)
  - [dso-alert](../alert)
  - [dso-annotation-button](../annotation-button)
  - [dso-annotation-output](../annotation-output)
@@ -43,6 +44,7 @@
 graph TD;
   dso-accordion-section --> dso-icon
   dso-action-list-item --> dso-icon
+  dso-advanced-select --> dso-icon
   dso-alert --> dso-icon
   dso-annotation-button --> dso-icon
   dso-annotation-output --> dso-icon

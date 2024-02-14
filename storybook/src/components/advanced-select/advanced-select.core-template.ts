@@ -9,6 +9,6 @@ export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect> = {
   implementation: "core",
   template: () =>
     function advancedSelectTemplate({ options, active }) {
-      return html`<dso-advanced-select .options=${options} .active=${ifDefined(active)}></dso-advanced-select>`;
+      return html`<dso-advanced-select .options=${options} .active=${ifDefined(active)} .open=${true}></dso-advanced-select>`;
     },
 };
