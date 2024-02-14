@@ -12,6 +12,12 @@ dso-action-list {
     margin-inline-start: calc(
       (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) * -1
     );
+
+    + .dso-rich-content {
+      @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
+        margin-inline-start: units.$u1;
+      }
+    }
   }
 
   .flow-line {
