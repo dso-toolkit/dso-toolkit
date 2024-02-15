@@ -7,22 +7,24 @@
 
 ## Properties
 
-| Property  | Attribute | Description                             | Type                                | Default     |
-| --------- | --------- | --------------------------------------- | ----------------------------------- | ----------- |
-| `active`  | --        | The active option. By object reference. | `AdvancedSelectOption \| undefined` | `undefined` |
-| `open`    | `open`    | The open state of the options list.     | `boolean \| undefined`              | `undefined` |
-| `options` | --        | The options to display in the select.   | `AdvancedSelectOptionsOrGroup[]`    | `[]`        |
+| Property  | Attribute | Description                             | Type                                     | Default     |
+| --------- | --------- | --------------------------------------- | ---------------------------------------- | ----------- |
+| `active`  | --        | The active option. By object reference. | `AdvancedSelectOption<any> \| undefined` | `undefined` |
+| `open`    | `open`    | The open state of the options list.     | `boolean \| undefined`                   | `undefined` |
+| `options` | --        | The options to display in the select.   | `AdvancedSelectOptionsOrGroup<any>[]`    | `[]`        |
 
 
 ## Dependencies
 
 ### Depends on
 
+- [dso-badge](../badge)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-advanced-select --> dso-badge
   dso-advanced-select --> dso-icon
   style dso-advanced-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

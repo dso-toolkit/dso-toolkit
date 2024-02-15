@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 
 :host {
   display: block;
@@ -10,65 +11,35 @@
 .active-option {
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
   border: 1px solid colors.$bosgroen;
   border-radius: 5px;
   cursor: pointer;
 
   &.open {
-    border-radius: 5px 5px 0 0;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &-label {
+    padding: 4px 16px;
   }
 
   &-aside {
     display: flex;
+    align-items: center;
     gap: 8px;
+    padding: 0 8px;
   }
 
   dso-icon {
-    width: 32px;
     color: colors.$bosgroen;
   }
 }
 
-.summaries {
+.badges {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 5px;
-
-  .summary {
-    border: 1px solid;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    font-size: 14px;
-
-    &-info {
-      border-color: colors.$info-color;
-      background-color: colors.$info-color;
-    }
-
-    &-bright {
-      border-color: colors.$zwart;
-      background-color: colors.$wit;
-    }
-
-    &-success {
-      border-color: colors.$success-color;
-      background-color: colors.$success-color;
-    }
-
-    &-warning {
-      border-color: colors.$warning-color;
-      background-color: colors.$warning-color;
-    }
-
-    &-error {
-      border-color: colors.$error-color;
-      background-color: colors.$error-color;
-    }
-  }
+  align-items: center;
+  gap: 4px;
 }
 
 .groups-container {
@@ -85,12 +56,12 @@
   left: 0;
   width: 100%;
   background-color: colors.$wit;
-  border: 1px solid colors.$grijs-50;
-  border-radius: 0 0 5px 5px;
+  border: 1px solid colors.$bosgroen;
+  border-radius: 0 0 4px 4px;
 }
 
 .group {
-  border-bottom: 1px solid colors.$grijs-50;
+  border-bottom: 1px solid colors.$grijs-20;
 
   &:last-child {
     border-bottom: none;
@@ -98,10 +69,11 @@
 
   &-label {
     margin: 0;
-    padding: 4px 15px;
-    color: colors.$grijs-70;
+    padding: 4px 16px;
+    color: colors.$grijs-60;
+    font-size: typography.$font-size-small;
     font-weight: 500;
-    border-bottom: 1px solid colors.$grijs-50;
+    border-bottom: 1px solid colors.$grijs-20;
   }
 
   &-link {
@@ -138,31 +110,32 @@
 }
 
 .option {
-  padding: 8px 5px 8px 40px;
+  padding: 8px 16px 8px 36px;
   cursor: pointer;
 
   &:hover {
     background-color: colors.$grasgroen-10;
-    color: colors.$grasgroen-80;
+    color: colors.$grasgroen;
     font-weight: bold;
   }
 
   &.option-active {
-    color: colors.$grasgroen-80;
+    color: colors.$grasgroen;
     font-weight: bold;
     text-decoration: underline;
   }
 
   &-label {
     position: relative;
+    font-size: typography.$font-family-base;
 
     &::before {
       content: '';
       position: absolute;
       display: block;
-      height: 12px;
-      width: 12px;
-      left: -24px;
+      height: 10px;
+      width: 10px;
+      left: -20px;
       top: 4px;
       border-radius: 50%;
       background-color: colors.$grijs-20;

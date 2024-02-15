@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, Prop, h } from "@stencil/core";
+import {Component, ComponentInterface, Prop, h, FunctionalComponent} from "@stencil/core";
 
-import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./advanced-select.models";
+import {AdvancedSelectOption, AdvancedSelectOptionsOrGroup} from "./advanced-select.models";
 
 @Component({
   tag: "dso-advanced-select",
@@ -12,13 +12,13 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionsOrGroup[] = [];
+  options: AdvancedSelectOptionsOrGroup<any>[] = [];
 
   /**
    * The active option. By object reference.
    */
   @Prop()
-  active?: AdvancedSelectOption;
+  active?: AdvancedSelectOption<any>;
 
   /**
    * The open state of the options list.
@@ -29,77 +29,53 @@ export class AdvancedSelect implements ComponentInterface {
   render() {
     return (
       <div>
-        <div class={{ "active-option": true, "open": this.open === true }}>
-          <span>In werking (Laatst gewijzigd: 01-01-2024)</span>
+        <div class={{"active-option": true, "open": this.open === true}}>
+          <span class="active-option-label">{this.active?.label ?? 'Selecteer een optie'}</span>
           <div class="active-option-aside">
-            <div class="summaries">
-              <div class="summary summary-info">1</div>
-              <div class="summary summary-bright">2</div>
-              <div class="summary summary-success">3</div>
-              <div class="summary summary-warning">4</div>
-              <div class="summary summary-error">5</div>
-              <div class="summary">6</div>
-            </div>
-            <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
+            {this.options.some(option => 'summaryCounter' in option && option?.summaryCounter) ?
+              <div class="badges">
+                {this.options.filter(option => 'summaryCounter' in option && option?.summaryCounter).map(option => {
+                  if ('options' in option) {
+                    return <dso-badge status={option.variant ?? 'outline'}>{option.options.length}</dso-badge>;
+                  }
+                })}
+              </div> : ''}
+            <dso-icon icon="caret-down"></dso-icon>
           </div>
         </div>
-        <div class={{ "groups-container": true, "open": this.open === true }}>
+        <div class={{"groups-container": true, "open": this.open === true}}>
           <div class="groups">
-            <div class="group group-success">
-              <p class="group-label">Geldende versie</p>
-              <div class="options">
-                <div class="option option-active">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024 (deze bekijkt u nu)</span>
+            {this.options.map(optionsOrGroup => {
+              if ('options' in optionsOrGroup) {
+                return <div class={{"group": true, [`group-${optionsOrGroup.variant ?? 'outline'}`]: true}}>
+                  {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
+                  <div class="options">
+                    {optionsOrGroup.options.map(option => (
+                      <OptionElement option={option} active={this.active}/>
+                    ))}
+                  </div>
+                  {optionsOrGroup.redirect && <a class="group-link" href={optionsOrGroup.redirect.href}>
+                    {optionsOrGroup.redirect.label}
+                      <dso-icon icon="chevron-right"></dso-icon>
+                  </a>}
+                </div>
+              }
+              return <div class="group group-outline">
+                <div class="options">
+                  <OptionElement option={optionsOrGroup} active={this.active}/>
                 </div>
               </div>
-              <a class="group-link" href="#">
-                Bekijk eerder vastgestelde versies
-                <dso-icon icon="chevron-right"></dso-icon>
-              </a>
-            </div>
-            <div class="group">
-              <p class="group-label">Toekomstige versies</p>
-              <div class="options">
-                <div class="option">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024</span>
-                </div>
-                <div class="option">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024</span>
-                </div>
-              </div>
-            </div>
-            <div class="group group-warning">
-              <p class="group-label">Ontwerp versies ter inzage</p>
-              <div class="options">
-                <div class="option">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024</span>
-                </div>
-                <div class="option">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024</span>
-                </div>
-                <div class="option">
-                  <span class="option-label">In werking - Laatst gewijzigd: 01-01-2024</span>
-                </div>
-              </div>
-              <a class="group-link" href="#">
-                Bekijk ontwerpen met afgeronde inzage termijn
-                <dso-icon icon="chevron-right"></dso-icon>
-              </a>
-            </div>
+            })}
           </div>
         </div>
-        <pre>
-          {JSON.stringify(
-              {
-                activeInOptions: this.active && this.options?.includes(this.active),
-                active: this.active,
-              options: this.options,
-            },
-            null,
-            2,
-          )}
-        </pre>
       </div>
     );
   }
 }
+
+const OptionElement: FunctionalComponent<{
+  option: AdvancedSelectOption<any>;
+  active?: AdvancedSelectOption<any>;
+}> = ({option, active}) => <div class={{"option": true, "option-active": active === option}}>
+  <span class="option-label">{option.label}</span>
+</div>

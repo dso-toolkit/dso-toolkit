@@ -149,7 +149,7 @@ export namespace Components {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption;
+        "active"?: AdvancedSelectOption<any>;
         /**
           * The open state of the options list.
          */
@@ -157,7 +157,7 @@ export namespace Components {
         /**
           * The options to display in the select.
          */
-        "options": AdvancedSelectOptionsOrGroup[];
+        "options": AdvancedSelectOptionsOrGroup<any>[];
     }
     interface DsoAlert {
         /**
@@ -1910,7 +1910,7 @@ declare namespace LocalJSX {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption;
+        "active"?: AdvancedSelectOption<any>;
         /**
           * The open state of the options list.
          */
@@ -1918,7 +1918,7 @@ declare namespace LocalJSX {
         /**
           * The options to display in the select.
          */
-        "options"?: AdvancedSelectOptionsOrGroup[];
+        "options"?: AdvancedSelectOptionsOrGroup<any>[];
     }
     interface DsoAlert {
         /**

@@ -4,10 +4,12 @@ import { AdvancedSelect, AdvancedSelectOptionsOrGroup } from "./advanced-select.
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
+  open?: boolean;
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
   activeIndex: undefined,
+  open: false,
 };
 
 export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
@@ -16,6 +18,11 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
       type: "number",
     },
   },
+  open: {
+    control: {
+      type: "boolean",
+    }
+  }
 };
 
 export function advancedSelectArgsMapper(
@@ -25,5 +32,6 @@ export function advancedSelectArgsMapper(
   return {
     options,
     active: a.activeIndex ? options[a.activeIndex] : undefined,
+    open: a.open,
   };
 }

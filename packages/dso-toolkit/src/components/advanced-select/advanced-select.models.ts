@@ -22,4 +22,5 @@ export type AdvancedSelectOptionsOrGroup = AdvancedSelectOption | AdvancedSelect
 export interface AdvancedSelect {
   options: AdvancedSelectOptionsOrGroup[];
   active?: AdvancedSelectOption;
+  open?: boolean
 }
