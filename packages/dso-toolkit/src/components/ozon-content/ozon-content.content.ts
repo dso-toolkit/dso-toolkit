@@ -1238,8 +1238,11 @@ export const content = [
         </Lid>
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3">
           <LidNummer>3.</LidNummer>
-          <Inhoud>
+          <Inhoud wijzigactie="verwijder">
             <Al>Voor een activiteit waarvan agrarische activiteiten de kern vormen, geldt in afwijking van het eerste lid, onder a, het aantal transportbewegingen tussen 19.00 en 6.00 uur.</Al>
+          </Inhoud>
+          <Inhoud wijzigactie="voegtoe">
+            <Al>Vir 'n aktiwiteit waarvan landbou-aktiwiteite die kern vorm, nieteenstaande die eerste paragraaf, onder a, geld die aantal vervoerbewegings tussen 19:00 en 6:00 uur.</Al>
           </Inhoud>
         </Lid>
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4">
@@ -1439,6 +1442,23 @@ export const content = [
                 </tbody>
               </tgroup>
             </table>
+          </Inhoud>
+        </Lid>
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_6" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_6">
+          <LidNummer>6.</LidNummer>
+          <Inhoud>
+            <Figuur eId='chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wijzigactie='verwijder'>
+                <Titel>Klimaatambities</Titel>
+                <Illustratie naam='images/klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Bijschrift locatie='onder'>test</Bijschrift>
+                <Bron>www.google.nl</Bron>
+            </Figuur>
+            <Figuur eId='chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wijzigactie='voegtoe'>
+                <Titel>Klimaatambities</Titel>
+                <Illustratie naam='images/klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Bijschrift locatie='onder'>test</Bijschrift>
+                <Bron>www.google.nl</Bron>
+            </Figuur>
           </Inhoud>
         </Lid>
       </Artikel>

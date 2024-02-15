@@ -86,7 +86,7 @@
     margin-bottom: 0;
   }
 
-  .wijzigactie-label {
+  .editaction-label {
     margin-left: 0;
   }
 
@@ -102,7 +102,7 @@
     @include anchor.pseudo();
   }
 
-  .wijzigactie-label {
+  .editaction-label {
     margin-left: document-component.$indent;
   }
 }
@@ -126,7 +126,7 @@
   }
 }
 
-.wijzigactie-label {
+.editaction-label {
   font-style: italic;
   margin-left: units.$u1;
 }

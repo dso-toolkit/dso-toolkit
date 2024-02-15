@@ -155,22 +155,53 @@ a {
 p,
 span[role="paragraph"],
 table {
-  &.wijzigactie-voegtoe {
+  &.editaction-add {
     @include insert.root();
   }
 
-  &.wijzigactie-verwijder {
+  &.editaction-remove {
     @include delete.root();
   }
 }
 
-ins.nieuwe-tekst {
-  @include insert.element();
-  @include insert.root();
+ins {
+  &.new-text {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  &.editaction-add {
+    display: inline-block;
+    margin-block-end: units.$u1;
+    padding: units.$u1;
+    @include insert.element();
+    @include insert.root();
+
+    p:last-child {
+      margin: 0;
+    }
+  }
 }
 
-del.verwijderde-tekst {
-  @include delete.root();
+del {
+  &.removed-text {
+    @include delete.root();
+  }
+
+  &.editaction-remove {
+    display: inline-block;
+    margin-block-end: units.$u1;
+    padding: units.$u1;
+    @include delete.root();
+
+    p:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.editaction-label {
+  font-style: italic;
 }
 
 .dso-rich-content {

@@ -233,7 +233,7 @@ export class DocumentComponent implements ComponentInterface {
       <Host not-collapsible={!collapsible}>
         {showHeading && (
           <div class="heading-container" part="_heading-container">
-            {this.wijzigactie && <span class="wijzigactie-label">{this.wijzigactieLabel}:</span>}
+            {this.wijzigactie && <span class="editaction-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
               <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
                 {collapsible && (
