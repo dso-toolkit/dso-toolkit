@@ -33,4 +33,8 @@
   dso-icon {
     flex-shrink: 0;
   }
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
 }

@@ -74,4 +74,38 @@ describe("Card", () => {
       .find("a.heading-anchor")
       .should("have.attr", "href", "#");
   });
+
+  it("creates anchor to external link when href is set and mode is set to 'extern'", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
+      .get("dso-card")
+      .invoke("prop", "href", "#")
+      .invoke("prop", "mode", "extern")
+      .shadow()
+      .find("a.heading-anchor")
+      .as("anchorHeadingSection")
+      .should("have.attr", "href", "#")
+      .and("have.attr", "target", "_blank")
+      .and("have.attr", "rel", "noopener noreferrer")
+      .find("dso-icon")
+      .shadow()
+      .find("svg")
+      .should("have.attr", "id", "external-link")
+      .get("@anchorHeadingSection")
+      .find("span.sr-only")
+      .should("have.text", "(Opent andere website in nieuw tabblad)");
+  });
+
+  it("creates anchor to download link when href is set and mode is set to 'download'", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
+      .get("dso-card")
+      .invoke("prop", "href", "#")
+      .invoke("prop", "mode", "download")
+      .shadow()
+      .find("a.heading-anchor")
+      .should("have.attr", "href", "#")
+      .find("dso-icon")
+      .shadow()
+      .find("svg")
+      .should("have.attr", "id", "download");
+  });
 });
