@@ -154,7 +154,8 @@ a {
 
 p,
 span[role="paragraph"],
-table {
+table,
+.dso-rich-content {
   &.wijzigactie-voegtoe {
     @include insert.root();
   }

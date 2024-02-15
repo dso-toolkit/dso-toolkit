@@ -1238,8 +1238,11 @@ export const content = [
         </Lid>
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3">
           <LidNummer>3.</LidNummer>
-          <Inhoud>
+          <Inhoud wijzigactie="verwijder">
             <Al>Voor een activiteit waarvan agrarische activiteiten de kern vormen, geldt in afwijking van het eerste lid, onder a, het aantal transportbewegingen tussen 19.00 en 6.00 uur.</Al>
+          </Inhoud>
+          <Inhoud wijzigactie="voegtoe">
+            <Al>Vir 'n aktiwiteit waarvan landbou-aktiwiteite die kern vorm, nieteenstaande die eerste paragraaf, onder a, geld die aantal vervoerbewegings tussen 19:00 en 6:00 uur.</Al>
           </Inhoud>
         </Lid>
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4">
