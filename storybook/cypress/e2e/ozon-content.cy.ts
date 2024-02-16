@@ -526,6 +526,14 @@ describe("Ozon Content", () => {
       .get("dso-ozon-content")
       .shadow()
       .find(".dso-rich-content.wijzigactie-voegtoe")
+      .should("have.css", "background-color", "rgb(228, 241, 212)")
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-rich-content del.wijzigactie-verwijder")
+      .should("have.css", "background-color", "rgb(245, 216, 220)")
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-rich-content ins.wijzigactie-voegtoe")
       .should("have.css", "background-color", "rgb(228, 241, 212)");
 
     cy.percySnapshot();

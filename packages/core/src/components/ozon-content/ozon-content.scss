@@ -165,13 +165,29 @@ table,
   }
 }
 
-ins.nieuwe-tekst {
-  @include insert.element();
-  @include insert.root();
+ins {
+  &.nieuwe-tekst {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  &.wijzigactie-voegtoe {
+    display: inline-block;
+    margin-bottom: units.$u1;
+    @include insert.root();
+  }
 }
 
-del.verwijderde-tekst {
-  @include delete.root();
+del {
+  &.verwijderde-tekst {
+    @include delete.root();
+  }
+
+  &.wijzigactie-verwijder {
+    display: inline-block;
+    margin-bottom: units.$u1;
+    @include delete.root();
+  }
 }
 
 .dso-rich-content {

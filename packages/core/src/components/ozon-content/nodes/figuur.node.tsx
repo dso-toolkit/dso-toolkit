@@ -4,6 +4,8 @@ import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
+type FiguurEditAction = "voegtoe" | "verwijder";
+
 type BijschriftProps = {
   bijschrift?: IBijschrift;
   bron?: ChildNode;
@@ -14,6 +16,11 @@ interface IBijschrift {
   inhoud: NodeListOf<ChildNode>;
   locatie: string;
 }
+
+const editActionLabels: { [editAction in FiguurEditAction]: string } = {
+  verwijder: "Verwijderd",
+  voegtoe: "Toegevoegd",
+};
 
 const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSpanElement => {
   return (
@@ -53,6 +60,9 @@ export class OzonContentFiguurNode implements OzonContentNode {
     const illustratieNode = childNodes.find((n) => getNodeName(n) === "Illustratie");
     const bijschriftNode = childNodes.find((n) => getNodeName(n) === "Bijschrift");
 
+    const editAction = node.getAttribute("wijzigactie") as FiguurEditAction;
+    const editActionLabel: string | undefined = editAction && editActionLabels[editAction];
+
     if (illustratieNode instanceof Element) {
       const illustratie = {
         naam: illustratieNode.getAttribute("naam"),
@@ -71,7 +81,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
-      return (
+      const ozonFiguur = (
         <div class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}>
           {titel && <span class="figuur-titel">{titel}</span>}
           {bijschrift?.locatie === "boven" && (
@@ -98,6 +108,22 @@ export class OzonContentFiguurNode implements OzonContentNode {
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
         </div>
+      );
+
+      return (
+        (!editAction && ozonFiguur) ||
+        (editAction === "verwijder" && (
+          <del class="wijzigactie-verwijder">
+            <span class="wijzigactie-label">{editActionLabel}:</span>
+            {ozonFiguur}
+          </del>
+        )) ||
+        (editAction === "voegtoe" && (
+          <ins class="wijzigactie-voegtoe">
+            <span class="wijzigactie-label">{editActionLabel}:</span>
+            {ozonFiguur}
+          </ins>
+        ))
       );
     }
   }
