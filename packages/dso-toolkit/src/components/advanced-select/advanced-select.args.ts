@@ -4,7 +4,7 @@ import { AdvancedSelect, AdvancedSelectOptionsOrGroup } from "./advanced-select.
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
-  open?: boolean;
+  open: boolean;
 }
 
 export const advancedSelectArgs: AdvancedSelectArgs = {
@@ -27,8 +27,8 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
 
 export function advancedSelectArgsMapper(
   a: AdvancedSelectArgs,
-  options: AdvancedSelectOptionsOrGroup[],
-): AdvancedSelect {
+  options: AdvancedSelectOptionsOrGroup<unknown>[],
+): AdvancedSelect<unknown> {
   return {
     options,
     active: a.activeIndex ? options[a.activeIndex] : undefined,

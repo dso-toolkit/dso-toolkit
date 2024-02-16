@@ -60,11 +60,7 @@ export class AdvancedSelect implements ComponentInterface {
                   </a>}
                 </div>
               }
-              return <div class="group group-outline">
-                <div class="options">
-                  <OptionElement option={optionsOrGroup} active={this.active}/>
-                </div>
-              </div>
+              return <OptionElement option={optionsOrGroup} active={this.active}/>
             })}
           </div>
         </div>

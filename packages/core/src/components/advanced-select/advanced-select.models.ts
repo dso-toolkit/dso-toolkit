@@ -1,4 +1,4 @@
-export type AdvancedSelectVariant = "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
+export type AdvancedSelectVariant = "primary" | "success" | "info" | "warning" | "danger" | "error" | "attention";
 
 export interface AdvancedSelectOption<T> {
   label: string;
@@ -23,4 +23,5 @@ export type AdvancedSelectOptionsOrGroup<T> = AdvancedSelectOption<T> | Advanced
 export interface AdvancedSelect<T> {
   options: AdvancedSelectOptionsOrGroup<T>[];
   active?: AdvancedSelectOption<T>;
+  open: boolean;
 }

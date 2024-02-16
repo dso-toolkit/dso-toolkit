@@ -4,7 +4,7 @@ import { html } from "lit-html";
 import { ComponentImplementation } from "../../templates";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect> = {
+export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect<unknown>> = {
   component: "advancedSelect",
   implementation: "core",
   template: () =>

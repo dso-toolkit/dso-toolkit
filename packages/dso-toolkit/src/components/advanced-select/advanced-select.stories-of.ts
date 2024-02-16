@@ -23,7 +23,7 @@ interface AdvancedSelectStoriesParameters<Implementation, Templates, TemplateFnR
   > {}
 
 interface AdvancedSelectTemplates<TemplateFnReturnType> {
-  advancedSelectTemplate: (advancedSelectProperties: AdvancedSelect) => TemplateFnReturnType;
+  advancedSelectTemplate: (advancedSelectProperties: AdvancedSelect<unknown>) => TemplateFnReturnType;
 }
 
 export function advancedSelectMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<

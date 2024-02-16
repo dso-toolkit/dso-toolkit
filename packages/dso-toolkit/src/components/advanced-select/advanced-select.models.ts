@@ -1,7 +1,8 @@
-export type AdvancedSelectVariant = "success" | "warning" | "error" | "info" | "bright";
+export type AdvancedSelectVariant = "primary" | "success" | "info" | "warning" | "danger" | "error" | "attention";
 
-export interface AdvancedSelectOption {
+export interface AdvancedSelectOption<T> {
   label: string;
+  value?: T;
 }
 
 export interface AdvancedSelectGroupRedirect {
@@ -9,18 +10,18 @@ export interface AdvancedSelectGroupRedirect {
   href: string;
 }
 
-export interface AdvancedSelectGroup {
+export interface AdvancedSelectGroup<T> {
   label: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
-  options: AdvancedSelectOption[];
+  options: AdvancedSelectOption<T>[];
   variant?: AdvancedSelectVariant;
 }
 
-export type AdvancedSelectOptionsOrGroup = AdvancedSelectOption | AdvancedSelectGroup;
+export type AdvancedSelectOptionsOrGroup<T> = AdvancedSelectOption<T> | AdvancedSelectGroup<T>;
 
-export interface AdvancedSelect {
-  options: AdvancedSelectOptionsOrGroup[];
-  active?: AdvancedSelectOption;
-  open?: boolean
+export interface AdvancedSelect<T> {
+  options: AdvancedSelectOptionsOrGroup<T>[];
+  active?: AdvancedSelectOption<T>;
+  open: boolean;
 }

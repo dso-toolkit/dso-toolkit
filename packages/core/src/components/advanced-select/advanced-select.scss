@@ -1,6 +1,7 @@
+@use "sass:math";
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/components/advanced-select";
 
 :host {
   display: block;
@@ -11,27 +12,27 @@
 .active-option {
   display: flex;
   justify-content: space-between;
-  border: 1px solid colors.$bosgroen;
-  border-radius: 5px;
+  border: 1px solid advanced-select.$border-color;
+  border-radius: advanced-select.$border-radius;
   cursor: pointer;
 
   &.open {
-    border-radius: 4px 4px 0 0;
+    border-radius: advanced-select.$border-radius advanced-select.$border-radius 0 0;
   }
 
   &-label {
-    padding: 4px 16px;
+    padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
   }
 
   &-aside {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 8px;
+    gap: math.div(advanced-select.$horizontal-padding, 2);
+    padding: 0 math.div(advanced-select.$horizontal-padding, 2);
   }
 
   dso-icon {
-    color: colors.$bosgroen;
+    color: advanced-select.$icon-color;
   }
 }
 
@@ -39,7 +40,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: advanced-select.$vertical-padding;
 }
 
 .groups-container {
@@ -55,90 +56,107 @@
   top: -1px;
   left: 0;
   width: 100%;
-  background-color: colors.$wit;
-  border: 1px solid colors.$bosgroen;
-  border-radius: 0 0 4px 4px;
+  background-color: advanced-select.$bg-color;
+  border: 1px solid advanced-select.$border-color;
+  border-radius: 0 0 advanced-select.$border-radius advanced-select.$border-radius;
 }
 
 .group {
-  border-bottom: 1px solid colors.$grijs-20;
+  border-bottom: 1px solid advanced-select.$hr-color;
 
   &:last-child {
     border-bottom: none;
   }
 
+  .option {
+    padding-left: advanced-select.$horizontal-padding * 2;
+
+    &-label::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: advanced-select.$option-dot-size;
+      width: advanced-select.$option-dot-size;
+      left: -#{advanced-select.$option-dot-size * 2};
+      top: advanced-select.$vertical-padding;
+      border-radius: 50%;
+      @include set-colors.apply(advanced-select.$default-variant-color, $icons: false, $links: false);
+    }
+  }
+
   &-label {
     margin: 0;
-    padding: 4px 16px;
-    color: colors.$grijs-60;
-    font-size: typography.$font-size-small;
-    font-weight: 500;
-    border-bottom: 1px solid colors.$grijs-20;
+    padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
+    color: advanced-select.$group-label-color;
+    font-size: advanced-select.$group-label-font-size;
+    font-weight: advanced-select.$group-label-font-weight;
+    border-bottom: 1px solid advanced-select.$hr-color;
   }
 
   &-link {
     display: block;
-    padding: 10px 5px;
+    padding: advanced-select.$group-link-horizontal-padding advanced-select.$group-link-vertical-padding;
     text-align: right;
-    color: colors.$zwart;
+    color: advanced-select.$group-link-color;
     text-decoration: none;
 
     dso-icon {
-      color: colors.$grasgroen;
+      color: advanced-select.$icon-color;
     }
   }
 
   &-info .option-label::before {
-    background-color: colors.$info-color;
+    @include set-colors.apply(advanced-select.$info-variant-color, $icons: false, $links: false);
+  }
+
+  &-primary .option-label::before {
+    @include set-colors.apply(advanced-select.$primary-variant-color, $icons: false, $links: false);
   }
 
   &-success .option-label::before {
-    background-color: colors.$success-color;
+    @include set-colors.apply(advanced-select.$success-variant-color, $icons: false, $links: false);
   }
 
   &-warning .option-label::before {
-    background-color: colors.$warning-color;
+    @include set-colors.apply(advanced-select.$warning-variant-color, $icons: false, $links: false);
+  }
+
+  &-danger .option-label::before {
+    @include set-colors.apply(advanced-select.$danger-variant-color, $icons: false, $links: false);
   }
 
   &-error .option-label::before {
-    background-color: colors.$error-color;
+    @include set-colors.apply(advanced-select.$error-variant-color, $icons: false, $links: false);
   }
-}
 
-.options {
-
+  &-attention .option-label::before {
+    @include set-colors.apply(advanced-select.$attention-variant-color, $icons: false, $links: false);
+  }
 }
 
 .option {
-  padding: 8px 16px 8px 36px;
+  padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
   cursor: pointer;
 
   &:hover {
-    background-color: colors.$grasgroen-10;
-    color: colors.$grasgroen;
-    font-weight: bold;
+    background-color: advanced-select.$option-hover-bg-color;
   }
 
-  &.option-active {
-    color: colors.$grasgroen;
-    font-weight: bold;
+  &:hover &-label {
+    color: advanced-select.$option-hover-color;
+    font-weight: advanced-select.$option-hover-font-weight;
+  }
+
+  &.option-active &-label {
+    color: advanced-select.$option-active-color;
+    font-weight: advanced-select.$option-active-font-weight;
     text-decoration: underline;
   }
 
   &-label {
     position: relative;
-    font-size: typography.$font-family-base;
-
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      height: 10px;
-      width: 10px;
-      left: -20px;
-      top: 4px;
-      border-radius: 50%;
-      background-color: colors.$grijs-20;
-    }
+    color: advanced-select.$option-color;
+    font-size: advanced-select.$option-font-size;
+    font-weight: advanced-select.$option-font-weight;
   }
 }
