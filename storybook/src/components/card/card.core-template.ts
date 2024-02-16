@@ -18,11 +18,13 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       imageShape,
       clickable = false,
       href,
+      mode,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
         <dso-card
           href=${ifDefined((!clickable && href) || undefined)}
+          mode=${ifDefined((href && mode) || undefined)}
           clickable=${clickable}
           image-shape=${ifDefined(imageShape)}
           @dsoCardClicked=${(e: DsoCardCustomEvent<DsoCardClickedEvent>) => {

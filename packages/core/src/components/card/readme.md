@@ -12,6 +12,7 @@
 | `clickable`  | `clickable`   | <span style="color:red">**[DEPRECATED]**</span> Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).<br/><br/>Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable. | `boolean`             | `true`      |
 | `href`       | `href`        | The URL to which the Card heading links.                                                                                                                                                                                                                                          | `string \| undefined` | `undefined` |
 | `imageShape` | `image-shape` | Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")                                                                                                                                                                                                   | `"normal" \| "wide"`  | `"normal"`  |
+| `mode`       | `mode`        | Display the link as an external link or a download link  - "download"  - "extern"                                                                                                                                                                                                 | `string \| undefined` | `undefined` |
 
 
 ## Events

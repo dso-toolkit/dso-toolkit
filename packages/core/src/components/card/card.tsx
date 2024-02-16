@@ -37,6 +37,14 @@ export class Card implements ComponentInterface {
   href?: string;
 
   /**
+   * Display the link as an external link or a download link
+   *  - "download"
+   *  - "extern"
+   */
+  @Prop({ reflect: true })
+  mode?: string;
+
+  /**
    * Emitted when the Card is clickable and the user clicked the Card.
    */
   @Event()
@@ -110,10 +118,25 @@ export class Card implements ComponentInterface {
           {this.headingSlottedElement instanceof HTMLAnchorElement || !this.href ? (
             <slot name="heading" />
           ) : (
-            <a href={this.href} class="heading-anchor">
-              <slot name="heading" />
-              <dso-icon icon="chevron-right"></dso-icon>
-            </a>
+            ((!this.mode || !["download", "extern"].includes(this.mode)) && (
+              <a href={this.href} class="heading-anchor">
+                <slot name="heading" />
+                <dso-icon icon="chevron-right"></dso-icon>
+              </a>
+            )) ||
+            (this.mode === "extern" && (
+              <a href={this.href} class="heading-anchor" target="_blank" rel="noopener noreferrer">
+                <slot name="heading" />
+                <dso-icon icon="external-link"></dso-icon>
+                <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+              </a>
+            )) ||
+            (this.mode === "download" && (
+              <a href={this.href} class="heading-anchor">
+                <slot name="heading" />
+                <dso-icon icon="download"></dso-icon>
+              </a>
+            ))
           )}
           {this.interactionsSlottedElement !== null && <slot name="interactions" />}
         </div>
