@@ -1,5 +1,4 @@
 import { h } from "@stencil/core";
-import clsx from "clsx";
 
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -9,14 +8,13 @@ export class OzonContentInhoudNode implements OzonContentNode {
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const editAction = node.getAttribute("wijzigactie");
+
+    const richContent = <div class="dso-rich-content">{mapNodeToJsx(node.childNodes)}</div>;
+
     return (
-      <div
-        class={clsx("dso-rich-content", {
-          [`wijzigactie-${editAction}`]: editAction,
-        })}
-      >
-        {mapNodeToJsx(node.childNodes)}
-      </div>
+      (!editAction && richContent) ||
+      (editAction === "verwijder" && <del class="wijzigactie-verwijder">{richContent}</del>) ||
+      (editAction === "voegtoe" && <ins class="wijzigactie-voegtoe">{richContent}</ins>)
     );
   }
 }
