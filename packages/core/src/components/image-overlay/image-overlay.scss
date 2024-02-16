@@ -1,9 +1,12 @@
+@use "~dso-toolkit/src/utilities";
+
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
 
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
 
 :host {
   display: inline-block;
@@ -87,4 +90,32 @@ button {
   position: absolute;
   top: units.$u2;
   right: units.$u2;
+}
+
+ins.wijzigactie-voegtoe {
+  display: inline-block;
+  margin-bottom: units.$u1;
+  height: max-content;
+  padding-bottom: units.$u1;
+  @include insert.root();
+
+  .wrapper {
+    margin: 0 units.$u1;
+  }
+}
+
+del.wijzigactie-verwijder {
+  display: inline-block;
+  margin-bottom: units.$u1;
+  height: max-content;
+  padding-bottom: units.$u1;
+  @include delete.root();
+
+  .wrapper {
+    margin: 0 units.$u1;
+
+    .titel:not([hidden]) {
+      text-decoration: line-through;
+    }
+  }
 }

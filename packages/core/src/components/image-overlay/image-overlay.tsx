@@ -1,6 +1,7 @@
-import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, Prop, State } from "@stencil/core";
 import debounce from "debounce";
 import { createFocusTrap, FocusTrap } from "focus-trap";
+import { FiguurEditAction } from "../ozon-content/nodes/figuur.node";
 
 @Component({
   tag: "dso-image-overlay",
@@ -10,6 +11,18 @@ import { createFocusTrap, FocusTrap } from "focus-trap";
 export class ImageOverlay implements ComponentInterface {
   @Element()
   host!: HTMLDsoImageOverlayElement;
+
+  /**
+   * The editAction(wijzigactie) as in STOP.
+   */
+  @Prop()
+  editAction?: FiguurEditAction | undefined;
+
+  /**
+   * The label for the STOP editAction
+   */
+  @Prop()
+  editActionLabel?: string | undefined;
 
   @State()
   active = false;
@@ -105,23 +118,39 @@ export class ImageOverlay implements ComponentInterface {
   render() {
     const { src, alt } = this.host.querySelector("img") ?? {};
 
+    const wrapper = (
+      <div class="wrapper" ref={(element) => (this.wrapperElement = element)}>
+        <div class="titel" hidden={!this.titelSlot}>
+          <slot name="titel" />
+        </div>
+        <img src={src} alt={alt} />
+        <button type="button" class="close" onClick={() => (this.active = false)}>
+          <dso-icon icon="times"></dso-icon>
+          <span>Sluiten</span>
+        </button>
+        <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
+          <slot name="bijschrift" />
+        </div>
+      </div>
+    );
+
     return (
       <Host onClick={() => this.buttonElement?.focus()}>
         {this.active && src && alt && (
           <div class="dimmer">
-            <div class="wrapper" ref={(element) => (this.wrapperElement = element)}>
-              <div class="titel" hidden={!this.titelSlot}>
-                <slot name="titel" />
-              </div>
-              <img src={src} alt={alt} />
-              <button type="button" class="close" onClick={() => (this.active = false)}>
-                <dso-icon icon="times"></dso-icon>
-                <span>Sluiten</span>
-              </button>
-              <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
-                <slot name="bijschrift" />
-              </div>
-            </div>
+            {(!this.editAction && wrapper) ||
+              (this.editAction === "verwijder" && (
+                <del class="wijzigactie-verwijder">
+                  <span class="wijzigactie-label">{this.editActionLabel}:</span>
+                  {wrapper}
+                </del>
+              )) ||
+              (this.editAction === "voegtoe" && (
+                <ins class="wijzigactie-voegtoe">
+                  <span class="wijzigactie-label">{this.editActionLabel}:</span>
+                  {wrapper}
+                </ins>
+              ))}
           </div>
         )}
         <slot />

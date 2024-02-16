@@ -5,6 +5,14 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property          | Attribute           | Description                             | Type                                    | Default     |
+| ----------------- | ------------------- | --------------------------------------- | --------------------------------------- | ----------- |
+| `editAction`      | `edit-action`       | The editAction(wijzigactie) as in STOP. | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
+| `editActionLabel` | `edit-action-label` | The label for the STOP editAction       | `string \| undefined`                   | `undefined` |
+
+
 ## Dependencies
 
 ### Used by

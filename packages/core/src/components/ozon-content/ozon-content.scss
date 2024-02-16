@@ -173,6 +173,7 @@ ins {
   &.wijzigactie-voegtoe {
     display: inline-block;
     margin-bottom: units.$u1;
+    padding: units.$u1;
     @include insert.root();
   }
 }
@@ -185,6 +186,7 @@ del {
   &.wijzigactie-verwijder {
     display: inline-block;
     margin-bottom: units.$u1;
+    padding: units.$u1;
     @include delete.root();
   }
 }

@@ -4,7 +4,7 @@ import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
-type FiguurEditAction = "voegtoe" | "verwijder";
+export type FiguurEditAction = "voegtoe" | "verwijder";
 
 type BijschriftProps = {
   bijschrift?: IBijschrift;
@@ -87,7 +87,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
-          <dso-image-overlay>
+          <dso-image-overlay editAction={editAction} editActionLabel={editActionLabel}>
             {titel && (
               <div slot="titel">
                 <span>{titel}</span>

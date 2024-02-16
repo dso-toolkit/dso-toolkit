@@ -18,6 +18,7 @@ import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComp
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { FiguurEditAction } from "./components/ozon-content/nodes/figuur.node";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -46,6 +47,7 @@ export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComp
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { FiguurEditAction } from "./components/ozon-content/nodes/figuur.node";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -565,6 +567,14 @@ export namespace Components {
         "icon"?: string;
     }
     interface DsoImageOverlay {
+        /**
+          * The editAction(wijzigactie) as in STOP.
+         */
+        "editAction"?: FiguurEditAction | undefined;
+        /**
+          * The label for the STOP editAction
+         */
+        "editActionLabel"?: string | undefined;
     }
     interface DsoInfo {
         /**
@@ -2393,6 +2403,14 @@ declare namespace LocalJSX {
         "icon"?: string;
     }
     interface DsoImageOverlay {
+        /**
+          * The editAction(wijzigactie) as in STOP.
+         */
+        "editAction"?: FiguurEditAction | undefined;
+        /**
+          * The label for the STOP editAction
+         */
+        "editActionLabel"?: string | undefined;
     }
     interface DsoInfo {
         /**
