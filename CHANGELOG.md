@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Ozon Content: Ondersteuning voor <Inhoud wijzigactie="voegtoe|verwijder"> ([#2528](https://github.com/dso-toolkit/dso-toolkit/issues/2528))
+* Ozon Content: Afbeeldingen in renvooi kunnen weergeven ([#2433](https://github.com/dso-toolkit/dso-toolkit/issues/2433))
 
 ## ⛷️ 62.12.0 - 15-02-2024
 
