@@ -24,4 +24,15 @@ export interface AdvancedSelect<T> {
   options: AdvancedSelectOptionsOrGroup<T>[];
   active?: AdvancedSelectOption<T>;
   open: boolean;
+  dsoClick?: (e: CustomEvent<AdvancedSelectClickEvent>) => void;
+  dsoOptionClick?: (e: CustomEvent<AdvancedSelectOptionClickEvent>) => void;
+}
+
+export interface AdvancedSelectClickEvent {
+  originalEvent: MouseEvent;
+}
+
+export interface AdvancedSelectOptionClickEvent {
+  originalEvent: MouseEvent;
+  value: AdvancedSelectOption<unknown>;
 }

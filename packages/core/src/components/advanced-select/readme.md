@@ -14,6 +14,14 @@
 | `options` | --        | The options to display in the select.   | `AdvancedSelectOptionsOrGroup<any>[]`    | `[]`        |
 
 
+## Events
+
+| Event            | Description                          | Type                                          |
+| ---------------- | ------------------------------------ | --------------------------------------------- |
+| `dsoClick`       | Emitted when user clicks the select. | `CustomEvent<AdvancedSelectClickEvent>`       |
+| `dsoOptionClick` | Emitted when user clicks an option   | `CustomEvent<AdvancedSelectOptionClickEvent>` |
+
+
 ## Dependencies
 
 ### Depends on

@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
+import { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -37,6 +38,7 @@ import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, 
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
+export { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -1026,6 +1028,10 @@ export interface DsoAccordionSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionSectionElement;
 }
+export interface DsoAdvancedSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAdvancedSelectElement;
+}
 export interface DsoAnnotationButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationButtonElement;
@@ -1172,7 +1178,19 @@ declare global {
         prototype: HTMLDsoActionListItemElement;
         new (): HTMLDsoActionListItemElement;
     };
+    interface HTMLDsoAdvancedSelectElementEventMap {
+        "dsoClick": AdvancedSelectClickEvent;
+        "dsoOptionClick": AdvancedSelectOptionClickEvent;
+    }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAdvancedSelectElement: {
         prototype: HTMLDsoAdvancedSelectElement;
@@ -1911,6 +1929,14 @@ declare namespace LocalJSX {
           * The active option. By object reference.
          */
         "active"?: AdvancedSelectOption<any>;
+        /**
+          * Emitted when user clicks the select.
+         */
+        "onDsoClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectClickEvent>) => void;
+        /**
+          * Emitted when user clicks an option
+         */
+        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent>) => void;
         /**
           * The open state of the options list.
          */

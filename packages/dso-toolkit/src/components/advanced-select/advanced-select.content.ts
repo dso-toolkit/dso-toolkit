@@ -2,15 +2,6 @@ import { AdvancedSelectOptionsOrGroup } from "./advanced-select.models";
 
 export const options: AdvancedSelectOptionsOrGroup<unknown>[] = [
   {
-    label: "Solo optie #1",
-  },
-  {
-    label: "Solo optie #2",
-  },
-  {
-    label: "Solo optie #3",
-  },
-  {
     label: "Geldende versie",
     variant: "success",
     redirect: {

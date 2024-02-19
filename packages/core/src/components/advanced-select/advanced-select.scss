@@ -11,10 +11,15 @@
 
 .active-option {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   border: 1px solid advanced-select.$border-color;
   border-radius: advanced-select.$border-radius;
   cursor: pointer;
+  background-color: advanced-select.$bg-color;
+  line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
 
   &.open {
     border-radius: advanced-select.$border-radius advanced-select.$border-radius 0 0;
@@ -22,6 +27,9 @@
 
   &-label {
     padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &-aside {
@@ -56,6 +64,8 @@
   top: -1px;
   left: 0;
   width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
   background-color: advanced-select.$bg-color;
   border: 1px solid advanced-select.$border-color;
   border-radius: 0 0 advanced-select.$border-radius advanced-select.$border-radius;
@@ -100,6 +110,10 @@
     color: advanced-select.$group-link-color;
     text-decoration: none;
 
+    &:hover {
+      text-decoration: underline;
+    }
+
     dso-icon {
       color: advanced-select.$icon-color;
     }
@@ -135,8 +149,16 @@
 }
 
 .option {
+  display: block;
+  width: 100%;
   padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
   cursor: pointer;
+  line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  text-align: left;
+  background-color: advanced-select.$bg-color;
 
   &:hover {
     background-color: advanced-select.$option-hover-bg-color;
