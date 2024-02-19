@@ -1,6 +1,9 @@
 # dso-card
 
-
+Beware: clicking the heading link with property `href` set doesn't navigate to the URL set. This is caused 
+by the storybook implementation, which inhibits this normal behavior. Use developer tools to remove the Event 
+Listener `dsoCardClicked` to enable the navigation to the set `href`
+![img.png](../../../../dso-toolkit/storybook-assets/images/remove-dso-card-clicked.png)
 
 <!-- Auto Generated Below -->
 
