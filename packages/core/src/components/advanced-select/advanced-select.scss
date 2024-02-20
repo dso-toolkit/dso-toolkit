@@ -28,7 +28,9 @@
   &-label {
     padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
     overflow: hidden;
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */
     white-space: nowrap;
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */
     text-overflow: ellipsis;
   }
 
@@ -82,7 +84,7 @@
     padding-left: advanced-select.$horizontal-padding * 2;
 
     &-label::before {
-      content: '';
+      content: "";
       position: absolute;
       display: block;
       height: advanced-select.$option-dot-size;

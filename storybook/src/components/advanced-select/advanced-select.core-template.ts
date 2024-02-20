@@ -9,6 +9,13 @@ export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect<unknown>
   implementation: "core",
   template: () =>
     function advancedSelectTemplate({ options, active, open, dsoClick, dsoOptionClick, dsoRedirectClick }) {
-      return html`<dso-advanced-select .options=${options} .active=${ifDefined(active)} .open=${open === true} @dsoClick=${dsoClick} @dsoOptionClick=${dsoOptionClick} @dsoRedirectClick=${dsoRedirectClick}></dso-advanced-select>`;
+      return html`<dso-advanced-select
+        .options=${options}
+        .active=${ifDefined(active)}
+        .open=${open === true}
+        @dsoClick=${dsoClick}
+        @dsoOptionClick=${dsoOptionClick}
+        @dsoRedirectClick=${dsoRedirectClick}
+      ></dso-advanced-select>`;
     },
 };
