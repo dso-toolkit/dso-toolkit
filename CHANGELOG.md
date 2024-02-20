@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Advanced Select: Nieuw Component ([#2525](https://github.com/dso-toolkit/dso-toolkit/issues/2525))
+
 ## ⛷️ 62.12.0 - 15-02-2024
 
 ### Added
