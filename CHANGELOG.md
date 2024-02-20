@@ -5,9 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⛷️ 62.12.0 - 15-02-2024
+
+### Added
+* Form: File add download button ([#2531](https://github.com/dso-toolkit/dso-toolkit/issues/2531))
+* Form: File responsive behavior ([#2532](https://github.com/dso-toolkit/dso-toolkit/issues/2532))
+* Card: Externe link ondersteunen ([#2505](https://github.com/dso-toolkit/dso-toolkit/issues/2505))
+
 ### Fixed
 * List Button: Cursor pointer ([#2504](https://github.com/dso-toolkit/dso-toolkit/issues/2504))
 * Card: Anchor chevron visited color ([#2510](https://github.com/dso-toolkit/dso-toolkit/issues/2510))
+* Action List: Rich content align ([#2544](https://github.com/dso-toolkit/dso-toolkit/issues/2544))
 
 ### Changed
 * Banner: Responsive behavior ([#2414](https://github.com/dso-toolkit/dso-toolkit/issues/2414))
