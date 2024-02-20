@@ -14,6 +14,7 @@ export interface AdvancedSelectArgs {
   open: boolean;
   dsoClick: HandlerFunction;
   dsoOptionClick: HandlerFunction;
+  dsoRedirectClick: HandlerFunction;
 }
 
 export const advancedSelectArgs: Pick<AdvancedSelectArgs, "activeIndex" | "open"> = {
@@ -42,6 +43,10 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
     ...noControl,
     action: "dsoOptionClick",
   },
+  dsoRedirectClick: {
+    ...noControl,
+    action: "dsoRedirectClick",
+  },
 };
 
 export function advancedSelectArgsMapper(
@@ -54,6 +59,10 @@ export function advancedSelectArgsMapper(
     open: a.open,
     dsoClick: (e) => a.dsoClick(e.detail),
     dsoOptionClick: (e) => a.dsoOptionClick(e.detail),
+    dsoRedirectClick: (e) => {
+      e.detail.originalEvent.preventDefault();
+      a.dsoRedirectClick(e.detail);
+    },
   };
 }
 

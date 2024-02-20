@@ -26,6 +26,7 @@ export interface AdvancedSelect<T> {
   open: boolean;
   dsoClick?: (e: CustomEvent<AdvancedSelectClickEvent>) => void;
   dsoOptionClick?: (e: CustomEvent<AdvancedSelectOptionClickEvent>) => void;
+  dsoRedirectClick?: (e: CustomEvent<AdvancedSelectRedirectClickEvent>) => void;
 }
 
 export interface AdvancedSelectClickEvent {
@@ -35,4 +36,9 @@ export interface AdvancedSelectClickEvent {
 export interface AdvancedSelectOptionClickEvent {
   originalEvent: MouseEvent;
   value: AdvancedSelectOption<unknown>;
+}
+
+export interface AdvancedSelectRedirectClickEvent {
+  originalEvent: MouseEvent;
+  value: AdvancedSelectGroupRedirect;
 }

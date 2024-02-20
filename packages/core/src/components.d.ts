@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
-import { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent } from "./components/advanced-select/advanced-select.interfaces";
+import { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -38,7 +38,7 @@ import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, 
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
-export { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent } from "./components/advanced-select/advanced-select.interfaces";
+export { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -151,15 +151,15 @@ export namespace Components {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption<any>;
+        "active"?: AdvancedSelectOption<unknown>;
         /**
           * The open state of the options list.
          */
-        "open"?: boolean;
+        "open": boolean;
         /**
           * The options to display in the select.
          */
-        "options": AdvancedSelectOptionsOrGroup<any>[];
+        "options": AdvancedSelectOptionsOrGroup<unknown>[];
     }
     interface DsoAlert {
         /**
@@ -1181,6 +1181,7 @@ declare global {
     interface HTMLDsoAdvancedSelectElementEventMap {
         "dsoClick": AdvancedSelectClickEvent;
         "dsoOptionClick": AdvancedSelectOptionClickEvent;
+        "dsoRedirectClick": AdvancedSelectRedirectClickEvent;
     }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1928,7 +1929,7 @@ declare namespace LocalJSX {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption<any>;
+        "active"?: AdvancedSelectOption<unknown>;
         /**
           * Emitted when user clicks the select.
          */
@@ -1938,13 +1939,17 @@ declare namespace LocalJSX {
          */
         "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent>) => void;
         /**
+          * Emitted when user clicks a redirect link.
+         */
+        "onDsoRedirectClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectClickEvent>) => void;
+        /**
           * The open state of the options list.
          */
         "open"?: boolean;
         /**
           * The options to display in the select.
          */
-        "options"?: AdvancedSelectOptionsOrGroup<any>[];
+        "options"?: AdvancedSelectOptionsOrGroup<unknown>[];
     }
     interface DsoAlert {
         /**

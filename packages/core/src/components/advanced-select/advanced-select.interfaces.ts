@@ -1,4 +1,4 @@
-import { AdvancedSelectOption } from "./advanced-select.models";
+import {AdvancedSelectGroupRedirect, AdvancedSelectOption} from "./advanced-select.models";
 
 export interface AdvancedSelectClickEvent {
   originalEvent: MouseEvent;
@@ -7,4 +7,9 @@ export interface AdvancedSelectClickEvent {
 export interface AdvancedSelectOptionClickEvent {
   originalEvent: MouseEvent;
   value: AdvancedSelectOption<unknown>;
+}
+
+export interface AdvancedSelectRedirectClickEvent {
+  originalEvent: MouseEvent;
+  value: AdvancedSelectGroupRedirect;
 }

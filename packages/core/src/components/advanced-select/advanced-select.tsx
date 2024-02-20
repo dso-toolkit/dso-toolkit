@@ -1,7 +1,15 @@
 import { Component, ComponentInterface, Prop, h, FunctionalComponent, Event, EventEmitter } from "@stencil/core";
 
-import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./advanced-select.models";
-import { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent } from "./advanced-select.interfaces";
+import {
+  AdvancedSelectGroupRedirect,
+  AdvancedSelectOption,
+  AdvancedSelectOptionsOrGroup,
+} from "./advanced-select.models";
+import {
+  AdvancedSelectClickEvent,
+  AdvancedSelectOptionClickEvent,
+  AdvancedSelectRedirectClickEvent,
+} from "./advanced-select.interfaces";
 
 @Component({
   tag: "dso-advanced-select",
@@ -13,19 +21,19 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionsOrGroup<any>[] = [];
+  options: AdvancedSelectOptionsOrGroup<unknown>[] = [];
 
   /**
    * The active option. By object reference.
    */
   @Prop()
-  active?: AdvancedSelectOption<any>;
+  active?: AdvancedSelectOption<unknown>;
 
   /**
    * The open state of the options list.
    */
   @Prop()
-  open?: boolean;
+  open: boolean = false;
 
   /**
    * Emitted when user clicks the select.
@@ -39,6 +47,12 @@ export class AdvancedSelect implements ComponentInterface {
   @Event({ bubbles: false })
   dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent>;
 
+  /**
+   * Emitted when user clicks a redirect link.
+   */
+  @Event({ bubbles: false })
+  dsoRedirectClick!: EventEmitter<AdvancedSelectRedirectClickEvent>;
+
   private handleClick = (event: MouseEvent) => {
     this.dsoClick.emit({ originalEvent: event });
   };
@@ -47,10 +61,14 @@ export class AdvancedSelect implements ComponentInterface {
     this.dsoOptionClick.emit({ originalEvent: event, value });
   };
 
+  private handleRedirectClick = (event: MouseEvent, value: AdvancedSelectGroupRedirect) => {
+    this.dsoRedirectClick.emit({ originalEvent: event, value });
+  };
+
   render() {
     return (
       <div>
-        <button class={{ "active-option": true, open: this.open === true }} type="button" onClick={this.handleClick}>
+        <button class={{ "active-option": true, open: this.open }} type="button" onClick={this.handleClick}>
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <div class="active-option-aside">
             {this.options.some((option) => "summaryCounter" in option && option?.summaryCounter) ? (
@@ -69,7 +87,7 @@ export class AdvancedSelect implements ComponentInterface {
             <dso-icon icon="caret-down"></dso-icon>
           </div>
         </button>
-        <div class={{ "groups-container": true, open: this.open === true }}>
+        <div class={{ "groups-container": true, open: this.open }}>
           <div class="groups">
             {this.options.map((optionsOrGroup) => {
               if ("options" in optionsOrGroup) {
@@ -82,7 +100,13 @@ export class AdvancedSelect implements ComponentInterface {
                       ))}
                     </div>
                     {optionsOrGroup.redirect && (
-                      <a class="group-link" href={optionsOrGroup.redirect.href}>
+                      <a
+                        class="group-link"
+                        href={optionsOrGroup.redirect.href}
+                        onClick={(e: MouseEvent) =>
+                          this.handleRedirectClick(e, optionsOrGroup.redirect as AdvancedSelectGroupRedirect)
+                        }
+                      >
                         {optionsOrGroup.redirect.label}
                         <dso-icon icon="chevron-right"></dso-icon>
                       </a>
