@@ -61,7 +61,7 @@
   .dso-table-body {
     border: 1px solid table.$border-color;
     margin-bottom: 0;
-    overflow-y: hidden;
+    overflow-y: auto;
     width: 100%;
 
     &.dso-body {
