@@ -14,6 +14,7 @@
   inline-size: 100%;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
   border: 1px solid advanced-select.$border-color;
   border-radius: advanced-select.$border-radius;
   cursor: pointer;
@@ -67,6 +68,9 @@
   inset: -1px auto auto 0;
   inline-size: 100%;
   max-block-size: 500px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   overflow-y: auto;
   background-color: advanced-select.$bg-color;
   border: 1px solid advanced-select.$border-color;
@@ -81,7 +85,7 @@
   }
 
   .option {
-    padding-left: advanced-select.$horizontal-padding * 2;
+    padding-left: advanced-select.$horizontal-padding * 2 + math.div(advanced-select.$option-dot-size, 2);
   }
 
   .option-label::before {
@@ -147,6 +151,12 @@
 
 .group-attention .option-label::before {
   @include set-colors.apply(advanced-select.$attention-variant-color, $icons: false, $links: false);
+}
+
+.options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .option {

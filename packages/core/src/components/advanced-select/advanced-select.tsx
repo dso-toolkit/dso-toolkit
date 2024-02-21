@@ -70,9 +70,9 @@ export class AdvancedSelect implements ComponentInterface {
       <div>
         <button class={{ "active-option": true, open: this.open }} type="button" onClick={this.handleClick}>
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
-          <div class="active-option-aside">
+          <span class="active-option-aside">
             {this.options.some((option) => "summaryCounter" in option && option?.summaryCounter) ? (
-              <div class="badges">
+              <span class="badges">
                 {this.options
                   .filter((option) => "summaryCounter" in option && option?.summaryCounter)
                   .map((option) => {
@@ -80,25 +80,25 @@ export class AdvancedSelect implements ComponentInterface {
                       return <dso-badge status={option.variant ?? "outline"}>{option.options.length}</dso-badge>;
                     }
                   })}
-              </div>
+              </span>
             ) : (
               ""
             )}
             <dso-icon icon="caret-down"></dso-icon>
-          </div>
+          </span>
         </button>
         <div class={{ "groups-container": true, open: this.open }}>
-          <div class="groups">
+          <ul class="groups">
             {this.options.map((optionsOrGroup) => {
               if ("options" in optionsOrGroup) {
                 return (
-                  <div class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
+                  <li class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
                     {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
-                    <div class="options">
+                    <ul class="options">
                       {optionsOrGroup.options.map((option) => (
                         <OptionElement option={option} active={this.active} cb={this.handleOptionClick} />
                       ))}
-                    </div>
+                    </ul>
                     {optionsOrGroup.redirect && (
                       <a
                         class="group-link"
@@ -111,12 +111,12 @@ export class AdvancedSelect implements ComponentInterface {
                         <dso-icon icon="chevron-right"></dso-icon>
                       </a>
                     )}
-                  </div>
+                  </li>
                 );
               }
               return <OptionElement option={optionsOrGroup} active={this.active} cb={this.handleOptionClick} />;
             })}
-          </div>
+          </ul>
         </div>
       </div>
     );
@@ -128,11 +128,13 @@ const OptionElement: FunctionalComponent<{
   active?: AdvancedSelectOption<unknown>;
   cb: (event: MouseEvent, value: AdvancedSelectOption<unknown>) => void;
 }> = ({ option, active, cb }) => (
-  <button
-    class={{ option: true, "option-active": active === option }}
-    type="button"
-    onClick={(e: MouseEvent) => cb(e, option)}
-  >
-    <span class="option-label">{option.label}</span>
-  </button>
+  <li>
+    <button
+      class={{ option: true, "option-active": active === option }}
+      type="button"
+      onClick={(e: MouseEvent) => cb(e, option)}
+    >
+      <span class="option-label">{option.label}</span>
+    </button>
+  </li>
 );
