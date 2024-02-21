@@ -12,7 +12,7 @@ export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect<unknown>
       return html`<dso-advanced-select
         .options=${options}
         .active=${ifDefined(active)}
-        .open=${open === true}
+        .open=${open}
         @dsoClick=${dsoClick}
         @dsoOptionClick=${dsoOptionClick}
         @dsoRedirectClick=${dsoRedirectClick}

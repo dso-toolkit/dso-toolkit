@@ -92,7 +92,7 @@ export class AdvancedSelect implements ComponentInterface {
             {this.options.map((optionsOrGroup) => {
               if ("options" in optionsOrGroup) {
                 return (
-                  <div class={{ group: true, [`group-${optionsOrGroup.variant ?? "outline"}`]: true }}>
+                  <div class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
                     {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
                     <div class="options">
                       {optionsOrGroup.options.map((option) => (

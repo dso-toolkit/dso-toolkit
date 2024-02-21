@@ -17,11 +17,6 @@ export interface AdvancedSelectArgs {
   dsoRedirectClick: HandlerFunction;
 }
 
-export const advancedSelectArgs: Pick<AdvancedSelectArgs, "activeIndex" | "open"> = {
-  activeIndex: undefined,
-  open: false,
-};
-
 export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
   activeIndex: {
     name: "Active option",
