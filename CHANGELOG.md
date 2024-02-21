@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Document Component: Scrollen in tabel na vergroten werkt niet meer ([#2486](https://github.com/dso-toolkit/dso-toolkit/issues/2486))
+
 ## ⛷️ 62.12.0 - 15-02-2024
 
 ### Added
