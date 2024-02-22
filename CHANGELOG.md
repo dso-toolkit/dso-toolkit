@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Map Layers: Scroll overlay stacking ([#2526](https://github.com/dso-toolkit/dso-toolkit/issues/2526))
+
 ## 📅 62.13.0 + 29-02-2024
 
 ### Added
