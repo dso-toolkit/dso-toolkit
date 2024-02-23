@@ -102,7 +102,12 @@ export class AdvancedSelect implements ComponentInterface {
                     {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
                     <ul class="options">
                       {optionsOrGroup.options.map((option) => (
-                        <OptionElement option={option} active={this.active} activeHint={this.activeHint} cb={this.handleOptionClick} />
+                        <OptionElement
+                          option={option}
+                          active={this.active}
+                          activeHint={this.activeHint}
+                          cb={this.handleOptionClick}
+                        />
                       ))}
                     </ul>
                     {optionsOrGroup.redirect && (
@@ -120,7 +125,14 @@ export class AdvancedSelect implements ComponentInterface {
                   </li>
                 );
               }
-              return <OptionElement option={optionsOrGroup} active={this.active} activeHint={this.activeHint} cb={this.handleOptionClick} />;
+              return (
+                <OptionElement
+                  option={optionsOrGroup}
+                  active={this.active}
+                  activeHint={this.activeHint}
+                  cb={this.handleOptionClick}
+                />
+              );
             })}
           </ul>
         </div>
@@ -142,7 +154,7 @@ const OptionElement: FunctionalComponent<{
       onClick={(e: MouseEvent) => cb(e, option)}
     >
       <span class="option-label">{option.label}</span>
-      {activeHint && active === option && (<span class="option-hint">{activeHint}</span>)}
+      {activeHint && active === option && <span class="option-hint">{activeHint}</span>}
     </button>
   </li>
 );
