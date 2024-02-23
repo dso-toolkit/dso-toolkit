@@ -23,5 +23,6 @@ export type AdvancedSelectOptionsOrGroup<T> = AdvancedSelectOption<T> | Advanced
 export interface AdvancedSelect<T> {
   options: AdvancedSelectOptionsOrGroup<T>[];
   active?: AdvancedSelectOption<T>;
+  activeHint?: string;
   open: boolean;
 }

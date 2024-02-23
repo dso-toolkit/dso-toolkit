@@ -121,7 +121,7 @@
   }
 
   dso-icon {
-    color: advanced-select.$icon-color;
+    color: advanced-select.$redirect-icon-color;
   }
 }
 
@@ -192,4 +192,11 @@
   color: advanced-select.$option-color;
   font-size: advanced-select.$option-font-size;
   font-weight: advanced-select.$option-font-weight;
+}
+
+.option-hint {
+  padding-left: 5px;
+  color: advanced-select.$option-active-color;
+  font-size: advanced-select.$option-font-size;
+  font-weight: advanced-select.$option-active-font-weight;
 }

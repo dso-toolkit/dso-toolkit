@@ -153,6 +153,10 @@ export namespace Components {
          */
         "active"?: AdvancedSelectOption<unknown>;
         /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
+        /**
           * The open state of the options list.
          */
         "open": boolean;
@@ -1184,7 +1188,7 @@ declare global {
     };
     interface HTMLDsoAdvancedSelectElementEventMap {
         "dsoClick": AdvancedSelectClickEvent;
-        "dsoOptionClick": AdvancedSelectOptionClickEvent;
+        "dsoOptionClick": AdvancedSelectOptionClickEvent<unknown>;
         "dsoRedirectClick": AdvancedSelectRedirectClickEvent;
     }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
@@ -1935,13 +1939,17 @@ declare namespace LocalJSX {
          */
         "active"?: AdvancedSelectOption<unknown>;
         /**
+          * An extra text for the active option. Only visible in the list of options.
+         */
+        "activeHint"?: string;
+        /**
           * Emitted when user clicks the select.
          */
         "onDsoClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectClickEvent>) => void;
         /**
           * Emitted when user clicks an option
          */
-        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent>) => void;
+        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent<unknown>>) => void;
         /**
           * Emitted when user clicks a redirect link.
          */

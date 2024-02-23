@@ -30,6 +30,12 @@ export class AdvancedSelect implements ComponentInterface {
   active?: AdvancedSelectOption<unknown>;
 
   /**
+   * An extra text for the active option. Only visible in the list of options.
+   */
+  @Prop()
+  activeHint?: string;
+
+  /**
    * The open state of the options list.
    */
   @Prop()
@@ -45,7 +51,7 @@ export class AdvancedSelect implements ComponentInterface {
    * Emitted when user clicks an option
    */
   @Event({ bubbles: false })
-  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent>;
+  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent<unknown>>;
 
   /**
    * Emitted when user clicks a redirect link.
@@ -57,12 +63,12 @@ export class AdvancedSelect implements ComponentInterface {
     this.dsoClick.emit({ originalEvent: event });
   };
 
-  private handleOptionClick = (event: MouseEvent, value: AdvancedSelectOption<unknown>) => {
-    this.dsoOptionClick.emit({ originalEvent: event, value });
+  private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<unknown>) => {
+    this.dsoOptionClick.emit({ originalEvent: event, option });
   };
 
-  private handleRedirectClick = (event: MouseEvent, value: AdvancedSelectGroupRedirect) => {
-    this.dsoRedirectClick.emit({ originalEvent: event, value });
+  private handleRedirectClick = (event: MouseEvent, redirect: AdvancedSelectGroupRedirect) => {
+    this.dsoRedirectClick.emit({ originalEvent: event, redirect });
   };
 
   render() {
@@ -96,7 +102,7 @@ export class AdvancedSelect implements ComponentInterface {
                     {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
                     <ul class="options">
                       {optionsOrGroup.options.map((option) => (
-                        <OptionElement option={option} active={this.active} cb={this.handleOptionClick} />
+                        <OptionElement option={option} active={this.active} activeHint={this.activeHint} cb={this.handleOptionClick} />
                       ))}
                     </ul>
                     {optionsOrGroup.redirect && (
@@ -114,7 +120,7 @@ export class AdvancedSelect implements ComponentInterface {
                   </li>
                 );
               }
-              return <OptionElement option={optionsOrGroup} active={this.active} cb={this.handleOptionClick} />;
+              return <OptionElement option={optionsOrGroup} active={this.active} activeHint={this.activeHint} cb={this.handleOptionClick} />;
             })}
           </ul>
         </div>
@@ -126,8 +132,9 @@ export class AdvancedSelect implements ComponentInterface {
 const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<unknown>;
   active?: AdvancedSelectOption<unknown>;
+  activeHint?: string;
   cb: (event: MouseEvent, value: AdvancedSelectOption<unknown>) => void;
-}> = ({ option, active, cb }) => (
+}> = ({ option, active, activeHint, cb }) => (
   <li>
     <button
       class={{ option: true, "option-active": active === option }}
@@ -135,6 +142,7 @@ const OptionElement: FunctionalComponent<{
       onClick={(e: MouseEvent) => cb(e, option)}
     >
       <span class="option-label">{option.label}</span>
+      {activeHint && active === option && (<span class="option-hint">{activeHint}</span>)}
     </button>
   </li>
 );

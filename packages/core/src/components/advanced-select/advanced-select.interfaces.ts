@@ -4,12 +4,12 @@ export interface AdvancedSelectClickEvent {
   originalEvent: MouseEvent;
 }
 
-export interface AdvancedSelectOptionClickEvent {
+export interface AdvancedSelectOptionClickEvent<T> {
   originalEvent: MouseEvent;
-  value: AdvancedSelectOption<unknown>;
+  option: AdvancedSelectOption<T>;
 }
 
 export interface AdvancedSelectRedirectClickEvent {
   originalEvent: MouseEvent;
-  value: AdvancedSelectGroupRedirect;
+  redirect: AdvancedSelectGroupRedirect;
 }

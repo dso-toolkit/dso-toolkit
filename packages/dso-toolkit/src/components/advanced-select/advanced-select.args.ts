@@ -12,6 +12,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 export interface AdvancedSelectArgs {
   activeIndex?: number;
   open: boolean;
+  activeHint?: string;
   dsoClick: HandlerFunction;
   dsoOptionClick: HandlerFunction;
   dsoRedirectClick: HandlerFunction;
@@ -22,6 +23,12 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
     name: "Active option",
     control: {
       type: "number",
+    },
+  },
+  activeHint: {
+    name: "Active hint",
+    control: {
+      type: "text",
     },
   },
   open: {
@@ -52,6 +59,7 @@ export function advancedSelectArgsMapper(
     options,
     active: selectExampleOption(a.activeIndex, options),
     open: a.open,
+    activeHint: a.activeHint,
     dsoClick: (e) => a.dsoClick(e.detail),
     dsoOptionClick: (e) => a.dsoOptionClick(e.detail),
     dsoRedirectClick: (e) => {

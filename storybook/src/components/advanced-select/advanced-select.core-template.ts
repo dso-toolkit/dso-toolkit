@@ -8,10 +8,11 @@ export const coreAdvancedSelect: ComponentImplementation<AdvancedSelect<unknown>
   component: "advancedSelect",
   implementation: "core",
   template: () =>
-    function advancedSelectTemplate({ options, active, open, dsoClick, dsoOptionClick, dsoRedirectClick }) {
+    function advancedSelectTemplate({ options, active, activeHint, open, dsoClick, dsoOptionClick, dsoRedirectClick }) {
       return html`<dso-advanced-select
         .options=${options}
         .active=${ifDefined(active)}
+        .activeHint=${ifDefined(activeHint)}
         .open=${open}
         @dsoClick=${dsoClick}
         @dsoOptionClick=${dsoOptionClick}

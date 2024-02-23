@@ -23,9 +23,10 @@ export type AdvancedSelectOptionsOrGroup<T> = AdvancedSelectOption<T> | Advanced
 export interface AdvancedSelect<T> {
   options: AdvancedSelectOptionsOrGroup<T>[];
   active?: AdvancedSelectOption<T>;
+  activeHint?: string;
   open: boolean;
   dsoClick?: (e: CustomEvent<AdvancedSelectClickEvent>) => void;
-  dsoOptionClick?: (e: CustomEvent<AdvancedSelectOptionClickEvent>) => void;
+  dsoOptionClick?: (e: CustomEvent<AdvancedSelectOptionClickEvent<T>>) => void;
   dsoRedirectClick?: (e: CustomEvent<AdvancedSelectRedirectClickEvent>) => void;
 }
 
@@ -33,12 +34,12 @@ export interface AdvancedSelectClickEvent {
   originalEvent: MouseEvent;
 }
 
-export interface AdvancedSelectOptionClickEvent {
+export interface AdvancedSelectOptionClickEvent<T> {
   originalEvent: MouseEvent;
-  value: AdvancedSelectOption<unknown>;
+  option: AdvancedSelectOption<T>;
 }
 
 export interface AdvancedSelectRedirectClickEvent {
   originalEvent: MouseEvent;
-  value: AdvancedSelectGroupRedirect;
+  redirect: AdvancedSelectGroupRedirect;
 }
