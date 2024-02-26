@@ -7,21 +7,21 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                               | Type                                         | Default     |
-| ------------ | ------------- | ------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
-| `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<unknown> \| undefined` | `undefined` |
-| `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                        | `undefined` |
-| `open`       | `open`        | The open state of the options list.                                       | `boolean`                                    | `false`     |
-| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionsOrGroup<unknown>[]`    | `[]`        |
+| Property     | Attribute     | Description                                                               | Type                                     | Default     |
+| ------------ | ------------- | ------------------------------------------------------------------------- | ---------------------------------------- | ----------- |
+| `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<any> \| undefined` | `undefined` |
+| `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                    | `undefined` |
+| `open`       | `open`        | The open state of the options list.                                       | `boolean`                                | `false`     |
+| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionsOrGroup<any>[]`    | `[]`        |
 
 
 ## Events
 
-| Event              | Description                               | Type                                                   |
-| ------------------ | ----------------------------------------- | ------------------------------------------------------ |
-| `dsoClick`         | Emitted when user clicks the select.      | `CustomEvent<AdvancedSelectClickEvent>`                |
-| `dsoOptionClick`   | Emitted when user clicks an option        | `CustomEvent<AdvancedSelectOptionClickEvent<unknown>>` |
-| `dsoRedirectClick` | Emitted when user clicks a redirect link. | `CustomEvent<AdvancedSelectRedirectClickEvent>`        |
+| Event              | Description                               | Type                                               |
+| ------------------ | ----------------------------------------- | -------------------------------------------------- |
+| `dsoClick`         | Emitted when user clicks the select.      | `CustomEvent<AdvancedSelectClickEvent>`            |
+| `dsoOptionClick`   | Emitted when user clicks an option        | `CustomEvent<AdvancedSelectOptionClickEvent<any>>` |
+| `dsoRedirectClick` | Emitted when user clicks a redirect link. | `CustomEvent<AdvancedSelectRedirectClickEvent>`    |
 
 
 ## Dependencies
