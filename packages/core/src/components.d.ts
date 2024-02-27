@@ -151,7 +151,7 @@ export namespace Components {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption<any>;
+        "active"?: AdvancedSelectOption<never>;
         /**
           * An extra text for the active option. Only visible in the list of options.
          */
@@ -163,7 +163,7 @@ export namespace Components {
         /**
           * The options to display in the select.
          */
-        "options": AdvancedSelectOptionsOrGroup<any>[];
+        "options": AdvancedSelectOptionsOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -1188,7 +1188,7 @@ declare global {
     };
     interface HTMLDsoAdvancedSelectElementEventMap {
         "dsoClick": AdvancedSelectClickEvent;
-        "dsoOptionClick": AdvancedSelectOptionClickEvent<any>;
+        "dsoOptionClick": AdvancedSelectOptionClickEvent<never>;
         "dsoRedirectClick": AdvancedSelectRedirectClickEvent;
     }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
@@ -1937,7 +1937,7 @@ declare namespace LocalJSX {
         /**
           * The active option. By object reference.
          */
-        "active"?: AdvancedSelectOption<any>;
+        "active"?: AdvancedSelectOption<never>;
         /**
           * An extra text for the active option. Only visible in the list of options.
          */
@@ -1949,7 +1949,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when user clicks an option
          */
-        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent<any>>) => void;
+        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent<never>>) => void;
         /**
           * Emitted when user clicks a redirect link.
          */
@@ -1961,7 +1961,7 @@ declare namespace LocalJSX {
         /**
           * The options to display in the select.
          */
-        "options"?: AdvancedSelectOptionsOrGroup<any>[];
+        "options"?: AdvancedSelectOptionsOrGroup<never>[];
     }
     interface DsoAlert {
         /**

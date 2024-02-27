@@ -21,13 +21,13 @@ export class AdvancedSelect implements ComponentInterface {
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionsOrGroup<any>[] = [];
+  options: AdvancedSelectOptionsOrGroup<never>[] = [];
 
   /**
    * The active option. By object reference.
    */
   @Prop()
-  active?: AdvancedSelectOption<any>;
+  active?: AdvancedSelectOption<never>;
 
   /**
    * An extra text for the active option. Only visible in the list of options.
@@ -51,7 +51,7 @@ export class AdvancedSelect implements ComponentInterface {
    * Emitted when user clicks an option
    */
   @Event({ bubbles: false })
-  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent<any>>;
+  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent<never>>;
 
   /**
    * Emitted when user clicks a redirect link.
@@ -63,7 +63,7 @@ export class AdvancedSelect implements ComponentInterface {
     this.dsoClick.emit({ originalEvent: event });
   };
 
-  private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<any>) => {
+  private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<never>) => {
     this.dsoOptionClick.emit({ originalEvent: event, option });
   };
 
@@ -142,10 +142,10 @@ export class AdvancedSelect implements ComponentInterface {
 }
 
 const OptionElement: FunctionalComponent<{
-  option: AdvancedSelectOption<any>;
-  active?: AdvancedSelectOption<any>;
+  option: AdvancedSelectOption<never>;
+  active?: AdvancedSelectOption<never>;
   activeHint?: string;
-  cb: (event: MouseEvent, value: AdvancedSelectOption<any>) => void;
+  cb: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
 }> = ({ option, active, activeHint, cb }) => (
   <li>
     <button
