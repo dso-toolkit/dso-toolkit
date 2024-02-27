@@ -94,13 +94,13 @@ export class AdvancedSelect implements ComponentInterface {
           </span>
         </button>
         <div class={{ "groups-container": true, open: this.open }}>
-          <ul class="groups" role="list">
+          <ul class="groups">
             {this.options.map((optionsOrGroup) => {
               if ("options" in optionsOrGroup) {
                 return (
                   <li class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
                     {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
-                    <ul class="options" role="list">
+                    <ul class="options">
                       {optionsOrGroup.options.map((option) => (
                         <OptionElement
                           option={option}
