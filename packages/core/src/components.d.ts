@@ -948,7 +948,7 @@ export namespace Components {
         /**
           * Toggletip position.
          */
-        "position": "top" | "right" | "bottom" | "left";
+        "position": Placement;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -982,7 +982,7 @@ export namespace Components {
         /**
           * Set position of tooltip relative to target
          */
-        "position": "top" | "right" | "bottom" | "left";
+        "position": Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -2945,7 +2945,7 @@ declare namespace LocalJSX {
         /**
           * Toggletip position.
          */
-        "position"?: "top" | "right" | "bottom" | "left";
+        "position"?: Placement;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -2971,7 +2971,7 @@ declare namespace LocalJSX {
         /**
           * Set position of tooltip relative to target
          */
-        "position"?: "top" | "right" | "bottom" | "left";
+        "position"?: Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */

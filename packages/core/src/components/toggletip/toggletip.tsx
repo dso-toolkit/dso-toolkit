@@ -1,4 +1,5 @@
 import { h, Component, Fragment, Element, Prop, State } from "@stencil/core";
+import { Placement } from "@popperjs/core";
 
 @Component({
   tag: "dso-toggletip",
@@ -22,7 +23,7 @@ export class Toggletip {
    * Toggletip position.
    */
   @Prop()
-  position: "top" | "right" | "bottom" | "left" = "right";
+  position: Placement = "right";
 
   /**
    * Set to true for small Toggletip.

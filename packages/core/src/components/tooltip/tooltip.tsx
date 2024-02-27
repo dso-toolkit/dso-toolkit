@@ -1,4 +1,4 @@
-import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from "@popperjs/core";
+import { beforeWrite, createPopper, Instance as PopperInstance, Placement, State as PopperState } from "@popperjs/core";
 import maxSize from "popper-max-size-modifier";
 import { h, Component, Element, Host, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
@@ -44,7 +44,7 @@ export class Tooltip {
    * Set position of tooltip relative to target
    */
   @Prop()
-  position: "top" | "right" | "bottom" | "left" = "top";
+  position: Placement = "top";
 
   /**
    * Set position strategy of tooltip
