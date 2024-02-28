@@ -8,7 +8,7 @@ import {
   Event,
   EventEmitter,
   State,
-  Host,
+  Fragment,
   Listen,
 } from "@stencil/core";
 import clsx from "clsx";
@@ -16,11 +16,13 @@ import {
   AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
   AdvancedSelectOption,
-  AdvancedSelectOptionClickEvent,
+  AdvancedSelectChangeEvent,
   AdvancedSelectOptionOrGroup,
-  AdvancedSelectRedirectClickEvent,
+  AdvancedSelectRedirectEvent,
 } from "./advanced-select.models";
 import { createFocusTrap, FocusTrap } from "focus-trap";
+import { tabbable } from "tabbable";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 @Component({
   tag: "dso-advanced-select",
@@ -58,46 +60,28 @@ export class AdvancedSelect implements ComponentInterface {
   open: boolean = false;
 
   /**
-   * Emitted when user clicks an option
+   * Emitted when user selects an option
    */
   @Event({ bubbles: false })
-  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent<never>>;
+  dsoChange!: EventEmitter<AdvancedSelectChangeEvent<never>>;
 
   /**
-   * Emitted when user clicks a redirect link.
+   * Emitted when user activates a group redirect link.
    */
   @Event({ bubbles: false })
-  dsoRedirectClick!: EventEmitter<AdvancedSelectRedirectClickEvent>;
+  dsoRedirect!: EventEmitter<AdvancedSelectRedirectEvent>;
+
+  private toggleButtonElementRef: HTMLButtonElement | undefined;
 
   @Listen("keydown", { target: "window" })
   keyDownListener(event: KeyboardEvent) {
     if (this.open && event.key === "ArrowUp") {
+      event.preventDefault();
       this.handleTab(-1);
-    }
-    if (this.open && event.key === "ArrowDown") {
+    } else if (this.open && event.key === "ArrowDown") {
+      event.preventDefault();
       this.handleTab(1);
     }
-  }
-
-  get toggleButtonElement(): HTMLButtonElement {
-    const button = this.host.shadowRoot?.querySelector(".active-option");
-
-    if (!(button instanceof HTMLButtonElement)) {
-      throw new Error("Toggle button not found");
-    }
-
-    return button;
-  }
-
-  get tabbableElements(): HTMLElement[] {
-    if (!this.host.shadowRoot) {
-      return [];
-    }
-    const buttons = this.host.shadowRoot.querySelectorAll("a, button") as NodeListOf<HTMLElement>;
-    if (buttons.length > 0) {
-      return Array.from(buttons);
-    }
-    return [];
   }
 
   componentDidRender() {
@@ -112,24 +96,16 @@ export class AdvancedSelect implements ComponentInterface {
     this.open = !this.open;
   };
 
-  private close = () => {
-    if (this.open) {
-      this.toggleOpen();
-    }
-  };
-
   private createTrap() {
     this.trap = createFocusTrap(this.host, {
       clickOutsideDeactivates: true,
       escapeDeactivates: true,
+      setReturnFocus: this.toggleButtonElementRef,
       tabbableOptions: {
         getShadowRoot: true,
       },
-      setReturnFocus: this.toggleButtonElement ?? false,
-      initialFocus: this.toggleButtonElement ?? false,
       onDeactivate: () => {
-        this.close();
-        this.removeTrap();
+        this.open = false;
       },
     }).activate();
   }
@@ -140,49 +116,52 @@ export class AdvancedSelect implements ComponentInterface {
   }
 
   private handleTab(direction: number) {
-    const tabs = this.tabbableElements;
-    const currentIndex = tabs.findIndex((e) => e === this.host.shadowRoot?.activeElement);
+    const elements = tabbable(this.host, { getShadowRoot: true });
+    const currentIndex = elements.findIndex((e) => e === this.host.shadowRoot?.activeElement);
 
     let nextIndex = currentIndex + direction;
-    if (nextIndex >= tabs.length) {
+    if (nextIndex >= elements.length) {
       nextIndex = 0;
     } else if (nextIndex < 0) {
-      nextIndex = tabs.length - 1;
+      nextIndex = elements.length - 1;
     }
 
-    tabs[nextIndex]?.focus();
+    elements[nextIndex]?.focus();
   }
 
   private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<never>) => {
-    this.dsoOptionClick.emit({ originalEvent: event, option });
-    this.toggleOpen();
+    this.dsoChange.emit({ originalEvent: event, option });
+    this.open = false;
   };
 
   private handleRedirectClick = (event: MouseEvent, redirect: AdvancedSelectGroupRedirect) => {
-    this.dsoRedirectClick.emit({ originalEvent: event, redirect });
-    this.toggleOpen();
+    this.dsoRedirect.emit({ originalEvent: event, isModifiedEvent: isModifiedEvent(event), redirect });
+    this.open = false;
   };
 
   render() {
     return (
-      <Host>
+      <>
         <button
           aria-expanded={this.open.toString()}
           class={clsx(["active-option", { open: this.open }])}
           type="button"
           onClick={this.toggleOpen}
+          ref={(element) => (this.toggleButtonElementRef = element)}
         >
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <span class="active-option-aside">
-            {this.options.some((option) => "summaryCounter" in option && option?.summaryCounter) && (
+            {this.options.some(
+              (optionOrGroup) => "summaryCounter" in optionOrGroup && optionOrGroup?.summaryCounter,
+            ) && (
               <span class="badges">
                 {this.options
                   .filter(
                     (option): option is AdvancedSelectGroup<never> =>
                       "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
                   )
-                  .map((option) => {
-                    return <dso-badge status={option.variant ?? "outline"}>{option.options.length}</dso-badge>;
+                  .map((group) => {
+                    return <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>;
                   })}
               </span>
             )}
@@ -192,67 +171,62 @@ export class AdvancedSelect implements ComponentInterface {
         {this.open && (
           <div class="groups-container">
             <ul class="groups">
-              {this.options.map((optionsOrGroup) => {
-                if ("options" in optionsOrGroup) {
-                  return (
-                    <li class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
-                      {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
-                      <ul class="options">
-                        {optionsOrGroup.options.map((option) => (
-                          <OptionElement
-                            option={option}
-                            active={this.active}
-                            activeHint={this.activeHint}
-                            callback={this.handleOptionClick}
-                          />
-                        ))}
-                      </ul>
-                      {optionsOrGroup.redirect && (
-                        <a
-                          class="group-link"
-                          href={optionsOrGroup.redirect.href}
-                          onClick={(e) =>
-                            optionsOrGroup.redirect && this.handleRedirectClick(e, optionsOrGroup.redirect)
-                          }
-                        >
-                          {optionsOrGroup.redirect.label}
-                          <dso-icon icon="chevron-right"></dso-icon>
-                        </a>
-                      )}
-                    </li>
-                  );
-                }
-                return (
+              {this.options.map((optionOrGroup) =>
+                "options" in optionOrGroup ? (
+                  <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
+                    {optionOrGroup.label && <p class="group-label">{optionOrGroup.label}</p>}
+                    <ul class="options">
+                      {optionOrGroup.options.map((option) => (
+                        <OptionElement
+                          option={option}
+                          active={this.active}
+                          activeHint={this.activeHint}
+                          callback={this.handleOptionClick}
+                        />
+                      ))}
+                    </ul>
+                    {optionOrGroup.redirect && (
+                      <a
+                        class="group-link"
+                        href={optionOrGroup.redirect.href}
+                        onClick={(e) => optionOrGroup.redirect && this.handleRedirectClick(e, optionOrGroup.redirect)}
+                      >
+                        {optionOrGroup.redirect.label}
+                        <dso-icon icon="chevron-right"></dso-icon>
+                      </a>
+                    )}
+                  </li>
+                ) : (
                   <OptionElement
-                    option={optionsOrGroup}
+                    option={optionOrGroup}
                     active={this.active}
                     activeHint={this.activeHint}
                     callback={this.handleOptionClick}
                   />
-                );
-              })}
+                ),
+              )}
             </ul>
           </div>
         )}
-      </Host>
+      </>
     );
   }
 }
 
 const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<never>;
-  active?: AdvancedSelectOption<never>;
-  activeHint?: string;
+  active: AdvancedSelectOption<never> | undefined;
+  activeHint: string | undefined;
   callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
 }> = ({ option, active, activeHint, callback }) => (
   <li>
     <button
-      class={{ option: true, "option-active": active === option }}
+      class={clsx(["option", { "option-active": active === option }])}
       type="button"
       onClick={(e) => callback(e, option)}
     >
       <span class="option-label">{option.label}</span>
-      {activeHint && active === option && <span class="option-hint">{activeHint}</span>}
+      {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
     </button>
   </li>
 );

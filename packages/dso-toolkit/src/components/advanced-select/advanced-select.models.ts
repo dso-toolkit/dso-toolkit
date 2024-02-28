@@ -24,16 +24,17 @@ export interface AdvancedSelect<T> {
   options: AdvancedSelectOptionOrGroup<T>[];
   active?: AdvancedSelectOption<T>;
   activeHint?: string;
-  dsoOptionClick?: (e: CustomEvent<AdvancedSelectOptionClickEvent<T>>) => void;
-  dsoRedirectClick?: (e: CustomEvent<AdvancedSelectRedirectClickEvent>) => void;
+  dsoChange?: (e: CustomEvent<AdvancedSelectChangeEvent<T>>) => void;
+  dsoRedirect?: (e: CustomEvent<AdvancedSelectRedirectEvent>) => void;
 }
 
-export interface AdvancedSelectOptionClickEvent<T> {
+export interface AdvancedSelectChangeEvent<T> {
   originalEvent: MouseEvent;
   option: AdvancedSelectOption<T>;
 }
 
-export interface AdvancedSelectRedirectClickEvent {
+export interface AdvancedSelectRedirectEvent {
   originalEvent: MouseEvent;
   redirect: AdvancedSelectGroupRedirect;
+  isModifiedEvent: boolean;
 }

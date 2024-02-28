@@ -1,6 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AdvancedSelectArgs, advancedSelectArgTypes, advancedSelectArgsMapper } from "./advanced-select.args.js";
+import {
+  AdvancedSelectArgs,
+  advancedSelectArgTypes,
+  advancedSelectArgs,
+  advancedSelectArgsMapper,
+} from "./advanced-select.args.js";
 import { AdvancedSelect } from "./advanced-select.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -32,7 +37,7 @@ export function advancedSelectMeta<TRenderer extends Renderer>({ readme }: MetaO
 > {
   return {
     argTypes: advancedSelectArgTypes,
-    args: {},
+    args: advancedSelectArgs,
     parameters: {
       docs: readme
         ? {

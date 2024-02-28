@@ -16,10 +16,10 @@
 
 ## Events
 
-| Event              | Description                               | Type                                                 |
-| ------------------ | ----------------------------------------- | ---------------------------------------------------- |
-| `dsoOptionClick`   | Emitted when user clicks an option        | `CustomEvent<AdvancedSelectOptionClickEvent<never>>` |
-| `dsoRedirectClick` | Emitted when user clicks a redirect link. | `CustomEvent<AdvancedSelectRedirectClickEvent>`      |
+| Event         | Description                                        | Type                                            |
+| ------------- | -------------------------------------------------- | ----------------------------------------------- |
+| `dsoChange`   | Emitted when user selects an option                | `CustomEvent<AdvancedSelectChangeEvent<never>>` |
+| `dsoRedirect` | Emitted when user activates a group redirect link. | `CustomEvent<AdvancedSelectRedirectEvent>`      |
 
 
 ## Dependencies
