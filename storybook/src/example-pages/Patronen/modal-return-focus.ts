@@ -23,9 +23,15 @@ examplePageFactory(
               render(
                 modalTemplate({
                   modalTitle: "Modal",
-                  body: html`<p>${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" })}</p>
+                  body: html`<p>Onderstaande knoppen doen niets, alleen de sluiten knop sluit de Modal.</p>
+                    <p>${buttonTemplate({ label: "Eerste knop", type: "button", variant: "primary" })}</p>
                     <p>
-                      ${buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary", autofocus: true })}
+                      ${buttonTemplate({
+                        label: "Tweede knop met autofocus",
+                        type: "button",
+                        variant: "primary",
+                        autofocus: true,
+                      })}
                     </p>`,
                   footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
                   showCloseButton: true,

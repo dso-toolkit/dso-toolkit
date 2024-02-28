@@ -8,12 +8,13 @@ Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` geze
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                          | Type                   | Default     |
-| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `fullscreen`      | `fullscreen`        | when set the modal will be shown in fullscreen.                                                                      | `boolean \| undefined` | `undefined` |
-| `modalTitle`      | `modal-title`       | The title of the Modal.                                                                                              | `string \| undefined`  | `undefined` |
-| `role`            | `role`              | the role for the modal `dialog` \| `alert` \| `alertdialog`.                                                         | `null \| string`       | `"dialog"`  |
-| `showCloseButton` | `show-close-button` | when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set. | `boolean`              | `true`      |
+| Property          | Attribute           | Description                                                                                                                                                                                                                                                        | Type                                  | Default     |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ----------- |
+| `fullscreen`      | `fullscreen`        | when set the modal will be shown in fullscreen.                                                                                                                                                                                                                    | `boolean \| undefined`                | `undefined` |
+| `modalTitle`      | `modal-title`       | The title of the Modal.                                                                                                                                                                                                                                            | `string \| undefined`                 | `undefined` |
+| `returnFocus`     | `return-focus`      | The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing. | `HTMLElement \| boolean \| undefined` | `undefined` |
+| `role`            | `role`              | the role for the modal `dialog` \| `alert` \| `alertdialog`.                                                                                                                                                                                                       | `null \| string`                      | `"dialog"`  |
+| `showCloseButton` | `show-close-button` | when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.                                                                                                                                               | `boolean`                             | `true`      |
 
 
 ## Events

@@ -728,6 +728,10 @@ export namespace Components {
          */
         "modalTitle"?: string;
         /**
+          * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
+         */
+        "returnFocus": false | HTMLElement | undefined;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "role": string | null;
@@ -2601,6 +2605,10 @@ declare namespace LocalJSX {
           * Emitted when the user wants to close the Modal.
          */
         "onDsoClose"?: (event: DsoModalCustomEvent<ModalCloseEvent>) => void;
+        /**
+          * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
+         */
+        "returnFocus"?: false | HTMLElement | undefined;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
