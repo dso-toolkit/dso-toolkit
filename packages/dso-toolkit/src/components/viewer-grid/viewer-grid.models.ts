@@ -1,4 +1,5 @@
 import { Label } from "../label/label.models.js";
+import { AdvancedSelect } from "../advanced-select";
 
 export interface ViewerGrid<TemplateFnReturnType> {
   mode?: ViewerGridMode;
@@ -86,6 +87,7 @@ export interface ViewerGridFilterblokProperties<TemplateFnReturnType> {
 export interface ViewerGridDocumentHeaderProperties {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
-  documentHeaderStatusOpen: boolean;
   documentHeaderSticky: boolean;
+  documentHeaderAdvancedSelect: AdvancedSelect<unknown>;
+  documentHeaderAdvancedSelectActiveIndex: number;
 }

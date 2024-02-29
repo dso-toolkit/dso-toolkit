@@ -4,6 +4,8 @@ import { ArgTypes } from "@storybook/types";
 import { DefinitionList } from "../definition-list/definition-list.models.js";
 import { DocumentHeader } from "./document-header.models.js";
 import { noControl } from "../../storybook/index.js";
+import { AdvancedSelect, selectExampleOption } from "../advanced-select";
+import { options } from "../advanced-select/advanced-select.content";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -11,7 +13,8 @@ export interface DocumentHeaderArgs {
   type: string;
   featureAction: HandlerFunction;
   featuresOpen: boolean;
-  statusContentOpen: boolean;
+  activeIndex: number;
+  advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
 }
 
@@ -40,10 +43,14 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
       type: "boolean",
     },
   },
-  statusContentOpen: {
+  activeIndex: {
+    name: "Active option",
     control: {
-      type: "boolean",
+      type: "number",
     },
+  },
+  advancedSelect: {
+    ...noControl,
   },
   sticky: {
     control: {
@@ -54,20 +61,19 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
-  status: TemplateFnReturnType,
   features: DefinitionList<TemplateFnReturnType>,
-  statusContent: TemplateFnReturnType,
 ): DocumentHeader<TemplateFnReturnType> {
   return {
     title: a.title,
     owner: a.owner,
-    status,
     type: a.type,
     features,
     featureAction: a.featureAction,
     featuresOpen: a.featuresOpen,
-    statusContent,
-    statusContentOpen: a.statusContentOpen,
+    advancedSelect: {
+      ...a.advancedSelect,
+      active: selectExampleOption(a.activeIndex, options),
+    },
     sticky: a.sticky,
   };
 }

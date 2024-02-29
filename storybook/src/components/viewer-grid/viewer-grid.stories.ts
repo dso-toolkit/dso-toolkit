@@ -5,6 +5,7 @@ import {
   Tile,
   ViewerGridDocumentHeaderProperties,
   StoryRoot,
+  selectExampleOption,
 } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
@@ -13,7 +14,7 @@ import { when } from "lit-html/directives/when.js";
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-import { HandlerFunction } from "@storybook/addon-actions";
+import { options } from "dso-toolkit/dist/components/advanced-select/advanced-select.content";
 
 // Dit is nodig omdat TypeScript geen modules compileert. Zodra dso-toolkit dat wel doet kan de `const activeFilters` worden vervangen met:
 // import { activeFilters } from "dso-toolkit/src/components/label-group/label-group.content";
@@ -68,9 +69,7 @@ storiesOfViewerGrid({
   templateContainer,
   storyTemplates: ({
     anchorTemplate,
-    iconTemplate,
     badgeTemplate,
-    labelTemplate,
     viewerGridTemplate,
     alertTemplate,
     richContentTemplate,
@@ -84,40 +83,10 @@ storiesOfViewerGrid({
     function documentHeaderExampleTemplate({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
-      documentHeaderStatusOpen,
       documentHeaderSticky,
+      documentHeaderAdvancedSelect,
+      documentHeaderAdvancedSelectActiveIndex,
     }: ViewerGridDocumentHeaderProperties) {
-      function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {
-        return html`
-          ${labelTemplate({
-            status: "bright",
-            label: "in werking",
-          })}
-          Gepubliceerd 03-03-2021
-          ${buttonTemplate({
-            ariaExpanded: documentHeaderStatusOpen,
-            onClick: documentHeaderFeatureAction,
-            label: "overige versies",
-            variant: null,
-            modifier: "dso-document-header-toggle-status",
-            icon: {
-              icon: documentHeaderStatusOpen ? "chevron-up" : "chevron-down",
-            },
-            iconMode: "after",
-          })}
-          <span class="dso-document-header-badges">
-            <span class="dso-badge badge-warning">
-              <span aria-hidden="true">!</span>
-              <span class="sr-only">Let op: ontwerpversie beschikbaar</span>
-            </span>
-            <span class="dso-badge badge-outline">
-              <span aria-hidden="true">!</span>
-              <span class="sr-only">Let op: toekomstige versie beschikbaar</span>
-            </span>
-          </span>
-        `;
-      }
-
       return viewerGridTemplate({
         main: documentHeaderTemplate({
           title: "Omgevingsplan gemeente Gouda",
@@ -161,56 +130,11 @@ storiesOfViewerGrid({
           },
           featureAction: documentHeaderFeatureAction,
           featuresOpen: documentHeaderFeaturesOpen,
-          statusContentOpen: documentHeaderStatusOpen,
           sticky: documentHeaderSticky,
-          status: status(documentHeaderFeaturesOpen, documentHeaderFeatureAction),
-          statusContent: html`
-            <h2>Versies</h2>
-            <h3>Vastgesteld</h3>
-            <div>
-              ${iconTemplate({ icon: "eye" })}
-              <strong>Gepubliceerd op 01-03-2021</strong>
-              ${labelTemplate({
-                label: "In werking",
-              })}
-            </div>
-            <div>
-              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 10-03-2021
-              ${labelTemplate({
-                status: "bright",
-                label: "Toekomstige versie",
-              })}
-              datum in werking: 1-6-2022
-            </div>
-            ${anchorTemplate({ label: "bekijk eerdere versies", url: "#" })}
-
-            <h3>Ontwerpen binnen inzagetermijn</h3>
-            <div>
-              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 09-02-2021
-              ${labelTemplate({
-                status: "warning",
-                label: "Ontwerp",
-              })}
-              Eind inzagetermijn: 23-03-2022
-            </div>
-            <div>
-              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 01-02-2021
-              ${labelTemplate({
-                status: "warning",
-                label: "Ontwerp",
-              })}
-              Eind inzagetermijn: 15-03-2022
-            </div>
-            <div>
-              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 20-01-2021
-              ${labelTemplate({
-                status: "warning",
-                label: "Ontwerp",
-              })}
-              Eind inzagetermijn: 03-03-2022
-            </div>
-            ${anchorTemplate({ label: "bekijk ontwerpen waarvan inzagetermijn voorbij is", url: "#" })}
-          `,
+          advancedSelect: {
+            ...documentHeaderAdvancedSelect,
+            active: selectExampleOption(documentHeaderAdvancedSelectActiveIndex, options),
+          },
         }),
         map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });

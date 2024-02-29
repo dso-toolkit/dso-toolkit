@@ -7,7 +7,7 @@ import { classMap } from "lit-html/directives/class-map.js";
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
   implementation: "html-css",
-  template: ({ buttonTemplate, definitionListTemplate }) =>
+  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate }) =>
     function documentHeaderTemplate({
       title,
       type,
@@ -15,9 +15,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       features,
       featureAction,
       featuresOpen,
-      status,
-      statusContentOpen,
-      statusContent,
+      advancedSelect,
       sticky,
     }) {
       return html`
@@ -59,12 +57,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
               ${featuresOpen ? definitionListTemplate(features) : nothing}
             </div>
 
-            <div class="dso-document-header-status-wrapper">
-              <p class="dso-document-header-status">${status}</p>
-              ${statusContentOpen && statusContent
-                ? html`<div class="dso-document-header-status-content">${statusContent}</div>`
-                : nothing}
-            </div>
+            ${advancedSelectTemplate(advancedSelect)}
           </div>
         </dso-responsive-element>
       `;

@@ -1,16 +1,13 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { DefinitionList } from "../definition-list/definition-list.models.js";
 
 import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args.js";
 import { DocumentHeader } from "./document-header.models.js";
+import { options } from "../advanced-select/advanced-select.content";
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   documentHeaderTemplate: (documentHeaderProperties: DocumentHeader<TemplateFnReturnType>) => TemplateFnReturnType;
-  status: (documentHeaderFeatureOpen: boolean, documentHeaderFeatureAction: HandlerFunction) => TemplateFnReturnType;
   features: DefinitionList<TemplateFnReturnType>;
-  statusContent: TemplateFnReturnType;
 }
 
 export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnReturnType>(
@@ -26,16 +23,12 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
       argTypes: documentHeaderArgTypes,
       args: {
         featuresOpen: false,
-        statusContentOpen: false,
         sticky: false,
       },
     });
 
-    const template = templateMapper<DocumentHeaderArgs>(
-      (args, { documentHeaderTemplate, features, status, statusContent }) =>
-        documentHeaderTemplate(
-          documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent),
-        ),
+    const template = templateMapper<DocumentHeaderArgs>((args, { documentHeaderTemplate, features }) =>
+      documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
     );
 
     stories.add("default", template, {
@@ -43,6 +36,9 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
         title: "Omgevingsplan gemeente Gouda",
         type: "Een omgevingsplan waar de omgeving mooier van wordt",
         owner: "Gemeente Gouda",
+        advancedSelect: {
+          options,
+        },
       },
     });
 
@@ -52,6 +48,9 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
         type: "Een omgevingsplan waar de omgeving mooier van wordt",
         owner: "Gemeente Gouda",
         sticky: true,
+        advancedSelect: {
+          options,
+        },
       },
     });
 

@@ -56,7 +56,7 @@ export function advancedSelectArgsMapper(
   };
 }
 
-function selectExampleOption(index: number = 0, options: AdvancedSelectOptionOrGroup<unknown>[]) {
+export function selectExampleOption(index: number = 0, options: AdvancedSelectOptionOrGroup<unknown>[]) {
   return options.flatMap((optionOrGroup) => ("options" in optionOrGroup ? optionOrGroup.options : optionOrGroup))[
     index
   ];

@@ -4,6 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 import { ViewerGridPanelSize, ViewerGridMode, Tab, ViewerGrid } from "./viewer-grid.models.js";
 import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
+import { AdvancedSelect } from "../advanced-select";
 
 const panelSizes = ["small", "medium", "large"];
 
@@ -32,8 +33,9 @@ export interface ViewerGridArgs {
 export interface ViewerGridDocumentHeaderArgs {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: HandlerFunction;
-  documentHeaderStatusOpen: boolean;
   documentHeaderSticky: boolean;
+  documentHeaderAdvancedSelect: AdvancedSelect<unknown>;
+  documentHeaderAdvancedSelectActiveIndex: number;
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
@@ -134,8 +136,11 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   documentHeaderFeaturesOpen: {
     type: "boolean",
   },
-  documentHeaderStatusOpen: {
-    type: "boolean",
+  documentHeaderAdvancedSelectActiveIndex: {
+    name: "Active option",
+    control: {
+      type: "number",
+    },
   },
   documentHeaderFeatureAction: {
     ...noControl,
@@ -143,6 +148,9 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   },
   documentHeaderSticky: {
     type: "boolean",
+  },
+  documentHeaderAdvancedSelect: {
+    ...noControl,
   },
 };
 
