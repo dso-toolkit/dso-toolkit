@@ -10,6 +10,7 @@ import {
   ViewerGridDocumentHeaderArgs,
 } from "./viewer-grid.args.js";
 import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models.js";
+import { options } from "../advanced-select/advanced-select.content";
 
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -132,20 +133,31 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
         documentHeaderExampleTemplate({
           documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
           documentHeaderFeatureAction: args.documentHeaderFeatureAction,
-          documentHeaderStatusOpen: args.documentHeaderStatusOpen,
           documentHeaderSticky: args.documentHeaderSticky,
+          documentHeaderAdvancedSelectOpen: args.documentHeaderAdvancedSelectOpen,
+          documentHeaderAdvancedSelect: args.documentHeaderAdvancedSelect,
+          documentHeaderAdvancedSelectActiveIndex: args.documentHeaderAdvancedSelectActiveIndex,
         }),
       ),
       {
         args: componentArgs<
           Pick<
             ViewerGridDocumentHeaderArgs,
-            "documentHeaderFeaturesOpen" | "documentHeaderStatusOpen" | "documentHeaderSticky"
+            | "documentHeaderFeaturesOpen"
+            | "documentHeaderSticky"
+            | "documentHeaderAdvancedSelectOpen"
+            | "documentHeaderAdvancedSelect"
+            | "documentHeaderAdvancedSelectActiveIndex"
           >
         >({
           documentHeaderFeaturesOpen: false,
-          documentHeaderStatusOpen: false,
+          documentHeaderAdvancedSelectOpen: false,
           documentHeaderSticky: false,
+          documentHeaderAdvancedSelect: {
+            options,
+            open: false,
+          },
+          documentHeaderAdvancedSelectActiveIndex: 0,
         }),
         argTypes: viewerGridDocumentHeaderArgs,
       },

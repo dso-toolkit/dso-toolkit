@@ -1,4 +1,5 @@
 import { DefinitionList } from "../definition-list/definition-list.models.js";
+import { AdvancedSelect } from "../advanced-select";
 
 export interface DocumentHeader<TemplateFnReturnType> {
   title: string;
@@ -7,8 +8,6 @@ export interface DocumentHeader<TemplateFnReturnType> {
   features: DefinitionList<TemplateFnReturnType>;
   featuresOpen?: boolean;
   featureAction?: (e: MouseEvent) => void;
-  status: TemplateFnReturnType;
-  statusContentOpen?: boolean;
-  statusContent?: TemplateFnReturnType;
+  advancedSelect: AdvancedSelect<unknown>;
   sticky?: boolean;
 }

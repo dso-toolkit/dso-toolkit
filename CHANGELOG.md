@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Advanced Select: Nieuw Component ([#2525](https://github.com/dso-toolkit/dso-toolkit/issues/2525))
 
+### Changed
+* Document Header: aanpassen met Advanced Select ipv. huidige implementatie van statusContentOpen ([#2529](https://github.com/dso-toolkit/dso-toolkit/issues/2529))
+
 ## 🦌 62.12.1 - 28-02-2024
 
 ### Fixed
