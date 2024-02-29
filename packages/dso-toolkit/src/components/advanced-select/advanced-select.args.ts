@@ -69,7 +69,7 @@ export function advancedSelectArgsMapper(
   };
 }
 
-function selectExampleOption(
+export function selectExampleOption(
   index: number = 0,
   options: AdvancedSelectOptionsOrGroup<unknown>[],
 ): AdvancedSelectOption<unknown> | undefined {

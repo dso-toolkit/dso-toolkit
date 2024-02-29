@@ -3,6 +3,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { DocumentHeader } from "dso-toolkit";
 import { ComponentImplementation } from "../../templates";
 import { classMap } from "lit-html/directives/class-map.js";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
@@ -15,9 +16,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       features,
       featureAction,
       featuresOpen,
-      status,
-      statusContentOpen,
-      statusContent,
+      advancedSelect,
       sticky,
     }) {
       return html`
@@ -59,12 +58,11 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
               ${featuresOpen ? definitionListTemplate(features) : nothing}
             </div>
 
-            <div class="dso-document-header-status-wrapper">
-              <p class="dso-document-header-status">${status}</p>
-              ${statusContentOpen && statusContent
-                ? html`<div class="dso-document-header-status-content">${statusContent}</div>`
-                : nothing}
-            </div>
+            <dso-advanced-select
+              .options=${advancedSelect.options}
+              .active=${ifDefined(advancedSelect.active)}
+              .open=${advancedSelect.open}
+            ></dso-advanced-select>
           </div>
         </dso-responsive-element>
       `;
