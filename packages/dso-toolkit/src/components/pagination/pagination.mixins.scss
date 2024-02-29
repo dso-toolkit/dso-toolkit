@@ -22,7 +22,8 @@
       height: pagination-variables.$item-size;
       justify-content: center;
       position: relative;
-      width: pagination-variables.$item-size;
+      min-inline-size: pagination-variables.$item-size;
+      padding: units.$u1 * 0.25;
 
       &:active {
         background-color: colors.$grasgroen-10;
@@ -31,7 +32,7 @@
 
     > span {
       border: pagination-variables.$border-size solid transparent;
-      border-radius: 50%;
+      border-radius: pagination-variables.$item-size * 0.5;
     }
 
     a {
