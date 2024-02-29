@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Map Layers: Scroll overlay stacking ([#2526](https://github.com/dso-toolkit/dso-toolkit/issues/2526))
 * Document Component: Scrollen in tabel na vergroten werkt niet meer ([#2486](https://github.com/dso-toolkit/dso-toolkit/issues/2486))
+* Styling: Version number in dso.css undefined ([#2520](https://github.com/dso-toolkit/dso-toolkit/issues/2520))
 
 ### Docs
 * Card: Link selecteren met href werkt niet ([#2506](https://github.com/dso-toolkit/dso-toolkit/issues/2506))

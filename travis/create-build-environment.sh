@@ -22,6 +22,8 @@ docker build \
   --tag ghcr.io/dso-toolkit/dso-toolkit:${TAG}-source \
   --progress plain \
   --build-arg CI \
+  --build-arg TRAVIS_BRANCH \
+  --build-arg TRAVIS_TAG \
   --pull \
   .
 
