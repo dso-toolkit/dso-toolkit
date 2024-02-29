@@ -83,7 +83,6 @@ storiesOfViewerGrid({
     function documentHeaderExampleTemplate({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
-      documentHeaderAdvancedSelectOpen,
       documentHeaderSticky,
       documentHeaderAdvancedSelect,
       documentHeaderAdvancedSelectActiveIndex,
@@ -134,7 +133,6 @@ storiesOfViewerGrid({
           sticky: documentHeaderSticky,
           advancedSelect: {
             ...documentHeaderAdvancedSelect,
-            open: documentHeaderAdvancedSelectOpen,
             active: selectExampleOption(documentHeaderAdvancedSelectActiveIndex, options),
           },
         }),

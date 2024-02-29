@@ -23,7 +23,6 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
       argTypes: documentHeaderArgTypes,
       args: {
         featuresOpen: false,
-        advancedSelectOpen: false,
         sticky: false,
       },
     });

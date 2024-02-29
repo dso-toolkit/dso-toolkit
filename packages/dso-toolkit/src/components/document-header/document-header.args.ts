@@ -14,7 +14,6 @@ export interface DocumentHeaderArgs {
   featureAction: HandlerFunction;
   featuresOpen: boolean;
   activeIndex: number;
-  advancedSelectOpen: boolean;
   advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
 }
@@ -50,12 +49,6 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
       type: "number",
     },
   },
-  advancedSelectOpen: {
-    name: "Open Advanced Select",
-    control: {
-      type: "boolean",
-    },
-  },
   advancedSelect: {
     ...noControl,
   },
@@ -79,7 +72,6 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     featuresOpen: a.featuresOpen,
     advancedSelect: {
       ...a.advancedSelect,
-      open: a.advancedSelectOpen,
       active: selectExampleOption(a.activeIndex, options),
     },
     sticky: a.sticky,
