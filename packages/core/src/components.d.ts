@@ -7,8 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-import { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
-import { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.interfaces";
+import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.models";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -37,8 +36,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-export { AdvancedSelectOption, AdvancedSelectOptionsOrGroup } from "./components/advanced-select/advanced-select.models";
-export { AdvancedSelectClickEvent, AdvancedSelectOptionClickEvent, AdvancedSelectRedirectClickEvent } from "./components/advanced-select/advanced-select.interfaces";
+export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.models";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -157,13 +155,9 @@ export namespace Components {
          */
         "activeHint"?: string;
         /**
-          * The open state of the options list.
-         */
-        "open": boolean;
-        /**
           * The options to display in the select.
          */
-        "options": AdvancedSelectOptionsOrGroup<never>[];
+        "options": AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -750,6 +744,10 @@ export namespace Components {
          */
         "modalTitle"?: string;
         /**
+          * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
+         */
+        "returnFocus": false | HTMLElement | undefined;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "role": string | null;
@@ -1187,9 +1185,8 @@ declare global {
         new (): HTMLDsoActionListItemElement;
     };
     interface HTMLDsoAdvancedSelectElementEventMap {
-        "dsoClick": AdvancedSelectClickEvent;
-        "dsoOptionClick": AdvancedSelectOptionClickEvent<never>;
-        "dsoRedirectClick": AdvancedSelectRedirectClickEvent;
+        "dsoChange": AdvancedSelectChangeEvent<never>;
+        "dsoRedirect": AdvancedSelectRedirectEvent;
     }
     interface HTMLDsoAdvancedSelectElement extends Components.DsoAdvancedSelect, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoAdvancedSelectElementEventMap>(type: K, listener: (this: HTMLDsoAdvancedSelectElement, ev: DsoAdvancedSelectCustomEvent<HTMLDsoAdvancedSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1943,25 +1940,17 @@ declare namespace LocalJSX {
          */
         "activeHint"?: string;
         /**
-          * Emitted when user clicks the select.
+          * Emitted when user selects an option
          */
-        "onDsoClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectClickEvent>) => void;
+        "onDsoChange"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectChangeEvent<never>>) => void;
         /**
-          * Emitted when user clicks an option
+          * Emitted when user activates a group redirect link.
          */
-        "onDsoOptionClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectOptionClickEvent<never>>) => void;
-        /**
-          * Emitted when user clicks a redirect link.
-         */
-        "onDsoRedirectClick"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectClickEvent>) => void;
-        /**
-          * The open state of the options list.
-         */
-        "open"?: boolean;
+        "onDsoRedirect"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectEvent>) => void;
         /**
           * The options to display in the select.
          */
-        "options"?: AdvancedSelectOptionsOrGroup<never>[];
+        "options"?: AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
@@ -2677,6 +2666,10 @@ declare namespace LocalJSX {
           * Emitted when the user wants to close the Modal.
          */
         "onDsoClose"?: (event: DsoModalCustomEvent<ModalCloseEvent>) => void;
+        /**
+          * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
+         */
+        "returnFocus"?: false | HTMLElement | undefined;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */

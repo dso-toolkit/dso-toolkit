@@ -18,11 +18,15 @@ export interface AdvancedSelectGroup<T> {
   variant?: AdvancedSelectVariant;
 }
 
-export type AdvancedSelectOptionsOrGroup<T> = AdvancedSelectOption<T> | AdvancedSelectGroup<T>;
+export type AdvancedSelectOptionOrGroup<T> = AdvancedSelectOption<T> | AdvancedSelectGroup<T>;
 
-export interface AdvancedSelect<T> {
-  options: AdvancedSelectOptionsOrGroup<T>[];
-  active?: AdvancedSelectOption<T>;
-  activeHint?: string;
-  open: boolean;
+export interface AdvancedSelectChangeEvent<T> {
+  originalEvent: MouseEvent;
+  option: AdvancedSelectOption<T>;
+}
+
+export interface AdvancedSelectRedirectEvent {
+  originalEvent: MouseEvent;
+  isModifiedEvent: boolean;
+  redirect: AdvancedSelectGroupRedirect;
 }

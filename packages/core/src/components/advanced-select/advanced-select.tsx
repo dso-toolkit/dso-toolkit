@@ -1,15 +1,28 @@
-import { Component, ComponentInterface, Prop, h, FunctionalComponent, Event, EventEmitter } from "@stencil/core";
-
 import {
+  Component,
+  ComponentInterface,
+  Prop,
+  h,
+  FunctionalComponent,
+  Element,
+  Event,
+  EventEmitter,
+  State,
+  Fragment,
+  Listen,
+} from "@stencil/core";
+import clsx from "clsx";
+import {
+  AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
   AdvancedSelectOption,
-  AdvancedSelectOptionsOrGroup,
+  AdvancedSelectChangeEvent,
+  AdvancedSelectOptionOrGroup,
+  AdvancedSelectRedirectEvent,
 } from "./advanced-select.models";
-import {
-  AdvancedSelectClickEvent,
-  AdvancedSelectOptionClickEvent,
-  AdvancedSelectRedirectClickEvent,
-} from "./advanced-select.interfaces";
+import { createFocusTrap, FocusTrap } from "focus-trap";
+import { tabbable } from "tabbable";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 @Component({
   tag: "dso-advanced-select",
@@ -17,11 +30,16 @@ import {
   shadow: true,
 })
 export class AdvancedSelect implements ComponentInterface {
+  private trap?: FocusTrap;
+
+  @Element()
+  host!: HTMLDsoAdvancedSelectElement;
+
   /**
    * The options to display in the select.
    */
   @Prop()
-  options: AdvancedSelectOptionsOrGroup<never>[] = [];
+  options: AdvancedSelectOptionOrGroup<never>[] = [];
 
   /**
    * The active option. By object reference.
@@ -38,123 +56,177 @@ export class AdvancedSelect implements ComponentInterface {
   /**
    * The open state of the options list.
    */
-  @Prop()
+  @State()
   open: boolean = false;
 
   /**
-   * Emitted when user clicks the select.
+   * Emitted when user selects an option
    */
   @Event({ bubbles: false })
-  dsoClick!: EventEmitter<AdvancedSelectClickEvent>;
+  dsoChange!: EventEmitter<AdvancedSelectChangeEvent<never>>;
 
   /**
-   * Emitted when user clicks an option
+   * Emitted when user activates a group redirect link.
    */
   @Event({ bubbles: false })
-  dsoOptionClick!: EventEmitter<AdvancedSelectOptionClickEvent<never>>;
+  dsoRedirect!: EventEmitter<AdvancedSelectRedirectEvent>;
 
-  /**
-   * Emitted when user clicks a redirect link.
-   */
-  @Event({ bubbles: false })
-  dsoRedirectClick!: EventEmitter<AdvancedSelectRedirectClickEvent>;
+  private toggleButtonElementRef: HTMLButtonElement | undefined;
 
-  private handleClick = (event: MouseEvent) => {
-    this.dsoClick.emit({ originalEvent: event });
+  @Listen("keydown", { target: "window" })
+  keyDownListener(event: KeyboardEvent) {
+    if (this.open && event.key === "ArrowUp") {
+      event.preventDefault();
+      this.handleTab(-1);
+    } else if (this.open && event.key === "ArrowDown") {
+      event.preventDefault();
+      this.handleTab(1);
+    }
+  }
+
+  componentDidRender() {
+    if (this.open && !this.trap) {
+      this.createTrap();
+    } else if (!this.open && this.trap) {
+      this.removeTrap();
+    }
+  }
+
+  private toggleOpen = () => {
+    this.open = !this.open;
   };
 
+  private createTrap() {
+    this.trap = createFocusTrap(this.host, {
+      clickOutsideDeactivates: true,
+      escapeDeactivates: true,
+      setReturnFocus: this.toggleButtonElementRef,
+      tabbableOptions: {
+        getShadowRoot: true,
+      },
+      onDeactivate: () => {
+        this.open = false;
+      },
+    }).activate();
+  }
+
+  private removeTrap() {
+    this.trap?.deactivate();
+    delete this.trap;
+  }
+
+  private handleTab(direction: number) {
+    const elements = tabbable(this.host, { getShadowRoot: true });
+    const currentIndex = elements.findIndex((e) => e === this.host.shadowRoot?.activeElement);
+
+    let nextIndex = currentIndex + direction;
+    if (nextIndex >= elements.length) {
+      nextIndex = 0;
+    } else if (nextIndex < 0) {
+      nextIndex = elements.length - 1;
+    }
+
+    elements[nextIndex]?.focus();
+  }
+
   private handleOptionClick = (event: MouseEvent, option: AdvancedSelectOption<never>) => {
-    this.dsoOptionClick.emit({ originalEvent: event, option });
+    this.dsoChange.emit({ originalEvent: event, option });
+    this.open = false;
   };
 
   private handleRedirectClick = (event: MouseEvent, redirect: AdvancedSelectGroupRedirect) => {
-    this.dsoRedirectClick.emit({ originalEvent: event, redirect });
+    this.dsoRedirect.emit({ originalEvent: event, isModifiedEvent: isModifiedEvent(event), redirect });
+    this.open = false;
   };
 
   render() {
     return (
-      <div>
-        <button class={{ "active-option": true, open: this.open }} type="button" onClick={this.handleClick}>
+      <>
+        <button
+          aria-expanded={this.open.toString()}
+          class={clsx(["active-option", { open: this.open }])}
+          type="button"
+          onClick={this.toggleOpen}
+          ref={(element) => (this.toggleButtonElementRef = element)}
+        >
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <span class="active-option-aside">
-            {this.options.some((option) => "summaryCounter" in option && option?.summaryCounter) ? (
+            {this.options.some(
+              (optionOrGroup) => "summaryCounter" in optionOrGroup && optionOrGroup?.summaryCounter,
+            ) && (
               <span class="badges">
                 {this.options
-                  .filter((option) => "summaryCounter" in option && option?.summaryCounter)
-                  .map((option) => {
-                    if ("options" in option) {
-                      return <dso-badge status={option.variant ?? "outline"}>{option.options.length}</dso-badge>;
-                    }
+                  .filter(
+                    (option): option is AdvancedSelectGroup<never> =>
+                      "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
+                  )
+                  .map((group) => {
+                    return <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>;
                   })}
               </span>
-            ) : (
-              ""
             )}
             <dso-icon icon="caret-down"></dso-icon>
           </span>
         </button>
-        <div class={{ "groups-container": true, open: this.open }}>
-          <ul class="groups">
-            {this.options.map((optionsOrGroup) => {
-              if ("options" in optionsOrGroup) {
-                return (
-                  <li class={{ group: true, [`group-${optionsOrGroup.variant}`]: !!optionsOrGroup.variant }}>
-                    {optionsOrGroup.label && <p class="group-label">{optionsOrGroup.label}</p>}
+        {this.open && (
+          <div class="groups-container">
+            <ul class="groups">
+              {this.options.map((optionOrGroup) =>
+                "options" in optionOrGroup ? (
+                  <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
+                    {optionOrGroup.label && <p class="group-label">{optionOrGroup.label}</p>}
                     <ul class="options">
-                      {optionsOrGroup.options.map((option) => (
+                      {optionOrGroup.options.map((option) => (
                         <OptionElement
                           option={option}
                           active={this.active}
                           activeHint={this.activeHint}
-                          cb={this.handleOptionClick}
+                          callback={this.handleOptionClick}
                         />
                       ))}
                     </ul>
-                    {optionsOrGroup.redirect && (
+                    {optionOrGroup.redirect && (
                       <a
                         class="group-link"
-                        href={optionsOrGroup.redirect.href}
-                        onClick={(e: MouseEvent) =>
-                          this.handleRedirectClick(e, optionsOrGroup.redirect as AdvancedSelectGroupRedirect)
-                        }
+                        href={optionOrGroup.redirect.href}
+                        onClick={(e) => optionOrGroup.redirect && this.handleRedirectClick(e, optionOrGroup.redirect)}
                       >
-                        {optionsOrGroup.redirect.label}
+                        {optionOrGroup.redirect.label}
                         <dso-icon icon="chevron-right"></dso-icon>
                       </a>
                     )}
                   </li>
-                );
-              }
-              return (
-                <OptionElement
-                  option={optionsOrGroup}
-                  active={this.active}
-                  activeHint={this.activeHint}
-                  cb={this.handleOptionClick}
-                />
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+                ) : (
+                  <OptionElement
+                    option={optionOrGroup}
+                    active={this.active}
+                    activeHint={this.activeHint}
+                    callback={this.handleOptionClick}
+                  />
+                ),
+              )}
+            </ul>
+          </div>
+        )}
+      </>
     );
   }
 }
 
 const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<never>;
-  active?: AdvancedSelectOption<never>;
-  activeHint?: string;
-  cb: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
-}> = ({ option, active, activeHint, cb }) => (
+  active: AdvancedSelectOption<never> | undefined;
+  activeHint: string | undefined;
+  callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
+}> = ({ option, active, activeHint, callback }) => (
   <li>
     <button
-      class={{ option: true, "option-active": active === option }}
+      class={clsx(["option", { "option-active": active === option }])}
       type="button"
-      onClick={(e: MouseEvent) => cb(e, option)}
+      onClick={(e) => callback(e, option)}
     >
       <span class="option-label">{option.label}</span>
-      {activeHint && active === option && <span class="option-hint">{activeHint}</span>}
+      {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
     </button>
   </li>
 );

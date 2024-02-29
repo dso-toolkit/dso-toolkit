@@ -2,6 +2,7 @@ import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, S
 import { v4 } from "uuid";
 
 import { ModalCloseEvent } from "./modal.interfaces";
+import { getActiveElement } from "../../utils/get-active-element";
 
 @Component({
   tag: "dso-modal",
@@ -16,9 +17,6 @@ export class Modal implements ComponentInterface {
 
   @State()
   ariaId = v4();
-
-  @State()
-  hasFooter?: boolean;
 
   /**
    * when set the modal will be shown in fullscreen.
@@ -39,6 +37,16 @@ export class Modal implements ComponentInterface {
   role: string | null = "dialog";
 
   /**
+   * The element to return focus to after the modal is closed.
+   *
+   * * `undefined` will return focus to the previously focused element (default).
+   * * `false` will not return focus to any element.
+   * * or, provide your own `HTMLElement` that will receive focus upon closing.
+   */
+  @Prop()
+  returnFocus: false | HTMLElement | undefined = undefined;
+
+  /**
    * when `false` the close button in the header will not be rendered. Defaults to `true`.
    *
    * Needs `modalTitle` to be set.
@@ -46,18 +54,25 @@ export class Modal implements ComponentInterface {
   @Prop()
   showCloseButton = true;
 
+  private returnFocusElement: HTMLElement | undefined;
+
   /**
    * Emitted when the user wants to close the Modal.
    */
   @Event()
   dsoClose!: EventEmitter<ModalCloseEvent>;
 
-  componentWillLoad(): void {
-    this.hasFooter = this.host.querySelector("[slot='footer']") !== null;
+  get hasFooter() {
+    return this.host.querySelector("[slot='footer']") !== null;
   }
 
   componentDidLoad(): void {
     if (this.htmlDialogElement?.isConnected) {
+      const activeElement = getActiveElement();
+      if (activeElement instanceof HTMLElement) {
+        this.returnFocusElement = activeElement;
+      }
+
       this.htmlDialogElement.showModal();
     }
 
@@ -67,6 +82,12 @@ export class Modal implements ComponentInterface {
   disconnectedCallback(): void {
     document.body.classList.remove("dso-modal-open");
     this.htmlDialogElement?.close();
+
+    if (this.returnFocus === false) {
+      return;
+    }
+
+    (this.returnFocus ?? this.returnFocusElement)?.focus();
   }
 
   render() {

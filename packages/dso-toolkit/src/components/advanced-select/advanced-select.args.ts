@@ -1,22 +1,19 @@
 import { ArgTypes } from "@storybook/types";
 
-import {
-  AdvancedSelect,
-  AdvancedSelectGroup,
-  AdvancedSelectOption,
-  AdvancedSelectOptionsOrGroup,
-} from "./advanced-select.models.js";
+import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
 import { noControl } from "../../storybook";
 import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;
-  open: boolean;
   activeHint?: string;
-  dsoClick: HandlerFunction;
-  dsoOptionClick: HandlerFunction;
-  dsoRedirectClick: HandlerFunction;
+  dsoChange: HandlerFunction;
+  dsoRedirect: HandlerFunction;
 }
+
+export const advancedSelectArgs: Omit<AdvancedSelectArgs, "dsoChange" | "dsoRedirect"> = {
+  activeHint: "Deze bekijkt u nu",
+};
 
 export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
   activeIndex: {
@@ -31,59 +28,36 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
       type: "text",
     },
   },
-  open: {
-    name: "Open",
-    control: {
-      type: "boolean",
-    },
-  },
-  dsoClick: {
+  dsoChange: {
     ...noControl,
-    action: "dsoClick",
+    action: "dsoChange",
   },
-  dsoOptionClick: {
+  dsoRedirect: {
     ...noControl,
-    action: "dsoOptionClick",
-  },
-  dsoRedirectClick: {
-    ...noControl,
-    action: "dsoRedirectClick",
+    action: "dsoRedirect",
   },
 };
 
 export function advancedSelectArgsMapper(
   a: AdvancedSelectArgs,
-  options: AdvancedSelectOptionsOrGroup<unknown>[],
+  options: AdvancedSelectOptionOrGroup<unknown>[],
 ): AdvancedSelect<unknown> {
   return {
     options,
     active: selectExampleOption(a.activeIndex, options),
-    open: a.open,
     activeHint: a.activeHint,
-    dsoClick: (e) => a.dsoClick(e.detail),
-    dsoOptionClick: (e) => a.dsoOptionClick(e.detail),
-    dsoRedirectClick: (e) => {
-      e.detail.originalEvent.preventDefault();
-      a.dsoRedirectClick(e.detail);
+    dsoChange: (e) => a.dsoChange(e.detail),
+    dsoRedirect: (e) => {
+      if (!e.detail.isModifiedEvent) {
+        e.detail.originalEvent.preventDefault();
+        a.dsoRedirect(e.detail);
+      }
     },
   };
 }
 
-export function selectExampleOption(
-  index: number = 0,
-  options: AdvancedSelectOptionsOrGroup<unknown>[],
-): AdvancedSelectOption<unknown> | undefined {
-  switch (index) {
-    case 0:
-      return (options[0] as AdvancedSelectGroup<unknown>).options[index];
-    case 1:
-    case 2:
-      return (options[1] as AdvancedSelectGroup<unknown>).options[index - 1];
-    case 3:
-    case 4:
-    case 5:
-      return (options[2] as AdvancedSelectGroup<unknown>).options[index - 3];
-    default:
-      return undefined;
-  }
+function selectExampleOption(index: number = 0, options: AdvancedSelectOptionOrGroup<unknown>[]) {
+  return options.flatMap((optionOrGroup) => ("options" in optionOrGroup ? optionOrGroup.options : optionOrGroup))[
+    index
+  ];
 }

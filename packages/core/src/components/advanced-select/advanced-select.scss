@@ -1,4 +1,3 @@
-@use "sass:math";
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 @use "~dso-toolkit/src/components/advanced-select";
@@ -44,8 +43,8 @@
 .active-option-aside {
   display: flex;
   align-items: center;
-  gap: math.div(advanced-select.$horizontal-padding, 2);
-  padding: 0 math.div(advanced-select.$horizontal-padding, 2);
+  gap: advanced-select.$horizontal-padding * 0.5;
+  padding: 0 advanced-select.$horizontal-padding * 0.5;
 }
 
 .badges {
@@ -57,10 +56,6 @@
 
 .groups-container {
   position: relative;
-
-  &:not(.open) {
-    display: none;
-  }
 }
 
 .groups {
@@ -91,7 +86,7 @@
   }
 
   .option {
-    padding-left: advanced-select.$horizontal-padding * 2 + math.div(advanced-select.$option-dot-size, 2);
+    padding-left: advanced-select.$horizontal-padding * 2 + advanced-select.$option-dot-size * 0.5;
   }
 
   .option-label::before {
@@ -118,7 +113,7 @@
 .group-link {
   display: block;
   padding: advanced-select.$group-link-horizontal-padding advanced-select.$group-link-vertical-padding;
-  text-align: right;
+  text-align: end;
   color: advanced-select.$group-link-color;
   text-decoration: none;
 

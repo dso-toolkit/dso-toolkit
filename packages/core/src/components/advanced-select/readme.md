@@ -11,17 +11,15 @@
 | ------------ | ------------- | ------------------------------------------------------------------------- | ------------------------------------------ | ----------- |
 | `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<never> \| undefined` | `undefined` |
 | `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                      | `undefined` |
-| `open`       | `open`        | The open state of the options list.                                       | `boolean`                                  | `false`     |
-| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionsOrGroup<never>[]`    | `[]`        |
+| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionOrGroup<never>[]`     | `[]`        |
 
 
 ## Events
 
-| Event              | Description                               | Type                                                 |
-| ------------------ | ----------------------------------------- | ---------------------------------------------------- |
-| `dsoClick`         | Emitted when user clicks the select.      | `CustomEvent<AdvancedSelectClickEvent>`              |
-| `dsoOptionClick`   | Emitted when user clicks an option        | `CustomEvent<AdvancedSelectOptionClickEvent<never>>` |
-| `dsoRedirectClick` | Emitted when user clicks a redirect link. | `CustomEvent<AdvancedSelectRedirectClickEvent>`      |
+| Event         | Description                                        | Type                                            |
+| ------------- | -------------------------------------------------- | ----------------------------------------------- |
+| `dsoChange`   | Emitted when user selects an option                | `CustomEvent<AdvancedSelectChangeEvent<never>>` |
+| `dsoRedirect` | Emitted when user activates a group redirect link. | `CustomEvent<AdvancedSelectRedirectEvent>`      |
 
 
 ## Dependencies

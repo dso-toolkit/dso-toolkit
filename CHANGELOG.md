@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Advanced Select: Nieuw Component ([#2525](https://github.com/dso-toolkit/dso-toolkit/issues/2525))
 
+## 🦌 62.12.1 - 28-02-2024
+
+### Fixed
+* Modal: Bij sluiten van modal wordt focus niet teruggezet ([#2560](https://github.com/dso-toolkit/dso-toolkit/issues/2560))
+
 ## ⛷️ 62.12.0 - 15-02-2024
 
 ### Added

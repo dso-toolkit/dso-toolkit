@@ -95,7 +95,9 @@ describe("Modal", () => {
 
     cy.contains("Open modal").as("activate-button").click().should("not.have.focus");
 
-    cy.get("dso-modal").shadow().find("button.dso-close").click();
+    cy.get("dso-modal").shadow().find("dialog").invoke("prop", "open").should("be.true");
+
+    cy.realPress("Escape");
 
     cy.get("@activate-button").should("have.focus");
   });

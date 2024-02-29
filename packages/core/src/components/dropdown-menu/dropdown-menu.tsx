@@ -2,9 +2,10 @@ import { createPopper, Placement, Instance as PopperInstance } from "@popperjs/c
 import { h, Component, Element, Host, Prop, Watch } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
-
-import { hasOverflow } from "../../utils/has-overflow";
 import { createFocusTrap, FocusTrap } from "focus-trap";
+
+import { getActiveElement } from "../../utils/get-active-element";
+import { hasOverflow } from "../../utils/has-overflow";
 
 @Component({
   tag: "dso-dropdown-menu",
@@ -294,23 +295,9 @@ export class DropdownMenu {
     event.preventDefault();
   };
 
-  private getActiveElement(root: Document | ShadowRoot = document): Element | null {
-    const activeEl = root.activeElement;
-
-    if (!activeEl) {
-      return null;
-    }
-
-    if (activeEl.shadowRoot) {
-      return this.getActiveElement(activeEl.shadowRoot);
-    }
-
-    return activeEl;
-  }
-
   private tabInPopup(direction: number) {
     const tabs = this.tabbables;
-    const currentIndex = tabs.findIndex((e) => e === this.getActiveElement());
+    const currentIndex = tabs.findIndex((e) => e === getActiveElement());
 
     let nextIndex = currentIndex + direction;
     if (nextIndex >= tabs.length) {
