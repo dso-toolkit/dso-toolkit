@@ -49,14 +49,15 @@ ENTRYPOINT ["/bin/bash", "-c"]
 
 FROM source as build
 
+ARG CI
+
 RUN yarn dedupe --check
 RUN (yarn npm audit --all --recursive || true)
 RUN yarn lint
 
-RUN yarn build
-
-ARG CI
 ARG TRAVIS_BRANCH
 ARG TRAVIS_TAG
+
+RUN yarn build
 
 RUN yarn build-www
