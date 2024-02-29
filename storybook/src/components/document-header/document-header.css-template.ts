@@ -61,7 +61,6 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
             <dso-advanced-select
               .options=${advancedSelect.options}
               .active=${ifDefined(advancedSelect.active)}
-              .open=${advancedSelect.open}
             ></dso-advanced-select>
           </div>
         </dso-responsive-element>

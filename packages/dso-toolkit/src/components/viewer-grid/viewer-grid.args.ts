@@ -33,7 +33,6 @@ export interface ViewerGridArgs {
 export interface ViewerGridDocumentHeaderArgs {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: HandlerFunction;
-  documentHeaderAdvancedSelectOpen: boolean;
   documentHeaderSticky: boolean;
   documentHeaderAdvancedSelect: AdvancedSelect<unknown>;
   documentHeaderAdvancedSelectActiveIndex: number;
@@ -135,9 +134,6 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
 
 export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs> = {
   documentHeaderFeaturesOpen: {
-    type: "boolean",
-  },
-  documentHeaderAdvancedSelectOpen: {
     type: "boolean",
   },
   documentHeaderAdvancedSelectActiveIndex: {

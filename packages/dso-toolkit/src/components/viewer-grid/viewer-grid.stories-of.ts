@@ -134,7 +134,6 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
           documentHeaderFeatureAction: args.documentHeaderFeatureAction,
           documentHeaderSticky: args.documentHeaderSticky,
-          documentHeaderAdvancedSelectOpen: args.documentHeaderAdvancedSelectOpen,
           documentHeaderAdvancedSelect: args.documentHeaderAdvancedSelect,
           documentHeaderAdvancedSelectActiveIndex: args.documentHeaderAdvancedSelectActiveIndex,
         }),
@@ -145,17 +144,14 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
             ViewerGridDocumentHeaderArgs,
             | "documentHeaderFeaturesOpen"
             | "documentHeaderSticky"
-            | "documentHeaderAdvancedSelectOpen"
             | "documentHeaderAdvancedSelect"
             | "documentHeaderAdvancedSelectActiveIndex"
           >
         >({
           documentHeaderFeaturesOpen: false,
-          documentHeaderAdvancedSelectOpen: false,
           documentHeaderSticky: false,
           documentHeaderAdvancedSelect: {
             options,
-            open: false,
           },
           documentHeaderAdvancedSelectActiveIndex: 0,
         }),

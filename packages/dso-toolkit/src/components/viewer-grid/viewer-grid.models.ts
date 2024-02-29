@@ -88,7 +88,6 @@ export interface ViewerGridDocumentHeaderProperties {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
   documentHeaderSticky: boolean;
-  documentHeaderAdvancedSelectOpen: boolean;
   documentHeaderAdvancedSelect: AdvancedSelect<unknown>;
   documentHeaderAdvancedSelectActiveIndex: number;
 }
