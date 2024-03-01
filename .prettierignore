@@ -1,3 +1,4 @@
+*.hbs
 /.nx
 **/CHANGELOG.md
 /.yarn

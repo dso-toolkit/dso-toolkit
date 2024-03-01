@@ -1,0 +1,26 @@
+import type { Meta } from "@storybook/web-components";
+import { {{ pascalCase name }}Args, {{ camelCase name }}Meta, {{ camelCase name }}Stories } from "dso-toolkit";
+
+import { templateContainer } from "../../templates";
+
+import readme from "@dso-toolkit/core/src/components/{{ kebabCase name }}/readme.md?raw";
+
+const meta: Meta<{{ pascalCase name }}Args> = {
+  ...{{ camelCase name }}Meta({ readme }),
+  title: "Core/{{ titleCase name }}",
+};
+
+export default meta;
+
+const { Default } = {{ camelCase name }}Stories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { {{ camelCase name }}Template } = templates;
+
+    return {
+      {{ camelCase name }}Template,
+    };
+  },
+});
+
+export { Default };
