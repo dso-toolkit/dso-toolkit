@@ -272,6 +272,8 @@ export {
   storiesOfProgressIndicator,
 } from "./components/progress-indicator/progress-indicator.stories-of.js";
 
+export * from "./components/input-range";
+
 export { ResponsiveElement } from "./components/responsive-element/responsive-element.models.js";
 export {
   ResponsiveElementTemplates,

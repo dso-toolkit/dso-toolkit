@@ -71,6 +71,7 @@ import {
   Pagination,
   ProgressBar,
   ProgressIndicator,
+  InputRange,
   ResponsiveElement,
   RichContent,
   RowEqualHeights,
@@ -145,6 +146,7 @@ import { cssProgressBar } from "./components/progress-bar/progress-bar.css-templ
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { cssProgressIndicator } from "./components/progress-indicator/progress-indicator.css-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
+import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { cssTabs } from "./components/tabs/tabs.css-template";
@@ -259,6 +261,7 @@ export interface Components {
   infoButton: InfoButton;
   info: Info<TemplateResult>;
   inputNumber: InputNumber;
+  inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   labelGroup: LabelGroup;
   label: Label;
@@ -355,6 +358,7 @@ templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
+templateContainer.add(coreInputRange);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);

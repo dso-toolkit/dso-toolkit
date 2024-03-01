@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## Added
+* Input Range: Nieuw component ([#2514](https://github.com/dso-toolkit/dso-toolkit/issues/2514))
+
 ### Fixed
 * Map Layers: Scroll overlay stacking ([#2526](https://github.com/dso-toolkit/dso-toolkit/issues/2526))
 * Document Component: Scrollen in tabel na vergroten werkt niet meer ([#2486](https://github.com/dso-toolkit/dso-toolkit/issues/2486))

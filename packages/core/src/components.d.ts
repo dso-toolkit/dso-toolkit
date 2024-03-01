@@ -20,6 +20,7 @@ import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
+import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
@@ -49,6 +50,7 @@ export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
+export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
@@ -610,6 +612,36 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
     }
+    interface DsoInputRange {
+        /**
+          * The description of the range.
+         */
+        "description"?: string;
+        /**
+          * The label of the range.
+         */
+        "label"?: string;
+        /**
+          * The maximum value of the range.
+         */
+        "max"?: number;
+        /**
+          * The minimum value of the range.
+         */
+        "min"?: number;
+        /**
+          * The step to increment the value by.
+         */
+        "step"?: number;
+        /**
+          * The unit of the range.
+         */
+        "unit": string;
+        /**
+          * The value of the range.
+         */
+        "value"?: number;
+    }
     interface DsoLabel {
         "_truncateLabel": () => Promise<void>;
         /**
@@ -1082,6 +1114,10 @@ export interface DsoInfoButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoInfoButtonElement;
 }
+export interface DsoInputRangeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoInputRangeElement;
+}
 export interface DsoLabelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLabelElement;
@@ -1464,6 +1500,23 @@ declare global {
         prototype: HTMLDsoInfoButtonElement;
         new (): HTMLDsoInfoButtonElement;
     };
+    interface HTMLDsoInputRangeElementEventMap {
+        "dsoChange": InputRangeChangeEvent;
+    }
+    interface HTMLDsoInputRangeElement extends Components.DsoInputRange, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoInputRangeElementEventMap>(type: K, listener: (this: HTMLDsoInputRangeElement, ev: DsoInputRangeCustomEvent<HTMLDsoInputRangeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoInputRangeElementEventMap>(type: K, listener: (this: HTMLDsoInputRangeElement, ev: DsoInputRangeCustomEvent<HTMLDsoInputRangeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoInputRangeElement: {
+        prototype: HTMLDsoInputRangeElement;
+        new (): HTMLDsoInputRangeElement;
+    };
     interface HTMLDsoLabelElementEventMap {
         "dsoRemoveClick": MouseEvent;
     }
@@ -1817,6 +1870,7 @@ declare global {
         "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
+        "dso-input-range": HTMLDsoInputRangeElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-list-button": HTMLDsoListButtonElement;
         "dso-logo": HTMLDsoLogoElement;
@@ -2491,6 +2545,40 @@ declare namespace LocalJSX {
          */
         "secondary"?: boolean;
     }
+    interface DsoInputRange {
+        /**
+          * The description of the range.
+         */
+        "description"?: string;
+        /**
+          * The label of the range.
+         */
+        "label"?: string;
+        /**
+          * The maximum value of the range.
+         */
+        "max"?: number;
+        /**
+          * The minimum value of the range.
+         */
+        "min"?: number;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onDsoChange"?: (event: DsoInputRangeCustomEvent<InputRangeChangeEvent>) => void;
+        /**
+          * The step to increment the value by.
+         */
+        "step"?: number;
+        /**
+          * The unit of the range.
+         */
+        "unit"?: string;
+        /**
+          * The value of the range.
+         */
+        "value"?: number;
+    }
     interface DsoLabel {
         /**
           * For compact Label
@@ -3038,6 +3126,7 @@ declare namespace LocalJSX {
         "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
+        "dso-input-range": DsoInputRange;
         "dso-label": DsoLabel;
         "dso-list-button": DsoListButton;
         "dso-logo": DsoLogo;
@@ -3092,6 +3181,7 @@ declare module "@stencil/core" {
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
+            "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
