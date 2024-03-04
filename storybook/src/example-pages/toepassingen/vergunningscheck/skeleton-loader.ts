@@ -19,10 +19,11 @@ examplePageFactory(
               content: richContentTemplate({
                 children: html`
                   <div class="skeleton-green dso-skeleton-heading"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text last"></div>
+                  <div>
+                    <div class="skeleton dso-skeleton-text"></div>
+                    <div class="skeleton dso-skeleton-text"></div>
+                    <div class="skeleton dso-skeleton-text"></div>
+                  </div>
                   <div class="skeleton-green dso-skeleton-button"></div>
                 `,
               }),
