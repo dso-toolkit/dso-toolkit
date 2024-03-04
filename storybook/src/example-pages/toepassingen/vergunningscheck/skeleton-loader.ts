@@ -4,12 +4,11 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
 import { header } from "../../partials/header.content";
-import { accordionSections } from "./landingspagina.content";
 
 examplePageFactory(
   "Toepassingen/Vergunningscheck",
   "Skeleton loader",
-  ({ anchorTemplate, accordionTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+  ({ highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
