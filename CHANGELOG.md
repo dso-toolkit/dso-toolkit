@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-## Added
+## 🦜 62.14.0 - 04-03-2024
+
+### Added
 * Input Range: Nieuw component ([#2514](https://github.com/dso-toolkit/dso-toolkit/issues/2514))
 
 ### Fixed
