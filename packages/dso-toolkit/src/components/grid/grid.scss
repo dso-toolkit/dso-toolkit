@@ -157,3 +157,84 @@ form {
 @media (min-width: media-query-breakpoints.$screen-lg-min) {
   @include css-grid-mixins.make-grid(lg);
 }
+.dso-skeleton {
+  overflow: hidden;
+}
+.dso-skeleton::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(230, 230, 230, 0) 0,
+    rgba(230, 230, 230, 0.4) 20%,
+    #e6e6e6 60%,
+    rgba(230, 230, 230, 0)
+  );
+  animation: dso-shimmer 2s infinite;
+  content: "";
+}
+.dso-skeleton-text {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.dso-skeleton-heading {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.125rem;
+  background: linear-gradient(-45deg, #527a5e 40%, #a8bcaf 50%, #527a5e 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+}
+
+.dso-skeleton-button {
+  width: 30%;
+  height: 2rem;
+  margin-bottom: 0;
+  margin-top: 16px;
+  border-radius: 0.125rem;
+  background: linear-gradient(-45deg, #609f3c 40%, #afcf9d 50%, #609f3c 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+}
+
+.dso-skeleton-text:last-child {
+  margin-bottom: 0;
+  width: 80%;
+}
+@keyframes dso-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+.skeleton-green {
+  opacity: 0.7;
+  animation: skeleton-green 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+@keyframes skeleton-green {
+  to {
+    background-position-x: 0%;
+  }
+}
