@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦷 62.11.1 - 06-03-2024
+
+### Fixed
+* Dropdown Menu: Oneindige loop ([#2571](https://github.com/dso-toolkit/dso-toolkit/issues/2571))
+
 ## 🦜 62.14.0 - 04-03-2024
 
 ### Added

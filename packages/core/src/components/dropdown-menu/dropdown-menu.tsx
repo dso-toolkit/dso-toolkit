@@ -1,11 +1,10 @@
 import { createPopper, Placement, Instance as PopperInstance } from "@popperjs/core";
-import { h, Component, Element, Host, Prop, Watch } from "@stencil/core";
+import { h, Component, Element, Host, Prop, Watch, Listen } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
-import { createFocusTrap, FocusTrap } from "focus-trap";
 
-import { getActiveElement } from "../../utils/get-active-element";
 import { hasOverflow } from "../../utils/has-overflow";
+import { getActiveElement } from "../../utils/get-active-element";
 
 @Component({
   tag: "dso-dropdown-menu",
@@ -13,7 +12,6 @@ import { hasOverflow } from "../../utils/has-overflow";
   shadow: true,
 })
 export class DropdownMenu {
-  private trap?: FocusTrap;
   /**
    * Whether the menu is open or closed.
    * This attribute is reflected and mutable.
@@ -90,32 +88,6 @@ export class DropdownMenu {
     this.setStrategy();
   }
 
-  private createTrap() {
-    this.trap = createFocusTrap(this.host, {
-      clickOutsideDeactivates: () => {
-        this.open = false;
-        this.trap?.deactivate();
-        delete this.trap;
-
-        return true;
-      },
-      escapeDeactivates: (event) => {
-        if (event instanceof KeyboardEvent) {
-          this.open = false;
-          this.trap?.deactivate();
-          delete this.trap;
-        }
-
-        return true;
-      },
-      tabbableOptions: {
-        getShadowRoot: true,
-      },
-      setReturnFocus: this.button ?? false,
-      initialFocus: this.button ?? false,
-    }).activate();
-  }
-
   private setStrategy() {
     if (!this.popper) {
       return;
@@ -164,8 +136,10 @@ export class DropdownMenu {
     return button;
   }
 
-  get tabbables(): FocusableElement[] {
-    return tabbable(this.host).filter((e) => e !== this.button);
+  private tabbables(withButton: boolean): FocusableElement[] {
+    const tabbables = tabbable(this.host);
+
+    return withButton ? tabbables : tabbables.filter((element) => element !== this.button);
   }
 
   componentDidLoad() {
@@ -228,11 +202,6 @@ export class DropdownMenu {
     this.setStrategy();
     if (this.open) {
       this.popper?.update();
-      this.createTrap();
-    } else {
-      this.trap?.deactivate();
-
-      delete this.trap;
     }
 
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
@@ -245,36 +214,55 @@ export class DropdownMenu {
       }
     }
 
-    this.host.removeEventListener("keydown", this.keyDownListener);
     this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
-    if (this.open) {
-      this.host.addEventListener("keydown", this.keyDownListener);
+  }
+
+  @Listen("click", { target: "window" })
+  onClick(event: MouseEvent) {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
     }
 
-    this.tabbables.forEach((focusableElement) => {
-      focusableElement.removeEventListener("click", this.escape);
-      if (this.open) {
-        focusableElement.addEventListener("click", this.escape);
-      }
-    });
+    if (this.open && (!this.host.contains(event.target) || this.tabbables(false).includes(event.target))) {
+      this.open = false;
+    }
   }
 
   disconnectedCallback() {
     this.popper?.destroy();
   }
 
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (event.defaultPrevented) {
+  private focusOutListener = (event: FocusEvent) => {
+    if (!(event.relatedTarget instanceof HTMLElement)) {
+      return;
+    }
+
+    if (!this.tabbables(true).includes(event.relatedTarget)) {
+      this.open = false;
+    }
+  };
+
+  @Listen("keydown", { target: "window" })
+  keyDownListener(event: KeyboardEvent) {
+    if (event.defaultPrevented || !this.open) {
       return;
     }
 
     switch (event.key) {
+      case "Tab":
+        if (event.shiftKey) {
+          this.tabInPopup(this.tabbables(true), -1);
+        } else {
+          this.tabInPopup(this.tabbables(true), 1);
+        }
+
+        break;
       case "ArrowDown":
-        this.tabInPopup(1);
+        this.tabInPopup(this.tabbables(false), 1);
         break;
 
       case "ArrowUp":
-        this.tabInPopup(-1);
+        this.tabInPopup(this.tabbables(false), -1);
         break;
 
       case "Escape":
@@ -293,20 +281,19 @@ export class DropdownMenu {
     }
 
     event.preventDefault();
-  };
+  }
 
-  private tabInPopup(direction: number) {
-    const tabs = this.tabbables;
-    const currentIndex = tabs.findIndex((e) => e === getActiveElement());
+  private tabInPopup(tabbables: FocusableElement[], direction: number) {
+    const currentIndex = tabbables.findIndex((e) => e === getActiveElement());
 
     let nextIndex = currentIndex + direction;
-    if (nextIndex >= tabs.length) {
+    if (nextIndex >= tabbables.length) {
       nextIndex = 0;
     } else if (nextIndex < 0) {
-      nextIndex = tabs.length - 1;
+      nextIndex = tabbables.length - 1;
     }
 
-    tabs[nextIndex]?.focus();
+    tabbables[nextIndex]?.focus();
   }
 
   private escape = () => {
@@ -316,7 +303,7 @@ export class DropdownMenu {
 
   render() {
     return (
-      <Host tabindex={this.open ? "-1" : undefined}>
+      <Host onFocusout={this.focusOutListener}>
         <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />
