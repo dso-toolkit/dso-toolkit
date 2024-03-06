@@ -11,7 +11,7 @@ describe("Scrollable", () => {
   });
 
   it("should scroll", () => {
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.get("@scrollContainer")
       .should("have.class", "dso-scroll-top")

@@ -32,7 +32,7 @@ describe("Alert", () => {
         .invoke("prop", "icon")
         .should("equal", icon);
 
-      cy.percySnapshot();
+      // cy.percySnapshot();
     });
   }
 });

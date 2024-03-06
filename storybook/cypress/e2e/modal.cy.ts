@@ -24,7 +24,7 @@ describe("Modal", () => {
       .should("have.class", "sr-only")
       .and("have.text", "Sluiten");
 
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it("should have focus trap", () => {

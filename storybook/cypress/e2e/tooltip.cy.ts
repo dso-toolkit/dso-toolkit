@@ -23,7 +23,7 @@ describe("Tooltip", () => {
 
   // Temporary test, this shouldn't be needed. Don't copy/paste this.
   it("should look ok", () => {
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it.skip("should show tooltip on focus on button and hide on escape key", () => {

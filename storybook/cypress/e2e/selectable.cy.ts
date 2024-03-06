@@ -2,7 +2,7 @@ describe("Selectable", () => {
   it("should toggle info using instance method", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
 
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.get("dso-selectable .dso-rich-content").as("info-content").should("exist").and("not.be.visible");
 
