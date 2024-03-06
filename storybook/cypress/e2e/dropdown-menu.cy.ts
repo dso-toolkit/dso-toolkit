@@ -11,7 +11,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("should open and close on button click", () => {
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.get("@options").should("not.be.visible");
 

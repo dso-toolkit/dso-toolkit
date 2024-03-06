@@ -57,8 +57,10 @@ describe("Header", () => {
 
   it("should be accessible", () => {
     cy.checkA11y("dso-header");
-    cy.percySnapshot().get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
-    cy.percySnapshot(`${Cypress.currentTest.title}" -- dropdown menu`)
+    // cy.percySnapshot()
+    cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
+    cy
+      // .percySnapshot(`${Cypress.currentTest.title}" -- dropdown menu`)
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")

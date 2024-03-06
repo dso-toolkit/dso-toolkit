@@ -33,6 +33,14 @@ yarn upgrade-interactive.
 yarn dedupe --check # zonder --check als nodig
 ```
 
+## Danger.yml
+
+In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
+
+## Node / Cypress
+
+Let op de Docker base image in de Dockerfile.
+
 ## Storybook
 
 In `/storybook`:

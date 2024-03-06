@@ -4,7 +4,7 @@ describe("ListButton", () => {
   });
 
   it("should render label and sublabel correctly", () => {
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.get("dso-list-button")
       .as("dsoListButton")
@@ -55,8 +55,8 @@ describe("ListButton", () => {
       .invoke("assignedNodes")
       .then((assignedNodes) => {
         cy.get('dso-list-button > [slot="subcontent"]').invoke("get", 0).should("equal", assignedNodes[0]);
-      })
-      .percySnapshot();
+      });
+    // .percySnapshot();
 
     cy.get("dso-list-button")
       .shadow()
