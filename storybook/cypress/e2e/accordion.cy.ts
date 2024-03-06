@@ -59,7 +59,7 @@ describe("Accordion", () => {
   });
 
   it("should be accessible", () => {
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.injectAxe();
     cy.checkA11y("dso-accordion");

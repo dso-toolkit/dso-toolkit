@@ -1,0 +1,99 @@
+name: CICD
+on: [push]
+
+jobs:
+  CI:
+    name: lint, build, test, deploy
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        name: Log in to GitHub Container Registry
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v7
+        name: Set DT_REF
+        with:
+          script: |
+            if (context.eventName === 'push') {
+              const [ref, type] = context.ref.split('/').reverse();
+
+              if (type === 'heads' && ref.lastIndexOf('#') === 0) {
+                core.exportVariable('DT_REF', ref.replace(/#/, '_'));
+              }
+              else if (type === 'heads' && ref === 'master') {
+                core.exportVariable('DT_REF', 'master');
+              }
+              else if (type === 'tags' && ref[0] === 'v') {
+                core.exportVariable('DT_REF', ref.substring(1));
+                core.exportVariable('DT_DIST_TAG', 'latest');
+              }
+            }
+      - name: Output DT_REF
+        run: echo $DT_REF;
+      - uses: docker/build-push-action@v5
+        name: Build and push Docker image
+        with:
+          push: true
+          tags: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+          context: .
+          cache-from: |
+            ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+            ghcr.io/dso-toolkit/dso-toolkit:master
+          cache-to: type=inline
+          build-args: |
+            CI
+            DT_REF
+      - name: Prepare Cypress Parallel weights file
+        run: mkdir --verbose --parents ${{ github.workspace }}/storybook/cypress-parallel
+      - name: "Cache: Cypress Parallel weights file"
+        id: cypress-parallel-weights-file-cache
+        uses: actions/cache@v4
+        with:
+          key: weights-file
+          path: ${{ github.workspace }}/storybook/cypress-parallel/parallel-weights.json
+      - name: e2e tests
+        uses: addnab/docker-run-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+          options: --env CI
+            --env DT_REF
+            --volume ${{ github.workspace }}/storybook/cypress-parallel:/usr/src/app/storybook/cypress-parallel
+          run: yarn e2e
+      - uses: addnab/docker-run-action@v3
+        name: Deploy
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+          options: --env CI
+            --env DT_REF
+            --env DT_DIST_TAG
+            --env DT_PRIVATE_KEY_BASE64
+            --env DT_DEPLOY_HOST
+            --env DT_DEPLOY_PORT
+            --env DT_DEPLOY_USER
+            --env DT_DEPLOY_ROOT
+            --env DT_DEPLOY_NPM_TOKEN
+            --env GITHUB_TOKEN
+            --env GH_TOKEN
+          run: bash deploy.sh
+        env:
+          DT_PRIVATE_KEY_BASE64: ${{ secrets.DT_PRIVATE_KEY_BASE64 }}
+          DT_DEPLOY_HOST: ${{ secrets.DT_DEPLOY_HOST }}
+          DT_DEPLOY_PORT: ${{ secrets.DT_DEPLOY_PORT }}
+          DT_DEPLOY_USER: ${{ secrets.DT_DEPLOY_USER }}
+          DT_DEPLOY_ROOT: ${{ secrets.DT_DEPLOY_ROOT }}
+          DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
