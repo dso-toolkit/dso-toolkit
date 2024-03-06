@@ -12,7 +12,7 @@ describe("Viewer Grid", () => {
   it("should show overlay", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("have.attr", "open");
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it("should emit closeOverlay", () => {

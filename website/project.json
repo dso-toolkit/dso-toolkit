@@ -13,9 +13,12 @@
         "^styles",
         "^assets",
         "default",
-        { "env": "DT_VERSION" },
-        { "env": "TRAVIS_TAG" },
-        { "env": "TRAVIS_BRANCH" }
+        {
+          "env": "DT_VERSION"
+        },
+        {
+          "env": "DT_REF"
+        }
       ],
       "outputs": ["{projectRoot}/www"]
     }

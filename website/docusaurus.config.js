@@ -15,21 +15,10 @@ function getVersion() {
     return process.env.DT_VERSION;
   }
 
-  if (process.env.CI) {
-    if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
-      console.info(`Using TRAVIS_TAG "${process.env.TRAVIS_TAG}".`);
+  if (process.env.CI && process.env.DT_REF) {
+    console.warn(`Using DT_REF "${process.env.DT_REF}".`);
 
-      return process.env.TRAVIS_TAG.substring(1);
-    }
-
-    if (
-      typeof process.env.TRAVIS_BRANCH === "string" &&
-      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
-    ) {
-      console.info(`Using TRAVIS_BRANCH "${process.env.TRAVIS_BRANCH}".`);
-
-      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
-    }
+    return process.env.DT_REF;
   }
 
   console.info("Unable to resolve version.");

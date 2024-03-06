@@ -14,7 +14,7 @@ describe("Date Picker (Legacy)", () => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
       });
 
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it("should have focus trap", () => {

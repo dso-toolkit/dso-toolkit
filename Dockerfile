@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-13.6.1-node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1 AS source
+FROM cypress/included:cypress-13.6.1-node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
 
 RUN apt-get update && apt-get install --yes \
   curl \
@@ -45,19 +45,14 @@ RUN yarn install --immutable
 
 COPY . .
 
-ENTRYPOINT ["/bin/bash", "-c"]
-
-FROM source as build
-
-ARG CI
-
 RUN yarn dedupe --check
 RUN (yarn npm audit --all --recursive || true)
 RUN yarn lint
 
-ARG TRAVIS_BRANCH
-ARG TRAVIS_TAG
+ARG DT_REF
 
 RUN yarn build
 
 RUN yarn build-www
+
+ENTRYPOINT ["/bin/bash", "-c"]

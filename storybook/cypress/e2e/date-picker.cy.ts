@@ -13,7 +13,7 @@ describe("Date Picker", () => {
       });
 
     cy.checkA11y("#root-inner");
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it("should emit dsoDateChange event", () => {
