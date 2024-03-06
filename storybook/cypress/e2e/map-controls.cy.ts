@@ -59,7 +59,7 @@ describe("Map Controls", () => {
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
 
-    cy.percySnapshot();
+    // cy.percySnapshot();
   });
 
   it("should emit zoom events", () => {

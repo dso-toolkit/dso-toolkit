@@ -6,16 +6,8 @@ import { resolve, dirname, parse, join } from "path";
 const testStoryStoryV7 = false;
 
 function getVersion() {
-  if (process.env.CI) {
-    if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
-      return process.env.TRAVIS_TAG.substring(1);
-    }
-    if (
-      typeof process.env.TRAVIS_BRANCH === "string" &&
-      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
-    ) {
-      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
-    }
+  if (process.env.CI && process.env.DT_REF) {
+    return process.env.DT_REF;
   }
 
   return undefined;

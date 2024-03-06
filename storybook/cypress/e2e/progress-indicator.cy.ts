@@ -41,20 +41,20 @@ describe("Progress Indicator", () => {
         .find(".dso-progress-indicator-label")
         .should("have.text", "Resultaten laden: een moment geduld alstublieft.");
 
-      cy.percySnapshot(`core-progress-indicator--${size}`);
+      // cy.percySnapshot(`core-progress-indicator--${size}`);
     });
   }
 
-  for (const { size } of sizes) {
-    it(`should show ${size} spinner (HTML/CSS)`, () => {
-      cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`)
-        .get("body")
-        .then(($body) => {
-          $body.prepend(`<style id="percy-fix">.dso-progress-indicator-spinner { visibility: hidden; }</style>`);
-        })
-        .get("#percy-fix")
-        .should("exist")
-        .percySnapshot(`html-css-progress-indicator--${size}`);
-    });
-  }
+  // for (const { size } of sizes) {
+  //   it(`should show ${size} spinner (HTML/CSS)`, () => {
+  //     cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`)
+  //       .get("body")
+  //       .then(($body) => {
+  //         $body.prepend(`<style id="percy-fix">.dso-progress-indicator-spinner { visibility: hidden; }</style>`);
+  //       })
+  //       .get("#percy-fix")
+  //       .should("exist")
+  //       .percySnapshot(`html-css-progress-indicator--${size}`);
+  //   });
+  // }
 });

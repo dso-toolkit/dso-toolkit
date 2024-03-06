@@ -1,0 +1,16 @@
+name: Danger
+on: [pull_request]
+jobs:
+  Danger:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Danger
+        run: |
+          npm install --global 'typescript@<5.3.0' danger@11.3.1
+          danger ci --failOnErrors
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}

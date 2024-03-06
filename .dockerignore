@@ -2,11 +2,11 @@
 **/dist
 **/www
 
+.git
 .nx
 .dockerignore
 Dockerfile
-.travis.yml
-travis
+.github
 
 .yarn/cache
 .yarn/install-state.gz

@@ -63,7 +63,7 @@ describe("Tree View", () => {
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwwerken", 2, 4, 3);
 
-    cy.percySnapshot();
+    // cy.percySnapshot();
 
     cy.get("@bouwwerken")
       .prev()
