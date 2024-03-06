@@ -12,6 +12,17 @@
   margin-top: units.$u2;
   padding: units.$u2;
   margin-bottom: units.$vertical-spacing-large;
+
+  block-size: var(--highlight-box-block-size, unset);
+  min-block-size: var(--highlight-box-min-block-size, unset);
+
+  &[has-counter] {
+    block-size: var(--highlight-box-counter-block-size, unset);
+  }
+
+  &:not([has-counter]) {
+    block-size: var(--highlight-box-nocounter-block-size, unset);
+  }
 }
 
 @mixin children(

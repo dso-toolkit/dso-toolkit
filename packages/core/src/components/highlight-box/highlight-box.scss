@@ -15,16 +15,3 @@
   position: relative;
   z-index: 1;
 }
-
-:host-context(.row.dso-equal-heights) {
-  height: 100%;
-  min-height: auto;
-
-  &[has-counter] {
-    height: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
-  }
-
-  &:not([has-counter]) {
-    height: calc(100% - #{units.$u2});
-  }
-}

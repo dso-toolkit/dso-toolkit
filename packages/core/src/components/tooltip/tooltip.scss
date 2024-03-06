@@ -10,34 +10,6 @@
   visibility: hidden;
 }
 
-:host-context(dso-toggletip) {
-  *[data-popper-placement="top"] {
-    .tooltip-arrow {
-      margin-inline-start: 3px;
-    }
-  }
-
-  *[data-popper-placement="right"] {
-    .tooltip-arrow {
-      margin-block-start: 0;
-    }
-  }
-
-  *[data-popper-placement="bottom"] {
-    .tooltip-arrow {
-      margin-inline-start: 3px;
-    }
-  }
-
-  *[data-popper-placement="left"] {
-    margin-inline-end: units.$u1 * -1 !important;
-
-    .tooltip-arrow {
-      margin-block-start: 0;
-    }
-  }
-}
-
 @include utilities.box-sizing();
 
 .tooltip {
@@ -105,7 +77,7 @@
       border-block-start-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-block-end-width: 0;
-      margin-inline-start: tooltip-variables.$arrow-margin * -1;
+      margin-inline-start: var(--tooltip-margin-inline-start, tooltip-variables.$arrow-margin * -1);
     }
   }
 
@@ -119,7 +91,7 @@
       border-inline-end-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-inline-start-width: 0;
-      margin-block-start: tooltip-variables.$arrow-margin * -1;
+      margin-block-start: var(--tooltip-margin-block-start, tooltip-variables.$arrow-margin * -1);
     }
   }
 
@@ -133,12 +105,13 @@
       border-block-end-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-block-start-width: 0;
-      margin-inline-start: tooltip-variables.$arrow-margin * -1;
+      margin-inline-start: var(--tooltip-margin-inline-start, tooltip-variables.$arrow-margin * -1);
     }
   }
 
   &[data-popper-placement="left"] {
     margin-inline-start: -3px;
+    margin-inline-end: var(--tooltip-margin-inline-end, unset);
     padding-block: 0;
     padding-inline: tooltip-variables.$arrow-width;
 
@@ -147,7 +120,7 @@
       border-inline-start-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-inline-end-width: 0;
-      margin-block-start: tooltip-variables.$arrow-margin * -1;
+      margin-block-start: var(--tooltip-margin-block-start, tooltip-variables.$arrow-margin * -1);
     }
   }
 }

@@ -1,10 +1,16 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
 
 @include utilities.box-sizing();
 
 :host {
   display: inline-block;
+
+  // tooltip arrow placement exceptions
+  --tooltip-margin-block-start: 0;
+  --tooltip-margin-inline-start: 3px;
+  --tooltip-margin-inline-end: units.$u1 * -1 !important;
 }
 
 :host(:focus) {

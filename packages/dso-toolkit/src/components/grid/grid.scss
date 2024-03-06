@@ -58,6 +58,13 @@ form {
   @include css-grid-mixins.make-row();
 
   &.dso-equal-heights {
+    &:has(.dso-highlight-box, dso-highlight-box) {
+      --highlight-box-block-size: 100%;
+      --highlight-box-min-block-size: auto;
+      --highlight-box-counter-block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
+      --highlight-box-nocounter-block-size: calc(100% - #{units.$u2});
+    }
+
     display: flex;
     flex-wrap: wrap;
 
