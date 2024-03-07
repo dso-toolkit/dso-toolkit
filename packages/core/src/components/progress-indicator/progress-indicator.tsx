@@ -31,7 +31,7 @@ export class Progressindicator {
       <Host>
         <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label">
           {/* Keep in sync with /packages/css/src/components/progress-indicator/progress-indicator.scss */}
-          <dso-icon icon="progress-indicator"></dso-icon>
+          <dso-icon icon="spinner"></dso-icon>
         </span>
         <span id="progress-indicator-label" class="dso-progress-indicator-label">
           {this.label}
