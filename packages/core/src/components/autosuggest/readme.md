@@ -48,6 +48,7 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-progress-indicator
+  dso-progress-indicator --> dso-icon
   style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

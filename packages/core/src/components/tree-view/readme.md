@@ -51,6 +51,7 @@ Whether the item was found.
 graph TD;
   dso-tree-view --> dso-icon
   dso-tree-view --> dso-progress-indicator
+  dso-progress-indicator --> dso-icon
   style dso-tree-view fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

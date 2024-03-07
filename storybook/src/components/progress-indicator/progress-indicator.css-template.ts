@@ -17,11 +17,11 @@ export const cssProgressIndicator: ComponentImplementation<ProgressIndicator> = 
             "dso-block": !!block,
           })}"
         >
-          <span
-            class="dso-progress-indicator-spinner"
-            role="progressbar"
-            aria-labelledby="progress-indicator-label"
-          ></span>
+          <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label">
+            <svg class="di di-spinner">
+              <use href="dso-toolkit/dist/dso-icons.svg#spinner" />
+            </svg>
+          </span>
           <span id="progress-indicator-label" class="dso-progress-indicator-label">${label}</span>
         </div>
       `;

@@ -36,6 +36,7 @@
  - [dso-modal](../modal)
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
+ - [dso-progress-indicator](../progress-indicator)
  - [dso-table](../table)
  - [dso-tree-view](../tree-view)
 
@@ -64,6 +65,7 @@ graph TD;
   dso-modal --> dso-icon
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon
+  dso-progress-indicator --> dso-icon
   dso-table --> dso-icon
   dso-tree-view --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px

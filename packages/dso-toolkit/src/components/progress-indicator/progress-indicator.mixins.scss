@@ -1,7 +1,7 @@
 @use "../../variables/units";
 
 @mixin _looping-size($progress-indicator-size) {
-  .dso-progress-indicator-spinner {
+  dso-icon, .di-spinner {
     height: $progress-indicator-size;
     width: $progress-indicator-size;
   }

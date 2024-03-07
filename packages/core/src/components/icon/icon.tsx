@@ -82,6 +82,7 @@ import sortAscending from "dso-toolkit/src/icons/sort-ascending.svg";
 import sortDescending from "dso-toolkit/src/icons/sort-descending.svg";
 import sort from "dso-toolkit/src/icons/sort.svg";
 import sound from "dso-toolkit/src/icons/sound.svg";
+import spinner from "dso-toolkit/src/icons/spinner.svg";
 import statusError from "dso-toolkit/src/icons/status-error.svg";
 import statusDanger from "dso-toolkit/src/icons/status-danger.svg";
 import statusInfo from "dso-toolkit/src/icons/status-info.svg";
@@ -172,6 +173,7 @@ const icons = [
   { alias: "plus", svg: plus },
   { alias: "print", svg: print },
   { alias: "procedures", svg: procedures },
+  { alias: "spinner", svg: spinner },
   { alias: "redo", svg: redo },
   { alias: "safety", svg: safety },
   { alias: "scale", svg: scale },
