@@ -6,37 +6,36 @@ import { ClassInfo, classMap, ClassMapDirective } from "lit-html/directives/clas
 
 import { ComponentImplementation } from "../../templates";
 
-function ul(children: TemplateResult, modifier?: string) {
+function listClassMap(
+  modifier: string | undefined,
+  spaced: boolean | undefined,
+): DirectiveResult<typeof ClassMapDirective> {
+  return classMap({
+    "list-group": modifier === "group",
+    "dso-columns-list": modifier === "columns",
+    "dso-img-list": modifier === "img-list",
+    "dso-list-unstyled": modifier === "unstyled",
+    "dso-img-list-spaced": modifier === "img-list" && !!spaced,
+  });
+}
+
+function ul(children: TemplateResult, modifier: string | undefined, spaced: boolean | undefined) {
   return html`
-    <ul
-      class=${classMap({
-        "list-group": modifier === "group",
-        "dso-columns-list": modifier === "columns",
-        "dso-img-list": modifier === "img-list",
-        "dso-list-unstyled": modifier === "unstyled",
-      })}
-    >
+    <ul class=${listClassMap(modifier, spaced)}>
       ${children}
     </ul>
   `;
 }
 
-function ol(children: TemplateResult, modifier?: string) {
+function ol(children: TemplateResult, modifier: string | undefined, spaced: boolean | undefined) {
   return html`
-    <ol
-      class=${classMap({
-        "list-group": modifier === "group",
-        "dso-columns-list": modifier === "columns",
-        "dso-img-list": modifier === "img-list",
-        "dso-list-unstyled": modifier === "unstyled",
-      })}
-    >
+    <ol class=${listClassMap(modifier, spaced)}>
       ${children}
     </ol>
   `;
 }
 
-function listClassMap(modifier: string | undefined, listItem: ListItem): DirectiveResult<typeof ClassMapDirective> {
+function listItemClassMap(modifier: string | undefined, listItem: ListItem): DirectiveResult<typeof ClassMapDirective> {
   let classInfo: ClassInfo = {
     "list-group-item": modifier === "group",
   };
@@ -54,13 +53,25 @@ function listClassMap(modifier: string | undefined, listItem: ListItem): Directi
 export const cssList: ComponentImplementation<List> = {
   component: "list",
   implementation: "html-css",
-  template: () =>
-    function listTemplate({ type, items, modifier }) {
+  template: ({ iconTemplate }) => {
+    function imgListIndicator(modifier: string | undefined, item: ListItem) {
+      if (modifier === "img-list" && item.imgSrc) {
+        return html`<img src=${item.imgSrc} />`;
+      }
+
+      if (modifier === "img-list" && item.icon) {
+        return iconTemplate(item.icon);
+      }
+
+      return nothing;
+    }
+
+    return function listTemplate({ type, items, modifier, spaced }) {
       const children = html`
         ${items.map(
           (item) => html`
-            <li class=${listClassMap(modifier, item)}>
-              ${modifier === "img-list" ? html`<img src=${item.imgSrc} />` : nothing}
+            <li class=${listItemClassMap(modifier, item)}>
+              ${imgListIndicator(modifier, item)}
               ${"status" in item && item.statusDescription
                 ? html`<span class="dso-status">${item.statusDescription}:</span>`
                 : nothing}
@@ -71,9 +82,10 @@ export const cssList: ComponentImplementation<List> = {
       `;
 
       if (type === Type.Ol) {
-        return ol(children, modifier);
+        return ol(children, modifier, spaced);
       }
 
-      return ul(children, modifier);
-    },
+      return ul(children, modifier, spaced);
+    };
+  },
 };

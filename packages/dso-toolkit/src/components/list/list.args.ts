@@ -6,6 +6,7 @@ export interface ListArgs {
   items: ListItem[];
   type?: Type;
   modifier?: string;
+  spaced?: boolean;
 }
 
 export const listArgTypes: ArgTypes<ListArgs> = {
@@ -26,6 +27,11 @@ export const listArgTypes: ArgTypes<ListArgs> = {
       type: "select",
     },
   },
+  spaced: {
+    control: {
+      type: "boolean",
+    },
+  },
 };
 
 export function listArgsMapper(a: ListArgs): List {
@@ -33,5 +39,6 @@ export function listArgsMapper(a: ListArgs): List {
     items: a.items,
     type: a.type,
     modifier: a.modifier,
+    spaced: a.spaced,
   };
 }

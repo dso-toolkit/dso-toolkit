@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Icon: Spinner toevoegen ([#2573](https://github.com/dso-toolkit/dso-toolkit/issues/2573))
+* List "Image List": Option spaced ([#2574](https://github.com/dso-toolkit/dso-toolkit/issues/2574))
 
 ## 🦷 62.11.1 - 06-03-2024
 

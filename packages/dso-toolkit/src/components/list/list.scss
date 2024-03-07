@@ -52,6 +52,14 @@
       width: units.$u3;
     }
   }
+
+  &.dso-img-list-spaced {
+    gap: units.$u2;
+
+    li {
+      gap: units.$u2;
+    }
+  }
 }
 
 ul,
