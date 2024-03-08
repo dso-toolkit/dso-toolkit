@@ -1,9 +1,12 @@
+@use "../../di";
 @use "../progress-indicator";
+@use "../../components/icon";
 
 .dso-progress-indicator {
   @include progress-indicator.root();
 
   .dso-progress-indicator-spinner {
+    @include di.base("spinner", icon.$size, "middle");
   }
 
   &.dso-block {
