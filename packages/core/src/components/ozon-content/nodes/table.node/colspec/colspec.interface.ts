@@ -5,7 +5,9 @@ export interface Colspecs {
 }
 
 export interface Colspec {
+  colsep: string | null;
   name: string;
   number: number;
+  rowsep: string | null;
   width: string | undefined;
 }

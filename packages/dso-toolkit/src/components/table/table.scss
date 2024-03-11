@@ -96,6 +96,67 @@ table.table,
     }
   }
 
+  &.dso-table-outside-lines-top {
+    border-block-start: 1px solid table.$th-border-color;
+  }
+
+  &.dso-table-outside-lines-bottom {
+    border-block-end: 1px solid table.$border-color;
+  }
+
+  &.dso-table-outside-lines-topbot {
+    @include css-table-mixins.outside-lines-topbot;
+  }
+
+  &.dso-table-outside-lines-all {
+    @include css-table-mixins.outside-lines-topbot;
+    @include css-table-mixins.outside-lines-sides;
+  }
+
+  &.dso-table-outside-lines-sides {
+    @include css-table-mixins.outside-lines-sides;
+  }
+
+  > thead {
+    > tr {
+      > td,
+      > th {
+        &.dso-horizontal-line {
+          border-block-end: 1px solid table.$th-border-color;
+        }
+
+        &:not(:last-child) {
+          &.dso-vertical-line {
+            border-inline-end: 1px solid table.$th-border-color;
+          }
+        }
+      }
+    }
+  }
+
+  > tbody,
+  > tfoot {
+    > tr {
+      > td,
+      > th {
+        &:not(:last-child) {
+          &.dso-vertical-line {
+            border-inline-end: 1px solid table.$border-color;
+          }
+        }
+      }
+    }
+
+    > tr:not(:last-child) {
+      > td,
+      > th {
+        &.dso-horizontal-line {
+          border-block-end: 1px solid table.$border-color;
+        }
+      }
+    }
+  }
+
   th,
   td {
     &.dso-text-left {
@@ -128,21 +189,23 @@ table.table,
     }
   }
 
-  > thead {
-    > tr {
-      > td,
-      > th {
-        border-bottom: 1px solid table.$th-border-color;
+  &:not([class*="dso-table-outside-lines"]) {
+    > thead {
+      > tr {
+        > td,
+        > th {
+          border-bottom: 1px solid table.$th-border-color;
+        }
       }
     }
-  }
 
-  > tbody,
-  > tfoot {
-    > tr {
-      > td,
-      > th {
-        border-bottom: 1px solid table.$border-color;
+    > tbody,
+    > tfoot {
+      > tr {
+        > td,
+        > th {
+          border-bottom: 1px solid table.$border-color;
+        }
       }
     }
   }

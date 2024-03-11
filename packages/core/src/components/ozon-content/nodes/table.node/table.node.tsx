@@ -21,6 +21,7 @@ function mapData(node: Element) {
     headRows: Array.from(node.querySelectorAll(":scope > tgroup > thead > row")),
     bodyRows: Array.from(node.querySelectorAll(":scope > tgroup > tbody > row")),
     wijzigactie: node.getAttribute("wijzigactie"),
+    frame: node.getAttribute("frame") ? node.getAttribute("frame") : "all",
   };
 }
 
@@ -32,16 +33,17 @@ export class OzonContentTableNode implements OzonContentNode {
   id = uuidv4();
 
   render(node: Element, context: OzonContentNodeContext) {
-    const { caption, colspecs, headRows, bodyRows, wijzigactie } = mapData(node);
+    const { caption, colspecs, headRows, bodyRows, wijzigactie, frame } = mapData(node);
 
     const bron = Array.from(node.childNodes).find((n) => getNodeName(n) === "Bron");
 
     return (
       <dso-table>
         <table
-          class={clsx("table dso-table-vertical-lines", {
+          class={clsx("table", {
             "editaction-add": wijzigactie === "voegtoe",
             "editaction-remove": wijzigactie === "verwijder",
+            [`dso-table-outside-lines-${frame}`]: frame,
           })}
           {...(bron ? { "aria-describedby": this.id } : {})}
         >
