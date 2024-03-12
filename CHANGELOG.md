@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Tasks
 * Build: Visueel regressietesten ([#2588](https://github.com/dso-toolkit/dso-toolkit/issues/2588))
 
+### Fixed
+* Document Component: Titel knop mist aria-expanded en sluit voor titel tekst ([#2480](https://github.com/dso-toolkit/dso-toolkit/issues/2480))
+
 ## 🎏 62.16.0 - 18-03-2024
 
 ### Fixed

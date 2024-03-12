@@ -208,7 +208,7 @@ export class DocumentComponent implements ComponentInterface {
     this.dsoRecursiveToggle.emit({
       originalEvent: e,
       current: this.recursiveToggle,
-      next: this.recursiveToggle === true ? false : true,
+      next: this.recursiveToggle !== true,
     });
   };
 
@@ -237,11 +237,12 @@ export class DocumentComponent implements ComponentInterface {
             <div class="heading">
               <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
                 {collapsible && (
-                  <button type="button" class="toggle-button">
+                  <button type="button" class="toggle-button" aria-describedby="heading-title">
                     <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
+                    <span class="sr-only">{this.open ? "Invouwen" : "Uitvouwen"}</span>
                   </button>
                 )}
-                <div class="title">
+                <div id="heading-title" role="heading" aria-level={this.heading[1]}>
                   {this.notApplicable && <span class="not-applicable">Niet van toepassing:</span>}
                   {this.label || this.nummer || this.opschrift ? (
                     <>
