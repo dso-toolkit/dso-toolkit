@@ -17,6 +17,10 @@
   display: block;
 
   --depth: var(--a, 0);
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
 }
 
 :host([not-collapsible]:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])) {
