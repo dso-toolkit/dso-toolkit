@@ -5,6 +5,7 @@ import { HighlightBox } from "./highlight-box.models.js";
 export interface HighlightBoxArgs {
   yellow: boolean;
   white: boolean;
+  grey: boolean;
   dropShadow: boolean;
   border: boolean;
   step?: number;
@@ -19,6 +20,11 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
     },
   },
   white: {
+    control: {
+      type: "boolean",
+    },
+  },
+  grey: {
     control: {
       type: "boolean",
     },
@@ -60,6 +66,7 @@ export function highlightBoxArgsMapper<TemplateFnReturnType>(
     border: a.border,
     dropShadow: a.dropShadow,
     content,
+    grey: a.grey,
     white: a.white,
     yellow: a.yellow,
     icon: a.icon,

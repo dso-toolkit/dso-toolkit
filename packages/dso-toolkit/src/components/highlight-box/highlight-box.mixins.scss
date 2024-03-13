@@ -15,6 +15,7 @@
 }
 
 @mixin children(
+  $grey-selector,
   $white-selector,
   $yellow-selector,
   $drop-shadow-selector,
@@ -23,6 +24,10 @@
   $step-counter-selector
 ) {
   &:not(#{$white-selector}, #{$yellow-selector}, #{$border-selector}) {
+    @include set-colors.apply(colors.$grijs-5);
+  }
+
+  &#{$grey-selector} {
     @include set-colors.apply(colors.$grijs-5);
   }
 
@@ -39,10 +44,12 @@
   }
 
   &#{$border-selector} {
-    @include set-colors.apply(colors.$wit);
-
     border: 1px solid colors.$grijs-20;
     padding: units.$u2 - 1;
+  }
+
+  &#{$border-selector}:not(#{$grey-selector}, #{$yellow-selector}) {
+    @include set-colors.apply(colors.$wit, $border-color: colors.$grijs-20);
   }
 
   &#{$has-counter-selector} {

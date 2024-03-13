@@ -8,6 +8,7 @@
 .dso-highlight-box {
   @include highlight-box.root();
   @include highlight-box.children(
+    $grey-selector: ".dso-grey",
     $white-selector: ".dso-white",
     $yellow-selector: ".dso-yellow",
     $drop-shadow-selector: ".dso-drop-shadow",
@@ -61,6 +62,7 @@
 // Web Component
 dso-highlight-box {
   @include highlight-box.children(
+    $grey-selector: "[grey]",
     $white-selector: "[white]",
     $yellow-selector: "[yellow]",
     $drop-shadow-selector: "[drop-shadow]",

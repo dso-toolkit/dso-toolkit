@@ -42,6 +42,19 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
       },
     });
 
+    stories.add("grey", template, {
+      args: {
+        grey: true,
+      },
+    });
+
+    stories.add("grey with border", template, {
+      args: {
+        grey: true,
+        border: true,
+      },
+    });
+
     stories.add("white with dropshadow", template, {
       args: {
         white: true,
