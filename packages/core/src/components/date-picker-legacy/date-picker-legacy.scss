@@ -28,8 +28,8 @@
   font-family: core-date-picker-legacy-variables.$font;
   margin: 0;
   position: relative;
-  text-align: left;
-  width: 100%;
+  text-align: start;
+  inline-size: 100%;
 
   &:not(.dso-visible) {
     .dso-date__dialog {
@@ -55,20 +55,20 @@
   background: core-date-picker-legacy-variables.$color-button-bg;
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: core-date-picker-legacy-variables.$radius;
-  border-top-right-radius: core-date-picker-legacy-variables.$radius;
+  border-end-end-radius: core-date-picker-legacy-variables.$radius;
+  border-start-end-radius: core-date-picker-legacy-variables.$radius;
   color: core-date-picker-legacy-variables.$color-icon;
   cursor: pointer;
   display: flex;
-  height: core-date-picker-legacy-variables.$size;
+  block-size: core-date-picker-legacy-variables.$size;
   justify-content: center;
   padding: 0;
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   transform: translateY(-50%);
-  top: 50%;
+  inset-block-start: 50%;
   user-select: none;
-  width: core-date-picker-legacy-variables.$size;
+  inline-size: core-date-picker-legacy-variables.$size;
   z-index: zindex.$datepicker + 1;
 
   &:disabled {
@@ -84,11 +84,11 @@
 .dso-date__dialog {
   border-width: core-date-picker-legacy-variables.$border-width;
   display: flex;
-  right: 0;
-  min-width: 320px;
+  inset-inline-end: 0;
+  min-inline-size: 320px;
   opacity: 0;
   position: absolute;
-  top: 100%;
+  inset-block-start: 100%;
   transform: scale(0.96) translateZ(0) translateY(-20px);
   transform-origin: top right;
   transition:
@@ -101,19 +101,19 @@
 
   @media (max-width: 35.9375em) {
     background: core-date-picker-legacy-variables.$overlay;
-    bottom: 0;
+    inset-block-end: 0;
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-start: 0;
     transform: translateZ(0);
     transform-origin: bottom center;
   }
 
   &.is-left {
-    left: units.$padding-base-horizontal * -1 + core-date-picker-legacy-variables.$border-width;
-    right: auto;
-    width: auto;
+    inset-inline-start: units.$padding-base-horizontal * -1 + core-date-picker-legacy-variables.$border-width;
+    inset-inline-end: auto;
+    inline-size: auto;
   }
 
   &.is-active {
@@ -129,27 +129,27 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: core-date-picker-legacy-variables.$radius;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
-  margin-left: auto;
-  margin-right: -1px;
-  margin-top: 8px;
-  max-width: 310px;
-  min-width: 290px;
+  margin-inline-start: auto;
+  margin-inline-end: -1px;
+  margin-block-start: 8px;
+  max-inline-size: 310px;
+  min-inline-size: 290px;
   padding: 16px;
   position: relative;
   transform: none;
-  width: 100%;
+  inline-size: 100%;
   z-index: zindex.$datepicker-dialog;
 
   @media (max-width: 35.9375em) {
     border: 0;
     border-radius: 0;
-    border-top-left-radius: core-date-picker-legacy-variables.$radius;
-    border-top-right-radius: core-date-picker-legacy-variables.$radius;
-    bottom: 0;
-    left: 0;
+    border-start-start-radius: core-date-picker-legacy-variables.$radius;
+    border-start-end-radius: core-date-picker-legacy-variables.$radius;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     margin: 0;
-    max-width: none;
-    min-height: 26em;
+    max-inline-size: none;
+    min-block-size: 26em;
     opacity: 0;
     padding: 0 8% 20px;
     position: absolute;
@@ -180,16 +180,16 @@
   font-size: 1rem;
   font-weight: core-date-picker-legacy-variables.$font-normal;
   line-height: 1.25;
-  min-width: (core-date-picker-legacy-variables.$size + 2) * 7;
+  min-inline-size: (core-date-picker-legacy-variables.$size + 2) * 7;
   table-layout: fixed;
   text-align: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .dso-date__table-header {
   font-size: 0.875em;
   font-weight: core-date-picker-legacy-variables.$font-bold;
-  height: 36px;
+  block-size: 36px;
   line-height: 36px;
   text-align: center;
   text-decoration: none;
@@ -197,10 +197,10 @@
 }
 
 .dso-date__cell {
-  height: core-date-picker-legacy-variables.$size + 2;
+  block-size: core-date-picker-legacy-variables.$size + 2;
   padding: 1px;
   text-align: center;
-  width: core-date-picker-legacy-variables.$size + 2;
+  inline-size: core-date-picker-legacy-variables.$size + 2;
 }
 
 .dso-date__day {
@@ -217,20 +217,20 @@
   font-family: core-date-picker-legacy-variables.$font;
   font-variant-numeric: tabular-nums;
   font-weight: core-date-picker-legacy-variables.$font-normal;
-  height: core-date-picker-legacy-variables.$size;
+  block-size: core-date-picker-legacy-variables.$size;
   line-height: 0;
   padding: 0;
   position: relative;
   text-align: center;
   vertical-align: middle;
-  width: core-date-picker-legacy-variables.$size;
+  inline-size: core-date-picker-legacy-variables.$size;
   z-index: zindex.$datepicker;
 
   &.is-today {
     background: transparent;
-    height: core-date-picker-legacy-variables.$size - 2;
+    block-size: core-date-picker-legacy-variables.$size - 2;
     box-shadow: 0 0 0 1px core-date-picker-legacy-variables.$color-button;
-    width: core-date-picker-legacy-variables.$size - 2;
+    inline-size: core-date-picker-legacy-variables.$size - 2;
   }
 
   &:hover,
@@ -243,9 +243,9 @@
     background: transparent;
     box-shadow: 0 0 0 2px colors.$bosgroen;
     color: core-date-picker-legacy-variables.$color-text;
-    height: core-date-picker-legacy-variables.$size - 4;
+    block-size: core-date-picker-legacy-variables.$size - 4;
     outline: 0;
-    width: core-date-picker-legacy-variables.$size - 4;
+    inline-size: core-date-picker-legacy-variables.$size - 4;
   }
 
   [aria-selected="true"] & {
@@ -272,9 +272,9 @@
   span[aria-hidden="true"] {
     border-radius: 50%;
     display: inline-block;
-    height: core-date-picker-legacy-variables.$size - 4;
+    block-size: core-date-picker-legacy-variables.$size - 4;
     line-height: core-date-picker-legacy-variables.$size - 4;
-    width: core-date-picker-legacy-variables.$size - 4;
+    inline-size: core-date-picker-legacy-variables.$size - 4;
   }
 }
 
@@ -286,8 +286,8 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
-  width: 100%;
+  margin-block-end: 16px;
+  inline-size: 100%;
 
   span {
     font-size: 0.875rem;
@@ -316,15 +316,15 @@
   cursor: pointer;
   display: inline-flex;
   font-size: 1em;
-  height: 32px;
+  block-size: 32px;
   justify-content: center;
-  margin-left: 8px;
+  margin-inline-start: 8px;
   padding: 0;
-  width: 32px;
+  inline-size: 32px;
 
   @media (max-width: 35.9375em) {
-    height: 40px;
-    width: 40px;
+    block-size: 40px;
+    inline-size: 40px;
   }
 
   &:hover,
@@ -359,24 +359,24 @@
 
 .dso-date__select {
   display: inline-flex;
-  height: units.$u1 * 4 - 4;
+  block-size: units.$u1 * 4 - 4;
   line-height: units.$u1 * 4 - 4;
   position: relative;
 
   span {
-    margin-right: 4px;
+    margin-inline-end: 4px;
   }
 
   select {
     color: core-date-picker-legacy-variables.$color-primary;
     cursor: pointer;
     font-size: 1rem;
-    height: 100%;
-    left: 0;
+    block-size: 100%;
+    inset-inline-start: 0;
     opacity: 0;
     position: absolute;
-    top: 0;
-    width: 100%;
+    inset-block-start: 0;
+    inline-size: 100%;
     z-index: zindex.$datepicker + 1;
 
     &:focus + .dso-date__select-label {
@@ -397,7 +397,7 @@
   padding: 0 4px 0 8px;
   pointer-events: none;
   position: relative;
-  width: 100%;
+  inline-size: 100%;
   z-index: zindex.$datepicker;
 
   span {
@@ -407,8 +407,8 @@
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    inline-size: 16px;
+    block-size: 16px;
   }
 }
 
@@ -418,18 +418,18 @@
 
 .dso-date__mobile {
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-block-end: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
   font-size: 1em;
   justify-content: space-between;
-  margin-bottom: 20px;
-  margin-left: -10%;
+  margin-block-end: 20px;
+  margin-inline-start: -10%;
   overflow: hidden;
   padding: 12px 20px;
   position: relative;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
-  width: 120%;
+  inline-size: 120%;
 
   @media (min-width: 36em) {
     border: 0;
@@ -437,16 +437,16 @@
     overflow: visible;
     padding: 0;
     position: absolute;
-    right: -16px;
-    top: -16px;
-    width: auto;
+    inset-inline-end: -16px;
+    inset-block-start: -16px;
+    inline-size: auto;
   }
 }
 
 .dso-date__mobile-heading {
   display: inline-block;
   font-weight: core-date-picker-legacy-variables.$font-bold;
-  max-width: 84%;
+  max-inline-size: 84%;
   overflow: hidden;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
@@ -471,14 +471,14 @@
   cursor: pointer;
   display: flex;
   font-size: 1em;
-  height: units.$u1 * 4;
+  block-size: units.$u1 * 4;
   justify-content: center;
-  margin-right: -4px;
+  margin-inline-end: -4px;
   padding: 0;
-  width: units.$u1 * 4;
+  inline-size: units.$u1 * 4;
 
   @media (min-width: 36em) {
-    margin-right: 0;
+    margin-inline-end: 0;
     opacity: 0;
   }
 
@@ -499,10 +499,10 @@
 .dso-date__vhidden {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
+  block-size: 1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  top: 0;
-  width: 1px;
+  inset-block-start: 0;
+  inline-size: 1px;
 }

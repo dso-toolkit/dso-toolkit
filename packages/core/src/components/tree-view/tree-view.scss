@@ -19,7 +19,7 @@
   }
 
   ul[role="tree"] {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   // connects branch or leaf to parent
@@ -52,8 +52,8 @@
 
     // vertical connector for the last leaf
     &:last-child::after {
-      height: core-tree-view-variables.$vcenter;
-      top: 0;
+      block-size: core-tree-view-variables.$vcenter;
+      inset-block-start: 0;
     }
   }
 
@@ -102,7 +102,7 @@
     cursor: pointer;
     display: inline-block;
     margin: core-tree-view-variables.$vspace 0;
-    max-width: calc(100% - (core-tree-view-variables.$indent + core-tree-view-variables.$hspace));
+    max-inline-size: calc(100% - (core-tree-view-variables.$indent + core-tree-view-variables.$hspace));
 
     a {
       color: scaffolding.$text-color;
@@ -155,7 +155,7 @@
     dso-icon {
       color: colors.$grasgroen;
       font-size: 0.75em;
-      margin-left: 0.5em;
+      margin-inline-start: 0.5em;
       vertical-align: text-bottom;
     }
   }

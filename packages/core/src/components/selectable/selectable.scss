@@ -23,7 +23,7 @@
 
   .dso-selectable-input-wrapper {
     display: inline-block;
-    min-height: units.$u3;
+    min-block-size: units.$u3;
 
     &:focus-within.dso-keyboard-focus {
       @include utilities.focus-outline();

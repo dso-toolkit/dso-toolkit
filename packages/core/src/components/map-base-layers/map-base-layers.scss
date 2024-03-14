@@ -15,15 +15,15 @@
 fieldset {
   border: 0;
   margin: 0;
-  min-width: 0;
+  min-inline-size: 0;
   padding: 0;
 
   .control-label {
     display: inline-block;
     font-weight: bold;
-    margin-bottom: units.$u1;
-    max-width: 100%;
-    text-align: left;
+    margin-block-end: units.$u1;
+    max-inline-size: 100%;
+    text-align: start;
   }
 }
 

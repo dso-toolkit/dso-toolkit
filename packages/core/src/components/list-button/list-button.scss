@@ -47,7 +47,7 @@
   @include list-button.root();
 
   .dso-sublabel {
-    padding-left: selectable.$size + units.$u1;
+    padding-inline-start: selectable.$size + units.$u1;
   }
 }
 
@@ -63,7 +63,7 @@
   position: relative;
 
   .form-control {
-    width: 9ch;
+    inline-size: 9ch;
   }
 }
 
@@ -74,11 +74,11 @@
 .dso-manual-input-button[type="button"] {
   background-color: transparent;
   border: 0;
-  bottom: 0;
-  left: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
   position: absolute;
-  right: 0;
-  top: 0;
+  inset-inline-end: 0;
+  inset-block-start: 0;
 }
 
 .hidden {

@@ -7,7 +7,7 @@
 }
 
 :host(:not(:first-child)) {
-  margin-top: units.$u3;
+  margin-block-start: units.$u3;
 }
 
 @include utilities.box-sizing();
@@ -22,7 +22,7 @@
   dso-icon {
     @include alert.icon-position();
 
-    height: units.$u4;
-    width: units.$u4;
+    block-size: units.$u4;
+    inline-size: units.$u4;
   }
 }
