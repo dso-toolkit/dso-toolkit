@@ -1,25 +1,25 @@
 @use "~dso-toolkit/src/utilities";
 
-:host {
-  display: block;
+:host([enable-animation]) {
+  display: grid;
+  grid-template-rows: 0fr;
+  @include utilities.transition(grid-template-rows);
+
+  .slot-container {
+    overflow: hidden;
+  }
 }
 
-:host(.dso-hide) {
+:host(:not([enable-animation])) {
   display: none;
 }
 
-:host(:not(.dso-animate-ready)) {
-  position: absolute;
-  visibility: hidden;
+:host([open][enable-animation]) {
+  grid-template-rows: 1fr;
 }
 
-:host([open]) {
-  position: inherit;
-  visibility: inherit;
-}
-
-:host(:not([is-open])) {
-  overflow-y: hidden;
+:host([open]:not([enable-animation])) {
+  display: block;
 }
 
 @include utilities.box-sizing();

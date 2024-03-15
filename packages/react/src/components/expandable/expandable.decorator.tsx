@@ -7,8 +7,9 @@ export const decorator: Addon_DecoratorFunction<JSX.Element> = (story) => (
     {story()}
     <style>
       {`
-        dso-expandable {
-          border: 1px solid black;
+        dso-expandable[open],
+        dso-expandable:not(.dso-hide) {
+          border: 1px solid #000;
         }
     `}
     </style>
