@@ -10,29 +10,29 @@
 @use "accordion-theme-default";
 
 .dso-accordion {
-  margin-bottom: units.$vertical-spacing-xlarge;
+  margin-block-end: units.$vertical-spacing-xlarge;
 
   // dit is een nested accordion.
   .dso-accordion {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .dso-section-body {
-    border-top: 0;
-    margin-top: accordion.$border-radius * -1;
+    border-block-start: 0;
+    margin-block-start: accordion.$border-radius * -1;
     padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
 
     > *:first-child:not(.dso-info) {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     > *:last-child:not(.dso-info) {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
 
     .dso-rich-content + .dso-accordion,
     .dso-accordion + .dso-rich-content {
-      margin-top: units.$u2;
+      margin-block-start: units.$u2;
     }
   }
 
@@ -40,21 +40,21 @@
     .dso-section-handle {
       a,
       button {
-        padding-left: units.$u2;
-        padding-right: units.$u6;
+        padding-inline-start: units.$u2;
+        padding-inline-end: units.$u6;
 
         &::before {
-          left: auto;
-          right: units.$u2;
+          inset-inline-start: auto;
+          inset-inline-end: units.$u2;
         }
 
         .dso-icon {
           display: block;
-          float: left;
+          float: inline-start;
           font-weight: 400;
-          margin-left: 0;
-          margin-right: units.$u1;
-          padding-left: 0;
+          margin-inline-start: 0;
+          margin-inline-end: units.$u1;
+          padding-inline-start: 0;
           text-decoration: underline;
         }
       }
@@ -84,7 +84,7 @@
   }
 
   .dso-section-body dl:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }
 
@@ -105,36 +105,36 @@
     display: flex;
     padding: accordion.$vertical-padding accordion.$horizontal-padding accordion.$vertical-padding
       accordion.$chevron-left-offset;
-    text-align: left;
-    width: 100%;
+    text-align: start;
+    inline-size: 100%;
     word-break: break-word;
 
     &::before {
       content: "";
       display: inline-block;
-      left: units.$u2;
+      inset-inline-start: units.$u2;
       position: absolute;
     }
 
     &::after {
       content: "";
       position: absolute;
-      right: units.$u2;
-      top: (accordion.$handle-height - accordion.$state-icon-size) * 0.5;
+      inset-inline-end: units.$u2;
+      inset-block-start: (accordion.$handle-height - accordion.$state-icon-size) * 0.5;
     }
 
     .dso-status,
     .dso-icon {
       font-weight: 400;
-      margin-left: auto;
-      padding-left: units.$u2;
+      margin-inline-start: auto;
+      padding-inline-start: units.$u2;
       text-decoration: underline;
     }
 
     dso-attachments-counter,
     .dso-attachments {
-      margin-left: auto;
-      padding-left: units.$u2;
+      margin-inline-start: auto;
+      padding-inline-start: units.$u2;
     }
 
     .dso-attachments {
@@ -184,7 +184,7 @@
     > .dso-section-handle {
       a,
       button {
-        padding-right: units.$u7;
+        padding-inline-end: units.$u7;
       }
     }
   }
@@ -258,22 +258,22 @@
 // Web component
 dso-accordion-section {
   > *:first-child:not(.dso-info) {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   > *:last-child:not(.dso-info) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   &.dso-accordion-compact:last-child,
   &.dso-accordion-compact-black:last-child {
-    border-bottom: 1px solid accordion.$compact-border-color;
+    border-block-end: 1px solid accordion.$compact-border-color;
   }
 }
 
 dso-accordion {
   .dso-rich-content + dso-accordion,
   dso-accordion + .dso-rich-content {
-    margin-top: units.$u2;
+    margin-block-start: units.$u2;
   }
 }

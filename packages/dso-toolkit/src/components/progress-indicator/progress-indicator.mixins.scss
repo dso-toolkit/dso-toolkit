@@ -3,8 +3,8 @@
 @mixin _looping-size($progress-indicator-size) {
   .dso-progress-indicator-spinner,
   dso-icon {
-    height: $progress-indicator-size;
-    width: $progress-indicator-size;
+    block-size: $progress-indicator-size;
+    inline-size: $progress-indicator-size;
   }
 }
 
@@ -17,7 +17,7 @@
   }
 
   span.dso-progress-indicator-label {
-    margin-left: units.$u2;
+    margin-inline-start: units.$u2;
     vertical-align: middle;
   }
 }

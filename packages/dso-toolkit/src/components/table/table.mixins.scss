@@ -63,22 +63,22 @@
 @mixin responsive() {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   border: 1px solid table.$border-color;
-  margin-bottom: 0;
+  margin-block-end: 0;
   overflow-y: hidden;
-  width: 100%;
+  inline-size: 100%;
 
   &::before {
     content: "beweeg de tabel van links naar rechts";
     display: block;
     font-size: 0.8em;
-    margin-bottom: units.$u1;
+    margin-block-end: units.$u1;
     position: relative;
     text-align: center;
   }
 
   // Tighten up spacing
   > .table {
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     // Ensure the content doesn't wrap
     > thead,

@@ -7,18 +7,18 @@
 @mixin compact() {
   > .dso-accordion-section {
     > .dso-section-handle {
-      border-bottom: 1px solid transparent;
-      border-top: 1px solid accordion.$compact-border-color;
+      border-block-end: 1px solid transparent;
+      border-block-start: 1px solid accordion.$compact-border-color;
 
       a,
       button {
         color: accordion.$compact-color;
-        padding-left: units.$u4;
+        padding-inline-start: units.$u4;
 
         &::before {
           @include di.base("chevron-right-grasgroen");
 
-          left: 0;
+          inset-inline-start: 0;
         }
 
         &:hover,
@@ -30,19 +30,19 @@
     }
 
     &:last-child {
-      border-bottom: 1px solid accordion.$compact-border-color;
+      border-block-end: 1px solid accordion.$compact-border-color;
     }
 
     + .dso-accordion-section {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     > .dso-section-body {
-      margin-top: 0;
-      padding-left: units.$u4;
-      padding-top: 0;
-      padding-right: 0;
-      padding-bottom: units.$u1 * 1.5;
+      margin-block-start: 0;
+      padding-inline-start: units.$u4;
+      padding-block-start: 0;
+      padding-inline-end: 0;
+      padding-block-end: units.$u1 * 1.5;
     }
 
     &.dso-open {
@@ -79,7 +79,7 @@
       }
 
       > .dso-section-body {
-        border-top: 0;
+        border-block-start: 0;
       }
 
       &.dso-nested-accordion {
@@ -93,10 +93,10 @@
         }
 
         > .dso-section-body {
-          padding-bottom: 0;
+          padding-block-end: 0;
 
           .dso-accordion-section:last-child {
-            border-bottom: 0;
+            border-block-end: 0;
           }
         }
       }
@@ -107,19 +107,19 @@
     .dso-section-handle {
       a,
       button {
-        padding-left: units.$u2;
+        padding-inline-start: units.$u2;
 
         &::before {
           @include di.base("chevron-down-grasgroen");
 
-          left: auto;
+          inset-inline-start: auto;
         }
       }
     }
 
     > .dso-accordion-section > .dso-section-body {
-      padding-left: units.$u2;
-      padding-right: 0;
+      padding-inline-start: units.$u2;
+      padding-inline-end: 0;
     }
 
     .dso-accordion-section {
