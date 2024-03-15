@@ -3108,7 +3108,6 @@ __metadata:
     "@stencil/react-output-target": "npm:^0.5.3"
     "@stencil/sass": "npm:^3.0.7"
     "@stencil/store": "npm:^2.0.11"
-    "@types/animejs": "npm:^3.1.12"
     "@types/concurrently": "npm:^7.0.0"
     "@types/debounce": "npm:^1.2.4"
     "@types/lodash.kebabcase": "npm:^4.1.9"
@@ -3116,7 +3115,6 @@ __metadata:
     "@types/lodash.samplesize": "npm:^4.2.9"
     "@types/sass": "npm:^1.45.0"
     "@types/uuid": "npm:^9.0.7"
-    animejs: "npm:3.2.1"
     clsx: "npm:^2.0.0"
     concurrently: "npm:^8.2.2"
     debounce: "npm:^2.0.0"
@@ -7237,13 +7235,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/animejs@npm:^3.1.12":
-  version: 3.1.12
-  resolution: "@types/animejs@npm:3.1.12"
-  checksum: 8ea5d0440236b87042ad012c0bfd90a38cf38688b8b28ad750d21eb01a3943c9256f0ec79ea0b40aad6e500ee177ed43d5aeec8f875f904b61f195e5e305d2ce
-  languageName: node
-  linkType: hard
-
 "@types/aria-query@npm:^5.0.1":
   version: 5.0.1
   resolution: "@types/aria-query@npm:5.0.1"
@@ -8967,13 +8958,6 @@ __metadata:
     zone.js: "npm:~0.14.2"
   languageName: unknown
   linkType: soft
-
-"animejs@npm:3.2.1":
-  version: 3.2.1
-  resolution: "animejs@npm:3.2.1"
-  checksum: 725047c69a08b88e18f4f6dd5df46bce0c0a5c9a6f6f5b335f128a46dc5ee7e161608cbe95e4763fc546e1c1967baf76c7a5efdf3f6477422f71c34d626c1cda
-  languageName: node
-  linkType: hard
 
 "ansi-align@npm:^3.0.1":
   version: 3.0.1

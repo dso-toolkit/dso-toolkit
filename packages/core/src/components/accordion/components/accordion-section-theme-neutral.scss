@@ -34,14 +34,15 @@
     }
   }
 
-  .dso-section-body {
+  .dso-section-body[open],
+  .dso-section-body:not(.dso-hide) {
     background-color: transparent;
     border: 1px solid accordion.$neutral-border-color;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
-    margin-block: 0;
+    margin-block: -2px 0;
 
     &.dso-animate-ready {
-      @include utilities.transition(margin-block);
+      transition-property: grid-template-rows, margin-block, border;
     }
 
     .dso-section-body-content {
