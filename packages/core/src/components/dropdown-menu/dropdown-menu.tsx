@@ -149,10 +149,6 @@ export class DropdownMenu {
       this.button.id = uuidv4();
     }
 
-    this.button.addEventListener("click", () => {
-      this.open = !this.open;
-    });
-
     const options = this.host.querySelector(".dso-dropdown-options");
     if (!options) {
       throw new ReferenceError("Dropdown options not found");
@@ -219,13 +215,21 @@ export class DropdownMenu {
 
   @Listen("click", { target: "window" })
   onClick(event: MouseEvent) {
-    if (!(event.target instanceof HTMLElement)) {
-      return;
-    }
+    const composedPath = event.composedPath();
 
-    if (this.open && (!this.host.contains(event.target) || this.tabbables(false).includes(event.target))) {
+    if (this.isToggleButtonEvent(composedPath)) {
+      this.open = !this.open;
+    } else if (this.open && this.isMenuItemEvent(composedPath)) {
       this.open = false;
     }
+  }
+
+  private isToggleButtonEvent(composedPath: EventTarget[]) {
+    return composedPath.includes(this.button);
+  }
+
+  private isMenuItemEvent(composedPath: EventTarget[]) {
+    return composedPath.includes(this.host) && !this.isToggleButtonEvent(composedPath);
   }
 
   disconnectedCallback() {
@@ -233,11 +237,10 @@ export class DropdownMenu {
   }
 
   private focusOutListener = (event: FocusEvent) => {
-    if (!(event.relatedTarget instanceof HTMLElement)) {
-      return;
-    }
-
-    if (!this.tabbables(true).includes(event.relatedTarget)) {
+    if (
+      this.open &&
+      (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
+    ) {
       this.open = false;
     }
   };

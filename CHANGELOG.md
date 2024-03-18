@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Dropdown Menu: Werkt niet in ShadowRoot ([#2585](https://github.com/dso-toolkit/dso-toolkit/issues/2585))
+
 ### Tasks
 * Build: GitHub Actions pipeline ([#2568](https://github.com/dso-toolkit/dso-toolkit/issues/2568))
 
