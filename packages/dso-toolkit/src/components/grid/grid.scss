@@ -157,39 +157,23 @@ form {
 @media (min-width: media-query-breakpoints.$screen-lg-min) {
   @include css-grid-mixins.make-grid(lg);
 }
-.dso-skeleton {
-  overflow: hidden;
-}
-.dso-skeleton::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-100%);
-  background-image: linear-gradient(
-    90deg,
-    rgba(230, 230, 230, 0) 0,
-    rgba(230, 230, 230, 0.4) 20%,
-    #e6e6e6 60%,
-    rgba(230, 230, 230, 0)
-  );
-  animation: dso-shimmer 2s infinite;
-  content: "";
-}
+
 .dso-skeleton-text {
   width: 100%;
-  height: 1.125rem;
-  margin-bottom: 0.5625rem;
-  border-radius: 0.125rem;
+  height: 14px;
+  background: linear-gradient(-45deg, #e5e5e5 40%, #ffffff 50%, #e5e5e5 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  margin-bottom: 13px;
+  border-radius: 0.5rem;
 }
 
 .dso-skeleton-heading {
-  width: 100%;
+  width: 85%;
   height: 2rem;
   margin-bottom: 1rem;
-  border-radius: 0.125rem;
-  background: linear-gradient(-45deg, #527a5e 40%, #a8bcaf 50%, #527a5e 60%);
+  border-radius: 0.5rem;
+  background: linear-gradient(-45deg, #ccc 40%, #f2f2f2 50%, #ccc 60%);
   background-size: 300%;
   background-position-x: 100%;
 }
@@ -198,8 +182,8 @@ form {
   width: 30%;
   height: 3rem;
   margin-bottom: 0.5rem;
-  border-radius: 0.125rem;
-  background: linear-gradient(-45deg, #609f3c 40%, #afcf9d 50%, #609f3c 60%);
+  border-radius: 0.5rem;
+  background: linear-gradient(-45deg, #999 40%, #e5e5e5 50%, #999 60%);
   background-size: 300%;
   background-position-x: 100%;
 }
@@ -208,31 +192,13 @@ form {
   margin-bottom: 1rem;
   width: 80%;
 }
-@keyframes dso-shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
 
-.skeleton {
+.skeleton-grey {
   opacity: 0.7;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-.skeleton-green {
-  opacity: 0.7;
-  animation: skeleton-green 1.5s infinite linear;
+  animation: skeleton-grey 1.5s infinite linear;
 }
 
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(200, 20%, 70%);
-  }
-  100% {
-    background-color: hsl(200, 20%, 95%);
-  }
-}
-
-@keyframes skeleton-green {
+@keyframes skeleton-grey {
   to {
     background-position-x: 0%;
   }

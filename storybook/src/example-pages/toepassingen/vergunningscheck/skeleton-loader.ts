@@ -18,13 +18,13 @@ examplePageFactory(
               white: true,
               content: richContentTemplate({
                 children: html`
-                  <div class="skeleton-green dso-skeleton-heading"></div>
+                  <div class="skeleton-grey dso-skeleton-heading"></div>
                   <div>
-                    <div class="skeleton dso-skeleton-text"></div>
-                    <div class="skeleton dso-skeleton-text"></div>
-                    <div class="skeleton dso-skeleton-text"></div>
+                    <div class="skeleton-grey dso-skeleton-text"></div>
+                    <div class="skeleton-grey dso-skeleton-text"></div>
+                    <div class="skeleton-grey dso-skeleton-text"></div>
                   </div>
-                  <div class="skeleton-green dso-skeleton-button"></div>
+                  <div class="skeleton-grey dso-skeleton-button"></div>
                 `,
               }),
             })}
@@ -34,11 +34,11 @@ examplePageFactory(
           <div class="col-lg-8">
             ${richContentTemplate({
               children: html`
-                <div class="skeleton-green dso-skeleton-heading"></div>
-                <div class="skeleton dso-skeleton-text"></div>
-                <div class="skeleton dso-skeleton-text"></div>
-                <div class="skeleton dso-skeleton-text"></div>
-                <div class="skeleton dso-skeleton-text last"></div>
+                <div class="skeleton-grey dso-skeleton-heading"></div>
+                <div class="skeleton-grey dso-skeleton-text"></div>
+                <div class="skeleton-grey dso-skeleton-text"></div>
+                <div class="skeleton-grey dso-skeleton-text"></div>
+                <div class="skeleton-grey dso-skeleton-text last"></div>
               `,
             })}
           </div>
@@ -48,11 +48,11 @@ examplePageFactory(
               white: true,
               content: richContentTemplate({
                 children: html`
-                  <div class="skeleton-green dso-skeleton-heading"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text"></div>
-                  <div class="skeleton dso-skeleton-text last"></div>
+                  <div class="skeleton-grey dso-skeleton-heading"></div>
+                  <div class="skeleton-grey dso-skeleton-text"></div>
+                  <div class="skeleton-grey dso-skeleton-text"></div>
+                  <div class="skeleton-grey dso-skeleton-text"></div>
+                  <div class="skeleton-grey dso-skeleton-text last"></div>
                 `,
               }),
             })}
@@ -60,7 +60,7 @@ examplePageFactory(
         </div>
         <div class="row dso-featured">
           <div class="col-xs-12">
-            <div class="skeleton-green dso-skeleton-heading"></div>
+            <div class="skeleton-grey dso-skeleton-heading"></div>
             <div class="row dso-equal-heights">
               <div class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
@@ -68,8 +68,8 @@ examplePageFactory(
                   dropShadow: true,
                   content: richContentTemplate({
                     children: html`
-                      <div class="skeleton-green dso-skeleton-heading"></div>
-                      <div class="skeleton dso-skeleton-text"></div>
+                      <div class="skeleton-grey dso-skeleton-heading"></div>
+                      <div class="skeleton-grey dso-skeleton-text"></div>
                     `,
                   }),
                 })}
@@ -80,8 +80,8 @@ examplePageFactory(
                   dropShadow: true,
                   content: richContentTemplate({
                     children: html`
-                      <div class="skeleton-green dso-skeleton-heading"></div>
-                      <div class="skeleton dso-skeleton-text"></div>
+                      <div class="skeleton-grey dso-skeleton-heading"></div>
+                      <div class="skeleton-grey dso-skeleton-text"></div>
                     `,
                   }),
                 })}
@@ -92,8 +92,8 @@ examplePageFactory(
                   dropShadow: true,
                   content: richContentTemplate({
                     children: html`
-                      <div class="skeleton-green dso-skeleton-heading"></div>
-                      <div class="skeleton dso-skeleton-text"></div>
+                      <div class="skeleton-grey dso-skeleton-heading"></div>
+                      <div class="skeleton-grey dso-skeleton-text"></div>
                     `,
                   }),
                 })}
@@ -104,8 +104,8 @@ examplePageFactory(
                   dropShadow: true,
                   content: richContentTemplate({
                     children: html`
-                      <div class="skeleton-green dso-skeleton-heading"></div>
-                      <div class="skeleton dso-skeleton-text"></div>
+                      <div class="skeleton-grey dso-skeleton-heading"></div>
+                      <div class="skeleton-grey dso-skeleton-text"></div>
                     `,
                   }),
                 })}
@@ -118,8 +118,8 @@ examplePageFactory(
                   dropShadow: true,
                   content: richContentTemplate({
                     children: html`
-                      <div class="skeleton-green dso-skeleton-heading"></div>
-                      <div class="skeleton dso-skeleton-text"></div>
+                      <div class="skeleton-grey dso-skeleton-heading"></div>
+                      <div class="skeleton-grey dso-skeleton-text"></div>
                     `,
                   }),
                 })}
@@ -129,13 +129,13 @@ examplePageFactory(
         </div>
         <div class="row dso-equal-heights">
           <div class="col-md-8">
-            <div class="skeleton-green dso-skeleton-heading"></div>
-            <div class="skeleton dso-skeleton-text"></div>
-            <div class="skeleton dso-skeleton-text"></div>
-            <div class="skeleton dso-skeleton-text"></div>
-            <div class="skeleton dso-skeleton-text"></div>
-            <div class="skeleton dso-skeleton-text"></div>
-            <div class="skeleton dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-heading"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
+            <div class="skeleton-grey dso-skeleton-text"></div>
           </div>
         </div>
       </main>
