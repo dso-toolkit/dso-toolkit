@@ -181,6 +181,7 @@ export class AdvancedSelect implements ComponentInterface {
                           option={option}
                           active={this.active}
                           activeHint={this.activeHint}
+                          isPlaceholder={!option.value}
                           callback={this.handleOptionClick}
                         />
                       ))}
@@ -201,6 +202,7 @@ export class AdvancedSelect implements ComponentInterface {
                     option={optionOrGroup}
                     active={this.active}
                     activeHint={this.activeHint}
+                    isPlaceholder={!optionOrGroup.value}
                     callback={this.handleOptionClick}
                   />
                 ),
@@ -217,13 +219,15 @@ const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<never>;
   active: AdvancedSelectOption<never> | undefined;
   activeHint: string | undefined;
+  isPlaceholder: boolean;
   callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
-}> = ({ option, active, activeHint, callback }) => (
+}> = ({ option, active, activeHint, isPlaceholder, callback }) => (
   <li>
     <button
-      class={clsx(["option", { "option-active": active === option }])}
+      class={clsx(["option", { "option-active": active === option, "option-placeholder": isPlaceholder }])}
       type="button"
-      onClick={(e) => callback(e, option)}
+      tabindex={isPlaceholder ? -1 : 0}
+      onClick={(e) => !isPlaceholder && callback(e, option)}
     >
       <span class="option-label">{option.label}</span>
       {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
