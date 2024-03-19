@@ -14,7 +14,8 @@ export interface AdvancedSelectGroup<T> {
   label: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
-  options: AdvancedSelectOption<T>[];
+  placeholder?: string;
+  options?: AdvancedSelectOption<T>[];
   variant?: AdvancedSelectVariant;
 }
 

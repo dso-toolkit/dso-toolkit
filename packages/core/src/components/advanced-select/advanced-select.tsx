@@ -161,7 +161,12 @@ export class AdvancedSelect implements ComponentInterface {
                       "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
                   )
                   .map((group) => {
-                    return <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>;
+                    return (
+                      group.options &&
+                      group.options.length && (
+                        <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
+                      )
+                    );
                   })}
               </span>
             )}
@@ -172,39 +177,42 @@ export class AdvancedSelect implements ComponentInterface {
           <div class="groups-container">
             <ul class="groups">
               {this.options.map((optionOrGroup) =>
-                "options" in optionOrGroup ? (
+                "options" in optionOrGroup || "placeholder" in optionOrGroup ? (
                   <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
                     {optionOrGroup.label && <p class="group-label">{optionOrGroup.label}</p>}
-                    <ul class="options">
-                      {optionOrGroup.options.map((option) => (
-                        <OptionElement
-                          option={option}
-                          active={this.active}
-                          activeHint={this.activeHint}
-                          isPlaceholder={!option.value}
-                          callback={this.handleOptionClick}
-                        />
-                      ))}
-                    </ul>
+                    {optionOrGroup.options && optionOrGroup.options.length && (
+                      <ul class="options">
+                        {optionOrGroup.options.map((option) => (
+                          <li>
+                            <OptionElement
+                              option={option}
+                              active={this.active}
+                              activeHint={this.activeHint}
+                              callback={this.handleOptionClick}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {optionOrGroup.placeholder && (
+                      <PlaceholderElement placeholder={optionOrGroup.placeholder}></PlaceholderElement>
+                    )}
                     {optionOrGroup.redirect && (
-                      <a
-                        class="group-link"
-                        href={optionOrGroup.redirect.href}
-                        onClick={(e) => optionOrGroup.redirect && this.handleRedirectClick(e, optionOrGroup.redirect)}
-                      >
-                        {optionOrGroup.redirect.label}
-                        <dso-icon icon="chevron-right"></dso-icon>
-                      </a>
+                      <RedirectElement
+                        redirect={optionOrGroup.redirect}
+                        callback={this.handleRedirectClick}
+                      ></RedirectElement>
                     )}
                   </li>
                 ) : (
-                  <OptionElement
-                    option={optionOrGroup}
-                    active={this.active}
-                    activeHint={this.activeHint}
-                    isPlaceholder={!optionOrGroup.value}
-                    callback={this.handleOptionClick}
-                  />
+                  <li>
+                    <OptionElement
+                      option={optionOrGroup}
+                      active={this.active}
+                      activeHint={this.activeHint}
+                      callback={this.handleOptionClick}
+                    />
+                  </li>
                 ),
               )}
             </ul>
@@ -215,22 +223,32 @@ export class AdvancedSelect implements ComponentInterface {
   }
 }
 
+const PlaceholderElement: FunctionalComponent<{
+  placeholder: string;
+}> = ({ placeholder }) => <p class="placeholder">{placeholder}</p>;
+
 const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<never>;
   active: AdvancedSelectOption<never> | undefined;
   activeHint: string | undefined;
-  isPlaceholder: boolean;
   callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
-}> = ({ option, active, activeHint, isPlaceholder, callback }) => (
-  <li>
-    <button
-      class={clsx(["option", { "option-active": active === option, "option-placeholder": isPlaceholder }])}
-      type="button"
-      tabindex={isPlaceholder ? -1 : 0}
-      onClick={(e) => !isPlaceholder && callback(e, option)}
-    >
-      <span class="option-label">{option.label}</span>
-      {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
-    </button>
-  </li>
+}> = ({ option, active, activeHint, callback }) => (
+  <button
+    class={clsx(["option", { "option-active": active === option }])}
+    type="button"
+    onClick={(e) => callback(e, option)}
+  >
+    <span class="option-label">{option.label}</span>
+    {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
+  </button>
+);
+
+const RedirectElement: FunctionalComponent<{
+  redirect: AdvancedSelectGroupRedirect;
+  callback: (event: MouseEvent, value: AdvancedSelectGroupRedirect) => void;
+}> = ({ redirect, callback }) => (
+  <a class="group-link" href={redirect.href} onClick={(e) => callback(e, redirect)}>
+    {redirect.label}
+    <dso-icon icon="chevron-right"></dso-icon>
+  </a>
 );

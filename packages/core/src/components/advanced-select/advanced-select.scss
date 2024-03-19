@@ -85,7 +85,7 @@
     border-bottom: none;
   }
 
-  .option:not(.option-placeholder) {
+  .option {
     padding-left: advanced-select.$horizontal-padding * 2 + advanced-select.$option-dot-size * 0.5;
   }
 
@@ -163,6 +163,7 @@
   display: block;
   inline-size: 100%;
   padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
+  cursor: pointer;
   line-height: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -170,16 +171,12 @@
   text-align: left;
   background-color: advanced-select.$bg-color;
 
-  &:not(.option-placeholder) {
-    cursor: pointer;
+  &:hover {
+    background-color: advanced-select.$option-hover-bg-color;
 
-    &:hover {
-      background-color: advanced-select.$option-hover-bg-color;
-
-      .option-label {
-        color: advanced-select.$option-hover-color;
-        font-weight: advanced-select.$option-hover-font-weight;
-      }
+    .option-label {
+      color: advanced-select.$option-hover-color;
+      font-weight: advanced-select.$option-hover-font-weight;
     }
   }
 }
@@ -204,10 +201,8 @@
   font-weight: advanced-select.$option-active-font-weight;
 }
 
-.option-placeholder .option-label {
+.placeholder {
+  margin: 0;
+  padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
   color: advanced-select.$option-placeholder-color;
-
-  &::before {
-    display: none;
-  }
 }

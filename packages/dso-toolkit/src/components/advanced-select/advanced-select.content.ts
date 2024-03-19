@@ -11,7 +11,6 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     options: [
       {
         label: "In werking (laatst gewijzigd: 01-01-2024)",
-        value: {},
       },
     ],
   },
@@ -21,11 +20,9 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     options: [
       {
         label: "Citeertitel van het besluit (In werking per 01-03-2024)",
-        value: {},
       },
       {
         label: "Citeertitel van het besluit (In werking per 01-04-2024)",
-        value: {},
       },
     ],
   },
@@ -40,29 +37,22 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
     options: [
       {
         label: "Verandering in annotaties (Einde inzage: 01-02-2024)",
-        value: {},
       },
       {
         label: "Herziening Achterwillense-weg 12-34 (Einde inzage: 08-02-2024)",
-        value: {},
       },
       {
         label:
           "Algemene regels voor het beheer en onderhoud van waterstaatswerken en het gebruik van watersystemen (Keur waterschap Vechtstromen 2020) (Einde inzage: 09-02-2024)",
-        value: {},
       },
     ],
   },
   {
     label: "Groep met placeholder",
+    placeholder: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
     redirect: {
       href: "#",
       label: "Bekijk ontwerpen met afgeronde inzage termijn",
     },
-    options: [
-      {
-        label: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
-      },
-    ],
   },
 ];
