@@ -6,7 +6,8 @@
 
 // import readme from "./readme.md?raw";
 
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/angular";
+// eslint-disable-next-line no-duplicate-imports -- Todo: #2593
 import { moduleMetadata } from "@storybook/angular";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 

@@ -5,7 +5,7 @@
 
 // import readme from "./readme.md?raw";
 
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/angular";
 
 import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from "dso-toolkit";
 import { DsoHelpcenterPanel } from "../../projects/component-library/src/public-api";
