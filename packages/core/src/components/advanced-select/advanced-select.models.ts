@@ -14,12 +14,20 @@ export interface AdvancedSelectGroup<T> {
   label: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
-  placeholder?: string;
-  options?: AdvancedSelectOption<T>[];
+  options: AdvancedSelectOption<T>[];
   variant?: AdvancedSelectVariant;
 }
 
-export type AdvancedSelectOptionOrGroup<T> = AdvancedSelectOption<T> | AdvancedSelectGroup<T>;
+export interface AdvancedSelectPlaceholder {
+  label: string;
+  redirect?: AdvancedSelectGroupRedirect;
+  placeholder: string;
+}
+
+export type AdvancedSelectOptionOrGroup<T> =
+  | AdvancedSelectOption<T>
+  | AdvancedSelectGroup<T>
+  | AdvancedSelectPlaceholder;
 
 export interface AdvancedSelectChangeEvent<T> {
   originalEvent: MouseEvent;

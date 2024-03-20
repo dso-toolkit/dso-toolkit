@@ -160,14 +160,9 @@ export class AdvancedSelect implements ComponentInterface {
                     (option): option is AdvancedSelectGroup<never> =>
                       "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
                   )
-                  .map((group) => {
-                    return (
-                      group.options &&
-                      group.options.length && (
-                        <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
-                      )
-                    );
-                  })}
+                  .map((group) => (
+                    <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
+                  ))}
               </span>
             )}
             <dso-icon icon="caret-down"></dso-icon>
@@ -176,11 +171,11 @@ export class AdvancedSelect implements ComponentInterface {
         {this.open && (
           <div class="groups-container">
             <ul class="groups">
-              {this.options.map((optionOrGroup) =>
-                "options" in optionOrGroup || "placeholder" in optionOrGroup ? (
-                  <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
-                    {optionOrGroup.label && <p class="group-label">{optionOrGroup.label}</p>}
-                    {optionOrGroup.options && optionOrGroup.options.length && (
+              {this.options.map(
+                (optionOrGroup) =>
+                  ("options" in optionOrGroup && (
+                    <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
+                      <p class="group-label">{optionOrGroup.label}</p>
                       <ul class="options">
                         {optionOrGroup.options.map((option) => (
                           <li>
@@ -193,27 +188,35 @@ export class AdvancedSelect implements ComponentInterface {
                           </li>
                         ))}
                       </ul>
-                    )}
-                    {optionOrGroup.placeholder && (
+                      {optionOrGroup.redirect && (
+                        <RedirectElement
+                          redirect={optionOrGroup.redirect}
+                          callback={this.handleRedirectClick}
+                        ></RedirectElement>
+                      )}
+                    </li>
+                  )) ||
+                  ("placeholder" in optionOrGroup && (
+                    <li class="group">
+                      <p class="group-label">{optionOrGroup.label}</p>
                       <PlaceholderElement placeholder={optionOrGroup.placeholder}></PlaceholderElement>
-                    )}
-                    {optionOrGroup.redirect && (
-                      <RedirectElement
-                        redirect={optionOrGroup.redirect}
-                        callback={this.handleRedirectClick}
-                      ></RedirectElement>
-                    )}
-                  </li>
-                ) : (
-                  <li>
-                    <OptionElement
-                      option={optionOrGroup}
-                      active={this.active}
-                      activeHint={this.activeHint}
-                      callback={this.handleOptionClick}
-                    />
-                  </li>
-                ),
+                      {optionOrGroup.redirect && (
+                        <RedirectElement
+                          redirect={optionOrGroup.redirect}
+                          callback={this.handleRedirectClick}
+                        ></RedirectElement>
+                      )}
+                    </li>
+                  )) || (
+                    <li>
+                      <OptionElement
+                        option={optionOrGroup}
+                        active={this.active}
+                        activeHint={this.activeHint}
+                        callback={this.handleOptionClick}
+                      />
+                    </li>
+                  ),
               )}
             </ul>
           </div>
