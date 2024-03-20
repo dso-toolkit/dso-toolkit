@@ -1,5 +1,6 @@
 import { moduleMetadata } from "@storybook/angular";
-import type { Meta } from "@storybook/web-components";
+// eslint-disable-next-line no-duplicate-imports -- Todo: #2593
+import type { Meta } from "@storybook/angular";
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 import { DsoHeader } from "../../projects/component-library/src/public-api";
 
