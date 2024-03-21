@@ -2,6 +2,6 @@
 
 dso-map-controls {
   & > * + * {
-    margin-top: units.$u4;
+    margin-block-start: units.$u4;
   }
 }

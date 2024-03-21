@@ -1,21 +1,21 @@
 @use "~dso-toolkit/src/variables/colors";
 
 @mixin horizontal-line($left, $top, $width, $color: colors.$bosgroen) {
-  border-top: 1px solid $color;
+  border-block-start: 1px solid $color;
   content: "";
-  height: 0;
-  left: $left;
+  block-size: 0;
+  inset-inline-start: $left;
   position: absolute;
-  top: $top;
-  width: $width;
+  inset-block-start: $top;
+  inline-size: $width;
 }
 
 @mixin vertical-line($left, $top, $height, $color: colors.$bosgroen) {
-  border-left: 1px solid $color;
+  border-inline-start: 1px solid $color;
   content: "";
-  height: $height;
-  left: $left;
+  block-size: $height;
+  inset-inline-start: $left;
   position: absolute;
-  top: $top;
-  width: 0;
+  inset-block-start: $top;
+  inline-size: 0;
 }

@@ -1,7 +1,7 @@
 @use "../anchor";
 
 sub {
-  bottom: -0.25em;
+  inset-block-end: -0.25em;
   font-size: 0.65em;
   line-height: 0;
   position: relative;

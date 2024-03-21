@@ -9,7 +9,7 @@
 
   ul,
   ol {
-    margin-bottom: rich-content-variables.$margin-bottom;
+    margin-block-end: rich-content-variables.$margin-bottom;
 
     &:not(.list-group):not(.dso-link-list):not(.dso-columns-list) {
       padding-inline-start: units.$u3;
@@ -26,11 +26,11 @@
 
   dso-highlight-box,
   .dso-highlight-box {
-    margin-bottom: typography.$line-height-computed;
+    margin-block-end: typography.$line-height-computed;
   }
 
   img {
-    height: auto;
-    max-width: 100%;
+    block-size: auto;
+    max-inline-size: 100%;
   }
 }

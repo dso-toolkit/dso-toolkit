@@ -6,15 +6,15 @@
 @use "grid.variables" as css-grid-variables;
 
 @mixin full-width-row($gutter: 0) {
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  margin-inline-start: calc(50% - 50vw);
+  margin-inline-end: calc(50% - 50vw);
 
   @if ($gutter > 0) {
-    padding-left: calc(50vw - 50% - #{math.ceil($gutter * 0.5)});
-    padding-right: calc(50vw - 50% - #{math.floor($gutter * 0.5)});
+    padding-inline-start: calc(50vw - 50% - #{math.ceil($gutter * 0.5)});
+    padding-inline-end: calc(50vw - 50% - #{math.floor($gutter * 0.5)});
   } @else {
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%);
+    padding-inline-start: calc(50vw - 50%);
+    padding-inline-end: calc(50vw - 50%);
   }
 }
 
@@ -25,48 +25,48 @@
 
   #{$list} {
     position: relative;
-    min-height: 1px; // Prevent columns from collapsing when empty
-    padding-right: math.floor(css-grid-variables.$grid-gutter-width * 0.5);
-    padding-left: math.ceil(css-grid-variables.$grid-gutter-width * 0.5);
-    float: left;
-    width: 100%;
+    min-block-size: 1px; // Prevent columns from collapsing when empty
+    padding-inline-end: math.floor(css-grid-variables.$grid-gutter-width * 0.5);
+    padding-inline-start: math.ceil(css-grid-variables.$grid-gutter-width * 0.5);
+    float: inline-start;
+    inline-size: 100%;
   }
 }
 
 @mixin calc-grid-column($index, $class, $type) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-#{$index} {
-      width: math.percentage(math.div($index, css-grid-variables.$grid-columns));
+      inline-size: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: math.percentage(math.div($index, css-grid-variables.$grid-columns));
+      inset-inline-start: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
   @if ($type == push) and ($index == 0) {
     .col-#{$class}-push-0 {
-      left: auto;
+      inset-inline-start: auto;
     }
   }
 
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: math.percentage(math.div($index, css-grid-variables.$grid-columns));
+      inset-inline-end: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
   @if ($type == pull) and ($index == 0) {
     .col-#{$class}-pull-0 {
-      right: auto;
+      inset-inline-end: auto;
     }
   }
 
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: math.percentage(math.div($index, css-grid-variables.$grid-columns));
+      margin-inline-start: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 }
@@ -85,17 +85,17 @@
 }
 
 @mixin container-fixed($gutter: css-grid-variables.$grid-gutter-width) {
-  padding-right: math.ceil($gutter * 0.5);
-  padding-left: math.floor($gutter * 0.5);
-  margin-right: auto;
-  margin-left: auto;
+  padding-inline-end: math.ceil($gutter * 0.5);
+  padding-inline-start: math.floor($gutter * 0.5);
+  margin-inline-end: auto;
+  margin-inline-start: auto;
 
   @include utilities.clearfix();
 }
 
 @mixin make-row($gutter: css-grid-variables.$grid-gutter-width) {
-  margin-right: math.floor(math.div($gutter, -2));
-  margin-left: math.ceil(math.div($gutter, -2));
+  margin-inline-end: math.floor(math.div($gutter, -2));
+  margin-inline-start: math.ceil(math.div($gutter, -2));
 
   @include utilities.clearfix();
 }
@@ -103,12 +103,12 @@
 // Generate the small columns
 @mixin make-sm-column($columns, $gutter: css-grid-variables.$grid-gutter-width) {
   position: relative;
-  min-height: 1px;
-  padding-right: ($gutter * 0.5);
-  padding-left: ($gutter * 0.5);
+  min-block-size: 1px;
+  padding-inline-end: ($gutter * 0.5);
+  padding-inline-start: ($gutter * 0.5);
 
   @media (min-width: media-query-breakpoints.$screen-sm-min) {
-    float: left;
-    width: math.percentage(math.div($columns, css-grid-variables.$grid-columns));
+    float: inline-start;
+    inline-size: math.percentage(math.div($columns, css-grid-variables.$grid-columns));
   }
 }

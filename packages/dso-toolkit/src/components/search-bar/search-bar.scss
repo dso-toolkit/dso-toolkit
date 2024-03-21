@@ -11,23 +11,23 @@
 
 .dso-search-bar {
   display: flex;
-  margin-bottom: 16px;
+  margin-block-end: 16px;
 
   .dso-search-bar-input {
     position: relative;
-    width: 100%;
+    inline-size: 100%;
 
     .dso-search-icon {
-      bottom: units.$u1;
+      inset-block-end: units.$u1;
       font-size: 0;
-      height: css-search-bar-variables.$height;
-      left: 0;
+      block-size: css-search-bar-variables.$height;
+      inset-inline-start: 0;
       line-height: css-search-bar-variables.$height;
       padding: units.$u1;
       position: absolute;
       text-align: center;
-      top: 0;
-      width: css-search-bar-variables.$height;
+      inset-block-start: 0;
+      inline-size: css-search-bar-variables.$height;
       z-index: zindex.$searchbar-icon;
 
       &::before {
@@ -40,7 +40,7 @@
 
       + input,
       + dso-autosuggest > input {
-        padding-left: css-search-bar-variables.$height;
+        padding-inline-start: css-search-bar-variables.$height;
       }
     }
 
@@ -55,13 +55,13 @@
       box-shadow: none;
       display: block;
       font-size: typography.$root-font-size-base;
-      height: css-search-bar-variables.$height;
+      block-size: css-search-bar-variables.$height;
       line-height: css-search-bar-variables.$height;
       padding: 6px css-search-bar-variables.$height 6px units.$u1;
       transition:
         border-color ease-in-out 0.15s,
         box-shadow ease-in-out 0.15s;
-      width: 100%;
+      inline-size: 100%;
 
       &:focus {
         border-color: form-control.$focus-border-color;
@@ -80,13 +80,13 @@
       box-shadow: none;
       color: colors.$grasgroen;
       font-size: 0;
-      height: css-search-bar-variables.$height;
+      block-size: css-search-bar-variables.$height;
       padding: units.$u1;
       position: absolute;
-      right: 0;
+      inset-inline-end: 0;
       text-align: center;
-      top: 0;
-      width: css-search-bar-variables.$height;
+      inset-block-start: 0;
+      inline-size: css-search-bar-variables.$height;
 
       &::before {
         @include di.base("times");
@@ -99,16 +99,16 @@
 
     label {
       flex-grow: 1;
-      margin-bottom: units.$u1;
-      width: 100%;
+      margin-block-end: units.$u1;
+      inline-size: 100%;
 
       + .dso-search-icon {
-        top: css-search-bar-variables.$icon-top;
+        inset-block-start: css-search-bar-variables.$icon-top;
 
         + input,
         + dso-autosuggest {
           + button {
-            top: css-search-bar-variables.$icon-top;
+            inset-block-start: css-search-bar-variables.$icon-top;
           }
         }
       }
@@ -116,19 +116,19 @@
       + input,
       + dso-autosuggest {
         + button {
-          top: css-search-bar-variables.$icon-top;
+          inset-block-start: css-search-bar-variables.$icon-top;
         }
       }
 
       &.sr-only,
       &.dso-search-icon {
         + .dso-search-icon {
-          top: 0;
+          inset-block-start: 0;
 
           + input,
           + dso-autosuggest {
             + button {
-              top: 0;
+              inset-block-start: 0;
             }
           }
         }
@@ -136,7 +136,7 @@
         + input,
         + dso-autosuggest {
           + button {
-            top: 0;
+            inset-block-start: 0;
           }
         }
       }
@@ -145,10 +145,10 @@
 
   .dso-search-bar-input + button {
     align-self: flex-end;
-    height: css-search-bar-variables.$height;
+    block-size: css-search-bar-variables.$height;
     line-height: calc(css-search-bar-variables.$height - 2px);
     margin: 0 0 0 units.$u1;
-    min-width: initial;
+    min-inline-size: initial;
     padding: 0 units.$u2;
     text-align: center;
   }
@@ -156,7 +156,7 @@
   + .dso-results {
     color: colors.$grijs-60;
     font-weight: 700;
-    margin-top: units.$u1;
+    margin-block-start: units.$u1;
   }
 
   &.dso-invalid .dso-search-bar-input input {

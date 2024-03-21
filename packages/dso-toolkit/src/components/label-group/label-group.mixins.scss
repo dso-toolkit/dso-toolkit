@@ -1,18 +1,18 @@
 @use "../../variables/units";
 
 @mixin root() {
-  margin-bottom: units.$u2;
+  margin-block-end: units.$u2;
 
   ul {
     display: flex;
     flex-wrap: wrap;
     gap: units.$u1;
     list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
 
     > li {
-      max-width: 100%;
+      max-inline-size: 100%;
     }
   }
 

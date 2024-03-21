@@ -2,7 +2,7 @@
 @use "../variables/colors";
 
 .text-right {
-  text-align: right;
+  text-align: end;
 }
 
 .text-center {
@@ -23,8 +23,8 @@
 
 .center-block {
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline-end: auto;
+  margin-inline-start: auto;
 }
 
 .sr-only {

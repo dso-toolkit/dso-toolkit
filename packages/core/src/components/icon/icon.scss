@@ -3,9 +3,9 @@
 
 :host {
   display: inline-block;
-  height: icon.$size;
+  block-size: icon.$size;
   vertical-align: icon.$vertical-align;
-  width: icon.$size;
+  inline-size: icon.$size;
 }
 
 @include utilities.box-sizing();

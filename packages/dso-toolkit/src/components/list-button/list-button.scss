@@ -36,8 +36,8 @@ dso-list-button > [slot="subcontent"] {
 }
 
 dso-list-button > [slot="subcontent"] {
-  padding-left: selectable.$size + units.$u3;
-  padding-top: units.$u1;
+  padding-inline-start: selectable.$size + units.$u3;
+  padding-block-start: units.$u1;
 }
 
 dso-list-button + dso-list-button {

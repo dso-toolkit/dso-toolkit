@@ -19,7 +19,7 @@
 
 @mixin base() {
   padding: units.$u2 units.$u2 units.$u1;
-  width: 100%;
+  inline-size: 100%;
 
   &:hover {
     background-color: colors.$grijs-5;
@@ -48,7 +48,7 @@
   .dso-card-heading {
     align-items: center;
     display: flex;
-    margin-bottom: units.$u1;
+    margin-block-end: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -62,7 +62,7 @@
   .dso-card-image {
     @extend %card-grid-addon;
 
-    margin-right: units.$u1;
+    margin-inline-end: units.$u1;
   }
 }
 
@@ -75,5 +75,5 @@
 @mixin interactions() {
   display: flex;
   justify-content: space-between;
-  margin-left: auto;
+  margin-inline-start: auto;
 }

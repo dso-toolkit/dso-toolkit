@@ -24,20 +24,17 @@ button {
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  min-width: auto;
+  min-inline-size: auto;
   padding: units.$u1;
   opacity: 0;
   position: absolute;
-  right: units.$u2;
-  top: units.$u2;
+  inset-inline-end: units.$u2;
+  inset-block-start: units.$u2;
 }
 
 .dimmer {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: zindex.$image-overlay - 1;
   display: flex;
   padding: units.$u4;
@@ -62,18 +59,18 @@ button {
   }
 
   img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - units.$u8);
+    inline-size: auto;
+    block-size: auto;
+    max-inline-size: 100%;
+    max-block-size: calc(100vh - units.$u8);
   }
 
   .figuur-bijschrift:not([hidden]) {
     display: block;
     font-size: 0.75rem;
     font-style: italic;
-    padding-bottom: units.$u1 * 1.5;
-    padding-top: units.$u2;
+    padding-block-end: units.$u1 * 1.5;
+    padding-block-start: units.$u2;
   }
 }
 
@@ -82,9 +79,9 @@ button {
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  min-width: auto;
+  min-inline-size: auto;
   padding: units.$u1;
   position: absolute;
-  top: units.$u2;
-  right: units.$u2;
+  inset-block-start: units.$u2;
+  inset-inline-end: units.$u2;
 }

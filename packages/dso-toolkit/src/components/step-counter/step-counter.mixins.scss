@@ -4,7 +4,7 @@
 @use "step-counter.variables" as step-counter-variables;
 
 @mixin has-step-counter() {
-  padding-top: units.$ru5;
+  padding-block-start: units.$ru5;
   position: relative;
 }
 
@@ -17,16 +17,16 @@
     color: colors.$wit;
     font-size: 1.25rem;
     font-weight: 500;
-    height: step-counter-variables.$size;
-    left: units.$u2;
+    block-size: step-counter-variables.$size;
+    inset-inline-start: units.$u2;
     line-height: step-counter-variables.$size;
     position: absolute;
     text-align: center;
-    top: step-counter-variables.$icon-size * -1;
-    width: step-counter-variables.$size;
+    inset-block-start: step-counter-variables.$icon-size * -1;
+    inline-size: step-counter-variables.$size;
   }
 }
 
 @mixin icon() {
-  margin-top: units.$ru1 * 0.5;
+  margin-block-start: units.$ru1 * 0.5;
 }

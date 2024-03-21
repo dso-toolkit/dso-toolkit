@@ -8,10 +8,10 @@
   @include list.unstyled();
 
   li {
-    margin-bottom: units.$u2;
+    margin-block-end: units.$u2;
 
     &:last-child {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
 
     a[aria-current="page"] {
@@ -26,10 +26,10 @@
 
 @mixin exotic() {
   li {
-    margin-bottom: units.$u2;
+    margin-block-end: units.$u2;
 
     &:last-child {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
   }
 

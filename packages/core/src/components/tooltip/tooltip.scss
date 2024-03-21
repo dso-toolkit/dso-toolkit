@@ -47,7 +47,6 @@
   font-weight: 400;
   line-height: typography.$line-height-base;
   line-break: auto;
-  text-align: left; // Fallback for where `start` is not supported
   text-align: start;
   text-decoration: none;
   text-shadow: none;
@@ -78,21 +77,21 @@
     color: colors.$grijs-90;
     display: inline-block;
     font-size: typography.$root-font-size-base;
-    max-width: tooltip-variables.$max-width;
+    max-inline-size: tooltip-variables.$max-width;
     padding-block: tooltip-variables.$padding-vertical;
     padding-inline: tooltip-variables.$padding-horizontal;
     position: relative;
 
     &.dso-small {
-      max-width: tooltip-variables.$max-width-small;
+      max-inline-size: tooltip-variables.$max-width-small;
     }
   }
 
   .tooltip-arrow {
     border-color: transparent;
     border-style: solid;
-    height: 0;
-    width: 0;
+    block-size: 0;
+    inline-size: 0;
   }
 
   &[data-popper-placement="top"] {
@@ -101,7 +100,7 @@
     padding-inline: 0;
 
     .tooltip-arrow {
-      bottom: 0;
+      inset-block-end: 0;
       border-block-start-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-block-end-width: 0;
@@ -115,7 +114,7 @@
     padding-inline: tooltip-variables.$arrow-width;
 
     .tooltip-arrow {
-      left: 0;
+      inset-inline-start: 0;
       border-inline-end-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-inline-start-width: 0;
@@ -129,7 +128,7 @@
     padding-inline: 0;
 
     .tooltip-arrow {
-      top: 0;
+      inset-block-start: 0;
       border-block-end-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-block-start-width: 0;
@@ -143,7 +142,7 @@
     padding-inline: tooltip-variables.$arrow-width;
 
     .tooltip-arrow {
-      right: 0;
+      inset-inline-end: 0;
       border-inline-start-color: tooltip-variables.$arrow-color;
       border-width: tooltip-variables.$arrow-width;
       border-inline-end-width: 0;

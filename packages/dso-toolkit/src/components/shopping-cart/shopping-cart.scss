@@ -18,15 +18,15 @@
     font-weight: 600;
     padding: units.$u2 units.$u6;
     position: relative;
-    text-align: left;
+    text-align: start;
 
     dso-icon,
     svg.di {
       @include utilities.transition(transform);
 
-      left: units.$u2;
+      inset-inline-start: units.$u2;
       position: absolute;
-      margin-right: units.$u1;
+      margin-inline-end: units.$u1;
       transform: rotate(0);
     }
 
@@ -40,15 +40,15 @@
 
   span.dso-status {
     display: inline-block;
-    padding-left: units.$u2;
+    padding-inline-start: units.$u2;
   }
 
   .dso-status,
   .dso-delete {
     + .dso-items {
-      border-top: 1px solid css-shopping-cart-variables.$border-color;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-block-start: 1px solid css-shopping-cart-variables.$border-color;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
     }
   }
 
@@ -62,16 +62,16 @@
 
     > .dso-delete {
       position: absolute;
-      width: units.$u3;
+      inline-size: units.$u3;
       z-index: zindex.$shopping-cart;
     }
 
     > .dso-items {
-      width: 100%;
+      inline-size: 100%;
     }
 
     + .dso-warning {
-      margin-top: units.$u2;
+      margin-block-start: units.$u2;
     }
   }
 
@@ -82,11 +82,11 @@
     @include set-colors.apply(colors.$grijs-5, $icons: false);
 
     border-radius: css-shopping-cart-variables.$radius;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
 
     li {
-      border-top: 1px solid css-shopping-cart-variables.$border-color;
+      border-block-start: 1px solid css-shopping-cart-variables.$border-color;
     }
   }
 
@@ -98,43 +98,43 @@
   }
 
   li {
-    padding-bottom: units.$u2;
-    padding-top: units.$u2;
+    padding-block-end: units.$u2;
+    padding-block-start: units.$u2;
     position: relative;
 
     > dso-icon,
     > svg.di {
-      float: left;
-      height: units.$u3;
-      margin-right: units.$u1;
+      float: inline-start;
+      block-size: units.$u3;
+      margin-inline-end: units.$u1;
       text-align: center;
-      width: units.$u3;
+      inline-size: units.$u3;
     }
   }
 
   .dso-items {
     > li {
       font-weight: 600;
-      padding-left: units.$u2;
-      padding-right: units.$u10;
+      padding-inline-start: units.$u2;
+      padding-inline-end: units.$u10;
 
       &:first-child {
-        border-top: 0;
+        border-block-start: 0;
       }
     }
 
     .dso-activities, // .dso-activities is deprecated
     .dso-subitems {
-      margin-right: units.$u8 * -1;
-      margin-top: units.$u2;
+      margin-inline-end: units.$u8 * -1;
+      margin-block-start: units.$u2;
 
       li {
-        margin-left: units.$u2 * -1;
-        margin-right: units.$u2 * -1;
+        margin-inline-start: units.$u2 * -1;
+        margin-inline-end: units.$u2 * -1;
         padding: units.$u2 units.$u6 units.$u2 units.$u6;
 
         &:last-child {
-          padding-bottom: 0;
+          padding-block-end: 0;
         }
       }
     }
@@ -150,26 +150,26 @@
     border: 0;
     box-shadow: none;
     color: colors.$grasgroen;
-    height: units.$u3;
+    block-size: units.$u3;
     padding: 0;
     position: absolute;
     text-align: center;
-    top: units.$u2;
-    width: units.$u3;
+    inset-block-start: units.$u2;
+    inline-size: units.$u3;
   }
 
   .dso-delete {
-    right: units.$u2;
+    inset-inline-end: units.$u2;
   }
 
   .dso-edit-cart-item {
-    right: units.$u6;
+    inset-inline-end: units.$u6;
   }
 
   .dso-edit-additive {
     font-weight: 400;
-    margin-right: units.$u8 * -1;
-    margin-top: units.$u1;
+    margin-inline-end: units.$u8 * -1;
+    margin-block-start: units.$u1;
 
     label {
       @include utilities.sr-only();

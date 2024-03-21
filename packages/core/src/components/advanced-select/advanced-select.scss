@@ -79,14 +79,14 @@
 }
 
 .group {
-  border-bottom: 1px solid advanced-select.$hr-color;
+  border-block-end: 1px solid advanced-select.$hr-color;
 
   &:last-child {
-    border-bottom: none;
+    border-block-end: none;
   }
 
   .option {
-    padding-left: advanced-select.$horizontal-padding * 2 + advanced-select.$option-dot-size * 0.5;
+    padding-inline-start: advanced-select.$horizontal-padding * 2 + advanced-select.$option-dot-size * 0.5;
   }
 
   .option-label::before {
@@ -107,7 +107,7 @@
   color: advanced-select.$group-label-color;
   font-size: advanced-select.$group-label-font-size;
   font-weight: advanced-select.$group-label-font-weight;
-  border-bottom: 1px solid advanced-select.$hr-color;
+  border-block-end: 1px solid advanced-select.$hr-color;
 }
 
 .group-link {
@@ -168,7 +168,7 @@
   font-family: inherit;
   font-size: inherit;
   border: none;
-  text-align: left;
+  text-align: start;
   background-color: advanced-select.$bg-color;
 
   &:hover {
@@ -195,7 +195,7 @@
 }
 
 .option-hint {
-  padding-left: 5px;
+  padding-inline-start: 5px;
   color: advanced-select.$option-active-color;
   font-size: advanced-select.$option-font-size;
   font-weight: advanced-select.$option-active-font-weight;

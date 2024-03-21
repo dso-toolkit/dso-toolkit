@@ -14,8 +14,8 @@
   @include set-colors.apply(colors.$grijs-5);
 
   padding: grid-variables.$grid-gutter-width * 0.5;
-  margin-left: grid-variables.$grid-gutter-width * -0.5;
-  margin-right: grid-variables.$grid-gutter-width * -0.5;
+  margin-inline-start: grid-variables.$grid-gutter-width * -0.5;
+  margin-inline-end: grid-variables.$grid-gutter-width * -0.5;
 
   #{typography.$headings} {
     button {
@@ -29,22 +29,22 @@
   }
 
   &.dso-document-header-sticky {
-    left: 0;
+    inset-inline-start: 0;
     padding: 0;
     position: sticky;
-    top: 0;
+    inset-block-start: 0;
 
     #{typography.$headings} {
       font-size: 1.25rem;
-      margin-bottom: 0;
+      margin-block-end: 0;
 
       button {
         align-items: center;
         background-color: transparent;
         display: flex;
         padding: units.$u1 - 1 units.$u2 units.$u1;
-        text-align: left;
-        width: 100%;
+        text-align: start;
+        inline-size: 100%;
 
         &::after {
           @include di.base("chevron-up-bosgroen");
@@ -55,8 +55,8 @@
 
         span {
           display: inline-block;
-          margin-right: units.$u1;
-          max-width: calc(100% - #{units.$u2 * 2});
+          margin-inline-end: units.$u1;
+          max-inline-size: calc(100% - #{units.$u2 * 2});
           overflow: hidden;
           text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
           white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
@@ -70,11 +70,11 @@
   }
 
   > :first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   h1 {
-    margin-bottom: units.$u1;
+    margin-block-end: units.$u1;
   }
 
   .dso-document-header-status {
@@ -85,7 +85,7 @@
 
     > dso-label,
     > .dso-label {
-      margin-right: calc(units.$u1 * -1);
+      margin-inline-end: calc(units.$u1 * -1);
     }
 
     .dso-document-header-badges {
@@ -99,7 +99,7 @@
   }
 
   .dso-document-header-owner-wrapper {
-    padding-right: icon.$size + units.$u1;
+    padding-inline-end: icon.$size + units.$u1;
   }
 
   .dso-document-header-type,
@@ -119,19 +119,19 @@
 
   .dso-document-header-map-action {
     position: absolute;
-    top: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
   }
 }
 
 dso-responsive-element.dso-document-header {
   dl.dso-document-header-features {
-    margin-top: units.$u2;
+    margin-block-start: units.$u2;
   }
 
   &[small] {
     .dso-document-header-features-wrapper {
-      margin-bottom: units.$u1;
+      margin-block-end: units.$u1;
     }
 
     .dso-document-header-container {
@@ -144,7 +144,7 @@ dso-responsive-element.dso-document-header {
     }
 
     .dso-document-header-type {
-      margin-right: units.$u4;
+      margin-inline-end: units.$u4;
     }
 
     .dso-document-header-status {
@@ -155,14 +155,14 @@ dso-responsive-element.dso-document-header {
       dt {
         clear: initial;
         float: none;
-        width: auto;
+        inline-size: auto;
         word-wrap: initial;
       }
 
       dd {
-        margin-left: 0;
-        margin-top: 0;
-        padding-left: 0;
+        margin-inline-start: 0;
+        margin-block-start: 0;
+        padding-inline-start: 0;
       }
     }
   }
@@ -173,22 +173,22 @@ dso-responsive-element.dso-document-header {
     }
 
     .dso-document-header-type {
-      margin-right: units.$u1;
+      margin-inline-end: units.$u1;
     }
 
     dl.dso-document-header-features {
       dt {
-        width: 20%;
+        inline-size: 20%;
       }
 
       dd {
-        margin-left: 20%;
+        margin-inline-start: 20%;
       }
     }
 
     .dso-document-header-features {
-      margin-bottom: 0;
-      border-bottom: 1px solid colors.$grijs-20;
+      margin-block-end: 0;
+      border-block-end: 1px solid colors.$grijs-20;
     }
   }
 }

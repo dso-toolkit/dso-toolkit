@@ -47,11 +47,11 @@ dso-card {
     align-items: center;
     display: flex;
     font-size: 1.125em;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
 
     span {
-      margin-right: units.$u1;
+      margin-inline-end: units.$u1;
 
       + dso-icon,
       + svg.di {
@@ -70,11 +70,11 @@ dso-card {
       align-items: center;
       display: flex;
       font-size: 1.125em;
-      margin-bottom: 0;
-      margin-top: 0;
+      margin-block-end: 0;
+      margin-block-start: 0;
 
       span {
-        margin-right: units.$u1;
+        margin-inline-end: units.$u1;
 
         + dso-icon,
         + svg.di {
@@ -102,13 +102,13 @@ dso-card {
   }
 
   *[slot="addon"] {
-    margin-left: units.$u2;
-    margin-right: units.$u1;
+    margin-inline-start: units.$u2;
+    margin-inline-end: units.$u1;
   }
 
   .dso-rich-content.dso-rich-content {
     :first-child {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
@@ -119,15 +119,15 @@ dso-card {
 
   img {
     display: flex;
-    height: units.$u3;
-    width: units.$u3;
+    block-size: units.$u3;
+    inline-size: units.$u3;
     max-inline-size: unset;
   }
 
   &.dso-wide-image img,
   &[image-shape="wide"] img {
-    height: 26px;
-    width: 30px;
+    block-size: 26px;
+    inline-size: 30px;
   }
 }
 
@@ -141,7 +141,7 @@ dso-card {
     text-align: center;
 
     p {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
   }
 
@@ -151,6 +151,6 @@ dso-card {
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100%;
-    margin-top: units.$u2;
+    margin-block-start: units.$u2;
   }
 }

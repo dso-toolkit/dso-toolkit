@@ -8,8 +8,8 @@
   .dso-card-list {
     @include list.unstyled();
 
-    border-bottom: card-container.$border-width solid card-container.$border-color;
-    margin-top: card-container.$border-width * -1;
+    border-block-end: card-container.$border-width solid card-container.$border-color;
+    margin-block-start: card-container.$border-width * -1;
   }
 
   .dso-card-grid {

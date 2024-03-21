@@ -12,20 +12,20 @@
     border-style: none;
     padding: 0;
     position: absolute;
-    right: units.$u1;
-    top: units.$u1;
+    inset-inline-end: units.$u1;
+    inset-block-start: units.$u1;
   }
 }
 
 @mixin richContent() {
   *:first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   img {
     display: block;
     margin: units.$u1 auto;
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 
   a {

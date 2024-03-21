@@ -6,8 +6,8 @@
 
 @mixin responsive($display: block) {
   display: $display;
-  max-width: 100%;
-  height: auto;
+  max-inline-size: 100%;
+  block-size: auto;
 }
 
 // DEPRECATED

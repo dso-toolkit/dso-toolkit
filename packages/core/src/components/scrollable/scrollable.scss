@@ -3,22 +3,22 @@
 
 :host {
   display: block;
-  height: 100%;
+  block-size: 100%;
   overflow-y: hidden;
 }
 
 @include utilities.box-sizing();
 
 .dso-shadow-container {
-  height: 100%;
-  max-height: inherit;
-  min-height: inherit;
+  block-size: 100%;
+  max-block-size: inherit;
+  min-block-size: inherit;
   position: relative;
 
   .dso-scroll-container {
-    height: 100%;
-    max-height: inherit;
-    min-height: inherit;
+    block-size: 100%;
+    max-block-size: inherit;
+    min-block-size: inherit;
     overflow-y: auto;
 
     &::before,
@@ -27,25 +27,25 @@
       background-size: 100% units.$u3;
       content: "";
       display: block;
-      height: units.$u3;
-      left: 0;
+      block-size: units.$u3;
+      inset-inline-start: 0;
       opacity: 0;
       overflow: visible;
       position: absolute;
       transition: opacity 150ms ease-in-out;
-      width: 100%;
+      inline-size: 100%;
       pointer-events: none;
       z-index: 1;
     }
 
     &::before {
       background-image: linear-gradient(to top, rgba(183, 183, 183, 0), rgba(183, 183, 183, 0.7));
-      top: 0;
+      inset-block-start: 0;
     }
 
     &::after {
       background-image: linear-gradient(to bottom, rgba(183, 183, 183, 0), rgba(183, 183, 183, 0.7));
-      bottom: 0;
+      inset-block-end: 0;
     }
 
     &.dso-scroll-bottom {

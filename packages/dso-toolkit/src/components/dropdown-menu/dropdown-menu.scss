@@ -28,9 +28,9 @@
     &::after {
       @include di.base("chevron-down");
 
-      margin-left: units.$u1 * 0.5;
+      margin-inline-start: units.$u1 * 0.5;
       position: relative;
-      top: -2px;
+      inset-block-start: -2px;
     }
 
     &:hover {
@@ -94,9 +94,9 @@
 
             content: "";
             display: block;
-            float: left;
-            margin-left: units.$u4 * -1;
-            margin-right: units.$u1;
+            float: inline-start;
+            margin-inline-start: units.$u4 * -1;
+            margin-inline-end: units.$u1;
           }
         }
       }
@@ -105,15 +105,15 @@
 
   &.dso-dropdown-align-right {
     .dso-dropdown-options {
-      right: 0;
+      inset-inline-end: 0;
     }
   }
 
   .dso-dropdown-options {
     margin: 2px 0 0;
     position: absolute;
-    text-align: left;
-    top: 100%;
+    text-align: start;
+    inset-block-start: 100%;
   }
 }
 
@@ -138,9 +138,9 @@ dso-dropdown-menu {
 
             content: "";
             display: block;
-            float: left;
-            margin-left: units.$u4 * -1;
-            margin-right: units.$u1;
+            float: inline-start;
+            margin-inline-start: units.$u4 * -1;
+            margin-inline-end: units.$u1;
           }
         }
       }
