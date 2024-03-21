@@ -77,13 +77,16 @@ form {
   }
 
   &.dso-banner {
+    --dso-banner-background-color: #{colors.$grasgroen-10};
+
     @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
 
+    position: relative;
+
     min-height: 352px;
+    overflow: hidden;
 
     @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-      position: relative;
-
       padding-block-start: units.$u3;
     }
 
@@ -110,8 +113,7 @@ form {
       min-block-size: calc(100 / 6) + dvi;
 
       background-image: inherit; // inherits from parent, external style set by implememnter
-      background-color: colors.$grasgroen-10;
-      background-position: center;
+      background-color: var(--dso-banner-background-color);
       background-repeat: no-repeat;
       background-size: cover;
 
@@ -120,6 +122,23 @@ form {
         inset: 0;
 
         min-block-size: unset;
+      }
+    }
+
+    &::after {
+      // synthetic background, offsetting the 'background-size: 0' property set above
+      content: "";
+
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+
+      display: block;
+
+      background-color: var(--dso-banner-background-color);
+
+      @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+        display: none;
       }
     }
   }
