@@ -7,7 +7,8 @@
     "cy:run": "cypress run",
     "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
-    "e2e:test": "cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
+    "e2e:test": "cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters",
+    "playwright:test": "playwright test"
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
@@ -15,6 +16,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@dso-toolkit/core": "workspace:^",
     "@infoprojects/prettier-config": "^1.0.0",
+    "@playwright/test": "^1.42.1",
     "@storybook/addon-a11y": "7.5.3",
     "@storybook/addon-actions": "7.5.3",
     "@storybook/addon-essentials": "7.5.3",
@@ -27,6 +29,7 @@
     "@storybook/types": "7.5.3",
     "@storybook/web-components": "7.5.3",
     "@storybook/web-components-webpack5": "7.5.3",
+    "@types/node": "^20.11.30",
     "@whitespace/storybook-addon-html": "5.1.6",
     "axe-core": "^4.8.2",
     "cypress": "^13.6.2",

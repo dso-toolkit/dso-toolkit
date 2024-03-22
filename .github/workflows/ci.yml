@@ -70,6 +70,36 @@ jobs:
             --env DT_REF
             --volume ${{ github.workspace }}/storybook/cypress-parallel:/usr/src/app/storybook/cypress-parallel
           run: yarn e2e
+      - name: "Cache: Playwright snapshots"
+        id: playwright-snapshots-cache
+        uses: actions/cache@v4
+        with:
+          key: playwright-snapshots
+          path: ${{ github.workspace }}/storybook/tests/snapshots
+      - if: ${{ steps.playwright-snapshots-cache.outputs.cache-hit == 'true' }}
+        name: List snapshots
+        continue-on-error: true
+        run: ls -al ${{ github.workspace }}/storybook/tests/snapshots
+      - name: Playwright
+        uses: addnab/docker-run-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+          options: --env CI
+            --env DT_REF
+            --volume ${{ github.workspace }}/storybook/tests/snapshots:/usr/src/app/storybook/tests/snapshots
+            --volume ${{ github.workspace }}/storybook/playwright-report:/usr/src/app/storybook/playwright-report
+            --volume ${{ github.workspace }}/storybook/test-results:/usr/src/app/storybook/test-results
+          run: yarn e2e:playwright
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            ${{ github.workspace }}/storybook/playwright-report
+            ${{ github.workspace }}/storybook/test-results
       - uses: addnab/docker-run-action@v3
         name: Deploy
         with:

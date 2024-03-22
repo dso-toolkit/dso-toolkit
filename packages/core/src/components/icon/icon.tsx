@@ -211,7 +211,7 @@ export class Icon {
   /**
    * The alias of the icon.
    */
-  @Prop()
+  @Prop({ reflect: true })
   icon?: string;
 
   render() {

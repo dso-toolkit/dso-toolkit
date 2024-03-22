@@ -27,6 +27,8 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
 
 WORKDIR /usr/src/app
 
+RUN npx --yes playwright@1.42.1 install --with-deps
+
 COPY package.json yarn.lock .yarnrc.yml ./
 
 COPY angular-workspace/package.json ./angular-workspace/package.json
