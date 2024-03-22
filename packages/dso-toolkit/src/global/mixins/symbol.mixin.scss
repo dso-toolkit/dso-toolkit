@@ -1,0 +1,20 @@
+@use "../../variables/colors";
+@use "../../variables/units";
+
+@mixin symbolContainer($symbol-height, $symbol-width, $margin-block-start: 0) {
+  background-color: colors.$wit;
+  display: block;
+  float: left;
+  height: $symbol-height;
+  margin-block-start: $margin-block-start;
+  margin-inline-end: units.$u1;
+  width: $symbol-width;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin symbol() {
+  display: block;
+  position: absolute;
+  inset: 0;
+}

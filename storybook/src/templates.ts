@@ -63,6 +63,7 @@ import {
   JustifyFormGroups,
   Label,
   LabelGroup,
+  LegendItem,
   LinkList,
   List,
   ListButton,
@@ -126,6 +127,7 @@ import { coreInfo } from "./components/info/info.core-template";
 import { coreInfoButton } from "./components/info-button/info-button.core-template";
 import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { coreLabel } from "./components/label/label.core-template";
+import { coreLegendItem } from "./components/legend-item/legend-item.core-template";
 import { coreListButton } from "./components/list-button/list-button.core-template";
 import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
@@ -270,6 +272,7 @@ export interface Components {
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
   labelGroup: LabelGroup;
+  legendItem: LegendItem<TemplateResult>;
   linkList: LinkList;
   list: List;
   listButton: ListButton;
@@ -357,6 +360,7 @@ templateContainer.add(coreInfo);
 templateContainer.add(coreInfoButton);
 templateContainer.add(coreInputRange);
 templateContainer.add(coreLabel);
+templateContainer.add(coreLegendItem);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);

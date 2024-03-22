@@ -1,14 +1,20 @@
 @use "../label";
+@use "label.variables" as label-variables;
+@use "../../global/mixins/symbol.mixin" as symbol;
 
 // HTML/CSS
 .dso-label {
   @include label.root();
 
   .dso-label-symbol {
-    @include label.symbolContainer();
+    @include symbol.symbolContainer(
+      label-variables.$symbol-height,
+      label-variables.$symbol-height * label-variables.$symbol-aspect-ratio,
+      2px
+    );
 
     > span {
-      @include label.symbol();
+      @include symbol.symbol();
     }
   }
 }
@@ -16,10 +22,14 @@
 // Web Component
 dso-label {
   span[slot="symbol"] {
-    @include label.symbolContainer();
+    @include symbol.symbolContainer(
+      label-variables.$symbol-height,
+      label-variables.$symbol-height * label-variables.$symbol-aspect-ratio,
+      2px
+    );
 
     > span {
-      @include label.symbol();
+      @include symbol.symbol();
     }
   }
 }

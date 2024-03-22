@@ -1,0 +1,12 @@
+@use "legend-item.variables" as legend-item-variables;
+@use "../../global/mixins/symbol.mixin" as symbol;
+
+dso-legend-item {
+  span[slot="symbol"] {
+    @include symbol.symbolContainer(legend-item-variables.$symbol-height, legend-item-variables.$symbol-width);
+
+    > span {
+      @include symbol.symbol();
+    }
+  }
+}

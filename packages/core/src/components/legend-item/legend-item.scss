@@ -1,0 +1,63 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/legend-item/legend-item.variables" as legend-item-variables;
+
+:host {
+  display: block;
+  padding: units.$u1 * 0.5;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+.dso-legend-item {
+  display: flex;
+  position: relative;
+
+  &.dso-legend-item-symbol {
+    + .dso-body {
+      margin-inline-start: legend-item-variables.$symbol-width + units.$u1;
+    }
+  }
+
+  &.dso-legend-item-selectable {
+    + .dso-body {
+      margin-inline-start: legend-item-variables.$selectable-width;
+    }
+
+    &.dso-legend-item-symbol {
+      + .dso-body {
+        margin-inline-start: legend-item-variables.$symbol-width + units.$u1 + legend-item-variables.$selectable-width;
+      }
+    }
+  }
+
+  button {
+    background: none;
+    border: 0;
+    border-radius: 0 #{units.$u1 * 0.5} #{units.$u1 * 0.5} 0;
+    color: inherit;
+    float: right;
+    font-size: typography.$root-font-size-base;
+    margin-block-end: units.$u1 * -0.5;
+    margin-inline-start: units.$u1;
+    margin-inline-end: units.$u1 * -0.5;
+    margin-block-start: 0;
+    padding: 0;
+    position: absolute;
+    inset-inline-end: units.$u2;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    dso-icon {
+      color: colors.$grasgroen;
+    }
+  }
+}
