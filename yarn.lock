@@ -4693,6 +4693,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:^1.42.1":
+  version: 1.42.1
+  resolution: "@playwright/test@npm:1.42.1"
+  dependencies:
+    playwright: "npm:1.42.1"
+  bin:
+    playwright: cli.js
+  checksum: 5bd7f1c77963cacc6f44cf4c1ef46f9ad41e79a3e6f34eb81398afaa09b1b08a4cbe0f7064f03c71c094414d1c4507d6183b61c63aa4b6a93846d386f7c651a2
+  languageName: node
+  linkType: hard
+
 "@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.5":
   version: 0.5.10
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.10"
@@ -7814,10 +7825,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0":
-  version: 20.3.1
-  resolution: "@types/node@npm:20.3.1"
-  checksum: 21440822013405d0406b291db9ad8bb19b811499a9a675dd9e3ca620c9231828534b111043a7f661babbe28503e7ddaed3b3681aceb95df23ce0a04d2aff3223
+"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^20.11.30":
+  version: 20.11.30
+  resolution: "@types/node@npm:20.11.30"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 78515bc768d2b878e2e06a1c20eb4f5840072b79b8d28ff3dd0a7feaaf48fd3a2ac03cfa5bc7564da82db5906b43e9ba0e5df9f43d870b7aae2942306e208815
   languageName: node
   linkType: hard
 
@@ -13086,6 +13099,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.23.3"
     "@dso-toolkit/core": "workspace:^"
     "@infoprojects/prettier-config": "npm:^1.0.0"
+    "@playwright/test": "npm:^1.42.1"
     "@storybook/addon-a11y": "npm:7.5.3"
     "@storybook/addon-actions": "npm:7.5.3"
     "@storybook/addon-essentials": "npm:7.5.3"
@@ -13098,6 +13112,7 @@ __metadata:
     "@storybook/types": "npm:7.5.3"
     "@storybook/web-components": "npm:7.5.3"
     "@storybook/web-components-webpack5": "npm:7.5.3"
+    "@types/node": "npm:^20.11.30"
     "@whitespace/storybook-addon-html": "npm:5.1.6"
     axe-core: "npm:^4.8.2"
     cypress: "npm:^13.6.2"
@@ -15640,6 +15655,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fsevents@npm:2.3.2":
+  version: 2.3.2
+  resolution: "fsevents@npm:2.3.2"
+  dependencies:
+    node-gyp: "npm:latest"
+  checksum: 6b5b6f5692372446ff81cf9501c76e3e0459a4852b3b5f1fc72c103198c125a6b8c72f5f166bdd76ffb2fca261e7f6ee5565daf80dca6e571e55bcc589cc1256
+  conditions: os=darwin
+  languageName: node
+  linkType: hard
+
 "fsevents@npm:^1.2.7":
   version: 1.2.13
   resolution: "fsevents@npm:1.2.13"
@@ -15657,6 +15682,15 @@ __metadata:
   dependencies:
     node-gyp: "npm:latest"
   checksum: 4c1ade961ded57cdbfbb5cac5106ec17bc8bccd62e16343c569a0ceeca83b9dfef87550b4dc5cbb89642da412b20c5071f304c8c464b80415446e8e155a038c0
+  conditions: os=darwin
+  languageName: node
+  linkType: hard
+
+"fsevents@patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>":
+  version: 2.3.2
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+  dependencies:
+    node-gyp: "npm:latest"
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -23169,6 +23203,30 @@ __metadata:
   dependencies:
     find-up: "npm:^3.0.0"
   checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:1.42.1":
+  version: 1.42.1
+  resolution: "playwright-core@npm:1.42.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 6a71d2e2aa5b054d6e83836f09e139a0ff4de3aa9b6aebe0e03de3ab828c735d23a20a60fafcee91c1658da490cc390f05af463325ac842beaff58a173f7ad9e
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.42.1":
+  version: 1.42.1
+  resolution: "playwright@npm:1.42.1"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.42.1"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 1f866a6820e19feaaeb12cd87bfa93299d6d72e1287413098c5ae0349c7e7953eb0a303bdfbb99c12173a3493e6fdb642f89a166cfcfd8295254a520abf6eb7f
   languageName: node
   linkType: hard
 

@@ -1,3 +1,9 @@
 cypress-parallel/
 runner-results/
 www/
+
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/tests/snapshots/

@@ -18,3 +18,9 @@ packages/core/CHANGELOG.md
 packages/core/README.md
 
 website/.docusaurus
+
+storybook/test-results
+storybook/playwright-report
+storybook/blob-report
+storybook/playwright/.cache
+storybook/tests/snapshots

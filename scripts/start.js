@@ -32,6 +32,12 @@ const startCypress = {
   prefixColor: "bgGreen",
 };
 
+const startPlaywright = {
+  command: "wait-on http://localhost:45000 && yarn workspace dso-storybook playwright test --ui",
+  name: "playwright",
+  prefixColor: "bgBlue",
+};
+
 const watchToolkit = {
   command: "yarn workspace dso-toolkit watch",
   name: "toolkit",
@@ -67,7 +73,7 @@ if (!argv.mode) {
     });
   } else {
     // normal
-    concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
+    concurrently([watchToolkit, watchCore, startStorybook, startCypress, startPlaywright], {
       killOthers: ["failure", "success"],
     });
   }
