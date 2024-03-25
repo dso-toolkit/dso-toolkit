@@ -1,0 +1,18 @@
+import { ArgTypes } from "@storybook/types";
+
+import { {{ pascalCase name }} } from "./{{ kebabCase name }}.models.js";
+
+export interface {{ pascalCase name }}Args {
+}
+
+export const {{ camelCase name }}Args: {{ pascalCase name }}Args = {
+};
+
+export const {{ camelCase name}}ArgTypes: ArgTypes<{{ pascalCase name }}Args> = {
+};
+
+export function {{ camelCase name }}ArgsMapper(a: {{ pascalCase name }}Args): {{ pascalCase name }} {
+  return {
+    ...a
+  };
+}
