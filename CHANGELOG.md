@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 * Advanced Select: Placeholder optie toegevoegd ([#2587](https://github.com/dso-toolkit/dso-toolkit/issues/2587))
 
+### Fixed
+* Accordion: Remove duplicate colon ([#2576](https://github.com/dso-toolkit/dso-toolkit/issues/2576))
+
 ### Tasks
 * Build: Visueel regressietesten ([#2588](https://github.com/dso-toolkit/dso-toolkit/issues/2588))
 * Platform: Code generator ([#2566](https://github.com/dso-toolkit/dso-toolkit/issues/2566))

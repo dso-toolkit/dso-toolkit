@@ -10,11 +10,11 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
   template: ({ attachmentsCounterTemplate, iconTemplate }) =>
     function accordionTemplate(accordion) {
       const statusMap = new Map<string, string>([
-        ["success", "succes:"],
-        ["info", "info:"],
-        ["warning", "waarschuwing:"],
-        ["danger", "fout:"],
-        ["error", "fout:"],
+        ["success", "succes"],
+        ["info", "info"],
+        ["warning", "waarschuwing"],
+        ["danger", "fout"],
+        ["error", "fout"],
       ]);
 
       function accordionHandleChildren(
