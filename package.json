@@ -58,5 +58,10 @@
   "resolutions": {
     "@types/react@^16.14.23": "18.0.25",
     "puppeteer-core@^2.1.1": "13.5.2"
+  },
+  "devDependencies": {
+    "@types/sinon": "^17.0.3",
+    "eslint-plugin-playwright": "^1.5.4",
+    "sinon": "^17.0.1"
   }
 }

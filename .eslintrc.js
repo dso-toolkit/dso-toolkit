@@ -39,6 +39,10 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ["storybook/tests/**/*.ts"],
+      extends: ["@infoprojects/eslint-config", "plugin:playwright/recommended", "prettier"],
+    },
   ],
   plugins: ["@typescript-eslint", "only-warn", "lit"],
   extends: ["@infoprojects/eslint-config", "prettier"],
