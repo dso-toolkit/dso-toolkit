@@ -1,0 +1,57 @@
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
+import { {{ pascalCase name }}Args, {{ camelCase name }}Args, {{ camelCase name }}ArgTypes, {{ camelCase name }}ArgsMapper } from "./{{ kebabCase name }}.args.js";
+import { {{ pascalCase name }} } from "./{{ kebabCase name }}.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type {{ pascalCase name }}Story = StoryObj<{{ pascalCase name }}Args, Renderer>;
+
+interface {{ pascalCase name }}Stories {
+  Default: {{ pascalCase name }}Story;
+}
+
+interface {{ pascalCase name }}StoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    {{ pascalCase name }}Templates<TemplateFnReturnType>
+  > {}
+
+interface {{ pascalCase name }}Templates<TemplateFnReturnType> {
+  {{ camelCase name }}Template: ({{ camelCase name }}Properties: {{ pascalCase name }}) => TemplateFnReturnType;
+}
+
+export function {{ camelCase name }}Meta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  {{ pascalCase name }}Args
+> {
+  return {
+    argTypes: {{ camelCase name }}ArgTypes,
+    args: {{ camelCase name }}Args,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function {{ camelCase name }}Stories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: {{ pascalCase name }}StoriesParameters<Implementation, Templates, TemplateFnReturnType>): {{ pascalCase name }}Stories {
+  return {
+    Default: {
+      args: {},
+      render: templateContainer.render(storyTemplates, (args, { {{ camelCase name }}Template }) =>
+        {{ camelCase name }}Template({{ camelCase name }}ArgsMapper(args)),
+      ),
+    },
+  };
+}

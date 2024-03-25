@@ -1,0 +1,16 @@
+import { Component, ComponentInterface, h } from "@stencil/core";
+
+// import {  } from "./{{ kebabCase name }}.interfaces";
+
+@Component({
+  tag: "dso-{{ kebabCase name }}",
+  styleUrl: "{{ kebabCase name }}.scss",
+  shadow: true,
+})
+export class {{ pascalCase name }} implements ComponentInterface {
+  render() {
+    return (
+      <div>{{ name }}</div>
+    );
+  }
+}
