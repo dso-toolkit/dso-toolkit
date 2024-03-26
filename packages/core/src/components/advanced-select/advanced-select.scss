@@ -200,3 +200,9 @@
   font-size: advanced-select.$option-font-size;
   font-weight: advanced-select.$option-active-font-weight;
 }
+
+.placeholder {
+  margin: 0;
+  padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
+  color: advanced-select.$option-placeholder-color;
+}

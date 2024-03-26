@@ -18,7 +18,16 @@ export interface AdvancedSelectGroup<T> {
   variant?: AdvancedSelectVariant;
 }
 
-export type AdvancedSelectOptionOrGroup<T> = AdvancedSelectOption<T> | AdvancedSelectGroup<T>;
+export interface AdvancedSelectPlaceholder {
+  label: string;
+  redirect?: AdvancedSelectGroupRedirect;
+  placeholder: string;
+}
+
+export type AdvancedSelectOptionOrGroup<T> =
+  | AdvancedSelectOption<T>
+  | AdvancedSelectGroup<T>
+  | AdvancedSelectPlaceholder;
 
 export interface AdvancedSelectChangeEvent<T> {
   originalEvent: MouseEvent;

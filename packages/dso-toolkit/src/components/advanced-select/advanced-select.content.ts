@@ -47,4 +47,12 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
       },
     ],
   },
+  {
+    label: "Groep met placeholder",
+    placeholder: "Er zijn alleen ontwerpen met een afgeronde inzage termijn voor dit document.",
+    redirect: {
+      href: "#",
+      label: "Bekijk ontwerpen met afgeronde inzage termijn",
+    },
+  },
 ];

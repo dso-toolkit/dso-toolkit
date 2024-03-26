@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Advanced Select: Placeholder optie toegevoegd ([#2587](https://github.com/dso-toolkit/dso-toolkit/issues/2587))
+
 ### Tasks
 * Platform: Code generator ([#2566](https://github.com/dso-toolkit/dso-toolkit/issues/2566))
 
