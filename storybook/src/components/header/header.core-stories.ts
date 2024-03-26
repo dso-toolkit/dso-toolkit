@@ -3,11 +3,11 @@ import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/header/readme.md?raw";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),
-  title: "Header",
+  title: "Core/Header",
 };
 
 export default meta;

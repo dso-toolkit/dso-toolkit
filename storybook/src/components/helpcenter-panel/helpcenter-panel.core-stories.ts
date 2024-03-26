@@ -3,11 +3,11 @@ import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/helpcenter-panel/readme.md?raw";
 
 const meta: Meta<HelpcenterPanelArgs> = {
   ...helpcenterPanelMeta({ readme }),
-  title: "Helpcenter Panel",
+  title: "HTML|CSS/Helpcenter Panel",
 };
 
 export default meta;

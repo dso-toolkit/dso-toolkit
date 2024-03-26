@@ -11,6 +11,7 @@ export interface HeaderArgs {
   mainMenu: {
     label: string;
     url: string;
+    active?: boolean;
   }[];
   noMainMenu: boolean;
   useDropDownMenu: "always" | "auto";

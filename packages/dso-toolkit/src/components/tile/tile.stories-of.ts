@@ -1,40 +1,63 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { TileArgs, tileArgsMapper, tileArgTypes } from "./tile.args.js";
 import { Tile } from "./tile.models.js";
 
-export interface TileTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type TileStory = StoryObj<TileArgs, Renderer>;
+
+interface TileStories {
+  Default: TileStory;
+  Theme: TileStory;
+}
+
+interface TileStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TileTemplates<TemplateFnReturnType>> {}
+
+interface TileTemplates<TemplateFnReturnType> {
   tileTemplate: (tileProperties: Tile) => TemplateFnReturnType;
 }
 
-export function storiesOfTile<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TileTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Tile", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: tileArgTypes,
-      args: componentArgs<TileArgs>({
+export function tileMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  TileArgs
+> {
+  return {
+    argTypes: tileArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function tileStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: TileStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TileStories {
+  return {
+    Default: {
+      args: {
         label: "Boom kappen of snoeien",
         imageSource: "images/icon-tree.png",
         imageAlt: "",
-      }),
-    });
-
-    const template = templateMapper<TileArgs>((args, { tileTemplate }) => tileTemplate(tileArgsMapper(args)));
-
-    stories.add("default", template);
-
-    stories.add("theme", template, {
-      args: componentArgs<Pick<TileArgs, "variant">>({
+      },
+      render: templateContainer.render(storyTemplates, (args, { tileTemplate }) => tileTemplate(tileArgsMapper(args))),
+    },
+    Theme: {
+      args: {
+        label: "Boom kappen of snoeien",
+        imageSource: "images/icon-tree.png",
+        imageAlt: "",
         variant: "theme",
-      }),
-    });
-
-    return stories;
-  });
+      },
+      render: templateContainer.render(storyTemplates, (args, { tileTemplate }) => tileTemplate(tileArgsMapper(args))),
+    },
+  };
 }

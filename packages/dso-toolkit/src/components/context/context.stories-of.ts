@@ -1,58 +1,85 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ContextArgs, contextArgsMapper, contextArgTypes } from "./context.args.js";
 import { Context } from "./context.models.js";
 
-export interface ContextTemplates<TemplateFnReturnType> {
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type ContextStory = StoryObj<ContextArgs, Renderer>;
+
+interface ContextStories {
+  Label: ContextStory;
+  Legend: ContextStory;
+  LabelAlignLeft: ContextStory;
+  LegendAlignLeft: ContextStory;
+}
+
+interface ContextStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ContextTemplates<TemplateFnReturnType>> {}
+
+interface ContextTemplates<TemplateFnReturnType> {
   contextTemplate: (contextProperties: Context<TemplateFnReturnType>) => TemplateFnReturnType;
   children: TemplateFnReturnType;
   content: TemplateFnReturnType;
   label: TemplateFnReturnType;
 }
 
-export function storiesOfContext<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ContextTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Context", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: contextArgTypes,
-    });
+export function contextMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ContextArgs
+> {
+  return {
+    argTypes: contextArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    const template = templateMapper<ContextArgs>((args, { contextTemplate, children, content, label }) =>
-      contextTemplate(contextArgsMapper(args, content, children, label)),
-    );
-
-    stories.add("Label", template, {
+export function contextStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ContextStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ContextStories {
+  return {
+    Label: {
       args: {
         type: "label",
       },
-    });
-
-    stories.add("Legend", template, {
+      render: templateContainer.render(storyTemplates, (args, { contextTemplate, children, content, label }) =>
+        contextTemplate(contextArgsMapper(args, content, children, label)),
+      ),
+    },
+    Legend: {
       args: {
         type: "legend",
       },
-    });
-
-    stories.add("Label - align left", template, {
+      render: templateContainer.render(storyTemplates, (args, { contextTemplate, children, content, label }) =>
+        contextTemplate(contextArgsMapper(args, content, children, label)),
+      ),
+    },
+    LabelAlignLeft: {
       args: {
         type: "label",
         alignLeft: true,
       },
-    });
-
-    stories.add("Legend - align left", template, {
+      render: templateContainer.render(storyTemplates, (args, { contextTemplate, children, content, label }) =>
+        contextTemplate(contextArgsMapper(args, content, children, label)),
+      ),
+    },
+    LegendAlignLeft: {
       args: {
         type: "legend",
         alignLeft: true,
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { contextTemplate, children, content, label }) =>
+        contextTemplate(contextArgsMapper(args, content, children, label)),
+      ),
+    },
+  };
 }

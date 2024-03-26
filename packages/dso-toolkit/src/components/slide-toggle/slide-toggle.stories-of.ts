@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
 import {
   SlideToggleArgs,
   slideToggleArgsMapper,
@@ -8,56 +9,87 @@ import {
 } from "./slide-toggle.args.js";
 import { SlideToggle } from "./slide-toggle.models.js";
 
-export interface SlideToggleTemplates<TemplateFnReturnType> {
-  slideToggleTemplate: (slideToggleProperties: SlideToggle) => TemplateFnReturnType;
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+type SlideToggleStory = StoryObj<SlideToggleArgs, Renderer>;
+
+interface SlideToggleStories {
+  Default: SlideToggleStory;
+  Disabled: SlideToggleStory;
+  ZichtbaarLabel: SlideToggleStory;
+  LabelledById: SlideToggleStory;
 }
 
-export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface SlideToggleStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     SlideToggleTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Slide Toggle", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: slideToggleArgTypes,
-      args: {},
-    });
+  > {}
 
-    const template = templateMapper<SlideToggleArgs>((args, { slideToggleTemplate }) =>
-      slideToggleTemplate(slideToggleArgsMapper(args)),
-    );
+interface SlideToggleTemplates<TemplateFnReturnType> {
+  slideToggleTemplate: (slideToggleProperties: SlideToggle) => TemplateFnReturnType;
+}
 
-    stories.add("default", template, {
+export function slideToggleMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  SlideToggleArgs
+> {
+  return {
+    argTypes: slideToggleArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function slideToggleStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: SlideToggleStoriesParameters<Implementation, Templates, TemplateFnReturnType>): SlideToggleStories {
+  return {
+    Default: {
       args: slideToggleDefaultArgs({
         checked: false,
         accessibleLabel: "sr-only label van het schuifje",
       }),
-    });
-
-    stories.add("disabled", template, {
+      render: templateContainer.render(storyTemplates, (args, { slideToggleTemplate }) =>
+        slideToggleTemplate(slideToggleArgsMapper(args)),
+      ),
+    },
+    Disabled: {
       args: slideToggleDefaultArgs({
         checked: false,
         disabled: true,
       }),
-    });
-
-    stories.add("zichtbaar label", template, {
+      render: templateContainer.render(storyTemplates, (args, { slideToggleTemplate }) =>
+        slideToggleTemplate(slideToggleArgsMapper(args)),
+      ),
+    },
+    ZichtbaarLabel: {
       args: slideToggleDefaultArgs({
         checked: false,
         useOwnLabelId: uuidv4(),
       }),
-    });
-
-    stories.add("labelledbyId", template, {
+      render: templateContainer.render(storyTemplates, (args, { slideToggleTemplate }) =>
+        slideToggleTemplate(slideToggleArgsMapper(args)),
+      ),
+    },
+    LabelledById: {
       args: slideToggleDefaultArgs({
         checked: false,
         labelledbyId: uuidv4(),
       }),
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { slideToggleTemplate }) =>
+        slideToggleTemplate(slideToggleArgsMapper(args)),
+      ),
+    },
+  };
 }
