@@ -160,9 +160,9 @@ export class AdvancedSelect implements ComponentInterface {
                     (option): option is AdvancedSelectGroup<never> =>
                       "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
                   )
-                  .map((group) => {
-                    return <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>;
-                  })}
+                  .map((group) => (
+                    <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
+                  ))}
               </span>
             )}
             <dso-icon icon="caret-down"></dso-icon>
@@ -171,39 +171,52 @@ export class AdvancedSelect implements ComponentInterface {
         {this.open && (
           <div class="groups-container">
             <ul class="groups">
-              {this.options.map((optionOrGroup) =>
-                "options" in optionOrGroup ? (
-                  <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
-                    {optionOrGroup.label && <p class="group-label">{optionOrGroup.label}</p>}
-                    <ul class="options">
-                      {optionOrGroup.options.map((option) => (
-                        <OptionElement
-                          option={option}
-                          active={this.active}
-                          activeHint={this.activeHint}
-                          callback={this.handleOptionClick}
-                        />
-                      ))}
-                    </ul>
-                    {optionOrGroup.redirect && (
-                      <a
-                        class="group-link"
-                        href={optionOrGroup.redirect.href}
-                        onClick={(e) => optionOrGroup.redirect && this.handleRedirectClick(e, optionOrGroup.redirect)}
-                      >
-                        {optionOrGroup.redirect.label}
-                        <dso-icon icon="chevron-right"></dso-icon>
-                      </a>
-                    )}
-                  </li>
-                ) : (
-                  <OptionElement
-                    option={optionOrGroup}
-                    active={this.active}
-                    activeHint={this.activeHint}
-                    callback={this.handleOptionClick}
-                  />
-                ),
+              {this.options.map(
+                (optionOrGroup) =>
+                  ("options" in optionOrGroup && (
+                    <li class={clsx(["group", { [`group-${optionOrGroup.variant}`]: !!optionOrGroup.variant }])}>
+                      <p class="group-label">{optionOrGroup.label}</p>
+                      <ul class="options">
+                        {optionOrGroup.options.map((option) => (
+                          <li>
+                            <OptionElement
+                              option={option}
+                              active={this.active}
+                              activeHint={this.activeHint}
+                              callback={this.handleOptionClick}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                      {optionOrGroup.redirect && (
+                        <RedirectElement
+                          redirect={optionOrGroup.redirect}
+                          callback={this.handleRedirectClick}
+                        ></RedirectElement>
+                      )}
+                    </li>
+                  )) ||
+                  ("placeholder" in optionOrGroup && (
+                    <li class="group">
+                      <p class="group-label">{optionOrGroup.label}</p>
+                      <PlaceholderElement placeholder={optionOrGroup.placeholder}></PlaceholderElement>
+                      {optionOrGroup.redirect && (
+                        <RedirectElement
+                          redirect={optionOrGroup.redirect}
+                          callback={this.handleRedirectClick}
+                        ></RedirectElement>
+                      )}
+                    </li>
+                  )) || (
+                    <li>
+                      <OptionElement
+                        option={optionOrGroup}
+                        active={this.active}
+                        activeHint={this.activeHint}
+                        callback={this.handleOptionClick}
+                      />
+                    </li>
+                  ),
               )}
             </ul>
           </div>
@@ -213,20 +226,32 @@ export class AdvancedSelect implements ComponentInterface {
   }
 }
 
+const PlaceholderElement: FunctionalComponent<{
+  placeholder: string;
+}> = ({ placeholder }) => <p class="placeholder">{placeholder}</p>;
+
 const OptionElement: FunctionalComponent<{
   option: AdvancedSelectOption<never>;
   active: AdvancedSelectOption<never> | undefined;
   activeHint: string | undefined;
   callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
 }> = ({ option, active, activeHint, callback }) => (
-  <li>
-    <button
-      class={clsx(["option", { "option-active": active === option }])}
-      type="button"
-      onClick={(e) => callback(e, option)}
-    >
-      <span class="option-label">{option.label}</span>
-      {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
-    </button>
-  </li>
+  <button
+    class={clsx(["option", { "option-active": active === option }])}
+    type="button"
+    onClick={(e) => callback(e, option)}
+  >
+    <span class="option-label">{option.label}</span>
+    {!!activeHint && active === option && <span class="option-hint">({activeHint})</span>}
+  </button>
+);
+
+const RedirectElement: FunctionalComponent<{
+  redirect: AdvancedSelectGroupRedirect;
+  callback: (event: MouseEvent, value: AdvancedSelectGroupRedirect) => void;
+}> = ({ redirect, callback }) => (
+  <a class="group-link" href={redirect.href} onClick={(e) => callback(e, redirect)}>
+    {redirect.label}
+    <dso-icon icon="chevron-right"></dso-icon>
+  </a>
 );
