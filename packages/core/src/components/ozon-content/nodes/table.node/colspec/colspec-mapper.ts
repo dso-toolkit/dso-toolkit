@@ -1,4 +1,4 @@
-import { Colspecs } from "./colspec.interface";
+import { Colspec, Colspecs } from "./colspec.interface";
 
 export function mapColspecs(count: number, nodeList: NodeListOf<Element>): Colspecs {
   const elements = Array.from(nodeList);
@@ -7,12 +7,14 @@ export function mapColspecs(count: number, nodeList: NodeListOf<Element>): Colsp
   return {
     totalWidth,
     count,
-    columns: elements.map((element, index) => {
+    columns: elements.map((element, index): Colspec => {
       const colNumber = element.getAttribute("colnum");
 
       return {
+        colsep: element.getAttribute("colsep"),
         name: element.getAttribute("colname") ?? "",
         number: colNumber ? parseInt(colNumber, 10) : index + 1,
+        rowsep: element.getAttribute("rowsep"),
         width: getWidth(totalWidth, element),
       };
     }),

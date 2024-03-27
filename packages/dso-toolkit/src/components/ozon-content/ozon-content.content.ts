@@ -1162,6 +1162,192 @@ export const content = [
       </Inhoud>`,
   },
   {
+    title: "Table zonder colsep en met rowsep",
+    content: `
+      <table
+        colsep='0'
+        eId='chp_3__subchp_3.5__subsec_3.5.4__subsec_3.5.4.2__art_3.34__para_1__list_o_1__item_b__table_o_1'
+        frame='topbot'
+        pgwide='0'
+        rowsep='0'
+        tabstyle='xml2'
+        wId='mnre1034_1-0__chp_3__subchp_3.5__subsec_3.5.4__subsec_3.5.4.2__art_3.34__para_1__list_o_1__item_b__table_o_1'
+      >
+        <title>Tabel 3.34: Standaardwaarde geluid op een geluidgevoelig gebouw per geluidbronsoort</title>
+        <tgroup align='left' cols='2'>
+          <colspec colname='col1' colnum='1' colwidth='50*'/>
+          <colspec colname='col2' colnum='2' colwidth='50*'/>
+          <thead valign='bottom'>
+            <row rowsep='1'>
+            <entry align='left' colname='col1' colsep='1' rotate='0' valign='top'>
+              <Al>
+                <b>Geluidbronsoort</b>
+              </Al>
+            </entry>
+            <entry align='left' colname='col2' colsep='1' rotate='0' valign='top'>
+              <Al>
+                <b>Standaardwaarde</b>
+              </Al>
+            </entry>
+          </row>
+          </thead>
+          <tbody valign='top'>
+            <row rowsep='1'>
+              <entry align='left' colname='col1' colsep='1' rotate='0' valign='middle'>
+                <Al>Provinciale wegen</Al>
+                <Al>Rijkswegen</Al>
+              </entry>
+              <entry align='left' colname='col2' colsep='1' rotate='0' valign='middle'>
+                <Al>50 L
+                  <sub>den</sub>
+                </Al>
+              </entry>
+            </row>
+            <row rowsep='1'>
+              <entry align='left' colname='col1' colsep='1' rotate='0' valign='middle'>
+                <Al>Gemeentewegen</Al>
+                <Al>Waterschapswegen</Al>
+              </entry>
+              <entry align='left' colname='col2' colsep='1' rotate='0' valign='middle'>
+                <Al>53 L
+                  <sub>den</sub>
+                </Al>
+              </entry>
+            </row>
+            <row rowsep='1'>
+              <entry align='left' colname='col1' colsep='1' rotate='0' valign='middle'>
+                <Al>Lokale spoorwegen</Al>
+                <Al>Hoofdspoorwegen</Al>
+              </entry>
+              <entry align='left' colname='col2' colsep='1' rotate='0' valign='middle'>
+                <Al>55 L
+                  <sub>den</sub>
+                </Al>
+              </entry>
+            </row>
+            <row rowsep='0'>
+              <entry align='left' colname='col1' colsep='1' morerows='1' rotate='0' valign='middle'>
+                <Al>Industrieterreinen</Al>
+              </entry>
+              <entry align='left' colname='col2' colsep='1' rotate='0' rowsep='1' valign='middle'>
+                <Al>50 L
+                  <sub>den</sub>
+                </Al>
+              </entry>
+            </row>
+            <row rowsep='0'>
+            <entry align='left' colname='col2' colsep='1' rotate='0' valign='middle'>
+              <Al>40 L
+                <sub>night</sub>
+              </Al>
+            </entry>
+          </row>
+          </tbody>
+        </tgroup>
+      </table>
+    `,
+  },
+  {
+    title: "Complexe Table zonder colsep en met rowsep",
+    content: `
+      <table
+        colsep='0'
+        eId='chp_3__subchp_3.5__subsec_3.5.5__art_3.53__para_1__table_o_1'
+        frame='topbot'
+        pgwide='0'
+        rowsep='0'
+        tabstyle='xml2'
+        wId='mnre1034_1-0__chp_3__subchp_3.5__subsec_3.5.5__art_3.53__para_1__table_o_1'
+      >
+        <title>Tabel 3.53: Grenswaarde in geluidgevoelige ruimten (binnenwaarde)</title>
+        <tgroup align='left' cols='3' colsep='1' rowsep='1'>
+          <colspec align='center' colname='col1' colnum='1' colsep='0' colwidth='37.1*'/>
+          <colspec colname='col2' colnum='2' colsep='0' colwidth='44.9*'/>
+          <colspec align='center' colname='col3' colnum='3' colwidth='17.9*'/>
+          <thead valign='bottom'>
+            <row rowsep='1' valign='top'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='1' valign='top'>
+                    <Al>
+                        <b>Gebouw in het geluidaandachtsgebied van rijkswegen of hoofdspoorwegen</b>
+                    </Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rotate='0' rowsep='1' valign='top'>
+                    <Al>
+                        <b>Gebouw in het geluidaandachtsgebied van gemeentewegen, waterschapswegen, provinciale wegen, lokale spoorwegen of industrieterreinen</b>
+                    </Al>
+                </entry>
+                <entry align='center' colname='col3' colsep='1' rotate='0' rowsep='1' valign='top'>
+                    <Al>
+                        <b>Binnenwaarde in L
+                            <sub>den</sub>
+                        </b>
+                    </Al>
+                </entry>
+            </row>
+          </thead>
+          <tbody valign='top'>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='0' valign='middle'/>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='0' valign='middle'>
+                    <Al>Geluidgevoelig gebouw waarvoor de bouwvergunning is afgegeven voor 1 januari 1982 waarvoor <IntRef ref='chp_12__subchp_12.1__subsec_12.1.6'>paragraaf 12.1.6</IntRef> wordt of is uitgevoerd
+                    </Al>
+                </entry>
+                <entry align='center' colname='col3' morerows='6' rotate='0' rowsep='1' valign='middle'>
+                    <Al>41</Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='0' valign='middle'/>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='0' valign='middle'>
+                    <Al>of</Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='0' valign='middle'>
+                    <Al>Geluidgevoelig gebouw waarvoor de bouwvergunning is afgegeven voor 1 januari 1982 en dat ligt langs een weg die in gebruik is genomen voor 1 januari 1982 of langs een spoorweg die in gebruik is genomen voor 1 juli 1987</Al>
+                </entry>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='0' valign='middle'>
+                    <Al>geluidgevoelig gebouw dat eerder op grond van de <ExtRef xmlns='' ref='http://wetten.overheid.nl/jci1.3:c:BWBR0003227'>Wet geluidhinder</ExtRef> vanwege het geluid door wegen of spoorwegen op kosten van het Rijk is gesaneerd
+                    </Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='0' valign='middle'/>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='0' valign='middle'>
+                    <Al>of</Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='0' valign='middle'/>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='0' valign='middle'/>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' rotate='0' rowsep='1' valign='middle'/>
+                <entry align='center' colname='col2' colsep='0' rotate='0' rowsep='1' valign='middle'>
+                    <Al>woning als bedoeld in <ExtRef xmlns='' ref='http://wetten.overheid.nl/jci1.3:c:BWBR0003227&amp;artikel=111b'>artikel 111b, eerste lid, aanhef en onder a, van de Wet geluidhinder</ExtRef>, en ander geluidsgevoelig gebouw als bedoeld in <ExtRef xmlns='' ref='http://wetten.overheid.nl/jci1.3:c:BWBR0020445&amp;artikel=2.5'>artikel 2.5, aanhef en onder b, van het Besluit geluidhinder</ExtRef>, zoals die artikelen luidden voor inwerkingtreding van dit besluit
+                    </Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' nameend='col2' namest='col1' rotate='0' rowsep='1' valign='middle'>
+                    <Al>Geluidgevoelig gebouw dat door wijziging van de gebruiksfunctie geluidgevoelig is geworden en waarvoor <ExtRef xmlns='' ref='http://wetten.overheid.nl/jci1.3:c:BWBR0041297&amp;artikel=5.23a'>artikel 5.23a, aanhef en onder b, van het Besluit bouwwerken leefomgeving</ExtRef> is toegepast
+                    </Al>
+                </entry>
+            </row>
+            <row rowsep='0'>
+                <entry align='center' colname='col1' colsep='0' nameend='col2' namest='col1' rotate='0' rowsep='1' valign='middle'>
+                    <Al>Ander geluidgevoelig gebouw</Al>
+                </entry>
+                <entry align='center' colname='col3' colsep='1' rotate='0' rowsep='1' valign='middle'>
+                    <Al>36</Al>
+                </entry>
+            </row>
+        </tbody>
+        </tgroup>
+      </table>
+    `,
+  },
+  {
     title: "Renvooi-weergave",
     content: `
       <Artikel eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60">

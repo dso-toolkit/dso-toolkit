@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Ozon Content: Tabel toevoegingen STOP implementeren in Ozon documentweergave ([#2423](https://github.com/dso-toolkit/dso-toolkit/issues/2423))
+
 ## 📈 62.17.0 - 26-03-2024
 
 ### Added

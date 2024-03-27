@@ -2,6 +2,22 @@
 
 @use "../table";
 
+@mixin outside-lines-sides() {
+  thead {
+    border-inline-start: 1px solid table.$th-border-color;
+    border-inline-end: 1px solid table.$th-border-color;
+  }
+  tbody {
+    border-inline-start: 1px solid table.$border-color;
+    border-inline-end: 1px solid table.$border-color;
+  }
+}
+
+@mixin outside-lines-topbot() {
+  border-block-start: 1px solid table.$th-border-color;
+  border-block-end: 1px solid table.$border-color;
+}
+
 @mixin row-variant($state, $background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
