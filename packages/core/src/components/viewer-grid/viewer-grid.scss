@@ -117,7 +117,8 @@ button {
   z-index: zindex.$viewer-grid-main-panel;
 
   .sizing-buttons {
-    top: calc(50vh - #{core-viewer-grid-variables.$resize-button-size});
+    top: auto;
+    bottom: core-viewer-grid-variables.$sizing-buttons-top;
     right: calc(100% + 1px);
     transition: right core-viewer-grid-variables.$transition-time ease-in;
     padding: 0 0 units.$u1 * 0.5 units.$u1 * 0.5;
