@@ -1,6 +1,48 @@
-import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, State } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  forceUpdate,
+  FunctionalComponent,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
 import debounce from "debounce";
 import { createFocusTrap, FocusTrap } from "focus-trap";
+
+type ImageOverlayWijzigactie = "voegtoe" | "verwijder";
+
+const wijzigactieLabels: { [wijzigactie in ImageOverlayWijzigactie]: string } = {
+  verwijder: "Verwijderd",
+  voegtoe: "Toegevoegd",
+};
+
+const Dimmer: FunctionalComponent<{
+  active: boolean;
+  src: string | undefined;
+  alt: string | undefined;
+  ref: (element: HTMLHeadingElement | undefined) => void;
+  click: () => void;
+}> = ({ active, src, alt, ref, click }, children) =>
+  active &&
+  src &&
+  alt && (
+    <div class="dimmer">
+      <div class="wrapper" ref={ref}>
+        {children[2]}
+        {children[0]}
+        <img src={src} alt={alt} />
+        <button type="button" class="close" onClick={click}>
+          <dso-icon icon="times"></dso-icon>
+          <span>Sluiten</span>
+        </button>
+        {children[1]}
+      </div>
+    </div>
+  );
 
 @Component({
   tag: "dso-image-overlay",
@@ -10,6 +52,12 @@ import { createFocusTrap, FocusTrap } from "focus-trap";
 export class ImageOverlay implements ComponentInterface {
   @Element()
   host!: HTMLDsoImageOverlayElement;
+
+  /**
+   * The wijzigactie.
+   */
+  @Prop()
+  wijzigactie?: string;
 
   @State()
   active = false;
@@ -102,40 +150,106 @@ export class ImageOverlay implements ComponentInterface {
     this.zoomable = width < naturalWidth || height < naturalHeight;
   }
 
+  private isWijzigactie(wijzigActie: string): wijzigActie is ImageOverlayWijzigactie {
+    return wijzigActie === "voegtoe" || wijzigActie === "verwijder";
+  }
+
   render() {
     const { src, alt } = this.host.querySelector("img") ?? {};
 
-    return (
-      <Host onClick={() => this.buttonElement?.focus()}>
-        {this.active && src && alt && (
-          <div class="dimmer">
-            <div class="wrapper" ref={(element) => (this.wrapperElement = element)}>
-              <div class="titel" hidden={!this.titelSlot}>
-                <slot name="titel" />
-              </div>
-              <img src={src} alt={alt} />
-              <button type="button" class="close" onClick={() => (this.active = false)}>
-                <dso-icon icon="times"></dso-icon>
-                <span>Sluiten</span>
-              </button>
+    const editActionLabel: string | undefined =
+      (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
+
+    const button = this.zoomable && (
+      <button
+        type="button"
+        class="open"
+        ref={(element) => (this.buttonElement = element)}
+        onClick={() => (this.active = true)}
+      >
+        <dso-icon icon="external-link"></dso-icon>
+        <span>Afbeelding vergroot weergeven</span>
+      </button>
+    );
+
+    if (this.wijzigactie === "verwijder") {
+      return (
+        <Host onClick={() => this.buttonElement?.focus()}>
+          <del class="editaction-remove">
+            <div class="editaction-label">{editActionLabel}:</div>
+            <Dimmer
+              active={this.active}
+              src={src}
+              alt={alt}
+              ref={(element) => (this.wrapperElement = element)}
+              click={() => (this.active = false)}
+            >
+              {this.titelSlot && (
+                <div class="title">
+                  <slot name="titel" />
+                </div>
+              )}
               <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
                 <slot name="bijschrift" />
               </div>
+              {<div class="editaction-label">{editActionLabel}:</div>}
+            </Dimmer>
+            <slot />
+            {button}
+          </del>
+        </Host>
+      );
+    }
+
+    if (this.wijzigactie === "voegtoe") {
+      return (
+        <Host onClick={() => this.buttonElement?.focus()}>
+          <ins class="editaction-add">
+            <div class="editaction-label">{editActionLabel}:</div>
+            <Dimmer
+              active={this.active}
+              src={src}
+              alt={alt}
+              ref={(element) => (this.wrapperElement = element)}
+              click={() => (this.active = false)}
+            >
+              {this.titelSlot && (
+                <div class="title">
+                  <slot name="titel" />
+                </div>
+              )}
+              <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
+                <slot name="bijschrift" />
+              </div>
+              {<div class="editaction-label">{editActionLabel}:</div>}
+            </Dimmer>
+            <slot />
+            {button}
+          </ins>
+        </Host>
+      );
+    }
+
+    return (
+      <Host onClick={() => this.buttonElement?.focus()}>
+        <Dimmer
+          active={this.active}
+          src={src}
+          alt={alt}
+          ref={(element) => (this.wrapperElement = element)}
+          click={() => (this.active = false)}
+        >
+          {this.titelSlot && (
+            <div class="title">
+              <slot name="titel" />
             </div>
+          )}
+          <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
+            <slot name="bijschrift" />
           </div>
-        )}
+        </Dimmer>
         <slot />
-        {this.zoomable && (
-          <button
-            type="button"
-            class="open"
-            ref={(element) => (this.buttonElement = element)}
-            onClick={() => (this.active = true)}
-          >
-            <dso-icon icon="external-link"></dso-icon>
-            <span>Afbeelding vergroot weergeven</span>
-          </button>
-        )}
+        {button}
       </Host>
     );
   }

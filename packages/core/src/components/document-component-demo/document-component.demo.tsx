@@ -5,6 +5,7 @@ import random from "lodash.random";
 import {
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentRecursiveToggleEvent,
+  DocumentComponentWijzigactie,
 } from "../document-component/document-component.models";
 import { DsoDocumentComponentCustomEvent } from "../../components";
 
@@ -26,7 +27,7 @@ interface DocumentComponent extends DocumentEmbedded {
   gereserveerd?: boolean;
   vervallen?: boolean;
   bevatOntwerpInformatie?: boolean;
-  wijzigactie?: "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+  wijzigactie?: DocumentComponentWijzigactie;
 }
 
 @Component({

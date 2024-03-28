@@ -7,6 +7,6 @@ export class OzonContentVerwijderdeTekstNode implements OzonContentNode {
   name = "VerwijderdeTekst";
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <del class="verwijderde-tekst">{mapNodeToJsx(node.childNodes)}</del>;
+    return <del class="removed-text">{mapNodeToJsx(node.childNodes)}</del>;
   }
 }

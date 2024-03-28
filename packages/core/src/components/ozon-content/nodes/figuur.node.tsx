@@ -53,6 +53,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
     const illustratieNode = childNodes.find((n) => getNodeName(n) === "Illustratie");
     const bijschriftNode = childNodes.find((n) => getNodeName(n) === "Bijschrift");
 
+    const wijzigactie = node.getAttribute("wijzigactie") || undefined;
+
     if (illustratieNode instanceof Element) {
       const illustratie = {
         naam: illustratieNode.getAttribute("naam"),
@@ -77,7 +79,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
-          <dso-image-overlay>
+          <dso-image-overlay wijzigactie={wijzigactie}>
             {titel && (
               <div slot="titel">
                 <span>{titel}</span>

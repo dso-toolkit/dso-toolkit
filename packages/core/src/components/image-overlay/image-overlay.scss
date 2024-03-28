@@ -1,9 +1,12 @@
+@use "~dso-toolkit/src/utilities";
+
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
 
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
 
 :host {
   display: inline-block;
@@ -53,7 +56,7 @@ button {
   position: relative;
   z-index: zindex.$image-overlay;
 
-  .titel:not([hidden]) {
+  .title {
     background-color: colors.$wit;
     font-weight: 700;
     line-height: initial;
@@ -87,4 +90,64 @@ button {
   position: absolute;
   top: units.$u2;
   right: units.$u2;
+}
+
+ins.editaction-add {
+  display: inline-block;
+  margin-block-end: units.$u1;
+  padding: units.$u1;
+  @include insert.element();
+  @include insert.root();
+
+  .wrapper {
+    outline: none;
+    padding: units.$u1;
+    @include insert.root();
+
+    .editaction-label {
+      line-height: 1.5;
+    }
+
+    .close {
+      inset-block-start: units.$u6;
+    }
+  }
+
+  .open {
+    inset-block-start: units.$u6;
+  }
+}
+
+del.editaction-remove {
+  display: inline-block;
+  margin-block-end: units.$u1;
+  padding: units.$u1;
+  @include delete.root();
+
+  .wrapper {
+    outline: none;
+    padding: units.$u1;
+    @include delete.root();
+
+    .title {
+      text-decoration: line-through;
+    }
+
+    .editaction-label {
+      line-height: 1.5;
+    }
+
+    .close {
+      inset-block-start: units.$u6;
+    }
+  }
+
+  .open {
+    inset-block-start: units.$u6;
+  }
+}
+
+.editaction-label {
+  font-style: italic;
+  margin-block-end: units.$u1;
 }

@@ -20,7 +20,9 @@ export class OzonContentAlNode implements OzonContentNode {
     let content = mapNodeToJsx(node.childNodes);
     const wijzigactie = node.getAttribute("wijzigactie");
 
-    const className = clsx({ [`wijzigactie-${wijzigactie}`]: !!wijzigactie }) || undefined;
+    const className =
+      clsx({ "editaction-add": wijzigactie === "voegtoe", "editaction-remove": wijzigactie === "verwijder" }) ||
+      undefined;
 
     if (inline || isNestedAl(path)) {
       content = (

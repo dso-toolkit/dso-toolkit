@@ -583,6 +583,10 @@ export namespace Components {
         "icon"?: string;
     }
     interface DsoImageOverlay {
+        /**
+          * The wijzigactie.
+         */
+        "wijzigactie"?: string;
     }
     interface DsoInfo {
         /**
@@ -2512,6 +2516,10 @@ declare namespace LocalJSX {
         "icon"?: string;
     }
     interface DsoImageOverlay {
+        /**
+          * The wijzigactie.
+         */
+        "wijzigactie"?: string;
     }
     interface DsoInfo {
         /**

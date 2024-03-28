@@ -5,6 +5,13 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property      | Attribute     | Description      | Type                  | Default     |
+| ------------- | ------------- | ---------------- | --------------------- | ----------- |
+| `wijzigactie` | `wijzigactie` | The wijzigactie. | `string \| undefined` | `undefined` |
+
+
 ## Dependencies
 
 ### Used by

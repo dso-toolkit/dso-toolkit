@@ -11,9 +11,9 @@ export class OzonContentOpschriftNode implements OzonContentNode {
     const wijzigactie = node.getAttribute("wijzigactie");
 
     if (wijzigactie === "voegtoe") {
-      content = <ins class="nieuwe-tekst">{content}</ins>;
+      content = <ins class="new-text">{content}</ins>;
     } else if (wijzigactie === "verwijder") {
-      content = <del class="verwijderde-tekst">{content}</del>;
+      content = <del class="removed-text">{content}</del>;
     }
 
     return <>{content}</>;
