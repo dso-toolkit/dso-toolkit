@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -219,6 +218,8 @@ export * from "./components/label";
 
 export { LabelGroup } from "./components/label-group/label-group.models.js";
 export { LabelGroupTemplates, storiesOfLabelGroup } from "./components/label-group/label-group.stories-of.js";
+
+export * from "./components/legend-item";
 
 export { LinkList, LinkListType } from "./components/link-list/link-list.models.js";
 export { LinkListTemplates, storiesOfLinkList } from "./components/link-list/link-list.stories-of.js";

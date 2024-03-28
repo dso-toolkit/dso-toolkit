@@ -1,0 +1,11 @@
+@use "legend-item.mixins" as legend-item-mixins;
+
+dso-legend-item {
+  span[slot="symbol"] {
+    @include legend-item-mixins.symbolContainer();
+
+    > span {
+      @include legend-item-mixins.symbol();
+    }
+  }
+}

@@ -661,6 +661,16 @@ export namespace Components {
          */
         "truncate"?: boolean;
     }
+    interface DsoLegendItem {
+        /**
+          * To disable the Legend Item
+         */
+        "disabled": boolean;
+        /**
+          * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
+         */
+        "removable"?: boolean;
+    }
     interface DsoListButton {
         /**
           * Whether the List Button is checked.
@@ -1122,6 +1132,10 @@ export interface DsoLabelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLabelElement;
 }
+export interface DsoLegendItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoLegendItemElement;
+}
 export interface DsoListButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoListButtonElement;
@@ -1534,6 +1548,25 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoLegendItemElementEventMap {
+        "dsoRemoveClick": MouseEvent;
+        "dsoMouseEnter": any;
+        "dsoMouseLeave": any;
+    }
+    interface HTMLDsoLegendItemElement extends Components.DsoLegendItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoLegendItemElementEventMap>(type: K, listener: (this: HTMLDsoLegendItemElement, ev: DsoLegendItemCustomEvent<HTMLDsoLegendItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoLegendItemElementEventMap>(type: K, listener: (this: HTMLDsoLegendItemElement, ev: DsoLegendItemCustomEvent<HTMLDsoLegendItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoLegendItemElement: {
+        prototype: HTMLDsoLegendItemElement;
+        new (): HTMLDsoLegendItemElement;
+    };
     interface HTMLDsoListButtonElementEventMap {
         "dsoCountChange": ListButtonChangeEvent;
         "dsoSelectedChange": ListButtonSelectedEvent;
@@ -1872,6 +1905,7 @@ declare global {
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-input-range": HTMLDsoInputRangeElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-legend-item": HTMLDsoLegendItemElement;
         "dso-list-button": HTMLDsoListButtonElement;
         "dso-logo": HTMLDsoLogoElement;
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
@@ -2601,6 +2635,28 @@ declare namespace LocalJSX {
          */
         "truncate"?: boolean;
     }
+    interface DsoLegendItem {
+        /**
+          * To disable the Legend Item
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the mouse enters the Legend Item
+         */
+        "onDsoMouseEnter"?: (event: DsoLegendItemCustomEvent<any>) => void;
+        /**
+          * Emitted when the mouse leaves the Legend Item
+         */
+        "onDsoMouseLeave"?: (event: DsoLegendItemCustomEvent<any>) => void;
+        /**
+          * Emitted when the user activates the remove button.
+         */
+        "onDsoRemoveClick"?: (event: DsoLegendItemCustomEvent<MouseEvent>) => void;
+        /**
+          * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
+         */
+        "removable"?: boolean;
+    }
     interface DsoListButton {
         /**
           * Whether the List Button is checked.
@@ -3128,6 +3184,7 @@ declare namespace LocalJSX {
         "dso-info-button": DsoInfoButton;
         "dso-input-range": DsoInputRange;
         "dso-label": DsoLabel;
+        "dso-legend-item": DsoLegendItem;
         "dso-list-button": DsoListButton;
         "dso-logo": DsoLogo;
         "dso-map-base-layers": DsoMapBaseLayers;
@@ -3183,6 +3240,7 @@ declare module "@stencil/core" {
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-legend-item": LocalJSX.DsoLegendItem & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
             "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;

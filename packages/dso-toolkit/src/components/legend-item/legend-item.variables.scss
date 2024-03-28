@@ -1,0 +1,7 @@
+@use "sass:math";
+@use "../../variables/units";
+
+$symbol-height: 26px;
+$symbol-aspect-ratio: math.div(30, 26);
+$symbol-width: $symbol-height * $symbol-aspect-ratio;
+$selectable-width: units.$u4;

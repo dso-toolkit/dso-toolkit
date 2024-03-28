@@ -1,0 +1,28 @@
+@use "../../variables/colors";
+@use "../../variables/units";
+@use "legend-item.variables" as legend-item-variables;
+
+@mixin symbolContainer() {
+  background-color: colors.$wit;
+  display: block;
+  float: left;
+  height: legend-item-variables.$symbol-height;
+  margin-inline-end: units.$u1;
+  width: legend-item-variables.$symbol-width;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin symbol() {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+@mixin icon() {
+  position: absolute;
+  inset-inline-end: units.$u2;
+  dso-icon {
+    color: colors.$grasgroen;
+  }
+}
