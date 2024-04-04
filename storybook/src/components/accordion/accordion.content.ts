@@ -18,11 +18,19 @@ const section1: AccordionSection<TemplateResult> = {
 const section2: AccordionSection<TemplateResult> = {
   handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
   heading: "h2",
-  content: html`<p>
-      De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen?
-      Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen.
+  content: html`<div class="dso-rich-content">
+    <h5>Toelichting</h5>
+    <p>
+      Er is aanvullende informatie nodig om te kunnen bepalen wat u moet doen volgens de regels van de gemeente, het
+      waterschap, de provincie en het Rijk. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
+      melding doen of informatie geven.
     </p>
-    <dso-date-picker-legacy></dso-date-picker-legacy> `,
+    <h5>Voorbereiding</h5>
+    <p>
+      Neem contact op met de gemeente en het waterschap. Zij helpen u verder. Houd de informatie bij de hand die te
+      maken heeft met 'Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen'.
+    </p>
+  </div>`,
 };
 
 const section3: AccordionSection<TemplateResult> = {

@@ -7,8 +7,9 @@ export const decorator: Addon_DecoratorFunction<TemplateResult> = (story) => htm
       ${story()}
 
       <style>
-        dso-expandable {
-          border: 1px solid black;
+        dso-expandable[open],
+        dso-expandable:not(.dso-hide) {
+          border: 1px solid #000;
         }
       </style>
     </span></span

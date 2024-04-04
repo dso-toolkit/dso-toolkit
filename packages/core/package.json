@@ -22,8 +22,6 @@
     "@popperjs/core": "^2.11.8",
     "@stencil/core": "^4.7.2",
     "@stencil/store": "^2.0.11",
-    "@types/animejs": "^3.1.12",
-    "animejs": "3.2.1",
     "clsx": "^2.0.0",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",

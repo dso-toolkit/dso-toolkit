@@ -92,7 +92,7 @@ import { danger, fail } from "danger";
       const changelogEntry = parseChangelogEntry(diff.after, firstCommitMessage.issueId);
       if (!changelogEntry) {
         fail(
-          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "#issue [changelog entry group] scope: samenvatting". Bijvoorbeeld: "#2241 [Task] Packages: Dependency updates". Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
+          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "scope: samenvatting ([#issue](https://github.com/dso-toolkit/dso-toolkit/issues/issue))". Bijvoorbeeld: \`* Packages: Dependency updates ([#9999](https://github.com/dso-toolkit/dso-toolkit/issues/9999))\`. Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
         );
       } else {
         if (firstCommitMessage?.issueId !== changelogEntry.linkIssueId) {
