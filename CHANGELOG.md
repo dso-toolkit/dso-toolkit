@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Form Group: Rich content overflow ([#2600](https://github.com/dso-toolkit/dso-toolkit/issues/2600))
+
 ## 🔞 62.18.0 - 05-04-2024
 
 ### Added
