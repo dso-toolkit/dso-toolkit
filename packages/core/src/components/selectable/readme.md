@@ -38,6 +38,12 @@ Method to toggle the Info. Is set to `active` when passed.
 
 If `active` is not passed, Info is toggled to opposite value.
 
+#### Parameters
+
+| Name     | Type                   | Description |
+| -------- | ---------------------- | ----------- |
+| `active` | `boolean \| undefined` |             |
+
 #### Returns
 
 Type: `Promise<void>`

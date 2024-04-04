@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Form Group: Rich content overflow ([#2600](https://github.com/dso-toolkit/dso-toolkit/issues/2600))
 * Alert: Achtergrondkleur wordt op verkeerde niveau gezet ([#2614](https://github.com/dso-toolkit/dso-toolkit/issues/2614))
 
+### Tasks
+* Packages: Dependencies updates ([#2483](https://github.com/dso-toolkit/dso-toolkit/issues/2483))
+
 ## 🔞 62.18.0 - 05-04-2024
 
 ### Added
