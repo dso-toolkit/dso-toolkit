@@ -31,6 +31,12 @@
 
 Focuses the input field.
 
+#### Parameters
+
+| Name      | Type                  | Description |
+| --------- | --------------------- | ----------- |
+| `options` | `MarkBarFocusOptions` |             |
+
 #### Returns
 
 Type: `Promise<void>`

@@ -34,6 +34,7 @@ export class Modal implements ComponentInterface {
    * the role for the modal `dialog` | `alert` | `alertdialog`.
    */
   @Prop()
+  // eslint-disable-next-line @stencil-community/reserved-member-names
   role: string | null = "dialog";
 
   /**

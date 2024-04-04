@@ -284,9 +284,8 @@ describe("Tree View", () => {
       .prev()
       .click()
       .get("dso-tree-view")
-      .then(
-        ($treeView) =>
-          $treeView.get(0)?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[]),
+      .then(($treeView) =>
+        $treeView.get(0)?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[]),
       )
       .then((result) => expect(result).to.be.true)
       .get("@tree-view")

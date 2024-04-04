@@ -157,6 +157,7 @@ export class DsoDatePickerLegacy implements ComponentInterface {
    * Defines a specific role attribute for the date picker input.
    */
   @Prop()
+  // eslint-disable-next-line @stencil-community/reserved-member-names
   role: string | null = null;
 
   /**

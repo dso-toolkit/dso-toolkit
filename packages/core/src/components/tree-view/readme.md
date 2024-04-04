@@ -32,6 +32,12 @@ When the user interacts with the Tree View, events are emitted when a node is op
 Set focus on the last item in the specified path.
 The consumer is responsible for providing a TreeView collection where the last item is visible.
 
+#### Parameters
+
+| Name   | Type             | Description |
+| ------ | ---------------- | ----------- |
+| `path` | `TreeViewItem[]` |             |
+
 #### Returns
 
 Type: `Promise<boolean>`

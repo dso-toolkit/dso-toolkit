@@ -28,6 +28,12 @@ Emitted when the visibility is toggled.
 
 Can be used to recalculate map widths or reposition center when the Map Controls opens or closes.
 
+#### Parameters
+
+| Name | Type                          | Description |
+| ---- | ----------------------------- | ----------- |
+| `e`  | `MouseEvent \| KeyboardEvent` |             |
+
 #### Returns
 
 Type: `Promise<void>`
