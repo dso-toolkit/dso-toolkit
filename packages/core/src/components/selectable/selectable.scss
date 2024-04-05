@@ -5,7 +5,7 @@
 :host {
   @include selectable.root(false);
 
-  padding-inline-start: units.$u4;
+  padding-inline-start: selectable.$symbol-indent;
 
   &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();
@@ -26,6 +26,13 @@
     min-height: units.$u3;
 
     &:focus-within.dso-keyboard-focus {
+      position: relative;
+      inset-inline-start: -(selectable.$symbol-indent);
+
+      padding-inline-start: selectable.$symbol-indent;
+
+      margin-inline-end: -(selectable.$symbol-indent);
+
       @include utilities.focus-outline();
     }
 

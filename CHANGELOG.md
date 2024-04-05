@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Accordion: Rare klapper bij sluiten van een sectie ([#2524](https://github.com/dso-toolkit/dso-toolkit/issues/2524))
+* Selectable: Focus outline to include input ([#2598](https://github.com/dso-toolkit/dso-toolkit/issues/2598))
 
 ### Changed
 * Viewer Grid: Align sizing buttons to bottom ([#2552](https://github.com/dso-toolkit/dso-toolkit/issues/2552))
