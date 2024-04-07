@@ -10,7 +10,7 @@ export class Alert {
   /**
    * Set status of alert
    */
-  @Prop()
+  @Prop({ reflect: true })
   status!: "success" | "info" | "warning" | "error";
 
   /**

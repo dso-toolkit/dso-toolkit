@@ -50,26 +50,22 @@
       text-decoration: none;
     }
   }
+}
 
-  &.alert-success,
-  &[status="success"] {
-    @include set-colors.apply(alert-variables.$success-bg, alert-variables.$success-border);
-  }
+@mixin status-success() {
+  @include set-colors.apply(alert-variables.$success-bg, alert-variables.$success-border);
+}
 
-  &.alert-error,
-  &[status="error"] {
-    @include set-colors.apply(alert-variables.$danger-bg, alert-variables.$danger-border);
-  }
+@mixin status-error() {
+  @include set-colors.apply(alert-variables.$danger-bg, alert-variables.$danger-border);
+}
 
-  &.alert-warning,
-  &[status="warning"] {
-    @include set-colors.apply(alert-variables.$warning-bg, alert-variables.$warning-border);
-  }
+@mixin status-warning() {
+  @include set-colors.apply(alert-variables.$warning-bg, alert-variables.$warning-border);
+}
 
-  &.alert-info,
-  &[status="info"] {
-    @include set-colors.apply(alert-variables.$info-bg, alert-variables.$info-border);
-  }
+@mixin status-info() {
+  @include set-colors.apply(alert-variables.$info-bg, alert-variables.$info-border);
 }
 
 @mixin root() {
