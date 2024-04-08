@@ -40,6 +40,10 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           ${richContentTemplate({
             children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,
           })}
+          <dso-legend-item
+            >${html`<span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span
+              ><span id="legenda-item-label">Legenda item label</span>`}
+          </dso-legend-item>
         </dso-map-controls>
       `;
     },
