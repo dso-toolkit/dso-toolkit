@@ -248,7 +248,7 @@ export class DocumentComponent implements ComponentInterface {
                   </button>
                 )}
                 <div id="heading-title">
-                  {this.notApplicable && <span class="not-applicable">Niet van toepassing:</span>}
+                  {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
                   {this.label || this.nummer || this.opschrift ? (
                     <>
                       {this.label && (
