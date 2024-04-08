@@ -15,24 +15,32 @@
   }
 
   &.alert-success {
+    @include alert.status-success();
+
     &::before {
       @include di.base("status-success", alert.$icon-size);
     }
   }
 
   &.alert-error {
+    @include alert.status-error();
+
     &::before {
       @include di.base("status-error", alert.$icon-size);
     }
   }
 
   &.alert-warning {
+    @include alert.status-warning();
+
     &::before {
       @include di.base("status-warning", alert.$icon-size);
     }
   }
 
   &.alert-info {
+    @include alert.status-info();
+
     &::before {
       @include di.base("status-info", alert.$icon-size);
     }

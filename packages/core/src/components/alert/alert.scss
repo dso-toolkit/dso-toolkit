@@ -10,6 +10,22 @@
   margin-top: units.$u3;
 }
 
+:host([status="success"]) {
+  @include alert.status-success();
+}
+
+:host([status="error"]) {
+  @include alert.status-error();
+}
+
+:host([status="warning"]) {
+  @include alert.status-warning();
+}
+
+:host([status="info"]) {
+  @include alert.status-info();
+}
+
 @include utilities.box-sizing();
 
 .sr-only {
