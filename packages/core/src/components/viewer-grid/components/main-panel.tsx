@@ -32,6 +32,7 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
   <div
     class={clsx("dso-main-panel", {
       compact: !tabView && documentPanelOpen && !mainPanelExpanded,
+      contracted: !tabView && !documentPanelOpen && !mainPanelExpanded && mode === "vdk",
       expanded: !tabView && documentPanelOpen && mainPanelExpanded,
       collapsed: mainPanelHidden,
     })}

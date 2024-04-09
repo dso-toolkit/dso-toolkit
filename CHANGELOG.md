@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Viewer Grid: MainPanel kunnen verbergen zonder geopend document ([#2592](https://github.com/dso-toolkit/dso-toolkit/issues/2592))
+
 ### Fixed
 * Form Group: Rich content overflow ([#2600](https://github.com/dso-toolkit/dso-toolkit/issues/2600))
 * Alert: Achtergrondkleur wordt op verkeerde niveau gezet ([#2614](https://github.com/dso-toolkit/dso-toolkit/issues/2614))
