@@ -75,7 +75,8 @@ button {
     }
   }
 
-  &.compact {
+  &.compact,
+  &.contracted {
     flex-shrink: unset;
     flex-grow: unset;
     position: absolute;

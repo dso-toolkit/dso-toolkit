@@ -40,7 +40,7 @@ export interface ViewerGridDocumentHeaderArgs {
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   mode: {
-    options: ["vrk", "vdk"],
+    options: ["vdk", "vrk"],
     control: {
       type: "select",
       labels: {
