@@ -44,7 +44,14 @@ describe("Legend Item", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable")
       .get("dso-legend-item")
       .find("dso-selectable[slot='selectable']")
-      .should("be.visible");
+      .should("be.visible")
+      .get("dso-legend-item")
+      .invoke("prop", "disabled", true)
+      .invoke("prop", "disabledMessage", "Doet het niet")
+      .shadow()
+      .find("dso-toggletip")
+      .should("be.visible")
+      .and("have.text", "Doet het niet");
   });
 
   it("should show edit-button with a body containing input-range", () => {

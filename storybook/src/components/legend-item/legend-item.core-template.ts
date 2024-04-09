@@ -11,6 +11,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
     function legendItemTemplate({
       body,
       disabled,
+      disabledMessage,
       dsoMouseEnter,
       dsoMouseLeave,
       dsoRemoveClick,
@@ -23,6 +24,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
         <dso-legend-item
           ?removable=${removable}
           ?disabled=${disabled}
+          .disabledMessage=${disabledMessage}
           @dsoMouseEnter=${dsoMouseEnter}
           @dsoMouseLeave=${dsoMouseLeave}
           @dsoRemoveClick=${ifDefined(dsoRemoveClick)}

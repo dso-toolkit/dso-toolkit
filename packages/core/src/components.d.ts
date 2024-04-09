@@ -671,6 +671,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Message to be shown behind a toggletip when the Legend Item is disabled
+         */
+        "disabledMessage"?: string;
+        /**
           * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
          */
         "removable"?: boolean;
@@ -2648,6 +2652,10 @@ declare namespace LocalJSX {
           * To disable the Legend Item
          */
         "disabled"?: boolean;
+        /**
+          * Message to be shown behind a toggletip when the Legend Item is disabled
+         */
+        "disabledMessage"?: string;
         /**
           * Emitted when the mouse enters the Legend Item
          */

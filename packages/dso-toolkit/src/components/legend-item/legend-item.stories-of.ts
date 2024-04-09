@@ -73,6 +73,7 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
     },
     WithSelectable: {
       args: {
+        disabledMessage: "Deze informatie is op dit moment niet beschikbaar.",
         removable: false,
         selectable: true,
         symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',

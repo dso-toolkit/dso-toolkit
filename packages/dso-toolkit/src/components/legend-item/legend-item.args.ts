@@ -6,6 +6,7 @@ import { noControl } from "../../storybook";
 
 export interface LegendItemArgs {
   disabled: boolean;
+  disabledMessage: string;
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
   dsoRemoveClick: HandlerFunction;
@@ -20,6 +21,7 @@ export const legendItemArgs: Omit<
   "dsoMouseEnter" | "dsoMouseLeave" | "dsoRemoveClick" | "selectables" | "label" | "selectable" | "symbol"
 > = {
   disabled: false,
+  disabledMessage: "",
   removable: false,
 };
 
@@ -27,6 +29,11 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   disabled: {
     control: {
       type: "boolean",
+    },
+  },
+  disabledMessage: {
+    control: {
+      type: "text",
     },
   },
   dsoMouseEnter: {

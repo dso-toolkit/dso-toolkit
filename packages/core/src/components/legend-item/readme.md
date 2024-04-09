@@ -1,16 +1,16 @@
 # `<dso-legend-item>`
 
 
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property    | Attribute   | Description                                                   | Type                   | Default     |
-| ----------- | ----------- | ------------------------------------------------------------- | ---------------------- | ----------- |
-| `disabled`  | `disabled`  | To disable the Legend Item                                    | `boolean`              | `false`     |
-| `removable` | `removable` | Shows a trash-can that, when clicked, emits `dsoRemoveClick`. | `boolean \| undefined` | `undefined` |
+| Property          | Attribute          | Description                                                             | Type                   | Default     |
+| ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
+| `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
+| `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
+| `removable`       | `removable`        | Shows a trash-can that, when clicked, emits `dsoRemoveClick`.           | `boolean \| undefined` | `undefined` |
 
 
 ## Events
@@ -24,24 +24,29 @@
 
 ## Slots
 
-| Slot           | Description                                                                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                | The label for this legend item. Omit the label when a `dso-selectable` is placed in slot `selectable` is present. The label should than be on the `dso-selectable` |
-| `"body"`       | The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s)                                                                             |
-| `"selectable"` | A dso-selectable for this legend item                                                                                                                              |
-| `"symbol"`     | A span where the symbol is styled upon                                                                                                                             |
+| Slot           | Description                                                                                                                                                                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                | The label for this legend item. Omit the label when a `dso-selectable` is placed in slot `selectable`. The label should than be on the `dso-selectable`                                                                                              |
+| `"body"`       | The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
+| `"selectable"` | A dso-selectable for this legend item. The consumer is responsible to keep the `disabled`ness of the `dso-selectable` in sync with this `legend item`                                                                                                |
+| `"symbol"`     | A span where the symbol is styled upon                                                                                                                                                                                                               |
 
 
 ## Dependencies
 
 ### Depends on
 
+- [dso-toggletip](../toggletip)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-legend-item --> dso-toggletip
   dso-legend-item --> dso-icon
+  dso-toggletip --> dso-info-button
+  dso-toggletip --> dso-tooltip
+  dso-info-button --> dso-icon
   style dso-legend-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
