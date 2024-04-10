@@ -17,11 +17,6 @@ const meta: Meta<HeaderArgs> = {
       declarations: [TrustUrlPipe],
     }),
   ],
-  parameters: [
-    {
-      component: DsoHeader,
-    },
-  ],
 };
 
 export default meta;
@@ -39,25 +34,3 @@ const { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, With
   });
 
 export { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, WithLinkToHelp, WithButtonToHelp };
-
-// storiesOfHeader({
-//   parameters: {
-//     module,
-//     storiesOf,
-//     readme,
-//     storyApiOptions: {
-//       parameters: [
-//         {
-//           component: DsoHeader,
-//         },
-//       ],
-//       decorators: [
-//         moduleMetadata({
-//           declarations: [TrustUrlPipe],
-//         }),
-//       ],
-//     },
-//   },
-//   templateContainer,
-//   storyTemplates: ({ headerTemplate }) => ({ headerTemplate }),
-// });
