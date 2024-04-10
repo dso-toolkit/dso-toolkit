@@ -9,7 +9,7 @@ import { addonsSections, alignmentSections, anchorSections, basicSections, subSe
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme: `${readme}\n${componentsReadme}` }),
-  title: "Accordion",
+  title: "Core/Accordion",
 };
 
 export default meta;
@@ -31,14 +31,14 @@ const {
 
     return {
       accordionTemplate,
-      basicSections,
+      basicSections: basicSections(templates),
       addonsSections,
       alignmentSections,
-      anchorSections,
-      conclusionSections: basicSections,
-      compactSections: basicSections,
-      compactBlackSections: basicSections,
-      neutralSections: basicSections,
+      anchorSections: anchorSections(templates),
+      conclusionSections: basicSections(templates),
+      compactSections: basicSections(templates),
+      compactBlackSections: basicSections(templates),
+      neutralSections: basicSections(templates),
       subSections: subSections(templates),
     };
   },

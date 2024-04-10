@@ -19,16 +19,7 @@ export {
   storiesOfFactory,
 } from "./storybook/index.js";
 
-export {
-  Accordion,
-  AccordionHandleElement,
-  AccordionHeading,
-  AccordionSection,
-  AccordionSectionStatus,
-  AccordionSectionToggleClickEvent,
-  AccordionVariant,
-} from "./components/accordion/accordion.models.js";
-export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/accordion.stories-of.js";
+export * from "./components/accordion";
 
 export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
 export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
