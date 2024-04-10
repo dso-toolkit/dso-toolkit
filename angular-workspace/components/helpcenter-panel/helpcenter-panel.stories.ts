@@ -17,11 +17,6 @@ import readme from "./readme.md?raw";
 const meta: Meta<HelpcenterPanelArgs> = {
   ...helpcenterPanelMeta({ readme }),
   title: "Helpcenter Panel",
-  parameters: [
-    {
-      component: DsoHelpcenterPanel,
-    },
-  ],
 };
 
 export default meta;
