@@ -25,11 +25,6 @@ const meta: Meta<HighlightBoxArgs> = {
       declarations: [DsoIcon],
     }),
   ],
-  parameters: [
-    {
-      component: DsoHighlightBox,
-    },
-  ],
 };
 
 export default meta;
@@ -47,25 +42,3 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
 });
 
 export { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage };
-
-// storiesOfHighlightBox({
-//   parameters: {
-//     module,
-//     storiesOf,
-//     readme,
-//     storyApiOptions: {
-//       decorators: [
-//         moduleMetadata({
-//           declarations: [DsoIcon],
-//         }),
-//       ],
-//       parameters: [
-//         {
-//           component: DsoHighlightBox,
-//         },
-//       ],
-//     },
-//   },
-//   templateContainer,
-//   storyTemplates: ({ highlightBoxTemplate }) => ({ highlightBoxTemplate, content: content() }),
-// });
