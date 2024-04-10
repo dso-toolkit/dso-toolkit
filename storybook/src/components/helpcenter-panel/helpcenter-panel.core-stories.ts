@@ -7,7 +7,7 @@ import readme from "@dso-toolkit/core/src/components/helpcenter-panel/readme.md?
 
 const meta: Meta<HelpcenterPanelArgs> = {
   ...helpcenterPanelMeta({ readme }),
-  title: "HTML|CSS/Helpcenter Panel",
+  title: "Core/Helpcenter Panel",
 };
 
 export default meta;
