@@ -72,20 +72,14 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
 
 export function legendItemArgsMapper<TemplateFnReturnType>(
   a: LegendItemArgs,
+  content: TemplateFnReturnType,
+  symbol?: TemplateFnReturnType,
   body?: TemplateFnReturnType,
 ): LegendItem<TemplateFnReturnType> {
   return {
     ...a,
     body,
-    selectable: a.selectable
-      ? {
-          id: "1",
-          type: "checkbox",
-          value: "1",
-          disabled: a.disabled,
-          label: "Legenda item label",
-          slot: "selectable",
-        }
-      : undefined,
+    content,
+    symbol,
   };
 }

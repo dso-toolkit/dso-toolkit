@@ -34,6 +34,9 @@ interface LegendItemTemplates<TemplateFnReturnType> {
   legendItemTemplate: (legendItemProperties: LegendItem<TemplateFnReturnType>) => TemplateFnReturnType;
   bodyWithSelectables: TemplateFnReturnType;
   bodyWithInputRange: TemplateFnReturnType;
+  defaultSymbol: TemplateFnReturnType;
+  defaultLabel: TemplateFnReturnType;
+  selectable: TemplateFnReturnType;
 }
 
 export function legendItemMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -61,14 +64,12 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
   return {
     Default: {
       args: {
-        label: '<span id="legenda-item-label">Legenda item label</span>',
         removable: false,
         selectable: false,
-        symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate }) =>
-        legendItemTemplate(legendItemArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol, defaultLabel }) =>
+        legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol)),
       ),
     },
     WithSelectable: {
@@ -76,47 +77,44 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
         disabledMessage: "Deze informatie is op dit moment niet beschikbaar.",
         removable: false,
         selectable: true,
-        symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate }) =>
-        legendItemTemplate(legendItemArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, selectable }) =>
+        legendItemTemplate(legendItemArgsMapper(args, selectable)),
       ),
     },
     Removable: {
       args: {
-        label: '<span id="legenda-item-label">Legenda item label</span>',
         removable: true,
         selectable: false,
-        symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate }) =>
-        legendItemTemplate(legendItemArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultLabel, defaultSymbol }) =>
+        legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol)),
       ),
     },
     WithSelectables: {
       args: {
-        label: '<span id="legenda-item-label">Legenda item label<span>',
         removable: false,
         selectable: false,
-        symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, bodyWithSelectables }) =>
-        legendItemTemplate(legendItemArgsMapper(args, bodyWithSelectables)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { legendItemTemplate, defaultLabel, defaultSymbol, bodyWithSelectables }) =>
+          legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol, bodyWithSelectables)),
       ),
     },
     WithInputRange: {
       args: {
-        label: '<span id="legenda-item-label">Legenda item label<span>',
         removable: false,
         selectable: false,
-        symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, bodyWithInputRange }) =>
-        legendItemTemplate(legendItemArgsMapper(args, bodyWithInputRange)),
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { legendItemTemplate, defaultLabel, defaultSymbol, bodyWithInputRange }) =>
+          legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol, bodyWithInputRange)),
       ),
     },
   };

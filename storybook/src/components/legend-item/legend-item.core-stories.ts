@@ -3,7 +3,13 @@ import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { bodyWithInputRange, bodyWithSelectables } from "./legend-item.content";
+import {
+  bodyWithInputRange,
+  bodyWithSelectables,
+  defaultSymbol,
+  defaultLabel,
+  selectable,
+} from "./legend-item.content";
 
 import { decorator } from "./legend-item.decorator";
 
@@ -25,6 +31,9 @@ const { Default, WithSelectable, Removable, WithSelectables, WithInputRange } = 
       legendItemTemplate,
       bodyWithSelectables,
       bodyWithInputRange,
+      defaultSymbol,
+      defaultLabel,
+      selectable,
     };
   },
   decorator,

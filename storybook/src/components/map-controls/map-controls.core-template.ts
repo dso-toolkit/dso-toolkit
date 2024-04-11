@@ -5,6 +5,7 @@ import { BaseLayerChangeEvent } from "@dso-toolkit/core/src/components/map-base-
 import { OverlayChangeEvent } from "@dso-toolkit/core/src/components/map-overlays/map-overlays.interfaces";
 
 import { ComponentImplementation } from "../../templates";
+import { defaultLabel, defaultSymbol } from "../legend-item/legend-item.content";
 
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
@@ -42,8 +43,8 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           })}
           ${legendItemTemplate({
             disabled: true,
-            label: "Legenda item label",
-            symbol: '<span class="symboolcode" data-symboolcode="regelingsgebied"></span>',
+            content: defaultLabel,
+            symbol: defaultSymbol,
           })}
         </dso-map-controls>
       `;

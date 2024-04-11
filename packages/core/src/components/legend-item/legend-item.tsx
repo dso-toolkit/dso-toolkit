@@ -2,9 +2,8 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, P
 import clsx from "clsx";
 
 /**
- * @slot - The label for this legend item. Omit the label when a `dso-selectable` is placed in slot `selectable`. The label should than be on the `dso-selectable`
+ * @slot - Either the label for this legend item or a `dso-selectable` holding the label.
  * @slot symbol - A span where the symbol is styled upon
- * @slot selectable - A dso-selectable for this legend item. The consumer is responsible to keep the `disabled`ness of the `dso-selectable` in sync with this `legend item`
  * @slot body - The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
 @Component({
@@ -60,7 +59,7 @@ export class LegendItem implements ComponentInterface {
   }
 
   get selectableSlottedElement() {
-    return this.host.querySelector("[slot='selectable']");
+    return this.host.querySelector(":scope > dso-selectable");
   }
 
   get bodySlottedElement() {
@@ -83,15 +82,12 @@ export class LegendItem implements ComponentInterface {
           <div hidden={!hasSymbol}>
             <slot name="symbol" />
           </div>
-          <div hidden={!isSelectable}>
-            <slot name="selectable" />
+          <div>
+            <slot></slot>
           </div>
           {this.disabled && this.disabledMessage && (
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
-          <div>
-            <slot></slot>
-          </div>
           {this.removable && (
             <button id="remove-button" class="tertiary" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
               <span class="sr-only">Legenda item verwijderen</span>

@@ -1,5 +1,13 @@
 import { html } from "lit-html";
 
+export const defaultLabel = html`<span id="legenda-item-label">Legenda item label</span>`;
+
+export const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
+
+export const selectable = html`<dso-selectable id="1" type="checkbox" disabvalue="1"
+  >Legenda item label</dso-selectable
+>`;
+
 export const bodyWithSelectables = html`<fieldset>
   <legend>Wijzig eigenschap</legend>
   <div>

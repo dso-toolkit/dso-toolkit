@@ -1,16 +1,13 @@
-import { Selectable } from "../selectable/selectable.models";
-
 export interface LegendItem<TemplateFnReturnType> {
   body?: TemplateFnReturnType;
+  content: TemplateFnReturnType;
   disabled?: boolean;
   disabledMessage?: string;
   dsoMouseEnter?: () => void;
   dsoMouseLeave?: () => void;
   dsoRemoveClick?: (e: CustomEvent<LegendItemRemoveClickEvent>) => void;
-  label: string;
   removable?: boolean;
-  selectable?: Selectable<TemplateFnReturnType>;
-  symbol?: string;
+  symbol?: TemplateFnReturnType;
 }
 
 export interface LegendItemRemoveClickEvent {
