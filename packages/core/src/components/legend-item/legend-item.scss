@@ -2,6 +2,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/legend-item/legend-item.variables" as legend-item-variables;
 
 :host {
@@ -10,10 +11,6 @@
 }
 
 @include utilities.box-sizing();
-
-.sr-only {
-  @include utilities.sr-only();
-}
 
 .dso-legend-item {
   display: flex;
@@ -36,28 +33,11 @@
       }
     }
   }
+}
 
-  button {
-    background: none;
-    border: 0;
-    border-radius: 0 #{units.$u1 * 0.5} #{units.$u1 * 0.5} 0;
-    color: inherit;
-    float: right;
-    font-size: typography.$root-font-size-base;
-    margin-block-end: units.$u1 * -0.5;
-    margin-inline-start: units.$u1;
-    margin-inline-end: units.$u1 * -0.5;
-    margin-block-start: 0;
-    padding: 0;
-    position: absolute;
-    inset-inline-end: units.$u2;
+.dso-tertiary {
+  @include button.tertiary($icon-only: true, $modifiers: false);
 
-    &:hover {
-      cursor: pointer;
-    }
-
-    dso-icon {
-      color: colors.$grasgroen;
-    }
-  }
+  position: absolute;
+  inset-inline-end: 0;
 }

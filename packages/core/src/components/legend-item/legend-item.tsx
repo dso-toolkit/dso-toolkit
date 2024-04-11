@@ -93,22 +93,24 @@ export class LegendItem implements ComponentInterface {
             <slot></slot>
           </div>
           {this.removable && (
-            <button id="remove-button" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
+            <button id="remove-button" class="dso-tertiary" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
               <span class="sr-only">Legenda item verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
             </button>
           )}
 
-          <button
-            id="edit-button"
-            hidden={!hasBody || this.disabled}
-            type="button"
-            onClick={() => (this.showBody = !this.showBody)}
-          >
-            <span class="sr-only">Legenda item aanpassen</span>
-            {!this.showBody && <dso-icon icon="more"></dso-icon>}
-            {this.showBody && <dso-icon icon="times"></dso-icon>}
-          </button>
+          {hasBody && !this.disabled && (
+            <button
+              id="edit-button"
+              class="dso-tertiary"
+              type="button"
+              onClick={() => (this.showBody = !this.showBody)}
+            >
+              <span class="sr-only">Legenda item aanpassen</span>
+              {!this.showBody && <dso-icon icon="more"></dso-icon>}
+              {this.showBody && <dso-icon icon="times"></dso-icon>}
+            </button>
+          )}
         </div>
         <div hidden={!hasBody || this.disabled || !this.showBody} class="dso-body">
           <slot name="body" />
