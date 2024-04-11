@@ -6,9 +6,13 @@ export interface LegendItem<TemplateFnReturnType> {
   disabledMessage?: string;
   dsoMouseEnter?: () => void;
   dsoMouseLeave?: () => void;
-  dsoRemoveClick?: (e: CustomEvent<MouseEvent>) => void;
+  dsoRemoveClick?: (e: CustomEvent<LegendItemRemoveClickEvent>) => void;
   label: string;
   removable?: boolean;
   selectable?: Selectable<TemplateFnReturnType>;
   symbol?: string;
+}
+
+export interface LegendItemRemoveClickEvent {
+  originalEvent: MouseEvent;
 }
