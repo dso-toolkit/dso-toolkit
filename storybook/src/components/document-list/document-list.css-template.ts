@@ -31,7 +31,7 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
                 >Bovenliggend:
                 ${dropdownMenuTemplate({
                   id: "dropdown-id",
-                  button: { type: "button", variant: "tertiary", label: "AFDELING 1.1 Algemeen" },
+                  button: { type: "button", variant: "tertiary", label: "AFDELING 1.1 Algemeen", ariaExpanded: true },
                   groups: [
                     {
                       items: [
