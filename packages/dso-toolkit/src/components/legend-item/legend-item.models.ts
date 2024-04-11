@@ -1,6 +1,6 @@
 export interface LegendItem<TemplateFnReturnType> {
   body?: TemplateFnReturnType;
-  content: TemplateFnReturnType;
+  content: TemplateFnReturnType | string;
   disabled?: boolean;
   disabledMessage?: string;
   dsoMouseEnter?: () => void;

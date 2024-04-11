@@ -1,12 +1,13 @@
 import { html } from "lit-html";
-
-export const defaultLabel = html`<span id="legenda-item-label">Legenda item label</span>`;
+import { Templates } from "../../templates";
 
 export const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
-export const selectable = html`<dso-selectable id="1" type="checkbox" disabvalue="1"
-  >Legenda item label</dso-selectable
->`;
+export const selectable = html`<dso-selectable id="1" type="checkbox" value="1">Legenda item label</dso-selectable>`;
+
+export function selectableDemo({ selectableTemplate }: Templates) {
+  return html`${selectableTemplate({ type: "checkbox", id: "1", value: "1", label: "Legenda item label" })}`;
+}
 
 export const bodyWithSelectables = html`<fieldset>
   <legend>Wijzig eigenschap</legend>

@@ -35,8 +35,7 @@ interface LegendItemTemplates<TemplateFnReturnType> {
   bodyWithSelectables: TemplateFnReturnType;
   bodyWithInputRange: TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
-  defaultLabel: TemplateFnReturnType;
-  selectable: TemplateFnReturnType;
+  selectableDemo: TemplateFnReturnType;
 }
 
 export function legendItemMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -64,12 +63,13 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
   return {
     Default: {
       args: {
+        label: "Legenda item label",
         removable: false,
         selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol, defaultLabel }) =>
-        legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
+        legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol)),
       ),
     },
     WithSelectable: {
@@ -79,42 +79,45 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
         selectable: true,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, selectable }) =>
-        legendItemTemplate(legendItemArgsMapper(args, selectable)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, selectableDemo }) =>
+        legendItemTemplate(legendItemArgsMapper(args, selectableDemo())),
       ),
     },
     Removable: {
       args: {
+        label: "Legenda item label",
         removable: true,
         selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultLabel, defaultSymbol }) =>
-        legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
+        legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol)),
       ),
     },
     WithSelectables: {
       args: {
+        label: "Legenda item label",
         removable: false,
         selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,
-        (args, { legendItemTemplate, defaultLabel, defaultSymbol, bodyWithSelectables }) =>
-          legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol, bodyWithSelectables)),
+        (args, { legendItemTemplate, defaultSymbol, bodyWithSelectables }) =>
+          legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, bodyWithSelectables)),
       ),
     },
     WithInputRange: {
       args: {
+        label: "Legenda item label",
         removable: false,
         selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,
-        (args, { legendItemTemplate, defaultLabel, defaultSymbol, bodyWithInputRange }) =>
-          legendItemTemplate(legendItemArgsMapper(args, defaultLabel, defaultSymbol, bodyWithInputRange)),
+        (args, { legendItemTemplate, defaultSymbol, bodyWithInputRange }) =>
+          legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, bodyWithInputRange)),
       ),
     },
   };
