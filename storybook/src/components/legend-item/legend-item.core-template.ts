@@ -25,8 +25,8 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           ?removable=${removable}
           ?disabled=${disabled}
           .disabledMessage=${disabledMessage}
-          @dsoMouseEnter=${dsoMouseEnter}
-          @dsoMouseLeave=${dsoMouseLeave}
+          @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
+          @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
           @dsoRemoveClick=${ifDefined(dsoRemoveClick)}
         >
           ${symbol ? html`<span slot="symbol"> ${unsafeHTML(symbol)} </span>` : nothing}
