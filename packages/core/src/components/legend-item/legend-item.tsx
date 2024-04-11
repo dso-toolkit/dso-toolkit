@@ -107,8 +107,7 @@ export class LegendItem implements ComponentInterface {
               onClick={() => (this.showBody = !this.showBody)}
             >
               <span class="sr-only">Legenda item aanpassen</span>
-              {!this.showBody && <dso-icon icon="more"></dso-icon>}
-              {this.showBody && <dso-icon icon="times"></dso-icon>}
+              {<dso-icon icon={this.showBody ? "times" : "more"} />}
             </button>
           )}
         </div>
