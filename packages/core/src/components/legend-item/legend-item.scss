@@ -12,30 +12,30 @@
 
 @include utilities.box-sizing();
 
-.dso-legend-item {
+.legend-item {
   display: flex;
   position: relative;
 
-  &.dso-legend-item-symbol {
-    + .dso-body {
+  &.legend-item-symbol {
+    + .body {
       margin-inline-start: legend-item-variables.$symbol-width + units.$u1;
     }
   }
 
-  &.dso-legend-item-selectable {
-    + .dso-body {
+  &.legend-item-selectable {
+    + .body {
       margin-inline-start: legend-item-variables.$selectable-width;
     }
 
-    &.dso-legend-item-symbol {
-      + .dso-body {
+    &.legend-item-symbol {
+      + .body {
         margin-inline-start: legend-item-variables.$symbol-width + units.$u1 + legend-item-variables.$selectable-width;
       }
     }
   }
 }
 
-.dso-tertiary {
+.tertiary {
   @include button.tertiary($icon-only: true, $modifiers: false);
 
   position: absolute;

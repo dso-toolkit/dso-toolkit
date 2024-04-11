@@ -75,9 +75,9 @@ export class LegendItem implements ComponentInterface {
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
         <div
-          class={clsx("dso-legend-item", {
-            "dso-legend-item-symbol": hasSymbol,
-            "dso-legend-item-selectable": isSelectable,
+          class={clsx("legend-item", {
+            "legend-item-symbol": hasSymbol,
+            "legend-item-selectable": isSelectable,
           })}
         >
           <div hidden={!hasSymbol}>
@@ -93,25 +93,20 @@ export class LegendItem implements ComponentInterface {
             <slot></slot>
           </div>
           {this.removable && (
-            <button id="remove-button" class="dso-tertiary" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
+            <button id="remove-button" class="tertiary" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
               <span class="sr-only">Legenda item verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
             </button>
           )}
 
           {hasBody && !this.disabled && (
-            <button
-              id="edit-button"
-              class="dso-tertiary"
-              type="button"
-              onClick={() => (this.showBody = !this.showBody)}
-            >
+            <button id="edit-button" class="tertiary" type="button" onClick={() => (this.showBody = !this.showBody)}>
               <span class="sr-only">Legenda item aanpassen</span>
               {<dso-icon icon={this.showBody ? "times" : "more"} />}
             </button>
           )}
         </div>
-        <div hidden={!hasBody || this.disabled || !this.showBody} class="dso-body">
+        <div hidden={!hasBody || this.disabled || !this.showBody} class="body">
           <slot name="body" />
         </div>
       </Host>
