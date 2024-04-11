@@ -18,7 +18,7 @@ export const coreInputRange: ComponentImplementation<InputRange> = {
         label=${ifDefined(label)}
         unit=${ifDefined(unit)}
         description=${ifDefined(description)}
-        @dsoChange=${(e: DsoInputRangeCustomEvent<InputRangeChangeEvent>) => dsoChange(e.detail)}
+        @dsoChange=${(e: DsoInputRangeCustomEvent<InputRangeChangeEvent>) => dsoChange?.(e.detail)}
       ></dso-input-range>`;
     },
 };

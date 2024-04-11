@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
 import clsx from "clsx";
+import { LegendItemRemoveClickEvent } from "./legend-item.interfaces";
 
 /**
  * @slot - Either the label for this legend item or a `dso-selectable` holding the label.
@@ -37,7 +38,7 @@ export class LegendItem implements ComponentInterface {
    * Emitted when the user activates the remove button.
    */
   @Event()
-  dsoRemoveClick!: EventEmitter<MouseEvent>;
+  dsoRemoveClick!: EventEmitter<LegendItemRemoveClickEvent>;
 
   /**
    * Emitted when the mouse enters the Legend Item
@@ -89,7 +90,12 @@ export class LegendItem implements ComponentInterface {
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
           {this.removable && (
-            <button id="remove-button" class="tertiary" type="button" onClick={(e) => this.dsoRemoveClick.emit(e)}>
+            <button
+              id="remove-button"
+              class="tertiary"
+              type="button"
+              onClick={(e) => this.dsoRemoveClick.emit({ originalEvent: e })}
+            >
               <span class="sr-only">Legenda item verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
             </button>

@@ -12,8 +12,6 @@ export interface LegendItemArgs {
   dsoRemoveClick: HandlerFunction;
   label: string;
   removable: boolean;
-  selectable: boolean;
-  symbol: string | undefined;
 }
 
 export const legendItemArgs: Omit<
@@ -56,16 +54,6 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   removable: {
     control: {
       type: "boolean",
-    },
-  },
-  selectable: {
-    control: {
-      type: "boolean",
-    },
-  },
-  symbol: {
-    control: {
-      type: "text",
     },
   },
 };

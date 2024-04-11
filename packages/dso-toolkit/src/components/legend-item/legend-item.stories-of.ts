@@ -34,8 +34,8 @@ interface LegendItemTemplates<TemplateFnReturnType> {
   legendItemTemplate: (legendItemProperties: LegendItem<TemplateFnReturnType>) => TemplateFnReturnType;
   bodyWithSelectables: TemplateFnReturnType;
   bodyWithInputRange: TemplateFnReturnType;
+  selectableDemo: (label: string, disabled: boolean) => TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
-  selectableDemo: TemplateFnReturnType;
 }
 
 export function legendItemMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -65,7 +65,6 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       args: {
         label: "Legenda item label",
         removable: false,
-        selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
@@ -74,20 +73,19 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
     },
     WithSelectable: {
       args: {
+        label: "Legenda item label",
         disabledMessage: "Deze informatie is op dit moment niet beschikbaar.",
         removable: false,
-        selectable: true,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, selectableDemo }) =>
-        legendItemTemplate(legendItemArgsMapper(args, selectableDemo())),
+        legendItemTemplate(legendItemArgsMapper(args, selectableDemo(args.label, args.disabled))),
       ),
     },
     Removable: {
       args: {
         label: "Legenda item label",
         removable: true,
-        selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
@@ -98,7 +96,6 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       args: {
         label: "Legenda item label",
         removable: false,
-        selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
@@ -111,7 +108,6 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       args: {
         label: "Legenda item label",
         removable: false,
-        selectable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(

@@ -6,7 +6,7 @@ export interface InputRange {
   label?: string;
   unit: string;
   description?: string;
-  dsoChange: (e: InputRangeChangeEvent) => void;
+  dsoChange?: (e: InputRangeChangeEvent) => void;
 }
 
 export interface InputRangeChangeEvent {

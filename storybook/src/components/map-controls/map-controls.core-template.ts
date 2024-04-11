@@ -5,12 +5,12 @@ import { BaseLayerChangeEvent } from "@dso-toolkit/core/src/components/map-base-
 import { OverlayChangeEvent } from "@dso-toolkit/core/src/components/map-overlays/map-overlays.interfaces";
 
 import { ComponentImplementation } from "../../templates";
-import { defaultLabel, defaultSymbol } from "../legend-item/legend-item.content";
+import { defaultSymbol } from "../legend-item/legend-item.content";
 
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
   implementation: "core",
-  template: ({ richContentTemplate, legendItemTemplate }) =>
+  template: ({ richContentTemplate, legendItemTemplate, selectableTemplate }) =>
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
@@ -43,7 +43,7 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           })}
           ${legendItemTemplate({
             disabled: true,
-            content: defaultLabel,
+            content: selectableTemplate({ id: "1", type: "checkbox", value: "1", label: "Legenda item label" }),
             symbol: defaultSymbol,
           })}
         </dso-map-controls>

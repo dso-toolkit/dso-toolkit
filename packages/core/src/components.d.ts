@@ -21,6 +21,7 @@ import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
+import { LegendItemRemoveClickEvent } from "./components/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
@@ -51,6 +52,7 @@ export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
+export { LegendItemRemoveClickEvent } from "./components/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
@@ -1557,7 +1559,7 @@ declare global {
         new (): HTMLDsoLabelElement;
     };
     interface HTMLDsoLegendItemElementEventMap {
-        "dsoRemoveClick": MouseEvent;
+        "dsoRemoveClick": LegendItemRemoveClickEvent;
         "dsoMouseEnter": any;
         "dsoMouseLeave": any;
     }
@@ -2667,7 +2669,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user activates the remove button.
          */
-        "onDsoRemoveClick"?: (event: DsoLegendItemCustomEvent<MouseEvent>) => void;
+        "onDsoRemoveClick"?: (event: DsoLegendItemCustomEvent<LegendItemRemoveClickEvent>) => void;
         /**
           * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
          */

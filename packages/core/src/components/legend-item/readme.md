@@ -15,11 +15,11 @@
 
 ## Events
 
-| Event            | Description                                        | Type                      |
-| ---------------- | -------------------------------------------------- | ------------------------- |
-| `dsoMouseEnter`  | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`        |
-| `dsoMouseLeave`  | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`        |
-| `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
+| Event            | Description                                        | Type                                      |
+| ---------------- | -------------------------------------------------- | ----------------------------------------- |
+| `dsoMouseEnter`  | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`                        |
+| `dsoMouseLeave`  | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`                        |
+| `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<LegendItemRemoveClickEvent>` |
 
 
 ## Slots
