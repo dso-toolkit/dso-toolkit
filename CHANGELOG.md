@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Form Group: Rich content overflow ([#2600](https://github.com/dso-toolkit/dso-toolkit/issues/2600))
 * Alert: Achtergrondkleur wordt op verkeerde niveau gezet ([#2614](https://github.com/dso-toolkit/dso-toolkit/issues/2614))
 * Document Component: Titel knop mist aria-expanded en sluit voor titel tekst ([#2480](https://github.com/dso-toolkit/dso-toolkit/issues/2480))
+* Document Component: Ondersteuning lijstnummers IMRO documenten ([#2500](https://github.com/dso-toolkit/dso-toolkit/issues/2500))
 
 ### Tasks
 * Packages: Dependencies updates ([#2483](https://github.com/dso-toolkit/dso-toolkit/issues/2483))

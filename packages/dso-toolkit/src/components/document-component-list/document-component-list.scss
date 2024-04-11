@@ -1,0 +1,12 @@
+@use "../../variables/units";
+@use "../list";
+
+ul.dso-document-component-list {
+  @include list.unstyled();
+
+  margin: 0;
+
+  > li + li {
+    margin-top: units.$u1;
+  }
+}

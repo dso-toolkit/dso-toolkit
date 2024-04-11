@@ -321,7 +321,7 @@ export class DocumentComponentDemo implements ComponentInterface {
           </dso-annotation-output>
         )}
         {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
-          <ul>
+          <ul class="dso-document-component-list">
             {embeddedDocuments.documentComponents.map((d) => (
               <li key={d.documentTechnischId}>
                 <DocumentComponent path={[...path, d]} />
