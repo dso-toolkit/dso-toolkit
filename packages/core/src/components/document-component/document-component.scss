@@ -9,7 +9,7 @@
 @use "~dso-toolkit/src/components/delete";
 @use "~dso-toolkit/src/components/insert";
 
-.not-applicable {
+.sr-only {
   @include utilities.sr-only();
 }
 

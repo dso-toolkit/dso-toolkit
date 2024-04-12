@@ -1,16 +1,9 @@
-@use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
-@include utilities.box-sizing();
-
 dso-annotation-output {
   display: block;
-}
-
-.sr-only {
-  @include utilities.sr-only();
 }
 
 .dso-annotation-header {
