@@ -12,6 +12,7 @@ export interface Autosuggest<TemplateFnReturnType> {
 }
 
 export interface AutosuggestSuggestion {
+  extras?: string[];
   value: string;
   type?: string;
   item?: unknown;

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Viewer Grid: MainPanel kunnen verbergen zonder geopend document ([#2592](https://github.com/dso-toolkit/dso-toolkit/issues/2592))
+* Autosuggest: Multi row variant ([#2557](https://github.com/dso-toolkit/dso-toolkit/issues/2557))
 
 ### Fixed
 * Form Group: Rich content overflow ([#2600](https://github.com/dso-toolkit/dso-toolkit/issues/2600))

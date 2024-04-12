@@ -120,6 +120,21 @@ const suggestions: AutosuggestSuggestion[] = [
   {
     value: "Slopen (zonder sttr bestand)",
   },
+  {
+    extras: ["In werking vanaf 01-01-2024", "gemeente Groningen", "/akn/nl/act/gm0014/2020/omgevingsplan"],
+    type: "omgevingsplan (omgevingswet)",
+    value: "Omgevingsplan gemeente Groningen",
+  },
+  {
+    extras: ["Ontwerp 18-01-2024", "gemeente Groningen", "/akn/nl/act/gm0014/2020/omgevingsplan"],
+    type: "omgevingsplan (omgevingswet)",
+    value: "Omgevingsplan gemeente Groningen",
+  },
+  {
+    extras: ["Ontwerp 16-06-2023 - in voorbereiding", "gemeente Groningen", "NL.IMRO.0202.OGV888-0201"],
+    type: "omgevingsplan (omgevingswet)",
+    value: "Omgevingsvergunning Friesestraatweg 141-36",
+  },
 ];
 
 export function fetchSuggestions(value: string): AutosuggestSuggestion[] {

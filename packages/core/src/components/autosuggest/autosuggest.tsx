@@ -366,6 +366,18 @@ export class Autosuggest {
     return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
   }
 
+  private getChunkedExtras(extras: string[]): string[][] {
+    return extras.reduce((resultArray: string[][], extra, index) => {
+      const chunkIndex = Math.floor(index / 2);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = [];
+      }
+      resultArray[chunkIndex]?.push(extra);
+      return resultArray;
+    }, []);
+  }
+
   render() {
     const terms = this.input?.value.split(" ").filter((t) => t) ?? [];
 
@@ -398,8 +410,18 @@ export class Autosuggest {
                   aria-selected={(suggestion === this.selectedSuggestion).toString()}
                   aria-label={suggestion.value}
                 >
-                  <span class="value">{this.markTerms(suggestion.value, terms)}</span>
-                  {suggestion.type ? <span class="type">{suggestion.type}</span> : undefined}
+                  <div class="suggestion-row">
+                    <span class="value">{this.markTerms(suggestion.value, terms)}</span>
+                    {suggestion.type ? <span class="type">{this.markTerms(suggestion.type, terms)}</span> : undefined}
+                  </div>
+                  {suggestion.extras &&
+                    this.getChunkedExtras(suggestion.extras).map((chunk) => (
+                      <div class="suggestion-row">
+                        {chunk.map((c) => (
+                          <span class="extra">{this.markTerms(c, terms)}</span>
+                        ))}
+                      </div>
+                    ))}
                 </li>
               ))) ||
               (this.notFound && (

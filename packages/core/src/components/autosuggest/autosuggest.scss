@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/zindex";
 
 @use "autosuggest.variables" as core-autosuggest-variables;
@@ -35,9 +36,12 @@ ul {
   padding: units.$u1 0;
 
   li {
-    display: flex;
-    justify-content: space-between;
     padding: units.$u1 * 0.5 units.$u2;
+
+    .suggestion-row {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -46,7 +50,8 @@ li[aria-selected="true"] {
   background-color: colors.$grasgroen;
 
   &,
-  .type {
+  .type,
+  .extra {
     color: colors.$wit;
   }
 }
@@ -58,6 +63,12 @@ mark {
   padding: 0;
 }
 
-.type {
+.type,
+.extra {
   color: colors.$grijs-60;
+}
+
+.extra {
+  font-size: typography.$root-font-size-small;
+  line-height: typography.$root-font-size-small * typography.$line-height-base;
 }

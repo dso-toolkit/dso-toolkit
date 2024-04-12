@@ -13,4 +13,9 @@ export interface Suggestion {
    * A reference to the original object that was used to create the suggestion.
    */
   item?: unknown;
+
+  /**
+   * An array of additional strings
+   */
+  extras?: string[];
 }

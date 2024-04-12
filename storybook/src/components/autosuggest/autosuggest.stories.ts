@@ -127,7 +127,11 @@ storiesOfAutosuggest({
                 loadingDelayed,
                 notFoundLabel,
               ]),
-              children: html`<input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'" />`,
+              children: html`<input
+                type="text"
+                id="search-bar--with-value"
+                placeholder="Bijvoorbeeld 'Rotterdam' of 'Groningen'"
+              />`,
             })}
             <button type="button">Zoekopdracht legen</button>
           </div>
