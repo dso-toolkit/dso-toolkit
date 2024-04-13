@@ -1,0 +1,41 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v62.19.0 🎤
+
+In deze release is een bug in de Modal opgelost waardoor in sommige gevallen de modal in een viewport onder 768px breedte verdween.
+
+## Modal
+
+De CSS-code die een deel van de markup op `display: none` zette, is verwijderd, en de HTML `body` detecteert nu automatisch of een modal is geopend:
+
+Oud:
+
+```scss
+body.dso-modal-open {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    .container,
+    dso-banner,
+    .dso-banner {
+      display: none;
+    }
+  }
+}
+```
+
+Nieuw:
+
+```scss
+body:has(dialog[open]),
+body:has(dso-modal.hydrated) {
+  // block scrolling of the body when a dialog is open
+  overflow: hidden;
+}
+```
+
+Het is bij de html/css-versie van de Modal dus niet meer nodig om de class `dso-modal-open` te zetten; de `:has()`-pseudoclass, sinds kort breed ondersteund, zorgt automatisch dat het scrollgedrag 'achter' de modal wordt uitgezet.
