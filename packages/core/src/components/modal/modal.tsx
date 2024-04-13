@@ -76,12 +76,9 @@ export class Modal implements ComponentInterface {
 
       this.htmlDialogElement.showModal();
     }
-
-    document.body.classList.add("dso-modal-open");
   }
 
   disconnectedCallback(): void {
-    document.body.classList.remove("dso-modal-open");
     this.htmlDialogElement?.close();
 
     if (this.returnFocus === false) {

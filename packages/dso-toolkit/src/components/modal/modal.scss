@@ -8,6 +8,7 @@
 
 body:has(dialog[open]),
 body:has(dso-modal.hydrated) {
+  // block scrolling of the body when a dialog is open
   overflow: hidden;
 }
 

@@ -1,6 +1,6 @@
 # dso-modal
 
-Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` gezet. Deze class zorgt ervoor dat het scrollgedrag 'achter' de modal wordt uitgezet. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
+Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'achter' de modal automatisch uitgezet dmv detectie middels CSS. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
 
 
 <!-- Auto Generated Below -->
