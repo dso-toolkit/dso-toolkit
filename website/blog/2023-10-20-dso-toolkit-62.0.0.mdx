@@ -2,40 +2,64 @@
 authors: [tfrijsewijk]
 ---
 
-# DSO Toolkit v62.19.0 🎤
+# DSO Toolkit v62.0.0 🎤
 
-In deze release is een bug in de Modal opgelost waardoor in sommige gevallen de modal in een viewport onder 768px breedte verdween.
+In deze release is een regressie bug in de Date Picker opgelost die in v60.0.0 is geintroduceerd.
 
-## Modal
+## Date Picker
 
-De CSS-code die een deel van de markup op `display: none` zette, is verwijderd, en de HTML `body` detecteert nu automatisch of een modal is geopend:
+Het change event `dsoDateChange` van `<dso-date-picker>` moet de value als `dd-mm-jjjj` emitten. In versie v60.0.0 is dit per abuis `jjjj-mm-dd` geworden. In [#2391](https://github.com/dso-toolkit/dso-toolkit/issues/2391) is dit opgelost en is de output format weer `dd-mm-jjjj`.
 
-Oud:
+Tegelijkertijd hebben we [#2380 Date Picker: Bij handmatige invoer van datum buiten min/max, geen event met error](https://github.com/dso-toolkit/dso-toolkit/issues/2380) opgelost. Dit betekent dat `event.error` weer klopt. Met de komst van `<input type="date">` in het Web Component is dit ook een erg beperkte API gebleven. Daarom hebben we de API uitgebreid met het validatieobject van de browser `validity: ValidityState`.
 
-```scss
-body.dso-modal-open {
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    overflow: hidden;
-  }
+```typescript
+export interface DatePickerChangeEvent {
+  component: "dso-date-picker";
+  originalEvent: Event;
+  value: string;
+  valueAsDate: Date | undefined;
+  error?: "required" | "min-range" | "max-range" | "invalid";
 
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    .container,
-    dso-banner,
-    .dso-banner {
-      display: none;
-    }
-  }
+  // Nieuw
+  validity: ValidityState;
 }
 ```
 
-Nieuw:
+## Selectable
 
-```scss
-body:has(dialog[open]),
-body:has(dso-modal.hydrated) {
-  // block scrolling of the body when a dialog is open
-  overflow: hidden;
+Het SelectableChangeEvent was voorheen een alias voor `Event`. Dit was verwarrend en we hebben dit gelijkgetrokken met de overige events:
+
+```typescript
+// ❌ Oud
+interface SelectableChangeEvent extends Event {}
+
+// ✅ Nieuw
+export interface SelectableChangeEvent {
+  originalEvent: Event;
+  checked: boolean;
 }
 ```
 
-Het is bij de html/css-versie van de Modal dus niet meer nodig om de class `dso-modal-open` te zetten; de `:has()`-pseudoclass, sinds kort breed ondersteund, zorgt automatisch dat het scrollgedrag 'achter' de modal wordt uitgezet.
+Voor het één-op-één migratiepad geldt dat het vorige `DsoSelectableCustomEvent<SelectableChangeEvent>.detail` object nu op `DsoSelectableCustomEvent<SelectableChangeEvent>.detail.originalEvent` staat:
+
+```ts
+event.detail === event.detail.originalEvent;
+```
+
+Voor de afnemers die de `checked` state willen weten kunnen ook gebruik maken van `DsoSelectableCustomEvent<SelectableChangeEvent>.detail.checked`:
+
+```ts
+event.detail.target.checked === event.detail.checked;
+```
+
+<!--truncate-->
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/JwtEOp7pC1A?si=yerY5rgfHtS9k9SW"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
