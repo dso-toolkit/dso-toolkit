@@ -1,3 +1,3 @@
 # `.dso-modal`
 
-Als een modal actief is moet er op `body` een class `.dso-modal-open` worden geplaatst.
+Als een modal actief is zal de `body` dit door middel van CSS automatisch detecteren, en het scrollgedrag 'achter' de modal uitzetten.
