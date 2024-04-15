@@ -34,7 +34,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       mark,
       dsoMarkItemHighlight,
     }) {
-      return html`<dso-responsive-element>
+      return html`<dso-responsive-element class="dso-document-components">
         <dso-document-component
           ?annotated=${annotated}
           ?bevat-ontwerp-informatie=${bevatOntwerpInformatie}

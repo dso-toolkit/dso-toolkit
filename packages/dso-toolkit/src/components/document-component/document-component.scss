@@ -1,9 +1,6 @@
-@use "../../variables/units";
-@use "../list";
-
 @use "document-component.variables" as document-component-variables;
 
-dso-responsive-element {
+dso-responsive-element.dso-document-components {
   &[small] {
     dso-document-component {
       &::part(_annotation-container),
@@ -50,18 +47,6 @@ dso-responsive-element {
           --a: var(--b);
         }
       }
-    }
-  }
-}
-
-.dso-document-components {
-  ul {
-    @include list.unstyled();
-
-    margin: 0;
-
-    li + li {
-      margin-top: units.$u1;
     }
   }
 }
