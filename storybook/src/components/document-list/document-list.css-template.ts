@@ -31,7 +31,7 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
                 >Bovenliggend:
                 ${dropdownMenuTemplate({
                   id: "dropdown-id",
-                  button: { type: "button", variant: "tertiary", label: "AFDELING 1.1 Algemeen" },
+                  button: { type: "button", variant: "tertiary", label: "AFDELING 1.1 Algemeen", ariaExpanded: true },
                   groups: [
                     {
                       items: [
@@ -50,15 +50,16 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
               >
               <p>Hier komt vulling</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
-                justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-                venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
-                consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-                vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+                AssCo is the industry leader of virally-distributed, interactive networks. The aptitude to innovate
+                interactively leads to the capability to architect ultra-proactively. We usually evolve impactful M&A.
+                That is a remarkable achievement considering this year's conditions! If all of this comes off as
+                improbable to you, that's because it is! The ability to monetize magnetically leads to the ability to
+                empower magnetically. If all of this sounds discombobulating to you, that's because it is! We believe we
+                know that it is better to utilize wirelessly than to enable interactively. We frequently embrace B2B
+                e-businesses. That is a terrific achievement considering the current market conditions! Quick: do you
+                have a granular game plan for managing new paradigms? The world-class models factor can be summed up in
+                one word: backward-compatible. We apply the proverb "Birds of a feather flock together" not only to our
+                systems but our ability to integrate.
               </p>
             </div>
           </div>
