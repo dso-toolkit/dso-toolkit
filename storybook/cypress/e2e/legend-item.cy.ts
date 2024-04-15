@@ -23,9 +23,9 @@ describe("Legend Item", () => {
   it("should show label and symbol", () => {
     cy.get("@dsoLegendItem")
       .should("have.text", defaultLabelText)
-      .shadow()
-      .find(".dso-legend-item")
-      .should("have.class", "dso-legend-item-symbol");
+      .get("@dsoLegendItemShadow")
+      .find(".legend-item")
+      .should("have.class", "legend-item-symbol");
   });
 
   it("should emit removeClick event", () => {
@@ -43,7 +43,7 @@ describe("Legend Item", () => {
   it("should show selectable with label", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable")
       .get("dso-legend-item")
-      .find("dso-selectable[slot='selectable']")
+      .find("dso-selectable")
       .should("be.visible")
       .get("dso-legend-item")
       .invoke("prop", "disabled", true)
