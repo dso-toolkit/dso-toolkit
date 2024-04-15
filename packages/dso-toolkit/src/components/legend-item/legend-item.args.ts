@@ -14,10 +14,7 @@ export interface LegendItemArgs {
   removable: boolean;
 }
 
-export const legendItemArgs: Omit<
-  LegendItemArgs,
-  "dsoMouseEnter" | "dsoMouseLeave" | "dsoRemoveClick" | "selectables" | "label" | "selectable" | "symbol"
-> = {
+export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoRemoveClick" | "label"> = {
   disabled: false,
   disabledMessage: "",
   removable: false,
