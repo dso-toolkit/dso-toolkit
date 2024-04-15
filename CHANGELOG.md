@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪖 62.19.0 - 15-04-2024
+
 ### Added
 * Viewer Grid: MainPanel kunnen verbergen zonder geopend document ([#2592](https://github.com/dso-toolkit/dso-toolkit/issues/2592))
 * Autosuggest: Multi row variant ([#2557](https://github.com/dso-toolkit/dso-toolkit/issues/2557))
