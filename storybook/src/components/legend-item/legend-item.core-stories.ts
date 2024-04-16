@@ -33,9 +33,27 @@ const { Default, WithSelectable, Removable, WithSelectables, WithInputRange } = 
     const bodyWithSelectables = html`<fieldset>
       <legend>Wijzig eigenschap</legend>
       <div>
-        ${selectableTemplate({ type: "radio", id: "waarde1", value: "waarde1", label: "Waarde één" })}
-        ${selectableTemplate({ type: "radio", id: "waarde2", value: "waarde2", label: "Waarde twee" })}
-        ${selectableTemplate({ type: "radio", id: "waarde3", value: "waarde3", label: "Waarde drie" })}
+        ${selectableTemplate({
+          type: "radio",
+          id: "waarde1",
+          value: "waarde1",
+          label: "Waarde één",
+          name: "eigenschap",
+        })}
+        ${selectableTemplate({
+          type: "radio",
+          id: "waarde2",
+          value: "waarde2",
+          label: "Waarde twee",
+          name: "eigenschap",
+        })}
+        ${selectableTemplate({
+          type: "radio",
+          id: "waarde3",
+          value: "waarde3",
+          label: "Waarde drie",
+          name: "eigenschap",
+        })}
       </div>
     </fieldset>`;
 
