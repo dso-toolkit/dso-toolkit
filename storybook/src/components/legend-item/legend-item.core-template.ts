@@ -27,9 +27,9 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
           @dsoRemoveClick=${ifDefined(dsoRemoveClick)}
         >
-          ${symbol ? html`<span slot="symbol"> ${symbol} </span>` : nothing} ${content}
-          ${body ? html`<div slot="body">${body}</div>` : nothing}</dso-legend-item
-        >
+          ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
+          ${body ? html`<div slot="body">${body}</div>` : nothing}
+        </dso-legend-item>
       `;
     },
 };

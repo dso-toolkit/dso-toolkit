@@ -90,21 +90,16 @@ export class LegendItem implements ComponentInterface {
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
           {this.removable && (
-            <button
-              id="remove-button"
-              class="tertiary"
-              type="button"
-              onClick={(e) => this.dsoRemoveClick.emit({ originalEvent: e })}
-            >
+            <button id="remove-button" type="button" onClick={(e) => this.dsoRemoveClick.emit({ originalEvent: e })}>
               <span class="sr-only">Legenda item verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
             </button>
           )}
 
           {hasBody && !this.disabled && (
-            <button id="edit-button" class="tertiary" type="button" onClick={() => (this.showBody = !this.showBody)}>
+            <button id="edit-button" type="button" onClick={() => (this.showBody = !this.showBody)}>
               <span class="sr-only">Legenda item aanpassen</span>
-              {<dso-icon icon={this.showBody ? "times" : "more"} />}
+              <dso-icon icon={this.showBody ? "times" : "more"} />
             </button>
           )}
         </div>
