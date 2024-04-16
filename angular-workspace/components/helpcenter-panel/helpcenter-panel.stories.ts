@@ -1,14 +1,6 @@
-// import { storiesOf } from "@storybook/angular";
-
-// import { storiesOfHelpcenterPanel } from "dso-toolkit";
-// import { templateContainer } from "../../templates";
-
-// import readme from "./readme.md?raw";
-
 import type { Meta } from "@storybook/angular";
 
 import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from "dso-toolkit";
-import { DsoHelpcenterPanel } from "../../projects/component-library/src/public-api";
 
 import { templateContainer } from "../../templates";
 
