@@ -5,11 +5,12 @@ import { BaseLayerChangeEvent } from "@dso-toolkit/core/src/components/map-base-
 import { OverlayChangeEvent } from "@dso-toolkit/core/src/components/map-overlays/map-overlays.interfaces";
 
 import { ComponentImplementation } from "../../templates";
+import { defaultSymbol } from "../legend-item/legend-item.content";
 
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
   implementation: "core",
-  template: ({ richContentTemplate }) =>
+  template: ({ richContentTemplate, legendItemTemplate, selectableTemplate }) =>
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
@@ -39,6 +40,11 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           ></dso-map-overlays>
           ${richContentTemplate({
             children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,
+          })}
+          ${legendItemTemplate({
+            disabled: true,
+            content: selectableTemplate({ id: "1", type: "checkbox", value: "1", label: "Legenda item label" }),
+            symbol: defaultSymbol,
           })}
         </dso-map-controls>
       `;

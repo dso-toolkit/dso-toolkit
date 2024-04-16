@@ -1,0 +1,43 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/legend-item/legend-item.variables" as legend-item-variables;
+
+:host {
+  display: block;
+  padding: units.$u1 * 0.5;
+}
+
+@include utilities.box-sizing();
+
+.legend-item {
+  display: flex;
+  position: relative;
+
+  &.legend-item-symbol {
+    + .body {
+      margin-inline-start: legend-item-variables.$symbol-width + units.$u1;
+    }
+  }
+
+  &.legend-item-selectable {
+    + .body {
+      margin-inline-start: legend-item-variables.$selectable-width;
+    }
+
+    &.legend-item-symbol {
+      + .body {
+        margin-inline-start: legend-item-variables.$symbol-width + units.$u1 + legend-item-variables.$selectable-width;
+      }
+    }
+  }
+}
+
+button {
+  @include button.tertiary($icon-only: true, $modifiers: false);
+
+  position: absolute;
+  inset-inline-end: 0;
+}
