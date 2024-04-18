@@ -7,7 +7,7 @@ import { templateContainer } from "../../templates";
 import { addonsSections, alignmentSections, anchorSections, basicSections, subSections } from "./accordion.content";
 
 const meta: Meta<AccordionArgs> = {
-  ...accordionMeta({ readme: `${readme}` }),
+  ...accordionMeta({ readme }),
   title: "Accordion",
 };
 
