@@ -1,14 +1,13 @@
-import type { Meta } from "@storybook/angular";
-
+import type { Meta } from "@storybook/web-components";
 import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/helpcenter-panel/readme.md?raw";
 
 const meta: Meta<HelpcenterPanelArgs> = {
   ...helpcenterPanelMeta({ readme }),
-  title: "Helpcenter Panel",
+  title: "Core/Helpcenter Panel",
 };
 
 export default meta;

@@ -6,7 +6,7 @@ import { noControl } from "../../storybook/index.js";
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
 
 export interface AccordionArgs {
-  variant: undefined | "compact" | "conclusion";
+  variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
   reverseAlign: boolean;
   dsoToggleClick: HandlerFunction;
   dsoAnimationStart: HandlerFunction;
