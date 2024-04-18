@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
 import { TooltipArgs, tooltipMeta, tooltipStories } from "dso-toolkit";
 
 import { HandlerFunction } from "@storybook/addon-actions";

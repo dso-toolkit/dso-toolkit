@@ -1,14 +1,13 @@
 import type { Meta } from "@storybook/web-components";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
-import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
-import componentsReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
+import readme from "@dso-toolkit/react/src/components/accordion/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { addonsSections, alignmentSections, anchorSections, basicSections, subSections } from "./accordion.content";
 
 const meta: Meta<AccordionArgs> = {
-  ...accordionMeta({ readme: `${readme}\n${componentsReadme}` }),
+  ...accordionMeta({ readme: `${readme}` }),
   title: "Accordion",
 };
 

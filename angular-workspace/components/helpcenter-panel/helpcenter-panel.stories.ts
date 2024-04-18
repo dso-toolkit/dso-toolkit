@@ -25,20 +25,3 @@ const { HelpcenterPanel } = helpcenterPanelStories({
 });
 
 export { HelpcenterPanel };
-
-// storiesOfHelpcenterPanel({
-//   parameters: {
-//     module,
-//     storiesOf,
-//     readme,
-//     storyApiOptions: {
-//       parameters: [
-//         {
-//           component: DsoHelpcenterPanel,
-//         },
-//       ],
-//     },
-//   },
-//   templateContainer,
-//   storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
-// });
