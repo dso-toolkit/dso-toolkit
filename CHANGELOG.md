@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Form Group Files: Remove parts if no files ([#2627](https://github.com/dso-toolkit/dso-toolkit/issues/2627))
 
+### Tasks
+* Packages: Dependencies updates ([#2617](https://github.com/dso-toolkit/dso-toolkit/issues/2617))
+
 ## 🪖 62.19.0 - 15-04-2024
 
 ### Added

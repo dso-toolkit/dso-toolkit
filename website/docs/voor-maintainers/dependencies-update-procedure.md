@@ -26,7 +26,7 @@ De dependencies `typescript` en `tslib` moeten voor alle packages onderling iden
 Let erop dat er aan het einde van de update procedure geen onverklaarbare `node_modules` directories in onze packages zijn ontstaan. Dit kan duiden op versie conflicten.
 
 ```sh
-yarn upgrade-interactive.
+yarn upgrade-interactive
 ```
 
 ```sh
