@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/react";
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
