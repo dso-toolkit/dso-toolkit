@@ -19,16 +19,7 @@ export {
   storiesOfFactory,
 } from "./storybook/index.js";
 
-export {
-  Accordion,
-  AccordionHandleElement,
-  AccordionHeading,
-  AccordionSection,
-  AccordionSectionStatus,
-  AccordionSectionToggleClickEvent,
-  AccordionVariant,
-} from "./components/accordion/accordion.models.js";
-export { AccordionTemplates, storiesOfAccordion } from "./components/accordion/accordion.stories-of.js";
+export * from "./components/accordion";
 
 export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
 export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
@@ -41,8 +32,7 @@ export * from "./components/anchor";
 
 export * from "./components/application-heading";
 
-export { Annotation } from "./components/annotation/annotation.models.js";
-export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";
+export * from "./components/annotation";
 
 export { AnnotationButton } from "./components/annotation-button/annotation-button.models.js";
 
@@ -79,8 +69,7 @@ export { CardGridTemplates, storiesOfCardGrid } from "./components/card-grid/car
 export { CardList } from "./components/card-list/card-list.models.js";
 export { CardListTemplates, storiesOfCardList } from "./components/card-list/card-list.stories-of.js";
 
-export { Context } from "./components/context/context.models.js";
-export { ContextTemplates, storiesOfContext } from "./components/context/context.stories-of.js";
+export * from "./components/context";
 
 export { DatePicker } from "./components/date-picker/date-picker.models.js";
 export {
@@ -96,16 +85,7 @@ export {
   storiesOfDatePickerLegacy,
 } from "./components/date-picker-legacy/date-picker-legacy.stories-of.js";
 
-export {
-  Definition,
-  DefinitionDescriptionContent,
-  DefinitionDescriptionItems,
-  DefinitionList,
-} from "./components/definition-list/definition-list.models.js";
-export {
-  DefinitionListTemplates,
-  storiesOfDefinitionList,
-} from "./components/definition-list/definition-list.stories-of.js";
+export * from "./components/definition-list";
 
 export { Description } from "./components/description/description.models.js";
 export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
@@ -171,23 +151,11 @@ export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/
 export { FormButtons } from "./components/form-buttons/form-buttons.models.js";
 export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-buttons/form-buttons.stories-of.js";
 
-export {
-  Header,
-  HeaderClickEvent,
-  HeaderClickMenuItemEvent,
-  HeaderMenuItem,
-  HeaderNavigationType,
-} from "./components/header/header.models.js";
-export { HeaderTemplates, storiesOfHeader } from "./components/header/header.stories-of.js";
+export * from "./components/header";
 
-export { HelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.models.js";
-export {
-  HelpcenterPanelTemplates,
-  storiesOfHelpcenterPanel,
-} from "./components/helpcenter-panel/helpcenter-panel.stories-of.js";
+export * from "./components/helpcenter-panel";
 
-export { HighlightBox } from "./components/highlight-box/highlight-box.models.js";
-export { HighlightBoxTemplates, storiesOfHighlightBox } from "./components/highlight-box/highlight-box.stories-of.js";
+export * from "./components/highlight-box";
 
 export { Icon } from "./components/icon/icon.models.js";
 export { IconTemplates, storiesOfIcon } from "./components/icon/icon.stories-of.js";
@@ -306,17 +274,14 @@ export {
 } from "./components/shopping-cart/shopping-cart.models.js";
 export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
 
-export { SlideToggle } from "./components/slide-toggle/slide-toggle.models.js";
-export { SlideToggleTemplates, storiesOfSlideToggle } from "./components/slide-toggle/slide-toggle.stories-of.js";
+export * from "./components/slide-toggle";
 
 export { Table, TableContent, TableSorting } from "./components/table/table.models.js";
 export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
 
-export { Tabs, TabsItem } from "./components/tabs/tabs.models.js";
-export { TabsTemplates, storiesOfTabs } from "./components/tabs/tabs.stories-of.js";
+export * from "./components/tabs";
 
-export { Tile } from "./components/tile/tile.models.js";
-export { TileTemplates, storiesOfTile } from "./components/tile/tile.stories-of.js";
+export * from "./components/tile";
 
 export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
 export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
@@ -324,8 +289,7 @@ export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/til
 export { Toggletip, isToggletipInterface } from "./components/toggletip/toggletip.models.js";
 export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/toggletip.stories-of.js";
 
-export { Tooltip, tooltipPositions, tooltipStrategy } from "./components/tooltip/tooltip.models.js";
-export { TooltipTemplates, storiesOfTooltip } from "./components/tooltip/tooltip.stories-of.js";
+export * from "./components/tooltip";
 
 export { collection, onClickItem, onCloseItem, onFilter, onOpenItem } from "./components/tree-view/tree-view.demo.js";
 export {
@@ -345,5 +309,4 @@ export {
 } from "./components/viewer-grid/viewer-grid.models.js";
 export { ViewerGridTemplates, storiesOfViewerGrid } from "./components/viewer-grid/viewer-grid.stories-of.js";
 
-export { Whitebox } from "./components/whitebox/whitebox.models.js";
-export { WhiteboxTemplates, storiesOfWhitebox } from "./components/whitebox/whitebox.stories-of.js";
+export * from "./components/whitebox";

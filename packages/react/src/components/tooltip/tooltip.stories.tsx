@@ -1,10 +1,18 @@
-import { storiesOfTooltip } from "dso-toolkit";
+import type { Meta } from "@storybook/react";
+import { TooltipArgs, tooltipMeta, tooltipStories } from "dso-toolkit";
+
 import { HandlerFunction } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+
+const meta: Meta<TooltipArgs> = {
+  ...tooltipMeta({ readme }),
+  title: "Tooltip",
+};
+
+export default meta;
 
 function asChildTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
@@ -26,16 +34,17 @@ function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunc
   );
 }
 
-storiesOfTooltip({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const { AsChild, AsSibling } = tooltipStories({
   templateContainer,
-  storyTemplates: ({ tooltipTemplate }) => ({
-    tooltipTemplate,
-    asChildTemplate,
-    asSiblingTemplate,
-  }),
+  storyTemplates: (templates) => {
+    const { tooltipTemplate } = templates;
+
+    return {
+      tooltipTemplate,
+      asChildTemplate,
+      asSiblingTemplate,
+    };
+  },
 });
+
+export { AsChild, AsSibling };

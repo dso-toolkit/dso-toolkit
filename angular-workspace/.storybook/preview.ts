@@ -15,6 +15,11 @@ export const preview: Preview = {
       },
     },
     docs: { inlineStories: true },
+    options: {
+      storySort: {
+        method: "alphabetically",
+      },
+    },
   },
 };
 

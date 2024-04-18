@@ -7,6 +7,12 @@ const preview: Preview = {
       removeEmptyComments: true, // default: false
       removeComments: /\?.*/, // default: false
     },
+    options: {
+      storySort: {
+        method: "alphabetically",
+        order: ["HTML|CSS", "Core"],
+      },
+    },
   },
 };
 

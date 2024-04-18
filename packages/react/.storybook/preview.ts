@@ -15,6 +15,11 @@ const preview: Preview = {
       },
     },
     decorators: [jsxDecorator],
+    options: {
+      storySort: {
+        method: "alphabetically",
+      },
+    },
   },
 };
 

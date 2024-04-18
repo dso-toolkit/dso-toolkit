@@ -1,21 +1,13 @@
-import { moduleMetadata } from "@storybook/angular";
-// eslint-disable-next-line no-duplicate-imports -- Todo: #2593
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/react";
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-import { TrustUrlPipe } from "../trust-url.pipe";
 
 import readme from "./readme.md?raw";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),
   title: "Header",
-  decorators: [
-    moduleMetadata({
-      declarations: [TrustUrlPipe],
-    }),
-  ],
 };
 
 export default meta;

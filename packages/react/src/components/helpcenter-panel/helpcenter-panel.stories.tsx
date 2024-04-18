@@ -1,5 +1,4 @@
-import type { Meta } from "@storybook/angular";
-
+import type { Meta } from "@storybook/react";
 import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
