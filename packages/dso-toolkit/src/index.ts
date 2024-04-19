@@ -39,8 +39,7 @@ export { AnnotationOutput } from "./components/annotation-output/annotation-outp
 
 export * from "./components/attachments-counter";
 
-export { Autosuggest, AutosuggestSuggestion } from "./components/autosuggest/autosuggest.models.js";
-export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosuggest/autosuggest.stories-of.js";
+export * from "./components/autosuggest";
 
 export * from "./components/badge";
 

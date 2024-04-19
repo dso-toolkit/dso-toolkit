@@ -1,23 +1,26 @@
-import { AutosuggestSuggestion, storiesOfAutosuggest, StoryRoot } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
-import { html } from "lit-html";
-
-import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
+import { type Meta } from "@storybook/web-components";
+import { AutosuggestArgs, autosuggestMeta, autosuggestStories, AutosuggestSuggestion } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-storiesOfAutosuggest({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    root: StoryRoot.Core,
-  },
+import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
+import { html } from "lit-html";
+
+const meta: Meta<AutosuggestArgs> = {
+  ...autosuggestMeta({ readme }),
+  title: "Core/Autosuggest",
+};
+
+export default meta;
+
+const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
   templateContainer,
-  storyTemplates: ({ autosuggestTemplate, buttonTemplate }) => {
+  storyTemplates: (templates) => {
+    const { autosuggestTemplate, buttonTemplate } = templates;
+
     type AutosuggestConnector = (
       parameters: Parameters<
-        ReturnType<Parameters<typeof storiesOfAutosuggest>[0]["storyTemplates"]>["autosuggestDemoTemplate"]
+        ReturnType<Parameters<typeof autosuggestStories>[0]["storyTemplates"]>["autosuggestDemoTemplate"]
       >,
     ) => Parameters<typeof autosuggestTemplate>[0];
 
@@ -141,3 +144,5 @@ storiesOfAutosuggest({
     };
   },
 });
+
+export { Example, Minimal3Characters, InSearchbar };
