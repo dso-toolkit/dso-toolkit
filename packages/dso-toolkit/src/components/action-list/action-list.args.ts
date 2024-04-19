@@ -6,6 +6,10 @@ export interface ActionListArgs {
   title: string;
 }
 
+export const actionListArgs: ActionListArgs = {
+  title: "Action List",
+};
+
 export const actionListArgTypes: ArgTypes<ActionListArgs> = {
   title: {
     type: "string",
