@@ -11,6 +11,19 @@
 @use "../../form.mixins" as css-form-mixins;
 
 .form-group.dso-files {
+  // if file list is empty
+  &:not(:has(.dso-filelist li)) {
+    // accessibly hide the label
+    .dso-label-container {
+      @include utilities.sr-only();
+    }
+
+    .dso-filelist {
+      // in case an empty list is left in the dom
+      display: none;
+    }
+  }
+
   &.dso-required {
     .control-label::after {
       @include css-form-mixins.form-group-required();
