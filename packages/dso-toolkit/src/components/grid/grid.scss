@@ -123,6 +123,7 @@ form {
       background-color: var(--dso-banner-background-color);
       background-repeat: no-repeat;
       background-size: cover;
+      background-position: center;
 
       @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
         position: absolute;
