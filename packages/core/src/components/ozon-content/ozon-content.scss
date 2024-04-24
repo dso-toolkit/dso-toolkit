@@ -154,6 +154,8 @@ a {
 
 p,
 span[role="paragraph"],
+.dso-ozon-lijst,
+.dso-ozon-lijst > ul > li,
 table {
   &.editaction-add {
     @include insert.root();

@@ -14,119 +14,6 @@ export const content = [
     `,
   },
   {
-    title: "Inhoud met Lijst",
-    content: `
-      <Inhoud>
-        <Lijst
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-          type="expliciet"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-        >
-          <Lijstaanhef>Deze afdeling is niet van toepassing op:</Lijstaanhef>
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
-          >
-            <LiNummer>a.</LiNummer>
-            <Al>wonen;</Al>
-          </Li>
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-          >
-            <LiNummer>b.</LiNummer>
-            <Al>
-              het feitelijk verrichten van bouw- en sloopwerkzaamheden aan bouwwerken of
-              het feitelijk verrichten van onderhoudswerkzaamheden aan een bouwwerk of
-              van een terrein;
-            </Al>
-          </Li>
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-          >
-            <LiNummer>c.</LiNummer>
-            <Al>
-              een milieubelastende activiteit die in hoofdzaak in de openbare
-              buitenruimte wordt verricht;
-            </Al>
-          </Li>
-        </Lijst>
-
-        <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
-        <Al>De begrenzingsmethodiek is verder uitgewerkt in het Gebiedendocument (2004).</Al>
-
-        <Lijst
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-          type="expliciet"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-        >
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-          >
-            <LiNummer>d.</LiNummer>
-            <Al>doorgaand verkeer op wegen, vaarwegen en spoorwegen;</Al>
-          </Li>
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-          >
-            <LiNummer>e.</LiNummer>
-            <Lijst
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
-              type="expliciet"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
-            >
-              <Lijstaanhef>een evenement:</Lijstaanhef>
-              <Li
-                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
-                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
-              >
-                <LiNummer>1°.</LiNummer>
-                <Al>
-                  dat ergens anders plaatsvindt dan op een locatie voor evenementen;
-                </Al>
-              </Li>
-              <Li
-                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
-                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
-              >
-                <LiNummer>2°.</LiNummer>
-                <Al>
-                  dat geen festiviteit als bedoeld in artikel 5.68 van het Besluit
-                  kwaliteit leefomgeving is; of
-                </Al>
-              </Li>
-              <Li
-                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
-                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
-              >
-                <LiNummer>3°.</LiNummer>
-                <Al>
-                  waarover geluidregels zijn gesteld bij of krachtens een gemeentelijke
-                  verordening; en
-                </Al>
-              </Li>
-            </Lijst>
-          </Li>
-          <Li
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
-          >
-            <LiNummer>f.</LiNummer>
-            <Al>
-              het verrichten van werkzaamheden met een mobiele installatie op een
-              weiland, akker of bos die geen verplaatsbaar mijnbouwwerk als bedoeld in
-              artikel 4.1116 van het Besluit activiteiten leefomgeving is.
-            </Al>
-          </Li>
-          <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
-        </Lijst>
-      </Inhoud>
-    `,
-  },
-  {
     // De Noot in deze content is verzonnen. Volgens STOP kan dit voorkomen maar ik heb geen echte content gevonden.
     title: "Opschrift",
     content: `
@@ -201,102 +88,282 @@ export const content = [
   {
     title: "Lijst",
     content: `
-      <Lijst
-        eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-        type="expliciet"
-        wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-      >
-        <Lijstaanhef>Deze afdeling is niet van toepassing op:</Lijstaanhef>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
+      <Inhoud>
+        <Lijst
+          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
+          type="expliciet"
+          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
         >
-          <LiNummer>a.</LiNummer>
-          <Al>wonen;</Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-        >
-          <LiNummer>b.</LiNummer>
-          <Al>
-            het feitelijk verrichten van bouw- en sloopwerkzaamheden aan bouwwerken of
-            het feitelijk verrichten van onderhoudswerkzaamheden aan een bouwwerk of
-            van een terrein;
-          </Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-        >
-          <LiNummer>c.</LiNummer>
-          <Al>
-            een milieubelastende activiteit die in hoofdzaak in de openbare
-            buitenruimte wordt verricht;
-          </Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-        >
-          <LiNummer>d.</LiNummer>
-          <Al>doorgaand verkeer op wegen, vaarwegen en spoorwegen;</Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-        >
-          <LiNummer>e.</LiNummer>
-          <Lijst
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
-            type="expliciet"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+          <Lijstaanhef>Deze afdeling is niet van toepassing op:</Lijstaanhef>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
           >
-            <Lijstaanhef>een evenement:</Lijstaanhef>
-            <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+            <LiNummer>a.</LiNummer>
+            <Al>wonen;</Al>
+          </Li>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
+          >
+            <LiNummer>b.</LiNummer>
+            <Al>
+              het feitelijk verrichten van bouw- en sloopwerkzaamheden aan bouwwerken
+              of het feitelijk verrichten van onderhoudswerkzaamheden aan een bouwwerk
+              of van een terrein;
+            </Al>
+          </Li>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
+          >
+            <LiNummer>c.</LiNummer>
+            <Al>
+              een milieubelastende activiteit die in hoofdzaak in de openbare
+              buitenruimte wordt verricht;
+            </Al>
+          </Li>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
+          >
+            <LiNummer>d.</LiNummer>
+            <Al>doorgaand verkeer op wegen, vaarwegen en spoorwegen;</Al>
+          </Li>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
+          >
+            <LiNummer>e.</LiNummer>
+            <Lijst
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+              type="expliciet"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
             >
-              <LiNummer>1°.</LiNummer>
-              <Al>
-                dat ergens anders plaatsvindt dan op een locatie voor evenementen;
-              </Al>
-            </Li>
-            <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
-            >
-              <LiNummer>2°.</LiNummer>
-              <Al>
-                dat geen festiviteit als bedoeld in artikel 5.68 van het Besluit
-                kwaliteit leefomgeving is; of
-              </Al>
-            </Li>
-            <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
-            >
-              <LiNummer>3°.</LiNummer>
-              <Al>
-                waarover geluidregels zijn gesteld bij of krachtens een gemeentelijke
-                verordening; en
-              </Al>
-            </Li>
-          </Lijst>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
+              <Lijstaanhef>een evenement:</Lijstaanhef>
+              <Li
+                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+              >
+                <LiNummer>1°.</LiNummer>
+                <Al>
+                  dat ergens anders plaatsvindt dan op een locatie voor evenementen;
+                </Al>
+              </Li>
+              <Li
+                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
+                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
+              >
+                <LiNummer>2°.</LiNummer>
+                <Al>
+                  dat geen festiviteit als bedoeld in artikel 5.68 van het Besluit
+                  kwaliteit leefomgeving is; of
+                </Al>
+              </Li>
+              <Li
+                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
+                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
+              >
+                <LiNummer>3°.</LiNummer>
+                <Al>
+                  waarover geluidregels zijn gesteld bij of krachtens een
+                  gemeentelijke verordening; en
+                </Al>
+              </Li>
+            </Lijst>
+          </Li>
+          <Li
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
+          >
+            <LiNummer>f.</LiNummer>
+            <Al>
+              het verrichten van werkzaamheden met een mobiele installatie op een
+              weiland, akker of bos die geen verplaatsbaar mijnbouwwerk als bedoeld in
+              artikel 4.1116 van het Besluit activiteiten leefomgeving is.
+            </Al>
+          </Li>
+          <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
+        </Lijst>
+
+        <Al>Deze lijst is in z'n geheel verwijderd:</Al>
+        <Lijst
+          eId="artrecital__div_o_2__content_2__list_o_1_inst2"
+          type="ongemarkeerd"
+          wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2"
+          wijzigactie="verwijder"
         >
-          <LiNummer>f.</LiNummer>
-          <Al>
-            het verrichten van werkzaamheden met een mobiele installatie op een
-            weiland, akker of bos die geen verplaatsbaar mijnbouwwerk als bedoeld in
-            artikel 4.1116 van het Besluit activiteiten leefomgeving is.
-          </Al>
-        </Li>
-        <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
-      </Lijst>
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+          >
+            <Al>
+              voorwaarden aan het lozen van afvloeiend hemelwater of van grondwater
+              op of in de bodem of in een riool in een gemeentelijke verordening op
+              grond van artikel 10.32a van de Wet milieubeheer; en
+            </Al>
+          </Li>
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+          >
+            <Al>
+              de aanwijzing van concentratiegebieden en waardsen of afstanden voor
+              geur bij het houden van landbouwhuisdieren in een geurverordening op
+              grond van artikel 6 van de voormalige Wet geurhinder en veehouderij.
+            </Al>
+          </Li>
+        </Lijst>
+
+        <Al>Deze lijst is in z'n geheel toegevoegd:</Al>
+        <Lijst
+          eId="artrecital__div_o_2__content_2__list_o_1_inst2"
+          type="expliciet"
+          wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2"
+          wijzigactie="voegtoe"
+        >
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+          >
+            <LiNummer>a.</LiNummer>
+            <Al>
+              voorwaarden aan het lozen van afvloeiend hemelwater of van grondwater
+              op of in de bodem of in een riool in een gemeentelijke verordening op
+              grond van artikel 10.32a van de Wet milieubeheer; en
+            </Al>
+          </Li>
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+          >
+            <LiNummer>b.</LiNummer>
+            <Al>
+              de aanwijzing van concentratiegebieden en waardsen of afstanden voor
+              geur bij het houden van landbouwhuisdieren in een geurverordening op
+              grond van artikel 6 van de voormalige Wet geurhinder en veehouderij.
+            </Al>
+          </Li>
+        </Lijst>
+
+        <Al>Van deze ongemarkeerde Lijst is het eerste item verwijderd en het tweede item toegevoegd:</Al>
+        <Lijst
+          eId="artrecital__div_o_2__content_2__list_o_1_inst2"
+          type="ongemarkeerd"
+          wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2"
+        >
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wijzigactie="verwijder"
+          >
+            <Al>
+              voorwaarden aan het lozen van afvloeiend hemelwater of van grondwater op
+              of in de bodem of in een riool in een gemeentelijke verordening op grond
+              van artikel 10.32a van de Wet milieubeheer; en
+            </Al>
+          </Li>
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wijzigactie="voegtoe"
+          >
+            <Al>
+              de aanwijzing van concentratiegebieden en waardsen of afstanden voor
+              geur bij het houden van landbouwhuisdieren in een geurverordening op
+              grond van artikel 6 van de voormalige Wet geurhinder en veehouderij.
+            </Al>
+          </Li>
+        </Lijst>
+
+        <Al>Dit is een explicete Lijst. Het eerste items is verwijderd en het twee item is toegevoegd:</Al>
+        <Lijst
+          eId="artrecital__div_o_2__content_2__list_o_1_inst2"
+          type="expliciet"
+          wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2"
+        >
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_a"
+            wijzigactie="verwijder"
+          >
+            <LiNummer>a.</LiNummer>
+            <Al>
+              voorwaarden aan het lozen van afvloeiend hemelwater of van grondwater op
+              of in de bodem of in een riool in een gemeentelijke verordening op grond
+              van artikel 10.32a van de Wet milieubeheer; en
+            </Al>
+          </Li>
+          <Li
+            eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wId="gm0505_1-0__artrecital__div_o_2__content_2__list_o_1_inst2__item_b"
+            wijzigactie="voegtoe"
+          >
+            <LiNummer>b.</LiNummer>
+            <Al>
+              de aanwijzing van concentratiegebieden en waardsen of afstanden voor
+              geur bij het houden van landbouwhuisdieren in een geurverordening op
+              grond van artikel 6 van de voormalige Wet geurhinder en veehouderij.
+            </Al>
+          </Li>
+        </Lijst>
+
+        <Al>Deze expliciete lijst bevat een geneste expliciete lijst die is toegevoegd, en een genested ongemarkeerde lijst die is verwijderd:</Al>
+        <Lijst eId="artrecital__div_o_2__content_2__list_o_1_inst2" type="expliciet">
+          <Li eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_a">
+            <LiNummer>1.</LiNummer>
+            <Al>
+              voorwaarden aan het lozen van afvloeiend hemelwater of van grondwater op
+              of in de bodem of in een riool in een gemeentelijke verordening op grond
+              van artikel 10.32a van de Wet milieubeheer; en
+            </Al>
+            <Lijst
+              eId="artrecital__div_o_238__content_238__list_o_1"
+              wijzigactie="voegtoe"
+              type="expliciet"
+            >
+              <Li eId="artrecital__div_o_238__content_238__list_o_1__item_a">
+                <LiNummer>a.</LiNummer>
+                <Al>
+                  op de bodembedreigende stoffen die als gevolg van de activiteit in
+                  de bodem kunnen geraken of daarin terecht kunnen zijn gekomen; en
+                </Al>
+              </Li>
+              <Li eId="artrecital__div_o_238__content_238__list_o_1__item_b">
+                <LiNummer>b.</LiNummer>
+                <Al>
+                  op de plaatsen waar de bodembedreigende activiteit is verricht.
+                </Al>
+              </Li>
+            </Lijst>
+          </Li>
+          <Li eId="artrecital__div_o_2__content_2__list_o_1_inst2__item_b">
+            <LiNummer>2.</LiNummer>
+            <Al>
+              de aanwijzing van concentratiegebieden en waardsen of afstanden voor
+              geur bij het houden van landbouwhuisdieren in een geurverordening op
+              grond van artikel 6 van de voormalige Wet geurhinder en veehouderij.
+            </Al>
+            <Lijst
+              eId="artrecital__div_o_238__content_238__list_o_1"
+              type="ongemarkeerd"
+              wijzigactie="verwijder"
+            >
+              <Li eId="artrecital__div_o_238__content_238__list_o_1__item_a">
+                <Al>
+                  op de bodembedreigende stoffen die als gevolg van de activiteit in
+                  de bodem kunnen geraken of daarin terecht kunnen zijn gekomen; en
+                </Al>
+              </Li>
+              <Li eId="artrecital__div_o_238__content_238__list_o_1__item_b">
+                <Al>
+                  op de plaatsen waar de bodembedreigende activiteit is verricht.
+                </Al>
+              </Li>
+            </Lijst>
+          </Li>
+        </Lijst>
+      </Inhoud>
     `,
   },
   {

@@ -21,3 +21,5 @@ export interface OzonContentMarkItemHighlightEvent {
   text: string;
   elementRef: HTMLElement;
 }
+
+export type OzonContentWijzigActie = "voegtoe" | "verwijder";

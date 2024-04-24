@@ -3,7 +3,10 @@ import { h } from "@stencil/core";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
-import clsx from "clsx";
+
+import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
+import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
+import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
 
 function isNestedAl(path: Node[]) {
   return path.some((n) => {
@@ -18,11 +21,8 @@ export class OzonContentAlNode implements OzonContentNode {
 
   render(node: Element, { mapNodeToJsx, path, inline }: OzonContentNodeContext) {
     let content = mapNodeToJsx(node.childNodes);
-    const wijzigactie = node.getAttribute("wijzigactie");
-
-    const className =
-      clsx({ "editaction-add": wijzigactie === "voegtoe", "editaction-remove": wijzigactie === "verwijder" }) ||
-      undefined;
+    const wijzigactie = parseWijzigactieFromNode(node);
+    const className = wijzigactieToClassName(wijzigactie);
 
     if (inline || isNestedAl(path)) {
       content = (
@@ -34,12 +34,6 @@ export class OzonContentAlNode implements OzonContentNode {
       content = <p class={className}>{content}</p>;
     }
 
-    if (wijzigactie === "voegtoe") {
-      content = <ins>{content}</ins>;
-    } else if (wijzigactie === "verwijder") {
-      content = <del>{content}</del>;
-    }
-
-    return content;
+    return <WrapWijzigactie wijzigactie={wijzigactie}>{content}</WrapWijzigactie>;
   }
 }

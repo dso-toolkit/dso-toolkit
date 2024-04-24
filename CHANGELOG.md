@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Legend Item: Nieuw component ([#2515](https://github.com/dso-toolkit/dso-toolkit/issues/2515))
+* Ozon Content: Renvooiweergave voor wijzigingen op Lijsten ([#2629](https://github.com/dso-toolkit/dso-toolkit/issues/2629))
 
 ### Changed
 * Form Group Files: Remove parts if no files ([#2627](https://github.com/dso-toolkit/dso-toolkit/issues/2627))
