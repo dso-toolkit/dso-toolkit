@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪜 62.20.0 - 24-04-2024
+
 ### Added
 * Legend Item: Nieuw component ([#2515](https://github.com/dso-toolkit/dso-toolkit/issues/2515))
 * Ozon Content: Renvooiweergave voor wijzigingen op Lijsten ([#2629](https://github.com/dso-toolkit/dso-toolkit/issues/2629))
