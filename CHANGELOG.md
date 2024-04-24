@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Banner: Background image position incorrect ([#2635](https://github.com/dso-toolkit/dso-toolkit/issues/2635))
+* Ozon Content: Toegevoegde teksten zorgen ervoor dat anchors niet meer identificeerbaar zijn ([#2582](https://github.com/dso-toolkit/dso-toolkit/issues/2582))
 
 ### Tasks
 * Packages: Dependencies updates ([#2617](https://github.com/dso-toolkit/dso-toolkit/issues/2617))

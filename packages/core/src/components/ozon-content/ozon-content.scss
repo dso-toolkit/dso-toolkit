@@ -167,8 +167,9 @@ table {
 }
 
 ins {
+  @include insert.element();
+
   &.new-text {
-    @include insert.element();
     @include insert.root();
   }
 
@@ -176,7 +177,7 @@ ins {
     display: inline-block;
     margin-block-end: units.$u1;
     padding: units.$u1;
-    @include insert.element();
+
     @include insert.root();
 
     p:last-child {
