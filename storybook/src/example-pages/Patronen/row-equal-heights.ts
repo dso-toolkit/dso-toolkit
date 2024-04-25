@@ -49,8 +49,8 @@ examplePageFactory(
             </div>
           </div>
 
-          <div class="row dso-equal-heights">
-            <div class="col-md-6 col-lg-3">
+          <ol class="row dso-equal-heights">
+            <li class="col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 1,
@@ -69,8 +69,8 @@ examplePageFactory(
                   `,
                 }),
               })}
-            </div>
-            <div class="col-md-6 col-lg-3">
+            </li>
+            <li class="col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 yellow: true,
                 dropShadow: true,
@@ -86,8 +86,8 @@ examplePageFactory(
                   `,
                 }),
               })}
-            </div>
-            <div class="col-md-6 col-lg-3">
+            </li>
+            <li class="col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 3,
@@ -98,8 +98,8 @@ examplePageFactory(
                   `,
                 }),
               })}
-            </div>
-            <div class="col-md-6 col-lg-3">
+            </li>
+            <li class="col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 4,
@@ -110,8 +110,8 @@ examplePageFactory(
                   `,
                 }),
               })}
-            </div>
-          </div>
+            </li>
+          </ol>
 
           ${rowEqualHeightsTemplate({
             children: html`

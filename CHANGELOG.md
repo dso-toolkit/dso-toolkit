@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Example Pages: Update steps markup ([#2282](https://github.com/dso-toolkit/dso-toolkit/issues/2282))
+
 ## 🩹 62.20.1 - 26-04-2024
 
 ### Fixed

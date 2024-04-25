@@ -57,6 +57,10 @@ form {
 .row {
   @include css-grid-mixins.make-row();
 
+  &:is(ol) {
+    padding-inline-start: 0;
+  }
+
   &.dso-equal-heights {
     &:has(.dso-highlight-box, dso-highlight-box) {
       --highlight-box-block-size: 100%;

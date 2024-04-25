@@ -124,8 +124,8 @@ examplePageFactory(
         <div class="row dso-featured">
           <div class="col-xs-12">
             <h2>De stappen</h2>
-            <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
+            <ol class="row dso-equal-heights">
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -140,8 +140,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </li>
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -153,8 +153,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </li>
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -166,8 +166,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </li>
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -182,10 +182,10 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-            </div>
-            <div class="row dso-equal-heights">
-              <div class="col-md-3 col-sm-6">
+              </li>
+            </ol>
+            <ol class="row dso-equal-heights" start="5">
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -197,8 +197,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </li>
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -210,8 +210,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </li>
+              <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
@@ -226,8 +226,8 @@ examplePageFactory(
                     `,
                   }),
                 })}
-              </div>
-            </div>
+              </li>
+            </ol>
           </div>
         </div>
         <div class="row dso-equal-heights">
