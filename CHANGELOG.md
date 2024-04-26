@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🩹 62.20.1 - 26-04-2024
+
+### Fixed
+* Form Group Files: Label-container wordt bij document upload niet getoond ([#2642](https://github.com/dso-toolkit/dso-toolkit/issues/2642))
+
 ## 🪜 62.20.0 - 24-04-2024
 
 ### Added

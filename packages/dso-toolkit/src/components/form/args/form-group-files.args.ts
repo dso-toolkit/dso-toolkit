@@ -1,6 +1,8 @@
 import { ArgTypes } from "@storybook/types";
 
-import { FormGroupFiles, FormGroupFilesFile } from "../form.models.js";
+import { files } from "../content/files.content.js";
+
+import { FormGroupFiles } from "../form.models.js";
 
 export interface FormGroupFilesArgs {
   id: string;
@@ -60,7 +62,6 @@ export const formGroupFilesArgTypes: ArgTypes<FormGroupFilesArgs> = {
 
 export function formGroupFilesArgsMapper<TemplateFnReturnType>(
   a: FormGroupFilesArgs,
-  files: FormGroupFilesFile[],
 ): FormGroupFiles<TemplateFnReturnType> {
   return {
     id: a.id,

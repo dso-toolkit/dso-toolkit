@@ -7,7 +7,7 @@ import { FormArgs, formArgsMapper, formArgTypes } from "./form.args.js";
 
 import { checkboxesContent } from "./content/checkboxes.content.js";
 import { confirmContent } from "./content/confirm.content.js";
-import { files, filesContent } from "./content/files.content.js";
+import { filesContent } from "./content/files.content.js";
 import { inputContent } from "./content/input.content.js";
 import { inputNumberContent } from "./content/input-number.content.js";
 import { radiosContent } from "./content/radios.content.js";
@@ -244,15 +244,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       templateContainer.fromArgs<FormGroupFilesArgs>((args, templates) => {
         const { formGroupFilesTemplate } = storyTemplates(templates);
 
-        return formGroupFilesTemplate(formGroupFilesArgsMapper(args, files));
-      }),
-    )
-    .add(
-      "no files",
-      templateContainer.fromArgs<FormGroupFilesArgs>((args, templates) => {
-        const { formGroupFilesTemplate } = storyTemplates(templates);
-
-        return formGroupFilesTemplate(formGroupFilesArgsMapper(args, []));
+        return formGroupFilesTemplate(formGroupFilesArgsMapper(args));
       }),
     );
 
