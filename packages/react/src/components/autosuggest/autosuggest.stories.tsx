@@ -1,18 +1,23 @@
-import { AutosuggestSuggestion, storiesOfAutosuggest } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
-import * as React from "react";
-import { templateContainer } from "../../templates";
+import { Meta } from "@storybook/react";
+import { AutosuggestArgs, autosuggestMeta, autosuggestStories, AutosuggestSuggestion } from "dso-toolkit";
+import React from "react";
 
 import readme from "./readme.md?raw";
 
-storiesOfAutosuggest({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+import { templateContainer } from "../../templates";
+
+const meta: Meta<AutosuggestArgs> = {
+  ...autosuggestMeta({ readme }),
+  title: "Autosuggest",
+};
+
+export default meta;
+
+const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
   templateContainer,
-  storyTemplates: ({ autosuggestTemplate }) => {
+  storyTemplates: (templates) => {
+    const { autosuggestTemplate } = templates;
+
     interface AutosuggestDemoTemplateProps {
       fetchSuggestions: (value: string) => AutosuggestSuggestion[];
       dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
@@ -98,3 +103,5 @@ storiesOfAutosuggest({
     };
   },
 });
+
+export { Example, Minimal3Characters, InSearchbar };

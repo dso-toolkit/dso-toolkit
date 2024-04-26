@@ -21,8 +21,7 @@ export {
 
 export * from "./components/accordion";
 
-export { ActionList, ActionListItem } from "./components/action-list/action-list.models.js";
-export { ActionListTemplates, storiesOfActionList } from "./components/action-list/action-list.stories-of.js";
+export * from "./components/action-list";
 
 export * from "./components/advanced-select";
 
@@ -40,8 +39,7 @@ export { AnnotationOutput } from "./components/annotation-output/annotation-outp
 
 export * from "./components/attachments-counter";
 
-export { Autosuggest, AutosuggestSuggestion } from "./components/autosuggest/autosuggest.models.js";
-export { AutosuggestTemplates, storiesOfAutosuggest } from "./components/autosuggest/autosuggest.stories-of.js";
+export * from "./components/autosuggest";
 
 export * from "./components/badge";
 

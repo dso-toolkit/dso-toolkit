@@ -1,8 +1,28 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
 import { fetchSuggestions } from "./autosuggest.demo.js";
 import { AutosuggestSuggestion } from "./autosuggest.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type AutosuggestStory = StoryObj<AutosuggestArgs, Renderer>;
+
+interface AutosuggestStories {
+  Example: AutosuggestStory;
+  Minimal3Characters: AutosuggestStory;
+  InSearchbar: AutosuggestStory;
+}
+
+interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    AutosuggestTemplates<TemplateFnReturnType>
+  > {}
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   fetchSuggestions: (value: string) => AutosuggestSuggestion[],
@@ -22,26 +42,29 @@ export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestInSearchBarTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AutosuggestTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Autosuggest", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: autosuggestArgTypes,
-      args: {
-        suggestOnFocus: false,
-        loading: false,
-      },
-    });
+export function autosuggestMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  AutosuggestArgs
+> {
+  return {
+    argTypes: autosuggestArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "example",
-      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) =>
+export function autosuggestStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AutosuggestStories {
+  return {
+    Example: {
+      render: templateContainer.render(storyTemplates, (args, { autosuggestDemoTemplate }) =>
         autosuggestDemoTemplate(
           fetchSuggestions,
           args.dsoSelect,
@@ -54,11 +77,9 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           args.notFoundLabel,
         ),
       ),
-    );
-
-    stories.add(
-      "minimal 3 characters",
-      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) =>
+    },
+    Minimal3Characters: {
+      render: templateContainer.render(storyTemplates, (args, { autosuggestDemoTemplate }) =>
         autosuggestDemoTemplate(
           fetchSuggestions,
           args.dsoSelect,
@@ -72,11 +93,9 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           3,
         ),
       ),
-    );
-
-    stories.add(
-      "in searchbar",
-      templateMapper<AutosuggestArgs>((args, { autosuggestInSearchBarTemplate }) =>
+    },
+    InSearchbar: {
+      render: templateContainer.render(storyTemplates, (args, { autosuggestInSearchBarTemplate }) =>
         autosuggestInSearchBarTemplate(
           fetchSuggestions,
           args.dsoSelect,
@@ -89,8 +108,6 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
           args.notFoundLabel,
         ),
       ),
-    );
-
-    return stories;
-  });
+    },
+  };
 }
