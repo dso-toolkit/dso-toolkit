@@ -10,4 +10,5 @@ export interface FormGroupFiles<TemplateFnReturnType> extends FormGroupBase<Temp
 export interface FormGroupFilesFile {
   filename: string;
   confidential?: boolean;
+  uploading?: boolean;
 }
