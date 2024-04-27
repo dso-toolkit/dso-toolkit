@@ -7,7 +7,7 @@ export interface IconArgs {
 
 export const iconArgTypes: ArgTypes<IconArgs> = {
   icon: {
-    options: ["user", "table"],
+    options: ["user", "table", "sound", "spinner", "status-danger"],
     control: {
       type: "select",
     },
