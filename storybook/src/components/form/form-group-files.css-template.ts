@@ -40,21 +40,18 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                     <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>
                       ${file.filename} ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
                     </div>
-                    ${!file.uploading
-                      ? selectableTemplate({
+                    ${file.uploading
+                      ? html`<div class="dso-upload-loading">
+                          ${iconTemplate({ icon: "spinner" })}<span>Uploaden</span>
+                        </div>`
+                      : selectableTemplate({
                           id: `${formGroup.id}-file-confirm-${index}`,
                           value: "",
                           type: "checkbox",
                           label: "Vertrouwelijk",
                           describedById: `${formGroup.id}-file-filename-${index}`,
                           checked: file.confidential,
-                        })
-                      : nothing}
-                    ${file.uploading
-                      ? html`<div class="dso-upload-loading">
-                          ${iconTemplate({ icon: "spinner" })}<span>Uploaden</span>
-                        </div>`
-                      : nothing}
+                        })}
                     ${buttonTemplate({
                       label: "download document",
                       variant: "tertiary",
