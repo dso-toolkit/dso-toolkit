@@ -84,8 +84,7 @@ export {
 
 export * from "./components/definition-list";
 
-export { Description } from "./components/description/description.models.js";
-export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
+export * from "./components/description";
 
 export { DocumentComponent } from "./components/document-component/document-component.models.js";
 export {
