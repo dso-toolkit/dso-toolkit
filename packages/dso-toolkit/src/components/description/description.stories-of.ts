@@ -14,11 +14,9 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 
-type DescriptionStory = StoryObj<DescriptionArgs, Renderer>;
-
 interface DescriptionStories {
-  Term: DescriptionStory;
-  Example: DescriptionStory;
+  Term: StoryObj<DescriptionArgs, Renderer>;
+  Example: StoryObj<DescriptionExampleArgs, Renderer>;
 }
 
 interface DescriptionStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -31,15 +29,13 @@ interface DescriptionStoriesParameters<Implementation, Templates, TemplateFnRetu
 
 export interface DescriptionTemplates<TemplateFnReturnType> {
   descriptionTemplate: (descriptionProperties: Description) => TemplateFnReturnType;
-  exampleTemplate: (exampleData: ReturnType<typeof descriptionExample>) => TemplateFnReturnType;
+  exampleTemplate: (exampleData: (string | Description)[]) => TemplateFnReturnType;
 }
 
-export function descriptionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
-  TRenderer,
-  DescriptionArgs | DescriptionExampleArgs
-> {
+export function descriptionMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
   return {
-    argTypes: descriptionArgTypes,
     parameters: {
       docs: readme
         ? {
@@ -57,6 +53,7 @@ export function descriptionStories<Implementation, Templates, TemplateFnReturnTy
   return {
     Term: {
       args: termContent,
+      argTypes: descriptionArgTypes,
       render: templateContainer.render(storyTemplates, (args, { descriptionTemplate }) =>
         descriptionTemplate(descriptionArgsMapper(args)),
       ),
@@ -65,7 +62,7 @@ export function descriptionStories<Implementation, Templates, TemplateFnReturnTy
       args: {
         openTerm: false,
       },
-      argTypes: descriptionArgTypes,
+      argTypes: descriptionExampleArgTypes,
       render: templateContainer.render(storyTemplates, (args, { exampleTemplate }) =>
         exampleTemplate(descriptionExample(args.openTerm)),
       ),

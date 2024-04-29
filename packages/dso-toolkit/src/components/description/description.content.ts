@@ -9,7 +9,7 @@ export const termContent: Description = {
   open: false,
 };
 
-export function descriptionExample(openTerm: boolean) {
+export function descriptionExample(openTerm: boolean): (string | Description)[] {
   return [
     "Om interpretatieproblemen te voorkomen heeft het",
     { ...termContent, open: openTerm },

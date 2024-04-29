@@ -1,11 +1,11 @@
 import { Meta } from "@storybook/web-components";
-import { DescriptionArgs, descriptionMeta, descriptionStories } from "dso-toolkit";
+import { descriptionMeta, descriptionStories } from "dso-toolkit";
 
 import readme from "dso-toolkit/src/components/description/readme.md?raw";
 import { templateContainer } from "../../templates";
 import { html } from "lit-html";
 
-const meta: Meta<DescriptionArgs> = {
+const meta: Meta = {
   ...descriptionMeta({ readme }),
   title: "HTML|CSS/Description",
 };
