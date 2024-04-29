@@ -37,12 +37,10 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
               ${formGroup.files.map(
                 (file, index) =>
                   html`<li>
-                    <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>
-                      ${file.filename} ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
-                    </div>
+                    <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}</div>
                     ${file.uploading
                       ? html`<div class="dso-upload-loading">
-                          ${iconTemplate({ icon: "spinner" })}<span>Uploaden</span>
+                          <dso-icon icon="spinner"></dso-icon><span>Uploaden</span>
                         </div>`
                       : selectableTemplate({
                           id: `${formGroup.id}-file-confirm-${index}`,
@@ -52,6 +50,7 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                           describedById: `${formGroup.id}-file-filename-${index}`,
                           checked: file.confidential,
                         })}
+                    ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
                     ${buttonTemplate({
                       label: "download document",
                       variant: "tertiary",

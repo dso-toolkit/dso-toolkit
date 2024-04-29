@@ -24,10 +24,10 @@
 
   .dso-upload-loading {
     margin: #{units.$u1 * 0.5} 0;
-    padding-inline-end: 26px;
+    padding-inline-end: units.$u3;
 
     span {
-      padding-inline-start: 6px;
+      padding-inline-start: units.$u1;
     }
   }
 
@@ -163,9 +163,13 @@
 
     &:has(.dso-download) {
       .dso-selectable,
-      dso-selectable {
+      dso-selectable,
+      .dso-upload-loading {
         + .dso-remove {
           margin-inline-start: (units.$u4 * 2) + (units.$u1 * 1.5);
+        }
+        + .dso-download {
+          margin-inline-start: units.$u4 + units.$u1;
         }
       }
 
