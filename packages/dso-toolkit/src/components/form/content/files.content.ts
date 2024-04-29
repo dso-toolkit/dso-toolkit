@@ -25,5 +25,6 @@ export const files: FormGroupFilesFile[] = [
   },
   {
     filename: "legger-2022-06-20-v3.zip",
+    uploading: true,
   },
 ];
