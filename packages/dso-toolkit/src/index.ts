@@ -47,8 +47,7 @@ export * from "./components/banner";
 
 export * from "./components/breadcrumbs";
 
-export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
-export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
+export * from "./components/button";
 
 export * from "./components/button-row";
 
