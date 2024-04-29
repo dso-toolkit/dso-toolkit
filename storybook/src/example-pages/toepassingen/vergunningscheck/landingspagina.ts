@@ -128,8 +128,6 @@ examplePageFactory(
                   }),
                 })}
               </li>
-            </ol>
-            <ol class="row dso-equal-heights" start="5">
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
                   white: true,
