@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ♠️ 62.21.0 - 29-04-2024
+
 ### Added
 * Form Group Files: Ondersteuning voor een spinner (progress indicator) tijdens upload van bestand ([#2616](https://github.com/dso-toolkit/dso-toolkit/issues/2616))
 
