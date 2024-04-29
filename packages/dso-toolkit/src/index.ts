@@ -47,8 +47,7 @@ export * from "./components/banner";
 
 export * from "./components/breadcrumbs";
 
-export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
-export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
+export * from "./components/button";
 
 export * from "./components/button-row";
 
@@ -85,8 +84,7 @@ export {
 
 export * from "./components/definition-list";
 
-export { Description } from "./components/description/description.models.js";
-export { DescriptionTemplates, storiesOfDescription } from "./components/description/description.stories-of.js";
+export * from "./components/description";
 
 export { DocumentComponent } from "./components/document-component/document-component.models.js";
 export {
