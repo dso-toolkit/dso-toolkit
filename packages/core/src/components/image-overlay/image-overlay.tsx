@@ -160,7 +160,7 @@ export class ImageOverlay implements ComponentInterface {
     const editActionLabel: string | undefined =
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
-    const button = this.zoomable && (
+    const button = this.zoomable && alt && (
       <button
         type="button"
         class="open"

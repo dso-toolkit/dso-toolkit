@@ -61,7 +61,12 @@ export function storiesOfDocumentComponent<Implementation, Templates, TemplateFn
         },
         argTypes: {
           jsonFile: {
-            options: ["ozon-response.json", "ozon-response-bal.json", "ozon-response-waterschappen.json"],
+            options: [
+              "ozon-response.json",
+              "ozon-response-bal.json",
+              "ozon-response-waterschappen.json",
+              "ozon-response-ontwerp-omgevingsvisie.json",
+            ],
             control: {
               type: "select",
             },
