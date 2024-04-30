@@ -6,7 +6,7 @@ export default function middleware(app) {
     createProxyMiddleware({
       target: "http://127.0.0.1:45333",
       changeOrigin: true,
-      logLevel: "silent",
+      logger: console,
       ws: true,
     }),
   );

@@ -3164,7 +3164,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     babel-loader: "npm:^9.1.3"
     dso-toolkit: "workspace:^"
-    http-proxy-middleware: "npm:^2.0.6"
+    http-proxy-middleware: "npm:^3.0.0"
     iframe-resizer: "npm:^4.3.11"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -7621,12 +7621,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/http-proxy@npm:^1.17.8":
-  version: 1.17.11
-  resolution: "@types/http-proxy@npm:1.17.11"
+"@types/http-proxy@npm:^1.17.10, @types/http-proxy@npm:^1.17.8":
+  version: 1.17.14
+  resolution: "@types/http-proxy@npm:1.17.14"
   dependencies:
     "@types/node": "npm:*"
-  checksum: 10/7cda456611b4adfdd87e4317745af643153d502576fb7095806d5b1b397b9a878b105e14abff9b7ab1d1c71132b61b5fc7052461f766165963950f1b46e18315
+  checksum: 10/aa1a3e66cd43cbf06ea5901bf761d2031200a0ab42ba7e462a15c752e70f8669f21fb3be7c2f18fefcb83b95132dfa15740282e7421b856745598fbaea8e3a42
   languageName: node
   linkType: hard
 
@@ -8877,7 +8877,7 @@ __metadata:
     "@types/jasmine": "npm:^5.1.4"
     babel-loader: "npm:^9.1.3"
     dso-toolkit: "workspace:^"
-    http-proxy-middleware: "npm:^2.0.6"
+    http-proxy-middleware: "npm:^3.0.0"
     jasmine-core: "npm:~5.1.2"
     karma: "npm:~6.4.3"
     karma-chrome-launcher: "npm:~3.2.0"
@@ -13027,7 +13027,7 @@ __metadata:
     cypress-parallel: "npm:0.14.0"
     cypress-real-events: "npm:^1.12.0"
     dso-toolkit: "workspace:^"
-    http-proxy-middleware: "npm:^2.0.6"
+    http-proxy-middleware: "npm:^3.0.0"
     http-server: "npm:^14.1.1"
     iframe-resizer: "npm:^4.3.11"
     lit: "npm:^3.1.3"
@@ -16940,7 +16940,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-proxy-middleware@npm:2.0.6, http-proxy-middleware@npm:^2.0.3, http-proxy-middleware@npm:^2.0.6":
+"http-proxy-middleware@npm:2.0.6, http-proxy-middleware@npm:^2.0.3":
   version: 2.0.6
   resolution: "http-proxy-middleware@npm:2.0.6"
   dependencies:
@@ -16955,6 +16955,20 @@ __metadata:
     "@types/express":
       optional: true
   checksum: 10/768e7ae5a422bbf4b866b64105b4c2d1f468916b7b0e9c96750551c7732383069b411aa7753eb7b34eab113e4f77fb770122cb7fb9c8ec87d138d5ddaafda891
+  languageName: node
+  linkType: hard
+
+"http-proxy-middleware@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "http-proxy-middleware@npm:3.0.0"
+  dependencies:
+    "@types/http-proxy": "npm:^1.17.10"
+    debug: "npm:^4.3.4"
+    http-proxy: "npm:^1.18.1"
+    is-glob: "npm:^4.0.1"
+    is-plain-obj: "npm:^3.0.0"
+    micromatch: "npm:^4.0.5"
+  checksum: 10/ea3e58c4665821aaf6060f59029bc8dbdbe7b13d6c74c7e80fb6c8ddc5a7c3f0fa970898f98dd5e006b138f64d23b3a7b9f30b8a525ed254b5aa88712a3b3010
   languageName: node
   linkType: hard
 
