@@ -1,4 +1,4 @@
-import { Card, isButtonInterface, isLabelInterface, isToggletipInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface, isToggletipInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
@@ -64,6 +64,12 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
                       ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
                       ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                       ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
+                      ${isSlideToggleInterface(interaction)
+                        ? html`<dso-slide-toggle
+                            checked=${interaction.checked}
+                            accessibleLabel=${interaction.accessibleLabel}
+                          ></dso-slide-toggle>`
+                        : nothing}
                     </div>
                   `,
                 )}

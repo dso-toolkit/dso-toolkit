@@ -1,4 +1,4 @@
-import { Card, isButtonInterface, isToggletipInterface, isLabelInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isToggletipInterface, isLabelInterface, isSlideToggleInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -8,7 +8,14 @@ import { DsoCardCustomEvent, DsoCardClickedEvent } from "@dso-toolkit/core";
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
   implementation: "core",
-  template: ({ buttonTemplate, labelTemplate, richContentTemplate, selectableTemplate, toggletipTemplate }) =>
+  template: ({
+    buttonTemplate,
+    labelTemplate,
+    richContentTemplate,
+    selectableTemplate,
+    toggletipTemplate,
+    slideToggleTemplate,
+  }) =>
     function cardTemplate({
       label,
       selectable,
@@ -53,13 +60,10 @@ export const coreCard: ComponentImplementation<Card<never>> = {
             ${interactions.map(
               (interaction) => html`
                 <div class="dso-card-interaction">
-                  ${isButtonInterface(interaction)
-                    ? buttonTemplate(interaction)
-                    : isLabelInterface(interaction)
-                      ? labelTemplate(interaction)
-                      : isToggletipInterface(interaction)
-                        ? toggletipTemplate(interaction)
-                        : nothing}
+                  ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
+                  ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
+                  ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
+                  ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
                 </div>
               `,
             )}

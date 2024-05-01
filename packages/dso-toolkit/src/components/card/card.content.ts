@@ -43,3 +43,14 @@ export const cardContentLabel: Card<unknown> = {
     },
   ],
 };
+
+export const cardContentSlideToggle: Card<unknown> = {
+  ...cardContent,
+  interactions: [
+    {
+      dsoActiveChange: () => {},
+      checked: false,
+      accessibleLabel: "sr-only label van het schuifje",
+    },
+  ],
+};

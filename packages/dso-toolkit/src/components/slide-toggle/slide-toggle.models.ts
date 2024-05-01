@@ -12,3 +12,7 @@ export interface SlideToggleChangeEvent {
   originalEvent?: Event;
   checked: boolean;
 }
+
+export function isSlideToggleInterface(object: unknown): object is SlideToggle {
+  return "checked" in (object as SlideToggle);
+}
