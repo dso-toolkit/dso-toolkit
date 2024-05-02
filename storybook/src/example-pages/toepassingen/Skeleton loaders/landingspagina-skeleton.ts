@@ -109,4 +109,3 @@ examplePageFactory(
       </div>
     </main>`,
 );
-

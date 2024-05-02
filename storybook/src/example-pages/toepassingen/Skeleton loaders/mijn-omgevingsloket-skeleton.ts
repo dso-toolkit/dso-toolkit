@@ -45,4 +45,3 @@ examplePageFactory(
       </div>
     </main>`,
 );
-
