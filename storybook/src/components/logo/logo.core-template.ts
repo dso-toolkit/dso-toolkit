@@ -7,7 +7,14 @@ export const coreLogo: ComponentImplementation<Logo> = {
   component: "logo",
   implementation: "core",
   template: () =>
-    function logoTemplate({ label, ribbon }) {
-      return html`<dso-logo .label=${ifDefined(label)} ribbon=${ifDefined(ribbon)}></dso-logo>`;
+    function logoTemplate({ label, ribbon, labelUrl, logoUrl, dsoLogoClick, dsoLabelClick }) {
+      return html`<dso-logo
+        .label=${ifDefined(label)}
+        .labelUrl=${ifDefined(labelUrl)}
+        .logoUrl=${ifDefined(logoUrl)}
+        ribbon=${ifDefined(ribbon)}
+        @dsoLogoClick=${ifDefined(dsoLogoClick)}
+        @dsoLabelClick=${ifDefined(dsoLabelClick)}
+      ></dso-logo>`;
     },
 };

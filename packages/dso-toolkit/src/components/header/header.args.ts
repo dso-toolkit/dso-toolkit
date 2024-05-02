@@ -7,6 +7,8 @@ import { Header } from "./header.models.js";
 
 export interface HeaderArgs {
   label: string;
+  labelUrl: string;
+  logoUrl: string;
   ribbon: string;
   mainMenu: {
     label: string;
@@ -29,6 +31,8 @@ export interface HeaderArgs {
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
   label: noControl,
+  labelUrl: noControl,
+  logoUrl: noControl,
   ribbon: noControl,
   mainMenu: noControl,
   noMainMenu: {

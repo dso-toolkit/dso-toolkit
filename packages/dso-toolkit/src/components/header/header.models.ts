@@ -1,11 +1,9 @@
 export interface Header {
   label?: string;
+  labelUrl?: string;
+  logoUrl?: string;
   ribbon?: string;
-  mainMenu?: {
-    label: string;
-    url: string;
-    active?: boolean;
-  }[];
+  mainMenu?: HeaderMenuItem[];
   useDropDownMenu?: "always" | "auto";
   authStatus?: "none" | "loggedOut" | "loggedIn";
   loginUrl?: string;

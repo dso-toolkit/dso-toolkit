@@ -9,6 +9,8 @@ export const coreHeader: ComponentImplementation<Header> = {
   template: ({ logoTemplate }) =>
     function headerTemplate({
       label,
+      labelUrl,
+      logoUrl,
       ribbon,
       mainMenu,
       useDropDownMenu,
@@ -37,7 +39,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-home-active=${ifDefined(userHomeActive)}
         @dsoHeaderClick=${dsoHeaderClick}
       >
-        <div slot="logo">${logoTemplate({ label, ribbon })}</div>
+        <div slot="logo">${logoTemplate({ label, ribbon, labelUrl, logoUrl })}</div>
       </dso-header>`;
     },
 };
