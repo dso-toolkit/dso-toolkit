@@ -5,7 +5,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 examplePageFactory(
   "Toepassingen/Skeleton loaders",
   "content skeleton",
-  ({}) =>
+  () =>
     html` <main>
       <div class="container">
         <div class="row">
