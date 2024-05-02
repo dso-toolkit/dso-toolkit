@@ -188,3 +188,67 @@ form {
 @media (min-width: media-query-breakpoints.$screen-lg-min) {
   @include css-grid-mixins.make-grid(lg);
 }
+
+.dso-skeleton-text {
+  width: 100%;
+  height: 14px;
+  background: linear-gradient(-45deg, #e5e5e5 40%, #ffffff 50%, #e5e5e5 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  margin-bottom: 13px;
+  border-radius: 0.5rem;
+}
+
+.dso-skeleton-heading {
+  width: 85%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(-45deg, #ccc 40%, #f2f2f2 50%, #ccc 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+}
+
+.dso-skeleton-button {
+  width: 30%;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(-45deg, #999 40%, #e5e5e5 50%, #999 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+}
+
+.dso-skeleton-image {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(-45deg, #999 40%, #e5e5e5 50%, #999 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+}
+
+.dso-skeleton-text:last-child {
+  margin-bottom: 1rem;
+  width: 80%;
+}
+
+.skeleton-grey {
+  opacity: 0.7;
+  animation: skeleton-grey 1.5s infinite linear;
+}
+
+@keyframes skeleton-grey {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+.dso-banner {
+  .dso-skeleton-heading {
+    height: 2.5rem;
+    margin-top: 0px;
+  }
+}
