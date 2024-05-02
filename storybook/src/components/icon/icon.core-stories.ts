@@ -7,7 +7,7 @@ import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
-  title: "Icon",
+  title: "Core/Icon",
 };
 
 export default meta;

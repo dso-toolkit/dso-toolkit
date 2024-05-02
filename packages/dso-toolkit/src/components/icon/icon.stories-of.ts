@@ -1,36 +1,49 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { IconArgs, iconArgsMapper, iconArgTypes } from "./icon.args.js";
 import { Icon } from "./icon.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface IconStories {
+  Icon: StoryObj<IconArgs, Renderer>;
+}
 
 export interface IconTemplates<TemplateFnReturnType> {
   iconTemplate: (iconProperties: Icon) => TemplateFnReturnType;
 }
 
-export function storiesOfIcon<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    IconTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Icon", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: iconArgTypes,
-      args: {
-        icon: "user",
-      },
-    });
+interface IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, IconTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<IconArgs>((args, { iconTemplate }) => iconTemplate(iconArgsMapper(args)));
+export function iconMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  IconArgs
+> {
+  return {
+    argTypes: iconArgTypes,
+    args: {
+      icon: "user",
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("Icon", template, {
-      args: {
-        icon: "user",
-      },
-    });
-
-    return stories;
-  });
+export function iconStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
+  return {
+    Icon: {
+      render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
+    },
+  };
 }
