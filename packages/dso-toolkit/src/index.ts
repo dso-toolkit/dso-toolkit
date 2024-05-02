@@ -153,8 +153,7 @@ export * from "./components/helpcenter-panel";
 
 export * from "./components/highlight-box";
 
-export { Icon } from "./components/icon/icon.models.js";
-export { IconTemplates, storiesOfIcon } from "./components/icon/icon.stories-of.js";
+export * from "./components/icon";
 
 export { Image } from "./components/image/image.models.js";
 export { ImageTemplates, storiesOfImage } from "./components/image/image.stories-of.js";
