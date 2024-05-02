@@ -1,5 +1,5 @@
 export interface SlideToggle {
-  dsoActiveChange: (e: CustomEvent<SlideToggleChangeEvent>) => void;
+  dsoActiveChange?: (e: CustomEvent<SlideToggleChangeEvent>) => void;
   checked: boolean;
   disabled?: boolean;
   accessibleLabel?: string;

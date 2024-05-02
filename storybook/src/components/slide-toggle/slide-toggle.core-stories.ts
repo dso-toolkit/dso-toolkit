@@ -27,7 +27,7 @@ const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
       ...props,
       dsoActiveChange(e) {
         this.checked = e.detail.checked;
-        props.dsoActiveChange(e);
+        props.dsoActiveChange?.(e);
       },
     });
 
