@@ -160,11 +160,10 @@ export * from "./components/image";
 export { ImageOverlay } from "./components/image-overlay/image-overlay.models.js";
 export { ImageOverlayTemplates, storiesOfImageOverlay } from "./components/image-overlay/image-overlay.stories-of.js";
 
+export * from "./components/info";
+
 export { InfoButton, InfoButtonToggleEvent } from "./components/info-button/info-button.models.js";
 export { InfoButtonTemplates, storiesOfInfoButton } from "./components/info-button/info-button.stories-of.js";
-
-export { Info } from "./components/info/info.models.js";
-export { InfoTemplates, storiesOfInfo } from "./components/info/info.stories-of.js";
 
 export { InputNumber } from "./components/input-number/input-number.models.js";
 export { InputNumberTemplates, storiesOfInputNumber } from "./components/input-number/input-number.stories-of.js";
