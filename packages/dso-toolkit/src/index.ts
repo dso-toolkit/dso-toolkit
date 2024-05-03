@@ -155,8 +155,7 @@ export * from "./components/highlight-box";
 
 export * from "./components/icon";
 
-export { Image } from "./components/image/image.models.js";
-export { ImageTemplates, storiesOfImage } from "./components/image/image.stories-of.js";
+export * from "./components/image";
 
 export { ImageOverlay } from "./components/image-overlay/image-overlay.models.js";
 export { ImageOverlayTemplates, storiesOfImageOverlay } from "./components/image-overlay/image-overlay.stories-of.js";
