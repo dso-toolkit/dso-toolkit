@@ -117,8 +117,7 @@ export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropd
 export { Expandable } from "./components/expandable/expandable.models.js";
 export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
 
-export { Footnote } from "./components/footnotes/footnotes.models.js";
-export { FootnotesTemplates, storiesOfFootnotes } from "./components/footnotes/footnotes.stories-of.js";
+export * from "./components/footnotes";
 
 export {
   Form,
