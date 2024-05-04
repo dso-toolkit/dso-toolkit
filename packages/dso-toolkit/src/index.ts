@@ -108,8 +108,7 @@ export {
 } from "./components/dropdown-menu/dropdown-menu.models.js";
 export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
 
-export { Expandable } from "./components/expandable/expandable.models.js";
-export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
+export * from "./components/expandable";
 
 export * from "./components/footnotes";
 
