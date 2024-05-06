@@ -62,8 +62,7 @@ export {
 
 export * from "./components/card-grid";
 
-export { CardList } from "./components/card-list/card-list.models.js";
-export { CardListTemplates, storiesOfCardList } from "./components/card-list/card-list.stories-of.js";
+export * from "./components/card-list";
 
 export * from "./components/context";
 
