@@ -90,11 +90,7 @@ export {
   storiesOfDocumentComponent,
 } from "./components/document-component/document-component.stories-of.js";
 
-export { DocumentHeader } from "./components/document-header/document-header.models.js";
-export {
-  DocumentHeaderTemplates,
-  storiesOfDocumentHeader,
-} from "./components/document-header/document-header.stories-of.js";
+export * from "./components/document-header";
 
 export {
   DocumentList,

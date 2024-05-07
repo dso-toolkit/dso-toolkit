@@ -1,37 +1,60 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { DefinitionList } from "../definition-list/definition-list.models.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args.js";
-import { DocumentHeader } from "./document-header.models.js";
+import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args";
+import { DocumentHeader } from "./document-header.models";
+import { DefinitionList } from "../definition-list";
 import { options } from "../advanced-select/advanced-select.content";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type DocumentHeaderStory = StoryObj<DocumentHeaderArgs, Renderer>;
+
+interface DocumentHeaderStories {
+  Default: DocumentHeaderStory;
+  Sticky: DocumentHeaderStory;
+}
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   documentHeaderTemplate: (documentHeaderProperties: DocumentHeader<TemplateFnReturnType>) => TemplateFnReturnType;
   features: DefinitionList<TemplateFnReturnType>;
 }
 
-export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     DocumentHeaderTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Document Header", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: documentHeaderArgTypes,
-      args: {
-        featuresOpen: false,
-        sticky: false,
-      },
-    });
+  > {}
 
-    const template = templateMapper<DocumentHeaderArgs>((args, { documentHeaderTemplate, features }) =>
-      documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-    );
+export function documentHeaderMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  DocumentHeaderArgs
+> {
+  return {
+    argTypes: documentHeaderArgTypes,
+    args: {
+      featuresOpen: false,
+      sticky: false,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("default", template, {
+export function documentHeaderStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentHeaderStories {
+  return {
+    Default: {
       args: {
         title: "Omgevingsplan gemeente Gouda",
         type: "Een omgevingsplan waar de omgeving mooier van wordt",
@@ -40,9 +63,11 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
           options,
         },
       },
-    });
-
-    stories.add("sticky", template, {
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+    Sticky: {
       args: {
         title: "Omgevingsplan gemeente Gouda",
         type: "Een omgevingsplan waar de omgeving mooier van wordt",
@@ -52,8 +77,9 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
           options,
         },
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+  };
 }
