@@ -11,14 +11,6 @@
 @use "../../form.mixins" as css-form-mixins;
 
 .form-group.dso-files {
-  // if file list is empty
-  &:not(:has(.dso-filelist li)) {
-    .dso-filelist {
-      // in case an empty list is present in the dom (#a11y)
-      display: none;
-    }
-  }
-
   &.dso-required {
     .control-label::after {
       @include css-form-mixins.form-group-required();
