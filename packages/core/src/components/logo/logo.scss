@@ -2,6 +2,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/anchor/anchor.mixins" as anchor-mixins;
 
 :host {
   max-block-size: units.$ru6;
@@ -16,6 +17,21 @@
   align-items: center;
   container-type: size;
   container-name: logo;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: units.$u2;
+
+    @include anchor-mixins.reverse();
+
+    &,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: colors.$bosgroen;
+    }
+  }
 }
 
 .logo-target {

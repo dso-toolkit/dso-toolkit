@@ -1,10 +1,16 @@
 import { Logo } from "./logo.models.js";
 
 import { ArgTypes } from "@storybook/types";
+import { noControl } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface LogoArgs {
   label?: string;
+  labelUrl?: string;
+  logoUrl?: string;
   ribbon?: string;
+  dsoLabelClick?: HandlerFunction;
+  dsoLogoClick?: HandlerFunction;
 }
 
 export const logoArgTypes: ArgTypes<LogoArgs> = {
@@ -13,16 +19,36 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
       type: "text",
     },
   },
+  labelUrl: noControl,
+  logoUrl: noControl,
   ribbon: {
     control: {
       type: "text",
     },
+  },
+  dsoLogoClick: {
+    ...noControl,
+    action: "dsoLogoClick",
+  },
+  dsoLabelClick: {
+    ...noControl,
+    action: "dsoLogoLabelClick",
   },
 };
 
 export function logoArgsMapper(a: LogoArgs): Logo {
   return {
     label: a.label,
+    labelUrl: a.labelUrl,
+    logoUrl: a.logoUrl,
     ribbon: a.ribbon,
+    dsoLogoClick: (event) => {
+      event.detail.originalEvent.preventDefault();
+      a.dsoLogoClick?.(event);
+    },
+    dsoLabelClick: (event) => {
+      event.detail.originalEvent.preventDefault();
+      a.dsoLabelClick?.(event);
+    },
   };
 }

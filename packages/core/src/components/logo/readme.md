@@ -48,10 +48,20 @@ Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het comp
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                                              | Type                  | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
-| `label`  | `label`   | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).                                     | `string \| undefined` | `undefined` |
-| `ribbon` | `ribbon`  | The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo") | `string \| undefined` | `undefined` |
+| Property   | Attribute   | Description                                                                                                                                                              | Type                  | Default     |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
+| `label`    | `label`     | The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).                                     | `string \| undefined` | `undefined` |
+| `labelUrl` | `label-url` | The url the label is pointing to.                                                                                                                                        | `string \| undefined` | `undefined` |
+| `logoUrl`  | `logo-url`  | The url the logo is pointing to.                                                                                                                                         | `string \| undefined` | `undefined` |
+| `ribbon`   | `ribbon`    | The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo") | `string \| undefined` | `undefined` |
+
+
+## Events
+
+| Event           | Description                                                                | Type                               |
+| --------------- | -------------------------------------------------------------------------- | ---------------------------------- |
+| `dsoLabelClick` | Emitted when the label in the logo is clicked (only when labelUrl is set). | `CustomEvent<LogoLabelClickEvent>` |
+| `dsoLogoClick`  | Emitted when the logo is clicked (only when logoUrl is set).               | `CustomEvent<LogoClickEvent>`      |
 
 
 ----------------------------------------------
