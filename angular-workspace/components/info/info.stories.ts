@@ -4,7 +4,7 @@ import { templateContainer } from "../../templates";
 import { richContent } from "./info.content";
 
 import readme from "./readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/angular";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),

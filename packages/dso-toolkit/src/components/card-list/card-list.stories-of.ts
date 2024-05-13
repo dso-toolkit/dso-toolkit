@@ -1,12 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { CardListArgs, cardListArgsMapper, cardListArgTypes } from "./card-list.args.js";
+import { cardListArgs, CardListArgs, cardListArgsMapper, cardListArgTypes } from "./card-list.args.js";
 import { CardList } from "./card-list.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { cardListContent } from "./card-list.content";
 
 interface CardListStories {
   CardList: StoryObj<CardListArgs, Renderer>;
@@ -42,7 +41,7 @@ export function cardListStories<Implementation, Templates, TemplateFnReturnType>
 }: CardListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardListStories {
   return {
     CardList: {
-      args: cardListContent,
+      args: cardListArgs,
       render: templateContainer.render(storyTemplates, (args, { cardListTemplate, content }) =>
         cardListTemplate(cardListArgsMapper(args, content)),
       ),

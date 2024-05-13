@@ -1,8 +1,8 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/react";
 
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/react/src/components/icon/readme.md?raw";
+import readme from "./readme.md?raw";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 const meta: Meta<IconArgs> = {

@@ -1,6 +1,5 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { cardGridArgsMapper } from "./card-grid.args";
 import { Card } from "../card/card.models.js";
 import { CardGrid } from "./card-grid.models.js";
 
@@ -41,7 +40,7 @@ export function cardGridStories<Implementation, Templates, TemplateFnReturnType>
   return {
     CardGrid: {
       render: templateContainer.render(storyTemplates, (_args, { cardGridTemplate, cards }) =>
-        cardGridTemplate(cardGridArgsMapper(cards)),
+        cardGridTemplate({ cards }),
       ),
     },
   };

@@ -15,6 +15,35 @@ export const cardListArgTypes: ArgTypes<CardListArgs> = {
   },
 };
 
+export const cardListArgs: CardListArgs = {
+  cards: [
+    {
+      label: "Omgevingsplan Nieuwegein",
+      selectable: true,
+      interactions: [],
+      image: undefined,
+      imageShape: "normal",
+      clickable: false,
+    },
+    {
+      label: "Brouwersmolen",
+      selectable: false,
+      interactions: [],
+      image: undefined,
+      imageShape: "normal",
+      clickable: false,
+    },
+    {
+      label: "Maximum bouwhoogte",
+      image: "images/rectangle1.png",
+      selectable: false,
+      interactions: [],
+      imageShape: "normal",
+      clickable: false,
+    },
+  ],
+};
+
 export function cardListArgsMapper<TemplateFnReturnType>(
   a: CardListArgs,
   content: TemplateFnReturnType[],

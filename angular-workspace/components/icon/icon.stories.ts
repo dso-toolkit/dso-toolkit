@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/angular";
 
 import { templateContainer } from "../../templates";
 

@@ -1,6 +1,6 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/components/button/button.mixins";
-@use "~dso-toolkit/src/components/info/info.mixins";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/info";
 
 :host {
   display: block;
@@ -8,7 +8,7 @@
   @include info.root();
 }
 
-:host(:not([active]):not([fixed])),
+:host(:not([active], [fixed])),
 :host([active="false"]:not([fixed])),
 :host([active="false"][fixed="false"]) {
   display: none;
