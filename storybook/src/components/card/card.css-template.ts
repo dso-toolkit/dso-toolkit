@@ -15,6 +15,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     richContentTemplate,
     selectableTemplate,
     toggletipTemplate,
+    slideToggleTemplate,
   }) =>
     function cardTemplate({
       label,
@@ -64,12 +65,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
                       ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
                       ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                       ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
-                      ${isSlideToggleInterface(interaction)
-                        ? html`<dso-slide-toggle
-                            checked=${interaction.checked}
-                            accessibleLabel=${interaction.accessibleLabel}
-                          ></dso-slide-toggle>`
-                        : nothing}
+                      ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
                     </div>
                   `,
                 )}
