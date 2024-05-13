@@ -56,7 +56,7 @@ export const cssFormGroupTextarea: ComponentImplementation<FormGroupTextarea<Tem
                 `
               : nothing}
             ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>`
+              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
               : nothing}
             ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>

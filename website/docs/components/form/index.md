@@ -27,7 +27,7 @@ Ten eerste wordt een invoerveld gevalideerd als de focus wordt verplaatst. Er ve
 ### Inline validatie
 
 **Verplichte velden**
-Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of het formulier indient, verschijnt er een foutmelding direct onder het betreffende invoerveld: dit is een `.dso-message` waar met `@aria-describedby` naar verwezen moet worden. Deze vorm van validatie wordt toegepast op alle formulierelementen.
+Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of het formulier indient, verschijnt er een foutmelding direct onder het betreffende invoerveld: dit is een `.dso-message` waar met `@aria-describedby` naar verwezen moet worden. De `.dso-message` krijgt een `role="alert"`-attribuut. Deze vorm van validatie wordt toegepast op alle formulierelementen.
 
 - Voorkom dat inline-validatie op focus wordt weergegeven. In dit geval wordt de foutmelding al weergegeven zonder dat de gebruiker begonnen is met typen.
 - Valideer niet na elk getypt teken. Deze aanpak verhoogt niet alleen het aantal onnodige validatiepogingen, maar frustreert gebruikers ook. Er zijn een paar uitzonderingen op deze regel:

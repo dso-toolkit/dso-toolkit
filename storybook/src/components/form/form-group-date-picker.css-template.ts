@@ -45,7 +45,7 @@ export const cssFormGroupDatePicker: ComponentImplementation<FormGroupDatePicker
           <div class="dso-field-container">
             ${datePickerTemplate({ ...datePicker, id })}
             ${errorText && state === "invalid"
-              ? html`<p class="dso-message" id=${errorTextId}>${errorText}</p>`
+              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${errorText}</p>`
               : nothing}
             ${helpText ? html`<p class="dso-help-block" id=${helpTextId}>${helpText}</p>` : nothing}
           </div>
