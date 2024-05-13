@@ -12,19 +12,18 @@ import {
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
 
-const LogoSVG: FunctionalComponent = () => (
-  <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
-    <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
-    <path class="middle" d="M24 8A16 16 0 0 0 8 24 16 16 0 1 0 24 8Z" />
-    <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
-  </svg>
-);
-
-const LogoWordmark: FunctionalComponent = () => (
-  <div class="logo-wordmark">
-    <span class="logo-wordmark-omgevings">Omgevings</span>
-    <span class="logo-wordmark-loket">loket</span>
-  </div>
+const DsoLogo: FunctionalComponent = () => (
+  <>
+    <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
+      <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
+      <path class="middle" d="M24 8A16 16 0 0 0 8 24 16 16 0 1 0 24 8Z" />
+      <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
+    </svg>
+    <div class="logo-wordmark">
+      <span class="logo-wordmark-omgevings">Omgevings</span>
+      <span class="logo-wordmark-loket">loket</span>
+    </div>
+  </>
 );
 
 @Component({
@@ -72,12 +71,10 @@ export class Logo implements ComponentInterface {
   dsoLabelClick!: EventEmitter<LogoLabelClickEvent>;
 
   private handleLogoClick = (e: MouseEvent) => {
-    e.preventDefault();
     this.dsoLogoClick.emit({ originalEvent: e, url: this.logoUrl!, isModifiedEvent: isModifiedEvent(e) });
   };
 
   private handleLabelClick = (e: MouseEvent) => {
-    e.preventDefault();
     this.dsoLabelClick.emit({ originalEvent: e, url: this.labelUrl!, isModifiedEvent: isModifiedEvent(e) });
   };
 
@@ -86,22 +83,20 @@ export class Logo implements ComponentInterface {
       <Host aria-label={["Omgevingsloket", this.label, this.ribbon && `(${this.ribbon})`].filter((s) => !!s).join(" ")}>
         {this.logoUrl ? (
           <a href={this.logoUrl} onClick={this.handleLogoClick}>
-            <LogoSVG />
-            <LogoWordmark />
+            <DsoLogo />
           </a>
         ) : (
-          <>
-            <LogoSVG />
-            <LogoWordmark />
-          </>
+          <DsoLogo />
         )}
 
-        {this.label && !this.labelUrl && <span class="logo-label">{this.label}</span>}
-        {this.label && this.labelUrl && (
-          <a href={this.labelUrl} onClick={this.handleLabelClick}>
+        {this.label &&
+          (!this.labelUrl ? (
             <span class="logo-label">{this.label}</span>
-          </a>
-        )}
+          ) : (
+            <a href={this.labelUrl} onClick={this.handleLabelClick}>
+              <span class="logo-label">{this.label}</span>
+            </a>
+          ))}
         {this.ribbon && <div class="logo-ribbon">{this.ribbon}</div>}
       </Host>
     );
