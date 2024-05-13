@@ -33,39 +33,41 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
             ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
           </div>
           <div class="dso-field-container">
-            <ul class="dso-filelist">
-              ${formGroup.files.map(
-                (file, index) =>
-                  html`<li>
-                    <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}</div>
-                    ${file.uploading
-                      ? html`<div class="dso-upload-loading">
-                          <dso-icon icon="spinner"></dso-icon><span>Uploaden</span>
-                        </div>`
-                      : selectableTemplate({
-                          id: `${formGroup.id}-file-confirm-${index}`,
-                          value: "",
-                          type: "checkbox",
-                          label: "Vertrouwelijk",
-                          describedById: `${formGroup.id}-file-filename-${index}`,
-                          checked: file.confidential,
+            ${formGroup.files.length > 0
+              ? html`<ul class="dso-filelist">
+                  ${formGroup.files.map(
+                    (file, index) =>
+                      html`<li>
+                        <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}</div>
+                        ${file.uploading
+                          ? html`<div class="dso-upload-loading">
+                              <dso-icon icon="spinner"></dso-icon><span>Uploaden</span>
+                            </div>`
+                          : selectableTemplate({
+                              id: `${formGroup.id}-file-confirm-${index}`,
+                              value: "",
+                              type: "checkbox",
+                              label: "Vertrouwelijk",
+                              describedById: `${formGroup.id}-file-filename-${index}`,
+                              checked: file.confidential,
+                            })}
+                        ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
+                        ${buttonTemplate({
+                          label: "download document",
+                          variant: "tertiary",
+                          modifier: "dso-download",
+                          ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
                         })}
-                    ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
-                    ${buttonTemplate({
-                      label: "download document",
-                      variant: "tertiary",
-                      modifier: "dso-download",
-                      ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
-                    })}
-                    ${buttonTemplate({
-                      label: "Verwijder document",
-                      variant: "tertiary",
-                      modifier: "dso-remove",
-                      ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
-                    })}
-                  </li>`,
-              )}
-            </ul>
+                        ${buttonTemplate({
+                          label: "Verwijder document",
+                          variant: "tertiary",
+                          modifier: "dso-remove",
+                          ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
+                        })}
+                      </li>`,
+                  )}
+                </ul>`
+              : nothing}
             ${formGroup.files.some((file) => !!file.confidential)
               ? alertTemplate({ status: "warning", message: formGroup.warning })
               : nothing}

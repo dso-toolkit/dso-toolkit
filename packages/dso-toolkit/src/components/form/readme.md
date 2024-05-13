@@ -33,3 +33,8 @@ Een Form Group "checkboxes" is een `fieldset` element in plaats van een `div`:
 ```html
 <fieldset class="form-group dso-checkboxes"></fieldset>
 ```
+
+### `.form-group.dso-files`
+
+Als er geen bestanden zijn geüpload in een Form Group "files" dan wordt er geen "lege" unordered list `dso-filelist` in het formulier geplaatst.
+Pas na de eerste upload is er een `ul` met 1 `li`st-item in het formulier aanwezig.
