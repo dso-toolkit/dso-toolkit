@@ -1,6 +1,12 @@
 import { StoriesOfArguments, noControl, storiesOfFactory } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper, cardArgTypes } from "./card.args.js";
-import { cardContent, cardContentButton, cardContentLabel, cardContentToggletip } from "./card.content.js";
+import {
+  cardContent,
+  cardContentButton,
+  cardContentLabel,
+  cardContentSlideToggle,
+  cardContentToggletip,
+} from "./card.content.js";
 import { Card } from "./card.models.js";
 
 export interface CardTemplates<TemplateFnReturnType> {
@@ -86,6 +92,10 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
         ...cardContentButton,
         selectable: true,
       },
+    });
+
+    stories.add("href with slidetoggle", template, {
+      args: cardContentSlideToggle,
     });
 
     if (showLegacy) {
