@@ -17,19 +17,37 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
 ) {
   return storiesOfFactory("Logo", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      argTypes: {
-        logoArgTypes,
-      },
-      args: {},
+      argTypes: logoArgTypes,
     });
 
     const template = templateMapper<LogoArgs>((args, { logoTemplate }) => logoTemplate(logoArgsMapper(args)));
 
     stories.add("default", template);
 
+    stories.add("with logoUrl", template, {
+      args: {
+        logoUrl: "/",
+      },
+    });
+
     stories.add("with label", template, {
       args: {
         label: "Regels op de kaart",
+      },
+    });
+
+    stories.add("with label and labelUrl", template, {
+      args: {
+        label: "Regels op de kaart",
+        labelUrl: "regels-op-de-kaart",
+      },
+    });
+
+    stories.add("with logoUrl and label and labelUrl", template, {
+      args: {
+        label: "Regels op de kaart",
+        labelUrl: "regels-op-de-kaart",
+        logoUrl: "/",
       },
     });
 

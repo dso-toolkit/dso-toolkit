@@ -12,6 +12,8 @@ type HeaderStory = StoryObj<HeaderArgs, Renderer>;
 interface HeaderStories {
   Default: HeaderStory;
   WithLabel: HeaderStory;
+  WithLabelAndLabelUrl: HeaderStory;
+  WithLogoUrlAndLabelAndLabelUrl: HeaderStory;
   WithRibbon: HeaderStory;
   WithLabelAndRibbon: HeaderStory;
   UserHomeActive: HeaderStory;
@@ -92,6 +94,25 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
     WithLabel: {
       args: {
         label: "Maatregelen op maat",
+      },
+      render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
+        headerTemplate(headerArgsMapper(args)),
+      ),
+    },
+    WithLabelAndLabelUrl: {
+      args: {
+        label: "Maatregelen op maat",
+        labelUrl: "maatregelen-op-maat",
+      },
+      render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
+        headerTemplate(headerArgsMapper(args)),
+      ),
+    },
+    WithLogoUrlAndLabelAndLabelUrl: {
+      args: {
+        label: "Maatregelen op maat",
+        labelUrl: "maatregelen-op-maat",
+        logoUrl: "/",
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),

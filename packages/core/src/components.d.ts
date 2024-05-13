@@ -23,6 +23,7 @@ import { InfoButtonToggleEvent } from "./components/info-button/info-button.inte
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemRemoveClickEvent } from "./components/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
+import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -54,6 +55,7 @@ export { InfoButtonToggleEvent } from "./components/info-button/info-button.inte
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemRemoveClickEvent } from "./components/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
+export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -725,6 +727,14 @@ export namespace Components {
          */
         "label"?: string;
         /**
+          * The url the label is pointing to.
+         */
+        "labelUrl"?: string;
+        /**
+          * The url the logo is pointing to.
+         */
+        "logoUrl"?: string;
+        /**
           * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
          */
         "ribbon"?: string;
@@ -1149,6 +1159,10 @@ export interface DsoLegendItemCustomEvent<T> extends CustomEvent<T> {
 export interface DsoListButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoListButtonElement;
+}
+export interface DsoLogoCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoLogoElement;
 }
 export interface DsoMapBaseLayersCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1595,7 +1609,19 @@ declare global {
         prototype: HTMLDsoListButtonElement;
         new (): HTMLDsoListButtonElement;
     };
+    interface HTMLDsoLogoElementEventMap {
+        "dsoLogoClick": LogoClickEvent;
+        "dsoLabelClick": LogoLabelClickEvent;
+    }
     interface HTMLDsoLogoElement extends Components.DsoLogo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoLogoElementEventMap>(type: K, listener: (this: HTMLDsoLogoElement, ev: DsoLogoCustomEvent<HTMLDsoLogoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoLogoElementEventMap>(type: K, listener: (this: HTMLDsoLogoElement, ev: DsoLogoCustomEvent<HTMLDsoLogoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoLogoElement: {
         prototype: HTMLDsoLogoElement;
@@ -2726,6 +2752,22 @@ declare namespace LocalJSX {
           * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
+        /**
+          * The url the label is pointing to.
+         */
+        "labelUrl"?: string;
+        /**
+          * The url the logo is pointing to.
+         */
+        "logoUrl"?: string;
+        /**
+          * Emitted when the label in the logo is clicked (only when labelUrl is set).
+         */
+        "onDsoLabelClick"?: (event: DsoLogoCustomEvent<LogoLabelClickEvent>) => void;
+        /**
+          * Emitted when the logo is clicked (only when logoUrl is set).
+         */
+        "onDsoLogoClick"?: (event: DsoLogoCustomEvent<LogoClickEvent>) => void;
         /**
           * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
          */
