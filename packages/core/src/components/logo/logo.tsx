@@ -55,7 +55,7 @@ export class Logo implements ComponentInterface {
    * The ribbon contains the text for a possible 'sticker' on top of the logo.
    * Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
    */
-  @Prop()
+  @Prop({ reflect: true })
   ribbon?: string;
 
   /**
@@ -82,7 +82,7 @@ export class Logo implements ComponentInterface {
     return (
       <Host aria-label={["Omgevingsloket", this.label, this.ribbon && `(${this.ribbon})`].filter((s) => !!s).join(" ")}>
         {this.logoUrl ? (
-          <a href={this.logoUrl} onClick={this.handleLogoClick}>
+          <a class="logo-url" href={this.logoUrl} onClick={this.handleLogoClick}>
             <DsoLogo />
           </a>
         ) : (
@@ -93,7 +93,7 @@ export class Logo implements ComponentInterface {
           (!this.labelUrl ? (
             <span class="logo-label">{this.label}</span>
           ) : (
-            <a href={this.labelUrl} onClick={this.handleLabelClick}>
+            <a class="logo-label-url" href={this.labelUrl} onClick={this.handleLabelClick}>
               <span class="logo-label">{this.label}</span>
             </a>
           ))}

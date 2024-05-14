@@ -2,7 +2,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/anchor/anchor.mixins" as anchor-mixins;
+@use "~dso-toolkit/src/components/anchor";
 
 :host {
   max-block-size: units.$ru6;
@@ -18,12 +18,13 @@
   container-type: size;
   container-name: logo;
 
-  a {
+  .logo-url,
+  .logo-label-url {
     display: flex;
     align-items: center;
     gap: units.$u2;
 
-    @include anchor-mixins.reverse();
+    @include anchor.reverse();
 
     &,
     &:hover,
@@ -32,6 +33,25 @@
       color: colors.$bosgroen;
     }
   }
+}
+
+:host([logo-url][ribbon]) {
+  grid-template-areas: "targetwordmark label";
+
+  .logo-url {
+    grid-area: targetwordmark;
+    + .logo-ribbon {
+      grid-area: targetwordmark;
+    }
+  }
+
+  .logo-label-url + .logo-ribbon {
+    grid-area: targetwordmark;
+  }
+}
+
+.logo-label-url {
+  grid-area: label;
 }
 
 .logo-target {
@@ -129,6 +149,12 @@
       font-size: initial;
       text-wrap: balance;
       overflow-wrap: normal;
+    }
+  }
+
+  :host([logo-url][ribbon]) {
+    .logo-label-url + .logo-ribbon {
+      grid-area: label;
     }
   }
 }

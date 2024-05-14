@@ -1,0 +1,40 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v62.22.0 🐸
+
+In deze release zijn twee nieuwe features aan het Logo component toegevoegd, die op zich niet breaking zijn, maar toch een toelichting behoeven.
+
+## Logo
+
+Voorheen kon een afnemer van het Logo component een anchor om het Logo component plaatsen om zo routering binnen de afnemende applicatie te faciliteren.
+
+Markup voor deze situatie ziet er ongeveer zo uit:
+
+```html
+<a href="/">
+  <dso-logo label="Regels op de kaart"></dso-logo>
+</a>
+```
+
+In deze release is het Logo component uitgebreid met 2 nieuwe properties: `logoUrl` en `labelUrl`.
+
+### logoUrl
+
+Indien de afnemer aan het Logo component de property `logoUrl` meegeeft, dan zal het Logo component een anchor met href zetten rondom het beeldmerk en het woordmerk.
+Wanneer een gebruiker deze link aanklikt dan zal het Logo component het custom event `dsoLogoClick` uitsturen.
+
+### labelUrl
+
+Indien de afnemer aan het Logo component de property `labelUrl` meegeeft, dan zal het Logo component een anchor met href zetten rondom het label.
+Voorwaarde is dan ook dat de property `label` is gezet. De property `labelUrl` zonder property `label` zal door het Logo component worden genegereerd.
+Wanneer een gebruiker deze link aanklikt dan zal het Logo component het custom event `dsoLabelClick` uitsturen.
+
+De markup voor deze nieuwe mogelijkheden van het Logo component ziet er zo uit:
+
+```html
+  <dso-logo logo-url="/" label="Regels op de kaart" label-url="regels-op-de-kaart"></dso-logo>
+```
+
+Bekijk de nieuwe mogelijkheden in de storybook van het Logo component: https://storybook.dso-toolkit.nl/master/?path=/story/core-logo--with-logourl-and-label-and-labelurl
