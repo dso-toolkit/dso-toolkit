@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Tasks
 * Packages: Dependencies updates ([#2648](https://github.com/dso-toolkit/dso-toolkit/issues/2648))
 * Packages: `http-proxy-middleware` updaten naar ^3.0.0 ([#2612](https://github.com/dso-toolkit/dso-toolkit/issues/2612))
+* Packages: gulp updaten naar ^5.0.0 ([#2613](https://github.com/dso-toolkit/dso-toolkit/issues/2613))
 
 ## ♠️ 62.21.0 - 29-04-2024
 
