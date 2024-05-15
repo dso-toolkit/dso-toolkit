@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Form Group: Errormessage error icon ([#2640](https://github.com/dso-toolkit/dso-toolkit/issues/2640))
+* Form Group Files: Remove parts if no files ([#2650](https://github.com/dso-toolkit/dso-toolkit/issues/2650))
 
 ### Docs
 * Card: Slide Toggle toevoegen ([#2516](https://github.com/dso-toolkit/dso-toolkit/issues/2516))

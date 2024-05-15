@@ -315,6 +315,15 @@ export const content: FormGroup<never>[] = [
       },
     ],
   },
+  {
+    group: "files",
+    id: "mijn--no-files",
+    label: "Overige documenten",
+    addFileButtonVariant: "secondary",
+    errorText: "Voeg een document toe.",
+    files: [],
+    warning: "",
+  },
 ];
 
 export const buttons: FormButtons = {
