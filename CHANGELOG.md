@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🐸 62.22.0 - 15-05-2024
+
 ### Added
 * Logo: Aparte link voor applicatienaam ([#2498](https://github.com/dso-toolkit/dso-toolkit/issues/2498))
 
