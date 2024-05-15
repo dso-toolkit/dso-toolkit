@@ -1,32 +1,50 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { CardListArgs, cardListArgsMapper, cardListArgTypes } from "./card-list.args.js";
-import { cardListContent } from "./card-list.content.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
+import { cardListArgs, CardListArgs, cardListArgsMapper, cardListArgTypes } from "./card-list.args.js";
 import { CardList } from "./card-list.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface CardListStories {
+  CardList: StoryObj<CardListArgs, Renderer>;
+}
 
 export interface CardListTemplates<TemplateFnReturnType> {
   cardListTemplate: (cardListProperties: CardList<TemplateFnReturnType>) => TemplateFnReturnType;
   content: TemplateFnReturnType[];
 }
 
-export function storiesOfCardList<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    CardListTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Card List", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: cardListArgTypes,
-    });
+interface CardListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, CardListTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<CardListArgs>((args, { cardListTemplate, content }) =>
-      cardListTemplate(cardListArgsMapper(args, content)),
-    );
+export function cardListMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  CardListArgs
+> {
+  return {
+    argTypes: cardListArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("Card List", template, { args: cardListContent });
-
-    return stories;
-  });
+export function cardListStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: CardListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardListStories {
+  return {
+    CardList: {
+      args: cardListArgs,
+      render: templateContainer.render(storyTemplates, (args, { cardListTemplate, content }) =>
+        cardListTemplate(cardListArgsMapper(args, content)),
+      ),
+    },
+  };
 }

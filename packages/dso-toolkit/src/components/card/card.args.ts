@@ -17,7 +17,7 @@ export interface CardArgs {
   image: string | undefined;
   imageShape: (typeof imageShapes)[number];
   clickable: boolean;
-  dsoCardClicked: HandlerFunction;
+  dsoCardClicked?: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {

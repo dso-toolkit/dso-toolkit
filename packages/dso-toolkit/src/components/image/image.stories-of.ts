@@ -1,45 +1,72 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ImageArgs, imageArgsMapper, imageArgTypes } from "./image.args.js";
 import { Image } from "./image.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type ImageStory = StoryObj<ImageArgs, Renderer>;
+
+interface ImageStories {
+  Default: ImageStory;
+  Responsive: ImageStory;
+  Circle: ImageStory;
+}
 
 export interface ImageTemplates<TemplateFnReturnType> {
   imageTemplate: (imageProperties: Image) => TemplateFnReturnType;
 }
 
-export function storiesOfImage<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ImageTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Image", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: imageArgTypes,
-      args: {
-        source: "images/sneeuwpop.png",
-        alt: "Afbeelding van een sneeuwpop",
-      },
-    });
+interface ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ImageTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<ImageArgs>((args, { imageTemplate }) => imageTemplate(imageArgsMapper(args)));
+export function imageMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ImageArgs
+> {
+  return {
+    argTypes: imageArgTypes,
+    args: {
+      source: "images/sneeuwpop.png",
+      alt: "Afbeelding van een sneeuwpop",
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("default", template);
-
-    stories.add("responsive", template, {
+export function imageStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ImageStories {
+  return {
+    Default: {
+      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
+        imageTemplate(imageArgsMapper(args)),
+      ),
+    },
+    Responsive: {
       args: {
         modifier: "img-responsive",
       },
-    });
-
-    stories.add("circle", template, {
+      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
+        imageTemplate(imageArgsMapper(args)),
+      ),
+    },
+    Circle: {
       args: {
         modifier: "img-circle",
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { imageTemplate }) =>
+        imageTemplate(imageArgsMapper(args)),
+      ),
+    },
+  };
 }

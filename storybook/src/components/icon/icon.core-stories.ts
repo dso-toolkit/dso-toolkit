@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
 
@@ -7,7 +7,7 @@ import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
-  title: "Icon",
+  title: "Core/Icon",
 };
 
 export default meta;

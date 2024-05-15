@@ -60,11 +60,9 @@ export {
   storiesOfCardContainer,
 } from "./components/card-container/card-container.stories-of.js";
 
-export { CardGrid } from "./components/card-grid/card-grid.models.js";
-export { CardGridTemplates, storiesOfCardGrid } from "./components/card-grid/card-grid.stories-of.js";
+export * from "./components/card-grid";
 
-export { CardList } from "./components/card-list/card-list.models.js";
-export { CardListTemplates, storiesOfCardList } from "./components/card-list/card-list.stories-of.js";
+export * from "./components/card-list";
 
 export * from "./components/context";
 
@@ -92,11 +90,7 @@ export {
   storiesOfDocumentComponent,
 } from "./components/document-component/document-component.stories-of.js";
 
-export { DocumentHeader } from "./components/document-header/document-header.models.js";
-export {
-  DocumentHeaderTemplates,
-  storiesOfDocumentHeader,
-} from "./components/document-header/document-header.stories-of.js";
+export * from "./components/document-header";
 
 export {
   DocumentList,
@@ -117,8 +111,7 @@ export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropd
 export { Expandable } from "./components/expandable/expandable.models.js";
 export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
 
-export { Footnote } from "./components/footnotes/footnotes.models.js";
-export { FootnotesTemplates, storiesOfFootnotes } from "./components/footnotes/footnotes.stories-of.js";
+export * from "./components/footnotes";
 
 export {
   Form,
@@ -153,20 +146,17 @@ export * from "./components/helpcenter-panel";
 
 export * from "./components/highlight-box";
 
-export { Icon } from "./components/icon/icon.models.js";
-export { IconTemplates, storiesOfIcon } from "./components/icon/icon.stories-of.js";
+export * from "./components/icon";
 
-export { Image } from "./components/image/image.models.js";
-export { ImageTemplates, storiesOfImage } from "./components/image/image.stories-of.js";
+export * from "./components/image";
 
 export { ImageOverlay } from "./components/image-overlay/image-overlay.models.js";
 export { ImageOverlayTemplates, storiesOfImageOverlay } from "./components/image-overlay/image-overlay.stories-of.js";
 
+export * from "./components/info";
+
 export { InfoButton, InfoButtonToggleEvent } from "./components/info-button/info-button.models.js";
 export { InfoButtonTemplates, storiesOfInfoButton } from "./components/info-button/info-button.stories-of.js";
-
-export { Info } from "./components/info/info.models.js";
-export { InfoTemplates, storiesOfInfo } from "./components/info/info.stories-of.js";
 
 export { InputNumber } from "./components/input-number/input-number.models.js";
 export { InputNumberTemplates, storiesOfInputNumber } from "./components/input-number/input-number.stories-of.js";

@@ -1,14 +1,14 @@
-import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
+import type { Meta } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
-import { richContent } from "./info.content";
 
-import readme from "./readme.md?raw";
-import type { Meta } from "@storybook/angular";
+import readme from "dso-toolkit/src/components/info/readme.md?raw";
+import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
+import { richContent } from "./info.content";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),
-  title: "Info",
+  title: "HTML|CSS/Info",
 };
 
 export default meta;
@@ -20,7 +20,7 @@ const { Default, Fixed } = infoStories({
 
     return {
       infoTemplate,
-      richContent: richContent(),
+      richContent: richContent(templates),
     };
   },
 });

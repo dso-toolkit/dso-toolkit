@@ -1,29 +1,47 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { Card } from "../card/card.models.js";
-import { cardGridArgsMapper } from "./card-grid.args.js";
 import { CardGrid } from "./card-grid.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface CardGridStories {
+  CardGrid: StoryObj<Record<string, never>, Renderer>;
+}
 
 export interface CardGridTemplates<TemplateFnReturnType> {
   cardGridTemplate: (cardProperties: CardGrid<TemplateFnReturnType>) => TemplateFnReturnType;
   cards: Card<TemplateFnReturnType>[];
 }
 
-export function storiesOfCardGrid<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    CardGridTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Card Grid", storiesOfArguments, (stories, templateMapper) => {
-    const template = templateMapper((_args, { cardGridTemplate, cards }) =>
-      cardGridTemplate(cardGridArgsMapper(cards)),
-    );
+interface CardGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, CardGridTemplates<TemplateFnReturnType>> {}
 
-    stories.add("Card Grid", template);
+export function cardGridMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    return stories;
-  });
+export function cardGridStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: CardGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardGridStories {
+  return {
+    CardGrid: {
+      render: templateContainer.render(storyTemplates, (_args, { cardGridTemplate, cards }) =>
+        cardGridTemplate({ cards }),
+      ),
+    },
+  };
 }

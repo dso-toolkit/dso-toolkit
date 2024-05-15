@@ -1,42 +1,53 @@
-import { storiesOfInfo } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import type { Meta } from "@storybook/react";
+
+import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 
-storiesOfInfo({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<InfoArgs> = {
+  ...infoMeta({ readme }),
+  title: "Info",
+};
+
+export default meta;
+
+const { Default, Fixed } = infoStories({
   templateContainer,
-  storyTemplates: ({ infoTemplate, iconTemplate }) => ({
-    infoTemplate,
-    richContent: (
-      <div className="dso-rich-content">
-        <h2>Heading 2</h2>
-        <p>
-          Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nullam non metus dolor. Pellentesque
-          velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl
-          lacinia et. Integer quis sollicitudin arcu. <a href="#">Nullam</a> lacinia non ipsum sit amet varius. Praesent
-          consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla
-          lectus.
-        </p>
-        <div className="dso-button-row">
-          <a href="#" className="dso-primary">
-            <span>Primaire button</span>
-          </a>
-          <a href="#" className="dso-secondary">
-            <span>Secundaire button</span>
-          </a>
-          <a href="#" className="dso-tertiary">
-            <span>Tertiaire button</span>
-            {iconTemplate({ icon: "chevron-down" })}
-          </a>
+  storyTemplates: (templates) => {
+    const { infoTemplate, iconTemplate } = templates;
+
+    return {
+      infoTemplate,
+      richContent: (
+        <div className="dso-rich-content">
+          <h2>Heading 2</h2>
+          <p>
+            De <a href="#">Bouwregelgeving</a> is een database met alle <strong>bouwregelgeving</strong> in Nederland,
+            die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan{" "}
+            <a href="#" className="download">
+              de eisen van de Omgevingswet (3B's)
+            </a>
+            , en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+          </p>
+          <div className="dso-button-row">
+            <a href="#" className="dso-primary">
+              <span>Primaire button</span>
+            </a>
+            <a href="#" className="dso-secondary">
+              <span>Secundaire button</span>
+            </a>
+            <a href="#" className="dso-tertiary">
+              <span>Tertiaire button</span>
+              {iconTemplate({ icon: "chevron-down" })}
+            </a>
+          </div>
         </div>
-      </div>
-    ),
-  }),
+      ),
+    };
+  },
 });
+
+export { Default, Fixed };

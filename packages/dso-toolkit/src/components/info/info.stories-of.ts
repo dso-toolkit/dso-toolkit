@@ -1,37 +1,60 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
 import { InfoArgs, infoArgsMapper, infoArgTypes } from "./info.args.js";
 import { Info } from "./info.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type InfoStory = StoryObj<InfoArgs, Renderer>;
+
+interface InfoStories {
+  Default: InfoStory;
+  Fixed: InfoStory;
+}
 
 export interface InfoTemplates<TemplateFnReturnType> {
   infoTemplate: (infoProperties: Info<TemplateFnReturnType>) => TemplateFnReturnType;
   richContent: TemplateFnReturnType;
 }
 
-export function storiesOfInfo<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    InfoTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Info", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: infoArgTypes,
-    });
+interface InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, InfoTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<InfoArgs>((args, { infoTemplate, richContent }) =>
-      infoTemplate(infoArgsMapper(args, richContent)),
-    );
+export function infoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  InfoArgs
+> {
+  return {
+    argTypes: infoArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("default", template);
-
-    stories.add("fixed", template, {
+export function infoStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoStories {
+  return {
+    Default: {
+      render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
+        infoTemplate(infoArgsMapper(args, richContent)),
+      ),
+    },
+    Fixed: {
       args: {
         fixed: true,
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
+        infoTemplate(infoArgsMapper(args, richContent)),
+      ),
+    },
+  };
 }

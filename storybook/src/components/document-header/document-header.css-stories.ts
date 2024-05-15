@@ -1,20 +1,24 @@
-import { DefinitionList, storiesOfDocumentHeader, StoryRoot } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components";
 
-import cssReadme from "dso-toolkit/src/components/document-header/readme.md?raw";
+import { DefinitionList, DocumentHeaderArgs, documentHeaderMeta, documentHeaderStories } from "dso-toolkit";
+
+import readme from "dso-toolkit/src/components/document-header/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { html, TemplateResult } from "lit-html";
 
-storiesOfDocumentHeader({
-  parameters: {
-    module,
-    storiesOf,
-    readme: cssReadme,
-    root: StoryRoot.HtmlCss,
-  },
+const meta: Meta<DocumentHeaderArgs> = {
+  ...documentHeaderMeta({ readme }),
+  title: "HTML|CSS/Document Header",
+};
+
+export default meta;
+
+const { Default, Sticky } = documentHeaderStories({
   templateContainer,
-  storyTemplates: ({ documentHeaderTemplate, anchorTemplate }) => {
+  storyTemplates: (templates) => {
+    const { documentHeaderTemplate, anchorTemplate } = templates;
+
     const features: DefinitionList<TemplateResult> = {
       modifier: "dso-document-header-features",
       definitions: [
@@ -52,6 +56,11 @@ storiesOfDocumentHeader({
       ],
     };
 
-    return { documentHeaderTemplate, features };
+    return {
+      documentHeaderTemplate,
+      features,
+    };
   },
 });
+
+export { Default, Sticky };
