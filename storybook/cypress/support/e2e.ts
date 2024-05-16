@@ -18,3 +18,12 @@ import "./commands";
 
 import "cypress-axe";
 import "cypress-real-events";
+
+import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
+
+addMatchImageSnapshotCommand({
+  failureThreshold: 0.2,
+  padding: 16, // units.$u2 for buiten-elementse functionele styling
+  customDiffDir: "cypress/snapshot-diff",
+  customSnapshotsDir: "cypress/snapshot-baseline",
+});
