@@ -87,6 +87,7 @@ export class OzonContent implements ComponentInterface {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const dependencies = () => {
   dependencies();
 
