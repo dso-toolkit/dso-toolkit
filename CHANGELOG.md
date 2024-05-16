@@ -50,6 +50,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Build: Flaky tests HighlightBox, Tooltip en DatePickerLegacy ([#2256](https://github.com/dso-toolkit/dso-toolkit/issues/2256))
+* Packages: `ESLint` updaten naar ^9.4.0 ([#2631](https://github.com/dso-toolkit/dso-toolkit/issues/2631))
 
 ### Changed
 * Stylelint: Hele repository linten ([#2714](https://github.com/dso-toolkit/dso-toolkit/issues/2714))
