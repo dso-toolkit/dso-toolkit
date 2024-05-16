@@ -27,7 +27,7 @@ import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 import { BadgeStatus } from "../../badge/badge.interfaces";
 
 // eslint-disable-next-line no-console
-const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
+const log = (window as never)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
@@ -312,10 +312,10 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
-  private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
+  private handleExpandableAnimationStart = () => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
-      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(e.detail.bodyHeight, behavior),
+      scrollIntoView: (behavior: ScrollBehavior = "auto") => this.scrollIntoView(undefined, behavior),
     });
   };
 

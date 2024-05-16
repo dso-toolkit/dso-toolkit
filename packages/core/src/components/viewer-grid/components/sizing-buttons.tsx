@@ -3,7 +3,7 @@ import { ViewerGridPanelSize, viewerGridSizeLabelMap } from "../viewer-grid.inte
 
 interface SizingButtonProp {
   className: string;
-  onClick: any;
+  onClick: () => void;
   label: string;
   icon: "chevron-left" | "chevron-right";
 }
