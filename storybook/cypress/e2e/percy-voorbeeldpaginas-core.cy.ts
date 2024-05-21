@@ -17,7 +17,7 @@ describe("Percy", () => {
 
       percyHeaderFix();
 
-      // cy.percySnapshot(`${id} (Core)`);
+      cy.matchImageSnapshot(`${id} (Core)`);
     }
   });
 });

@@ -4,9 +4,8 @@ describe("ListButton", () => {
   });
 
   it("should render label and sublabel correctly", () => {
-    // cy.percySnapshot();
-
-    cy.get("dso-list-button")
+    cy.get("dso-list-button.hydrated")
+      .matchImageSnapshot()
       .as("dsoListButton")
       .should("be.visible")
       .shadow()

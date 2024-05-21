@@ -1,4 +1,4 @@
-import { HeaderMenuItem } from "../../../packages/core/src/components/header/header.interfaces";
+import { HeaderMenuItem } from "@dso-toolkit/core";
 
 describe("Header", () => {
   beforeEach(() => {
@@ -57,10 +57,13 @@ describe("Header", () => {
 
   it("should be accessible", () => {
     cy.checkA11y("dso-header");
-    // cy.percySnapshot()
+
+    cy.get("dso-header.hydrated").matchImageSnapshot();
+
     cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
-    cy
-      // .percySnapshot(`${Cypress.currentTest.title}" -- dropdown menu`)
+
+    cy.get("dso-header.hydrated")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")

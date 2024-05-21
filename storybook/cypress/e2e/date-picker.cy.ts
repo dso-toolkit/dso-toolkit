@@ -10,10 +10,11 @@ describe("Date Picker", () => {
       .and("not.be.empty")
       .then((id) => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
-      });
 
-    cy.checkA11y("#root-inner");
-    // cy.percySnapshot();
+        cy.checkA11y("#root-inner");
+
+        cy.get("#root-inner").matchImageSnapshot();
+      });
   });
 
   it("should emit dsoDateChange event", () => {
