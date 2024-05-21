@@ -15,7 +15,8 @@ describe("Autosuggest", () => {
     cy.checkA11y("dso-autosuggest");
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
 
-    // cy.percySnapshot();
+    // Take the entire page, otherwise the suggestionlist will not be snapshotted
+    cy.matchImageSnapshot();
   });
 
   it("should regexp-escape suggestions", () => {

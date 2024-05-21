@@ -9,11 +9,16 @@ describe("Label", () => {
     // Set the min-height so that there is room for the tooltip.
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
-    cy.get("dso-label").as("dsoLabel").shadow().as("dsoLabelShadow").get("@dsoLabel").invoke("text", defaultLabelText);
+    cy.get("dso-label.hydrated")
+      .as("dsoLabel")
+      .shadow()
+      .as("dsoLabelShadow")
+      .get("@dsoLabel")
+      .invoke("text", defaultLabelText);
   }
 
   it("should be able to truncate label", () => {
-    // cy.percySnapshot();
+    cy.get("@dsoLabel").matchImageSnapshot();
 
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
@@ -26,7 +31,7 @@ describe("Label", () => {
       .find(".dso-label-content")
       .should("exist");
 
-    // cy.percySnapshot(`${Cypress.currentTest.title} -- truncated`);
+    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- truncated`);
   });
 
   it("should show tooltip on focus", () => {

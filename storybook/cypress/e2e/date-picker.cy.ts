@@ -10,10 +10,11 @@ describe("Date Picker", () => {
       .and("not.be.empty")
       .then((id) => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
-      });
 
-    cy.checkA11y("#root-inner");
-    // cy.percySnapshot();
+        cy.checkA11y("#root-inner");
+
+        cy.get("dso-date-picker.hydrated").matchImageSnapshot();
+      });
   });
 
   it("should emit dsoDateChange event", () => {
@@ -73,15 +74,14 @@ describe("Date Picker", () => {
       .get("dso-date-picker")
       .find('input[type="date"]')
       .as("input")
-      .focus()
-      .wait(1)
-      .realType("01012024")
+      .type("2024-01-01")
+      .trigger("change")
       .get("@dateChange")
       .its("lastCall.args.0.detail.value")
       .should("equal", "01-01-2024")
       .get("@input")
       .focus()
-      .wait(1)
+      .should("be.focused")
       .realPress("{backspace}")
       .get("@dateChange")
       .its("lastCall.args.0.detail")
@@ -95,16 +95,14 @@ describe("Date Picker", () => {
       .its("error")
       .should("equal", "invalid")
       .get("@input")
-      .focus()
-      .wait(1)
-      .realType("2028")
+      .type("2028-01-01")
+      .trigger("change")
       .get("@dateChange")
       .its("lastCall.args.0.detail.error")
       .should("equal", "max-range")
       .get("@input")
-      .focus()
-      .wait(1)
-      .realType("2020")
+      .type("2020-01-01")
+      .trigger("change")
       .get("@dateChange")
       .its("lastCall.args.0.detail.error")
       .should("equal", "min-range");

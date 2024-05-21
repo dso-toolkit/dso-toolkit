@@ -10,7 +10,7 @@ describe("Logo", () => {
       .find(".logo-label")
       .should("not.exist");
     cy.get("dso-logo").shadow().find(".logo-wordmark").should("exist");
-    // cy.percySnapshot();
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
   });
@@ -151,7 +151,7 @@ describe("Logo", () => {
       .find(".logo-label")
       .should("be.visible");
     cy.get("dso-logo").invoke("prop", "label", "Beheerportaal").shadow().find(".logo-wordmark").should("be.visible");
-    // cy.percySnapshot();
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
   });
@@ -170,7 +170,7 @@ describe("Logo", () => {
       .shadow()
       .find(".logo-wordmark")
       .should("not.be.visible");
-    // cy.percySnapshot();
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
   });
@@ -182,13 +182,13 @@ describe("Logo", () => {
       .find(".logo-ribbon")
       .should("be.visible")
       .should("have.text", "beta");
-    // cy.percySnapshot();
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
   });
 
   it("should be accessible", () => {
-    // cy.percySnapshot();
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
     cy.checkA11y("dso-logo");
   });

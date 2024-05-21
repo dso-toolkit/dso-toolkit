@@ -38,7 +38,10 @@ describe("Image Overlay", () => {
 
   it("should open and close overlay", () => {
     openOverlay();
-    // cy.percySnapshot();
+
+    // Take the entire page, otherwise the enlargement of the image will not be snapshotted
+    cy.matchImageSnapshot();
+
     cy.get("dso-image-overlay").shadow().find("button.close").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
   });
@@ -51,6 +54,7 @@ describe("Image Overlay", () => {
 
   it("should close overlay on click outside", () => {
     openOverlay();
+
     cy.get("body").realClick({ y: 50, x: 50 });
     cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
   });

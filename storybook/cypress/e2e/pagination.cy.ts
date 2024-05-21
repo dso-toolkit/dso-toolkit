@@ -15,7 +15,7 @@ describe("Pagination", () => {
       .wait(200);
   }
 
-  it("should show 5 pages and previous/next buttons", () => {
+  it("should show 5 pages and previous and next buttons", () => {
     prepareComponent(3, 5);
 
     cy.get("dso-pagination")
@@ -30,7 +30,7 @@ describe("Pagination", () => {
       .find('a[aria-label="Volgende"]')
       .should("be.visible");
 
-    // cy.percySnapshot();
+    cy.get("dso-pagination.hydrated").matchImageSnapshot();
   });
 
   it("should not show ellipsis when page count is in range", () => {
@@ -51,7 +51,7 @@ describe("Pagination", () => {
       .find("a")
       .should("have.text", "7");
 
-    // cy.percySnapshot();
+    cy.get("dso-pagination.hydrated").matchImageSnapshot();
   });
 
   it("should show ... when first and/or last page are out of range", () => {

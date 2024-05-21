@@ -6,14 +6,14 @@ const css = `
   }
 `;
 
-export function percyHeaderFix() {
+export function imageSnapshotHeaderFix() {
   cy.get("body").then(($body) => {
     const $header = $body.find("dso-header");
 
     if ($header.length > 0) {
-      Cypress.$("head").append(`<style id="percy-header-fix">${css}</style>`);
+      Cypress.$("head").append(`<style id="image-snapshot-header-fix">${css}</style>`);
 
-      cy.get("#percy-header-fix").should("exist");
+      cy.get("#image-snapshot-header-fix").should("exist");
     }
   });
 }

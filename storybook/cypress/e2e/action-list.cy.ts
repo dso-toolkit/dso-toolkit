@@ -4,6 +4,6 @@ describe("ActionList", () => {
   });
 
   it("screenshot", () => {
-    // cy.percySnapshot();
+    cy.get("dso-action-list.hydrated").matchImageSnapshot();
   });
 });

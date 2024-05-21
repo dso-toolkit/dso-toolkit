@@ -63,7 +63,7 @@ describe("Tree View", () => {
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwwerken", 2, 4, 3);
 
-    // cy.percySnapshot();
+    cy.get("dso-tree-view.hydrated").matchImageSnapshot();
 
     cy.get("@bouwwerken")
       .prev()

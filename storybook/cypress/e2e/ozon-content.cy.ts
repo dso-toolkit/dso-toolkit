@@ -9,7 +9,7 @@ describe("Ozon Content", () => {
 
     cy.get("@anchorClick").should("have.been.calledOnce");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should open and close notes", () => {
@@ -31,7 +31,7 @@ describe("Ozon Content", () => {
     button("N7").should("have.attr", "aria-expanded", "false");
     tooltip("N7").should("be.not.visible");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
 
     button("N7").click();
 
@@ -40,7 +40,7 @@ describe("Ozon Content", () => {
     button("N7").should("have.attr", "aria-expanded", "true");
     tooltip("N7").should("be.visible");
 
-    // cy.percySnapshot(`${Cypress.currentTest.title} -- visible notes`);
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
 
     button("N7").click();
 
@@ -59,7 +59,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content").shadow().find("span.fallback.od-aap").should("exist").contains("baviaan");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render br element", () => {
@@ -71,7 +71,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content").shadow().find("span.fallback.od-e").children("br").should("exist").and("be.empty");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Al element", () => {
@@ -83,7 +83,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content").shadow().find("p").should("exist").children('span[role="paragraph"]').should("exist");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render sub, sup, strong, b, i and u elements", () => {
@@ -114,7 +114,7 @@ describe("Ozon Content", () => {
       .children("span.fallback.od-inner")
       .contains("text");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Inhoud element and handle xml namespace", () => {
@@ -135,7 +135,7 @@ describe("Ozon Content", () => {
       .children("span.od-e")
       .contains("de inhoud");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render IntRef element", () => {
@@ -153,7 +153,7 @@ describe("Ozon Content", () => {
       .children("span.fallback.od-e")
       .contains("document");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render IntIoRef element", () => {
@@ -164,7 +164,7 @@ describe("Ozon Content", () => {
       .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
       .should("exist");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should emit anchorClick on IntIoRef anchor click", () => {
@@ -185,7 +185,7 @@ describe("Ozon Content", () => {
       .its("args.0.detail.node")
       .should("equal", "IntIoRef");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render ExtRef element", () => {
@@ -201,7 +201,7 @@ describe("Ozon Content", () => {
       .should("exist")
       .and("have.text", "document (Opent andere website in nieuw tabblad)");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render ExtIoRef element", () => {
@@ -221,7 +221,7 @@ describe("Ozon Content", () => {
         "/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1 (Opent andere website in nieuw tabblad)",
       );
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Illustratie element", () => {
@@ -236,7 +236,7 @@ describe("Ozon Content", () => {
       .find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']")
       .should("exist");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render simple table", () => {
@@ -254,7 +254,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render table with heading", () => {
@@ -270,7 +270,7 @@ describe("Ozon Content", () => {
     cy.get("@head").find("tr:nth-child(1) td:nth-child(1)").contains("een");
     cy.get("@head").find("tr:nth-child(1) td:nth-child(2)").contains("twee");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render table with rowspan", () => {
@@ -287,7 +287,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("4");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render table with colspan", () => {
@@ -306,7 +306,7 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render inline paragraphs in Opschrift", () => {
@@ -321,7 +321,7 @@ describe("Ozon Content", () => {
       .find("p")
       .should("not.exist");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should have correct display", () => {
@@ -333,7 +333,7 @@ describe("Ozon Content", () => {
       .invoke("attr", "inline", null)
       .should("have.css", "display", "block");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Figuur as dso-image-overlay", () => {
@@ -373,7 +373,7 @@ describe("Ozon Content", () => {
       .find(".dso-ozon-figuur > .figuur-bijschrift")
       .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Lijst element", () => {
@@ -396,7 +396,7 @@ describe("Ozon Content", () => {
       .get("@dsoOzonLijst")
       .find("> ul");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render renvooi-weergave elements", () => {
@@ -443,7 +443,7 @@ describe("Ozon Content", () => {
       .find(".editaction-label")
       .and("have.text", "Toegevoegd:");
 
-    // cy.percySnapshot();
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should show <Bron> at a table", () => {

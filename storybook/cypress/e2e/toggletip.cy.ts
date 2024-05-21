@@ -4,7 +4,7 @@ describe("Toggletip", () => {
   });
 
   function prepareComponent() {
-    cy.get("dso-toggletip")
+    cy.get("dso-toggletip.hydrated")
       .as("dsoToggletip")
       .shadow()
       .find("dso-info-button")
@@ -21,7 +21,7 @@ describe("Toggletip", () => {
   it("should focus on button after escape", () => {
     prepareComponent();
 
-    // cy.percySnapshot();
+    cy.get("@dsoToggletip").matchImageSnapshot();
 
     cy.get("@dsoButton")
       .click()

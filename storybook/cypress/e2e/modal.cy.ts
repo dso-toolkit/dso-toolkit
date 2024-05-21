@@ -24,7 +24,8 @@ describe("Modal", () => {
       .should("have.class", "sr-only")
       .and("have.text", "Sluiten");
 
-    // cy.percySnapshot();
+    // Take the entire page, for the dso-modal has a height of 0
+    cy.matchImageSnapshot();
   });
 
   it("should have focus trap", () => {
