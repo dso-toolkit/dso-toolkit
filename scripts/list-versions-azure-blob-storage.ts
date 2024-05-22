@@ -1,3 +1,5 @@
+/* eslint-disable no-console -- cli script, needs to output to stdout */
+
 import { BlobServiceClient } from "@azure/storage-blob";
 import { valid, sort } from "semver";
 
