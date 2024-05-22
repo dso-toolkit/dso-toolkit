@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install --yes \
   apt-transport-https \
   ca-certificates \
   curl \
+  gnupg2 \
   libasound2 \
   libatk-bridge2.0-0 \
   libatk1.0-0 \
