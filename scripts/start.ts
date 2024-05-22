@@ -1,6 +1,7 @@
-const concurrently = require("concurrently");
-const rimraf = require("rimraf");
-const argv = require("minimist")(process.argv.slice(2));
+import concurrently from "concurrently";
+import { rimraf } from "rimraf";
+import minimist from "minimist";
+const argv = minimist(process.argv.slice(2));
 
 rimraf.sync("packages/dso-toolkit/dist");
 rimraf.sync("packages/core/dist");
