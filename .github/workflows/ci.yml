@@ -80,20 +80,18 @@ jobs:
           options: --env CI
             --env DT_REF
             --env DT_DIST_TAG
-            --env DT_PRIVATE_KEY_BASE64
-            --env DT_DEPLOY_HOST
-            --env DT_DEPLOY_PORT
-            --env DT_DEPLOY_USER
-            --env DT_DEPLOY_ROOT
+            --env DT_AZURE_STORAGE_ACCOUNT_NAME
+            --env DT_AZURE_STORAGE_ACCOUNT_KEY
+            --env DT_AZURE_STORAGE_URL
+            --env DT_AZURE_STORAGE_CONTAINER
             --env DT_DEPLOY_NPM_TOKEN
             --env GITHUB_TOKEN
             --env GH_TOKEN
           run: bash deploy.sh
         env:
-          DT_PRIVATE_KEY_BASE64: ${{ secrets.DT_PRIVATE_KEY_BASE64 }}
-          DT_DEPLOY_HOST: ${{ secrets.DT_DEPLOY_HOST }}
-          DT_DEPLOY_PORT: ${{ secrets.DT_DEPLOY_PORT }}
-          DT_DEPLOY_USER: ${{ secrets.DT_DEPLOY_USER }}
-          DT_DEPLOY_ROOT: ${{ secrets.DT_DEPLOY_ROOT }}
+          DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC }}
+          DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC }}
+          DT_AZURE_STORAGE_URL: ${{ secrets.DT_AZURE_STORAGE_URL_ACC }}
+          DT_AZURE_STORAGE_CONTAINER: ${{ secrets.DT_AZURE_STORAGE_CONTAINER_ACC }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
