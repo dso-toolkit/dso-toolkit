@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-13.8.1-node-20.12.2-chrome-124.0.6367.60-1-ff-125.0.2-edge-124.0.2478.51-1
+FROM cypress/included:cypress-13.10.0-node-20.13.1-chrome-125.0.6422.60-1-ff-126.0-edge-125.0.2535.51-1
 
 RUN apt-get update && apt-get install --yes \
   curl \
