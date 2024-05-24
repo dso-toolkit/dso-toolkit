@@ -82,7 +82,7 @@ jobs:
             --env DT_DIST_TAG
             --env DT_AZURE_STORAGE_ACCOUNT_NAME
             --env DT_AZURE_STORAGE_ACCOUNT_KEY
-            --env DT_AZURE_STORAGE_URL
+            --env DT_AZURE_STORAGE_HOST
             --env DT_AZURE_STORAGE_CONTAINER
             --env DT_DEPLOY_NPM_TOKEN
             --env GITHUB_TOKEN
@@ -91,7 +91,7 @@ jobs:
         env:
           DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC }}
           DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC }}
-          DT_AZURE_STORAGE_URL: ${{ secrets.DT_AZURE_STORAGE_URL_ACC }}
+          DT_AZURE_STORAGE_HOST: ${{ secrets.DT_AZURE_STORAGE_HOST_ACC }}
           DT_AZURE_STORAGE_CONTAINER: ${{ secrets.DT_AZURE_STORAGE_CONTAINER_ACC }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}

@@ -1,14 +1,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-SAS_TOKEN=$(az storage container generate-sas --name "${DT_AZURE_STORAGE_CONTAINER}" --permissions acdlrw --expiry $(date --utc --date '+1 hour' +"%Y-%m-%dT%H:%M:%SZ") --account-name "$DT_AZURE_STORAGE_ACCOUNT_NAME" --account-key "$DT_AZURE_STORAGE_ACCOUNT_KEY" | jq -r)
+SAS_TOKEN=$(az storage container generate-sas --name "DT_AZURE_STORAGE_CONTAINER" --permissions acdlrw --expiry $(date --utc --date '+1 hour' +"%Y-%m-%dT%H:%M:%SZ") --account-name "$DT_AZURE_STORAGE_ACCOUNT_NAME" --account-key "$DT_AZURE_STORAGE_ACCOUNT_KEY" | jq -r)
 
-azcopy sync --dry-run --from-to LocalBlob ./storybook/www/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --dry-run --from-to LocalBlob ./packages/react/www/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/react.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --dry-run --from-to LocalBlob ./angular-workspace/www/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/angular.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --dry-run --from-to LocalBlob ./website/www/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --dry-run --from-to LocalBlob ./packages/dso-toolkit/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/?${SAS_TOKEN}"
-azcopy sync --dry-run --from-to LocalBlob ./packages/core/ "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${DT_REF}/?${SAS_TOKEN}"
+azcopy sync --dry-run --from-to LocalBlob ./storybook/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
+# azcopy sync --dry-run --from-to LocalBlob ./packages/react/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/react.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
+# azcopy sync --dry-run --from-to LocalBlob ./angular-workspace/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/angular.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
+# azcopy sync --dry-run --from-to LocalBlob ./website/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
+# azcopy sync --dry-run --from-to LocalBlob ./packages/dso-toolkit/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/dso-toolkit/${DT_REF}/?${SAS_TOKEN}"
+# azcopy sync --dry-run --from-to LocalBlob ./packages/core/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${DT_REF}/?${SAS_TOKEN}"
 
 if [[ -n ${DT_DIST_TAG+x} && $DT_DIST_TAG == "latest" ]]
 then
@@ -33,6 +33,6 @@ fi
 
 yarn tsx ./scripts/list-versions-azure-blob-storage.ts > versions.json
 cat versions.json
-azcopy copy --dry-run --overwrite --from-to LocalBlob ./versions.json "https://${DT_AZURE_STORAGE_URL}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/versions.json/?${SAS_TOKEN}"
+# azcopy copy --dry-run --overwrite --from-to LocalBlob ./versions.json "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/versions.json/?${SAS_TOKEN}"
 
 # Todo: Prune old versions
