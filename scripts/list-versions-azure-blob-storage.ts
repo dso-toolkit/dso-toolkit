@@ -4,15 +4,15 @@ import { BlobServiceClient } from "@azure/storage-blob";
 import { valid, sort } from "semver";
 
 async function main(
-  storageUrl: string | undefined,
+  storageHost: string | undefined,
   storageContainer: string | undefined,
   accountSas: string | undefined,
 ) {
-  if (!storageUrl || !storageContainer || !accountSas) {
+  if (!storageHost || !storageContainer || !accountSas) {
     throw new Error("Missing required variables");
   }
 
-  const blobServiceClient = new BlobServiceClient(`${storageUrl}/?${accountSas}`);
+  const blobServiceClient = new BlobServiceClient(`https://${storageHost}/?${accountSas}`);
 
   const containerClient = blobServiceClient.getContainerClient(storageContainer);
 
@@ -56,7 +56,9 @@ async function main(
   console.log(JSON.stringify(versions, null, 2));
 }
 
-main(process.env.AZURE_STORAGE_URL, process.env.AZURE_STORAGE_CONTAINER, process.env.SAS_TOKEN).catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+main(process.env.DT_AZURE_STORAGE_HOST, process.env.DT_AZURE_STORAGE_CONTAINER, process.env.SAS_TOKEN).catch(
+  (error) => {
+    console.error(error);
+    process.exit(1);
+  },
+);
