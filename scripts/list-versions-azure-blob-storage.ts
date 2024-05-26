@@ -3,6 +3,16 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 import { valid, sort } from "semver";
 
+interface VersionsJson {
+  versions: Version[];
+}
+
+interface Version {
+  version: string;
+  branch?: string;
+  label?: string;
+}
+
 async function main(
   storageHost: string | undefined,
   storageContainer: string | undefined,
@@ -11,6 +21,8 @@ async function main(
   if (!storageHost || !storageContainer || !accountSas) {
     throw new Error("Missing required variables");
   }
+
+  console.info(`Updating versions.json`);
 
   const blobServiceClient = new BlobServiceClient(`https://${storageHost}/?${accountSas}`);
 
@@ -34,7 +46,7 @@ async function main(
     }
   }
 
-  const versions = {
+  const versions: VersionsJson = {
     versions: [
       ...sort(tags).map((tag) => ({ version: tag })),
       {
@@ -53,7 +65,9 @@ async function main(
     ],
   };
 
-  console.log(JSON.stringify(versions, null, 2));
+  const versionsJson = JSON.stringify(versions, null, 2);
+
+  containerClient.getBlockBlobClient(`${prefix}versions.json`).upload(versionsJson, versionsJson.length);
 }
 
 main(process.env.DT_AZURE_STORAGE_HOST, process.env.DT_AZURE_STORAGE_CONTAINER, process.env.SAS_TOKEN).catch(
