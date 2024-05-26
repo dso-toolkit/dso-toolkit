@@ -31,6 +31,6 @@ then
   # gh release create v${DT_REF} --generate-notes --verify-tag
 fi
 
-yarn tsx ./scripts/list-versions-azure-blob-storage.ts | azcopy copy --overwrite "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/versions.json/?${SAS_TOKEN}"
+yarn tsx ./scripts/list-versions-azure-blob-storage.ts | azcopy copy --overwrite --from-to=PipeBlob "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/dso-toolkit.nl/www/versions.json/?${SAS_TOKEN}"
 
 # Todo: Prune old versions
