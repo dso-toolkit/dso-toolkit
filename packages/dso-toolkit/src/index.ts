@@ -54,11 +54,7 @@ export * from "./components/button-row";
 export { Card, DsoCardClickedEvent } from "./components/card/card.models.js";
 export { CardTemplates, storiesOfCard } from "./components/card/card.stories-of.js";
 
-export { CardContainer, CardContainerMode } from "./components/card-container/card-container.models.js";
-export {
-  CardContainerTemplates,
-  storiesOfCardContainer,
-} from "./components/card-container/card-container.stories-of.js";
+export * from "./components/card-container";
 
 export * from "./components/card-grid";
 
