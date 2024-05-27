@@ -1,7 +1,31 @@
+/**
+ * This file:
+ * - Updates dso-toolkit.nl/versions.json with all the deployed releases (tags and branches) in the Azure Blob Storage container.
+ * - Updates dso-toolkit.nl/index.html with the latest version.
+ * - Removes all deployed branches which are not in the versions.json file.
+ */
 /* eslint-disable no-console -- cli script, needs to output to stdout */
 
 import { BlobServiceClient } from "@azure/storage-blob";
-import { valid, sort } from "semver";
+import { valid, sort, rsort } from "semver";
+import minimist from "minimist";
+import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
+import { render } from "@lit-labs/ssr";
+
+import { indexHtml } from "./index-html";
+
+interface Args {
+  azureStorageHost: string | undefined;
+  azureStorageContainer: string | undefined;
+  sasToken: string | undefined;
+}
+
+const args = minimist<Args>(process.argv.slice(2));
+
+main(args.azureStorageHost, args.azureStorageContainer, args.sasToken).catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
 
 interface VersionsJson {
   versions: Version[];
@@ -68,11 +92,18 @@ async function main(
   const versionsJson = JSON.stringify(versions, null, 2);
 
   containerClient.getBlockBlobClient(`${prefix}versions.json`).upload(versionsJson, versionsJson.length);
-}
 
-main(process.env.DT_AZURE_STORAGE_HOST, process.env.DT_AZURE_STORAGE_CONTAINER, process.env.SAS_TOKEN).catch(
-  (error) => {
-    console.error(error);
-    process.exit(1);
-  },
-);
+  console.info(`Updated versions.json`);
+
+  console.info(`Updating index.html`);
+
+  const latestVersion = rsort(tags)[0];
+
+  const indexHtmlContent = indexHtml(latestVersion);
+
+  const body = collectResultSync(render(indexHtmlContent));
+
+  containerClient.getBlockBlobClient(`${prefix}index.html`).upload(body, body.length);
+
+  console.info(`Updated index.html`);
+}

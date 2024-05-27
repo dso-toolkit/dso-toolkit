@@ -28,6 +28,7 @@
     "@azure/storage-blob": "^12.18.0",
     "@infoprojects/eslint-config": "^1.1.0",
     "@infoprojects/prettier-config": "^1.0.0",
+    "@lit-labs/ssr": "^3.2.2",
     "@stencil-community/eslint-plugin": "^0.7.2",
     "@types/minimist": "^1.2.5",
     "@types/semver": "^7.5.8",
