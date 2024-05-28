@@ -5,7 +5,14 @@ export function imageSnapshotProgressIndicatorFix() {
   cy.get("body")
     .then(($body) => {
       $body.prepend(
-        `<style id="image-snapshot-progress-indicator-fix">.dso-progress-indicator-spinner, dso-icon[icon="spinner"] { visibility: hidden; }</style>`,
+        `<style id="image-snapshot-progress-indicator-fix">
+                  .dso-progress-indicator-spinner,
+                  dso-icon[icon="spinner"],
+                  button.dso-primary.dso-spinner-left::before,
+                  button.dso-secondary.dso-spinner-left::before,
+                  button.dso-tertiary.dso-spinner-left::before {
+                  visibility: hidden;
+                  }</style>`,
       );
     })
     .get("#image-snapshot-progress-indicator-fix")

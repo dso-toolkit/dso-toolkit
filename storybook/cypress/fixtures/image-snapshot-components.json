@@ -1,171 +1,433 @@
 [
-  "html-css-anchor--default",
-  "html-css-anchor--download-link",
-  "html-css-anchor--external-link",
-  "html-css-anchor--link-with-icon",
-  "html-css-application-heading--default",
-  "html-css-application-heading--with-subtitle",
-  "html-css-application-heading--with-subtitle-and-steps",
-  "html-css-application-heading--subtitle-only",
-  "html-css-application-heading--subtitle-and-steps-only",
-  "html-css-attachments-counter--attachments-counter",
-  "html-css-badge--plain",
-  "html-css-badge--primary",
-  "html-css-badge--success",
-  "html-css-badge--info",
-  "html-css-badge--warning",
-  "html-css-badge--danger",
-  "html-css-badge--outline",
-  "html-css-banner--danger",
-  "html-css-banner--error",
-  "html-css-banner--info",
-  "html-css-banner--warning",
-  "html-css-banner--rich-warning",
-  "html-css-banner--danger-with-headings",
-  "html-css-breadcrumbs--breadcrumb",
-  "html-css-button-row--default",
-  "html-css-button-row--alle-button-varianten",
-  "html-css-button--primary",
-  "html-css-button--secondary-default",
-  "html-css-button--tertiary-link",
-  "html-css-card-grid--card-grid",
-  "html-css-card-list--card-list",
-  "html-css-context--label",
-  "html-css-context--legend",
-  "html-css-definition-list--default",
-  "html-css-definition-list--vertical",
-  "html-css-definition-list--emphasize-description",
-  "html-css-definition-list--vertical-with-emphasized-description",
-  "html-css-definition-list--columns-1-3",
-  "html-css-definition-list--columns-2-2",
-  "html-css-definition-list--columns-3-1",
-  "html-css-definition-list--two-columns-small-content",
-  "html-css-definition-list--two-columns",
-  "html-css-definition-list--three-columns-small-content",
-  "html-css-definition-list--three-columns",
-  "html-css-definition-list--bordered",
-  "html-css-definition-list--columns-list",
-  "html-css-description--term",
-  "html-css-description--example",
-  "html-css-document-list--default",
-  "html-css-document-list--sticky",
-  "html-css-footnotes--example",
-  "html-css-footnotes--reference",
-  "html-css-footnotes--list",
-  "html-css-form-form-buttons--default",
-  "html-css-form-form-buttons--multi-page",
-  "html-css-form-form-buttons--sections",
-  "html-css-form-form-buttons--single-page",
-  "html-css-form-form-buttons--simpel-form",
-  "html-css-form-vertical--form",
-  "html-css-form-horizontal--form",
-  "html-css-form-groups-checkboxes--checkboxes",
-  "html-css-form-groups-confirm--confirm",
-  "html-css-form-groups-files--files",
-  "html-css-form-groups-files--no-files",
-  "html-css-form-groups-input--input",
-  "html-css-form-groups-input-number--input-number",
-  "html-css-form-groups-radios--radios",
-  "html-css-form-groups-search-bar--search-bar",
-  "html-css-form-groups-select--select",
-  "html-css-form-groups-static--static",
-  "html-css-form-groups-textarea--textarea",
-  "html-css-form-justify-form-groups--justify-form-groups",
-  "html-css-highlight-box--default",
-  "html-css-highlight-box--yellow",
-  "html-css-highlight-box--white-with-dropshadow",
-  "html-css-highlight-box--with-border",
-  "html-css-highlight-box--with-icon",
-  "html-css-highlight-box--with-banner-image",
-  "html-css-icon--icon",
-  "html-css-image--default",
-  "html-css-image--responsive",
-  "html-css-image--circle",
-  "html-css-info-button--inactive",
-  "html-css-info-button--active",
-  "html-css-info-button--secondary-inactive",
-  "html-css-info-button--secondary-active",
-  "html-css-info--default",
-  "html-css-info--fixed",
-  "html-css-input-number--input-number",
-  "html-css-label-group--label-group",
-  "html-css-link-list--ul",
-  "html-css-link-list--ol",
-  "html-css-link-list--in-highlight-box",
-  "html-css-link-list--in-nav",
-  "html-css-link-list--in-footer",
-  "html-css-list-button--multi-select",
-  "html-css-list--unordered",
-  "html-css-list--ordered",
-  "html-css-list--group",
-  "html-css-list--columns",
-  "html-css-list--image-list",
-  "html-css-list--unstyled",
-  "html-css-navbar--primary",
-  "html-css-navbar--secondary",
-  "html-css-progress-bar--default",
-  "html-css-progress-bar--arbitrary-values",
-  "html-css-row-equal-heights--highlight-boxes",
-  "html-css-row-equal-heights--tiles",
-  "html-css-row-equal-heights--whiteboxes",
-  "html-css-rich-content--rich-content",
-  "html-css-search-bar--visual-label-with-icon",
-  "html-css-search-bar--visual-label-without-icon",
-  "html-css-search-bar--placeholder-with-long-text",
-  "html-css-search-bar--hidden-label-with-icon",
-  "html-css-search-bar--hidden-label-without-icon",
-  "html-css-search-bar--with-value",
-  "html-css-search-bar--invalid",
-  "html-css-search-bar--hidden-button",
-  "html-css-search-bar--with-results-message",
-  "html-css-search-bar--with-hidden-results-message",
-  "html-css-shopping-cart--default",
-  "html-css-shopping-cart--items-collapsed",
-  "html-css-shopping-cart--items-non-collapsable",
-  "html-css-shopping-cart--remove-all-items-option",
-  "html-css-shopping-cart--edit-items",
-  "html-css-shopping-cart--with-subitems",
-  "html-css-shopping-cart--with-subitems-and-hidden-summary",
-  "html-css-shopping-cart--with-subitems-and-warning",
-  "html-css-tabs--default",
-  "html-css-tabs--inactief",
-  "html-css-tile-grid--tile-grid",
-  "html-css-tile--default",
-  "html-css-tile--theme",
-  "html-css-whitebox--default",
-  "html-css-whitebox--with-counter",
-  "html-css-whitebox--with-icon",
-  "core-attachments-counter--attachments-counter",
-  "core-badge--plain",
-  "core-badge--primary",
-  "core-badge--success",
-  "core-badge--info",
-  "core-badge--warning",
-  "core-badge--danger",
-  "core-badge--outline",
-  "core-banner--danger",
-  "core-banner--error",
-  "core-banner--info",
-  "core-banner--warning",
-  "core-banner--rich-warning",
-  "core-banner--danger-with-headings",
-  "core-card-container--card-list",
-  "core-card-container--card-grid",
-  "core-highlight-box--default",
-  "core-highlight-box--yellow",
-  "core-highlight-box--white-with-dropshadow",
-  "core-highlight-box--with-border",
-  "core-highlight-box--with-icon",
-  "core-highlight-box--with-banner-image",
-  "core-icon--icon",
-  "core-info-button--inactive",
-  "core-info-button--active",
-  "core-info-button--secondary-inactive",
-  "core-info-button--secondary-active",
-  "core-info--default",
-  "core-info--fixed",
-  "core-list-button--multi-select",
-  "core-progress-bar--default",
-  "core-progress-bar--arbitrary-values",
-  "core-responsive-element--responsive-element"
+  {
+    "name": "attachments-counter",
+    "selector": "dso-attachments-counter.hydrated",
+    "stories": ["attachments-counter"],
+    "type": "core"
+  },
+  {
+    "name": "badge",
+    "selector": "dso-badge.hydrated",
+    "stories": ["plain", "primary", "success", "info", "warning", "danger", "outline"],
+    "type": "core"
+  },
+  {
+    "name": "banner",
+    "selector": "dso-banner.hydrated",
+    "stories": ["danger", "error", "info", "warning", "rich-warning", "danger-with-headings"],
+    "type": "core"
+  },
+  {
+    "name": "card-container",
+    "selector": "dso-card-container.hydrated",
+    "stories": ["card-list", "card-grid"],
+    "type": "core"
+  },
+  {
+    "name": "highlight-box",
+    "selector": "dso-highlight-box.hydrated",
+    "stories": ["default", "yellow", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
+    "type": "core"
+  },
+  { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["icon"], "type": "core" },
+  {
+    "name": "info-button",
+    "selector": "dso-info-button.hydrated",
+    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
+    "type": "core"
+  },
+  {
+    "name": "info",
+    "selector": "dso-info.hydrated",
+    "stories": ["default", "fixed"],
+    "type": "core"
+  },
+  {
+    "name": "list-button",
+    "selector": "dso-list-button.hydrated",
+    "stories": ["single-select", "css-legacy-readonly-count"],
+    "type": "core"
+  },
+  {
+    "name": "list-button",
+    "selector": "dso-list-button.hydrated",
+    "stories": ["multi-select"],
+    "type": "core",
+    "shadowWait": "dso-icon.hydrated"
+  },
+  {
+    "name": "progress-bar",
+    "selector": "dso-progress-bar.hydrated",
+    "stories": ["default", "arbitrary-values"],
+    "type": "core"
+  },
+  {
+    "name": "responsive-element",
+    "selector": "",
+    "stories": ["responsive-element"],
+    "type": "core",
+    "wait": "dso-responsive-element.hydrated"
+  },
+  {
+    "name": "anchor",
+    "selector": "a",
+    "stories": [
+      "default",
+      "download-link",
+      "external-link",
+      "link-with-icon",
+      "mail-link-with-icon",
+      "phone-link-with-icon"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "application-heading",
+    "selector": ".dso-app-heading",
+    "stories": ["default", "with-subtitle", "with-subtitle-and-steps", "subtitle-only", "subtitle-and-steps-only"],
+    "type": "html-css"
+  },
+  {
+    "name": "attachments-counter",
+    "selector": ".dso-attachments",
+    "stories": ["attachments-counter"],
+    "type": "html-css"
+  },
+  {
+    "name": "badge",
+    "selector": ".dso-badge",
+    "stories": ["attention", "danger", "error", "info", "outline", "plain", "primary", "success", "warning"],
+    "type": "html-css"
+  },
+  {
+    "name": "banner",
+    "selector": ".dso-banner",
+    "stories": [
+      "danger",
+      "danger-with-headings",
+      "error",
+      "info",
+      "info-compact-non-removable",
+      "info-non-removable",
+      "rich-info",
+      "rich-warning",
+      "warning"
+    ],
+    "type": "html-css"
+  },
+  { "name": "breadcrumbs", "selector": ".breadcrumb", "stories": ["breadcrumb"], "type": "html-css" },
+  {
+    "name": "button",
+    "selector": ".dso-primary",
+    "stories": ["primary", "primary-compact"],
+    "type": "html-css"
+  },
+  {
+    "name": "button",
+    "selector": ".dso-secondary",
+    "stories": ["secondary"],
+    "type": "html-css"
+  },
+  {
+    "name": "button",
+    "selector": ".dso-tertiary",
+    "stories": ["tertiary"],
+    "type": "html-css"
+  },
+  {
+    "name": "button-row",
+    "selector": ".dso-button-row",
+    "stories": [
+      "alle-button-varianten",
+      "default",
+      "emphasized",
+      "primaire-button-varianten",
+      "secundaire-button-varianten",
+      "tertiaire-button-varianten"
+    ],
+    "fix": "image-snapshot-progress-indicator-fix",
+    "type": "html-css"
+  },
+  { "name": "card-grid", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
+  { "name": "card-list", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
+  {
+    "name": "context",
+    "selector": "",
+    "stories": ["label", "label-align-left", "legend", "legend-align-left"],
+    "type": "html-css"
+  },
+  {
+    "name": "definition-list",
+    "selector": "dl",
+    "stories": [
+      "bordered",
+      "column-variant-one-three",
+      "column-variant-three-one",
+      "column-variant-two-two",
+      "columns-list",
+      "default",
+      "emphasize-description",
+      "three-columns",
+      "three-columns-small",
+      "two-columns",
+      "two-columns-small",
+      "vertical",
+      "vertical-with-emphasize-description"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "description",
+    "selector": ".dso-description-term",
+    "stories": ["example", "term"],
+    "type": "html-css"
+  },
+  {
+    "name": "document-list",
+    "selector": ".dso-document-list",
+    "stories": ["default", "sticky"],
+    "type": "html-css",
+    "wait": "dso-responsive-element.hydrated"
+  },
+  { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
+  { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
+  {
+    "name": "footnotes",
+    "selector": ".dso-footnote-reference",
+    "stories": ["reference"],
+    "type": "html-css"
+  },
+  {
+    "name": "form",
+    "selector": "",
+    "storyGroups": [
+      {
+        "group": "form-buttons",
+        "stories": ["default", "multi-page", "sections", "single-page", "simpel-form"]
+      },
+      {
+        "group": "groups-checkboxes",
+        "stories": ["checkboxes"]
+      },
+      {
+        "group": "groups-confirm",
+        "stories": ["confirm"]
+      },
+      {
+        "group": "groups-date-picker",
+        "stories": ["date-picker"],
+        "wait": "dso-date-picker.hydrated"
+      },
+      {
+        "group": "groups-date-picker-legacy",
+        "stories": ["date-picker"],
+        "wait": "dso-date-picker-legacy.hydrated"
+      },
+      {
+        "group": "groups-files",
+        "stories": ["files", "no-files"]
+      },
+      {
+        "group": "groups-input",
+        "stories": ["input"]
+      },
+      {
+        "group": "groups-input-number",
+        "stories": ["input-number"]
+      },
+      {
+        "group": "groups-radios",
+        "stories": ["radios"]
+      },
+      {
+        "group": "groups-search-bar",
+        "stories": ["search-bar"]
+      },
+      {
+        "group": "groups-select",
+        "stories": ["select"]
+      },
+      {
+        "group": "groups-static",
+        "stories": ["static"]
+      },
+      {
+        "group": "groups-textarea",
+        "stories": ["textarea"]
+      },
+      {
+        "group": "horizontal",
+        "stories": ["form"]
+      },
+      {
+        "group": "justify-form-groups",
+        "stories": ["justify-form-groups"]
+      },
+      {
+        "group": "vertical",
+        "stories": ["form"]
+      }
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "highlight-box",
+    "selector": ".dso-highlight-box",
+    "stories": [
+      "default",
+      "grey",
+      "grey-with-border",
+      "white-with-dropshadow",
+      "with-banner-image",
+      "with-border",
+      "with-icon",
+      "yellow"
+    ],
+    "type": "html-css"
+  },
+  { "name": "icon", "selector": "svg.di", "stories": ["icon"], "type": "html-css" },
+  {
+    "name": "image",
+    "selector": "img",
+    "stories": ["default", "responsive", "circle"],
+    "type": "html-css"
+  },
+  {
+    "name": "info",
+    "selector": ".dso-info:not(.dso-accordion-section)",
+    "stories": ["default", "fixed"],
+    "type": "html-css"
+  },
+  {
+    "name": "info-button",
+    "selector": ".dso-info-button",
+    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
+    "type": "html-css"
+  },
+  {
+    "name": "input-number",
+    "selector": ".dso-input-number",
+    "stories": ["input-number"],
+    "type": "html-css"
+  },
+  { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
+  {
+    "name": "link-list",
+    "selector": ".dso-link-list",
+    "stories": ["ul", "ol", "in-nav", "in-footer"],
+    "type": "html-css"
+  },
+  {
+    "name": "link-list",
+    "selector": "",
+    "stories": ["in-highlight-box"],
+    "type": "html-css"
+  },
+  {
+    "name": "list",
+    "selector": "",
+    "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
+    "type": "html-css"
+  },
+  {
+    "name": "list-button",
+    "selector": ".dso-list-button",
+    "stories": ["single-select", "css-legacy-readonly-count"],
+    "type": "html-css"
+  },
+  {
+    "name": "list-button",
+    "selector": ".dso-button-group",
+    "stories": ["multi-select"],
+    "type": "html-css"
+  },
+  {
+    "name": "navbar",
+    "selector": ".dso-navbar",
+    "stories": ["primary", "secondary"],
+    "type": "html-css"
+  },
+  {
+    "name": "navbar",
+    "selector": "",
+    "stories": ["with-extension"],
+    "type": "html-css",
+    "wait": "dso-mark-bar.hydrated"
+  },
+  {
+    "name": "progress-bar",
+    "selector": ".progress",
+    "stories": ["default", "arbitrary-values"],
+    "type": "html-css"
+  },
+  {
+    "name": "rich-content",
+    "selector": "",
+    "stories": ["rich-content"],
+    "type": "html-css",
+    "wait": "dso-highlight-box.hydrated"
+  },
+  {
+    "name": "row-equal-heights",
+    "selector": ".row.dso-equal-heights",
+    "stories": ["highlight-boxes", "tiles", "whiteboxes"],
+    "type": "html-css"
+  },
+  {
+    "name": "search-bar",
+    "selector": ".dso-search-bar",
+    "stories": [
+      "visual-label-with-icon",
+      "visual-label-without-icon",
+      "placeholder-with-long-text",
+      "hidden-label-with-icon",
+      "hidden-label-without-icon",
+      "with-value",
+      "invalid",
+      "hidden-button",
+      "with-results-message",
+      "with-hidden-results-message"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "shopping-cart",
+    "selector": ".dso-shopping-cart ",
+    "stories": [
+      "default",
+      "items-collapsed",
+      "items-non-collapsable",
+      "remove-all-items-option",
+      "edit-items",
+      "with-subitems",
+      "with-subitems-and-hidden-summary",
+      "with-subitems-and-warning"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "tabs",
+    "selector": "ul.nav.nav-tabs",
+    "stories": ["default", "inactief"],
+    "type": "html-css"
+  },
+  {
+    "name": "tile",
+    "selector": ".dso-tile",
+    "stories": ["default", "theme"],
+    "type": "html-css"
+  },
+  {
+    "name": "tile-grid",
+    "selector": ".dso-tile-grid",
+    "stories": ["tile-grid"],
+    "type": "html-css",
+    "wait": "dso-responsive-element.hydrated"
+  },
+  {
+    "name": "whitebox",
+    "selector": ".dso-whitebox",
+    "stories": ["default", "with-counter", "with-icon"],
+    "type": "html-css"
+  }
 ]
