@@ -2,7 +2,6 @@ import {
   Accordion,
   ActionList,
   Alert,
-  Annotation,
   AnnotationButton,
   AnnotationOutput,
   AttachmentsCounter,
@@ -45,7 +44,6 @@ import {
 import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactActionList } from "./components/action-list/action-list.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
-import { reactAnnotation } from "./components/annotation/annotation.react-template";
 import { reactAnnotationButton } from "./components/annotation-button/annotation-button.react-template";
 import { reactAnnotationOutput } from "./components/annotation-output/annotation-output.react-template";
 import { reactAttachmentsCounter } from "./components/attachments-counter/attachments-counter.react-template";
@@ -85,7 +83,6 @@ export interface Components {
   accordion: Accordion<JSX.Element>;
   actionList: ActionList<JSX.Element>;
   alert: Alert<JSX.Element>;
-  annotation: Annotation<JSX.Element>;
   annotationButton: AnnotationButton;
   annotationOutput: AnnotationOutput<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
@@ -131,7 +128,6 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 templateContainer.add(reactAccordion);
 templateContainer.add(reactActionList);
 templateContainer.add(reactAlert);
-templateContainer.add(reactAnnotation);
 templateContainer.add(reactAnnotationButton);
 templateContainer.add(reactAnnotationOutput);
 templateContainer.add(reactAttachmentsCounter);

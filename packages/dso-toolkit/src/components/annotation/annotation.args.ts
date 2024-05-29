@@ -1,65 +1,129 @@
 import { ArgTypes } from "@storybook/types";
-import { HandlerFunction } from "@storybook/addon-actions";
 
-import { noControl } from "../../storybook/index.js";
+import { Annotation, AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./annotation.models.js";
 
-import { Annotation } from "./annotation.models.js";
-
-export interface AnnotationArgs {
-  identifier: string;
-  open: boolean;
-  prefix: string;
-  dsoClose: HandlerFunction;
-  dsoClick: HandlerFunction;
+export interface AnnotationActiviteitArgs {
+  symboolCode: string;
+  wijzigactie: AnnotationWijzigactie | undefined;
+  active?: boolean;
+  gewijzigdeLocatie?: boolean;
+  dsoActiveChange(event: AnnotationActiveChangeEvent): void;
+  naam: AnnotationDiff | string;
+  regelKwalificatie: AnnotationDiff | string;
+  locatieNoemers: Array<AnnotationDiff | string>;
+  regelKwalificatieVoorzetsel: string | undefined;
 }
 
-export const annotationArgs: Pick<AnnotationArgs, "open" | "identifier"> = {
-  open: true,
-  identifier: "annotation-test",
+export const annotationActiviteitArgs: AnnotationActiviteitArgs = {
+  symboolCode: "vszt030",
+  active: true,
+  gewijzigdeLocatie: true,
+  wijzigactie: undefined,
+  dsoActiveChange: () => {},
+  naam: "Toegevoegde activiteit",
+  regelKwalificatie: "toegestaan",
+  regelKwalificatieVoorzetsel: "in",
+  locatieNoemers: [
+    { verwijderd: "bedrijven categorie A" },
+    "winkelgebied",
+    { toegevoegd: "woonwijk" },
+    { was: "poldergebied", wordt: "tuingebied" },
+  ],
 };
 
-export const annotationArgTypes: ArgTypes<AnnotationArgs> = {
-  identifier: {
-    ...noControl,
+export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = {
+  symboolCode: {
+    options: ["vszt030", "vag000"],
+    control: {
+      type: "select",
+    },
   },
-  open: {
-    type: "boolean",
+  wijzigactie: {
+    options: [undefined, "voegtoe", "verwijder"],
+    control: {
+      type: "select",
+    },
   },
-  prefix: {
-    type: "string",
+  active: {
+    control: {
+      type: "boolean",
+    },
   },
-  dsoClick: {
-    ...noControl,
-    action: "dsoClick",
+  gewijzigdeLocatie: {
+    control: {
+      type: "boolean",
+    },
   },
-  dsoClose: {
-    ...noControl,
-    action: "dsoClose",
+  dsoActiveChange: {
+    action: "dsoActiveChange",
+  },
+  naam: {
+    control: {
+      type: "text",
+    },
+  },
+  regelKwalificatie: {
+    control: {
+      type: "text",
+    },
+  },
+  regelKwalificatieVoorzetsel: {
+    control: {
+      type: "text",
+    },
+  },
+  locatieNoemers: {
+    control: {
+      type: "array",
+    },
   },
 };
 
-export function annotationArgsMapper<TemplateFnReturnType>(
-  a: AnnotationArgs,
-  annotationContent: {
-    title: TemplateFnReturnType;
-    addons?: TemplateFnReturnType;
-    content: TemplateFnReturnType;
-  },
-): Annotation<TemplateFnReturnType> {
+export function annotationActiviteitArgsMapper({
+  dsoActiveChange,
+  locatieNoemers,
+  naam,
+  regelKwalificatie,
+  symboolCode,
+  active,
+  gewijzigdeLocatie,
+  regelKwalificatieVoorzetsel,
+  wijzigactie,
+}: AnnotationActiviteitArgs): Annotation {
   return {
-    annotationButton: {
-      identifier: a.identifier,
-      open: a.open,
-      dsoClick: (e) => a.dsoClick(e.detail),
-    },
-    annotationOutput: {
-      identifier: a.identifier,
-      open: a.open,
-      prefix: a.prefix,
-      title: annotationContent.title,
-      addons: annotationContent.addons,
-      content: annotationContent.content,
-      dsoClose: (e) => a.dsoClose(e.detail),
-    },
+    type: "activiteit",
+    symboolCode,
+    naam,
+    regelKwalificatie,
+    locatieNoemers,
+    regelKwalificatieVoorzetsel,
+    active,
+    dsoActiveChange,
+    gewijzigdeLocatie,
+    wijzigactie,
   };
+}
+
+export interface AnnotationGebiedsaanwijzingArgs {}
+
+export const annotationGebiedsaanwijzingArgs: AnnotationGebiedsaanwijzingArgs = {};
+
+export function annotationGebiedsaanwijzingArgsMapper({}: AnnotationGebiedsaanwijzingArgs): Annotation {
+  throw new Error("Not implemented");
+}
+
+export interface AnnotationOmgevingsnormArgs {}
+
+export const annotationOmgevingsnormArgs: AnnotationOmgevingsnormArgs = {};
+
+export function annotationOmgevingsnormArgsMapper({}: AnnotationOmgevingsnormArgs): Annotation {
+  throw new Error("Not implemented");
+}
+
+export interface AnnotationWerkingsgebiedArgs {}
+
+export const annotationWerkingsgebiedArgs: AnnotationWerkingsgebiedArgs = {};
+
+export function annotationWerkingsgebiedArgsMapper({}: AnnotationWerkingsgebiedArgs): Annotation {
+  throw new Error("Not implemented");
 }

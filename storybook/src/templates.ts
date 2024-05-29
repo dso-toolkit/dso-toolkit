@@ -217,7 +217,7 @@ export interface Components {
   advancedSelect: AdvancedSelect<unknown>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
-  annotation: Annotation<TemplateResult>;
+  annotation: Annotation;
   annotationButton: AnnotationButton;
   annotationOutput: AnnotationOutput<TemplateResult>;
   applicationHeading: ApplicationHeading;

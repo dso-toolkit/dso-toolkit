@@ -1,17 +1,31 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { annotationArgs, AnnotationArgs, annotationArgsMapper, annotationArgTypes } from "./annotation.args.js";
+import {
+  annotationActiviteitArgs,
+  AnnotationActiviteitArgs,
+  annotationActiviteitArgTypes,
+  annotationActiviteitArgsMapper,
+  annotationGebiedsaanwijzingArgs,
+  AnnotationGebiedsaanwijzingArgs,
+  annotationOmgevingsnormArgs,
+  AnnotationOmgevingsnormArgs,
+  annotationWerkingsgebiedArgs,
+  AnnotationWerkingsgebiedArgs,
+  annotationGebiedsaanwijzingArgsMapper,
+  annotationWerkingsgebiedArgsMapper,
+  annotationOmgevingsnormArgsMapper,
+} from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
-type AnnotationStory = StoryObj<AnnotationArgs, Renderer>;
-
 interface AnnotationStories {
-  Default: AnnotationStory;
-  MetLid: AnnotationStory;
+  Activiteit: StoryObj<AnnotationActiviteitArgs, Renderer>;
+  Gebiedsaanwijzing: StoryObj<AnnotationGebiedsaanwijzingArgs, Renderer>;
+  Omgevingsnorm: StoryObj<AnnotationOmgevingsnormArgs, Renderer>;
+  Werkingsgebied: StoryObj<AnnotationWerkingsgebiedArgs, Renderer>;
 }
 
 interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -23,16 +37,13 @@ interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnRetur
   > {}
 
 interface AnnotationTemplates<TemplateFnReturnType> {
-  annotationTemplate: (annotationProperties: Annotation<TemplateFnReturnType>) => TemplateFnReturnType;
-  annotationContent: { title: TemplateFnReturnType; addons?: TemplateFnReturnType; content: TemplateFnReturnType };
+  annotationTemplate: (annotationProperties: Annotation) => TemplateFnReturnType;
 }
 
-export function annotationMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
-  TRenderer,
-  AnnotationArgs
-> {
+export function annotationMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
   return {
-    argTypes: annotationArgTypes,
     parameters: {
       docs: readme
         ? {
@@ -48,16 +59,29 @@ export function annotationStories<Implementation, Templates, TemplateFnReturnTyp
   templateContainer,
 }: AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AnnotationStories {
   return {
-    Default: {
-      args: annotationArgs,
-      render: templateContainer.render(storyTemplates, (args, { annotationTemplate, annotationContent }) =>
-        annotationTemplate(annotationArgsMapper(args, annotationContent)),
+    Activiteit: {
+      args: annotationActiviteitArgs,
+      argTypes: annotationActiviteitArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
+        annotationTemplate(annotationActiviteitArgsMapper(args)),
       ),
     },
-    MetLid: {
-      args: { ...annotationArgs, prefix: "Dit lid heeft annotaties:" },
-      render: templateContainer.render(storyTemplates, (args, { annotationTemplate, annotationContent }) =>
-        annotationTemplate(annotationArgsMapper(args, annotationContent)),
+    Gebiedsaanwijzing: {
+      args: annotationGebiedsaanwijzingArgs,
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
+        annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
+      ),
+    },
+    Omgevingsnorm: {
+      args: annotationOmgevingsnormArgs,
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
+        annotationTemplate(annotationOmgevingsnormArgsMapper(args)),
+      ),
+    },
+    Werkingsgebied: {
+      args: annotationWerkingsgebiedArgs,
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
+        annotationTemplate(annotationWerkingsgebiedArgsMapper(args)),
       ),
     },
   };

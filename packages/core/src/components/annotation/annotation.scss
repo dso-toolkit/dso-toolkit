@@ -1,0 +1,21 @@
+@use "~dso-toolkit/src/utilities";
+
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
+
+@use "~dso-toolkit/src/components/insert/insert" as *;
+@use "~dso-toolkit/src/components/delete/delete" as *;
+
+:host {
+  display: block;
+}
+
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([wijzigactie="verwijder"]) {
+  @include delete.root();
+}
+
+@include utilities.box-sizing();

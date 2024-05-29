@@ -27,11 +27,13 @@
 
 ### Used by
 
+ - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dsot-document-component-demo](../document-component-demo)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-annotation-activiteit --> dso-slide-toggle
   dsot-document-component-demo --> dso-slide-toggle
   style dso-slide-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
