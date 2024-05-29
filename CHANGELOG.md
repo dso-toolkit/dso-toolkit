@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦐 62.23.0 - 29-05-2024
+
 ### Fixed
 * Tooltip: Long words overflow box ([#2658](https://github.com/dso-toolkit/dso-toolkit/issues/2658))
 
