@@ -63,18 +63,26 @@ export class AnnotationActiviteit implements ComponentInterface {
 
   render() {
     return (
-      <div>
-        <div>
+      <div class="annotation-body">
+        <div class="annotation-symbol">
           <slot name="symbool" />
         </div>
-        <div>
-          <AnnotationDiffRenderer value={this.naam} />
-          <br />
-          <AnnotationDiffRenderer value={this.regelKwalificatie} />
-          {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : ""}
-          <AnnotationDiffRenderer value={this.locatieNoemers} />
+        <div class="annotation-info">
+          <p class="annotation-name">
+            <AnnotationDiffRenderer value={this.naam} />
+          </p>
+          <p class="annotation-data">
+            <AnnotationDiffRenderer value={this.regelKwalificatie} />
+            {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : ""}
+            <AnnotationDiffRenderer value={this.locatieNoemers} />
+            {this.gewijzigdeLocatie && (
+              <dso-label status="warning" compact>
+                gewijzigde locatie
+              </dso-label>
+            )}
+          </p>
         </div>
-        <div>
+        <div class="annotation-control">
           <dso-slide-toggle
             checked={this.active}
             onDsoActiveChange={(e) =>
@@ -82,11 +90,6 @@ export class AnnotationActiviteit implements ComponentInterface {
             }
           ></dso-slide-toggle>
         </div>
-        {this.gewijzigdeLocatie && (
-          <dso-label status="warning" compact>
-            gewijzigde locatie
-          </dso-label>
-        )}
       </div>
     );
   }
