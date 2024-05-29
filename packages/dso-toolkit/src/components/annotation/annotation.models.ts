@@ -107,6 +107,11 @@ export interface AnnotationActiveChangeEvent {
    * De gewenste status van de annotatie.
    */
   next: boolean;
+
+  /**
+   * Het originele event dat de status wijziging veroorzaakte.
+   */
+  originalEvent: Event;
 }
 
 export type AnnotationDiff = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string };

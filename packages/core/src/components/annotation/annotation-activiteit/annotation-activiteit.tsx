@@ -73,7 +73,7 @@ export class AnnotationActiviteit implements ComponentInterface {
           </p>
           <p class="annotation-data">
             <AnnotationDiffRenderer value={this.regelKwalificatie} />
-            {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : ""}
+            {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : " "}
             <AnnotationDiffRenderer value={this.locatieNoemers} />
             {this.gewijzigdeLocatie && (
               <dso-label status="warning" compact>

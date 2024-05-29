@@ -30,14 +30,14 @@
 
 ### Depends on
 
-- [dso-slide-toggle](../../slide-toggle)
 - [dso-label](../../label)
+- [dso-slide-toggle](../../slide-toggle)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-annotation-activiteit --> dso-slide-toggle
   dso-annotation-activiteit --> dso-label
+  dso-annotation-activiteit --> dso-slide-toggle
   dso-label --> dso-icon
   dso-label --> dso-tooltip
   style dso-annotation-activiteit fill:#f9f,stroke:#333,stroke-width:4px

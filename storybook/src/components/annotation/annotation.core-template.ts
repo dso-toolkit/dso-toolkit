@@ -2,6 +2,7 @@ import { Annotation } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
+import { AnnotationActiveChangeEvent, DsoAnnotationActiviteitCustomEvent } from "@dso-toolkit/core";
 
 export const coreAnnotation: ComponentImplementation<Annotation> = {
   component: "annotation",
@@ -58,7 +59,7 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .regelKwalificatie=${regelKwalificatie}
           .type=${type}
           .active=${active}
-          @dsoActiveChange=${dsoActiveChange}
+          @dsoActiveChange=${(e: DsoAnnotationActiviteitCustomEvent<AnnotationActiveChangeEvent>) => dsoActiveChange?.(e.detail)}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .regelKwalificatieVoorzetsel=${regelKwalificatieVoorzetsel}
           .wijzigactie=${wijzigactie}

@@ -14,12 +14,11 @@ export interface AnnotationActiviteitArgs {
   regelKwalificatieVoorzetsel: string | undefined;
 }
 
-export const annotationActiviteitArgs: AnnotationActiviteitArgs = {
+export const annotationActiviteitArgs: Omit<AnnotationActiviteitArgs, "dsoActiveChange"> = {
   symboolCode: "vszt030",
   active: true,
   gewijzigdeLocatie: true,
   wijzigactie: undefined,
-  dsoActiveChange: () => {},
   naam: "Toegevoegde activiteit",
   regelKwalificatie: "toegestaan",
   regelKwalificatieVoorzetsel: "in",
