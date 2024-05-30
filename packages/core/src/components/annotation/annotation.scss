@@ -45,8 +45,7 @@
 }
 
 .annotation-data {
-  span:has(+ dso-label),
-  dso-label:has(+ dso-label) {
+  span:has(+ dso-label) {
     margin-inline-end: units.$u1 * 0.5;
   }
 }
