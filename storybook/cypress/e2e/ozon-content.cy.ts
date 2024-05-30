@@ -40,7 +40,7 @@ describe("Ozon Content", () => {
     button("N7").should("have.attr", "aria-expanded", "true");
     tooltip("N7").should("be.visible");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
+    cy.get("dso-ozon-content.hydrated").wait(250).matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
 
     button("N7").click();
 
@@ -443,7 +443,10 @@ describe("Ozon Content", () => {
       .find(".editaction-label")
       .and("have.text", "Toegevoegd:");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-image-overlay.hydrated")
+      .then(() => cy.get("dso-ozon-content.hydrated").matchImageSnapshot());
   });
 
   it("should show <Bron> at a table", () => {

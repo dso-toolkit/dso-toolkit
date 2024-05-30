@@ -2,7 +2,8 @@ describe("Autosuggest", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example");
     cy.injectAxe();
-    cy.get("input").as("input");
+    cy.get("input").as("input").invoke("attr", "style", "caret-color: transparent;"); //prevent the blinking caret in the input field to lead
+    // to a false positive for matchImageSnapshot()
     cy.get("ul[role='listbox']").as("listbox");
   });
 
@@ -15,7 +16,7 @@ describe("Autosuggest", () => {
     cy.checkA11y("dso-autosuggest");
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
 
-    // Take the entire page, otherwise the suggestionlist will not be snapshotted
+    // Take the entire page, otherwise the list of suggestions will not be snapped
     cy.matchImageSnapshot();
   });
 

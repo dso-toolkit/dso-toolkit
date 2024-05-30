@@ -22,10 +22,11 @@ describe("Modal", () => {
       .should("have.attr", "role", "document")
       .find(".dso-close span")
       .should("have.class", "sr-only")
-      .and("have.text", "Sluiten");
-
-    // Take the entire page, for the dso-modal has a height of 0
-    cy.matchImageSnapshot();
+      .and("have.text", "Sluiten")
+      .then(() =>
+        // Take the entire page, for the dso-modal has a height of 0
+        cy.matchImageSnapshot(),
+      );
   });
 
   it("should have focus trap", () => {

@@ -48,8 +48,9 @@ describe("ListButton", () => {
   it("should render subcontent in slot without prefix", () => {
     cy.get("dso-list-button").invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
 
+    cy.get("dso-list-button.hydrated").matchImageSnapshot();
+
     cy.get("dso-list-button.hydrated")
-      .matchImageSnapshot()
       .shadow()
       .find('slot[name="subcontent"]')
       .invoke("get", 0)

@@ -4,6 +4,8 @@ describe("ActionList", () => {
   });
 
   it("screenshot", () => {
-    cy.get("dso-action-list.hydrated").matchImageSnapshot();
+    // Added 200ms wait time to overcome timing issue with rendering of several web-components inside nested shadow-root
+    // of descendant web-components
+    cy.get("dso-action-list.hydrated").wait(1000).matchImageSnapshot();
   });
 });
