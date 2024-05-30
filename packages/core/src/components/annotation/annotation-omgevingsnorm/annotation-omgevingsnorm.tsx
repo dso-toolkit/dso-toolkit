@@ -1,6 +1,9 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment } from "@stencil/core";
+
 import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "../annotation.interfaces";
-import { Annotation } from "../annotation.template";
+import { AnnotationBody } from "../annotation-body";
+import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
+import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
 @Component({
   tag: "dso-annotation-omgevingsnorm",
@@ -17,13 +20,13 @@ export class AnnotationOmgevingsnorm implements ComponentInterface {
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   wijzigactie?: AnnotationWijzigactie;
 
   /**
    * Een optionele boolean die aangeeft of de annotatie actief is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   active?: boolean;
 
   /**
@@ -58,16 +61,20 @@ export class AnnotationOmgevingsnorm implements ComponentInterface {
 
   render() {
     return (
-      <Annotation
-        type="omgevingsnorm"
-        symbool={this.symbool}
-        wijzigactie={this.wijzigactie}
-        active={this.active}
-        gewijzigdeLocatie={this.gewijzigdeLocatie}
+      <AnnotationBody
+        active={this.active || false}
         dsoActiveChange={this.dsoActiveChange}
-        naam={this.naam}
-        waardes={this.waardes}
-        eenheid={this.eenheid}
+        title={
+          <>
+            <AnnotationDiffRenderer value={this.naam} /> (in <AnnotationDiffRenderer value={this.eenheid} />)
+          </>
+        }
+        data={
+          <>
+            Waardes worden weergegeven op de kaart: <AnnotationDiffRenderer value={this.waardes} />
+            {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
+          </>
+        }
       />
     );
   }

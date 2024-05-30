@@ -299,7 +299,7 @@ export namespace Components {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemer"?: Array<AnnotationDiff | string>;
+        "locatieNoemers"?: Array<AnnotationDiff | string>;
         /**
           * Een URL naar de verbeelding van de legenda.
          */
@@ -2426,7 +2426,7 @@ declare namespace LocalJSX {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemer"?: Array<AnnotationDiff | string>;
+        "locatieNoemers"?: Array<AnnotationDiff | string>;
         /**
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */

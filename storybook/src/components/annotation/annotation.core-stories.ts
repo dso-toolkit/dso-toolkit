@@ -4,6 +4,7 @@ import { annotationMeta, annotationStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import readme from "dso-toolkit/src/components/annotation/readme.md?raw";
+import { decorator } from "./annotation.decorator";
 
 const meta: Meta = {
   ...annotationMeta({ readme }),
@@ -12,15 +13,18 @@ const meta: Meta = {
 
 export default meta;
 
-const { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied } = annotationStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { annotationTemplate } = templates;
+const { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied } = annotationStories(
+  {
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { annotationTemplate } = templates;
 
-    return {
-      annotationTemplate,
-    };
+      return {
+        annotationTemplate,
+      };
+    },
   },
-});
+  decorator,
+);
 
 export { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied };

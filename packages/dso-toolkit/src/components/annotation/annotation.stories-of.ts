@@ -1,4 +1,4 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
 import {
   annotationActiviteitArgs,
@@ -14,12 +14,17 @@ import {
   annotationGebiedsaanwijzingArgsMapper,
   annotationWerkingsgebiedArgsMapper,
   annotationOmgevingsnormArgsMapper,
+  annotationGebiedsaanwijzingArgTypes,
+  annotationOmgevingsnormArgTypes,
+  annotationWerkingsgebiedArgTypes,
 } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+
+export type AnnotationDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
 interface AnnotationStories {
   Activiteit: StoryObj<AnnotationActiviteitArgs, Renderer>;
@@ -40,9 +45,7 @@ interface AnnotationTemplates<TemplateFnReturnType> {
   annotationTemplate: (annotationProperties: Annotation) => TemplateFnReturnType;
 }
 
-export function annotationMeta<TRenderer extends Renderer>({
-  readme,
-}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+export function annotationMeta<TRenderer extends Renderer>({ readme }: MetaOptions): ComponentAnnotations<TRenderer> {
   return {
     parameters: {
       docs: readme
@@ -54,12 +57,13 @@ export function annotationMeta<TRenderer extends Renderer>({
   };
 }
 
-export function annotationStories<Implementation, Templates, TemplateFnReturnType>({
-  storyTemplates,
-  templateContainer,
-}: AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AnnotationStories {
+export function annotationStories<Implementation, Templates, TemplateFnReturnType>(
+  { storyTemplates, templateContainer }: AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>,
+  decorator: AnnotationDecorator<TemplateFnReturnType>,
+): AnnotationStories {
   return {
     Activiteit: {
+      decorators: [(story) => decorator(story)],
       args: annotationActiviteitArgs,
       argTypes: annotationActiviteitArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
@@ -67,19 +71,25 @@ export function annotationStories<Implementation, Templates, TemplateFnReturnTyp
       ),
     },
     Gebiedsaanwijzing: {
+      decorators: [(story) => decorator(story)],
       args: annotationGebiedsaanwijzingArgs,
+      argTypes: annotationGebiedsaanwijzingArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
         annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
       ),
     },
     Omgevingsnorm: {
+      decorators: [(story) => decorator(story)],
       args: annotationOmgevingsnormArgs,
+      argTypes: annotationOmgevingsnormArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
         annotationTemplate(annotationOmgevingsnormArgsMapper(args)),
       ),
     },
     Werkingsgebied: {
+      decorators: [(story) => decorator(story)],
       args: annotationWerkingsgebiedArgs,
+      argTypes: annotationWerkingsgebiedArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
         annotationTemplate(annotationWerkingsgebiedArgsMapper(args)),
       ),

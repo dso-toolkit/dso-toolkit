@@ -1,7 +1,8 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment } from "@stencil/core";
 import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "../annotation.interfaces";
-
-import { Annotation } from "../annotation.template";
+import { AnnotationBody } from "../annotation-body";
+import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
+import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
 @Component({
   tag: "dso-annotation-gebiedsaanwijzing",
@@ -24,13 +25,13 @@ export class AnnotationGebiedsaanwijzing implements ComponentInterface {
   /**
    * Een optionele boolean die aangeeft of de annotatie actief is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   active?: boolean;
 
   /**
    * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   gewijzigdeLocatie?: boolean;
 
   /**
@@ -47,14 +48,15 @@ export class AnnotationGebiedsaanwijzing implements ComponentInterface {
 
   render() {
     return (
-      <Annotation
-        type="gebiedsaanwijzing"
-        symbool={this.symbool}
-        wijzigactie={this.wijzigactie}
+      <AnnotationBody
         active={this.active}
-        gewijzigdeLocatie={this.gewijzigdeLocatie}
         dsoActiveChange={this.dsoActiveChange}
-        naam={this.naam}
+        title={
+          <>
+            <AnnotationDiffRenderer value={this.naam} />
+            {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
+          </>
+        }
       />
     );
   }

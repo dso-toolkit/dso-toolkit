@@ -23,6 +23,23 @@
 | `dsoActiveChange` | Een optionele event listener voor wijzigingen aan de status van de annotatie. | `CustomEvent<AnnotationActiveChangeEvent>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [dso-slide-toggle](../../slide-toggle)
+- [dso-label](../../label)
+
+### Graph
+```mermaid
+graph TD;
+  dso-annotation-gebiedsaanwijzing --> dso-slide-toggle
+  dso-annotation-gebiedsaanwijzing --> dso-label
+  dso-label --> dso-icon
+  dso-label --> dso-tooltip
+  style dso-annotation-gebiedsaanwijzing fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

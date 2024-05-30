@@ -92,7 +92,7 @@ export interface AnnotationWerkingsgebied extends AnnotationBase {
   /**
    * De noemer van de locatie.
    */
-  locatieNoemer: Array<AnnotationDiff | string>;
+  locatieNoemers: Array<AnnotationDiff | string>;
 }
 
 export type AnnotationWijzigactie = "voegtoe" | "verwijderd";

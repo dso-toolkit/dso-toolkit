@@ -1,5 +1,8 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter, FunctionalComponent } from "@stencil/core";
+import { Component, ComponentInterface, Prop, Event, h, Fragment, EventEmitter } from "@stencil/core";
 import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "../annotation.interfaces";
+import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
+import { AnnotationBody } from "../annotation-body";
+import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
 @Component({
   tag: "dso-annotation-activiteit",
@@ -22,13 +25,13 @@ export class AnnotationActiviteit implements ComponentInterface {
   /**
    * Een optionele boolean die aangeeft of de annotatie actief is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   active?: boolean;
 
   /**
    * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
    */
-  @Prop()
+  @Prop({ reflect: true })
   gewijzigdeLocatie?: boolean;
 
   /**
@@ -63,69 +66,19 @@ export class AnnotationActiviteit implements ComponentInterface {
 
   render() {
     return (
-      <div class="annotation-body">
-        <div class="annotation-symbol">
-          <slot name="symbool" />
-        </div>
-        <div class="annotation-info">
-          <p class="annotation-name">
-            <AnnotationDiffRenderer value={this.naam} />
-          </p>
-          <p class="annotation-data">
+      <AnnotationBody
+        active={this.active}
+        dsoActiveChange={this.dsoActiveChange}
+        title={<AnnotationDiffRenderer value={this.naam} />}
+        data={
+          <>
             <AnnotationDiffRenderer value={this.regelKwalificatie} />
             {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : " "}
             <AnnotationDiffRenderer value={this.locatieNoemers} />
-            {this.gewijzigdeLocatie && (
-              <dso-label status="warning" compact>
-                gewijzigde locatie
-              </dso-label>
-            )}
-          </p>
-        </div>
-        <div class="annotation-control">
-          <dso-slide-toggle
-            checked={this.active}
-            onDsoActiveChange={(e) =>
-              this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
-            }
-          ></dso-slide-toggle>
-        </div>
-      </div>
+            {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
+          </>
+        }
+      />
     );
   }
 }
-
-const AnnotationDiffRenderer: FunctionalComponent<{
-  value: AnnotationDiff | string | undefined | Array<AnnotationDiff | string | undefined>;
-}> = ({ value }) => {
-  if (typeof value === "string" || !value) {
-    return <span>{value}</span>;
-  }
-
-  if ("toegevoegd" in value) {
-    return <ins>{value.toegevoegd}</ins>;
-  }
-
-  if ("verwijderd" in value) {
-    return <del>{value.verwijderd}</del>;
-  }
-
-  if (Array.isArray(value)) {
-    return (
-      <span>
-        {value.map((v, i) => (
-          <span key={i}>
-            <AnnotationDiffRenderer value={v} />
-            {i < value.length - 1 ? ", " : ""}
-          </span>
-        ))}
-      </span>
-    );
-  }
-
-  return (
-    <span>
-      <del>{value.was}</del> <span>{value.wordt}</span>
-    </span>
-  );
-};

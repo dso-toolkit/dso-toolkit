@@ -2,35 +2,26 @@ import { ArgTypes } from "@storybook/types";
 
 import { Annotation, AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./annotation.models.js";
 
-export interface AnnotationActiviteitArgs {
+/**
+ * Annotation Base
+ */
+
+interface AnnotationArgsBase {
   symboolCode: string;
   wijzigactie: AnnotationWijzigactie | undefined;
   active?: boolean;
   gewijzigdeLocatie?: boolean;
   dsoActiveChange(event: AnnotationActiveChangeEvent): void;
-  naam: AnnotationDiff | string;
-  regelKwalificatie: AnnotationDiff | string;
-  locatieNoemers: Array<AnnotationDiff | string>;
-  regelKwalificatieVoorzetsel: string | undefined;
 }
 
-export const annotationActiviteitArgs: Omit<AnnotationActiviteitArgs, "dsoActiveChange"> = {
+const annotationBaseArgs: Omit<AnnotationArgsBase, "dsoActiveChange"> = {
   symboolCode: "vszt030",
+  wijzigactie: undefined,
   active: true,
   gewijzigdeLocatie: true,
-  wijzigactie: undefined,
-  naam: "Toegevoegde activiteit",
-  regelKwalificatie: "toegestaan",
-  regelKwalificatieVoorzetsel: "in",
-  locatieNoemers: [
-    { verwijderd: "bedrijven categorie A" },
-    "winkelgebied",
-    { toegevoegd: "woonwijk" },
-    { was: "poldergebied", wordt: "tuingebied" },
-  ],
 };
 
-export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = {
+const annotationArgTypesBase: ArgTypes<AnnotationArgsBase> = {
   symboolCode: {
     options: ["vszt030", "vag000"],
     control: {
@@ -56,6 +47,34 @@ export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = 
   dsoActiveChange: {
     action: "dsoActiveChange",
   },
+};
+
+/**
+ * Activiteit
+ */
+
+export interface AnnotationActiviteitArgs extends AnnotationArgsBase {
+  naam: AnnotationDiff | string;
+  regelKwalificatie: AnnotationDiff | string;
+  locatieNoemers: Array<AnnotationDiff | string>;
+  regelKwalificatieVoorzetsel: string | undefined;
+}
+
+export const annotationActiviteitArgs: Omit<AnnotationActiviteitArgs, "dsoActiveChange"> = {
+  ...annotationBaseArgs,
+  naam: "Toegevoegde activiteit",
+  regelKwalificatie: "toegestaan",
+  regelKwalificatieVoorzetsel: "in",
+  locatieNoemers: [
+    { verwijderd: "bedrijven categorie A" },
+    "winkelgebied",
+    { toegevoegd: "woonwijk" },
+    { was: "poldergebied", wordt: "tuingebied" },
+  ],
+};
+
+export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = {
+  ...annotationArgTypesBase,
   naam: {
     control: {
       type: "text",
@@ -78,51 +97,115 @@ export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = 
   },
 };
 
-export function annotationActiviteitArgsMapper({
-  dsoActiveChange,
-  locatieNoemers,
-  naam,
-  regelKwalificatie,
-  symboolCode,
-  active,
-  gewijzigdeLocatie,
-  regelKwalificatieVoorzetsel,
-  wijzigactie,
-}: AnnotationActiviteitArgs): Annotation {
+export function annotationActiviteitArgsMapper(a: AnnotationActiviteitArgs): Annotation {
   return {
     type: "activiteit",
-    symboolCode,
-    naam,
-    regelKwalificatie,
-    locatieNoemers,
-    regelKwalificatieVoorzetsel,
-    active,
-    dsoActiveChange,
-    gewijzigdeLocatie,
-    wijzigactie,
+    ...a,
   };
 }
 
-export interface AnnotationGebiedsaanwijzingArgs {}
+/**
+ * Gebiedsaanwijzing
+ */
 
-export const annotationGebiedsaanwijzingArgs: AnnotationGebiedsaanwijzingArgs = {};
-
-export function annotationGebiedsaanwijzingArgsMapper({}: AnnotationGebiedsaanwijzingArgs): Annotation {
-  throw new Error("Not implemented");
+export interface AnnotationGebiedsaanwijzingArgs extends AnnotationArgsBase {
+  naam: AnnotationDiff | string;
 }
 
-export interface AnnotationOmgevingsnormArgs {}
+export const annotationGebiedsaanwijzingArgs: Omit<AnnotationGebiedsaanwijzingArgs, "dsoActiveChange"> = {
+  ...annotationBaseArgs,
+  naam: "Winkelgebied",
+};
 
-export const annotationOmgevingsnormArgs: AnnotationOmgevingsnormArgs = {};
+export const annotationGebiedsaanwijzingArgTypes: ArgTypes<AnnotationGebiedsaanwijzingArgs> = {
+  ...annotationArgTypesBase,
+  naam: {
+    control: {
+      type: "text",
+    },
+  },
+};
 
-export function annotationOmgevingsnormArgsMapper({}: AnnotationOmgevingsnormArgs): Annotation {
-  throw new Error("Not implemented");
+export function annotationGebiedsaanwijzingArgsMapper(a: AnnotationGebiedsaanwijzingArgs): Annotation {
+  return {
+    type: "gebiedsaanwijzing",
+    ...a,
+  };
 }
 
-export interface AnnotationWerkingsgebiedArgs {}
+/**
+ * Omgevingsnorm
+ */
 
-export const annotationWerkingsgebiedArgs: AnnotationWerkingsgebiedArgs = {};
+export interface AnnotationOmgevingsnormArgs extends AnnotationArgsBase {
+  naam: AnnotationDiff | string;
+  waardes: Array<AnnotationDiff | string>;
+  eenheid: AnnotationDiff | string;
+}
 
-export function annotationWerkingsgebiedArgsMapper({}: AnnotationWerkingsgebiedArgs): Annotation {
-  throw new Error("Not implemented");
+export const annotationOmgevingsnormArgs: Omit<AnnotationOmgevingsnormArgs, "dsoActiveChange"> = {
+  ...annotationBaseArgs,
+  naam: "Geluid",
+  waardes: [{ verwijderd: "50", toegevoegd: "45" }, "55"],
+  eenheid: "dB",
+};
+
+export const annotationOmgevingsnormArgTypes: ArgTypes<AnnotationOmgevingsnormArgs> = {
+  ...annotationArgTypesBase,
+  naam: {
+    control: {
+      type: "text",
+    },
+  },
+  waardes: {
+    control: {
+      type: "array",
+    },
+  },
+  eenheid: {
+    control: {
+      type: "text",
+    },
+  },
+};
+
+export function annotationOmgevingsnormArgsMapper(a: AnnotationOmgevingsnormArgs): Annotation {
+  return {
+    type: "omgevingsnorm",
+    ...a,
+  };
+}
+
+/**
+ * Werkingsgebied
+ */
+
+export interface AnnotationWerkingsgebiedArgs extends AnnotationArgsBase {
+  locatieNoemers: Array<AnnotationDiff | string>;
+}
+
+export const annotationWerkingsgebiedArgs: Omit<AnnotationWerkingsgebiedArgs, "dsoActiveChange"> = {
+  ...annotationBaseArgs,
+  locatieNoemers: [
+    { verwijderd: "bedrijven categorie A" },
+    "winkelgebied",
+    { toegevoegd: "woonwijk" },
+    { was: "poldergebied", wordt: "tuingebied" },
+  ],
+};
+
+export const annotationWerkingsgebiedArgTypes: ArgTypes<AnnotationWerkingsgebiedArgs> = {
+  ...annotationArgTypesBase,
+  locatieNoemers: {
+    control: {
+      type: "select",
+    },
+  },
+};
+
+export function annotationWerkingsgebiedArgsMapper(a: AnnotationWerkingsgebiedArgs): Annotation {
+  return {
+    type: "werkingsgebied",
+    ...a,
+  };
 }
