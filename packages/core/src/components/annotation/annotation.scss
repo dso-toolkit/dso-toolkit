@@ -35,14 +35,16 @@
   flex-shrink: 0;
 }
 
+.annotation-name,
+.annotation-data {
+  margin-block: 0;
+}
+
 .annotation-name {
   font-weight: 500;
 }
 
-.annotation-name,
 .annotation-data {
-  margin-block: 0;
-
   span:has(+ dso-label),
   dso-label:has(+ dso-label) {
     margin-inline-end: units.$u1 * 0.5;
