@@ -9,7 +9,7 @@ describe("Voorbeeldpagina's (HTML/CSS)", () => {
 
       imageSnapshotHeaderFix();
 
-      cy.matchImageSnapshot(`${id} (HTML CSS)`);
+      cy.wait(1000).matchImageSnapshot(`${id} (HTML CSS)`);
     }
   });
 });
