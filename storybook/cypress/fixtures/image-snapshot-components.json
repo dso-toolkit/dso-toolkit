@@ -425,7 +425,7 @@
     "selector": ".dso-tile-grid",
     "stories": ["tile-grid"],
     "type": "html-css",
-    "wait": "dso-responsive-element.hydrated",
+    "wait": "dso-responsive-element.hydrated"
   },
   {
     "name": "whitebox",
