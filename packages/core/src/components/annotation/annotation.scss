@@ -1,0 +1,49 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+@use "~dso-toolkit/src/components/insert";
+@use "~dso-toolkit/src/components/delete";
+
+@use "~dso-toolkit/src/components/insert/insert" as *;
+@use "~dso-toolkit/src/components/delete/delete" as *;
+
+:host {
+  display: block;
+}
+
+:host([wijzigactie="voegtoe"]) {
+  @include insert.root();
+}
+
+:host([wijzigactie="verwijder"]) {
+  @include delete.root();
+}
+
+@include utilities.box-sizing();
+
+.annotation-body {
+  display: flex;
+  gap: units.$u1;
+}
+
+.annotation-info {
+  flex-grow: 1;
+}
+
+.annotation-symbol,
+.annotation-control {
+  flex-shrink: 0;
+}
+
+.annotation-title {
+  font-weight: 500;
+}
+
+.annotation-title,
+.annotation-data {
+  margin-block: 0;
+
+  .content:has(+ dso-label) {
+    margin-inline-end: units.$u1 * 0.5;
+  }
+}

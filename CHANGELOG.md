@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Annotation: Nieuw component ([#2665](https://github.com/dso-toolkit/dso-toolkit/issues/2665))
+
 ## 🦐 62.23.0 - 29-05-2024
 
 ### Fixed
