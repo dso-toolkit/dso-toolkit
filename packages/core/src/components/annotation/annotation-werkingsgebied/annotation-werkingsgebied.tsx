@@ -5,18 +5,15 @@ import { AnnotationBody } from "../annotation-body";
 import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
+/**
+ * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
+ */
 @Component({
   tag: "dso-annotation-werkingsgebied",
   styleUrl: "../annotation.scss",
   shadow: true,
 })
 export class AnnotationWerkingsgebied implements ComponentInterface {
-  /**
-   * Een URL naar de verbeelding van de legenda.
-   */
-  @Prop()
-  symbool?: string;
-
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */
@@ -45,7 +42,7 @@ export class AnnotationWerkingsgebied implements ComponentInterface {
    * De noemer van de locatie.
    */
   @Prop()
-  locatieNoemers?: Array<AnnotationDiff | string>;
+  locatieNoemer?: AnnotationDiff | string;
 
   render() {
     return (
@@ -54,7 +51,7 @@ export class AnnotationWerkingsgebied implements ComponentInterface {
         dsoActiveChange={this.dsoActiveChange}
         title={
           <>
-            <AnnotationDiffRenderer value={this.locatieNoemers} />
+            <AnnotationDiffRenderer value={this.locatieNoemer} />
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>
         }

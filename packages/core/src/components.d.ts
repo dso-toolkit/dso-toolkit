@@ -203,10 +203,6 @@ export namespace Components {
          */
         "regelKwalificatieVoorzetsel"?: string;
         /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
-        /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
@@ -235,10 +231,6 @@ export namespace Components {
          */
         "naam"?: AnnotationDiff | string;
         /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
-        /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
@@ -260,10 +252,6 @@ export namespace Components {
           * De naam van de omgevingsnorm
          */
         "naam"?: AnnotationDiff | string;
-        /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
         /**
           * De waardes van de omgevingsnorm.
          */
@@ -299,11 +287,7 @@ export namespace Components {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemers"?: Array<AnnotationDiff | string>;
-        /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
+        "locatieNoemer"?: AnnotationDiff | string;
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
@@ -2314,10 +2298,6 @@ declare namespace LocalJSX {
          */
         "regelKwalificatieVoorzetsel"?: string;
         /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
-        /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
@@ -2354,10 +2334,6 @@ declare namespace LocalJSX {
          */
         "onDsoActiveChange"?: (event: DsoAnnotationGebiedsaanwijzingCustomEvent<AnnotationActiveChangeEvent>) => void;
         /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
-        /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
@@ -2383,10 +2359,6 @@ declare namespace LocalJSX {
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */
         "onDsoActiveChange"?: (event: DsoAnnotationOmgevingsnormCustomEvent<AnnotationActiveChangeEvent>) => void;
-        /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
         /**
           * De waardes van de omgevingsnorm.
          */
@@ -2426,15 +2398,11 @@ declare namespace LocalJSX {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemers"?: Array<AnnotationDiff | string>;
+        "locatieNoemer"?: AnnotationDiff | string;
         /**
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */
         "onDsoActiveChange"?: (event: DsoAnnotationWerkingsgebiedCustomEvent<AnnotationActiveChangeEvent>) => void;
-        /**
-          * Een URL naar de verbeelding van de legenda.
-         */
-        "symbool"?: string;
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */

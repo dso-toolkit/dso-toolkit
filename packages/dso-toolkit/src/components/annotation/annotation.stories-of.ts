@@ -22,7 +22,6 @@ import { Annotation } from "./annotation.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 export type AnnotationDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
@@ -45,14 +44,20 @@ interface AnnotationTemplates<TemplateFnReturnType> {
   annotationTemplate: (annotationProperties: Annotation) => TemplateFnReturnType;
 }
 
-export function annotationMeta<TRenderer extends Renderer>({ readme }: MetaOptions): ComponentAnnotations<TRenderer> {
+interface AnnotationMetaOptions {
+  rootReadme: string;
+  implementationReadmes: string[];
+}
+
+export function annotationMeta<TRenderer extends Renderer>({
+  rootReadme,
+  implementationReadmes,
+}: AnnotationMetaOptions): ComponentAnnotations<TRenderer> {
   return {
     parameters: {
-      docs: readme
-        ? {
-            page: () => compiler(readme),
-          }
-        : {},
+      docs: {
+        page: () => compiler(`${rootReadme}\n\n${implementationReadmes.join("\n\n")}`),
+      },
     },
   };
 }

@@ -9,7 +9,7 @@ export type Annotation =
  */
 interface AnnotationBase {
   /**
-   * Een URL naar de verbeelding van de legenda.
+   * Een symboolcode voor de verbeelding van de legenda.
    */
   symboolCode: string;
 
@@ -48,7 +48,7 @@ export interface AnnotationActiviteit extends AnnotationBase {
   regelKwalificatie: AnnotationDiff | string;
 
   /**
-   * De noemer van de locatie.
+   * De noemer van de locaties.
    */
   locatieNoemers: Array<AnnotationDiff | string>;
 
@@ -92,7 +92,7 @@ export interface AnnotationWerkingsgebied extends AnnotationBase {
   /**
    * De noemer van de locatie.
    */
-  locatieNoemers: Array<AnnotationDiff | string>;
+  locatieNoemer: AnnotationDiff | string;
 }
 
 export type AnnotationWijzigactie = "voegtoe" | "verwijderd";

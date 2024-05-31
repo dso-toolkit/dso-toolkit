@@ -19,6 +19,7 @@ export const AnnotationBody: FunctionalComponent<AnnotationBodyProps> = ({ title
     </div>
     <div class="annotation-control">
       <dso-slide-toggle
+        accessibleLabel="Toon op kaart"
         checked={active}
         onDsoActiveChange={(e) => dsoActiveChange.emit({ current: Boolean(active), next: !active, originalEvent: e })}
       />

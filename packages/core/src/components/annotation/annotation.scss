@@ -44,8 +44,6 @@
   font-weight: 500;
 }
 
-.annotation-data {
-  span:has(+ dso-label) {
-    margin-inline-end: units.$u1 * 0.5;
-  }
+dso-label.gewijzigde-locatie {
+  margin-inline-start: units.$u1 * 0.5;
 }

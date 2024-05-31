@@ -4,18 +4,15 @@ import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
 import { AnnotationBody } from "../annotation-body";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
+/**
+ * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
+ */
 @Component({
   tag: "dso-annotation-activiteit",
   styleUrl: "../annotation.scss",
   shadow: true,
 })
 export class AnnotationActiviteit implements ComponentInterface {
-  /**
-   * Een URL naar de verbeelding van de legenda.
-   */
-  @Prop()
-  symbool?: string;
-
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */
@@ -72,8 +69,12 @@ export class AnnotationActiviteit implements ComponentInterface {
         title={<AnnotationDiffRenderer value={this.naam} />}
         data={
           <>
-            <AnnotationDiffRenderer value={this.regelKwalificatie} />
-            {this.regelKwalificatieVoorzetsel ? ` ${this.regelKwalificatieVoorzetsel}: ` : " "}
+            {this.regelKwalificatie && (
+              <>
+                <AnnotationDiffRenderer value={this.regelKwalificatie} />{" "}
+              </>
+            )}
+            {this.regelKwalificatieVoorzetsel && `${this.regelKwalificatieVoorzetsel}: `}
             <AnnotationDiffRenderer value={this.locatieNoemers} />
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>

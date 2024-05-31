@@ -6,7 +6,7 @@ import { Annotation, AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijz
  * Annotation Base
  */
 
-interface AnnotationArgsBase {
+interface AnnotationBaseArgs {
   symboolCode: string;
   wijzigactie: AnnotationWijzigactie | undefined;
   active?: boolean;
@@ -14,14 +14,14 @@ interface AnnotationArgsBase {
   dsoActiveChange(event: AnnotationActiveChangeEvent): void;
 }
 
-const annotationBaseArgs: Omit<AnnotationArgsBase, "dsoActiveChange"> = {
+const annotationBaseArgs: Omit<AnnotationBaseArgs, "dsoActiveChange"> = {
   symboolCode: "vszt030",
   wijzigactie: undefined,
   active: true,
   gewijzigdeLocatie: true,
 };
 
-const annotationArgTypesBase: ArgTypes<AnnotationArgsBase> = {
+const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
   symboolCode: {
     options: ["vszt030", "vag000"],
     control: {
@@ -53,7 +53,7 @@ const annotationArgTypesBase: ArgTypes<AnnotationArgsBase> = {
  * Activiteit
  */
 
-export interface AnnotationActiviteitArgs extends AnnotationArgsBase {
+export interface AnnotationActiviteitArgs extends AnnotationBaseArgs {
   naam: AnnotationDiff | string;
   regelKwalificatie: AnnotationDiff | string;
   locatieNoemers: Array<AnnotationDiff | string>;
@@ -108,7 +108,7 @@ export function annotationActiviteitArgsMapper(a: AnnotationActiviteitArgs): Ann
  * Gebiedsaanwijzing
  */
 
-export interface AnnotationGebiedsaanwijzingArgs extends AnnotationArgsBase {
+export interface AnnotationGebiedsaanwijzingArgs extends AnnotationBaseArgs {
   naam: AnnotationDiff | string;
 }
 
@@ -137,7 +137,7 @@ export function annotationGebiedsaanwijzingArgsMapper(a: AnnotationGebiedsaanwij
  * Omgevingsnorm
  */
 
-export interface AnnotationOmgevingsnormArgs extends AnnotationArgsBase {
+export interface AnnotationOmgevingsnormArgs extends AnnotationBaseArgs {
   naam: AnnotationDiff | string;
   waardes: Array<AnnotationDiff | string>;
   eenheid: AnnotationDiff | string;
@@ -146,7 +146,7 @@ export interface AnnotationOmgevingsnormArgs extends AnnotationArgsBase {
 export const annotationOmgevingsnormArgs: Omit<AnnotationOmgevingsnormArgs, "dsoActiveChange"> = {
   ...annotationBaseArgs,
   naam: "Geluid",
-  waardes: [{ verwijderd: "50", toegevoegd: "45" }, "55"],
+  waardes: [{ was: "50 dB", wordt: "45 dB" }, "55 dB"],
   eenheid: "dB",
 };
 
@@ -180,25 +180,20 @@ export function annotationOmgevingsnormArgsMapper(a: AnnotationOmgevingsnormArgs
  * Werkingsgebied
  */
 
-export interface AnnotationWerkingsgebiedArgs extends AnnotationArgsBase {
-  locatieNoemers: Array<AnnotationDiff | string>;
+export interface AnnotationWerkingsgebiedArgs extends AnnotationBaseArgs {
+  locatieNoemer: AnnotationDiff | string;
 }
 
 export const annotationWerkingsgebiedArgs: Omit<AnnotationWerkingsgebiedArgs, "dsoActiveChange"> = {
   ...annotationBaseArgs,
-  locatieNoemers: [
-    { verwijderd: "bedrijven categorie A" },
-    "winkelgebied",
-    { toegevoegd: "woonwijk" },
-    { was: "poldergebied", wordt: "tuingebied" },
-  ],
+  locatieNoemer: "Winkelgebied",
 };
 
 export const annotationWerkingsgebiedArgTypes: ArgTypes<AnnotationWerkingsgebiedArgs> = {
   ...annotationArgTypesBase,
-  locatieNoemers: {
+  locatieNoemer: {
     control: {
-      type: "select",
+      type: "text",
     },
   },
 };

@@ -5,18 +5,15 @@ import { AnnotationBody } from "../annotation-body";
 import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 
+/**
+ * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
+ */
 @Component({
   tag: "dso-annotation-omgevingsnorm",
   styleUrl: "../annotation.scss",
   shadow: true,
 })
 export class AnnotationOmgevingsnorm implements ComponentInterface {
-  /**
-   * Een URL naar de verbeelding van de legenda.
-   */
-  @Prop()
-  symbool?: string;
-
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */

@@ -15,7 +15,6 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           naam,
           regelKwalificatie,
           symboolCode,
-          type,
           active,
           dsoActiveChange,
           gewijzigdeLocatie,
@@ -27,38 +26,36 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .locatieNoemers=${locatieNoemers}
           .naam=${naam}
           .regelKwalificatie=${regelKwalificatie}
-          .type=${type}
           .active=${active}
-          @dsoActiveChange=${(e: DsoAnnotationActiviteitCustomEvent<AnnotationActiveChangeEvent>) => dsoActiveChange?.(e.detail)}
+          @dsoActiveChange=${(e: DsoAnnotationActiviteitCustomEvent<AnnotationActiveChangeEvent>) =>
+            dsoActiveChange?.(e.detail)}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .regelKwalificatieVoorzetsel=${regelKwalificatieVoorzetsel}
           .wijzigactie=${wijzigactie}
         >
           <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation>`;
+        </dso-annotation-activiteit>`;
       }
 
       if (annotation.type === "gebiedsaanwijzing") {
-        const { naam, symboolCode, type, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie } = annotation;
+        const { naam, symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie } = annotation;
 
         return html`<dso-annotation-gebiedsaanwijzing
           .naam=${naam}
-          .type=${type}
           .active=${active}
           @dsoActiveChange=${dsoActiveChange}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .wijzigactie=${wijzigactie}
         >
           <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation>`;
+        </dso-annotation-gebiedsaanwijzing>`;
       }
 
       if (annotation.type === "omgevingsnorm") {
-        const { symboolCode, type, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, eenheid, naam, waardes } =
+        const { symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, eenheid, naam, waardes } =
           annotation;
 
         return html`<dso-annotation-omgevingsnorm
-          .type=${type}
           .active=${active}
           @dsoActiveChange=${dsoActiveChange}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
@@ -68,23 +65,21 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .waardes=${waardes}
         >
           <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation>`;
+        </dso-annotation-omgevingsnorm>`;
       }
 
       if (annotation.type === "werkingsgebied") {
-        const { symboolCode, type, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, locatieNoemers } =
-          annotation;
+        const { symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, locatieNoemer } = annotation;
 
         return html`<dso-annotation-werkingsgebied
-          .type=${type}
           .active=${active}
           @dsoActiveChange=${dsoActiveChange}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .wijzigactie=${wijzigactie}
-          .locatieNoemers=${locatieNoemers}
+          .locatieNoemer=${locatieNoemer}
         >
           <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation>`;
+        </dso-annotation-werkingsgebied>`;
       }
 
       throw new Error(`Unknown annotation type: ${JSON.stringify(annotation)}`);

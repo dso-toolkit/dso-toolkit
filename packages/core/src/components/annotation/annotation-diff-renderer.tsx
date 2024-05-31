@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from "@stencil/core";
+import { FunctionalComponent, Fragment, h } from "@stencil/core";
 
 import { AnnotationDiff } from "./annotation.interfaces";
 
@@ -8,7 +8,7 @@ interface AnnotationDiffRendererProps {
 
 export const AnnotationDiffRenderer: FunctionalComponent<AnnotationDiffRendererProps> = ({ value }) => {
   if (typeof value === "string" || !value) {
-    return <span>{value}</span>;
+    return value;
   }
 
   if ("toegevoegd" in value) {
@@ -21,20 +21,20 @@ export const AnnotationDiffRenderer: FunctionalComponent<AnnotationDiffRendererP
 
   if (Array.isArray(value)) {
     return (
-      <span>
+      <>
         {value.map((v, i, { length }) => (
-          <span key={i}>
+          <>
             <AnnotationDiffRenderer value={v} />
             {i < length - 1 ? ", " : ""}
-          </span>
+          </>
         ))}
-      </span>
+      </>
     );
   }
 
   return (
-    <span>
-      <del>{value.was}</del> <span>{value.wordt}</span>
-    </span>
+    <>
+      <del>{value.was}</del> <ins>{value.wordt}</ins>
+    </>
   );
 };
