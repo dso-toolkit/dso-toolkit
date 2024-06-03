@@ -54,20 +54,20 @@ export const coreCard: ComponentImplementation<Card<never>> = {
             : html`<h2 slot="heading">
                 <span id="card-title">${label}</span>
               </h2>`}
-          ${interactions &&
-          interactions.length > 0 &&
-          html`<div slot="interactions">
-            ${interactions.map(
-              (interaction) => html`
-                <div class="dso-card-interaction">
-                  ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
-                  ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
-                  ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
-                  ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
-                </div>
-              `,
-            )}
-          </div>`}
+          ${interactions && interactions.length > 0
+            ? html`<div slot="interactions">
+                ${interactions.map(
+                  (interaction) => html`
+                    <div class="dso-card-interaction">
+                      ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
+                      ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
+                      ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
+                      ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
+                    </div>
+                  `,
+                )}
+              </div>`
+            : nothing}
           ${content && richContentTemplate({ children: content, slot: "content" })}
         </dso-card>
       `;

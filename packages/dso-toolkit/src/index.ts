@@ -51,8 +51,7 @@ export * from "./components/button";
 
 export * from "./components/button-row";
 
-export { Card, DsoCardClickedEvent } from "./components/card/card.models.js";
-export { CardTemplates, storiesOfCard } from "./components/card/card.stories-of.js";
+export * from "./components/card";
 
 export * from "./components/card-container";
 
