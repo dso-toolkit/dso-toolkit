@@ -2,28 +2,30 @@
  * This file:
  * - Updates dso-toolkit.nl/versions.json with all the deployed releases (tags and branches) in the Azure Blob Storage container.
  * - Updates dso-toolkit.nl/index.html with the latest version.
- * - Removes all deployed branches which are not in the versions.json file.
+ * - Removes all branch deploys whose git branch is deleted.
  */
-/* eslint-disable no-console -- cli script, needs to output to stdout */
 
-import { BlobServiceClient } from "@azure/storage-blob";
+import { BlobItem, BlobServiceClient } from "@azure/storage-blob";
 import { valid, sort, rsort } from "semver";
 import minimist from "minimist";
 import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import { render } from "@lit-labs/ssr";
 
-import { indexHtml } from "./index-html";
+import { indexHtml } from "./index-html.template";
+import { getGithubBranches } from "./get-github-branches.function";
 
 interface Args {
   azureStorageHost: string | undefined;
   azureStorageContainer: string | undefined;
-  sasToken: string | undefined;
+  azureSasToken: string | undefined;
+  githubToken: string | undefined;
 }
 
 const args = minimist<Args>(process.argv.slice(2));
 
-main(args.azureStorageHost, args.azureStorageContainer, args.sasToken).catch((error) => {
+main(args.azureStorageHost, args.azureStorageContainer, args.azureSasToken, args.githubToken).catch((error) => {
   console.error(error);
+
   process.exit(1);
 });
 
@@ -38,34 +40,81 @@ interface Version {
 }
 
 async function main(
-  storageHost: string | undefined,
-  storageContainer: string | undefined,
-  accountSas: string | undefined,
+  azureStorageHost: string | undefined,
+  azureStorageContainer: string | undefined,
+  azureAccountSas: string | undefined,
+  githubToken: string | undefined,
 ) {
-  if (!storageHost || !storageContainer || !accountSas) {
-    throw new Error("Missing required variables");
+  if (!azureStorageHost || !azureStorageContainer || !azureAccountSas || !githubToken) {
+    // Redact the values to avoid leaking secrets but still show which ones are missing or empty
+    const redacted = {
+      azureStorageHost: !!azureStorageHost,
+      azureStorageContainer: !!azureStorageContainer,
+      azureAccountSas: !!azureAccountSas,
+      githubToken: !!githubToken,
+    };
+
+    throw new Error(`Missing required variables. Started with: ${JSON.stringify(redacted, null, 2)}`);
   }
 
-  console.info(`Updating versions.json`);
+  const blobServiceClient = new BlobServiceClient(`https://${azureStorageHost}/?${azureAccountSas}`);
+  const containerClient = blobServiceClient.getContainerClient(azureStorageContainer);
 
-  const blobServiceClient = new BlobServiceClient(`https://${storageHost}/?${accountSas}`);
+  console.info("Updating versions");
 
-  const containerClient = blobServiceClient.getContainerClient(storageContainer);
+  const gitBranches = await getGithubBranches(githubToken);
 
-  const prefix = "dso-toolkit.nl/www/";
-  const blobs = containerClient.listBlobsByHierarchy("/", { prefix });
+  /**
+   * site roots to where releases are deployed to, without trailing slash
+   */
+  const siteRoots: Array<{ path: string; main?: boolean }> = [
+    { path: "angular.dso-toolkit.nl/www" },
+    { path: "cdn.dso-toolkit.nl/www/dso-toolkit" },
+    { path: "cdn.dso-toolkit.nl/www/@dso-toolkit/core" },
+    { path: "dso-toolkit.nl/www", main: true },
+    { path: "react.dso-toolkit.nl/www" },
+    { path: "storybook.dso-toolkit.nl/www" },
+  ];
 
   const branches = [];
   const tags = [];
 
-  for await (const blob of blobs) {
-    if (blob.kind === "prefix") {
-      const name = blob.name.slice(prefix.length, blob.name.length - 1);
+  for (const siteRoot of siteRoots) {
+    const sitePrefix = `${siteRoot.path}/`;
+    const siteBlobs = containerClient.listBlobsByHierarchy("/", { prefix: sitePrefix });
 
-      if (name[0] === "_" && name[1] !== "_") {
-        branches.push(name);
-      } else if (valid(name)) {
-        tags.push(name);
+    for await (const siteBlob of siteBlobs) {
+      if (siteBlob.kind === "prefix") {
+        // dso-toolkit.nl/www/<NAME>/
+        const name = siteBlob.name.slice(sitePrefix.length, siteBlob.name.length - 1);
+
+        // Only directies starting with _ are considered branch deploys. The __bak directory was used for backups.
+        if (name[0] === "_" && name[1] !== "_") {
+          // if the branch does not exist on github, delete the branch deploy
+          if (!gitBranches.find((branch) => branch.name === name)) {
+            console.info(`Deleting branch ${name}`);
+
+            const blobs: Array<{ item: BlobItem; prefixDepth: number }> = [];
+
+            for await (const blob of containerClient.listBlobsFlat({ prefix: siteBlob.name })) {
+              blobs.push({ item: blob, prefixDepth: blob.name.split("/").length });
+            }
+
+            blobs.sort((a, b) => b.prefixDepth - a.prefixDepth);
+
+            console.info(`Deleting ${blobs.length} blobs`);
+
+            for (const blob of blobs) {
+              await containerClient.getBlockBlobClient(blob.item.name).delete();
+            }
+            // if the branch does exist on github and if the current siteRoot is used for versions, add it to the list of branches
+          } else if (siteRoot.main) {
+            branches.push(name);
+          }
+          // if the directory is not a branch deploy, it is a tag deploy. only add if the siteRoot is used for versions
+        } else if (valid(name) && siteRoot.main) {
+          tags.push(name);
+        }
       }
     }
   }
@@ -91,19 +140,23 @@ async function main(
 
   const versionsJson = JSON.stringify(versions, null, 2);
 
-  containerClient.getBlockBlobClient(`${prefix}versions.json`).upload(versionsJson, versionsJson.length);
+  const versionPrefix = siteRoots.find((siteRoot) => siteRoot.main)?.path;
+  if (!versionPrefix) {
+    throw new Error("No version source found in siteRoots.");
+  }
 
-  console.info(`Updated versions.json`);
+  containerClient.getBlockBlobClient(`${versionPrefix}versions.json`).upload(versionsJson, versionsJson.length);
 
-  console.info(`Updating index.html`);
+  console.info("Done updating versions");
+
+  console.info("Updating index.html");
 
   const latestVersion = rsort(tags)[0];
-
   const indexHtmlContent = indexHtml(latestVersion);
 
   const body = collectResultSync(render(indexHtmlContent));
 
-  containerClient.getBlockBlobClient(`${prefix}index.html`).upload(body, body.length);
+  containerClient.getBlockBlobClient(`${versionPrefix}index.html`).upload(body, body.length);
 
-  console.info(`Updated index.html`);
+  console.info("Done updating index.html");
 }

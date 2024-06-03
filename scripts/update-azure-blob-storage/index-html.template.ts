@@ -5,7 +5,7 @@ export function indexHtml(version: string) {
     <html>
       <head>
         <title>dso-toolkit.nl</title>
-        <meta http-equiv="refresh" content="0; url=/${version}" />
+        <meta http-equiv="refresh" content="0; url=/${version}/" />
       </head>
       <body></body>
     </html>`;

@@ -28,8 +28,8 @@ jobs:
               if (type === 'heads' && ref.lastIndexOf('#') === 0) {
                 core.exportVariable('DT_REF', ref.replace(/#/, '_'));
               }
-              else if (type === 'heads' && ref === 'master') {
-                core.exportVariable('DT_REF', 'master');
+              else if (type === 'heads' && (ref === 'master' || ref === 'test')) {
+                core.exportVariable('DT_REF', ref);
               }
               else if (type === 'tags' && ref[0] === 'v') {
                 core.exportVariable('DT_REF', ref.substring(1));
@@ -89,9 +89,9 @@ jobs:
             --env GH_TOKEN
           run: bash deploy.sh
         env:
-          DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC }}
-          DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC }}
-          DT_AZURE_STORAGE_HOST: ${{ secrets.DT_AZURE_STORAGE_HOST_ACC }}
-          DT_AZURE_STORAGE_CONTAINER: ${{ secrets.DT_AZURE_STORAGE_CONTAINER_ACC }}
+          DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_NAME }}
+          DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_KEY }}
+          DT_AZURE_STORAGE_HOST: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_HOST_ACC || secrets.DT_AZURE_STORAGE_HOST }}
+          DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_CONTAINER_ACC || secrets.DT_AZURE_STORAGE_CONTAINER }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}

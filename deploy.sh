@@ -1,7 +1,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-export SAS_TOKEN=$(az storage container generate-sas --name "$DT_AZURE_STORAGE_CONTAINER" --permissions acdlrw --expiry $(date --utc --date '+1 hour' +"%Y-%m-%dT%H:%M:%SZ") --account-name "$DT_AZURE_STORAGE_ACCOUNT_NAME" --account-key "$DT_AZURE_STORAGE_ACCOUNT_KEY" | jq -r)
+SAS_TOKEN=$(az storage container generate-sas --name "$DT_AZURE_STORAGE_CONTAINER" --permissions acdlrw --expiry $(date --utc --date '+1 hour' +"%Y-%m-%dT%H:%M:%SZ") --account-name "$DT_AZURE_STORAGE_ACCOUNT_NAME" --account-key "$DT_AZURE_STORAGE_ACCOUNT_KEY" | jq -r)
+
+# https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log
+echo "::add-mask::$SAS_TOKEN"
 
 azcopy sync --from-to=LocalBlob --delete-destination=true ./storybook/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
 azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/react/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/react.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
@@ -31,6 +34,4 @@ then
   # gh release create v${DT_REF} --generate-notes --verify-tag
 fi
 
-yarn tsx ./scripts/list-versions-azure-blob-storage.ts --azure-storage-host "$DT_AZURE_STORAGE_HOST" --azure-storage-container "$DT_AZURE_STORAGE_CONTAINER" --sas-token "$SAS_TOKEN"
-
-# Todo: Prune old versions
+yarn tsx ./scripts/update-azure-blob-storage/main --azureStorageHost "$DT_AZURE_STORAGE_HOST" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER" --azureSasToken "$SAS_TOKEN" --githubToken "$GH_TOKEN"
