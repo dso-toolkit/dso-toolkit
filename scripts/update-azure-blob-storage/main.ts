@@ -12,17 +12,19 @@ import minimist from "minimist";
 import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import { render } from "@lit-labs/ssr";
 
-import { indexHtml } from "./index-html";
+import { indexHtml } from "./index-html.template";
+import { getGithubBranches } from "./get-github-branches.function";
 
 interface Args {
   azureStorageHost: string | undefined;
   azureStorageContainer: string | undefined;
-  sasToken: string | undefined;
+  azureSasToken: string | undefined;
+  githubToken: string | undefined;
 }
 
 const args = minimist<Args>(process.argv.slice(2));
 
-main(args.azureStorageHost, args.azureStorageContainer, args.sasToken).catch((error) => {
+main(args.azureStorageHost, args.azureStorageContainer, args.azureSasToken, args.githubToken).catch((error) => {
   console.error(error);
   process.exit(1);
 });
@@ -38,20 +40,23 @@ interface Version {
 }
 
 async function main(
-  storageHost: string | undefined,
-  storageContainer: string | undefined,
-  accountSas: string | undefined,
+  azureStorageHost: string | undefined,
+  azureStorageContainer: string | undefined,
+  azureAccountSas: string | undefined,
+  githubToken: string | undefined,
 ) {
-  if (!storageHost || !storageContainer || !accountSas) {
-    throw new Error("Missing required variables");
+  if (!azureStorageHost || !azureStorageContainer || !azureAccountSas || !githubToken) {
+    throw new Error(
+      `Missing required variables: ${JSON.stringify({ azureStorageHost, azureStorageContainer, azureAccountSas, githubToken })}`,
+    );
   }
 
-  console.info(`Updating versions.json`);
+  const blobServiceClient = new BlobServiceClient(`https://${azureStorageHost}/?${azureAccountSas}`);
+  const containerClient = blobServiceClient.getContainerClient(azureStorageContainer);
 
-  const blobServiceClient = new BlobServiceClient(`https://${storageHost}/?${accountSas}`);
+  console.info("Updating versions");
 
-  const containerClient = blobServiceClient.getContainerClient(storageContainer);
-
+  const gitBranches = await getGithubBranches(githubToken);
   const prefix = "dso-toolkit.nl/www/";
   const blobs = containerClient.listBlobsByHierarchy("/", { prefix });
 
@@ -63,7 +68,16 @@ async function main(
       const name = blob.name.slice(prefix.length, blob.name.length - 1);
 
       if (name[0] === "_" && name[1] !== "_") {
-        branches.push(name);
+        if (!gitBranches.find((branch) => branch.name === name)) {
+          console.info(`Deleting branch ${name}`);
+
+          const blobs = containerClient.listBlobsFlat({ prefix: blob.name });
+          for await (const blob of blobs) {
+            containerClient.getBlockBlobClient(blob.name).delete();
+          }
+        } else {
+          branches.push(name);
+        }
       } else if (valid(name)) {
         tags.push(name);
       }
@@ -93,17 +107,16 @@ async function main(
 
   containerClient.getBlockBlobClient(`${prefix}versions.json`).upload(versionsJson, versionsJson.length);
 
-  console.info(`Updated versions.json`);
+  console.info("Done updating versions");
 
-  console.info(`Updating index.html`);
+  console.info("Updating index.html");
 
   const latestVersion = rsort(tags)[0];
-
   const indexHtmlContent = indexHtml(latestVersion);
 
   const body = collectResultSync(render(indexHtmlContent));
 
   containerClient.getBlockBlobClient(`${prefix}index.html`).upload(body, body.length);
 
-  console.info(`Updated index.html`);
+  console.info("Done updating index.html");
 }

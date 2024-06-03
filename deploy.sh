@@ -31,6 +31,4 @@ then
   # gh release create v${DT_REF} --generate-notes --verify-tag
 fi
 
-yarn tsx ./scripts/list-versions-azure-blob-storage.ts --azure-storage-host "$DT_AZURE_STORAGE_HOST" --azure-storage-container "$DT_AZURE_STORAGE_CONTAINER" --sas-token "$SAS_TOKEN"
-
-# Todo: Prune old versions
+yarn tsx ./scripts/list-versions-azure-blob-storage.ts --azure-storage-host "$DT_AZURE_STORAGE_HOST" --azure-storage-container "$DT_AZURE_STORAGE_CONTAINER" --azure-sas-token "$SAS_TOKEN" --github-token "$GH_TOKEN"
