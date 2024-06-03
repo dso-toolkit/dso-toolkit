@@ -11,7 +11,7 @@ import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOr
 import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
-import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+import { AutosuggestMarkItem, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -44,7 +44,7 @@ export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOr
 export { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
-export { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+export { AutosuggestMarkItem, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -312,6 +312,10 @@ export namespace Components {
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
+        /**
+          * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
+         */
+        "mark"?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
         /**
           * To show text when no results are found.
          */
@@ -2427,6 +2431,10 @@ declare namespace LocalJSX {
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
+        /**
+          * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
+         */
+        "mark"?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
         /**
           * To show text when no results are found.
          */

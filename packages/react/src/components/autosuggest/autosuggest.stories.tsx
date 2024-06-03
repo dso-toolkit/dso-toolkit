@@ -13,7 +13,7 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate } = templates;
@@ -100,8 +100,9 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
         />
       ),
       autosuggestInSearchBarTemplate: () => <p>Zie Web Component in Core.</p>,
+      autosuggestMarkTemplate: () => <p>Zie Web Component in Core.</p>,
     };
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };

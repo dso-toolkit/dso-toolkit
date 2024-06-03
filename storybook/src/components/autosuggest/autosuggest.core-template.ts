@@ -17,6 +17,7 @@ export const coreAutosuggest: ComponentImplementation<Autosuggest<TemplateResult
       loadingLabel,
       loadingDelayed,
       notFoundLabel,
+      mark,
       children,
     }) {
       return html`
@@ -30,6 +31,7 @@ export const coreAutosuggest: ComponentImplementation<Autosuggest<TemplateResult
           loading-label=${ifDefined(loadingLabel)}
           loading-delayed=${ifDefined(loadingDelayed)}
           not-found-label=${ifDefined(notFoundLabel)}
+          .mark=${ifDefined(mark)}
         >
           ${children}
         </dso-autosuggest>

@@ -1,8 +1,8 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
-import { fetchSuggestions } from "./autosuggest.demo.js";
-import { AutosuggestSuggestion } from "./autosuggest.models.js";
+import { fetchSuggestions, mark } from "./autosuggest.demo.js";
+import { AutosuggestMarkItem, AutosuggestSuggestion } from "./autosuggest.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
@@ -14,6 +14,7 @@ interface AutosuggestStories {
   Example: AutosuggestStory;
   Minimal3Characters: AutosuggestStory;
   InSearchbar: AutosuggestStory;
+  WithProvidedMarkFunction: AutosuggestStory;
 }
 
 interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -35,11 +36,13 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingDelayed: number,
   notFoundLabel: string,
   minimalCharacters?: number,
+  mark?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[],
 ) => TemplateFnReturnType;
 
 export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
   autosuggestInSearchBarTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
+  autosuggestMarkTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
 export function autosuggestMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -106,6 +109,23 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
           args.loadingLabel,
           args.loadingDelayed,
           args.notFoundLabel,
+        ),
+      ),
+    },
+    WithProvidedMarkFunction: {
+      render: templateContainer.render(storyTemplates, (args, { autosuggestMarkTemplate }) =>
+        autosuggestMarkTemplate(
+          fetchSuggestions,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.suggestOnFocus,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel,
+          undefined,
+          mark,
         ),
       ),
     },

@@ -13,7 +13,7 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate, buttonTemplate } = templates;
@@ -35,6 +35,7 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
       loadingDelayed,
       notFoundLabel,
       minimalCharacters = 1,
+      mark,
     ]) => ({
       children: html`<input id="autosuggestInputId" type="text" class="form-control" />`,
       suggestions: null,
@@ -64,6 +65,7 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
       loadingLabel,
       loadingDelayed,
       notFoundLabel,
+      mark,
     });
 
     const processSuggestions = (suggestions: AutosuggestSuggestion[] | null): void => {
@@ -74,6 +76,47 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
     };
 
     return {
+      autosuggestMarkTemplate: (
+        fetchSuggestions,
+        dsoSelect,
+        dsoChange,
+        dsoSearch,
+        suggestOnFocus,
+        loading,
+        loadingLabel,
+        loadingDelayed,
+        notFoundLabel,
+        minimalCharacters,
+        mark,
+      ) =>
+        html` <div class="dso-search-bar">
+          <div class="dso-search-bar-input">
+            <label for="search-bar--with-value">Label</label>
+            <span class="dso-search-icon" aria-hidden="true"></span>
+            ${autosuggestTemplate({
+              ...autosuggestConnector([
+                fetchSuggestions,
+                dsoSelect,
+                dsoChange,
+                dsoSearch,
+                suggestOnFocus,
+                loading,
+                loadingLabel,
+                loadingDelayed,
+                notFoundLabel,
+                minimalCharacters,
+                mark,
+              ]),
+              children: html`<input
+                type="text"
+                id="search-bar--with-value"
+                placeholder="Bijvoorbeeld 'Rotterdam' of 'Groningen'"
+              />`,
+            })}
+            <button type="button">Zoekopdracht legen</button>
+          </div>
+          ${buttonTemplate({ label: "Button", variant: "secondary", type: "button" })}
+        </div>`,
       autosuggestDemoTemplate: (
         fetchSuggestions,
         dsoSelect,
@@ -145,4 +188,4 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };

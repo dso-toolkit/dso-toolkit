@@ -1,9 +1,9 @@
-import { Component, Element, h, Listen, Prop, State, Fragment, Event, EventEmitter, VNode, Watch } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, h, Listen, Prop, State, VNode, Watch } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
 import escapeStringRegexp from "escape-string-regexp";
 
-import { Suggestion } from "./autosuggest.interfaces";
+import { AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
 @Component({
   tag: "dso-autosuggest",
@@ -52,6 +52,12 @@ export class Autosuggest {
    */
   @Prop()
   suggestOnFocus = false;
+
+  /**
+   * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
+   */
+  @Prop()
+  mark?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
 
   /**
    * Emitted when a suggestion is selected.
@@ -219,6 +225,19 @@ export class Autosuggest {
       }
 
       return this.markTerms(valuePart, terms.slice(1));
+    });
+  }
+
+  private markAutosuggestMarkItems(items: AutosuggestMarkItem[]): (VNode | string)[] {
+    if (items.length === 0) {
+      return [""];
+    }
+
+    return items.map((item) => {
+      if (typeof item === "object") {
+        return <mark>{item.mark}</mark>;
+      }
+      return item;
     });
   }
 
@@ -411,14 +430,28 @@ export class Autosuggest {
                   aria-label={suggestion.value}
                 >
                   <div class="suggestion-row">
-                    <span class="value">{this.markTerms(suggestion.value, terms)}</span>
-                    {suggestion.type ? <span class="type">{this.markTerms(suggestion.type, terms)}</span> : undefined}
+                    <span class="value">
+                      {this.mark
+                        ? this.markAutosuggestMarkItems(this.mark(suggestion.value, "value"))
+                        : this.markTerms(suggestion.value, terms)}
+                    </span>
+                    {suggestion.type ? (
+                      <span class="type">
+                        {this.mark
+                          ? this.markAutosuggestMarkItems(this.mark(suggestion.type, "type"))
+                          : this.markTerms(suggestion.type, terms)}
+                      </span>
+                    ) : undefined}
                   </div>
                   {suggestion.extras &&
-                    this.getChunkedExtras(suggestion.extras).map((chunk) => (
+                    this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
                       <div class="suggestion-row">
-                        {chunk.map((c) => (
-                          <span class="extra">{this.markTerms(c, terms)}</span>
+                        {chunk.map((c, i) => (
+                          <span class="extra">
+                            {this.mark
+                              ? this.markAutosuggestMarkItems(this.mark(c, "extra", index * 2 + i))
+                              : this.markTerms(c, terms)}
+                          </span>
                         ))}
                       </div>
                     ))}

@@ -1,4 +1,4 @@
-import { AutosuggestSuggestion } from "./autosuggest.models.js";
+import { AutosuggestMarkItem, AutosuggestSuggestion } from "./autosuggest.models.js";
 import escapeStringRegexp from "escape-string-regexp";
 
 const suggestions: AutosuggestSuggestion[] = [
@@ -145,4 +145,29 @@ export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
         .filter((suggestion) => terms.every((term) => new RegExp(escapeStringRegexp(term), "i").test(suggestion.value)))
         .slice(0, 10)
     : [];
+}
+
+export function mark(_text: string, type: "value" | "type" | "extra", extraIndex?: number): AutosuggestMarkItem[] {
+  const extras: AutosuggestMarkItem[][] = [
+    ["Ontwerp ", { mark: "18-" }, "01-2024"],
+    ["gemeente Gron", { mark: "ing" }, "en"],
+    ["/akn/nl/act/gm0014/2020/", { mark: "omg" }, "evingsplan"],
+  ];
+
+  let result: AutosuggestMarkItem[] = [""];
+
+  switch (type) {
+    case "value":
+      result = [{ mark: "Omg" }, "evingsplan gemeente Groningen"];
+      break;
+    case "type":
+      result = [{ mark: "omg" }, "evingsplan (", { mark: "omg" }, "evingswet)"];
+      break;
+    case "extra":
+      if (extraIndex !== undefined && extraIndex >= 0 && extraIndex <= extras.length) {
+        result = extras[extraIndex]!;
+      }
+  }
+
+  return result;
 }

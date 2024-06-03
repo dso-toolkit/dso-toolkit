@@ -19,3 +19,5 @@ export interface Suggestion {
    */
   extras?: string[];
 }
+
+export type AutosuggestMarkItem = { mark: string } | string;
