@@ -54,6 +54,7 @@ button {
   .content {
     height: 100%;
     padding: 0 css-grid.$grid-gutter-width * 0.5;
+    overflow-y: auto;
   }
 }
 
@@ -295,10 +296,6 @@ button {
   .dso-main-panel,
   .dso-document-panel {
     box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
-
-    .content {
-      overflow-y: auto;
-    }
   }
 
   .filterpanel {
