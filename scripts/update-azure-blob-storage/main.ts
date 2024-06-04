@@ -1,11 +1,11 @@
 /**
  * This file:
- * - Updates dso-toolkit.nl/versions.json with all the deployed releases (tags and branches) in the Azure Blob Storage container.
- * - Updates dso-toolkit.nl/index.html with the latest version.
- * - Removes all branch deploys whose git branch is deleted.
+ * 1. Removes all branch deploys whose git branch is deleted.
+ * 2. Updates dso-toolkit.nl/versions.json with all the deployed releases (tags and branches) in the Azure Blob Storage container.
+ * 3. Updates dso-toolkit.nl/index.html with the latest version.
  */
 
-import { BlobItem, BlobServiceClient } from "@azure/storage-blob";
+import { BlobClient, BlobItem, BlobServiceClient } from "@azure/storage-blob";
 import { valid, sort, rsort } from "semver";
 import minimist from "minimist";
 import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
@@ -59,8 +59,9 @@ async function main(
 
   const blobServiceClient = new BlobServiceClient(`https://${azureStorageHost}/?${azureAccountSas}`);
   const containerClient = blobServiceClient.getContainerClient(azureStorageContainer);
+  const blobBatchClient = containerClient.getBlobBatchClient();
 
-  console.info("Updating versions");
+  console.info("Updating releases");
 
   const gitBranches = await getGithubBranches(githubToken);
 
@@ -92,7 +93,7 @@ async function main(
         if (name[0] === "_" && name[1] !== "_") {
           // if the branch does not exist on github, delete the branch deploy
           if (!gitBranches.find((branch) => branch.name === name)) {
-            console.info(`Deleting branch ${name}`);
+            console.info(`Deleting branch deploy ${siteBlob.name}`);
 
             const blobs: Array<{ item: BlobItem; prefixDepth: number }> = [];
 
@@ -100,13 +101,33 @@ async function main(
               blobs.push({ item: blob, prefixDepth: blob.name.split("/").length });
             }
 
-            blobs.sort((a, b) => b.prefixDepth - a.prefixDepth);
+            if (blobs.length > 0) {
+              blobs.sort((a, b) => b.prefixDepth - a.prefixDepth);
 
-            console.info(`Deleting ${blobs.length} blobs`);
+              console.info(`Deleting ${blobs.length} blobs`);
 
-            for (const blob of blobs) {
-              await containerClient.getBlockBlobClient(blob.item.name).delete();
+              const batches = blobs
+                .reduce<BlobClient[][]>((batches, { item }, index) => {
+                  const reducedIndex = Math.floor(index / 256);
+                  if (!batches[reducedIndex]) {
+                    batches[reducedIndex] = [];
+                  }
+
+                  batches[reducedIndex].push(containerClient.getBlobClient(item.name));
+
+                  return batches;
+                }, [])
+                .map((batch, index) => {
+                  console.info(`Marking batch ${index + 1} for deletion`);
+
+                  return blobBatchClient.deleteBlobs(batch);
+                });
+
+              await Promise.all(batches);
+
+              console.info(`Done deleting ${blobs.length} blobs with ${batches.length} batches`);
             }
+
             // if the branch does exist on github and if the current siteRoot is used for versions, add it to the list of branches
           } else if (siteRoot.main) {
             branches.push(name);
@@ -154,9 +175,9 @@ async function main(
   const latestVersion = rsort(tags)[0];
   const indexHtmlContent = indexHtml(latestVersion);
 
-  const body = collectResultSync(render(indexHtmlContent));
+  const document = collectResultSync(render(indexHtmlContent));
 
-  containerClient.getBlockBlobClient(`${versionPrefix}index.html`).upload(body, body.length);
+  containerClient.getBlockBlobClient(`${versionPrefix}index.html`).upload(document, document.length);
 
   console.info("Done updating index.html");
 }
