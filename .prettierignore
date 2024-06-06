@@ -22,6 +22,7 @@
 /packages/react/src/react-component-lib
 /storybook/www
 /storybook/cypress-parallel
+/storybook/multi-reporter-config.json
 /storybook/runner-results
 /website/.docusaurus
 /website/www
