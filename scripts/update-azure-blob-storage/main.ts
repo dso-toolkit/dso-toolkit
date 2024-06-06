@@ -166,7 +166,7 @@ async function main(
     throw new Error("No version source found in siteRoots.");
   }
 
-  containerClient.getBlockBlobClient(`${versionPrefix}versions.json`).upload(versionsJson, versionsJson.length);
+  containerClient.getBlockBlobClient(`${versionPrefix}/versions.json`).upload(versionsJson, versionsJson.length);
 
   console.info("Done updating versions");
 
@@ -177,7 +177,7 @@ async function main(
 
   const document = collectResultSync(render(indexHtmlContent));
 
-  containerClient.getBlockBlobClient(`${versionPrefix}index.html`).upload(document, document.length);
+  containerClient.getBlockBlobClient(`${versionPrefix}/index.html`).upload(document, document.length);
 
   console.info("Done updating index.html");
 }
