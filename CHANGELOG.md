@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🏮 62.24.0 - 06-06-2024
+
 ### Tasks
 * Platform: Hosting en domeinnaam verhuizen ([#2604](https://github.com/dso-toolkit/dso-toolkit/issues/2604))
 
