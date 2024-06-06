@@ -1,29 +1,43 @@
 FROM cypress/included:cypress-13.10.0-node-20.13.1-chrome-125.0.6422.60-1-ff-126.0-edge-125.0.2535.51-1
 
 RUN apt-get update && apt-get install --yes \
+  apt-transport-https \
+  ca-certificates \
   curl \
+  gnupg2 \
+  jq \
+  libasound2 \
+  libatk-bridge2.0-0 \
+  libatk1.0-0 \
+  libcups2 \
+  libgtk-3-0 \
+  libnss3 \
   libx11-xcb1 \
   libxcomposite1 \
   libxcursor1 \
   libxdamage1 \
   libxi6 \
-  libxtst6 \
-  libnss3 \
-  libcups2 \
-  libxss1 \
   libxrandr2 \
-  libasound2 \
-  libatk1.0-0 \
-  libatk-bridge2.0-0 \
-  libgtk-3-0 \
-  rsync=3.2.3-4+deb11u1
+  libxss1 \
+  libxtst6 \
+  lsb-release
 
-# https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt (but without curl installation)
-RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-  && apt update \
-  && apt install gh -y
+# https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions
+RUN mkdir -p /etc/apt/keyrings \
+  && curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg \
+  && chmod go+r /etc/apt/keyrings/microsoft.gpg \
+  && AZ_DIST=$(lsb_release -cs) \
+  && echo "Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg" | tee /etc/apt/sources.list.d/azure-cli.sources \
+  && apt-get update \
+  && apt-get install azure-cli=2.61.0-1~${AZ_DIST}
+
+ARG GH_CLI_VERSION=2.50.0
+RUN curl -sSL https://github.com/cli/cli/releases/download/v${GH_CLI_VERSION}/gh_${GH_CLI_VERSION}_linux_amd64.tar.gz | tar xz -C /tmp \
+  && mv /tmp/gh_${GH_CLI_VERSION}_linux_amd64/bin/gh /usr/local/bin/ \
+  && rm -rf /tmp/gh_${GH_CLI_VERSION}_linux_amd64
+
+# https://gist.github.com/aessing/76f1200c9f5b2b9671937b3b0ed5fd6f?permalink_comment_id=4855321#gistcomment-4855321
+RUN curl -L https://azcopyvnext.azureedge.net/releases/release-10.24.0-20240326/azcopy_linux_amd64_10.24.0.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 

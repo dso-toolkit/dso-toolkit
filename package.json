@@ -22,13 +22,17 @@
     "e2e": "yarn workspace dso-storybook e2e",
     "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
-    "start": "yarn node scripts/start.js"
+    "start": "tsx scripts/start.ts"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.18.0",
     "@infoprojects/eslint-config": "^1.1.0",
     "@infoprojects/prettier-config": "^1.0.0",
+    "@lit-labs/ssr": "^3.2.2",
+    "@octokit/rest": "^20.1.1",
     "@stencil-community/eslint-plugin": "^0.7.2",
     "@types/minimist": "^1.2.5",
+    "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
     "axe-core": "^4.9.1",
@@ -47,8 +51,10 @@
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.7",
+    "semver": "^7.6.2",
     "stylelint": "^16.5.0",
     "stylelint-config-recommended-scss": "^14.0.0",
+    "tsx": "^4.7.3",
     "typescript": "<5.5.0",
     "wait-on": "^7.2.0"
   },
