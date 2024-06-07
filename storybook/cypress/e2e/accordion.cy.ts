@@ -62,9 +62,9 @@ describe("Accordion", () => {
     cy.injectAxe();
     cy.checkA11y("dso-accordion");
 
-    cy.get("dso-accordion.hydrated")
-      .get("dso-accordion-section.hydrated")
-      .then(() => cy.get("dso-accordion.hydrated").matchImageSnapshot());
+    cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
+      .should('exist')
+      .get("dso-accordion.hydrated").matchImageSnapshot();
   });
 
   it("should render handle as <a> when handleUrl is set", () => {
