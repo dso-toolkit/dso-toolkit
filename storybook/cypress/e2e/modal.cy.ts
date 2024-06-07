@@ -22,11 +22,11 @@ describe("Modal", () => {
       .should("have.attr", "role", "document")
       .find(".dso-close span")
       .should("have.class", "sr-only")
-      .and("have.text", "Sluiten")
-      .then(() =>
-        // Take the entire page, for the dso-modal has a height of 0
-        cy.matchImageSnapshot(),
-      );
+      .and("have.text", "Sluiten");
+
+    // Without the wait matchImageSnapshot() only shows a white surface.
+    // With the wait the modal dialog is shown.
+    cy.wait(100).matchImageSnapshot();
   });
 
   it("should have focus trap", () => {
