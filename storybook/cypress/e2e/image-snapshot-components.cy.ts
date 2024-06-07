@@ -12,7 +12,7 @@ interface Component {
   stories?: string[];
   storyGroups?: StoryGroup[];
   type: string;
-  wait?: string;
+  wait?: string | string[];
   shadowWait?: string;
 }
 
@@ -33,14 +33,30 @@ function matchImageSnapshot(id: string, component: Component) {
   }
 }
 
-function test(id: string, component: Component, wait: string) {
+function waitForExist(id: string, component: Component, wait: string[]) {
+  cy.get(wait.pop())
+    .should("exist")
+    .then(() => {
+      if (wait.length) {
+        waitForExist(id, component, wait);
+      } else {
+        matchImageSnapshot(id, component);
+      }
+    });
+}
+
+function test(id: string, component: Component, wait: string | string[]) {
   it(`take screenshot of ${id}`, () => {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
     if (wait) {
-      cy.get(wait)
-        .should("exist")
-        .then(() => matchImageSnapshot(id, component));
+      if (Array.isArray(wait)) {
+        waitForExist(id, component, wait);
+      } else {
+        cy.get(wait)
+          .should("exist")
+          .then(() => matchImageSnapshot(id, component));
+      }
     } else {
       matchImageSnapshot(id, component);
     }
