@@ -7,7 +7,6 @@ interface StoryGroup {
 }
 
 interface Component {
-  fix?: string;
   name: string;
   selector: string;
   stories?: string[];
@@ -23,7 +22,9 @@ function matchImageSnapshot(id: string, component: Component) {
       cy.get(component.selector)
         .shadow()
         .find(component.shadowWait)
-        .then(() => cy.get(component.selector).matchImageSnapshot(id));
+        .should("exist")
+        .get(component.selector)
+        .matchImageSnapshot(id);
     } else {
       cy.get(component.selector).matchImageSnapshot(id);
     }
@@ -37,7 +38,9 @@ function test(id: string, component: Component, wait: string) {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
     if (wait) {
-      cy.get(wait).then(() => matchImageSnapshot(id, component));
+      cy.get(wait)
+        .should("exist")
+        .then(() => matchImageSnapshot(id, component));
     } else {
       matchImageSnapshot(id, component);
     }

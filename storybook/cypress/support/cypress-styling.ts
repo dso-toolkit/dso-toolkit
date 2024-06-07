@@ -18,12 +18,6 @@ export function cypressStyling() {
           button.dso-tertiary.dso-spinner-left::before {
             visibility: hidden;
           }
-
-          dso-header dso-icon,
-          dso-header svg.di,
-          dso-header dso-dropdown-menu {
-            visibility: hidden !important;
-          }
         </style>
       `);
     })

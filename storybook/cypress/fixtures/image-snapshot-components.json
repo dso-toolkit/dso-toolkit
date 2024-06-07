@@ -66,7 +66,7 @@
     "selector": "",
     "stories": ["responsive-element"],
     "type": "core",
-    "wait": "dso-responsive-element.hydrated"
+    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
   },
   {
     "name": "anchor",
@@ -145,7 +145,6 @@
       "secundaire-button-varianten",
       "tertiaire-button-varianten"
     ],
-    "fix": "image-snapshot-progress-indicator-fix",
     "type": "html-css"
   },
   { "name": "card-grid", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
@@ -187,7 +186,7 @@
     "selector": ".dso-document-list",
     "stories": ["default", "sticky"],
     "type": "html-css",
-    "wait": "dso-responsive-element.hydrated"
+    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
   },
   { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
   { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
@@ -199,7 +198,6 @@
   },
   {
     "name": "form",
-    "fix": "image-snapshot-progress-indicator-fix",
     "selector": "",
     "storyGroups": [
       {
@@ -425,7 +423,7 @@
     "selector": ".dso-tile-grid",
     "stories": ["tile-grid"],
     "type": "html-css",
-    "wait": "dso-responsive-element.hydrated"
+    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
   },
   {
     "name": "whitebox",

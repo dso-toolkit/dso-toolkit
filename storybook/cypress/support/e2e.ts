@@ -22,8 +22,8 @@ import "cypress-real-events";
 import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
 
 addMatchImageSnapshotCommand({
-  blur: 2,
-  failureThreshold: 0.2,
+  failureThreshold: 0.1,
+  failureThresholdType: "percent",
   padding: 16, // units.$u2 for buiten-elementse functionele styling
   customDiffDir: "cypress/snapshot-diff",
   customSnapshotsDir: "cypress/snapshot-baseline",
