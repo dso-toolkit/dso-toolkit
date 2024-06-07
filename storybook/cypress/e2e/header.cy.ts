@@ -61,20 +61,21 @@ describe("Header", () => {
     cy.checkA11y("dso-header");
 
     cy.get("dso-header.hydrated")
-      .get("@dsoHeaderShadow")
+      .should("exist")
       .get("dso-icon.hydrated")
-      .then(() => {
-        cy.get("dso-header.hydrated").matchImageSnapshot();
+      .should("exist")
+      .get("@dsoHeaderShadow")
+      .should("exist")
+      .matchImageSnapshot();
 
-        cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
+    cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
 
-        cy.get("dso-header.hydrated")
-          .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
-          .viewport(400, 600)
-          .get("dso-header")
-          .invoke("attr", "useDropDownMenu", "auto")
-          .checkA11y("dso-header");
-      });
+    cy.get("dso-header.hydrated")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
+      .viewport(400, 600)
+      .get("dso-header")
+      .invoke("attr", "useDropDownMenu", "auto")
+      .checkA11y("dso-header");
   });
 
   it("should show/remove dropdownmenu", () => {
