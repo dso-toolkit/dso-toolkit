@@ -446,7 +446,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated")
       .shadow()
       .find("dso-image-overlay.hydrated")
-      .then(() => cy.get("dso-ozon-content.hydrated").matchImageSnapshot());
+      .should('exist')
+      .get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should show <Bron> at a table", () => {
