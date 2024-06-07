@@ -2,8 +2,7 @@ describe("Autosuggest", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example");
     cy.injectAxe();
-    cy.get("input").as("input").invoke("attr", "style", "caret-color: transparent;"); //prevent the blinking caret in the input field to lead
-    // to a false positive for matchImageSnapshot()
+    cy.get("input").as("input");
     cy.get("ul[role='listbox']").as("listbox");
   });
 

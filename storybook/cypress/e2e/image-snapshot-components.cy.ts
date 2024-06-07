@@ -1,5 +1,4 @@
 import components from "../fixtures/image-snapshot-components.json";
-import { imageSnapshotProgressIndicatorFix } from "../support/image-snapshot-progress-indicator-fix";
 
 interface StoryGroup {
   group: string;
@@ -19,10 +18,6 @@ interface Component {
 }
 
 function matchImageSnapshot(id: string, component: Component) {
-  if (component.fix === "image-snapshot-progress-indicator-fix") {
-    imageSnapshotProgressIndicatorFix();
-  }
-
   if (component.selector) {
     if (component.shadowWait) {
       cy.get(component.selector)

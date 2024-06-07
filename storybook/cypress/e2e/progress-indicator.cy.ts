@@ -1,5 +1,3 @@
-import { imageSnapshotProgressIndicatorFix } from "../support/image-snapshot-progress-indicator-fix";
-
 describe("Progress Indicator", () => {
   const sizes = [
     {
@@ -50,8 +48,6 @@ describe("Progress Indicator", () => {
   for (const { size } of sizes) {
     it(`should show ${size} spinner (HTML/CSS)`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`);
-
-      imageSnapshotProgressIndicatorFix();
 
       cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator--${size}`);
     });
