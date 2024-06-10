@@ -24,9 +24,8 @@ describe("Modal", () => {
       .should("have.class", "sr-only")
       .and("have.text", "Sluiten");
 
-    // Without the wait matchImageSnapshot() only shows a white surface.
-    // With the wait the modal dialog is shown.
-    cy.wait(100).matchImageSnapshot();
+    // The wait equals the modal animation-duration of 200ms
+    cy.wait(200).matchImageSnapshot();
   });
 
   it("should have focus trap", () => {
