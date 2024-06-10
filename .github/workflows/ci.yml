@@ -91,10 +91,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-snapshot-diff
-          path: |
-            ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-            ${{ github.workspace }}/storybook/cypress/snapshot-diff
+          name: cypress-snapshots
+          path: ${{ env.DT_REF == 'master' && '${{ github.workspace }}/storybook/cypress/snapshot-baseline' }} || '${{ github.workspace }}/storybook/cypress/snapshot-diff'
       - uses: addnab/docker-run-action@v3
         name: Deploy
         with:
