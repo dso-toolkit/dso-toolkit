@@ -40,7 +40,8 @@ describe("Ozon Content", () => {
     button("N7").should("have.attr", "aria-expanded", "true");
     tooltip("N7").should("be.visible");
 
-    cy.get("dso-ozon-content.hydrated").wait(250).matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
+    // The wait equals the tooltip transition-duration of 0.15s
+    cy.get("dso-ozon-content.hydrated").wait(150).matchImageSnapshot(`${Cypress.currentTest.title} -- visible notes`);
 
     button("N7").click();
 
@@ -446,8 +447,9 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated")
       .shadow()
       .find("dso-image-overlay.hydrated")
-      .should('exist')
-      .get("dso-ozon-content.hydrated").matchImageSnapshot();
+      .should("exist")
+      .get("dso-ozon-content.hydrated")
+      .matchImageSnapshot();
   });
 
   it("should show <Bron> at a table", () => {
