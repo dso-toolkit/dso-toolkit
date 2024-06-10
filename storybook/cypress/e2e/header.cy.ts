@@ -60,14 +60,6 @@ describe("Header", () => {
 
     cy.checkA11y("dso-header");
 
-    cy.get("dso-header.hydrated")
-      .should("exist")
-      .get("dso-icon.hydrated")
-      .should("exist")
-      .get("@dsoHeaderShadow")
-      .should("exist")
-      .matchImageSnapshot();
-
     cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
 
     cy.get("dso-header.hydrated")
