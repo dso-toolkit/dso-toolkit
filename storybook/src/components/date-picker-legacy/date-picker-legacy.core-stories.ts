@@ -1,22 +1,23 @@
-import { type Meta } from "@storybook/angular";
+import { type Meta } from "@storybook/web-components";
 import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/date-picker-legacy/readme.md?raw";
+import { html } from "lit-html";
 import {
-  datePickerLegacyShowByScriptingTemplate,
   datePickerLegacyWithLabelTemplate,
+  datePickerLegacyShowByScriptingTemplate,
 } from "./date-picker-legacy.content";
 
 const meta: Meta<DatePickerLegacyArgs> = {
   ...datePickerLegacyMeta({ readme }),
-  title: "Date Picker (Legacy)",
+  title: "Core/Date Picker (Legacy)",
 };
 
 export default meta;
 
-const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, Disabled, Invalid } =
+const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, Disabled, Invalid, ShowByScripting } =
   datePickerLegacyStories({
     templateContainer,
     storyTemplates: (templates) => {
@@ -28,8 +29,7 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
         datePickerLegacyShowByScriptingTemplate,
       };
     },
-    // @ts-expect-error on story(): TS2571: Object is of type `unknown`
-    decorator: (story) => ({ template: `<div style="width: 175px;">${story().template}</div>` }),
+    decorator: (story) => html`<div style="width: 175px;">${story()}</div>`,
   });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };
+export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, ShowByScripting, NarrowInput };

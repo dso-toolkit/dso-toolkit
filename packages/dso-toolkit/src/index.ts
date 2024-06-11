@@ -63,12 +63,7 @@ export * from "./components/context";
 
 export * from "./components/date-picker";
 
-export { DatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.models.js";
-export {
-  DatePickerLegacyParameters,
-  DatePickerLegacyTemplates,
-  storiesOfDatePickerLegacy,
-} from "./components/date-picker-legacy/date-picker-legacy.stories-of.js";
+export * from "./components/date-picker-legacy";
 
 export * from "./components/definition-list";
 
