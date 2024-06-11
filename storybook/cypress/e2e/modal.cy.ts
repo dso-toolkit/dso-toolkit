@@ -24,7 +24,8 @@ describe("Modal", () => {
       .should("have.class", "sr-only")
       .and("have.text", "Sluiten");
 
-    // cy.percySnapshot();
+    // The wait equals the modal animation-duration of 200ms
+    cy.wait(200).matchImageSnapshot();
   });
 
   it("should have focus trap", () => {

@@ -7,7 +7,7 @@
     "noEmitOnError": true,
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
-    "types": ["cypress", "cypress-axe", "cypress-real-events"]
+    "types": ["cypress", "cypress-axe", "cypress-real-events", "@simonsmith/cypress-image-snapshot/types"]
   },
   "include": ["../../packages/core/src/components.d.ts", "**/*.ts"]
 }

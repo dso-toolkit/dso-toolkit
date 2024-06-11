@@ -1,3 +1,5 @@
-/videos
-/screenshots
+/snapshot-baseline
+/snapshot-diff
 /fixtures/example.json
+/screenshots
+/videos

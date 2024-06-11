@@ -4,10 +4,10 @@ describe("ListButton", () => {
   });
 
   it("should render label and sublabel correctly", () => {
-    // cy.percySnapshot();
-
-    cy.get("dso-list-button")
+    cy.get("dso-list-button.hydrated")
       .as("dsoListButton")
+      .matchImageSnapshot()
+      .get("@dsoListButton")
       .should("be.visible")
       .shadow()
       .as("dsoListButtonShadow")
@@ -48,7 +48,9 @@ describe("ListButton", () => {
   it("should render subcontent in slot without prefix", () => {
     cy.get("dso-list-button").invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
 
-    cy.get("dso-list-button")
+    cy.get("dso-list-button.hydrated").matchImageSnapshot();
+
+    cy.get("dso-list-button.hydrated")
       .shadow()
       .find('slot[name="subcontent"]')
       .invoke("get", 0)
@@ -56,7 +58,6 @@ describe("ListButton", () => {
       .then((assignedNodes) => {
         cy.get('dso-list-button > [slot="subcontent"]').invoke("get", 0).should("equal", assignedNodes[0]);
       });
-    // .percySnapshot();
 
     cy.get("dso-list-button")
       .shadow()

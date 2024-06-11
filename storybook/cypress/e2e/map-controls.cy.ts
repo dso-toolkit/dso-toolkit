@@ -1,5 +1,4 @@
-import { BaseLayer } from "../../../packages/core/src/components/map-base-layers/map-base-layers.interfaces";
-import { Overlay } from "../../../packages/core/src/components/map-overlays/map-overlays.interfaces";
+import { BaseLayer, Overlay } from "@dso-toolkit/core";
 
 describe("Map Controls", () => {
   beforeEach(() => {
@@ -59,7 +58,7 @@ describe("Map Controls", () => {
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
 
-    // cy.percySnapshot();
+    cy.get("dso-map-controls.hydrated").matchImageSnapshot();
   });
 
   it("should emit zoom events", () => {

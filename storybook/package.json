@@ -15,6 +15,7 @@
     "@babel/preset-typescript": "^7.24.1",
     "@dso-toolkit/core": "workspace:^",
     "@infoprojects/prettier-config": "^1.0.0",
+    "@simonsmith/cypress-image-snapshot": "^9.0.3",
     "@storybook/addon-a11y": "7.6.19",
     "@storybook/addon-actions": "7.6.19",
     "@storybook/addon-essentials": "7.6.19",

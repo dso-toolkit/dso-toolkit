@@ -18,8 +18,6 @@ describe("Progress Indicator", () => {
     it(`should show ${size} spinner (Core)`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-progress-indicator--${size}`)
         .get("dso-progress-indicator")
-        .invoke("attr", "style", "--_progress-indicator-spinner-stroke-dasharray: 0;")
-        .get("dso-progress-indicator")
         .should("have.attr", "size", size)
         .shadow()
         .as("dsoProgressIndicator")
@@ -39,22 +37,19 @@ describe("Progress Indicator", () => {
         .should("eq", iconSize)
         .get("@dsoProgressIndicator")
         .find(".dso-progress-indicator-label")
-        .should("have.text", "Resultaten laden: een moment geduld alstublieft.");
-
-      // cy.percySnapshot(`core-progress-indicator--${size}`);
+        .should("have.text", "Resultaten laden: een moment geduld alstublieft.")
+        .get("@spinner")
+        .invoke("attr", "style", "visibility: hidden;") // hide the spinner to prevent false negatives
+        .get("@dsoProgressIndicator")
+        .matchImageSnapshot(`core-progress-indicator--${size}`);
     });
   }
 
-  // for (const { size } of sizes) {
-  //   it(`should show ${size} spinner (HTML/CSS)`, () => {
-  //     cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`)
-  //       .get("body")
-  //       .then(($body) => {
-  //         $body.prepend(`<style id="percy-fix">.dso-progress-indicator-spinner { visibility: hidden; }</style>`);
-  //       })
-  //       .get("#percy-fix")
-  //       .should("exist")
-  //       .percySnapshot(`html-css-progress-indicator--${size}`);
-  //   });
-  // }
+  for (const { size } of sizes) {
+    it(`should show ${size} spinner (HTML/CSS)`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`);
+
+      cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator--${size}`);
+    });
+  }
 });

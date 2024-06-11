@@ -18,7 +18,7 @@ describe("Table", () => {
         expect($tableBody[0].scrollWidth).to.be.greaterThan($tableBody[0].getBoundingClientRect().width),
       );
 
-    // cy.percySnapshot();
+    cy.get("dso-table.hydrated").matchImageSnapshot();
   });
 
   it("should open and close an accessible modal", () => {

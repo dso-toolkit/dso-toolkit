@@ -1,0 +1,438 @@
+[
+  {
+    "name": "attachments-counter",
+    "selector": "dso-attachments-counter.hydrated",
+    "stories": ["attachments-counter"],
+    "type": "core"
+  },
+  {
+    "name": "badge",
+    "selector": "dso-badge.hydrated",
+    "stories": ["plain", "primary", "success", "info", "warning", "danger", "outline"],
+    "type": "core"
+  },
+  {
+    "name": "banner",
+    "selector": "dso-banner.hydrated",
+    "stories": ["danger", "error", "info", "warning", "rich-warning", "danger-with-headings"],
+    "type": "core"
+  },
+  {
+    "name": "card-container",
+    "selector": "dso-card-container.hydrated",
+    "stories": ["card-list", "card-grid"],
+    "type": "core"
+  },
+  {
+    "name": "highlight-box",
+    "selector": "dso-highlight-box.hydrated",
+    "stories": ["default", "yellow", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
+    "type": "core"
+  },
+  { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["icon"], "type": "core" },
+  {
+    "name": "info-button",
+    "selector": "dso-info-button.hydrated",
+    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
+    "type": "core"
+  },
+  {
+    "name": "info",
+    "selector": "dso-info.hydrated",
+    "stories": ["default", "fixed"],
+    "type": "core"
+  },
+  {
+    "name": "list-button",
+    "selector": "dso-list-button.hydrated",
+    "stories": ["single-select"],
+    "type": "core"
+  },
+  {
+    "name": "list-button",
+    "selector": "dso-list-button.hydrated",
+    "stories": ["multi-select", "css-legacy-readonly-count"],
+    "type": "core",
+    "shadowWait": "dso-icon.hydrated"
+  },
+  {
+    "name": "progress-bar",
+    "selector": "dso-progress-bar.hydrated",
+    "stories": ["default", "arbitrary-values"],
+    "type": "core"
+  },
+  {
+    "name": "responsive-element",
+    "selector": "",
+    "stories": ["responsive-element"],
+    "type": "core",
+    "wait": [
+      "dso-responsive-element.hydrated[small]",
+      "dso-responsive-element.hydrated[medium]",
+      "dso-responsive-element.hydrated[large]"
+    ]
+  },
+  {
+    "name": "anchor",
+    "selector": "a",
+    "stories": [
+      "default",
+      "download-link",
+      "external-link",
+      "link-with-icon",
+      "mail-link-with-icon",
+      "phone-link-with-icon"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "application-heading",
+    "selector": ".dso-app-heading",
+    "stories": ["default", "with-subtitle", "with-subtitle-and-steps", "subtitle-only", "subtitle-and-steps-only"],
+    "type": "html-css"
+  },
+  {
+    "name": "attachments-counter",
+    "selector": ".dso-attachments",
+    "stories": ["attachments-counter"],
+    "type": "html-css"
+  },
+  {
+    "name": "badge",
+    "selector": ".dso-badge",
+    "stories": ["attention", "danger", "error", "info", "outline", "plain", "primary", "success", "warning"],
+    "type": "html-css"
+  },
+  {
+    "name": "banner",
+    "selector": ".dso-banner",
+    "stories": [
+      "danger",
+      "danger-with-headings",
+      "error",
+      "info",
+      "info-compact-non-removable",
+      "info-non-removable",
+      "rich-info",
+      "rich-warning",
+      "warning"
+    ],
+    "type": "html-css"
+  },
+  { "name": "breadcrumbs", "selector": ".breadcrumb", "stories": ["breadcrumb"], "type": "html-css" },
+  {
+    "name": "button",
+    "selector": ".dso-primary",
+    "stories": ["primary", "primary-compact"],
+    "type": "html-css"
+  },
+  {
+    "name": "button",
+    "selector": ".dso-secondary",
+    "stories": ["secondary"],
+    "type": "html-css"
+  },
+  {
+    "name": "button",
+    "selector": ".dso-tertiary",
+    "stories": ["tertiary"],
+    "type": "html-css"
+  },
+  {
+    "name": "button-row",
+    "selector": ".dso-button-row",
+    "stories": [
+      "alle-button-varianten",
+      "default",
+      "emphasized",
+      "primaire-button-varianten",
+      "secundaire-button-varianten",
+      "tertiaire-button-varianten"
+    ],
+    "type": "html-css"
+  },
+  { "name": "card-grid", "selector": ".dso-card-grid", "stories": ["card-grid"], "type": "html-css" },
+  { "name": "card-list", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
+  {
+    "name": "context",
+    "selector": "",
+    "stories": ["label", "label-align-left", "legend", "legend-align-left"],
+    "type": "html-css"
+  },
+  {
+    "name": "definition-list",
+    "selector": "dl",
+    "stories": [
+      "bordered",
+      "column-variant-one-three",
+      "column-variant-three-one",
+      "column-variant-two-two",
+      "columns-list",
+      "default",
+      "emphasize-description",
+      "three-columns",
+      "three-columns-small",
+      "two-columns",
+      "two-columns-small",
+      "vertical",
+      "vertical-with-emphasize-description"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "description",
+    "selector": ".dso-description-term",
+    "stories": ["example", "term"],
+    "type": "html-css"
+  },
+  {
+    "name": "document-list",
+    "selector": ".dso-document-list",
+    "stories": ["default", "sticky"],
+    "type": "html-css",
+    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
+  },
+  { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
+  { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
+  {
+    "name": "footnotes",
+    "selector": ".dso-footnote-reference",
+    "stories": ["reference"],
+    "type": "html-css"
+  },
+  {
+    "name": "form",
+    "selector": "",
+    "storyGroups": [
+      {
+        "group": "form-buttons",
+        "stories": ["default", "multi-page", "sections", "single-page", "simpel-form"]
+      },
+      {
+        "group": "groups-checkboxes",
+        "stories": ["checkboxes"]
+      },
+      {
+        "group": "groups-confirm",
+        "stories": ["confirm"]
+      },
+      {
+        "group": "groups-date-picker",
+        "stories": ["date-picker"],
+        "wait": "dso-date-picker.hydrated"
+      },
+      {
+        "group": "groups-date-picker-legacy",
+        "stories": ["date-picker"],
+        "wait": "dso-date-picker-legacy.hydrated"
+      },
+      {
+        "group": "groups-files",
+        "stories": ["files", "no-files"]
+      },
+      {
+        "group": "groups-input",
+        "stories": ["input"]
+      },
+      {
+        "group": "groups-input-number",
+        "stories": ["input-number"]
+      },
+      {
+        "group": "groups-radios",
+        "stories": ["radios"]
+      },
+      {
+        "group": "groups-search-bar",
+        "stories": ["search-bar"]
+      },
+      {
+        "group": "groups-select",
+        "stories": ["select"]
+      },
+      {
+        "group": "groups-static",
+        "stories": ["static"]
+      },
+      {
+        "group": "groups-textarea",
+        "stories": ["textarea"]
+      },
+      {
+        "group": "horizontal",
+        "stories": ["form"],
+        "wait": "dso-date-picker.hydrated"
+      },
+      {
+        "group": "justify-form-groups",
+        "stories": ["justify-form-groups"]
+      },
+      {
+        "group": "vertical",
+        "stories": ["form"],
+        "wait": "dso-date-picker.hydrated"
+      }
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "highlight-box",
+    "selector": ".dso-highlight-box",
+    "stories": [
+      "default",
+      "grey",
+      "grey-with-border",
+      "white-with-dropshadow",
+      "with-banner-image",
+      "with-border",
+      "with-icon",
+      "yellow"
+    ],
+    "type": "html-css"
+  },
+  { "name": "icon", "selector": "svg.di", "stories": ["icon"], "type": "html-css" },
+  {
+    "name": "image",
+    "selector": "img",
+    "stories": ["default", "responsive", "circle"],
+    "type": "html-css"
+  },
+  {
+    "name": "info",
+    "selector": ".dso-info:not(.dso-accordion-section)",
+    "stories": ["default", "fixed"],
+    "type": "html-css"
+  },
+  {
+    "name": "info-button",
+    "selector": ".dso-info-button",
+    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
+    "type": "html-css"
+  },
+  {
+    "name": "input-number",
+    "selector": ".dso-input-number",
+    "stories": ["input-number"],
+    "type": "html-css"
+  },
+  { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
+  {
+    "name": "link-list",
+    "selector": ".dso-link-list",
+    "stories": ["ul", "ol", "in-nav", "in-footer"],
+    "type": "html-css"
+  },
+  {
+    "name": "link-list",
+    "selector": "",
+    "stories": ["in-highlight-box"],
+    "type": "html-css"
+  },
+  {
+    "name": "list",
+    "selector": "",
+    "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
+    "type": "html-css"
+  },
+  {
+    "name": "list-button",
+    "selector": ".dso-list-button",
+    "stories": ["single-select", "css-legacy-readonly-count"],
+    "type": "html-css"
+  },
+  {
+    "name": "list-button",
+    "selector": ".dso-button-group",
+    "stories": ["multi-select"],
+    "type": "html-css"
+  },
+  {
+    "name": "navbar",
+    "selector": ".dso-navbar",
+    "stories": ["primary", "secondary"],
+    "type": "html-css"
+  },
+  {
+    "name": "navbar",
+    "selector": "",
+    "stories": ["with-extension"],
+    "type": "html-css",
+    "wait": "dso-mark-bar.hydrated"
+  },
+  {
+    "name": "progress-bar",
+    "selector": ".progress",
+    "stories": ["default", "arbitrary-values"],
+    "type": "html-css"
+  },
+  {
+    "name": "rich-content",
+    "selector": "",
+    "stories": ["rich-content"],
+    "type": "html-css",
+    "wait": "dso-highlight-box.hydrated"
+  },
+  {
+    "name": "row-equal-heights",
+    "selector": ".row.dso-equal-heights",
+    "stories": ["highlight-boxes", "tiles", "whiteboxes"],
+    "type": "html-css"
+  },
+  {
+    "name": "search-bar",
+    "selector": ".dso-search-bar",
+    "stories": [
+      "visual-label-with-icon",
+      "visual-label-without-icon",
+      "placeholder-with-long-text",
+      "hidden-label-with-icon",
+      "hidden-label-without-icon",
+      "with-value",
+      "invalid",
+      "hidden-button",
+      "with-results-message",
+      "with-hidden-results-message"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "shopping-cart",
+    "selector": ".dso-shopping-cart ",
+    "stories": [
+      "default",
+      "items-collapsed",
+      "items-non-collapsable",
+      "remove-all-items-option",
+      "edit-items",
+      "with-subitems",
+      "with-subitems-and-hidden-summary",
+      "with-subitems-and-warning"
+    ],
+    "type": "html-css"
+  },
+  {
+    "name": "tabs",
+    "selector": "ul.nav.nav-tabs",
+    "stories": ["default", "inactief"],
+    "type": "html-css"
+  },
+  {
+    "name": "tile",
+    "selector": ".dso-tile",
+    "stories": ["default", "theme"],
+    "type": "html-css"
+  },
+  {
+    "name": "tile-grid",
+    "selector": ".dso-tile-grid",
+    "stories": ["tile-grid"],
+    "type": "html-css",
+    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
+  },
+  {
+    "name": "whitebox",
+    "selector": ".dso-whitebox",
+    "stories": ["default", "with-counter", "with-icon"],
+    "type": "html-css"
+  }
+]

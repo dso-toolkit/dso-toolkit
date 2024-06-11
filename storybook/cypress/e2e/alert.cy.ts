@@ -20,7 +20,7 @@ describe("Alert", () => {
 
   for (const { status, message, icon } of statuses) {
     it(`should have appropriate message and icon for status "${status}"`, () => {
-      cy.get("dso-alert")
+      cy.get("dso-alert.hydrated")
         .invoke("attr", "status", status)
         .shadow()
         .find(".alert > span.sr-only")
@@ -30,9 +30,9 @@ describe("Alert", () => {
         .shadow()
         .find(".alert > dso-icon")
         .invoke("prop", "icon")
-        .should("equal", icon);
-
-      // cy.percySnapshot();
+        .should("equal", icon)
+        .get("dso-alert.hydrated")
+        .matchImageSnapshot();
     });
   }
 });

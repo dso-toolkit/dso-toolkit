@@ -26,6 +26,8 @@
 
 /// <reference types="cypress" />
 
+import { cypressStyling } from "./cypress-styling";
+
 export {};
 
 declare global {
@@ -52,4 +54,12 @@ Cypress.Commands.add("isWithinViewport", { prevSubject: true }, (subject) => {
   expect(rect.left).to.be.within(0, windowInnerWidth);
 
   return subject;
+});
+
+// Automatically apply styles after visiting a new page
+Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
+  // @ts-expect-error -- https://github.com/cypress-io/cypress/issues/19564
+  return originalFn(url, options).then(() => {
+    cypressStyling();
+  });
 });

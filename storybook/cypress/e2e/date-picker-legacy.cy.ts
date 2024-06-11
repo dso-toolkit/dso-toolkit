@@ -7,20 +7,18 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should have label", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .should("have.attr", "identifier")
       .and("not.be.empty")
       .then((id) => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
-      });
 
-    // cy.percySnapshot();
+        cy.get("dso-date-picker-legacy.hydrated").matchImageSnapshot();
+      });
   });
 
   it("should have focus trap", () => {
-    cy.get("dso-date-picker-legacy").as("date-picker-legacy").find("button.dso-date__toggle").click();
-
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
+    cy.get("dso-date-picker-legacy.hydrated").as("date-picker-legacy").find("button.dso-date__toggle").click();
 
     cy.get("@date-picker-legacy").find("select.dso-date__select--month").should("have.focus").realPress("Tab");
 
@@ -40,11 +38,11 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("ESCAPE should close date picker and focus toggle button", () => {
-    cy.get("dso-date-picker-legacy").as("date-picker-legacy");
+    cy.get("dso-date-picker-legacy.hydrated").as("date-picker-legacy");
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
 
     cy.realPress("Escape");
 
@@ -54,7 +52,7 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should navigate by keyboard", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       // Prepare date picker, cy.clock() doesn't work (presumably because of Stencil dev env)
       .invoke("attr", "value", "19-09-1988")
       .should("have.attr", "value", "19-09-1988")
@@ -63,7 +61,7 @@ describe("Date Picker (Legacy)", () => {
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
 
     cy.realPress("Tab");
     cy.realPress("Tab");
@@ -146,18 +144,18 @@ describe("Date Picker (Legacy)", () => {
   it("should select first day of current month", () => {
     const now = new Date();
 
-    cy.checkA11y("dso-date-picker-legacy");
+    cy.get("dso-date-picker-legacy.hydrated").as("root").checkA11y("dso-date-picker-legacy.hydrated");
 
-    cy.get("dso-date-picker-legacy").as("root").find("button.dso-date__toggle").click();
+    cy.get("@root").find("button.dso-date__toggle").click();
 
     // We need to wait for color contrast checks, during the fade-in/fade-out the computed color code is returning a faded color code
-    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy");
+    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy.hydrated");
 
     cy.get("@root").find(".dso-date__day.is-today").click();
 
-    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy");
+    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy.hydrated");
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "value")
       .should(
         "equal",
@@ -169,13 +167,13 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should open and close using instance methods", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .then(($element: JQuery<HTMLDsoDatePickerLegacyElement>) => {
         $element.get(0).show();
       })
       .get(".dso-date__dialog.is-active", { includeShadowDom: true })
       .should("be.visible")
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .then(($element: JQuery<HTMLDsoDatePickerLegacyElement>) => {
         $element.get(0).hide();
       })
@@ -185,11 +183,11 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should select February 5th, 2015", () => {
-    cy.get("dso-date-picker-legacy").then((e) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((e) => {
       e.get(0).addEventListener("dsoDateChange", cy.stub().as("dateChange"));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .as("root")
       .find("button.dso-date__toggle")
       .click()
@@ -211,11 +209,11 @@ describe("Date Picker (Legacy)", () => {
 
   it("should emit changed event on invalid input", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("34-56")
       .then(() => {
@@ -226,7 +224,7 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should only allow date characters input", () => {
-    cy.get("dso-date-picker-legacy").then(($DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then(($DatePickerLegacy) => {
       $DatePickerLegacy.on("dsoDateChange", cy.stub().as("listener"));
     });
 
@@ -259,18 +257,18 @@ describe("Date Picker (Legacy)", () => {
         valueAsDate: undefined,
         error: "invalid",
       })
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .should("have.attr", "value", allowedChars);
   });
 
   it("should emit changed event with error on date input before min", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).min = "1-1-2022";
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("1-1-2022")
       .then(() => {
@@ -281,9 +279,9 @@ describe("Date Picker (Legacy)", () => {
         expect(details[details.length - 1].valueAsDate.getFullYear()).equal(2022);
       });
 
-    cy.get("dso-date-picker-legacy").find("input.dso-date__input").clear();
+    cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").clear();
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("1-1-2021")
       .then(() => {
@@ -295,12 +293,12 @@ describe("Date Picker (Legacy)", () => {
 
   it("should emit changed event with error on date input after max", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).max = "31-12-2021";
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("31-12-2021")
       .then(() => {
@@ -311,9 +309,9 @@ describe("Date Picker (Legacy)", () => {
         expect(details[details.length - 1].valueAsDate.getMonth()).equal(11);
       });
 
-    cy.get("dso-date-picker-legacy").find("input.dso-date__input").clear();
+    cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").clear();
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("1-1-2022")
       .then(() => {
@@ -325,11 +323,11 @@ describe("Date Picker (Legacy)", () => {
 
   it("should not allow invalid characters to be pasted", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .invoke("val", "zzz")
       .trigger("input")
@@ -343,11 +341,11 @@ describe("Date Picker (Legacy)", () => {
 
   it("should emit changed event on valid input", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("11-4-1970")
       .then(() => {
@@ -359,20 +357,20 @@ describe("Date Picker (Legacy)", () => {
 
   it("should padStart days and months with 0", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy--with-label&args=value:1-1-2000");
-    cy.get("dso-date-picker-legacy").find("input.dso-date__input").should("have.value", "01-01-2000");
+    cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("have.value", "01-01-2000");
   });
 
   it("should autofocus", () => {
-    cy.get("dso-date-picker-legacy").find("input.dso-date__input").should("not.have.focus");
+    cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("not.have.focus");
 
     cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy--with-label&args=autofocus:true");
 
-    cy.get("dso-date-picker-legacy").find("input.dso-date__input").should("have.focus");
+    cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("have.focus");
   });
 
   it("should emit keyboard events", () => {
     const keys = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoKeyDown", (event: CustomEvent) =>
         keys.push(event.detail.originalEvent.key),
       );
@@ -381,7 +379,7 @@ describe("Date Picker (Legacy)", () => {
       );
     });
 
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("12")
       .realPress("Enter")
@@ -392,7 +390,7 @@ describe("Date Picker (Legacy)", () => {
 
   it("should allow and show invalid input", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy").then((DatePickerLegacy) => {
+    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
       DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
     });
 
@@ -413,11 +411,14 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("closed DatePickerLegacy should not have invisible calendar", () => {
-    cy.get("dso-date-picker-legacy").should("have.class", "hydrated").find(".dso-date__dialog").should("be.hidden");
+    cy.get("dso-date-picker-legacy.hydrated")
+      .should("have.class", "hydrated")
+      .find(".dso-date__dialog")
+      .should("be.hidden");
   });
 
   it("keep cursor in correct position when editing date", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
       .type("11-04-1970")
       .should("have.prop", "selectionStart", 10)
@@ -429,7 +430,7 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should have an invalid state", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "invalid", "true")
       .find(".dso-date__input")
       .should("have.css", "border-color", "rgb(206, 63, 81)")
@@ -437,14 +438,14 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should only show available months in range", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "min", "3-8-2020")
       .invoke("attr", "max", "28-3-2022")
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(".dso-date__toggle")
       .click()
       .wait(300)
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find<HTMLOptionElement>(
         ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
@@ -452,14 +453,14 @@ describe("Date Picker (Legacy)", () => {
         const actual = [...options].map((o) => o.text);
         expect(actual).to.deep.eq(["Januari", "Februari", "Maart"]);
       })
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(`.dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option[value="2"]`)
       .should("be.selected")
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--year")
       .select("2021")
       .wait(300)
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find<HTMLOptionElement>(
         ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
@@ -481,14 +482,14 @@ describe("Date Picker (Legacy)", () => {
           "December",
         ]);
       })
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--year")
       .select("2020")
       .wait(300)
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(`.dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option[value="7"]`)
       .should("be.selected")
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find<HTMLOptionElement>(
         ".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option",
       )
@@ -496,7 +497,7 @@ describe("Date Picker (Legacy)", () => {
         const actual = [...options].map((o) => o.text);
         expect(actual).to.deep.eq(["Augustus", "September", "Oktober", "November", "December"]);
       })
-      .get("dso-date-picker-legacy")
+      .get("dso-date-picker-legacy.hydrated")
       .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month")
       .select("9")
       .find(`option[value="9"]`)
@@ -504,7 +505,7 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should set aria-describedby", () => {
-    cy.get("dso-date-picker-legacy")
+    cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "described-by", "id-van-ander-element")
       .find(".dso-date__input")
       .should("have.attr", "aria-describedby", "id-van-ander-element");

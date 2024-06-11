@@ -23,7 +23,8 @@ describe("Tooltip", () => {
 
   // Temporary test, this shouldn't be needed. Don't copy/paste this.
   it("should look ok", () => {
-    // cy.percySnapshot();
+    prepareComponent();
+    cy.get("@dsoButton").matchImageSnapshot();
   });
 
   it.skip("should show tooltip on focus on button and hide on escape key", () => {
