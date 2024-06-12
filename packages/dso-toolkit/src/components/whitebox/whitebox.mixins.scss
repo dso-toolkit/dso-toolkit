@@ -8,10 +8,10 @@
 @mixin root() {
   background: colors.$wit;
   box-shadow: whitebox-variables.$box-shadow;
-  margin-bottom: whitebox-variables.$margin-bottom;
+  margin-block-end: whitebox-variables.$margin-bottom;
   padding: units.$u2 units.$u3;
   position: relative;
-  top: units.$u7;
+  inset-block-start: units.$u7;
 
   .dso-whitebox-title {
     h2 {
@@ -21,17 +21,17 @@
   }
 
   .dso-whitebox-link {
-    margin-bottom: units.$u4;
+    margin-block-end: units.$u4;
     text-align: center;
   }
 
   .dso-whitebox-icon {
-    margin-bottom: units.$u4;
+    margin-block-end: units.$u4;
     text-align: center;
 
     img {
-      height: 160px;
-      width: 160px;
+      block-size: 160px;
+      inline-size: 160px;
     }
   }
 
@@ -48,7 +48,7 @@
 }
 
 @mixin equal-heights() {
-  height: calc(100% - #{whitebox-variables.$margin-bottom});
-  min-height: auto;
-  padding-bottom: units.$u2;
+  block-size: calc(100% - #{whitebox-variables.$margin-bottom});
+  min-block-size: auto;
+  padding-block-end: units.$u2;
 }

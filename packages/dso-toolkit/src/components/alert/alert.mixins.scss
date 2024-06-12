@@ -8,27 +8,27 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin icon-position() {
-  left: alert-variables.$horizontal-padding - 1px; // 1px border
+  inset-inline-start: alert-variables.$horizontal-padding - 1px; // 1px border
   position: absolute;
-  top: alert-variables.$horizontal-padding - 1px; // 1px border
+  inset-block-start: alert-variables.$horizontal-padding - 1px; // 1px border
 }
 
 @mixin children() {
   > .dso-rich-content {
     *:first-child {
-      margin-top: 0 !important;
+      margin-block-start: 0 !important;
     }
 
     *:last-child {
-      margin-bottom: 0 !important;
+      margin-block-end: 0 !important;
     }
 
     #{typography.$headings} {
       color: colors.$zwart;
       font-size: 1em;
       line-height: typography.$line-height-base;
-      margin-bottom: units.$u1;
-      margin-top: units.$u1;
+      margin-block-end: units.$u1;
+      margin-block-start: units.$u1;
     }
 
     .dso-alert-button {
@@ -71,8 +71,8 @@
 @mixin root() {
   border: 1px solid transparent;
   line-height: typography.$line-height-base;
-  margin-bottom: typography.$line-height-computed;
-  min-height: 2 * alert-variables.$horizontal-padding + alert-variables.$icon-size;
+  margin-block-end: typography.$line-height-computed;
+  min-block-size: 2 * alert-variables.$horizontal-padding + alert-variables.$icon-size;
   position: relative;
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
@@ -85,6 +85,6 @@
   }
 
   &:not(:first-child) {
-    margin-top: units.$u3;
+    margin-block-start: units.$u3;
   }
 }

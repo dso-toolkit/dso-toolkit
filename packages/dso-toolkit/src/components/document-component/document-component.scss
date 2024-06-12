@@ -5,22 +5,22 @@ dso-responsive-element.dso-document-components {
     dso-document-component {
       &::part(_annotation-container),
       &::part(_content) {
-        padding-left: document-component-variables.$indent;
+        padding-inline-start: document-component-variables.$indent;
       }
 
       &[not-collapsible] {
         &::part(_heading-container) {
-          padding-left: document-component-variables.$indent;
+          padding-inline-start: document-component-variables.$indent;
         }
       }
 
       &:not([not-collapsible]) {
         &::part(_children-container) {
-          padding-left: document-component-variables.$indent;
+          padding-inline-start: document-component-variables.$indent;
         }
 
         dso-document-component {
-          margin-left: document-component-variables.$indent * -1;
+          margin-inline-start: document-component-variables.$indent * -1;
         }
       }
     }
@@ -30,7 +30,7 @@ dso-responsive-element.dso-document-components {
     dso-document-component {
       &[filtered] {
         &::before {
-          left: calc((var(--depth) * #{document-component-variables.$indent} + 3px) * -1);
+          inset-inline-start: calc((var(--depth) * #{document-component-variables.$indent} + 3px) * -1);
         }
       }
 
@@ -40,7 +40,7 @@ dso-responsive-element.dso-document-components {
         &::part(_annotation-container),
         &::part(_content),
         &::part(_children-container) {
-          padding-left: document-component-variables.$indent;
+          padding-inline-start: document-component-variables.$indent;
         }
 
         li {

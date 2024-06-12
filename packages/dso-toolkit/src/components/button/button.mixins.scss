@@ -30,7 +30,7 @@
   border-style: solid;
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;
-  min-width: button-variables.$min-width;
+  min-inline-size: button-variables.$min-width;
   padding: button-variables.$vertical-padding button-variables.$horizontal-padding;
 
   &:hover {
@@ -59,14 +59,14 @@
   } @else {
     dso-icon,
     svg.di {
-      margin-left: units.$u1 * -1;
-      margin-right: units.$u1;
+      margin-inline-start: units.$u1 * -1;
+      margin-inline-end: units.$u1;
     }
 
     span + dso-icon,
     span + svg.di {
-      margin-left: units.$u1;
-      margin-right: units.$u1 * -1;
+      margin-inline-start: units.$u1;
+      margin-inline-end: units.$u1 * -1;
     }
   }
 }
@@ -76,14 +76,14 @@
   background-repeat: no-repeat;
   content: "";
   display: inline-block;
-  height: units.$u3;
+  block-size: units.$u3;
   vertical-align: $valign;
-  width: units.$u3;
+  inline-size: units.$u3;
 
   @if $position == left {
-    margin-right: units.$u1;
+    margin-inline-end: units.$u1;
   } @else if $position == right {
-    margin-left: units.$u1;
+    margin-inline-start: units.$u1;
   }
 }
 
@@ -116,8 +116,8 @@
 @mixin icon-only() {
   dso-icon,
   svg.di {
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   > span {
@@ -133,21 +133,21 @@
   &.extern::after,
   &.download::after,
   &.dso-spinner::before {
-    margin-bottom: units.$u1 * -0.5;
-    margin-top: units.$u1 * -0.5;
+    margin-block-end: units.$u1 * -0.5;
+    margin-block-start: units.$u1 * -0.5;
   }
 
   &.dso-spinner-left {
     &::before {
-      height: units.$u2;
-      width: units.$u2;
+      block-size: units.$u2;
+      inline-size: units.$u2;
     }
   }
 
   &.dso-spinner-right {
     &::after {
-      height: units.$u2;
-      width: units.$u2;
+      block-size: units.$u2;
+      inline-size: units.$u2;
     }
   }
 }
@@ -156,10 +156,10 @@
   display: inline-block;
   font-size: 1em;
   font-weight: 500;
-  margin-bottom: 0;
+  margin-block-end: 0;
   text-decoration: none;
   touch-action: manipulation;
-  text-align: left;
+  text-align: start;
   user-select: none;
   vertical-align: middle;
 
@@ -178,7 +178,7 @@
       &::after {
         content: "";
         display: inline-block;
-        margin-left: units.$u1;
+        margin-inline-start: units.$u1;
       }
     }
   }
@@ -186,10 +186,10 @@
 
 @mixin block($sibling-selector) {
   display: block;
-  width: 100%;
+  inline-size: 100%;
 
   & + #{$sibling-selector} {
-    margin-top: 5px; // Vertically space out multiple block buttons
+    margin-block-start: 5px; // Vertically space out multiple block buttons
   }
 }
 
@@ -298,8 +298,8 @@
 
       &.dso-small:hover {
         &::before {
-          height: units.$u2;
-          width: units.$u2;
+          block-size: units.$u2;
+          inline-size: units.$u2;
         }
       }
     }
@@ -319,8 +319,8 @@
 
       &.dso-small:hover {
         &::after {
-          height: units.$u2;
-          width: units.$u2;
+          block-size: units.$u2;
+          inline-size: units.$u2;
         }
       }
     }
@@ -379,7 +379,7 @@
   }
 
   &.dso-truncate {
-    max-width: 100%;
+    max-inline-size: 100%;
     overflow: hidden;
     text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
@@ -406,14 +406,14 @@
     svg.di + span:not(.sr-only),
     span:not(.sr-only) + dso-icon,
     span:not(.sr-only) + svg.di {
-      margin-left: units.$u1;
+      margin-inline-start: units.$u1;
     }
 
     svg.di.di-chevron-down + span:not(.sr-only),
     svg.di.di-chevron-up + span:not(.sr-only),
     span:not(.sr-only) + svg.di.di-chevron-down,
     span:not(.sr-only) + svg.di.di-chevron-up {
-      margin-left: units.$u1 * 0.5;
+      margin-inline-start: units.$u1 * 0.5;
     }
 
     dso-icon[icon="chevron-left"] + span:not(.sr-only),
@@ -424,7 +424,7 @@
     span:not(.sr-only) + svg.di.di-angle-up,
     span:not(.sr-only) + dso-icon[icon="chevron-left"],
     span:not(.sr-only) + dso-icon[icon="chevron-right"] {
-      margin-left: 0;
+      margin-inline-start: 0;
     }
 
     dso-icon,
@@ -467,7 +467,7 @@
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   font-weight: 600;
-  margin-right: units.$u2;
+  margin-inline-end: units.$u2;
   padding: units.$u1 units.$u2;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
 }

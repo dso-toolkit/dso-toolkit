@@ -8,13 +8,13 @@
 @use "header.variables" as core-header-variables;
 
 @mixin nav-item-border($color) {
-  border-bottom: 4px solid $color;
+  border-block-end: 4px solid $color;
 }
 
 @mixin nav-item-main {
   font-size: 1.25em;
   line-height: 1;
-  margin-top: units.$u1;
+  margin-block-start: units.$u1;
   padding: units.$u2 0;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .dso-header {
-  border-bottom: 1px solid colors.$grijs-20;
+  border-block-end: 1px solid colors.$grijs-20;
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -46,14 +46,14 @@
 .logo-container {
   flex: 1 1 12.5rem;
   margin-inline-end: units.$u3;
-  padding-bottom: units.$u2;
-  padding-top: units.$u2;
+  padding-block-end: units.$u2;
+  padding-block-start: units.$u2;
 }
 
 .dso-header-session {
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-inline-start: auto;
 
   .profile,
   .login,
@@ -68,13 +68,13 @@
   }
 
   .profile {
-    margin-left: units.$u1;
+    margin-inline-start: units.$u1;
 
     + .logout,
     ~ .help {
-      border-left: 3px solid colors.$grijs-20;
-      margin-left: units.$u1;
-      padding-left: units.$u1;
+      border-inline-start: 3px solid colors.$grijs-20;
+      margin-inline-start: units.$u1;
+      padding-inline-start: units.$u1;
     }
   }
 
@@ -90,7 +90,7 @@
   flex-basis: 100%;
 
   .dso-dropdown-options {
-    border-top: 1px solid colors.$grijs-20;
+    border-block-start: 1px solid colors.$grijs-20;
   }
 }
 
@@ -101,7 +101,7 @@ dso-dropdown-menu {
     border: 0;
     display: flex;
     font-family: typography.$font-family-base;
-    padding-right: units.$u4;
+    padding-inline-end: units.$u4;
   }
 
   .dso-dropdown-options {
@@ -142,14 +142,14 @@ dso-dropdown-menu {
       }
 
       + li {
-        border-top: 1px solid colors.$grijs-20;
+        border-block-start: 1px solid colors.$grijs-20;
       }
     }
   }
 }
 
 .dropdown {
-  margin-left: auto;
+  margin-inline-start: auto;
   display: flex;
   align-items: center;
 
@@ -157,8 +157,8 @@ dso-dropdown-menu {
     position: static;
 
     .dso-dropdown-options {
-      right: 0;
-      top: 100%;
+      inset-inline-end: 0;
+      inset-block-start: 100%;
     }
 
     > button {
@@ -169,10 +169,10 @@ dso-dropdown-menu {
       position: relative;
 
       &::after {
-        margin-left: units.$u1;
+        margin-inline-start: units.$u1;
         position: absolute;
-        right: 0px;
-        top: 50%;
+        inset-inline-end: 0px;
+        inset-block-start: 50%;
         transform: translateY(-50%);
       }
 
@@ -190,12 +190,12 @@ dso-dropdown-menu {
   column-gap: units.$u4;
   display: flex;
   list-style: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-left: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
 
   > li {
-    margin-bottom: 4px;
+    margin-block-end: 4px;
 
     > a {
       display: block;
@@ -210,7 +210,7 @@ dso-dropdown-menu {
 
     &.dso-active,
     &.is-active {
-      margin-bottom: 0;
+      margin-block-end: 0;
 
       > a {
         @include nav-item-border(core-header-variables.$navigation-selected-color);
@@ -235,8 +235,8 @@ dso-dropdown-menu {
 
     dso-dropdown-menu {
       .dso-dropdown-options {
-        left: units.$ru2 * -1 !important;
-        top: 3px !important;
+        inset-inline-start: units.$ru2 * -1 !important;
+        inset-block-start: 3px !important;
       }
 
       button {
@@ -244,7 +244,7 @@ dso-dropdown-menu {
 
         align-items: center;
         color: colors.$bosgroen;
-        padding-right: units.$u4;
+        padding-inline-end: units.$u4;
 
         &:hover,
         &:active {
@@ -253,10 +253,10 @@ dso-dropdown-menu {
         }
 
         &::after {
-          margin-left: units.$u1;
+          margin-inline-start: units.$u1;
           position: absolute;
-          right: 0px;
-          top: auto;
+          inset-inline-end: 0px;
+          inset-block-start: auto;
           transform: none;
         }
       }
@@ -264,14 +264,14 @@ dso-dropdown-menu {
   }
 
   .menu-user-home {
-    margin-left: auto;
+    margin-inline-start: auto;
 
     dso-icon {
-      height: 1em;
-      margin-right: units.$u1;
+      block-size: 1em;
+      margin-inline-end: units.$u1;
       position: relative;
-      top: -2px;
-      width: 1.2em;
+      inset-block-start: -2px;
+      inline-size: 1.2em;
     }
   }
 }

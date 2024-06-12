@@ -4,9 +4,9 @@
 
 hr {
   border: 0;
-  border-top: 1px solid css-horizontal-rule-variables.$hr-border;
+  border-block-start: 1px solid css-horizontal-rule-variables.$hr-border;
   box-sizing: content-box;
-  height: 0;
-  margin-bottom: units.$vertical-spacing-medium;
-  margin-top: units.$vertical-spacing-medium;
+  block-size: 0;
+  margin-block-end: units.$vertical-spacing-medium;
+  margin-block-start: units.$vertical-spacing-medium;
 }

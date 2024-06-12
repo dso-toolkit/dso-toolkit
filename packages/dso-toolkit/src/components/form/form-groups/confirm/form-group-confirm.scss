@@ -22,8 +22,8 @@
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .form-horizontal & .dso-field-container {
-      margin-left: math.percentage(math.div(css-form-variables.$label-column, css-grid.$grid-columns));
-      padding-left: css-grid.$grid-gutter-width * 0.5;
+      margin-inline-start: math.percentage(math.div(css-form-variables.$label-column, css-grid.$grid-columns));
+      padding-inline-start: css-grid.$grid-gutter-width * 0.5;
     }
   }
 }

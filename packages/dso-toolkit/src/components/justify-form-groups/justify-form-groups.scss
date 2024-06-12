@@ -8,11 +8,11 @@
 
   .form-group {
     display: block;
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     + .form-group,
     + .dso-form-buttons {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     .dso-label-container {
@@ -40,7 +40,7 @@
     > div {
       &.dso-form-buttons {
         grid-row: 2;
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
 
@@ -50,8 +50,8 @@
       &,
       + .form-group,
       + .dso-form-buttons {
-        margin-bottom: 0;
-        margin-top: 0;
+        margin-block-end: 0;
+        margin-block-start: 0;
       }
 
       .dso-label-container {
@@ -61,7 +61,7 @@
 
       .dso-field-container {
         grid-row: 2;
-        margin-top: 0;
+        margin-block-start: 0;
       }
 
       .dso-info-container {
@@ -69,7 +69,7 @@
 
         .dso-help-block,
         .dso-message {
-          margin-top: 0;
+          margin-block-start: 0;
         }
       }
     }

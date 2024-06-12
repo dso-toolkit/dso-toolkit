@@ -20,14 +20,14 @@
 }
 
 :host([not-collapsible]:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])) {
-  padding-left: units.$u1;
-  margin-right: units.$u1;
+  padding-inline-start: units.$u1;
+  margin-inline-end: units.$u1;
 }
 
 :host(:where([wijzigactie="verwijder"], [wijzigactie="voegtoe"])),
 :host(:where([wijzigactie="nieuweContainer"], [wijzigactie="verwijderContainer"])) .heading-container {
-  padding-top: units.$u1 * 0.5;
-  padding-bottom: units.$u1 * 0.5;
+  padding-block-start: units.$u1 * 0.5;
+  padding-block-end: units.$u1 * 0.5;
 }
 
 :host([wijzigactie="verwijderContainer"]) .heading-container,
@@ -45,19 +45,19 @@
 
   &::before {
     content: "";
-    left: -3px;
+    inset-inline-start: -3px;
     position: absolute;
     display: block;
-    width: 3px;
-    top: 0;
-    bottom: 0;
+    inline-size: 3px;
+    inset-block-start: 0;
+    inset-block-end: 0;
     background-color: colors.$lichtblauw;
   }
 }
 
 :host([open]) {
   .heading-container {
-    margin-bottom: units.$u1;
+    margin-block-end: units.$u1;
   }
 }
 
@@ -83,11 +83,11 @@
 
 :host([not-collapsible]) {
   .heading-container {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .editaction-label {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   .heading-element {
@@ -103,7 +103,7 @@
   }
 
   .editaction-label {
-    margin-left: document-component.$indent;
+    margin-inline-start: document-component.$indent;
   }
 }
 
@@ -128,10 +128,10 @@
 
 .editaction-label {
   font-style: italic;
-  margin-left: units.$u1;
+  margin-inline-start: units.$u1;
 }
 
 .content,
 .heading-container {
-  padding-right: units.$u1;
+  padding-inline-end: units.$u1;
 }
