@@ -20,17 +20,19 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                                                                                                                              | Type                                                                                                                           | Default                |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
-| `loading`        | `loading`          | Shows progress indicator when fetching results.                                                                                                                                                                                                                                                                          | `boolean`                                                                                                                      | `false`                |
-| `loadingDelayed` | `loading-delayed`  | To delay progress indicator showing (in ms).                                                                                                                                                                                                                                                                             | `number \| undefined`                                                                                                          | `undefined`            |
-| `loadingLabel`   | `loading-label`    | To override progress indicator's default loading label.                                                                                                                                                                                                                                                                  | `string \| undefined`                                                                                                          | `"Een moment geduld."` |
-| `mark`           | --                 | A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s                                                                                                                                                                                                        | `((text: string, type: "value" \| "type" \| "extra", extraIndex?: number \| undefined) => AutosuggestMarkItem[]) \| undefined` | `undefined`            |
-| `notFoundLabel`  | `not-found-label`  | To show text when no results are found.                                                                                                                                                                                                                                                                                  | `string \| undefined`                                                                                                          | `undefined`            |
-| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                                                                                      | `boolean`                                                                                                                      | `false`                |
-| `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`. The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. The value should be null when no suggestions have been fetched. | `Suggestion[] \| null`                                                                                                         | `null`                 |
+| Property         | Attribute          | Description                                                                                                                                                                                                                                                                                                                | Type                                                                                                                           | Default                |
+| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `loading`        | `loading`          | Shows progress indicator when fetching results.                                                                                                                                                                                                                                                                            | `boolean`                                                                                                                      | `false`                |
+| `loadingDelayed` | `loading-delayed`  | To delay progress indicator showing (in ms).                                                                                                                                                                                                                                                                               | `number \| undefined`                                                                                                          | `undefined`            |
+| `loadingLabel`   | `loading-label`    | To override progress indicator's default loading label.                                                                                                                                                                                                                                                                    | `string \| undefined`                                                                                                          | `"Een moment geduld."` |
+| `mark`           | --                 | A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s                                                                                                                                                                                                          | `((text: string, type: "value" \| "type" \| "extra", extraIndex?: number \| undefined) => AutosuggestMarkItem[]) \| undefined` | `undefined`            |
+| `notFoundLabel`  | `not-found-label`  | To show text when no results are found.                                                                                                                                                                                                                                                                                    | `string \| undefined`                                                                                                          | `undefined`            |
+| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                                                                                        | `boolean`                                                                                                                      | `false`                |
+| `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.  The value should be null when no suggestions have been fetched. | `Suggestion[] \| null`                                                                                                         | `null`                 |
+
 
 ## Events
 
@@ -40,6 +42,7 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 | `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
 | `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -47,7 +50,6 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 - [dso-progress-indicator](../progress-indicator)
 
 ### Graph
-
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-progress-indicator
@@ -55,6 +57,6 @@ graph TD;
   style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
