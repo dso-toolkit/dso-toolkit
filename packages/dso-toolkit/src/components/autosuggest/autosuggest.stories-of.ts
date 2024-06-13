@@ -42,7 +42,6 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
 export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
   autosuggestInSearchBarTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
-  autosuggestMarkTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
 export function autosuggestMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -113,8 +112,8 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
       ),
     },
     WithProvidedMarkFunction: {
-      render: templateContainer.render(storyTemplates, (args, { autosuggestMarkTemplate }) =>
-        autosuggestMarkTemplate(
+      render: templateContainer.render(storyTemplates, (args, { autosuggestInSearchBarTemplate }) =>
+        autosuggestInSearchBarTemplate(
           fetchSuggestions,
           args.dsoSelect,
           args.dsoChange,

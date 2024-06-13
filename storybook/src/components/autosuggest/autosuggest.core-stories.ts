@@ -76,47 +76,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
     };
 
     return {
-      autosuggestMarkTemplate: (
-        fetchSuggestions,
-        dsoSelect,
-        dsoChange,
-        dsoSearch,
-        suggestOnFocus,
-        loading,
-        loadingLabel,
-        loadingDelayed,
-        notFoundLabel,
-        minimalCharacters,
-        mark,
-      ) =>
-        html` <div class="dso-search-bar">
-          <div class="dso-search-bar-input">
-            <label for="search-bar--with-value">Label</label>
-            <span class="dso-search-icon" aria-hidden="true"></span>
-            ${autosuggestTemplate({
-              ...autosuggestConnector([
-                fetchSuggestions,
-                dsoSelect,
-                dsoChange,
-                dsoSearch,
-                suggestOnFocus,
-                loading,
-                loadingLabel,
-                loadingDelayed,
-                notFoundLabel,
-                minimalCharacters,
-                mark,
-              ]),
-              children: html`<input
-                type="text"
-                id="search-bar--with-value"
-                placeholder="Bijvoorbeeld 'Rotterdam' of 'Groningen'"
-              />`,
-            })}
-            <button type="button">Zoekopdracht legen</button>
-          </div>
-          ${buttonTemplate({ label: "Button", variant: "secondary", type: "button" })}
-        </div>`,
       autosuggestDemoTemplate: (
         fetchSuggestions,
         dsoSelect,
@@ -156,6 +115,8 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
         loadingLabel,
         loadingDelayed,
         notFoundLabel,
+        minimalCharacters,
+        mark,
       ) => html`
         <div class="dso-search-bar">
           <div class="dso-search-bar-input">
@@ -172,6 +133,8 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
                 loadingLabel,
                 loadingDelayed,
                 notFoundLabel,
+                minimalCharacters,
+                mark,
               ]),
               children: html`<input
                 type="text"

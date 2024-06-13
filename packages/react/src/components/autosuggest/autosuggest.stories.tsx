@@ -100,7 +100,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
         />
       ),
       autosuggestInSearchBarTemplate: () => <p>Zie Web Component in Core.</p>,
-      autosuggestMarkTemplate: () => <p>Zie Web Component in Core.</p>,
     };
   },
 });
