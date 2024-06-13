@@ -16,7 +16,7 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 
 ## Markeren van zoekresultaten
 
-De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeerfunctie te gebruiken. Als deze functie door de afnemer wordt meegegeven, roept het Autosuggest component deze functie voor elke suggestie aan. De afnemer krijgt de tekst (value: string) en de type (type: string) mee. Een type kan bv. de primaire suggestie zijn, of de type aanduiding, of een van de extra's. De markeerfunctie wordt per suggestie voor alle onderdelen aangeroepen. Label, het optionele type, en voor elke extra.
+De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeerfunctie te gebruiken. Als deze functie door de afnemer wordt meegegeven, roept het Autosuggest component deze functie voor elke suggestie aan. De afnemer krijgt de tekst (`value: string`) en de type (`type: string`) mee. Een type kan bv. de primaire suggestie zijn, of de type aanduiding, of een van de extra's. De markeerfunctie wordt per suggestie voor alle onderdelen aangeroepen. Label, het optionele type, en voor elke extra.
 
 <!-- Auto Generated Below -->
 
