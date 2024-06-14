@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⛵️ 62.25.0 - 14-06-2024
+
 ### Added
 * Autosuggest: Markeren van zoekresultaten onderdeel van API maken ([#2660](https://github.com/dso-toolkit/dso-toolkit/issues/2660))
 
