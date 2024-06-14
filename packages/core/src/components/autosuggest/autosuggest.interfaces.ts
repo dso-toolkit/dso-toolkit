@@ -21,3 +21,10 @@ export interface Suggestion {
 }
 
 export type AutosuggestMarkItem = { mark: string } | string;
+
+export type AutosuggestMarkFunction = (
+  suggestion: Suggestion,
+  text: string,
+  type: "value" | "type" | "extra",
+  extraIndex?: number,
+) => AutosuggestMarkItem[];

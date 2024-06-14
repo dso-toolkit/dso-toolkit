@@ -3,7 +3,7 @@ import debounce from "debounce";
 import { v4 } from "uuid";
 import escapeStringRegexp from "escape-string-regexp";
 
-import { AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
+import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
 @Component({
   tag: "dso-autosuggest",
@@ -57,12 +57,7 @@ export class Autosuggest {
    * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
    */
   @Prop()
-  mark?: (
-    suggestion: Suggestion,
-    text: string,
-    type: "value" | "type" | "extra",
-    extraIndex?: number,
-  ) => AutosuggestMarkItem[];
+  mark?: AutosuggestMarkFunction;
 
   /**
    * Emitted when a suggestion is selected.
