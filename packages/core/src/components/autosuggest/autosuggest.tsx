@@ -57,7 +57,12 @@ export class Autosuggest {
    * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
    */
   @Prop()
-  mark?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
+  mark?: (
+    suggestion: Suggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[];
 
   /**
    * Emitted when a suggestion is selected.
@@ -204,9 +209,18 @@ export class Autosuggest {
     this.input?.removeEventListener("focusin", this.onFocusIn);
   }
 
-  private handleMark(text: string, type?: "value" | "type" | "extra", extraIndex?: number): (VNode | string)[] {
+  private showInputValueNotFound(text: string) {
+    return this.processAutosuggestMarkItems(this.markTerms(text, this.input?.value.split(" ").filter((t) => t) ?? []));
+  }
+
+  private handleMark(
+    suggestion: Suggestion,
+    text: string,
+    type?: "value" | "type" | "extra",
+    extraIndex?: number,
+  ): (VNode | string)[] {
     if (this.mark && type) {
-      return this.processAutosuggestMarkItems(this.mark(text, type, extraIndex));
+      return this.processAutosuggestMarkItems(this.mark(suggestion, text, type, extraIndex));
     }
     return this.processAutosuggestMarkItems(this.markTerms(text, this.input?.value.split(" ").filter((t) => t) ?? []));
   }
@@ -433,14 +447,16 @@ export class Autosuggest {
                   aria-label={suggestion.value}
                 >
                   <div class="suggestion-row">
-                    <span class="value">{this.handleMark(suggestion.value, "value")}</span>
-                    {suggestion.type ? <span class="type">{this.handleMark(suggestion.type, "type")}</span> : undefined}
+                    <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
+                    {suggestion.type ? (
+                      <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
+                    ) : undefined}
                   </div>
                   {suggestion.extras &&
                     this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
                       <div class="suggestion-row">
                         {chunk.map((c, i) => (
-                          <span class="extra">{this.handleMark(c, "extra", index * 2 + i)}</span>
+                          <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
                         ))}
                       </div>
                     ))}
@@ -450,7 +466,7 @@ export class Autosuggest {
                 <li>
                   <span class="value">
                     {!this.notFoundLabel ? (
-                      this.handleMark(`${this.inputValue} is niet gevonden.`)
+                      this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
                     ) : (
                       <span>{this.notFoundLabel}</span>
                     )}

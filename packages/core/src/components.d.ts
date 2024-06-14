@@ -315,7 +315,12 @@ export namespace Components {
         /**
           * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
          */
-        "mark"?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
+        "mark"?: (
+    suggestion: Suggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[];
         /**
           * To show text when no results are found.
          */
@@ -2434,7 +2439,12 @@ declare namespace LocalJSX {
         /**
           * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
          */
-        "mark"?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[];
+        "mark"?: (
+    suggestion: Suggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[];
         /**
           * To show text when no results are found.
          */

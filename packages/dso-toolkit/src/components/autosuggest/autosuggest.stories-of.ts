@@ -36,7 +36,12 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingDelayed: number,
   notFoundLabel: string,
   minimalCharacters?: number,
-  mark?: (text: string, type: "value" | "type" | "extra", extraIndex?: number) => AutosuggestMarkItem[],
+  mark?: (
+    suggestion: AutosuggestSuggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[],
 ) => TemplateFnReturnType;
 
 export interface AutosuggestTemplates<TemplateFnReturnType> {

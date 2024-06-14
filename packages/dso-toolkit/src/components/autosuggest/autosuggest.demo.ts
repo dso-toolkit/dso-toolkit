@@ -147,7 +147,12 @@ export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
     : [];
 }
 
-export function mark(_text: string, type: "value" | "type" | "extra", extraIndex?: number): AutosuggestMarkItem[] {
+export function mark(
+  _suggestion: AutosuggestSuggestion,
+  _text: string,
+  type: "value" | "type" | "extra",
+  extraIndex?: number,
+): AutosuggestMarkItem[] {
   const extras: AutosuggestMarkItem[][] = [
     ["Ontwerp ", { mark: "18-" }, "01-2024"],
     ["gemeente Gron", { mark: "ing" }, "en"],
