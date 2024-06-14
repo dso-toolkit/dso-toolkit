@@ -204,31 +204,36 @@ export class Autosuggest {
     this.input?.removeEventListener("focusin", this.onFocusIn);
   }
 
-  private markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
+  private handleMark(text: string, type?: "value" | "type" | "extra", extraIndex?: number): (VNode | string)[] {
+    if (this.mark && type) {
+      return this.processAutosuggestMarkItems(this.mark(text, type, extraIndex));
+    }
+    return this.processAutosuggestMarkItems(this.markTerms(text, this.input?.value.split(" ").filter((t) => t) ?? []));
+  }
+
+  private markTerms(suggestionValue: string, terms: string[]): AutosuggestMarkItem[] {
     if (!suggestionValue || !terms || terms.length === 0 || terms[0] === undefined) {
       return [""];
     }
 
     const termRegex = new RegExp(`(${escapeStringRegexp(terms[0])})`, "gi");
 
-    return suggestionValue.split(termRegex).map((valuePart: string) => {
+    return suggestionValue.split(termRegex).reduce((total: AutosuggestMarkItem[], valuePart: string) => {
       if (!valuePart) {
-        return "";
+        total.push(valuePart);
+      } else if (termRegex.test(valuePart)) {
+        total.push({ mark: valuePart });
+      } else if (terms.length === 1) {
+        total.push(valuePart);
+      } else {
+        total.push(...this.markTerms(valuePart, terms.slice(1)));
       }
 
-      if (termRegex.test(valuePart)) {
-        return <mark>{valuePart}</mark>;
-      }
-
-      if (terms.length === 1) {
-        return <span>{valuePart}</span>;
-      }
-
-      return this.markTerms(valuePart, terms.slice(1));
-    });
+      return total;
+    }, []);
   }
 
-  private markAutosuggestMarkItems(items: AutosuggestMarkItem[]): (VNode | string)[] {
+  private processAutosuggestMarkItems(items: AutosuggestMarkItem[]): (VNode | string)[] {
     if (items.length === 0) {
       return [""];
     }
@@ -398,8 +403,6 @@ export class Autosuggest {
   }
 
   render() {
-    const terms = this.input?.value.split(" ").filter((t) => t) ?? [];
-
     return (
       <>
         <slot />
@@ -430,28 +433,14 @@ export class Autosuggest {
                   aria-label={suggestion.value}
                 >
                   <div class="suggestion-row">
-                    <span class="value">
-                      {this.mark
-                        ? this.markAutosuggestMarkItems(this.mark(suggestion.value, "value"))
-                        : this.markTerms(suggestion.value, terms)}
-                    </span>
-                    {suggestion.type ? (
-                      <span class="type">
-                        {this.mark
-                          ? this.markAutosuggestMarkItems(this.mark(suggestion.type, "type"))
-                          : this.markTerms(suggestion.type, terms)}
-                      </span>
-                    ) : undefined}
+                    <span class="value">{this.handleMark(suggestion.value, "value")}</span>
+                    {suggestion.type ? <span class="type">{this.handleMark(suggestion.type, "type")}</span> : undefined}
                   </div>
                   {suggestion.extras &&
                     this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
                       <div class="suggestion-row">
                         {chunk.map((c, i) => (
-                          <span class="extra">
-                            {this.mark
-                              ? this.markAutosuggestMarkItems(this.mark(c, "extra", index * 2 + i))
-                              : this.markTerms(c, terms)}
-                          </span>
+                          <span class="extra">{this.handleMark(c, "extra", index * 2 + i)}</span>
                         ))}
                       </div>
                     ))}
@@ -461,7 +450,7 @@ export class Autosuggest {
                 <li>
                   <span class="value">
                     {!this.notFoundLabel ? (
-                      this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
+                      this.handleMark(`${this.inputValue} is niet gevonden.`)
                     ) : (
                       <span>{this.notFoundLabel}</span>
                     )}
