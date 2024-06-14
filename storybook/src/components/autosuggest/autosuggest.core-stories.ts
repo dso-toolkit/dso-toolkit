@@ -13,7 +13,7 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate, buttonTemplate } = templates;
@@ -35,6 +35,7 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
       loadingDelayed,
       notFoundLabel,
       minimalCharacters = 1,
+      mark,
     ]) => ({
       children: html`<input id="autosuggestInputId" type="text" class="form-control" />`,
       suggestions: null,
@@ -64,6 +65,7 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
       loadingLabel,
       loadingDelayed,
       notFoundLabel,
+      mark,
     });
 
     const processSuggestions = (suggestions: AutosuggestSuggestion[] | null): void => {
@@ -113,6 +115,8 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
         loadingLabel,
         loadingDelayed,
         notFoundLabel,
+        minimalCharacters,
+        mark,
       ) => html`
         <div class="dso-search-bar">
           <div class="dso-search-bar-input">
@@ -129,6 +133,8 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
                 loadingLabel,
                 loadingDelayed,
                 notFoundLabel,
+                minimalCharacters,
+                mark,
               ]),
               children: html`<input
                 type="text"
@@ -145,4 +151,4 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };

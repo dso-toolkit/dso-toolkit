@@ -1,3 +1,5 @@
+export type AutosuggestMarkItem = { mark: string } | string;
+
 export interface Autosuggest<TemplateFnReturnType> {
   suggestions: AutosuggestSuggestion[] | null;
   suggestOnFocus: boolean;
@@ -9,6 +11,12 @@ export interface Autosuggest<TemplateFnReturnType> {
   dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
   dsoSearch: (value: CustomEvent<string>) => void;
   children: TemplateFnReturnType;
+  mark?: (
+    suggestion: AutosuggestSuggestion,
+    text: string,
+    type: "value" | "type" | "extra",
+    extraIndex?: number,
+  ) => AutosuggestMarkItem[];
 }
 
 export interface AutosuggestSuggestion {

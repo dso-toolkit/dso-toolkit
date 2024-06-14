@@ -347,4 +347,71 @@ describe("Autosuggest", () => {
       .get("@pre")
       .should("have.text", "null");
   });
+
+  it("should mark suggestion based on consumer provided AutosuggestMarkItems", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--with-provided-mark-function");
+
+    cy.get("@input").focus().type("gro");
+    cy.wait(200);
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li[role='option']").should("have.length", 2);
+
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(0)
+      .get(".value")
+      .should("contain", "evingsplan gemeente Groningen");
+    cy.get("@listbox").get("li[role='option'] .suggestion-row").eq(0).get(".value mark").should("contain", "Omg");
+
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(0)
+      .get(".type")
+      .should("contain", "evingsplan (")
+      .and("contain", "evingswet)");
+    cy.get("@listbox").get("li[role='option'] .suggestion-row").eq(0).get(".type mark").should("contain", "omg");
+
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(1)
+      .get(".extra")
+      .eq(0)
+      .should("contain", "Ontwerp ")
+      .and("contain", "01-2024");
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(1)
+      .get(".extra")
+      .eq(0)
+      .get("mark")
+      .should("contain", "18-");
+
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(1)
+      .get(".extra")
+      .eq(1)
+      .should("contain", "gemeente Gron")
+      .and("contain", "en");
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(1)
+      .get(".extra")
+      .eq(1)
+      .get("mark")
+      .should("contain", "ing");
+
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(2)
+      .get(".extra")
+      .should("contain", "/akn/nl/act/gm0014/2020/")
+      .and("contain", "evingsplan");
+    cy.get("@listbox")
+      .get("li[role='option'] .suggestion-row")
+      .eq(2)
+      .get(".extra")
+      .get("mark")
+      .should("contain", "omg");
+  });
 });

@@ -19,6 +19,7 @@ export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>>
       loadingDelayed,
       loadingLabel,
       notFoundLabel,
+      mark,
     }) {
       return (
         <DsoAutosuggest
@@ -31,6 +32,7 @@ export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>>
           loadingLabel={loadingLabel}
           loadingDelayed={loadingDelayed}
           notFoundLabel={notFoundLabel}
+          mark={mark}
         >
           {children}
         </DsoAutosuggest>

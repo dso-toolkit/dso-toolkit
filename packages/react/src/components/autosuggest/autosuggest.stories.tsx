@@ -13,7 +13,7 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate } = templates;
@@ -104,4 +104,4 @@ const { Example, Minimal3Characters, InSearchbar } = autosuggestStories({
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };
