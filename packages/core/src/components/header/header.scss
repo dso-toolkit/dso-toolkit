@@ -15,7 +15,8 @@
   font-size: 1.25em;
   line-height: 1;
   margin-block-start: units.$u1;
-  padding: units.$u2 0;
+  padding-block: units.$u2;
+  padding-inline: 0;
 }
 
 :host {
@@ -109,11 +110,11 @@ dso-dropdown-menu {
     border-radius: 0;
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-      width: 375px;
+      inline-size: 375px;
     }
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      width: 100%;
+      inline-size: 100%;
     }
 
     ul li {

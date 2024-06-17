@@ -1,6 +1,7 @@
 :host {
   display: block;
-  margin: 0 8px;
+  margin-block: 0;
+  margin-inline: 8px;
   border-inline-start: 1px dashed transparent;
   border-inline-end: 1px dashed transparent;
 }

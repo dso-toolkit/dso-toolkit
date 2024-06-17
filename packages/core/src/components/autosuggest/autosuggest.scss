@@ -20,7 +20,8 @@ ul,
   box-shadow: core-autosuggest-variables.$box-shadow;
   list-style-type: none;
   margin-block-start: 2px;
-  padding: units.$u1 * 0.5 0;
+  padding-block: units.$u1 * 0.5;
+  padding-inline: 0;
   position: absolute;
   inset-inline-start: 0;
   inset-inline-end: 0;
@@ -29,14 +30,17 @@ ul,
 }
 
 .autosuggest-progress-box {
-  padding: units.$u1 * 1.5 units.$u1;
+  padding-block: units.$u1 * 1.5;
+  padding-inline: units.$u1;
 }
 
 ul {
-  padding: units.$u1 0;
+  padding-block: units.$u1;
+  padding-inline: 0;
 
   li {
-    padding: units.$u1 * 0.5 units.$u2;
+    padding-block: units.$u1 * 0.5;
+    padding-inline: units.$u2;
 
     .suggestion-row {
       display: flex;

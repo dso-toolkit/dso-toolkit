@@ -94,7 +94,7 @@
   block-size: 100%;
   position: absolute;
   inset-block-start: 0;
-  transition: right 0.5s;
+  transition: inset-inline-end 0.5s;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     inset-inline-end: -320px;

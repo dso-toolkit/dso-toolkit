@@ -53,7 +53,8 @@ button {
 .dso-document-panel {
   .content {
     block-size: 100%;
-    padding: 0 css-grid.$grid-gutter-width * 0.5;
+    padding-block: 0;
+    padding-inline: css-grid.$grid-gutter-width * 0.5;
   }
 }
 
@@ -64,8 +65,8 @@ button {
   position: relative;
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
-    max-width core-viewer-grid-variables.$transition-time ease-in,
-    min-width core-viewer-grid-variables.$transition-time ease-in;
+    max-inline-size core-viewer-grid-variables.$transition-time ease-in,
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   &.compact,
@@ -90,14 +91,16 @@ button {
 
   .dso-filterblok-address {
     font-weight: bold;
-    margin: units.$u1 0;
+    margin-block: units.$u1;
+    margin-inline: 0;
   }
 
   .sizing-buttons,
   .toggle-button {
     inset-inline-start: calc(100% + 1px);
-    transition: left core-viewer-grid-variables.$transition-time ease-in;
-    padding: 0 units.$u1 * 0.5 units.$u1 * 0.5 0;
+    transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
+    padding-block: 0 units.$u1;
+    padding-inline: 0 units.$u1 * 0.5;
 
     button {
       border-end-end-radius: 4px;
@@ -113,16 +116,17 @@ button {
   position: relative;
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
-    max-width core-viewer-grid-variables.$transition-time ease-in,
-    min-width core-viewer-grid-variables.$transition-time ease-in;
+    max-inline-size core-viewer-grid-variables.$transition-time ease-in,
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   .sizing-buttons {
     inset-block-start: auto;
     inset-block-end: core-viewer-grid-variables.$sizing-buttons-top;
     inset-inline-end: calc(100% + 1px);
-    transition: right core-viewer-grid-variables.$transition-time ease-in;
-    padding: 0 0 units.$u1 * 0.5 units.$u1 * 0.5;
+    transition: inset-inline-end core-viewer-grid-variables.$transition-time ease-in;
+    padding-block: 0 units.$u1;
+    padding-inline: units.$u1 * 0.5 0;
 
     button {
       border-end-start-radius: 4px;
@@ -179,7 +183,8 @@ button {
 }
 
 .filterpanel {
-  padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
+  padding-block: units.$u1;
+  padding-inline: css-grid.$grid-gutter-width * 0.5;
   inset-inline-start: 0;
 
   @media screen and (max-width: core-viewer-grid-variables.$filterpanel-width) {
@@ -198,7 +203,8 @@ button {
 }
 
 .overlay {
-  padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
+  padding-block: units.$u5 units.$u1;
+  padding-inline: css-grid.$grid-gutter-width * 0.5;
   inset-inline-end: 0;
   inline-size: core-viewer-grid-variables.$overlay-width;
 
