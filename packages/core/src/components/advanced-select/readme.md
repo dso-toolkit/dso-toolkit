@@ -28,12 +28,16 @@
 
 - [dso-badge](../badge)
 - [dso-icon](../icon)
+- [dso-label](../label)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-advanced-select --> dso-badge
   dso-advanced-select --> dso-icon
+  dso-advanced-select --> dso-label
+  dso-label --> dso-icon
+  dso-label --> dso-tooltip
   style dso-advanced-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

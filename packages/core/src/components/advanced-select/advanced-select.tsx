@@ -19,7 +19,7 @@ import {
   AdvancedSelectChangeEvent,
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
-} from "./advanced-select.models";
+} from "./advanced-select.interfaces";
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -149,6 +149,7 @@ export class AdvancedSelect implements ComponentInterface {
           onClick={this.toggleOpen}
           ref={(element) => (this.toggleButtonElementRef = element)}
         >
+          <ActiveLabelElement active={this.active} options={this.options} />
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <span class="active-option-aside">
             {this.options.some(
@@ -255,3 +256,21 @@ const RedirectElement: FunctionalComponent<{
     <dso-icon icon="chevron-right"></dso-icon>
   </a>
 );
+
+const ActiveLabelElement: FunctionalComponent<{
+  active: AdvancedSelectOption<never> | undefined;
+  options: AdvancedSelectOptionOrGroup<never>[];
+}> = ({ active, options }) => {
+  const group = options.find(
+    (optionOrGroup): optionOrGroup is AdvancedSelectGroup<never> =>
+      "options" in optionOrGroup &&
+      !!optionOrGroup.options.find((option) => option === active) &&
+      !!optionOrGroup.activeLabel,
+  );
+
+  return group ? (
+    <dso-label compact status={group.variant}>
+      {group.activeLabel}
+    </dso-label>
+  ) : undefined;
+};

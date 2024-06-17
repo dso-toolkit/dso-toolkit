@@ -12,6 +12,7 @@ export interface AdvancedSelectGroupRedirect {
 
 export interface AdvancedSelectGroup<T> {
   label: string;
+  activeLabel?: string;
   summaryCounter?: boolean;
   redirect?: AdvancedSelectGroupRedirect;
   options: AdvancedSelectOption<T>[];

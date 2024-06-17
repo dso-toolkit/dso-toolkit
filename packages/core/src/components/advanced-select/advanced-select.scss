@@ -11,7 +11,7 @@
 .active-option {
   display: flex;
   inline-size: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 0;
   border: 1px solid advanced-select.$border-color;
@@ -28,6 +28,10 @@
 
   dso-icon {
     color: advanced-select.$icon-color;
+  }
+
+  dso-label {
+    margin-inline-start: advanced-select.$inline-padding * 0.5;
   }
 }
 
@@ -47,6 +51,7 @@
   gap: advanced-select.$inline-padding * 0.5;
   padding-block: 0;
   padding-inline: advanced-select.$inline-padding * 0.5;
+  margin-inline-start: auto;
 }
 
 .badges {
