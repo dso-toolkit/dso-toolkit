@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0
       - name: Danger
         run: |
-          npm install --global 'typescript@<5.5.0' danger@12.3.0
+          npm install --global 'typescript@<5.5.0' danger@12.3.1
           danger ci --failOnErrors
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
