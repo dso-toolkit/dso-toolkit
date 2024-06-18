@@ -10,19 +10,19 @@
   background-color: css-list-variables.$group-background-color;
   border: 1px solid css-list-variables.$group-border-color;
   display: block;
-  margin-bottom: -1px;
+  margin-block-end: -1px;
   padding: 10px 15px;
   position: relative;
 
   &:first-child {
-    border-top-left-radius: css-list-variables.$group-border-radius;
-    border-top-right-radius: css-list-variables.$group-border-radius;
+    border-start-start-radius: css-list-variables.$group-border-radius;
+    border-start-end-radius: css-list-variables.$group-border-radius;
   }
 
   &:last-child {
-    border-bottom-left-radius: css-list-variables.$group-border-radius;
-    border-bottom-right-radius: css-list-variables.$group-border-radius;
-    margin-bottom: 0;
+    border-end-start-radius: css-list-variables.$group-border-radius;
+    border-end-end-radius: css-list-variables.$group-border-radius;
+    margin-block-end: 0;
   }
 }
 
@@ -31,8 +31,8 @@
 }
 
 .list-group {
-  margin-bottom: 20px;
-  padding-left: 0;
+  margin-block-end: 20px;
+  padding-inline-start: 0;
 }
 
 .dso-img-list {
@@ -40,7 +40,7 @@
   flex-direction: column;
   gap: units.$u1;
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
 
   li {
     align-items: flex-start;
@@ -48,8 +48,8 @@
     gap: units.$u1;
 
     img {
-      height: units.$u3;
-      width: units.$u3;
+      block-size: units.$u3;
+      inline-size: units.$u3;
     }
   }
 
@@ -64,13 +64,13 @@
 
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: units.$u2;
+  margin-block-start: 0;
+  margin-block-end: units.$u2;
 
   &.dso-columns-list {
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    padding-inline-start: 0;
 
     @media (max-width: media-query-breakpoints.$screen-sm-max) {
       columns: 1;
@@ -88,14 +88,14 @@ ol {
   li {
     .dso-info,
     dso-info {
-      margin-bottom: units.$u1;
-      margin-top: units.$u1;
+      margin-block-end: units.$u1;
+      margin-block-start: units.$u1;
     }
   }
 
   ul,
   ol {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   &.dso-list-unstyled {
@@ -113,11 +113,11 @@ ul {
       background-position: center;
       background-size: cover;
       content: "";
-      height: 1em;
-      left: -1.2em;
+      block-size: 1em;
+      inset-inline-start: -1.2em;
       position: absolute;
-      top: 0.25em;
-      width: 1em;
+      inset-block-start: 0.25em;
+      inline-size: 1em;
     }
   }
 

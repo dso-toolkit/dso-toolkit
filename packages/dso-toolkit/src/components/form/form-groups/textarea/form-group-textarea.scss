@@ -15,10 +15,10 @@
     resize: vertical;
 
     &.form-control {
-      height: auto;
+      block-size: auto;
 
       &:not([rows]) {
-        height: calc(
+        block-size: calc(
           #{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(
               units.$padding-base-vertical + 1
             ) * 2}
@@ -29,8 +29,8 @@
 
   .form-control {
     .form-horizontal & {
-      padding-bottom: units.$padding-base-vertical - 1;
-      padding-top: units.$padding-base-vertical - 1;
+      padding-block-end: units.$padding-base-vertical - 1;
+      padding-block-start: units.$padding-base-vertical - 1;
     }
   }
 }

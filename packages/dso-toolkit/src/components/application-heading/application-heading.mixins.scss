@@ -4,11 +4,11 @@
 @use "application-heading.variables" as application-heading-variables;
 
 @mixin root() {
-  border-bottom: 1px solid colors.$grijs-20;
-  margin-bottom: units.$u2;
+  border-block-end: 1px solid colors.$grijs-20;
+  margin-block-end: units.$u2;
 
   h2 {
-    margin-top: units.$u2;
+    margin-block-start: units.$u2;
   }
 
   .dso-steps-indicator {
@@ -23,8 +23,8 @@
       flex-basis: auto;
       font-size: 1rem;
       font-weight: normal;
-      padding-top: #{application-heading-variables.$step-padding * 0.5};
-      text-align: right;
+      padding-block-start: #{application-heading-variables.$step-padding * 0.5};
+      text-align: end;
     }
   }
 }

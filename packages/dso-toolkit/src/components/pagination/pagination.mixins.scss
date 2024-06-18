@@ -19,7 +19,7 @@
       align-items: center;
       color: colors.$grasgroen;
       display: flex;
-      height: pagination-variables.$item-size;
+      block-size: pagination-variables.$item-size;
       justify-content: center;
       position: relative;
       min-inline-size: pagination-variables.$item-size;
@@ -44,18 +44,18 @@
         text-decoration: none;
 
         &::after {
-          border-bottom-color: colors.$grasgroen;
+          border-block-end-color: colors.$grasgroen;
         }
       }
 
       &::after {
-        border-bottom: 3px solid transparent;
-        bottom: 0;
+        border-block-end: 3px solid transparent;
+        inset-block-end: 0;
         content: "";
         display: inline-block;
-        left: 0;
+        inset-inline-start: 0;
         position: absolute;
-        width: 100%;
+        inline-size: 100%;
       }
     }
 
@@ -67,7 +67,7 @@
     }
 
     & + li {
-      margin-left: units.$u1;
+      margin-inline-start: units.$u1;
     }
   }
 }

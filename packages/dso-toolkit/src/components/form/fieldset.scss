@@ -8,13 +8,13 @@
 
 #{css-form-variables.$form-selectors} {
   fieldset {
-    margin-bottom: units.$u2;
+    margin-block-end: units.$u2;
 
     > legend {
       @include headings.h3();
 
-      border-bottom: 0;
-      margin-bottom: css-form-variables.$fieldset-separator-unit;
+      border-block-end: 0;
+      margin-block-end: css-form-variables.$fieldset-separator-unit;
 
       h1,
       h2,
@@ -27,24 +27,24 @@
 
       + dso-alert,
       + .alert {
-        margin-top: 0;
+        margin-block-start: 0;
       }
     }
 
     + fieldset:not(.form-group) {
       > legend {
-        border-top: 1px solid css-form-variables.$fieldset-separator-color;
-        padding-top: css-form-variables.$fieldset-separator-unit;
+        border-block-start: 1px solid css-form-variables.$fieldset-separator-color;
+        padding-block-start: css-form-variables.$fieldset-separator-unit;
       }
     }
 
     fieldset {
-      margin-bottom: 0;
-      padding-bottom: 0;
+      margin-block-end: 0;
+      padding-block-end: 0;
 
       + fieldset {
-        margin-top: 0;
-        padding-top: 0;
+        margin-block-start: 0;
+        padding-block-start: 0;
       }
     }
   }

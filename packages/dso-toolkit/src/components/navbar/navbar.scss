@@ -9,7 +9,7 @@
 
 .dso-navbar {
   @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
-    clear: left;
+    clear: inline-start;
 
     > .dso-nav {
       clear: both;

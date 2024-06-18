@@ -1,7 +1,7 @@
 @use "../icon";
 
 svg.di {
-  height: icon.$size;
+  block-size: icon.$size;
   vertical-align: icon.$vertical-align;
-  width: icon.$size;
+  inline-size: icon.$size;
 }

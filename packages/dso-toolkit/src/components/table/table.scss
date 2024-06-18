@@ -13,9 +13,9 @@
 
 caption {
   color: colors.$text-muted;
-  padding-bottom: table.$cell-padding;
-  padding-top: table.$cell-padding;
-  text-align: left;
+  padding-block-end: table.$cell-padding;
+  padding-block-start: table.$cell-padding;
+  text-align: start;
 }
 
 td,
@@ -25,7 +25,7 @@ th {
 
 th {
   font-weight: 600;
-  text-align: left;
+  text-align: start;
 }
 
 table.table {
@@ -37,20 +37,20 @@ table.table {
 
 table.table,
 .dso-rich-content table {
-  margin-bottom: typography.$line-height-computed;
-  max-width: 100%;
-  width: 100%;
+  margin-block-end: typography.$line-height-computed;
+  max-inline-size: 100%;
+  inline-size: 100%;
 
   .dso-tertiary {
     position: relative;
-    top: -2px;
+    inset-block-start: -2px;
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- These actions are always accomponied by icons, we always want the icon next to the text
   }
 
   &.dso-text-left {
     th,
     td {
-      text-align: left;
+      text-align: start;
     }
   }
 
@@ -64,7 +64,7 @@ table.table,
   &.dso-text-right {
     th,
     td {
-      text-align: right;
+      text-align: end;
     }
   }
 
@@ -91,7 +91,7 @@ table.table,
     > thead + tbody > tr:first-child {
       > td,
       > th {
-        border-top: 0;
+        border-block-start: 0;
       }
     }
   }
@@ -160,7 +160,7 @@ table.table,
   th,
   td {
     &.dso-text-left {
-      text-align: left;
+      text-align: start;
     }
 
     &.dso-text-center {
@@ -168,7 +168,7 @@ table.table,
     }
 
     &.dso-text-right {
-      text-align: right;
+      text-align: end;
     }
   }
 
@@ -194,7 +194,7 @@ table.table,
       > tr {
         > td,
         > th {
-          border-bottom: 1px solid table.$th-border-color;
+          border-block-end: 1px solid table.$th-border-color;
         }
       }
     }
@@ -204,7 +204,7 @@ table.table,
       > tr {
         > td,
         > th {
-          border-bottom: 1px solid table.$border-color;
+          border-block-end: 1px solid table.$border-color;
         }
       }
     }
@@ -212,7 +212,7 @@ table.table,
 
   // Account for multiple tbody instances
   > tbody + tbody {
-    border-top: 2px solid table.$border-color;
+    border-block-start: 2px solid table.$border-color;
   }
 
   // Nesting
@@ -286,7 +286,7 @@ table {
 
 .dso-table-responsive,
 .dso-table-scroll-container {
-  min-height: 0.01%;
+  min-block-size: 0.01%;
   overflow-x: auto;
   position: relative;
 }
@@ -303,18 +303,18 @@ table {
 
 .dso-table-filter-wrapper {
   .dso-search-bar {
-    margin-bottom: units.$u2;
-    width: table.$filter-wrapper-width - units.$u4;
+    margin-block-end: units.$u2;
+    inline-size: table.$filter-wrapper-width - units.$u4;
   }
 }
 
 // Web component
 dso-table table.table {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 dso-table.dso-is-responsive {
-  margin-bottom: 0;
+  margin-block-end: 0;
 
   > .table {
     // Ensure the content doesn't wrap

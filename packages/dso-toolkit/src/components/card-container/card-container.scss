@@ -2,7 +2,7 @@
 
 dso-card-container[mode="list"] {
   > li {
-    border-top: card-container.$border-width solid card-container.$border-color;
+    border-block-start: card-container.$border-width solid card-container.$border-color;
   }
 }
 

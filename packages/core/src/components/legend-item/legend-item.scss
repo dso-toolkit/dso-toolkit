@@ -7,7 +7,8 @@
 
 :host {
   display: block;
-  padding: units.$u1 * 0.5;
+  padding-block: units.$u1 * 0.5;
+  padding-inline: units.$u1 * 0.5;
 }
 
 @include utilities.box-sizing();

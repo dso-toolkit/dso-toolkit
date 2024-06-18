@@ -14,7 +14,8 @@
     a,
     button {
       color: accordion.$neutral-color;
-      padding: 5px 16px 5px 0;
+      padding-block: 5px;
+      padding-inline: 0 16px;
 
       &:hover,
       &:active,
@@ -46,10 +47,12 @@
     }
 
     .dso-section-body-content {
-      padding: units.$u2 units.$u2 units.$u3;
+      padding-block: units.$u2 units.$u3;
+      padding-inline: units.$u2;
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        padding: units.$u2 units.$u4 units.$u3;
+        padding-block: units.$u2 units.$u3;
+        padding-inline: units.$u4;
       }
     }
   }
@@ -59,8 +62,8 @@
   > .dso-section-handle {
     background-color: transparant;
     border-radius: 0;
-    border-top-left-radius: accordion.$border-radius;
-    border-top-right-radius: accordion.$border-radius;
+    border-start-start-radius: accordion.$border-radius;
+    border-start-end-radius: accordion.$border-radius;
 
     a,
     button {

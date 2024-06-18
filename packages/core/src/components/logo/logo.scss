@@ -99,7 +99,8 @@
   background-color: colors.$mauve;
   border-radius: 3px;
   transform: rotate(3deg);
-  padding: 0 8px;
+  padding-block: 0;
+  padding-inline: 8px;
 
   font-size: 0.75rem;
   font-weight: normal;

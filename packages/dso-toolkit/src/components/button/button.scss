@@ -109,7 +109,7 @@ label {
     &.download {
       &::after {
         position: relative;
-        top: -2px;
+        inset-block-start: -2px;
       }
     }
 
@@ -143,6 +143,6 @@ a {
   + .dso-primary,
   + .dso-secondary,
   + .dso-tertiary {
-    margin-left: units.$u2;
+    margin-inline-start: units.$u2;
   }
 }

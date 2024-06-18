@@ -8,7 +8,7 @@ body {
   color: scaffolding.$text-color;
   background-color: scaffolding.$body-bg;
   margin: 0;
-  max-width: 100%;
+  max-inline-size: 100%;
   overflow-wrap: break-word;
   overflow-x: hidden;
 }
