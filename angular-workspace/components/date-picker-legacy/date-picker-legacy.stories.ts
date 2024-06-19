@@ -2,6 +2,7 @@ import { type Meta } from "@storybook/angular";
 import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
 import {
@@ -28,8 +29,14 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
         datePickerLegacyShowByScriptingTemplate,
       };
     },
-    // @ts-expect-error on story(): TS2571: Object is of type `unknown`
-    decorator: (story) => ({ template: `<div style="width: 175px;">${story().template}</div>` }),
+    decorator: (story) => {
+      const s = story();
+      if (!isStoryFnAngularReturnTypeTemplate(s)) {
+        throw new Error("Expected a valid Angular template");
+      }
+
+      return { template: `<div style="width: 175px;">${s.template}</div>` };
+    },
   });
 
 export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };

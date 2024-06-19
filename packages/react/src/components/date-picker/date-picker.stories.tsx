@@ -9,13 +9,18 @@ import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
-const decorator: DatePickerDecorator<JSX.Element> = (story) => (
-  <>
-    {/*
-    // @ts-expect-error on story(): TS2571: Object is of type `unknown` */}
-    <div style={{ width: "175px" }}>{story()}</div>
-  </>
-);
+const decorator: DatePickerDecorator<JSX.Element> = (story) => {
+  const s = story();
+  if (!React.isValidElement(s)) {
+    throw new Error("Expected a valid JSX element");
+  }
+
+  return (
+    <>
+      <div style={{ width: "175px" }}>{s}</div>
+    </>
+  );
+};
 
 const meta: Meta<DatePickerArgs> = {
   ...datePickerMeta({ readme }),

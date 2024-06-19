@@ -2,6 +2,7 @@ import { type Meta } from "@storybook/web-components";
 import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
 import { expandableContent } from "./expandable.content";
@@ -23,15 +24,13 @@ const { Default, WithAnimation } = expandableStories({
       expandableContent,
     };
   },
-  /* TODO: Hoi Thomas, je zult tegen deze Todo aan gaan lopen en ik heb nogal wat moeite om de typeringen van de
-     decorators in de angular-workspace. Dit is nog niet zo netjes, maar zaols ik het hier doe werkt het runtime.
-     Wanneer de decorator uit expandable.decorators geïmporteerd wordt dan matcht de typering
-     `Addon_DecoratorFunction<StoryFnAngularReturnType>` met de typering `ExpandableDecorator<TemplateFnReturnType>`
-     uit `expandableStories`.
-  */
   decorator: (story) => {
-    // @ts-expect-error on story(): TS2339: Property props/template does not exist on type `unknown`
-    const { props, template } = story();
+    const s = story();
+    if (!isStoryFnAngularReturnTypeTemplate(s)) {
+      throw new Error("Expected a valid Angular template");
+    }
+
+    const { props, template } = s;
 
     return {
       props,

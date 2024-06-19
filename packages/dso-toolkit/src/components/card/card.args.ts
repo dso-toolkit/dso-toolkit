@@ -93,7 +93,6 @@ export const cardContentToggletip: CardArgs = {
   ...cardContent,
   interactions: [
     {
-      // @ts-expect-error don't know
       children: "Extra informatie",
       label: `Toon informatie over "${cardContent.label}"`,
       position: "left",
