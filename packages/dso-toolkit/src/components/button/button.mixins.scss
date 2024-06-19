@@ -81,9 +81,9 @@
   vertical-align: $valign;
   inline-size: units.$u3;
 
-  @if $position == left {
+  @if $position == inline-start {
     margin-inline-end: units.$u1;
-  } @else if $position == right {
+  } @else if $position == inline-end {
     margin-inline-start: units.$u1;
   }
 }
@@ -229,13 +229,13 @@
 
   &.dso-spinner-left {
     &::before {
-      @include _spinner-icon($color: colors.$wit, $valign: top, $position: left);
+      @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-start);
     }
   }
 
   &.dso-spinner-right {
     &::after {
-      @include _spinner-icon($color: colors.$wit, $valign: top, $position: right);
+      @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-end);
     }
   }
 }
@@ -287,13 +287,13 @@
 
   &.dso-spinner-left {
     &::before {
-      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: left);
+      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: inline-start);
     }
 
     &:not([disabled]) {
       &:hover {
         &::before {
-          @include _spinner-icon($color: colors.$wit, $valign: top, $position: left);
+          @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-start);
         }
       }
 
@@ -308,13 +308,13 @@
 
   &.dso-spinner-right {
     &::after {
-      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: right);
+      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: inline-end);
     }
 
     &:not([disabled]) {
       &:hover {
         &::after {
-          @include _spinner-icon($color: colors.$wit, $valign: top, $position: right);
+          @include _spinner-icon($color: colors.$wit, $valign: top, $position: inline-end);
         }
       }
 
@@ -388,13 +388,13 @@
 
   &.dso-spinner-left {
     &::before {
-      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: left);
+      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: inline-start);
     }
   }
 
   &.dso-spinner-right {
     &::after {
-      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: right);
+      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: inline-end);
     }
   }
 
