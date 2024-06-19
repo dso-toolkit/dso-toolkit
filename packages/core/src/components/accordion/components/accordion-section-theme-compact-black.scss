@@ -10,9 +10,9 @@
     a,
     button {
       color: accordion.$compact-black-color;
-      padding-block-end: accordion.$vertical-padding - accordion.$compact-border-width;
+      padding-block-end: accordion.$block-padding - accordion.$compact-border-width;
       padding-inline-start: 0;
-      padding-block-start: accordion.$vertical-padding - accordion.$compact-border-width;
+      padding-block-start: accordion.$block-padding - accordion.$compact-border-width;
 
       &:hover,
       &:active,

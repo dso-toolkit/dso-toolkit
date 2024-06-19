@@ -37,7 +37,7 @@
   + ol,
   + ul,
   + div:not(.form-group):not(.dso-form-buttons) {
-    margin-block-start: units.$vertical-spacing-xlarge;
+    margin-block-start: units.$block-spacing-xlarge;
   }
 
   > .dso-info {
@@ -193,7 +193,7 @@
 
 // to do: integrate this into spacing.scss [#2217]
 .dso-img-list + .form-group {
-  margin-block-start: units.$vertical-spacing-xlarge;
+  margin-block-start: units.$block-spacing-xlarge;
 }
 
 #{css-form-variables.$form-selectors} {

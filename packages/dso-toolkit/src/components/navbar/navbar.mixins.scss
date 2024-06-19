@@ -16,7 +16,7 @@
     .dso-navbar-toggle {
       border-radius: 4px;
       min-inline-size: auto;
-      padding: #{units.$padding-base-vertical - 1} 0;
+      padding: #{units.$padding-base-block - 1} 0;
 
       dso-icon,
       svg.di {

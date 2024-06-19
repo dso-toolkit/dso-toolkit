@@ -8,8 +8,8 @@
 
   .dso-label-symbol {
     @include symbol-mixins.symbolContainer(
-      label-variables.$symbol-height,
-      label-variables.$symbol-height * label-variables.$symbol-aspect-ratio,
+      label-variables.$symbol-block-size,
+      label-variables.$symbol-block-size * label-variables.$symbol-aspect-ratio,
       2px
     );
 
@@ -23,8 +23,8 @@
 dso-label {
   span[slot="symbol"] {
     @include symbol-mixins.symbolContainer(
-      label-variables.$symbol-height,
-      label-variables.$symbol-height * label-variables.$symbol-aspect-ratio,
+      label-variables.$symbol-block-size,
+      label-variables.$symbol-block-size * label-variables.$symbol-aspect-ratio,
       2px
     );
 

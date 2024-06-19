@@ -38,7 +38,7 @@
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       .dso-field-container {
-        padding-block-start: #{units.$padding-base-vertical + 1};
+        padding-block-start: #{units.$padding-base-block + 1};
       }
     }
   }

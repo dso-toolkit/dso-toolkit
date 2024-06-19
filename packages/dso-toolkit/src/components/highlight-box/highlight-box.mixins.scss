@@ -11,7 +11,7 @@
 @mixin root() {
   margin-block-start: units.$u2;
   padding: units.$u2;
-  margin-block-end: units.$vertical-spacing-large;
+  margin-block-end: units.$block-spacing-large;
 
   block-size: var(--highlight-box-block-size, unset);
   min-block-size: var(--highlight-box-min-block-size, unset);
@@ -64,7 +64,7 @@
   }
 
   &#{$has-counter-selector} {
-    margin-block-start: highlight-box-variables.$margin-top;
+    margin-block-start: highlight-box-variables.$margin-block-start;
 
     @include step-counter.has-step-counter();
   }

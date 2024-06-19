@@ -48,7 +48,9 @@
   inline-size: auto;
 
   .dso-body {
-    $dso-body-unavailable-height: (2 * modal.$header-padding) + (modal.$footer-button-height + modal.$footer-padding);
+    $dso-body-unavailable-height: (
+      (2 * modal.$header-padding) + (modal.$footer-button-block-size + modal.$footer-padding)
+    );
     max-block-size: calc(100vh - #{$dso-body-unavailable-height} - 1.5em - 2rem); // margin
   }
 

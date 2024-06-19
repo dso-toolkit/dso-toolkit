@@ -20,7 +20,7 @@
       &:not([rows]) {
         block-size: calc(
           #{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(
-              units.$padding-base-vertical + 1
+              units.$padding-base-block + 1
             ) * 2}
         );
       }
@@ -29,8 +29,8 @@
 
   .form-control {
     .form-horizontal & {
-      padding-block-end: units.$padding-base-vertical - 1;
-      padding-block-start: units.$padding-base-vertical - 1;
+      padding-block-end: units.$padding-base-block - 1;
+      padding-block-start: units.$padding-base-block - 1;
     }
   }
 }

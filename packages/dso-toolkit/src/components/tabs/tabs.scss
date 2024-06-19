@@ -58,7 +58,7 @@
   border-block-end: 1px solid css-tabs-variables.$border-color;
   display: flex;
   flex-wrap: wrap;
-  margin-block-end: css-tabs-variables.$margin-bottom;
+  margin-block-end: css-tabs-variables.$margin-block-end;
   padding-inline-start: 0;
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
@@ -75,7 +75,7 @@
     font-weight: bold;
     // Make the list-items overlay the bottom border
     margin-block-end: -1px;
-    min-block-size: css-tabs-variables.$height;
+    min-block-size: css-tabs-variables.$block-size;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       margin: 10px 0;
@@ -99,8 +99,9 @@
       display: block;
       line-height: typography.$line-height-base;
       margin-inline-end: 2px;
-      min-block-size: css-tabs-variables.$height;
-      padding: css-tabs-variables.$horizontal-padding css-tabs-variables.$vertical-padding;
+      min-block-size: css-tabs-variables.$block-size;
+      padding-block: css-tabs-variables.$block-padding;
+      padding-inline: css-tabs-variables.$inline-padding;
       position: relative;
 
       &:hover {

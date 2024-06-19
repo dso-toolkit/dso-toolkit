@@ -8,7 +8,7 @@
 @use "definition-list.variables" as css-definition-list-variables;
 
 dl {
-  margin-block-end: css-definition-list-variables.$vertical-space * 2;
+  margin-block-end: css-definition-list-variables.$block-space * 2;
   margin-block-start: 0;
 
   + dl {
@@ -17,8 +17,8 @@ dl {
       content: " ";
       display: block;
       float: inline-start;
-      block-size: css-definition-list-variables.$vertical-space;
-      margin-block-end: css-definition-list-variables.$vertical-space * 3;
+      block-size: css-definition-list-variables.$block-space;
+      margin-block-end: css-definition-list-variables.$block-space * 3;
       inline-size: 100%;
     }
   }
@@ -44,7 +44,7 @@ dl {
 
     @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       &:last-of-type {
-        margin-block-end: css-definition-list-variables.$vertical-space;
+        margin-block-end: css-definition-list-variables.$block-space;
       }
     }
   }
@@ -93,7 +93,7 @@ dl {
     }
 
     > div {
-      margin-block-end: css-definition-list-variables.$vertical-space;
+      margin-block-end: css-definition-list-variables.$block-space;
     }
   }
 
@@ -101,7 +101,7 @@ dl {
     &:not(.dso-vertical):not(.dso-columns) {
       dd + dt,
       dd + dt + dd {
-        margin-block-start: css-definition-list-variables.$vertical-space;
+        margin-block-start: css-definition-list-variables.$block-space;
       }
     }
   }
@@ -111,12 +111,12 @@ dl {
       dt {
         clear: inline-start;
         float: inline-start;
-        inline-size: css-definition-list-variables.$term-width;
+        inline-size: css-definition-list-variables.$term-inline-size;
         word-wrap: break-word;
       }
 
       dd {
-        margin-inline-start: css-definition-list-variables.$term-width;
+        margin-inline-start: css-definition-list-variables.$term-inline-size;
         padding-inline-start: css-definition-list-variables.$gutter;
       }
 
@@ -185,7 +185,7 @@ dl {
     }
 
     dd + dt {
-      margin-block-start: css-definition-list-variables.$vertical-space;
+      margin-block-start: css-definition-list-variables.$block-space;
     }
   }
 
@@ -209,7 +209,7 @@ dl {
   &:not(.dso-bordered) {
     @media screen and (max-width: #{css-definition-list-variables.$horizontal-breakpoint - 1}) {
       dd + dt {
-        margin-block-start: css-definition-list-variables.$vertical-space;
+        margin-block-start: css-definition-list-variables.$block-space;
       }
     }
   }
@@ -221,14 +221,14 @@ dl {
       border-block-start: css-definition-list-variables.$list-border;
       content: "";
       display: block;
-      padding-block-start: css-definition-list-variables.$vertical-space;
+      padding-block-start: css-definition-list-variables.$block-space;
       inline-size: 100%;
     }
 
     dt,
     dd {
       &:last-of-type {
-        padding-block-end: css-definition-list-variables.$vertical-space * 0.5;
+        padding-block-end: css-definition-list-variables.$block-space * 0.5;
       }
     }
 
@@ -242,17 +242,17 @@ dl {
 
     @media screen and (max-width: #{css-definition-list-variables.$horizontal-breakpoint - 1}) {
       dd + dt::before {
-        margin-block-start: css-definition-list-variables.$vertical-space;
+        margin-block-start: css-definition-list-variables.$block-space;
       }
 
       dd:last-of-type {
-        margin-block-end: css-definition-list-variables.$vertical-space;
+        margin-block-end: css-definition-list-variables.$block-space;
       }
     }
 
     @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dt + dd {
-        margin-inline-start: css-definition-list-variables.$term-width;
+        margin-inline-start: css-definition-list-variables.$term-inline-size;
         padding-inline-start: css-definition-list-variables.$gutter;
 
         &::before {
@@ -260,7 +260,7 @@ dl {
           content: "";
           display: block;
           margin-inline-start: css-definition-list-variables.$gutter * -1;
-          margin-block-end: css-definition-list-variables.$vertical-space;
+          margin-block-end: css-definition-list-variables.$block-space;
           inline-size: calc(100% + #{css-definition-list-variables.$gutter});
         }
       }

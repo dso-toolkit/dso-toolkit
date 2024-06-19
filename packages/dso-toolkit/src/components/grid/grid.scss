@@ -8,7 +8,7 @@
 main,
 form {
   > .dso-rich-content {
-    margin-block-end: units.$vertical-spacing-xlarge;
+    margin-block-end: units.$block-spacing-xlarge;
   }
 
   > .row {
@@ -65,7 +65,7 @@ form {
     &:has(.dso-highlight-box, dso-highlight-box) {
       --highlight-box-block-size: 100%;
       --highlight-box-min-block-size: auto;
-      --highlight-box-counter-block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
+      --highlight-box-counter-block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-block-size});
       --highlight-box-nocounter-block-size: calc(100% - #{units.$u2});
     }
 
@@ -81,7 +81,7 @@ form {
         min-block-size: auto;
 
         &.dso-has-counter {
-          block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
+          block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-block-size});
         }
       }
     }

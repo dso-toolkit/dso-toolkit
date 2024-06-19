@@ -10,7 +10,7 @@
 @use "accordion-theme-default";
 
 .dso-accordion {
-  margin-block-end: units.$vertical-spacing-xlarge;
+  margin-block-end: units.$block-spacing-xlarge;
 
   // dit is een nested accordion.
   .dso-accordion {
@@ -103,8 +103,8 @@
     background-color: transparent;
     border: 0;
     display: flex;
-    padding: accordion.$vertical-padding accordion.$horizontal-padding accordion.$vertical-padding
-      accordion.$chevron-left-offset;
+    padding-block: accordion.$block-padding;
+    padding-inline: accordion.$chevron-inline-start-offset accordion.$inline-padding;
     text-align: start;
     inline-size: 100%;
     word-break: break-word;
@@ -120,7 +120,7 @@
       content: "";
       position: absolute;
       inset-inline-end: units.$u2;
-      inset-block-start: (accordion.$handle-height - accordion.$state-icon-size) * 0.5;
+      inset-block-start: (accordion.$handle-block-size - accordion.$state-icon-size) * 0.5;
     }
 
     .dso-status,

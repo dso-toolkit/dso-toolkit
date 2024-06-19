@@ -4,7 +4,7 @@
 // -------------------------------------------------
 // To Do: integrate this with things to come within this file.
 :where(dso-action-list) + :where(.dso-form-buttons) {
-  margin-block-start: units.$vertical-spacing-xlarge;
+  margin-block-start: units.$block-spacing-xlarge;
 }
 
 // Original spacing of dso-button-row
@@ -29,7 +29,7 @@
 
   :where(*) + :where(.dso-button-row),
   :where(.dso-button-row) + :where(*) {
-    margin-block-start: units.$vertical-spacing-medium;
+    margin-block-start: units.$block-spacing-medium;
   }
 }
 
@@ -61,6 +61,6 @@
 // To do: integrate this with #2217 (103)
 :where(.row:has(.dso-button-row)) {
   + :where(.row:has(:only-child > dl)) {
-    margin-block-start: units.$vertical-spacing-medium;
+    margin-block-start: units.$block-spacing-medium;
   }
 }

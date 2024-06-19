@@ -5,6 +5,6 @@
 $border-width: 1px;
 $focus-border-width: 1px;
 $focus-border-color: colors.$bosgroen;
-$height: calc((units.$padding-base-vertical + 1px) * 2 + $border-width * 2 + typography.$font-size-base * 1.5);
+$block-size: calc((units.$padding-base-block + 1px) * 2 + $border-width * 2 + typography.$font-size-base * 1.5);
 $input-border-radius: 4px;
 $readonly-border-width: 1px;

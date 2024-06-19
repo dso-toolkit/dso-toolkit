@@ -8,7 +8,7 @@
 @mixin root() {
   background: colors.$wit;
   box-shadow: whitebox-variables.$box-shadow;
-  margin-block-end: whitebox-variables.$margin-bottom;
+  margin-block-end: whitebox-variables.$margin-block-end;
   padding: units.$u2 units.$u3;
   position: relative;
   inset-block-start: units.$u7;
@@ -48,7 +48,7 @@
 }
 
 @mixin equal-heights() {
-  block-size: calc(100% - #{whitebox-variables.$margin-bottom});
+  block-size: calc(100% - #{whitebox-variables.$margin-block-end});
   min-block-size: auto;
   padding-block-end: units.$u2;
 }

@@ -4,12 +4,12 @@
 
 @mixin children() {
   p {
-    margin: 0 0 rich-content-variables.$margin-bottom;
+    margin: 0 0 rich-content-variables.$margin-block-end;
   }
 
   ul,
   ol {
-    margin-block-end: rich-content-variables.$margin-bottom;
+    margin-block-end: rich-content-variables.$margin-block-end;
 
     &:not(.list-group):not(.dso-link-list):not(.dso-columns-list) {
       padding-inline-start: units.$u3;
@@ -17,11 +17,11 @@
   }
 
   pre {
-    margin: 0 0 rich-content-variables.$margin-bottom;
+    margin: 0 0 rich-content-variables.$margin-block-end;
   }
 
   blockquote {
-    padding: rich-content-variables.$margin-bottom typography.$line-height-computed;
+    padding: rich-content-variables.$margin-block-end typography.$line-height-computed;
   }
 
   dso-highlight-box,

@@ -1,7 +1,7 @@
 @use "../../variables/units";
 @use "../../variables/colors";
 
-$height: units.$ru5;
+$block-size: units.$ru5;
 $invalid-input-border-color: colors.$danger-color;
 $focus-border-width: 1px;
-$icon-top: units.$ru4;
+$icon-block-start: units.$ru4;

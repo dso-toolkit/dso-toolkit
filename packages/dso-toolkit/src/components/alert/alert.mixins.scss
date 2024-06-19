@@ -8,9 +8,9 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin icon-position() {
-  inset-inline-start: alert-variables.$horizontal-padding - 1px; // 1px border
+  inset-inline-start: alert-variables.$inline-padding - 1px; // 1px border
   position: absolute;
-  inset-block-start: alert-variables.$horizontal-padding - 1px; // 1px border
+  inset-block-start: alert-variables.$inline-padding - 1px; // 1px border
 }
 
 @mixin children() {
@@ -72,16 +72,17 @@
   border: 1px solid transparent;
   line-height: typography.$line-height-base;
   margin-block-end: typography.$line-height-computed;
-  min-block-size: 2 * alert-variables.$horizontal-padding + alert-variables.$icon-size;
+  min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
   position: relative;
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
-    padding: alert-variables.$vertical-padding alert-variables.$horizontal-padding alert-variables.$vertical-padding
-      alert-variables.$left-padding;
+    padding-block: alert-variables.$block-padding;
+    padding-inline: alert-variables.$inline-start-padding alert-variables.$inline-padding;
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    padding: alert-variables.$small-padding-top alert-variables.$small-padding alert-variables.$small-padding;
+    padding-block: alert-variables.$small-padding-block-start alert-variables.$small-padding;
+    padding-inline: alert-variables.$small-padding;
   }
 
   &:not(:first-child) {

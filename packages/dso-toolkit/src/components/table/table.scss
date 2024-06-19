@@ -304,7 +304,7 @@ table {
 .dso-table-filter-wrapper {
   .dso-search-bar {
     margin-block-end: units.$u2;
-    inline-size: table.$filter-wrapper-width - units.$u4;
+    inline-size: table.$filter-wrapper-inline-size - units.$u4;
   }
 }
 

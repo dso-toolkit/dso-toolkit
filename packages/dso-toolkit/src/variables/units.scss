@@ -41,18 +41,18 @@ $font-line-height-h4: 1.5;
 $font-line-height-h5: 1.5;
 $font-line-height-h6: 1.5;
 
-$padding-base-vertical: 6px;
-$padding-small-vertical: 5px;
-$padding-large-vertical: 10px;
-$padding-base-horizontal: 12px;
+$padding-base-block: 6px;
+$padding-small-block: 5px;
+$padding-large-block: 10px;
+$padding-base-inline: 12px;
 
 // Super weird shared unit..
-$shared-equal-heights-highlight-box-height: $u6;
+$shared-equal-heights-highlight-box-block-size: $u6;
 
-$vertical-spacing-small: $u1;
-$vertical-spacing-medium: $u2;
-$vertical-spacing-large: $u3;
-$vertical-spacing-xlarge: $u4;
+$block-spacing-small: $u1;
+$block-spacing-medium: $u2;
+$block-spacing-large: $u3;
+$block-spacing-xlarge: $u4;
 
 $focus-border-radius: 2px;
 $focus-outline-width: 3px;

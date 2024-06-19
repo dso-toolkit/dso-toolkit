@@ -54,8 +54,8 @@
     font-weight: 600;
     line-height: accordion.$handle-line-height;
     margin: 0;
-    padding-block: accordion.$vertical-padding;
-    padding-inline: accordion.$horizontal-padding;
+    padding-block: accordion.$block-padding;
+    padding-inline: accordion.$inline-padding;
     text-align: start;
     inline-size: 100%;
     word-break: break-word;

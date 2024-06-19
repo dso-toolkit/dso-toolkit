@@ -3,8 +3,8 @@
 @use "../../variables/media-query-breakpoints";
 
 $gutter: units.$u2;
-$vertical-space: units.$u1;
-$term-width: 200px;
-$horizontal-breakpoint: media-query-breakpoints.$screen-sm-min;
+$block-space: units.$u1;
+$term-inline-size: 200px;
+$horizontal-breakpoint: media-query-breakpoints.$screen-sm-min; // mq's not logical!
 $highlight-color: colors.$grasgroen;
 $list-border: 1px solid colors.$grijs-20;

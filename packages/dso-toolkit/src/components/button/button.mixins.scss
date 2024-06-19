@@ -30,8 +30,9 @@
   border-style: solid;
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;
-  min-inline-size: button-variables.$min-width;
-  padding: button-variables.$vertical-padding button-variables.$horizontal-padding;
+  min-inline-size: button-variables.$min-inline-size;
+  padding-block: button-variables.$block-padding;
+  padding-inline: button-variables.$inline-padding;
 
   &:hover {
     @include _shared-variant($defaults-map, $hover-map);
@@ -374,7 +375,7 @@
 
   &.dso-align {
     line-height: calc(1.5em - 1px);
-    padding: button-variables.$tertiary-padding-horizontal 0;
+    padding: button-variables.$tertiary-padding-inline 0;
     position: relative;
   }
 

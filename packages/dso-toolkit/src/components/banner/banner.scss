@@ -23,11 +23,11 @@
   &:not(.dso-no-icon) {
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
-        padding-inline-start: banner-variables.$left-padding;
+        padding-inline-start: banner-variables.$inline-start-padding;
       }
 
       @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
-        padding-block-start: banner-variables.$small-padding-top;
+        padding-block-start: banner-variables.$small-padding-block-start;
 
         > .dso-rich-content {
           padding-inline-end: 0;
@@ -95,11 +95,11 @@ dso-banner {
   &:not([no-icon]) {
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
-        padding-inline-start: banner-variables.$left-padding;
+        padding-inline-start: banner-variables.$inline-start-padding;
       }
 
       @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
-        padding-block-start: banner-variables.$small-padding-top;
+        padding-block-start: banner-variables.$small-padding-block-start;
 
         > .dso-rich-content {
           padding-inline-end: 0;

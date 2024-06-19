@@ -2,9 +2,9 @@
 @use "../../variables/colors";
 
 $border-radius: 4px;
-$min-width: units.$u7;
-$horizontal-padding: units.$u2 - 1px;
-$vertical-padding: units.$u1 * 1.5 - 1px;
+$min-inline-size: units.$u7;
+$inline-padding: units.$u2 - 1px;
+$block-padding: units.$u1 * 1.5 - 1px;
 
 $primary-background-color: colors.$grasgroen;
 $primary-color: colors.$wit;
@@ -20,7 +20,7 @@ $secondary-hover-color: colors.$wit;
 $secondary-active-background-color: colors.$bosgroen;
 $secondary-disabled-color: colors.$grasgroen-40;
 
-$tertiary-padding-horizontal: $vertical-padding;
+$tertiary-padding-inline: $block-padding;
 $tertiary-color: colors.$grasgroen;
 $tertiary-hover-color: colors.$bosgroen;
 $tertiary-active-color: colors.$bosgroen-140;

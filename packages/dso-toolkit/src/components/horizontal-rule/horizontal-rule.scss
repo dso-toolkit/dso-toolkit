@@ -7,6 +7,6 @@ hr {
   border-block-start: 1px solid css-horizontal-rule-variables.$hr-border;
   box-sizing: content-box;
   block-size: 0;
-  margin-block-end: units.$vertical-spacing-medium;
-  margin-block-start: units.$vertical-spacing-medium;
+  margin-block-end: units.$block-spacing-medium;
+  margin-block-start: units.$block-spacing-medium;
 }

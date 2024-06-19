@@ -111,7 +111,7 @@
   }
 
   &.is-left {
-    inset-inline-start: units.$padding-base-horizontal * -1 + core-date-picker-legacy-variables.$border-width;
+    inset-inline-start: units.$padding-base-inline * -1 + core-date-picker-legacy-variables.$border-width;
     inset-inline-end: auto;
     inline-size: auto;
   }

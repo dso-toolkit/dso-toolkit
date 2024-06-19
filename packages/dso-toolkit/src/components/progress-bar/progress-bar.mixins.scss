@@ -10,7 +10,7 @@
     background-color: progress-bar-variables.$background-color;
     border: 1px solid progress-bar-variables.$color;
     display: block;
-    block-size: progress-bar-variables.$height;
+    block-size: progress-bar-variables.$block-size;
 
     > span {
       background-color: progress-bar-variables.$progress-color;
