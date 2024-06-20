@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * CSS: Physical to logical properties ([#2366](https://github.com/dso-toolkit/dso-toolkit/issues/2366))
 
+### Docs
+* Logo: waar hoor ik thuis? ([#2678](https://github.com/dso-toolkit/dso-toolkit/issues/2678))
+
 ### Tasks
 * Packages: Dependencies updates ([#2675](https://github.com/dso-toolkit/dso-toolkit/issues/2675))
 * Packages: angular updaten naar v18 ([#2676](https://github.com/dso-toolkit/dso-toolkit/issues/2676))
