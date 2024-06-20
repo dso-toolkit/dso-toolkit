@@ -22,7 +22,7 @@ export const cardContainerArgTypes: ArgTypes<CardContainerArgs> = {
   },
 };
 
-export const cardContainerArgs: { cards: CardArgs[] } = {
+export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
   cards: [
     {
       label: "Begrippen uit de Omgevingswet",
