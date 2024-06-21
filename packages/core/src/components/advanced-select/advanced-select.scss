@@ -32,7 +32,8 @@
 }
 
 .active-option-label {
-  padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
+  padding-block: advanced-select.$block-padding;
+  padding-inline: advanced-select.$inline-padding;
   overflow: hidden;
   /* stylelint-disable-next-line declaration-property-value-disallowed-list -- Nodig om lange titels op de zelfde regel te houden */
   white-space: nowrap;
@@ -43,15 +44,16 @@
 .active-option-aside {
   display: flex;
   align-items: center;
-  gap: advanced-select.$horizontal-padding * 0.5;
-  padding: 0 advanced-select.$horizontal-padding * 0.5;
+  gap: advanced-select.$inline-padding * 0.5;
+  padding-block: 0;
+  padding-inline: advanced-select.$inline-padding * 0.5;
 }
 
 .badges {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: advanced-select.$vertical-padding;
+  gap: advanced-select.$block-padding;
 }
 
 .groups-container {
@@ -79,14 +81,14 @@
 }
 
 .group {
-  border-bottom: 1px solid advanced-select.$hr-color;
+  border-block-end: 1px solid advanced-select.$hr-color;
 
   &:last-child {
-    border-bottom: none;
+    border-block-end: none;
   }
 
   .option {
-    padding-left: advanced-select.$horizontal-padding * 2 + advanced-select.$option-dot-size * 0.5;
+    padding-inline-start: advanced-select.$inline-padding * 2 + advanced-select.$option-dot-size * 0.5;
   }
 
   .option-label::before {
@@ -95,7 +97,8 @@
     display: block;
     block-size: advanced-select.$option-dot-size;
     inline-size: advanced-select.$option-dot-size;
-    inset: advanced-select.$vertical-padding auto auto -#{advanced-select.$option-dot-size * 2};
+    inset-block: advanced-select.$block-padding auto;
+    inset-inline: -#{advanced-select.$option-dot-size * 2} auto;
     border-radius: 50%;
     @include set-colors.apply(advanced-select.$default-variant-color, $icons: false, $links: false);
   }
@@ -103,16 +106,18 @@
 
 .group-label {
   margin: 0;
-  padding: advanced-select.$vertical-padding advanced-select.$horizontal-padding;
+  padding-block: advanced-select.$block-padding;
+  padding-inline: advanced-select.$inline-padding;
   color: advanced-select.$group-label-color;
   font-size: advanced-select.$group-label-font-size;
   font-weight: advanced-select.$group-label-font-weight;
-  border-bottom: 1px solid advanced-select.$hr-color;
+  border-block-end: 1px solid advanced-select.$hr-color;
 }
 
 .group-link {
   display: block;
-  padding: advanced-select.$group-link-horizontal-padding advanced-select.$group-link-vertical-padding;
+  padding-block: advanced-select.$group-link-block-padding;
+  padding-inline: advanced-select.$group-link-inline-padding;
   text-align: end;
   color: advanced-select.$group-link-color;
   text-decoration: none;
@@ -162,13 +167,14 @@
 .option {
   display: block;
   inline-size: 100%;
-  padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
+  padding-block: advanced-select.$block-padding * 2;
+  padding-inline: advanced-select.$inline-padding;
   cursor: pointer;
   line-height: inherit;
   font-family: inherit;
   font-size: inherit;
   border: none;
-  text-align: left;
+  text-align: start;
   background-color: advanced-select.$bg-color;
 
   &:hover {
@@ -195,7 +201,7 @@
 }
 
 .option-hint {
-  padding-left: 5px;
+  padding-inline-start: 5px;
   color: advanced-select.$option-active-color;
   font-size: advanced-select.$option-font-size;
   font-weight: advanced-select.$option-active-font-weight;
@@ -203,6 +209,7 @@
 
 .placeholder {
   margin: 0;
-  padding: advanced-select.$vertical-padding * 2 advanced-select.$horizontal-padding;
+  padding-block: advanced-select.$block-padding * 2;
+  padding-inline: advanced-select.$inline-padding;
   color: advanced-select.$option-placeholder-color;
 }

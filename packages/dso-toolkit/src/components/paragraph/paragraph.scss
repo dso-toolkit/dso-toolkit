@@ -1,5 +1,6 @@
 @use "../../variables/units";
 
 p {
-  margin: 0 0 units.$u2;
+  margin-block: 0 units.$u2;
+  margin-inline: 0;
 }

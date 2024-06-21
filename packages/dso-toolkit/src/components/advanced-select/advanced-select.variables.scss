@@ -14,8 +14,8 @@ $redirect-icon-color: colors.$grasgroen;
 
 $hr-color: colors.$grijs-20;
 
-$horizontal-padding: units.$u2;
-$vertical-padding: math.div(units.$u1, 2);
+$inline-padding: units.$u2;
+$block-padding: math.div(units.$u1, 2);
 
 $option-dot-size: 10px;
 
@@ -23,8 +23,8 @@ $group-label-color: colors.$grijs-60;
 $group-label-font-size: typography.$font-size-small;
 $group-label-font-weight: 500;
 
-$group-link-horizontal-padding: units.$u1;
-$group-link-vertical-padding: math.div(units.$u1, 2);
+$group-link-inline-padding: math.div(units.$u1, 2);
+$group-link-block-padding: units.$u1;
 $group-link-color: colors.$zwart;
 
 $option-color: colors.$zwart;

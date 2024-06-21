@@ -7,21 +7,21 @@
 
 @mixin root() {
   .dso-navbar {
-    min-height: units.$u4;
+    min-block-size: units.$u4;
 
     .dso-navbar-header {
-      float: left;
+      float: inline-start;
     }
 
     .dso-navbar-toggle {
       border-radius: 4px;
-      min-width: auto;
-      padding: #{units.$padding-base-vertical - 1} 0;
+      min-inline-size: auto;
+      padding: #{units.$padding-base-block - 1} 0;
 
       dso-icon,
       svg.di {
-        margin-left: units.$u1;
-        margin-right: units.$u1;
+        margin-inline-start: units.$u1;
+        margin-inline-end: units.$u1;
       }
 
       @media screen and (min-width: media-query-breakpoints.$screen-md-min) {
@@ -82,7 +82,7 @@
 
           font-size: 1.25em;
           line-height: 1;
-          margin-top: units.$u1;
+          margin-block-start: units.$u1;
           padding: units.$u1 units.$u2 #{units.$u1 - 1px};
         }
       }
@@ -97,7 +97,7 @@
           @include anchor.reverse();
 
           font-size: typography.$root-font-size-base;
-          margin-top: (units.$u1 * 0.5);
+          margin-block-start: (units.$u1 * 0.5);
           padding: (units.$u1 * 0.5) units.$u1 #{units.$u1 * 0.5 - 1px};
         }
       }
@@ -106,9 +106,9 @@
 }
 
 @mixin nav-item-border($color) {
-  border-bottom: 4px solid $color;
+  border-block-end: 4px solid $color;
 }
 
 @mixin nav-border() {
-  border-bottom: 1px solid colors.$grijs-20;
+  border-block-end: 1px solid colors.$grijs-20;
 }

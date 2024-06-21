@@ -1,16 +1,16 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 
-$arrow-width: 6px;
+$arrow-inline-size: 6px;
 $opacity: 1;
-$padding-vertical: units.$u1;
-$padding-horizontal: units.$u2;
+$padding-block: units.$u1;
+$padding-inline: units.$u2;
 $border-radius: units.$u1 * 0.5;
 $arrow-color: colors.$wit;
-$arrow-margin: $arrow-width * 0.5;
+$arrow-margin: $arrow-inline-size * 0.5;
 $arrow-offset: 50%;
-$max-width: 80 * units.$u1;
-$max-width-small: 40 * units.$u1;
+$max-inline-size: 80 * units.$u1;
+$max-inline-size-small: 40 * units.$u1;
 
 // Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss
 $transition-duration: 0.15s;

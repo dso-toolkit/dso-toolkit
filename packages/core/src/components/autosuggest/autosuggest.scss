@@ -19,24 +19,28 @@ ul,
   border-radius: scaffolding.$border-radius-base;
   box-shadow: core-autosuggest-variables.$box-shadow;
   list-style-type: none;
-  margin-top: 2px;
-  padding: units.$u1 * 0.5 0;
+  margin-block-start: 2px;
+  padding-block: units.$u1 * 0.5;
+  padding-inline: 0;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: 100%;
   z-index: zindex.$autosuggest;
 }
 
 .autosuggest-progress-box {
-  padding: units.$u1 * 1.5 units.$u1;
+  padding-block: units.$u1 * 1.5;
+  padding-inline: units.$u1;
 }
 
 ul {
-  padding: units.$u1 0;
+  padding-block: units.$u1;
+  padding-inline: 0;
 
   li {
-    padding: units.$u1 * 0.5 units.$u2;
+    padding-block: units.$u1 * 0.5;
+    padding-inline: units.$u2;
 
     .suggestion-row {
       display: flex;

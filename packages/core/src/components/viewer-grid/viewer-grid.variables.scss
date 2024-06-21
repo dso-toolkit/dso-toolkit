@@ -6,11 +6,11 @@ $medium: 624px;
 $large: 60%;
 $large-min: 768px;
 $large-max: 1024px;
-$overlay-width: 624px;
+$overlay-inline-size: 624px;
 
-$filterpanel-width: 768px;
-$filterpanel-max-width: 896px;
+$filterpanel-inline-size: 768px;
+$filterpanel-max-inline-size: 896px;
 
-$sizing-buttons-top: units.$u2;
+$sizing-buttons-block-start: units.$u2;
 $resize-button-size: units.$u5;
 $transition-time: 200ms; // Also keep in sync with dso-viewer-grid.tsx:const TRANSITION_TIME;

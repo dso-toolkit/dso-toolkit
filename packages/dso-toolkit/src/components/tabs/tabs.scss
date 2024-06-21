@@ -11,8 +11,8 @@
   @include utilities.clearfix();
 
   list-style: none;
-  margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
+  margin-block-end: 0;
+  padding-inline-start: 0; // Override default ul/ol
 
   > li {
     position: relative;
@@ -55,18 +55,18 @@
 }
 
 .nav.nav-tabs {
-  border-bottom: 1px solid css-tabs-variables.$border-color;
+  border-block-end: 1px solid css-tabs-variables.$border-color;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: css-tabs-variables.$margin-bottom;
-  padding-left: 0;
+  margin-block-end: css-tabs-variables.$margin-block-end;
+  padding-inline-start: 0;
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    border-bottom: 1px solid colors.$grasgroen;
+    border-block-end: 1px solid colors.$grasgroen;
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    border-bottom: 1px solid colors.$wit;
+    border-block-end: 1px solid colors.$wit;
     display: block;
   }
 
@@ -74,18 +74,18 @@
     border-color: css-tabs-variables.$color;
     font-weight: bold;
     // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
-    min-height: css-tabs-variables.$height;
+    margin-block-end: -1px;
+    min-block-size: css-tabs-variables.$block-size;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       margin: 10px 0;
 
       &:first-child {
-        margin-top: 0;
+        margin-block-start: 0;
       }
 
       &:last-child {
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
 
@@ -98,9 +98,10 @@
       color: css-tabs-variables.$text-color;
       display: block;
       line-height: typography.$line-height-base;
-      margin-right: 2px;
-      min-height: css-tabs-variables.$height;
-      padding: css-tabs-variables.$horizontal-padding css-tabs-variables.$vertical-padding;
+      margin-inline-end: 2px;
+      min-block-size: css-tabs-variables.$block-size;
+      padding-block: css-tabs-variables.$block-padding;
+      padding-inline: css-tabs-variables.$inline-padding;
       position: relative;
 
       &:hover {
@@ -118,7 +119,7 @@
     a:hover {
       background-color: css-tabs-variables.$hover-color;
       border: 1px solid transparent;
-      border-bottom-color: css-tabs-variables.$color;
+      border-block-end-color: css-tabs-variables.$color;
       text-decoration: none;
     }
 
@@ -131,7 +132,7 @@
       &:visited {
         background-color: colors.$wit;
         border: 1px solid css-tabs-variables.$color;
-        border-bottom-color: colors.$wit;
+        border-block-end-color: colors.$wit;
         color: css-tabs-variables.$color;
         cursor: default;
       }
@@ -158,7 +159,7 @@
         &:active,
         &:focus,
         &:hover {
-          border-bottom-width: 1px;
+          border-block-end-width: 1px;
           border-color: transparent;
         }
       }
@@ -167,7 +168,7 @@
         &,
         &:focus,
         &:hover {
-          border-bottom-width: 1px;
+          border-block-end-width: 1px;
           border-color: css-tabs-variables.$color;
         }
       }

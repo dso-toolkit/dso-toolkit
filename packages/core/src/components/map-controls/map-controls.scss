@@ -10,14 +10,14 @@
 :host {
   background-color: colors.$wit;
   border: 1px solid colors.$grijs-20;
-  bottom: 0;
+  inset-block-end: 0;
   display: block;
   font-family: typography.$font-family-base;
   position: absolute;
-  top: 0;
-  left: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 100%;
   transition: transform core-map-controls-variables.$transition-duration ease;
-  width: 300px;
+  inline-size: 300px;
 }
 
 @include utilities.box-sizing();
@@ -31,7 +31,7 @@
   }
 
   .zoom-buttons {
-    top: units.$u2;
+    inset-block-start: units.$u2;
   }
 }
 
@@ -43,8 +43,10 @@ button {
   @include button.map();
 
   position: absolute;
-  right: calc(100% + #{core-map-controls-variables.$controls-margin + core-map-controls-variables.$zoom-button-size});
-  top: core-map-controls-variables.$controls-margin;
+  inset-inline-end: calc(
+    100% + #{core-map-controls-variables.$controls-margin + core-map-controls-variables.$zoom-button-size}
+  );
+  inset-block-start: core-map-controls-variables.$controls-margin;
 }
 
 .zoom-buttons {
@@ -54,8 +56,8 @@ button {
   flex-wrap: wrap;
   flex: 0 0;
   position: absolute;
-  right: calc(100% + core-map-controls-variables.$controls-margin);
-  top: core-map-controls-variables.$controls-margin;
+  inset-inline-end: calc(100% + core-map-controls-variables.$controls-margin);
+  inset-block-start: core-map-controls-variables.$controls-margin;
 
   button {
     @include button.secondary($modifiers: false, $icon-only: true);
@@ -64,18 +66,18 @@ button {
     border: 0;
     padding: 8px;
     border-radius: 0;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-start-start-radius: 4px;
+    border-start-end-radius: 4px;
     flex: 0 0 100%;
-    height: core-map-controls-variables.$zoom-button-size;
-    min-width: auto;
-    width: core-map-controls-variables.$zoom-button-size;
+    block-size: core-map-controls-variables.$zoom-button-size;
+    min-inline-size: auto;
+    inline-size: core-map-controls-variables.$zoom-button-size;
 
     + button {
       border-radius: 0;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      border-top: 1px solid colors.$grijs-20;
+      border-end-start-radius: 4px;
+      border-end-end-radius: 4px;
+      border-block-start: 1px solid colors.$grijs-20;
     }
   }
 }
@@ -85,14 +87,14 @@ button {
 
   padding: 0;
   position: absolute;
-  right: core-map-controls-variables.$controls-margin;
-  top: core-map-controls-variables.$controls-margin;
+  inset-inline-end: core-map-controls-variables.$controls-margin;
+  inset-block-start: core-map-controls-variables.$controls-margin;
 }
 
 section:not([hidden]) {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  block-size: 100%;
 }
 
 header,
@@ -101,7 +103,7 @@ header,
 }
 
 header {
-  border-bottom: 1px solid colors.$grijs-20;
+  border-block-end: 1px solid colors.$grijs-20;
   flex-grow: 0;
   position: relative;
 
@@ -115,14 +117,14 @@ header {
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
   .toggle-visibility-button {
-    height: units.$u5;
-    margin-right: 0;
-    min-width: auto;
-    right: calc(100% + core-map-controls-variables.$controls-margin);
-    width: units.$u5;
+    block-size: units.$u5;
+    margin-inline-end: 0;
+    min-inline-size: auto;
+    inset-inline-end: calc(100% + core-map-controls-variables.$controls-margin);
+    inline-size: units.$u5;
 
     dso-icon {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
 
     span {
@@ -131,6 +133,6 @@ header {
   }
 
   .zoom-buttons {
-    top: units.$u9;
+    inset-block-start: units.$u9;
   }
 }

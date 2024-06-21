@@ -15,7 +15,7 @@
 
 :host([mode="vdk"]) {
   .overlay {
-    height: calc(100% - units.$u4);
+    block-size: calc(100% - units.$u4);
     margin-block: units.$u2;
     margin-inline: auto units.$u2;
   }
@@ -41,8 +41,8 @@ button {
 
 .overlay-close-button {
   position: absolute;
-  top: units.$u1;
-  right: css-grid.$grid-gutter-width * 0.5;
+  inset-block-start: units.$u1;
+  inset-inline-end: css-grid.$grid-gutter-width * 0.5;
 }
 
 .content.invisible {
@@ -52,8 +52,9 @@ button {
 .dso-main-panel,
 .dso-document-panel {
   .content {
-    height: 100%;
-    padding: 0 css-grid.$grid-gutter-width * 0.5;
+    block-size: 100%;
+    padding-block: 0;
+    padding-inline: css-grid.$grid-gutter-width * 0.5;
   }
 }
 
@@ -64,14 +65,14 @@ button {
   position: relative;
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
-    max-width core-viewer-grid-variables.$transition-time ease-in,
-    min-width core-viewer-grid-variables.$transition-time ease-in;
+    max-inline-size core-viewer-grid-variables.$transition-time ease-in,
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   &.compact,
   &.expanded {
     &.collapsed {
-      left: -432px;
+      inset-inline-start: -432px;
     }
   }
 
@@ -85,23 +86,25 @@ button {
 
   &.expanded.collapsed {
     position: absolute;
-    height: 100%;
+    block-size: 100%;
   }
 
   .dso-filterblok-address {
     font-weight: bold;
-    margin: units.$u1 0;
+    margin-block: units.$u1;
+    margin-inline: 0;
   }
 
   .sizing-buttons,
   .toggle-button {
-    left: calc(100% + 1px);
-    transition: left core-viewer-grid-variables.$transition-time ease-in;
-    padding: 0 units.$u1 * 0.5 units.$u1 * 0.5 0;
+    inset-inline-start: calc(100% + 1px);
+    transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
+    padding-block: 0 units.$u1;
+    padding-inline: 0 units.$u1 * 0.5;
 
     button {
-      border-bottom-right-radius: 4px;
-      border-top-right-radius: 4px;
+      border-end-end-radius: 4px;
+      border-start-end-radius: 4px;
     }
   }
 }
@@ -113,20 +116,21 @@ button {
   position: relative;
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
-    max-width core-viewer-grid-variables.$transition-time ease-in,
-    min-width core-viewer-grid-variables.$transition-time ease-in;
+    max-inline-size core-viewer-grid-variables.$transition-time ease-in,
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   .sizing-buttons {
-    top: auto;
-    bottom: core-viewer-grid-variables.$sizing-buttons-top;
-    right: calc(100% + 1px);
-    transition: right core-viewer-grid-variables.$transition-time ease-in;
-    padding: 0 0 units.$u1 * 0.5 units.$u1 * 0.5;
+    inset-block-start: auto;
+    inset-block-end: core-viewer-grid-variables.$sizing-buttons-block-start;
+    inset-inline-end: calc(100% + 1px);
+    transition: inset-inline-end core-viewer-grid-variables.$transition-time ease-in;
+    padding-block: 0 units.$u1;
+    padding-inline: units.$u1 * 0.5 0;
 
     button {
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
+      border-end-start-radius: 4px;
+      border-start-start-radius: 4px;
     }
   }
 }
@@ -135,8 +139,8 @@ button {
 .toggle-button {
   overflow-x: hidden;
   position: absolute;
-  top: core-viewer-grid-variables.$sizing-buttons-top;
-  width: core-viewer-grid-variables.$resize-button-size + units.$u1 * 0.5;
+  inset-block-start: core-viewer-grid-variables.$sizing-buttons-block-start;
+  inline-size: core-viewer-grid-variables.$resize-button-size + units.$u1 * 0.5;
   z-index: zindex.$viewer-grid-sizing-buttons;
 
   button {
@@ -148,9 +152,9 @@ button {
     border-radius: 0;
     box-shadow: 0 1px units.$u1 * 0.5 0 rgba(0, 0, 0, 0.4);
     flex: 0 0 100%;
-    height: core-viewer-grid-variables.$resize-button-size;
-    min-width: auto;
-    width: core-viewer-grid-variables.$resize-button-size;
+    block-size: core-viewer-grid-variables.$resize-button-size;
+    min-inline-size: auto;
+    inline-size: core-viewer-grid-variables.$resize-button-size;
 
     &:hover {
       dso-icon {
@@ -161,8 +165,8 @@ button {
 }
 
 .map {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -171,19 +175,20 @@ button {
 .overlay {
   background-color: colors.$wit;
   border: 0;
-  height: 100%;
+  block-size: 100%;
   margin-block: 0;
-  max-height: 100vh;
+  max-block-size: 100vh;
   overflow-y: auto;
   z-index: zindex.$viewer-grid-main-panel + 1;
 }
 
 .filterpanel {
-  padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
-  left: 0;
+  padding-block: units.$u1;
+  padding-inline: css-grid.$grid-gutter-width * 0.5;
+  inset-inline-start: 0;
 
-  @media screen and (max-width: core-viewer-grid-variables.$filterpanel-width) {
-    width: 100vw;
+  @media screen and (max-width: core-viewer-grid-variables.$filterpanel-inline-size) {
+    inline-size: 100vw;
 
     &::before {
       display: none !important;
@@ -198,21 +203,22 @@ button {
 }
 
 .overlay {
-  padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
-  right: 0;
-  width: core-viewer-grid-variables.$overlay-width;
+  padding-block: units.$u5 units.$u1;
+  padding-inline: css-grid.$grid-gutter-width * 0.5;
+  inset-inline-end: 0;
+  inline-size: core-viewer-grid-variables.$overlay-inline-size;
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
   }
 
-  @media screen and (max-width: core-viewer-grid-variables.$overlay-width) {
-    width: 100vw;
+  @media screen and (max-width: core-viewer-grid-variables.$overlay-inline-size) {
+    inline-size: 100vw;
   }
 }
 
 .filterpanel-buttons {
-  text-align: right;
+  text-align: end;
 
   .cancel-button {
     @include button.secondary($modifiers: false);
@@ -225,7 +231,7 @@ button {
   }
 
   .cancel-button + .apply-button {
-    margin-left: units.$u2;
+    margin-inline-start: units.$u2;
   }
 }
 
@@ -233,13 +239,13 @@ button {
   :host([main-size="small"]) .dso-main-panel,
   :host([document-panel-size="small"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$small;
-    min-width: 0;
-    max-width: core-viewer-grid-variables.$small;
+    min-inline-size: 0;
+    max-inline-size: core-viewer-grid-variables.$small;
 
     @media screen and (max-width: core-viewer-grid-variables.$small) {
       flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: 0;
+      max-inline-size: 100vw;
+      min-inline-size: 0;
       transition: none;
     }
   }
@@ -247,13 +253,13 @@ button {
   :host([main-size="medium"]) .dso-main-panel,
   :host([document-panel-size="medium"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$medium;
-    min-width: core-viewer-grid-variables.$small;
-    max-width: core-viewer-grid-variables.$medium;
+    min-inline-size: core-viewer-grid-variables.$small;
+    max-inline-size: core-viewer-grid-variables.$medium;
 
     @media screen and (max-width: core-viewer-grid-variables.$medium) {
       flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: core-viewer-grid-variables.$small;
+      max-inline-size: 100vw;
+      min-inline-size: core-viewer-grid-variables.$small;
       transition: none;
     }
   }
@@ -261,32 +267,32 @@ button {
   :host([main-size="large"]) .dso-main-panel,
   :host([document-panel-size="large"]) .dso-document-panel {
     flex-basis: core-viewer-grid-variables.$large;
-    min-width: core-viewer-grid-variables.$large-min;
-    max-width: core-viewer-grid-variables.$large-max;
+    min-inline-size: core-viewer-grid-variables.$large-min;
+    max-inline-size: core-viewer-grid-variables.$large-max;
 
     @media screen and (max-width: core-viewer-grid-variables.$large-min) {
       flex-basis: 100vw;
-      max-width: 100vw;
-      min-width: core-viewer-grid-variables.$large-min;
+      max-inline-size: 100vw;
+      min-inline-size: core-viewer-grid-variables.$large-min;
       transition: none;
     }
   }
 
   :host {
     display: flex;
-    height: 100vh;
+    block-size: 100vh;
     overflow: hidden;
     position: relative;
 
     .dso-main-panel.compact,
     .dso-main-panel.expanded {
       flex-basis: unset;
-      min-width: unset;
-      max-width: unset;
-      width: 440px;
+      min-inline-size: unset;
+      max-inline-size: unset;
+      inline-size: 440px;
 
       .content {
-        height: auto;
+        block-size: auto;
         overflow-y: auto;
       }
     }
@@ -304,22 +310,22 @@ button {
   .filterpanel {
     box-shadow: 2px 0 5px colors.$grijs-60;
     margin-inline: 0 auto;
-    max-width: core-viewer-grid-variables.$filterpanel-max-width;
-    width: calc(100vw - 40px);
+    max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
+    inline-size: calc(100vw - 40px);
 
     &::before {
       content: "";
       display: block;
       position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: core-viewer-grid-variables.$filterpanel-max-width;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      inset-inline-end: 0;
+      inset-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
       background-color: rgba(0, 0, 0, 0.5);
 
-      @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-width + 40px}) {
-        left: auto;
-        width: 40px;
+      @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-inline-size + 40px}) {
+        inset-inline-start: auto;
+        inline-size: 40px;
       }
     }
   }
@@ -343,7 +349,7 @@ button {
     display: flex;
     gap: units.$u2;
     margin-block-start: 0;
-    width: calc(100vw - units.$u4);
+    inline-size: calc(100vw - units.$u4);
   }
 
   .dso-tertiary {
@@ -355,8 +361,8 @@ button {
   .filterpanel,
   .overlay {
     margin-inline: 0;
-    max-width: 100vw;
-    top: 0;
-    width: 100vw;
+    max-inline-size: 100vw;
+    inset-block-start: 0;
+    inline-size: 100vw;
   }
 }

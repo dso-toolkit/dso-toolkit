@@ -14,11 +14,11 @@ footer {
 
   @include set-colors.apply(colors.$grijs-5);
 
-  border-top: 1px solid css-footer-variables.$border-color;
+  border-block-start: 1px solid css-footer-variables.$border-color;
   display: block;
-  margin-top: units.$u6;
-  padding-bottom: units.$u6;
-  padding-top: units.$u3;
+  margin-block-start: units.$u6;
+  padding-block-end: units.$u6;
+  padding-block-start: units.$u3;
 
   .dso-link-list {
     @include link-list.exotic();
@@ -36,13 +36,13 @@ footer {
   }
 
   h2 {
-    border-bottom: 1px solid css-footer-variables.$header-border-color;
+    border-block-end: 1px solid css-footer-variables.$header-border-color;
     color: colors.$zwart;
     font-size: 1.25em;
     font-weight: 700;
-    margin-bottom: units.$u2;
-    margin-top: units.$u2;
-    padding-bottom: units.$u2;
+    margin-block-end: units.$u2;
+    margin-block-start: units.$u2;
+    padding-block-end: units.$u2;
   }
 
   a {

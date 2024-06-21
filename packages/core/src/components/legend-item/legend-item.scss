@@ -7,7 +7,8 @@
 
 :host {
   display: block;
-  padding: units.$u1 * 0.5;
+  padding-block: units.$u1 * 0.5;
+  padding-inline: units.$u1 * 0.5;
 }
 
 @include utilities.box-sizing();
@@ -18,18 +19,20 @@
 
   &.legend-item-symbol {
     + .body {
-      margin-inline-start: legend-item-variables.$symbol-width + units.$u1;
+      margin-inline-start: legend-item-variables.$symbol-inline-size + units.$u1;
     }
   }
 
   &.legend-item-selectable {
     + .body {
-      margin-inline-start: legend-item-variables.$selectable-width;
+      margin-inline-start: legend-item-variables.$selectable-inline-size;
     }
 
     &.legend-item-symbol {
       + .body {
-        margin-inline-start: legend-item-variables.$symbol-width + units.$u1 + legend-item-variables.$selectable-width;
+        margin-inline-start: (
+          legend-item-variables.$symbol-inline-size + units.$u1 + legend-item-variables.$selectable-inline-size
+        );
       }
     }
   }

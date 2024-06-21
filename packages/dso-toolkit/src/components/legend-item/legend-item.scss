@@ -3,7 +3,10 @@
 
 dso-legend-item {
   span[slot="symbol"] {
-    @include symbol-mixins.symbolContainer(legend-item-variables.$symbol-height, legend-item-variables.$symbol-width);
+    @include symbol-mixins.symbolContainer(
+      legend-item-variables.$symbol-block-size,
+      legend-item-variables.$symbol-inline-size
+    );
 
     > span {
       @include symbol-mixins.symbol();

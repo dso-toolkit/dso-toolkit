@@ -13,25 +13,27 @@
   @include step-counter.step-counter();
 
   display: block;
-  padding-block: action-list-item-variables.$padding-vertical;
+  padding-block: action-list-item-variables.$padding-block;
   position: relative;
 }
 
 :host(.divider) {
   .dso-action-list-item {
     &::after {
-      border-bottom: 0.25rem dashed colors.$lichtblauw;
-      bottom: 0;
+      border-block-end: 0.25rem dashed colors.$lichtblauw;
+      inset-block-end: 0;
       content: "";
       display: block;
-      height: units.$u3;
+      block-size: units.$u3;
       position: absolute;
-      left: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
-      width: calc(100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin));
+      inset-inline-start: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin);
+      inline-size: calc(
+        100% - (action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin)
+      );
 
       @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-        left: action-list-variables.$content-indent;
-        width: calc(100% - action-list-variables.$content-indent);
+        inset-inline-start: action-list-variables.$content-indent;
+        inline-size: calc(100% - action-list-variables.$content-indent);
       }
     }
   }
@@ -43,7 +45,7 @@ h3 {
 
   margin-block-end: units.$u2;
   margin-block-start: 0;
-  min-height: units.$u6;
+  min-block-size: units.$u6;
   padding-block-start: 9px;
 }
 
@@ -65,6 +67,6 @@ h3 {
 }
 
 dso-icon {
-  height: units.$u6;
-  width: units.$u6;
+  block-size: units.$u6;
+  inline-size: units.$u6;
 }

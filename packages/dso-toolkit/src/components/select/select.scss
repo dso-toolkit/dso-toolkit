@@ -8,7 +8,7 @@ select {
   text-transform: none;
 
   &[multiple] {
-    height: auto;
+    block-size: auto;
   }
 }
 

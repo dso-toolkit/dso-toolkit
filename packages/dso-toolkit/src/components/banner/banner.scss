@@ -15,22 +15,22 @@
   .row > div::before {
     content: "";
     display: inline-block;
-    left: units.$u2;
+    inset-inline-start: units.$u2;
     position: absolute;
-    top: 0;
+    inset-block-start: 0;
   }
 
   &:not(.dso-no-icon) {
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
-        padding-left: banner-variables.$left-padding;
+        padding-inline-start: banner-variables.$inline-start-padding;
       }
 
       @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
-        padding-top: banner-variables.$small-padding-top;
+        padding-block-start: banner-variables.$small-padding-block-start;
 
         > .dso-rich-content {
-          padding-right: 0;
+          padding-inline-end: 0;
         }
       }
     }
@@ -87,22 +87,22 @@ dso-banner {
     content: "";
 
     display: inline-block;
-    left: units.$u2;
+    inset-inline-start: units.$u2;
     position: absolute;
-    top: 0;
+    inset-block-start: 0;
   }
 
   &:not([no-icon]) {
     .row > div {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
-        padding-left: banner-variables.$left-padding;
+        padding-inline-start: banner-variables.$inline-start-padding;
       }
 
       @media screen and (max-width: #{media-query-breakpoints.$screen-xs-min - 0.99}) {
-        padding-top: banner-variables.$small-padding-top;
+        padding-block-start: banner-variables.$small-padding-block-start;
 
         > .dso-rich-content {
-          padding-right: 0;
+          padding-inline-end: 0;
         }
       }
     }

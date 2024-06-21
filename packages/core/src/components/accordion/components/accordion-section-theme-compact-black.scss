@@ -4,15 +4,15 @@
 
 @mixin dso-web-component-accordion-compact-black() {
   .dso-section-handle {
-    border-bottom: 1px solid transparent;
-    border-top: 1px solid accordion.$compact-border-color;
+    border-block-end: 1px solid transparent;
+    border-block-start: 1px solid accordion.$compact-border-color;
 
     a,
     button {
       color: accordion.$compact-black-color;
-      padding-bottom: accordion.$vertical-padding - accordion.$compact-border-width;
-      padding-left: 0;
-      padding-top: accordion.$vertical-padding - accordion.$compact-border-width;
+      padding-block-end: accordion.$block-padding - accordion.$compact-border-width;
+      padding-inline-start: 0;
+      padding-block-start: accordion.$block-padding - accordion.$compact-border-width;
 
       &:hover,
       &:active,
@@ -24,9 +24,9 @@
 
   .dso-section-body {
     .dso-section-body-content {
-      padding-left: units.$u4;
-      padding-top: 0;
-      padding-right: 0;
+      padding-inline-start: units.$u4;
+      padding-block-start: 0;
+      padding-inline-end: 0;
     }
   }
 }
@@ -35,14 +35,14 @@
   .dso-section-handle {
     a,
     button {
-      padding-left: units.$u2;
+      padding-inline-start: units.$u2;
     }
   }
 
   .dso-section-body {
     .dso-section-body-content {
-      padding-left: units.$u2;
-      padding-right: 0;
+      padding-inline-start: units.$u2;
+      padding-inline-end: 0;
     }
   }
 }
@@ -69,16 +69,16 @@
   }
 
   > .dso-section-body {
-    border-top: 0;
+    border-block-start: 0;
   }
 }
 
 @mixin dso-web-component-accordion-compact-black-open-nested() {
   > .dso-section-body {
-    padding-bottom: 0;
+    padding-block-end: 0;
 
     dso-accordion-section:last-child {
-      border-bottom: 0;
+      border-block-end: 0;
     }
   }
 }

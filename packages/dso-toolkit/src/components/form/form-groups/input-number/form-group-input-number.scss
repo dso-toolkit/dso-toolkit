@@ -13,7 +13,7 @@
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .form-horizontal & {
       .dso-field-container {
-        padding-top: #{units.$padding-base-vertical + 1};
+        padding-block-start: #{units.$padding-base-block + 1};
       }
     }
   }

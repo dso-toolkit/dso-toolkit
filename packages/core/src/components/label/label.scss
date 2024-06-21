@@ -4,7 +4,7 @@
 
 :host {
   display: inline-block;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 @include utilities.box-sizing();
@@ -26,7 +26,7 @@
 
 .dso-truncate.dso-label-content {
   display: inline-block;
-  max-width: 100%;
+  max-inline-size: 100%;
   overflow: hidden;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
   vertical-align: bottom;
@@ -35,6 +35,6 @@
 
 :host([removable]) {
   .dso-truncate.dso-label-content {
-    max-width: calc(100% - (units.$u3 + 4px));
+    max-inline-size: calc(100% - (units.$u3 + 4px));
   }
 }

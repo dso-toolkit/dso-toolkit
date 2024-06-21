@@ -5,6 +5,7 @@ module.exports = {
   reportInvalidScopeDisables: true,
   reportDescriptionlessDisables: true,
   defaultSeverity: "error",
+  plugins: ["stylelint-use-logical-spec"],
   rules: {
     // ex @infoprojects/stylelint-config-scss
     "no-descending-specificity": null,
@@ -14,6 +15,7 @@ module.exports = {
       "text-overflow": ["ellipsis"],
       "white-space": ["nowrap"],
     },
+    "liberty/use-logical-spec": "always",
   },
   overrides: [
     {

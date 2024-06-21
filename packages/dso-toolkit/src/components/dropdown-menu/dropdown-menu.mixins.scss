@@ -30,7 +30,7 @@
   > .dso-primary,
   > .dso-secondary {
     &::after {
-      margin-left: units.$u1;
+      margin-inline-start: units.$u1;
     }
   }
 
@@ -39,7 +39,7 @@
     font-size: (math.div(14, 16) * 1em);
     font-weight: 400;
     margin: 0;
-    padding: (units.$u1 * 0.5) dropdown-menu-variables.$horizontal-padding (units.$u1 * 0.25);
+    padding: (units.$u1 * 0.5) dropdown-menu-variables.$inline-padding (units.$u1 * 0.25);
     text-transform: uppercase;
   }
 
@@ -48,9 +48,9 @@
     padding: 0;
 
     &:not(:last-child) {
-      border-bottom: 1px solid colors.$grijs-10;
-      margin-bottom: 11px;
-      padding-bottom: 11px;
+      border-block-end: 1px solid colors.$grijs-10;
+      margin-block-end: 11px;
+      padding-block-end: 11px;
     }
   }
 
@@ -61,7 +61,7 @@
     border: 1px solid dropdown-menu-variables.$border-color;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     font-size: typography.$root-font-size-base;
-    min-width: 160px;
+    min-inline-size: 160px;
     padding: 5px 0;
     z-index: zindex.$dropdown-options;
 
@@ -83,7 +83,7 @@
         display: block;
         font-weight: 400;
         line-height: 1.5;
-        padding: 3px dropdown-menu-variables.$horizontal-padding;
+        padding: 3px dropdown-menu-variables.$inline-padding;
         text-decoration: none;
         white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
@@ -101,7 +101,7 @@
         border: 0;
         border-radius: 0;
         text-align: inherit;
-        width: 100%;
+        inline-size: 100%;
       }
     }
   }
@@ -109,13 +109,13 @@
 
 @mixin checkable() {
   .dso-group-label {
-    padding-left: units.$u5;
+    padding-inline-start: units.$u5;
   }
 
   li {
     a,
     button {
-      padding-left: units.$u5;
+      padding-inline-start: units.$u5;
     }
 
     &.dso-checked {

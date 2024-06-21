@@ -24,4 +24,4 @@ $required-color: colors.$grijs-60;
 $form-group-margin-bottom: units.$u2;
 
 //** Default `.form-control` height
-$input-height-base: (typography.$line-height-computed + (units.$padding-base-vertical * 2) + 2);
+$input-height-base: (typography.$line-height-computed + (units.$padding-base-block * 2) + 2);

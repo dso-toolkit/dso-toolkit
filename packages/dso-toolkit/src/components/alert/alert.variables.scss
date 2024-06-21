@@ -2,11 +2,11 @@
 @use "../../variables/states";
 
 $icon-size: units.$u4;
-$horizontal-padding: units.$u2;
-$vertical-padding: units.$u1 * 2.5 - 1px;
-$left-padding: 2 * $horizontal-padding + $icon-size - 1px; // 1px border
+$inline-padding: units.$u2;
+$block-padding: units.$u1 * 2.5 - 1px;
+$inline-start-padding: 2 * $inline-padding + $icon-size - 1px; // 1px border
 $small-padding: units.$u2;
-$small-padding-top: 2 * $horizontal-padding + $icon-size - 1px;
+$small-padding-block-start: 2 * $inline-padding + $icon-size - 1px;
 
 $success-bg: states.$success-bg;
 $success-border: states.$success-border;

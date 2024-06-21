@@ -12,7 +12,7 @@
 
       content: "";
       display: inline-block;
-      margin-left: units.$u1 * -1;
+      margin-inline-start: units.$u1 * -1;
     }
 
     &:active,

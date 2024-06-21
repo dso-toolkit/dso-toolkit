@@ -13,10 +13,10 @@
     flex-direction: column;
   }
 
-  margin-block-end: units.$vertical-spacing-medium;
+  margin-block-end: units.$block-spacing-medium;
 
   &:last-child {
-    margin-block-end: units.$vertical-spacing-xlarge;
+    margin-block-end: units.$block-spacing-xlarge;
   }
 
   :is(.dso-primary, .dso-secondary, .dso-tertiary) {
@@ -30,8 +30,8 @@
   a,
   button {
     &.dso-tertiary {
-      padding-block: button.$vertical-padding;
-      padding-inline-end: button.$horizontal-padding;
+      padding-block: button.$block-padding;
+      padding-inline-end: button.$inline-padding;
 
       line-height: typography.$line-height-base;
 
@@ -40,7 +40,7 @@
 
         inline-size: 100%;
 
-        padding-inline-start: button.$horizontal-padding;
+        padding-inline-start: button.$inline-padding;
 
         background-color: colors.$grasgroen-10;
 

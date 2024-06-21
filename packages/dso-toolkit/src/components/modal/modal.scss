@@ -31,9 +31,10 @@ body:has(dso-modal.hydrated) {
 
   .dso-footer {
     .dso-tertiary {
-      float: left;
+      float: inline-start;
       line-height: calc(1.5em - 1px);
-      padding: button.$vertical-padding 0;
+      padding-block: button.$block-padding;
+      padding-inline: 0;
       position: relative;
     }
   }
@@ -52,9 +53,10 @@ dso-modal {
     @include modal.modal-wide-buttons();
 
     .dso-tertiary {
-      float: left;
+      float: inline-start;
       line-height: calc(1.5em - 1px);
-      padding: button.$vertical-padding 0;
+      padding-block: button.$block-padding;
+      padding-inline: 0;
       position: relative;
     }
   }

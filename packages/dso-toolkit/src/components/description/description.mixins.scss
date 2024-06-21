@@ -4,7 +4,7 @@
 @use "description.variables" as description-variables;
 
 @mixin root($content-selector) {
-  border-bottom: 2px dotted description-variables.$border-color;
+  border-block-end: 2px dotted description-variables.$border-color;
 
   &,
   &:visited,
@@ -15,7 +15,7 @@
   }
 
   &:hover {
-    border-bottom-style: solid;
+    border-block-end-style: solid;
     text-decoration: none;
   }
 
@@ -26,13 +26,13 @@
       border-color: colors.$wit transparent transparent;
       border-style: solid;
       border-width: units.$u1 - 1 units.$u1 - 1 0;
-      bottom: units.$u2 * -1 + 2;
+      inset-block-end: units.$u2 * -1 + 2;
       content: "";
-      height: 0;
-      left: 50%;
-      margin-left: units.$u1 * -1 + 1px;
+      block-size: 0;
+      inset-inline-start: 50%;
+      margin-inline-start: units.$u1 * -1 + 1px;
       position: absolute;
-      width: 0;
+      inline-size: 0;
       z-index: zindex.$description-open + 1;
     }
 
@@ -40,13 +40,13 @@
       border-color: description-variables.$border-color transparent transparent;
       border-style: solid;
       border-width: units.$u1 units.$u1 0;
-      bottom: units.$u2 * -1;
+      inset-block-end: units.$u2 * -1;
       content: "";
-      height: 0;
-      left: 50%;
-      margin-left: units.$u1 * -1;
+      block-size: 0;
+      inset-inline-start: 50%;
+      margin-inline-start: units.$u1 * -1;
       position: absolute;
-      width: 0;
+      inline-size: 0;
       z-index: zindex.$description-open;
     }
 
@@ -68,12 +68,12 @@
 
     > a {
       display: block;
-      height: 24px;
+      block-size: 24px;
       position: absolute;
-      right: 0;
+      inset-inline-end: 0;
       text-align: center;
-      top: 0;
-      width: 24px;
+      inset-block-start: 0;
+      inline-size: 24px;
     }
   }
 }

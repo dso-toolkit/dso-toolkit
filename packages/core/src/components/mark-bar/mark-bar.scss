@@ -17,7 +17,7 @@
   @include utilities.sr-only();
 }
 
-$height: units.$ru5;
+$block-size: units.$ru5;
 $focus-border-width: 1px;
 
 .dso-mark-bar {
@@ -27,7 +27,7 @@ $focus-border-width: 1px;
   .dso-mark-bar-input {
     display: flex;
     position: relative;
-    width: 100%;
+    inline-size: 100%;
 
     input {
       background-color: transparent;
@@ -38,14 +38,14 @@ $focus-border-width: 1px;
       box-shadow: none;
       display: block;
       font-size: typography.$root-font-size-base;
-      height: $height;
-      line-height: $height;
-      padding-inline: $height;
+      block-size: $block-size;
+      line-height: $block-size;
+      padding-inline: $block-size;
       padding-block: 6px;
       transition:
         border-color ease-in-out 0.15s,
         box-shadow ease-in-out 0.15s;
-      width: 100%;
+      inline-size: 100%;
       border-start-end-radius: 0;
       border-end-end-radius: 0;
       border-inline-end: 0;
@@ -61,7 +61,7 @@ $focus-border-width: 1px;
       }
 
       &:not(:placeholder-shown) + label {
-        width: $height;
+        inline-size: $block-size;
         padding-inline-end: units.$u1;
 
         .label-text {
@@ -71,15 +71,15 @@ $focus-border-width: 1px;
     }
 
     label {
-      bottom: units.$u1;
-      height: $height;
-      left: 0;
-      right: units.$u5;
+      inset-block-end: units.$u1;
+      block-size: $block-size;
+      inset-inline-start: 0;
+      inset-inline-end: units.$u5;
       padding-block: units.$u1;
       padding-inline-start: units.$u1;
       cursor: text;
       position: absolute;
-      top: 0;
+      inset-block-start: 0;
       overflow: hidden;
       /* stylelint-disable declaration-property-value-disallowed-list -- The following properties are needed to emulate the browser native placeholder attribute behavior */
       white-space: nowrap;
@@ -91,12 +91,12 @@ $focus-border-width: 1px;
         cursor: default;
         margin: -8px;
         padding: 8px;
-        width: $height;
-        height: $height;
+        inline-size: $block-size;
+        block-size: $block-size;
       }
 
       .label-text {
-        margin-left: units.$u1;
+        margin-inline-start: units.$u1;
         color: colors.$grijs-60;
       }
     }
@@ -107,13 +107,13 @@ $focus-border-width: 1px;
       box-shadow: none;
       color: colors.$grasgroen;
       font-size: 0;
-      height: $height;
+      block-size: $block-size;
       padding: units.$u1;
       position: absolute;
-      right: 0;
+      inset-inline-end: 0;
       text-align: center;
-      top: 0;
-      width: $height;
+      inset-block-start: 0;
+      inline-size: $block-size;
     }
   }
 }

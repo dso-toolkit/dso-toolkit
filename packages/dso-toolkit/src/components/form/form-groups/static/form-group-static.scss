@@ -4,30 +4,30 @@
 .form-group.dso-static {
   .form-horizontal & {
     .dso-field-container {
-      margin-bottom: 0;
-      min-height: typography.$root-line-height-computed + typography.$root-font-size-base;
-      padding-bottom: units.$padding-base-vertical + 1;
-      padding-top: units.$padding-base-vertical + 1;
+      margin-block-end: 0;
+      min-block-size: typography.$root-line-height-computed + typography.$root-font-size-base;
+      padding-block-end: units.$padding-base-block + 1;
+      padding-block-start: units.$padding-base-block + 1;
 
       * {
-        margin-bottom: 0;
-        margin-top: 0;
+        margin-block-end: 0;
+        margin-block-start: 0;
 
         + * {
-          margin-top: units.$vertical-spacing-small;
+          margin-block-start: units.$block-spacing-small;
         }
       }
     }
 
     &.dso-edit {
       .dso-field-container {
-        padding-right: units.$u5;
+        padding-inline-end: units.$u5;
         position: relative;
 
         button {
           position: absolute;
-          right: units.$u2;
-          top: 0;
+          inset-inline-end: units.$u2;
+          inset-block-start: 0;
         }
       }
     }

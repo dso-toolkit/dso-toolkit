@@ -11,11 +11,11 @@ dso-header {
     div[slot="logo"] {
       img {
         @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-          max-height: 48px;
+          max-block-size: 48px;
         }
 
         @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-          max-height: 40px;
+          max-block-size: 40px;
         }
       }
     }
@@ -24,7 +24,7 @@ dso-header {
   .dso-header.has-sub-logo {
     div[slot="logo"] {
       img {
-        max-height: 40px;
+        max-block-size: 40px;
       }
     }
   }

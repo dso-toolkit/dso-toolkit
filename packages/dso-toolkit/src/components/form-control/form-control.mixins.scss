@@ -8,9 +8,9 @@
 
 @mixin root() {
   display: block;
-  width: 100%;
-  height: form-control-variables.$height;
-  padding: units.$padding-base-vertical (units.$padding-base-horizontal + 2);
+  inline-size: 100%;
+  block-size: form-control-variables.$block-size;
+  padding: units.$padding-base-block (units.$padding-base-inline + 2);
   font-size: typography.$root-font-size-base;
   line-height: typography.$line-height-base;
   color: colors.$input-color;
@@ -57,10 +57,10 @@
   }
 
   &[type="text"] {
-    line-height: form-control-variables.$height;
+    line-height: form-control-variables.$block-size;
   }
 
   &[size] {
-    width: auto;
+    inline-size: auto;
   }
 }

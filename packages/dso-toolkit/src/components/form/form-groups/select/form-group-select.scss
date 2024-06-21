@@ -26,7 +26,7 @@
     background-position: calc(100% - #{units.$u1});
     background-repeat: no-repeat;
     background-size: icon.$size icon.$size;
-    padding-right: units.$u4;
+    padding-inline-end: units.$u4;
 
     &:disabled {
       @include di.variant("caret-down-disabled");

@@ -32,13 +32,13 @@
   .form-horizontal & {
     &.dso-inline {
       .dso-selectable {
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       .dso-field-container {
-        padding-top: #{units.$padding-base-vertical + 1};
+        padding-block-start: #{units.$padding-base-block + 1};
       }
     }
   }

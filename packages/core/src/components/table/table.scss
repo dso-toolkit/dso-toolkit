@@ -14,11 +14,11 @@
 
 :host {
   display: block;
-  margin-bottom: units.$u3;
+  margin-block-end: units.$u3;
 }
 
 .dso-header {
-  min-height: units.$u4;
+  min-block-size: units.$u4;
 
   h2 {
     color: colors.$bosgroen;
@@ -35,37 +35,39 @@
   @include modal.root();
 
   inset: 0px;
-  height: 100%;
+  block-size: 100%;
   position: fixed;
   z-index: zindex.$modal;
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {
-  margin-top: 1rem;
-  max-width: calc(100% - 2rem);
-  margin-left: auto;
-  margin-right: auto;
+  margin-block-start: 1rem;
+  max-inline-size: calc(100% - 2rem);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   inline-size: auto;
 
   .dso-body {
-    $dso-body-unavailable-height: (2 * modal.$header-padding) + (modal.$footer-button-height + modal.$footer-padding);
-    max-height: calc(100vh - #{$dso-body-unavailable-height} - 1.5em - 2rem); // margin
+    $dso-body-unavailable-height: (
+      (2 * modal.$header-padding) + (modal.$footer-button-block-size + modal.$footer-padding)
+    );
+    max-block-size: calc(100vh - #{$dso-body-unavailable-height} - 1.5em - 2rem); // margin
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 }
 
 :host([is-responsive]) {
   .dso-table-body {
     border: 1px solid table.$border-color;
-    margin-bottom: 0;
+    margin-block-end: 0;
     overflow-y: auto;
-    width: 100%;
+    inline-size: 100%;
 
     &.dso-body {
-      width: calc(100% - modal.$body-padding * 2);
+      inline-size: calc(100% - modal.$body-padding * 2);
     }
   }
 }
@@ -74,26 +76,26 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-bottom: units.$u1;
+  margin-block-end: units.$u1;
 
   .dso-responsive-message {
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     &:only-child {
-      width: 100%;
+      inline-size: 100%;
     }
   }
 
   .open-modal-button {
     &:only-child {
-      margin-left: auto;
+      margin-inline-start: auto;
     }
   }
 }
 
 .dso-responsive-message {
   font-size: 0.8em;
-  margin-bottom: units.$u1;
+  margin-block-end: units.$u1;
   position: relative;
   text-align: center;
 }
@@ -104,12 +106,9 @@
 
 .dso-modal-overlay {
   background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
-  bottom: 0;
   display: block;
-  left: 0;
   position: fixed;
-  right: 0;
-  top: 0;
+  inset: 0;
   z-index: zindex.$modal-background-overlay;
 }
 

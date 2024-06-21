@@ -31,7 +31,7 @@
   }
 
   .dso-dialog {
-    inline-size: modal-variables.$max-width;
+    inline-size: modal-variables.$max-inline-size;
 
     background-color: modal-variables.$content-bg;
 
@@ -76,12 +76,12 @@
 
   > .dso-dialog > .dso-body {
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+      (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
     @include rich-content.children();
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-block-size: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
     min-block-size: 1.5rem;
     overflow-x: auto;
 
@@ -90,11 +90,11 @@
 
   > .dso-dialog > dso-scrollable {
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
-      (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+      (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
     block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-block-size: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-block-size: modal-variables.$body-min-height;
+    max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    min-block-size: modal-variables.$body-min-block-size;
 
     .dso-body {
       @include rich-content.children();
@@ -112,7 +112,7 @@
   .dso-footer {
     @include modal-wide-buttons();
 
-    min-block-size: modal-variables.$footer-button-height + modal-variables.$footer-padding;
+    min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
 
     padding: calc(modal-variables.$footer-padding / 2) modal-variables.$footer-padding;
 
@@ -165,7 +165,7 @@
   // special query for height
   @media screen and (max-height: modal-variables.$small-modal-vh) {
     .dso-dialog {
-      min-block-size: modal-variables.$min-modal-height;
+      min-block-size: modal-variables.$min-modal-block-size;
 
       margin-block-start: units.$u1;
       margin-block-end: units.$u1;

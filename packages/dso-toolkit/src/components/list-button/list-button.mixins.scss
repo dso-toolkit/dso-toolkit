@@ -31,7 +31,7 @@
     }
 
     &:not(:first-child) {
-      border-left-style: none !important;
+      border-inline-start-style: none !important;
     }
 
     &:last-child {
@@ -89,7 +89,7 @@
   }
 
   #{$list-button-selector} {
-    padding-right: #{units.$u2 - 1};
+    padding-inline-end: #{units.$u2 - 1};
   }
 }
 
@@ -102,9 +102,9 @@
   font-weight: 600;
   padding: #{units.$u2 - 1} #{units.$u6 - 1} #{units.$u2 - 1} #{units.$u2 - 1};
   position: relative;
-  text-align: left;
+  text-align: start;
   white-space: normal;
-  width: 100%;
+  inline-size: 100%;
   cursor: pointer;
 
   &:hover,
@@ -139,7 +139,7 @@
 
     &.dso-single-count {
       @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-        border-right: 0;
+        border-inline-end: 0;
         box-shadow:
           colors.$grasgroen 0px 1px 0px 0px inset,
           colors.$grasgroen 1px 0px 0px 0px inset,
@@ -158,17 +158,17 @@
 
   .dso-sublabel {
     font-weight: 400;
-    width: 100%;
+    inline-size: 100%;
   }
 
   dso-icon,
   svg.di,
   .dso-count {
-    height: units.$u3;
+    block-size: units.$u3;
     position: absolute;
-    right: #{units.$u2 - 1};
-    top: #{units.$u2 - 1};
-    width: units.$u3;
+    inset-inline-end: #{units.$u2 - 1};
+    inset-block-start: #{units.$u2 - 1};
+    inline-size: units.$u3;
   }
 
   dso-icon,
@@ -184,12 +184,12 @@
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     &.dso-selected.dso-single-count {
       &::after {
-        width: 0;
+        inline-size: 0;
       }
     }
   }
 }
 
 @mixin sibling() {
-  margin-top: list-button-variables.$margin-gap;
+  margin-block-start: list-button-variables.$margin-gap;
 }
