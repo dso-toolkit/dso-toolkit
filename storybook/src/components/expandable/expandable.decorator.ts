@@ -1,7 +1,7 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
 import { html, TemplateResult } from "lit-html";
+import { ExpandableDecorator } from "dso-toolkit";
 
-export const decorator: Addon_DecoratorFunction<TemplateResult> = (story) => html`
+export const decorator: ExpandableDecorator<TemplateResult> = (story) => html`
   <span
     >toggle open control in the controls panel to expand/collapse.<span>
       ${story()}

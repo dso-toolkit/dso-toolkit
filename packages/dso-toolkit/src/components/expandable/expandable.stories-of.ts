@@ -1,65 +1,81 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
 import { ExpandableArgs, expandableArgsMapper, expandableArgTypes } from "./expandable.args.js";
 import { Expandable } from "./expandable.models.js";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+export type ExpandableDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
+
+type ExpandableStory = StoryObj<ExpandableArgs, Renderer>;
+
+interface ExpandableStories {
+  Default: ExpandableStory;
+  WithAnimation: ExpandableStory;
+}
 
 export interface ExpandableTemplates<TemplateFnReturnType> {
   expandableTemplate: (expandableProperties: Expandable<TemplateFnReturnType>) => TemplateFnReturnType;
   expandableContent: TemplateFnReturnType;
 }
 
-export interface ExpandableParameters<TemplateFnReturnType> {
-  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
-}
-
-export function storiesOfExpandable<Implementation, Templates, TemplateFnReturnType>(
-  storyFunctionArguments: StoriesOfArguments<
+interface ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ExpandableTemplates<TemplateFnReturnType>
-  >,
-  { decorator }: ExpandableParameters<TemplateFnReturnType>,
-) {
-  return storiesOfFactory("Expandable", storyFunctionArguments, (stories, templateMapper) => {
-    stories
-      .addParameters({
-        argTypes: expandableArgTypes,
-        args: {},
-        html: {
-          root: "#expandable-mock",
-        },
-        layout: "fullscreen",
-      })
-      .addDecorator(decorator);
+  > {
+  decorator: ExpandableDecorator<TemplateFnReturnType>;
+}
 
-    stories.add(
-      "default",
-      templateMapper<ExpandableArgs>((args, { expandableTemplate, expandableContent }) =>
+export function expandableMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ExpandableArgs
+> {
+  return {
+    argTypes: expandableArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+      html: {
+        root: "#expandable-mock",
+      },
+      layout: "fullscreen",
+    },
+  };
+}
+
+export function expandableStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  decorator,
+}: ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ExpandableStories {
+  return {
+    Default: {
+      args: {
+        open: false,
+        enableAnimation: false,
+      },
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
         expandableTemplate(expandableArgsMapper(args, expandableContent)),
       ),
-      {
-        args: {
-          open: false,
-          enableAnimation: false,
-        },
+    },
+    WithAnimation: {
+      args: {
+        open: false,
+        enableAnimation: true,
       },
-    );
-
-    stories.add(
-      "with animation",
-      templateMapper<ExpandableArgs>((args, { expandableTemplate, expandableContent }) => {
-        return expandableTemplate(expandableArgsMapper(args, expandableContent));
-      }),
-      {
-        args: {
-          open: false,
-          enableAnimation: true,
-        },
-      },
-    );
-
-    return stories;
-  });
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
+        expandableTemplate(expandableArgsMapper(args, expandableContent)),
+      ),
+    },
+  };
 }

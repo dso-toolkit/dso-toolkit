@@ -7,13 +7,14 @@ import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
 import { Card, imageShapes } from "./card.models.js";
+import { SlideToggle } from "../slide-toggle";
 
 export interface CardArgs {
   label: string;
   href?: string;
   mode?: AnchorArgs["mode"];
   selectable: boolean;
-  interactions: Array<Button | Label | Toggletip<never>>;
+  interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
   image: string | undefined;
   imageShape: (typeof imageShapes)[number];
   clickable: boolean;
@@ -62,6 +63,64 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
       type: "boolean",
     },
   },
+};
+
+export const cardContent: CardArgs = {
+  clickable: false,
+  imageShape: "normal",
+  interactions: [],
+  label: "Omgevingsplan Nieuwegein",
+  href: "#",
+  selectable: false,
+  image: undefined,
+};
+
+export const cardContentButton: CardArgs = {
+  ...cardContent,
+  interactions: [
+    {
+      variant: "tertiary",
+      label: "Toon informatie",
+      icon: {
+        icon: "info",
+      },
+      screenreaderSuffix: `over "${cardContent.label}"`,
+    },
+  ],
+};
+
+export const cardContentToggletip: CardArgs = {
+  ...cardContent,
+  interactions: [
+    {
+      children: "Extra informatie",
+      label: `Toon informatie over "${cardContent.label}"`,
+      position: "left",
+      small: false,
+      secondary: false,
+    },
+  ],
+};
+
+export const cardContentLabel: CardArgs = {
+  ...cardContent,
+  interactions: [
+    {
+      status: "warning",
+      compact: true,
+      label: "Ontwerp",
+    },
+  ],
+};
+
+export const cardContentSlideToggle: CardArgs = {
+  ...cardContent,
+  interactions: [
+    {
+      checked: false,
+      accessibleLabel: "sr-only label van het schuifje",
+    },
+  ],
 };
 
 export function cardArgsMapper<TemplateFnReturnType>(

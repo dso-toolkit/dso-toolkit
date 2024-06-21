@@ -1,26 +1,52 @@
-import { storiesOf } from "@storybook/angular";
-import { storiesOfExpandable } from "dso-toolkit";
+import { type Meta } from "@storybook/angular";
+import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-import { expandableContent } from "./expandable.content";
-import { decorator } from "./expandable.decorator";
+import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
+import { expandableContent } from "./expandable.content";
 
-storiesOfExpandable(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
-    },
-    templateContainer,
-    storyTemplates: ({ expandableTemplate }) => ({
+const meta: Meta<ExpandableArgs> = {
+  ...expandableMeta({ readme }),
+  title: "Expandable",
+};
+
+export default meta;
+
+const { Default, WithAnimation } = expandableStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { expandableTemplate } = templates;
+
+    return {
       expandableTemplate,
       expandableContent,
-    }),
+    };
   },
-  {
-    decorator,
+  decorator: (story) => {
+    const s = story();
+    if (!isStoryFnAngularReturnTypeTemplate(s)) {
+      throw new Error("Expected a valid Angular template");
+    }
+
+    const { props, template } = s;
+
+    return {
+      props,
+      template: `
+      <span>toggle open control in the controls panel to expand/collapse.<span>
+      ${template}
+
+      <style>
+        dso-expandable[open],
+        dso-expandable:not(.dso-hide) {
+          border: 1px solid #000;
+        }
+      </style>
+    `,
+    };
   },
-);
+});
+
+export { Default, WithAnimation };

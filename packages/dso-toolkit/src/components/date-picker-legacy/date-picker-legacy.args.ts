@@ -16,7 +16,7 @@ export interface DatePickerLegacyArgs {
   describedBy: string;
 }
 
-export const DatePickerLegacyArgTypes: ArgTypes<DatePickerLegacyArgs> = {
+export const datePickerLegacyArgTypes: ArgTypes<DatePickerLegacyArgs> = {
   id: {
     control: {
       type: "text",
@@ -76,7 +76,7 @@ export const DatePickerLegacyArgTypes: ArgTypes<DatePickerLegacyArgs> = {
   },
 };
 
-export function DatePickerLegacyArgsMapper(a: DatePickerLegacyArgs): Required<DatePickerLegacy> {
+export function datePickerLegacyArgsMapper(a: DatePickerLegacyArgs): Required<DatePickerLegacy> {
   return {
     ...a,
     dsoDateChange: (e) => a.dsoDateChange(e.detail),

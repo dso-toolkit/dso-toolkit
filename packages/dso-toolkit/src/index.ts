@@ -51,14 +51,9 @@ export * from "./components/button";
 
 export * from "./components/button-row";
 
-export { Card, DsoCardClickedEvent } from "./components/card/card.models.js";
-export { CardTemplates, storiesOfCard } from "./components/card/card.stories-of.js";
+export * from "./components/card";
 
-export { CardContainer, CardContainerMode } from "./components/card-container/card-container.models.js";
-export {
-  CardContainerTemplates,
-  storiesOfCardContainer,
-} from "./components/card-container/card-container.stories-of.js";
+export * from "./components/card-container";
 
 export * from "./components/card-grid";
 
@@ -66,19 +61,9 @@ export * from "./components/card-list";
 
 export * from "./components/context";
 
-export { DatePicker } from "./components/date-picker/date-picker.models.js";
-export {
-  DatePickerParameters,
-  DatePickerTemplates,
-  storiesOfDatePicker,
-} from "./components/date-picker/date-picker.stories-of.js";
+export * from "./components/date-picker";
 
-export { DatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.models.js";
-export {
-  DatePickerLegacyParameters,
-  DatePickerLegacyTemplates,
-  storiesOfDatePickerLegacy,
-} from "./components/date-picker-legacy/date-picker-legacy.stories-of.js";
+export * from "./components/date-picker-legacy";
 
 export * from "./components/definition-list";
 
@@ -108,8 +93,7 @@ export {
 } from "./components/dropdown-menu/dropdown-menu.models.js";
 export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
 
-export { Expandable } from "./components/expandable/expandable.models.js";
-export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
+export * from "./components/expandable";
 
 export * from "./components/footnotes";
 

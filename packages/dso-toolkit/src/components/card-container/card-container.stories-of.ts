@@ -1,38 +1,69 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { CardContainerArgs, cardContainerArgsMapper, cardContainerArgTypes } from "./card-container.args.js";
-import { cardContainerContent } from "./card-container.content.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
+import {
+  cardContainerArgs,
+  CardContainerArgs,
+  cardContainerArgsMapper,
+  cardContainerArgTypes,
+} from "./card-container.args.js";
 import { CardContainer } from "./card-container.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type CardContainerStory = StoryObj<CardContainerArgs, Renderer>;
+
+interface CardContainerStories {
+  CardGrid: CardContainerStory;
+  CardList: CardContainerStory;
+}
 
 export interface CardContainerTemplates<TemplateFnReturnType> {
   cardContainerTemplate: (cardContainerProperties: CardContainer<TemplateFnReturnType>) => TemplateFnReturnType;
   content: TemplateFnReturnType[];
 }
 
-export function storiesOfCardContainer<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface CardContainerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     CardContainerTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Card Container", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: cardContainerArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<CardContainerArgs>((args, { cardContainerTemplate, content }) =>
-      cardContainerTemplate(cardContainerArgsMapper(args, content)),
-    );
+export function cardContainerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  CardContainerArgs
+> {
+  return {
+    argTypes: cardContainerArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("Card List", template, {
-      args: { ...cardContainerContent, mode: "list" },
-    });
-
-    stories.add("Card Grid", template, {
-      args: { ...cardContainerContent, mode: "grid" },
-    });
-
-    return stories;
-  });
+export function cardContainerStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: CardContainerStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardContainerStories {
+  return {
+    CardGrid: {
+      args: { ...cardContainerArgs, mode: "grid" },
+      render: templateContainer.render(storyTemplates, (args, { cardContainerTemplate, content }) =>
+        cardContainerTemplate(cardContainerArgsMapper(args, content)),
+      ),
+    },
+    CardList: {
+      args: { ...cardContainerArgs, mode: "list" },
+      render: templateContainer.render(storyTemplates, (args, { cardContainerTemplate, content }) =>
+        cardContainerTemplate(cardContainerArgsMapper(args, content)),
+      ),
+    },
+  };
 }

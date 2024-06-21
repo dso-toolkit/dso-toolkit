@@ -10,15 +10,17 @@
   }
 }
 
-:host(:not([enable-animation])) {
+:host(:not([enable-animation])),
+:host([enable-animation="false"]) {
   display: none;
 }
 
-:host([open][enable-animation]) {
+:host([open][enable-animation]:not([open="false"])) {
   grid-template-rows: 1fr;
 }
 
-:host([open]:not([enable-animation])) {
+:host([open]:not([enable-animation]):not([open="false"])),
+:host([open][enable-animation="false"]:not([open="false"])) {
   display: block;
 }
 

@@ -1,26 +1,45 @@
-import * as React from "react";
-import { storiesOfDatePicker } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
+import React from "react";
+import { type Meta } from "@storybook/react";
 
-import readme from "./readme.md?raw";
+import { DatePickerArgs, DatePickerDecorator, datePickerMeta, datePickerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
+import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
+
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
-storiesOfDatePicker(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
-    },
-    templateContainer,
-    storyTemplates: ({ datePickerTemplate }) => ({
+const decorator: DatePickerDecorator<JSX.Element> = (story) => {
+  const s = story();
+  if (!React.isValidElement(s)) {
+    throw new Error("Expected a valid JSX element");
+  }
+
+  return (
+    <>
+      <div style={{ width: "175px" }}>{s}</div>
+    </>
+  );
+};
+
+const meta: Meta<DatePickerArgs> = {
+  ...datePickerMeta({ readme }),
+  title: "Date Picker",
+};
+
+export default meta;
+
+const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, Disabled, Invalid } = datePickerStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { datePickerTemplate } = templates;
+
+    return {
       datePickerTemplate,
       datePickerWithLabelTemplate,
-    }),
+    };
   },
-  {
-    decorator: (story) => <div style={{ width: "175px" }}>{story()}</div>,
-  },
-);
+  decorator,
+});
+
+export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };

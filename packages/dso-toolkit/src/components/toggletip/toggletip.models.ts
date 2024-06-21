@@ -1,5 +1,5 @@
 export interface Toggletip<TemplateFnReturnType> {
-  children: TemplateFnReturnType;
+  children: TemplateFnReturnType | string;
   position?: "top" | "right" | "bottom" | "left";
   small?: boolean;
   label?: string;
