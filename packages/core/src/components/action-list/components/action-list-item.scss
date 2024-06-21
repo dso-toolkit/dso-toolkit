@@ -13,7 +13,7 @@
   @include step-counter.step-counter();
 
   display: block;
-  padding-block: action-list-item-variables.$padding-vertical;
+  padding-block: action-list-item-variables.$padding-block;
   position: relative;
 }
 

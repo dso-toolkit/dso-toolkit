@@ -23,8 +23,8 @@ $group-label-color: colors.$grijs-60;
 $group-label-font-size: typography.$font-size-small;
 $group-label-font-weight: 500;
 
-$group-link-inline-padding: units.$u1;
-$group-link-block-padding: math.div(units.$u1, 2);
+$group-link-inline-padding: math.div(units.$u1, 2);
+$group-link-block-padding: units.$u1;
 $group-link-color: colors.$zwart;
 
 $option-color: colors.$zwart;

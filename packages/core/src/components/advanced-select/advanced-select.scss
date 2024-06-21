@@ -116,8 +116,8 @@
 
 .group-link {
   display: block;
-  padding-block: advanced-select.$group-link-inline-padding;
-  padding-inline: advanced-select.$group-link-block-padding;
+  padding-block: advanced-select.$group-link-block-padding;
+  padding-inline: advanced-select.$group-link-inline-padding;
   text-align: end;
   color: advanced-select.$group-link-color;
   text-decoration: none;
