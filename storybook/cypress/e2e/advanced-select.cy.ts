@@ -1,10 +1,29 @@
 describe("AdvancedSelect", () => {
-  it("should be accessible", () => {
+  it("is accessible", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
     cy.injectAxe();
     cy.checkA11y("dso-advanced-select");
 
+    cy.get("dso-advanced-select").click().shadow().find(".groups-container").should("exist");
+
+    cy.checkA11y("dso-advanced-select");
+  });
+
+  it("matches snapshot closed", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
     cy.get("dso-advanced-select.hydrated").matchImageSnapshot("advanced-select--default");
+  });
+
+  it("matches snapshots", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
+
+    cy.get("dso-advanced-select.hydrated").click().shadow().find(".groups-container").should("exist");
+
+    cy.matchImageSnapshot(`${Cypress.currentTest.title} - open`, {
+      capture: "viewport",
+    });
   });
 
   it("should show and hide options when active-option-button is clicked", () => {
@@ -48,10 +67,6 @@ describe("AdvancedSelect", () => {
   it("should show activeLabel on active option", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default&args=activeIndex:2");
 
-    cy.get("dso-advanced-select.hydrated").shadow().find("button.active-option").as("active-option-button");
-
-    cy.get("@active-option-button").find("dso-label").should("exist");
-
-    cy.get("dso-advanced-select.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}`);
+    cy.get("dso-advanced-select.hydrated").shadow().find("button.active-option").find("dso-label").should("exist");
   });
 });
