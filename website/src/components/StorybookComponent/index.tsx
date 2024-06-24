@@ -28,6 +28,10 @@ interface Props {
   variant?: string;
 
   /**
+   * Is this an example page?
+   */
+  isExamplePage?: boolean;
+  /**
    * Optional arguments to pass on, to show specific states of the component. If no arguments are given, Storybook will redirect to the default arguments.
    */
   args?: Record<string, unknown>;
@@ -45,9 +49,18 @@ function joinNameAndVariant(name: string, variant: string | undefined) {
   return [name, variant].filter((t) => !!t).join("--");
 }
 
-function getStoryUrlId(implementation: Implementation, name: string, variant: string | undefined) {
+function getStoryUrlId(
+  implementation: Implementation,
+  name: string,
+  variant: string | undefined,
+  isExamplePage: boolean | undefined,
+) {
   if (isComposedStorybook(implementation)) {
     return `${implementation}_${joinNameAndVariant(name, variant)}`;
+  }
+
+  if (isExamplePage) {
+    return `${joinNameAndVariant(name, variant)}`;
   }
 
   return `${implementation}-${joinNameAndVariant(name, variant)}`;
@@ -146,6 +159,7 @@ function getStoryUrl(
   name: string,
   variant?: string,
   args?: Record<string, unknown>,
+  isExamplePage?: boolean,
 ): string {
   const version = getVersion();
   const url = window.location.hostname === "localhost" ? getStoryUrlLocalhost() : getStoryUrlRemote(version);
@@ -160,10 +174,10 @@ function getStoryUrl(
 
   const searchParams = new URLSearchParams(searchParamsObject);
 
-  return `${url}/?path=/story/${getStoryUrlId(implementation, name, variant)}&${searchParams}`;
+  return `${url}/?path=/story/${getStoryUrlId(implementation, name, variant, isExamplePage)}&${searchParams}`;
 }
 
-export function StorybookComponent({ name, implementations, variant, args }: Props) {
+export function StorybookComponent({ name, implementations, variant, args, isExamplePage }: Props) {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   const [implementation, setImplementation] = useState<Implementation>(() => {
@@ -194,20 +208,21 @@ export function StorybookComponent({ name, implementations, variant, args }: Pro
               heightCalculationMethod="lowestElement"
             />
             <div className={styles.implementationButtons}>
-              {allImplementations
-                .filter((i) => implementations?.includes(i) ?? true)
-                .map((i) => (
-                  <button
-                    type="button"
-                    key={i}
-                    className={i === implementation ? styles.activeButton : undefined}
-                    onClick={() => setImplementation(i)}
-                  >
-                    {i}
-                  </button>
-                ))}
+              {!isExamplePage &&
+                allImplementations
+                  .filter((i) => implementations?.includes(i) ?? true)
+                  .map((i) => (
+                    <button
+                      type="button"
+                      key={i}
+                      className={i === implementation ? styles.activeButton : undefined}
+                      onClick={() => setImplementation(i)}
+                    >
+                      {i}
+                    </button>
+                  ))}
               <Link
-                to={getStoryUrl(implementation, name ?? getNameFromPathname(pathname), variant, args)}
+                to={getStoryUrl(implementation, name ?? getNameFromPathname(pathname), variant, args, isExamplePage)}
                 className={styles.openInStorybook}
               >
                 Open in Storybook
