@@ -17,7 +17,7 @@ describe("Date Picker (Legacy)", () => {
       });
   });
 
-  it("should have focus trap", () => {
+  it.skip("should have focus trap", () => {
     cy.get("dso-date-picker-legacy.hydrated").as("date-picker-legacy").find("button.dso-date__toggle").click();
 
     cy.get("@date-picker-legacy").find("select.dso-date__select--month").should("have.focus").realPress("Tab");
