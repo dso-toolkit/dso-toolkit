@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Advanced Select: Geselecteerd item prefixen met symbool van de groep ([#2620](https://github.com/dso-toolkit/dso-toolkit/issues/2620))
+
 ### Changed
 * CSS: Physical to logical properties ([#2366](https://github.com/dso-toolkit/dso-toolkit/issues/2366))
 

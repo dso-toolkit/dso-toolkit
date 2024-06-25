@@ -19,7 +19,7 @@ import {
   AdvancedSelectChangeEvent,
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
-} from "./advanced-select.models";
+} from "./advanced-select.interfaces";
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -149,6 +149,7 @@ export class AdvancedSelect implements ComponentInterface {
           onClick={this.toggleOpen}
           ref={(element) => (this.toggleButtonElementRef = element)}
         >
+          <ActiveGroupLabel active={this.active} options={this.options} />
           <span class="active-option-label">{this.active?.label ?? "Selecteer een optie"}</span>
           <span class="active-option-aside">
             {this.options.some(
@@ -179,7 +180,7 @@ export class AdvancedSelect implements ComponentInterface {
                       <ul class="options">
                         {optionOrGroup.options.map((option) => (
                           <li>
-                            <OptionElement
+                            <OptionButton
                               option={option}
                               active={this.active}
                               activeHint={this.activeHint}
@@ -189,27 +190,27 @@ export class AdvancedSelect implements ComponentInterface {
                         ))}
                       </ul>
                       {optionOrGroup.redirect && (
-                        <RedirectElement
+                        <RedirectAnchor
                           redirect={optionOrGroup.redirect}
                           callback={this.handleRedirectClick}
-                        ></RedirectElement>
+                        ></RedirectAnchor>
                       )}
                     </li>
                   )) ||
                   ("placeholder" in optionOrGroup && (
                     <li class="group">
                       <p class="group-label">{optionOrGroup.label}</p>
-                      <PlaceholderElement placeholder={optionOrGroup.placeholder}></PlaceholderElement>
+                      <p class="placeholder">{optionOrGroup.placeholder}</p>
                       {optionOrGroup.redirect && (
-                        <RedirectElement
+                        <RedirectAnchor
                           redirect={optionOrGroup.redirect}
                           callback={this.handleRedirectClick}
-                        ></RedirectElement>
+                        ></RedirectAnchor>
                       )}
                     </li>
                   )) || (
                     <li>
-                      <OptionElement
+                      <OptionButton
                         option={optionOrGroup}
                         active={this.active}
                         activeHint={this.activeHint}
@@ -226,16 +227,14 @@ export class AdvancedSelect implements ComponentInterface {
   }
 }
 
-const PlaceholderElement: FunctionalComponent<{
-  placeholder: string;
-}> = ({ placeholder }) => <p class="placeholder">{placeholder}</p>;
-
-const OptionElement: FunctionalComponent<{
+interface OptionButtonProps {
   option: AdvancedSelectOption<never>;
   active: AdvancedSelectOption<never> | undefined;
   activeHint: string | undefined;
   callback: (event: MouseEvent, value: AdvancedSelectOption<never>) => void;
-}> = ({ option, active, activeHint, callback }) => (
+}
+
+const OptionButton: FunctionalComponent<OptionButtonProps> = ({ option, active, activeHint, callback }) => (
   <button
     class={clsx(["option", { "option-active": active === option }])}
     type="button"
@@ -246,12 +245,34 @@ const OptionElement: FunctionalComponent<{
   </button>
 );
 
-const RedirectElement: FunctionalComponent<{
+interface RedirectAnchorProps {
   redirect: AdvancedSelectGroupRedirect;
   callback: (event: MouseEvent, value: AdvancedSelectGroupRedirect) => void;
-}> = ({ redirect, callback }) => (
+}
+
+const RedirectAnchor: FunctionalComponent<RedirectAnchorProps> = ({ redirect, callback }) => (
   <a class="group-link" href={redirect.href} onClick={(e) => callback(e, redirect)}>
     {redirect.label}
     <dso-icon icon="chevron-right"></dso-icon>
   </a>
 );
+
+interface ActiveGroupLabelProps {
+  active: AdvancedSelectOption<never> | undefined;
+  options: AdvancedSelectOptionOrGroup<never>[];
+}
+
+const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, options }) => {
+  const group = options.find(
+    (optionOrGroup): optionOrGroup is AdvancedSelectGroup<never> =>
+      "options" in optionOrGroup &&
+      !!optionOrGroup.options.find((option) => option === active) &&
+      !!optionOrGroup.activeLabel,
+  );
+
+  return group ? (
+    <dso-label compact status={group.variant}>
+      {group.activeLabel}
+    </dso-label>
+  ) : undefined;
+};

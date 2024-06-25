@@ -16,6 +16,7 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
   },
   {
     label: "Toekomstige versies",
+    activeLabel: "Toekomstig",
     summaryCounter: true,
     options: [
       {
@@ -28,6 +29,7 @@ export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
   },
   {
     label: "Ontwerp versies ter inzage",
+    activeLabel: "Ontwerp",
     variant: "warning",
     redirect: {
       href: "#",
