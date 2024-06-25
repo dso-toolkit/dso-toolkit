@@ -6,19 +6,22 @@ describe("Tooltip", () => {
   function prepareComponent() {
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
-    cy.get("dso-tooltip").closest("button").as("dsoButton");
+    cy.get("dso-tooltip.hydrated").closest("button").as("dsoButton");
   }
 
-  it.skip("should show tooltip on hover on button and hide on escape key", () => {
+  it("should show tooltip on hover on button and hide on escape key", () => {
     prepareComponent();
 
     cy.get("@dsoButton")
       .realHover()
-      .get("dso-tooltip")
-      .should("not.have.class", "hidden")
-      .realPress("Escape")
-      .get("dso-tooltip")
-      .should("have.class", "hidden");
+      .get("dso-tooltip.hydrated")
+      .should("exist")
+      .and("not.have.class", "hidden")
+      .get("@dsoButton")
+      .type("{esc}")
+      .get("dso-tooltip.hydrated")
+      .should("exist")
+      .and("have.class", "hidden");
   });
 
   // Temporary test, this shouldn't be needed. Don't copy/paste this.
@@ -27,21 +30,19 @@ describe("Tooltip", () => {
     cy.get("@dsoButton").matchImageSnapshot();
   });
 
-  it.skip("should show tooltip on focus on button and hide on escape key", () => {
+  it("should show tooltip on focus on button and hide on escape key", () => {
     prepareComponent();
 
     cy.get("@dsoButton")
-      .wait(100)
       .realClick()
-      .wait(200)
-      .find("dso-tooltip")
-      .should("not.have.class", "hidden")
-      .wait(250)
-      .realPress("Escape")
-      .wait(200)
+      .get("dso-tooltip.hydrated")
+      .should("exist")
+      .and("not.have.class", "hidden")
       .get("@dsoButton")
-      .find("dso-tooltip")
-      .should("have.class", "hidden");
+      .type("{esc}")
+      .get("dso-tooltip.hydrated")
+      .should("exist")
+      .and("have.class", "hidden");
   });
 
   it("should not hide tooltip when hover is in tooltip, but outside button", () => {

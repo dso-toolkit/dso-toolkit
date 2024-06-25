@@ -18,23 +18,38 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it.skip("should have focus trap", () => {
-    cy.get("dso-date-picker-legacy.hydrated").as("date-picker-legacy").find("button.dso-date__toggle").click();
+    cy.get("dso-date-picker-legacy.hydrated").should("exist").find("button.dso-date__toggle").should("exist").click();
 
-    cy.get("@date-picker-legacy").find("select.dso-date__select--month").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated").find(".dso-date__dialog :focus").should("have.focus");
 
-    cy.get("@date-picker-legacy").find("select.dso-date__select--year").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated")
+      .find("select.dso-date__select--month")
+      .should("exist")
+      .and("have.focus")
+      .realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("button.dso-date__prev").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated")
+      .find("select.dso-date__select--year")
+      .should("have.focus")
+      .realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("button.dso-date__next").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated").find("button.dso-date__prev").should("have.focus").realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("button.dso-date__day.is-today").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated").find("button.dso-date__next").should("have.focus").realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("button.dso-date__close").should("have.focus").realPress("Tab");
+    cy.get("dso-date-picker-legacy.hydrated")
+      .find("button.dso-date__day.is-today")
+      .should("have.focus")
+      .realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("select.dso-date__select--month").should("have.focus").realPress("Escape");
+    cy.get("dso-date-picker-legacy.hydrated").find("button.dso-date__close").should("have.focus").realPress("Tab");
 
-    cy.get("@date-picker-legacy").find("button.dso-date__toggle").should("have.focus");
+    cy.get("dso-date-picker-legacy.hydrated")
+      .find("select.dso-date__select--month")
+      .should("have.focus")
+      .realPress("Escape");
+
+    cy.get("dso-date-picker-legacy.hydrated").find("button.dso-date__toggle").should("have.focus");
   });
 
   it("ESCAPE should close date picker and focus toggle button", () => {
@@ -42,7 +57,7 @@ describe("Date Picker (Legacy)", () => {
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
 
     cy.realPress("Escape");
 
@@ -61,7 +76,7 @@ describe("Date Picker (Legacy)", () => {
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
 
     cy.realPress("Tab");
     cy.realPress("Tab");
