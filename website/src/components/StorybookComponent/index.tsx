@@ -60,7 +60,7 @@ function getStoryUrlId(
   }
 
   if (isExamplePage) {
-    return `${joinNameAndVariant(name, variant)}`;
+    return joinNameAndVariant(name, variant);
   }
 
   return `${implementation}-${joinNameAndVariant(name, variant)}`;
