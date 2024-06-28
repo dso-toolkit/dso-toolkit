@@ -7,8 +7,3 @@ export type BadgeStatusVariant =
   | "error"
   | "outline"
   | "attention";
-
-export interface Badge {
-  status?: BadgeStatusVariant;
-  message: string;
-}
