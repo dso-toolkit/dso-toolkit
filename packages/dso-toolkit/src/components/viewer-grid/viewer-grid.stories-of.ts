@@ -67,7 +67,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
             | "vdkActiveTab"
           >
         >({
-          mode: "vrk",
+          mode: "vdk",
           mainSize: "large",
           filterpanelOpen: false,
           overlayOpen: false,

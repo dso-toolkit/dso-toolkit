@@ -88,35 +88,64 @@ storiesOfViewerGrid({
       documentHeaderAdvancedSelectActiveIndex,
     }: ViewerGridDocumentHeaderProperties) {
       return viewerGridTemplate({
-        main: documentHeaderTemplate({
-          title: "Omgevingsplan gemeente Gouda",
-          type: "Een omgevingsplan waar de omgeving mooier van wordt",
-          owner: "Gemeente Gouda",
+        mode: "vdk",
+        documentPanelOpen: true,
+        documentPanelSize: "small",
+        mainSize: "small",
+        main: html``,
+        documentPanel: documentHeaderTemplate({
+          title: "Partiële herziening Harmonisatie Buitengebied",
+          type: "Bestemmingsplan",
+          owner: "Gemeente Heerenveen",
           features: {
             modifier: "dso-document-header-features",
             definitions: [
               {
-                term: html`Opschrift:`,
+                term: html`Planstatus`,
                 descriptions: [
                   {
-                    content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
+                    content: "ontwerp 21-12-2023",
                   },
                 ],
               },
               {
-                term: html`Identificatie:`,
+                term: html`Dossierstatus`,
                 descriptions: [
                   {
-                    content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+                    content: "in voorbereiding",
                   },
                 ],
               },
               {
-                term: html`Besluit:`,
+                term: html`Beroep / bezwaar aangetekend`,
+                descriptions: [
+                  {
+                    content: "Nee",
+                  },
+                ],
+              },
+              {
+                term: html`IMRO versie`,
+                descriptions: [
+                  {
+                    content: "IMRO2012",
+                  },
+                ],
+              },
+              {
+                term: html`Identificatie`,
+                descriptions: [
+                  {
+                    content: "NL.IMRO.0074.PARBPbuitengebied-OW01",
+                  },
+                ],
+              },
+              {
+                term: html`Bekendmaking:`,
                 descriptions: [
                   {
                     content: anchorTemplate({
-                      label: "Bekijk besluit",
+                      label: "Ontwerpbestemmingsplan Harmonisatie Buitengebied",
                       url: "#",
                       icon: {
                         icon: "external-link",
