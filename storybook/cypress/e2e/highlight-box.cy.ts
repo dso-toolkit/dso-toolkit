@@ -10,7 +10,7 @@ describe("Highlight box", () => {
     cy.get(".dso-equal-heights .dso-highlight-box").invoke("height").should("have.be", this.height_of_box);
   });
 
-  it.skip("Gives each box 100% width in mobile viewport", () => {
+  it("Gives each box 100% width in mobile viewport", () => {
     cy.viewport(320, 720);
     cy.get(".dso-highlight-box").invoke("width").should("be.equal", 209);
   });
