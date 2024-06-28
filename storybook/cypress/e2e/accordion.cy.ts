@@ -168,4 +168,27 @@ describe("Accordion", () => {
       .get("@section")
       .should("have.focus");
   });
+
+  it("should show a badge on an AccordionSection", () => {
+    cy.get("dso-accordion")
+      .find("dso-accordion-section:nth-child(2)")
+      .as("accordionSection")
+      .invoke("prop", "badgeStatus", undefined)
+      .invoke("prop", "badgeMessage", undefined)
+      .shadow()
+      .find("dso-badge")
+      .should("not.exist")
+      .get("@accordionSection")
+      .invoke("prop", "badgeStatus", "warning")
+      .invoke("prop", "badgeMessage", "Bepaald")
+      .shadow()
+      .find("dso-badge")
+      .as("dso-badge")
+      .should("exist")
+      .and("have.text", "Bepaald")
+      .get("@dso-badge")
+      .shadow()
+      .find(".dso-badge.badge-warning")
+      .should("exist");
+  });
 });
