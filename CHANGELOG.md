@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Docusaurus: voorbeeldpagina's worden niet gevonden na volgen link `Open in Storybook` ([#2654](https://github.com/dso-toolkit/dso-toolkit/issues/2654))
+
 ## 🧲 Release 62.26.0 - 25-06-2024
 
 ### Added
