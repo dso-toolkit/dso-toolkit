@@ -24,6 +24,7 @@ import {
   stateMap,
 } from "./accordion-section.interfaces";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
+import { BadgeStatusVariant } from "../../badge/badge.interfaces";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -190,6 +191,18 @@ export class AccordionSection implements ComponentInterface {
    */
   @Prop({ reflect: true })
   hasNestedAccordion = false;
+
+  /**
+   * A message to be displayed in the heading handle inside a Badge (optional)
+   */
+  @Prop()
+  badgeMessage?: string;
+
+  /**
+   * The status of the Badge in the heading handle (optional)
+   */
+  @Prop()
+  badgeStatus?: BadgeStatusVariant;
 
   /**
    * Calling this method will set focus to the handle.
@@ -366,6 +379,8 @@ export class AccordionSection implements ComponentInterface {
 
                 <span>{this.handleTitle}</span>
 
+                {this.badgeMessage && <dso-badge status={this.badgeStatus}>{this.badgeMessage}</dso-badge>}
+
                 <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
               </Fragment>
             ) : (
@@ -380,6 +395,8 @@ export class AccordionSection implements ComponentInterface {
                     <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
                   )}
                 </span>
+
+                {this.badgeMessage && <dso-badge status={this.badgeStatus}>{this.badgeMessage}</dso-badge>}
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">

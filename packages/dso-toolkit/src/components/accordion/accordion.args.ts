@@ -4,6 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
+import { BadgeStatusVariant } from "../badge";
 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
@@ -20,6 +21,8 @@ export interface AccordionArgs {
   handleUrl: string;
   handleTitle: string;
   demoScrollIntoView: "start" | "end" | undefined;
+  badgeMessage: string;
+  badgeStatus: BadgeStatusVariant;
 }
 
 export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {
@@ -105,6 +108,17 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: "select",
     },
   },
+  badgeStatus: {
+    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "outline", "attention"],
+    control: {
+      type: "select",
+    },
+  },
+  badgeMessage: {
+    control: {
+      type: "text",
+    },
+  },
 };
 
 export function accordionArgsMapper<TemplateFnReturnType>(
@@ -128,6 +142,8 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         section.icon = a.icon;
         section.heading = a.heading;
         section.handleUrl = a.handleUrl;
+        section.badgeStatus = a.badgeStatus;
+        section.badgeMessage = a.badgeMessage;
         section.dsoAnimationStart = (e) => {
           if (a.demoScrollIntoView === "start" && a.open) {
             e.detail.scrollIntoView();

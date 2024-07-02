@@ -84,7 +84,18 @@
 
       dso-attachments-counter,
       dso-icon {
-        margin-inline-start: 16px;
+        margin-inline-start: units.$u2;
+      }
+    }
+
+    > dso-badge {
+      margin-inline-start: auto;
+      padding-inline-start: units.$u1;
+      word-break: normal;
+
+      & + dso-icon:last-child,
+      & + .dso-section-handle-addons:last-child {
+        margin-inline-start: units.$u1;
       }
     }
   }

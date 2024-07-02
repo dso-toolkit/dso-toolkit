@@ -65,6 +65,10 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
 }: AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType>): AccordionStories {
   return {
     Default: {
+      args: {
+        badgeMessage: "Onbepaald",
+        badgeStatus: "outline",
+      },
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections }) =>
         accordionTemplate(accordionArgsMapper(args, basicSections)),
       ),

@@ -142,6 +142,18 @@
         @include di.base("paperclip-grijs", accordion.$chevron-icon-size);
       }
     }
+
+    > dso-badge {
+      margin-inline-start: auto;
+      padding-inline-start: units.$u1;
+      word-break: normal;
+
+      & + .dso-icon,
+      & + .dso-attachments,
+      & + .dso-status {
+        margin-inline-start: 0;
+      }
+    }
   }
 }
 
