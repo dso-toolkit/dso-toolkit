@@ -19,6 +19,12 @@ export class Alert {
   @Prop()
   roleAlert?: boolean;
 
+  /**
+   * Show alert as small variant (without icon)
+   */
+  @Prop({ reflect: true })
+  small?: boolean;
+
   private static statusMap = new Map<string, string>([
     ["success", "Gelukt"],
     ["info", "Opmerking"],
@@ -33,8 +39,11 @@ export class Alert {
     }
 
     return (
-      <div class={clsx("alert", `alert-${this.status}`)} role={this.roleAlert ? "alert" : undefined}>
-        <dso-icon icon={"status-" + this.status}></dso-icon>
+      <div
+        class={clsx("alert", `alert-${this.status}`, { ["dso-small"]: this.small })}
+        role={this.roleAlert ? "alert" : undefined}
+      >
+        {!this.small && <dso-icon icon={"status-" + this.status}></dso-icon>}
         <span class="sr-only">{status}:</span>
         <slot></slot>
       </div>
