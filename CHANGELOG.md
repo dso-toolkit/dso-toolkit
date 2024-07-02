@@ -7,7 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Accordion: Badge toevoegen ([#2657](https://github.com/dso-toolkit/dso-toolkit/issues/2657))
-* 
+* Alert: variant `small` ([#2690](https://github.com/dso-toolkit/dso-toolkit/issues/2690))
+
 ### Docs
 * Docusaurus: voorbeeldpagina's worden niet gevonden na volgen link `Open in Storybook` ([#2654](https://github.com/dso-toolkit/dso-toolkit/issues/2654))
 

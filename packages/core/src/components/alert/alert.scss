@@ -10,20 +10,49 @@
   margin-block-start: units.$u3;
 }
 
+:host([small]:not([small="false"])) {
+  position: relative;
+  @include alert.small();
+}
+
 :host([status="success"]) {
   @include alert.status-success();
+}
+
+:host([status="success"][small]:not([small="false"])) {
+  &::before {
+    background-color: alert.$success-border-accentuated;
+  }
 }
 
 :host([status="error"]) {
   @include alert.status-error();
 }
 
+:host([status="error"][small]:not([small="false"])) {
+  &::before {
+    background-color: alert.$danger-border-accentuated;
+  }
+}
+
 :host([status="warning"]) {
   @include alert.status-warning();
 }
 
+:host([status="warning"][small]:not([small="false"])) {
+  &::before {
+    background-color: alert.$warning-border-accentuated;
+  }
+}
+
 :host([status="info"]) {
   @include alert.status-info();
+}
+
+:host([status="info"][small]:not([small="false"])) {
+  &::before {
+    background-color: alert.$info-border-accentuated;
+  }
 }
 
 @include utilities.box-sizing();
@@ -40,5 +69,8 @@
 
     block-size: units.$u4;
     inline-size: units.$u4;
+  }
+  &.dso-small {
+    min-block-size: alert.$inline-padding;
   }
 }

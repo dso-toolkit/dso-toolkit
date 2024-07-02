@@ -16,9 +16,12 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "html-css",
   template: ({ richContentTemplate }) =>
-    function alertTemplate({ status, message, onClick, withRoleAlert }) {
+    function alertTemplate({ status, message, small, onClick, withRoleAlert }) {
       return html`
-        <div class="alert alert-${status}" role=${ifDefined(withRoleAlert ? "alert" : undefined)}>
+        <div
+          class="alert alert-${status} ${small ? `dso-small` : ""}"
+          role=${ifDefined(withRoleAlert ? "alert" : undefined)}
+        >
           <span class="sr-only">${statusMap.get(status)}:</span>
           ${richContentTemplate({
             children: html`

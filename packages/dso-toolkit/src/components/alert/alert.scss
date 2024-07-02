@@ -1,6 +1,6 @@
 @use "../alert";
-
 @use "../../di";
+@use "../../variables/units";
 
 // HTML/CSS
 .alert {
@@ -8,16 +8,25 @@
 
   @include alert.children();
 
-  &::before {
+  &:not(.dso-small)::before {
     @include alert.icon-position();
 
     content: "";
   }
 
+  &.dso-small {
+    @include alert.small(-1px, -1px);
+    min-block-size: alert.$inline-padding;
+  }
+
   &.alert-success {
     @include alert.status-success();
 
-    &::before {
+    &.dso-small::before {
+      background-color: alert.$success-border-accentuated;
+    }
+
+    &:not(.dso-small)::before {
       @include di.base("status-success", alert.$icon-size);
     }
   }
@@ -25,7 +34,11 @@
   &.alert-error {
     @include alert.status-error();
 
-    &::before {
+    &.dso-small::before {
+      background-color: alert.$danger-border-accentuated;
+    }
+
+    &:not(.dso-small)::before {
       @include di.base("status-error", alert.$icon-size);
     }
   }
@@ -33,7 +46,11 @@
   &.alert-warning {
     @include alert.status-warning();
 
-    &::before {
+    &.dso-small::before {
+      background-color: alert.$warning-border-accentuated;
+    }
+
+    &:not(.dso-small)::before {
       @include di.base("status-warning", alert.$icon-size);
     }
   }
@@ -41,7 +58,10 @@
   &.alert-info {
     @include alert.status-info();
 
-    &::before {
+    &.dso-small::before {
+      background-color: alert.$info-border-accentuated;
+    }
+    &:not(.dso-small)::before {
       @include di.base("status-info", alert.$icon-size);
     }
   }

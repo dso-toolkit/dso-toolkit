@@ -78,14 +78,41 @@
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
     padding-block: alert-variables.$block-padding;
     padding-inline: alert-variables.$inline-start-padding alert-variables.$inline-padding;
+
+    &.dso-small {
+      padding-block: alert-variables.$block-padding * 0.5;
+      padding-inline: alert-variables.$inline-padding;
+    }
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     padding-block: alert-variables.$small-padding-block-start alert-variables.$small-padding;
     padding-inline: alert-variables.$small-padding;
+
+    &.dso-small {
+      padding-block: alert-variables.$block-padding * 0.5;
+      padding-inline: alert-variables.$inline-padding;
+    }
   }
 
   &:not(:first-child) {
     margin-block-start: units.$u3;
+  }
+}
+
+@mixin small($bottom: 0, $top: 0) {
+  border-bottom-right-radius: units.$u1;
+  border-top-right-radius: units.$u1;
+  margin-inline-start: units.$u1;
+
+  &::before {
+    border-bottom-left-radius: units.$u1;
+    border-top-left-radius: units.$u1;
+    bottom: $bottom;
+    content: "";
+    left: units.$u1 * -1;
+    position: absolute;
+    top: $top;
+    width: units.$u1;
   }
 }

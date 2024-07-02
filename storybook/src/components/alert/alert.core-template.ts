@@ -8,9 +8,9 @@ export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "core",
   template: ({ richContentTemplate }) =>
-    function alertTemplate({ status, message, onClick, withRoleAlert }) {
+    function alertTemplate({ status, message, small, onClick, withRoleAlert }) {
       return html`
-        <dso-alert status=${status} ?role-alert=${withRoleAlert}>
+        <dso-alert status=${status} ?role-alert=${withRoleAlert} ?small=${small}>
           ${richContentTemplate({
             children: html`
               ${typeof message === "string" ? unsafeHTML(message) : message}

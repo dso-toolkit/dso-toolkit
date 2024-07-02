@@ -35,4 +35,36 @@ describe("Alert", () => {
         .matchImageSnapshot();
     });
   }
+
+  const alerts: Array<{
+    status: string;
+    message: string;
+  }> = [
+    { status: "success", message: "Gelukt" },
+    { status: "info", message: "Opmerking" },
+    { status: "warning", message: "Waarschuwing" },
+    { status: "error", message: "Fout" },
+  ];
+  for (const { status, message } of alerts) {
+    it(`should show small variant for status "${status}"`, () => {
+      cy.visit("http://localhost:45000/iframe.html?args=withButton:!false&id=core-alert--success");
+      cy.get("dso-alert.hydrated")
+        .invoke("attr", "status", status)
+        .invoke("attr", "small", true)
+        .shadow()
+        .find(".alert > span.sr-only")
+        .invoke("text")
+        .should("equal", `${message}:`)
+        .get("dso-alert")
+        .shadow()
+        .find(".alert > dso-icon")
+        .should("not.exist")
+        .get("dso-alert")
+        .shadow()
+        .find(".alert.dso-small")
+        .should("exist")
+        .get("dso-alert.hydrated")
+        .matchImageSnapshot();
+    });
+  }
 });

@@ -183,6 +183,10 @@ export namespace Components {
          */
         "roleAlert"?: boolean;
         /**
+          * Show alert as small variant (without icon)
+         */
+        "small"?: boolean;
+        /**
           * Set status of alert
          */
         "status": "success" | "info" | "warning" | "error";
@@ -2285,6 +2289,10 @@ declare namespace LocalJSX {
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
          */
         "roleAlert"?: boolean;
+        /**
+          * Show alert as small variant (without icon)
+         */
+        "small"?: boolean;
         /**
           * Set status of alert
          */
