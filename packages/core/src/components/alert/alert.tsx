@@ -40,7 +40,7 @@ export class Alert {
 
     return (
       <div
-        class={clsx("alert", `alert-${this.status}`, { ["dso-small"]: this.small })}
+        class={clsx("alert", `alert-${this.status}`, { "dso-small": this.small })}
         role={this.roleAlert ? "alert" : undefined}
       >
         {!this.small && <dso-icon icon={"status-" + this.status}></dso-icon>}
