@@ -42,7 +42,7 @@ describe("Date Picker (Legacy)", () => {
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
 
     cy.realPress("Escape");
 
@@ -61,7 +61,7 @@ describe("Date Picker (Legacy)", () => {
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
 
-    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus");
+    cy.get("@date-picker-legacy").find(".dso-date__dialog :focus").should("have.focus");
 
     cy.realPress("Tab");
     cy.realPress("Tab");
