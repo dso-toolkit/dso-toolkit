@@ -24,7 +24,7 @@ import {
   stateMap,
 } from "./accordion-section.interfaces";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
-import { BadgeStatusVariant } from "../../badge/badge.interfaces";
+import { BadgeStatus } from "../../badge/badge.interfaces";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -202,7 +202,7 @@ export class AccordionSection implements ComponentInterface {
    * The status of the Badge in the heading handle (optional)
    */
   @Prop()
-  badgeStatus?: BadgeStatusVariant;
+  badgeStatus?: BadgeStatus;
 
   /**
    * Calling this method will set focus to the handle.

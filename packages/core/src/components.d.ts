@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-import { BadgeStatusVariant } from "./components/badge/badge.interfaces";
+import { BadgeStatus } from "./components/badge/badge.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
@@ -41,7 +41,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-export { BadgeStatusVariant } from "./components/badge/badge.interfaces";
+export { BadgeStatus } from "./components/badge/badge.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
@@ -97,7 +97,7 @@ export namespace Components {
         /**
           * The status of the Badge in the heading handle (optional)
          */
-        "badgeStatus"?: BadgeStatusVariant;
+        "badgeStatus"?: BadgeStatus;
         /**
           * Calling this method will set focus to the handle.
          */
@@ -343,7 +343,7 @@ export namespace Components {
         /**
           * The status of the Badge.
          */
-        "status"?: BadgeStatusVariant;
+        "status"?: BadgeStatus;
     }
     interface DsoBanner {
         /**
@@ -2184,7 +2184,7 @@ declare namespace LocalJSX {
         /**
           * The status of the Badge in the heading handle (optional)
          */
-        "badgeStatus"?: BadgeStatusVariant;
+        "badgeStatus"?: BadgeStatus;
         /**
           * The title of the handle
          */
@@ -2482,7 +2482,7 @@ declare namespace LocalJSX {
         /**
           * The status of the Badge.
          */
-        "status"?: BadgeStatusVariant;
+        "status"?: BadgeStatus;
     }
     interface DsoBanner {
         /**

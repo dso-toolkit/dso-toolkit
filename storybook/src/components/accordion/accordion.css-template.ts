@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "html-css",
-  template: ({ attachmentsCounterTemplate, iconTemplate }) =>
+  template: ({ attachmentsCounterTemplate, iconTemplate, badgeTemplate }) =>
     function accordionTemplate(accordion) {
       const statusMap = new Map<string, string>([
         ["success", "succes"],
@@ -28,7 +28,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             : nothing}
           ${section.handleTitle}
           ${section.badgeMessage
-            ? html`<dso-badge status=${section.badgeStatus}>${section.badgeMessage}</dso-badge>`
+            ? badgeTemplate({ status: section.badgeStatus, message: section.badgeMessage })
             : nothing}
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`

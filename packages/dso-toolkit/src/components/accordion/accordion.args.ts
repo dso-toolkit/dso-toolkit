@@ -4,7 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
-import { BadgeStatusVariant } from "../badge";
+import { BadgeStatus } from "../badge";
 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
@@ -22,7 +22,7 @@ export interface AccordionArgs {
   handleTitle: string;
   demoScrollIntoView: "start" | "end" | undefined;
   badgeMessage: string;
-  badgeStatus: BadgeStatusVariant;
+  badgeStatus: BadgeStatus;
 }
 
 export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {

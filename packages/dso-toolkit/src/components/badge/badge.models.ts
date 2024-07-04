@@ -1,14 +1,6 @@
-export type BadgeStatusVariant =
-  | "primary"
-  | "success"
-  | "info"
-  | "warning"
-  | "danger"
-  | "error"
-  | "outline"
-  | "attention";
+export type BadgeStatus = "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
 
 export interface Badge {
-  status?: BadgeStatusVariant;
+  status?: BadgeStatus;
   message: string;
 }

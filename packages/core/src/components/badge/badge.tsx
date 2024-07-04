@@ -1,6 +1,6 @@
 import { Component, h, Prop } from "@stencil/core";
 import clsx from "clsx";
-import { BadgeStatusVariant } from "./badge.interfaces";
+import { BadgeStatus } from "./badge.interfaces";
 
 @Component({
   tag: "dso-badge",
@@ -12,7 +12,7 @@ export class Badge {
    * The status of the Badge.
    */
   @Prop()
-  status?: BadgeStatusVariant;
+  status?: BadgeStatus;
 
   render() {
     return (
