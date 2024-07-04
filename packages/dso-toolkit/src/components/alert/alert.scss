@@ -1,6 +1,5 @@
 @use "../alert";
 @use "../../di";
-@use "../../variables/units";
 
 // HTML/CSS
 .alert {
@@ -15,7 +14,7 @@
   }
 
   &.dso-small {
-    @include alert.small(-1px, -1px);
+    @include alert.small();
     min-block-size: alert.$inline-padding;
   }
 

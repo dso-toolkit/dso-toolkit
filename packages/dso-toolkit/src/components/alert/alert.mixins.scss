@@ -8,9 +8,9 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin icon-position() {
-  inset-inline-start: alert-variables.$inline-padding - 1px; // 1px border
+  inset-block-start: alert-variables.$inline-padding;
+  inset-inline-start: alert-variables.$inline-padding;
   position: absolute;
-  inset-block-start: alert-variables.$inline-padding - 1px; // 1px border
 }
 
 @mixin children() {
@@ -53,23 +53,22 @@
 }
 
 @mixin status-success() {
-  @include set-colors.apply(alert-variables.$success-bg, alert-variables.$success-border);
+  @include set-colors.apply(alert-variables.$success-bg);
 }
 
 @mixin status-error() {
-  @include set-colors.apply(alert-variables.$danger-bg, alert-variables.$danger-border);
+  @include set-colors.apply(alert-variables.$danger-bg);
 }
 
 @mixin status-warning() {
-  @include set-colors.apply(alert-variables.$warning-bg, alert-variables.$warning-border);
+  @include set-colors.apply(alert-variables.$warning-bg);
 }
 
 @mixin status-info() {
-  @include set-colors.apply(alert-variables.$info-bg, alert-variables.$info-border);
+  @include set-colors.apply(alert-variables.$info-bg);
 }
 
 @mixin root() {
-  border: 1px solid transparent;
   line-height: typography.$line-height-base;
   margin-block-end: typography.$line-height-computed;
   min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
@@ -100,7 +99,7 @@
   }
 }
 
-@mixin small($bottom: 0, $top: 0) {
+@mixin small() {
   border-bottom-right-radius: units.$u1;
   border-top-right-radius: units.$u1;
   margin-inline-start: units.$u1;
@@ -108,11 +107,11 @@
   &::before {
     border-bottom-left-radius: units.$u1;
     border-top-left-radius: units.$u1;
-    bottom: $bottom;
+    bottom: 0;
     content: "";
     left: units.$u1 * -1;
     position: absolute;
-    top: $top;
+    top: 0;
     width: units.$u1;
   }
 }

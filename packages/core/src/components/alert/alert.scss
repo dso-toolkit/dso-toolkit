@@ -70,6 +70,7 @@
     block-size: units.$u4;
     inline-size: units.$u4;
   }
+
   &.dso-small {
     min-block-size: alert.$inline-padding;
   }
