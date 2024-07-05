@@ -69,29 +69,13 @@ export * from "./components/definition-list";
 
 export * from "./components/description";
 
-export { DocumentComponent } from "./components/document-component/document-component.models.js";
-export {
-  DocumentComponentTemplates,
-  storiesOfDocumentComponent,
-} from "./components/document-component/document-component.stories-of.js";
+export * from "./components/document-component";
 
 export * from "./components/document-header";
 
-export {
-  DocumentList,
-  DocumentListItem,
-  DocumentListItemStatusDemoContent,
-} from "./components/document-list/document-list.models.js";
-export { DocumentListTemplates, storiesOfDocumentList } from "./components/document-list/document-list.stories-of.js";
+export * from "./components/document-list";
 
-export {
-  DropdownMenu,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuItemAnchor,
-  DropdownMenuItemButton,
-} from "./components/dropdown-menu/dropdown-menu.models.js";
-export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
+export * from "./components/dropdown-menu";
 
 export * from "./components/expandable";
 
@@ -134,8 +118,7 @@ export * from "./components/icon";
 
 export * from "./components/image";
 
-export { ImageOverlay } from "./components/image-overlay/image-overlay.models.js";
-export { ImageOverlayTemplates, storiesOfImageOverlay } from "./components/image-overlay/image-overlay.stories-of.js";
+export * from "./components/image-overlay";
 
 export * from "./components/info";
 

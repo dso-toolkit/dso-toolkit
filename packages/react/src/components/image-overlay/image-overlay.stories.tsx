@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/angular";
+import { Meta } from "@storybook/react";
 
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 

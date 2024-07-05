@@ -1,14 +1,14 @@
-import { Meta } from "@storybook/angular";
+import { Meta } from "@storybook/web-components";
 
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...dropdownMenuMeta({ readme }),
-  title: "Dropdown Menu",
+  title: "Core/Dropdown Menu",
 };
 
 export default meta;

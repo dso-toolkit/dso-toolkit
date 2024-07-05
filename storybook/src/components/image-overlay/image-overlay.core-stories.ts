@@ -1,14 +1,14 @@
-import { Meta } from "@storybook/angular";
+import { Meta } from "@storybook/web-components";
 
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/image-overlay/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...imageOverlayMeta({ readme }),
-  title: "Image Overlay",
+  title: "Core/Image Overlay",
 };
 
 export default meta;
