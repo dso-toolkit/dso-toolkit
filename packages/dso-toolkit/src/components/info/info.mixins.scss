@@ -4,7 +4,8 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin root() {
-  padding: units.$u2 units.$u4 units.$u2 units.$u2;
+  padding-block: units.$u2;
+  padding-inline: units.$u2 units.$u4;
   position: relative;
 
   > button {
@@ -24,7 +25,8 @@
 
   img {
     display: block;
-    margin: units.$u1 auto;
+    margin-block: units.$u1;
+    margin-inline: auto;
     max-inline-size: 100%;
   }
 

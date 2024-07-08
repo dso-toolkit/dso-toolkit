@@ -18,7 +18,8 @@
 }
 
 @mixin base() {
-  padding: units.$u2 units.$u2 units.$u1;
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
   inline-size: 100%;
 
   &:hover {

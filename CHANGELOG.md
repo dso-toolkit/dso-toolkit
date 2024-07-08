@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Tasks
 * Build: Flaky tests HighlightBox, Tooltip en DatePickerLegacy ([#2256](https://github.com/dso-toolkit/dso-toolkit/issues/2256))
 
+### Changed
+* Stylelint: Hele repository linten ([#2714](https://github.com/dso-toolkit/dso-toolkit/issues/2714))
+
 ## 🧲 Release 62.26.0 - 25-06-2024
 
 ### Added

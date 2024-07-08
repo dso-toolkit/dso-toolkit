@@ -11,7 +11,8 @@ dso-viewer-grid {
 
     .dso-filterblok-address {
       font-weight: bold;
-      margin: units.$u1 0;
+      margin-block: units.$u1;
+      margin-inline: 0;
     }
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {

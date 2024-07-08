@@ -13,7 +13,8 @@ pre {
   font-size: (typography.$font-size-base - 1); // 14px to 13px
   overflow: auto;
   line-height: typography.$line-height-base;
-  margin: 0 0 (typography.$line-height-computed * 0.5);
+  margin-block: 0 (typography.$line-height-computed * 0.5);
+  margin-inline: 0;
   padding: ((typography.$line-height-computed - 1) * 0.5);
   word-break: break-all;
   word-wrap: break-word;

@@ -18,7 +18,8 @@ input {
     box-sizing: border-box;
     padding: 0;
     line-height: normal;
-    margin: 4px 0 0;
+    margin-block: 4px 0;
+    margin-inline: 0;
 
     &[disabled] {
       cursor: scaffolding.$cursor-disabled;

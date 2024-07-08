@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:color";
 
 @use "../../variables/colors.scss";
 @use "../../components/anchor/anchor.variables" as anchor-variables;
@@ -22,7 +23,7 @@
   $contrast-color: contrast-color.apply($background-color);
 
   // set link and icon color according to text color
-  @if lightness($background-color) < 100% {
+  @if color.lightness($background-color) < 100% {
     @if $links == true {
       --link-color: currentColor;
       --link-hover-color: currentColor;

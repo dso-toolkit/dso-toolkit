@@ -35,7 +35,8 @@
       background-color: rgba(25, 25, 25, 0.05);
       border-radius: button.$border-radius;
       border: 1px solid transparent;
-      padding: 6px 12px;
+      padding-block: 6px;
+      padding-inline: 12px;
 
       &:hover,
       &:active {

@@ -96,11 +96,13 @@
 }
 
 @mixin root() {
-  padding: units.$u2 0;
+  padding-block: units.$u2;
+  padding-inline: 0;
   position: relative;
 
   &.dso-compact {
-    padding: 12px 0;
+    padding-block: 12px;
+    padding-inline: 0;
   }
 }
 

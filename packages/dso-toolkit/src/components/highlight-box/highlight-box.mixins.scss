@@ -56,7 +56,7 @@
 
   &#{$border-selector} {
     border: 1px solid colors.$grijs-20;
-    padding: units.$u2 - 1;
+    padding: #{units.$u2 - 1};
   }
 
   &#{$border-selector}:not(#{$grey-selector}, #{$yellow-selector}) {

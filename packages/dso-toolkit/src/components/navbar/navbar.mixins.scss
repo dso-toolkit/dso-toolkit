@@ -16,7 +16,8 @@
     .dso-navbar-toggle {
       border-radius: 4px;
       min-inline-size: auto;
-      padding: #{units.$padding-base-block - 1} 0;
+      padding-block: #{units.$padding-base-block - 1};
+      padding-inline: 0;
 
       dso-icon,
       svg.di {
@@ -83,7 +84,8 @@
           font-size: 1.25em;
           line-height: 1;
           margin-block-start: units.$u1;
-          padding: units.$u1 units.$u2 #{units.$u1 - 1px};
+          padding-block: units.$u1 #{units.$u1 - 1px};
+          padding-inline: units.$u2;
         }
       }
     }
@@ -98,7 +100,8 @@
 
           font-size: typography.$root-font-size-base;
           margin-block-start: (units.$u1 * 0.5);
-          padding: (units.$u1 * 0.5) units.$u1 #{units.$u1 * 0.5 - 1px};
+          padding-block: (units.$u1 * 0.5) #{units.$u1 * 0.5 - 1px};
+          padding-inline: units.$u1;
         }
       }
     }

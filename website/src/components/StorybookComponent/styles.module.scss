@@ -1,17 +1,17 @@
 .container {
   position: relative;
   border: 1px solid var(--ifm-color-emphasis-300);
-  margin-bottom: var(--ifm-leading);
+  margin-block-end: var(--ifm-leading);
 }
 
 .implementationButtons {
-  border-top: 1px solid var(--ifm-color-emphasis-300);
+  border-block-start: 1px solid var(--ifm-color-emphasis-300);
   display: flex;
   align-items: center;
-  height: 32px;
+  block-size: 32px;
   gap: 12px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-inline-start: 16px;
+  padding-inline-end: 16px;
 
   > button {
     background: none;
@@ -27,16 +27,16 @@
 }
 
 .openInStorybook {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .loading {
-  width: 100%;
+  inline-size: 100%;
   position: absolute;
-  top: 0;
-  bottom: 32px;
-  left: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-block-end: 32px;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   display: grid;
   align-items: center;
   justify-items: center;

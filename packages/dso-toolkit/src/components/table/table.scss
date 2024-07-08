@@ -105,16 +105,16 @@ table.table,
   }
 
   &.dso-table-outside-lines-topbot {
-    @include css-table-mixins.outside-lines-topbot;
+    @include css-table-mixins.outside-lines-topbot();
   }
 
   &.dso-table-outside-lines-all {
-    @include css-table-mixins.outside-lines-topbot;
-    @include css-table-mixins.outside-lines-sides;
+    @include css-table-mixins.outside-lines-topbot();
+    @include css-table-mixins.outside-lines-sides();
   }
 
   &.dso-table-outside-lines-sides {
-    @include css-table-mixins.outside-lines-sides;
+    @include css-table-mixins.outside-lines-sides();
   }
 
   > thead {
@@ -179,7 +179,8 @@ table.table,
       > th,
       > td {
         line-height: typography.$line-height-base;
-        padding: (table.$cell-padding * 1.5) table.$cell-padding;
+        padding-block: (table.$cell-padding * 1.5);
+        padding-inline: table.$cell-padding;
         vertical-align: top;
 
         a {

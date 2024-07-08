@@ -11,7 +11,8 @@
   font-size: 0.875em;
   line-height: badge-variables.$line-height;
   min-inline-size: 1.5rem;
-  padding: #{units.$u1 * 0.5} units.$u1;
+  padding-block: #{units.$u1 * 0.5};
+  padding-inline: units.$u1;
   text-align: center;
 
   & {

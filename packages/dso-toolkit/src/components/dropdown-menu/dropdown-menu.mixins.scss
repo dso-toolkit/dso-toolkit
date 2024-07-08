@@ -39,7 +39,8 @@
     font-size: (math.div(14, 16) * 1em);
     font-weight: 400;
     margin: 0;
-    padding: (units.$u1 * 0.5) dropdown-menu-variables.$inline-padding (units.$u1 * 0.25);
+    padding-block: (units.$u1 * 0.5) (units.$u1 * 0.25);
+    padding-inline: dropdown-menu-variables.$inline-padding;
     text-transform: uppercase;
   }
 
@@ -62,7 +63,8 @@
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     font-size: typography.$root-font-size-base;
     min-inline-size: 160px;
-    padding: 5px 0;
+    padding-block: 5px;
+    padding-inline: 0;
     z-index: zindex.$dropdown-options;
 
     li {
@@ -83,7 +85,8 @@
         display: block;
         font-weight: 400;
         line-height: 1.5;
-        padding: 3px dropdown-menu-variables.$inline-padding;
+        padding-block: 3px;
+        padding-inline: dropdown-menu-variables.$inline-padding;
         text-decoration: none;
         white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 

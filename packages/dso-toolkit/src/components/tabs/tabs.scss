@@ -78,7 +78,8 @@
     min-block-size: css-tabs-variables.$block-size;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      margin: 10px 0;
+      margin-block: 10px;
+      margin-inline: 0;
 
       &:first-child {
         margin-block-start: 0;
@@ -154,7 +155,8 @@
       a {
         border-color: colors.$wit;
         border-radius: 8px;
-        padding: 18px 20px;
+        padding-block: 18px;
+        padding-inline: 20px;
 
         &:active,
         &:focus,

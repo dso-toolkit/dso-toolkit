@@ -16,7 +16,8 @@
     box-shadow: none;
     display: block;
     font-weight: 600;
-    padding: units.$u2 units.$u6;
+    padding-block: units.$u2;
+    padding-inline: units.$u6;
     position: relative;
     text-align: start;
 
@@ -131,7 +132,8 @@
       li {
         margin-inline-start: units.$u2 * -1;
         margin-inline-end: units.$u2 * -1;
-        padding: units.$u2 units.$u6 units.$u2 units.$u6;
+        padding-block: units.$u2;
+        padding-inline: units.$u6;
 
         &:last-child {
           padding-block-end: 0;
@@ -177,12 +179,13 @@
   }
 
   .dso-empty {
-    padding: (units.$u3 * 0.5) units.$u2;
+    padding-block: (units.$u3 * 0.5);
+    padding-inline: units.$u2;
   }
 
   // demo
   .dso-secondary {
-    font-size: 16px;
-    padding: 6px 12px;
+    padding-block: 6px;
+    padding-inline: 12px;
   }
 }
