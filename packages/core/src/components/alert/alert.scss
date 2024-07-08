@@ -10,16 +10,16 @@
   margin-block-start: units.$u3;
 }
 
-:host([small]:not([small="false"])) {
+:host([compact]:not([compact="false"])) {
   position: relative;
-  @include alert.small();
+  @include alert.compact();
 }
 
 :host([status="success"]) {
   @include alert.status-success();
 }
 
-:host([status="success"][small]:not([small="false"])) {
+:host([status="success"][compact]:not([compact="false"])) {
   &::before {
     background-color: alert.$success-bg-accentuated;
   }
@@ -29,7 +29,7 @@
   @include alert.status-error();
 }
 
-:host([status="error"][small]:not([small="false"])) {
+:host([status="error"][compact]:not([compact="false"])) {
   &::before {
     background-color: alert.$danger-bg-accentuated;
   }
@@ -39,7 +39,7 @@
   @include alert.status-warning();
 }
 
-:host([status="warning"][small]:not([small="false"])) {
+:host([status="warning"][compact]:not([compact="false"])) {
   &::before {
     background-color: alert.$warning-bg-accentuated;
   }
@@ -49,7 +49,7 @@
   @include alert.status-info();
 }
 
-:host([status="info"][small]:not([small="false"])) {
+:host([status="info"][compact]:not([compact="false"])) {
   &::before {
     background-color: alert.$info-bg-accentuated;
   }
@@ -71,7 +71,7 @@
     inline-size: units.$u4;
   }
 
-  &.dso-small {
+  &.dso-compact {
     min-block-size: alert.$inline-padding;
   }
 }

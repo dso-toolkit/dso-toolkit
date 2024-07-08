@@ -78,7 +78,7 @@
     padding-block: alert-variables.$block-padding;
     padding-inline: alert-variables.$inline-start-padding alert-variables.$inline-padding;
 
-    &.dso-small {
+    &.dso-compact {
       padding-block: alert-variables.$block-padding * 0.5;
       padding-inline: alert-variables.$inline-padding;
     }
@@ -88,7 +88,7 @@
     padding-block: alert-variables.$small-padding-block-start alert-variables.$small-padding;
     padding-inline: alert-variables.$small-padding;
 
-    &.dso-small {
+    &.dso-compact {
       padding-block: alert-variables.$block-padding * 0.5;
       padding-inline: alert-variables.$inline-padding;
     }
@@ -99,7 +99,7 @@
   }
 }
 
-@mixin small() {
+@mixin compact() {
   border-bottom-right-radius: units.$u1;
   border-top-right-radius: units.$u1;
   margin-inline-start: units.$u1;

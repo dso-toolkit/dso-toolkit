@@ -46,11 +46,11 @@ describe("Alert", () => {
     { status: "error", message: "Fout" },
   ];
   for (const { status, message } of alerts) {
-    it(`should show small variant for status "${status}"`, () => {
+    it(`should show compact variant for status "${status}"`, () => {
       cy.visit("http://localhost:45000/iframe.html?args=withButton:!false&id=core-alert--success");
       cy.get("dso-alert.hydrated")
         .invoke("attr", "status", status)
-        .invoke("attr", "small", true)
+        .invoke("attr", "compact", true)
         .shadow()
         .find(".alert > span.sr-only")
         .invoke("text")
@@ -61,7 +61,7 @@ describe("Alert", () => {
         .should("not.exist")
         .get("dso-alert")
         .shadow()
-        .find(".alert.dso-small")
+        .find(".alert.dso-compact")
         .should("exist")
         .get("dso-alert.hydrated")
         .matchImageSnapshot();

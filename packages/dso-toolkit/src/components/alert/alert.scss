@@ -7,25 +7,25 @@
 
   @include alert.children();
 
-  &:not(.dso-small)::before {
+  &:not(.dso-compact)::before {
     @include alert.icon-position();
 
     content: "";
   }
 
-  &.dso-small {
-    @include alert.small();
+  &.dso-compact {
+    @include alert.compact();
     min-block-size: alert.$inline-padding;
   }
 
   &.alert-success {
     @include alert.status-success();
 
-    &.dso-small::before {
+    &.dso-compact::before {
       background-color: alert.$success-bg-accentuated;
     }
 
-    &:not(.dso-small)::before {
+    &:not(.dso-compact)::before {
       @include di.base("status-success", alert.$icon-size);
     }
   }
@@ -33,11 +33,11 @@
   &.alert-error {
     @include alert.status-error();
 
-    &.dso-small::before {
+    &.dso-compact::before {
       background-color: alert.$danger-bg-accentuated;
     }
 
-    &:not(.dso-small)::before {
+    &:not(.dso-compact)::before {
       @include di.base("status-error", alert.$icon-size);
     }
   }
@@ -45,11 +45,11 @@
   &.alert-warning {
     @include alert.status-warning();
 
-    &.dso-small::before {
+    &.dso-compact::before {
       background-color: alert.$warning-bg-accentuated;
     }
 
-    &:not(.dso-small)::before {
+    &:not(.dso-compact)::before {
       @include di.base("status-warning", alert.$icon-size);
     }
   }
@@ -57,10 +57,10 @@
   &.alert-info {
     @include alert.status-info();
 
-    &.dso-small::before {
+    &.dso-compact::before {
       background-color: alert.$info-bg-accentuated;
     }
-    &:not(.dso-small)::before {
+    &:not(.dso-compact)::before {
       @include di.base("status-info", alert.$icon-size);
     }
   }
