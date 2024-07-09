@@ -1,6 +1,5 @@
 /angular-workspace/dist
 /angular-workspace/www
-/packages/dso-toolkit
 /packages/*/dist
 /packages/*/www
 /website/.docusaurus

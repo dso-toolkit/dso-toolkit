@@ -57,7 +57,9 @@
       font-size: typography.$root-font-size-base;
       block-size: css-search-bar-variables.$block-size;
       line-height: css-search-bar-variables.$block-size;
-      padding: 6px css-search-bar-variables.$block-size 6px units.$u1;
+      padding-block: 6px;
+      padding-inline: units.$u1 css-search-bar-variables.$block-size;
+
       transition:
         border-color ease-in-out 0.15s,
         box-shadow ease-in-out 0.15s;
@@ -147,9 +149,11 @@
     align-self: flex-end;
     block-size: css-search-bar-variables.$block-size;
     line-height: calc(css-search-bar-variables.$block-size - 2px);
-    margin: 0 0 0 units.$u1;
+    margin-block: 0;
+    margin-inline: units.$u1 0;
     min-inline-size: initial;
-    padding: 0 units.$u2;
+    padding-block: 0;
+    padding-inline: units.$u2;
     text-align: center;
   }
 

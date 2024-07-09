@@ -49,7 +49,7 @@ $panel-danger-heading-bg: states.$danger-bg !default;
     border-color: $heading-border;
 
     + .panel-collapse > .panel-body {
-      border-top-color: $border;
+      border-block-start-color: $border;
     }
     .badge {
       color: $heading-bg-color;
@@ -58,14 +58,14 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   }
   & > .panel-footer {
     + .panel-collapse > .panel-body {
-      border-bottom-color: $border;
+      border-block-end-color: $border;
     }
   }
 }
 
 // Base class
 .panel {
-  margin-bottom: typography.$line-height-computed;
+  margin-block-end: typography.$line-height-computed;
   background-color: $panel-bg;
   border: 1px solid transparent;
   border-radius: $panel-border-radius;
@@ -77,7 +77,7 @@ $panel-danger-heading-bg: states.$danger-bg !default;
 
   > .list-group,
   > .panel-collapse > .list-group {
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     .list-group-item {
       border-width: 1px 0;
@@ -87,25 +87,25 @@ $panel-danger-heading-bg: states.$danger-bg !default;
     // Add border top radius for first one
     &:first-child {
       .list-group-item:first-child {
-        border-top: 0;
-        border-top-left-radius: $panel-border-radius - 1;
-        border-top-right-radius: $panel-border-radius - 1;
+        border-block-start: 0;
+        border-start-start-radius: $panel-border-radius - 1;
+        border-start-end-radius: $panel-border-radius - 1;
       }
     }
 
     // Add border bottom radius for last one
     &:last-child {
       .list-group-item:last-child {
-        border-bottom: 0;
-        border-bottom-right-radius: $panel-border-radius - 1;
-        border-bottom-left-radius: $panel-border-radius - 1;
+        border-block-end: 0;
+        border-end-end-radius: $panel-border-radius - 1;
+        border-end-start-radius: $panel-border-radius - 1;
       }
     }
   }
   > .panel-heading + .panel-collapse > .list-group {
     .list-group-item:first-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
     }
   }
 
@@ -116,32 +116,32 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   > .table,
   > .table-responsive > .table,
   > .panel-collapse > .table {
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     caption {
-      padding-right: $panel-body-padding;
-      padding-left: $panel-body-padding;
+      padding-inline-end: $panel-body-padding;
+      padding-inline-start: $panel-body-padding;
     }
   }
   // Add border top radius for first one
   > .table:first-child,
   > .table-responsive:first-child > .table:first-child {
-    border-top-left-radius: $panel-border-radius - 1;
-    border-top-right-radius: $panel-border-radius - 1;
+    border-start-start-radius: $panel-border-radius - 1;
+    border-start-end-radius: $panel-border-radius - 1;
 
     > thead:first-child,
     > tbody:first-child {
       > tr:first-child {
-        border-top-left-radius: $panel-border-radius - 1;
-        border-top-right-radius: $panel-border-radius - 1;
+        border-start-start-radius: $panel-border-radius - 1;
+        border-start-end-radius: $panel-border-radius - 1;
 
         td:first-child,
         th:first-child {
-          border-top-left-radius: $panel-border-radius - 1;
+          border-start-start-radius: $panel-border-radius - 1;
         }
         td:last-child,
         th:last-child {
-          border-top-right-radius: $panel-border-radius - 1;
+          border-start-end-radius: $panel-border-radius - 1;
         }
       }
     }
@@ -149,22 +149,22 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   // Add border bottom radius for last one
   > .table:last-child,
   > .table-responsive:last-child > .table:last-child {
-    border-bottom-right-radius: $panel-border-radius - 1;
-    border-bottom-left-radius: $panel-border-radius - 1;
+    border-end-end-radius: $panel-border-radius - 1;
+    border-end-start-radius: $panel-border-radius - 1;
 
     > tbody:last-child,
     > tfoot:last-child {
       > tr:last-child {
-        border-bottom-right-radius: $panel-border-radius - 1;
-        border-bottom-left-radius: $panel-border-radius - 1;
+        border-end-end-radius: $panel-border-radius - 1;
+        border-end-start-radius: $panel-border-radius - 1;
 
         td:first-child,
         th:first-child {
-          border-bottom-left-radius: $panel-border-radius - 1;
+          border-end-start-radius: $panel-border-radius - 1;
         }
         td:last-child,
         th:last-child {
-          border-bottom-right-radius: $panel-border-radius - 1;
+          border-end-end-radius: $panel-border-radius - 1;
         }
       }
     }
@@ -173,11 +173,11 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   > .panel-body + .table-responsive,
   > .table + .panel-body,
   > .table-responsive + .panel-body {
-    border-top: 1px solid table.$border-color;
+    border-block-start: 1px solid table.$border-color;
   }
   > .table > tbody:first-child > tr:first-child th,
   > .table > tbody:first-child > tr:first-child td {
-    border-top: 0;
+    border-block-start: 0;
   }
   > .table-bordered,
   > .table-responsive > .table-bordered {
@@ -188,11 +188,11 @@ $panel-danger-heading-bg: states.$danger-bg !default;
       > tr {
         > th:first-child,
         > td:first-child {
-          border-left: 0;
+          border-inline-start: 0;
         }
         > th:last-child,
         > td:last-child {
-          border-right: 0;
+          border-inline-end: 0;
         }
       }
     }
@@ -201,7 +201,7 @@ $panel-danger-heading-bg: states.$danger-bg !default;
       > tr:first-child {
         > td,
         > th {
-          border-bottom: 0;
+          border-block-end: 0;
         }
       }
     }
@@ -210,13 +210,13 @@ $panel-danger-heading-bg: states.$danger-bg !default;
       > tr:last-child {
         > td,
         > th {
-          border-bottom: 0;
+          border-block-end: 0;
         }
       }
     }
   }
   > .table-responsive {
-    margin-bottom: 0;
+    margin-block-end: 0;
     border: 0;
   }
 }
@@ -227,21 +227,21 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   @include rich-content.children();
 
   padding: $panel-body-padding;
-  padding-bottom: 0;
+  padding-block-end: 0;
 }
 
 // Optional heading
 .panel-heading {
   padding: $panel-heading-padding;
-  border-bottom: 1px solid transparent;
-  border-top-left-radius: $panel-border-radius - 1;
-  border-top-right-radius: $panel-border-radius - 1;
+  border-block-end: 1px solid transparent;
+  border-start-start-radius: $panel-border-radius - 1;
+  border-start-end-radius: $panel-border-radius - 1;
 }
 
 // Within heading, strip any `h*` tag of its default margins for spacing.
 .panel-title {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
   font-size: typography.$font-size-base * 1.125;
   color: inherit;
 
@@ -258,19 +258,19 @@ $panel-danger-heading-bg: states.$danger-bg !default;
 .panel-footer {
   padding: $panel-footer-padding;
   background-color: $panel-footer-bg;
-  border-bottom-left-radius: $panel-border-radius - 1;
-  border-bottom-right-radius: $panel-border-radius - 1;
-  border-top: 1px solid $panel-inner-border;
+  border-end-start-radius: $panel-border-radius - 1;
+  border-end-end-radius: $panel-border-radius - 1;
+  border-block-start: 1px solid $panel-inner-border;
 }
 
 // Collapse space between when there's no additional content.
 .panel-heading + .list-group {
   .list-group-item:first-child {
-    border-top-width: 0;
+    border-block-start-width: 0;
   }
 }
 .list-group + .panel-footer {
-  border-top-width: 0;
+  border-block-start-width: 0;
 }
 
 // Collapsible panels (aka, accordion)
@@ -278,31 +278,31 @@ $panel-danger-heading-bg: states.$danger-bg !default;
 // the help of our collapse JavaScript plugin.
 
 .panel-group {
-  margin-bottom: typography.$line-height-computed;
+  margin-block-end: typography.$line-height-computed;
 
   // Tighten up margin so it's only between panels
   .panel {
-    margin-bottom: 0;
+    margin-block-end: 0;
     border-radius: $panel-border-radius;
 
     + .panel {
-      margin-top: 5px;
+      margin-block-start: 5px;
     }
   }
 
   .panel-heading {
-    border-bottom: 0;
+    border-block-end: 0;
 
     + .panel-collapse > .panel-body,
     + .panel-collapse > .list-group {
-      border-top: 1px solid $panel-inner-border;
+      border-block-start: 1px solid $panel-inner-border;
     }
   }
 
   .panel-footer {
-    border-top: 0;
+    border-block-start: 0;
     + .panel-collapse .panel-body {
-      border-bottom: 1px solid $panel-inner-border;
+      border-block-end: 1px solid $panel-inner-border;
     }
   }
 }
@@ -330,10 +330,10 @@ $panel-danger-heading-bg: states.$danger-bg !default;
 .panel-heading,
 .panel-footer {
   > :first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   > :last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }

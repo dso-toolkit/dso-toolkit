@@ -49,7 +49,8 @@
     border-style: solid;
     border-width: 1px;
     flex-wrap: nowrap;
-    padding: 0 units.$u2;
+    padding-block: 0;
+    padding-inline: units.$u2;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       justify-content: center;
@@ -100,7 +101,8 @@
   border-width: 1px;
   border-style: solid;
   font-weight: 600;
-  padding: #{units.$u2 - 1} #{units.$u6 - 1} #{units.$u2 - 1} #{units.$u2 - 1};
+  padding-block: #{units.$u2 - 1};
+  padding-inline: #{units.$u2 - 1} #{units.$u6 - 1};
   position: relative;
   text-align: start;
   white-space: normal;

@@ -10,7 +10,8 @@
     box-shadow: tile-variables.$box-shadow;
     margin-block-end: tile-variables.$margin-block-end;
     min-block-size: tile-variables.$min-block-size;
-    padding: units.$u3 units.$u2 units.$u2;
+    padding-block: units.$u3 units.$u2;
+    padding-inline: units.$u2;
     position: relative;
     inset-block-start: units.$u7;
   }
@@ -27,7 +28,8 @@
       display: flex;
       block-size: tile-variables.$icon-size;
       justify-content: center;
-      margin: 0 auto units.$u1;
+      margin-block: 0 units.$u1;
+      margin-inline: auto;
       overflow: hidden;
       inline-size: tile-variables.$icon-size;
 

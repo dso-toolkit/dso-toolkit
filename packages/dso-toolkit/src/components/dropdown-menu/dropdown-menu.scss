@@ -110,7 +110,8 @@
   }
 
   .dso-dropdown-options {
-    margin: 2px 0 0;
+    margin-block: 2px 0;
+    margin-inline: 0;
     position: absolute;
     text-align: start;
     inset-block-start: 100%;

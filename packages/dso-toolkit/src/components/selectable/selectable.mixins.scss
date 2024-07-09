@@ -23,7 +23,8 @@
   display: var(--dso-selectable-display, block);
 
   @if ($set-padding) {
-    padding: 0 0 0 units.$u4;
+    padding-block: 0;
+    padding-inline: units.$u4 0;
   }
 
   label {
@@ -54,7 +55,8 @@
 @mixin children($info-selector) {
   > #{$info-selector} {
     float: none;
-    margin: units.$u1 units.$u2 0 0;
+    margin-block: units.$u1 0;
+    margin-inline: 0 units.$u2;
     inline-size: 100%;
   }
 

@@ -42,7 +42,8 @@
 
   > .dso-info {
     float: inline-start;
-    margin: units.$u2 0;
+    margin-block: units.$u2;
+    margin-inline: 0;
   }
 
   .dso-info {
@@ -138,7 +139,8 @@
 
   .dso-message,
   .dso-help-block {
-    margin: units.$u1 0 0;
+    margin-block: units.$u1 0;
+    margin-inline: 0;
   }
 
   .dso-help-block {

@@ -4,11 +4,11 @@
 @mixin symbolContainer($symbol-height, $symbol-width, $margin-block-start: 0) {
   background-color: colors.$wit;
   display: block;
-  float: left;
-  height: $symbol-height;
+  float: inline-start;
+  block-size: $symbol-height;
   margin-block-start: $margin-block-start;
   margin-inline-end: units.$u1;
-  width: $symbol-width;
+  inline-size: $symbol-width;
   overflow: hidden;
   position: relative;
 }

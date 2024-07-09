@@ -75,6 +75,7 @@
   }
 
   > .dso-dialog > .dso-body {
+    /* stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline */
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
@@ -89,6 +90,7 @@
   }
 
   > .dso-dialog > dso-scrollable {
+    /* stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline */
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
@@ -114,7 +116,8 @@
 
     min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
 
-    padding: calc(modal-variables.$footer-padding / 2) modal-variables.$footer-padding;
+    padding-block: calc(modal-variables.$footer-padding / 2);
+    padding-inline: modal-variables.$footer-padding;
 
     text-align: end;
   }
@@ -172,7 +175,8 @@
     }
 
     .dso-header {
-      padding: #{units.$u1} #{units.$u2};
+      padding-block: #{units.$u1};
+      padding-inline: #{units.$u2};
 
       .dso-close {
         inset-block-start: units.$u1;
@@ -180,14 +184,16 @@
     }
 
     .dso-body {
-      padding: #{units.$u2} #{units.$u3};
+      padding-block: #{units.$u2};
+      padding-inline: #{units.$u3};
     }
 
     .dso-footer {
       min-block-size: auto;
       overflow: auto;
 
-      padding: modal-variables.$footer-padding-small-modal-vh modal-variables.$footer-padding;
+      padding-block: modal-variables.$footer-padding-small-modal-vh;
+      padding-inline: modal-variables.$footer-padding;
     }
   }
 }

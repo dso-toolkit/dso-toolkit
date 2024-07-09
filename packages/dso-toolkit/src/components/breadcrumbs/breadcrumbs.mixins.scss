@@ -10,7 +10,8 @@
   list-style: none;
   margin-block-end: units.$u2;
   margin-block-start: units.$u2;
-  padding: 0 units.$u1;
+  padding-block: 0;
+  padding-inline: units.$u1;
 
   > li {
     display: flex;
@@ -22,7 +23,8 @@
       background-repeat: no-repeat;
       content: "";
       display: inline-block;
-      margin: 0 4px;
+      margin-block: 0;
+      margin-inline: 4px;
       position: relative;
       inline-size: 7px;
       inset-block-start: 1px;

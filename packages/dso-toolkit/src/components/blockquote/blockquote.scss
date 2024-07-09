@@ -5,7 +5,8 @@
 blockquote {
   border-inline-start: 5px solid css-blockquote-variables.$border-color;
   font-size: css-blockquote-variables.$font-size;
-  margin: 0 0 units.$u2;
+  margin-block: 0 units.$u2;
+  margin-inline: 0;
   padding: units.$u2;
 
   p {

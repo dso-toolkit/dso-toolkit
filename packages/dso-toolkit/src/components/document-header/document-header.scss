@@ -13,7 +13,7 @@
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5);
 
-  padding: grid-variables.$grid-gutter-width * 0.5;
+  padding: #{grid-variables.$grid-gutter-width * 0.5};
   margin-inline-start: grid-variables.$grid-gutter-width * -0.5;
   margin-inline-end: grid-variables.$grid-gutter-width * -0.5;
 
@@ -42,7 +42,8 @@
         align-items: center;
         background-color: transparent;
         display: flex;
-        padding: units.$u1 - 1 units.$u2 units.$u1;
+        padding-block: units.$u1 - 1 units.$u1;
+        padding-inline: units.$u2;
         text-align: start;
         inline-size: 100%;
 
@@ -104,7 +105,8 @@
 
   .dso-document-header-type,
   .dso-document-header-owner {
-    margin: 0 0 units.$u1 0;
+    margin-block: 0 units.$u1;
+    margin-inline: 0;
     display: inline-block;
   }
 
@@ -148,7 +150,8 @@ dso-responsive-element.dso-document-header {
     }
 
     .dso-document-header-status {
-      margin: 0 0 units.$u1 0;
+      margin-block: 0 units.$u1;
+      margin-inline: 1;
     }
 
     dl.dso-document-header-features {
@@ -169,7 +172,8 @@ dso-responsive-element.dso-document-header {
 
   &:not([small]) {
     .dso-document-header-status {
-      margin: units.$u1 0 0;
+      margin-block: units.$u1 0;
+      margin-inline: 0;
     }
 
     .dso-document-header-type {

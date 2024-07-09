@@ -9,7 +9,8 @@
   display: inline-block;
   line-height: 1.5;
   max-inline-size: 100%;
-  padding: #{units.$u1 * 0.5} units.$u1;
+  padding-block: #{units.$u1 * 0.5};
+  padding-inline: units.$u1;
 
   &:focus-within,
   &.dso-hover {
@@ -78,6 +79,7 @@
   }
 
   &.dso-compact {
-    padding: 0 units.$u1;
+    padding-block: 0;
+    padding-inline: units.$u1;
   }
 }

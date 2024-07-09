@@ -7,8 +7,8 @@
 
 .dso-document-list {
   @include list.unstyled();
-
-  margin: 0 css-grid-variables.$grid-gutter-width * -0.5 0 css-grid-variables.$grid-gutter-width * -0.5;
+  margin-block: 0;
+  margin-inline: css-grid-variables.$grid-gutter-width * -0.5;
 }
 
 .dso-document-list-item {
@@ -17,7 +17,8 @@
 
   &.dso-document-list-item-sticky {
     .dso-document-list-item-heading {
-      padding: css-grid-variables.$grid-gutter-width * 0.25 css-grid-variables.$grid-gutter-width * 0.5;
+      padding-block: css-grid-variables.$grid-gutter-width * 0.25;
+      padding-inline: css-grid-variables.$grid-gutter-width * 0.5;
 
       h2 {
         font-size: 1.25rem;
@@ -33,7 +34,7 @@
   .dso-document-list-item-heading {
     background-color: colors.$grijs-5;
     color: colors.$zwart;
-    padding: css-grid-variables.$grid-gutter-width * 0.5;
+    padding: #{css-grid-variables.$grid-gutter-width * 0.5};
     inline-size: 100%;
 
     a {
@@ -50,7 +51,8 @@
 
     .dso-document-list-item-type,
     .dso-document-list-item-owner {
-      margin: 0 0 units.$u1 0;
+      margin-block: 0 units.$u1;
+      margin-inline: 0;
       display: inline-block;
     }
 
@@ -63,7 +65,7 @@
   }
 
   .dso-document-list-item-content {
-    padding: css-grid-variables.$grid-gutter-width * 0.5;
+    padding: #{css-grid-variables.$grid-gutter-width * 0.5};
   }
 }
 
@@ -77,7 +79,8 @@ dso-responsive-element[small] > .dso-document-list {
   }
 
   .dso-document-list-item-status {
-    margin: 0 0 units.$u1 0;
+    margin-block: 0 units.$u1;
+    margin-inline: 0;
   }
 }
 

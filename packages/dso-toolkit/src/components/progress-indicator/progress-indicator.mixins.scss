@@ -33,7 +33,8 @@
 }
 
 @mixin small-block() {
-  padding: units.$u1 * 1.5 units.$u2;
+  padding-block: units.$u1 * 1.5;
+  padding-inline: units.$u2;
 }
 
 @mixin medium() {
@@ -49,5 +50,6 @@
 }
 
 @mixin large-block() {
-  padding: units.$u3 units.$u2;
+  padding-block: units.$u3;
+  padding-inline: units.$u2;
 }

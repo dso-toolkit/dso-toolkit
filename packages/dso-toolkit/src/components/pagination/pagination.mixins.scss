@@ -23,7 +23,9 @@
       justify-content: center;
       position: relative;
       min-inline-size: pagination-variables.$item-size;
-      padding: units.$u1 * 0.25;
+      padding: #{units.$u1 * 0.25};
+      padding-block: units.$u1 * 0.25;
+      padding-inline: units.$u1 * 0.25;
 
       &:active {
         background-color: colors.$grasgroen-10;

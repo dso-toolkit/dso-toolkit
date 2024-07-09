@@ -11,7 +11,8 @@
   border: 1px solid css-list-variables.$group-border-color;
   display: block;
   margin-block-end: -1px;
-  padding: 10px 15px;
+  padding-block: 10px;
+  padding-inline: 15px;
   position: relative;
 
   &:first-child {

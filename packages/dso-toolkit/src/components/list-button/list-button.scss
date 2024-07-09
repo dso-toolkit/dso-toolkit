@@ -25,7 +25,8 @@
 dso-list-button > [slot="subcontent"] {
   color: colors.$grijs-60;
   font-weight: 400;
-  padding: units.$u2 0 0 units.$u2;
+  padding-block: units.$u2 0;
+  padding-inline: units.$u2 0;
 
   mark {
     background-color: transparent;

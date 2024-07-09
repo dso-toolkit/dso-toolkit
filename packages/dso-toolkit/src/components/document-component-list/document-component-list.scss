@@ -7,6 +7,6 @@ ul.dso-document-component-list {
   margin: 0;
 
   > li + li {
-    margin-top: units.$u1;
+    margin-block-start: units.$u1;
   }
 }

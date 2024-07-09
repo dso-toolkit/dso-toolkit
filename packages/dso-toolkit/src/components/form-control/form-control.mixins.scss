@@ -10,7 +10,8 @@
   display: block;
   inline-size: 100%;
   block-size: form-control-variables.$block-size;
-  padding: units.$padding-base-block (units.$padding-base-inline + 2);
+  padding-block: units.$padding-base-block;
+  padding-inline: (units.$padding-base-inline + 2);
   font-size: typography.$root-font-size-base;
   line-height: typography.$line-height-base;
   color: colors.$input-color;

@@ -12,7 +12,8 @@ code {
   font-family: typography.$font-family-monospace;
   font-size: 90%;
   line-height: math.div(typography.$line-height-base, 0.9);
-  padding: 2px 4px;
+  padding-block: 2px;
+  padding-inline: 4px;
 }
 
 pre {

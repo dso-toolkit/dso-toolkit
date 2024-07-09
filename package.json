@@ -15,7 +15,7 @@
     "format": "prettier --write .",
     "lint": "yarn lint:prettier && yarn lint:stylelint && yarn lint:eslint",
     "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint 'packages/**/*.scss'",
+    "lint:stylelint": "stylelint '**/*.scss'",
     "lint:eslint": "eslint --max-warnings=4 .",
     "build": "nx run-many --target=build",
     "build-www": "nx run-many --target=build-www",

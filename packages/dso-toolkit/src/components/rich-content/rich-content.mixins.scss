@@ -4,7 +4,8 @@
 
 @mixin children() {
   p {
-    margin: 0 0 rich-content-variables.$margin-block-end;
+    margin-block: 0 rich-content-variables.$margin-block-end;
+    margin-inline: 0;
   }
 
   ul,
@@ -17,11 +18,13 @@
   }
 
   pre {
-    margin: 0 0 rich-content-variables.$margin-block-end;
+    margin-block: 0 rich-content-variables.$margin-block-end;
+    margin-inline: 0;
   }
 
   blockquote {
-    padding: rich-content-variables.$margin-block-end typography.$line-height-computed;
+    padding-block: rich-content-variables.$margin-block-end;
+    padding-inline: typography.$line-height-computed;
   }
 
   dso-highlight-box,

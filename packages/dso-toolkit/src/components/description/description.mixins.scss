@@ -62,8 +62,10 @@
   & + #{$content-selector} {
     background-color: description-variables.$background-color;
     border: 1px description-variables.$border-color solid;
-    margin: units.$u1 * 0.5 0;
-    padding: units.$u1 units.$u4 units.$u1 units.$u1;
+    margin-block: units.$u1 * 0.5 0;
+    margin-inline: 0;
+    padding-block: units.$u1;
+    padding-inline: units.$u4 units.$u1;
     position: relative;
 
     > a {

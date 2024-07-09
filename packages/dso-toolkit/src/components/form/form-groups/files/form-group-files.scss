@@ -19,11 +19,13 @@
 
   dso-selectable,
   .dso-selectable {
-    margin: #{units.$u1 * 0.5} 0;
+    margin-block: #{units.$u1 * 0.5};
+    margin-inline: 0;
   }
 
   .dso-upload-loading {
-    margin: #{units.$u1 * 0.5} 0;
+    margin-block: #{units.$u1 * 0.5};
+    margin-inline: 0;
     padding-inline-end: units.$u3;
 
     span {
@@ -86,7 +88,8 @@
       border: 1px solid colors.$grijs-10;
       border-radius: button.$border-radius;
 
-      padding: #{units.$u1 * 0.5 - 1} #{units.$u1 - 1} #{units.$u1 * 0.5 - 2};
+      padding-block: #{units.$u1 * 0.5 - 1} #{units.$u1 * 0.5 - 2};
+      padding-inline: #{units.$u1 - 1};
 
       + li {
         margin-block-start: units.$u1;
@@ -122,7 +125,7 @@
       .dso-download {
         font-size: 0;
         min-inline-size: auto;
-        padding: units.$u1 * 0.5;
+        padding: #{units.$u1 * 0.5};
         margin-inline-start: units.$u1 * 0.5;
 
         &::before {
@@ -146,14 +149,16 @@
 
       .dso-filename,
       .dso-confidential {
-        margin: #{units.$u1 * 0.5} 0;
+        margin-block: #{units.$u1 * 0.5};
+        margin-inline: 0;
       }
 
       > dso-icon,
       > svg.di {
         flex: 0 0 24px;
         block-size: 24px;
-        margin: #{units.$u1 * 0.5} #{units.$u1 * 0.5} #{units.$u1 * 0.5} units.$u1;
+        margin-block: #{units.$u1 * 0.5};
+        margin-inline: #{units.$u1} #{units.$u1 * 0.5};
       }
     }
 
