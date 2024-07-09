@@ -101,18 +101,18 @@
 }
 
 @mixin compact() {
-  border-bottom-right-radius: units.$u1;
-  border-top-right-radius: units.$u1;
+  border-end-end-radius: units.$u1;
+  border-start-end-radius: units.$u1;
   margin-inline-start: units.$u1;
 
   &::before {
-    border-bottom-left-radius: units.$u1;
-    border-top-left-radius: units.$u1;
-    bottom: 0;
+    border-end-start-radius: units.$u1;
+    border-start-start-radius: units.$u1;
+    inset-block-end: 0;
     content: "";
-    left: units.$u1 * -1;
+    inset-inline-start: units.$u1 * -1;
     position: absolute;
-    top: 0;
-    width: units.$u1;
+    inset-block-start: 0;
+    inline-size: units.$u1;
   }
 }
