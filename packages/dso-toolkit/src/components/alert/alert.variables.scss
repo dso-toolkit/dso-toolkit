@@ -9,13 +9,13 @@ $small-padding: units.$u2;
 $small-padding-block-start: 2 * $inline-padding + $icon-size - 1px;
 
 $success-bg: states.$success-bg;
-$success-bg-accentuated: states.$success-bg-accentuated;
+$success-compact-accent-bg: states.$success-compact-accent-color;
 
 $info-bg: states.$info-bg;
-$info-bg-accentuated: states.$info-bg-accentuated;
+$info-compact-accent-bg: states.$info-compact-accent-color;
 
 $warning-bg: states.$warning-bg;
-$warning-bg-accentuated: states.$warning-bg-accentuated;
+$warning-compact-accent-bg: states.$warning-compact-accent-color;
 
 $danger-bg: states.$danger-bg;
-$danger-bg-accentuated: states.$danger-bg-accentuated;
+$danger-compact-accent-bg: states.$danger-compact-accent-color;

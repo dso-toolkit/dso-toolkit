@@ -21,7 +21,7 @@
 
 :host([status="success"][compact]:not([compact="false"])) {
   &::before {
-    background-color: alert.$success-bg-accentuated;
+    background-color: alert.$success-compact-accent-bg;
   }
 }
 
@@ -31,7 +31,7 @@
 
 :host([status="error"][compact]:not([compact="false"])) {
   &::before {
-    background-color: alert.$danger-bg-accentuated;
+    background-color: alert.$danger-compact-accent-bg;
   }
 }
 
@@ -41,7 +41,7 @@
 
 :host([status="warning"][compact]:not([compact="false"])) {
   &::before {
-    background-color: alert.$warning-bg-accentuated;
+    background-color: alert.$warning-compact-accent-bg;
   }
 }
 
@@ -51,7 +51,7 @@
 
 :host([status="info"][compact]:not([compact="false"])) {
   &::before {
-    background-color: alert.$info-bg-accentuated;
+    background-color: alert.$info-compact-accent-bg;
   }
 }
 

@@ -22,7 +22,7 @@
     @include alert.status-success();
 
     &.dso-compact::before {
-      background-color: alert.$success-bg-accentuated;
+      background-color: alert.$success-compact-accent-bg;
     }
 
     &:not(.dso-compact)::before {
@@ -34,7 +34,7 @@
     @include alert.status-error();
 
     &.dso-compact::before {
-      background-color: alert.$danger-bg-accentuated;
+      background-color: alert.$danger-compact-accent-bg;
     }
 
     &:not(.dso-compact)::before {
@@ -46,7 +46,7 @@
     @include alert.status-warning();
 
     &.dso-compact::before {
-      background-color: alert.$warning-bg-accentuated;
+      background-color: alert.$warning-compact-accent-bg;
     }
 
     &:not(.dso-compact)::before {
@@ -58,7 +58,7 @@
     @include alert.status-info();
 
     &.dso-compact::before {
-      background-color: alert.$info-bg-accentuated;
+      background-color: alert.$info-compact-accent-bg;
     }
     &:not(.dso-compact)::before {
       @include di.base("status-info", alert.$icon-size);
