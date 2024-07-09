@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🔖 Release 62.27.0 - 09-07-2024
+
 ### Added
 * Accordion: Badge toevoegen ([#2657](https://github.com/dso-toolkit/dso-toolkit/issues/2657))
 * Alert: variant `compact` ([#2690](https://github.com/dso-toolkit/dso-toolkit/issues/2690))
