@@ -7,6 +7,7 @@ import { Alert, AlertStatus } from "./alert.models.js";
 export interface AlertArgs {
   status: AlertStatus;
   click: HandlerFunction;
+  compact: boolean;
   withRoleAlert: boolean;
   withButton: boolean;
 }
@@ -21,6 +22,11 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
     options: ["success", "info", "warning", "error"],
     control: {
       type: "select",
+    },
+  },
+  compact: {
+    control: {
+      type: "boolean",
     },
   },
   withRoleAlert: {
@@ -45,6 +51,7 @@ export function alertArgsMapper<TemplateFnReturnType>(
   return {
     message,
     status: a.status,
+    compact: a.compact,
     onClick: a.withButton ? () => a.click(a) : undefined,
     withRoleAlert: a.withRoleAlert,
   };

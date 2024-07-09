@@ -10,7 +10,7 @@ export const angularAlert: ComponentImplementation<Alert<StoryFnAngularReturnTyp
     function alertTemplate(props) {
       return {
         props,
-        template: `<dso-alert [status]="status" [roleAlert]="roleAlert">
+        template: `<dso-alert [status]="status" [roleAlert]="roleAlert" [compact]="compact">
           <div class="dso-rich-content">
             ${typeof props.message === "string" ? props.message : props.message.template}
             <button *ngIf="onClick" type="button" class="dso-alert-button" (click)="onClick($event)">Button</button>

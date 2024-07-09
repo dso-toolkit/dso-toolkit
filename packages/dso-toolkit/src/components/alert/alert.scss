@@ -1,5 +1,4 @@
 @use "../alert";
-
 @use "../../di";
 
 // HTML/CSS
@@ -8,16 +7,25 @@
 
   @include alert.children();
 
-  &::before {
+  &:not(.dso-compact)::before {
     @include alert.icon-position();
 
     content: "";
   }
 
+  &.dso-compact {
+    @include alert.compact();
+    min-block-size: alert.$inline-padding;
+  }
+
   &.alert-success {
     @include alert.status-success();
 
-    &::before {
+    &.dso-compact::before {
+      background-color: alert.$success-compact-accent-bg;
+    }
+
+    &:not(.dso-compact)::before {
       @include di.base("status-success", alert.$icon-size);
     }
   }
@@ -25,7 +33,11 @@
   &.alert-error {
     @include alert.status-error();
 
-    &::before {
+    &.dso-compact::before {
+      background-color: alert.$danger-compact-accent-bg;
+    }
+
+    &:not(.dso-compact)::before {
       @include di.base("status-error", alert.$icon-size);
     }
   }
@@ -33,7 +45,11 @@
   &.alert-warning {
     @include alert.status-warning();
 
-    &::before {
+    &.dso-compact::before {
+      background-color: alert.$warning-compact-accent-bg;
+    }
+
+    &:not(.dso-compact)::before {
       @include di.base("status-warning", alert.$icon-size);
     }
   }
@@ -41,7 +57,10 @@
   &.alert-info {
     @include alert.status-info();
 
-    &::before {
+    &.dso-compact::before {
+      background-color: alert.$info-compact-accent-bg;
+    }
+    &:not(.dso-compact)::before {
       @include di.base("status-info", alert.$icon-size);
     }
   }

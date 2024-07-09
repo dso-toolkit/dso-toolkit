@@ -179,6 +179,10 @@ export namespace Components {
     }
     interface DsoAlert {
         /**
+          * Show alert as compact variant (without icon)
+         */
+        "compact"?: boolean;
+        /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
          */
         "roleAlert"?: boolean;
@@ -2281,6 +2285,10 @@ declare namespace LocalJSX {
         "options"?: AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
+        /**
+          * Show alert as compact variant (without icon)
+         */
+        "compact"?: boolean;
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
          */
