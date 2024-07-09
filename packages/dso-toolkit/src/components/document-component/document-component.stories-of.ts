@@ -1,5 +1,5 @@
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
 import {
   documentComponentMapper,
@@ -7,9 +7,34 @@ import {
   documentComponentArgs,
   DocumentComponentArgs,
 } from "./document-component.args.js";
-
-import { DocumentComponent } from "./document-component.models.js";
 import { imroContent } from "./document-component.content.js";
+import { DocumentComponent } from "./document-component.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface DocumentComponentStories {
+  Default: StoryObj<DocumentComponentArgs, Renderer>;
+  Demo: StoryObj<
+    {
+      jsonFile: string;
+      openDefault: boolean;
+      showCanvas: boolean;
+      ozonContentAnchorClick: HandlerFunction;
+    },
+    Renderer
+  >;
+  IMRO: StoryObj<DocumentComponentArgs, Renderer>;
+}
+
+interface DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    DocumentComponentTemplates<TemplateFnReturnType>
+  > {}
 
 export interface DocumentComponentTemplates<TemplateFnReturnType> {
   documentComponentTemplate: (
@@ -23,96 +48,88 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfDocumentComponent<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DocumentComponentTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Document Component", storiesOfArguments, (stories, templateMapper) => {
-    stories.add(
-      "default",
-      templateMapper<DocumentComponentArgs>((args, { documentComponentTemplate }) =>
+export function documentComponentMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function documentComponentStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentComponentStories {
+  return {
+    Default: {
+      args: documentComponentArgs,
+      argTypes: documentComponentArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate }) =>
         documentComponentTemplate(documentComponentMapper(args)),
       ),
-      {
-        args: documentComponentArgs,
-        argTypes: documentComponentArgTypes,
+    },
+    Demo: {
+      args: {
+        jsonFile: "ozon-response.json",
+        openDefault: true,
+        showCanvas: false,
       },
-    );
-
-    stories.add(
-      "Demo",
-      templateMapper<{
-        jsonFile: string;
-        openDefault: boolean;
-        showCanvas: boolean;
-        ozonContentAnchorClick: HandlerFunction;
-      }>((args, { demoTemplate }) =>
+      argTypes: {
+        jsonFile: {
+          options: ["ozon-response.json", "ozon-response-bal.json", "ozon-response-waterschappen.json"],
+          control: {
+            type: "select",
+          },
+        },
+        openDefault: {
+          control: {
+            type: "boolean",
+          },
+        },
+        showCanvas: {
+          control: {
+            type: "boolean",
+          },
+        },
+        ozonContentAnchorClick: {
+          action: "dsoOzonContentAnchorClick",
+        },
+      },
+      parameters: { layout: "fullscreen" },
+      render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>
         demoTemplate(args.jsonFile, args.openDefault, args.showCanvas, args.ozonContentAnchorClick),
       ),
-      {
-        args: {
-          jsonFile: "ozon-response.json",
-          openDefault: true,
-          showCanvas: false,
-        },
-        argTypes: {
-          jsonFile: {
-            options: ["ozon-response.json", "ozon-response-bal.json", "ozon-response-waterschappen.json"],
-            control: {
-              type: "select",
-            },
-          },
-          openDefault: {
-            control: {
-              type: "boolean",
-            },
-          },
-          showCanvas: {
-            control: {
-              type: "boolean",
-            },
-          },
-          ozonContentAnchorClick: {
-            action: "dsoOzonContentAnchorClick",
-          },
-        },
-        layout: "fullscreen",
+    },
+    IMRO: {
+      args: {
+        ...documentComponentArgs,
+        label: undefined,
+        nummer: undefined,
+        opschrift: undefined,
+        wijzigactie: undefined,
+        inhoud: undefined,
+        type: undefined,
+        vervallen: undefined,
+        notApplicable: undefined,
+        gereserveerd: undefined,
+        genesteOntwerpInformatie: undefined,
+        filtered: undefined,
+        bevatOntwerpInformatie: undefined,
+        annotated: undefined,
+        open: true,
+        alternativeTitle: "Adequaat aanbod openbaar vervoer",
+        content: imroContent,
       },
-    );
-
-    stories.add(
-      "IMRO",
-      templateMapper<DocumentComponentArgs>((args, { documentComponentTemplate }) =>
+      argTypes: documentComponentArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate }) =>
         documentComponentTemplate(documentComponentMapper(args)),
       ),
-      {
-        argTypes: documentComponentArgTypes,
-        args: {
-          ...documentComponentArgs,
-          label: undefined,
-          nummer: undefined,
-          opschrift: undefined,
-          wijzigactie: undefined,
-          inhoud: undefined,
-          type: undefined,
-          vervallen: undefined,
-          notApplicable: undefined,
-          gereserveerd: undefined,
-          genesteOntwerpInformatie: undefined,
-          filtered: undefined,
-          bevatOntwerpInformatie: undefined,
-          annotated: undefined,
-          open: true,
-          alternativeTitle: "Adequaat aanbod openbaar vervoer",
-          content: imroContent,
-        },
-      },
-    );
-
-    return stories;
-  });
+    },
+  };
 }

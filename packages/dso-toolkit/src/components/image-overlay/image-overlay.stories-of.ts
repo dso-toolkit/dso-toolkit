@@ -1,34 +1,56 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
 import { ImageOverlayArgs, imageOverlayArgsMapper, imageOverlayArgTypes } from "./image-overlay.args.js";
 import { ImageOverlay } from "./image-overlay.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface ImageOverlayStories {
+  ImageOverlay: StoryObj<ImageOverlayArgs, Renderer>;
+}
+
+interface ImageOverlayStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ImageOverlayTemplates<TemplateFnReturnType>
+  > {}
 
 export interface ImageOverlayTemplates<TemplateFnReturnType> {
   imageOverlayTemplate: (imageOverlayProperties: ImageOverlay) => TemplateFnReturnType;
 }
 
-export function storiesOfImageOverlay<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ImageOverlayTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Image Overlay", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: imageOverlayArgTypes,
-      args: {
-        image: 0,
-      },
+export function imageOverlayMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    argTypes: imageOverlayArgTypes,
+    args: {
+      image: 0,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
       layout: "fullscreen",
-    });
+    },
+  };
+}
 
-    const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) =>
-      imageOverlayTemplate(imageOverlayArgsMapper(args)),
-    );
-
-    stories.add("Image Overlay", template);
-
-    return stories;
-  });
+export function imageOverlayStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ImageOverlayStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ImageOverlayStories {
+  return {
+    ImageOverlay: {
+      render: templateContainer.render(storyTemplates, (args, { imageOverlayTemplate }) =>
+        imageOverlayTemplate(imageOverlayArgsMapper(args)),
+      ),
+    },
+  };
 }
