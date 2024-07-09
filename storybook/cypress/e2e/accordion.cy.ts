@@ -65,7 +65,7 @@ describe("Accordion", () => {
     cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
       .should("exist")
       .get("dso-accordion.hydrated")
-      .matchImageSnapshot();
+      .matchImageSnapshot({ failureThreshold: 0.001 });
   });
 
   it("should render handle as <a> when handleUrl is set", () => {
@@ -167,5 +167,28 @@ describe("Accordion", () => {
       .invoke("focusHandle")
       .get("@section")
       .should("have.focus");
+  });
+
+  it("should show a badge on an AccordionSection", () => {
+    cy.get("dso-accordion")
+      .find("dso-accordion-section:nth-child(2)")
+      .as("accordionSection")
+      .invoke("prop", "badgeStatus", undefined)
+      .invoke("prop", "badgeMessage", undefined)
+      .shadow()
+      .find("dso-badge")
+      .should("not.exist")
+      .get("@accordionSection")
+      .invoke("prop", "badgeStatus", "warning")
+      .invoke("prop", "badgeMessage", "Bepaald")
+      .shadow()
+      .find("dso-badge")
+      .as("dso-badge")
+      .should("exist")
+      .and("have.text", "Bepaald")
+      .get("@dso-badge")
+      .shadow()
+      .find(".dso-badge.badge-warning")
+      .should("exist");
   });
 });

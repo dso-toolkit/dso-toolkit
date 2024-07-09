@@ -1,9 +1,9 @@
 import { ArgTypes } from "@storybook/types";
 
-import { Badge } from "./badge.models.js";
+import { Badge, BadgeStatus } from "./badge.models.js";
 
 export interface BadgeArgs {
-  status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
+  status?: BadgeStatus;
   message: string;
 }
 
