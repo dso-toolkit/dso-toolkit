@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Form Buttons: Button stretches within container ([#2721](https://github.com/dso-toolkit/dso-toolkit/issues/2721))
+
 ## 🔖 Release 62.27.0 - 09-07-2024
 
 ### Added
