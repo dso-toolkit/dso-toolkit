@@ -1,6 +1,6 @@
 @use "form.mixins" as css-form-mixins;
-@use "../../variables/units.scss";
-@use "../../variables/colors.scss";
+@use "../../variables/units";
+@use "../../variables/colors";
 
 .form-explanation {
   &:first-child {

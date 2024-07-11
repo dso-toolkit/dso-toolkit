@@ -6,13 +6,10 @@ Inventariseer voor welke packages er patches zijn gemaakt in `/patches`. Voor ee
 
 ## Yarn update
 
-Installeer de nieuwste Yarn en update alle Yarn plugins uit `/.yarn/plugins`.
+Installeer de nieuwste Yarn.
 
 ```sh
 yarn set version berry
-
-yarn plugin import interactive-tools
-yarn plugin import version
 ```
 
 ## Dependencies update
