@@ -15,6 +15,11 @@
     &:not(.list-group):not(.dso-link-list):not(.dso-columns-list) {
       padding-inline-start: units.$u3;
     }
+
+    ul,
+    ol {
+      margin-block-end: 0;
+    }
   }
 
   pre {

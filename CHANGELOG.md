@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Form Buttons: Button stretches within container ([#2721](https://github.com/dso-toolkit/dso-toolkit/issues/2721))
+* Rich Content: Nested list remove block end margin ([#2709](https://github.com/dso-toolkit/dso-toolkit/issues/2709))
 
 ## 🔖 Release 62.27.0 - 09-07-2024
 

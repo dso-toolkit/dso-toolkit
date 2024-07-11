@@ -19,8 +19,28 @@ export function children({ anchorTemplate, imageTemplate, richContentTemplate, b
         <li>Ongesorteerde lijst</li>
         <li>Item 2</li>
       </ul>
+      <ul>
+        <li>
+          Ongesorteerde lijst
+          <ul>
+            <li>Geneste ongesorteerde lijst</li>
+            <li>Item 2</li>
+          </ul>
+        </li>
+        <li>Item 2</li>
+      </ul>
       <ol>
         <li>Gesorteerde lijst</li>
+        <li>Item 2</li>
+      </ol>
+      <ol>
+        <li>
+          Gesorteerde lijst
+          <ol>
+            <li>Genseste gesorteerde lijst</li>
+            <li>Item 2</li>
+          </ol>
+        </li>
         <li>Item 2</li>
       </ol>
       <blockquote>
