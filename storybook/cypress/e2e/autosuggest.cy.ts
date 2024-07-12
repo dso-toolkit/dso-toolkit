@@ -414,4 +414,19 @@ describe("Autosuggest", () => {
       .get("mark")
       .should("contain", "omg");
   });
+
+  it("should limit the block-size of the listbox to 10 items or available block-size within viewport", () => {
+    cy.get("@input").focus().type("sugg");
+    cy.wait(200);
+    cy.get(".listbox-container").should("have.attr", "style", "max-block-size: 338px;");
+    cy.matchImageSnapshot();
+
+    cy.get("@input").focus().clear();
+    cy.viewport(1000, 338);
+    cy.wait(200);
+    cy.get("@input").focus().type("sugg");
+    cy.wait(200);
+    cy.get(".listbox-container").should("have.attr", "style", "max-block-size: 237px;");
+    cy.matchImageSnapshot(`${Cypress.currentTest.titlePath.join(" -- ")} -- less block-size`);
+  });
 });

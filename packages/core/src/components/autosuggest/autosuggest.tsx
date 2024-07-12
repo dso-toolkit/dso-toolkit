@@ -5,6 +5,10 @@ import escapeStringRegexp from "escape-string-regexp";
 
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
+const listItemBlockSize = 32;
+const listboxMaxBlockSize = 338;
+const listboxPaddingBlock = 8;
+
 @Component({
   tag: "dso-autosuggest",
   styleUrl: "autosuggest.scss",
@@ -109,6 +113,8 @@ export class Autosuggest {
 
   private listbox: HTMLUListElement | undefined;
 
+  private listboxContainer: HTMLDsoScrollableElement | undefined;
+
   private listboxId: string = v4();
 
   private inputId: string = v4();
@@ -195,6 +201,8 @@ export class Autosuggest {
       this.input.addEventListener("input", this.onInput);
       this.input.addEventListener("keydown", this.onKeyDown);
       this.input.addEventListener("focusin", this.onFocusIn);
+
+      window.addEventListener("resize", this.onWindowResize);
     });
   }
 
@@ -202,6 +210,22 @@ export class Autosuggest {
     this.input?.removeEventListener("input", this.onInput);
     this.input?.removeEventListener("keydown", this.onKeyDown);
     this.input?.removeEventListener("focusin", this.onFocusIn);
+
+    window.removeEventListener("resize", this.onWindowResize);
+  }
+
+  private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
+
+  private setListboxContainerMaxBlockSize(): void {
+    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+
+    if (this.listboxContainer && this.showSuggestions && availableBlockSize > listItemBlockSize) {
+      if (availableBlockSize < listboxMaxBlockSize) {
+        this.listboxContainer.style.maxBlockSize = availableBlockSize - 2 * listboxPaddingBlock + "px";
+      } else {
+        this.listboxContainer.style.maxBlockSize = listboxMaxBlockSize + "px";
+      }
+    }
   }
 
   private showInputValueNotFound(text: string) {
@@ -258,7 +282,7 @@ export class Autosuggest {
   private selectSuggestion(suggestion: Suggestion) {
     this.selectedSuggestion = suggestion;
 
-    this.input?.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
+    this.setAriaActiveDescendant();
   }
 
   private selectFirstSuggestion() {
@@ -268,9 +292,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectLastSuggestion() {
@@ -280,9 +302,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectNextSuggestion() {
@@ -294,9 +314,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectPreviousSuggestion() {
@@ -308,8 +326,16 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
 
+    this.setAriaActiveDescendant(true);
+  }
+
+  private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      const id = this.listboxItemId(this.selectedSuggestion);
+      this.input?.setAttribute("aria-activedescendant", id);
+      if (scroll) {
+        document.getElementById(id)?.scrollIntoView({ block: "nearest" });
+      }
     }
   }
 
@@ -322,6 +348,9 @@ export class Autosuggest {
 
   private openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
+    if (this.showSuggestions) {
+      this.setListboxContainerMaxBlockSize();
+    }
     this.notFound = this.suggestions?.length === 0 ?? false;
     this.input?.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
@@ -420,55 +449,57 @@ export class Autosuggest {
             <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
           </div>
         ) : (
-          <ul
-            role="listbox"
-            aria-live="polite"
-            id={this.listboxId}
-            aria-labelledby={this.labelId}
-            ref={(element) => (this.listbox = element)}
-            hidden={!this.showSuggestions && !this.notFound}
-          >
-            {(this.showSuggestions &&
-              this.suggestions &&
-              this.suggestions.map((suggestion) => (
-                <li
-                  role="option"
-                  id={this.listboxItemId(suggestion)}
-                  key={suggestion.value}
-                  onMouseEnter={() => this.selectSuggestion(suggestion)}
-                  onMouseLeave={() => this.resetSelectedSuggestion()}
-                  onClick={() => this.pickSelectedValue()}
-                  aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                  aria-label={suggestion.value}
-                >
-                  <div class="suggestion-row">
-                    <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
-                    {suggestion.type ? (
-                      <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
-                    ) : undefined}
-                  </div>
-                  {suggestion.extras &&
-                    this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
-                      <div class="suggestion-row">
-                        {chunk.map((c, i) => (
-                          <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
-                        ))}
-                      </div>
-                    ))}
-                </li>
-              ))) ||
-              (this.notFound && (
-                <li>
-                  <span class="value">
-                    {!this.notFoundLabel ? (
-                      this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
-                    ) : (
-                      <span>{this.notFoundLabel}</span>
-                    )}
-                  </span>
-                </li>
-              ))}
-          </ul>
+          <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
+            <ul
+              role="listbox"
+              aria-live="polite"
+              id={this.listboxId}
+              aria-labelledby={this.labelId}
+              ref={(element) => (this.listbox = element)}
+              hidden={!this.showSuggestions && !this.notFound}
+            >
+              {(this.showSuggestions &&
+                this.suggestions &&
+                this.suggestions.map((suggestion) => (
+                  <li
+                    role="option"
+                    id={this.listboxItemId(suggestion)}
+                    key={suggestion.value}
+                    onMouseEnter={() => this.selectSuggestion(suggestion)}
+                    onMouseLeave={() => this.resetSelectedSuggestion()}
+                    onClick={() => this.pickSelectedValue()}
+                    aria-selected={(suggestion === this.selectedSuggestion).toString()}
+                    aria-label={suggestion.value}
+                  >
+                    <div class="suggestion-row">
+                      <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
+                      {suggestion.type ? (
+                        <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
+                      ) : undefined}
+                    </div>
+                    {suggestion.extras &&
+                      this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
+                        <div class="suggestion-row">
+                          {chunk.map((c, i) => (
+                            <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
+                          ))}
+                        </div>
+                      ))}
+                  </li>
+                ))) ||
+                (this.notFound && (
+                  <li>
+                    <span class="value">
+                      {!this.notFoundLabel ? (
+                        this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
+                      ) : (
+                        <span>{this.notFoundLabel}</span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </dso-scrollable>
         )}
       </>
     );

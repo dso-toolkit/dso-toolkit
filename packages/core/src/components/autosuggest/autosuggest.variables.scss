@@ -1,5 +1,13 @@
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 $background-color: colors.$wit;
 $box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 $border-color: rgba(0, 0, 0, 0.15);
+
+$listbox-padding-block: units.$u1;
+$listbox-border-width: 1px;
+$list-item-padding-block: units.$u1 * 0.5;
+$list-item-block-size: 24px + 2 * $list-item-padding-block;
+$listbox-max-block-size: 10 * $list-item-block-size + 2 * $listbox-padding-block + 2 * $listbox-border-width;
+$listbox-min-block-size: $list-item-block-size + 2 * $listbox-padding-block;
