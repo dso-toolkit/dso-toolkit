@@ -5,6 +5,10 @@ import escapeStringRegexp from "escape-string-regexp";
 
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
+const listItemBlockSize = 32;
+const listboxMaxBlockSize = 338;
+const listboxPaddingBlock = 8;
+
 @Component({
   tag: "dso-autosuggest",
   styleUrl: "autosuggest.scss",
@@ -195,6 +199,8 @@ export class Autosuggest {
       this.input.addEventListener("input", this.onInput);
       this.input.addEventListener("keydown", this.onKeyDown);
       this.input.addEventListener("focusin", this.onFocusIn);
+
+      window.addEventListener("resize", this.onWindowResize);
     });
   }
 
@@ -202,6 +208,64 @@ export class Autosuggest {
     this.input?.removeEventListener("input", this.onInput);
     this.input?.removeEventListener("keydown", this.onKeyDown);
     this.input?.removeEventListener("focusin", this.onFocusIn);
+
+    this.intersectionObserver?.disconnect();
+
+    window.removeEventListener("resize", this.onWindowResize);
+  }
+
+  componentDidLoad() {
+    this.createIntersectionObserver();
+
+    this.startIntersectionObserver();
+  }
+
+  private onWindowResize = debounce(() => {
+    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+
+    if (this.listbox && this.showSuggestions && availableBlockSize > listItemBlockSize) {
+      if (availableBlockSize < listboxMaxBlockSize) {
+        this.listbox.style.maxBlockSize = availableBlockSize - 2 * listboxPaddingBlock + "px";
+      } else {
+        this.listbox.style.maxBlockSize = listboxMaxBlockSize + "px";
+      }
+    }
+  });
+
+  private intersectionObserver?: IntersectionObserver;
+
+  private createIntersectionObserver(): void {
+    const options = {
+      rootMargin: "0px",
+      threshold: [0, 1],
+    };
+
+    const isIntersecting = (entry: IntersectionObserverEntry): boolean =>
+      entry.isIntersecting && entry.intersectionRatio > 0 && entry.intersectionRatio < 1;
+
+    this.intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (
+          this.listbox &&
+          this.showSuggestions &&
+          isIntersecting(entry) &&
+          entry.intersectionRect.height > listItemBlockSize &&
+          entry.intersectionRect.height < listboxMaxBlockSize
+        ) {
+          this.listbox.style.maxBlockSize = entry.intersectionRect.height - 2 * listboxPaddingBlock + "px";
+        }
+      });
+    }, options);
+  }
+
+  private startIntersectionObserver(): void {
+    if (!this.intersectionObserver) {
+      return;
+    }
+
+    if (this.listbox) {
+      this.intersectionObserver.observe(this.listbox);
+    }
   }
 
   private showInputValueNotFound(text: string) {
@@ -258,7 +322,7 @@ export class Autosuggest {
   private selectSuggestion(suggestion: Suggestion) {
     this.selectedSuggestion = suggestion;
 
-    this.input?.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
+    this.setAriaActiveDescendant();
   }
 
   private selectFirstSuggestion() {
@@ -268,9 +332,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectLastSuggestion() {
@@ -280,9 +342,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectNextSuggestion() {
@@ -294,9 +354,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectPreviousSuggestion() {
@@ -308,8 +366,16 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
 
+    this.setAriaActiveDescendant(true);
+  }
+
+  private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      const id = this.listboxItemId(this.selectedSuggestion);
+      this.input?.setAttribute("aria-activedescendant", id);
+      if (scroll) {
+        document.getElementById(id)?.scrollIntoView({ block: "center" });
+      }
     }
   }
 
