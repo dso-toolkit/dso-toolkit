@@ -1,4 +1,4 @@
-export type AnnotationWijzigactie = "voegtoe" | "verwijderd";
+export type AnnotationWijzigactie = "voegtoe" | "verwijder";
 
 export interface AnnotationActiveChangeEvent {
   /**
@@ -13,5 +13,3 @@ export interface AnnotationActiveChangeEvent {
 
   originalEvent: Event;
 }
-
-export type AnnotationDiff = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string };

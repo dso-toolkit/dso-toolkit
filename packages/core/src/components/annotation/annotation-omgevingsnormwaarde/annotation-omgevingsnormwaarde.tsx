@@ -1,4 +1,5 @@
-import { Component, ComponentInterface, Prop, Event, h, Fragment, EventEmitter, Element } from "@stencil/core";
+import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment, Element } from "@stencil/core";
+
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 import { AnnotationBody } from "../annotation-body";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
@@ -7,14 +8,15 @@ import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 
 /**
+ * test
  * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
  */
 @Component({
-  tag: "dso-annotation-activiteit",
+  tag: "dso-annotation-omgevingsnormwaarde",
   styleUrl: "../annotation.scss",
   shadow: true,
 })
-export class AnnotationActiviteit implements ComponentInterface {
+export class AnnotationOmgevingsnormwaarde implements ComponentInterface {
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */
@@ -40,31 +42,31 @@ export class AnnotationActiviteit implements ComponentInterface {
   dsoActiveChange!: EventEmitter<AnnotationActiveChangeEvent>;
 
   /**
-   * De naam van de activiteit.
+   * De naam van de omgevingsnorm of omgevingswaarde.
    */
   @Prop()
   naam?: RenvooiValue | string;
 
   /**
-   * De activiteit regel kwalificatie.
+   * De toelichting van de waardes.
    */
   @Prop()
-  regelKwalificatie?: RenvooiValue | string;
+  toelichting?: string;
 
   /**
-   * De noemer van de locatie.
+   * De waardes van de omgevingsnorm of omgevingswaarde.
    */
   @Prop()
-  locatieNoemers?: Array<RenvooiValue | string>;
+  waardes?: Array<RenvooiValue | string>;
 
   /**
-   * Voorzetsel van de regelKwalificatie. Exclusief dubbele punt.
+   * De eenheid van de omgevingsnorm of omgevingswaarde.
    */
   @Prop()
-  regelKwalificatieVoorzetsel?: string;
+  eenheid?: RenvooiValue | string;
 
   @Element()
-  private host!: HTMLDsoAnnotationActiviteitElement;
+  private host!: HTMLDsoAnnotationOmgevingsnormwaardeElement;
 
   private watcher = watcher(this.host);
 
@@ -82,19 +84,24 @@ export class AnnotationActiviteit implements ComponentInterface {
     return (
       <AnnotationBody
         symbol={hasSymbool ? <AnnotationSymbolSlot /> : undefined}
-        active={this.active}
+        active={this.active || false}
         dsoActiveChange={this.dsoActiveChange}
-        title={<dso-renvooi value={this.naam} />}
+        title={
+          <>
+            <dso-renvooi value={this.naam} />
+            {this.eenheid && (
+              <>
+                {" "}
+                (in <dso-renvooi value={this.eenheid} />)
+              </>
+            )}
+          </>
+        }
         data={
           <>
             <span class="content">
-              {this.regelKwalificatie && (
-                <>
-                  <dso-renvooi value={this.regelKwalificatie} />{" "}
-                </>
-              )}
-              {this.regelKwalificatieVoorzetsel && `${this.regelKwalificatieVoorzetsel}: `}
-              <dso-renvooi value={this.locatieNoemers} />
+              {this.toelichting && <>{this.toelichting}: </>}
+              <dso-renvooi value={this.waardes} />
             </span>
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>

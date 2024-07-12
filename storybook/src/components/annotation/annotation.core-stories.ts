@@ -6,21 +6,21 @@ import { templateContainer } from "../../templates";
 import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
 import activiteitReadme from "@dso-toolkit/core/src/components/annotation/annotation-activiteit/readme.md?raw";
 import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation/annotation-gebiedsaanwijzing/readme.md?raw";
-import omgevingsnormReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnorm/readme.md?raw";
-import werkingsgebiedReadme from "@dso-toolkit/core/src/components/annotation/annotation-werkingsgebied/readme.md?raw";
+import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
+import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
 import { decorator } from "./annotation.decorator";
 
 const meta: Meta = {
   ...annotationMeta({
     rootReadme,
-    implementationReadmes: [activiteitReadme, gebiedsaanwijzingReadme, omgevingsnormReadme, werkingsgebiedReadme],
+    implementationReadmes: [activiteitReadme, gebiedsaanwijzingReadme, omgevingsnormwaardeReadme, locatieReadme],
   }),
   title: "Core/Annotation",
 };
 
 export default meta;
 
-const { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied } = annotationStories(
+const { Activiteit, Gebiedsaanwijzing, Omgevingsnormwaarde, Locatie, Kaart } = annotationStories(
   {
     templateContainer,
     storyTemplates: (templates) => {
@@ -34,4 +34,4 @@ const { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied } = annotat
   decorator,
 );
 
-export { Activiteit, Gebiedsaanwijzing, Omgevingsnorm, Werkingsgebied };
+export { Activiteit, Gebiedsaanwijzing, Omgevingsnormwaarde, Locatie, Kaart };

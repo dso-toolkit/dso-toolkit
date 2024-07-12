@@ -1,6 +1,6 @@
-import { h } from "@stencil/core";
+import { FunctionalComponent, h } from "@stencil/core";
 
-export const AnnotationGewijzigdeLocatie = () => (
+export const AnnotationGewijzigdeLocatie: FunctionalComponent = () => (
   <dso-label class="gewijzigde-locatie" status="warning" compact>
     gewijzigde locatie
   </dso-label>

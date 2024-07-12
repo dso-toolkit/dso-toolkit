@@ -1,8 +1,9 @@
 export type Annotation =
   | AnnotationActiviteit
   | AnnotationGebiedsaanwijzing
-  | AnnotationOmgevingsnorm
-  | AnnotationWerkingsgebied;
+  | AnnotationOmgevingsnormwaarde
+  | AnnotationLocatie
+  | AnnotationKaart;
 
 /**
  * Basis model voor de verschillende annotaties.
@@ -11,7 +12,7 @@ interface AnnotationBase {
   /**
    * Een symboolcode voor de verbeelding van de legenda.
    */
-  symboolCode: string;
+  symboolCode?: string;
 
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
@@ -67,27 +68,32 @@ export interface AnnotationGebiedsaanwijzing extends AnnotationBase {
   naam: AnnotationDiff | string;
 }
 
-export interface AnnotationOmgevingsnorm extends AnnotationBase {
-  type: "omgevingsnorm";
+export interface AnnotationOmgevingsnormwaarde extends AnnotationBase {
+  type: "omgevingsnormwaarde";
 
   /**
-   * De naam van de omgevingsnorm
+   * De naam van de omgevingsnorm of omgevingswaarde.
    */
   naam: AnnotationDiff | string;
 
   /**
-   * De waardes van de omgevingsnorm.
+   * De toelichting van de waardes.
+   */
+  toelichting?: string;
+
+  /**
+   * De waardes van de omgevingsnorm of omgevingswaarde.
    */
   waardes: Array<AnnotationDiff | string>;
 
   /**
-   * De eenheid van de omgevingsnorm.
+   * De eenheid van de omgevingsnorm of omgevingswaarde.
    */
   eenheid: AnnotationDiff | string;
 }
 
-export interface AnnotationWerkingsgebied extends AnnotationBase {
-  type: "werkingsgebied";
+export interface AnnotationLocatie extends AnnotationBase {
+  type: "locatie";
 
   /**
    * De noemer van de locatie.
@@ -95,7 +101,26 @@ export interface AnnotationWerkingsgebied extends AnnotationBase {
   locatieNoemer: AnnotationDiff | string;
 }
 
-export type AnnotationWijzigactie = "voegtoe" | "verwijderd";
+export interface AnnotationKaart extends Pick<AnnotationBase, "wijzigactie"> {
+  type: "kaart";
+
+  /**
+   * De naam van de kaart.
+   */
+  naam: AnnotationDiff | string;
+
+  /**
+   * De url naar de kaart.
+   */
+  href: string;
+
+  /**
+   * Event als de gebruiker de kaartnaam selecteert.
+   */
+  dsoClick(event: AnnotationKaartClickEvent): void;
+}
+
+export type AnnotationWijzigactie = "voegtoe" | "verwijder";
 
 export interface AnnotationActiveChangeEvent {
   /**
@@ -112,6 +137,23 @@ export interface AnnotationActiveChangeEvent {
    * Het originele event dat de status wijziging veroorzaakte.
    */
   originalEvent: Event;
+}
+
+export interface AnnotationKaartClickEvent {
+  /**
+   * De url naar de kaart.
+   */
+  href: string;
+
+  /**
+   * Het originele event.
+   */
+  originalEvent: MouseEvent;
+
+  /**
+   * `true` als de gebruiker modifier keys (Ctrl, Shift, Alt, Meta) gebruikte bij het activeren.
+   */
+  isModifiedEvent: boolean;
 }
 
 export type AnnotationDiff = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string };

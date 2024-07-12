@@ -15,7 +15,7 @@ import { Heading } from "./document-component-heading";
 
 import { DsoOzonContentCustomEvent } from "../../components";
 
-const wijzigActieLabels: { [wijzigActie in DocumentComponentWijzigactie]: string } = {
+const wijzigactieLabels: { [wijzigactie in DocumentComponentWijzigactie]: string } = {
   nieuweContainer: "Toegevoegd",
   verwijder: "Verwijderd",
   verwijderContainer: "Verwijderd",
@@ -179,7 +179,7 @@ export class DocumentComponent implements ComponentInterface {
   dsoMarkItemHighlight!: EventEmitter<DocumentComponentMarkItemHighlightEvent>;
 
   private get wijzigactieLabel(): string | undefined {
-    return this.wijzigactie && wijzigActieLabels[this.wijzigactie];
+    return this.wijzigactie && wijzigactieLabels[this.wijzigactie];
   }
 
   private handleHeadingClick = (e: MouseEvent) => {

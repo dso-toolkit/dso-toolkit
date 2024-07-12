@@ -4,11 +4,11 @@
 @use "~dso-toolkit/src/components/insert";
 @use "~dso-toolkit/src/components/delete";
 
-@use "~dso-toolkit/src/components/insert/insert" as *;
-@use "~dso-toolkit/src/components/delete/delete" as *;
+@use "~dso-toolkit/src/components/anchor/anchor";
 
 :host {
   display: block;
+  padding: 2px;
 }
 
 :host([wijzigactie="voegtoe"]) {
@@ -46,4 +46,8 @@
   .content:has(+ dso-label) {
     margin-inline-end: units.$u1 * 0.5;
   }
+}
+
+.annotation-data {
+  font-size: 0.875rem;
 }

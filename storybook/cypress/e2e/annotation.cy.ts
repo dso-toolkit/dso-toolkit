@@ -6,7 +6,8 @@ describe("Annotation - Activiteit", () => {
       .invoke("prop", "naam", "De naam")
       .get("@annotation")
       .shadow()
-      .find("p.annotation-title")
+      .find("p.annotation-title dso-renvooi.hydrated")
+      .shadow()
       .should("have.text", "De naam");
   });
 
@@ -19,19 +20,27 @@ describe("Annotation - Activiteit", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("have.text", "toegestaan in: locatie 1, locatie 2")
+      .should("always.have.text", " in: ") // testing ' in: ' -> "toegestaan__ in: __locatie 1, locatie 2"
+      .find("dso-renvooi.hydrated:nth-of-type(1)")
+      .shadow()
+      .should("have.text", "toegestaan")
       .get("@annotation")
       .invoke("prop", "regelKwalificatieVoorzetsel", "")
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("have.text", "toegestaan locatie 1, locatie 2")
-      .get("@annotation")
-      .invoke("prop", "regelKwalificatie", "")
-      .get("@annotation")
+      .should("have.text", " ") // testing: ' ' -> "toegestaan__ __locatie 1, locatie 2"
+      .find("dso-renvooi.hydrated:nth-of-type(2)")
       .shadow()
-      .find("p.annotation-data")
-      .should("have.text", "locatie 1, locatie 2");
+      .as("locatieNoemers")
+      .should("have.text", ", ") // testing: ', ' -> "locatie 1__, __locatie 2"
+      .find("dso-renvooi.hydrated:nth-of-type(1)")
+      .shadow()
+      .should("have.text", "locatie 1")
+      .get("@locatieNoemers")
+      .find("dso-renvooi.hydrated:nth-of-type(2)")
+      .shadow()
+      .should("have.text", "locatie 2");
   });
 });
 
@@ -44,13 +53,14 @@ describe("Annotation - Gebiedsaanwijzing", () => {
       .invoke("prop", "naam", "De naam")
       .get("@annotation")
       .shadow()
-      .find("p.annotation-title")
+      .find("p.annotation-title dso-renvooi.hydrated")
+      .shadow()
       .should("have.text", "De naam");
   });
 });
 
-describe("Annotation - Omgevingsnorm", () => {
-  setupAnnotation("omgevingsnorm");
+describe("Annotation - Omgevingsnormwaarde", () => {
+  setupAnnotation("omgevingsnormwaarde");
 
   it("sets naam and eenheid as title", () => {
     cy.get("@annotation")
@@ -59,7 +69,15 @@ describe("Annotation - Omgevingsnorm", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-title")
-      .should("have.text", "De naam (in De eenheid)");
+      .should("have.text", " (in )")
+      .find("dso-renvooi.hydrated:nth-of-type(1)")
+      .shadow()
+      .should("have.text", "De naam")
+      .get("@annotation")
+      .shadow()
+      .find("p.annotation-title dso-renvooi.hydrated:nth-of-type(2)")
+      .shadow()
+      .should("have.text", "De eenheid");
   });
 
   it("sets waardes as data", () => {
@@ -69,12 +87,65 @@ describe("Annotation - Omgevingsnorm", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("have.text", "Waardes worden weergegeven op de kaart: waarde 1, waarde 2");
+      .should("have.text", "Waardes worden weergegeven op de kaart: ")
+      .find("dso-renvooi.hydrated")
+      .shadow()
+      .as("waardes")
+      .should("have.text", ", ") // testing: ', ' -> "waarde 1__, __waarde 2"
+      .find("dso-renvooi.hydrated:nth-of-type(1)")
+      .shadow()
+      .should("have.text", "waarde 1")
+      .get("@waardes")
+      .find("dso-renvooi.hydrated:nth-of-type(2)")
+      .shadow()
+      .should("have.text", "waarde 2");
   });
 });
 
-describe("Annotation - Werkingsgebied", () => {
-  setupAnnotation("werkingsgebied");
+describe("Annotation - Kaart", () => {
+  setupAnnotation("kaart");
+
+  it('sets "naam" as title', () => {
+    cy.get("@annotation")
+      .invoke("prop", "naam", "De naam")
+      .get("@annotation")
+      .shadow()
+      .find("a.content dso-renvooi.hydrated")
+      .shadow()
+      .should("have.text", "De naam");
+  });
+
+  it("sets href and emits dsoClick event", () => {
+    cy.get("dso-annotation-kaart")
+      .then(($annotation) => {
+        $annotation[0].addEventListener("dsoClick", (e) => {
+          e.detail.originalEvent.preventDefault();
+          cy.stub().as("dsoClick")(e);
+        });
+
+        return $annotation;
+      })
+      .invoke("prop", "href", "#")
+      .shadow()
+      .find("a")
+      .should("have.attr", "href", "#")
+      .click()
+      .get("@dsoClick")
+      .should("have.been.calledOnce");
+  });
+
+  it("does not render anchor without href", () => {
+    cy.get("dso-annotation-kaart")
+      .invoke("prop", "href", "")
+      .get("dso-annotation-kaart")
+      .shadow()
+      .find("span.content")
+      .should("exist");
+  });
+});
+
+describe("Annotation - Locatie", () => {
+  setupAnnotation("locatie");
 
   it("sets locatieNoemers as title", () => {
     cy.get("@annotation")
@@ -82,12 +153,13 @@ describe("Annotation - Werkingsgebied", () => {
       .invoke("prop", "locatieNoemer", "De locatie")
       .get("@annotation")
       .shadow()
-      .find("p.annotation-title")
+      .find("p.annotation-title dso-renvooi.hydrated")
+      .shadow()
       .should("have.text", "De locatie");
   });
 });
 
-function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsnorm" | "werkingsgebied") {
+function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsnormwaarde" | "kaart" | "locatie") {
   beforeEach(() => {
     cy.visit(`http://localhost:45000/iframe.html?id=core-annotation--${type}`);
     cy.injectAxe();
@@ -100,7 +172,7 @@ function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsno
   });
 
   it("matches snapshot", () => {
-    cy.get(`@annotation`).should("exist"); // Todo: #2588
+    cy.get(`@annotation`).matchImageSnapshot();
   });
 
   it("reflects wijzigactie", () => {
@@ -112,55 +184,57 @@ function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsno
       .should("have.attr", "wijzigactie", "voegtoe");
   });
 
-  it("reflects active", () => {
-    cy.get(`@annotation`)
-      .invoke("prop", "active", false)
-      .should("not.have.attr", "active")
-      .get(`@annotation`)
-      .invoke("prop", "active", true)
-      .should("have.attr", "active");
-  });
+  if (type !== "kaart") {
+    it("reflects active", () => {
+      cy.get(`@annotation`)
+        .invoke("prop", "active", false)
+        .should("not.have.attr", "active")
+        .get(`@annotation`)
+        .invoke("prop", "active", true)
+        .should("have.attr", "active");
+    });
 
-  it('emits "dsoActiveChange" event', () => {
-    cy.get(`@annotation`)
-      .then(($annotation) => $annotation.on("dsoActiveChange", cy.stub().as("dsoActiveChange")))
-      .invoke("prop", "active", false)
-      .should("not.have.attr", "active")
-      .get(`@annotation`)
-      .shadow()
-      .find("dso-slide-toggle")
-      .click()
-      .get(`@dsoActiveChange`)
-      .should("have.been.calledOnce")
-      .invoke("getCalls")
-      .invoke("at", -1)
-      .its("args.0.detail")
-      .as("detail")
-      .its("current")
-      .should("eq", false)
-      .get("@detail")
-      .its("next")
-      .should("eq", true)
-      .get("@detail")
-      .its("originalEvent")
-      .should("exist");
-  });
+    it('emits "dsoActiveChange" event', () => {
+      cy.get(`@annotation`)
+        .then(($annotation) => $annotation.on("dsoActiveChange", cy.stub().as("dsoActiveChange")))
+        .invoke("prop", "active", false)
+        .should("not.have.attr", "active")
+        .get(`@annotation`)
+        .shadow()
+        .find("dso-slide-toggle")
+        .click()
+        .get(`@dsoActiveChange`)
+        .should("have.been.calledOnce")
+        .invoke("getCalls")
+        .invoke("at", -1)
+        .its("args.0.detail")
+        .as("detail")
+        .its("current")
+        .should("eq", false)
+        .get("@detail")
+        .its("next")
+        .should("eq", true)
+        .get("@detail")
+        .its("originalEvent")
+        .should("exist");
+    });
 
-  it("shows gewijzigde locatie", () => {
-    cy.get(`@annotation`)
-      .invoke("prop", "gewijzigdeLocatie", false)
-      .should("not.have.attr", "gewijzigde-locatie")
-      .get(`@annotation`)
-      .shadow()
-      .find("dso-label.hydrated:contains('gewijzigde locatie')")
-      .should("not.exist")
-      .get(`@annotation`)
-      .invoke("prop", "gewijzigdeLocatie", true)
-      .get(`@annotation`)
-      .should("have.attr", "gewijzigde-locatie")
-      .get(`@annotation`)
-      .shadow()
-      .find("dso-label.hydrated:contains('gewijzigde locatie')")
-      .should("exist");
-  });
+    it("shows gewijzigde locatie", () => {
+      cy.get(`@annotation`)
+        .invoke("prop", "gewijzigdeLocatie", false)
+        .should("not.have.attr", "gewijzigde-locatie")
+        .get(`@annotation`)
+        .shadow()
+        .find("dso-label.hydrated:contains('gewijzigde locatie')")
+        .should("not.exist")
+        .get(`@annotation`)
+        .invoke("prop", "gewijzigdeLocatie", true)
+        .get(`@annotation`)
+        .should("have.attr", "gewijzigde-locatie")
+        .get(`@annotation`)
+        .shadow()
+        .find("dso-label.hydrated:contains('gewijzigde locatie')")
+        .should("exist");
+    });
+  }
 }

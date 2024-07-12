@@ -29,8 +29,9 @@
 
  - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
- - [dso-annotation-omgevingsnorm](../annotation/annotation-omgevingsnorm)
- - [dso-annotation-werkingsgebied](../annotation/annotation-werkingsgebied)
+ - [dso-annotation-kaart](../annotation/annotation-kaart)
+ - [dso-annotation-locatie](../annotation/annotation-locatie)
+ - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
  - [dsot-document-component-demo](../document-component-demo)
 
 ### Graph
@@ -38,8 +39,9 @@
 graph TD;
   dso-annotation-activiteit --> dso-slide-toggle
   dso-annotation-gebiedsaanwijzing --> dso-slide-toggle
-  dso-annotation-omgevingsnorm --> dso-slide-toggle
-  dso-annotation-werkingsgebied --> dso-slide-toggle
+  dso-annotation-kaart --> dso-slide-toggle
+  dso-annotation-locatie --> dso-slide-toggle
+  dso-annotation-omgevingsnormwaarde --> dso-slide-toggle
   dsot-document-component-demo --> dso-slide-toggle
   style dso-slide-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```

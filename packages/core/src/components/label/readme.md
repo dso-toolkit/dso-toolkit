@@ -33,8 +33,8 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
  - [dso-advanced-select](../advanced-select)
  - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
- - [dso-annotation-omgevingsnorm](../annotation/annotation-omgevingsnorm)
- - [dso-annotation-werkingsgebied](../annotation/annotation-werkingsgebied)
+ - [dso-annotation-locatie](../annotation/annotation-locatie)
+ - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
  - [dso-document-component](../document-component)
 
 ### Depends on
@@ -50,8 +50,8 @@ graph TD;
   dso-advanced-select --> dso-label
   dso-annotation-activiteit --> dso-label
   dso-annotation-gebiedsaanwijzing --> dso-label
-  dso-annotation-omgevingsnorm --> dso-label
-  dso-annotation-werkingsgebied --> dso-label
+  dso-annotation-locatie --> dso-label
+  dso-annotation-omgevingsnormwaarde --> dso-label
   dso-document-component --> dso-label
   style dso-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
