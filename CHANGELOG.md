@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧃 Release 62.28.0 - 15-07-2024
+
 ### Added
 * Annotation Component: Doorontwikkeling ([#2691](https://github.com/dso-toolkit/dso-toolkit/issues/2691))
 
