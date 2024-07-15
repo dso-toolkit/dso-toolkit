@@ -2,6 +2,9 @@ import { Component, ComponentInterface, Fragment, Prop, h } from "@stencil/core"
 
 import { RenvooiValue } from "./renvooi.interfaces";
 
+/**
+ * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+ */
 @Component({
   tag: "dso-renvooi",
   styleUrl: "renvooi.scss",

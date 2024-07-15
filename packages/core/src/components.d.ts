@@ -286,7 +286,7 @@ export namespace Components {
         "wijzigactie"?: AnnotationWijzigactie;
     }
     /**
-     * test
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
      */
     interface DsoAnnotationOmgevingsnormwaarde {
         /**
@@ -1011,6 +1011,9 @@ export namespace Components {
          */
         "size"?: "small" | "medium" | "large";
     }
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
     interface DsoRenvooi {
         /**
           * The renvooi value to render.
@@ -1534,7 +1537,7 @@ declare global {
         "dsoActiveChange": AnnotationActiveChangeEvent;
     }
     /**
-     * test
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
      */
     interface HTMLDsoAnnotationOmgevingsnormwaardeElement extends Components.DsoAnnotationOmgevingsnormwaarde, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormwaardeElement, ev: DsoAnnotationOmgevingsnormwaardeCustomEvent<HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2015,6 +2018,9 @@ declare global {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
     };
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
     interface HTMLDsoRenvooiElement extends Components.DsoRenvooi, HTMLStencilElement {
     }
     var HTMLDsoRenvooiElement: {
@@ -2472,7 +2478,7 @@ declare namespace LocalJSX {
         "wijzigactie"?: AnnotationWijzigactie;
     }
     /**
-     * test
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
      */
     interface DsoAnnotationOmgevingsnormwaarde {
         /**
@@ -3363,6 +3369,9 @@ declare namespace LocalJSX {
          */
         "size"?: "small" | "medium" | "large";
     }
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
     interface DsoRenvooi {
         /**
           * The renvooi value to render.
@@ -3708,7 +3717,7 @@ declare module "@stencil/core" {
             "dso-annotation-kaart": LocalJSX.DsoAnnotationKaart & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
             "dso-annotation-locatie": LocalJSX.DsoAnnotationLocatie & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
             /**
-             * test
+             * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
              */
             "dso-annotation-omgevingsnormwaarde": LocalJSX.DsoAnnotationOmgevingsnormwaarde & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;
@@ -3744,6 +3753,9 @@ declare module "@stencil/core" {
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            /**
+             * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+             */
             "dso-renvooi": LocalJSX.DsoRenvooi & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;

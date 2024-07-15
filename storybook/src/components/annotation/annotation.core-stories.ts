@@ -7,13 +7,21 @@ import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?ra
 import activiteitReadme from "@dso-toolkit/core/src/components/annotation/annotation-activiteit/readme.md?raw";
 import gebiedsaanwijzingReadme from "@dso-toolkit/core/src/components/annotation/annotation-gebiedsaanwijzing/readme.md?raw";
 import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
+import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-kaart/readme.md?raw";
 import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
+
 import { decorator } from "./annotation.decorator";
 
 const meta: Meta = {
   ...annotationMeta({
     rootReadme,
-    implementationReadmes: [activiteitReadme, gebiedsaanwijzingReadme, omgevingsnormwaardeReadme, locatieReadme],
+    implementationReadmes: [
+      activiteitReadme,
+      gebiedsaanwijzingReadme,
+      omgevingsnormwaardeReadme,
+      kaartReadme,
+      locatieReadme,
+    ],
   }),
   title: "Core/Annotation",
 };

@@ -1,9 +1,11 @@
-# dso-renvooi
-
-Met dit component kan een `RenvooiValue` worden gepresenteerd.
+# `<dso-renvooi>`
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Met dit component kan een `RenvooiValue` worden gepresenteerd.
 
 ## Properties
 

@@ -7,7 +7,7 @@
 
 ## Overview
 
-test
+Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
 
 ## Properties
 

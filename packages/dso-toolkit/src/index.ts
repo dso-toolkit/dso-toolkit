@@ -196,13 +196,13 @@ export {
 
 export * from "./components/input-range";
 
+export * from "./components/renvooi";
+
 export { ResponsiveElement } from "./components/responsive-element/responsive-element.models.js";
 export {
   ResponsiveElementTemplates,
   storiesOfResponsiveElement,
 } from "./components/responsive-element/responsive-element.stories-of.js";
-
-export * from "./components/renvooi";
 
 export { RichContent } from "./components/rich-content/rich-content.models.js";
 export { RichContentTemplates, storiesOfRichContent } from "./components/rich-content/rich-content.stories-of.js";
