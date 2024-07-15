@@ -1,4 +1,4 @@
-# `<dso-annotation-werkingsgebied>`
+# `<dso-annotation-locatie>`
 
 
 
@@ -12,7 +12,7 @@
 | `active`            | `active`             | Een optionele boolean die aangeeft of de annotatie actief is.                       | `boolean \| undefined`                                                                                         | `undefined` |
 | `gewijzigdeLocatie` | `gewijzigde-locatie` | Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.     | `boolean \| undefined`                                                                                         | `undefined` |
 | `locatieNoemer`     | `locatie-noemer`     | De noemer van de locatie.                                                           | `string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
-| `wijzigactie`       | `wijzigactie`        | Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is. | `"verwijderd" \| "voegtoe" \| undefined`                                                                       | `undefined` |
+| `wijzigactie`       | `wijzigactie`        | Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is. | `"verwijder" \| "voegtoe" \| undefined`                                                                        | `undefined` |
 
 
 ## Events
@@ -33,17 +33,20 @@
 
 ### Depends on
 
+- [dso-renvooi](../../renvooi)
 - [dso-slide-toggle](../../slide-toggle)
 - [dso-label](../../label)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-annotation-werkingsgebied --> dso-slide-toggle
-  dso-annotation-werkingsgebied --> dso-label
+  dso-annotation-locatie --> dso-renvooi
+  dso-annotation-locatie --> dso-slide-toggle
+  dso-annotation-locatie --> dso-label
+  dso-renvooi --> dso-renvooi
   dso-label --> dso-icon
   dso-label --> dso-tooltip
-  style dso-annotation-werkingsgebied fill:#f9f,stroke:#333,stroke-width:4px
+  style dso-annotation-locatie fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

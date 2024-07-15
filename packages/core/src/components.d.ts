@@ -9,8 +9,10 @@ import { AccordionInternalState, AccordionVariant } from "./components/accordion
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
-import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
+import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
+import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
+import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
@@ -43,8 +45,10 @@ export { AccordionInternalState, AccordionVariant } from "./components/accordion
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
-export { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
+export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
+export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
+export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
@@ -203,15 +207,15 @@ export namespace Components {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemers"?: Array<AnnotationDiff | string>;
+        "locatieNoemers"?: Array<RenvooiValue | string>;
         /**
           * De naam van de activiteit.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
           * De activiteit regel kwalificatie.
          */
-        "regelKwalificatie"?: AnnotationDiff | string;
+        "regelKwalificatie"?: RenvooiValue | string;
         /**
           * Voorzetsel van de regelKwalificatie. Exclusief dubbele punt.
          */
@@ -243,33 +247,72 @@ export namespace Components {
         /**
           * De naam van de gebiedsaanwijzing.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    interface DsoAnnotationOmgevingsnorm {
+    interface DsoAnnotationKaart {
+        /**
+          * De url naar de kaart.  Gebruik het event `dsoClick` om de navigatie aan de router te koppelen.
+         */
+        "href"?: string;
+        /**
+          * De naam van de kaart.
+         */
+        "naam"?: RenvooiValue | string;
+        /**
+          * Een optionele wijzigactie die aangeeft of de annotatie is toegevoegd of verwijderd.
+         */
+        "wijzigactie"?: AnnotationWijzigactie;
+    }
+    interface DsoAnnotationLocatie {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
          */
         "active"?: boolean;
         /**
-          * De eenheid van de omgevingsnorm.
+          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
          */
-        "eenheid"?: AnnotationDiff | string;
+        "gewijzigdeLocatie"?: boolean;
+        /**
+          * De noemer van de locatie.
+         */
+        "locatieNoemer"?: RenvooiValue | string;
+        /**
+          * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
+         */
+        "wijzigactie"?: AnnotationWijzigactie;
+    }
+    /**
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
+     */
+    interface DsoAnnotationOmgevingsnormwaarde {
+        /**
+          * Een optionele boolean die aangeeft of de annotatie actief is.
+         */
+        "active"?: boolean;
+        /**
+          * De eenheid van de omgevingsnorm of omgevingswaarde.
+         */
+        "eenheid"?: RenvooiValue | string;
         /**
           * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
          */
         "gewijzigdeLocatie"?: boolean;
         /**
-          * De naam van de omgevingsnorm
+          * De naam van de omgevingsnorm of omgevingswaarde.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
-          * De waardes van de omgevingsnorm.
+          * De toelichting van de waardes.
          */
-        "waardes"?: Array<AnnotationDiff | string>;
+        "toelichting"?: string;
+        /**
+          * De waardes van de omgevingsnorm of omgevingswaarde.
+         */
+        "waardes"?: Array<RenvooiValue | string>;
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
@@ -288,24 +331,6 @@ export namespace Components {
           * Set to `true` to show content.
          */
         "open": boolean;
-    }
-    interface DsoAnnotationWerkingsgebied {
-        /**
-          * Een optionele boolean die aangeeft of de annotatie actief is.
-         */
-        "active"?: boolean;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
-          * De noemer van de locatie.
-         */
-        "locatieNoemer"?: AnnotationDiff | string;
-        /**
-          * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
-         */
-        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -986,6 +1011,15 @@ export namespace Components {
          */
         "size"?: "small" | "medium" | "large";
     }
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
+    interface DsoRenvooi {
+        /**
+          * The renvooi value to render.
+         */
+        "value"?: RenvooiValue | RenvooiValue[];
+    }
     interface DsoResponsiveElement {
         /**
           * The current size
@@ -1224,17 +1258,21 @@ export interface DsoAnnotationGebiedsaanwijzingCustomEvent<T> extends CustomEven
     detail: T;
     target: HTMLDsoAnnotationGebiedsaanwijzingElement;
 }
-export interface DsoAnnotationOmgevingsnormCustomEvent<T> extends CustomEvent<T> {
+export interface DsoAnnotationKaartCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLDsoAnnotationOmgevingsnormElement;
+    target: HTMLDsoAnnotationKaartElement;
+}
+export interface DsoAnnotationLocatieCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAnnotationLocatieElement;
+}
+export interface DsoAnnotationOmgevingsnormwaardeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAnnotationOmgevingsnormwaardeElement;
 }
 export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationOutputElement;
-}
-export interface DsoAnnotationWerkingsgebiedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoAnnotationWerkingsgebiedElement;
 }
 export interface DsoAutosuggestCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1461,22 +1499,59 @@ declare global {
         prototype: HTMLDsoAnnotationGebiedsaanwijzingElement;
         new (): HTMLDsoAnnotationGebiedsaanwijzingElement;
     };
-    interface HTMLDsoAnnotationOmgevingsnormElementEventMap {
-        "dsoActiveChange": AnnotationActiveChangeEvent;
+    interface HTMLDsoAnnotationKaartElementEventMap {
+        "dsoClick": AnnotationKaartClickEvent;
     }
-    interface HTMLDsoAnnotationOmgevingsnormElement extends Components.DsoAnnotationOmgevingsnorm, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormElement, ev: DsoAnnotationOmgevingsnormCustomEvent<HTMLDsoAnnotationOmgevingsnormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLDsoAnnotationKaartElement extends Components.DsoAnnotationKaart, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAnnotationKaartElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationKaartElement, ev: DsoAnnotationKaartCustomEvent<HTMLDsoAnnotationKaartElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormElement, ev: DsoAnnotationOmgevingsnormCustomEvent<HTMLDsoAnnotationOmgevingsnormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAnnotationKaartElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationKaartElement, ev: DsoAnnotationKaartCustomEvent<HTMLDsoAnnotationKaartElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLDsoAnnotationOmgevingsnormElement: {
-        prototype: HTMLDsoAnnotationOmgevingsnormElement;
-        new (): HTMLDsoAnnotationOmgevingsnormElement;
+    var HTMLDsoAnnotationKaartElement: {
+        prototype: HTMLDsoAnnotationKaartElement;
+        new (): HTMLDsoAnnotationKaartElement;
+    };
+    interface HTMLDsoAnnotationLocatieElementEventMap {
+        "dsoActiveChange": AnnotationActiveChangeEvent;
+    }
+    interface HTMLDsoAnnotationLocatieElement extends Components.DsoAnnotationLocatie, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAnnotationLocatieElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationLocatieElement, ev: DsoAnnotationLocatieCustomEvent<HTMLDsoAnnotationLocatieElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAnnotationLocatieElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationLocatieElement, ev: DsoAnnotationLocatieCustomEvent<HTMLDsoAnnotationLocatieElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoAnnotationLocatieElement: {
+        prototype: HTMLDsoAnnotationLocatieElement;
+        new (): HTMLDsoAnnotationLocatieElement;
+    };
+    interface HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap {
+        "dsoActiveChange": AnnotationActiveChangeEvent;
+    }
+    /**
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
+     */
+    interface HTMLDsoAnnotationOmgevingsnormwaardeElement extends Components.DsoAnnotationOmgevingsnormwaarde, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormwaardeElement, ev: DsoAnnotationOmgevingsnormwaardeCustomEvent<HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOmgevingsnormwaardeElement, ev: DsoAnnotationOmgevingsnormwaardeCustomEvent<HTMLDsoAnnotationOmgevingsnormwaardeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoAnnotationOmgevingsnormwaardeElement: {
+        prototype: HTMLDsoAnnotationOmgevingsnormwaardeElement;
+        new (): HTMLDsoAnnotationOmgevingsnormwaardeElement;
     };
     interface HTMLDsoAnnotationOutputElementEventMap {
         "dsoClose": AnnotationOutputCloseEvent;
@@ -1494,23 +1569,6 @@ declare global {
     var HTMLDsoAnnotationOutputElement: {
         prototype: HTMLDsoAnnotationOutputElement;
         new (): HTMLDsoAnnotationOutputElement;
-    };
-    interface HTMLDsoAnnotationWerkingsgebiedElementEventMap {
-        "dsoActiveChange": AnnotationActiveChangeEvent;
-    }
-    interface HTMLDsoAnnotationWerkingsgebiedElement extends Components.DsoAnnotationWerkingsgebied, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoAnnotationWerkingsgebiedElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationWerkingsgebiedElement, ev: DsoAnnotationWerkingsgebiedCustomEvent<HTMLDsoAnnotationWerkingsgebiedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoAnnotationWerkingsgebiedElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationWerkingsgebiedElement, ev: DsoAnnotationWerkingsgebiedCustomEvent<HTMLDsoAnnotationWerkingsgebiedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLDsoAnnotationWerkingsgebiedElement: {
-        prototype: HTMLDsoAnnotationWerkingsgebiedElement;
-        new (): HTMLDsoAnnotationWerkingsgebiedElement;
     };
     interface HTMLDsoAttachmentsCounterElement extends Components.DsoAttachmentsCounter, HTMLStencilElement {
     }
@@ -1960,6 +2018,15 @@ declare global {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
     };
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
+    interface HTMLDsoRenvooiElement extends Components.DsoRenvooi, HTMLStencilElement {
+    }
+    var HTMLDsoRenvooiElement: {
+        prototype: HTMLDsoRenvooiElement;
+        new (): HTMLDsoRenvooiElement;
+    };
     interface HTMLDsoResponsiveElementElementEventMap {
         "dsoSizeChange": ResponsiveElementSize;
     }
@@ -2118,9 +2185,10 @@ declare global {
         "dso-annotation-activiteit": HTMLDsoAnnotationActiviteitElement;
         "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-gebiedsaanwijzing": HTMLDsoAnnotationGebiedsaanwijzingElement;
-        "dso-annotation-omgevingsnorm": HTMLDsoAnnotationOmgevingsnormElement;
+        "dso-annotation-kaart": HTMLDsoAnnotationKaartElement;
+        "dso-annotation-locatie": HTMLDsoAnnotationLocatieElement;
+        "dso-annotation-omgevingsnormwaarde": HTMLDsoAnnotationOmgevingsnormwaardeElement;
         "dso-annotation-output": HTMLDsoAnnotationOutputElement;
-        "dso-annotation-werkingsgebied": HTMLDsoAnnotationWerkingsgebiedElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
@@ -2153,6 +2221,7 @@ declare global {
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
+        "dso-renvooi": HTMLDsoRenvooiElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
@@ -2310,11 +2379,11 @@ declare namespace LocalJSX {
         /**
           * De noemer van de locatie.
          */
-        "locatieNoemers"?: Array<AnnotationDiff | string>;
+        "locatieNoemers"?: Array<RenvooiValue | string>;
         /**
           * De naam van de activiteit.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */
@@ -2322,7 +2391,7 @@ declare namespace LocalJSX {
         /**
           * De activiteit regel kwalificatie.
          */
-        "regelKwalificatie"?: AnnotationDiff | string;
+        "regelKwalificatie"?: RenvooiValue | string;
         /**
           * Voorzetsel van de regelKwalificatie. Exclusief dubbele punt.
          */
@@ -2358,7 +2427,7 @@ declare namespace LocalJSX {
         /**
           * De naam van de gebiedsaanwijzing.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */
@@ -2368,31 +2437,78 @@ declare namespace LocalJSX {
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    interface DsoAnnotationOmgevingsnorm {
+    interface DsoAnnotationKaart {
+        /**
+          * De url naar de kaart.  Gebruik het event `dsoClick` om de navigatie aan de router te koppelen.
+         */
+        "href"?: string;
+        /**
+          * De naam van de kaart.
+         */
+        "naam"?: RenvooiValue | string;
+        /**
+          * Event als de gebruiker de kaartnaam selecteert.  Let op "isModifiedEvent" om te bepalen of de navigatieactie door de router of de browser moet worden afgehandeld.
+         */
+        "onDsoClick"?: (event: DsoAnnotationKaartCustomEvent<AnnotationKaartClickEvent>) => void;
+        /**
+          * Een optionele wijzigactie die aangeeft of de annotatie is toegevoegd of verwijderd.
+         */
+        "wijzigactie"?: AnnotationWijzigactie;
+    }
+    interface DsoAnnotationLocatie {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
          */
         "active"?: boolean;
         /**
-          * De eenheid van de omgevingsnorm.
+          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
          */
-        "eenheid"?: AnnotationDiff | string;
+        "gewijzigdeLocatie"?: boolean;
+        /**
+          * De noemer van de locatie.
+         */
+        "locatieNoemer"?: RenvooiValue | string;
+        /**
+          * Een optionele event listener voor wijzigingen aan de status van de annotatie.
+         */
+        "onDsoActiveChange"?: (event: DsoAnnotationLocatieCustomEvent<AnnotationActiveChangeEvent>) => void;
+        /**
+          * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
+         */
+        "wijzigactie"?: AnnotationWijzigactie;
+    }
+    /**
+     * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
+     */
+    interface DsoAnnotationOmgevingsnormwaarde {
+        /**
+          * Een optionele boolean die aangeeft of de annotatie actief is.
+         */
+        "active"?: boolean;
+        /**
+          * De eenheid van de omgevingsnorm of omgevingswaarde.
+         */
+        "eenheid"?: RenvooiValue | string;
         /**
           * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
          */
         "gewijzigdeLocatie"?: boolean;
         /**
-          * De naam van de omgevingsnorm
+          * De naam van de omgevingsnorm of omgevingswaarde.
          */
-        "naam"?: AnnotationDiff | string;
+        "naam"?: RenvooiValue | string;
         /**
           * Een optionele event listener voor wijzigingen aan de status van de annotatie.
          */
-        "onDsoActiveChange"?: (event: DsoAnnotationOmgevingsnormCustomEvent<AnnotationActiveChangeEvent>) => void;
+        "onDsoActiveChange"?: (event: DsoAnnotationOmgevingsnormwaardeCustomEvent<AnnotationActiveChangeEvent>) => void;
         /**
-          * De waardes van de omgevingsnorm.
+          * De toelichting van de waardes.
          */
-        "waardes"?: Array<AnnotationDiff | string>;
+        "toelichting"?: string;
+        /**
+          * De waardes van de omgevingsnorm of omgevingswaarde.
+         */
+        "waardes"?: Array<RenvooiValue | string>;
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
@@ -2415,28 +2531,6 @@ declare namespace LocalJSX {
           * Set to `true` to show content.
          */
         "open"?: boolean;
-    }
-    interface DsoAnnotationWerkingsgebied {
-        /**
-          * Een optionele boolean die aangeeft of de annotatie actief is.
-         */
-        "active"?: boolean;
-        /**
-          * Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.
-         */
-        "gewijzigdeLocatie"?: boolean;
-        /**
-          * De noemer van de locatie.
-         */
-        "locatieNoemer"?: AnnotationDiff | string;
-        /**
-          * Een optionele event listener voor wijzigingen aan de status van de annotatie.
-         */
-        "onDsoActiveChange"?: (event: DsoAnnotationWerkingsgebiedCustomEvent<AnnotationActiveChangeEvent>) => void;
-        /**
-          * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
-         */
-        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -3275,6 +3369,15 @@ declare namespace LocalJSX {
          */
         "size"?: "small" | "medium" | "large";
     }
+    /**
+     * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+     */
+    interface DsoRenvooi {
+        /**
+          * The renvooi value to render.
+         */
+        "value"?: RenvooiValue | RenvooiValue[];
+    }
     interface DsoResponsiveElement {
         /**
           * Emitted when size has changed
@@ -3549,9 +3652,10 @@ declare namespace LocalJSX {
         "dso-annotation-activiteit": DsoAnnotationActiviteit;
         "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-gebiedsaanwijzing": DsoAnnotationGebiedsaanwijzing;
-        "dso-annotation-omgevingsnorm": DsoAnnotationOmgevingsnorm;
+        "dso-annotation-kaart": DsoAnnotationKaart;
+        "dso-annotation-locatie": DsoAnnotationLocatie;
+        "dso-annotation-omgevingsnormwaarde": DsoAnnotationOmgevingsnormwaarde;
         "dso-annotation-output": DsoAnnotationOutput;
-        "dso-annotation-werkingsgebied": DsoAnnotationWerkingsgebied;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
@@ -3584,6 +3688,7 @@ declare namespace LocalJSX {
         "dso-pagination": DsoPagination;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
+        "dso-renvooi": DsoRenvooi;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
@@ -3609,9 +3714,13 @@ declare module "@stencil/core" {
             "dso-annotation-activiteit": LocalJSX.DsoAnnotationActiviteit & JSXBase.HTMLAttributes<HTMLDsoAnnotationActiviteitElement>;
             "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-gebiedsaanwijzing": LocalJSX.DsoAnnotationGebiedsaanwijzing & JSXBase.HTMLAttributes<HTMLDsoAnnotationGebiedsaanwijzingElement>;
-            "dso-annotation-omgevingsnorm": LocalJSX.DsoAnnotationOmgevingsnorm & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormElement>;
+            "dso-annotation-kaart": LocalJSX.DsoAnnotationKaart & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
+            "dso-annotation-locatie": LocalJSX.DsoAnnotationLocatie & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
+            /**
+             * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
+             */
+            "dso-annotation-omgevingsnormwaarde": LocalJSX.DsoAnnotationOmgevingsnormwaarde & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
             "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;
-            "dso-annotation-werkingsgebied": LocalJSX.DsoAnnotationWerkingsgebied & JSXBase.HTMLAttributes<HTMLDsoAnnotationWerkingsgebiedElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
@@ -3644,6 +3753,10 @@ declare module "@stencil/core" {
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            /**
+             * Met dit component kan een `RenvooiValue` worden gepresenteerd.
+             */
+            "dso-renvooi": LocalJSX.DsoRenvooi & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;

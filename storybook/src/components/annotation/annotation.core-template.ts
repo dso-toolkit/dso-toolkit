@@ -1,8 +1,13 @@
-import { Annotation } from "dso-toolkit";
-import { html } from "lit-html";
+import { Annotation, AnnotationKaartClickEvent } from "dso-toolkit";
+import { html, nothing } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { AnnotationActiveChangeEvent, DsoAnnotationActiviteitCustomEvent } from "@dso-toolkit/core";
+import {
+  AnnotationActiveChangeEvent,
+  DsoAnnotationActiviteitCustomEvent,
+  DsoAnnotationKaartCustomEvent,
+} from "@dso-toolkit/core";
+import { assertNever } from "../../shared/assert-never";
 
 export const coreAnnotation: ComponentImplementation<Annotation> = {
   component: "annotation",
@@ -33,7 +38,9 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .regelKwalificatieVoorzetsel=${regelKwalificatieVoorzetsel}
           .wijzigactie=${wijzigactie}
         >
-          <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
+          ${symboolCode
+            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+            : nothing}
         </dso-annotation-activiteit>`;
       }
 
@@ -47,41 +54,72 @@ export const coreAnnotation: ComponentImplementation<Annotation> = {
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .wijzigactie=${wijzigactie}
         >
-          <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
+          ${symboolCode
+            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+            : nothing}
         </dso-annotation-gebiedsaanwijzing>`;
       }
 
-      if (annotation.type === "omgevingsnorm") {
-        const { symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, eenheid, naam, waardes } =
-          annotation;
+      if (annotation.type === "omgevingsnormwaarde") {
+        const {
+          symboolCode,
+          toelichting,
+          active,
+          dsoActiveChange,
+          gewijzigdeLocatie,
+          wijzigactie,
+          eenheid,
+          naam,
+          waardes,
+        } = annotation;
 
-        return html`<dso-annotation-omgevingsnorm
+        return html`<dso-annotation-omgevingsnormwaarde
           .active=${active}
           @dsoActiveChange=${dsoActiveChange}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
+          .toelichting=${toelichting}
           .wijzigactie=${wijzigactie}
           .eenheid=${eenheid}
           .naam=${naam}
           .waardes=${waardes}
         >
-          <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation-omgevingsnorm>`;
+          ${symboolCode
+            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+            : nothing}
+        </dso-annotation-omgevingsnormwaarde>`;
       }
 
-      if (annotation.type === "werkingsgebied") {
+      if (annotation.type === "locatie") {
         const { symboolCode, active, dsoActiveChange, gewijzigdeLocatie, wijzigactie, locatieNoemer } = annotation;
 
-        return html`<dso-annotation-werkingsgebied
+        return html`<dso-annotation-locatie
           .active=${active}
           @dsoActiveChange=${dsoActiveChange}
           .gewijzigdeLocatie=${gewijzigdeLocatie}
           .wijzigactie=${wijzigactie}
           .locatieNoemer=${locatieNoemer}
         >
-          <span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>
-        </dso-annotation-werkingsgebied>`;
+          ${symboolCode
+            ? html`<span class="symboolcode" data-symboolcode=${symboolCode} slot="symbool"></span>`
+            : nothing}
+        </dso-annotation-locatie>`;
       }
 
+      if (annotation.type === "kaart") {
+        const { wijzigactie, href, naam, dsoClick } = annotation;
+
+        return html`<dso-annotation-kaart
+          .naam=${naam}
+          .wijzigactie=${wijzigactie}
+          .href=${href}
+          @dsoClick=${({ detail }: DsoAnnotationKaartCustomEvent<AnnotationKaartClickEvent>) => {
+            detail.originalEvent.preventDefault();
+            dsoClick(detail);
+          }}
+        ></dso-annotation-kaart>`;
+      }
+
+      assertNever(annotation);
       throw new Error(`Unknown annotation type: ${JSON.stringify(annotation)}`);
     },
 };

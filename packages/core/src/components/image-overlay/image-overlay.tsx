@@ -150,8 +150,8 @@ export class ImageOverlay implements ComponentInterface {
     this.zoomable = width < naturalWidth || height < naturalHeight;
   }
 
-  private isWijzigactie(wijzigActie: string): wijzigActie is ImageOverlayWijzigactie {
-    return wijzigActie === "voegtoe" || wijzigActie === "verwijder";
+  private isWijzigactie(wijzigactie: string): wijzigactie is ImageOverlayWijzigactie {
+    return wijzigactie === "voegtoe" || wijzigactie === "verwijder";
   }
 
   render() {

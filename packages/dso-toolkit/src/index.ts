@@ -196,6 +196,8 @@ export {
 
 export * from "./components/input-range";
 
+export * from "./components/renvooi";
+
 export { ResponsiveElement } from "./components/responsive-element/responsive-element.models.js";
 export {
   ResponsiveElementTemplates,

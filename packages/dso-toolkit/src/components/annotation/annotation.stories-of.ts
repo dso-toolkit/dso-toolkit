@@ -7,16 +7,20 @@ import {
   annotationActiviteitArgsMapper,
   annotationGebiedsaanwijzingArgs,
   AnnotationGebiedsaanwijzingArgs,
-  annotationOmgevingsnormArgs,
-  AnnotationOmgevingsnormArgs,
-  annotationWerkingsgebiedArgs,
-  AnnotationWerkingsgebiedArgs,
+  annotationOmgevingsnormwaardeArgs,
+  AnnotationOmgevingsnormwaardeArgs,
+  annotationLocatieArgs,
+  AnnotationLocatieArgs,
   annotationGebiedsaanwijzingArgsMapper,
-  annotationWerkingsgebiedArgsMapper,
-  annotationOmgevingsnormArgsMapper,
+  annotationLocatieArgsMapper,
+  annotationOmgevingsnormwaardeArgsMapper,
   annotationGebiedsaanwijzingArgTypes,
-  annotationOmgevingsnormArgTypes,
-  annotationWerkingsgebiedArgTypes,
+  annotationOmgevingsnormwaardeArgTypes,
+  annotationLocatieArgTypes,
+  annotationKaartArgs,
+  annotationKaartArgTypes,
+  annotationKaartArgsMapper,
+  AnnotationKaartArgs,
 } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 
@@ -28,8 +32,9 @@ export type AnnotationDecorator<TemplateFnReturnType> = (story: PartialStoryFn) 
 interface AnnotationStories {
   Activiteit: StoryObj<AnnotationActiviteitArgs, Renderer>;
   Gebiedsaanwijzing: StoryObj<AnnotationGebiedsaanwijzingArgs, Renderer>;
-  Omgevingsnorm: StoryObj<AnnotationOmgevingsnormArgs, Renderer>;
-  Werkingsgebied: StoryObj<AnnotationWerkingsgebiedArgs, Renderer>;
+  Omgevingsnormwaarde: StoryObj<AnnotationOmgevingsnormwaardeArgs, Renderer>;
+  Locatie: StoryObj<AnnotationLocatieArgs, Renderer>;
+  Kaart: StoryObj<AnnotationKaartArgs, Renderer>;
 }
 
 interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -83,20 +88,28 @@ export function annotationStories<Implementation, Templates, TemplateFnReturnTyp
         annotationTemplate(annotationGebiedsaanwijzingArgsMapper(args)),
       ),
     },
-    Omgevingsnorm: {
+    Omgevingsnormwaarde: {
       decorators: [(story) => decorator(story)],
-      args: annotationOmgevingsnormArgs,
-      argTypes: annotationOmgevingsnormArgTypes,
+      args: annotationOmgevingsnormwaardeArgs,
+      argTypes: annotationOmgevingsnormwaardeArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
-        annotationTemplate(annotationOmgevingsnormArgsMapper(args)),
+        annotationTemplate(annotationOmgevingsnormwaardeArgsMapper(args)),
       ),
     },
-    Werkingsgebied: {
+    Locatie: {
       decorators: [(story) => decorator(story)],
-      args: annotationWerkingsgebiedArgs,
-      argTypes: annotationWerkingsgebiedArgTypes,
+      args: annotationLocatieArgs,
+      argTypes: annotationLocatieArgTypes,
       render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
-        annotationTemplate(annotationWerkingsgebiedArgsMapper(args)),
+        annotationTemplate(annotationLocatieArgsMapper(args)),
+      ),
+    },
+    Kaart: {
+      decorators: [(story) => decorator(story)],
+      args: annotationKaartArgs,
+      argTypes: annotationKaartArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { annotationTemplate }) =>
+        annotationTemplate(annotationKaartArgsMapper(args)),
       ),
     },
   };

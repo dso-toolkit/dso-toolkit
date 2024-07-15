@@ -1,8 +1,11 @@
+import { RenvooiValue } from "../renvooi";
+
 export type Annotation =
   | AnnotationActiviteit
   | AnnotationGebiedsaanwijzing
-  | AnnotationOmgevingsnorm
-  | AnnotationWerkingsgebied;
+  | AnnotationOmgevingsnormwaarde
+  | AnnotationLocatie
+  | AnnotationKaart;
 
 /**
  * Basis model voor de verschillende annotaties.
@@ -11,7 +14,7 @@ interface AnnotationBase {
   /**
    * Een symboolcode voor de verbeelding van de legenda.
    */
-  symboolCode: string;
+  symboolCode?: string;
 
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
@@ -40,17 +43,17 @@ export interface AnnotationActiviteit extends AnnotationBase {
   /**
    * De naam van de activiteit.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 
   /**
    * De activiteit regel kwalificatie.
    */
-  regelKwalificatie: AnnotationDiff | string;
+  regelKwalificatie: RenvooiValue | string;
 
   /**
    * De noemer van de locaties.
    */
-  locatieNoemers: Array<AnnotationDiff | string>;
+  locatieNoemers: Array<RenvooiValue | string>;
 
   /**
    * Voorzetsel van de regelKwalificatie. Exclusief dubbele punt.
@@ -64,38 +67,62 @@ export interface AnnotationGebiedsaanwijzing extends AnnotationBase {
   /**
    * De naam van de gebiedsaanwijzing.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 }
 
-export interface AnnotationOmgevingsnorm extends AnnotationBase {
-  type: "omgevingsnorm";
+export interface AnnotationOmgevingsnormwaarde extends AnnotationBase {
+  type: "omgevingsnormwaarde";
 
   /**
-   * De naam van de omgevingsnorm
+   * De naam van de omgevingsnorm of omgevingswaarde.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 
   /**
-   * De waardes van de omgevingsnorm.
+   * De toelichting van de waardes.
    */
-  waardes: Array<AnnotationDiff | string>;
+  toelichting?: string;
 
   /**
-   * De eenheid van de omgevingsnorm.
+   * De waardes van de omgevingsnorm of omgevingswaarde.
    */
-  eenheid: AnnotationDiff | string;
+  waardes: Array<RenvooiValue | string>;
+
+  /**
+   * De eenheid van de omgevingsnorm of omgevingswaarde.
+   */
+  eenheid: RenvooiValue | string;
 }
 
-export interface AnnotationWerkingsgebied extends AnnotationBase {
-  type: "werkingsgebied";
+export interface AnnotationLocatie extends AnnotationBase {
+  type: "locatie";
 
   /**
    * De noemer van de locatie.
    */
-  locatieNoemer: AnnotationDiff | string;
+  locatieNoemer: RenvooiValue | string;
 }
 
-export type AnnotationWijzigactie = "voegtoe" | "verwijderd";
+export interface AnnotationKaart extends Pick<AnnotationBase, "wijzigactie"> {
+  type: "kaart";
+
+  /**
+   * De naam van de kaart.
+   */
+  naam: RenvooiValue | string;
+
+  /**
+   * De url naar de kaart.
+   */
+  href: string;
+
+  /**
+   * Event als de gebruiker de kaartnaam selecteert.
+   */
+  dsoClick(event: AnnotationKaartClickEvent): void;
+}
+
+export type AnnotationWijzigactie = "voegtoe" | "verwijder";
 
 export interface AnnotationActiveChangeEvent {
   /**
@@ -114,4 +141,19 @@ export interface AnnotationActiveChangeEvent {
   originalEvent: Event;
 }
 
-export type AnnotationDiff = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string };
+export interface AnnotationKaartClickEvent {
+  /**
+   * De url naar de kaart.
+   */
+  href: string;
+
+  /**
+   * Het originele event.
+   */
+  originalEvent: MouseEvent;
+
+  /**
+   * `true` als de gebruiker modifier keys (Ctrl, Shift, Alt, Meta) gebruikte bij het activeren.
+   */
+  isModifiedEvent: boolean;
+}

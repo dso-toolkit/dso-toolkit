@@ -48,7 +48,6 @@ export function {{ camelCase name }}Stories<Implementation, Templates, TemplateF
 }: {{ pascalCase name }}StoriesParameters<Implementation, Templates, TemplateFnReturnType>): {{ pascalCase name }}Stories {
   return {
     Default: {
-      args: {},
       render: templateContainer.render(storyTemplates, (args, { {{ camelCase name }}Template }) =>
         {{ camelCase name }}Template({{ camelCase name }}ArgsMapper(args)),
       ),

@@ -19,6 +19,7 @@
  - [dso-advanced-select](../advanced-select)
  - [dso-alert](../alert)
  - [dso-annotation-button](../annotation-button)
+ - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-annotation-output](../annotation-output)
  - [dso-attachments-counter](../attachments-counter)
  - [dso-card](../card)
@@ -49,6 +50,7 @@ graph TD;
   dso-advanced-select --> dso-icon
   dso-alert --> dso-icon
   dso-annotation-button --> dso-icon
+  dso-annotation-kaart --> dso-icon
   dso-annotation-output --> dso-icon
   dso-attachments-counter --> dso-icon
   dso-card --> dso-icon

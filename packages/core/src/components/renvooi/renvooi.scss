@@ -1,0 +1,10 @@
+@use "~dso-toolkit/src/utilities";
+
+@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
+
+:host {
+  display: inline;
+}
+
+@include utilities.box-sizing();

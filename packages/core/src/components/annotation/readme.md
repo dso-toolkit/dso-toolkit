@@ -1,1 +1,1 @@
-# `<dso-annotation-activiteit>`, `<dso-annotation-gebiedsaanwijzing>`, `<dso-annotation-omgevingsnorm>`, `<dso-annotation-werkingsgebied>`
+# `<dso-annotation-activiteit>`, `<dso-annotation-gebiedsaanwijzing>`, `<dso-annotation-kaart>`, `<dso-annotation-locatie>`, `<dso-annotation-omgevingsnormwaarde>`

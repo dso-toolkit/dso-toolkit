@@ -76,6 +76,7 @@ import {
   Pagination,
   ProgressBar,
   ProgressIndicator,
+  Renvooi,
   ResponsiveElement,
   RichContent,
   RowEqualHeights,
@@ -137,6 +138,7 @@ import { coreOzonContent } from "./components/ozon-content/ozon-content.core-tem
 import { corePagination } from "./components/pagination/pagination.core-template";
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
+import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
 import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
@@ -285,6 +287,7 @@ export interface Components {
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
+  renvooi: Renvooi;
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;
   rowEqualHeights: RowEqualHeights<TemplateResult>;
@@ -370,6 +373,7 @@ templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
+templateContainer.add(coreRenvooi);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);

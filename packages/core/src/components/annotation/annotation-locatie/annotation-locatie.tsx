@@ -1,19 +1,21 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment } from "@stencil/core";
-import { AnnotationActiveChangeEvent, AnnotationDiff, AnnotationWijzigactie } from "../annotation.interfaces";
+import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment, Element } from "@stencil/core";
+import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
 import { AnnotationBody } from "../annotation-body";
-import { AnnotationDiffRenderer } from "../annotation-diff-renderer";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
+import { watcher } from "../annotation-watcher";
+import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
+import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 
 /**
  * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
  */
 @Component({
-  tag: "dso-annotation-werkingsgebied",
+  tag: "dso-annotation-locatie",
   styleUrl: "../annotation.scss",
   shadow: true,
 })
-export class AnnotationWerkingsgebied implements ComponentInterface {
+export class AnnotationLocatie implements ComponentInterface {
   /**
    * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
    */
@@ -42,17 +44,33 @@ export class AnnotationWerkingsgebied implements ComponentInterface {
    * De noemer van de locatie.
    */
   @Prop()
-  locatieNoemer?: AnnotationDiff | string;
+  locatieNoemer?: RenvooiValue | string;
+
+  @Element()
+  private host!: HTMLDsoAnnotationLocatieElement;
+
+  private watcher = watcher(this.host);
+
+  connectedCallback(): void {
+    this.watcher.watch();
+  }
+
+  disconnectedCallback(): void {
+    this.watcher.unwatch();
+  }
 
   render() {
+    const hasSymbool = this.watcher.hasSymbool();
+
     return (
       <AnnotationBody
+        symbol={hasSymbool ? <AnnotationSymbolSlot /> : undefined}
         active={this.active}
         dsoActiveChange={this.dsoActiveChange}
         title={
           <>
             <span class="content">
-              <AnnotationDiffRenderer value={this.locatieNoemer} />
+              <dso-renvooi value={this.locatieNoemer} />
             </span>
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>
