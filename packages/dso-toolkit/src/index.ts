@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/renvooi";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -202,6 +201,8 @@ export {
   ResponsiveElementTemplates,
   storiesOfResponsiveElement,
 } from "./components/responsive-element/responsive-element.stories-of.js";
+
+export * from "./components/renvooi";
 
 export { RichContent } from "./components/rich-content/rich-content.models.js";
 export { RichContentTemplates, storiesOfRichContent } from "./components/rich-content/rich-content.stories-of.js";

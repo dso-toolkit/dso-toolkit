@@ -1,9 +1,9 @@
 import { ArgTypes } from "@storybook/types";
 
+import { RenvooiValue } from "../renvooi/renvooi.models.js";
 import {
   Annotation,
   AnnotationActiveChangeEvent,
-  AnnotationDiff,
   AnnotationKaartClickEvent,
   AnnotationWijzigactie,
 } from "./annotation.models.js";
@@ -60,9 +60,9 @@ const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
  */
 
 export interface AnnotationActiviteitArgs extends AnnotationBaseArgs {
-  naam: AnnotationDiff | string;
-  regelKwalificatie: AnnotationDiff | string;
-  locatieNoemers: Array<AnnotationDiff | string>;
+  naam: RenvooiValue | string;
+  regelKwalificatie: RenvooiValue | string;
+  locatieNoemers: Array<RenvooiValue | string>;
   regelKwalificatieVoorzetsel: string | undefined;
 }
 
@@ -115,7 +115,7 @@ export function annotationActiviteitArgsMapper(a: AnnotationActiviteitArgs): Ann
  */
 
 export interface AnnotationGebiedsaanwijzingArgs extends AnnotationBaseArgs {
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 }
 
 export const annotationGebiedsaanwijzingArgs: Omit<AnnotationGebiedsaanwijzingArgs, "dsoActiveChange"> = {
@@ -144,10 +144,10 @@ export function annotationGebiedsaanwijzingArgsMapper(a: AnnotationGebiedsaanwij
  */
 
 export interface AnnotationOmgevingsnormwaardeArgs extends AnnotationBaseArgs {
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
   toelichting: string;
-  waardes: Array<AnnotationDiff | string>;
-  eenheid: AnnotationDiff | string;
+  waardes: Array<RenvooiValue | string>;
+  eenheid: RenvooiValue | string;
 }
 
 export const annotationOmgevingsnormwaardeArgs: Omit<AnnotationOmgevingsnormwaardeArgs, "dsoActiveChange"> = {
@@ -194,7 +194,7 @@ export function annotationOmgevingsnormwaardeArgsMapper(a: AnnotationOmgevingsno
  */
 
 export interface AnnotationLocatieArgs extends AnnotationBaseArgs {
-  locatieNoemer: AnnotationDiff | string;
+  locatieNoemer: RenvooiValue | string;
 }
 
 export const annotationLocatieArgs: Omit<AnnotationLocatieArgs, "dsoActiveChange"> = {
@@ -223,7 +223,7 @@ export function annotationLocatieArgsMapper(a: AnnotationLocatieArgs): Annotatio
  */
 
 export interface AnnotationKaartArgs extends Pick<AnnotationBaseArgs, "wijzigactie"> {
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
   href: string;
   dsoClick(event: AnnotationKaartClickEvent): void;
 }

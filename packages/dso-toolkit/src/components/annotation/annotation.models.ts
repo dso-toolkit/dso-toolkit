@@ -1,3 +1,5 @@
+import { RenvooiValue } from "../renvooi";
+
 export type Annotation =
   | AnnotationActiviteit
   | AnnotationGebiedsaanwijzing
@@ -41,17 +43,17 @@ export interface AnnotationActiviteit extends AnnotationBase {
   /**
    * De naam van de activiteit.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 
   /**
    * De activiteit regel kwalificatie.
    */
-  regelKwalificatie: AnnotationDiff | string;
+  regelKwalificatie: RenvooiValue | string;
 
   /**
    * De noemer van de locaties.
    */
-  locatieNoemers: Array<AnnotationDiff | string>;
+  locatieNoemers: Array<RenvooiValue | string>;
 
   /**
    * Voorzetsel van de regelKwalificatie. Exclusief dubbele punt.
@@ -65,7 +67,7 @@ export interface AnnotationGebiedsaanwijzing extends AnnotationBase {
   /**
    * De naam van de gebiedsaanwijzing.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 }
 
 export interface AnnotationOmgevingsnormwaarde extends AnnotationBase {
@@ -74,7 +76,7 @@ export interface AnnotationOmgevingsnormwaarde extends AnnotationBase {
   /**
    * De naam van de omgevingsnorm of omgevingswaarde.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 
   /**
    * De toelichting van de waardes.
@@ -84,12 +86,12 @@ export interface AnnotationOmgevingsnormwaarde extends AnnotationBase {
   /**
    * De waardes van de omgevingsnorm of omgevingswaarde.
    */
-  waardes: Array<AnnotationDiff | string>;
+  waardes: Array<RenvooiValue | string>;
 
   /**
    * De eenheid van de omgevingsnorm of omgevingswaarde.
    */
-  eenheid: AnnotationDiff | string;
+  eenheid: RenvooiValue | string;
 }
 
 export interface AnnotationLocatie extends AnnotationBase {
@@ -98,7 +100,7 @@ export interface AnnotationLocatie extends AnnotationBase {
   /**
    * De noemer van de locatie.
    */
-  locatieNoemer: AnnotationDiff | string;
+  locatieNoemer: RenvooiValue | string;
 }
 
 export interface AnnotationKaart extends Pick<AnnotationBase, "wijzigactie"> {
@@ -107,7 +109,7 @@ export interface AnnotationKaart extends Pick<AnnotationBase, "wijzigactie"> {
   /**
    * De naam van de kaart.
    */
-  naam: AnnotationDiff | string;
+  naam: RenvooiValue | string;
 
   /**
    * De url naar de kaart.
@@ -155,5 +157,3 @@ export interface AnnotationKaartClickEvent {
    */
   isModifiedEvent: boolean;
 }
-
-export type AnnotationDiff = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string };

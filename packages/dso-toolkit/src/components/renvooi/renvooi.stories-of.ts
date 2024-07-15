@@ -14,12 +14,7 @@ interface RenvooiStories {
 }
 
 interface RenvooiStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    RenvooiTemplates<TemplateFnReturnType>
-  > {}
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, RenvooiTemplates<TemplateFnReturnType>> {}
 
 interface RenvooiTemplates<TemplateFnReturnType> {
   renvooiTemplate: (renvooiProperties: Renvooi) => TemplateFnReturnType;
@@ -48,7 +43,6 @@ export function renvooiStories<Implementation, Templates, TemplateFnReturnType>(
 }: RenvooiStoriesParameters<Implementation, Templates, TemplateFnReturnType>): RenvooiStories {
   return {
     Default: {
-      args: {},
       render: templateContainer.render(storyTemplates, (args, { renvooiTemplate }) =>
         renvooiTemplate(renvooiArgsMapper(args)),
       ),

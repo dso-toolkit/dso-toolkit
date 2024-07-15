@@ -2,7 +2,6 @@ import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
 import { AnnotationActiveChangeEvent } from "./annotation.interfaces";
 
 interface AnnotationBodyProps {
-  icon?: string;
   title: JSX.Element;
   data?: JSX.Element;
   active?: boolean;
