@@ -983,6 +983,8 @@ export namespace Components {
          */
         "totalPages"?: number;
     }
+    interface DsoPanel {
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -2006,6 +2008,12 @@ declare global {
         prototype: HTMLDsoPaginationElement;
         new (): HTMLDsoPaginationElement;
     };
+    interface HTMLDsoPanelElement extends Components.DsoPanel, HTMLStencilElement {
+    }
+    var HTMLDsoPanelElement: {
+        prototype: HTMLDsoPanelElement;
+        new (): HTMLDsoPanelElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -2219,6 +2227,7 @@ declare global {
         "dso-modal": HTMLDsoModalElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
+        "dso-panel": HTMLDsoPanelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
@@ -3341,6 +3350,8 @@ declare namespace LocalJSX {
          */
         "totalPages"?: number;
     }
+    interface DsoPanel {
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -3686,6 +3697,7 @@ declare namespace LocalJSX {
         "dso-modal": DsoModal;
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
+        "dso-panel": DsoPanel;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-renvooi": DsoRenvooi;
@@ -3751,6 +3763,7 @@ declare module "@stencil/core" {
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
+            "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             /**

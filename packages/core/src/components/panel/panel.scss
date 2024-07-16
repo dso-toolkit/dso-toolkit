@@ -1,0 +1,65 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/di";
+
+:host {
+  display: block;
+
+  border: 1px solid colors.$bosgroen-40;
+  border-radius: units.$u1 * 0.5;
+}
+
+@include utilities.box-sizing();
+
+.panel-header {
+  display: flex;
+  gap: units.$u2;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-block: units.$u1;
+  padding-inline: units.$u2 units.$u1;
+
+  border-block-end: 1px solid colors.$bosgroen-40;
+
+  border-start-start-radius: units.$u1 * 0.5;
+  border-start-end-radius: units.$u1 * 0.5;
+
+  background-color: colors.$bosgroen-10;
+
+  color: colors.$bosgroen;
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
+}
+
+.panel-title {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.panel-close {
+  display: inline-block;
+
+  inline-size: units.$u3;
+  aspect-ratio: 1 / 1;
+
+  padding: 0;
+
+  border: 0;
+
+  background-color: transparent;
+
+  color: colors.$bosgroen;
+
+  cursor: pointer;
+}
+
+.panel-body {
+  padding-block: units.$u2;
+  padding-inline: units.$u2;
+}
