@@ -59,14 +59,20 @@ jobs:
         id: cypress-parallel-weights-file-cache
         uses: actions/cache@v4
         with:
-          key: weights-file
+          key: weights-file-${{ hashFiles('yarn.lock', 'storybook/cypress/**') }}
           path: ${{ github.workspace }}/storybook/cypress-parallel/parallel-weights.json
+          restore-keys: |
+            weights-file-${{ hashFiles('yarn.lock', 'storybook/cypress/**') }}
+            weights-file-
       - name: "Cache: Cypress snapshots"
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
-          key: cypress-snapshots
+          key: cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+          restore-keys: |
+            cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
+            cypress-snapshots-
       - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' }}
         name: List snapshots
         continue-on-error: true
@@ -75,6 +81,7 @@ jobs:
         name: "Clean Cypress snapshots"
         run: rm -rf ${{ github.workspace }}/storybook/cypress/snapshot-baseline
       - name: e2e tests
+        id: e2e
         uses: addnab/docker-run-action@v3
         with:
           registry: ghcr.io
@@ -89,11 +96,12 @@ jobs:
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
           run: yarn e2e
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ !cancelled() }}
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-${{ env.DT_REF == 'master' && 'baseline' || 'diff' }}
       - uses: addnab/docker-run-action@v3
+        if: ${{ env.DT_DIST_TAG == 'master' && steps.e2e.conclusion == 'success' || !cancelled() }}
         name: Deploy
         with:
           registry: ghcr.io
@@ -118,3 +126,8 @@ jobs:
           DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_CONTAINER_ACC || secrets.DT_AZURE_STORAGE_CONTAINER }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
+      - run: gh release create v${DT_REF} --generate-notes --verify-tag
+        if: ${{ env.DT_DIST_TAG == 'latest' }}
+        name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Button Secondary: Hover and active state ([#2699](https://github.com/dso-toolkit/dso-toolkit/issues/2699))
 
+### Tasks
+* Build: GitHub releases aansluiten ([#2589](https://github.com/dso-toolkit/dso-toolkit/issues/2589))
+
 ## 🧃 Release 62.28.0 - 15-07-2024
 
 ### Added

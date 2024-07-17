@@ -30,8 +30,6 @@ then
   npm version ${DT_REF}
   npm publish
   cd ../../..
-
-  # gh release create v${DT_REF} --generate-notes --verify-tag
 fi
 
 yarn tsx ./scripts/update-azure-blob-storage/main --azureStorageHost "$DT_AZURE_STORAGE_HOST" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER" --azureSasToken "$SAS_TOKEN" --githubToken "$GH_TOKEN"

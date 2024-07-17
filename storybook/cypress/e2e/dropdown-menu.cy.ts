@@ -5,9 +5,15 @@ describe("Dropdown menu - anchors", () => {
     cy.configureAxe({
       rules: [{ id: "color-contrast", enabled: false }],
     });
-    cy.get("button[slot = 'toggle']").as("button");
-    cy.get(".dso-dropdown-options").as("options");
-    cy.get(".dso-dropdown-options ul li a").as("menuitems");
+
+    cy.get("dso-dropdown-menu.hydrated")
+      .should("exist")
+      .get("button[slot = 'toggle']")
+      .as("button")
+      .get(".dso-dropdown-options")
+      .as("options")
+      .get(".dso-dropdown-options ul li a")
+      .as("menuitems");
   });
 
   it("should open and close on button click", () => {
