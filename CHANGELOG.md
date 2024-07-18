@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 🥌 Release 62.29.0 - 17-07-2024
 
+### Tasks
+* Build: Release automatisering ([#1337](https://github.com/dso-toolkit/dso-toolkit/issues/1337))
+
 ### Changed
 * Button Secondary: Hover and active state ([#2699](https://github.com/dso-toolkit/dso-toolkit/issues/2699))
 
