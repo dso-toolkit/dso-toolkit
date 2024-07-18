@@ -101,7 +101,7 @@ jobs:
           name: cypress-snapshots-${{ env.DT_REF }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-${{ env.DT_REF == 'master' && 'baseline' || 'diff' }}
       - uses: addnab/docker-run-action@v3
-        if: ${{ env.DT_DIST_TAG == 'master' && steps.e2e.conclusion == 'success' || !cancelled() }}
+        if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success') }}
         name: Deploy
         with:
           registry: ghcr.io
