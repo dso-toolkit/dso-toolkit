@@ -18,16 +18,11 @@ then
   yarn config set npmAuthToken "${DT_DEPLOY_NPM_TOKEN}"
   npm config set //registry.npmjs.org/:_authToken ${DT_DEPLOY_NPM_TOKEN}
 
-  yarn workspace @dso-toolkit/core version ${DT_REF} --immediate
-  yarn workspace @dso-toolkit/react version ${DT_REF} --immediate
-  yarn workspace dso-toolkit version ${DT_REF} --immediate
-
   yarn workspace dso-toolkit npm publish --access public
   yarn workspace @dso-toolkit/core npm publish --access public
   yarn workspace @dso-toolkit/react npm publish --access public
 
   cd angular-workspace/dist/component-library
-  npm version ${DT_REF}
   npm publish
   cd ../../..
 fi
