@@ -6,7 +6,9 @@ describe("Panel", () => {
   it("should be accessible", () => {
     cy.injectAxe();
     cy.checkA11y("dso-panel");
+  });
 
+  it("should matchImageSnapshot", () => {
     cy.get("dso-panel.hydrated").matchImageSnapshot();
   });
 

@@ -35,6 +35,7 @@ import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPagin
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+import { PanelCloseEvent } from "./components/panel/panel";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -71,6 +72,7 @@ export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPagin
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+export { PanelCloseEvent } from "./components/panel/panel";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -2013,7 +2015,7 @@ declare global {
         new (): HTMLDsoPaginationElement;
     };
     interface HTMLDsoPanelElementEventMap {
-        "dsoCloseClick": MouseEvent;
+        "dsoCloseClick": PanelCloseEvent;
     }
     interface HTMLDsoPanelElement extends Components.DsoPanel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoPanelElementEventMap>(type: K, listener: (this: HTMLDsoPanelElement, ev: DsoPanelCustomEvent<HTMLDsoPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3369,7 +3371,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user click the close button.
          */
-        "onDsoCloseClick"?: (event: DsoPanelCustomEvent<MouseEvent>) => void;
+        "onDsoCloseClick"?: (event: DsoPanelCustomEvent<PanelCloseEvent>) => void;
     }
     interface DsoProgressBar {
         /**

@@ -6,9 +6,9 @@
 
 ## Events
 
-| Event           | Description                                   | Type                      |
-| --------------- | --------------------------------------------- | ------------------------- |
-| `dsoCloseClick` | Emitted when the user click the close button. | `CustomEvent<MouseEvent>` |
+| Event           | Description                                   | Type                           |
+| --------------- | --------------------------------------------- | ------------------------------ |
+| `dsoCloseClick` | Emitted when the user click the close button. | `CustomEvent<PanelCloseEvent>` |
 
 
 ## Slots

@@ -1,5 +1,9 @@
 import { Component, ComponentInterface, Event, EventEmitter, h } from "@stencil/core";
 
+export interface PanelCloseEvent {
+  originalEvent: Event;
+}
+
 /**
  * @slot - The contents to be highlighted within the panel
  * @slot heading - The heading (h2 - h6) with the title of the panel
@@ -14,14 +18,14 @@ export class Panel implements ComponentInterface {
    * Emitted when the user click the close button.
    */
   @Event()
-  dsoCloseClick!: EventEmitter<MouseEvent>;
+  dsoCloseClick!: EventEmitter<PanelCloseEvent>;
 
   render() {
     return (
       <div class="dso-panel">
         <div class="panel-heading">
           <slot name="heading" />
-          <button type="button" class="panel-close" onClick={(e) => this.dsoCloseClick.emit(e)}>
+          <button type="button" class="panel-close" onClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}>
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">Sluiten</span>
           </button>
