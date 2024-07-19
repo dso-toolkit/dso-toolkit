@@ -1360,6 +1360,10 @@ export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPaginationElement;
 }
+export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPanelElement;
+}
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoResponsiveElementElement;
@@ -2008,7 +2012,18 @@ declare global {
         prototype: HTMLDsoPaginationElement;
         new (): HTMLDsoPaginationElement;
     };
+    interface HTMLDsoPanelElementEventMap {
+        "dsoCloseClick": MouseEvent;
+    }
     interface HTMLDsoPanelElement extends Components.DsoPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPanelElementEventMap>(type: K, listener: (this: HTMLDsoPanelElement, ev: DsoPanelCustomEvent<HTMLDsoPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPanelElementEventMap>(type: K, listener: (this: HTMLDsoPanelElement, ev: DsoPanelCustomEvent<HTMLDsoPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoPanelElement: {
         prototype: HTMLDsoPanelElement;
@@ -3351,6 +3366,10 @@ declare namespace LocalJSX {
         "totalPages"?: number;
     }
     interface DsoPanel {
+        /**
+          * Emitted when the user click the close button.
+         */
+        "onDsoCloseClick"?: (event: DsoPanelCustomEvent<MouseEvent>) => void;
     }
     interface DsoProgressBar {
         /**

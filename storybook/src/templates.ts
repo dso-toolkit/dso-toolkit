@@ -287,7 +287,7 @@ export interface Components {
   navbar: Navbar<TemplateResult>;
   ozonContent: OzonContent;
   pagination: Pagination;
-  panel: Panel;
+  panel: Panel<TemplateResult>;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   renvooi: Renvooi;

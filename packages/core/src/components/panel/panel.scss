@@ -12,7 +12,7 @@
 
 @include utilities.box-sizing();
 
-.panel-header {
+.panel-heading {
   display: flex;
   gap: units.$u2;
   justify-content: space-between;
@@ -35,7 +35,7 @@
   }
 }
 
-.panel-title {
+::slotted([slot="heading"]) {
   margin: 0;
 
   font-size: 1rem;

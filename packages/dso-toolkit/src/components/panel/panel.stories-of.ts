@@ -17,7 +17,9 @@ interface PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType
   extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, PanelTemplates<TemplateFnReturnType>> {}
 
 interface PanelTemplates<TemplateFnReturnType> {
-  panelTemplate: (panelProperties: Panel) => TemplateFnReturnType;
+  panelTemplate: (panelProperties: Panel<TemplateFnReturnType>) => TemplateFnReturnType;
+  children: TemplateFnReturnType;
+  heading: TemplateFnReturnType;
 }
 
 export function panelMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -43,9 +45,8 @@ export function panelStories<Implementation, Templates, TemplateFnReturnType>({
 }: PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PanelStories {
   return {
     Default: {
-      args: {},
-      render: templateContainer.render(storyTemplates, (args, { panelTemplate }) =>
-        panelTemplate(panelArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { panelTemplate, children, heading }) =>
+        panelTemplate(panelArgsMapper(args, children, heading)),
       ),
     },
   };

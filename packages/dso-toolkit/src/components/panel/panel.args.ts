@@ -1,15 +1,28 @@
 import { ArgTypes } from "@storybook/types";
 
 import { Panel } from "./panel.models.js";
+import { HandlerFunction } from "@storybook/addon-actions";
 
-export interface PanelArgs {}
+export interface PanelArgs {
+  dsoCloseClick: HandlerFunction;
+}
 
-export const panelArgs: PanelArgs = {};
+export const panelArgs: Omit<PanelArgs, "dsoCloseClick"> = {};
 
-export const panelArgTypes: ArgTypes<PanelArgs> = {};
+export const panelArgTypes: ArgTypes<PanelArgs> = {
+  dsoCloseClick: {
+    action: "dsoCloseClick",
+  },
+};
 
-export function panelArgsMapper(a: PanelArgs): Panel {
+export function panelArgsMapper<TemplateFnReturnType>(
+  a: PanelArgs,
+  children: TemplateFnReturnType,
+  heading: TemplateFnReturnType,
+): Panel<TemplateFnReturnType> {
   return {
     ...a,
+    children,
+    heading,
   };
 }
