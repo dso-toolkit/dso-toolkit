@@ -35,6 +35,7 @@ import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPagin
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+import { PanelCloseEvent } from "./components/panel/panel";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -71,6 +72,7 @@ export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPagin
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+export { PanelCloseEvent } from "./components/panel/panel";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -983,6 +985,8 @@ export namespace Components {
          */
         "totalPages"?: number;
     }
+    interface DsoPanel {
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -1357,6 +1361,10 @@ export interface DsoOzonContentCustomEvent<T> extends CustomEvent<T> {
 export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPaginationElement;
+}
+export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPanelElement;
 }
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2006,6 +2014,23 @@ declare global {
         prototype: HTMLDsoPaginationElement;
         new (): HTMLDsoPaginationElement;
     };
+    interface HTMLDsoPanelElementEventMap {
+        "dsoCloseClick": PanelCloseEvent;
+    }
+    interface HTMLDsoPanelElement extends Components.DsoPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPanelElementEventMap>(type: K, listener: (this: HTMLDsoPanelElement, ev: DsoPanelCustomEvent<HTMLDsoPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPanelElementEventMap>(type: K, listener: (this: HTMLDsoPanelElement, ev: DsoPanelCustomEvent<HTMLDsoPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoPanelElement: {
+        prototype: HTMLDsoPanelElement;
+        new (): HTMLDsoPanelElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -2219,6 +2244,7 @@ declare global {
         "dso-modal": HTMLDsoModalElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
+        "dso-panel": HTMLDsoPanelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
@@ -3341,6 +3367,12 @@ declare namespace LocalJSX {
          */
         "totalPages"?: number;
     }
+    interface DsoPanel {
+        /**
+          * Emitted when the user click the close button.
+         */
+        "onDsoCloseClick"?: (event: DsoPanelCustomEvent<PanelCloseEvent>) => void;
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -3686,6 +3718,7 @@ declare namespace LocalJSX {
         "dso-modal": DsoModal;
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
+        "dso-panel": DsoPanel;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-renvooi": DsoRenvooi;
@@ -3751,6 +3784,7 @@ declare module "@stencil/core" {
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
+            "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             /**

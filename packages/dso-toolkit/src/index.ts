@@ -185,6 +185,8 @@ export { OzonContentTemplates, storiesOfOzonContent } from "./components/ozon-co
 export { Pagination, PaginationSelectPageEvent } from "./components/pagination/pagination.models.js";
 export { PaginationTemplates, storiesOfPagination } from "./components/pagination/pagination.stories-of.js";
 
+export * from "./components/panel";
+
 export { ProgressBar } from "./components/progress-bar/progress-bar.models.js";
 export { ProgressBarTemplates, storiesOfProgressBar } from "./components/progress-bar/progress-bar.stories-of.js";
 
