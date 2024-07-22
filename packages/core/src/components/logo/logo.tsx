@@ -80,7 +80,7 @@ export class Logo implements ComponentInterface {
 
   render() {
     return (
-      <Host aria-label={["Omgevingsloket", this.label, this.ribbon && `(${this.ribbon})`].filter((s) => !!s).join(" ")}>
+      <>
         {this.logoUrl ? (
           <a class="logo-url" href={this.logoUrl} onClick={this.handleLogoClick}>
             <DsoLogo />
@@ -98,7 +98,7 @@ export class Logo implements ComponentInterface {
             </a>
           ))}
         {this.ribbon && <div class="logo-ribbon">{this.ribbon}</div>}
-      </Host>
+      </>
     );
   }
 }
