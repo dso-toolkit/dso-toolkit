@@ -46,6 +46,7 @@
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.34.3",
     "minimist": "^1.2.8",
+    "ndjson": "^2.0.0",
     "nx": "19.4.2",
     "patch-package": "^8.0.0",
     "plop": "^4.0.1",
@@ -65,5 +66,8 @@
   "resolutions": {
     "@types/react@^16.14.23": "18.0.25",
     "puppeteer-core@^2.1.1": "13.5.2"
+  },
+  "devDependencies": {
+    "@types/ndjson": "^2"
   }
 }
