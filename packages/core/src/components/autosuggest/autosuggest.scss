@@ -15,7 +15,7 @@
   inset-inline: 0;
   inset-block-start: 100%;
   block-size: auto;
-  max-block-size: core-autosuggest-variables.$listbox-max-block-size;
+  max-block-size: var(--max-block-size);
   min-block-size: core-autosuggest-variables.$listbox-min-block-size;
   overflow-y: auto;
   position: absolute;

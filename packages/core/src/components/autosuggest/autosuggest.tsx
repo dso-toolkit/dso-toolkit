@@ -5,9 +5,9 @@ import escapeStringRegexp from "escape-string-regexp";
 
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
-const listItemBlockSize = 32;
-const listboxMaxBlockSize = 338;
+const maxSuggestionsViewable = 10;
 const listboxPaddingBlock = 8;
+const listboxBorderWidth = 1;
 
 @Component({
   tag: "dso-autosuggest",
@@ -98,6 +98,12 @@ export class Autosuggest {
   @State()
   showLoading = false;
 
+  @State()
+  listItemBlockSize = 0;
+
+  @State()
+  listboxContainerMaxBlockSize = 0;
+
   @Watch("suggestions")
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -111,15 +117,19 @@ export class Autosuggest {
 
   private input?: HTMLInputElement;
 
+  private listboxContainer: HTMLDsoScrollableElement | undefined;
+
   private listbox: HTMLUListElement | undefined;
 
-  private listboxContainer: HTMLDsoScrollableElement | undefined;
+  private listboxItem: HTMLLIElement[] = [];
 
   private listboxId: string = v4();
 
   private inputId: string = v4();
 
   private labelId: string = v4();
+
+  private resizeObserver?: ResizeObserver;
 
   private debouncedEmitValue = debounce((value: string) => {
     this.dsoChange.emit(value);
@@ -161,6 +171,23 @@ export class Autosuggest {
       this.input !== event.target
     ) {
       this.closeSuggestions();
+    }
+  }
+
+  componentDidLoad() {
+    this.resizeObserver = new ResizeObserver(debounce(() => this.setListboxContainerMaxBlockSize(), 150));
+
+    this.resizeObserver?.observe(this.host);
+  }
+
+  componentWillRender() {
+    this.listboxItem = [];
+  }
+
+  componentDidRender() {
+    if (this.listboxItem[0] && this.showSuggestions) {
+      this.listItemBlockSize = this.listboxItem[0].getBoundingClientRect().height;
+      this.setListboxContainerMaxBlockSize();
     }
   }
 
@@ -212,18 +239,22 @@ export class Autosuggest {
     this.input?.removeEventListener("focusin", this.onFocusIn);
 
     window.removeEventListener("resize", this.onWindowResize);
+
+    this.resizeObserver?.disconnect();
   }
 
   private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
 
   private setListboxContainerMaxBlockSize(): void {
-    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom,
+      listboxMaxBlockSize =
+        this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
-    if (this.listboxContainer && this.showSuggestions && availableBlockSize > listItemBlockSize) {
+    if (this.listboxContainer && this.showSuggestions && availableBlockSize > this.listItemBlockSize) {
       if (availableBlockSize < listboxMaxBlockSize) {
-        this.listboxContainer.style.maxBlockSize = availableBlockSize - 2 * listboxPaddingBlock + "px";
+        this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
-        this.listboxContainer.style.maxBlockSize = listboxMaxBlockSize + "px";
+        this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
       }
     }
   }
@@ -348,9 +379,6 @@ export class Autosuggest {
 
   private openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
-    if (this.showSuggestions) {
-      this.setListboxContainerMaxBlockSize();
-    }
     this.notFound = this.suggestions?.length === 0 ?? false;
     this.input?.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
@@ -449,7 +477,11 @@ export class Autosuggest {
             <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
           </div>
         ) : (
-          <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
+          <dso-scrollable
+            class="listbox-container"
+            ref={(element) => (this.listboxContainer = element)}
+            style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
+          >
             <ul
               role="listbox"
               aria-live="polite"
@@ -470,6 +502,7 @@ export class Autosuggest {
                     onClick={() => this.pickSelectedValue()}
                     aria-selected={(suggestion === this.selectedSuggestion).toString()}
                     aria-label={suggestion.value}
+                    ref={(li) => li && this.listboxItem.push(li)}
                   >
                     <div class="suggestion-row">
                       <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
