@@ -13,9 +13,12 @@
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5);
 
-  padding: #{grid-variables.$grid-gutter-width * 0.5};
-  margin-inline-start: grid-variables.$grid-gutter-width * -0.5;
-  margin-inline-end: grid-variables.$grid-gutter-width * -0.5;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    padding: #{grid-variables.$grid-gutter-width * 0.5};
+    margin-inline-start: grid-variables.$grid-gutter-width * -0.5;
+    margin-inline-end: grid-variables.$grid-gutter-width * -0.5;
+  }
 
   #{typography.$headings} {
     button {
@@ -50,8 +53,11 @@
         &::after {
           @include di.base("chevron-up-bosgroen");
 
-          content: "";
-          display: inline-block;
+          // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+          & {
+            content: "";
+            display: inline-block;
+          }
         }
 
         span {
@@ -115,8 +121,11 @@
   .dso-document-header-toggle-status {
     @include button.tertiary();
 
-    color: colors.$zwart;
-    font-weight: normal;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      color: colors.$zwart;
+      font-weight: normal;
+    }
   }
 
   .dso-document-header-map-action {

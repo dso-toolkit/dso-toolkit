@@ -7,21 +7,23 @@
 @use "form-control.variables" as form-control-variables;
 
 @mixin root() {
-  display: block;
-  inline-size: 100%;
-  block-size: form-control-variables.$block-size;
-  padding-block: units.$padding-base-block;
-  padding-inline: (units.$padding-base-inline + 2);
-  font-size: typography.$root-font-size-base;
-  line-height: typography.$line-height-base;
-  color: colors.$input-color;
-  background-color: colors.$input-bg;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: form-control-variables.$border-width solid colors.$input-border;
-  border-radius: form-control-variables.$input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
-  transition:
-    border-color ease-in-out 0.15s,
-    box-shadow ease-in-out 0.15s;
+  & {
+    display: block;
+    inline-size: 100%;
+    block-size: form-control-variables.$block-size;
+    padding-block: units.$padding-base-block;
+    padding-inline: (units.$padding-base-inline + 2);
+    font-size: typography.$root-font-size-base;
+    line-height: typography.$line-height-base;
+    color: colors.$input-color;
+    background-color: colors.$input-bg;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: form-control-variables.$border-width solid colors.$input-border;
+    border-radius: form-control-variables.$input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+    transition:
+      border-color ease-in-out 0.15s,
+      box-shadow ease-in-out 0.15s;
+  }
 
   @include utilities.placeholder(colors.$input-color-placeholder);
 

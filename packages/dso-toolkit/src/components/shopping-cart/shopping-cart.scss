@@ -11,15 +11,19 @@
 .dso-shopping-cart {
   .dso-status {
     @include set-colors.apply(colors.$grijs-5);
-    border: 0;
-    border-radius: css-shopping-cart-variables.$radius;
-    box-shadow: none;
-    display: block;
-    font-weight: 600;
-    padding-block: units.$u2;
-    padding-inline: units.$u6;
-    position: relative;
-    text-align: start;
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border: 0;
+      border-radius: css-shopping-cart-variables.$radius;
+      box-shadow: none;
+      display: block;
+      font-weight: 600;
+      padding-block: units.$u2;
+      padding-inline: units.$u6;
+      position: relative;
+      text-align: start;
+    }
 
     dso-icon,
     svg.di {
@@ -56,10 +60,13 @@
   .dso-contents {
     @include set-colors.apply(colors.$grijs-5);
 
-    border: 0;
-    border-radius: css-shopping-cart-variables.$radius;
-    color: colors.$zwart;
-    position: relative;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border: 0;
+      border-radius: css-shopping-cart-variables.$radius;
+      color: colors.$zwart;
+      position: relative;
+    }
 
     > .dso-delete {
       position: absolute;
@@ -82,9 +89,12 @@
 
     @include set-colors.apply(colors.$grijs-5, $icons: false);
 
-    border-radius: css-shopping-cart-variables.$radius;
-    margin-block-end: 0;
-    margin-block-start: 0;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border-radius: css-shopping-cart-variables.$radius;
+      margin-block-end: 0;
+      margin-block-start: 0;
+    }
 
     li {
       border-block-start: 1px solid css-shopping-cart-variables.$border-color;

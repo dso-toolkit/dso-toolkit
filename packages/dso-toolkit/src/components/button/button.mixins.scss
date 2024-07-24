@@ -20,19 +20,21 @@
 }
 
 @mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
+  @include _shared-variant($defaults-map);
+
   @if ($base-styling) {
     @include base($modifiers);
   }
 
-  @include _shared-variant($defaults-map);
-
-  border-width: 1px;
-  border-style: solid;
-  border-radius: button-variables.$border-radius;
-  line-height: typography.$line-height-base;
-  min-inline-size: button-variables.$min-inline-size;
-  padding-block: button-variables.$block-padding;
-  padding-inline: button-variables.$inline-padding;
+  & {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: button-variables.$border-radius;
+    line-height: typography.$line-height-base;
+    min-inline-size: button-variables.$min-inline-size;
+    padding-block: button-variables.$block-padding;
+    padding-inline: button-variables.$inline-padding;
+  }
 
   &:hover {
     @include _shared-variant($defaults-map, $hover-map);
@@ -346,11 +348,13 @@
     @include base($modifiers);
   }
 
-  border: 0;
-  color: button-variables.$tertiary-color;
-  line-height: 1;
-  padding: 0;
-  background-color: transparent;
+  & {
+    border: 0;
+    color: button-variables.$tertiary-color;
+    line-height: 1;
+    padding: 0;
+    background-color: transparent;
+  }
 
   &[disabled] {
     color: colors.$grasgroen-40;
