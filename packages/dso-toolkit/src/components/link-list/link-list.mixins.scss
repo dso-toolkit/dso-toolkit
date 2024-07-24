@@ -36,7 +36,10 @@
   a {
     @include anchor.reverse();
 
-    color: colors.$zwart;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      color: colors.$zwart;
+    }
 
     &:active {
       color: colors.$zwart;

@@ -45,16 +45,19 @@
     }
 
     select {
-      @include form-control.root();
       @include di.variant("caret-down");
+      @include form-control.root();
 
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      background-position: calc(100% - #{units.$u1});
-      background-repeat: no-repeat;
-      background-size: icon.$size icon.$size;
-      padding-inline-end: units.$u4;
-      inline-size: auto;
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-position: calc(100% - #{units.$u1});
+        background-repeat: no-repeat;
+        background-size: icon.$size icon.$size;
+        padding-inline-end: units.$u4;
+        inline-size: auto;
+      }
     }
   }
 }

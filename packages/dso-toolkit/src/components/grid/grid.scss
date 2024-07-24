@@ -69,9 +69,6 @@ form {
       --highlight-box-nocounter-block-size: calc(100% - #{units.$u2});
     }
 
-    display: flex;
-    flex-wrap: wrap;
-
     > [class*="col-"] {
       display: flex;
       flex-direction: column;
@@ -84,6 +81,12 @@ form {
           block-size: calc(100% - #{units.$shared-equal-heights-highlight-box-block-size});
         }
       }
+    }
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
@@ -101,7 +104,10 @@ form {
       padding-block-start: units.$u3;
     }
 
-    background-size: 0; // background image killed off here, to be shown in the ::before
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      background-size: 0; // background image killed off here, to be shown in the ::before
+    }
 
     &.no-button-banner {
       min-block-size: 296px;

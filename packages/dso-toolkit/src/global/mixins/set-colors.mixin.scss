@@ -25,9 +25,11 @@
   // set link and icon color according to text color
   @if color.lightness($background-color) < 100% {
     @if $links == true {
-      --link-color: currentColor;
-      --link-hover-color: currentColor;
-      --link-visited-color: currentColor;
+      & {
+        --link-color: currentColor;
+        --link-hover-color: currentColor;
+        --link-visited-color: currentColor;
+      }
     }
 
     // set according to contrast color determined by contrast-color function
@@ -48,9 +50,11 @@
   }
 
   // set css properties
-  background-color: $background-color;
-  border-color: if($border-color, $border-color, $background-color);
-  color: $contrast-color;
+  & {
+    background-color: $background-color;
+    border-color: if($border-color, $border-color, $background-color);
+    color: $contrast-color;
+  }
 
   // implement icon color according to background color
   @if $icon-color and $icons == true {

@@ -31,6 +31,9 @@ dso-viewer-grid {
   .dso-toggle-main-button {
     @include button.tertiary($modifiers: false);
 
-    padding-block: units.$u2;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      padding-block: units.$u2;
+    }
   }
 }
