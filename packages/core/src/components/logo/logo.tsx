@@ -2,7 +2,6 @@ import {
   Component,
   ComponentInterface,
   Fragment,
-  Host,
   Prop,
   h,
   Event,
