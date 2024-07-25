@@ -139,7 +139,7 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
               children: html`<input
                 type="text"
                 id="search-bar--with-value"
-                placeholder="Bijvoorbeeld 'Rotterdam' of 'Groningen'"
+                placeholder="Bijvoorbeeld 'Rotterdam' of 'Groningen' of 'suggestie' (voor meer dan 10 suggesties)"
               />`,
             })}
             <button type="button">Zoekopdracht legen</button>

@@ -135,15 +135,75 @@ const suggestions: AutosuggestSuggestion[] = [
     type: "omgevingsplan (omgevingswet)",
     value: "Omgevingsvergunning Friesestraatweg 141-36",
   },
+  {
+    value: "1e suggestie van 20",
+  },
+  {
+    value: "2e suggestie van 20",
+  },
+  {
+    value: "3e suggestie van 20",
+  },
+  {
+    value: "4e suggestie van 20",
+  },
+  {
+    value: "5e suggestie van 20",
+  },
+  {
+    value: "6e suggestie van 20",
+  },
+  {
+    value: "7e suggestie van 20",
+  },
+  {
+    value: "8e suggestie van 20",
+  },
+  {
+    value: "9e suggestie van 20",
+  },
+  {
+    value: "10e suggestie van 20",
+  },
+  {
+    value: "11e suggestie van 20",
+  },
+  {
+    value: "12e suggestie van 20",
+  },
+  {
+    value: "13e suggestie van 20",
+  },
+  {
+    value: "14e suggestie van 20",
+  },
+  {
+    value: "15e suggestie van 20",
+  },
+  {
+    value: "16e suggestie van 20",
+  },
+  {
+    value: "17e suggestie van 20",
+  },
+  {
+    value: "18e suggestie van 20",
+  },
+  {
+    value: "19e suggestie van 20",
+  },
+  {
+    value: "20e suggestie van 20",
+  },
 ];
 
 export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
   const terms = value.match(/(\S+)/g);
 
   return terms
-    ? suggestions
-        .filter((suggestion) => terms.every((term) => new RegExp(escapeStringRegexp(term), "i").test(suggestion.value)))
-        .slice(0, 10)
+    ? suggestions.filter((suggestion) =>
+        terms.every((term) => new RegExp(escapeStringRegexp(term), "i").test(suggestion.value)),
+      )
     : [];
 }
 

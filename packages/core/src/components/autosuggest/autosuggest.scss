@@ -11,22 +11,26 @@
   position: relative;
 }
 
+.listbox-container {
+  inset-inline: 0;
+  inset-block-start: 100%;
+  block-size: auto;
+  max-block-size: var(--max-block-size);
+  min-block-size: core-autosuggest-variables.$listbox-min-block-size;
+  overflow-y: auto;
+  position: absolute;
+  z-index: zindex.$autosuggest;
+}
+
 ul,
 .autosuggest-progress-box {
   background-clip: padding-box;
   background-color: core-autosuggest-variables.$background-color;
-  border: 1px solid core-autosuggest-variables.$border-color;
+  border: core-autosuggest-variables.$listbox-border-width solid core-autosuggest-variables.$border-color;
   border-radius: scaffolding.$border-radius-base;
   box-shadow: core-autosuggest-variables.$box-shadow;
   list-style-type: none;
-  margin-block-start: 2px;
-  padding-block: units.$u1 * 0.5;
-  padding-inline: 0;
-  position: absolute;
-  inset-inline-start: 0;
-  inset-inline-end: 0;
-  inset-block-start: 100%;
-  z-index: zindex.$autosuggest;
+  margin-block: 0;
 }
 
 .autosuggest-progress-box {
@@ -35,11 +39,11 @@ ul,
 }
 
 ul {
-  padding-block: units.$u1;
+  padding-block: core-autosuggest-variables.$listbox-padding-block;
   padding-inline: 0;
 
   li {
-    padding-block: units.$u1 * 0.5;
+    padding-block: core-autosuggest-variables.$list-item-padding-block;
     padding-inline: units.$u2;
 
     .suggestion-row {
