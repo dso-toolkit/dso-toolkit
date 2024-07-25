@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Logo: Remove aria label ([#2726](https://github.com/dso-toolkit/dso-toolkit/issues/2726))
+
 ### Added
 * Panel: New component ([#2711](https://github.com/dso-toolkit/dso-toolkit/issues/2711))
 
