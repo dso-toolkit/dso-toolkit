@@ -5,6 +5,10 @@ import escapeStringRegexp from "escape-string-regexp";
 
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
 
+const maxSuggestionsViewable = 10;
+const listboxPaddingBlock = 8;
+const listboxBorderWidth = 1;
+
 @Component({
   tag: "dso-autosuggest",
   styleUrl: "autosuggest.scss",
@@ -94,6 +98,12 @@ export class Autosuggest {
   @State()
   showLoading = false;
 
+  @State()
+  listItemBlockSize = 0;
+
+  @State()
+  listboxContainerMaxBlockSize = 0;
+
   @Watch("suggestions")
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -107,13 +117,19 @@ export class Autosuggest {
 
   private input?: HTMLInputElement;
 
+  private listboxContainer: HTMLDsoScrollableElement | undefined;
+
   private listbox: HTMLUListElement | undefined;
+
+  private listboxItems: HTMLLIElement[] = [];
 
   private listboxId: string = v4();
 
   private inputId: string = v4();
 
   private labelId: string = v4();
+
+  private resizeObserver = new ResizeObserver(debounce(() => this.setListboxContainerMaxBlockSize(), 150));
 
   private debouncedEmitValue = debounce((value: string) => {
     this.dsoChange.emit(value);
@@ -158,6 +174,10 @@ export class Autosuggest {
     }
   }
 
+  componentDidRender() {
+    this.setListboxContainerMaxBlockSize();
+  }
+
   connectedCallback() {
     setTimeout(() => {
       const input = this.host.querySelector('input[type="text"]');
@@ -195,6 +215,14 @@ export class Autosuggest {
       this.input.addEventListener("input", this.onInput);
       this.input.addEventListener("keydown", this.onKeyDown);
       this.input.addEventListener("focusin", this.onFocusIn);
+
+      window.addEventListener("resize", this.onWindowResize);
+
+      document.addEventListener("scrollend", this.onScrollend);
+
+      this.resizeObserver.observe(this.host);
+
+      this.setListboxContainerMaxBlockSize();
     });
   }
 
@@ -202,6 +230,38 @@ export class Autosuggest {
     this.input?.removeEventListener("input", this.onInput);
     this.input?.removeEventListener("keydown", this.onKeyDown);
     this.input?.removeEventListener("focusin", this.onFocusIn);
+
+    window.removeEventListener("resize", this.onWindowResize);
+
+    document.removeEventListener("scrollend", this.onScrollend);
+
+    this.resizeObserver.disconnect();
+  }
+
+  private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
+
+  private onScrollend = () => this.setListboxContainerMaxBlockSize();
+
+  private setListboxContainerMaxBlockSize(): void {
+    if (!this.listboxContainer || !this.showSuggestions) {
+      return;
+    }
+
+    if (this.listboxItems[0] && this.showSuggestions) {
+      this.listItemBlockSize = this.listboxItems[0].getBoundingClientRect().height;
+    }
+
+    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+    const listboxMaxBlockSize =
+      this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+
+    if (availableBlockSize > this.listItemBlockSize) {
+      if (availableBlockSize < listboxMaxBlockSize) {
+        this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
+      } else {
+        this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
+      }
+    }
   }
 
   private showInputValueNotFound(text: string) {
@@ -258,7 +318,7 @@ export class Autosuggest {
   private selectSuggestion(suggestion: Suggestion) {
     this.selectedSuggestion = suggestion;
 
-    this.input?.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
+    this.setAriaActiveDescendant();
   }
 
   private selectFirstSuggestion() {
@@ -268,9 +328,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectLastSuggestion() {
@@ -280,9 +338,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectNextSuggestion() {
@@ -294,9 +350,7 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
 
-    if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
-    }
+    this.setAriaActiveDescendant(true);
   }
 
   private selectPreviousSuggestion() {
@@ -308,8 +362,16 @@ export class Autosuggest {
 
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
 
+    this.setAriaActiveDescendant(true);
+  }
+
+  private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
-      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      const id = this.listboxItemId(this.selectedSuggestion);
+      this.input?.setAttribute("aria-activedescendant", id);
+      if (scroll) {
+        document.getElementById(id)?.scrollIntoView({ block: "nearest" });
+      }
     }
   }
 
@@ -412,6 +474,8 @@ export class Autosuggest {
   }
 
   render() {
+    this.listboxItems = [];
+
     return (
       <>
         <slot />
@@ -420,55 +484,62 @@ export class Autosuggest {
             <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
           </div>
         ) : (
-          <ul
-            role="listbox"
-            aria-live="polite"
-            id={this.listboxId}
-            aria-labelledby={this.labelId}
-            ref={(element) => (this.listbox = element)}
-            hidden={!this.showSuggestions && !this.notFound}
+          <dso-scrollable
+            class="listbox-container"
+            ref={(element) => (this.listboxContainer = element)}
+            style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
           >
-            {(this.showSuggestions &&
-              this.suggestions &&
-              this.suggestions.map((suggestion) => (
-                <li
-                  role="option"
-                  id={this.listboxItemId(suggestion)}
-                  key={suggestion.value}
-                  onMouseEnter={() => this.selectSuggestion(suggestion)}
-                  onMouseLeave={() => this.resetSelectedSuggestion()}
-                  onClick={() => this.pickSelectedValue()}
-                  aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                  aria-label={suggestion.value}
-                >
-                  <div class="suggestion-row">
-                    <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
-                    {suggestion.type ? (
-                      <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
-                    ) : undefined}
-                  </div>
-                  {suggestion.extras &&
-                    this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
-                      <div class="suggestion-row">
-                        {chunk.map((c, i) => (
-                          <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
-                        ))}
-                      </div>
-                    ))}
-                </li>
-              ))) ||
-              (this.notFound && (
-                <li>
-                  <span class="value">
-                    {!this.notFoundLabel ? (
-                      this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
-                    ) : (
-                      <span>{this.notFoundLabel}</span>
-                    )}
-                  </span>
-                </li>
-              ))}
-          </ul>
+            <ul
+              role="listbox"
+              aria-live="polite"
+              id={this.listboxId}
+              aria-labelledby={this.labelId}
+              ref={(element) => (this.listbox = element)}
+              hidden={!this.showSuggestions && !this.notFound}
+            >
+              {(this.showSuggestions &&
+                this.suggestions &&
+                this.suggestions.map((suggestion) => (
+                  <li
+                    role="option"
+                    id={this.listboxItemId(suggestion)}
+                    key={suggestion.value}
+                    onMouseEnter={() => this.selectSuggestion(suggestion)}
+                    onMouseLeave={() => this.resetSelectedSuggestion()}
+                    onClick={() => this.pickSelectedValue()}
+                    aria-selected={(suggestion === this.selectedSuggestion).toString()}
+                    aria-label={suggestion.value}
+                    ref={(li) => li && this.listboxItems.push(li)}
+                  >
+                    <div class="suggestion-row">
+                      <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
+                      {suggestion.type ? (
+                        <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
+                      ) : undefined}
+                    </div>
+                    {suggestion.extras &&
+                      this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
+                        <div class="suggestion-row">
+                          {chunk.map((c, i) => (
+                            <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
+                          ))}
+                        </div>
+                      ))}
+                  </li>
+                ))) ||
+                (this.notFound && (
+                  <li>
+                    <span class="value">
+                      {!this.notFoundLabel ? (
+                        this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
+                      ) : (
+                        <span>{this.notFoundLabel}</span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </dso-scrollable>
         )}
       </>
     );

@@ -48,11 +48,13 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 ### Depends on
 
 - [dso-progress-indicator](../progress-indicator)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-progress-indicator
+  dso-autosuggest --> dso-scrollable
   dso-progress-indicator --> dso-icon
   style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
 ```

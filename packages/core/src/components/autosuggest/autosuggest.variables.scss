@@ -1,5 +1,12 @@
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 $background-color: colors.$wit;
 $box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 $border-color: rgba(0, 0, 0, 0.15);
+
+$listbox-padding-block: units.$u1; // Keep in sync with const listboxPaddingBlock in autosuggest.tsx
+$listbox-border-width: 1px; // Keep in sync with const listboxBorderWidth in autosuggest.tsx
+$list-item-padding-block: units.$u1 * 0.5;
+$list-item-block-size: 24px + 2 * $list-item-padding-block;
+$listbox-min-block-size: $list-item-block-size + 2 * $listbox-padding-block;

@@ -414,4 +414,20 @@ describe("Autosuggest", () => {
       .get("mark")
       .should("contain", "omg");
   });
+
+  it("should limit the block-size of the listbox-container to 10 items", () => {
+    cy.get("@input").focus().type("sugg");
+    cy.wait(200);
+
+    cy.matchImageSnapshot();
+  });
+
+  it("should limit the block-size of the listbox-container to the available block-size within viewport", () => {
+    cy.viewport(1000, 338);
+    cy.wait(200);
+    cy.get("@input").focus().type("sugg");
+    cy.wait(200);
+
+    cy.matchImageSnapshot();
+  });
 });
