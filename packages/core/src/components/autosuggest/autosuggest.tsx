@@ -121,7 +121,7 @@ export class Autosuggest {
 
   private listbox: HTMLUListElement | undefined;
 
-  private listboxItem: HTMLLIElement[] = [];
+  private listboxItems: HTMLLIElement[] = [];
 
   private listboxId: string = v4();
 
@@ -181,12 +181,12 @@ export class Autosuggest {
   }
 
   componentWillRender() {
-    this.listboxItem = [];
+    this.listboxItems = [];
   }
 
   componentDidRender() {
-    if (this.listboxItem[0] && this.showSuggestions) {
-      this.listItemBlockSize = this.listboxItem[0].getBoundingClientRect().height;
+    if (this.listboxItems[0] && this.showSuggestions) {
+      this.listItemBlockSize = this.listboxItems[0].getBoundingClientRect().height;
       this.setListboxContainerMaxBlockSize();
     }
   }
@@ -251,7 +251,8 @@ export class Autosuggest {
     }
 
     const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
-    const listboxMaxBlockSize = this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+    const listboxMaxBlockSize =
+      this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
     if (availableBlockSize > this.listItemBlockSize) {
       if (availableBlockSize < listboxMaxBlockSize) {
@@ -505,7 +506,7 @@ export class Autosuggest {
                     onClick={() => this.pickSelectedValue()}
                     aria-selected={(suggestion === this.selectedSuggestion).toString()}
                     aria-label={suggestion.value}
-                    ref={(li) => li && this.listboxItem.push(li)}
+                    ref={(li) => li && this.listboxItems.push(li)}
                   >
                     <div class="suggestion-row">
                       <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
