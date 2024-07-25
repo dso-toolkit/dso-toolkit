@@ -129,7 +129,7 @@ export class Autosuggest {
 
   private labelId: string = v4();
 
-  private resizeObserver?: ResizeObserver;
+  private resizeObserver = new ResizeObserver(debounce(() => this.setListboxContainerMaxBlockSize(), 150));
 
   private debouncedEmitValue = debounce((value: string) => {
     this.dsoChange.emit(value);
@@ -174,23 +174,6 @@ export class Autosuggest {
     }
   }
 
-  componentDidLoad() {
-    this.resizeObserver = new ResizeObserver(debounce(() => this.setListboxContainerMaxBlockSize(), 150));
-
-    this.resizeObserver?.observe(this.host);
-  }
-
-  componentWillRender() {
-    this.listboxItems = [];
-  }
-
-  componentDidRender() {
-    if (this.listboxItems[0] && this.showSuggestions) {
-      this.listItemBlockSize = this.listboxItems[0].getBoundingClientRect().height;
-      this.setListboxContainerMaxBlockSize();
-    }
-  }
-
   connectedCallback() {
     setTimeout(() => {
       const input = this.host.querySelector('input[type="text"]');
@@ -230,6 +213,10 @@ export class Autosuggest {
       this.input.addEventListener("focusin", this.onFocusIn);
 
       window.addEventListener("resize", this.onWindowResize);
+
+      this.resizeObserver.observe(this.host);
+
+      this.setListboxContainerMaxBlockSize();
     });
   }
 
@@ -240,7 +227,9 @@ export class Autosuggest {
 
     window.removeEventListener("resize", this.onWindowResize);
 
-    this.resizeObserver?.disconnect();
+    document.removeEventListener("scrollend", this.onScrollend);
+
+    this.resizeObserver.disconnect();
   }
 
   private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
@@ -248,6 +237,10 @@ export class Autosuggest {
   private setListboxContainerMaxBlockSize(): void {
     if (!this.listboxContainer || !this.showSuggestions) {
       return;
+    }
+
+    if (this.listboxItems[0] && this.showSuggestions) {
+      this.listItemBlockSize = this.listboxItems[0].getBoundingClientRect().height;
     }
 
     const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
@@ -473,6 +466,8 @@ export class Autosuggest {
   }
 
   render() {
+    this.listboxItems = [];
+
     return (
       <>
         <slot />
