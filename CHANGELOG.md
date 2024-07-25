@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Fundament: Systeem voor verticaal ritme ([#2217](https://github.com/dso-toolkit/dso-toolkit/issues/2217))
+
 ### Fixed
 * Logo: Remove aria label ([#2726](https://github.com/dso-toolkit/dso-toolkit/issues/2726))
 
