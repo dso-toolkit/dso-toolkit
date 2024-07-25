@@ -214,6 +214,8 @@ export class Autosuggest {
 
       window.addEventListener("resize", this.onWindowResize);
 
+      document.addEventListener("scrollend", this.onScrollend);
+
       this.resizeObserver.observe(this.host);
 
       this.setListboxContainerMaxBlockSize();
@@ -233,6 +235,8 @@ export class Autosuggest {
   }
 
   private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
+
+  private onScrollend = () => this.setListboxContainerMaxBlockSize();
 
   private setListboxContainerMaxBlockSize(): void {
     if (!this.listboxContainer || !this.showSuggestions) {
