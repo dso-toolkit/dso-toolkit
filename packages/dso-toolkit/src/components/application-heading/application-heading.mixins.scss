@@ -5,7 +5,6 @@
 
 @mixin root() {
   border-block-end: 1px solid colors.$grijs-20;
-  margin-block-end: units.$u2;
 
   h2 {
     margin-block-start: units.$u2;
