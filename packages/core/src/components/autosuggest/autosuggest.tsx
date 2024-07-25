@@ -246,11 +246,14 @@ export class Autosuggest {
   private onWindowResize = debounce(() => this.setListboxContainerMaxBlockSize(), 150);
 
   private setListboxContainerMaxBlockSize(): void {
-    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom,
-      listboxMaxBlockSize =
-        this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+    if (!this.listboxContainer || !this.showSuggestions) {
+      return;
+    }
 
-    if (this.listboxContainer && this.showSuggestions && availableBlockSize > this.listItemBlockSize) {
+    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+    const listboxMaxBlockSize = this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+
+    if (availableBlockSize > this.listItemBlockSize) {
       if (availableBlockSize < listboxMaxBlockSize) {
         this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
