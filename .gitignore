@@ -14,3 +14,5 @@ node_modules
 .stylelintcache
 /.nx
 .vs
+
+**/hashes.json
