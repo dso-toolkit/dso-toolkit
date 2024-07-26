@@ -6,8 +6,8 @@ SAS_TOKEN=$(az storage container generate-sas --name "$DT_AZURE_STORAGE_CONTAINE
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log
 echo "::add-mask::$SAS_TOKEN"
 
-yarn workspace dso-toolkit pack --dry-run --json | yarn tsx scripts/create-hashes > packages/dso-toolkit/hashes.json
-yarn workspace @dso-toolkit/core pack --dry-run --json | yarn tsx scripts/create-hashes > packages/core/hashes.json
+yarn workspace dso-toolkit pack --dry-run --json | yarn tsx scripts/create-hashes
+yarn workspace @dso-toolkit/core pack --dry-run --json | yarn tsx scripts/create-hashes
 
 azcopy sync --from-to=LocalBlob --delete-destination=true ./storybook/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/storybook.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
 azcopy sync --from-to=LocalBlob --delete-destination=true ./packages/react/www/ "https://${DT_AZURE_STORAGE_HOST}/${DT_AZURE_STORAGE_CONTAINER}/react.dso-toolkit.nl/www/${DT_REF}/?${SAS_TOKEN}"
