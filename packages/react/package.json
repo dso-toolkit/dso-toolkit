@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/react",
-  "version": "25.0.1",
+  "version": "62.30.0",
   "description": "React specific wrapper for @dso-toolkit/core web components",
   "homepage": "https://www.dso-toolkit.nl/",
   "repository": {

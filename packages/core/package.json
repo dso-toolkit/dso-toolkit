@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/core",
-  "version": "25.0.1",
+  "version": "62.30.0",
   "description": "DSO Toolkit Web Components",
   "main": "dist/index.cjs.js",
   "module": "dist/components/index.js",
