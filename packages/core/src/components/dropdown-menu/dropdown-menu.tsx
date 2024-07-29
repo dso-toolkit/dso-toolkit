@@ -137,7 +137,7 @@ export class DropdownMenu {
   }
 
   private tabbables(withButton: boolean): FocusableElement[] {
-    const tabbables = tabbable(this.host);
+    const tabbables = this.host.isConnected ? tabbable(this.host) : [];
 
     return withButton ? tabbables : tabbables.filter((element) => element !== this.button);
   }
@@ -201,7 +201,7 @@ export class DropdownMenu {
     }
 
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
-      for (const tab of tabbable(li)) {
+      for (const tab of this.host.isConnected ? tabbable(li) : []) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
 
         if (this.checkable) {

@@ -116,7 +116,7 @@ export class AdvancedSelect implements ComponentInterface {
   }
 
   private handleTab(direction: number) {
-    const elements = tabbable(this.host, { getShadowRoot: true });
+    const elements = this.host.isConnected ? tabbable(this.host, { getShadowRoot: true }) : [];
     const currentIndex = elements.findIndex((e) => e === this.host.shadowRoot?.activeElement);
 
     let nextIndex = currentIndex + direction;
