@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Dropdown Menu: Safari crasht bij navigatie vanuit compacte Header ([#2735](https://github.com/dso-toolkit/dso-toolkit/issues/2735))
+
 ## ⚜️ Release 62.30.0 - 2024-07-26
 
 **Vanaf deze release is de datumnotatie in ISO 8601 formaat YYYY-MM-DD**
