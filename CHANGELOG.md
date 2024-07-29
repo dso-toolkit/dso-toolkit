@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🐘 Release 62.30.1 - 2024-07-29
+
 ### Fixed
 * Dropdown Menu: Safari crasht bij navigatie vanuit compacte Header ([#2735](https://github.com/dso-toolkit/dso-toolkit/issues/2735))
 
