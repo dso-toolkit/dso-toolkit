@@ -226,8 +226,11 @@ $panel-danger-heading-bg: states.$danger-bg !default;
   @include utilities.clearfix();
   @include rich-content.children();
 
-  padding: $panel-body-padding;
-  padding-block-end: 0;
+  /* stylelint-disable no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724 */
+  & {
+    padding: $panel-body-padding;
+    padding-block-end: 0;
+  }
 }
 
 // Optional heading

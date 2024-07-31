@@ -70,8 +70,12 @@
 
   &.dso-label-bright {
     @include set-colors.apply(label-variables.$bright-bg-color, $icons: false, $links: false);
-    outline: 1px solid label-variables.$bright-border-color;
-    outline-offset: -1px;
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      outline: 1px solid label-variables.$bright-border-color;
+      outline-offset: -1px;
+    }
   }
 
   &.dso-label-attention {

@@ -23,9 +23,12 @@ body:has(dso-modal.hydrated) {
     &::before {
       @include di.base("times");
 
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 

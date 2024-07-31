@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Tasks
+* Sass: Deprecation warning mixed declarations ([#2724](https://github.com/dso-toolkit/dso-toolkit/issues/2724))
+
 ## 🐘 Release 62.30.1 - 2024-07-29
 
 ### Fixed

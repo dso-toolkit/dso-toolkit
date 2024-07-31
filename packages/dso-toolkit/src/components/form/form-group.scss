@@ -129,10 +129,13 @@
       &::before {
         @include di.base("status-error", css-form-variables.$field-invalid-icon-size);
 
-        content: "";
-        display: block;
-        inset-inline-start: 0;
-        position: absolute;
+        // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+        & {
+          content: "";
+          display: block;
+          inset-inline-start: 0;
+          position: absolute;
+        }
       }
     }
   }

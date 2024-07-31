@@ -4,5 +4,7 @@
 @mixin root() {
   @include set-colors.apply(colors.$rood-20);
 
-  text-decoration: line-through;
+  & {
+    text-decoration: line-through;
+  }
 }

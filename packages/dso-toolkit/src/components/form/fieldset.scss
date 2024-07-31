@@ -13,8 +13,11 @@
     > legend {
       @include headings.h3();
 
-      border-block-end: 0;
-      margin-block-end: css-form-variables.$fieldset-separator-unit;
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        border-block-end: 0;
+        margin-block-end: css-form-variables.$fieldset-separator-unit;
+      }
 
       h1,
       h2,

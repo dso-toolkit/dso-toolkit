@@ -15,7 +15,11 @@
 
   &.dso-compact {
     @include alert.compact();
-    min-block-size: alert.$inline-padding;
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      min-block-size: alert.$inline-padding;
+    }
   }
 
   &.alert-success {
