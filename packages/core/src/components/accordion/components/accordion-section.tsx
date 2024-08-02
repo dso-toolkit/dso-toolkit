@@ -253,7 +253,7 @@ export class AccordionSection implements ComponentInterface {
     }
 
     // this y is relative to the top of the viewport.
-    const sectionBottomY = headingClientRect.top + headingClientRect.height + (this.open ? bodyHeight ?? 0 : 0);
+    const sectionBottomY = headingClientRect.top + headingClientRect.height + (this.open ? (bodyHeight ?? 0) : 0);
 
     log(`DSO Toolkit [Accordion Section] const sectionBottomY = ${JSON.stringify(sectionBottomY)};`);
     log(`DSO Toolkit [Accordion Section] window.innerHeight = ${JSON.stringify(window.innerHeight)};`);

@@ -38,6 +38,10 @@ In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
 
 Let op de Docker base image in de Dockerfile.
 
+## Azcopy
+
+Controleer op https://github.com/Azure/azure-storage-azcopy/releases of er een nieuwe release is voor azcopy. Pas indien nodig in de Dockerfile de link naar de tar.gz-file aan met het versienummer (bijv. 10.26.0) en de datum van de release (bijv. 20240731). `https://azcopyvnext.azureedge.net/releases/release-<versienummer>-<releasedatum>/azcopy_linux_amd64_<versienummer>.tar.gz` en controleer dat de link de juiste file download.
+
 ## Storybook
 
 In `/storybook`:
