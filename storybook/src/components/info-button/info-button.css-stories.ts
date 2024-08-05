@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/angular";
-
-import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
+import type { Meta } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
-import readme from "./readme.md?raw";
+
+import readme from "dso-toolkit/src/components/info-button/readme.md?raw";
+import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
-  title: "Info Button",
+  title: "HTML|CSS/Info Button",
 };
 
 export default meta;
@@ -23,4 +23,4 @@ const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStori
   },
 });
 
-export { Active, Inactive, SecondaryActive, SecondaryInactive };
+export { Inactive, Active, SecondaryInactive, SecondaryActive };

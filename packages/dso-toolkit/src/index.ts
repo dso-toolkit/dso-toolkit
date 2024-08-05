@@ -122,11 +122,9 @@ export * from "./components/image-overlay";
 
 export * from "./components/info";
 
-export { InfoButton, InfoButtonToggleEvent } from "./components/info-button/info-button.models.js";
-export { InfoButtonTemplates, storiesOfInfoButton } from "./components/info-button/info-button.stories-of.js";
+export * from "./components/info-button";
 
-export { InputNumber } from "./components/input-number/input-number.models.js";
-export { InputNumberTemplates, storiesOfInputNumber } from "./components/input-number/input-number.stories-of.js";
+export * from "./components/input-number";
 
 export { JustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.models.js";
 export {
@@ -137,23 +135,15 @@ export {
 
 export * from "./components/label";
 
-export { LabelGroup } from "./components/label-group/label-group.models.js";
-export { LabelGroupTemplates, storiesOfLabelGroup } from "./components/label-group/label-group.stories-of.js";
+export * from "./components/label-group";
 
 export * from "./components/legend-item";
 
-export { LinkList, LinkListType } from "./components/link-list/link-list.models.js";
-export { LinkListTemplates, storiesOfLinkList } from "./components/link-list/link-list.stories-of.js";
+export * from "./components/link-list";
 
-export { List, ListItem, Type } from "./components/list/list.models.js";
-export { ListTemplates, storiesOfList } from "./components/list/list.stories-of.js";
+export * from "./components/list";
 
-export {
-  ListButton,
-  ListButtonChangeEvent,
-  ListButtonSelectedEvent,
-} from "./components/list-button/list-button.models.js";
-export { ListButtonTemplates, storiesOfListButton } from "./components/list-button/list-button.stories-of.js";
+export * from "./components/list-button";
 
 export { Logo } from "./components/logo/logo.models.js";
 export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.js";

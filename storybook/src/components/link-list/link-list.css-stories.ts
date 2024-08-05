@@ -1,21 +1,24 @@
-import { storiesOfLinkList, StoryRoot } from "dso-toolkit";
+import type { Meta } from "@storybook/web-components";
 
-import { storiesOf } from "@storybook/web-components";
+import { LinkListArgs, linkListMeta, linkListStories } from "dso-toolkit";
 
-import cssReadme from "dso-toolkit/src/components/link-list/readme.md?raw";
+import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { html, TemplateResult } from "lit-html";
 
-storiesOfLinkList({
-  parameters: {
-    module,
-    storiesOf,
-    readme: cssReadme,
-    root: StoryRoot.HtmlCss,
-  },
+const meta: Meta<LinkListArgs> = {
+  ...linkListMeta({ readme }),
+  title: "HTML|CSS/Link List",
+};
+
+export default meta;
+
+const { InFooter, InHighlightBox, InNav, Ol, Ul } = linkListStories({
   templateContainer,
-  storyTemplates: ({ linkListTemplate, highlightBoxTemplate }) => {
+  storyTemplates: (templates) => {
+    const { linkListTemplate, highlightBoxTemplate } = templates;
+
     function inFooterTemplate(linkList: TemplateResult) {
       return html`<footer>${linkList}</footer>`;
     }
@@ -32,6 +35,12 @@ storiesOfLinkList({
       `;
     }
 
-    return { linkListTemplate, inHighlightBoxTemplate, inFooterTemplate };
+    return {
+      linkListTemplate,
+      inHighlightBoxTemplate,
+      inFooterTemplate,
+    };
   },
 });
+
+export { Ul, Ol, InHighlightBox, InNav, InFooter };
