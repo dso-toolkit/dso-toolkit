@@ -29,10 +29,9 @@ function createFileHash(algorithm: string, filename: string, base: string) {
   return btoa(hash.digest("binary"));
 }
 
+const excludes = [".scss", "readme.md", "README.md", "CHANGELOG.md", "DISCLAIMER.txt", ".d.ts"];
 function includeFile(filename: string) {
-  return [".scss", "readme.md", "README.md", "CHANGELOG.md", "DISCLAIMER.txt", ".d.ts"].every(
-    (exclude) => !filename.endsWith(exclude),
-  );
+  return excludes.every((exclude) => !filename.endsWith(exclude));
 }
 
 async function main() {
@@ -49,19 +48,12 @@ async function main() {
     if (inputLine.base && !base) {
       // base is the first ndjson line
       base = inputLine.base;
-    } else if (base && inputLine.location) {
-      const exists = fs.existsSync(path.join(base, inputLine.location));
-      if (includeFile(inputLine.location) && exists) {
-        hashes.push({
-          file: inputLine.location,
-          sha384: createFileHash("sha384", inputLine.location, base),
-          sha512: createFileHash("sha512", inputLine.location, base),
-        });
-      } else if (!exists) {
-        console.info(`File ${path.join(base, inputLine.location)} not found!`);
-      }
-    } else {
-      throw new Error("Wrong STDIN order!");
+    } else if (base && inputLine.location && includeFile(inputLine.location)) {
+      hashes.push({
+        file: inputLine.location,
+        sha384: createFileHash("sha384", inputLine.location, base),
+        sha512: createFileHash("sha512", inputLine.location, base),
+      });
     }
   }
 
