@@ -1,58 +1,90 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { InfoButtonArgs, infoButtonArgsMapper, infoButtonArgTypes } from "./info-button.args.js";
 import { InfoButton } from "./info-button.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type InfoButtonStory = StoryObj<InfoButtonArgs, Renderer>;
+
+interface InfoButtonStories {
+  Active: InfoButtonStory;
+  Inactive: InfoButtonStory;
+  SecondaryActive: InfoButtonStory;
+  SecondaryInactive: InfoButtonStory;
+}
 
 export interface InfoButtonTemplates<TemplateFnReturnType> {
   infoButtonTemplate: (infoButtonProperties: InfoButton) => TemplateFnReturnType;
 }
 
-export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     InfoButtonTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Info Button", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: infoButtonArgTypes,
-      args: {
-        label: "Toelichting bij vraag",
-      },
-    });
+  > {}
 
-    const template = templateMapper<InfoButtonArgs>((args, { infoButtonTemplate }) =>
-      infoButtonTemplate(infoButtonArgsMapper(args)),
-    );
+export function infoButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  InfoButtonArgs
+> {
+  return {
+    argTypes: infoButtonArgTypes,
+    args: {
+      label: "Toelichting bij vraag",
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("inactive", template, {
-      args: {
-        active: false,
-      },
-    });
-
-    stories.add("active", template, {
+export function infoButtonStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoButtonStories {
+  return {
+    Active: {
       args: {
         active: true,
       },
-    });
-
-    stories.add("secondary inactive", template, {
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args)),
+      ),
+    },
+    Inactive: {
+      args: {
+        active: false,
+      },
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args)),
+      ),
+    },
+    SecondaryActive: {
+      args: {
+        active: true,
+        secondary: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args)),
+      ),
+    },
+    SecondaryInactive: {
       args: {
         active: false,
         secondary: true,
       },
-    });
-
-    stories.add("secondary active", template, {
-      args: {
-        active: true,
-        secondary: true,
-      },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args)),
+      ),
+    },
+  };
 }

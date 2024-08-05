@@ -1,8 +1,22 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { LinkListArgs, linkListArgsMapper, linkListArgTypes } from "./link-list.args.js";
 import { links, navLinks } from "./link-list.content.js";
 import { LinkList, LinkListType } from "./link-list.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type LinkListStory = StoryObj<LinkListArgs, Renderer>;
+
+interface LinkListStories {
+  Ul: LinkListStory;
+  Ol: LinkListStory;
+  InHighlightBox: LinkListStory;
+  InNav: LinkListStory;
+  InFooter: LinkListStory;
+}
 
 export interface LinkListTemplates<TemplateFnReturnType> {
   linkListTemplate: (linkListProperties: LinkList) => TemplateFnReturnType;
@@ -22,60 +36,68 @@ export interface LinkListTemplates<TemplateFnReturnType> {
   inFooterTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
 }
 
-export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    LinkListTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Link List", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: linkListArgTypes,
-      args: {
-        links,
-      },
-    });
+interface LinkListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LinkListTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<LinkListArgs>((args, { linkListTemplate }) =>
-      linkListTemplate(linkListArgsMapper(args)),
-    );
+export function linkListMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  LinkListArgs
+> {
+  return {
+    argTypes: linkListArgTypes,
+    args: {
+      links,
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("ul", template, {
+export function linkListStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: LinkListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LinkListStories {
+  return {
+    Ul: {
       args: {
         type: LinkListType.Ul,
       },
-    });
-
-    stories.add("ol", template, {
+      render: templateContainer.render(storyTemplates, (args, { linkListTemplate }) =>
+        linkListTemplate(linkListArgsMapper(args)),
+      ),
+    },
+    Ol: {
       args: {
         type: LinkListType.Ol,
       },
-    });
-
-    stories.add(
-      "in highlight box",
-      templateMapper<LinkListArgs>((args, { inHighlightBoxTemplate, linkListTemplate }) =>
+      render: templateContainer.render(storyTemplates, (args, { linkListTemplate }) =>
+        linkListTemplate(linkListArgsMapper(args)),
+      ),
+    },
+    InHighlightBox: {
+      render: templateContainer.render(storyTemplates, (args, { inHighlightBoxTemplate, linkListTemplate }) =>
         inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args))),
       ),
-    );
-
-    stories.add("in nav", template, {
+    },
+    InNav: {
       args: {
         links: navLinks,
         navLabel: "Projecttaken",
         type: LinkListType.Ul,
       },
-    });
-
-    stories.add(
-      "in footer",
-      templateMapper<LinkListArgs>((args, { inFooterTemplate, linkListTemplate }) =>
+      render: templateContainer.render(storyTemplates, (args, { linkListTemplate }) =>
+        linkListTemplate(linkListArgsMapper(args)),
+      ),
+    },
+    InFooter: {
+      render: templateContainer.render(storyTemplates, (args, { inFooterTemplate, linkListTemplate }) =>
         inFooterTemplate(linkListTemplate(linkListArgsMapper(args))),
       ),
-    );
-
-    return stories;
-  });
+    },
+  };
 }
