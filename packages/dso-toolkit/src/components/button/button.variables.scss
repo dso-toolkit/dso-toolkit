@@ -28,7 +28,6 @@ $tertiary-active-color: colors.$bosgroen-140;
 $buttons: ".dso-primary, .dso-secondary, .dso-tertiary";
 $not-dso-buttons: ":not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
 
-// stylelint-disable string-no-newline -- Escaped new lines wanted to improve readability
 $button-adjacent: "\
   .dso-primary + .dso-primary,\
   .dso-primary + .dso-secondary,\
@@ -58,4 +57,3 @@ $button-adjacent-tertiary: "\
 \
   .dso-tertiary + .dso-tertiary,\
 ";
-// stylelint-enable

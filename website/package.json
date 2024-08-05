@@ -18,7 +18,7 @@
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/theme-common": "3.4.0",
-    "@easyops-cn/docusaurus-search-local": "^0.44.3",
+    "@easyops-cn/docusaurus-search-local": "^0.44.4",
     "@mdx-js/react": "^3.0.1",
     "@tsconfig/docusaurus": "^2.0.3",
     "clsx": "^2.1.1",
@@ -29,8 +29,8 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "^1.77.7",
-    "typescript": "^5.5.3"
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4"
   },
   "browserslist": {
     "production": [

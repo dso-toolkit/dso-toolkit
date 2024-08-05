@@ -10,12 +10,12 @@
     "e2e:test": "cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
   },
   "dependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
     "@babel/preset-typescript": "^7.24.7",
     "@dso-toolkit/core": "workspace:^",
     "@infoprojects/prettier-config": "^1.0.0",
-    "@simonsmith/cypress-image-snapshot": "^9.0.3",
+    "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@storybook/addon-a11y": "7.6.20",
     "@storybook/addon-actions": "7.6.20",
     "@storybook/addon-essentials": "7.6.20",
@@ -29,8 +29,8 @@
     "@storybook/web-components": "7.6.20",
     "@storybook/web-components-webpack5": "7.6.20",
     "@whitespace/storybook-addon-html": "5.1.6",
-    "axe-core": "^4.9.1",
-    "cypress": "^13.13.0",
+    "axe-core": "^4.10.0",
+    "cypress": "^13.13.2",
     "cypress-axe": "^1.5.0",
     "cypress-multi-reporters": "1.6.4",
     "cypress-parallel": "0.14.0",
@@ -41,13 +41,13 @@
     "iframe-resizer": "^4.4.5",
     "lit": "^3.1.4",
     "lit-html": "^3.1.4",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-syntax-highlighter": "^15.5.0",
-    "start-server-and-test": "^2.0.4",
+    "start-server-and-test": "^2.0.5",
     "storybook": "7.6.20",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "prettier": "@infoprojects/prettier-config",
   "nx": {
