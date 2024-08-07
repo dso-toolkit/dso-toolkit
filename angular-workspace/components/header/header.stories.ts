@@ -1,6 +1,5 @@
-import { moduleMetadata } from "@storybook/angular";
-// eslint-disable-next-line no-duplicate-imports -- Todo: #2593
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
+
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

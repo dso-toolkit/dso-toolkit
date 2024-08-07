@@ -1,20 +1,13 @@
-import { type Meta, moduleMetadata } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
 
 import readme from "dso-toolkit/src/components/list-button/readme.md?raw";
 import { ListButtonArgs, listButtonMeta, listButtonStories } from "dso-toolkit";
 
-import { TrustHtmlPipe } from "../trust-html.pipe";
-
 const meta: Meta<ListButtonArgs> = {
   ...listButtonMeta({ readme }),
-  title: "List Button",
-  decorators: [
-    moduleMetadata({
-      declarations: [TrustHtmlPipe],
-    }),
-  ],
+  title: "HTML|CSS/List Button",
 };
 
 export default meta;

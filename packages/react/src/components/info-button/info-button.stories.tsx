@@ -1,8 +1,9 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/react";
 
 import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
 
 const meta: Meta<InfoButtonArgs> = {
@@ -17,9 +18,7 @@ const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStori
   storyTemplates: (templates) => {
     const { infoButtonTemplate } = templates;
 
-    return {
-      infoButtonTemplate,
-    };
+    return { infoButtonTemplate };
   },
 });
 

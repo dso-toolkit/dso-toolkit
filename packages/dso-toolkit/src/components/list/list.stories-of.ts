@@ -1,63 +1,91 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ListArgs, listArgsMapper, listArgTypes } from "./list.args.js";
 import { List, Type } from "./list.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type ListStory = StoryObj<ListArgs, Renderer>;
+
+interface ListStories {
+  Columns: ListStory;
+  Group: ListStory;
+  Icons: ListStory;
+  ImageList: ListStory;
+  Ordered: ListStory;
+  Unordered: ListStory;
+  Unstyled: ListStory;
+}
 
 export interface ListTemplates<TemplateFnReturnType> {
   listTemplate: (listProperties: List) => TemplateFnReturnType;
 }
 
-export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ListTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("List", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: listArgTypes,
-      args: {
-        items: [
-          { text: "Cras justo odio" },
-          { text: "Dapibus ac facilisis in" },
-          { text: "Morbi leo risus" },
-          { text: "Porta ac consectetur ac" },
-          { text: "Vestibulum at eros" },
-        ],
-      },
-    });
+interface ListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ListTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<ListArgs>((args, { listTemplate }) => listTemplate(listArgsMapper(args)));
+export function listMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ListArgs
+> {
+  return {
+    argTypes: listArgTypes,
+    args: {
+      items: [
+        { text: "Cras justo odio" },
+        { text: "Dapibus ac facilisis in" },
+        { text: "Morbi leo risus" },
+        { text: "Porta ac consectetur ac" },
+        { text: "Vestibulum at eros" },
+      ],
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("unordered", template, {
+export function listStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ListStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ListStories {
+  const render = templateContainer.render(storyTemplates, (args: ListArgs, { listTemplate }) =>
+    listTemplate(listArgsMapper(args)),
+  );
+  return {
+    Unordered: {
       args: {
         type: Type.Ul,
       },
-    });
-
-    stories.add("ordered", template, {
+      render,
+    },
+    Ordered: {
       args: {
         type: Type.Ol,
       },
-    });
-
-    stories.add("group", template, {
+      render,
+    },
+    Group: {
       args: {
         type: Type.Ul,
         modifier: "group",
       },
-    });
-
-    stories.add("columns", template, {
+      render,
+    },
+    Columns: {
       args: {
         type: Type.Ul,
         modifier: "columns",
       },
-    });
-
-    stories.add("image list", template, {
+      render,
+    },
+    ImageList: {
       args: {
         type: Type.Ul,
         modifier: "img-list",
@@ -84,16 +112,16 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
           },
         ],
       },
-    });
-
-    stories.add("unstyled", template, {
+      render,
+    },
+    Unstyled: {
       args: {
         type: Type.Ul,
         modifier: "unstyled",
       },
-    });
-
-    stories.add("icons", template, {
+      render,
+    },
+    Icons: {
       args: {
         type: Type.Ul,
         items: [
@@ -118,8 +146,7 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
           },
         ],
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }
