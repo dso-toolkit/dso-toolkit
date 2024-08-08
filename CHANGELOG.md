@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Tasks
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))
 
+### Changed
+* Form And Form Group Radios: Update markup ([#2741](https://github.com/dso-toolkit/dso-toolkit/issues/2741))
+
 ## 🐘 Release 62.30.1 - 2024-07-29
 
 ### Fixed
