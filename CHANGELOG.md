@@ -5,8 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
+
 ### Added
 * Build: Artifact integrity ([#2688](https://github.com/dso-toolkit/dso-toolkit/issues/2688))
+
+### Removed
+* **BREAKING** Panel: HTML/CSS implementatie verwijderen ([#1464](https://github.com/dso-toolkit/dso-toolkit/issues/1464))
 
 ### Tasks
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))

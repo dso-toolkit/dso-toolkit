@@ -88,9 +88,6 @@
 @use "components/viewer-grid/viewer-grid";
 @use "components/whitebox/whitebox";
 
-// Legacy
-@use "legacy/legacy-panel";
-
 // Very global and generic styling
 @use "utilities" as utilities-mixins;
 
