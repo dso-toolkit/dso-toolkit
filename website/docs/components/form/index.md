@@ -4,8 +4,6 @@
 
 Een formulier begint altijd met een `form`-element. Als een `form`-element ongewenst is kan een element met de class `.form` worden ingezet. Elke _textuele_ `input` **en** `select` zit in een `.form-group`. Elk formulier onderdeel is een _groep_ met een `label`.
 
-Alle elementen zitten in een `fieldset` met een `legend`. De legend kan verborgen worden met een `.sr-only`. De form submit (en eventueel een form reset) staat _buiten_ de `fieldset`.
-
 - Een eventuele toelichting zit in een `p.dso-help-block`. Als er een toelichting is, dient deze met een `@aria-describedby` aan de werkvorm gekoppeld te worden.
 - Een label bij een _textuele_ `input` **of** `select` eindigt altijd met een dubbele punt.
 

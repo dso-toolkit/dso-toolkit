@@ -44,12 +44,6 @@ storiesOfForm(
     formGroupTextareaTemplate,
   }),
   {
-    formGroupDecorator: (story) =>
-      html`<form>
-        <fieldset>
-          <legend>Example</legend>
-          ${story()}
-        </fieldset>
-      </form>`,
+    formGroupDecorator: (story) => html`<form>${story()}</form>`,
   },
 );
