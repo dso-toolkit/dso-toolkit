@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Build: Artifact integrity ([#2688](https://github.com/dso-toolkit/dso-toolkit/issues/2688))
+* Document Component: Asynchroon inladen afbeeldingen zorgt voor instabiele scrollTo() bij afnemer ([#2701](https://github.com/dso-toolkit/dso-toolkit/issues/2701))
 
 ### Tasks
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))
