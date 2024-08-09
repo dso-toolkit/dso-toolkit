@@ -9,6 +9,7 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 
 ### Added
 * Build: Artifact integrity ([#2688](https://github.com/dso-toolkit/dso-toolkit/issues/2688))
+* Document Component: Asynchroon inladen afbeeldingen zorgt voor instabiele scrollTo() bij afnemer ([#2701](https://github.com/dso-toolkit/dso-toolkit/issues/2701))
 
 ### Changed
 * Document Component: Panel implementeren ([#2765](https://github.com/dso-toolkit/dso-toolkit/issues/2765))
