@@ -45,6 +45,18 @@ export class OzonContentFiguurNode implements OzonContentNode {
     }
   }
 
+  //Prevent layout shift as an image is downloaded
+  setStyle(breedte?: number, hoogte?: number, schaal?: number) {
+    if (!schaal && breedte && hoogte) {
+      return {
+        width: "100%",
+        height: "auto",
+        aspectRatio: (breedte / hoogte).toString(),
+      };
+    }
+    return;
+  }
+
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
@@ -89,6 +101,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
               src={illustratie.naam ?? undefined}
               alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
               onLoad={(event: Event) => this.onImageLoad(event, Number(illustratie.schaal))}
+              style={this.setStyle(Number(illustratie.breedte), Number(illustratie.hoogte), Number(illustratie.schaal))}
             />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
