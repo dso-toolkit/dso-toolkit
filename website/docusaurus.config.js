@@ -1,10 +1,11 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const { resolve, dirname } = require("path");
+import { resolve, dirname } from "node:path";
+import { themes } from "prism-react-renderer";
 
-const lightCodeTheme = require("prism-react-renderer").themes.github;
-const darkCodeTheme = require("prism-react-renderer").themes.dracula;
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 function getVersion() {
   console.info("Resolving version...");
