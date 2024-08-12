@@ -384,7 +384,7 @@ export class Autosuggest {
 
   private openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
-    this.notFound = this.suggestions?.length === 0 ?? false;
+    this.notFound = (this.suggestions && this.suggestions?.length === 0) ?? false;
     this.input?.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
     if (this.showSuggestions && selectSuggestion === "first") {
