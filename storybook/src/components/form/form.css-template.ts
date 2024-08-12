@@ -8,7 +8,7 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
   implementation: "html-css",
   template: ({ formGroupTemplate, formButtonsTemplate }) =>
-    function formTemplate({ asteriskExplanation, legend, legendHeading, mode, formGroups, formButtons }) {
+    function formTemplate({ asteriskExplanation, mode, formGroups, formButtons }) {
       function asteriskExplanationTemplate() {
         return html`<div class="form-explanation" aria-hidden="true">
           <p class="form-explanation-text">
@@ -20,25 +20,8 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
       return html`
         <form class=${ifDefined(mode === "horizontal" ? "form-horizontal" : undefined)}>
           ${asteriskExplanation === "top" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing}
-          <fieldset>
-            <legend>
-              ${legendHeading === "h1" // if
-                ? html`<h1>${legend}</h1>`
-                : legendHeading === "h2" // else if
-                  ? html`<h2>${legend}</h2>`
-                  : legendHeading === "h3" // else if
-                    ? html`<h3>${legend}</h3>`
-                    : legendHeading === "h4" // else if
-                      ? html`<h4>${legend}</h4>`
-                      : legendHeading === "h5" // else if
-                        ? html`<h5>${legend}</h5>`
-                        : legendHeading === "h6" // else if
-                          ? html`<h6>${legend}</h6>`
-                          : html`${legend}`}
-            </legend>
-            ${"_$litType$" in formGroups ? formGroups : formGroups.map((formGroup) => formGroupTemplate(formGroup))}
-            ${formButtons ? formButtonsTemplate(formButtons) : nothing}
-          </fieldset>
+          ${"_$litType$" in formGroups ? formGroups : formGroups.map((formGroup) => formGroupTemplate(formGroup))}
+          ${formButtons ? formButtonsTemplate(formButtons) : nothing}
           ${asteriskExplanation === "bottom" || asteriskExplanation === "both"
             ? asteriskExplanationTemplate()
             : nothing}

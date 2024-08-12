@@ -26,7 +26,7 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 * Packages: `ESLint` updaten naar v9 ([#2631](https://github.com/dso-toolkit/dso-toolkit/issues/2631))
 
 ### Changed
-* Form And Form Group Radios: Update markup ([#2741](https://github.com/dso-toolkit/dso-toolkit/issues/2741))
+* **BREAKING:** Form And Form Group Radios: Update markup ([#2741](https://github.com/dso-toolkit/dso-toolkit/issues/2741))
 
 ## 🐘 Release 62.30.1 - 2024-07-29
 

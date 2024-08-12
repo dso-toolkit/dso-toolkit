@@ -33,7 +33,7 @@ export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<Templat
         >
           <legend class="sr-only">${formGroup.label}</legend>
           <div class="dso-label-container">
-            <span class="control-label" aria-hidden="true"> ${formGroup.label} </span>
+            <span class="control-label" aria-hidden="true">${formGroup.label}</span>
             ${formGroup.info?.fixed === false && formGroup.infoButton
               ? infoButtonTemplate(formGroup.infoButton)
               : nothing}
