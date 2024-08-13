@@ -47,6 +47,7 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 
 ### Changed
 * **BREAKING:** Accordion: Badge vervangen met Label ([#2774](https://github.com/dso-toolkit/dso-toolkit/issues/2774))
+* Icons: Icon grid toepassen ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 
 ### Fixed
 * Autosuggest: Fix text align ([#2753](https://github.com/dso-toolkit/dso-toolkit/issues/2753))

@@ -1,0 +1,21 @@
+@use "../variables/colors";
+
+caret-up {
+  color: colors.$bosgroen;
+}
+
+caret-up:grasgroen {
+  color: colors.$grasgroen;
+}
+
+caret-up:disabled {
+  color: colors.$grijs-40;
+}
+
+caret-up:invalid {
+  color: colors.$danger-color;
+}
+
+caret-up:wit {
+  color: colors.$wit;
+}
