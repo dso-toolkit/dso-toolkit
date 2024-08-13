@@ -5,8 +5,8 @@ import { Form, FormAsteriskExplanationPosition } from "./models/form.model.js";
 
 export interface FormArgs {
   asteriskExplanation?: FormAsteriskExplanationPosition;
-  legend?: string;
-  legendHeading?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
+  formTitle?: string;
+  formHeading?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
   mode: "horizontal" | "vertical" | undefined;
 }
 
@@ -17,12 +17,12 @@ export const formArgTypes: ArgTypes<FormArgs> = {
       type: "select",
     },
   },
-  legend: {
+  formTitle: {
     control: {
       type: "text",
     },
   },
-  legendHeading: {
+  formHeading: {
     options: [undefined, "h1", "h2", "h3", "h4", "h5", "h6"],
     control: {
       type: "select",
@@ -39,8 +39,8 @@ export const formArgTypes: ArgTypes<FormArgs> = {
 export function formArgsMapper<TemplateFnReturnType>(a: FormArgs): Form<TemplateFnReturnType> {
   return {
     asteriskExplanation: a.asteriskExplanation,
-    legend: a.legend,
-    legendHeading: a.legendHeading,
+    formTitle: a.formTitle,
+    formHeading: a.formHeading,
     mode: a.mode,
     formGroups: content,
     formButtons: buttons,
