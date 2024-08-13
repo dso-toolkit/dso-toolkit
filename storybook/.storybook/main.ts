@@ -25,7 +25,7 @@ const config: StorybookConfig = {
       if (test.endsWith(`(m?js|ts)x?$/${indexer.test.flags}`)) {
         return {
           ...indexer,
-          test: /\.(core\-stories|css\-stories)\.(ts)x?$/,
+          test: /\.(core-stories|css-stories)\.(ts)x?$/,
         };
       }
 
