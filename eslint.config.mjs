@@ -35,14 +35,16 @@ export default [
       "website/www",
     ],
   },
-  ...compat.extends("@infoprojects/eslint-config", "prettier"),
+  ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"),
   {
     plugins: {
       "@typescript-eslint": typescriptEslint,
       "only-warn": onlyWarn,
       lit,
     },
-
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+    },
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -67,31 +69,47 @@ export default [
       "no-duplicate-imports": "error",
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-require-imports": "off",
+      eqeqeq: ["error"],
+      "no-console": [
+        "error",
+        {
+          allow: ["assert", "debug", "error", "group", "info", "table", "trace", "warn"],
+        },
+      ],
+      "no-else-return": ["error", { allowElseIf: false }],
+      "object-shorthand": ["error"],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          args: "all",
+          ignoreRestSiblings: false,
+          varsIgnorePattern: "^(_|h$|Fragment$)",
+          argsIgnorePattern: "^_",
+        },
+      ],
     },
   },
+  ...compat
+    .extends(
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@stencil-community/strict",
+      "prettier",
+    )
+    .map((config) => ({
+      ...config,
+      files: ["packages/core/src/**/*{.ts,.tsx}"],
+    })),
   {
-    files: ["**/*.js"],
-
-    rules: {
-      "@typescript-eslint/no-var-requires": ["off"],
-    },
-  },
-  ...compat.extends("@infoprojects/eslint-config", "plugin:@stencil-community/strict", "prettier").map((config) => ({
-    ...config,
     files: ["packages/core/src/**/*{.ts,.tsx}"],
-  })),
-  {
-    files: ["packages/core/src/**/*{.ts,.tsx}"],
-
     languageOptions: {
       ecmaVersion: 5,
       sourceType: "script",
-
       parserOptions: {
         project: "./packages/core/tsconfig.json",
       },
     },
-
     rules: {
       "func-style": [
         2,
@@ -100,12 +118,11 @@ export default [
           allowArrowFunctions: true,
         },
       ],
-
       "no-shadow": 0,
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
+      // @stencil-community overrides
       "@stencil-community/strict-boolean-conditions": 0,
-
       "@stencil-community/decorators-style": [
         "error",
         {

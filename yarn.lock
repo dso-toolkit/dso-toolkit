@@ -4197,17 +4197,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infoprojects/eslint-config@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@infoprojects/eslint-config@npm:1.1.0"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^5.42.0
-    "@typescript-eslint/parser": ^5.42.0
-    eslint: ^8.26.0
-  checksum: 10/0f63fc388c07a963b252636133515c0992cc74f64f613b5fe6cc54660e1df83eb65975df1a9e98f2258a5bc0c6b0ccea130f3c27388622641b1337246496fa6d
-  languageName: node
-  linkType: hard
-
 "@infoprojects/prettier-config@npm:^1.0.0":
   version: 1.0.0
   resolution: "@infoprojects/prettier-config@npm:1.0.0"
@@ -13380,7 +13369,6 @@ __metadata:
     "@azure/storage-blob": "npm:^12.24.0"
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.9.0"
-    "@infoprojects/eslint-config": "npm:^1.1.0"
     "@infoprojects/prettier-config": "npm:^1.0.0"
     "@lit-labs/ssr": "npm:^3.2.2"
     "@octokit/rest": "npm:^21.0.1"
@@ -14266,12 +14254,6 @@ __metadata:
   checksum: 10/411e3b3b1c7aa04e3e0f20d561271b3b909014956c4dba51c878bf1a23dbb8c800a3be235c46c4732c70827276e540b6eed4636d9b09b444fd0a8e07f0fcd830
   languageName: node
   linkType: hard
-
-"eslint-config@workspace:packages/eslint-config":
-  version: 0.0.0-use.local
-  resolution: "eslint-config@workspace:packages/eslint-config"
-  languageName: unknown
-  linkType: soft
 
 "eslint-plugin-lit@npm:^1.14.0":
   version: 1.14.0
