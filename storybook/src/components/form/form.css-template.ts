@@ -18,21 +18,21 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
       }
 
       return html`
+        ${formHeading === "h1" // if
+          ? html`<h1>${formTitle}</h1>`
+          : formHeading === "h2" // else if
+            ? html`<h2>${formTitle}</h2>`
+            : formHeading === "h3" // else if
+              ? html`<h3>${formTitle}</h3>`
+              : formHeading === "h4" // else if
+                ? html`<h4>${formTitle}</h4>`
+                : formHeading === "h5" // else if
+                  ? html`<h5>${formTitle}</h5>`
+                  : formHeading === "h6" // else if
+                    ? html`<h6>${formTitle}</h6>`
+                    : html`${formTitle}`}
         <form class=${ifDefined(mode === "horizontal" ? "form-horizontal" : undefined)}>
           ${asteriskExplanation === "top" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing}
-          ${formHeading === "h1" // if
-            ? html`<h1>${formTitle}</h1>`
-            : formHeading === "h2" // else if
-              ? html`<h2>${formTitle}</h2>`
-              : formHeading === "h3" // else if
-                ? html`<h3>${formTitle}</h3>`
-                : formHeading === "h4" // else if
-                  ? html`<h4>${formTitle}</h4>`
-                  : formHeading === "h5" // else if
-                    ? html`<h5>${formTitle}</h5>`
-                    : formHeading === "h6" // else if
-                      ? html`<h6>${formTitle}</h6>`
-                      : html`${formTitle}`}
           ${"_$litType$" in formGroups ? formGroups : formGroups.map((formGroup) => formGroupTemplate(formGroup))}
           ${formButtons ? formButtonsTemplate(formButtons) : nothing}
           ${asteriskExplanation === "bottom" || asteriskExplanation === "both"
