@@ -65,6 +65,7 @@ export default [
       "lit/no-useless-template-literals": "error",
       "lit/quoted-expressions": "error",
       "no-duplicate-imports": "error",
+      "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-require-imports": "off",
     },
   },
