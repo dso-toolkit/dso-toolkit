@@ -62,7 +62,7 @@ const config: StorybookConfig = {
       ICONS: icons.join(","),
     };
   },
-  refs: (config, { configType }) => {
+  refs: (_config, { configType }) => {
     if (configType === "PRODUCTION") {
       return {
         angular: {
@@ -100,7 +100,7 @@ const config: StorybookConfig = {
   //     <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
   //   `
   //     : body,
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
 
