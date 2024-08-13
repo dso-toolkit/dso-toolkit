@@ -5,6 +5,7 @@ const preview: Preview = {
   parameters: {
     jsx: {
       // I have no idea what type this is and how it works. /Th
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       displayName: function getDisplayName(ReactElement: any) {
         return (
           ReactElement.type?.render?.displayName ??
