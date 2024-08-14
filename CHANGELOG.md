@@ -17,6 +17,9 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))
 * Packages: `ESLint` updaten naar v9 ([#2631](https://github.com/dso-toolkit/dso-toolkit/issues/2631))
 
+### Changed
+* Files: Change focus state ([#2757](https://github.com/dso-toolkit/dso-toolkit/issues/2757))
+
 ## 🐘 Release 62.30.1 - 2024-07-29
 
 ### Fixed

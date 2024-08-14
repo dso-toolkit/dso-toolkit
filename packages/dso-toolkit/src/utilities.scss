@@ -50,9 +50,11 @@
   border: 0;
 }
 
-@mixin focus-outline() {
+@mixin focus-outline($offset: units.$focus-outline-offset) {
   border-radius: units.$focus-border-radius;
-  outline-offset: units.$focus-outline-offset;
+  @if $offset != 0 {
+    outline-offset: $offset;
+  }
   outline: units.$focus-outline-width solid colors.$focus-outline-color;
 }
 
