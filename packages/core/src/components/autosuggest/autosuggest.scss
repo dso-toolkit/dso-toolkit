@@ -76,7 +76,15 @@ mark {
   color: colors.$grijs-60;
 }
 
+.type {
+  text-align: end;
+}
+
 .extra {
   font-size: typography.$root-font-size-small;
   line-height: typography.$root-font-size-small * typography.$line-height-base;
+
+  &:not(:first-child) {
+    text-align: end;
+  }
 }

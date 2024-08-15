@@ -136,6 +136,11 @@ const suggestions: AutosuggestSuggestion[] = [
     value: "Omgevingsvergunning Friesestraatweg 141-36",
   },
   {
+    extras: ["onherroepelijk 08-05-1962", "gemeente Berkelland", "NL.IMRO.18590000BGBCL19620508-"],
+    type: "Gemeentelijk plan; Bestemmingsplan artikel 10",
+    value: "Uitbreidingsplan in Hoofdzaken van de gemeente Borculo",
+  },
+  {
     value: "1e suggestie van 20",
   },
   {
