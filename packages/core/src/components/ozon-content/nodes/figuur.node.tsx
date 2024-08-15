@@ -39,26 +39,17 @@ export class OzonContentFiguurNode implements OzonContentNode {
     imageElement.width = naturalWidth * (schaal / 100);
   }
 
-  onImageLoad(event: Event, breedte?: number, hoogte?: number, schaal?: number) {
-    if (event.target instanceof HTMLImageElement) {
-      if (schaal) {
-        this.setImageDimensions(event.target, schaal);
-      }
-      if (!schaal && breedte && hoogte) {
-        // Adjust aspect-ratio by naturalWidth and naturalHeight once it is loaded
-        const { naturalHeight, naturalWidth } = event.target as HTMLImageElement;
-        event.target.style.aspectRatio = (naturalWidth / naturalHeight).toString();
-      }
+  onImageLoad(event: Event, schaal?: number) {
+    if (event.target instanceof HTMLImageElement && schaal) {
+      this.setImageDimensions(event.target, schaal);
     }
   }
 
-  // Prevent layout shift as an image is downloaded
-  setStyle(breedte?: number, hoogte?: number, schaal?: number) {
-    if (!schaal && breedte && hoogte) {
+  getStyle(breedte: number, hoogte: number, schaal: number) {
+    if (breedte && hoogte) {
       return {
-        width: "100%",
-        height: "auto",
-        aspectRatio: (breedte / hoogte).toString(),
+        "--img-width": schaal ? `${schaal}%` : "100%",
+        "--img-aspect-ratio": (breedte / hoogte).toString(),
       };
     }
     return;
@@ -92,6 +83,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
+      const preventLayoutShift = !!Number(illustratie.breedte) && !!Number(illustratie.hoogte);
+
       return (
         <div class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}>
           {titel && <span class="figuur-titel">{titel}</span>}
@@ -107,15 +100,13 @@ export class OzonContentFiguurNode implements OzonContentNode {
             <img
               src={illustratie.naam ?? undefined}
               alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
-              onLoad={(event: Event) =>
-                this.onImageLoad(
-                  event,
-                  Number(illustratie.breedte),
-                  Number(illustratie.hoogte),
-                  Number(illustratie.schaal),
-                )
+              onLoad={(event: Event) => this.onImageLoad(event, Number(illustratie.schaal))}
+              class={{ "dso-ozon-figuur-reserve-space": preventLayoutShift }}
+              style={
+                preventLayoutShift
+                  ? this.getStyle(Number(illustratie.breedte), Number(illustratie.hoogte), Number(illustratie.schaal))
+                  : undefined
               }
-              style={this.setStyle(Number(illustratie.breedte), Number(illustratie.hoogte), Number(illustratie.schaal))}
             />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
