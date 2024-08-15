@@ -61,7 +61,7 @@
 
     &:focus-within {
       label {
-        @include utilities.focus-outline($offset: 0);
+        @include utilities.focus-outline();
       }
     }
   }
