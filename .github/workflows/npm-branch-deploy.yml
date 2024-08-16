@@ -1,0 +1,51 @@
+name: NPM Branch Deploy
+on: workflow_dispatch
+
+jobs:
+  NpmBranchDeploy:
+    if: ${{ contains(github.ref, '#') }}
+    name: NPM Branch Deploy
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        name: Log in to GitHub Container Registry
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v7
+        name: Set DT_REF
+        with:
+          script: |
+            const [ref, type] = context.ref.split('/').reverse();
+
+            if (type === 'heads' && ref.lastIndexOf('#') === 0) {
+              const issueNumber = ref.slice(1, ref.indexOf('-'));
+              const distTag = `ghi-${issueNumber}`;
+
+              core.exportVariable('DT_REF', ref.replace(/#/, '_'));
+              core.exportVariable('DT_DIST_TAG', distTag);
+            }
+      - name: Output DT_REF
+        run: echo $DT_REF;
+      - uses: addnab/docker-run-action@v3
+        name: Deploy
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+          options: --env CI
+            --env DT_REF
+            --env DT_DIST_TAG
+            --env DT_DEPLOY_NPM_TOKEN
+            --env GITHUB_TOKEN
+            --env GH_TOKEN
+          run: bash deploy.sh
+        env:
+          DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
