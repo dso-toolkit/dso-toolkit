@@ -369,6 +369,8 @@ describe("Ozon Content", () => {
       .and("have.attr", "alt", "Afbeelding 1")
       .and("have.attr", "width", "360")
       .and("have.attr", "height", "562")
+      .and("have.class", "dso-ozon-figuur-reserve-space")
+      .and("have.attr", "style", "--img-width: 50%; --img-aspect-ratio: 0.6405693950177936;")
       .get("dso-ozon-content")
       .shadow()
       .find(".dso-ozon-figuur > .figuur-bijschrift")
