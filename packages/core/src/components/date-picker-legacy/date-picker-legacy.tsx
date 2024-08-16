@@ -377,7 +377,11 @@ export class DsoDatePickerLegacy implements ComponentInterface {
 
   private toggleOpen = (e: Event) => {
     e.preventDefault();
-    this.open ? this.hide(false) : this.show();
+    if (this.open) {
+      this.hide(false);
+    } else {
+      this.show();
+    }
   };
 
   private handleEscKey = (event: KeyboardEvent) => {

@@ -272,6 +272,7 @@ describe("Date Picker (Legacy)", () => {
       .find("input.dso-date__input")
       .type("1-1-2022")
       .then(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(details[details.length - 1].error).undefined;
         expect(details[details.length - 1].value).equal("01-01-2022");
         expect(details[details.length - 1].valueAsDate.getDate()).equal(1);
@@ -287,6 +288,7 @@ describe("Date Picker (Legacy)", () => {
       .then(() => {
         expect(details[details.length - 1].error).equal("min-range");
         expect(details[details.length - 1].value).equal("01-01-2021");
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(details[details.length - 1].valueAsDate).undefined;
       });
   });
@@ -302,6 +304,7 @@ describe("Date Picker (Legacy)", () => {
       .find("input.dso-date__input")
       .type("31-12-2021")
       .then(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(details[details.length - 1].error).undefined;
         expect(details[details.length - 1].value).equal("31-12-2021");
         expect(details[details.length - 1].valueAsDate.getFullYear()).equal(2021);
@@ -317,6 +320,7 @@ describe("Date Picker (Legacy)", () => {
       .then(() => {
         expect(details[details.length - 1].error).equal("max-range");
         expect(details[details.length - 1].value).equal("01-01-2022");
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(details[details.length - 1].valueAsDate).undefined;
       });
   });
@@ -349,6 +353,7 @@ describe("Date Picker (Legacy)", () => {
       .find("input.dso-date__input")
       .type("11-4-1970")
       .then(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(details[details.length - 1].error).undefined;
         expect(details[details.length - 1].value).equal("11-04-1970");
         expect(details[details.length - 1].valueAsDate).eql(new Date(1970, 3, 11));

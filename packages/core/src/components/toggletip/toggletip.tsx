@@ -40,7 +40,11 @@ export class Toggletip {
   private infoButton?: HTMLDsoInfoButtonElement;
 
   private click = () => {
-    this.active ? this.close() : this.open();
+    if (this.active) {
+      this.close();
+    } else {
+      this.open();
+    }
   };
 
   private open = () => {
