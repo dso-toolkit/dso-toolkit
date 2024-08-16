@@ -70,7 +70,21 @@ export default [
       "lit/quoted-expressions": "error",
       "no-duplicate-imports": "error",
       "@typescript-eslint/no-empty-object-type": "off",
-      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-require-imports": [
+        "error",
+        {
+          allow: [
+            "concurrently",
+            "@angular-devkit/build-angular/plugins/karma",
+            "karma-coverage",
+            "karma-jasmine-html-reporter",
+            "karma-chrome-launcher",
+            "karma-jasmine",
+            "path",
+            "prism-react-renderer",
+          ],
+        },
+      ],
       eqeqeq: ["error"],
       "no-console": [
         "error",
