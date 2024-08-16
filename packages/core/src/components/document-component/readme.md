@@ -64,7 +64,6 @@
 - [dso-badge](../badge)
 - [dso-tooltip](../tooltip)
 - [dso-label](../label)
-- [dso-annotation-button](../annotation-button)
 - [dso-alert](../alert)
 
 ### Graph
@@ -75,7 +74,6 @@ graph TD;
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
   dso-document-component --> dso-label
-  dso-document-component --> dso-annotation-button
   dso-document-component --> dso-alert
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
@@ -85,7 +83,6 @@ graph TD;
   dso-table --> dso-icon
   dso-label --> dso-icon
   dso-label --> dso-tooltip
-  dso-annotation-button --> dso-icon
   dso-alert --> dso-icon
   dsot-document-component-demo --> dso-document-component
   style dso-document-component fill:#f9f,stroke:#333,stroke-width:4px

@@ -305,20 +305,15 @@ export class DocumentComponentDemo implements ComponentInterface {
         onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
       >
         {this.isOpenedAnnotation(documentComponent) && (
-          <dso-annotation-output
-            slot="annotation"
-            open
-            identifier="test"
-            onDsoClose={() => this.handleAnnotationToggle(documentComponent)}
-          >
-            <span slot="title">Annotaties</span>
+          <dso-panel slot="annotation">
+            <h2 slot="heading">Annotaties</h2>
             <dso-slide-toggle
               checked={this.isCheckedSlideToggle(documentComponent)}
               onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
             >
               Delfzijl
             </dso-slide-toggle>
-          </dso-annotation-output>
+          </dso-panel>
         )}
         {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
           <ul class="dso-document-component-list">

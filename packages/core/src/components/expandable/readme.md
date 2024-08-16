@@ -25,13 +25,11 @@
 ### Used by
 
  - [dso-accordion-section](../accordion/components)
- - [dso-annotation-output](../annotation-output)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-expandable
-  dso-annotation-output --> dso-expandable
   style dso-expandable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

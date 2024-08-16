@@ -326,11 +326,16 @@ export class DocumentComponent implements ComponentInterface {
                     </dso-label>
                   )}
                   {this.annotated && (
-                    <dso-annotation-button
-                      identifier="expandable"
-                      open={this.openAnnotation}
-                      onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
-                    ></dso-annotation-button>
+                    <button
+                      type="button"
+                      class="dso-tertiary"
+                      aria-controls="expandable"
+                      aria-expanded={this.openAnnotation.toString()}
+                      onClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
+                    >
+                      <dso-icon icon="label"></dso-icon>
+                      <span class="sr-only">Toelichting bekijken</span>
+                    </button>
                   )}
                 </div>
               )}
