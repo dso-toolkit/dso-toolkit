@@ -21,6 +21,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-document-component](../document-component)
+
 ### Depends on
 
 - [dso-icon](../icon)
@@ -29,6 +33,7 @@
 ```mermaid
 graph TD;
   dso-panel --> dso-icon
+  dso-document-component --> dso-panel
   style dso-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -22,7 +22,7 @@
 | `notApplicable`            | `not-applicable`             | Marks this Document Component as not-applicable.                                                                  | `boolean`                                                                             | `false`     |
 | `nummer`                   | `nummer`                     | The Nummer XML.                                                                                                   | `XMLDocument \| string \| undefined`                                                  | `undefined` |
 | `open`                     | `open`                       | This boolean attribute indicates whether the children are visible.                                                | `boolean`                                                                             | `false`     |
-| `openAnnotation`           | `open-annotation`            | When the Annotation Output is opened, set this to true.                                                           | `boolean`                                                                             | `false`     |
+| `openAnnotation`           | `open-annotation`            | When the Annotation is opened, set this to true.                                                                  | `boolean`                                                                             | `false`     |
 | `opschrift`                | `opschrift`                  | The Opschrift XML.                                                                                                | `XMLDocument \| string \| undefined`                                                  | `undefined` |
 | `recursiveToggle`          | `recursive-toggle`           | Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted. | `"indeterminate" \| boolean \| undefined`                                             | `undefined` |
 | `type`                     | `type`                       | Type of Document Component.                                                                                       | `string \| undefined`                                                                 | `undefined` |
@@ -64,7 +64,7 @@
 - [dso-badge](../badge)
 - [dso-tooltip](../tooltip)
 - [dso-label](../label)
-- [dso-annotation-button](../annotation-button)
+- [dso-panel](../panel)
 - [dso-alert](../alert)
 
 ### Graph
@@ -75,7 +75,7 @@ graph TD;
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
   dso-document-component --> dso-label
-  dso-document-component --> dso-annotation-button
+  dso-document-component --> dso-panel
   dso-document-component --> dso-alert
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
@@ -85,7 +85,7 @@ graph TD;
   dso-table --> dso-icon
   dso-label --> dso-icon
   dso-label --> dso-tooltip
-  dso-annotation-button --> dso-icon
+  dso-panel --> dso-icon
   dso-alert --> dso-icon
   dsot-document-component-demo --> dso-document-component
   style dso-document-component fill:#f9f,stroke:#333,stroke-width:4px

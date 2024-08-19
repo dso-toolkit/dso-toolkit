@@ -33,10 +33,6 @@ export * from "./components/application-heading";
 
 export * from "./components/annotation";
 
-export { AnnotationButton } from "./components/annotation-button/annotation-button.models.js";
-
-export { AnnotationOutput } from "./components/annotation-output/annotation-output.models.js";
-
 export * from "./components/attachments-counter";
 
 export * from "./components/autosuggest";

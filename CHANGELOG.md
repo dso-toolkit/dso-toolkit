@@ -9,6 +9,11 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 
 ### Added
 * Build: Artifact integrity ([#2688](https://github.com/dso-toolkit/dso-toolkit/issues/2688))
+* Document Component: Asynchroon inladen afbeeldingen zorgt voor instabiele scrollTo() bij afnemer ([#2701](https://github.com/dso-toolkit/dso-toolkit/issues/2701))
+
+### Changed
+* Document Component: Panel implementeren ([#2765](https://github.com/dso-toolkit/dso-toolkit/issues/2765))
+* Files: Change focus state ([#2757](https://github.com/dso-toolkit/dso-toolkit/issues/2757))
 
 ### Removed
 * **BREAKING** Panel: HTML/CSS implementatie verwijderen ([#1464](https://github.com/dso-toolkit/dso-toolkit/issues/1464))
@@ -16,9 +21,6 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 ### Tasks
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))
 * Packages: `ESLint` updaten naar v9 ([#2631](https://github.com/dso-toolkit/dso-toolkit/issues/2631))
-
-### Changed
-* Files: Change focus state ([#2757](https://github.com/dso-toolkit/dso-toolkit/issues/2757))
 
 ## 🐘 Release 62.30.1 - 2024-07-29
 

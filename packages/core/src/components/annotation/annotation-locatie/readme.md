@@ -31,6 +31,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dsot-document-component-demo](../../document-component-demo)
+
 ### Depends on
 
 - [dso-renvooi](../../renvooi)
@@ -46,6 +50,7 @@ graph TD;
   dso-renvooi --> dso-renvooi
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dsot-document-component-demo --> dso-annotation-locatie
   style dso-annotation-locatie fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
