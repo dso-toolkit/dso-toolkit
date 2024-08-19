@@ -305,15 +305,14 @@ export class DocumentComponentDemo implements ComponentInterface {
         onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
       >
         {this.isOpenedAnnotation(documentComponent) && (
-          <dso-panel slot="annotation">
-            <h2 slot="heading">Annotaties</h2>
+          <div slot="annotations">
             <dso-slide-toggle
               checked={this.isCheckedSlideToggle(documentComponent)}
               onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
             >
               Delfzijl
             </dso-slide-toggle>
-          </dso-panel>
+          </div>
         )}
         {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
           <ul class="dso-document-component-list">

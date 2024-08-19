@@ -23,7 +23,7 @@
 
 ### Used by
 
- - [dsot-document-component-demo](../document-component-demo)
+ - [dso-document-component](../document-component)
 
 ### Depends on
 
@@ -33,7 +33,7 @@
 ```mermaid
 graph TD;
   dso-panel --> dso-icon
-  dsot-document-component-demo --> dso-panel
+  dso-document-component --> dso-panel
   style dso-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -545,7 +545,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * When the Annotation Output is opened, set this to true.
+          * When the Annotation is opened, set this to true.
          */
         "openAnnotation": boolean;
         /**
@@ -2757,7 +2757,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * When the Annotation Output is opened, set this to true.
+          * When the Annotation is opened, set this to true.
          */
         "openAnnotation"?: boolean;
         /**

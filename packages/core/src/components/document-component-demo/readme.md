@@ -26,7 +26,6 @@
 ### Depends on
 
 - [dso-document-component](../document-component)
-- [dso-panel](../panel)
 - [dso-slide-toggle](../slide-toggle)
 - [dso-ozon-content](../ozon-content)
 - [dso-responsive-element](../responsive-element)
@@ -35,7 +34,6 @@
 ```mermaid
 graph TD;
   dsot-document-component-demo --> dso-document-component
-  dsot-document-component-demo --> dso-panel
   dsot-document-component-demo --> dso-slide-toggle
   dsot-document-component-demo --> dso-ozon-content
   dsot-document-component-demo --> dso-responsive-element
@@ -44,6 +42,7 @@ graph TD;
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
   dso-document-component --> dso-label
+  dso-document-component --> dso-panel
   dso-document-component --> dso-alert
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
@@ -53,8 +52,8 @@ graph TD;
   dso-table --> dso-icon
   dso-label --> dso-icon
   dso-label --> dso-tooltip
-  dso-alert --> dso-icon
   dso-panel --> dso-icon
+  dso-alert --> dso-icon
   style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
