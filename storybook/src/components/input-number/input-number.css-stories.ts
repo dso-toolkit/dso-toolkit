@@ -7,7 +7,7 @@ import { InputNumberArgs, inputNumberMeta, inputNumberStories } from "dso-toolki
 
 const meta: Meta<InputNumberArgs> = {
   ...inputNumberMeta({ readme }),
-  title: "HTML|CSS/Input Number",
+  title: "HTML|CSS/Input Number (Deprecated)",
 };
 
 export default meta;

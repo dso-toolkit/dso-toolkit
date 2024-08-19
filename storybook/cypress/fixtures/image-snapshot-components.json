@@ -310,7 +310,7 @@
     "type": "html-css"
   },
   {
-    "name": "input-number",
+    "name": "input-number-deprecated",
     "selector": ".dso-input-number",
     "stories": ["input-number"],
     "type": "html-css"
