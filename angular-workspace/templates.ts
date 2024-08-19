@@ -2,8 +2,6 @@ import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import {
   ActionList,
   Alert,
-  AnnotationButton,
-  AnnotationOutput,
   AttachmentsCounter,
   Badge,
   BaseComponentImplementation,
@@ -33,8 +31,6 @@ import {
 
 import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
-import { angularAnnotationButton } from "./components/annotation-button/annotation-button.angular-template";
-import { angularAnnotationOutput } from "./components/annotation-output/annotation-output.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
@@ -62,8 +58,6 @@ import { angularToggletip } from "./components/toggletip/toggletip.angular-templ
 export interface Components {
   actionList: ActionList<StoryFnAngularReturnType>;
   alert: Alert<StoryFnAngularReturnType>;
-  annotationButton: AnnotationButton;
-  annotationOutput: AnnotationOutput<StoryFnAngularReturnType>;
   // autosuggest: Autosuggest<StoryFnAngularReturnType>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
@@ -128,8 +122,6 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(angularActionList);
 templateContainer.add(angularAlert);
-templateContainer.add(angularAnnotationButton);
-templateContainer.add(angularAnnotationOutput);
 templateContainer.add(angularAttachmentsCounter);
 templateContainer.add(angularBadge);
 templateContainer.add(angularDatePicker);

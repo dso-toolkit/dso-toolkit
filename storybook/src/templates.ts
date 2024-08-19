@@ -6,8 +6,6 @@ import {
   Alert,
   Anchor,
   Annotation,
-  AnnotationButton,
-  AnnotationOutput,
   ApplicationHeading,
   AttachmentsCounter,
   Autosuggest,
@@ -107,8 +105,6 @@ import { coreActionList } from "./components/action-list/action-list.core-templa
 import { coreAdvancedSelect } from "./components/advanced-select/advanced-select.core-template";
 import { coreAlert } from "./components/alert/alert.core-template";
 import { coreAnnotation } from "./components/annotation/annotation.core-template";
-import { coreAnnotationButton } from "./components/annotation-button/annotation-button.core-template";
-import { coreAnnotationOutput } from "./components/annotation-output/annotation-output.core-template";
 import { coreAttachmentsCounter } from "./components/attachments-counter/attachments-counter.core-template";
 import { coreAutosuggest } from "./components/autosuggest/autosuggest.core-template";
 import { coreBadge } from "./components/badge/badge.core-template";
@@ -222,8 +218,6 @@ export interface Components {
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   annotation: Annotation;
-  annotationButton: AnnotationButton;
-  annotationOutput: AnnotationOutput<TemplateResult>;
   applicationHeading: ApplicationHeading;
   attachmentsCounter: AttachmentsCounter;
   autosuggest: Autosuggest<TemplateResult>;
@@ -344,8 +338,6 @@ templateContainer.add(coreActionList);
 templateContainer.add(coreAdvancedSelect);
 templateContainer.add(coreAlert);
 templateContainer.add(coreAnnotation);
-templateContainer.add(coreAnnotationButton);
-templateContainer.add(coreAnnotationOutput);
 templateContainer.add(coreAttachmentsCounter);
 templateContainer.add(coreAutosuggest);
 templateContainer.add(coreBadge);

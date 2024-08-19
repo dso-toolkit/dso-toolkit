@@ -113,7 +113,7 @@ export class DocumentComponent implements ComponentInterface {
   vervallen = false;
 
   /**
-   * When the Annotation Output is opened, set this to true.
+   * When the Annotation is opened, set this to true.
    */
   @Prop()
   openAnnotation = false;
@@ -326,11 +326,16 @@ export class DocumentComponent implements ComponentInterface {
                     </dso-label>
                   )}
                   {this.annotated && (
-                    <dso-annotation-button
-                      identifier="expandable"
-                      open={this.openAnnotation}
-                      onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
-                    ></dso-annotation-button>
+                    <button
+                      type="button"
+                      class="dso-tertiary"
+                      aria-controls={this.openAnnotation ? "annotations" : undefined}
+                      aria-expanded={this.openAnnotation.toString()}
+                      onClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
+                    >
+                      <dso-icon icon="label"></dso-icon>
+                      <span class="sr-only">Toelichting bekijken</span>
+                    </button>
                   )}
                 </div>
               )}
@@ -338,7 +343,12 @@ export class DocumentComponent implements ComponentInterface {
           </div>
         )}
         <div class="annotation-container" part="_annotation-container">
-          <slot name="annotation" />
+          {this.openAnnotation && (
+            <dso-panel id="annotations" onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}>
+              <h2 slot="heading">Annotaties</h2>
+              <slot name="annotations" />
+            </dso-panel>
+          )}
         </div>
         {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
           <div class="content" part="_content">

@@ -11,9 +11,7 @@ import { BadgeStatus } from "./components/badge/badge.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-import { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
-import { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -48,9 +46,7 @@ export { BadgeStatus } from "./components/badge/badge.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-export { AnnotationButtonClickEvent } from "./components/annotation-button/annotation-button";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
-export { AnnotationOutputCloseEvent } from "./components/annotation-output/annotation-output";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -227,16 +223,6 @@ export namespace Components {
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    interface DsoAnnotationButton {
-        /**
-          * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
-         */
-        "identifier": string | undefined;
-        /**
-          * Set to true when the annotation is open.
-         */
-        "open": boolean;
-    }
     interface DsoAnnotationGebiedsaanwijzing {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
@@ -319,20 +305,6 @@ export namespace Components {
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
-    }
-    interface DsoAnnotationOutput {
-        /**
-          * This text will be displayed above the annotation-output when opened
-         */
-        "annotationPrefix"?: string;
-        /**
-          * The annotation-button that toggles this component should have the same identifier.
-         */
-        "identifier": string;
-        /**
-          * Set to `true` to show content.
-         */
-        "open": boolean;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -573,7 +545,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * When the Annotation Output is opened, set this to true.
+          * When the Annotation is opened, set this to true.
          */
         "openAnnotation": boolean;
         /**
@@ -1254,10 +1226,6 @@ export interface DsoAnnotationActiviteitCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationActiviteitElement;
 }
-export interface DsoAnnotationButtonCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoAnnotationButtonElement;
-}
 export interface DsoAnnotationGebiedsaanwijzingCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationGebiedsaanwijzingElement;
@@ -1273,10 +1241,6 @@ export interface DsoAnnotationLocatieCustomEvent<T> extends CustomEvent<T> {
 export interface DsoAnnotationOmgevingsnormwaardeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationOmgevingsnormwaardeElement;
-}
-export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLDsoAnnotationOutputElement;
 }
 export interface DsoAutosuggestCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1473,23 +1437,6 @@ declare global {
         prototype: HTMLDsoAnnotationActiviteitElement;
         new (): HTMLDsoAnnotationActiviteitElement;
     };
-    interface HTMLDsoAnnotationButtonElementEventMap {
-        "dsoClick": AnnotationButtonClickEvent;
-    }
-    interface HTMLDsoAnnotationButtonElement extends Components.DsoAnnotationButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoAnnotationButtonElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationButtonElement, ev: DsoAnnotationButtonCustomEvent<HTMLDsoAnnotationButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoAnnotationButtonElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationButtonElement, ev: DsoAnnotationButtonCustomEvent<HTMLDsoAnnotationButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLDsoAnnotationButtonElement: {
-        prototype: HTMLDsoAnnotationButtonElement;
-        new (): HTMLDsoAnnotationButtonElement;
-    };
     interface HTMLDsoAnnotationGebiedsaanwijzingElementEventMap {
         "dsoActiveChange": AnnotationActiveChangeEvent;
     }
@@ -1560,23 +1507,6 @@ declare global {
     var HTMLDsoAnnotationOmgevingsnormwaardeElement: {
         prototype: HTMLDsoAnnotationOmgevingsnormwaardeElement;
         new (): HTMLDsoAnnotationOmgevingsnormwaardeElement;
-    };
-    interface HTMLDsoAnnotationOutputElementEventMap {
-        "dsoClose": AnnotationOutputCloseEvent;
-    }
-    interface HTMLDsoAnnotationOutputElement extends Components.DsoAnnotationOutput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoAnnotationOutputElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOutputElement, ev: DsoAnnotationOutputCustomEvent<HTMLDsoAnnotationOutputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoAnnotationOutputElementEventMap>(type: K, listener: (this: HTMLDsoAnnotationOutputElement, ev: DsoAnnotationOutputCustomEvent<HTMLDsoAnnotationOutputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLDsoAnnotationOutputElement: {
-        prototype: HTMLDsoAnnotationOutputElement;
-        new (): HTMLDsoAnnotationOutputElement;
     };
     interface HTMLDsoAttachmentsCounterElement extends Components.DsoAttachmentsCounter, HTMLStencilElement {
     }
@@ -2208,12 +2138,10 @@ declare global {
         "dso-advanced-select": HTMLDsoAdvancedSelectElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-annotation-activiteit": HTMLDsoAnnotationActiviteitElement;
-        "dso-annotation-button": HTMLDsoAnnotationButtonElement;
         "dso-annotation-gebiedsaanwijzing": HTMLDsoAnnotationGebiedsaanwijzingElement;
         "dso-annotation-kaart": HTMLDsoAnnotationKaartElement;
         "dso-annotation-locatie": HTMLDsoAnnotationLocatieElement;
         "dso-annotation-omgevingsnormwaarde": HTMLDsoAnnotationOmgevingsnormwaardeElement;
-        "dso-annotation-output": HTMLDsoAnnotationOutputElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
@@ -2427,20 +2355,6 @@ declare namespace LocalJSX {
          */
         "wijzigactie"?: AnnotationWijzigactie;
     }
-    interface DsoAnnotationButton {
-        /**
-          * To link the Annotation Button with `aria-controls` to a different element, most likely an Annotation Output.
-         */
-        "identifier": string | undefined;
-        /**
-          * Emitted when user activates the button.
-         */
-        "onDsoClick"?: (event: DsoAnnotationButtonCustomEvent<AnnotationButtonClickEvent>) => void;
-        /**
-          * Set to true when the annotation is open.
-         */
-        "open"?: boolean;
-    }
     interface DsoAnnotationGebiedsaanwijzing {
         /**
           * Een optionele boolean die aangeeft of de annotatie actief is.
@@ -2539,24 +2453,6 @@ declare namespace LocalJSX {
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
         "wijzigactie"?: AnnotationWijzigactie;
-    }
-    interface DsoAnnotationOutput {
-        /**
-          * This text will be displayed above the annotation-output when opened
-         */
-        "annotationPrefix"?: string;
-        /**
-          * The annotation-button that toggles this component should have the same identifier.
-         */
-        "identifier": string;
-        /**
-          * This event is emitted when the user activates the Annotation Button.
-         */
-        "onDsoClose"?: (event: DsoAnnotationOutputCustomEvent<AnnotationOutputCloseEvent>) => void;
-        /**
-          * Set to `true` to show content.
-         */
-        "open"?: boolean;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -2861,7 +2757,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * When the Annotation Output is opened, set this to true.
+          * When the Annotation is opened, set this to true.
          */
         "openAnnotation"?: boolean;
         /**
@@ -3682,12 +3578,10 @@ declare namespace LocalJSX {
         "dso-advanced-select": DsoAdvancedSelect;
         "dso-alert": DsoAlert;
         "dso-annotation-activiteit": DsoAnnotationActiviteit;
-        "dso-annotation-button": DsoAnnotationButton;
         "dso-annotation-gebiedsaanwijzing": DsoAnnotationGebiedsaanwijzing;
         "dso-annotation-kaart": DsoAnnotationKaart;
         "dso-annotation-locatie": DsoAnnotationLocatie;
         "dso-annotation-omgevingsnormwaarde": DsoAnnotationOmgevingsnormwaarde;
-        "dso-annotation-output": DsoAnnotationOutput;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
@@ -3745,7 +3639,6 @@ declare module "@stencil/core" {
             "dso-advanced-select": LocalJSX.DsoAdvancedSelect & JSXBase.HTMLAttributes<HTMLDsoAdvancedSelectElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-annotation-activiteit": LocalJSX.DsoAnnotationActiviteit & JSXBase.HTMLAttributes<HTMLDsoAnnotationActiviteitElement>;
-            "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
             "dso-annotation-gebiedsaanwijzing": LocalJSX.DsoAnnotationGebiedsaanwijzing & JSXBase.HTMLAttributes<HTMLDsoAnnotationGebiedsaanwijzingElement>;
             "dso-annotation-kaart": LocalJSX.DsoAnnotationKaart & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
             "dso-annotation-locatie": LocalJSX.DsoAnnotationLocatie & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
@@ -3753,7 +3646,6 @@ declare module "@stencil/core" {
              * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
              */
             "dso-annotation-omgevingsnormwaarde": LocalJSX.DsoAnnotationOmgevingsnormwaarde & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
-            "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
