@@ -306,12 +306,14 @@ export class DocumentComponentDemo implements ComponentInterface {
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <div slot="annotations">
-            <dso-slide-toggle
-              checked={this.isCheckedSlideToggle(documentComponent)}
+            <dso-annotation-locatie
+              active={this.isCheckedSlideToggle(documentComponent)}
+              gewijzigde-locatie
+              locatieNoemer={"Winkelgebied"}
               onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
             >
-              Delfzijl
-            </dso-slide-toggle>
+              <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+            </dso-annotation-locatie>
           </div>
         )}
         {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (

@@ -26,7 +26,7 @@
 ### Depends on
 
 - [dso-document-component](../document-component)
-- [dso-slide-toggle](../slide-toggle)
+- [dso-annotation-locatie](../annotation/annotation-locatie)
 - [dso-ozon-content](../ozon-content)
 - [dso-responsive-element](../responsive-element)
 
@@ -34,7 +34,7 @@
 ```mermaid
 graph TD;
   dsot-document-component-demo --> dso-document-component
-  dsot-document-component-demo --> dso-slide-toggle
+  dsot-document-component-demo --> dso-annotation-locatie
   dsot-document-component-demo --> dso-ozon-content
   dsot-document-component-demo --> dso-responsive-element
   dso-document-component --> dso-icon
@@ -54,6 +54,10 @@ graph TD;
   dso-label --> dso-tooltip
   dso-panel --> dso-icon
   dso-alert --> dso-icon
+  dso-annotation-locatie --> dso-renvooi
+  dso-annotation-locatie --> dso-slide-toggle
+  dso-annotation-locatie --> dso-label
+  dso-renvooi --> dso-renvooi
   style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

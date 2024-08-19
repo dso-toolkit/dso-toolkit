@@ -1,4 +1,4 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
 
 import {
@@ -13,6 +13,8 @@ import { DocumentComponent } from "./document-component.models.js";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
+
+export type DocumentComponentDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
 interface DocumentComponentStories {
   Default: StoryObj<DocumentComponentArgs, Renderer>;
@@ -62,10 +64,13 @@ export function documentComponentMeta<TRenderer extends Renderer>({
   };
 }
 
-export function documentComponentStories<Implementation, Templates, TemplateFnReturnType>({
-  storyTemplates,
-  templateContainer,
-}: DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentComponentStories {
+export function documentComponentStories<Implementation, Templates, TemplateFnReturnType>(
+  {
+    storyTemplates,
+    templateContainer,
+  }: DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType>,
+  decorator: DocumentComponentDecorator<TemplateFnReturnType>,
+): DocumentComponentStories {
   return {
     Default: {
       args: documentComponentArgs,
@@ -75,6 +80,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
       ),
     },
     Demo: {
+      decorators: [(story) => decorator(story)],
       args: {
         jsonFile: "ozon-response.json",
         openDefault: true,
