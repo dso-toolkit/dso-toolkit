@@ -9,6 +9,7 @@ export const cssInputNumber: ComponentImplementation<InputNumber> = {
   template: ({ buttonTemplate }) =>
     function inputNumberTemplate({ label, id, min, max, count, minusButtonInactive, plusButtonInactive }) {
       return html`
+        <!-- START DEPRECATED -->
         <div class="dso-input-number">
           ${label && html`<label for=${id} class="control-label">${label}</label>`}
           ${buttonTemplate({
@@ -39,6 +40,7 @@ export const cssInputNumber: ComponentImplementation<InputNumber> = {
             iconMode: "only",
           })}
         </div>
+        <!-- END DEPRECATED -->
       `;
     },
 };
