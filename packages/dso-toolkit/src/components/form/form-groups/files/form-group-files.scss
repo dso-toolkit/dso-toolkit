@@ -41,19 +41,6 @@
         cursor: pointer;
       }
 
-      &:focus {
-        & + label {
-          &.dso-primary {
-            background-color: button.$primary-hover-background-color;
-          }
-
-          &.dso-secondary {
-            background-color: button.$secondary-hover-background-color;
-            color: button.$secondary-hover-color;
-          }
-        }
-      }
-
       &[disabled] {
         + label {
           cursor: default;
@@ -69,6 +56,12 @@
             color: button.$secondary-disabled-color;
           }
         }
+      }
+    }
+
+    &:focus-within {
+      label {
+        @include utilities.focus-outline();
       }
     }
   }
