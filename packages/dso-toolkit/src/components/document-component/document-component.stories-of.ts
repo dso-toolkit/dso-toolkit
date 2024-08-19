@@ -82,13 +82,18 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     Demo: {
       decorators: [(story) => decorator(story)],
       args: {
-        jsonFile: "ozon-response.json",
+        jsonFile: "ozon-response-omgevingsvisie.json",
         openDefault: true,
         showCanvas: false,
       },
       argTypes: {
         jsonFile: {
-          options: ["ozon-response.json", "ozon-response-bal.json", "ozon-response-waterschappen.json"],
+          options: [
+            "ozon-response.json",
+            "ozon-response-bal.json",
+            "ozon-response-waterschappen.json",
+            "ozon-response-omgevingsvisie.json",
+          ],
           control: {
             type: "select",
           },

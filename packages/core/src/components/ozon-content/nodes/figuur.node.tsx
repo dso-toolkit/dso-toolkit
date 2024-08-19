@@ -32,17 +32,13 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
-  setImageDimensions(imageElement: HTMLImageElement, schaal: number) {
-    const { naturalHeight, naturalWidth } = imageElement;
-
-    imageElement.height = naturalHeight * (schaal / 100);
-    imageElement.width = naturalWidth * (schaal / 100);
-  }
-
-  onImageLoad(event: Event, schaal?: number) {
-    if (event.target instanceof HTMLImageElement && schaal) {
-      this.setImageDimensions(event.target, schaal);
+  getStyle(breedte: number, hoogte: number) {
+    if (breedte && hoogte) {
+      return {
+        "--img-aspect-ratio": (breedte / hoogte).toString(),
+      };
     }
+    return;
   }
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
@@ -62,7 +58,6 @@ export class OzonContentFiguurNode implements OzonContentNode {
         hoogte: illustratieNode.getAttribute("hoogte"),
         uitlijning: illustratieNode.getAttribute("uitlijning"),
         alt: illustratieNode.getAttribute("alt"),
-        schaal: illustratieNode.getAttribute("schaal"),
       };
 
       const bijschrift =
@@ -72,6 +67,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
               locatie: bijschriftNode.getAttribute("locatie") ?? "onder",
             }
           : undefined;
+
+      const preventLayoutShift = !!Number(illustratie.breedte) && !!Number(illustratie.hoogte);
 
       return (
         <div class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}>
@@ -88,7 +85,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
             <img
               src={illustratie.naam ?? undefined}
               alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
-              onLoad={(event: Event) => this.onImageLoad(event, Number(illustratie.schaal))}
+              class={{ "dso-ozon-figuur-reserve-space": preventLayoutShift }}
+              style={this.getStyle(Number(illustratie.breedte), Number(illustratie.hoogte))}
             />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
