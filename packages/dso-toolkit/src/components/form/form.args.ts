@@ -5,25 +5,12 @@ import { Form, FormAsteriskExplanationPosition } from "./models/form.model.js";
 
 export interface FormArgs {
   asteriskExplanation?: FormAsteriskExplanationPosition;
-  formTitle?: string;
-  formHeading?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
   mode: "horizontal" | "vertical" | undefined;
 }
 
 export const formArgTypes: ArgTypes<FormArgs> = {
   asteriskExplanation: {
     options: [undefined, "top", "bottom", "both"],
-    control: {
-      type: "select",
-    },
-  },
-  formTitle: {
-    control: {
-      type: "text",
-    },
-  },
-  formHeading: {
-    options: [undefined, "h1", "h2", "h3", "h4", "h5", "h6"],
     control: {
       type: "select",
     },
@@ -39,8 +26,6 @@ export const formArgTypes: ArgTypes<FormArgs> = {
 export function formArgsMapper<TemplateFnReturnType>(a: FormArgs): Form<TemplateFnReturnType> {
   return {
     asteriskExplanation: a.asteriskExplanation,
-    formTitle: a.formTitle,
-    formHeading: a.formHeading,
     mode: a.mode,
     formGroups: content,
     formButtons: buttons,

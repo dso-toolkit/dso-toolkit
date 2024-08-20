@@ -122,7 +122,6 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
     .addParameters({
       argTypes: formArgTypes,
       args: {
-        formTitle: "Formulier Verticaal",
         mode: "vertical",
       },
       docs: {
@@ -142,7 +141,6 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
     .addParameters({
       argTypes: formArgTypes,
       args: {
-        formTitle: "Formulier Horizontaal",
         mode: "horizontal",
       },
       docs: {
