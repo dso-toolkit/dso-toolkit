@@ -3,7 +3,7 @@ import { TemplateResult } from "lit-html";
 
 export const form: Form<TemplateResult> = {
   mode: "horizontal",
-  formGroups: [
+  content: [
     {
       group: "input",
       id: "naam project",

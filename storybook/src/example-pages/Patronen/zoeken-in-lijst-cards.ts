@@ -64,7 +64,7 @@ examplePageFactory(
             <div class="col-md-4">
               <h2 class="dso-steps-indicator">Filters</h2>
               ${formTemplate({
-                formGroups: [
+                content: [
                   {
                     group: "checkboxes",
                     label: "Selecteer uw gewenste filter",

@@ -27,7 +27,7 @@ export function formArgsMapper<TemplateFnReturnType>(a: FormArgs): Form<Template
   return {
     asteriskExplanation: a.asteriskExplanation,
     mode: a.mode,
-    formGroups: content,
+    content,
     formButtons: buttons,
   };
 }
