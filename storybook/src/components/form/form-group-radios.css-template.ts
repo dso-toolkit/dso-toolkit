@@ -31,8 +31,9 @@ export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<Templat
           aria-describedby=${ifDefined(ariaDescribedBy)}
           aria-errormessage=${ifDefined(ariaErrorMessage)}
         >
+          <legend class="sr-only">${formGroup.label}</legend>
           <div class="dso-label-container">
-            <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
+            <span class="control-label" aria-hidden="true">${formGroup.label}</span>
             ${formGroup.info?.fixed === false && formGroup.infoButton
               ? infoButtonTemplate(formGroup.infoButton)
               : nothing}

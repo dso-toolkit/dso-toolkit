@@ -7,7 +7,7 @@
 @use "form.mixins" as css-form-mixins;
 
 #{css-form-variables.$form-selectors} {
-  fieldset {
+  .dso-form-group-collection {
     margin-block-end: units.$u2;
 
     > legend {
@@ -15,36 +15,12 @@
 
       border-block-end: 0;
       margin-block-end: css-form-variables.$fieldset-separator-unit;
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin: 0;
-      }
-
-      + dso-alert,
-      + .alert {
-        margin-block-start: 0;
-      }
     }
 
-    + fieldset:not(.form-group) {
+    + .dso-form-group-collection {
       > legend {
         border-block-start: 1px solid css-form-variables.$fieldset-separator-color;
         padding-block-start: css-form-variables.$fieldset-separator-unit;
-      }
-    }
-
-    fieldset {
-      margin-block-end: 0;
-      padding-block-end: 0;
-
-      + fieldset {
-        margin-block-start: 0;
-        padding-block-start: 0;
       }
     }
   }

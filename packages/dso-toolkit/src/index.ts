@@ -98,6 +98,7 @@ export {
   SelectOption,
   SelectOptionGroup,
   FormAsteriskExplanationPosition,
+  FormGroupCollection,
 } from "./components/form/form.models.js";
 export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
 

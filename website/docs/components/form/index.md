@@ -4,7 +4,22 @@
 
 Een formulier begint altijd met een `form`-element. Als een `form`-element ongewenst is kan een element met de class `.form` worden ingezet. Elke _textuele_ `input` **en** `select` zit in een `.form-group`. Elk formulier onderdeel is een _groep_ met een `label`.
 
-Alle elementen zitten in een `fieldset` met een `legend`. De legend kan verborgen worden met een `.sr-only`. De form submit (en eventueel een form reset) staat _buiten_ de `fieldset`.
+Het formulier kan opgedeeld worden in logische blokken door middel van Form Group Collections. Alle Form Groups komen dan in één of meerdere Form Group Collections:
+
+```html
+<form>
+  <fieldset class="dso-form-group-collection">
+    <legend>
+      <h2>NAW</h2>
+    </legend>
+    <div class="form-group">[..]</div>
+    <div class="form-group">[..]</div>
+    <div class="form-group">[..]</div>
+  </fieldset>
+</form>
+```
+
+Een formulier mag uitsluitend uit Form Group Collections bestaan of uit Form Groups. Een Form Group Collection kan niet naast een Form Group staan.
 
 - Een eventuele toelichting zit in een `p.dso-help-block`. Als er een toelichting is, dient deze met een `@aria-describedby` aan de werkvorm gekoppeld te worden.
 - Een label bij een _textuele_ `input` **of** `select` eindigt altijd met een dubbele punt.

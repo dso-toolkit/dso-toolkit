@@ -18,7 +18,7 @@ export const cssFormGroupConfirm: ComponentImplementation<FormGroupConfirm<Templ
       const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
       return html`
-        <fieldset
+        <div
           class="form-group dso-confirm ${classMap({
             "dso-required": !!formGroup.required,
             [`dso-${formGroup.state}`]: !!formGroup.state,
@@ -33,7 +33,7 @@ export const cssFormGroupConfirm: ComponentImplementation<FormGroupConfirm<Templ
               : nothing}
             ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>
-        </fieldset>
+        </div>
       `;
     },
 };
