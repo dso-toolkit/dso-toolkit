@@ -12,6 +12,7 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 * Document Component: Asynchroon inladen afbeeldingen zorgt voor instabiele scrollTo() bij afnemer ([#2701](https://github.com/dso-toolkit/dso-toolkit/issues/2701))
 
 ### Changed
+* **BREAKING:** Form And Form Group Radios: Update markup ([#2741](https://github.com/dso-toolkit/dso-toolkit/issues/2741))
 * Document Component: Panel implementeren ([#2765](https://github.com/dso-toolkit/dso-toolkit/issues/2765))
 * Files: Change focus state ([#2757](https://github.com/dso-toolkit/dso-toolkit/issues/2757))
 
@@ -24,9 +25,6 @@ Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de break
 ### Tasks
 * Packages: Dependencies updates ([#2718](https://github.com/dso-toolkit/dso-toolkit/issues/2718))
 * Packages: `ESLint` updaten naar v9 ([#2631](https://github.com/dso-toolkit/dso-toolkit/issues/2631))
-
-### Changed
-* **BREAKING:** Form And Form Group Radios: Update markup ([#2741](https://github.com/dso-toolkit/dso-toolkit/issues/2741))
 
 ## 🐘 Release 62.30.1 - 2024-07-29
 
