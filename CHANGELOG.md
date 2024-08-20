@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🎸 Release 63.0.0 - 2024-08-20
+
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
 
 ### Added
