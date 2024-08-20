@@ -1,0 +1,72 @@
+---
+authors: [iterox, hansgrimm, tfrijsewijk]
+---
+
+# DSO Toolkit v63.0.0 🎸
+
+In deze breaking release is het legacy HTML/CSS Component Panel verwijderd, en zijn kleine verbeteringen aan het formulier doorgevoerd.
+
+## Panel (legacy)
+
+In deze breaking release hebben we het legacy HTML/CSS Component Panel verwijderd. Dit component is volgens de oude deprecation policy al eens deprecated. Dit zal in principe geen impact voor afnemers betekenen.
+
+Het gaat om:
+
+```html
+<div class="panel"></div>
+```
+
+Het gaat _niet_ om de Web Component implementatie van Panel:
+
+```html
+<dso-panel></dso-panel>
+```
+
+### Migratiepad
+
+Er is geen migratiepad. De HTML/CSS implementatie en Web Component implementatie zijn niet gelijk aan elkaar. Ga bij je UX designer ten rade voor een alternatief.
+
+## Formulier verbeteringen
+
+In deze release zijn de markup voorschriften voor Form en Form Group Radios gewijzigd:
+
+- Voorheen zat het hele formulier altijd in een `fieldset` met een `legend` (de bekende root-fieldset). Nu niet meer. Form Group mag nu direct in Form.
+- De titel van het formulier, een heading die eerst in eerder genoemde root-fieldset de eerste legend stond, is geen onderdeel meer van Form en indien een titel gewenst is kan deze buiten het formulier worden geplaatst.
+- De markup van Form Group: Radios is nu gelijk aan Form Group: Checkboxes, met uitzondering van de 'inline' optie: deze blijft exclusief aan Form Group: Radios.
+- Het is nu mogelijk om het formulier op te delen in logische blokken. Dit kan door middel van Form Group Collections. Alle Form Groups komen dan in één of meerdere Form Group Collections.
+
+### Migratiepad root-fieldset
+
+Het migratiepad voor de root-fieldset en de titel is eenvoudig: verwijder de root-fieldset en verplaats de inhoud van de root-fieldset naar Form, en verplaats de titel naar buiten het formulier:
+
+```html
+❌
+<form>
+  <fieldset>
+    <legend>
+      <h3>Titel</h3>
+    </legend>
+    <div class="form-group">[..]</div>
+    <fieldset class="form-group">[..]</fieldset>
+    <div class="form-group">[..]</div>
+  </fieldset>
+  <div class="dso-form-buttons">[..]</div>
+</form>
+
+✅
+<h3>Titel</h3>
+<form>
+  <div class="form-group">[..]</div>
+  <fieldset class="form-group">[..]</fieldset>
+  <div class="form-group">[..]</div>
+  <div class="dso-form-buttons">[..]</div>
+</form>
+```
+
+### Migratiepad Form Group: Radios
+
+De markup voor Form Group: Radios is nu gelijk aan Form Group: Checkboxes. Zie de nieuwste markup voorschriften in Storybook bij HTML/CSS > Form > Form Groups > Radio.
+
+- Root element van Form Group: Radios is nu `fieldset` in plaats van `div`.
+- De `<legend class="sr-only">` is toegevoegd.
+- De `<label>` is vervangen met `<span aria-hidden>`.
