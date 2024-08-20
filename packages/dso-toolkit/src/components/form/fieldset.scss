@@ -37,15 +37,5 @@
         padding-block-start: css-form-variables.$fieldset-separator-unit;
       }
     }
-
-    fieldset {
-      margin-block-end: 0;
-      padding-block-end: 0;
-
-      + fieldset {
-        margin-block-start: 0;
-        padding-block-start: 0;
-      }
-    }
   }
 }
