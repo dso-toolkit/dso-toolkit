@@ -30,6 +30,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 
 ### Used by
 
+ - [dso-accordion-section](../accordion/components)
  - [dso-advanced-select](../advanced-select)
  - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
@@ -47,6 +48,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 graph TD;
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-accordion-section --> dso-label
   dso-advanced-select --> dso-label
   dso-annotation-activiteit --> dso-label
   dso-annotation-gebiedsaanwijzing --> dso-label

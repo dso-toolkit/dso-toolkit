@@ -1,4 +1,4 @@
-import { BadgeStatus } from "../badge";
+import { LabelStatus } from "../label";
 
 export type AccordionHandleElement = "anchor" | "button";
 
@@ -24,8 +24,8 @@ export interface AccordionSection<TemplateFnReturnType> {
   icon?: string;
   attachmentCount?: number;
   content?: TemplateFnReturnType;
-  badgeStatus?: BadgeStatus;
-  badgeMessage?: string;
+  labelStatus?: LabelStatus;
+  labelLabel?: string;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
   dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;
   dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;

@@ -4,7 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
-import { BadgeStatus } from "../badge";
+import { LabelStatus } from "../label";
 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
@@ -21,8 +21,8 @@ export interface AccordionArgs {
   handleUrl: string;
   handleTitle: string;
   demoScrollIntoView: "start" | "end" | undefined;
-  badgeMessage: string;
-  badgeStatus: BadgeStatus;
+  labelLabel: string;
+  labelStatus: LabelStatus;
 }
 
 export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {
@@ -108,13 +108,13 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: "select",
     },
   },
-  badgeStatus: {
-    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "outline", "attention"],
+  labelStatus: {
+    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "bright", "attention"],
     control: {
       type: "select",
     },
   },
-  badgeMessage: {
+  labelLabel: {
     control: {
       type: "text",
     },
@@ -142,8 +142,8 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         section.icon = a.icon;
         section.heading = a.heading;
         section.handleUrl = a.handleUrl;
-        section.badgeStatus = a.badgeStatus;
-        section.badgeMessage = a.badgeMessage;
+        section.labelStatus = a.labelStatus;
+        section.labelLabel = a.labelLabel;
         section.dsoAnimationStart = (e) => {
           if (a.demoScrollIntoView === "start" && a.open) {
             e.detail.scrollIntoView();

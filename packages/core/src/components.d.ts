@@ -7,12 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-import { BadgeStatus } from "./components/badge/badge.interfaces";
+import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+import { BadgeStatus } from "./components/badge/badge.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -42,12 +43,13 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
-export { BadgeStatus } from "./components/badge/badge.interfaces";
+export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+export { BadgeStatus } from "./components/badge/badge.interfaces";
 export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -93,14 +95,6 @@ export namespace Components {
          */
         "attachmentCount"?: number;
         /**
-          * A message to be displayed in the heading handle inside a Badge (optional)
-         */
-        "badgeMessage"?: string;
-        /**
-          * The status of the Badge in the heading handle (optional)
-         */
-        "badgeStatus"?: BadgeStatus;
-        /**
           * Calling this method will set focus to the handle.
          */
         "focusHandle": () => Promise<void>;
@@ -124,6 +118,14 @@ export namespace Components {
           * To set an icon in the heading handle.
          */
         "icon"?: string;
+        /**
+          * The label to be displayed in the heading handle inside a Label (optional)
+         */
+        "labelLabel"?: string;
+        /**
+          * The status of the Label in the heading handle (optional)
+         */
+        "labelStatus"?: LabelStatus;
         /**
           * Set the Accordion Section open.
          */
@@ -774,7 +776,7 @@ export namespace Components {
         /**
           * The status of this Label.
          */
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+        "status"?: LabelStatus;
         /**
           * Whether the Label is allowed to truncate the contents if it does not fit the container element.
          */
@@ -2205,14 +2207,6 @@ declare namespace LocalJSX {
          */
         "attachmentCount"?: number;
         /**
-          * A message to be displayed in the heading handle inside a Badge (optional)
-         */
-        "badgeMessage"?: string;
-        /**
-          * The status of the Badge in the heading handle (optional)
-         */
-        "badgeStatus"?: BadgeStatus;
-        /**
           * The title of the handle
          */
         "handleTitle"?: string;
@@ -2232,6 +2226,14 @@ declare namespace LocalJSX {
           * To set an icon in the heading handle.
          */
         "icon"?: string;
+        /**
+          * The label to be displayed in the heading handle inside a Label (optional)
+         */
+        "labelLabel"?: string;
+        /**
+          * The status of the Label in the heading handle (optional)
+         */
+        "labelStatus"?: LabelStatus;
         /**
           * Event emitted when the Accordion Section completes its toggle animation.
          */
@@ -3009,7 +3011,7 @@ declare namespace LocalJSX {
         /**
           * The status of this Label.
          */
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+        "status"?: LabelStatus;
         /**
           * Whether the Label is allowed to truncate the contents if it does not fit the container element.
          */
