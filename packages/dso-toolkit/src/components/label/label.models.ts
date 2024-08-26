@@ -1,3 +1,5 @@
+export type LabelStatus = "primary" | "success" | "info" | "warning" | "danger" | "error" | "bright" | "attention";
+
 export interface Label {
   status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
   compact?: boolean;

@@ -24,8 +24,8 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               open,
               status,
               statusDescription,
-              badgeStatus,
-              badgeMessage,
+              labelStatus,
+              label,
             }) =>
               html`<dso-accordion-section
                 ?open=${open}
@@ -36,8 +36,8 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
                 status=${ifDefined(status)}
                 icon=${ifDefined(icon)}
                 attachment-count=${ifDefined(attachmentCount)}
-                badge-status=${ifDefined(badgeStatus)}
-                badge-message=${ifDefined(badgeMessage)}
+                label-status=${ifDefined(labelStatus)}
+                label=${ifDefined(label)}
                 @dsoToggleClick=${dsoToggleClick}
                 @dsoAnimationStart=${dsoAnimationStart}
                 @dsoAnimationEnd=${dsoAnimationEnd}

@@ -14,6 +14,7 @@ import {
 } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
+import { LabelStatus } from "./label.interfaces";
 
 const resizeObserver = new ResizeObserver(
   debounce((entries: ResizeObserverEntry[]) => {
@@ -62,7 +63,7 @@ export class Label implements ComponentInterface {
    * The status of this Label.
    */
   @Prop()
-  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+  status?: LabelStatus;
 
   /**
    * Emitted when the user activates the remove button.
