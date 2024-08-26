@@ -169,26 +169,26 @@ describe("Accordion", () => {
       .should("have.focus");
   });
 
-  it("should show a badge on an AccordionSection", () => {
+  it("should show a label on an AccordionSection", () => {
     cy.get("dso-accordion")
       .find("dso-accordion-section:nth-child(2)")
       .as("accordionSection")
-      .invoke("prop", "badgeStatus", undefined)
-      .invoke("prop", "badgeMessage", undefined)
+      .invoke("prop", "labelStatus", undefined)
+      .invoke("prop", "label", undefined)
       .shadow()
-      .find("dso-badge")
+      .find("dso-label")
       .should("not.exist")
       .get("@accordionSection")
-      .invoke("prop", "badgeStatus", "warning")
-      .invoke("prop", "badgeMessage", "Bepaald")
+      .invoke("prop", "labelStatus", "warning")
+      .invoke("prop", "label", "Bepaald")
       .shadow()
-      .find("dso-badge")
-      .as("dso-badge")
+      .find("dso-label")
+      .as("dso-label")
       .should("exist")
       .and("have.text", "Bepaald")
-      .get("@dso-badge")
+      .get("@dso-label")
       .shadow()
-      .find(".dso-badge.badge-warning")
+      .find(".dso-label.dso-label-warning")
       .should("exist");
   });
 });

@@ -24,7 +24,7 @@ import {
   stateMap,
 } from "./accordion-section.interfaces";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
-import { BadgeStatus } from "../../badge/badge.interfaces";
+import { LabelStatus } from "../../label/label.interfaces";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -193,16 +193,16 @@ export class AccordionSection implements ComponentInterface {
   hasNestedAccordion = false;
 
   /**
-   * A message to be displayed in the heading handle inside a Badge (optional)
+   * The label to be displayed in the heading handle inside a Label (optional)
    */
   @Prop()
-  badgeMessage?: string;
+  label?: string;
 
   /**
-   * The status of the Badge in the heading handle (optional)
+   * The status of the Label in the heading handle (optional)
    */
   @Prop()
-  badgeStatus?: BadgeStatus;
+  labelStatus?: LabelStatus;
 
   /**
    * Calling this method will set focus to the handle.
@@ -379,7 +379,11 @@ export class AccordionSection implements ComponentInterface {
 
                 <span>{this.handleTitle}</span>
 
-                {this.badgeMessage && <dso-badge status={this.badgeStatus}>{this.badgeMessage}</dso-badge>}
+                {this.label && (
+                  <dso-label status={this.labelStatus} compact>
+                    {this.label}
+                  </dso-label>
+                )}
 
                 <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
               </Fragment>
@@ -396,7 +400,11 @@ export class AccordionSection implements ComponentInterface {
                   )}
                 </span>
 
-                {this.badgeMessage && <dso-badge status={this.badgeStatus}>{this.badgeMessage}</dso-badge>}
+                {this.label && (
+                  <dso-label status={this.labelStatus} compact>
+                    {this.label}
+                  </dso-label>
+                )}
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
