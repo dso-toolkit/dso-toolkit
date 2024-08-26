@@ -63,3 +63,16 @@ Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
     cypressStyling();
   });
 });
+
+/**
+ * This overwrite tries to wait for all fonts to load before taking the screenshot.
+ *
+ * See #2748 for more information.
+ */
+Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
+  return cy
+    .document()
+    .its("fonts.status")
+    .should("equal", "loaded")
+    .then(() => originalFn(...args));
+});
