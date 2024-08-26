@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Accordion: Badge vervangen met Label ([#2774](https://github.com/dso-toolkit/dso-toolkit/issues/2774))
 
+### Tasks
+* Panel: flaky e2e test matchImageSnapshot ([#2748](https://github.com/dso-toolkit/dso-toolkit/issues/2748))
+
 ## 🎸 Release 63.0.0 - 2024-08-20
 
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
