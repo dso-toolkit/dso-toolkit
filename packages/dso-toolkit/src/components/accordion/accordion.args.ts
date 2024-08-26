@@ -21,7 +21,7 @@ export interface AccordionArgs {
   handleUrl: string;
   handleTitle: string;
   demoScrollIntoView: "start" | "end" | undefined;
-  labelLabel: string;
+  label: string;
   labelStatus: LabelStatus;
 }
 
@@ -114,7 +114,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: "select",
     },
   },
-  labelLabel: {
+  label: {
     control: {
       type: "text",
     },
@@ -143,7 +143,7 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         section.heading = a.heading;
         section.handleUrl = a.handleUrl;
         section.labelStatus = a.labelStatus;
-        section.labelLabel = a.labelLabel;
+        section.label = a.label;
         section.dsoAnimationStart = (e) => {
           if (a.demoScrollIntoView === "start" && a.open) {
             e.detail.scrollIntoView();

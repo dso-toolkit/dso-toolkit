@@ -66,7 +66,7 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
   return {
     Default: {
       args: {
-        labelLabel: "Attentie",
+        label: "Attentie",
         labelStatus: "attention",
       },
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections }) =>

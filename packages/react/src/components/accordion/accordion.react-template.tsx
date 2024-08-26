@@ -31,7 +31,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 status,
                 statusDescription,
                 labelStatus,
-                labelLabel,
+                label,
               },
               i,
             ) => (
@@ -46,7 +46,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 icon={icon}
                 attachmentCount={attachmentCount}
                 labelStatus={labelStatus}
-                labelLabel={labelLabel}
+                label={label}
                 onDsoToggleClick={(e: CustomEvent<AccordionSectionToggleClickEvent>) => {
                   dsoToggleClick?.(e);
                 }}

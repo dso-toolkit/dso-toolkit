@@ -27,8 +27,8 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
           ${section.handleTitle}
-          ${section.labelLabel
-            ? labelTemplate({ status: section.labelStatus, label: section.labelLabel, compact: true })
+          ${section.label
+            ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
             : nothing}
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`

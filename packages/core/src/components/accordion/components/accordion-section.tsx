@@ -196,7 +196,7 @@ export class AccordionSection implements ComponentInterface {
    * The label to be displayed in the heading handle inside a Label (optional)
    */
   @Prop()
-  labelLabel?: string;
+  label?: string;
 
   /**
    * The status of the Label in the heading handle (optional)
@@ -379,9 +379,9 @@ export class AccordionSection implements ComponentInterface {
 
                 <span>{this.handleTitle}</span>
 
-                {this.labelLabel && (
+                {this.label && (
                   <dso-label status={this.labelStatus} compact>
-                    {this.labelLabel}
+                    {this.label}
                   </dso-label>
                 )}
 
@@ -400,9 +400,9 @@ export class AccordionSection implements ComponentInterface {
                   )}
                 </span>
 
-                {this.labelLabel && (
+                {this.label && (
                   <dso-label status={this.labelStatus} compact>
-                    {this.labelLabel}
+                    {this.label}
                   </dso-label>
                 )}
 

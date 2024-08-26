@@ -121,7 +121,7 @@ export namespace Components {
         /**
           * The label to be displayed in the heading handle inside a Label (optional)
          */
-        "labelLabel"?: string;
+        "label"?: string;
         /**
           * The status of the Label in the heading handle (optional)
          */
@@ -2229,7 +2229,7 @@ declare namespace LocalJSX {
         /**
           * The label to be displayed in the heading handle inside a Label (optional)
          */
-        "labelLabel"?: string;
+        "label"?: string;
         /**
           * The status of the Label in the heading handle (optional)
          */

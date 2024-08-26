@@ -25,7 +25,7 @@ export interface AccordionSection<TemplateFnReturnType> {
   attachmentCount?: number;
   content?: TemplateFnReturnType;
   labelStatus?: LabelStatus;
-  labelLabel?: string;
+  label?: string;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
   dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;
   dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;
