@@ -360,6 +360,12 @@
     "wait": "dso-mark-bar.hydrated"
   },
   {
+    "name": "paragraph",
+    "selector": "",
+    "stories": ["default", "disclaimer"],
+    "type": "html-css"
+  },
+  {
     "name": "progress-bar",
     "selector": ".progress",
     "stories": ["default", "arbitrary-values"],
