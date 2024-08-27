@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Tasks
 * Panel: flaky e2e test matchImageSnapshot ([#2748](https://github.com/dso-toolkit/dso-toolkit/issues/2748))
 * Packages: Dependencies updates ([#2749](https://github.com/dso-toolkit/dso-toolkit/issues/2749))
+* Packages: `iframe-resizer` new version 5 ([#2677](https://github.com/dso-toolkit/dso-toolkit/issues/2677))
 
 ## 🎸 Release 63.0.0 - 2024-08-20
 

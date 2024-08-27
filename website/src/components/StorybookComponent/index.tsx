@@ -1,4 +1,4 @@
-import IframeResizer from "iframe-resizer-react";
+import IframeResizer from "@iframe-resizer/react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useEffect, useState } from "react";
 
@@ -205,7 +205,7 @@ export function StorybookComponent({ name, implementations, variant, args, isExa
               onLoad={() => setLoading(false)}
               src={getStoryIframeUrl(implementation, name ?? getNameFromPathname(pathname), variant, args)}
               style={{ width: "1px", minWidth: "100%" }}
-              heightCalculationMethod="lowestElement"
+              license="GPLv3"
             />
             <div className={styles.implementationButtons}>
               {!isExamplePage &&
