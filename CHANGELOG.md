@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Autosuggest: Fix text align ([#2753](https://github.com/dso-toolkit/dso-toolkit/issues/2753))
+* List Button: Border color not as per design ([#2778](https://github.com/dso-toolkit/dso-toolkit/issues/2778))
 
 ### Tasks
 * Panel: flaky e2e test matchImageSnapshot ([#2748](https://github.com/dso-toolkit/dso-toolkit/issues/2748))
