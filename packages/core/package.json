@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "^4.19.2",
+    "@stencil/core": "4.20.0",
     "@stencil/store": "^2.0.16",
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
@@ -49,7 +49,7 @@
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "tsx": "^4.16.5",
+    "tsx": "^4.18.0",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
