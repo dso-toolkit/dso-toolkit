@@ -20,10 +20,12 @@
 }
 
 @mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
-  @include _shared-variant($defaults-map);
-
   @if ($base-styling) {
     @include base($modifiers);
+  }
+
+  & {
+    @include _shared-variant($defaults-map);
   }
 
   & {
