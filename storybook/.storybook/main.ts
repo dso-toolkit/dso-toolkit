@@ -46,7 +46,7 @@ const config: StorybookConfig = {
       to: "/core",
     },
     {
-      from: "../../node_modules/iframe-resizer/js",
+      from: "../../node_modules/@iframe-resizer",
       to: "iframe-resizer",
     },
   ],
@@ -90,7 +90,7 @@ const config: StorybookConfig = {
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
     <script type="module" src="core/dso-toolkit.esm.js"></script>
-    <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
+    <script src="iframe-resizer/child/index.umd.js"></script>
   `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
