@@ -86,12 +86,12 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
           {
             label: "Kadastraal nummer",
             id: "tabitem-3",
+            modifiers: "disabled",
             content: "Inhoud Kadastraal nummer",
           },
           {
             label: "Coordinaten",
             id: "tabitem-4",
-            modifiers: "disabled",
             content: "Inhoud Coordinaten",
           },
         ],

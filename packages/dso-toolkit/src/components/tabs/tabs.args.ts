@@ -3,19 +3,25 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../storybook/index.js";
 
 import { Tabs, TabsItem } from "./tabs.models.js";
+import { HandlerFunction } from "@storybook/addon-actions/*";
 
-export interface TabsArgs<TemplateFnReturnType> {
-  items: TabsItem<TemplateFnReturnType>[];
+export interface TabsArgs<TemplateFnRetunType> {
+  items: TabsItem<TemplateFnRetunType>[];
+  dsoTabSwitch: HandlerFunction;
 }
 
 export const tabsArgTypes: ArgTypes<TabsArgs<unknown>> = {
   items: {
     ...noControl,
   },
+  dsoTabSwitch: {
+    ...noControl,
+    action: "dsoTabSwitch",
+  },
 };
 
 export function tabsArgsMapper<TemplateFnReturnType>(a: TabsArgs<TemplateFnReturnType>): Tabs<TemplateFnReturnType> {
   return {
-    items: a.items,
+    ...a,
   };
 }

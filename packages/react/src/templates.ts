@@ -33,6 +33,7 @@ import {
   Selectable,
   SlideToggle,
   Table,
+  Tabs,
   TemplateContainer,
   Toggletip,
   Tooltip,
@@ -71,6 +72,7 @@ import { reactScrollable } from "./components/scrollable/scrollable.react-templa
 import { reactSelectable } from "./components/selectable/selectable.react-template";
 import { reactSlideToggle } from "./components/slide-toggle/slide-toggle.react-template";
 import { reactTable } from "./components/table/table.react-template";
+import { reactTabs } from "./components/tabs/tabs.react-template";
 import { reactToggletip } from "./components/toggletip/toggletip.react-template";
 import { reactTooltip } from "./components/tooltip/tooltip.react-template";
 import { reactTreeView } from "./components/tree-view/tree-view.react-template";
@@ -108,6 +110,7 @@ export interface Components {
   selectable: Selectable<JSX.Element>;
   slideToggle: SlideToggle;
   table: Table<JSX.Element>;
+  tabs: Tabs<JSX.Element>;
   toggletip: Toggletip<JSX.Element>;
   tooltip: Tooltip;
   treeView: TreeView;
@@ -151,6 +154,7 @@ templateContainer.add(reactScrollable);
 templateContainer.add(reactSelectable);
 templateContainer.add(reactSlideToggle);
 templateContainer.add(reactTable);
+templateContainer.add(reactTabs);
 templateContainer.add(reactToggletip);
 templateContainer.add(reactTooltip);
 templateContainer.add(reactTreeView);

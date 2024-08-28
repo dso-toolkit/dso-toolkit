@@ -143,6 +143,7 @@ import { coreScrollable } from "./components/scrollable/scrollable.core-template
 import { coreSelectable } from "./components/selectable/selectable.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { coreTable } from "./components/table/table.core-template";
+import { coreTabs } from "./components/tabs/tabs.core-template";
 import { coreToggletip } from "./components/toggletip/toggletip.core-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreTreeView } from "./components/tree-view/tree-view.core-template";
@@ -378,6 +379,7 @@ templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSlideToggle);
 templateContainer.add(coreTable);
+templateContainer.add(coreTabs);
 templateContainer.add(coreToggletip);
 templateContainer.add(coreTooltip);
 templateContainer.add(coreTreeView);
