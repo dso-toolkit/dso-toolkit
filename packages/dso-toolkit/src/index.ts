@@ -147,8 +147,7 @@ export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.
 
 export * from "./components/mark-bar";
 
-export { Modal, ModalCloseEvent, ModalRole } from "./components/modal/modal.models.js";
-export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";
+export * from "./components/modal";
 
 export {
   BaseLayer,

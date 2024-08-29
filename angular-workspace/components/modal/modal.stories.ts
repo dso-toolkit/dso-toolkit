@@ -1,44 +1,41 @@
-import { moduleMetadata, storiesOf } from "@storybook/angular";
+import { Meta, moduleMetadata } from "@storybook/angular";
+import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
-import { storiesOfModal } from "dso-toolkit";
-
-import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-import { TrustHtmlPipe } from "../trust-html.pipe";
+
+import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
+
 import {
   activeBody,
   activeFooter,
   confirmBody,
   confirmFooter,
-  datePickerBody,
-  loadingBody,
   passiveBody,
   passiveFooter,
+  loadingBody,
+  datePickerBody,
 } from "./modal.content";
+import { TrustHtmlPipe } from "../trust-html.pipe";
+import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
-import readme from "./readme.md?raw";
+const meta: Meta<ModalArgs> = {
+  ...modalMeta({ readme }),
+  title: "Modal",
+  decorators: [
+    moduleMetadata({
+      declarations: [TrustHtmlPipe],
+    }),
+  ],
+};
 
-storiesOfModal(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
-      storyApiOptions: {
-        parameters: [
-          {
-            component: DsoModal,
-          },
-        ],
-        decorators: [
-          moduleMetadata({
-            declarations: [TrustHtmlPipe],
-          }),
-        ],
-      },
-    },
-    templateContainer,
-    storyTemplates: ({ modalTemplate }, templates) => ({
+export default meta;
+
+const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { modalTemplate } = templates;
+
+    return {
       modalTemplate,
       activeBody,
       activeFooter,
@@ -48,7 +45,29 @@ storiesOfModal(
       confirmFooter,
       loadingBody: loadingBody(templates).template,
       datePickerBody: datePickerBody(templates).template,
-    }),
+    };
   },
-  {},
-);
+  decorator: (story) => {
+    const s = story();
+    if (!isStoryFnAngularReturnTypeTemplate(s)) {
+      throw new Error("Expected a valid Angular template");
+    }
+
+    setTimeout(() => {
+      const storybookRoot = document.getElementById("storybook-root");
+
+      const dialog = storybookRoot?.querySelector("dialog");
+
+      dialog?.showModal();
+    }, 0);
+
+    const { props, template } = s;
+
+    return {
+      props,
+      template: `${template}`,
+    };
+  },
+});
+
+export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };

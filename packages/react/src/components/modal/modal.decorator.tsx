@@ -1,7 +1,7 @@
-import { html, TemplateResult } from "lit-html";
 import { ModalDecorator } from "dso-toolkit";
+import React from "react";
 
-export const decorator: ModalDecorator<TemplateResult> = (story) => {
+export const decorator: ModalDecorator<JSX.Element> = (story) => {
   setTimeout(() => {
     const storybookRoot = document.getElementById("storybook-root");
 
@@ -10,5 +10,5 @@ export const decorator: ModalDecorator<TemplateResult> = (story) => {
     dialog?.showModal();
   }, 0);
 
-  return html`${story()}`;
+  return <>{story()}</>;
 };
