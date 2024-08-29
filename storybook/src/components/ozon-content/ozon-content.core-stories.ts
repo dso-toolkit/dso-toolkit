@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/angular";
+import { Meta } from "@storybook/web-components";
 
 import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<OzonContentArgs> = {
   ...ozonContentMeta({ readme }),
-  title: "Ozon Content",
+  title: "Core/Ozon Content",
 };
 
 export default meta;

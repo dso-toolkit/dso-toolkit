@@ -409,7 +409,7 @@ export const content = [
     `,
   },
   {
-    title: "Inhoud > Al > Noot",
+    title: "InhoudAlNoot",
     content: `
       <Inhoud>
         <Al>
@@ -596,7 +596,7 @@ export const content = [
     `,
   },
   {
-    title: "Table met Noot",
+    title: "TableMetNoot",
     content: `
       <Inhoud>
         <Al>
@@ -764,7 +764,7 @@ export const content = [
     `,
   },
   {
-    title: "Table met thead",
+    title: "TableMetThead",
     content: `
       <table
         colsep="0"
@@ -1072,7 +1072,7 @@ export const content = [
     `,
   },
   {
-    title: "Table met Bron",
+    title: "TableMetBron",
     content: `
       <Inhoud
         xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
@@ -1229,7 +1229,7 @@ export const content = [
       </Inhoud>`,
   },
   {
-    title: "Table zonder colsep en met rowsep",
+    title: "TableZonderColsepEnMetRowsep",
     content: `
       <table
         colsep='0'
@@ -1315,7 +1315,7 @@ export const content = [
     `,
   },
   {
-    title: "Complexe Table zonder colsep en met rowsep",
+    title: "ComplexeTableZonderColsepEnMetRowsep",
     content: `
       <table
         colsep='0'
@@ -1415,7 +1415,7 @@ export const content = [
     `,
   },
   {
-    title: "Renvooi-weergave",
+    title: "RenvooiWeergave",
     content: `
       <Artikel eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60">
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1">

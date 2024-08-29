@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/angular";
+import { Meta } from "@storybook/react";
 
-import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
+import readme from "./readme.md?raw";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 

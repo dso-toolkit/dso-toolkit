@@ -165,8 +165,7 @@ export {
 export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
 export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
 
-export { OzonContent } from "./components/ozon-content/ozon-content.models.js";
-export { OzonContentTemplates, storiesOfOzonContent } from "./components/ozon-content/ozon-content.stories-of.js";
+export * from "./components/ozon-content";
 
 export { Pagination, PaginationSelectPageEvent } from "./components/pagination/pagination.models.js";
 export { PaginationTemplates, storiesOfPagination } from "./components/pagination/pagination.stories-of.js";
