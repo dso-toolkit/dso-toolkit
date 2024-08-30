@@ -1,4 +1,13 @@
-export const content = [
+import { OzonContentArgs } from "./ozon-content.args";
+import { OzonContentStories } from "./ozon-content.stories-of";
+
+interface OzonContentStory {
+  title: keyof OzonContentStories;
+  content: string;
+  args?: Partial<OzonContentArgs>;
+}
+
+export const content: OzonContentStory[] = [
   {
     title: "Al",
     content: `<Inhoud><Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>

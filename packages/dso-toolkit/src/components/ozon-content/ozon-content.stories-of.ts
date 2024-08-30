@@ -11,7 +11,7 @@ import { content } from "./ozon-content.content.js";
 
 export type OzonContentStory = StoryObj<OzonContentArgs, Renderer>;
 
-interface OzonContentStories {
+export interface OzonContentStories {
   Al: OzonContentStory;
   Inhoud: OzonContentStory;
   Opschrift: OzonContentStory;
@@ -67,21 +67,16 @@ export function ozonContentStories<Implementation, Templates, TemplateFnReturnTy
     ozonContentTemplate(ozonContentArgsMapper(args)),
   );
 
-  const arrayToObject = (array: unknown[], keyField: string) =>
-    array.reduce((obj, item) => {
-      // @ts-expect-error todo
-      obj[item[keyField]] = {
-        args: componentArgs<Omit<OzonContentArgs, "dsoAnchorClick" | "dsoClick" | "dsoOzonContentMarkItemHighlight">>({
-          // @ts-expect-error todo
-          content: item.content,
-          inline: false,
-          // @ts-expect-error todo
-          ...item.args,
-        }),
-        render,
-      };
-      return obj;
-    }, {});
+  return content.reduce((c, { title, content, args }) => {
+    c[title] = {
+      args: componentArgs<Omit<OzonContentArgs, "dsoAnchorClick" | "dsoClick" | "dsoOzonContentMarkItemHighlight">>({
+        content,
+        inline: false,
+        ...args,
+      }),
+      render,
+    };
 
-  return <OzonContentStories>arrayToObject(content, "title");
+    return c;
+  }, {} as OzonContentStories);
 }
