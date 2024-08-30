@@ -1,36 +1,56 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { PaginationArgs, paginationArgsMapper, paginationArgTypes } from "./pagination.args.js";
 import { Pagination } from "./pagination.models.js";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+interface PaginationStories {
+  Pagination: StoryObj<PaginationArgs, Renderer>;
+}
+
+interface PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    PaginationTemplates<TemplateFnReturnType>
+  > {}
 
 export interface PaginationTemplates<TemplateFnReturnType> {
   paginationTemplate: (paginationProperties: Pagination) => TemplateFnReturnType;
 }
 
-export function storiesOfPagination<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    PaginationTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Pagination", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: paginationArgTypes,
-    });
+export function paginationMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  PaginationArgs
+> {
+  return {
+    argTypes: paginationArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    const template = templateMapper<PaginationArgs>((args, { paginationTemplate }) =>
-      paginationTemplate(paginationArgsMapper(args)),
-    );
-
-    stories.add("Pagination", template, {
+export function paginationStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PaginationStories {
+  return {
+    Pagination: {
       args: {
         totalPages: 16,
         currentPage: 8,
       },
-    });
-
-    return stories;
-  });
+      render: templateContainer.render(storyTemplates, (args, { paginationTemplate }) =>
+        paginationTemplate(paginationArgsMapper(args)),
+      ),
+    },
+  };
 }
