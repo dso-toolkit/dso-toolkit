@@ -1,4 +1,4 @@
-# dso-document-component
+# `<dso-document-component>`
 
 
 

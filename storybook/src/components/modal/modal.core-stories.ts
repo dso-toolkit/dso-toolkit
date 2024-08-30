@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -15,16 +15,10 @@ import {
   loadingBody,
   datePickerBody,
 } from "./modal.content";
-import { TrustHtmlPipe } from "../trust-html.pipe";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
-  title: "Modal",
-  decorators: [
-    moduleMetadata({
-      declarations: [TrustHtmlPipe],
-    }),
-  ],
+  title: "Core/Modal",
 };
 
 export default meta;
@@ -36,14 +30,14 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
 
     return {
       modalTemplate,
-      activeBody,
-      activeFooter,
-      passiveBody,
-      passiveFooter,
-      confirmBody,
-      confirmFooter,
-      loadingBody: loadingBody(templates).template,
-      datePickerBody: datePickerBody(templates).template,
+      activeBody: activeBody(),
+      activeFooter: activeFooter(templates),
+      passiveBody: passiveBody(templates),
+      passiveFooter: passiveFooter(templates),
+      confirmBody: confirmBody(templates),
+      confirmFooter: confirmFooter(templates),
+      loadingBody: loadingBody(templates),
+      datePickerBody: datePickerBody(templates),
     };
   },
 });

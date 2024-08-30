@@ -147,8 +147,7 @@ export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.
 
 export * from "./components/mark-bar";
 
-export { Modal, ModalCloseEvent, ModalRole } from "./components/modal/modal.models.js";
-export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";
+export * from "./components/modal";
 
 export {
   BaseLayer,
@@ -166,18 +165,15 @@ export {
 export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
 export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
 
-export { OzonContent } from "./components/ozon-content/ozon-content.models.js";
-export { OzonContentTemplates, storiesOfOzonContent } from "./components/ozon-content/ozon-content.stories-of.js";
+export * from "./components/ozon-content";
 
-export { Pagination, PaginationSelectPageEvent } from "./components/pagination/pagination.models.js";
-export { PaginationTemplates, storiesOfPagination } from "./components/pagination/pagination.stories-of.js";
+export * from "./components/pagination";
 
 export * from "./components/panel";
 
 export * from "./components/paragraph";
 
-export { ProgressBar } from "./components/progress-bar/progress-bar.models.js";
-export { ProgressBarTemplates, storiesOfProgressBar } from "./components/progress-bar/progress-bar.stories-of.js";
+export * from "./components/progress-bar";
 
 export { ProgressIndicator } from "./components/progress-indicator/progress-indicator.models.js";
 export {

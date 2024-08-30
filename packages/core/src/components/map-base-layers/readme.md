@@ -1,4 +1,4 @@
-# dso-base-layers
+# `<dso-base-layers>`
 
 Private component, do not use.
 

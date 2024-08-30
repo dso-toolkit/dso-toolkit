@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/web-components";
 import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "dso-toolkit/src/components/progress-bar/readme.md?raw";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
-  title: "Progress Bar",
+  title: "HTML|CSS/Progress Bar",
 };
 
 export default meta;

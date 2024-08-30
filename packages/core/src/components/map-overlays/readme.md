@@ -1,4 +1,4 @@
-# dso-map-overlays
+# `<dso-map-overlays>`
 
 Private component, do not use.
 

@@ -1,4 +1,4 @@
-# dso-slide-toggle
+# `<dso-slide-toggle>`
 
 
 

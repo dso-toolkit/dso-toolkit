@@ -1,8 +1,29 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { componentArgs } from "../../storybook/index.js";
 
 import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args.js";
 import { Modal } from "./modal.models.js";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+export type ModalDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
+
+type ModalStory = StoryObj<ModalArgs, Renderer>;
+
+interface ModalStories {
+  Confirm: ModalStory;
+  Passive: ModalStory;
+  Active: ModalStory;
+  Loading: ModalStory;
+  WithDatepicker: ModalStory;
+  Fullscreen: ModalStory;
+}
+
+interface ModalStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ModalTemplates<TemplateFnReturnType>> {
+  decorator?: ModalDecorator<TemplateFnReturnType>;
+}
 
 export interface ModalTemplates<TemplateFnReturnType> {
   modalTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -16,109 +37,87 @@ export interface ModalTemplates<TemplateFnReturnType> {
   datePickerBody: TemplateFnReturnType;
 }
 
-export interface ModalParameters<TemplateFnReturnType> {
-  decorator?: Addon_DecoratorFunction<TemplateFnReturnType>;
+export function modalMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ModalArgs
+> {
+  return {
+    argTypes: modalArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
-export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ModalTemplates<TemplateFnReturnType>
-  >,
-  { decorator }: ModalParameters<TemplateFnReturnType>,
-) {
-  return storiesOfFactory("Modal", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: modalArgTypes,
-      args: {
-        role: undefined,
-      },
-    });
-
-    if (decorator) {
-      stories.addDecorator(decorator);
-    }
-
-    stories.add(
-      "confirm",
-      templateMapper<ModalArgs>((args, { modalTemplate, confirmBody, confirmFooter }) =>
-        modalTemplate(modalArgsMapper(args, confirmBody, confirmFooter)),
-      ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
-          role: "dialog",
-          modalTitle: "Disclaimer",
-        }),
-      },
-    );
-
-    stories.add(
-      "passive",
-      templateMapper<ModalArgs>((args, { modalTemplate, passiveBody, passiveFooter }) =>
-        modalTemplate(modalArgsMapper(args, passiveBody, passiveFooter)),
-      ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
-          role: "dialog",
-          modalTitle: "Bestandsformaten",
-        }),
-      },
-    );
-
-    stories.add(
-      "active",
-      templateMapper<ModalArgs>((args, { modalTemplate, activeBody, activeFooter }) =>
+export function modalStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  decorator,
+}: ModalStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ModalStories {
+  return {
+    Active: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+        role: "alertdialog",
+        modalTitle: "Verwijderen werkzaamheid",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, activeBody, activeFooter }) =>
         modalTemplate(modalArgsMapper(args, activeBody, activeFooter)),
       ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
-          role: "alertdialog",
-          modalTitle: "Verwijderen werkzaamheid",
-        }),
-      },
-    );
-
-    stories.add(
-      "loading",
-      templateMapper<ModalArgs>((args, { modalTemplate, loadingBody }) =>
+    },
+    Confirm: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+        role: "dialog",
+        modalTitle: "Disclaimer",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, confirmBody, confirmFooter }) =>
+        modalTemplate(modalArgsMapper(args, confirmBody, confirmFooter)),
+      ),
+    },
+    Loading: {
+      args: componentArgs<Pick<ModalArgs, "role">>({
+        role: "alert",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, loadingBody }) =>
         modalTemplate(modalArgsMapper(args, loadingBody)),
       ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role">>({
-          role: "alert",
-        }),
-      },
-    );
-
-    stories.add(
-      "with datepicker",
-      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
+    },
+    Fullscreen: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle" | "fullscreen">>({
+        role: "dialog",
+        modalTitle: "Fullscreen",
+        fullscreen: true,
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody)),
       ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
-          role: "dialog",
-          modalTitle: "Zet een datum",
-        }),
-      },
-    );
-
-    stories.add(
-      "fullscreen",
-      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
+    },
+    Passive: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+        role: "dialog",
+        modalTitle: "Bestandsformaten",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, passiveBody, passiveFooter }) =>
+        modalTemplate(modalArgsMapper(args, passiveBody, passiveFooter)),
+      ),
+    },
+    WithDatepicker: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+        role: "dialog",
+        modalTitle: "Zet een datum",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody)),
       ),
-      {
-        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle" | "fullscreen">>({
-          role: "dialog",
-          modalTitle: "Fullscreen",
-          fullscreen: true,
-        }),
-      },
-    );
-
-    return stories;
-  });
+    },
+  };
 }

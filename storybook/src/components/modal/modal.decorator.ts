@@ -1,7 +1,7 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
 import { html, TemplateResult } from "lit-html";
+import { ModalDecorator } from "dso-toolkit";
 
-export const decorator: Addon_DecoratorFunction<TemplateResult> = (story) => {
+export const decorator: ModalDecorator<TemplateResult> = (story) => {
   setTimeout(() => {
     const storybookRoot = document.getElementById("storybook-root");
 

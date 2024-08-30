@@ -1,6 +1,6 @@
 describe("Ozon Content", () => {
   it("should emit anchorClick on IntRef anchor click", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--intref");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref");
     cy.get("dso-ozon-content").then((c) => {
       c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
     });
@@ -158,7 +158,7 @@ describe("Ozon Content", () => {
   });
 
   it("should render IntIoRef element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--intioref");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
 
     cy.get("dso-ozon-content")
       .shadow()
@@ -169,7 +169,7 @@ describe("Ozon Content", () => {
   });
 
   it("should emit anchorClick on IntIoRef anchor click", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--intioref");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
 
     cy.get("dso-ozon-content").then((c) => {
       c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
@@ -206,7 +206,7 @@ describe("Ozon Content", () => {
   });
 
   it("should render ExtIoRef element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--extioref");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--ext-io-ref");
 
     cy.get("dso-ozon-content")
       .shadow()
