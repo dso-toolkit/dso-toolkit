@@ -1102,7 +1102,7 @@ export namespace Components {
         /**
           * The text that is shown on the tab.
          */
-        "label": string;
+        "label"?: string;
     }
     interface DsoTable {
         /**
@@ -3468,7 +3468,7 @@ declare namespace LocalJSX {
         /**
           * The text that is shown on the tab.
          */
-        "label": string;
+        "label"?: string;
     }
     interface DsoTable {
         /**

@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Fragment, h, Method, State } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, h, Method } from "@stencil/core";
 import clsx from "clsx";
 
 import { Tab, TabsSwitchEvent } from "./tabs.interfaces";
@@ -20,9 +20,6 @@ export class Tabs {
   @Event()
   dsoTabSwitch!: EventEmitter<TabsSwitchEvent>;
 
-  @State()
-  activeTab?: string;
-
   /**
    * @internal
    */
@@ -38,7 +35,6 @@ export class Tabs {
       if (currentActiveTab && nextActiveTab) {
         currentActiveTab.active = false;
         nextActiveTab.active = true;
-        this.activeTab = tabId;
         this.host.shadowRoot?.querySelector<HTMLAnchorElement>(`#${tabId} > a`)?.focus();
       }
     }
@@ -65,8 +61,6 @@ export class Tabs {
         })
         .filter<Tab>((tab): tab is Tab => !!tab);
     }
-
-    this.activeTab = this.tabs?.find((tab) => tab.active)?.id;
   }
 
   private emitEvent = (originalEvent: MouseEvent | KeyboardEvent, selected: string) => {

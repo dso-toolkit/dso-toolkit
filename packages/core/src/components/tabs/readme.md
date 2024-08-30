@@ -1,4 +1,4 @@
-# dso-tabs
+# `<dso-tabs>`
 
 
 

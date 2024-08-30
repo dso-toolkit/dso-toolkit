@@ -14,7 +14,7 @@ export class Tab {
    * The text that is shown on the tab.
    */
   @Prop()
-  label!: string;
+  label?: string;
 
   /**
    * Adds a unique identifier for the tab. Use this instead of html `id` attribute.

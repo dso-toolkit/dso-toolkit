@@ -4,7 +4,7 @@ export interface Tabs<TemplateFnRetunType> {
 }
 
 export interface TabsItem<TemplateFnReturnType> {
-  label: string;
+  label?: string;
   id: string;
   modifiers?: "active" | "disabled";
   content: TemplateFnReturnType | string;

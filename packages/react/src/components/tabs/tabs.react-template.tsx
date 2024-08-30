@@ -12,9 +12,9 @@ export const reactTabs: ComponentImplementation<Tabs<JSX.Element>> = {
     function tabsTemplate({ items, dsoTabSwitch }) {
       return (
         <DsoTabs onDsoTabSwitch={dsoTabSwitch}>
-          {items.map(({ label, id, modifiers, content }, i) => (
+          {items.map(({ label, id, modifiers, content }) => (
             <DsoTab
-              key={`dsoAccordionSection-${i}`}
+              key={id}
               label={label}
               identifier={id}
               active={modifiers === "active"}
