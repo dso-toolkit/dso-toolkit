@@ -1,4 +1,4 @@
-# dso-table
+# `<dso-table>`
 
 <!-- Auto Generated Below -->
 
