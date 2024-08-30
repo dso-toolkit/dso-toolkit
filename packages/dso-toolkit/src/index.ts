@@ -173,8 +173,7 @@ export * from "./components/panel";
 
 export * from "./components/paragraph";
 
-export { ProgressBar } from "./components/progress-bar/progress-bar.models.js";
-export { ProgressBarTemplates, storiesOfProgressBar } from "./components/progress-bar/progress-bar.stories-of.js";
+export * from "./components/progress-bar";
 
 export { ProgressIndicator } from "./components/progress-indicator/progress-indicator.models.js";
 export {

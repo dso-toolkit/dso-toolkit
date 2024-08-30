@@ -1,44 +1,69 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ProgressBarArgs, progressBarArgsMapper, progressBarArgTypes } from "./progress-bar.args.js";
 import { ProgressBar } from "./progress-bar.models.js";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+type ProgressBarStory = StoryObj<ProgressBarArgs, Renderer>;
+
+interface ProgressBarStories {
+  Default: ProgressBarStory;
+  ArbitraryValues: ProgressBarStory;
+}
+
+interface ProgressBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ProgressBarTemplates<TemplateFnReturnType>
+  > {}
 
 export interface ProgressBarTemplates<TemplateFnReturnType> {
   progressBarTemplate: (progressBarProperties: ProgressBar) => TemplateFnReturnType;
 }
 
-export function storiesOfProgressBar<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ProgressBarTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Progress Bar", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: progressBarArgTypes,
-    });
+export function progressBarMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ProgressBarArgs
+> {
+  return {
+    argTypes: progressBarArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    const template = templateMapper<ProgressBarArgs>((args, { progressBarTemplate }) =>
-      progressBarTemplate(progressBarArgsMapper(args)),
-    );
+export function progressBarStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ProgressBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ProgressBarStories {
+  const render = templateContainer.render(storyTemplates, (args: ProgressBarArgs, { progressBarTemplate }) =>
+    progressBarTemplate(progressBarArgsMapper(args)),
+  );
 
-    stories.add("default", template, {
+  return {
+    Default: {
       args: {
         progress: 60,
         label: "Genereren export: nog ongeveer 4 minuten.",
       },
-    });
-
-    stories.add("arbitrary values", template, {
+      render,
+    },
+    ArbitraryValues: {
       args: {
         progress: 4,
         max: 12,
         label: "Bestanden comprimeren: 12 stuks.",
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }

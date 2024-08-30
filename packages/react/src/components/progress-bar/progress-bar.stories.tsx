@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/react";
 import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
