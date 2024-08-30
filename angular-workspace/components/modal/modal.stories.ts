@@ -16,7 +16,6 @@ import {
   datePickerBody,
 } from "./modal.content";
 import { TrustHtmlPipe } from "../trust-html.pipe";
-import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
@@ -45,27 +44,6 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
       confirmFooter,
       loadingBody: loadingBody(templates).template,
       datePickerBody: datePickerBody(templates).template,
-    };
-  },
-  decorator: (story) => {
-    const s = story();
-    if (!isStoryFnAngularReturnTypeTemplate(s)) {
-      throw new Error("Expected a valid Angular template");
-    }
-
-    setTimeout(() => {
-      const storybookRoot = document.getElementById("storybook-root");
-
-      const dialog = storybookRoot?.querySelector("dialog");
-
-      dialog?.showModal();
-    }, 0);
-
-    const { props, template } = s;
-
-    return {
-      props,
-      template: `${template}`,
     };
   },
 });

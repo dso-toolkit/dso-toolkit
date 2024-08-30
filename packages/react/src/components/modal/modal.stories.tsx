@@ -5,7 +5,6 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 
-import { decorator } from "./modal.decorator";
 import {
   activeBody,
   activeFooter,
@@ -41,7 +40,6 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
       datePickerBody: datePickerBody(templates),
     };
   },
-  decorator,
 });
 
 export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };

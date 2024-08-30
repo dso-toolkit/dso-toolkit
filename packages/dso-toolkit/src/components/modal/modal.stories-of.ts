@@ -22,7 +22,7 @@ interface ModalStories {
 
 interface ModalStoriesParameters<Implementation, Templates, TemplateFnReturnType>
   extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ModalTemplates<TemplateFnReturnType>> {
-  decorator: ModalDecorator<TemplateFnReturnType>;
+  decorator?: ModalDecorator<TemplateFnReturnType>;
 }
 
 export interface ModalTemplates<TemplateFnReturnType> {
@@ -64,7 +64,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
         role: "alertdialog",
         modalTitle: "Verwijderen werkzaamheid",
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, activeBody, activeFooter }) =>
         modalTemplate(modalArgsMapper(args, activeBody, activeFooter)),
       ),
@@ -74,7 +74,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
         role: "dialog",
         modalTitle: "Disclaimer",
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, confirmBody, confirmFooter }) =>
         modalTemplate(modalArgsMapper(args, confirmBody, confirmFooter)),
       ),
@@ -83,7 +83,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
       args: componentArgs<Pick<ModalArgs, "role">>({
         role: "alert",
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, loadingBody }) =>
         modalTemplate(modalArgsMapper(args, loadingBody)),
       ),
@@ -94,7 +94,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
         modalTitle: "Fullscreen",
         fullscreen: true,
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody)),
       ),
@@ -104,7 +104,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
         role: "dialog",
         modalTitle: "Bestandsformaten",
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, passiveBody, passiveFooter }) =>
         modalTemplate(modalArgsMapper(args, passiveBody, passiveFooter)),
       ),
@@ -114,7 +114,7 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
         role: "dialog",
         modalTitle: "Zet een datum",
       }),
-      decorators: [(story) => decorator(story)],
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody)),
       ),
