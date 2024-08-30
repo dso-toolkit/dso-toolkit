@@ -94,6 +94,7 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
+  Paragraph,
   // End: named template model imports
 } from "dso-toolkit";
 
@@ -208,6 +209,7 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
+import { cssParagraph } from "./components/paragraph/paragraph.css-template";
 // End: import templates
 
 export interface Components {
@@ -282,6 +284,7 @@ export interface Components {
   ozonContent: OzonContent;
   pagination: Pagination;
   panel: Panel<TemplateResult>;
+  paragraph: Paragraph;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   renvooi: Renvooi;
@@ -430,6 +433,7 @@ templateContainer.add(cssListButton);
 templateContainer.add(cssModal);
 templateContainer.add(cssNavbar);
 templateContainer.add(cssPagination);
+templateContainer.add(cssParagraph);
 templateContainer.add(cssProgressBar);
 templateContainer.add(cssProgressIndicator);
 templateContainer.add(cssRichContent);

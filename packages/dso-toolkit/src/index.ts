@@ -174,6 +174,8 @@ export { PaginationTemplates, storiesOfPagination } from "./components/paginatio
 
 export * from "./components/panel";
 
+export * from "./components/paragraph";
+
 export { ProgressBar } from "./components/progress-bar/progress-bar.models.js";
 export { ProgressBarTemplates, storiesOfProgressBar } from "./components/progress-bar/progress-bar.stories-of.js";
 
