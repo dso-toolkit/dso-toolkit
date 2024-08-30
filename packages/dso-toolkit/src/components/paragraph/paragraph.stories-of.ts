@@ -55,7 +55,7 @@ export function paragraphStories<Implementation, Templates, TemplateFnReturnType
     },
     Disclaimer: {
       args: {
-        className: "dso-disclaimer",
+        variant: "disclaimer",
       },
       render: templateContainer.render(storyTemplates, (args, { paragraphTemplate }) =>
         paragraphTemplate(paragraphArgsMapper(args, disclaimerContent)),

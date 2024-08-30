@@ -1,4 +1,4 @@
 export interface Paragraph {
-  className?: string;
+  variant?: "disclaimer";
   content: string;
 }

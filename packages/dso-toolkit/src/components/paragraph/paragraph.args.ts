@@ -4,13 +4,13 @@ import { noControl } from "../../storybook";
 import { Paragraph } from "./paragraph.models.js";
 
 export interface ParagraphArgs {
-  className?: string;
+  variant?: "disclaimer";
   content: string;
 }
 
 export const paragraphArgTypes: ArgTypes<ParagraphArgs> = {
-  className: {
-    options: [undefined, "dso-disclaimer"],
+  variant: {
+    options: [undefined, "disclaimer"],
     control: {
       type: "select",
     },
@@ -24,6 +24,6 @@ export function paragraphArgsMapper(p: ParagraphArgs, content: string): Paragrap
   return {
     ...p,
     content,
-    className: p.className,
+    variant: p.variant,
   };
 }

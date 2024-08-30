@@ -7,7 +7,7 @@ export const cssParagraph: ComponentImplementation<Paragraph> = {
   component: "paragraph",
   implementation: "html-css",
   template: () =>
-    function paragraphTemplate({ className, content }) {
-      return html`<p class=${ifDefined(className)}>${content}</p>`;
+    function paragraphTemplate({ variant, content }) {
+      return html`<p class=${ifDefined(variant ? "dso-disclaimer" : undefined)}>${content}</p>`;
     },
 };
