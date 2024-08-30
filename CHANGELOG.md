@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Paragraph: Nieuwe variant disclaimer ([#2762](https://github.com/dso-toolkit/dso-toolkit/issues/2762))
+
 ### Changed
 * Accordion: Badge vervangen met Label ([#2774](https://github.com/dso-toolkit/dso-toolkit/issues/2774))
 

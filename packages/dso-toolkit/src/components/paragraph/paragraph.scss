@@ -1,6 +1,12 @@
 @use "../../variables/units";
+@use "../../variables/colors";
 
 p {
   margin-block: 0 units.$u2;
   margin-inline: 0;
+
+  &.dso-disclaimer {
+    font-style: italic;
+    color: colors.$text-muted;
+  }
 }
