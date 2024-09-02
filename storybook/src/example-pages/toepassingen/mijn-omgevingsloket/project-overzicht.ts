@@ -22,7 +22,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         <div class="row">
           <div class="col-md-12">
@@ -76,50 +76,81 @@ examplePageFactory(
             </div>
           </div>
           <div class="col-md-8">
-            <h2>Verzoeken</h2>
-            <p>Kies hier de verzoeken die u wilt bekijken, aanvullen of intrekken</p>
-            <div class="row">
-              <div class="col-md-12">
-                ${cardListTemplate({
-                  cards: [
-                    {
-                      href: "#",
-                      clickable: true,
-                      label: "Boom kappen op de oude manier",
-                      interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
-                      content: html`<dl>
-                        <dt>Soort verzoek:</dt>
-                        <dd>Aanvraag</dd>
-                        <dt>Datum:</dt>
-                        <dd>02-20-2022</dd>
-                      </dl>`,
-                    },
-                    {
-                      href: "#",
-                      label: "Boom kappen op de nieuwe manier",
-                      interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
-                      content: html`<dl>
-                        <dt>Soort verzoek:</dt>
-                        <dd>Aanvraag toestemming gelijkwaardige maatregel</dd>
-                        <dt>Datum:</dt>
-                        <dd>02-20-2022</dd>
-                      </dl>`,
-                    },
-                    {
-                      href: "#",
-                      label: "Boom kappen in de achtertuin 3",
-                      interactions: [{ type: "button", label: "Conceptverzoek", variant: "tertiary" }],
-                      content: html`<dl>
-                        <dt>Soort verzoek:</dt>
-                        <dd>Melding</dd>
-                        <dt>Datum:</dt>
-                        <dd>02-20-2022</dd>
-                      </dl>`,
-                    },
-                  ],
-                })}
-              </div>
-            </div>
+            <h2>Verdergaan met aanvullen</h2>
+            ${cardListTemplate({
+              cards: [
+                {
+                  label: "Oprit verleggen",
+                  content: html`<dl>
+                      <dt>Soort verzoek:</dt>
+                      <dd>Aanvraag vergunning</dd>
+                      <dt>Activiteiten:</dt>
+                      <dd>Bouwactiviteit (omgevingsplan)</dd>
+                      <dd>Stikstofemissie bij het uitvoeren van bouw- of sloopwerkzaamheden</dd>
+                    </dl>
+
+                    ${buttonRowTemplate({
+                      buttons: [
+                        {
+                          url: "#",
+                          label: "Verdergaan met aanvullen",
+                          variant: "primary",
+                          iconMode: "after",
+                          icon: {
+                            icon: "pencil",
+                          },
+                        },
+                        {
+                          url: "#",
+                          label: "Aanvulling verwijderen",
+                          variant: "secondary",
+                          iconMode: "after",
+                          icon: {
+                            icon: "trash",
+                          },
+                        },
+                      ],
+                    })} `,
+                },
+              ],
+            })}
+            <h2>Ingediende verzoeken</h2>
+            <p>Kies hier het verzoek dat u wilt bekijken, aanvullen of intrekken.</p>
+            ${cardListTemplate({
+              cards: [
+                {
+                  href: "#",
+                  clickable: true,
+                  label: "Boom kappen op de oude manier",
+                  content: html`<dl>
+                    <dt>Soort verzoek:</dt>
+                    <dd>Aanvraag vergunning</dd>
+                    <dt>Datum:</dt>
+                    <dd>02-20-2022</dd>
+                  </dl>`,
+                },
+                {
+                  href: "#",
+                  label: "Boom kappen op de nieuwe manier",
+                  content: html`<dl>
+                    <dt>Soort verzoek:</dt>
+                    <dd>Aanvraag toestemming gelijkwaardige maatregel</dd>
+                    <dt>Datum:</dt>
+                    <dd>02-20-2022</dd>
+                  </dl>`,
+                },
+                {
+                  href: "#",
+                  label: "Boom kappen in de achtertuin 3",
+                  content: html`<dl>
+                    <dt>Soort verzoek:</dt>
+                    <dd>Melding</dd>
+                    <dt>Datum:</dt>
+                    <dd>02-20-2022</dd>
+                  </dl>`,
+                },
+              ],
+            })}
           </div>
         </div>
         <div class="row">
