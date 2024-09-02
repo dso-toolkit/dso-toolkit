@@ -1,13 +1,24 @@
 ---
-authors: [hansgrimm]
+authors: [hansgrimm, iterox]
 ---
 
 # DSO Toolkit v64.0.0 🍄
 
-In deze breaking release zijn kleine verbeteringen aan het formulier doorgevoerd.
+In deze breaking release is binnen het component Accordion de (optioneel) te tonen Badge component vervangen door een Label en zijn kleine verbeteringen aan het formulier doorgevoerd.
+
+## Accordion: Badge vervangen met Label
+
+In deze release is de (optionele) Badge in de AccordionHeading van een `dso-accordion-section` vervangen door een (optionele) Label.
+
+Voorheen konden een `badgeMessage` en een `badgeStatus` aan een `dso-accordion-section` werden meegegeven om een Badge in de AccordionHeading te tonen.
+
+Vanaf deze release kunnen een `label` en een `labelStatus` aan een `dso-accordion-section` werden meegegeven om een Label in de AccordionHeading te tonen.
 
 ## Formulier verbeteringen
 
-In deze release zijn een aantal zaken die in release 63.0.0 waren verwijderd, hersteld:
-De scheiding tussen opeenvolgende fieldsets is terug, evenals de verticale spacing. Ook kunnen zonder visuele verschillen headings binnen de legends worden toegepast.
+In deze release zijn een aantal zaken die in release 63.0.0 🎸 waren verwijderd, hersteld:
+
+- De scheiding tussen opeenvolgende fieldsets is terug, evenals de verticale spacing.
+- Ook kunnen zonder visuele verschillen headings binnen de legends worden toegepast.
+
 Het enige verschil is dat de fieldsets nu de class `dso-form-group-collection` moeten krijgen.
