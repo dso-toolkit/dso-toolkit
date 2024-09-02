@@ -264,11 +264,21 @@
         "wait": "dso-date-picker.hydrated"
       },
       {
+        "group": "horizontal-collections",
+        "stories": ["form"],
+        "wait": "dso-date-picker.hydrated"
+      },
+      {
         "group": "justify-form-groups",
         "stories": ["justify-form-groups"]
       },
       {
         "group": "vertical",
+        "stories": ["form"],
+        "wait": "dso-date-picker.hydrated"
+      },
+      {
+        "group": "vertical-collections",
         "stories": ["form"],
         "wait": "dso-date-picker.hydrated"
       }
