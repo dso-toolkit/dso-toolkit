@@ -12,4 +12,10 @@ export { FormGroupStatic } from "./models/form-group-static.model.js";
 export { FormGroupTextarea } from "./models/form-group-textarea.model.js";
 export { FormGroupBase } from "./models/form-group.base-model.js";
 export { FormGroup } from "./models/form-group.model.js";
-export { Form, FormAsteriskExplanationPosition, FormGroupCollection } from "./models/form.model.js";
+export {
+  Form,
+  FormAsteriskExplanationPosition,
+  FormGroupCollection,
+  FormGroupCollectionHeadingLevel,
+  FormContent,
+} from "./models/form.model.js";

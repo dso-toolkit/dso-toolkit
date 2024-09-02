@@ -1,7 +1,7 @@
 import { FormButtons } from "../../form-buttons/form-buttons.models.js";
-import { FormGroup } from "../models/form-group.model.js";
+import { FormGroup, FormGroupCollection } from "../form.models.js";
 
-export const content: FormGroup<never>[] = [
+const persoonlijkeGegevensFormGroups: FormGroup<never>[] = [
   {
     group: "input",
     id: "mijn-voornaam",
@@ -59,6 +59,9 @@ export const content: FormGroup<never>[] = [
     },
     helpText: "Uw gegevens zullen niet worden gedeeld met derden.",
   },
+];
+
+const overigeVragenFormGroups: FormGroup<never>[] = [
   {
     group: "files",
     id: "mijn-files",
@@ -323,6 +326,21 @@ export const content: FormGroup<never>[] = [
     errorText: "Voeg een document toe.",
     files: [],
     warning: "",
+  },
+];
+
+export const formGroupContent: FormGroup<never>[] = [...persoonlijkeGegevensFormGroups, ...overigeVragenFormGroups];
+
+export const formGroupCollectionContent: FormGroupCollection<never>[] = [
+  {
+    title: "Persoonlijke gegevens",
+    headingLevel: "h2",
+    formGroups: [...persoonlijkeGegevensFormGroups],
+  },
+  {
+    title: "Overige vragen",
+    headingLevel: "h2",
+    formGroups: [...overigeVragenFormGroups],
   },
 ];
 
