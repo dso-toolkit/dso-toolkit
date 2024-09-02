@@ -16,6 +16,8 @@ import { selectContent } from "./content/select.content.js";
 import { staticContent } from "./content/static.content.js";
 import { textareaContent } from "./content/textarea.content.js";
 
+import { formGroupCollectionContent, formGroupContent } from "./content/form.content.js";
+
 import {
   FormGroupCheckboxesArgs,
   formGroupCheckboxesArgsMapper,
@@ -133,7 +135,7 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       templateContainer.fromArgs<FormArgs>((args, templates) => {
         const { formTemplate } = storyTemplates(templates);
 
-        return formTemplate(formArgsMapper(args));
+        return formTemplate(formArgsMapper(args, formGroupContent));
       }),
     );
 
@@ -152,7 +154,45 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
       templateContainer.fromArgs<FormArgs>((args, templates) => {
         const { formTemplate } = storyTemplates(templates);
 
-        return formTemplate(formArgsMapper(args));
+        return formTemplate(formArgsMapper(args, formGroupContent));
+      }),
+    );
+
+  storiesOf(`${StoryRoot.HtmlCss}/Form/vertical (collections)`, mainModule)
+    .addParameters({
+      argTypes: formArgTypes,
+      args: {
+        mode: "vertical",
+      },
+      docs: {
+        page: () => compiler(readme, { forceBlock: true }),
+      },
+    })
+    .add(
+      "form",
+      templateContainer.fromArgs<FormArgs>((args, templates) => {
+        const { formTemplate } = storyTemplates(templates);
+
+        return formTemplate(formArgsMapper(args, formGroupCollectionContent));
+      }),
+    );
+
+  storiesOf(`${StoryRoot.HtmlCss}/Form/horizontal (collections)`, mainModule)
+    .addParameters({
+      argTypes: formArgTypes,
+      args: {
+        mode: "horizontal",
+      },
+      docs: {
+        page: () => compiler(readme, { forceBlock: true }),
+      },
+    })
+    .add(
+      "form",
+      templateContainer.fromArgs<FormArgs>((args, templates) => {
+        const { formTemplate } = storyTemplates(templates);
+
+        return formTemplate(formArgsMapper(args, formGroupCollectionContent));
       }),
     );
 

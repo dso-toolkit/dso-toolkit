@@ -1,7 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
-import { content, buttons } from "./content/form.content.js";
-import { Form, FormAsteriskExplanationPosition } from "./models/form.model.js";
+import { buttons } from "./content/form.content.js";
+import { Form, FormAsteriskExplanationPosition, FormContent } from "./models/form.model.js";
 
 export interface FormArgs {
   asteriskExplanation?: FormAsteriskExplanationPosition;
@@ -23,7 +23,10 @@ export const formArgTypes: ArgTypes<FormArgs> = {
   },
 };
 
-export function formArgsMapper<TemplateFnReturnType>(a: FormArgs): Form<TemplateFnReturnType> {
+export function formArgsMapper<TemplateFnReturnType>(
+  a: FormArgs,
+  content: FormContent<TemplateFnReturnType>,
+): Form<TemplateFnReturnType> {
   return {
     asteriskExplanation: a.asteriskExplanation,
     mode: a.mode,
