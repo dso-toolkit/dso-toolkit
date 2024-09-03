@@ -14,7 +14,7 @@ const meta: Meta<TabsArgs<unknown>> = {
 
 export default meta;
 
-const { Default, Inactief } = tabsStories({
+const { AsAnchors, AsAnchorsDisabled, AsButtons, AsButtonsDisabled } = tabsStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { tabsTemplate } = templates;
@@ -25,4 +25,4 @@ const { Default, Inactief } = tabsStories({
   },
 });
 
-export { Default, Inactief };
+export { AsAnchors, AsAnchorsDisabled, AsButtons, AsButtonsDisabled };

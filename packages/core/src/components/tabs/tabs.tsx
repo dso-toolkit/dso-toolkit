@@ -1,7 +1,6 @@
-import { Component, Element, Event, EventEmitter, Fragment, h, Method } from "@stencil/core";
-import clsx from "clsx";
+import { Element, Component, h, Host, State } from "@stencil/core";
 
-import { Tab, TabsSwitchEvent } from "./tabs.interfaces";
+import { TabsItem } from "./tabs.interfaces";
 
 @Component({
   tag: "dso-tabs",
@@ -9,143 +8,102 @@ import { Tab, TabsSwitchEvent } from "./tabs.interfaces";
   shadow: true,
 })
 export class Tabs {
-  private tabs?: Tab[];
-
   @Element()
   host!: HTMLDsoTabsElement;
 
-  /**
-   * Emitted when the user activates tab via click or arrow keys.
-   */
-  @Event()
-  dsoTabSwitch!: EventEmitter<TabsSwitchEvent>;
+  @State()
+  activeTab?: string;
 
-  /**
-   * @internal
-   */
-  @Method()
-  async updateActiveTab(tabId: string) {
-    const currentActive = this.tabs?.findIndex((tab) => tab.active);
-    const nextActive = this.tabs?.findIndex((tab) => tab.id === tabId);
+  @State()
+  focussedTab?: string;
 
-    if (this.tabs && typeof currentActive === "number" && typeof nextActive === "number") {
-      const currentActiveTab = this.tabs[currentActive];
-      const nextActiveTab = this.tabs[nextActive];
+  private enabledTabs?: TabsItem[];
+  private firstTab?: string;
+  private lastTab?: string;
 
-      if (currentActiveTab && nextActiveTab) {
-        currentActiveTab.active = false;
-        nextActiveTab.active = true;
-        this.host.shadowRoot?.querySelector<HTMLAnchorElement>(`#${tabId} > a`)?.focus();
+  private moveFocusToTab(id?: string): void {
+    this.focussedTab = id;
+    const a = this.host.querySelector(`[identifier="${id}"]`)?.shadowRoot?.querySelector("a");
+    const button = this.host.querySelector(`[identifier="${id}"]`)?.shadowRoot?.querySelector("button");
+    a?.focus();
+    button?.focus();
+  }
+
+  private moveFocusToPreviousTab(focussedTab?: string) {
+    let index;
+
+    if (focussedTab === this.firstTab) {
+      this.moveFocusToTab(this.lastTab);
+    } else {
+      index = this.enabledTabs?.findIndex((tab) => tab.identifier === focussedTab);
+      if (index !== undefined && index >= 0 && this.enabledTabs !== undefined && index < this.enabledTabs?.length) {
+        this.moveFocusToTab(this.enabledTabs[index - 1]?.identifier);
       }
     }
   }
+
+  private moveFocusToNextTab(focussedTab?: string) {
+    let index;
+
+    if (focussedTab === this.lastTab) {
+      this.moveFocusToTab(this.firstTab);
+    } else {
+      index = this.enabledTabs?.findIndex((tab) => tab.identifier === focussedTab);
+      if (index !== undefined && index >= 0 && this.enabledTabs !== undefined && index < this.enabledTabs?.length) {
+        this.moveFocusToTab(this.enabledTabs[index + 1]?.identifier);
+      }
+    }
+  }
+
+  // Keep track of tabs to set focus on next or previous enabled (not disabled) tab
+  // When this component gets focus it will be on the activeTab
+  private keyUpHandler = (e: KeyboardEvent) => {
+    switch (e.key) {
+      case "ArrowRight":
+        this.moveFocusToNextTab(this.focussedTab || this.activeTab);
+        break;
+      case "ArrowLeft":
+        this.moveFocusToPreviousTab(this.focussedTab || this.activeTab);
+        break;
+      default:
+        return;
+    }
+  };
 
   componentWillLoad(): void | Promise<void> {
     const tabElements = this.host.querySelectorAll("dso-tab");
 
     if (tabElements) {
-      this.tabs = Array.from(tabElements)
-        .map<Tab | undefined>((tab) => {
-          const id = tab.getAttribute("identifier");
+      // Only enabled tabs (not disabled) are needed for setting focus via ArrowRight and ArrowLeft
+      this.enabledTabs = Array.from(tabElements).reduce((tabs: TabsItem[], tab) => {
+        const id = tab.getAttribute("identifier");
 
-          if (id) {
-            return {
-              label: tab.label,
-              id,
-              active: tab.active,
-              disabled: tab.disabled,
-            };
-          }
+        if (id && !tab.disabled) {
+          tabs.push({
+            label: tab.label,
+            identifier: id,
+            active: tab.active,
+          });
+        }
+        return tabs;
+      }, []);
 
-          return undefined;
-        })
-        .filter<Tab>((tab): tab is Tab => !!tab);
+      this.activeTab = this.enabledTabs.find((tab) => tab.active)?.identifier;
+      this.firstTab = this.enabledTabs[0]?.identifier;
+      this.lastTab = this.enabledTabs[this.enabledTabs.length - 1]?.identifier;
     }
   }
 
-  private emitEvent = (originalEvent: MouseEvent | KeyboardEvent, selected: string) => {
-    this.dsoTabSwitch.emit({
-      originalEvent,
-      selected,
-    });
-  };
-
-  private keyUpHandler = (event: KeyboardEvent) => {
-    const anchor = event.currentTarget;
-    if (
-      !(event.key === "ArrowLeft" || event.key === "ArrowRight") ||
-      !(anchor instanceof HTMLAnchorElement) ||
-      !this.tabs
-    ) {
-      return;
-    }
-
-    const currentTab = this.tabs.find((tab) => tab.id === anchor.closest("li")?.id);
-
-    if (currentTab) {
-      const enabledTabs = this.tabs?.filter((tab) => !tab.disabled);
-      const indexOfCurrentTab = enabledTabs.indexOf(currentTab);
-
-      if (typeof indexOfCurrentTab === "number") {
-        let selected;
-
-        if (event.key === "ArrowLeft" && indexOfCurrentTab > 0) {
-          selected = enabledTabs[indexOfCurrentTab - 1]?.id;
-        }
-
-        if (event.key === "ArrowRight" && indexOfCurrentTab < this.tabs.length - 1) {
-          selected = enabledTabs[indexOfCurrentTab + 1]?.id;
-        }
-
-        if (selected) {
-          this.emitEvent(event, selected);
-        }
-      }
-    }
-  };
-
-  private clickHandler = (event: MouseEvent) => {
-    if (!this.tabs) {
-      return;
-    }
-
-    event.preventDefault();
-
-    const anchor = event.currentTarget;
-
-    if (!(anchor instanceof HTMLAnchorElement)) {
-      return;
-    }
-
-    const selected = anchor.closest("li")?.id;
-    const currentTab = this.tabs.find((tab) => tab.id === selected);
-
-    if (selected && currentTab && !currentTab.disabled) {
-      this.emitEvent(event, selected);
-    }
-  };
-
   render() {
     return (
-      <>
-        <ul class="nav nav-tabs" role="tablist">
-          {this.tabs?.map((tab) => (
-            <li role="presentation" class={clsx({ active: tab.active, disabled: tab.disabled })} id={tab.id}>
-              <a
-                href="#"
-                role="tab"
-                onKeyUp={this.keyUpHandler}
-                onClick={this.clickHandler}
-                aria-selected={tab.active ? "true" : "false"}
-                {...(!tab.active ? { tabIndex: -1 } : {})}
-              >
-                {tab.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <slot />
-      </>
+      <Host onKeyUp={this.keyUpHandler}>
+        <div class="nav nav-tabs" role="tablist">
+          <slot />
+        </div>
+        <div role="tabpanel" tabindex="0" aria-labelledby={this.activeTab}>
+          <slot name="panel" />
+        </div>
+      </Host>
     );
   }
 }

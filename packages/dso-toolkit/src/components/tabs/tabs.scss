@@ -1,184 +1,30 @@
 @use "../../utilities";
-@use "../../variables/colors";
 @use "../../variables/media-query-breakpoints";
-@use "../../variables/scaffolding";
-@use "../../variables/typography";
-@use "../anchor";
 
 @use "tabs.variables" as css-tabs-variables;
+@use "tabs.mixins" as tabs-mixins;
 
 .nav {
   @include utilities.clearfix();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    list-style: none;
-    margin-block-end: 0;
-    padding-inline-start: 0; // Override default ul/ol
-  }
+  @include tabs-mixins.nav();
 
   > li {
-    position: relative;
-    display: block;
-
-    > a {
-      position: relative;
-      display: block;
-      padding: css-tabs-variables.$nav-link-padding;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: css-tabs-variables.$nav-link-hover-bg;
-      }
-    }
-
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
-      color: css-tabs-variables.$nav-disabled-link-color;
-
-      &:hover,
-      &:focus {
-        color: css-tabs-variables.$nav-disabled-link-hover-color;
-        text-decoration: none;
-        cursor: scaffolding.$cursor-disabled;
-        background-color: transparent;
-      }
-    }
-  }
-
-  // Open dropdowns
-  .open > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: css-tabs-variables.$nav-link-hover-bg;
-      border-color: var(--link-color);
-    }
+    @include tabs-mixins.nav-tab();
   }
 }
 
 .nav.nav-tabs {
-  border-block-end: 1px solid css-tabs-variables.$border-color;
-  display: flex;
-  flex-wrap: wrap;
-  margin-block-end: css-tabs-variables.$margin-block-end;
-  padding-inline-start: 0;
-
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    border-block-end: 1px solid colors.$grasgroen;
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    border-block-end: 1px solid colors.$wit;
-    display: block;
-  }
+  @include tabs-mixins.nav-tabs();
 
   > li {
-    border-color: css-tabs-variables.$color;
-    font-weight: bold;
-    // Make the list-items overlay the bottom border
-    margin-block-end: -1px;
-    min-block-size: css-tabs-variables.$block-size;
+    @include tabs-mixins.nav-tabs-tab();
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      margin-block: 10px;
-      margin-inline: 0;
+      @include tabs-mixins.nav-tabs-tab-xs-max();
 
-      &:first-child {
-        margin-block-start: 0;
-      }
-
-      &:last-child {
-        margin-block-end: 0;
-      }
-    }
-
-    // Actual tabs (as links)
-    > a {
-      @include anchor.clean();
-
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        border: 1px solid transparent;
-        border-radius: css-tabs-variables.$border-radius css-tabs-variables.$border-radius 0 0;
-        color: css-tabs-variables.$text-color;
-        display: block;
-        line-height: typography.$line-height-base;
-        margin-inline-end: 2px;
-        min-block-size: css-tabs-variables.$block-size;
-        padding-block: css-tabs-variables.$block-padding;
-        padding-inline: css-tabs-variables.$inline-padding;
-        position: relative;
-      }
-
-      &:hover {
-        border-color: css-tabs-variables.$link-hover-border-color css-tabs-variables.$link-hover-border-color
-          css-tabs-variables.$border-color;
-      }
-    }
-
-    &:not(.disabled) > a:visited {
-      color: css-tabs-variables.$text-color;
-    }
-
-    a:active,
-    a:focus,
-    a:hover {
-      background-color: css-tabs-variables.$hover-color;
-      border: 1px solid transparent;
-      border-block-end-color: css-tabs-variables.$color;
-      text-decoration: none;
-    }
-
-    // Active state, and its :hover to override normal :hover
-    &.active > a {
-      &,
-      &:active,
-      &:focus,
-      &:hover,
-      &:visited {
-        background-color: colors.$wit;
-        border: 1px solid css-tabs-variables.$color;
-        border-block-end-color: colors.$wit;
-        color: css-tabs-variables.$color;
-        cursor: default;
-      }
-    }
-
-    &.disabled > a {
-      color: css-tabs-variables.$nav-disabled-link-color;
-
-      &:hover,
-      &:focus {
-        color: css-tabs-variables.$nav-disabled-link-hover-color;
-        text-decoration: none;
-        cursor: scaffolding.$cursor-disabled;
-        background-color: transparent;
-      }
-    }
-
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      a {
-        border-color: colors.$wit;
-        border-radius: 8px;
-        padding-block: 18px;
-        padding-inline: 20px;
-
-        &:active,
-        &:focus,
-        &:hover {
-          border-block-end-width: 1px;
-          border-color: transparent;
-        }
-      }
-
-      &.active a {
-        &,
-        &:focus,
-        &:hover {
-          border-block-end-width: 1px;
-          border-color: css-tabs-variables.$color;
-        }
+      &.active {
+        @include tabs-mixins.nav-tabs-tab-active-xs-max();
       }
     }
   }

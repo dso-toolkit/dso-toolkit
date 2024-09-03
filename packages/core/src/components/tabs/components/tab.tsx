@@ -1,5 +1,8 @@
-import { Component, Element, Prop, h, Host, Watch } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
+import { isModifiedEvent } from "../../../utils/is-modified-event";
+import { TabsSwitchEvent } from "../tabs.interfaces";
 
 @Component({
   tag: "dso-tab",
@@ -25,32 +28,81 @@ export class Tab {
   identifier = uuidv4();
 
   /**
-   * Is tab active.
+   * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
    */
   @Prop()
   active?: boolean;
 
   /**
-   * Is tab disabled.
+   * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
    */
   @Prop()
   disabled?: boolean;
 
-  @Watch("active")
-  async onActivate(active: boolean) {
-    if (active) {
-      this.tabs?.updateActiveTab(this.identifier);
-    }
-  }
+  /**
+   * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
+   */
+  @Prop()
+  href?: string;
 
-  private get tabs() {
-    return this.host.closest("dso-tabs");
-  }
+  /**
+   * Emitted when the user activates tab via click or arrow keys followed by space or enter.
+   */
+  @Event()
+  dsoTabSwitch!: EventEmitter<TabsSwitchEvent>;
+
+  private emitEvent = (e: MouseEvent | KeyboardEvent) => {
+    this.dsoTabSwitch.emit({
+      originalEvent: e,
+      isModifiedEvent: e instanceof MouseEvent ? isModifiedEvent(e) : false,
+    });
+  };
+
+  private keyUpHandler = (e: KeyboardEvent) => {
+    if (e.key === " " && !this.disabled) {
+      this.emitEvent(e);
+    }
+  };
+
+  private clickHandler = (e: MouseEvent) => {
+    if (this.disabled && this.href) {
+      e.preventDefault();
+    } else {
+      this.emitEvent(e);
+    }
+  };
 
   render() {
     return (
-      <Host role="tabpanel" id={`${this.identifier}-tab`} aria-labelledby={this.identifier} hidden={!this.active}>
-        <slot />
+      <Host class={clsx({ active: this.active, disabled: this.disabled })}>
+        {this.href ? (
+          <a
+            role="tab"
+            href={this.href}
+            id={`${this.identifier}-tab`}
+            onKeyUp={this.keyUpHandler}
+            onClick={this.clickHandler}
+            aria-controls={this.identifier}
+            aria-selected={this.active ? "true" : "false"}
+            {...(!this.active ? { tabIndex: -1 } : {})}
+          >
+            <slot />
+          </a>
+        ) : (
+          <button
+            role="tab"
+            class="dso-tertiary"
+            disabled={this.disabled}
+            id={`${this.identifier}-tab`}
+            type="button"
+            onClick={this.clickHandler}
+            aria-controls={this.identifier}
+            aria-selected={this.active ? "true" : "false"}
+            {...(!this.active ? { tabIndex: -1 } : {})}
+          >
+            <slot />
+          </button>
+        )}
       </Host>
     );
   }

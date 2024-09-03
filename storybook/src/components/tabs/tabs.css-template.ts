@@ -8,7 +8,7 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   component: "tabs",
   implementation: "html-css",
   template: () =>
-    function tabsTemplate({ items }) {
+    function tabsTemplate({ items, content }) {
       return html`
         <ul class="nav nav-tabs" role="tablist">
           ${items.map(
@@ -17,8 +17,8 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
                 role="presentation"
                 class=${ifDefined(item.modifiers)}
                 aria-selected=${item.modifiers === "active"}
-                id=${item.id}
-                aria-controls="${item.id}-tab"
+                id=${item.identifier}
+                aria-controls="${item.identifier}-tab"
               >
                 <a href="#" role="tab">${item.label}</a>
               </li>
@@ -30,11 +30,11 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
             <div
               role="tabpanel"
               tabindex="-1"
-              id="${item.id}-tab"
-              aria-labelledby=${item.id}
+              id="${item.identifier}-tab"
+              aria-labelledby=${item.identifier}
               ?hidden=${item.modifiers !== "active"}
             >
-              ${item.content}
+              ${content}
             </div>
           `,
         )}

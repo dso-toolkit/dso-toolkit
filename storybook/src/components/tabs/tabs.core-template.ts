@@ -9,20 +9,23 @@ export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   component: "tabs",
   implementation: "core",
   template: () =>
-    function tabsTemplate({ items, dsoTabSwitch }) {
+    function tabsTemplate({ items, content }) {
       return html`
-        <dso-tabs @dsoTabSwitch=${dsoTabSwitch}>
+        <dso-tabs>
           ${items.map(
-            ({ label, id, modifiers, content }) => html`
+            ({ label, identifier, href, modifiers, dsoTabSwitch }) => html`
               <dso-tab
-                label=${label}
-                identifier=${ifDefined(id)}
+                href=${ifDefined(href)}
+                label=${ifDefined(label)}
+                identifier=${ifDefined(identifier)}
                 ?active=${modifiers === "active"}
                 ?disabled=${modifiers === "disabled"}
-                >${content}</dso-tab
+                @dsoTabSwitch=${dsoTabSwitch}
+                >${label}</dso-tab
               >
             `,
           )}
+          <div slot="panel">${content}</div>
         </dso-tabs>
       `;
     },

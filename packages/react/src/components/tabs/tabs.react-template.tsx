@@ -2,27 +2,29 @@ import { Tabs } from "dso-toolkit";
 
 import * as React from "react";
 
-import { DsoTabs, DsoTab } from "../..";
+import { DsoTabs, DsoTab } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactTabs: ComponentImplementation<Tabs<JSX.Element>> = {
   component: "tabs",
   implementation: "react",
   template: () =>
-    function tabsTemplate({ items, dsoTabSwitch }) {
+    function tabsTemplate({ items, content }) {
       return (
-        <DsoTabs onDsoTabSwitch={dsoTabSwitch}>
-          {items.map(({ label, id, modifiers, content }) => (
+        <DsoTabs>
+          {items.map(({ label, identifier, href, modifiers, dsoTabSwitch }) => (
             <DsoTab
-              key={id}
+              href={href}
               label={label}
-              identifier={id}
+              identifier={identifier}
               active={modifiers === "active"}
               disabled={modifiers === "disabled"}
+              onDsoTabSwitch={dsoTabSwitch}
             >
-              {content}
+              {label}
             </DsoTab>
           ))}
+          <div slot="panel">{content}</div>
         </DsoTabs>
       );
     },

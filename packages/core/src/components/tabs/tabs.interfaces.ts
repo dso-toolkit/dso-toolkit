@@ -1,11 +1,17 @@
-export interface Tab {
+export interface Tabs<TemplateFnReturnType> {
+  tabItems: TabsItem[];
+  content: TemplateFnReturnType | string;
+}
+
+export interface TabsItem {
   label?: string;
-  id: string;
+  identifier: string;
   active?: boolean;
   disabled?: boolean;
+  dsoTabSwitch?: (e: CustomEvent<TabsSwitchEvent>) => void;
 }
 
 export interface TabsSwitchEvent {
   originalEvent: MouseEvent | KeyboardEvent;
-  selected: string;
+  isModifiedEvent: boolean;
 }

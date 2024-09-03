@@ -1,3 +1,33 @@
-:host(:not([hidden])) {
-  display: block;
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
+@use "~dso-toolkit/src/components/tabs/tabs.mixins" as tabs-mixins;
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+
+:host {
+  @include tabs-mixins.nav-tab();
+  @include tabs-mixins.nav-tabs-tab();
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    @include tabs-mixins.nav-tabs-tab-xs-max();
+  }
+}
+
+:host(.active) {
+  @include tabs-mixins.nav-tabs-tab-active();
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    @include tabs-mixins.nav-tabs-tab-active-xs-max();
+  }
+}
+
+:host(.disabled) {
+  @include tabs-mixins.nav-tabs-tab-disabled();
+}
+
+.dso-tertiary {
+  @include button.tertiary($modifiers: false);
+
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
 }

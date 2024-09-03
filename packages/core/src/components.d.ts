@@ -1088,13 +1088,17 @@ export namespace Components {
     }
     interface DsoTab {
         /**
-          * Is tab active.
+          * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
          */
         "active"?: boolean;
         /**
-          * Is tab disabled.
+          * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
          */
         "disabled"?: boolean;
+        /**
+          * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
+         */
+        "href"?: string;
         /**
           * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
          */
@@ -1115,7 +1119,6 @@ export namespace Components {
         "noModal": boolean;
     }
     interface DsoTabs {
-        "updateActiveTab": (tabId: string) => Promise<void>;
     }
     interface DsoToggletip {
         /**
@@ -1371,9 +1374,9 @@ export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSlideToggleElement;
 }
-export interface DsoTabsCustomEvent<T> extends CustomEvent<T> {
+export interface DsoTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLDsoTabsElement;
+    target: HTMLDsoTabElement;
 }
 export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2079,7 +2082,18 @@ declare global {
         prototype: HTMLDsoSlideToggleElement;
         new (): HTMLDsoSlideToggleElement;
     };
+    interface HTMLDsoTabElementEventMap {
+        "dsoTabSwitch": TabsSwitchEvent;
+    }
     interface HTMLDsoTabElement extends Components.DsoTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoTabElementEventMap>(type: K, listener: (this: HTMLDsoTabElement, ev: DsoTabCustomEvent<HTMLDsoTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoTabElementEventMap>(type: K, listener: (this: HTMLDsoTabElement, ev: DsoTabCustomEvent<HTMLDsoTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoTabElement: {
         prototype: HTMLDsoTabElement;
@@ -2091,18 +2105,7 @@ declare global {
         prototype: HTMLDsoTableElement;
         new (): HTMLDsoTableElement;
     };
-    interface HTMLDsoTabsElementEventMap {
-        "dsoTabSwitch": TabsSwitchEvent;
-    }
     interface HTMLDsoTabsElement extends Components.DsoTabs, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLDsoTabsElementEventMap>(type: K, listener: (this: HTMLDsoTabsElement, ev: DsoTabsCustomEvent<HTMLDsoTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLDsoTabsElementEventMap>(type: K, listener: (this: HTMLDsoTabsElement, ev: DsoTabsCustomEvent<HTMLDsoTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoTabsElement: {
         prototype: HTMLDsoTabsElement;
@@ -3454,13 +3457,17 @@ declare namespace LocalJSX {
     }
     interface DsoTab {
         /**
-          * Is tab active.
+          * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
          */
         "active"?: boolean;
         /**
-          * Is tab disabled.
+          * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
          */
         "disabled"?: boolean;
+        /**
+          * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
+         */
+        "href"?: string;
         /**
           * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
          */
@@ -3469,6 +3476,10 @@ declare namespace LocalJSX {
           * The text that is shown on the tab.
          */
         "label"?: string;
+        /**
+          * Emitted when the user activates tab via click or arrow keys followed by space or enter.
+         */
+        "onDsoTabSwitch"?: (event: DsoTabCustomEvent<TabsSwitchEvent>) => void;
     }
     interface DsoTable {
         /**
@@ -3481,10 +3492,6 @@ declare namespace LocalJSX {
         "noModal"?: boolean;
     }
     interface DsoTabs {
-        /**
-          * Emitted when the user activates tab via click or arrow keys.
-         */
-        "onDsoTabSwitch"?: (event: DsoTabsCustomEvent<TabsSwitchEvent>) => void;
     }
     interface DsoToggletip {
         /**
