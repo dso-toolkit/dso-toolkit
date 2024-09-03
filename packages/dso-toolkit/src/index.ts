@@ -177,11 +177,7 @@ export * from "./components/paragraph";
 
 export * from "./components/progress-bar";
 
-export { ProgressIndicator } from "./components/progress-indicator/progress-indicator.models.js";
-export {
-  ProgressIndicatorTemplates,
-  storiesOfProgressIndicator,
-} from "./components/progress-indicator/progress-indicator.stories-of.js";
+export * from "./components/progress-indicator";
 
 export * from "./components/input-range";
 

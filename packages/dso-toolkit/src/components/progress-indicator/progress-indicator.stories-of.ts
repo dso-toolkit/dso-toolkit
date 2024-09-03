@@ -1,4 +1,4 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import {
   ProgressIndicatorArgs,
@@ -6,46 +6,74 @@ import {
   progressIndicatorArgTypes,
 } from "./progress-indicator.args.js";
 import { ProgressIndicator } from "./progress-indicator.models.js";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+type ProgressIndicatorStory = StoryObj<ProgressIndicatorArgs, Renderer>;
+
+interface ProgressIndicatorStories {
+  Small: ProgressIndicatorStory;
+  Medium: ProgressIndicatorStory;
+  Large: ProgressIndicatorStory;
+}
+
+interface ProgressIndicatorStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ProgressIndicatorTemplates<TemplateFnReturnType>
+  > {}
 
 export interface ProgressIndicatorTemplates<TemplateFnReturnType> {
   progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;
 }
 
-export function storiesOfProgressIndicator<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ProgressIndicatorTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Progress Indicator", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: progressIndicatorArgTypes,
-    });
+export function progressIndicatorMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ProgressIndicatorArgs
+> {
+  return {
+    argTypes: progressIndicatorArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    const template = templateMapper<ProgressIndicatorArgs>((args, { progressIndicatorTemplate }) =>
+export function progressIndicatorStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ProgressIndicatorStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ProgressIndicatorStories {
+  const render = templateContainer.render(
+    storyTemplates,
+    (args: ProgressIndicatorArgs, { progressIndicatorTemplate }) =>
       progressIndicatorTemplate(progressIndicatorArgsMapper(args)),
-    );
+  );
 
-    stories.add("small", template, {
+  return {
+    Small: {
       args: {
         size: "small",
       },
-    });
-
-    stories.add("medium", template, {
+      render,
+    },
+    Medium: {
       args: {
         size: "medium",
       },
-    });
-
-    stories.add("large", template, {
+      render,
+    },
+    Large: {
       args: {
         size: "large",
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }

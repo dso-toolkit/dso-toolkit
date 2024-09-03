@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
 import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "dso-toolkit/src/components/progress-indicator/readme.md?raw";
 
 const meta: Meta<ProgressIndicatorArgs> = {
   ...progressIndicatorMeta({ readme }),
-  title: "Progress Indicator",
+  title: "HTML|CSS/Progress Indicator",
 };
 
 export default meta;

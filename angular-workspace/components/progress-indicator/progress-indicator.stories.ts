@@ -1,24 +1,26 @@
-import { storiesOf } from "@storybook/angular";
+import type { Meta } from "@storybook/angular";
+import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories } from "dso-toolkit";
 
-import { storiesOfProgressIndicator } from "dso-toolkit";
-import { DsoProgressIndicator } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 
-storiesOfProgressIndicator({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    storyApiOptions: {
-      parameters: [
-        {
-          component: DsoProgressIndicator,
-        },
-      ],
-    },
-  },
+const meta: Meta<ProgressIndicatorArgs> = {
+  ...progressIndicatorMeta({ readme }),
+  title: "Progress Indicator",
+};
+
+export default meta;
+
+const { Small, Medium, Large } = progressIndicatorStories({
   templateContainer,
-  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate }),
+  storyTemplates: (templates) => {
+    const { progressIndicatorTemplate } = templates;
+
+    return {
+      progressIndicatorTemplate,
+    };
+  },
 });
+
+export { Small, Medium, Large };
