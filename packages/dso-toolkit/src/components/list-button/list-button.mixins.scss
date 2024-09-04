@@ -73,10 +73,13 @@
   > *.dso-selected + #{$input-number-selector} {
     @include _state-styling(colors.$wit, button.$secondary-border-color, colors.$grijs-90);
 
-    box-shadow:
-      inset 0 -1px 0 0 button.$secondary-border-color,
-      inset 0 1px 0 0 button.$secondary-border-color,
-      inset -1px 0 0 0 button.$secondary-border-color;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      box-shadow:
+        inset 0 -1px 0 0 button.$secondary-border-color,
+        inset 0 1px 0 0 button.$secondary-border-color,
+        inset -1px 0 0 0 button.$secondary-border-color;
+    }
   }
 
   > *:active + #{$input-number-selector},
@@ -211,3 +214,4 @@
 @mixin sibling() {
   margin-block-start: list-button-variables.$margin-gap;
 }
+
