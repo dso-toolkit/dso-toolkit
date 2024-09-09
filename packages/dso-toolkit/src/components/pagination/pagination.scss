@@ -1,5 +1,5 @@
 @use "../pagination";
-
+@use "../../utilities";
 @use "../../di";
 
 .pagination {
@@ -26,5 +26,9 @@
     &::before {
       @include di.base("chevron-right");
     }
+  }
+
+  .sr-only.sr-only {
+    @include utilities.sr-only();
   }
 }

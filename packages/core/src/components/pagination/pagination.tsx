@@ -100,55 +100,58 @@ export class Pagination implements ComponentInterface {
 
     return (
       <dso-responsive-element ref={(element) => (this.responsiveElement = element)}>
-        <ul class="pagination">
-          <li class={currentPage <= 1 || currentPage > this.totalPages ? "dso-page-hidden" : undefined}>
-            <a
-              href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)}
-              aria-label="Vorige"
-              onClick={(e) => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) - 1] ?? 1)}
-            >
-              <dso-icon icon="chevron-left"></dso-icon>
-            </a>
-          </li>
-          {pages.map((page) => (
-            <>
-              {this.showEllipsisBeforeLast(pages, page, availablePositions) && (
-                <li>
-                  <span>...</span>
-                </li>
-              )}
-
-              <li key={page} class={currentPage === page ? "active" : undefined}>
-                {currentPage === page ? (
-                  <span aria-current="page">{page}</span>
-                ) : (
-                  <a href={this.formatHref(page)} onClick={(e) => this.clickHandler(e, page)}>
-                    {page}
-                  </a>
+        <nav aria-label="Paginering">
+          <ul class="pagination">
+            <li class={currentPage <= 1 || currentPage > this.totalPages ? "dso-page-hidden" : undefined}>
+              <a
+                href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)}
+                aria-label="Vorige"
+                onClick={(e) => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) - 1] ?? 1)}
+              >
+                <dso-icon icon="chevron-left"></dso-icon>
+              </a>
+            </li>
+            {pages.map((page, index) => (
+              <>
+                {this.showEllipsisBeforeLast(pages, page, availablePositions) && (
+                  <li>
+                    <span>...</span>
+                  </li>
                 )}
-              </li>
 
-              {this.showEllipsisAfterFirst(pages, page, availablePositions) && (
-                <li>
-                  <span>...</span>
+                <li key={page} class={currentPage === page ? "active" : undefined}>
+                  {currentPage === page ? (
+                    <span aria-current="page">{page}</span>
+                  ) : (
+                    <a href={this.formatHref(page)} onClick={(e) => this.clickHandler(e, page)}>
+                      {page}
+                    </a>
+                  )}
+                  {page === this.totalPages ? <span class="sr-only"> (laatste pagina)</span> : null}
                 </li>
-              )}
-            </>
-          ))}
-          <li class={currentPage < 1 || currentPage >= this.totalPages ? "dso-page-hidden" : undefined}>
-            <a
-              href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}
-              aria-label="Volgende"
-              onClick={(e) =>
-                currentPage &&
-                this.totalPages &&
-                this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
-              }
-            >
-              <dso-icon icon="chevron-right"></dso-icon>
-            </a>
-          </li>
-        </ul>
+
+                {this.showEllipsisAfterFirst(pages, page, availablePositions) && (
+                  <li>
+                    <span>...</span>
+                  </li>
+                )}
+              </>
+            ))}
+            <li class={currentPage < 1 || currentPage >= this.totalPages ? "dso-page-hidden" : undefined}>
+              <a
+                href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}
+                aria-label="Volgende"
+                onClick={(e) =>
+                  currentPage &&
+                  this.totalPages &&
+                  this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
+                }
+              >
+                <dso-icon icon="chevron-right"></dso-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </dso-responsive-element>
     );
   }
