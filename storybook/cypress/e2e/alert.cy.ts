@@ -1,6 +1,7 @@
 describe("Alert", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-alert--success");
+    cy.injectAxe();
   });
 
   it("should have button", () => {
@@ -19,6 +20,10 @@ describe("Alert", () => {
   ];
 
   for (const { status, message, icon } of statuses) {
+    it("should be accessible", () => {
+      cy.checkA11y("dso-alert");
+    });
+
     it(`should have appropriate message and icon for status "${status}"`, () => {
       cy.get("dso-alert.hydrated")
         .invoke("attr", "status", status)

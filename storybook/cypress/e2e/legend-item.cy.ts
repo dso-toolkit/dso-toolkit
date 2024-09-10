@@ -1,6 +1,7 @@
 describe("Legend Item", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--default");
+    cy.injectAxe();
     prepareComponent();
   });
 
@@ -19,6 +20,11 @@ describe("Legend Item", () => {
         `<span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>`,
       );
   }
+
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-legend-item");
+  });
 
   it("should show label and symbol", () => {
     cy.get("@dsoLegendItem")
@@ -41,8 +47,12 @@ describe("Legend Item", () => {
   });
 
   it("should show selectable with label", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable");
+
+    cy.injectAxe();
+    cy.checkA11y("dso-legend-item");
+
+    cy.get("dso-legend-item")
       .find("dso-selectable")
       .should("be.visible")
       .get("dso-legend-item")
@@ -55,8 +65,12 @@ describe("Legend Item", () => {
   });
 
   it("should show edit-button with a body containing input-range", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range");
+
+    cy.injectAxe();
+    cy.checkA11y("dso-legend-item");
+
+    cy.get("dso-legend-item")
       .find("div[slot='body']")
       .should("be.hidden")
       .get("dso-legend-item")
@@ -76,8 +90,12 @@ describe("Legend Item", () => {
   });
 
   it("should show edit-button with a body containing selectables", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables");
+
+    cy.injectAxe();
+    cy.checkA11y("dso-legend-item");
+
+    cy.get("dso-legend-item")
       .find("div[slot='body']")
       .should("be.hidden")
       .get("dso-legend-item")

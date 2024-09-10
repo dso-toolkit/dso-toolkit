@@ -33,7 +33,7 @@ describe("Tree View", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-tree-view--tree-view");
     cy.injectAxe();
-    cy.get("body").get("dso-tree-view").shadow().as("tree-view");
+    cy.get("dso-tree-view").shadow().as("tree-view");
 
     cy.get("@tree-view").find("p.tree-content").first().click().focus().as("first-tree-item");
   });
@@ -63,6 +63,7 @@ describe("Tree View", () => {
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwwerken", 2, 4, 3);
 
+    cy.checkA11y("dso-tree-view");
     cy.get("dso-tree-view.hydrated").matchImageSnapshot();
 
     cy.get("@bouwwerken")

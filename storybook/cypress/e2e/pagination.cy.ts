@@ -3,6 +3,11 @@ describe("Pagination", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-pagination--pagination");
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-pagination");
+  });
+
   /** Configure the component and set an eventListener as @selectPageListener */
   function prepareComponent(currentPage: number, totalPages: number) {
     cy.get("dso-pagination")

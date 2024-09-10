@@ -1,12 +1,24 @@
 const url = "http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid";
 const urlOverlayClosed = `${url}&args=overlayOpen:false`;
 const urlOverlayOpened = `${url}&args=overlayOpen:true`;
-const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;
 
 describe("Viewer Grid", () => {
+  it("should be accessible (overlay closed)", () => {
+    cy.visit(urlOverlayClosed);
+    cy.injectAxe();
+    cy.checkA11y("dso-viewer-grid");
+  });
+
+  it("should be accessible (overlay opened)", () => {
+    cy.visit(urlOverlayOpened);
+    cy.injectAxe();
+    cy.checkA11y("dso-viewer-grid");
+  });
+
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
     cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
+    cy.get("dso-viewer-grid.hydrated").matchImageSnapshot();
   });
 
   it("should show overlay", () => {
@@ -44,11 +56,6 @@ describe("Viewer Grid", () => {
       .realPress("Escape")
       .get("@closeOverlay")
       .should("have.been.calledOnce");
-  });
-
-  it("should not show overlay", () => {
-    cy.visit(urlNoOverlay);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("not.be.visible");
   });
 
   it("should toggle filterpanel", () => {

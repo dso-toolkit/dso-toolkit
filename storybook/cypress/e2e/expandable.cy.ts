@@ -1,7 +1,16 @@
 describe("Expandable", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-expandable--default");
+    cy.injectAxe();
+  });
+
+  it("should be accessible", () => {
+    cy.get("dso-expandable").invoke("prop", "open", true);
+    cy.checkA11y("dso-expandable");
+  });
+
   it("hides content with overflow-hidden when not fully open", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-expandable--default")
-      .get("dso-expandable")
+    cy.get("dso-expandable")
       .should("have.class", "hydrated")
       .invoke("prop", "enableAnimation", true)
       .should("have.class", "dso-animate-ready")

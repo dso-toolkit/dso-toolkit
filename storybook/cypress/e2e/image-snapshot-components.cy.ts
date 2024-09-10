@@ -48,6 +48,7 @@ function waitForExist(id: string, component: Component, wait: string[]) {
 function test(id: string, component: Component, wait: string | string[]) {
   it(`take screenshot of ${id}`, () => {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
+    cy.injectAxe();
 
     if (wait) {
       if (Array.isArray(wait)) {

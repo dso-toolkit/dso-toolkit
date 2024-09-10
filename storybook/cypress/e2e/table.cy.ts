@@ -3,6 +3,11 @@ describe("Table", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-table--default");
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-table");
+  });
+
   it("should be horizontally scrollable if the table does not fit", () => {
     cy.get("dso-table")
       .as("dsoTable")

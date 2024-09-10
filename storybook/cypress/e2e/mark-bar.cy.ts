@@ -3,6 +3,11 @@ describe("Mark Bar", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-mark-bar--default");
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-mark-bar");
+  });
+
   it("shows current and totalCount", () => {
     cy.get("dso-mark-bar").invoke("prop", "current", 1).invoke("prop", "totalCount", 10).shadow().contains("1/10");
   });

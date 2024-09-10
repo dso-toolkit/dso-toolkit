@@ -3,6 +3,11 @@ describe("Tooltip", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-tooltip--as-child");
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-tooltip");
+  });
+
   function prepareComponent() {
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
