@@ -5,7 +5,7 @@ describe("ActionList", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-action-list");
+    cy.get("dso-action-list.hydrated").should("exist").checkA11y("dso-action-list.hydrated");
   });
 
   it("screenshot", () => {

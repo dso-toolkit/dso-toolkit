@@ -1,7 +1,6 @@
 describe("Legend Item", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--default");
-    cy.injectAxe();
     prepareComponent();
   });
 
