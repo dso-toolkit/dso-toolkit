@@ -16,6 +16,13 @@ interface Component {
   shadowWait?: string;
 }
 
+function checkA11y(component: Component) {
+  if (component.type === "core") {
+    cy.injectAxe();
+    cy.checkA11y(`dso-${component.name}`);
+  }
+}
+
 function matchImageSnapshot(id: string, component: Component) {
   if (component.selector) {
     if (component.shadowWait) {
@@ -41,6 +48,7 @@ function waitForExist(id: string, component: Component, wait: string[]) {
         waitForExist(id, component, wait);
       } else {
         matchImageSnapshot(id, component);
+        checkA11y(component);
       }
     });
 }
@@ -48,7 +56,6 @@ function waitForExist(id: string, component: Component, wait: string[]) {
 function test(id: string, component: Component, wait: string | string[]) {
   it(`take screenshot of ${id}`, () => {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
-    cy.injectAxe();
 
     if (wait) {
       if (Array.isArray(wait)) {
@@ -56,10 +63,14 @@ function test(id: string, component: Component, wait: string | string[]) {
       } else {
         cy.get(wait)
           .should("exist")
-          .then(() => matchImageSnapshot(id, component));
+          .then(() => {
+            matchImageSnapshot(id, component);
+            checkA11y(component);
+          });
       }
     } else {
       matchImageSnapshot(id, component);
+      checkA11y(component);
     }
   });
 }

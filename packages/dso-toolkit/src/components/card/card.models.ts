@@ -16,6 +16,7 @@ export interface Card<TemplateFnReturnType> {
   content?: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
   image?: string;
+  imageAlt?: string;
   imageShape?: (typeof imageShapes)[number];
   /** @deprecated use `href` */
   clickable?: boolean;
