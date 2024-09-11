@@ -111,6 +111,7 @@
 @mixin root() {
   @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
 
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     border-radius: button.$border-radius;
     border-width: 1px;
@@ -214,4 +215,3 @@
 @mixin sibling() {
   margin-block-start: list-button-variables.$margin-gap;
 }
-
