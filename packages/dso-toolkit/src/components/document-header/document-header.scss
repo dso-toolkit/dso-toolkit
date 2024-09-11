@@ -53,7 +53,6 @@
         &::after {
           @include di.base("chevron-up-bosgroen");
 
-          // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
           & {
             content: "";
             display: inline-block;

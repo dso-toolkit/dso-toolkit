@@ -12,7 +12,6 @@ $content-selector: ".dso-description-content";
       &::before {
         @include di.base("times-zwart");
 
-        // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
         & {
           content: "";
           display: block;

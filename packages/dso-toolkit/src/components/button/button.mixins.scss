@@ -28,6 +28,7 @@
     @include _shared-variant($defaults-map);
   }
 
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     border-width: 1px;
     border-style: solid;

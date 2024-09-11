@@ -11,7 +11,6 @@
     margin-block-end: units.$u2;
 
     > legend {
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
       & {
         border-block-end: 0;
         margin-block-end: css-form-variables.$fieldset-separator-unit;
