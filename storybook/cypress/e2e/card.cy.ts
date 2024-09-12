@@ -9,7 +9,7 @@ describe("Card", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-card");
+    cy.dsoCheckA11y("dso-card");
   });
 
   it("should call dsoCardClicked event when user clicks a non-interactive element in card", () => {

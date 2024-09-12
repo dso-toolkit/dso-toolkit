@@ -58,16 +58,16 @@ describe("Header", () => {
   it("should be accessible", () => {
     prepareComponent();
 
-    cy.checkA11y("dso-header");
+    cy.dsoCheckA11y("dso-header");
 
-    cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
+    cy.get("dso-header").invoke("attr", "useDropDownMenu", "always").dsoCheckA11y("dso-header");
 
     cy.get("dso-header.hydrated")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")
-      .checkA11y("dso-header");
+      .dsoCheckA11y("dso-header");
   });
 
   it("should show/remove dropdownmenu", () => {

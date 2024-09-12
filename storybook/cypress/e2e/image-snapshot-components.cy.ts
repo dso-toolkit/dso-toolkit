@@ -19,7 +19,7 @@ interface Component {
 function checkA11y(component: Component) {
   if (component.type === "core") {
     cy.injectAxe();
-    cy.checkA11y(`dso-${component.name}`);
+    cy.dsoCheckA11y(`dso-${component.name}`);
   }
 }
 

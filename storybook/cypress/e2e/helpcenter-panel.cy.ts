@@ -22,7 +22,7 @@ describe("Helpcenter panel", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-helpcenter-panel");
+    cy.dsoCheckA11y("dso-helpcenter-panel");
     cy.get("@dsoHelpcenterPanel")
       .find("#dso-panel-wrapper")
       .should("have.attr", "aria-label", "helpcentrum")

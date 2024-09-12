@@ -21,13 +21,13 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@options").should("not.be.visible");
 
-    cy.checkA11y("dso-dropdown-menu");
+    cy.dsoCheckA11y("dso-dropdown-menu");
 
     cy.get("@button").focus().click().should("have.focus");
 
     cy.get("@options").should("be.visible");
 
-    cy.checkA11y("dso-dropdown-menu");
+    cy.dsoCheckA11y("dso-dropdown-menu");
 
     cy.get("@button").click().should("have.focus");
 
@@ -200,13 +200,13 @@ describe("Dropdown menu - buttons", () => {
   it("should open and close on button click", () => {
     cy.get("@options").should("not.be.visible");
 
-    cy.checkA11y("dso-dropdown-menu");
+    cy.dsoCheckA11y("dso-dropdown-menu");
 
     cy.get("@button").focus().click().should("have.focus");
 
     cy.get("@options").should("be.visible");
 
-    cy.checkA11y("dso-dropdown-menu");
+    cy.dsoCheckA11y("dso-dropdown-menu");
 
     cy.get("@button").click().should("have.focus");
 

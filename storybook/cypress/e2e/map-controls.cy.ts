@@ -19,7 +19,7 @@ describe("Map Controls", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-map-controls");
+    cy.dsoCheckA11y("dso-map-controls");
   });
 
   it("should close layer info when layer becomes available", () => {

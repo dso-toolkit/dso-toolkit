@@ -11,7 +11,7 @@ describe("Modal", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-modal");
+    cy.dsoCheckA11y("dso-modal");
     cy.get("@dsoModal")
       .find(".dso-modal")
       .should("have.attr", "role", "dialog")

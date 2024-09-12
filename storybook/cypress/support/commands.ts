@@ -27,6 +27,8 @@
 /// <reference types="cypress" />
 
 import { cypressStyling } from "./cypress-styling";
+import * as axe from "axe-core";
+import { Options } from "cypress-axe";
 
 export {};
 
@@ -38,6 +40,14 @@ declare global {
        * Checks if element is within the viewport. Useful for scrollIntoView testing.
        */
       isWithinViewport(): Chainable<Element>;
+
+      /**
+       * Executes cypress-axe checkA11y only after hydrated web-components exist in the Dom
+       */
+      dsoCheckA11y(
+        context?: string | Node | axe.ContextObject | undefined,
+        options?: Options | undefined,
+      ): Chainable<Element>;
     }
   }
 }
@@ -75,4 +85,29 @@ Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
     .its("fonts.status")
     .should("equal", "loaded")
     .then(() => originalFn(...args));
+});
+
+/**
+ * violationCallback function to show details on accessibility violations
+ */
+function terminalLog(violations: axe.Result[]) {
+  cy.task(
+    "log",
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? "" : "s"
+    } ${violations.length === 1 ? "was" : "were"} detected`,
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(({ id, impact, description, nodes }) => ({
+    id,
+    impact,
+    description,
+    nodes: nodes.length,
+  }));
+
+  cy.task("table", violationData);
+}
+
+Cypress.Commands.add("dsoCheckA11y", (context, options) => {
+  return cy.get(`${context}.hydrated`).should("exist").checkA11y(`${context}.hydrated`, options, terminalLog);
 });

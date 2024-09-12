@@ -84,7 +84,7 @@ describe("ListButton", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-list-button");
+    cy.dsoCheckA11y("dso-list-button");
   });
 
   it("should render the interactive count input", () => {

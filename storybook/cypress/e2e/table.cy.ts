@@ -5,7 +5,7 @@ describe("Table", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-table");
+    cy.dsoCheckA11y("dso-table");
   });
 
   it("should be horizontally scrollable if the table does not fit", () => {

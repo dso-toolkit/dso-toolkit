@@ -21,7 +21,7 @@ describe("Alert", () => {
 
   for (const { status, message, icon } of statuses) {
     it("should be accessible", () => {
-      cy.checkA11y("dso-alert");
+      cy.dsoCheckA11y("dso-alert");
     });
 
     it(`should have appropriate message and icon for status "${status}"`, () => {

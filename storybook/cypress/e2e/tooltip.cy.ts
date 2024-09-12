@@ -5,7 +5,7 @@ describe("Tooltip", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-tooltip");
+    cy.dsoCheckA11y("dso-tooltip");
   });
 
   function prepareComponent() {

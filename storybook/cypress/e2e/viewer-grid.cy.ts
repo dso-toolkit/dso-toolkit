@@ -6,13 +6,13 @@ describe("Viewer Grid", () => {
   it("should be accessible (overlay closed)", () => {
     cy.visit(urlOverlayClosed);
     cy.injectAxe();
-    cy.checkA11y("dso-viewer-grid");
+    cy.dsoCheckA11y("dso-viewer-grid");
   });
 
   it("should be accessible (overlay opened)", () => {
     cy.visit(urlOverlayOpened);
     cy.injectAxe();
-    cy.checkA11y("dso-viewer-grid");
+    cy.dsoCheckA11y("dso-viewer-grid");
   });
 
   it("should not show overlay", () => {
