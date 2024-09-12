@@ -75,22 +75,25 @@
   }
 
   > .dso-dialog > .dso-body {
-    /* stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline */
+    // stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
     @include rich-content.children();
 
-    block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-    min-block-size: 1.5rem;
-    overflow-x: auto;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+      max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+      min-block-size: 1.5rem;
+      overflow-x: auto;
 
-    padding: modal-variables.$body-padding;
+      padding: modal-variables.$body-padding;
+    }
   }
 
   > .dso-dialog > dso-scrollable {
-    /* stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline */
+    // stylelint-disable-next-line scss/operator-no-newline-after -- disabled because of prettier newline
     $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-block-size + modal-variables.$footer-padding);
 
@@ -101,7 +104,10 @@
     .dso-body {
       @include rich-content.children();
 
-      padding: modal-variables.$body-padding;
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        padding: modal-variables.$body-padding;
+      }
     }
   }
 
@@ -114,12 +120,15 @@
   .dso-footer {
     @include modal-wide-buttons();
 
-    min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
 
-    padding-block: calc(modal-variables.$footer-padding / 2);
-    padding-inline: modal-variables.$footer-padding;
+      padding-block: calc(modal-variables.$footer-padding / 2);
+      padding-inline: modal-variables.$footer-padding;
 
-    text-align: end;
+      text-align: end;
+    }
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {

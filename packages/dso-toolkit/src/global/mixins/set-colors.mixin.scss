@@ -18,43 +18,44 @@
 
 @mixin apply($background-color, $border-color: null, $icons: true, $links: true, $reverse: false) {
   $icon-color: null;
+  & {
+    // run contrast-color function to determine WCAG-compliant text color
+    $contrast-color: contrast-color.apply($background-color);
 
-  // run contrast-color function to determine WCAG-compliant text color
-  $contrast-color: contrast-color.apply($background-color);
+    // set link and icon color according to text color
+    @if color.lightness($background-color) < 100% {
+      @if $links == true {
+        --link-color: currentColor;
+        --link-hover-color: currentColor;
+        --link-visited-color: currentColor;
+      }
 
-  // set link and icon color according to text color
-  @if color.lightness($background-color) < 100% {
-    @if $links == true {
-      --link-color: currentColor;
-      --link-hover-color: currentColor;
-      --link-visited-color: currentColor;
+      // set according to contrast color determined by contrast-color function
+      @if $contrast-color == colors.$contrast-dark {
+        $icon-color: "zwart";
+      } @else if $contrast-color == colors.$contrast-light {
+        $icon-color: "wit";
+      }
+
+      // if contrast-color function gets it wrong, and therefore $reverse is set to true
+      @if $contrast-color == colors.$contrast-dark and $reverse == true {
+        $icon-color: "wit";
+        $contrast-color: colors.$contrast-light;
+      } @else if $contrast-color == colors.$contrast-light and $reverse == true {
+        $icon-color: "zwart";
+        $contrast-color: colors.$contrast-dark;
+      }
     }
 
-    // set according to contrast color determined by contrast-color function
-    @if $contrast-color == colors.$contrast-dark {
-      $icon-color: "zwart";
-    } @else if $contrast-color == colors.$contrast-light {
-      $icon-color: "wit";
+    // set css properties
+    background-color: $background-color;
+    border-color: if($border-color, $border-color, $background-color);
+    color: $contrast-color;
+
+    // implement icon color according to background color
+    @if $icon-color and $icons == true {
+      @include _anchorIconColors($icon-color);
     }
-
-    // if contrast-color function gets it wrong, and therefore $reverse is set to true
-    @if $contrast-color == colors.$contrast-dark and $reverse == true {
-      $icon-color: "wit";
-      $contrast-color: colors.$contrast-light;
-    } @else if $contrast-color == colors.$contrast-light and $reverse == true {
-      $icon-color: "zwart";
-      $contrast-color: colors.$contrast-dark;
-    }
-  }
-
-  // set css properties
-  background-color: $background-color;
-  border-color: if($border-color, $border-color, $background-color);
-  color: $contrast-color;
-
-  // implement icon color according to background color
-  @if $icon-color and $icons == true {
-    @include _anchorIconColors($icon-color);
   }
 }
 

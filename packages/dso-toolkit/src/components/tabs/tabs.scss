@@ -10,9 +10,12 @@
 .nav {
   @include utilities.clearfix();
 
-  list-style: none;
-  margin-block-end: 0;
-  padding-inline-start: 0; // Override default ul/ol
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    list-style: none;
+    margin-block-end: 0;
+    padding-inline-start: 0; // Override default ul/ol
+  }
 
   > li {
     position: relative;
@@ -94,16 +97,19 @@
     > a {
       @include anchor.clean();
 
-      border: 1px solid transparent;
-      border-radius: css-tabs-variables.$border-radius css-tabs-variables.$border-radius 0 0;
-      color: css-tabs-variables.$text-color;
-      display: block;
-      line-height: typography.$line-height-base;
-      margin-inline-end: 2px;
-      min-block-size: css-tabs-variables.$block-size;
-      padding-block: css-tabs-variables.$block-padding;
-      padding-inline: css-tabs-variables.$inline-padding;
-      position: relative;
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        border: 1px solid transparent;
+        border-radius: css-tabs-variables.$border-radius css-tabs-variables.$border-radius 0 0;
+        color: css-tabs-variables.$text-color;
+        display: block;
+        line-height: typography.$line-height-base;
+        margin-inline-end: 2px;
+        min-block-size: css-tabs-variables.$block-size;
+        padding-block: css-tabs-variables.$block-padding;
+        padding-inline: css-tabs-variables.$inline-padding;
+        position: relative;
+      }
 
       &:hover {
         border-color: css-tabs-variables.$link-hover-border-color css-tabs-variables.$link-hover-border-color

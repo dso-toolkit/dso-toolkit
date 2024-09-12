@@ -13,7 +13,10 @@
     flex-direction: column;
   }
 
-  margin-block-end: units.$block-spacing-medium;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    margin-block-end: units.$block-spacing-medium;
+  }
 
   &:last-child {
     margin-block-end: units.$block-spacing-xlarge;

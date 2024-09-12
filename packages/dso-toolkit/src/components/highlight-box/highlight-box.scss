@@ -19,9 +19,12 @@
 
   @include step-counter.step-counter();
 
-  container-type: inline-size;
-  position: relative;
-  z-index: 1;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    container-type: inline-size;
+    position: relative;
+    z-index: 1;
+  }
 
   &.dso-yellow,
   &:not(.dso-border):not(.dso-white) {

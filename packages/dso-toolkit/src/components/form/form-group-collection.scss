@@ -11,8 +11,10 @@
     margin-block-end: units.$u2;
 
     > legend {
-      border-block-end: 0;
-      margin-block-end: css-form-variables.$fieldset-separator-unit;
+      & {
+        border-block-end: 0;
+        margin-block-end: css-form-variables.$fieldset-separator-unit;
+      }
 
       &,
       h1,

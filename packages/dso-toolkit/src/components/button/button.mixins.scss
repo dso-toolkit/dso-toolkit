@@ -24,15 +24,20 @@
     @include base($modifiers);
   }
 
-  @include _shared-variant($defaults-map);
+  & {
+    @include _shared-variant($defaults-map);
+  }
 
-  border-width: 1px;
-  border-style: solid;
-  border-radius: button-variables.$border-radius;
-  line-height: typography.$line-height-base;
-  min-inline-size: button-variables.$min-inline-size;
-  padding-block: button-variables.$block-padding;
-  padding-inline: button-variables.$inline-padding;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: button-variables.$border-radius;
+    line-height: typography.$line-height-base;
+    min-inline-size: button-variables.$min-inline-size;
+    padding-block: button-variables.$block-padding;
+    padding-inline: button-variables.$inline-padding;
+  }
 
   &:hover {
     @include _shared-variant($defaults-map, $hover-map);
@@ -346,11 +351,13 @@
     @include base($modifiers);
   }
 
-  border: 0;
-  color: button-variables.$tertiary-color;
-  line-height: 1;
-  padding: 0;
-  background-color: transparent;
+  & {
+    border: 0;
+    color: button-variables.$tertiary-color;
+    line-height: 1;
+    padding: 0;
+    background-color: transparent;
+  }
 
   &[disabled] {
     color: colors.$grasgroen-40;
