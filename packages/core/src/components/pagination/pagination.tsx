@@ -111,7 +111,7 @@ export class Pagination implements ComponentInterface {
                 <dso-icon icon="chevron-left"></dso-icon>
               </a>
             </li>
-            {pages.map((page, index) => (
+            {pages.map((page) => (
               <>
                 {this.showEllipsisBeforeLast(pages, page, availablePositions) && (
                   <li>
