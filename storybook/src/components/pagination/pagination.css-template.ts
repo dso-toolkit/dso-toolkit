@@ -39,6 +39,7 @@ export const cssPagination: ComponentImplementation<Pagination> = {
               : nothing}
             <li class="active">
               <span aria-current="page">${currentPage}</span>
+              ${currentPage === totalPages ? html`<span class="sr-only"> (laatste pagina)</span>` : nothing}
             </li>
             ${currentPage <= totalPages - 2 &&
             ((currentPage <= 3 && totalPages <= 5) || (currentPage !== 3 && totalPages > 5))
