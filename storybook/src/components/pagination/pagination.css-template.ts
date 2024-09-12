@@ -38,8 +38,10 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                 `
               : nothing}
             <li class="active">
-              <span aria-current="page">${currentPage}</span>
-              ${currentPage === totalPages ? html`<span class="sr-only"> (laatste pagina)</span>` : nothing}
+              <span aria-current="page"
+                >${currentPage}
+                ${currentPage === totalPages ? html`<span class="sr-only"> (laatste pagina)</span>` : nothing}
+              </span>
             </li>
             ${currentPage <= totalPages - 2 &&
             ((currentPage <= 3 && totalPages <= 5) || (currentPage !== 3 && totalPages > 5))
@@ -59,8 +61,7 @@ export const cssPagination: ComponentImplementation<Pagination> = {
             ${currentPage !== totalPages
               ? html`
                   <li>
-                    <a href="#">${totalPages}</a>
-                    <span class="sr-only"> (laatste pagina)</span>
+                    <a href="#">${totalPages} <span class="sr-only"> (laatste pagina)</span></a>
                   </li>
                   <li>
                     <a href="#" aria-label="Volgende">
