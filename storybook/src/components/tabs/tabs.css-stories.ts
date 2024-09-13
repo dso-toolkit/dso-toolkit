@@ -23,4 +23,5 @@ const { AsAnchors, AsAnchorsDisabled } = tabsStories({
   },
 });
 
+// AsButtons en AsButtonsDisabled ontbreken; de HTML/CSS implementatie ondersteunt geen buttons
 export { AsAnchors, AsAnchorsDisabled };
