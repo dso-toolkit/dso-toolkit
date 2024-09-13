@@ -4,7 +4,7 @@ export interface Tabs<TemplateFnReturnType> {
 }
 
 export interface TabsItem {
-  label?: string;
+  label: string;
   identifier: string;
   href?: string;
   modifiers?: "active" | "disabled";

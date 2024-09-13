@@ -1103,10 +1103,6 @@ export namespace Components {
           * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
          */
         "identifier": string;
-        /**
-          * The text that is shown on the tab.
-         */
-        "label"?: string;
     }
     interface DsoTable {
         /**
@@ -3472,10 +3468,6 @@ declare namespace LocalJSX {
           * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
          */
         "identifier"?: string;
-        /**
-          * The text that is shown on the tab.
-         */
-        "label"?: string;
         /**
           * Emitted when the user activates tab via click or arrow keys followed by space or enter.
          */

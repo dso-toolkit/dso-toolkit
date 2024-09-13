@@ -16,7 +16,6 @@ export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
             ({ label, identifier, href, modifiers, dsoTabSwitch }) => html`
               <dso-tab
                 href=${ifDefined(href)}
-                label=${ifDefined(label)}
                 identifier=${ifDefined(identifier)}
                 ?active=${modifiers === "active"}
                 ?disabled=${modifiers === "disabled"}

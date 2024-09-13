@@ -2,6 +2,10 @@ import { Element, Component, h, Host, State } from "@stencil/core";
 
 import { TabsItem } from "./tabs.interfaces";
 
+/**
+ * @slot - The dso-tabs
+ * @slot panel - The panel with the content for the active tab
+ */
 @Component({
   tag: "dso-tabs",
   styleUrl: "tabs.scss",
@@ -80,7 +84,6 @@ export class Tabs {
 
         if (id && !tab.disabled) {
           tabs.push({
-            label: tab.label,
             identifier: id,
             active: tab.active,
           });

@@ -3,6 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { TabsSwitchEvent } from "../tabs.interfaces";
 
+/**
+ * @slot - The label for this tab
+ */
 @Component({
   tag: "dso-tab",
   styleUrl: "tab.scss",
@@ -11,12 +14,6 @@ import { TabsSwitchEvent } from "../tabs.interfaces";
 export class Tab {
   @Element()
   host!: HTMLDsoTabElement;
-
-  /**
-   * The text that is shown on the tab.
-   */
-  @Prop()
-  label?: string;
 
   /**
    * Adds a unique identifier for the tab. Use this instead of html `id` attribute.
