@@ -258,7 +258,7 @@ describe("Pagination", () => {
     cy.get("dso-pagination")
       .shadow()
       .as("dsoPagination")
-      .find('.pagination > .active span[aria-current="page"]')
+      .find('.pagination .active span[aria-current="page"]')
       .click()
       .get("@selectPageListener")
       .should("not.have.been.called");
