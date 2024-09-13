@@ -100,8 +100,8 @@ export class Pagination implements ComponentInterface {
 
     return (
       <dso-responsive-element ref={(element) => (this.responsiveElement = element)}>
-        <nav aria-label="Paginering">
-          <ul class="pagination">
+        <nav class="pagination" aria-label="Paginering">
+          <ul>
             <li class={currentPage <= 1 || currentPage > this.totalPages ? "dso-page-hidden" : undefined}>
               <a
                 href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)}

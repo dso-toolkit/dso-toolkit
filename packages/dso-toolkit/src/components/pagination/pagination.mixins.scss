@@ -4,72 +4,74 @@
 @use "pagination.variables" as pagination-variables;
 
 @mixin root() {
-  padding-inline-start: initial;
-  text-align: center;
-
-  > li {
-    display: inline-block;
-    font-weight: bold;
-    line-height: calc(pagination-variables.$item-size - pagination-variables.$border-size * 2);
+  ul {
+    padding-inline-start: initial;
     text-align: center;
-    vertical-align: middle;
 
-    > a,
-    > span {
-      align-items: center;
-      color: colors.$grasgroen;
-      display: flex;
-      block-size: pagination-variables.$item-size;
-      justify-content: center;
-      position: relative;
-      min-inline-size: pagination-variables.$item-size;
-      padding: #{units.$u1 * 0.25};
-      padding-block: units.$u1 * 0.25;
-      padding-inline: units.$u1 * 0.25;
+    > li {
+      display: inline-block;
+      font-weight: bold;
+      line-height: calc(pagination-variables.$item-size - pagination-variables.$border-size * 2);
+      text-align: center;
+      vertical-align: middle;
 
-      &:active {
-        background-color: colors.$grasgroen-10;
-      }
-    }
+      > a,
+      > span {
+        align-items: center;
+        color: colors.$grasgroen;
+        display: flex;
+        block-size: pagination-variables.$item-size;
+        justify-content: center;
+        position: relative;
+        min-inline-size: pagination-variables.$item-size;
+        padding: #{units.$u1 * 0.25};
+        padding-block: units.$u1 * 0.25;
+        padding-inline: units.$u1 * 0.25;
 
-    > span {
-      border: pagination-variables.$border-size solid transparent;
-      border-radius: pagination-variables.$item-size * 0.5;
-    }
-
-    a {
-      line-height: pagination-variables.$line-height;
-      text-decoration: none;
-
-      &:hover,
-      &:focus {
-        text-decoration: none;
-
-        &::after {
-          border-block-end-color: colors.$grasgroen;
+        &:active {
+          background-color: colors.$grasgroen-10;
         }
       }
 
-      &::after {
-        border-block-end: 3px solid transparent;
-        inset-block-end: 0;
-        content: "";
-        display: inline-block;
-        inset-inline-start: 0;
-        position: absolute;
-        inline-size: 100%;
+      > span {
+        border: pagination-variables.$border-size solid transparent;
+        border-radius: pagination-variables.$item-size * 0.5;
       }
-    }
 
-    &.active {
-      span {
-        background-color: colors.$grasgroen;
-        color: colors.$wit;
+      a {
+        line-height: pagination-variables.$line-height;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+
+          &::after {
+            border-block-end-color: colors.$grasgroen;
+          }
+        }
+
+        &::after {
+          border-block-end: 3px solid transparent;
+          inset-block-end: 0;
+          content: "";
+          display: inline-block;
+          inset-inline-start: 0;
+          position: absolute;
+          inline-size: 100%;
+        }
       }
-    }
 
-    & + li {
-      margin-inline-start: units.$u1;
+      &.active {
+        span {
+          background-color: colors.$grasgroen;
+          color: colors.$wit;
+        }
+      }
+
+      & + li {
+        margin-inline-start: units.$u1;
+      }
     }
   }
 }

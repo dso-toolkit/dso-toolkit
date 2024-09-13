@@ -8,8 +8,8 @@ export const cssPagination: ComponentImplementation<Pagination> = {
   template: () =>
     function paginationTemplate({ currentPage, totalPages }) {
       return html`
-        <nav aria-label="Paginering">
-          <ul class="pagination">
+        <nav class="pagination" aria-label="Paginering">
+          <ul>
             ${currentPage !== 1
               ? html`
                   <li>
