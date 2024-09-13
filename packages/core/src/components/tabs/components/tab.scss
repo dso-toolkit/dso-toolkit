@@ -12,7 +12,7 @@
   }
 }
 
-:host(.active) {
+:host([active]) {
   @include tabs-mixins.nav-tabs-tab-active();
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
@@ -20,12 +20,12 @@
   }
 }
 
-:host(.disabled) {
+:host([disabled]) {
   @include tabs-mixins.nav-tabs-tab-disabled();
 }
 
 .dso-tertiary {
-  @include button.tertiary($modifiers: false);
+  @include button-mixins.tertiary($modifiers: false);
 
   font-weight: bold;
   font-family: inherit;

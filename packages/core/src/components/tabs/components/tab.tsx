@@ -1,5 +1,4 @@
 import { Component, Element, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
-import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { TabsSwitchEvent } from "../tabs.interfaces";
@@ -30,13 +29,13 @@ export class Tab {
   /**
    * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
    */
-  @Prop()
+  @Prop({ reflect: true })
   active?: boolean;
 
   /**
    * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
    */
-  @Prop()
+  @Prop({ reflect: true })
   disabled?: boolean;
 
   /**
@@ -74,7 +73,7 @@ export class Tab {
 
   render() {
     return (
-      <Host class={clsx({ active: this.active, disabled: this.disabled })}>
+      <Host>
         {this.href ? (
           <a
             role="tab"
