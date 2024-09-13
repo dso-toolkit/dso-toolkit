@@ -22,7 +22,7 @@ describe("Legend Item", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item");
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
   });
 
   it("should show label and symbol", () => {
@@ -49,7 +49,7 @@ describe("Legend Item", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item");
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
 
     cy.get("dso-legend-item")
       .find("dso-selectable")
@@ -67,7 +67,7 @@ describe("Legend Item", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item");
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
 
     cy.get("dso-legend-item")
       .find("div[slot='body']")
@@ -92,7 +92,7 @@ describe("Legend Item", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item");
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
 
     cy.get("dso-legend-item")
       .find("div[slot='body']")

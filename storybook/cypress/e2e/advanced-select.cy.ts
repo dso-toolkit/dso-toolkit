@@ -3,11 +3,11 @@ describe("AdvancedSelect", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-advanced-select--default");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-advanced-select");
+    cy.dsoCheckA11y("dso-advanced-select.hydrated");
 
     cy.get("dso-advanced-select").click().shadow().find(".groups-container").should("exist");
 
-    cy.dsoCheckA11y("dso-advanced-select");
+    cy.dsoCheckA11y("dso-advanced-select.hydrated");
   });
 
   it("matches snapshot closed", () => {

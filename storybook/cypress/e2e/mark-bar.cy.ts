@@ -5,7 +5,7 @@ describe("Mark Bar", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-mark-bar");
+    cy.dsoCheckA11y("dso-mark-bar.hydrated");
   });
 
   it("shows current and totalCount", () => {

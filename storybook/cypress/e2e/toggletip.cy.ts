@@ -5,7 +5,7 @@ describe("Toggletip", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-toggletip");
+    cy.dsoCheckA11y("dso-toggletip.hydrated");
   });
 
   function prepareComponent() {

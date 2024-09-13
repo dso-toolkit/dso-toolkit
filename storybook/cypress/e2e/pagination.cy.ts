@@ -5,7 +5,7 @@ describe("Pagination", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-pagination");
+    cy.dsoCheckA11y("dso-pagination.hydrated");
   });
 
   /** Configure the component and set an eventListener as @selectPageListener */

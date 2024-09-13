@@ -3,7 +3,7 @@ describe("Selectable", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-selectable");
+    cy.dsoCheckA11y("dso-selectable.hydrated");
 
     cy.get("dso-selectable.hydrated").matchImageSnapshot();
 
@@ -27,7 +27,7 @@ describe("Selectable", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-selectable");
+    cy.dsoCheckA11y("dso-selectable.hydrated");
 
     cy.get("dso-selectable").invoke("prop", "checked", "true").find('input[type="checkbox"]').should("be.checked");
 

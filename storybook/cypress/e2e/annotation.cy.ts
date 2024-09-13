@@ -168,7 +168,7 @@ function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsno
   });
 
   it("is accessible", () => {
-    cy.get(`@annotation`).checkA11y("#root-inner");
+    cy.get(`@annotation`).dsoCheckA11y("#root-inner");
   });
 
   it("matches snapshot", () => {

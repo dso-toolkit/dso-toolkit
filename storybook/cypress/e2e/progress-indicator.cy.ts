@@ -19,7 +19,7 @@ describe("Progress Indicator", () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-progress-indicator--${size}`);
 
       cy.injectAxe();
-      cy.dsoCheckA11y("dso-progress-indicator");
+      cy.dsoCheckA11y("dso-progress-indicator.hydrated");
 
       cy.get("dso-progress-indicator")
         .should("have.attr", "size", size)

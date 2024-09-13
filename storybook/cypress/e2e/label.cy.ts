@@ -19,7 +19,7 @@ describe("Label", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-label");
+    cy.dsoCheckA11y("dso-label.hydrated");
   });
 
   it("should be able to truncate label", () => {

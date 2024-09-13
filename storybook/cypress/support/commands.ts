@@ -44,10 +44,7 @@ declare global {
       /**
        * Executes cypress-axe checkA11y only after hydrated web-components exist in the Dom
        */
-      dsoCheckA11y(
-        context?: string | Node | axe.ContextObject | undefined,
-        options?: Options | undefined,
-      ): Chainable<Element>;
+      dsoCheckA11y(context?: string, options?: Options): Chainable<Element>;
     }
   }
 }
@@ -109,5 +106,5 @@ function terminalLog(violations: axe.Result[]) {
 }
 
 Cypress.Commands.add("dsoCheckA11y", (context, options) => {
-  return cy.get(`${context}.hydrated`).should("exist").checkA11y(`${context}.hydrated`, options, terminalLog);
+  return cy.get(context).should("exist", { log: false }).checkA11y(context, options, terminalLog);
 });

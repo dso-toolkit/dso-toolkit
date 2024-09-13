@@ -3,7 +3,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content").then((c) => {
       c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
@@ -31,7 +31,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     button("N6").should("have.attr", "aria-expanded", "false");
     tooltip("N6").should("be.not.visible");
@@ -62,7 +62,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content").then((c) => {
       c.prop("content", "<aap>baviaan</aap>");
@@ -171,7 +171,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .shadow()
@@ -222,7 +222,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--ext-io-ref");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .shadow()
@@ -330,7 +330,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .shadow()
@@ -360,7 +360,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--figuur");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .invoke(
@@ -402,7 +402,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--lijst");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .get("dso-ozon-content")
@@ -428,7 +428,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .shadow()
@@ -483,7 +483,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--table-met-bron");
 
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content");
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content")
       .shadow()

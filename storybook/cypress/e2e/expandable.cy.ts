@@ -6,7 +6,7 @@ describe("Expandable", () => {
 
   it("should be accessible", () => {
     cy.get("dso-expandable").invoke("prop", "open", true);
-    cy.dsoCheckA11y("dso-expandable");
+    cy.dsoCheckA11y("dso-expandable.hydrated");
   });
 
   it("hides content with overflow-hidden when not fully open", () => {

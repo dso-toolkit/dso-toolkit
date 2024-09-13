@@ -12,7 +12,7 @@ describe("Slide Toggle", () => {
   it("should render the slide-button states correctly", () => {
     cy.get("dso-slide-toggle.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}" -- off`);
     cy.injectAxe();
-    cy.dsoCheckA11y("dso-slide-toggle");
+    cy.dsoCheckA11y("dso-slide-toggle.hydrated");
 
     cy.get("dso-slide-toggle")
       .find('button[role="switch"]')

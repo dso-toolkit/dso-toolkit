@@ -144,16 +144,16 @@ describe("Date Picker (Legacy)", () => {
   it("should select first day of current month", () => {
     const now = new Date();
 
-    cy.get("dso-date-picker-legacy.hydrated").as("root").checkA11y("dso-date-picker-legacy");
+    cy.get("dso-date-picker-legacy.hydrated").as("root").dsoCheckA11y("dso-date-picker-legacy.hydrated");
 
     cy.get("@root").find("button.dso-date__toggle").click();
 
     // We need to wait for color contrast checks, during the fade-in/fade-out the computed color code is returning a faded color code
-    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy");
+    cy.wait(ANIMATION_TIME).dsoCheckA11y("dso-date-picker-legacy.hydrated");
 
     cy.get("@root").find(".dso-date__day.is-today").click();
 
-    cy.wait(ANIMATION_TIME).checkA11y("dso-date-picker-legacy");
+    cy.wait(ANIMATION_TIME).dsoCheckA11y("dso-date-picker-legacy.hydrated");
 
     cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "value")
