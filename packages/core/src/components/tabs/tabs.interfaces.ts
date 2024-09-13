@@ -1,5 +1,5 @@
 export interface Tabs<TemplateFnReturnType> {
-  tabItems: TabsItem[];
+  items: TabsItem[];
   content: TemplateFnReturnType | string;
 }
 
