@@ -114,6 +114,7 @@ $focus-border-width: 1px;
       text-align: center;
       inset-block-start: 0;
       inline-size: $block-size;
+      cursor: pointer;
     }
   }
 }
@@ -139,9 +140,11 @@ $focus-border-width: 1px;
     border: 0;
     background-color: transparent;
     color: colors.$grasgroen;
+    cursor: pointer;
 
     &:disabled {
       color: colors.$grijs-20;
+      cursor: default;
     }
   }
 
