@@ -29,6 +29,7 @@
   }
 
   .sr-only.sr-only {
+    // class daisy-chained to prevent overwrites by other more specific styling set on this element.
     @include utilities.sr-only();
   }
 }
