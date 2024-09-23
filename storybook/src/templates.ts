@@ -72,10 +72,12 @@ import {
   Modal,
   Navbar,
   OzonContent,
-  Panel,
   Pagination,
+  Panel,
+  Paragraph,
   ProgressBar,
   ProgressIndicator,
+  ProjectItem,
   Renvooi,
   ResponsiveElement,
   RichContent,
@@ -95,7 +97,6 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
-  Paragraph,
   // End: named template model imports
 } from "dso-toolkit";
 
@@ -138,6 +139,7 @@ import { corePagination } from "./components/pagination/pagination.core-template
 import { corePanel } from "./components/panel/panel.core-template";
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
+import { coreProjectItem } from "./components/project-item/project-item.core-template";
 import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
 import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
@@ -201,6 +203,7 @@ import { cssListButton } from "./components/list-button/list-button.css-template
 import { cssModal } from "./components/modal/modal.css-template";
 import { cssNavbar } from "./components/navbar/navbar.css-template";
 import { cssPagination } from "./components/pagination/pagination.css-template";
+import { cssParagraph } from "./components/paragraph/paragraph.css-template";
 import { cssProgressBar } from "./components/progress-bar/progress-bar.css-template";
 import { cssProgressIndicator } from "./components/progress-indicator/progress-indicator.css-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
@@ -212,7 +215,6 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
-import { cssParagraph } from "./components/paragraph/paragraph.css-template";
 // End: import templates
 
 export interface Components {
@@ -291,6 +293,7 @@ export interface Components {
   paragraph: Paragraph;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
+  projectItem: ProjectItem<TemplateResult>;
   renvooi: Renvooi;
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;
@@ -376,6 +379,7 @@ templateContainer.add(corePagination);
 templateContainer.add(corePanel);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
+templateContainer.add(coreProjectItem);
 templateContainer.add(coreRenvooi);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
