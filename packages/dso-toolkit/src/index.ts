@@ -109,6 +109,8 @@ export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-bu
 
 export * from "./components/header";
 
+export * from "./components/heading";
+
 export * from "./components/helpcenter-panel";
 
 export * from "./components/highlight-box";

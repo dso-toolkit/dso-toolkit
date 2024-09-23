@@ -6,7 +6,7 @@
 @use "../../variables/typography";
 @use "../../variables/zindex";
 @use "../form-control";
-@use "../headings";
+@use "../heading";
 
 @use "../../di";
 
@@ -49,7 +49,7 @@
   .dso-info {
     h5,
     .h5 {
-      @include headings.no-margin();
+      @include heading.no-margin();
     }
   }
 

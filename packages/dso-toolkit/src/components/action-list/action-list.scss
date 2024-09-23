@@ -2,7 +2,7 @@
 @use "../../variables/units";
 @use "../../variables/media-query-breakpoints";
 @use "../../components/step-counter";
-@use "../headings";
+@use "../heading";
 
 @use "action-list.variables" as action-list-variables;
 @use "components/action-list-item.variables" as action-list-item-variables;
@@ -43,7 +43,7 @@ dso-action-list {
   .dso-rich-content {
     h5,
     .h5 {
-      @include headings.no-margin();
+      @include heading.no-margin();
     }
   }
 }

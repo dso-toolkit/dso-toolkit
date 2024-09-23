@@ -6,7 +6,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/headings";
+@use "~dso-toolkit/src/components/heading";
 @use "~dso-toolkit/src/components/navbar";
 
 @use "viewer-grid.variables" as core-viewer-grid-variables;
@@ -196,9 +196,9 @@ button {
   }
 
   h1 {
-    @include headings.base();
-    @include headings.margin-large();
-    @include headings.h1();
+    @include heading.base();
+    @include heading.margin-large();
+    @include heading.h1();
   }
 }
 

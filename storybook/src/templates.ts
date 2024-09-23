@@ -49,6 +49,7 @@ import {
   FormGroupStatic,
   FormGroupTextarea,
   Header,
+  Heading,
   HelpcenterPanel,
   HighlightBox,
   Icon,
@@ -184,6 +185,7 @@ import { cssFormGroupSearchBar } from "./components/form/form-group-search-bar.c
 import { cssFormGroupSelect } from "./components/form/form-group-select.css-template";
 import { cssFormGroupStatic } from "./components/form/form-group-static.css-template";
 import { cssFormGroupTextarea } from "./components/form/form-group-textarea.css-template";
+import { cssHeading } from "./components/heading/heading.css-template";
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
 import { cssIcon } from "./components/icon/icon.css-template";
 import { cssImage } from "./components/image/image.css-template";
@@ -261,6 +263,7 @@ export interface Components {
   formGroupStatic: FormGroupStatic<TemplateResult>;
   formGroupTextarea: FormGroupTextarea<TemplateResult>;
   header: Header;
+  heading: Heading<TemplateResult>;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<TemplateResult | string>;
   icon: Icon;
@@ -420,6 +423,7 @@ templateContainer.add(cssFormGroupSearchBar);
 templateContainer.add(cssFormGroupSelect);
 templateContainer.add(cssFormGroupStatic);
 templateContainer.add(cssFormGroupTextarea);
+templateContainer.add(cssHeading);
 templateContainer.add(cssHighlightBox);
 templateContainer.add(cssIcon);
 templateContainer.add(cssImage);
