@@ -1,5 +1,5 @@
 @use "../pagination";
-
+@use "../../utilities";
 @use "../../di";
 
 .pagination {
@@ -26,5 +26,10 @@
     &::before {
       @include di.base("chevron-right");
     }
+  }
+
+  .sr-only.sr-only {
+    // class daisy-chained to prevent overwrites by other more specific styling set on this element.
+    @include utilities.sr-only();
   }
 }
