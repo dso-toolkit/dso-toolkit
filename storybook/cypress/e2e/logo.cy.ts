@@ -12,7 +12,7 @@ describe("Logo", () => {
     cy.get("dso-logo").shadow().find(".logo-wordmark").should("exist");
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("should have an anchor surrounding the logo and the logo-wordmark", () => {
@@ -75,7 +75,7 @@ describe("Logo", () => {
       .its("args.0.detail.isModifiedEvent")
       .should("equal", true);
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("should have an anchor surrounding the label", () => {
@@ -140,7 +140,7 @@ describe("Logo", () => {
       .its("args.0.detail.isModifiedEvent")
       .should("equal", true);
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("shows a label and logo-wordmark on screens wider than 767px", () => {
@@ -153,7 +153,7 @@ describe("Logo", () => {
     cy.get("dso-logo").invoke("prop", "label", "Beheerportaal").shadow().find(".logo-wordmark").should("be.visible");
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("shows a label and no logo-wordmark on screens smaller than 768px", () => {
@@ -172,7 +172,7 @@ describe("Logo", () => {
       .should("not.be.visible");
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("shows the beta tag", () => {
@@ -184,12 +184,12 @@ describe("Logo", () => {
       .should("have.text", "beta");
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
   it("should be accessible", () => {
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
-    cy.checkA11y("dso-logo");
+    cy.dsoCheckA11y("dso-logo.hydrated");
   });
 });

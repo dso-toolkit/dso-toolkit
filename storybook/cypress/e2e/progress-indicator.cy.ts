@@ -16,8 +16,12 @@ describe("Progress Indicator", () => {
 
   for (const { size, iconSize } of sizes) {
     it(`should show ${size} spinner (Core)`, () => {
-      cy.visit(`http://localhost:45000/iframe.html?id=core-progress-indicator--${size}`)
-        .get("dso-progress-indicator")
+      cy.visit(`http://localhost:45000/iframe.html?id=core-progress-indicator--${size}`);
+
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-progress-indicator.hydrated");
+
+      cy.get("dso-progress-indicator")
         .should("have.attr", "size", size)
         .shadow()
         .as("dsoProgressIndicator")

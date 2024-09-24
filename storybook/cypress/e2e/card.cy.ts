@@ -7,6 +7,11 @@ describe("Card", () => {
       });
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-card.hydrated");
+  });
+
   it("should call dsoCardClicked event when user clicks a non-interactive element in card", () => {
     cy.get("dso-card")
       .find("dso-selectable > .dso-selectable-container > .dso-selectable-input-wrapper > input")

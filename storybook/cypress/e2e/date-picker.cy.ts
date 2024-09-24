@@ -11,7 +11,7 @@ describe("Date Picker", () => {
       .then((id) => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
 
-        cy.checkA11y("#root-inner");
+        cy.dsoCheckA11y("#root-inner");
 
         cy.get("dso-date-picker.hydrated").matchImageSnapshot();
       });

@@ -17,6 +17,11 @@ describe("Map Controls", () => {
       .as("toggleVisibilityButton");
   });
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-map-controls.hydrated");
+  });
+
   it("should close layer info when layer becomes available", () => {
     cy.get("@toggleVisibilityButton").click();
 

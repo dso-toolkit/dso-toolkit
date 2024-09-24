@@ -22,6 +22,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       content,
       interactions,
       image,
+      imageAlt,
       imageShape,
       clickable = false,
       href,
@@ -43,7 +44,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
           }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}
-          ${image ? html`<img slot="image" src=${image} />` : nothing}
+          ${image && imageAlt ? html`<img slot="image" src=${image} alt=${imageAlt} />` : nothing}
           ${clickable && href
             ? html`<a href=${href} slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
                 <h2>

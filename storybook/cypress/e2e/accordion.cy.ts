@@ -60,7 +60,7 @@ describe("Accordion", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    cy.checkA11y("dso-accordion");
+    cy.dsoCheckA11y("dso-accordion.hydrated");
 
     cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
       .should("exist")

@@ -19,6 +19,11 @@ describe("Alert", () => {
   ];
 
   for (const { status, message, icon } of statuses) {
+    it("should be accessible", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-alert.hydrated");
+    });
+
     it(`should have appropriate message and icon for status "${status}"`, () => {
       cy.get("dso-alert.hydrated")
         .invoke("attr", "status", status)

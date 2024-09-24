@@ -16,6 +16,7 @@ export interface CardArgs {
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
   image: string | undefined;
+  imageAlt: string | undefined;
   imageShape: (typeof imageShapes)[number];
   clickable: boolean;
   dsoCardClicked?: HandlerFunction;
@@ -47,6 +48,9 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   image: {
     ...noControl,
   },
+  imageAlt: {
+    ...noControl,
+  },
   imageShape: {
     options: imageShapes,
     control: {
@@ -73,6 +77,7 @@ export const cardContent: CardArgs = {
   href: "#",
   selectable: false,
   image: undefined,
+  imageAlt: undefined,
 };
 
 export const cardContentButton: CardArgs = {
@@ -133,6 +138,7 @@ export function cardArgsMapper<TemplateFnReturnType>(
     mode: a.mode || undefined,
     clickable: a.clickable,
     image: a.image,
+    imageAlt: a.imageAlt,
     imageShape: a.imageShape,
     interactions: a.interactions,
     selectable: a.selectable

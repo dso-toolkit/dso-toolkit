@@ -20,6 +20,11 @@ describe("Legend Item", () => {
       );
   }
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
+  });
+
   it("should show label and symbol", () => {
     cy.get("@dsoLegendItem")
       .should("have.text", defaultLabelText)
@@ -41,8 +46,12 @@ describe("Legend Item", () => {
   });
 
   it("should show selectable with label", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
+
+    cy.get("dso-legend-item")
       .find("dso-selectable")
       .should("be.visible")
       .get("dso-legend-item")
@@ -55,8 +64,12 @@ describe("Legend Item", () => {
   });
 
   it("should show edit-button with a body containing input-range", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
+
+    cy.get("dso-legend-item")
       .find("div[slot='body']")
       .should("be.hidden")
       .get("dso-legend-item")
@@ -76,8 +89,12 @@ describe("Legend Item", () => {
   });
 
   it("should show edit-button with a body containing selectables", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables")
-      .get("dso-legend-item")
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-legend-item.hydrated");
+
+    cy.get("dso-legend-item")
       .find("div[slot='body']")
       .should("be.hidden")
       .get("dso-legend-item")

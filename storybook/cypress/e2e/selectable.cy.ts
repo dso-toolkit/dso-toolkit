@@ -2,6 +2,9 @@ describe("Selectable", () => {
   it("should toggle info using instance method", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--with-info");
 
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-selectable.hydrated");
+
     cy.get("dso-selectable.hydrated").matchImageSnapshot();
 
     cy.get("dso-selectable .dso-rich-content").as("info-content").should("exist").and("not.be.visible");
@@ -22,6 +25,9 @@ describe("Selectable", () => {
 
   it("supports controlled input", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-selectable--checkbox");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-selectable.hydrated");
 
     cy.get("dso-selectable").invoke("prop", "checked", "true").find('input[type="checkbox"]').should("be.checked");
 

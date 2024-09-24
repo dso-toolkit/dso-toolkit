@@ -16,6 +16,13 @@ interface Component {
   shadowWait?: string;
 }
 
+function checkA11y(component: Component) {
+  if (component.type === "core") {
+    cy.injectAxe();
+    cy.dsoCheckA11y(`dso-${component.name}.hydrated`);
+  }
+}
+
 function matchImageSnapshot(id: string, component: Component) {
   if (component.selector) {
     if (component.shadowWait) {
@@ -41,6 +48,7 @@ function waitForExist(id: string, component: Component, wait: string[]) {
         waitForExist(id, component, wait);
       } else {
         matchImageSnapshot(id, component);
+        checkA11y(component);
       }
     });
 }
@@ -55,10 +63,14 @@ function test(id: string, component: Component, wait: string | string[]) {
       } else {
         cy.get(wait)
           .should("exist")
-          .then(() => matchImageSnapshot(id, component));
+          .then(() => {
+            matchImageSnapshot(id, component);
+            checkA11y(component);
+          });
       }
     } else {
       matchImageSnapshot(id, component);
+      checkA11y(component);
     }
   });
 }

@@ -23,6 +23,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
       content,
       interactions,
       image,
+      imageAlt,
       imageShape = "normal",
       clickable,
       href,
@@ -40,9 +41,9 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
           @click=${ifDefined(dsoCardClicked)}
         >
           ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
-          ${image
+          ${image && imageAlt
             ? html`<div class="dso-card-image">
-                <img slot="image" src=${image} />
+                <img slot="image" src=${image} alt=${imageAlt} />
               </div>`
             : nothing}
           <div class="dso-card-heading">

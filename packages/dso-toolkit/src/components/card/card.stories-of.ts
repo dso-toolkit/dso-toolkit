@@ -109,6 +109,7 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
+        imageAlt: "Rechthoek",
       },
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
@@ -138,6 +139,7 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
+        imageAlt: "Rechthoek",
         imageShape: "wide",
       },
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>

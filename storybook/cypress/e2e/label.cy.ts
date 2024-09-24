@@ -17,6 +17,11 @@ describe("Label", () => {
       .invoke("text", defaultLabelText);
   }
 
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-label.hydrated");
+  });
+
   it("should be able to truncate label", () => {
     cy.get("@dsoLabel").matchImageSnapshot();
 

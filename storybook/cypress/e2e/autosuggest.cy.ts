@@ -8,11 +8,11 @@ describe("Autosuggest", () => {
 
   it("should show suggestions after input", () => {
     cy.get("@listbox").should("not.be.visible");
-    cy.checkA11y("dso-autosuggest");
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("@listbox").should("be.visible");
-    cy.checkA11y("dso-autosuggest");
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
 
     // Take the entire page, otherwise the list of suggestions will not be snapped
@@ -40,11 +40,11 @@ describe("Autosuggest", () => {
       .focus()
       .type("rotterdam");
     cy.wait(200);
-    cy.checkA11y("dso-autosuggest");
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("@input").should("have.attr", "aria-expanded", "true");
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
-    cy.checkA11y("dso-autosuggest");
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("@input").should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
   });
 
