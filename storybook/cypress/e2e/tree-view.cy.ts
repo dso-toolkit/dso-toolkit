@@ -1,4 +1,4 @@
-import { TreeViewItem } from "../../../packages/core/src/components/tree-view/tree-view.interfaces";
+import { TreeViewItem } from "@dso-toolkit/core/src";
 
 describe("Tree View", () => {
   function firstChildItem(subject: JQuery<HTMLElement>, label: string) {
@@ -32,8 +32,7 @@ describe("Tree View", () => {
 
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-tree-view--tree-view");
-    cy.injectAxe();
-    cy.get("dso-tree-view").shadow().as("tree-view");
+    cy.get("dso-tree-view.hydrated").shadow().as("tree-view");
 
     cy.get("@tree-view").find("p.tree-content").first().click().focus().as("first-tree-item");
   });
@@ -63,6 +62,7 @@ describe("Tree View", () => {
     );
     shouldHaveCorrectAriaTreeItemAttributes("bouwwerken", 2, 4, 3);
 
+    cy.injectAxe();
     cy.dsoCheckA11y("dso-tree-view.hydrated");
     cy.get("dso-tree-view.hydrated").matchImageSnapshot();
 

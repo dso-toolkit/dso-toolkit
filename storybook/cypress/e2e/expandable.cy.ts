@@ -1,11 +1,11 @@
 describe("Expandable", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-expandable--default");
-    cy.injectAxe();
   });
 
   it("should be accessible", () => {
     cy.get("dso-expandable").invoke("prop", "open", true);
+    cy.injectAxe();
     cy.dsoCheckA11y("dso-expandable.hydrated");
   });
 

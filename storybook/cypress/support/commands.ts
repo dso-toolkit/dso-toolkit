@@ -89,7 +89,7 @@ Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
  */
 function terminalLog(violations: axe.Result[]) {
   cy.task(
-    "log",
+    "error",
     `${violations.length} accessibility violation${
       violations.length === 1 ? "" : "s"
     } ${violations.length === 1 ? "was" : "were"} detected`,

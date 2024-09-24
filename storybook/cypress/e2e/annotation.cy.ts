@@ -162,12 +162,12 @@ describe("Annotation - Locatie", () => {
 function setupAnnotation(type: "activiteit" | "gebiedsaanwijzing" | "omgevingsnormwaarde" | "kaart" | "locatie") {
   beforeEach(() => {
     cy.visit(`http://localhost:45000/iframe.html?id=core-annotation--${type}`);
-    cy.injectAxe();
 
     cy.get(`dso-annotation-${type}.hydrated`).as("annotation");
   });
 
   it("is accessible", () => {
+    cy.injectAxe();
     cy.get(`@annotation`).dsoCheckA11y("#root-inner");
   });
 

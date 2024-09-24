@@ -6,15 +6,13 @@ export default defineConfig({
     setupNodeEvents(on, _config) {
       addMatchImageSnapshotPlugin(on);
       on("task", {
-        log(message) {
+        error(message) {
           console.error(message);
 
           return null;
         },
-      });
-      on("task", {
         table(message) {
-          console.error(message);
+          console.table(message);
 
           return null;
         },
