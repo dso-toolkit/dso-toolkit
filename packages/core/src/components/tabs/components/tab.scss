@@ -1,31 +1,132 @@
+@use "~dso-toolkit/src/components/anchor";
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
-@use "~dso-toolkit/src/components/tabs/tabs.mixins" as tabs-mixins;
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
+@use "tab.variables" as tab-variables;
 
 :host {
-  @include tabs-mixins.nav-tab();
-  @include tabs-mixins.nav-tabs-tab();
+  position: relative;
+  display: block;
+
+  > a,
+  > button.dso-tertiary {
+    @include anchor.clean();
+
+    position: relative;
+    display: block;
+    border: 1px solid transparent;
+    border-radius: tab-variables.$border-radius tab-variables.$border-radius 0 0;
+    color: tab-variables.$text-color;
+    line-height: typography.$line-height-base;
+    margin-inline-end: 2px;
+    padding-block: tab-variables.$block-padding;
+    padding-inline: tab-variables.$inline-padding;
+
+    &:hover {
+      border-color: tab-variables.$link-hover-border-color tab-variables.$link-hover-border-color
+        tab-variables.$border-color;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: tab-variables.$nav-link-hover-bg;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: tab-variables.$hover-color;
+      border: 1px solid transparent;
+      border-block-end-color: tab-variables.$color;
+      text-decoration: none;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        border-block-end-color: colors.$wit;
+      }
+    }
+  }
+
+  border-color: tab-variables.$color;
+  font-weight: bold;
+  // Make the list-items overlay the bottom border
+  margin-block-end: -1px;
+  min-block-size: tab-variables.$block-size;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    @include tabs-mixins.nav-tabs-tab-xs-max();
+    margin-block: 10px;
+    margin-inline: 0;
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+
+    a,
+    button.dso-tertiary {
+      border-color: colors.$wit;
+      border-radius: 8px;
+      padding-block: 18px;
+      padding-inline: 20px;
+    }
+
+    button.dso-tertiary {
+      inline-size: 100%;
+    }
+  }
+
+  &:not(.disabled) > a:visited {
+    color: tab-variables.$text-color;
   }
 }
 
 :host([active]:not([active="false"])) {
-  @include tabs-mixins.nav-tabs-tab-active();
+  > a,
+  > button.dso-tertiary {
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      background-color: colors.$wit;
+      border: 1px solid tab-variables.$color;
+      border-block-end-color: colors.$wit;
+      color: tab-variables.$color;
+      cursor: default;
 
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    @include tabs-mixins.nav-tabs-tab-active-xs-max();
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        border-block-end-color: tab-variables.$color;
+      }
+    }
   }
 }
 
 :host([disabled]:not([disabled="false"])) {
-  @include tabs-mixins.nav-tabs-tab-disabled();
+  > a,
+  > button.dso-tertiary {
+    color: tab-variables.$nav-disabled-link-color;
+
+    &:hover,
+    &:focus {
+      color: tab-variables.$nav-disabled-link-hover-color;
+      text-decoration: none;
+      cursor: scaffolding.$cursor-disabled;
+      background-color: transparent;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        border-block-end-color: colors.$wit;
+      }
+    }
+  }
 }
 
 .dso-tertiary {
-  @include button-mixins.tertiary($modifiers: false);
+  @include button.tertiary($modifiers: false);
 
   font-weight: bold;
   font-family: inherit;

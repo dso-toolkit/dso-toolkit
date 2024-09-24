@@ -427,7 +427,7 @@
     "type": "html-css"
   },
   {
-    "name": "tabs",
+    "name": "tabs-deprecated",
     "selector": "ul.nav.nav-tabs",
     "stories": ["default", "inactief"],
     "type": "html-css"

@@ -7,7 +7,7 @@ import readme from "dso-toolkit/src/components/tabs/readme.md?raw";
 
 const meta: Meta<TabsArgs<unknown>> = {
   ...tabsMeta({ readme }),
-  title: "HTML|CSS/Tabs",
+  title: "HTML|CSS/Tabs (Deprecated)",
 };
 
 export default meta;

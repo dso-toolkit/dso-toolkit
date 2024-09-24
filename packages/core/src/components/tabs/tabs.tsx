@@ -88,7 +88,7 @@ export class Tabs {
   render() {
     return (
       <Host onKeyUp={this.keyUpHandler}>
-        <div class="nav nav-tabs" role="tablist">
+        <div class="tabs" role="tablist">
           <slot />
         </div>
         <div role="tabpanel" tabindex="0">

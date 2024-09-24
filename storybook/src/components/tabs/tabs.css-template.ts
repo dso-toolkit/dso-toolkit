@@ -10,6 +10,7 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   template: () =>
     function tabsTemplate({ items, content }) {
       return html`
+        <!-- START DEPRECATED -->
         <ul class="nav nav-tabs" role="tablist">
           ${items.map(
             (item) => html`
@@ -22,6 +23,7 @@ export const cssTabs: ComponentImplementation<Tabs<TemplateResult>> = {
         ${items.map(
           (item) => html` <div role="tabpanel" tabindex="-1" ?hidden=${item.modifier !== "active"}>${content}</div> `,
         )}
+        <!-- END DEPRECATED -->
       `;
     },
 };
