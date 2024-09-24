@@ -3,22 +3,39 @@
 @use "~dso-toolkit/src/variables/colors";
 
 :host {
-  display: flex;
-  flex-direction: column;
-  gap: units.$u2;
+  --_dl-margin-block-end: 0;
+  --_dl-before-display: none;
+  --_dd-margin-inline-start: 0;
+  --_dt-font-weight: normal;
+  --_dd-dt-margin-block-start: 0;
+  --_dd-dt-margin-inline-start: #{units.$u1};
+  --_dd-dt-margin-inline-end: #{units.$u1};
+  --_dd-dt-margin-inline-start-lg: #{units.$u2};
+  --_dd-dt-margin-inline-end-lg: #{units.$u2};
+  --_dd-last-margin-block-end: 0;
+  --_dd-padding-inline-start: 0;
+  --_dt-inline-size: auto;
+  --_dd-after-content: ":";
+  --_dd-after-display: inline-block;
+  --_dt-dd-white-space: nowrap;
 
-  padding: units.$u1;
+  display: block;
+
+  padding: units.$u2;
 
   border: 1px solid colors.$grijs-20;
-  border-radius: units.$u1 / 2;
+  border-radius: calc(units.$u1 / 2);
 }
 
 @include utilities.box-sizing();
 
-.project-item-header,
-.project-item-info {
+.project-item-header {
   display: flex;
   gap: units.$u2;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+  margin-block-end: units.$u2;
 }
 
 .project-item-title {
@@ -35,7 +52,9 @@
   ::slotted(h4),
   ::slotted(h5),
   ::slotted(h6) {
-    margin-block: 0 !important; // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
+    // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
+    margin-block: 0 !important;
+    font-size: 1.25rem !important;
   }
 }
 
@@ -43,4 +62,27 @@
   display: flex;
   flex-shrink: 0;
   flex-wrap: nowrap;
+
+  ::slotted(div) {
+    display: flex;
+  }
+}
+
+.project-item-info {
+  display: flex;
+  gap: units.$u2;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.project-item-progress,
+.project-item-status {
+  ::slotted(dl) {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+}
+
+.project-item-status {
+  --_dl-font-size: 0.875rem;
 }
