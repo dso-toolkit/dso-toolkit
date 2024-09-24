@@ -5,7 +5,6 @@ export interface Tabs<TemplateFnReturnType> {
 
 export interface TabsItem {
   label?: string;
-  identifier: string;
   active?: boolean;
   disabled?: boolean;
   dsoTabSwitch?: (e: CustomEvent<TabsSwitchEvent>) => void;

@@ -1,5 +1,4 @@
-import { Component, Element, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
-import { v4 as uuidv4 } from "uuid";
+import { Component, Element, Event, EventEmitter, Prop, h, Host, Method } from "@stencil/core";
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { TabsSwitchEvent } from "../tabs.interfaces";
 
@@ -14,14 +13,6 @@ import { TabsSwitchEvent } from "../tabs.interfaces";
 export class Tab {
   @Element()
   host!: HTMLDsoTabElement;
-
-  /**
-   * Adds a unique identifier for the tab. Use this instead of html `id` attribute.
-   *
-   * Auto generated if not set.
-   */
-  @Prop()
-  identifier = uuidv4();
 
   /**
    * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
@@ -46,6 +37,16 @@ export class Tab {
    */
   @Event()
   dsoTabSwitch!: EventEmitter<TabsSwitchEvent>;
+
+  /**
+   * @internal
+   */
+  @Method()
+  async _dsoFocus() {
+    this.anchorOrButtonRef?.focus();
+  }
+
+  private anchorOrButtonRef?: HTMLAnchorElement | HTMLButtonElement;
 
   private emitEvent = (e: MouseEvent | KeyboardEvent) => {
     this.dsoTabSwitch.emit({
@@ -75,12 +76,11 @@ export class Tab {
           <a
             role="tab"
             href={this.href}
-            id={`${this.identifier}-tab`}
             onKeyUp={this.keyUpHandler}
             onClick={this.clickHandler}
-            aria-controls={this.identifier}
             aria-selected={this.active ? "true" : "false"}
             {...(!this.active ? { tabIndex: -1 } : {})}
+            ref={(element) => (this.anchorOrButtonRef = element)}
           >
             <slot />
           </a>
@@ -89,12 +89,11 @@ export class Tab {
             role="tab"
             class="dso-tertiary"
             disabled={this.disabled}
-            id={`${this.identifier}-tab`}
             type="button"
             onClick={this.clickHandler}
-            aria-controls={this.identifier}
             aria-selected={this.active ? "true" : "false"}
             {...(!this.active ? { tabIndex: -1 } : {})}
+            ref={(element) => (this.anchorOrButtonRef = element)}
           >
             <slot />
           </button>

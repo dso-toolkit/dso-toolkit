@@ -1087,6 +1087,7 @@ export namespace Components {
         "labelledbyId"?: string;
     }
     interface DsoTab {
+        "_dsoFocus": () => Promise<void>;
         /**
           * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
          */
@@ -1099,10 +1100,6 @@ export namespace Components {
           * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
          */
         "href"?: string;
-        /**
-          * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
-         */
-        "identifier": string;
     }
     interface DsoTable {
         /**
@@ -3464,10 +3461,6 @@ declare namespace LocalJSX {
           * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
          */
         "href"?: string;
-        /**
-          * Adds a unique identifier for the tab. Use this instead of html `id` attribute.  Auto generated if not set.
-         */
-        "identifier"?: string;
         /**
           * Emitted when the user activates tab via click or arrow keys followed by space or enter.
          */

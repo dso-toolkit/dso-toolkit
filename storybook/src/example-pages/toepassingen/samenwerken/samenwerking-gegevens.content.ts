@@ -35,20 +35,16 @@ export function items({ buttonRowTemplate, definitionListTemplate }: Templates):
     items: [
       {
         label: "Samenwerkingsgegevens",
-        modifiers: "active",
-        identifier: "Uniek-id1",
+        modifier: "active",
       },
       {
         label: "Documenten",
-        identifier: "uniekID-2",
       },
       {
         label: "Ketenpartners",
-        identifier: "uniekID-3",
       },
       {
         label: "Actieverzoeken",
-        identifier: "uniekID-4",
       },
     ],
     content: html`

@@ -13,12 +13,11 @@ export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
       return html`
         <dso-tabs>
           ${items.map(
-            ({ label, identifier, href, modifiers, dsoTabSwitch }) => html`
+            ({ label, href, modifier, dsoTabSwitch }) => html`
               <dso-tab
                 href=${ifDefined(href)}
-                identifier=${ifDefined(identifier)}
-                ?active=${modifiers === "active"}
-                ?disabled=${modifiers === "disabled"}
+                ?active=${modifier === "active"}
+                ?disabled=${modifier === "disabled"}
                 @dsoTabSwitch=${dsoTabSwitch}
                 >${label}</dso-tab
               >

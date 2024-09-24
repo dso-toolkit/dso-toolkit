@@ -5,9 +5,8 @@ export interface Tabs<TemplateFnReturnType> {
 
 export interface TabsItem {
   label: string;
-  identifier: string;
   href?: string;
-  modifiers?: "active" | "disabled";
+  modifier?: "active" | "disabled";
   dsoTabSwitch?: (e: CustomEvent<TabsSwitchEvent>) => void;
 }
 

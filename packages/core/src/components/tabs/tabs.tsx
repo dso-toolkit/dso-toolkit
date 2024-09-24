@@ -1,4 +1,4 @@
-import { Element, Component, h, Host, State } from "@stencil/core";
+import { Element, Component, h, Host } from "@stencil/core";
 
 import { TabsItem } from "./tabs.interfaces";
 
@@ -15,53 +15,64 @@ export class Tabs {
   @Element()
   host!: HTMLDsoTabsElement;
 
-  @State()
-  activeTab?: string;
+  private activeTab?: HTMLDsoTabElement;
+  private firstTab?: HTMLDsoTabElement;
+  private lastTab?: HTMLDsoTabElement;
+  private focussedTab?: HTMLDsoTabElement;
 
-  @State()
-  focussedTab?: string;
+  private get enabledTabs(): Array<{ tabsItem: TabsItem; element: HTMLDsoTabElement }> {
+    const tabElements = this.host.querySelectorAll("dso-tab");
 
-  private enabledTabs?: TabsItem[];
-  private firstTab?: string;
-  private lastTab?: string;
+    if (tabElements) {
+      // Only enabled tabs (not disabled) are needed for setting focus via ArrowRight and ArrowLeft
+      return Array.from(tabElements).reduce((tabs: Array<{ tabsItem: TabsItem; element: HTMLDsoTabElement }>, tab) => {
+        if (!tab.disabled) {
+          tabs.push({
+            tabsItem: {
+              active: tab.active,
+            },
+            element: tab,
+          });
+        }
+        return tabs;
+      }, []);
+    }
 
-  private moveFocusToTab(id?: string): void {
-    this.focussedTab = id;
-    const a = this.host.querySelector(`[identifier="${id}"]`)?.shadowRoot?.querySelector("a");
-    const button = this.host.querySelector(`[identifier="${id}"]`)?.shadowRoot?.querySelector("button");
-    a?.focus();
-    button?.focus();
+    return [];
   }
 
-  private moveFocusToPreviousTab(focussedTab?: string) {
-    let index;
+  private moveFocusToTab(tab?: HTMLDsoTabElement) {
+    tab?._dsoFocus();
+    this.focussedTab = tab;
+  }
 
-    if (focussedTab === this.firstTab) {
+  private moveFocusToPreviousTab(focussedTab?: HTMLDsoTabElement) {
+    const index = this.enabledTabs?.findIndex((tab) => tab.element === focussedTab);
+
+    if (index === 0) {
       this.moveFocusToTab(this.lastTab);
     } else {
-      index = this.enabledTabs?.findIndex((tab) => tab.identifier === focussedTab);
-      if (index !== undefined && index >= 0 && this.enabledTabs !== undefined && index < this.enabledTabs?.length) {
-        this.moveFocusToTab(this.enabledTabs[index - 1]?.identifier);
-      }
+      this.moveFocusToTab(this.enabledTabs[index - 1]?.element);
     }
   }
 
-  private moveFocusToNextTab(focussedTab?: string) {
-    let index;
+  private moveFocusToNextTab(focussedTab?: HTMLDsoTabElement) {
+    const index = this.enabledTabs?.findIndex((tab) => tab.element === focussedTab);
 
-    if (focussedTab === this.lastTab) {
+    if (index === this.enabledTabs?.length - 1) {
       this.moveFocusToTab(this.firstTab);
     } else {
-      index = this.enabledTabs?.findIndex((tab) => tab.identifier === focussedTab);
-      if (index !== undefined && index >= 0 && this.enabledTabs !== undefined && index < this.enabledTabs?.length) {
-        this.moveFocusToTab(this.enabledTabs[index + 1]?.identifier);
-      }
+      this.moveFocusToTab(this.enabledTabs[index + 1]?.element);
     }
   }
 
   // Keep track of tabs to set focus on next or previous enabled (not disabled) tab
   // When this component gets focus it will be on the activeTab
   private keyUpHandler = (e: KeyboardEvent) => {
+    this.activeTab = this.enabledTabs.find((tab) => tab.tabsItem.active)?.element;
+    this.firstTab = this.enabledTabs[0]?.element;
+    this.lastTab = this.enabledTabs[this.enabledTabs.length - 1]?.element;
+
     switch (e.key) {
       case "ArrowRight":
         this.moveFocusToNextTab(this.focussedTab || this.activeTab);
@@ -74,36 +85,13 @@ export class Tabs {
     }
   };
 
-  componentWillLoad(): void | Promise<void> {
-    const tabElements = this.host.querySelectorAll("dso-tab");
-
-    if (tabElements) {
-      // Only enabled tabs (not disabled) are needed for setting focus via ArrowRight and ArrowLeft
-      this.enabledTabs = Array.from(tabElements).reduce((tabs: TabsItem[], tab) => {
-        const id = tab.getAttribute("identifier");
-
-        if (id && !tab.disabled) {
-          tabs.push({
-            identifier: id,
-            active: tab.active,
-          });
-        }
-        return tabs;
-      }, []);
-
-      this.activeTab = this.enabledTabs.find((tab) => tab.active)?.identifier;
-      this.firstTab = this.enabledTabs[0]?.identifier;
-      this.lastTab = this.enabledTabs[this.enabledTabs.length - 1]?.identifier;
-    }
-  }
-
   render() {
     return (
       <Host onKeyUp={this.keyUpHandler}>
         <div class="nav nav-tabs" role="tablist">
           <slot />
         </div>
-        <div role="tabpanel" tabindex="0" aria-labelledby={this.activeTab}>
+        <div role="tabpanel" tabindex="0">
           <slot name="panel" />
         </div>
       </Host>

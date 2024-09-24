@@ -7,7 +7,6 @@
 @use "tabs.variables" as css-tabs-variables;
 
 @mixin nav() {
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     list-style: none;
     margin-block-end: 0;

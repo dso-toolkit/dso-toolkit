@@ -51,23 +51,19 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
         items: [
           {
             label: "Zoek op adres",
-            identifier: "tabitem-1",
-            modifiers: "active",
+            modifier: "active",
             href: "/adres",
           },
           {
             label: "Postcode en huisnummer",
             href: "/postcode",
-            identifier: "tabitem-2",
           },
           {
             label: "Kadastraal nummer",
-            identifier: "tabitem-3",
             href: "/kadastraal",
           },
           {
             label: "Coördinaten",
-            identifier: "tabitem-4",
             href: "/coordinaten",
           },
         ],
@@ -80,25 +76,21 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
         items: [
           {
             label: "Zoek op adres",
-            identifier: "tabitem-1",
             href: "/adres",
           },
           {
             label: "Postcode en huisnummer",
             href: "/postcode",
-            modifiers: "active",
-            identifier: "tabitem-2",
+            modifier: "active",
           },
           {
             label: "Kadastraal nummer",
-            identifier: "tabitem-3",
             href: "/kadastraal",
           },
           {
             label: "Coördinaten",
-            identifier: "tabitem-4",
             href: "/coordinaten",
-            modifiers: "disabled",
+            modifier: "disabled",
           },
         ],
         content: "Inhoud Postcode en huisnummer",
@@ -110,20 +102,16 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
         items: [
           {
             label: "Zoek op adres",
-            identifier: "tabitem-1",
           },
           {
             label: "Postcode en huisnummer",
-            identifier: "tabitem-2",
           },
           {
             label: "Kadastraal nummer",
-            identifier: "tabitem-3",
-            modifiers: "active",
+            modifier: "active",
           },
           {
             label: "Coördinaten",
-            identifier: "tabitem-4",
           },
         ],
         content: "Inhoud Kadastraal nummer",
@@ -135,22 +123,18 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
         items: [
           {
             label: "Zoek op adres",
-            identifier: "tabitem-1",
-            modifiers: "disabled",
+            modifier: "disabled",
           },
           {
             label: "Postcode en huisnummer",
-            identifier: "tabitem-2",
           },
           {
             label: "Kadastraal nummer",
-            identifier: "tabitem-3",
-            modifiers: "disabled",
+            modifier: "disabled",
           },
           {
             label: "Coördinaten",
-            identifier: "tabitem-4",
-            modifiers: "active",
+            modifier: "active",
           },
         ],
         content: "Inhoud Coördinaten",

@@ -12,7 +12,7 @@
   }
 }
 
-:host([active]) {
+:host([active]:not([active="false"])) {
   @include tabs-mixins.nav-tabs-tab-active();
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
@@ -20,7 +20,7 @@
   }
 }
 
-:host([disabled]) {
+:host([disabled]:not([disabled="false"])) {
   @include tabs-mixins.nav-tabs-tab-disabled();
 }
 
