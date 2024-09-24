@@ -17,15 +17,27 @@ export class ProjectItem implements ComponentInterface {
   render() {
     return (
       <div>
-        <slot name="title" />
-        {this.label && (
-          <dso-label status="danger" compact>
-            {this.label}
-          </dso-label>
-        )}
-        <slot name="actions" />
-        <slot name="progress" />
-        <slot name="status" />
+        <div class="project-item-header">
+          <div class="project-item-title">
+            <slot name="title" />
+            {this.label && (
+              <dso-label status="danger" compact>
+                {this.label}
+              </dso-label>
+            )}
+          </div>
+          <div class="project-item-actions">
+            <slot name="actions" />
+          </div>
+        </div>
+        <div class="project-item-info">
+          <div class="project-item-progress">
+            <slot name="progress" />
+          </div>
+          <div class="project-item-status">
+            <slot name="status" />
+          </div>
+        </div>
       </div>
     );
   }

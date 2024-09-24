@@ -1,7 +1,46 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
 
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: units.$u2;
+
+  padding: units.$u1;
+
+  border: 1px solid colors.$grijs-20;
+  border-radius: units.$u1 / 2;
 }
 
 @include utilities.box-sizing();
+
+.project-item-header,
+.project-item-info {
+  display: flex;
+  gap: units.$u2;
+}
+
+.project-item-title {
+  display: flex;
+  gap: units.$u2;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  ::slotted(h1),
+  ::slotted(h2),
+  ::slotted(h3),
+  ::slotted(h4),
+  ::slotted(h5),
+  ::slotted(h6) {
+    margin-block: 0 !important; // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
+  }
+}
+
+.project-item-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
