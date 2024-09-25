@@ -44,14 +44,40 @@ export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
   },
 };
 
-export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<never> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Weghalen voor mergen!!
+export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<any> {
   return {
     href: a.href,
     title: a.title,
     label: a.label,
     headingLevel: a.headingLevel,
+    progress: {
+      definitions: [
+        {
+          term: "Ingediende verzoeken",
+          descriptions: [{ content: "4" }],
+        },
+        {
+          term: "In te dienen activiteiten",
+          descriptions: [{ content: "16" }],
+        },
+      ],
+    },
     status: {
-      definitions: [],
+      definitions: [
+        {
+          term: "Locatie",
+          descriptions: [{ content: "Getekend gebied" }],
+        },
+        {
+          term: "Mijn rol",
+          descriptions: [{ content: "Gemachtigde" }],
+        },
+        {
+          term: "Laatste wijziging",
+          descriptions: [{ content: "12-09-2023" }],
+        },
+      ],
     },
     actions: [
       {
