@@ -16,11 +16,13 @@
 
 ### Depends on
 
+- [dso-responsive-element](../responsive-element)
 - [dso-label](../label)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-project-item --> dso-responsive-element
   dso-project-item --> dso-label
   dso-label --> dso-icon
   dso-label --> dso-tooltip

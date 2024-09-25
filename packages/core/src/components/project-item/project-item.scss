@@ -3,6 +3,18 @@
 @use "~dso-toolkit/src/variables/colors";
 
 :host {
+  display: block;
+
+  padding: units.$u2;
+
+  border: 1px solid colors.$grijs-20;
+  border-radius: calc(units.$u1 / 2);
+}
+
+@include utilities.box-sizing();
+
+::slotted(dl[slot="progress"]),
+::slotted(dl[slot="status"]) {
   --_dl-margin-block-end: 0;
   --_dl-before-display: none;
   --_dd-margin-inline-start: 0;
@@ -19,15 +31,16 @@
   --_dd-after-display: inline-block;
   --_dt-dd-white-space: nowrap;
 
-  display: block;
-
-  padding: units.$u2;
-
-  border: 1px solid colors.$grijs-20;
-  border-radius: calc(units.$u1 / 2);
+  display: flex !important;
+  flex-wrap: wrap;
 }
 
-@include utilities.box-sizing();
+dso-responsive-element[small] {
+  ::slotted(dl[slot="progress"]),
+  ::slotted(dl[slot="status"]) {
+    color: red !important;
+  }
+}
 
 .project-item-header {
   display: flex;
@@ -38,6 +51,16 @@
   margin-block-end: units.$u2;
 }
 
+::slotted([slot="title"]) {
+  // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
+  margin-block: 0 !important;
+  font-size: 1.25rem !important;
+}
+
+::slotted([slot="actions"]) {
+  display: flex;
+}
+
 .project-item-title {
   display: flex;
   gap: units.$u2;
@@ -45,27 +68,12 @@
   justify-content: space-between;
   flex-wrap: wrap;
   flex-grow: 1;
-
-  ::slotted(h1),
-  ::slotted(h2),
-  ::slotted(h3),
-  ::slotted(h4),
-  ::slotted(h5),
-  ::slotted(h6) {
-    // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
-    margin-block: 0 !important;
-    font-size: 1.25rem !important;
-  }
 }
 
 .project-item-actions {
   display: flex;
   flex-shrink: 0;
   flex-wrap: nowrap;
-
-  ::slotted(div) {
-    display: flex;
-  }
 }
 
 .project-item-info {
@@ -73,14 +81,6 @@
   gap: units.$u2;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.project-item-progress,
-.project-item-status {
-  ::slotted(dl) {
-    display: flex !important;
-    flex-wrap: wrap;
-  }
 }
 
 .project-item-status {
