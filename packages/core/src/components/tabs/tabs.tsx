@@ -1,4 +1,4 @@
-import { Element, Component, h, Host } from "@stencil/core";
+import { Element, Component, h, Host, forceUpdate } from "@stencil/core";
 
 import { TabsItem } from "./tabs.interfaces";
 
@@ -84,6 +84,22 @@ export class Tabs {
         return;
     }
   };
+
+  private mutationObserver?: MutationObserver;
+
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => {
+      forceUpdate(this.host);
+    });
+
+    this.mutationObserver.observe(this.host, { childList: true });
+  }
+
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+
+    delete this.mutationObserver;
+  }
 
   render() {
     return (
