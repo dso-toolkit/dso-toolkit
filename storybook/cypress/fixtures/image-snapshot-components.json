@@ -429,7 +429,7 @@
   {
     "name": "tabs-deprecated",
     "selector": "ul.nav.nav-tabs",
-    "stories": ["default", "inactief"],
+    "stories": ["as-anchors", "as-anchors-disabled"],
     "type": "html-css"
   },
   {
