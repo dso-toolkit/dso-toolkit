@@ -13,8 +13,10 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
     function definitionListTemplate({ modifier, definitions, slotName }) {
       function definitionTemplate({ term, descriptions }: Definition<TemplateResult>) {
         return html`
-          <dt>${term}</dt>
-          ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
+          <div>
+            <dt>${term}</dt>
+            ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
+          </div>
         `;
       }
 
