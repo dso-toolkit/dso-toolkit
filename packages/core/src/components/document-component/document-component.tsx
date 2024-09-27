@@ -345,7 +345,7 @@ export class DocumentComponent implements ComponentInterface {
         <div class="annotation-container" part="_annotation-container">
           {this.openAnnotation && (
             <dso-panel id="annotations" onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}>
-              <h2 slot="heading">Annotaties</h2>
+              <h2 slot="heading">Kenmerken en kaart</h2>
               <slot name="annotations" />
             </dso-panel>
           )}

@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **BREAKING** Pagination: Navigatie element toevoegen ([#2758](https://github.com/dso-toolkit/dso-toolkit/issues/2758))
 
+### Changed
+* Document Component: Panel heading wordt "Kenmerken en kaart" ([#2798](https://github.com/dso-toolkit/dso-toolkit/issues/2798))
+
 ### Fixed
 * Mark Bar: Pointer on empty field button ([#2806](https://github.com/dso-toolkit/dso-toolkit/issues/2806))
 
