@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Mark Bar: Pointer on empty field button ([#2806](https://github.com/dso-toolkit/dso-toolkit/issues/2806))
 
+### Docs
+* Button Row: No block margin ([#2800](https://github.com/dso-toolkit/dso-toolkit/issues/2800))
+
 ### Tasks
 * Sass: Deprecation warning mixed declarations ([#2724](https://github.com/dso-toolkit/dso-toolkit/issues/2724))
 * Packages: Dependencies updates ([#2783](https://github.com/dso-toolkit/dso-toolkit/issues/2783))
