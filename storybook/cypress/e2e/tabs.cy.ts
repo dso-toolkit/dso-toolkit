@@ -79,16 +79,17 @@ describe("Tabs - anchors", () => {
 
   // Todo: kunnen we dit überhaupt wel doen? Clicken op een anchor met href gaat navigeren ...
   // Is de eventEmitter dan nog wel te checken?
-  xit("should call event on mouse click", () => {
-    cy.get("dso-tabs")
-      .find("dso-tab:nth-child(2)")
+  it.only("should call event on mouse click", () => {
+    cy.get("dso-tabs.hydrated")
+      .find<HTMLDsoTabElement>("dso-tab.hydrated:nth-child(2)")
       .as("tab")
       .then(($tab) => {
-        $tab.on("dsoTabSwitch", cy.stub().as("dsoTabSwitch"));
+        $tab[0].addEventListener("dsoTabSwitch", (e) => {
+          e.detail.originalEvent.preventDefault();
+          cy.stub().as("dsoTabSwitch")(e);
+        });
       })
-      .shadow()
-      .find("a")
-      .click()
+      .realClick()
       .get("@dsoTabSwitch")
       .should("be.calledOnce");
   });
