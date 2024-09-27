@@ -4,13 +4,13 @@ describe("Autosuggest", () => {
     cy.injectAxe();
   });
 
-  it.only("should show suggestions after input", () => {
+  it("should show suggestions after input", () => {
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("dso-autosuggest.hydrated input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
-    // cy.dsoCheckA11y("dso-autosuggest.hydrated");
+    // cy.dsoCheckA11y("dso-autosuggest.hydrated"); Todo: #2817
     cy.get("dso-autosuggest.hydrated").find("li[role='option']").should("have.length", 10);
 
     // Take the entire page, otherwise the list of suggestions will not be snapped
@@ -27,8 +27,8 @@ describe("Autosuggest", () => {
   it("should have correct aria attributes", { browser: "!firefox" }, () => {
     cy.get("input")
       .should("have.attr", "aria-haspopup", "listbox")
-      // .should("have.attr", "aria-controls", listbox.prop("id"))
-      .should("have.attr", "aria-expanded", "false");
+      .should("have.attr", "aria-expanded", "false")
+      .and("not.have.attr", "aria-controls");
 
     cy.get("input")
       .should("have.attr", "aria-autocomplete", "list")
@@ -39,6 +39,11 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("input").should("have.attr", "aria-expanded", "true");
+
+    cy.get("dso-autosuggest.hydrated")
+      .find("ul[role='listbox']")
+      .then(($listbox) => cy.get("input").should("have.attr", "aria-controls", $listbox.prop("id")));
+
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
@@ -48,7 +53,7 @@ describe("Autosuggest", () => {
   it("escape should hide suggestions", { browser: "!firefox" }, () => {
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.realPress("Escape");
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
   });
@@ -139,7 +144,7 @@ describe("Autosuggest", () => {
   it("suggestOnFocus should show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.realPress("Tab");
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.realPress(["Shift", "Tab"]);
@@ -149,18 +154,18 @@ describe("Autosuggest", () => {
 
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.realPress(["Shift", "Tab"]);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.realPress("Tab");
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("li[role='option']").should("have.length", 10);
   });
 
   it("suggestOnFocus should show suggestions on focus by mouse", () => {
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("body").click("top");
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.get("input").click("bottomRight", { force: true });
@@ -170,11 +175,11 @@ describe("Autosuggest", () => {
 
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("body").click("bottomRight", { force: true });
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.get("input").click();
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("li[role='option']").should("have.length", 10);
   });
 
@@ -252,7 +257,7 @@ describe("Autosuggest", () => {
     cy.get("dso-progress-indicator").should("be.visible");
     cy.get("dso-autosuggest.hydrated").invoke("attr", "loading", false);
     cy.get("dso-progress-indicator").should("not.exist");
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
   });
 
   it("should show progress indicator with custom label when loadingLabel attribute is set", () => {
@@ -266,7 +271,7 @@ describe("Autosuggest", () => {
       .find("dso-progress-indicator")
       .shadow()
       .find(".dso-progress-indicator-label")
-      .should("exist")
+      .should("be.visible")
       .contains("Patience");
   });
 
@@ -296,29 +301,35 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("exist").contains("akjehfowef");
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li span").should("exist").contains("is niet gevonden.");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("be.visible").contains("akjehfowef");
+    cy.get("dso-autosuggest.hydrated")
+      .find("ul[role='listbox'] li span")
+      .should("be.visible")
+      .contains("is niet gevonden.");
   });
 
   it("should show custom not found text when notFoundLabel attribute is set and no results are found", () => {
     cy.get("dso-autosuggest.hydrated").invoke("attr", "not-found-label", "Er zijn geen resultaten gevonden.");
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
-    cy.get("dso-autosuggest.hydrated").find("li span").should("exist").contains("Er zijn geen resultaten gevonden.");
+    cy.get("dso-autosuggest.hydrated")
+      .find("li span")
+      .should("be.visible")
+      .contains("Er zijn geen resultaten gevonden.");
   });
 
   it("should hide listbox when there is no input value", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("input").focus().clear();
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
     cy.get("input").focus().type("ams");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("input").focus().clear();
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("not.exist");
@@ -335,7 +346,7 @@ describe("Autosuggest", () => {
       .type("ddd")
       .get("dso-autosuggest.hydrated")
       .find("ul[role='listbox']")
-      .should("exist")
+      .should("be.visible")
       .get("@pre")
       .should("have.text", "[]")
       .get("input")
@@ -353,7 +364,7 @@ describe("Autosuggest", () => {
 
     cy.get("input").focus().type("gro");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("exist");
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("li[role='option']").should("have.length", 2);
 
     cy.get("dso-autosuggest.hydrated")
