@@ -475,7 +475,13 @@ export class Autosuggest {
   render() {
     this.listboxItems = [];
 
-    this.input?.setAttribute("aria-controls", this.listboxId);
+    const showListbox = this.showSuggestions || this.notFound;
+
+    if (showListbox && this.input) {
+      this.input.setAttribute("aria-controls", this.listboxId);
+    } else if (this.input) {
+      this.input.removeAttribute("aria-controls");
+    }
 
     return (
       <>
@@ -485,7 +491,7 @@ export class Autosuggest {
             <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
           </div>
         ) : (
-          (this.showSuggestions || this.notFound) && (
+          showListbox && (
             <dso-scrollable
               class="listbox-container"
               ref={(element) => (this.listboxContainer = element)}
