@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Mark Bar: Pointer on empty field button ([#2806](https://github.com/dso-toolkit/dso-toolkit/issues/2806))
+* Autosuggest: Onzichtbare suggestielijst blokkeert onderliggende elementen ([#2801](https://github.com/dso-toolkit/dso-toolkit/issues/2801))
 
 ### Docs
 * Button Row: No block margin ([#2800](https://github.com/dso-toolkit/dso-toolkit/issues/2800))

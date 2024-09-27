@@ -207,7 +207,6 @@ export class Autosuggest {
 
       this.input.setAttribute("role", "combobox");
       this.input.setAttribute("aria-haspopup", "listbox");
-      this.input.setAttribute("aria-controls", this.listboxId);
       this.input.setAttribute("aria-expanded", "false");
       this.input.setAttribute("autocomplete", "off");
       this.input.setAttribute("aria-autocomplete", "list");
@@ -476,6 +475,14 @@ export class Autosuggest {
   render() {
     this.listboxItems = [];
 
+    const showListbox = this.showSuggestions || this.notFound;
+
+    if (showListbox && this.input) {
+      this.input.setAttribute("aria-controls", this.listboxId);
+    } else if (this.input) {
+      this.input.removeAttribute("aria-controls");
+    }
+
     return (
       <>
         <slot />
@@ -484,62 +491,63 @@ export class Autosuggest {
             <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
           </div>
         ) : (
-          <dso-scrollable
-            class="listbox-container"
-            ref={(element) => (this.listboxContainer = element)}
-            style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
-          >
-            <ul
-              role="listbox"
-              aria-live="polite"
-              id={this.listboxId}
-              aria-labelledby={this.labelId}
-              ref={(element) => (this.listbox = element)}
-              hidden={!this.showSuggestions && !this.notFound}
+          showListbox && (
+            <dso-scrollable
+              class="listbox-container"
+              ref={(element) => (this.listboxContainer = element)}
+              style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
             >
-              {(this.showSuggestions &&
-                this.suggestions &&
-                this.suggestions.map((suggestion) => (
-                  <li
-                    role="option"
-                    id={this.listboxItemId(suggestion)}
-                    key={suggestion.value}
-                    onMouseEnter={() => this.selectSuggestion(suggestion)}
-                    onMouseLeave={() => this.resetSelectedSuggestion()}
-                    onClick={() => this.pickSelectedValue()}
-                    aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                    aria-label={suggestion.value}
-                    ref={(li) => li && this.listboxItems.push(li)}
-                  >
-                    <div class="suggestion-row">
-                      <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
-                      {suggestion.type ? (
-                        <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
-                      ) : undefined}
-                    </div>
-                    {suggestion.extras &&
-                      this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
-                        <div class="suggestion-row">
-                          {chunk.map((c, i) => (
-                            <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
-                          ))}
-                        </div>
-                      ))}
-                  </li>
-                ))) ||
-                (this.notFound && (
-                  <li>
-                    <span class="value">
-                      {!this.notFoundLabel ? (
-                        this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
-                      ) : (
-                        <span>{this.notFoundLabel}</span>
-                      )}
-                    </span>
-                  </li>
-                ))}
-            </ul>
-          </dso-scrollable>
+              <ul
+                role="listbox"
+                aria-live="polite"
+                id={this.listboxId}
+                aria-labelledby={this.labelId}
+                ref={(element) => (this.listbox = element)}
+              >
+                {(this.showSuggestions &&
+                  this.suggestions &&
+                  this.suggestions.map((suggestion) => (
+                    <li
+                      role="option"
+                      id={this.listboxItemId(suggestion)}
+                      key={suggestion.value}
+                      onMouseEnter={() => this.selectSuggestion(suggestion)}
+                      onMouseLeave={() => this.resetSelectedSuggestion()}
+                      onClick={() => this.pickSelectedValue()}
+                      aria-selected={(suggestion === this.selectedSuggestion).toString()}
+                      aria-label={suggestion.value}
+                      ref={(li) => li && this.listboxItems.push(li)}
+                    >
+                      <div class="suggestion-row">
+                        <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
+                        {suggestion.type ? (
+                          <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
+                        ) : undefined}
+                      </div>
+                      {suggestion.extras &&
+                        this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
+                          <div class="suggestion-row">
+                            {chunk.map((c, i) => (
+                              <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
+                            ))}
+                          </div>
+                        ))}
+                    </li>
+                  ))) ||
+                  (this.notFound && (
+                    <li>
+                      <span class="value">
+                        {!this.notFoundLabel ? (
+                          this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
+                        ) : (
+                          <span>{this.notFoundLabel}</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+              </ul>
+            </dso-scrollable>
+          )
         )}
       </>
     );
