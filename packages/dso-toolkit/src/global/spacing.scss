@@ -64,14 +64,3 @@
     margin-block-start: units.$block-spacing-medium;
   }
 }
-
-// #2800 fix
-// ---------
-:where(:has(+ .dso-form-buttons, + * > .dso-form-buttons:first-child)) {
-  margin-block-end: 0; // reset, prevent double spacing
-
-  & + .dso-form-buttons,
-  & + * > .dso-form-buttons:first-child {
-    margin-block-start: units.$block-spacing-xlarge;
-  }
-}
