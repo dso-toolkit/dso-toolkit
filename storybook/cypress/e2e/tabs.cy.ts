@@ -220,7 +220,7 @@ describe("Tabs - anchors disabled", () => {
 
   it("should call event on mouse click", () => {
     cy.get("dso-tabs.hydrated")
-      .find<HTMLDsoTabElement>("dso-tab.hydrated:nth-child(2)")
+      .find<HTMLDsoTabElement>("dso-tab.hydrated:nth-child(3)")
       .then(($tab) => {
         $tab[0].addEventListener("dsoTabSwitch", (e) => {
           e.detail.originalEvent.preventDefault();
@@ -234,7 +234,7 @@ describe("Tabs - anchors disabled", () => {
 
   it("should call event on enter or space when focussed", () => {
     cy.get("dso-tabs.hydrated")
-      .find<HTMLDsoTabElement>("dso-tab.hydrated:nth-child(2)")
+      .find<HTMLDsoTabElement>("dso-tab.hydrated:nth-child(3)")
       .as("tab")
       .then(($tab) => {
         $tab[0].addEventListener("dsoTabSwitch", (e) => {
@@ -453,7 +453,7 @@ describe("Tabs - button disabled", () => {
 
   it("should call event on mouse click", () => {
     cy.get("dso-tabs.hydrated")
-      .find("dso-tab.hydrated:nth-child(4)")
+      .find("dso-tab.hydrated:nth-child(2)")
       .as("tab")
       .then(($tab) => {
         $tab.on("dsoTabSwitch", cy.stub().as("dsoTabSwitch"));
@@ -501,7 +501,7 @@ describe("Tabs - button disabled", () => {
 
   it("should call event on enter or space when focussed", () => {
     cy.get("dso-tabs.hydrated")
-      .find("dso-tab.hydrated:nth-child(4)")
+      .find("dso-tab.hydrated:nth-child(2)")
       .as("tab")
       .then(($tab) => {
         $tab.on("dsoTabSwitch", cy.stub().as("dsoTabSwitch"));
