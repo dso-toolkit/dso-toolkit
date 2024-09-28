@@ -7,10 +7,10 @@
 
 ## Slots
 
-| Slot      | Description                                   |
-| --------- | --------------------------------------------- |
-|           | The dso-tabs                                  |
-| `"panel"` | The panel with the content for the active tab |
+| Slot      | Description                                                                    |
+| --------- | ------------------------------------------------------------------------------ |
+|           | The dso-tab elements. These should be direct children of the dso-tabs element. |
+| `"panel"` | The panel with the content for the active tab                                  |
 
 
 ----------------------------------------------

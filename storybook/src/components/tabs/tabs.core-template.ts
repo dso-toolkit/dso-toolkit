@@ -4,6 +4,8 @@ import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
+import { DsoTabCustomEvent } from "@dso-toolkit/core";
+import { TabsSwitchEvent } from "@dso-toolkit/core/src";
 
 export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   component: "tabs",
@@ -18,7 +20,13 @@ export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
                 href=${ifDefined(href)}
                 ?active=${modifier === "active"}
                 ?disabled=${modifier === "disabled"}
-                @dsoTabSwitch=${dsoTabSwitch}
+                @dsoTabSwitch=${(e: DsoTabCustomEvent<TabsSwitchEvent>) => {
+                  if (href && !e.detail.isModifiedEvent) {
+                    e.detail.originalEvent.preventDefault();
+                  }
+
+                  dsoTabSwitch?.(e);
+                }}
                 >${label}</dso-tab
               >
             `,

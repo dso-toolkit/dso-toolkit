@@ -1,9 +1,7 @@
 import { Element, Component, h, Host, forceUpdate } from "@stencil/core";
 
-import { TabsItem } from "./tabs.interfaces";
-
 /**
- * @slot - The dso-tabs
+ * @slot - The dso-tab elements. These should be direct children of the dso-tabs element.
  * @slot panel - The panel with the content for the active tab
  */
 @Component({
@@ -12,99 +10,85 @@ import { TabsItem } from "./tabs.interfaces";
   shadow: true,
 })
 export class Tabs {
+  private mutationObserver?: MutationObserver;
+
   @Element()
   host!: HTMLDsoTabsElement;
 
-  private activeTab?: HTMLDsoTabElement;
-  private firstTab?: HTMLDsoTabElement;
-  private lastTab?: HTMLDsoTabElement;
-  private focussedTab?: HTMLDsoTabElement;
-
-  private get enabledTabs(): Array<{ tabsItem: TabsItem; element: HTMLDsoTabElement }> {
-    const tabElements = this.host.querySelectorAll("dso-tab");
-
-    if (tabElements) {
-      // Only enabled tabs (not disabled) are needed for setting focus via ArrowRight and ArrowLeft
-      return Array.from(tabElements).reduce((tabs: Array<{ tabsItem: TabsItem; element: HTMLDsoTabElement }>, tab) => {
+  private get enabledTabs() {
+    // Only enabled tabs (not disabled) are needed for setting focus via ArrowRight and ArrowLeft
+    return Array.from(this.host.querySelectorAll<HTMLDsoTabElement>(":scope > dso-tab")).reduce<HTMLDsoTabElement[]>(
+      (tabs, tab) => {
         if (!tab.disabled) {
-          tabs.push({
-            tabsItem: {
-              active: tab.active,
-            },
-            element: tab,
-          });
+          tabs.push(tab);
         }
+
         return tabs;
-      }, []);
-    }
-
-    return [];
+      },
+      [],
+    );
   }
 
-  private moveFocusToTab(tab?: HTMLDsoTabElement) {
+  private get firstTab() {
+    return this.enabledTabs[0];
+  }
+
+  private get lastTab() {
+    return this.enabledTabs[this.enabledTabs.length - 1];
+  }
+
+  private moveFocusToTab(tab: HTMLDsoTabElement | undefined) {
     tab?._dsoFocus();
-    this.focussedTab = tab;
   }
 
-  private moveFocusToPreviousTab(focussedTab?: HTMLDsoTabElement) {
-    const index = this.enabledTabs?.findIndex((tab) => tab.element === focussedTab);
+  private moveFocusToPreviousTab(focussedTab: HTMLElement) {
+    const index = this.enabledTabs.findIndex((tab) => tab === focussedTab);
+    const next = this.enabledTabs[index - 1] ?? this.lastTab;
 
-    if (index === 0) {
-      this.moveFocusToTab(this.lastTab);
-    } else {
-      this.moveFocusToTab(this.enabledTabs[index - 1]?.element);
-    }
+    this.moveFocusToTab(next);
   }
 
-  private moveFocusToNextTab(focussedTab?: HTMLDsoTabElement) {
-    const index = this.enabledTabs?.findIndex((tab) => tab.element === focussedTab);
+  private moveFocusToNextTab(focussedTab: HTMLElement) {
+    const index = this.enabledTabs.findIndex((tab) => tab === focussedTab);
+    const next = this.enabledTabs[index + 1] ?? this.firstTab;
 
-    if (index === this.enabledTabs?.length - 1) {
-      this.moveFocusToTab(this.firstTab);
-    } else {
-      this.moveFocusToTab(this.enabledTabs[index + 1]?.element);
-    }
+    this.moveFocusToTab(next);
   }
 
-  // Keep track of tabs to set focus on next or previous enabled (not disabled) tab
-  // When this component gets focus it will be on the activeTab
+  // Keep track of tabs to set focus on next or previous enabled (not disabled) tab.
   private keyUpHandler = (e: KeyboardEvent) => {
-    this.activeTab = this.enabledTabs.find((tab) => tab.tabsItem.active)?.element;
-    this.firstTab = this.enabledTabs[0]?.element;
-    this.lastTab = this.enabledTabs[this.enabledTabs.length - 1]?.element;
+    if (!(e.target instanceof HTMLElement)) {
+      return;
+    }
 
     switch (e.key) {
       case "ArrowRight":
-        this.moveFocusToNextTab(this.focussedTab || this.activeTab);
+      case "ArrowDown":
+        this.moveFocusToNextTab(e.target);
         break;
       case "ArrowLeft":
-        this.moveFocusToPreviousTab(this.focussedTab || this.activeTab);
+      case "ArrowUp":
+        this.moveFocusToPreviousTab(e.target);
         break;
       default:
         return;
     }
   };
 
-  private mutationObserver?: MutationObserver;
-
   connectedCallback(): void {
-    this.mutationObserver = new MutationObserver(() => {
-      forceUpdate(this.host);
-    });
+    this.mutationObserver ??= new MutationObserver(() => forceUpdate(this.host));
 
     this.mutationObserver.observe(this.host, { childList: true });
   }
 
   disconnectedCallback(): void {
     this.mutationObserver?.disconnect();
-
-    delete this.mutationObserver;
   }
 
   render() {
     return (
-      <Host onKeyUp={this.keyUpHandler}>
-        <div class="tabs" role="tablist">
+      <Host>
+        <div class="tabs" role="tablist" onKeyUp={this.keyUpHandler}>
           <slot />
         </div>
         <div role="tabpanel" tabindex="0">

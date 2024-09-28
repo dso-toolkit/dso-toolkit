@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Prop, h, Host, Method } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Prop, h, Method } from "@stencil/core";
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { TabsSwitchEvent } from "../tabs.interfaces";
 
@@ -56,13 +56,13 @@ export class Tab {
   };
 
   private keyUpHandler = (e: KeyboardEvent) => {
-    if (e.key === " " && !this.disabled) {
+    if (e.key === " " && !this.disabled && !this.active) {
       this.emitEvent(e);
     }
   };
 
   private clickHandler = (e: MouseEvent) => {
-    if (this.disabled && this.href) {
+    if ((this.disabled && this.href) || this.active) {
       e.preventDefault();
     } else {
       this.emitEvent(e);
@@ -70,35 +70,30 @@ export class Tab {
   };
 
   render() {
-    return (
-      <Host>
-        {this.href ? (
-          <a
-            role="tab"
-            href={this.href}
-            onKeyUp={this.keyUpHandler}
-            onClick={this.clickHandler}
-            aria-selected={this.active ? "true" : "false"}
-            {...(!this.active ? { tabIndex: -1 } : {})}
-            ref={(element) => (this.anchorOrButtonRef = element)}
-          >
-            <slot />
-          </a>
-        ) : (
-          <button
-            role="tab"
-            class="dso-tertiary"
-            disabled={this.disabled}
-            type="button"
-            onClick={this.clickHandler}
-            aria-selected={this.active ? "true" : "false"}
-            {...(!this.active ? { tabIndex: -1 } : {})}
-            ref={(element) => (this.anchorOrButtonRef = element)}
-          >
-            <slot />
-          </button>
-        )}
-      </Host>
+    return this.href ? (
+      <a
+        role="tab"
+        href={this.href}
+        onKeyUp={this.keyUpHandler}
+        onClick={this.clickHandler}
+        aria-selected={this.active ? "true" : "false"}
+        {...(!this.active ? { tabIndex: -1 } : {})}
+        ref={(element) => (this.anchorOrButtonRef = element)}
+      >
+        <slot />
+      </a>
+    ) : (
+      <button
+        role="tab"
+        type="button"
+        disabled={this.disabled}
+        onClick={this.clickHandler}
+        aria-selected={this.active ? "true" : "false"}
+        {...(!this.active ? { tabIndex: -1 } : {})}
+        ref={(element) => (this.anchorOrButtonRef = element)}
+      >
+        <slot />
+      </button>
     );
   }
 }

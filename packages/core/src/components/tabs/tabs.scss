@@ -12,20 +12,15 @@
 @include utilities.box-sizing();
 
 .tabs {
-  @include utilities.clearfix();
-
-  border-block-end: 1px solid tab-variables.$border-color;
+  border-block-end: 1px solid colors.$grasgroen;
   display: flex;
+  gap: 2px;
   flex-wrap: wrap;
   margin-block-end: tab-variables.$margin-block-end;
   padding-inline-start: 0;
 
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    border-block-end: 1px solid colors.$grasgroen;
-  }
-
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    border-block-end: 1px solid colors.$wit;
+    border: 0;
     display: block;
   }
 }
