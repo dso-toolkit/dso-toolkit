@@ -10,8 +10,10 @@ import { MetaOptions } from "../../storybook/meta-options.interface.js";
 type TabsStory<TemplateFnReturnType> = StoryObj<TabsArgs<TemplateFnReturnType>, Renderer>;
 
 interface TabsStories<TemplateFnReturnType> {
-  Default: TabsStory<TemplateFnReturnType>;
-  Inactief: TabsStory<TemplateFnReturnType>;
+  AsAnchors: TabsStory<TemplateFnReturnType>;
+  AsAnchorsDisabled: TabsStory<TemplateFnReturnType>;
+  AsButtons: TabsStory<TemplateFnReturnType>;
+  AsButtonsDisabled: TabsStory<TemplateFnReturnType>;
 }
 
 interface TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -40,63 +42,104 @@ export function tabsStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
 }: TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TabsStories<TemplateFnReturnType> {
+  const render = templateContainer.render(storyTemplates, (args: TabsArgs<TemplateFnReturnType>, { tabsTemplate }) =>
+    tabsTemplate(tabsArgsMapper(args)),
+  );
   return {
-    Default: {
+    AsAnchors: {
       args: {
         items: [
           {
             label: "Zoek op adres",
-            id: "tabitem-1",
-            modifiers: "active",
-            content: "Inhoud Zoek op adres",
+            modifier: "active",
+            href: "/adres",
           },
           {
             label: "Postcode en huisnummer",
-            id: "tabitem-2",
-            content: "Inhoud Postcode en huisnummer",
+            href: "/postcode",
           },
           {
             label: "Kadastraal nummer",
-            id: "tabitem-3",
-            content: "Inhoud Kadastraal nummer",
+            href: "/kadastraal",
           },
           {
-            label: "Coordinaten",
-            id: "tabitem-4",
-            content: "Inhoud Coordinaten",
+            label: "Coördinaten",
+            href: "/coordinaten",
           },
         ],
+        content: "Inhoud Zoek op adres",
       },
-      render: templateContainer.render(storyTemplates, (args, { tabsTemplate }) => tabsTemplate(tabsArgsMapper(args))),
+      render,
     },
-    Inactief: {
+    AsAnchorsDisabled: {
       args: {
         items: [
           {
             label: "Zoek op adres",
-            id: "tabitem-1",
-            content: "Inhoud Zoek op adres",
+            href: "/adres",
           },
           {
             label: "Postcode en huisnummer",
-            id: "tabitem-2",
-            modifiers: "active",
-            content: "Inhoud Postcode en huisnummer",
+            href: "/postcode",
+            modifier: "active",
           },
           {
             label: "Kadastraal nummer",
-            id: "tabitem-3",
-            content: "Inhoud Kadastraal nummer",
+            href: "/kadastraal",
           },
           {
-            label: "Coordinaten",
-            id: "tabitem-4",
-            modifiers: "disabled",
-            content: "Inhoud Coordinaten",
+            label: "Coördinaten",
+            href: "/coordinaten",
+            modifier: "disabled",
           },
         ],
+        content: "Inhoud Postcode en huisnummer",
       },
-      render: templateContainer.render(storyTemplates, (args, { tabsTemplate }) => tabsTemplate(tabsArgsMapper(args))),
+      render,
+    },
+    AsButtons: {
+      args: {
+        items: [
+          {
+            label: "Zoek op adres",
+          },
+          {
+            label: "Postcode en huisnummer",
+          },
+          {
+            label: "Kadastraal nummer",
+            modifier: "active",
+          },
+          {
+            label: "Coördinaten",
+          },
+        ],
+        content: "Inhoud Kadastraal nummer",
+      },
+      render,
+    },
+    AsButtonsDisabled: {
+      args: {
+        items: [
+          {
+            label: "Zoek op adres",
+            modifier: "disabled",
+          },
+          {
+            label: "Postcode en huisnummer",
+          },
+          {
+            label: "Kadastraal nummer",
+            modifier: "disabled",
+          },
+          {
+            label: "Coördinaten",
+            modifier: "active",
+          },
+        ],
+        content: "Inhoud Coördinaten",
+      },
+      render,
     },
   };
 }

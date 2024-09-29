@@ -39,6 +39,7 @@ import { ResponsiveElementSize } from "./components/responsive-element/responsiv
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
+import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
@@ -75,6 +76,7 @@ export { ResponsiveElementSize } from "./components/responsive-element/responsiv
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
+export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
@@ -1084,6 +1086,21 @@ export namespace Components {
          */
         "labelledbyId"?: string;
     }
+    interface DsoTab {
+        "_dsoFocus": () => Promise<void>;
+        /**
+          * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
+         */
+        "active"?: boolean;
+        /**
+          * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
+         */
+        "disabled"?: boolean;
+        /**
+          * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
+         */
+        "href"?: string;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable.
@@ -1093,6 +1110,8 @@ export namespace Components {
           * Prevents the table being opened in a modal.
          */
         "noModal": boolean;
+    }
+    interface DsoTabs {
     }
     interface DsoToggletip {
         /**
@@ -1347,6 +1366,10 @@ export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSlideToggleElement;
+}
+export interface DsoTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoTabElement;
 }
 export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2052,11 +2075,34 @@ declare global {
         prototype: HTMLDsoSlideToggleElement;
         new (): HTMLDsoSlideToggleElement;
     };
+    interface HTMLDsoTabElementEventMap {
+        "dsoTabSwitch": TabsSwitchEvent;
+    }
+    interface HTMLDsoTabElement extends Components.DsoTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoTabElementEventMap>(type: K, listener: (this: HTMLDsoTabElement, ev: DsoTabCustomEvent<HTMLDsoTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoTabElementEventMap>(type: K, listener: (this: HTMLDsoTabElement, ev: DsoTabCustomEvent<HTMLDsoTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoTabElement: {
+        prototype: HTMLDsoTabElement;
+        new (): HTMLDsoTabElement;
+    };
     interface HTMLDsoTableElement extends Components.DsoTable, HTMLStencilElement {
     }
     var HTMLDsoTableElement: {
         prototype: HTMLDsoTableElement;
         new (): HTMLDsoTableElement;
+    };
+    interface HTMLDsoTabsElement extends Components.DsoTabs, HTMLStencilElement {
+    }
+    var HTMLDsoTabsElement: {
+        prototype: HTMLDsoTabsElement;
+        new (): HTMLDsoTabsElement;
     };
     interface HTMLDsoToggletipElement extends Components.DsoToggletip, HTMLStencilElement {
     }
@@ -2182,7 +2228,9 @@ declare global {
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
+        "dso-tab": HTMLDsoTabElement;
         "dso-table": HTMLDsoTableElement;
+        "dso-tabs": HTMLDsoTabsElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
@@ -3400,6 +3448,24 @@ declare namespace LocalJSX {
          */
         "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
     }
+    interface DsoTab {
+        /**
+          * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
+         */
+        "active"?: boolean;
+        /**
+          * Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown.
+         */
+        "disabled"?: boolean;
+        /**
+          * The optional href of the tab. Creates an anchor if present. Creates a button if absent.
+         */
+        "href"?: string;
+        /**
+          * Emitted when the user activates tab via click or arrow keys followed by space or enter.
+         */
+        "onDsoTabSwitch"?: (event: DsoTabCustomEvent<TabsSwitchEvent>) => void;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable.
@@ -3409,6 +3475,8 @@ declare namespace LocalJSX {
           * Prevents the table being opened in a modal.
          */
         "noModal"?: boolean;
+    }
+    interface DsoTabs {
     }
     interface DsoToggletip {
         /**
@@ -3622,7 +3690,9 @@ declare namespace LocalJSX {
         "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
         "dso-slide-toggle": DsoSlideToggle;
+        "dso-tab": DsoTab;
         "dso-table": DsoTable;
+        "dso-tabs": DsoTabs;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
         "dso-tree-view": DsoTreeView;
@@ -3689,7 +3759,9 @@ declare module "@stencil/core" {
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
+            "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
+            "dso-tabs": LocalJSX.DsoTabs & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;

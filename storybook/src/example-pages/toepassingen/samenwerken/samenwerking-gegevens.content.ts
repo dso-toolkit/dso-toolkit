@@ -35,38 +35,31 @@ export function items({ buttonRowTemplate, definitionListTemplate }: Templates):
     items: [
       {
         label: "Samenwerkingsgegevens",
-        modifiers: "active",
-        id: "Uniek-id1",
-        content: html`
-          <h2>Samenwerkingsgegevens</h2>
-          ${buttonRowTemplate({
-            buttons: [{ label: "Samenwerking aanpassen", type: "button", variant: "secondary" }],
-          })}
-          <div class="row">
-            <div class="col-md-4">${definitionListTemplate(definitions)}</div>
-            <div class="col-md-4">
-              <p><strong>Beschrijving</strong></p>
-              <p>Een korte paragraaf over deze samenwerkingspartner in het algemeen.</p>
-            </div>
-          </div>
-        `,
+        modifier: "active",
       },
       {
         label: "Documenten",
-        id: "uniekID-2",
-        content: html``,
       },
       {
         label: "Ketenpartners",
-        id: "uniekID-3",
-        content: html``,
       },
       {
         label: "Actieverzoeken",
-        id: "uniekID-4",
-        content: html``,
       },
     ],
+    content: html`
+      <h2>Samenwerkingsgegevens</h2>
+      ${buttonRowTemplate({
+        buttons: [{ label: "Samenwerking aanpassen", type: "button", variant: "secondary" }],
+      })}
+      <div class="row">
+        <div class="col-md-4">${definitionListTemplate(definitions)}</div>
+        <div class="col-md-4">
+          <p><strong>Beschrijving</strong></p>
+          <p>Een korte paragraaf over deze samenwerkingspartner in het algemeen.</p>
+        </div>
+      </div>
+    `,
   };
 }
 

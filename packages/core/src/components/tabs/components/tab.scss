@@ -1,0 +1,124 @@
+@use "~dso-toolkit/src/utilities";
+
+@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
+
+@use "tab.variables" as tab-variables;
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+  border-color: tab-variables.$color;
+  // Make the list-items overlay the bottom border
+  margin-block-end: -1px;
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+  :host {
+    margin-block: 10px;
+  }
+
+  :host(:first-child) {
+    margin-block-start: 0;
+  }
+}
+
+:host([active]:not([active="false"])) {
+  [role="tab"] {
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      background-color: colors.$wit;
+      border: 1px solid tab-variables.$color;
+      border-block-end-color: colors.$wit;
+      color: tab-variables.$color;
+      cursor: default;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        border-block-end-color: tab-variables.$color;
+      }
+    }
+  }
+}
+
+:host([disabled]:not([disabled="false"])) {
+  [role="tab"] {
+    color: tab-variables.$nav-disabled-link-color;
+
+    &:hover,
+    &:focus {
+      color: tab-variables.$nav-disabled-link-hover-color;
+      text-decoration: none;
+      cursor: scaffolding.$cursor-disabled;
+      background-color: transparent;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+        border-block-end-color: colors.$wit;
+      }
+    }
+  }
+}
+
+a {
+  @include anchor.clean();
+
+  &:visited {
+    color: tab-variables.$text-color;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+[role="tab"] {
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  min-block-size: tab-variables.$block-size;
+  border: 1px solid transparent;
+  border-radius: tab-variables.$border-radius tab-variables.$border-radius 0 0;
+  color: tab-variables.$text-color;
+  line-height: typography.$line-height-base;
+  padding-block: tab-variables.$block-padding;
+  padding-inline: tab-variables.$inline-padding;
+
+  &:hover {
+    border-color: tab-variables.$link-hover-border-color tab-variables.$link-hover-border-color
+      tab-variables.$border-color;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: tab-variables.$nav-link-hover-bg;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: tab-variables.$hover-color;
+    border: 1px solid transparent;
+    border-block-end-color: tab-variables.$color;
+    text-decoration: none;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      border-block-end-color: colors.$wit;
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    border-color: colors.$wit;
+    border-radius: 8px;
+    padding-block: 18px;
+    padding-inline: 20px;
+  }
+}

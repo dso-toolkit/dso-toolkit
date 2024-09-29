@@ -1,0 +1,26 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/components/anchor";
+
+@use "~dso-toolkit/src/components/tabs/tabs.variables" as tab-variables;
+
+@include utilities.box-sizing();
+
+.tabs {
+  border-block-end: 1px solid colors.$grasgroen;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-block-end: tab-variables.$margin-block-end;
+  padding-inline-start: 0;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    border: 0;
+    display: block;
+  }
+}

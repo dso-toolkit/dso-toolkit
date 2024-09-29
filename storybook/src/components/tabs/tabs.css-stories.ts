@@ -7,12 +7,12 @@ import readme from "dso-toolkit/src/components/tabs/readme.md?raw";
 
 const meta: Meta<TabsArgs<unknown>> = {
   ...tabsMeta({ readme }),
-  title: "HTML|CSS/Tabs",
+  title: "HTML|CSS/Tabs (Deprecated)",
 };
 
 export default meta;
 
-const { Default, Inactief } = tabsStories({
+const { AsAnchors, AsAnchorsDisabled } = tabsStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { tabsTemplate } = templates;
@@ -23,4 +23,5 @@ const { Default, Inactief } = tabsStories({
   },
 });
 
-export { Default, Inactief };
+// AsButtons en AsButtonsDisabled ontbreken; de HTML/CSS implementatie ondersteunt geen buttons
+export { AsAnchors, AsAnchorsDisabled };
