@@ -15,8 +15,8 @@ export const coreProjectItem: ComponentImplementation<ProjectItem<TemplateResult
           slotName: "title",
         })}
         ${actions?.length ? html`<div slot="actions">${actions.map((a) => buttonTemplate(a))}</div>` : nothing}
-        ${progress ? definitionListTemplate({ ...progress, slotName: "progress" }) : nothing}
-        ${definitionListTemplate({ ...status, slotName: "status" })}
+        ${progress ? definitionListTemplate({ ...progress, modifier: "dso-grouped", slotName: "progress" }) : nothing}
+        ${definitionListTemplate({ ...status, modifier: "dso-grouped", slotName: "status" })}
       </dso-project-item>`;
     },
 };

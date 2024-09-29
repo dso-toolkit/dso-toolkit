@@ -13,12 +13,10 @@ examplePageFactory(
     {
       applicationHeadingTemplate,
       contextTemplate,
-      buttonTemplate,
       buttonRowTemplate,
       searchBarTemplate,
-      anchorTemplate,
-      labelTemplate,
       helpcenterPanelTemplate,
+      projectItemTemplate,
     },
     templates,
   ) => html`
@@ -45,123 +43,66 @@ examplePageFactory(
             id: "mijn-projecten-searchbar",
           }),
           children: html`
-            <div class="dso-table-responsive">
-              <table class="table">
-                <caption class="sr-only">
-                  Overzicht van gebruikersnamen
-                </caption>
-                <thead>
-                  <tr>
-                    <th scope="col" class="col-xs-7">Projectnaam</th>
-                    <th scope="col" class="col-xs-3">Rol</th>
-                    <th scope="col" class="col-xs-2">
-                      <span class="sr-only">Acties</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      ${anchorTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
-                      ${labelTemplate({ label: "Wordt verwijderd op 31-12-2023", status: "danger" })}
-                    </th>
-                    <td>Initiatiefnemer</td>
-                    <td class="text-right">
-                      ${buttonTemplate({
-                        label: "Boomkappen in de achtertuin aanpassen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "pencil" },
-                        iconMode: "only",
-                      })}
-                      ${buttonTemplate({
-                        label: "Boomkappen in de achtertuin verwijderen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "trash" },
-                        iconMode: "only",
-                        tooltip: {
-                          label: "Verwijderen",
-                          position: "top",
+            <ul class="dso-list-unstyled">
+              ${[1, 2, 3, 4].map(
+                (n) =>
+                  html` <li>
+                    ${projectItemTemplate({
+                      title: `Boomkappen in de achtertuin ${n}`,
+                      href: "#",
+                      label: n % 3 === 0 ? "Wordt verwijderd op 31-12-2023" : undefined,
+                      progress: {
+                        definitions: [
+                          {
+                            term: "Ingediende verzoeken",
+                            descriptions: [{ content: "4" }],
+                          },
+                          {
+                            term: "In te dienen activiteiten",
+                            descriptions: [{ content: "16" }],
+                          },
+                        ],
+                      },
+                      status: {
+                        definitions: [
+                          {
+                            term: "Locatie",
+                            descriptions: [{ content: "Getekend gebied" }],
+                          },
+                          {
+                            term: "Mijn rol",
+                            descriptions: [{ content: "Gemachtigde" }],
+                          },
+                          {
+                            term: "Laatste wijziging",
+                            descriptions: [{ content: "12-09-2023" }],
+                          },
+                        ],
+                      },
+                      actions: [
+                        {
+                          label: "Bewerk",
+                          type: "button",
+                          variant: "tertiary",
+                          icon: {
+                            icon: "pencil",
+                          },
+                          iconMode: "only",
                         },
-                      })}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">${anchorTemplate({ label: "Project 9", url: "#", modifier: "dso-tertiary" })}</th>
-                    <td>Initiatiefnemer</td>
-                    <td class="text-right">
-                      ${buttonTemplate({
-                        label: "Project 9 aanpassen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "pencil" },
-                        iconMode: "only",
-                      })}
-                      ${buttonTemplate({
-                        label: "Project 9 verwijderen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "trash" },
-                        iconMode: "only",
-                        tooltip: {
-                          label: "Verwijderen",
-                          position: "top",
+                        {
+                          label: "Verwijder",
+                          type: "button",
+                          variant: "tertiary",
+                          icon: {
+                            icon: "trash",
+                          },
+                          iconMode: "only",
                         },
-                      })}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">${anchorTemplate({ label: "Project 8", url: "#", modifier: "dso-tertiary" })}</th>
-                    <td>Initiatiefnemer</td>
-                    <td class="text-right">
-                      ${buttonTemplate({
-                        label: "Project 8 aanpassen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "pencil" },
-                        iconMode: "only",
-                      })}
-                      ${buttonTemplate({
-                        label: "Project 8 verwijderen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "trash" },
-                        iconMode: "only",
-                        tooltip: {
-                          label: "Verwijderen",
-                          position: "top",
-                        },
-                      })}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">${anchorTemplate({ label: "Project 7", url: "#", modifier: "dso-tertiary" })}</th>
-                    <td>Gemachtigde</td>
-                    <td class="text-right">
-                      ${buttonTemplate({
-                        label: "Project 7 aanpassen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "pencil" },
-                        iconMode: "only",
-                      })}
-                      ${buttonTemplate({
-                        label: "Project 7 verwijderen",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "trash" },
-                        iconMode: "only",
-                        tooltip: {
-                          label: "Verwijderen",
-                          position: "top",
-                        },
-                      })}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                      ],
+                    })}
+                  </li>`,
+              )}
+            </ul>
           `,
         })}
       </main>

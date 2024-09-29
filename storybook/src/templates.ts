@@ -293,7 +293,7 @@ export interface Components {
   paragraph: Paragraph;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
-  projectItem: ProjectItem<TemplateResult>;
+  projectItem: ProjectItem<TemplateResult | string>;
   renvooi: Renvooi;
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;

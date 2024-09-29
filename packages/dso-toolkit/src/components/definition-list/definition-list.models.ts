@@ -1,6 +1,10 @@
 import { List } from "../list/list.models.js";
 
 export interface DefinitionList<TemplateFnReturnType> {
+  /**
+   * `dso-columns` with `dso-column-*` specification.
+   * `grouped` to group dt and dd elements.
+   */
   modifier?: string;
   definitions: Definition<TemplateFnReturnType>[];
 }

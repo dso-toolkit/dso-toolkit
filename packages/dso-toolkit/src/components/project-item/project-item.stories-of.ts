@@ -22,7 +22,7 @@ interface ProjectItemStoriesParameters<Implementation, Templates, TemplateFnRetu
   > {}
 
 interface ProjectItemTemplates<TemplateFnReturnType> {
-  projectItemTemplate: (projectItemProperties: ProjectItem<TemplateFnReturnType>) => TemplateFnReturnType;
+  projectItemTemplate: (projectItemProperties: ProjectItem<TemplateFnReturnType | string>) => TemplateFnReturnType;
 }
 
 export function projectItemMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<

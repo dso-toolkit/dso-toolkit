@@ -15,31 +15,36 @@
 
 ::slotted(dl[slot="progress"]),
 ::slotted(dl[slot="status"]) {
-  --_dsot-dl-display: flex;
-  --_dsot-dl-margin-block-end: 0;
-  --_dsot-dl-before-display: none;
-  --_dsot-dd-margin-inline-start: 0;
-  --_dsot-dt-font-weight: normal;
-  --_dsot-dd-dt-margin-block-start: 0;
-  --_dsot-dd-dt-margin-inline-start: #{units.$u1};
-  --_dsot-dd-dt-margin-inline-end: #{calc(units.$u1 / 2)};
-  --_dsot-dd-dt-margin-inline-start-lg: #{units.$u2};
-  --_dsot-dd-dt-margin-inline-end-lg: #{units.$u2};
-  --_dsot-dd-last-margin-block-end: 0;
-  --_dsot-dd-padding-inline-start: 0;
-  --_dsot-dt-inline-size: auto;
-  --_dsot-dd-after-content: ":";
-  --_dsot-dd-after-display: inline-block;
-  --_dsot-dt-dd-white-space: nowrap;
+  --_dt-dl-margin-block-end: 0;
+  --_dt-dl-before-display: none;
+  --_dt-dl-dt-font-weight: normal;
+  --_dt-dl-dd-margin-block-start: 0;
+  --_dt-dl-dd-margin-inline-start: units.$u1;
+  --_dt-dl-dd-padding-inline-start: 0;
+  --_dt-dl-dt-inline-size: auto;
+  --_dt-dl-dd-last-margin-block-end: 0;
 
-  --_dsot-mark-bg-color: none;
-  --_dsot-mark-padding-block: 0;
-  --_dsot-mark-color: inherit;
-  --_dsot-mark-font-weight: 600;
+  --_dt-mark-bg-color: none;
+  --_dt-mark-padding-block: 0;
+  --_dt-mark-color: inherit;
+  --_dt-mark-font-weight: 600;
 
   display: flex !important;
   flex-wrap: wrap;
   column-gap: units.$u2;
+}
+
+::slotted([slot="status"]) {
+  --_dt-dl-font-size: 0.875rem;
+}
+
+::slotted([slot="title"]) {
+  margin-block: 0 !important;
+  font-size: 1.25rem !important;
+}
+
+::slotted([slot="actions"]) {
+  display: flex;
 }
 
 .project-item-header {
@@ -49,16 +54,6 @@
   align-items: flex-start;
 
   margin-block-end: units.$u2;
-}
-
-::slotted([slot="title"]) {
-  // ::slotted needs !important to work (https://www.matuzo.at/blog/2022/100daysof-day45)
-  margin-block: 0 !important;
-  font-size: 1.25rem !important;
-}
-
-::slotted([slot="actions"]) {
-  display: flex;
 }
 
 .project-item-title {
@@ -82,8 +77,4 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: flex-end;
-}
-
-.project-item-status {
-  --_dsot-dl-font-size: 0.875rem;
 }

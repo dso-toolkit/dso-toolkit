@@ -13,10 +13,8 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
     function definitionListTemplate({ modifier, definitions, slotName }) {
       function definitionTemplate({ term, descriptions }: Definition<TemplateResult>) {
         return html`
-          <div>
-            <dt>${term}</dt>
-            ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
-          </div>
+          <dt>${term}</dt>
+          ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
         `;
       }
 
@@ -36,11 +34,19 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
 
       return html`
         <dl class=${ifDefined(modifier)} slot=${ifDefined(slotName)}>
-          ${definitions.map((definition) =>
-            modifier?.split(" ").includes("dso-columns")
-              ? html`<div>${definitionTemplate(definition)}</div>`
-              : definitionTemplate(definition),
-          )}
+          ${definitions.map((definition) => {
+            const m = modifier?.split(" ");
+
+            if (m?.includes("dso-columns")) {
+              return html`<div>${definitionTemplate(definition)}</div>`;
+            }
+
+            if (m?.includes("dso-grouped")) {
+              return html`<div class="dso-group">${definitionTemplate(definition)}</div>`;
+            }
+
+            return definitionTemplate(definition);
+          })}
         </dl>
       `;
     },

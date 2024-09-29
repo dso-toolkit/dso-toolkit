@@ -44,8 +44,7 @@ export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any -- Weghalen voor mergen!!
-export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<any> {
+export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<string> {
   return {
     href: a.href,
     title: a.title,

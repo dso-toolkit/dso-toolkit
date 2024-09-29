@@ -28,14 +28,12 @@ Type: `Promise<ResponsiveElementSize>`
 ### Used by
 
  - [dso-pagination](../pagination)
- - [dso-project-item](../project-item)
  - [dsot-document-component-demo](../document-component-demo)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-pagination --> dso-responsive-element
-  dso-project-item --> dso-responsive-element
   dsot-document-component-demo --> dso-responsive-element
   style dso-responsive-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
