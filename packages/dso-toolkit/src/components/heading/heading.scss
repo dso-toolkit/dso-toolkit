@@ -1,7 +1,7 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 @use "../../variables/units";
-@use "../headings";
+@use "./heading.mixins" as heading-mixins;
 
 h1,
 .h1,
@@ -15,7 +15,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  @include headings.base();
+  @include heading-mixins.base();
 }
 
 h1,
@@ -24,7 +24,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  @include headings.margin-large();
+  @include heading-mixins.margin-large();
 }
 
 h1,
@@ -33,7 +33,7 @@ h1,
 }
 
 h1 {
-  @include headings.h1();
+  @include heading-mixins.h1();
 }
 
 h2,
@@ -42,7 +42,7 @@ h2,
 }
 
 h2 {
-  @include headings.h2();
+  @include heading-mixins.h2();
 }
 
 h3,
@@ -51,7 +51,7 @@ h3,
 }
 
 h3 {
-  @include headings.h3();
+  @include heading-mixins.h3();
 }
 
 h4,
@@ -60,7 +60,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  @include headings.margin-small();
+  @include heading-mixins.margin-small();
 }
 
 h4,
@@ -69,7 +69,7 @@ h4,
 }
 
 h4 {
-  @include headings.h4();
+  @include heading-mixins.h4();
 }
 
 h5,
@@ -78,7 +78,7 @@ h5,
 }
 
 h5 {
-  @include headings.h5();
+  @include heading-mixins.h5();
 }
 
 h6,

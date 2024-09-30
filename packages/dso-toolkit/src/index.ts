@@ -109,6 +109,8 @@ export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-bu
 
 export * from "./components/header";
 
+export * from "./components/heading";
+
 export * from "./components/helpcenter-panel";
 
 export * from "./components/highlight-box";
@@ -178,6 +180,8 @@ export * from "./components/paragraph";
 export * from "./components/progress-bar";
 
 export * from "./components/progress-indicator";
+
+export * from "./components/project-item";
 
 export * from "./components/input-range";
 

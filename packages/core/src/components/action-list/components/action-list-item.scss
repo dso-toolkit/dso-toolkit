@@ -2,7 +2,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
-@use "~dso-toolkit/src/components/headings";
+@use "~dso-toolkit/src/components/heading";
 @use "~dso-toolkit/src/components/step-counter";
 @use "~dso-toolkit/src/components/action-list/action-list.variables" as action-list-variables;
 @use "~dso-toolkit/src/components/action-list/components/action-list-item.variables" as action-list-item-variables;
@@ -40,8 +40,8 @@
 }
 
 h3 {
-  @include headings.base();
-  @include headings.h3();
+  @include heading.base();
+  @include heading.h3();
 
   margin-block-end: units.$u2;
   margin-block-start: 0;

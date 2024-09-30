@@ -49,6 +49,7 @@ import {
   FormGroupStatic,
   FormGroupTextarea,
   Header,
+  Heading,
   HelpcenterPanel,
   HighlightBox,
   Icon,
@@ -71,10 +72,12 @@ import {
   Modal,
   Navbar,
   OzonContent,
-  Panel,
   Pagination,
+  Panel,
+  Paragraph,
   ProgressBar,
   ProgressIndicator,
+  ProjectItem,
   Renvooi,
   ResponsiveElement,
   RichContent,
@@ -94,7 +97,6 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
-  Paragraph,
   // End: named template model imports
 } from "dso-toolkit";
 
@@ -137,6 +139,7 @@ import { corePagination } from "./components/pagination/pagination.core-template
 import { corePanel } from "./components/panel/panel.core-template";
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
+import { coreProjectItem } from "./components/project-item/project-item.core-template";
 import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
 import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
@@ -184,6 +187,7 @@ import { cssFormGroupSearchBar } from "./components/form/form-group-search-bar.c
 import { cssFormGroupSelect } from "./components/form/form-group-select.css-template";
 import { cssFormGroupStatic } from "./components/form/form-group-static.css-template";
 import { cssFormGroupTextarea } from "./components/form/form-group-textarea.css-template";
+import { cssHeading } from "./components/heading/heading.css-template";
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
 import { cssIcon } from "./components/icon/icon.css-template";
 import { cssImage } from "./components/image/image.css-template";
@@ -199,6 +203,7 @@ import { cssListButton } from "./components/list-button/list-button.css-template
 import { cssModal } from "./components/modal/modal.css-template";
 import { cssNavbar } from "./components/navbar/navbar.css-template";
 import { cssPagination } from "./components/pagination/pagination.css-template";
+import { cssParagraph } from "./components/paragraph/paragraph.css-template";
 import { cssProgressBar } from "./components/progress-bar/progress-bar.css-template";
 import { cssProgressIndicator } from "./components/progress-indicator/progress-indicator.css-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
@@ -210,7 +215,6 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
-import { cssParagraph } from "./components/paragraph/paragraph.css-template";
 // End: import templates
 
 export interface Components {
@@ -261,6 +265,7 @@ export interface Components {
   formGroupStatic: FormGroupStatic<TemplateResult>;
   formGroupTextarea: FormGroupTextarea<TemplateResult>;
   header: Header;
+  heading: Heading<TemplateResult>;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<TemplateResult | string>;
   icon: Icon;
@@ -288,6 +293,7 @@ export interface Components {
   paragraph: Paragraph;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
+  projectItem: ProjectItem<TemplateResult | string>;
   renvooi: Renvooi;
   responsiveElement: ResponsiveElement<TemplateResult>;
   richContent: RichContent<TemplateResult>;
@@ -373,6 +379,7 @@ templateContainer.add(corePagination);
 templateContainer.add(corePanel);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
+templateContainer.add(coreProjectItem);
 templateContainer.add(coreRenvooi);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
@@ -420,6 +427,7 @@ templateContainer.add(cssFormGroupSearchBar);
 templateContainer.add(cssFormGroupSelect);
 templateContainer.add(cssFormGroupStatic);
 templateContainer.add(cssFormGroupTextarea);
+templateContainer.add(cssHeading);
 templateContainer.add(cssHighlightBox);
 templateContainer.add(cssIcon);
 templateContainer.add(cssImage);

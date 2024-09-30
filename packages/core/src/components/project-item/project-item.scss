@@ -1,0 +1,80 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+
+:host {
+  display: block;
+
+  padding: units.$u2;
+
+  border: 1px solid colors.$grijs-20;
+  border-radius: calc(units.$u1 / 2);
+}
+
+@include utilities.box-sizing();
+
+::slotted(dl[slot="progress"]),
+::slotted(dl[slot="status"]) {
+  --_dt-dl-margin-block-end: 0;
+  --_dt-dl-before-display: none;
+  --_dt-dl-dt-font-weight: normal;
+  --_dt-dl-dd-margin-block-start: 0;
+  --_dt-dl-dd-margin-inline-start: units.$u1;
+  --_dt-dl-dd-padding-inline-start: 0;
+  --_dt-dl-dt-inline-size: auto;
+  --_dt-dl-dd-last-margin-block-end: 0;
+
+  --_dt-mark-bg-color: none;
+  --_dt-mark-padding-block: 0;
+  --_dt-mark-color: inherit;
+  --_dt-mark-font-weight: 600;
+
+  display: flex !important;
+  flex-wrap: wrap;
+  column-gap: units.$u2;
+}
+
+::slotted([slot="status"]) {
+  --_dt-dl-font-size: 0.875rem;
+}
+
+::slotted([slot="title"]) {
+  margin-block: 0 !important;
+  font-size: 1.25rem !important;
+}
+
+::slotted([slot="actions"]) {
+  display: flex;
+}
+
+.project-item-header {
+  display: flex;
+  gap: units.$u2;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+  margin-block-end: units.$u2;
+}
+
+.project-item-title {
+  display: flex;
+  gap: units.$u2;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.project-item-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.project-item-info {
+  display: flex;
+  gap: units.$u2;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}

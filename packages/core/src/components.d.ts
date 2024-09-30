@@ -991,6 +991,12 @@ export namespace Components {
          */
         "size"?: "small" | "medium" | "large";
     }
+    interface DsoProjectItem {
+        /**
+          * The label of the project item.
+         */
+        "label"?: string;
+    }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
      */
@@ -1998,6 +2004,12 @@ declare global {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
     };
+    interface HTMLDsoProjectItemElement extends Components.DsoProjectItem, HTMLStencilElement {
+    }
+    var HTMLDsoProjectItemElement: {
+        prototype: HTMLDsoProjectItemElement;
+        new (): HTMLDsoProjectItemElement;
+    };
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
      */
@@ -2223,6 +2235,7 @@ declare global {
         "dso-panel": HTMLDsoPanelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
+        "dso-project-item": HTMLDsoProjectItemElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
@@ -3347,6 +3360,12 @@ declare namespace LocalJSX {
          */
         "size"?: "small" | "medium" | "large";
     }
+    interface DsoProjectItem {
+        /**
+          * The label of the project item.
+         */
+        "label"?: string;
+    }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
      */
@@ -3685,6 +3704,7 @@ declare namespace LocalJSX {
         "dso-panel": DsoPanel;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
+        "dso-project-item": DsoProjectItem;
         "dso-renvooi": DsoRenvooi;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
@@ -3751,6 +3771,7 @@ declare module "@stencil/core" {
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */

@@ -10,7 +10,7 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
   component: "definitionList",
   implementation: "html-css",
   template: ({ listTemplate }) =>
-    function definitionListTemplate({ modifier, definitions }) {
+    function definitionListTemplate({ modifier, definitions, slotName }) {
       function definitionTemplate({ term, descriptions }: Definition<TemplateResult>) {
         return html`
           <dt>${term}</dt>
@@ -33,12 +33,20 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateR
       }
 
       return html`
-        <dl class=${ifDefined(modifier)}>
-          ${definitions.map((definition) =>
-            modifier?.split(" ").includes("dso-columns")
-              ? html`<div>${definitionTemplate(definition)}</div>`
-              : definitionTemplate(definition),
-          )}
+        <dl class=${ifDefined(modifier)} slot=${ifDefined(slotName)}>
+          ${definitions.map((definition) => {
+            const m = modifier?.split(" ");
+
+            if (m?.includes("dso-columns")) {
+              return html`<div>${definitionTemplate(definition)}</div>`;
+            }
+
+            if (m?.includes("dso-grouped")) {
+              return html`<div class="dso-group">${definitionTemplate(definition)}</div>`;
+            }
+
+            return definitionTemplate(definition);
+          })}
         </dl>
       `;
     },

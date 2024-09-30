@@ -1,7 +1,7 @@
 @use "sass:math";
 
 @use "../../variables/units";
-@use "../headings";
+@use "../heading";
 
 @use "form.variables" as css-form-variables;
 @use "form.mixins" as css-form-mixins;
@@ -23,7 +23,7 @@
       h4,
       h5,
       h6 {
-        @include headings.h3();
+        @include heading.h3();
       }
 
       h1,
