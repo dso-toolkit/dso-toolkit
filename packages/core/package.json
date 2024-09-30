@@ -25,7 +25,7 @@
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
-    "focus-trap": "^7.5.4",
+    "focus-trap": "^7.6.0",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
     "uuid": "^10.0.0"
@@ -41,15 +41,15 @@
     "@types/lodash.samplesize": "^4.2.9",
     "@types/sass": "^1.45.0",
     "@types/uuid": "^10.0.0",
-    "concurrently": "^8.2.2",
-    "debounce": "^2.1.0",
+    "concurrently": "^9.0.1",
+    "debounce": "^2.1.1",
     "lodash.kebabcase": "^4.1.1",
     "lodash.random": "^3.2.0",
     "lodash.samplesize": "^4.2.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "tsx": "^4.19.0",
+    "tsx": "^4.19.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
