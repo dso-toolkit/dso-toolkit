@@ -80,6 +80,7 @@ examplePageFactory(
             ${cardListTemplate({
               cards: [
                 {
+                  href: "#",
                   label: "Oprit verleggen",
                   content: html`<dl>
                       <dt>Soort verzoek:</dt>
@@ -88,7 +89,6 @@ examplePageFactory(
                       <dd>Bouwactiviteit (omgevingsplan)</dd>
                       <dd>Stikstofemissie bij het uitvoeren van bouw- of sloopwerkzaamheden</dd>
                     </dl>
-
                     ${buttonRowTemplate({
                       buttons: [
                         {
@@ -120,7 +120,6 @@ examplePageFactory(
               cards: [
                 {
                   href: "#",
-                  clickable: true,
                   label: "Boom kappen op de oude manier",
                   content: html`<dl>
                     <dt>Soort verzoek:</dt>

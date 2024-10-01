@@ -17,48 +17,22 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     toggletipTemplate,
     slideToggleTemplate,
   }) =>
-    function cardTemplate({
-      label,
-      selectable,
-      content,
-      interactions,
-      image,
-      imageAlt,
-      imageShape = "normal",
-      clickable,
-      href,
-      mode,
-      dsoCardClicked,
-    }) {
+    function cardTemplate({ label, selectable, content, interactions, href, mode, dsoCardClicked }) {
       return html`
         <div
           class="dso-card ${classMap({
             "dso-is-selectable": !!selectable,
-            "dso-has-image": !!image,
-            "dso-not-clickable": !clickable,
-            "dso-wide-image": image !== undefined && image !== "" && imageShape === "wide",
           })}"
           @click=${ifDefined(dsoCardClicked)}
         >
           ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
-          ${image && imageAlt
-            ? html`<div class="dso-card-image">
-                <img slot="image" src=${image} alt=${imageAlt} />
-              </div>`
-            : nothing}
           <div class="dso-card-heading">
             ${href
               ? html`<a href=${ifDefined(href)} @click=${(e: MouseEvent) => e.preventDefault()}>
                   <h2>
                     <span id="card-title">${label}</span>
                     ${iconTemplate({
-                      icon: clickable
-                        ? "chevron-right"
-                        : mode === "extern"
-                          ? "external-link"
-                          : mode === "download"
-                            ? "download"
-                            : "chevron-right",
+                      icon: mode === "extern" ? "external-link" : mode === "download" ? "download" : "chevron-right",
                     })}
                   </h2>
                 </a>`

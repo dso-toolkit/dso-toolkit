@@ -6,19 +6,15 @@ import { AnchorArgs } from "../anchor/anchor.args.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
-import { Card, imageShapes } from "./card.models.js";
+import { Card } from "./card.models.js";
 import { SlideToggle } from "../slide-toggle";
 
 export interface CardArgs {
   label: string;
-  href?: string;
+  href: string;
   mode?: AnchorArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
-  image: string | undefined;
-  imageAlt: string | undefined;
-  imageShape: (typeof imageShapes)[number];
-  clickable: boolean;
   dsoCardClicked?: HandlerFunction;
 }
 
@@ -29,9 +25,7 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
     },
   },
   href: {
-    control: {
-      type: "text",
-    },
+    ...noControl,
   },
   mode: {
     options: [undefined, "download", "extern"],
@@ -45,39 +39,17 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   interactions: {
     ...noControl,
   },
-  image: {
-    ...noControl,
-  },
-  imageAlt: {
-    ...noControl,
-  },
-  imageShape: {
-    options: imageShapes,
-    control: {
-      type: "select",
-    },
-    if: { arg: "image" },
-  },
   dsoCardClicked: {
     ...noControl,
     action: "dsoCardClicked",
   },
-  clickable: {
-    control: {
-      type: "boolean",
-    },
-  },
 };
 
 export const cardContent: CardArgs = {
-  clickable: false,
-  imageShape: "normal",
   interactions: [],
   label: "Omgevingsplan Nieuwegein",
   href: "#",
   selectable: false,
-  image: undefined,
-  imageAlt: undefined,
 };
 
 export const cardContentButton: CardArgs = {
@@ -134,12 +106,8 @@ export function cardArgsMapper<TemplateFnReturnType>(
 ): Card<TemplateFnReturnType> {
   return {
     label: a.label,
-    href: a.href || undefined,
+    href: a.href,
     mode: a.mode || undefined,
-    clickable: a.clickable,
-    image: a.image,
-    imageAlt: a.imageAlt,
-    imageShape: a.imageShape,
     interactions: a.interactions,
     selectable: a.selectable
       ? {

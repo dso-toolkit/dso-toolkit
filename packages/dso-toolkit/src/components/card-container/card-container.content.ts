@@ -28,7 +28,6 @@ export const cardContainerContent: { cards: Card<unknown>[] } = {
     {
       label: "Werkzaamheden",
       href: "#",
-      image: "images/rectangle1.png",
     },
     {
       label: "Waardelijsten",

@@ -14,7 +14,7 @@ import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
-import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
+import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -51,7 +51,7 @@ export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
-export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
+export { DsoCardClickedEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -368,18 +368,9 @@ export namespace Components {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
-          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
-         */
-        "clickable": boolean;
-        /**
           * The URL to which the Card heading links.
          */
-        "href"?: string;
-        /**
-          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
-         */
-        "imageShape": ImageShape;
+        "href": string;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
@@ -2587,18 +2578,9 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
-          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
-         */
-        "clickable"?: boolean;
-        /**
           * The URL to which the Card heading links.
          */
-        "href"?: string;
-        /**
-          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
-         */
-        "imageShape"?: ImageShape;
+        "href": string;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
