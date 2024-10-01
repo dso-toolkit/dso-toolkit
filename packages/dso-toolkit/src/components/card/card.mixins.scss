@@ -3,6 +3,8 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../components/button";
 
+@use "card.variables" as card-variables;
+
 %card-grid {
   display: grid;
   grid-template-columns: 1fr minmax(0, 100%);
@@ -13,27 +15,24 @@
   }
 }
 
-%card-grid-addon {
-  grid-row: span 2;
-}
-
 @mixin base() {
   padding-block: units.$u2 units.$u1;
   padding-inline: units.$u2;
   inline-size: 100%;
 
-  &:hover {
+  &:has(.dso-card-heading > a:hover) {
     background-color: colors.$grijs-5;
-    cursor: pointer;
 
-    .dso-card-heading > a {
+    .dso-card-heading > a:hover {
+      color: card-variables.$heading-anchor-hover-color;
       text-decoration: underline;
     }
   }
+  &:focus-within {
+    background-color: colors.$grijs-5;
+  }
 
-  &:not([href]):not([clickable]),
-  &:not([href])[clickable="false"],
-  &.dso-not-clickable {
+  &:not([href]) {
     > h2,
     :not(a) > h2 {
       color: colors.$zwart;
@@ -57,13 +56,7 @@
   }
 
   .dso-card-selectable {
-    @extend %card-grid-addon;
-  }
-
-  .dso-card-image {
-    @extend %card-grid-addon;
-
-    margin-inline-end: units.$u1;
+    grid-row: span 2;
   }
 }
 

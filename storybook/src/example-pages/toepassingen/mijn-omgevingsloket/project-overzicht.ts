@@ -84,7 +84,6 @@ examplePageFactory(
                   cards: [
                     {
                       href: "#",
-                      clickable: true,
                       label: "Boom kappen op de oude manier",
                       interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
