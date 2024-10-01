@@ -12,22 +12,21 @@
 }
 
 dso-card {
-  &[is-selectable],
-  &[has-image] {
+  &[is-selectable] {
     @extend %card-grid;
   }
 
-  a[slot="heading"] {
+  .dso-card-heading a {
     text-decoration: none;
 
     dso-icon:last-child {
       align-self: flex-start;
     }
-  }
 
-  &:hover a[slot="heading"] {
-    color: card-variables.$heading-anchor-hover-color;
-    text-decoration: underline;
+    &:hover {
+      color: card-variables.$heading-anchor-hover-color;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -35,8 +34,7 @@ dso-card {
 dso-card {
   @include card-mixins.base();
 
-  &.dso-is-selectable,
-  &.dso-has-image {
+  &.dso-is-selectable {
     @extend %card-grid;
   }
 
@@ -51,7 +49,7 @@ dso-card {
     margin-block-start: 0;
 
     span {
-      margin-inline-end: units.$u1;
+      margin-inline-end: units.$u1 * 0.5;
 
       + dso-icon,
       + svg.di {
@@ -74,7 +72,7 @@ dso-card {
       margin-block-start: 0;
 
       span {
-        margin-inline-end: units.$u1;
+        margin-inline-end: units.$u1 * 0.5;
 
         + dso-icon,
         + svg.di {
@@ -101,11 +99,6 @@ dso-card {
     }
   }
 
-  *[slot="addon"] {
-    margin-inline-start: units.$u2;
-    margin-inline-end: units.$u1;
-  }
-
   .dso-rich-content.dso-rich-content {
     :first-child {
       margin-block-start: 0;
@@ -115,19 +108,6 @@ dso-card {
   .dso-selectable,
   dso-selectable {
     @include card-mixins.selectable();
-  }
-
-  img {
-    display: flex;
-    block-size: units.$u3;
-    inline-size: units.$u3;
-    max-inline-size: unset;
-  }
-
-  &.dso-wide-image img,
-  &[image-shape="wide"] img {
-    block-size: 26px;
-    inline-size: 30px;
   }
 }
 
