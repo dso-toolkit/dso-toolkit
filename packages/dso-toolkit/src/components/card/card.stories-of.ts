@@ -1,5 +1,4 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-import { noControl } from "../../storybook/index.js";
 
 import {
   CardArgs,
@@ -20,16 +19,12 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 type CardStory = StoryObj<CardArgs, Renderer>;
 
 interface CardStories {
-  Static: CardStory;
   Href: CardStory;
   HrefWithButton: CardStory;
-  HrefWithImageAndButton: CardStory;
-  HrefWithWideImageAndButton: CardStory;
   HrefWithToggletip: CardStory;
   HrefWithLabel: CardStory;
   HrefAndSelectableWithButton: CardStory;
   HrefWithSlidetoggle: CardStory;
-  ClickableLegacy?: CardStory;
 }
 
 export interface CardTemplates<TemplateFnReturnType> {
@@ -64,26 +59,6 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
 }: CardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardStories {
   return {
-    Static: {
-      argTypes: {
-        clickable: {
-          ...noControl,
-        },
-        href: {
-          ...noControl,
-        },
-        mode: {
-          ...noControl,
-        },
-      },
-      args: {
-        ...cardContent,
-        href: undefined,
-      },
-      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
-        cardTemplate(cardArgsMapper(args, content)),
-      ),
-    },
     Href: {
       args: cardContent,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
@@ -105,16 +80,6 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
-    HrefWithImageAndButton: {
-      args: {
-        ...cardContentButton,
-        image: "images/rectangle1.png",
-        imageAlt: "Rechthoek",
-      },
-      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
-        cardTemplate(cardArgsMapper(args, content)),
-      ),
-    },
     HrefWithLabel: {
       args: {
         ...cardContentLabel,
@@ -131,26 +96,6 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
     },
     HrefWithToggletip: {
       args: cardContentToggletip,
-      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
-        cardTemplate(cardArgsMapper(args, content)),
-      ),
-    },
-    HrefWithWideImageAndButton: {
-      args: {
-        ...cardContentButton,
-        image: "images/rectangle1.png",
-        imageAlt: "Rechthoek",
-        imageShape: "wide",
-      },
-      render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
-        cardTemplate(cardArgsMapper(args, content)),
-      ),
-    },
-    ClickableLegacy: {
-      args: {
-        ...cardContentButton,
-        clickable: true,
-      },
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),

@@ -21,20 +21,14 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       selectable,
       content,
       interactions,
-      image,
-      imageAlt,
-      imageShape,
-      clickable = false,
       href,
       mode,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
         <dso-card
-          href=${ifDefined((!clickable && href) || undefined)}
+          href=${ifDefined(href || undefined)}
           mode=${ifDefined((href && mode) || undefined)}
-          clickable=${clickable}
-          image-shape=${ifDefined(imageShape)}
           @dsoCardClicked=${(e: DsoCardCustomEvent<DsoCardClickedEvent>) => {
             if (!e.detail.isModifiedEvent) {
               e.detail.originalEvent?.preventDefault();
@@ -44,17 +38,9 @@ export const coreCard: ComponentImplementation<Card<never>> = {
           }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}
-          ${image && imageAlt ? html`<img slot="image" src=${image} alt=${imageAlt} />` : nothing}
-          ${clickable && href
-            ? html`<a href=${href} slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
-                <h2>
-                  <span id="card-title">${label}</span>
-                  <dso-icon icon="chevron-right"></dso-icon>
-                </h2>
-              </a>`
-            : html`<h2 slot="heading">
-                <span id="card-title">${label}</span>
-              </h2>`}
+          ${html`<h2 slot="heading">
+            <span id="card-title">${label}</span>
+          </h2>`}
           ${interactions && interactions.length > 0
             ? html`<div slot="interactions">
                 ${interactions.map(

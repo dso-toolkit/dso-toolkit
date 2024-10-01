@@ -12,38 +12,17 @@ const meta: Meta<CardArgs> = {
 
 export default meta;
 
-const {
-  Static,
-  Href,
-  HrefWithButton,
-  HrefWithImageAndButton,
-  HrefWithWideImageAndButton,
-  HrefWithSlidetoggle,
-  HrefWithToggletip,
-  HrefWithLabel,
-  HrefAndSelectableWithButton,
-  ClickableLegacy,
-} = cardStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { cardTemplate } = templates;
+const { Href, HrefWithButton, HrefWithSlidetoggle, HrefWithToggletip, HrefWithLabel, HrefAndSelectableWithButton } =
+  cardStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { cardTemplate } = templates;
 
-    return {
-      cardTemplate,
-      content,
-    };
-  },
-});
+      return {
+        cardTemplate,
+        content,
+      };
+    },
+  });
 
-export {
-  Static,
-  Href,
-  HrefWithButton,
-  HrefWithImageAndButton,
-  HrefWithWideImageAndButton,
-  HrefWithSlidetoggle,
-  HrefWithToggletip,
-  HrefWithLabel,
-  HrefAndSelectableWithButton,
-  ClickableLegacy,
-};
+export { Href, HrefWithButton, HrefWithSlidetoggle, HrefWithToggletip, HrefWithLabel, HrefAndSelectableWithButton };

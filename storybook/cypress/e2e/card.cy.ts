@@ -50,40 +50,9 @@ describe("Card", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--selectable");
   });
 
-  it("should not call events when clickable is false", () => {
-    cy.get("dso-card")
-      .invoke("attr", "clickable", "false")
-      .realClick()
-      .get("@dsoCardClickedListener")
-      .should("not.have.been.called");
-  });
-
-  it("should have correct image dimensions", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--href-with-image")
-      .get("dso-card")
-      .find("img[slot='image']")
-      .should("have.css", "height", "24px")
-      .and("have.css", "width", "24px")
-      .get("dso-card")
-      .invoke("attr", "image-shape", "wide")
-      .find("img[slot='image']")
-      .should("have.css", "height", "26px")
-      .and("have.css", "width", "30px");
-  });
-
-  it("creates anchor when href is set", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
-      .get("dso-card")
-      .invoke("prop", "href", "#")
-      .shadow()
-      .find("a.heading-anchor")
-      .should("have.attr", "href", "#");
-  });
-
   it("creates anchor to external link when href is set and mode is set to 'extern'", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--href")
       .get("dso-card")
-      .invoke("prop", "href", "#")
       .invoke("prop", "mode", "extern")
       .shadow()
       .find("a.heading-anchor")
@@ -101,9 +70,8 @@ describe("Card", () => {
   });
 
   it("creates anchor to download link when href is set and mode is set to 'download'", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--static")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--href")
       .get("dso-card")
-      .invoke("prop", "href", "#")
       .invoke("prop", "mode", "download")
       .shadow()
       .find("a.heading-anchor")
