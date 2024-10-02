@@ -3,6 +3,24 @@ const urlOverlayClosed = `${url}&args=overlayOpen:false`;
 const urlOverlayOpened = `${url}&args=overlayOpen:true`;
 
 describe("Viewer Grid", () => {
+  it("matches snapshots", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
+
+    cy.get("dso-viewer-grid.hydrated")
+      .as("viewer-grid")
+      .invoke("attr", "main-size", "medium")
+      .matchImageSnapshot(`${Cypress.currentTest.title}" -- VRK`);
+
+    cy.get("@viewer-grid")
+      .invoke("attr", "mode", "vdk")
+      .invoke("attr", "main-size", "small")
+      .invoke("attr", "main-panel-expanded", "")
+      .invoke("attr", "document-panel-open", "")
+      .invoke("attr", "document-panel-size", "small")
+      .invoke("attr", "document-panel-open", "")
+      .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK`);
+  });
+
   it("should be accessible (overlay closed)", () => {
     cy.visit(urlOverlayClosed);
     cy.injectAxe();
@@ -17,38 +35,38 @@ describe("Viewer Grid", () => {
 
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay").should("exist").and("not.have.attr", "open");
     cy.get("dso-viewer-grid.hydrated").matchImageSnapshot();
   });
 
   it("should show overlay", () => {
     cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay").should("exist").and("have.attr", "open");
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay").should("exist").and("have.attr", "open");
     cy.get("dso-viewer-grid.hydrated").matchImageSnapshot();
   });
 
   it("should emit closeOverlay", () => {
     cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").then((c) => {
+    cy.get("dso-viewer-grid.hydrated").then((c) => {
       c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
     });
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").first().click();
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay-close-button").first().click();
     cy.get("@closeOverlay").should("have.been.calledOnce");
   });
 
   it("should focus close button on overlay open", () => {
     cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").should("be.focused");
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".overlay-close-button").should("be.focused");
   });
 
   it("should emit closeOverlay on escape", () => {
     cy.visit(url)
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .then((c) => {
         c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
       })
       .invoke("attr", "overlay-open", "")
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .shadow()
       .find(".overlay:focus-within")
       .should("exist")
@@ -61,11 +79,15 @@ describe("Viewer Grid", () => {
   it("should toggle filterpanel", () => {
     cy.visit(url);
 
-    cy.get("dso-viewer-grid").shadow().find("#filterpanel").should("be.not.visible");
+    cy.get("dso-viewer-grid.hydrated").shadow().find("#filterpanel").should("be.not.visible");
 
-    cy.get("dso-viewer-grid").invoke("attr", "filterpanel-open", "").shadow().find("#filterpanel").should("be.visible");
+    cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filterpanel-open", "")
+      .shadow()
+      .find("#filterpanel")
+      .should("be.visible");
 
-    cy.get("dso-viewer-grid")
+    cy.get("dso-viewer-grid.hydrated")
       .invoke("attr", "filterpanel-open", null)
       .shadow()
       .find("#filterpanel")
@@ -85,11 +107,11 @@ describe("Viewer Grid", () => {
 
     const eventListener = cy.stub();
 
-    cy.get("dso-viewer-grid").then((e) =>
+    cy.get("dso-viewer-grid.hydrated").then((e) =>
       e.on("filterpanelCancel", eventListener).on("filterpanelApply", eventListener),
     );
 
-    cy.get("dso-viewer-grid").invoke("attr", "filterpanel-open", "");
+    cy.get("dso-viewer-grid.hydrated").invoke("attr", "filterpanel-open", "");
 
     cy.get('dso-viewer-grid [slot="map"]').click("right", { force: true });
 
@@ -122,7 +144,7 @@ describe("Viewer Grid", () => {
     const sizeHandler = cy.stub();
     const animationEndHandler = cy.stub();
 
-    cy.get("dso-viewer-grid")
+    cy.get("dso-viewer-grid.hydrated")
       .then((e) => {
         e.on("dsoMainSizeChange", sizeHandler);
         e.on("dsoMainSizeChangeAnimationEnd", animationEndHandler);
@@ -156,7 +178,7 @@ describe("Viewer Grid", () => {
   it('should say "Breedte hoofdpaneel: [smal / middel / breed]" upon size change', () => {
     cy.visit(url);
 
-    cy.get("dso-viewer-grid")
+    cy.get("dso-viewer-grid.hydrated")
       .shadow()
       .as("root")
       .find(".sizing-buttons > span.sr-only")
@@ -181,7 +203,7 @@ describe("Viewer Grid", () => {
     cy.visit(url);
 
     cy.viewport(400, 600)
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .then((e) => e.on("dsoActiveTabSwitch", cy.stub().as("dsoActiveTabSwitch")))
       .invoke("attr", "active-tab", "main")
       .shadow()
@@ -213,9 +235,9 @@ describe("Viewer Grid", () => {
       .and("have.been.calledWith", Cypress.sinon.match.object)
       .its("firstCall.args.0.detail")
       .should("deep.include", { tab: "map" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "active-tab", "map")
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .shadow()
       .find(".dso-main-panel")
       .should("not.exist")
@@ -228,11 +250,11 @@ describe("Viewer Grid", () => {
   it("should show VDK view", () => {
     cy.visit(url);
 
-    cy.get("dso-viewer-grid")
+    cy.get("dso-viewer-grid.hydrated")
       .invoke("attr", "mode", "vdk")
       .invoke("attr", "main-size", "small")
       .invoke("attr", "document-panel-size", "small")
-      .invoke("attr", "document-panel-open", "true")
+      .invoke("attr", "document-panel-open", "")
       .then(($viewerGrid) => {
         $viewerGrid
           .on("dsoDocumentPanelSizeChange", cy.stub().as("dsoDocumentPanelSizeChange"))
@@ -243,8 +265,8 @@ describe("Viewer Grid", () => {
       .as("viewerGrid")
       .find(".dso-document-panel")
       .should("exist")
-      .get("dso-viewer-grid")
-      .invoke("attr", "main-panel-expanded", "true")
+      .get("dso-viewer-grid.hydrated")
+      .invoke("attr", "main-panel-expanded", "")
       .get("@viewerGrid")
       .find(".dso-main-panel .sizing-buttons")
       .should("not.exist")
@@ -257,8 +279,8 @@ describe("Viewer Grid", () => {
       .and("have.been.calledWith", Cypress.sinon.match.object)
       .its("firstCall.args.0.detail")
       .should("deep.include", { hide: true })
-      .get("dso-viewer-grid")
-      .invoke("attr", "main-panel-hidden", "true")
+      .get("dso-viewer-grid.hydrated")
+      .invoke("attr", "main-panel-hidden", "")
       .get("@viewerGrid")
       .find(".dso-main-panel .content")
       .should("have.class", "invisible");
@@ -266,7 +288,7 @@ describe("Viewer Grid", () => {
 
   it("should emit correct currentSize and nextSize", () => {
     cy.visit(url)
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .then(($viewerGrid) =>
         $viewerGrid
           .on("dsoMainSizeChange", cy.stub().as("mainSizeChange"))
@@ -274,10 +296,10 @@ describe("Viewer Grid", () => {
       )
       .invoke("attr", "main-size")
       .should("equal", "large")
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "mode")
       .should("equal", "vrk")
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .shadow()
       .as("shadowRoot")
       .find(".dso-main-panel .shrink")
@@ -286,7 +308,7 @@ describe("Viewer Grid", () => {
       .get("@mainSizeChange")
       .its("lastCall.args.0.detail")
       .should("deep.equal", { currentSize: "large", nextSize: "medium" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "main-size", "medium")
       .get("@mainShrinkButton")
       .click()
@@ -300,17 +322,17 @@ describe("Viewer Grid", () => {
       .get("@mainSizeChange")
       .its("lastCall.args.0.detail")
       .should("deep.equal", { currentSize: "medium", nextSize: "large" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "main-size", "small")
       .get("@mainExpandButton")
       .click()
       .get("@mainSizeChange")
       .its("lastCall.args.0.detail")
       .should("deep.equal", { currentSize: "small", nextSize: "medium" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "document-panel-size")
       .should("equal", "large")
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "mode", "vdk")
       .invoke("attr", "document-panel-open", "")
       .get("@shadowRoot")
@@ -320,7 +342,7 @@ describe("Viewer Grid", () => {
       .get("@documentPanelSizeChange")
       .its("lastCall.args.0.detail")
       .should("deep.equal", { currentSize: "large", nextSize: "medium" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "document-panel-size", "medium")
       .get("@documentPanelShrinkButton")
       .click()
@@ -334,7 +356,7 @@ describe("Viewer Grid", () => {
       .get("@documentPanelSizeChange")
       .its("lastCall.args.0.detail")
       .should("deep.equal", { currentSize: "medium", nextSize: "large" })
-      .get("dso-viewer-grid")
+      .get("dso-viewer-grid.hydrated")
       .invoke("attr", "document-panel-size", "small")
       .get("@documentPanelExpandButton")
       .click()
@@ -347,9 +369,9 @@ describe("Viewer Grid", () => {
 function filterPanelEventTest(eventName: string, buttonSelector: string) {
   cy.visit(url);
 
-  cy.get("dso-viewer-grid").then((e) => e.on(eventName, cy.stub().as("listener")));
+  cy.get("dso-viewer-grid.hydrated").then((e) => e.on(eventName, cy.stub().as("listener")));
 
-  cy.get("dso-viewer-grid")
+  cy.get("dso-viewer-grid.hydrated")
     .invoke("attr", "filterpanel-open", "")
     .shadow()
     .find(`#filterpanel ${buttonSelector}`)
@@ -365,11 +387,11 @@ function filterPanelEventTest(eventName: string, buttonSelector: string) {
 }
 
 function shrink() {
-  cy.get("dso-viewer-grid")
+  cy.get("dso-viewer-grid.hydrated")
     .shadow()
     .find(".shrink")
     .click()
-    .get("dso-viewer-grid")
+    .get("dso-viewer-grid.hydrated")
     .then(($viewerGrid) => {
       const currentSize = $viewerGrid.attr("main-size");
 
@@ -378,11 +400,11 @@ function shrink() {
 }
 
 function expand() {
-  cy.get("dso-viewer-grid")
+  cy.get("dso-viewer-grid.hydrated")
     .shadow()
     .find(".expand")
     .click()
-    .get("dso-viewer-grid")
+    .get("dso-viewer-grid.hydrated")
     .then(($viewerGrid) => {
       const currentSize = $viewerGrid.attr("main-size");
 
@@ -391,7 +413,7 @@ function expand() {
 }
 
 function shouldHavePhrase(size: string) {
-  cy.get("dso-viewer-grid")
+  cy.get("dso-viewer-grid.hydrated")
     .shadow()
     .find(".sizing-buttons > span.sr-only")
     .should("have.text", `Breedte hoofdpaneel: ${size}`);

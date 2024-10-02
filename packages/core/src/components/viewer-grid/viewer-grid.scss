@@ -147,14 +147,17 @@ button {
     @include button.secondary($modifiers: false, $icon-only: true);
     @include button.map-focus();
 
-    border: 0;
-    padding: 8px;
-    border-radius: 0;
-    box-shadow: 0 1px units.$u1 * 0.5 0 rgba(0, 0, 0, 0.4);
-    flex: 0 0 100%;
-    block-size: core-viewer-grid-variables.$resize-button-size;
-    min-inline-size: auto;
-    inline-size: core-viewer-grid-variables.$resize-button-size;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border: 0;
+      padding: 8px;
+      border-radius: 0;
+      box-shadow: 0 1px units.$u1 * 0.5 0 rgba(0, 0, 0, 0.4);
+      flex: 0 0 100%;
+      block-size: core-viewer-grid-variables.$resize-button-size;
+      min-inline-size: auto;
+      inline-size: core-viewer-grid-variables.$resize-button-size;
+    }
 
     &:hover {
       dso-icon {
