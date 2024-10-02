@@ -25,6 +25,11 @@
   :host(:first-child) {
     margin-block-start: 0;
   }
+
+  button {
+    inline-size: 100%;
+    text-align: start;
+  }
 }
 
 :host([active]:not([active="false"])) {

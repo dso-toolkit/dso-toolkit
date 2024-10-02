@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Tabs: Tab met Button op smalle viewport is niet volledige breedte ([#2820](https://github.com/dso-toolkit/dso-toolkit/issues/2820))
+
 ## 🤖 Release 65.0.0 - 2024-09-30
 
 Zie de blogpost op https://www.dso-toolkit.nl voor meer informatie over de breaking changes in deze release.
