@@ -19,7 +19,7 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 type CardStory = StoryObj<CardArgs, Renderer>;
 
 interface CardStories {
-  Basic: CardStory;
+  Default: CardStory;
   WithButton: CardStory;
   WithToggletip: CardStory;
   WithLabel: CardStory;
@@ -59,7 +59,7 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
 }: CardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardStories {
   return {
-    Basic: {
+    Default: {
       args: cardContent,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),

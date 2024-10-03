@@ -14,7 +14,7 @@ import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
-import { DsoCardClickedEvent } from "./components/card/card.interfaces";
+import { DsoCardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -51,7 +51,7 @@ export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
-export { DsoCardClickedEvent } from "./components/card/card.interfaces";
+export { DsoCardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -1568,7 +1568,7 @@ declare global {
         new (): HTMLDsoBannerElement;
     };
     interface HTMLDsoCardElementEventMap {
-        "dsoCardClicked": DsoCardClickedEvent;
+        "dsoCardClick": DsoCardClickEvent;
     }
     interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoCardElementEventMap>(type: K, listener: (this: HTMLDsoCardElement, ev: DsoCardCustomEvent<HTMLDsoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2586,9 +2586,9 @@ declare namespace LocalJSX {
          */
         "mode"?: string;
         /**
-          * Emitted when the Card is clickable and the user clicked the Card.
+          * Emitted when the Card heading is clicked.
          */
-        "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;
+        "onDsoCardClick"?: (event: DsoCardCustomEvent<DsoCardClickEvent>) => void;
     }
     interface DsoCardContainer {
         /**

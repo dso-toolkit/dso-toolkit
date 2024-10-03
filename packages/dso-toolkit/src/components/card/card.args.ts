@@ -15,7 +15,7 @@ export interface CardArgs {
   mode?: AnchorArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
-  dsoCardClicked?: HandlerFunction;
+  dsoCardClick?: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {
@@ -25,7 +25,9 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
     },
   },
   href: {
-    ...noControl,
+    control: {
+      type: "text",
+    },
   },
   mode: {
     options: [undefined, "download", "extern"],
@@ -39,9 +41,9 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   interactions: {
     ...noControl,
   },
-  dsoCardClicked: {
+  dsoCardClick: {
     ...noControl,
-    action: "dsoCardClicked",
+    action: "dsoCardClick",
   },
 };
 
@@ -119,6 +121,6 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
-    dsoCardClicked: (e) => a.dsoCardClicked?.(e.detail),
+    dsoCardClick: (e) => a.dsoCardClick?.(e.detail),
   };
 }
