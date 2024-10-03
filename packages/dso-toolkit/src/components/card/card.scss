@@ -111,6 +111,12 @@ dso-card {
   }
 }
 
+.dso-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+}
+
 .dso-card-interactions,
 [slot="interactions"] {
   @include card-mixins.interactions();

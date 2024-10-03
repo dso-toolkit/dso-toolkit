@@ -6,40 +6,24 @@
 @use "card.variables" as card-variables;
 
 %card-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 100%);
+  .dso-card-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
 
-  .dso-card-heading,
-  .dso-card-content {
-    grid-column: 2 /-1;
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
   }
 }
 
 @mixin base() {
-  padding-block: units.$u2 units.$u1;
-  padding-inline: units.$u2;
-  inline-size: 100%;
-
   &:has(.dso-card-heading > a:hover) {
     background-color: colors.$grijs-5;
 
     .dso-card-heading > a:hover {
       color: card-variables.$heading-anchor-hover-color;
       text-decoration: underline;
-    }
-  }
-  &:focus-within {
-    background-color: colors.$grijs-5;
-  }
-
-  &:not([href]) {
-    > h2,
-    :not(a) > h2 {
-      color: colors.$zwart;
-    }
-
-    &:hover {
-      cursor: initial;
     }
   }
 }
@@ -55,8 +39,10 @@
     }
   }
 
-  .dso-card-selectable {
-    grid-row: span 2;
+  .dso-card-container {
+    .dso-card-selectable {
+      grid-row: span 2;
+    }
   }
 }
 

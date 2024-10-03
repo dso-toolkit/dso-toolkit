@@ -12,9 +12,9 @@ export interface Card<TemplateFnReturnType> {
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
-  dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
+  dsoCardClick?: (e: CustomEvent<DsoCardClickEvent>) => void;
 }
 
-export interface DsoCardClickedEvent {
+export interface DsoCardClickEvent {
   originalEvent?: MouseEvent;
 }

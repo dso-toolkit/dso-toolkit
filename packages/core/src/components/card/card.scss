@@ -7,13 +7,22 @@
 @include utilities.box-sizing();
 
 :host {
-  @include card.root();
-
   display: block;
+
+  .dso-card-container {
+    @include card.root();
+
+    padding-block: units.$u2 units.$u1;
+    padding-inline: units.$u2;
+    inline-size: 100%;
+  }
 }
 
-:host(:focus-within) {
-  background-color: colors.$grijs-5;
+.dso-card-container {
+  &:has(.dso-card-heading a:hover),
+  &:has(.dso-card-heading a:focus) {
+    background-color: card.$background-color-hover;
+  }
 }
 
 .dso-card-heading a {
