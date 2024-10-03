@@ -145,7 +145,6 @@ button {
 
   button {
     @include button.secondary($modifiers: false, $icon-only: true);
-    @include button.map-focus();
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
@@ -163,6 +162,10 @@ button {
       dso-icon {
         color: colors.$wit;
       }
+    }
+
+    &:focus-visible {
+      outline-offset: -1px;
     }
   }
 }

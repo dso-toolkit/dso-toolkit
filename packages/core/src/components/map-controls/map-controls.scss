@@ -61,23 +61,28 @@ button {
 
   button {
     @include button.secondary($modifiers: false, $icon-only: true);
-    @include button.map-focus();
 
-    border: 0;
-    padding: 8px;
-    border-radius: 0;
-    border-start-start-radius: 4px;
-    border-start-end-radius: 4px;
-    flex: 0 0 100%;
-    block-size: core-map-controls-variables.$zoom-button-size;
-    min-inline-size: auto;
-    inline-size: core-map-controls-variables.$zoom-button-size;
-
-    + button {
+    & {
+      border: 0;
+      padding: 8px;
       border-radius: 0;
-      border-end-start-radius: 4px;
-      border-end-end-radius: 4px;
-      border-block-start: 1px solid colors.$grijs-20;
+      border-start-start-radius: 4px;
+      border-start-end-radius: 4px;
+      flex: 0 0 100%;
+      block-size: core-map-controls-variables.$zoom-button-size;
+      min-inline-size: auto;
+      inline-size: core-map-controls-variables.$zoom-button-size;
+
+      + button {
+        border-radius: 0;
+        border-end-start-radius: 4px;
+        border-end-end-radius: 4px;
+        border-block-start: 1px solid colors.$grijs-20;
+      }
+
+      &:focus-visible {
+        outline-offset: -1px;
+      }
     }
   }
 }
