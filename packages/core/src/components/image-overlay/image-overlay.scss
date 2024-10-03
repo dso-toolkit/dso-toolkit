@@ -84,13 +84,15 @@ button {
 .close {
   @include button.secondary($modifiers: false, $icon-only: true);
 
-  border: 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  min-inline-size: auto;
-  padding: units.$u1;
-  position: absolute;
-  inset-block-start: units.$u2;
-  inset-inline-end: units.$u2;
+  & {
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+    min-inline-size: auto;
+    padding: units.$u1;
+    position: absolute;
+    inset-block-start: units.$u2;
+    inset-inline-end: units.$u2;
+  }
 }
 
 ins.editaction-add {
