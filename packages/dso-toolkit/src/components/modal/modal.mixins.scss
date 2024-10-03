@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @use "../../variables/colors";
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
@@ -27,7 +29,7 @@
   border: 0;
 
   &::backdrop {
-    background-color: fade-out(modal-variables.$backdrop-bg, modal-variables.$backdrop-opacity);
+    background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
   }
 
   .dso-dialog {
