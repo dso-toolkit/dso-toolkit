@@ -3316,7 +3316,6 @@ __metadata:
     babel-loader: "npm:^9.2.1"
     dso-toolkit: "workspace:^"
     http-proxy-middleware: "npm:^3.0.2"
-    iframe-resizer: "npm:^5.3.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
@@ -4309,7 +4308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iframe-resizer/child@npm:5.3.1, @iframe-resizer/child@npm:^5.3.1":
+"@iframe-resizer/child@npm:^5.3.1":
   version: 5.3.1
   resolution: "@iframe-resizer/child@npm:5.3.1"
   checksum: 10/65aa4b5dadc4377e5fefd65f15b7706dc7f6f168a9d203ffef3bdb9cc82a518ed7defa231869d5b726517e3672b3d4495932bf901ef452589e4ced5d3d6a9b96
@@ -4320,24 +4319,6 @@ __metadata:
   version: 5.3.1
   resolution: "@iframe-resizer/core@npm:5.3.1"
   checksum: 10/cc9bd06aa274ae5c7235ec3d740c95471ae805488a22328560b4398c369189afb1f8199f345d62bc50a372a0556ccb1b766c14c6363ca0471d61e153d2b83c36
-  languageName: node
-  linkType: hard
-
-"@iframe-resizer/jquery@npm:5.3.1":
-  version: 5.3.1
-  resolution: "@iframe-resizer/jquery@npm:5.3.1"
-  dependencies:
-    "@iframe-resizer/core": "npm:5.3.1"
-  checksum: 10/95abed6b1d7bf77b0f1f1a932a59d592dc531883872d60417277608bbb94bb505831b43d480e342ec5fdff0539d76e5bffa4700712ac56300a6fab7f53487f82
-  languageName: node
-  linkType: hard
-
-"@iframe-resizer/parent@npm:5.3.1":
-  version: 5.3.1
-  resolution: "@iframe-resizer/parent@npm:5.3.1"
-  dependencies:
-    "@iframe-resizer/core": "npm:5.3.1"
-  checksum: 10/e386cbc59dc6eb68fe5bb03616e621f5ff3f17049049e879b1a7185cd21204e6a8149c3f903daafad518db4194c422ec4eb976f8032e7eef5a4d35bb6098a418
   languageName: node
   linkType: hard
 
@@ -17550,17 +17531,6 @@ __metadata:
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 10/d9f2557a59036f16c282aaeb107832dc957a93d73397d89bbad4eb1130560560eb695060145e8e6b3b498b15ab95510226649a0b8f52ae06583575419fe10fc4
-  languageName: node
-  linkType: hard
-
-"iframe-resizer@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "iframe-resizer@npm:5.3.1"
-  dependencies:
-    "@iframe-resizer/child": "npm:5.3.1"
-    "@iframe-resizer/jquery": "npm:5.3.1"
-    "@iframe-resizer/parent": "npm:5.3.1"
-  checksum: 10/7dbcbf289cd6f6c8f56c7e86541f511e1ae24bab0dc754bdd8fc2f9e3ce3cd5b7d24ca6c5b33c8f9ec5cf86cb841448b9ea493ff89b0f4511b311abc235a80bc
   languageName: node
   linkType: hard
 

@@ -40,7 +40,6 @@
     "babel-loader": "^9.2.1",
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^3.0.2",
-    "iframe-resizer": "^5.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rimraf": "^6.0.1",
