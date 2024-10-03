@@ -3,7 +3,7 @@ import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, P
 import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { DsoCardClickedEvent } from "./card.interfaces";
+import { DsoCardClickEvent } from "./card.interfaces";
 
 @Component({
   tag: "dso-card",
@@ -18,7 +18,7 @@ export class Card implements ComponentInterface {
    * The URL to which the Card heading links.
    */
   @Prop({ reflect: true })
-  href!: string;
+  href!: string | undefined;
 
   /**
    * Display the link as an external link or a download link
@@ -29,10 +29,10 @@ export class Card implements ComponentInterface {
   mode?: string;
 
   /**
-   * Emitted when the Card is clickable and the user clicked the Card.
+   * Emitted when the Card heading is clicked.
    */
   @Event()
-  dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
+  dsoCardClick!: EventEmitter<DsoCardClickEvent>;
 
   private mutationObserver?: MutationObserver;
 
@@ -67,7 +67,7 @@ export class Card implements ComponentInterface {
       }
     }
 
-    return this.dsoCardClicked.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    return this.dsoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get selectableSlottedElement() {
@@ -83,39 +83,40 @@ export class Card implements ComponentInterface {
 
     return (
       <Host is-selectable={isSelectable}>
-        <div class="dso-card-selectable" hidden={!isSelectable}>
-          <slot name="selectable" />
-        </div>
-        <div class="dso-card-heading">
-          {((!this.mode || !["download", "extern"].includes(this.mode)) && (
-            <a href={this.href} class="heading-anchor" onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
-              <slot name="heading" />
-              <dso-icon icon="chevron-right"></dso-icon>
-            </a>
-          )) ||
-            (this.mode === "extern" && (
+        <div class="dso-card-container">
+          <div class="dso-card-selectable" hidden={!isSelectable}>
+            <slot name="selectable" />
+          </div>
+          <div class="dso-card-heading">
+            {(this.mode === "extern" && (
               <a
                 href={this.href}
                 class="heading-anchor"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e: MouseEvent) => this.clickEventHandler(e)}
+                onClick={(e) => this.clickEventHandler(e)}
               >
                 <slot name="heading" />
                 <dso-icon icon="external-link"></dso-icon>
                 <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
               </a>
             )) ||
-            (this.mode === "download" && (
-              <a href={this.href} class="heading-anchor" onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
-                <slot name="heading" />
-                <dso-icon icon="download"></dso-icon>
-              </a>
-            ))}
-          {this.interactionsSlottedElement !== null && <slot name="interactions" />}
-        </div>
-        <div class="dso-card-content">
-          <slot name="content" />
+              (this.mode === "download" && (
+                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                  <slot name="heading" />
+                  <dso-icon icon="download"></dso-icon>
+                </a>
+              )) || (
+                <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+                  <slot name="heading" />
+                  <dso-icon icon="chevron-right"></dso-icon>
+                </a>
+              )}
+            {this.interactionsSlottedElement !== null && <slot name="interactions" />}
+          </div>
+          <div class="dso-card-content">
+            <slot name="content" />
+          </div>
         </div>
       </Host>
     );

@@ -12,15 +12,15 @@ Listener `dsoCardClicked` to enable the navigation to the set `href`
 
 | Property            | Attribute | Description                                                                       | Type                  | Default     |
 | ------------------- | --------- | --------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `href` _(required)_ | `href`    | The URL to which the Card heading links.                                          | `string`              | `undefined` |
+| `href` _(required)_ | `href`    | The URL to which the Card heading links.                                          | `string \| undefined` | `undefined` |
 | `mode`              | `mode`    | Display the link as an external link or a download link  - "download"  - "extern" | `string \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event            | Description                                                       | Type                               |
-| ---------------- | ----------------------------------------------------------------- | ---------------------------------- |
-| `dsoCardClicked` | Emitted when the Card is clickable and the user clicked the Card. | `CustomEvent<DsoCardClickedEvent>` |
+| Event          | Description                               | Type                             |
+| -------------- | ----------------------------------------- | -------------------------------- |
+| `dsoCardClick` | Emitted when the Card heading is clicked. | `CustomEvent<DsoCardClickEvent>` |
 
 
 ## Dependencies

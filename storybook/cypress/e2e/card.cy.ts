@@ -3,7 +3,7 @@ describe("Card", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--with-selectable-and-button")
       .get("dso-card")
       .then(($card) => {
-        $card.on("dsoCardClicked", cy.stub().as("dsoCardClickedListener"));
+        $card.on("dsoCardClick", cy.stub().as("dsoCardClickListener"));
       });
   });
 
@@ -12,28 +12,28 @@ describe("Card", () => {
     cy.dsoCheckA11y("dso-card.hydrated");
   });
 
-  it("should only call dsoCardClicked event when user clicks a title in heading", () => {
+  it("should only call dsoCardClick event when user clicks a title in heading", () => {
     cy.get("dso-card")
       .find("dso-selectable > .dso-selectable-container > .dso-selectable-input-wrapper > input")
       .focus()
       .realClick()
-      .get("@dsoCardClickedListener")
+      .get("@dsoCardClickListener")
       .should("not.have.been.called")
       .get("dso-card")
       .find(".dso-card-interaction")
       .first()
       .realClick()
-      .get("@dsoCardClickedListener")
+      .get("@dsoCardClickListener")
       .should("not.have.been.called")
       .get("dso-card")
       .shadow()
       .find(".dso-card-heading > a")
       .realClick()
-      .get("@dsoCardClickedListener")
+      .get("@dsoCardClickListener")
       .should("have.been.calledOnce");
   });
 
-  it("should not call dsoCardClicked on toggletip", () => {
+  it("should not call dsoCardClick on toggletip", () => {
     cy.get("dso-card")
       .find("div[slot='interactions']")
       .then(($cardInteractions) => {
@@ -44,12 +44,12 @@ describe("Card", () => {
       .get("dso-card")
       .find(".dso-card-interaction > dso-toggletip")
       .click()
-      .get("@dsoCardClickedListener")
+      .get("@dsoCardClickListener")
       .should("not.have.been.called");
   });
 
   it("creates anchor to external link when href is set and mode is set to 'extern'", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--basic")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
       .get("dso-card")
       .invoke("prop", "mode", "extern")
       .shadow()
@@ -68,7 +68,7 @@ describe("Card", () => {
   });
 
   it("creates anchor to download link when href is set and mode is set to 'download'", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-card--basic")
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
       .get("dso-card")
       .invoke("prop", "mode", "download")
       .shadow()
