@@ -75,6 +75,7 @@ import {
   Pagination,
   Panel,
   Paragraph,
+  PlekinfoCard,
   ProgressBar,
   ProgressIndicator,
   ProjectItem,
@@ -137,6 +138,7 @@ import { coreModal } from "./components/modal/modal.core-template";
 import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
 import { corePagination } from "./components/pagination/pagination.core-template";
 import { corePanel } from "./components/panel/panel.core-template";
+import { corePlekinfoCard } from "./components/plekinfo-card/plekinfo-card.core-template";
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
 import { coreProjectItem } from "./components/project-item/project-item.core-template";
@@ -291,6 +293,7 @@ export interface Components {
   pagination: Pagination;
   panel: Panel<TemplateResult>;
   paragraph: Paragraph;
+  plekinfoCard: PlekinfoCard<TemplateResult>;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   projectItem: ProjectItem<TemplateResult | string>;
@@ -377,6 +380,7 @@ templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(corePanel);
+templateContainer.add(corePlekinfoCard);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
 templateContainer.add(coreProjectItem);

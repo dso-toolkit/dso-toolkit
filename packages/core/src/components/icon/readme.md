@@ -37,6 +37,7 @@
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
  - [dso-panel](../panel)
+ - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
  - [dso-table](../table)
  - [dso-tree-view](../tree-view)
@@ -67,6 +68,7 @@ graph TD;
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon
   dso-panel --> dso-icon
+  dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon
   dso-table --> dso-icon
   dso-tree-view --> dso-icon
