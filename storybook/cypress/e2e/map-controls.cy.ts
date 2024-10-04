@@ -63,7 +63,7 @@ describe("Map Controls", () => {
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
 
-    cy.get("dso-map-controls.hydrated").matchImageSnapshot();
+    cy.get("dso-map-controls.hydrated").matchImageSnapshot({ padding: [0, 16, 0, 100] });
   });
 
   it("should emit zoom events", () => {

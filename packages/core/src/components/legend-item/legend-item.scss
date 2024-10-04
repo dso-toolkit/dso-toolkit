@@ -41,6 +41,9 @@
 button {
   @include button.tertiary($icon-only: true, $modifiers: false);
 
-  position: absolute;
-  inset-inline-end: 0;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    position: absolute;
+    inset-inline-end: 0;
+  }
 }

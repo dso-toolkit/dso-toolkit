@@ -453,31 +453,16 @@
   }
 }
 
-@mixin map-focus() {
-  $focus-map: (
-    "background-color": button-variables.$secondary-hover-background-color,
-    "border-color": button-variables.$secondary-hover-background-color,
-    "color": colors.$wit,
-    "type-download-di": "download-wit",
-    "type-extern-di": "external-link-wit",
-  );
-
-  &:focus-visible {
-    @include _shared-variant($focus-map);
-
-    outline: none;
-  }
-}
-
 @mixin map() {
   @include secondary($modifiers: false);
-  @include map-focus();
 
-  border: 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  font-weight: 600;
-  margin-inline-end: units.$u2;
-  padding-block: units.$u1;
-  padding-inline: units.$u2;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
+  & {
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    margin-inline-end: units.$u2;
+    padding-block: units.$u1;
+    padding-inline: units.$u2;
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
+  }
 }
