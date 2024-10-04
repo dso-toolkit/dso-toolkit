@@ -2,7 +2,7 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "65.0.1-ghi-2542.0",
+  "version": "65.0.2-ghi-2542.0",
   "scripts": {
     "watch": "gulp"
   },
