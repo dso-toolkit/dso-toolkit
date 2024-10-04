@@ -27,6 +27,7 @@ button {
 .open {
   @include button.secondary($modifiers: false, $icon-only: true);
 
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     border: 0;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
@@ -84,6 +85,7 @@ button {
 .close {
   @include button.secondary($modifiers: false, $icon-only: true);
 
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     border: 0;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);

@@ -36,12 +36,15 @@
 .open-button {
   @include button.primary($modifiers: false);
 
-  border: 0;
-  inset-block-end: units.$u2;
-  font-family: typography.$font-family-base;
-  position: fixed;
-  inset-inline-end: units.$u2;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border: 0;
+    inset-block-end: units.$u2;
+    font-family: typography.$font-family-base;
+    position: fixed;
+    inset-inline-end: units.$u2;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  }
 
   &:hover {
     cursor: pointer;
@@ -55,16 +58,19 @@
 .close-button {
   @include button.secondary($modifiers: false);
 
-  border-inline-end: 0;
-  border-block-start: 0;
-  border-radius: 0 0 0 units.$u1;
-  block-size: units.$u5;
-  min-inline-size: units.$u5;
-  padding: 0;
-  position: fixed;
-  inset-inline-end: 0;
-  inline-size: units.$u5;
-  inset-block-start: 0;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border-inline-end: 0;
+    border-block-start: 0;
+    border-radius: 0 0 0 units.$u1;
+    block-size: units.$u5;
+    min-inline-size: units.$u5;
+    padding: 0;
+    position: fixed;
+    inset-inline-end: 0;
+    inline-size: units.$u5;
+    inset-block-start: 0;
+  }
 
   dso-icon {
     margin-inline-start: 0;
