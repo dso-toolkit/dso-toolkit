@@ -1,0 +1,143 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/plekinfo-card";
+
+@use "~dso-toolkit/src/components/insert/insert";
+@use "~dso-toolkit/src/components/delete/delete";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+
+  .dso-plekinfo-card-container {
+    padding-block: units.$u2 units.$u1;
+    padding-inline: units.$u2;
+    inline-size: 100%;
+
+    .dso-plekinfo-card-heading {
+      align-items: center;
+      display: flex;
+      margin-block-end: units.$u1;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+        flex-wrap: wrap;
+      }
+    }
+
+    .dso-plekinfo-card-symbol {
+      grid-row: span 2;
+
+      margin-inline-end: units.$u1;
+    }
+  }
+}
+
+:host([has-symbol]) {
+  .dso-plekinfo-card-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-plekinfo-card-heading,
+    .dso-plekinfo-card-content {
+      grid-column: 2 /-1;
+    }
+  }
+}
+
+:host([active]:not([active="false"])) {
+  .dso-plekinfo-card-container {
+    background-color: plekinfo-card.$background-color-active;
+
+    &:has(.dso-plekinfo-card-heading a:hover),
+    &:has(.dso-plekinfo-card-heading a:focus) {
+      background-color: plekinfo-card.$background-color-hover;
+    }
+  }
+
+  ins.dso-plekinfo-card-container {
+    background-color: plekinfo-card.$background-color-active-voegtoe;
+
+    &:has(.dso-plekinfo-card-heading a:hover),
+    &:has(.dso-plekinfo-card-heading a:focus) {
+      background-color: plekinfo-card.$background-color-hover-voegtoe;
+    }
+  }
+
+  del.dso-plekinfo-card-container {
+    background-color: plekinfo-card.$background-color-active-verwijder;
+
+    &:has(.dso-plekinfo-card-heading a:hover),
+    &:has(.dso-plekinfo-card-heading a:focus) {
+      background-color: plekinfo-card.$background-color-hover-verwijder;
+    }
+  }
+}
+
+::slotted([slot="meta"]) {
+  display: flex;
+  justify-content: space-between;
+  margin-inline-start: auto;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100%;
+    margin-block-start: units.$u2;
+  }
+}
+
+::slotted([slot="heading"]) {
+  align-items: center !important;
+  display: flex !important;
+  font-size: 1.125em !important;
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+}
+
+.dso-plekinfo-card-container {
+  &:has(.dso-plekinfo-card-heading a:hover),
+  &:has(.dso-plekinfo-card-heading a:focus) {
+    background-color: plekinfo-card.$background-color-hover;
+  }
+}
+
+ins.dso-plekinfo-card-container {
+  &:has(.dso-plekinfo-card-heading a:hover),
+  &:has(.dso-plekinfo-card-heading a:focus) {
+    background-color: plekinfo-card.$background-color-hover-voegtoe;
+  }
+}
+
+del.dso-plekinfo-card-container {
+  &:has(.dso-plekinfo-card-heading a:hover),
+  &:has(.dso-plekinfo-card-heading a:focus) {
+    background-color: plekinfo-card.$background-color-hover-verwijder;
+  }
+}
+
+.dso-plekinfo-card-heading a {
+  text-decoration: none;
+
+  &:hover {
+    color: plekinfo-card.$heading-anchor-hover-color;
+    text-decoration: underline;
+  }
+}
+
+.heading-anchor {
+  color: plekinfo-card.$heading-anchor-color;
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  &:visited {
+    color: plekinfo-card.$heading-anchor-color;
+  }
+
+  dso-icon {
+    flex-shrink: 0;
+  }
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
+}

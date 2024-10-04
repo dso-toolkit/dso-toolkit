@@ -35,6 +35,7 @@ import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
+import { DsoPlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -72,6 +73,7 @@ export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
+export { DsoPlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -370,7 +372,7 @@ export namespace Components {
         /**
           * The URL to which the Card heading links.
          */
-        "href": string;
+        "href": string | undefined;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
@@ -954,6 +956,20 @@ export namespace Components {
     }
     interface DsoPanel {
     }
+    interface DsoPlekinfoCard {
+        /**
+          * Makes the PlekinfoCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the PlekinfoCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd.
+         */
+        "wijzigactie"?: PlekinfoWijzigactie;
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -1347,6 +1363,10 @@ export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
 export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPanelElement;
+}
+export interface DsoPlekinfoCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPlekinfoCardElement;
 }
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1983,6 +2003,23 @@ declare global {
         prototype: HTMLDsoPanelElement;
         new (): HTMLDsoPanelElement;
     };
+    interface HTMLDsoPlekinfoCardElementEventMap {
+        "dsoPlekinfoCardClick": DsoPlekinfoCardClickEvent;
+    }
+    interface HTMLDsoPlekinfoCardElement extends Components.DsoPlekinfoCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPlekinfoCardElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardElement, ev: DsoPlekinfoCardCustomEvent<HTMLDsoPlekinfoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPlekinfoCardElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardElement, ev: DsoPlekinfoCardCustomEvent<HTMLDsoPlekinfoCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoPlekinfoCardElement: {
+        prototype: HTMLDsoPlekinfoCardElement;
+        new (): HTMLDsoPlekinfoCardElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -2224,6 +2261,7 @@ declare global {
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
+        "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
@@ -2580,7 +2618,7 @@ declare namespace LocalJSX {
         /**
           * The URL to which the Card heading links.
          */
-        "href": string;
+        "href": string | undefined;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
@@ -3314,6 +3352,24 @@ declare namespace LocalJSX {
          */
         "onDsoCloseClick"?: (event: DsoPanelCustomEvent<PanelCloseEvent>) => void;
     }
+    interface DsoPlekinfoCard {
+        /**
+          * Makes the PlekinfoCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the PlekinfoCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * Emitted when the PlekinfoCard heading is clicked.
+         */
+        "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<DsoPlekinfoCardClickEvent>) => void;
+        /**
+          * Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd.
+         */
+        "wijzigactie"?: PlekinfoWijzigactie;
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -3684,6 +3740,7 @@ declare namespace LocalJSX {
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
         "dso-panel": DsoPanel;
+        "dso-plekinfo-card": DsoPlekinfoCard;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-project-item": DsoProjectItem;
@@ -3751,6 +3808,7 @@ declare module "@stencil/core" {
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
+            "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
