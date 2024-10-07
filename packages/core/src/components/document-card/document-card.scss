@@ -1,0 +1,82 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/document-card";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+.dso-document-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+
+  .dso-document-card-heading {
+    align-items: center;
+    display: flex;
+    margin-block-end: units.$u1;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &:has(.dso-document-card-heading a:is(:hover, :focus)) {
+    background-color: document-card.$background-color-hover;
+  }
+}
+
+:host([active]:not([active="false"])) {
+  .dso-document-card-container {
+    background-color: document-card.$background-color-active;
+  }
+}
+
+::slotted([slot="meta"]) {
+  display: flex;
+  justify-content: space-between;
+  margin-inline-start: auto;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100%;
+    margin-block-start: units.$u2;
+  }
+}
+
+::slotted([slot="heading"]) {
+  align-items: center !important;
+  display: flex !important;
+  font-size: 1.125em !important;
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+}
+
+.dso-document-card-heading a {
+  text-decoration: none;
+
+  &:hover {
+    color: document-card.$heading-anchor-hover-color;
+    text-decoration: underline;
+  }
+}
+
+.heading-anchor {
+  color: document-card.$heading-anchor-color;
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  &:visited {
+    color: document-card.$heading-anchor-color;
+  }
+
+  dso-icon {
+    flex-shrink: 0;
+  }
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
+}

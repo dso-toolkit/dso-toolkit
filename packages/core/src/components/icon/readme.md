@@ -22,6 +22,7 @@
  - [dso-attachments-counter](../attachments-counter)
  - [dso-card](../card)
  - [dso-date-picker-legacy](../date-picker-legacy)
+ - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
@@ -53,6 +54,7 @@ graph TD;
   dso-attachments-counter --> dso-icon
   dso-card --> dso-icon
   dso-date-picker-legacy --> dso-icon
+  dso-document-card --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon
