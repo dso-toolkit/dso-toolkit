@@ -26,6 +26,7 @@ import {
   DatePickerLegacy,
   DefinitionList,
   Description,
+  DocumentCard,
   DocumentComponent,
   DocumentHeader,
   DocumentList,
@@ -117,6 +118,7 @@ import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
+import { coreDocumentCard } from "./components/document-card/document-card.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
@@ -244,6 +246,7 @@ export interface Components {
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
+  documentCard: DocumentCard;
   documentComponent: DocumentComponent<TemplateResult>;
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
@@ -359,6 +362,7 @@ templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDatePickerLegacy);
+templateContainer.add(coreDocumentCard);
 templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);

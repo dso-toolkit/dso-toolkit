@@ -65,6 +65,8 @@ export * from "./components/definition-list";
 
 export * from "./components/description";
 
+export * from "./components/document-card";
+
 export * from "./components/document-component";
 
 export * from "./components/document-header";

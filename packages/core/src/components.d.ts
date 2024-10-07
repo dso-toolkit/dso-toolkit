@@ -18,6 +18,7 @@ import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
+import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -56,6 +57,7 @@ export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
+export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -487,6 +489,16 @@ export namespace Components {
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value": string;
+    }
+    interface DsoDocumentCard {
+        /**
+          * Makes the DocumentCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the DocumentCard heading links.
+         */
+        "href": string | undefined;
     }
     interface DsoDocumentComponent {
         /**
@@ -1292,6 +1304,10 @@ export interface DsoDatePickerLegacyCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerLegacyElement;
 }
+export interface DsoDocumentCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDocumentCardElement;
+}
 export interface DsoDocumentComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDocumentComponentElement;
@@ -1651,6 +1667,23 @@ declare global {
     var HTMLDsoDatePickerLegacyElement: {
         prototype: HTMLDsoDatePickerLegacyElement;
         new (): HTMLDsoDatePickerLegacyElement;
+    };
+    interface HTMLDsoDocumentCardElementEventMap {
+        "dsoDocumentCardClick": DocumentCardClickEvent;
+    }
+    interface HTMLDsoDocumentCardElement extends Components.DsoDocumentCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDocumentCardElementEventMap>(type: K, listener: (this: HTMLDsoDocumentCardElement, ev: DsoDocumentCardCustomEvent<HTMLDsoDocumentCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDocumentCardElementEventMap>(type: K, listener: (this: HTMLDsoDocumentCardElement, ev: DsoDocumentCardCustomEvent<HTMLDsoDocumentCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoDocumentCardElement: {
+        prototype: HTMLDsoDocumentCardElement;
+        new (): HTMLDsoDocumentCardElement;
     };
     interface HTMLDsoDocumentComponentElementEventMap {
         "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
@@ -2238,6 +2271,7 @@ declare global {
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-date-picker-legacy": HTMLDsoDatePickerLegacyElement;
+        "dso-document-card": HTMLDsoDocumentCardElement;
         "dso-document-component": HTMLDsoDocumentComponentElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-expandable": HTMLDsoExpandableElement;
@@ -2765,6 +2799,20 @@ declare namespace LocalJSX {
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value"?: string;
+    }
+    interface DsoDocumentCard {
+        /**
+          * Makes the DocumentCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the DocumentCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * Emitted when the DocumentCard heading is clicked.
+         */
+        "onDsoDocumentCardClick"?: (event: DsoDocumentCardCustomEvent<DocumentCardClickEvent>) => void;
     }
     interface DsoDocumentComponent {
         /**
@@ -3717,6 +3765,7 @@ declare namespace LocalJSX {
         "dso-card-container": DsoCardContainer;
         "dso-date-picker": DsoDatePicker;
         "dso-date-picker-legacy": DsoDatePickerLegacy;
+        "dso-document-card": DsoDocumentCard;
         "dso-document-component": DsoDocumentComponent;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-expandable": DsoExpandable;
@@ -3785,6 +3834,7 @@ declare module "@stencil/core" {
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-date-picker-legacy": LocalJSX.DsoDatePickerLegacy & JSXBase.HTMLAttributes<HTMLDsoDatePickerLegacyElement>;
+            "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
             "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
