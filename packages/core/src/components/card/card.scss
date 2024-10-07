@@ -10,6 +10,23 @@
   display: block;
 }
 
+:host([is-selectable]) {
+  // :not([is-selectable="false"]) is not working
+  .dso-card-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
+
+    .dso-card-selectable {
+      grid-row: span 2;
+    }
+  }
+}
+
 .dso-card-container {
   @include card.root();
 
