@@ -5,20 +5,8 @@
 
 @use "card.variables" as card-variables;
 
-%card-grid {
-  .dso-card-container {
-    display: grid;
-    grid-template-columns: 1fr minmax(0, 100%);
-
-    .dso-card-heading,
-    .dso-card-content {
-      grid-column: 2 /-1;
-    }
-  }
-}
-
 @mixin base() {
-  &:has(.dso-card-heading > a:hover) {
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
     background-color: colors.$grijs-5;
 
     .dso-card-heading > a:hover {

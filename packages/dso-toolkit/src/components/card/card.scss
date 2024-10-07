@@ -12,10 +12,6 @@
 }
 
 dso-card {
-  &[is-selectable] {
-    @extend %card-grid;
-  }
-
   .dso-card-heading a {
     text-decoration: none;
 
@@ -35,7 +31,15 @@ dso-card {
   @include card-mixins.base();
 
   &.dso-is-selectable {
-    @extend %card-grid;
+    .dso-card-container {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 100%);
+
+      .dso-card-heading,
+      .dso-card-content {
+        grid-column: 2 /-1;
+      }
+    }
   }
 
   h2[slot="heading"],
