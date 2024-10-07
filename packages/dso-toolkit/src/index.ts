@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/plekinfo-card";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -177,6 +176,8 @@ export * from "./components/pagination";
 export * from "./components/panel";
 
 export * from "./components/paragraph";
+
+export * from "./components/plekinfo-card";
 
 export * from "./components/progress-bar";
 

@@ -10,27 +10,57 @@
 
 :host {
   display: block;
+}
 
+.dso-plekinfo-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+
+  .dso-plekinfo-card-heading {
+    align-items: center;
+    display: flex;
+    margin-block-end: units.$u1;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .dso-plekinfo-card-symbol {
+    grid-row: span 2;
+
+    margin-inline-end: units.$u1;
+  }
+
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+    background-color: plekinfo-card.$background-color-hover;
+  }
+}
+
+ins.dso-plekinfo-card-container {
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+    background-color: plekinfo-card.$background-color-hover-voegtoe;
+  }
+}
+
+del.dso-plekinfo-card-container {
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+    background-color: plekinfo-card.$background-color-hover-verwijder;
+  }
+}
+
+:host([active]:not([active="false"])) {
   .dso-plekinfo-card-container {
-    padding-block: units.$u2 units.$u1;
-    padding-inline: units.$u2;
-    inline-size: 100%;
+    background-color: plekinfo-card.$background-color-active;
+  }
 
-    .dso-plekinfo-card-heading {
-      align-items: center;
-      display: flex;
-      margin-block-end: units.$u1;
+  ins.dso-plekinfo-card-container {
+    background-color: plekinfo-card.$background-color-active-voegtoe;
+  }
 
-      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-        flex-wrap: wrap;
-      }
-    }
-
-    .dso-plekinfo-card-symbol {
-      grid-row: span 2;
-
-      margin-inline-end: units.$u1;
-    }
+  del.dso-plekinfo-card-container {
+    background-color: plekinfo-card.$background-color-active-verwijder;
   }
 }
 
@@ -42,35 +72,6 @@
     .dso-plekinfo-card-heading,
     .dso-plekinfo-card-content {
       grid-column: 2 /-1;
-    }
-  }
-}
-
-:host([active]:not([active="false"])) {
-  .dso-plekinfo-card-container {
-    background-color: plekinfo-card.$background-color-active;
-
-    &:has(.dso-plekinfo-card-heading a:hover),
-    &:has(.dso-plekinfo-card-heading a:focus) {
-      background-color: plekinfo-card.$background-color-hover;
-    }
-  }
-
-  ins.dso-plekinfo-card-container {
-    background-color: plekinfo-card.$background-color-active-voegtoe;
-
-    &:has(.dso-plekinfo-card-heading a:hover),
-    &:has(.dso-plekinfo-card-heading a:focus) {
-      background-color: plekinfo-card.$background-color-hover-voegtoe;
-    }
-  }
-
-  del.dso-plekinfo-card-container {
-    background-color: plekinfo-card.$background-color-active-verwijder;
-
-    &:has(.dso-plekinfo-card-heading a:hover),
-    &:has(.dso-plekinfo-card-heading a:focus) {
-      background-color: plekinfo-card.$background-color-hover-verwijder;
     }
   }
 }
@@ -92,27 +93,6 @@
   font-size: 1.125em !important;
   margin-block-end: 0 !important;
   margin-block-start: 0 !important;
-}
-
-.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:hover),
-  &:has(.dso-plekinfo-card-heading a:focus) {
-    background-color: plekinfo-card.$background-color-hover;
-  }
-}
-
-ins.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:hover),
-  &:has(.dso-plekinfo-card-heading a:focus) {
-    background-color: plekinfo-card.$background-color-hover-voegtoe;
-  }
-}
-
-del.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:hover),
-  &:has(.dso-plekinfo-card-heading a:focus) {
-    background-color: plekinfo-card.$background-color-hover-verwijder;
-  }
 }
 
 .dso-plekinfo-card-heading a {

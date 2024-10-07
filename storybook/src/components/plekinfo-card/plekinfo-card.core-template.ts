@@ -2,7 +2,7 @@ import { PlekinfoCard } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { DsoPlekinfoCardClickEvent, DsoPlekinfoCardCustomEvent } from "@dso-toolkit/core";
+import { DsoPlekinfoCardCustomEvent, PlekinfoCardClickEvent } from "@dso-toolkit/core";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
@@ -23,7 +23,7 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
         href=${href}
         wijzigactie=${ifDefined(wijzigactie || undefined)}
         ?active=${active}
-        @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<DsoPlekinfoCardClickEvent>) => {
+        @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
             e.detail.originalEvent?.preventDefault();
           }
