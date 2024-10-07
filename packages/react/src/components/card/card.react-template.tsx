@@ -1,4 +1,4 @@
-import { DsoCardClickEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
+import { CardClickEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
 import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
@@ -14,7 +14,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
         <DsoCard
           href={href}
           mode={mode}
-          onDsoCardClick={(e: CustomEvent<DsoCardClickEvent>) => {
+          onDsoCardClick={(e: CustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
               e.detail.originalEvent?.preventDefault();
             }

@@ -11,9 +11,9 @@ import {
   FunctionalComponent,
 } from "@stencil/core";
 
-import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
-import { DsoPlekinfoCardClickEvent, PlekinfoWijzigactie } from "./plekinfo-card.interfaces";
+
+import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./plekinfo-card.interfaces";
 
 interface WrapWijzigactieProps {
   wijzigactie: PlekinfoWijzigactie | undefined;
@@ -41,7 +41,7 @@ export class PlekinfoCard implements ComponentInterface {
   host!: HTMLDsoPlekinfoCardElement;
 
   /**
-   * Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd.
+   * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
    */
   @Prop({ reflect: true })
   wijzigactie?: PlekinfoWijzigactie;
@@ -62,7 +62,7 @@ export class PlekinfoCard implements ComponentInterface {
    * Emitted when the PlekinfoCard heading is clicked.
    */
   @Event()
-  dsoPlekinfoCardClick!: EventEmitter<DsoPlekinfoCardClickEvent>;
+  dsoPlekinfoCardClick!: EventEmitter<PlekinfoCardClickEvent>;
 
   private mutationObserver?: MutationObserver;
 
@@ -81,20 +81,6 @@ export class PlekinfoCard implements ComponentInterface {
   private clickEventHandler(e: MouseEvent) {
     if (!(e.target instanceof HTMLElement) || !this.href) {
       return;
-    }
-
-    let element: HTMLElement | null = e.target;
-
-    while (element !== this.host && element !== null) {
-      if (isInteractiveElement(element) || element === null) {
-        return;
-      }
-
-      if (element.parentNode instanceof ShadowRoot && element.parentNode.host instanceof HTMLElement) {
-        element = element.parentNode.host;
-      } else {
-        element = element.parentElement;
-      }
     }
 
     return this.dsoPlekinfoCardClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });

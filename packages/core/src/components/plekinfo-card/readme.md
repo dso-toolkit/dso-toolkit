@@ -1,4 +1,4 @@
-# dso-plekinfo-card
+# <dso-plekinfo-card>
 
 
 
@@ -7,18 +7,18 @@
 
 ## Properties
 
-| Property            | Attribute     | Description                                                                        | Type                                    | Default     |
-| ------------------- | ------------- | ---------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `active`            | `active`      | Makes the PlekinfoCard active.                                                     | `boolean \| undefined`                  | `undefined` |
-| `href` _(required)_ | `href`        | The URL to which the PlekinfoCard heading links.                                   | `string \| undefined`                   | `undefined` |
-| `wijzigactie`       | `wijzigactie` | Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd. | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
+| Property            | Attribute     | Description                                                                             | Type                                    | Default     |
+| ------------------- | ------------- | --------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
+| `active`            | `active`      | Makes the PlekinfoCard active.                                                          | `boolean \| undefined`                  | `undefined` |
+| `href` _(required)_ | `href`        | The URL to which the PlekinfoCard heading links.                                        | `string \| undefined`                   | `undefined` |
+| `wijzigactie`       | `wijzigactie` | An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed. | `"verwijder" \| "voegtoe" \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event                  | Description                                       | Type                                     |
-| ---------------------- | ------------------------------------------------- | ---------------------------------------- |
-| `dsoPlekinfoCardClick` | Emitted when the PlekinfoCard heading is clicked. | `CustomEvent<DsoPlekinfoCardClickEvent>` |
+| Event                  | Description                                       | Type                                  |
+| ---------------------- | ------------------------------------------------- | ------------------------------------- |
+| `dsoPlekinfoCardClick` | Emitted when the PlekinfoCard heading is clicked. | `CustomEvent<PlekinfoCardClickEvent>` |
 
 
 ## Dependencies

@@ -3,7 +3,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { DsoCardCustomEvent, DsoCardClickEvent } from "@dso-toolkit/core";
+import { CardClickEvent, DsoCardCustomEvent } from "@dso-toolkit/core";
 
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
@@ -29,7 +29,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
         <dso-card
           href=${href}
           mode=${ifDefined(mode || undefined)}
-          @dsoCardClick=${(e: DsoCardCustomEvent<DsoCardClickEvent>) => {
+          @dsoCardClick=${(e: DsoCardCustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
               e.detail.originalEvent?.preventDefault();
             }
