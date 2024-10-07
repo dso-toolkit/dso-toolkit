@@ -10,17 +10,21 @@ export interface PlekinfoCardArgs {
   label: Renvooi | string;
   href: string;
   active: boolean;
-  meta?: Label;
-  wijzigactie?: PlekinfoWijzigactie;
-  dsoPlekinfoCardClick?: HandlerFunction;
+  meta: Label;
+  wijzigactie: PlekinfoWijzigactie;
+  dsoPlekinfoCardClick: HandlerFunction;
 }
 
-export const plekinfoCardArgs: PlekinfoCardArgs = { href: "#", label: "Radarverstorende bouwwerken", active: false };
+export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "label" | "active"> = {
+  href: "#",
+  label: "Radarverstorende bouwwerken",
+  active: false,
+};
 
-export const plekinfoCardArgTypes: ArgTypes<PlekinfoCardArgs> = {
+export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
   label: {
     control: {
-      type: "text",
+      type: "object",
     },
   },
   href: {

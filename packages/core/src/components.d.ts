@@ -14,7 +14,7 @@ import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
-import { DsoCardClickEvent } from "./components/card/card.interfaces";
+import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -35,7 +35,7 @@ import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
-import { DsoPlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -52,7 +52,7 @@ export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
-export { DsoCardClickEvent } from "./components/card/card.interfaces";
+export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
@@ -73,7 +73,7 @@ export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
-export { DsoPlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
+export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -966,7 +966,7 @@ export namespace Components {
          */
         "href": string | undefined;
         /**
-          * Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd.
+          * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
         "wijzigactie"?: PlekinfoWijzigactie;
     }
@@ -1588,7 +1588,7 @@ declare global {
         new (): HTMLDsoBannerElement;
     };
     interface HTMLDsoCardElementEventMap {
-        "dsoCardClick": DsoCardClickEvent;
+        "dsoCardClick": CardClickEvent;
     }
     interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoCardElementEventMap>(type: K, listener: (this: HTMLDsoCardElement, ev: DsoCardCustomEvent<HTMLDsoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2004,7 +2004,7 @@ declare global {
         new (): HTMLDsoPanelElement;
     };
     interface HTMLDsoPlekinfoCardElementEventMap {
-        "dsoPlekinfoCardClick": DsoPlekinfoCardClickEvent;
+        "dsoPlekinfoCardClick": PlekinfoCardClickEvent;
     }
     interface HTMLDsoPlekinfoCardElement extends Components.DsoPlekinfoCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoPlekinfoCardElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardElement, ev: DsoPlekinfoCardCustomEvent<HTMLDsoPlekinfoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2626,7 +2626,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the Card heading is clicked.
          */
-        "onDsoCardClick"?: (event: DsoCardCustomEvent<DsoCardClickEvent>) => void;
+        "onDsoCardClick"?: (event: DsoCardCustomEvent<CardClickEvent>) => void;
     }
     interface DsoCardContainer {
         /**
@@ -3364,9 +3364,9 @@ declare namespace LocalJSX {
         /**
           * Emitted when the PlekinfoCard heading is clicked.
          */
-        "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<DsoPlekinfoCardClickEvent>) => void;
+        "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
         /**
-          * Een optionele wijzigactie die aangeeft of de plekinfo is toegevoegd of verwijderd.
+          * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
         "wijzigactie"?: PlekinfoWijzigactie;
     }
