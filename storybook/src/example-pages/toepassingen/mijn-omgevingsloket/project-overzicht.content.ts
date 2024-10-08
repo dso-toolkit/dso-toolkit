@@ -1,6 +1,6 @@
-import { LinkList, LinkListType } from "dso-toolkit";
+import { LinkList, LinkListType, HeaderMenuItem } from "dso-toolkit";
 
-export const mainMenu = [
+export const mainMenu: HeaderMenuItem[] = [
   {
     label: "Home",
     url: "#",
@@ -16,11 +16,6 @@ export const mainMenu = [
   {
     label: "Regels op de kaart",
     url: "#",
-  },
-  {
-    label: "Mijn Omgevingsloket",
-    url: "#",
-    active: true,
   },
 ];
 

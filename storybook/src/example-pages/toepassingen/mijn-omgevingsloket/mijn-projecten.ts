@@ -21,7 +21,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true })}
 
       <main>
         ${applicationHeadingTemplate({ title: "Mijn projecten" })}
