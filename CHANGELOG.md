@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Voorbeeldpagina: Mijn overzicht bijwerken ([#2785](https://github.com/dso-toolkit/dso-toolkit/issues/2785))
+
 ## 🛣️ Release 65.0.2 - 2024-10-04
 
 ### Fixed
