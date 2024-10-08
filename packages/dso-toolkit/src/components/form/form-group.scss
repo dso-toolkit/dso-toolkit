@@ -56,7 +56,8 @@
   .control-label {
     display: inline;
     font-weight: bold;
-    margin-block-end: units.$u1;
+    font-size: typography.$root-font-size-base;
+    vertical-align: middle;
     max-inline-size: 100%;
     text-align: start;
   }
@@ -65,7 +66,8 @@
     overflow-x: auto; // facilitate table overflow if needed
   }
 
-  legend + .dso-label-container {
+  .dso-label-container {
+    line-height: 1;
     margin-block-end: units.$u1;
   }
 

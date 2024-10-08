@@ -30,14 +30,13 @@ export const cssFormGroupCheckboxes: ComponentImplementation<FormGroupCheckboxes
           aria-describedby=${ifDefined(ariaDescribedBy)}
           aria-errormessage=${ifDefined(ariaErrorMessage)}
         >
-          <legend class="sr-only">${formGroup.label}</legend>
-          <div class="dso-label-container">
-            <span class="control-label" aria-hidden="true">${formGroup.label}</span>
+          <legend class="dso-label-container">
+            <span class="control-label">${formGroup.label}</span>
             ${formGroup.info?.fixed === false && formGroup.infoButton
               ? infoButtonTemplate(formGroup.infoButton)
               : nothing}
             ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
-          </div>
+          </legend>
           <div class="dso-field-container">
             ${formGroup.selectables.map((selectable) =>
               selectableTemplate({ ...selectable, disabled: formGroup.disabled }),
