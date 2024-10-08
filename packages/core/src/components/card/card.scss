@@ -10,7 +10,8 @@
   display: block;
 }
 
-:host([is-selectable]:not([is-selectable="false"])) {
+:host([is-selectable]:not([is-selectable="false"])),
+:host([has-image]:not([has-image="false"])) {
   .dso-card-container {
     display: grid;
     grid-template-columns: 1fr minmax(0, 100%);
@@ -20,7 +21,8 @@
       grid-column: 2 /-1;
     }
 
-    .dso-card-selectable {
+    .dso-card-selectable,
+    .dso-card-image {
       grid-row: span 2;
     }
   }
