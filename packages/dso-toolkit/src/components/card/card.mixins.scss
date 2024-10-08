@@ -28,7 +28,8 @@
   }
 
   .dso-card-container {
-    .dso-card-selectable {
+    .dso-card-selectable,
+    .dso-card-image {
       grid-row: span 2;
     }
   }
