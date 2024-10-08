@@ -39,6 +39,10 @@
   &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
     background-color: card.$background-color-hover;
   }
+
+  &:has(.dso-card-heading a:is(:active)) {
+    background-color: card.$background-color-active;
+  }
 }
 
 .dso-card-heading a {
