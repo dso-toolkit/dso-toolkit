@@ -9,6 +9,7 @@
 :host {
   display: block;
 }
+
 :host([is-selectable]:not([is-selectable="false"])) {
   .dso-card-container {
     display: grid;
@@ -31,6 +32,7 @@
   padding-block: units.$u2 units.$u1;
   padding-inline: units.$u2;
   inline-size: 100%;
+  block-size: 100%;
 
   &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
     background-color: card.$background-color-hover;
