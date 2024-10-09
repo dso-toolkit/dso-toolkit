@@ -10,10 +10,11 @@ Listener `dsoCardClicked` to enable the navigation to the set `href`
 
 ## Properties
 
-| Property            | Attribute | Description                                                                       | Type                  | Default     |
-| ------------------- | --------- | --------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `href` _(required)_ | `href`    | The URL to which the Card heading links.                                          | `string \| undefined` | `undefined` |
-| `mode`              | `mode`    | Display the link as an external link or a download link  - "download"  - "extern" | `string \| undefined` | `undefined` |
+| Property            | Attribute | Description                                                                       | Type                   | Default     |
+| ------------------- | --------- | --------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `active`            | `active`  | Makes the Card active.                                                            | `boolean \| undefined` | `undefined` |
+| `href` _(required)_ | `href`    | The URL to which the Card heading links.                                          | `string \| undefined`  | `undefined` |
+| `mode`              | `mode`    | Display the link as an external link or a download link  - "download"  - "extern" | `string \| undefined`  | `undefined` |
 
 
 ## Events

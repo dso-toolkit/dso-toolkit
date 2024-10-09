@@ -22,6 +22,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       content,
       interactions,
       href,
+      active,
       mode,
       dsoCardClick,
     }: Card<TemplateResult>) {
@@ -29,6 +30,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
         <dso-card
           href=${href}
           mode=${ifDefined(mode || undefined)}
+          ?active=${active}
           @dsoCardClick=${(e: DsoCardCustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
               e.detail.originalEvent?.preventDefault();

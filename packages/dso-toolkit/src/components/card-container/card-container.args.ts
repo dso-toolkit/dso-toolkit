@@ -27,12 +27,14 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
     {
       label: "Begrippen uit de Omgevingswet",
       href: "#",
+      active: false,
       selectable: true,
       interactions: [],
     },
     {
       label: "Activiteiten",
       href: "#",
+      active: false,
       interactions: [
         {
           type: "button",
@@ -48,24 +50,28 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
     {
       label: "Werkzaamheden",
       href: "#",
+      active: false,
       selectable: false,
       interactions: [],
     },
     {
       label: "Waardelijsten",
       href: "#",
+      active: false,
       selectable: false,
       interactions: [],
     },
     {
       label: "Bronnen",
       href: "#",
+      active: false,
       selectable: false,
       interactions: [],
     },
     {
       label: "Informatieproducten",
       href: "#",
+      active: false,
       selectable: false,
       interactions: [],
     },

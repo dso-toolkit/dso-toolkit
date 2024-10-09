@@ -8,6 +8,7 @@ import { SlideToggle } from "../slide-toggle";
 export interface Card<TemplateFnReturnType> {
   label: string;
   href: string;
+  active?: boolean;
   mode?: Anchor["mode"];
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;

@@ -17,7 +17,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     toggletipTemplate,
     slideToggleTemplate,
   }) =>
-    function cardTemplate({ label, selectable, content, interactions, href, mode, dsoCardClick }) {
+    function cardTemplate({ label, selectable, content, interactions, href, mode, active, dsoCardClick }) {
       return html`
         <div
           class="dso-card ${classMap({
@@ -25,7 +25,11 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
           })}"
           @click=${ifDefined(dsoCardClick)}
         >
-          <div class="dso-card-container">
+          <div
+            class="dso-card-container ${classMap({
+              "dso-card-active": !!active,
+            })}"
+          >
             ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
             <div class="dso-card-heading">
               ${html`<a href=${href} @click=${(e: MouseEvent) => e.preventDefault()}>

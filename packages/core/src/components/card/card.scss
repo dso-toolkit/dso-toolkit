@@ -28,6 +28,12 @@
   }
 }
 
+:host([active]:not([active="false"])) {
+  .dso-card-container {
+    background-color: card.$background-color-active;
+  }
+}
+
 .dso-card-container {
   @include card.root();
 
