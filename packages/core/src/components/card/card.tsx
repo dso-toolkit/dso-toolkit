@@ -28,6 +28,12 @@ export class Card implements ComponentInterface {
   mode?: string;
 
   /**
+   * Makes the Card active.
+   */
+  @Prop({ reflect: true })
+  active?: boolean;
+
+  /**
    * Emitted when the Card heading is clicked.
    */
   @Event()

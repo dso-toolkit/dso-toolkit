@@ -79,4 +79,15 @@ describe("Card", () => {
       .find("svg")
       .should("have.attr", "id", "download");
   });
+
+  it("should show different background-color when active='true'", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
+      .get("dso-card.hydrated")
+      .invoke("prop", "active", true)
+      .shadow()
+      .find(".dso-card-container")
+      .should("have.css", "background-color", "rgb(229, 229, 229)");
+
+    cy.get("dso-card.hydrated").matchImageSnapshot();
+  });
 });

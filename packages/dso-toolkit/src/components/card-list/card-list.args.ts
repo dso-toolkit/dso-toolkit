@@ -22,18 +22,21 @@ export const cardListArgs: CardListArgs = {
       selectable: true,
       interactions: [],
       href: "#",
+      active: false,
     },
     {
       label: "Brouwersmolen",
       selectable: false,
       interactions: [],
       href: "#",
+      active: false,
     },
     {
       label: "Maximum bouwhoogte",
       selectable: false,
       interactions: [],
       href: "#",
+      active: false,
     },
   ],
 };

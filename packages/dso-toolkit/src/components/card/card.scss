@@ -119,6 +119,10 @@ dso-card {
   padding-block: units.$u2 units.$u1;
   padding-inline: units.$u2;
   inline-size: 100%;
+
+  &.dso-card-active {
+    background-color: card-variables.$background-color-active;
+  }
 }
 
 .dso-card-interactions,

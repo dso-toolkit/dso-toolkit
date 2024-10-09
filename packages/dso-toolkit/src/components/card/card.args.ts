@@ -12,6 +12,7 @@ import { SlideToggle } from "../slide-toggle";
 export interface CardArgs {
   label: string;
   href: string;
+  active: boolean;
   mode?: AnchorArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
@@ -27,6 +28,11 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   href: {
     control: {
       type: "text",
+    },
+  },
+  active: {
+    control: {
+      type: "boolean",
     },
   },
   mode: {
@@ -52,6 +58,7 @@ export const cardContent: CardArgs = {
   label: "Omgevingsplan Nieuwegein",
   href: "#",
   selectable: false,
+  active: false,
 };
 
 export const cardContentButton: CardArgs = {
@@ -109,6 +116,7 @@ export function cardArgsMapper<TemplateFnReturnType>(
   return {
     label: a.label,
     href: a.href,
+    active: a.active,
     mode: a.mode || undefined,
     interactions: a.interactions,
     selectable: a.selectable

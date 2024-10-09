@@ -372,6 +372,10 @@ export namespace Components {
     }
     interface DsoCard {
         /**
+          * Makes the Card active.
+         */
+        "active"?: boolean;
+        /**
           * The URL to which the Card heading links.
          */
         "href": string | undefined;
@@ -2649,6 +2653,10 @@ declare namespace LocalJSX {
         "status": "danger" | "error" | "info" | "warning";
     }
     interface DsoCard {
+        /**
+          * Makes the Card active.
+         */
+        "active"?: boolean;
         /**
           * The URL to which the Card heading links.
          */
