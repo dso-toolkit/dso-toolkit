@@ -10,8 +10,7 @@
   display: block;
 }
 
-:host([is-selectable]:not([is-selectable="false"])),
-:host([has-image]:not([has-image="false"])) {
+:host([is-selectable]:not([is-selectable="false"])) {
   .dso-card-container {
     display: grid;
     grid-template-columns: 1fr minmax(0, 100%);
@@ -21,8 +20,7 @@
       grid-column: 2 /-1;
     }
 
-    .dso-card-selectable,
-    .dso-card-image {
+    .dso-card-selectable {
       grid-row: span 2;
     }
   }
@@ -44,10 +42,6 @@
 
   &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
     background-color: card.$background-color-hover;
-  }
-
-  &:has(.dso-card-heading a:is(:active)) {
-    background-color: card.$background-color-active;
   }
 }
 
