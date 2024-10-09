@@ -14,10 +14,6 @@
       text-decoration: underline;
     }
   }
-
-  &:has(.dso-card-heading a:is(:active)) {
-    background-color: card-variables.$background-color-active;
-  }
 }
 
 @mixin root() {
