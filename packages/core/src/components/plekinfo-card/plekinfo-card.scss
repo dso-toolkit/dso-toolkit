@@ -33,7 +33,7 @@
     margin-inline-end: units.$u1;
   }
 
-  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
     background-color: plekinfo-card.$background-color-hover;
   }
 }
