@@ -29,7 +29,9 @@ interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnRet
   > {}
 
 interface DocumentCardTemplates<TemplateFnReturnType> {
-  documentCardTemplate: (documentCardProperties: DocumentCard) => TemplateFnReturnType;
+  documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
+  typeAuthority: TemplateFnReturnType;
+  type: TemplateFnReturnType;
 }
 
 export function documentCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -55,8 +57,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
 }: DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentCardStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate }) =>
-        documentCardTemplate(documentCardArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, type }) =>
+        documentCardTemplate(documentCardArgsMapper(args, type)),
       ),
     },
     WithLabel: {
@@ -68,8 +70,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
           label: "Ontwerp",
         },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate }) =>
-        documentCardTemplate(documentCardArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeAuthority }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeAuthority)),
       ),
     },
     WithTypeToeliching: {
@@ -77,14 +79,14 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
         ...documentCardArgs,
         typeToelichting: {
           children: "Extra informatie",
-          label: `Toon informatie over "${documentCardArgs.type}"`,
+          label: `Toon informatie over type`,
           position: "right",
           small: false,
           secondary: false,
         },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate }) =>
-        documentCardTemplate(documentCardArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeAuthority }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeAuthority)),
       ),
     },
   };
