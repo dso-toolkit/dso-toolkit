@@ -24,7 +24,7 @@
     }
   }
 
-  &:has(.dso-document-card-heading a:is(:hover, :focus)) {
+  &:has(.dso-document-card-heading a:is(:hover, :focus-visible)) {
     background-color: document-card.$background-color-hover;
   }
 }
