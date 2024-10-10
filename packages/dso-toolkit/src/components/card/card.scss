@@ -2,13 +2,26 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
 
-@use "card.mixins" as card-mixins;
 @use "card.variables" as card-variables;
 
 @use "../button";
 
 .dso-card {
-  @include card-mixins.root();
+  .dso-card-heading {
+    align-items: center;
+    display: flex;
+    margin-block-end: units.$u1;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .dso-card-container {
+    .dso-card-selectable {
+      grid-row: span 2;
+    }
+  }
 }
 
 dso-card {
@@ -28,7 +41,14 @@ dso-card {
 
 .dso-card,
 dso-card {
-  @include card-mixins.base();
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
+    background-color: colors.$grijs-5;
+
+    .dso-card-heading > a:hover {
+      color: card-variables.$heading-anchor-hover-color;
+      text-decoration: underline;
+    }
+  }
 
   &.dso-is-selectable {
     .dso-card-container {
@@ -111,7 +131,9 @@ dso-card {
 
   .dso-selectable,
   dso-selectable {
-    @include card-mixins.selectable();
+    label {
+      font-size: 0;
+    }
   }
 }
 
@@ -127,7 +149,9 @@ dso-card {
 
 .dso-card-interactions,
 [slot="interactions"] {
-  @include card-mixins.interactions();
+  display: flex;
+  justify-content: space-between;
+  margin-inline-start: auto;
 
   .dso-card-interaction {
     align-items: center;
