@@ -10,7 +10,6 @@ export interface DocumentCardArgs {
   label: string;
   href: string;
   active: boolean;
-  type: string;
   typeToelichting: Toggletip<never>;
   meta: Label;
   status: string;
@@ -20,7 +19,6 @@ export interface DocumentCardArgs {
 export const documentCardArgs: Omit<DocumentCardArgs, "meta" | "typeToelichting" | "dsoDocumentCardClick"> = {
   href: "#",
   label: "Omgevingsplan Amsterdam",
-  type: "Bestemmingsplan",
   status: "Vastgesteld 07-06-2024 - geheel onherroepelijk in werking",
   active: false,
 };
@@ -32,11 +30,6 @@ export const documentCardArgTypes: ArgTypes<Omit<DocumentCardArgs, "meta" | "typ
     },
   },
   href: {
-    control: {
-      type: "text",
-    },
-  },
-  type: {
     control: {
       type: "text",
     },
@@ -57,13 +50,16 @@ export const documentCardArgTypes: ArgTypes<Omit<DocumentCardArgs, "meta" | "typ
   },
 };
 
-export function documentCardArgsMapper(a: DocumentCardArgs): DocumentCard {
+export function documentCardArgsMapper<TemplateFnReturnType>(
+  a: DocumentCardArgs,
+  typeAuthority: TemplateFnReturnType,
+): DocumentCard<TemplateFnReturnType> {
   return {
     typeToelichting: a.typeToelichting,
     label: a.label,
     href: a.href,
     active: a.active,
-    type: a.type,
+    typeAuthority,
     status: a.status,
     meta: a.meta,
     dsoDocumentCardClick: (e) => a.dsoDocumentCardClick(e.detail),

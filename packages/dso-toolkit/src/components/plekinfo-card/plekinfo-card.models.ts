@@ -7,7 +7,7 @@ export interface PlekinfoCard<TemplateFnReturnType> {
   active?: boolean;
   meta?: Label;
   content?: TemplateFnReturnType;
-  symbool: TemplateFnReturnType;
+  symbool?: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
   dsoPlekinfoCardClick: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }

@@ -246,7 +246,7 @@ export interface Components {
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
-  documentCard: DocumentCard;
+  documentCard: DocumentCard<TemplateResult>;
   documentComponent: DocumentComponent<TemplateResult>;
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;

@@ -51,7 +51,7 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
 
 export function plekinfoCardArgsMapper<TemplateFnReturnType>(
   a: PlekinfoCardArgs,
-  symbool: TemplateFnReturnType,
+  symbool?: TemplateFnReturnType,
   content?: TemplateFnReturnType,
 ): PlekinfoCard<TemplateFnReturnType> {
   return {

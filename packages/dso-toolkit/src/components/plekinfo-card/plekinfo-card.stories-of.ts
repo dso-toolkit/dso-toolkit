@@ -19,8 +19,10 @@ type PlekinfoCardStory = StoryObj<PlekinfoCardArgs, Renderer>;
 
 interface PlekinfoCardStories {
   Default: PlekinfoCardStory;
+  WithoutSymbol: PlekinfoCardStory;
   WithLabel: PlekinfoCardStory;
   WithNameChange: PlekinfoCardStory;
+  WithNameChangeComplex: PlekinfoCardStory;
 }
 
 interface PlekinfoCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -68,6 +70,12 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
         plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
       ),
     },
+    WithoutSymbol: {
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, content }) =>
+        plekinfoCardTemplate(plekinfoCardArgsMapper(args, undefined, content)),
+      ),
+    },
     WithLabel: {
       args: {
         ...plekinfoCardArgs,
@@ -90,6 +98,25 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
             was: "Radargebieden",
             wordt: "Radarverstorende bouwwerken",
           },
+        },
+      },
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
+        plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
+      ),
+    },
+    WithNameChangeComplex: {
+      args: {
+        ...plekinfoCardArgs,
+        label: {
+          value: [
+            "Waardes worden weergegeven op de kaart",
+            {
+              was: "50 dB",
+              wordt: "45 dB",
+            },
+            "55 dB",
+          ],
         },
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
