@@ -17,7 +17,6 @@
   .dso-document-card-heading {
     align-items: center;
     display: flex;
-    margin-block-end: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -79,4 +78,14 @@
   .sr-only {
     @include utilities.sr-only();
   }
+}
+
+::slotted([slot="type"]) {
+  display: flex !important;
+}
+
+.dso-document-card-heading + .dso-document-card-type,
+.dso-document-card-heading + .dso-document-card-status,
+.dso-document-card-type + .dso-document-card-status {
+  margin-block-start: units.$u1;
 }

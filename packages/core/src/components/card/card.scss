@@ -72,6 +72,7 @@
 .heading-anchor {
   color: card.$heading-anchor-color;
   display: flex;
+  gap: units.$u1 * 0.5;
 
   &:visited {
     color: card.$heading-anchor-color;
