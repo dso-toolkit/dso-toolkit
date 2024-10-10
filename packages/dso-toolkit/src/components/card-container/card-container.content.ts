@@ -1,6 +1,6 @@
 import { Card } from "../card/card.models";
 
-export const cardContainerContent: { cards: Card<unknown>[] } = {
+export const cardContainerContent: { cards: Omit<Card<unknown>, "dsoCardClick">[] } = {
   cards: [
     {
       label: "Begrippen uit de Omgevingswet",

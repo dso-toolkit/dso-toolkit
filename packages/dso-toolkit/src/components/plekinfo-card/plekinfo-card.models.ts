@@ -9,11 +9,11 @@ export interface PlekinfoCard<TemplateFnReturnType> {
   content?: TemplateFnReturnType;
   symbool: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
-  dsoPlekinfoCardClick?: (e: CustomEvent<DsoPlekinfoCardClickEvent>) => void;
+  dsoPlekinfoCardClick: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }
 
-export interface DsoPlekinfoCardClickEvent {
-  originalEvent?: MouseEvent;
+export interface PlekinfoCardClickEvent {
+  originalEvent: MouseEvent;
 }
 
 export type PlekinfoWijzigactie = "voegtoe" | "verwijder";

@@ -16,7 +16,7 @@ export interface CardArgs {
   mode?: AnchorArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
-  dsoCardClick?: HandlerFunction;
+  dsoCardClick: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {
@@ -53,7 +53,7 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   },
 };
 
-export const cardContent: CardArgs = {
+export const cardContent: Omit<CardArgs, "dsoCardClick"> = {
   interactions: [],
   label: "Omgevingsplan Nieuwegein",
   href: "#",
@@ -61,7 +61,7 @@ export const cardContent: CardArgs = {
   active: false,
 };
 
-export const cardContentButton: CardArgs = {
+export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -75,7 +75,7 @@ export const cardContentButton: CardArgs = {
   ],
 };
 
-export const cardContentToggletip: CardArgs = {
+export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -88,7 +88,7 @@ export const cardContentToggletip: CardArgs = {
   ],
 };
 
-export const cardContentLabel: CardArgs = {
+export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -99,7 +99,7 @@ export const cardContentLabel: CardArgs = {
   ],
 };
 
-export const cardContentSlideToggle: CardArgs = {
+export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -129,6 +129,6 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
-    dsoCardClick: (e) => a.dsoCardClick?.(e.detail),
+    dsoCardClick: (e) => a.dsoCardClick(e.detail),
   };
 }

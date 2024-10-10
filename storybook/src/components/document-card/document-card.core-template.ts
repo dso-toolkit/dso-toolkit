@@ -23,10 +23,10 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard> = {
         ?active=${active}
         @dsoDocumentCardClick=${(e: DsoDocumentCardCustomEvent<DocumentCardClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
-            e.detail.originalEvent?.preventDefault();
+            e.detail.originalEvent.preventDefault();
           }
 
-          dsoDocumentCardClick?.(e);
+          dsoDocumentCardClick(e);
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
         ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}

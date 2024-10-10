@@ -33,10 +33,10 @@ export const coreCard: ComponentImplementation<Card<never>> = {
           ?active=${active}
           @dsoCardClick=${(e: DsoCardCustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
-              e.detail.originalEvent?.preventDefault();
+              e.detail.originalEvent.preventDefault();
             }
 
-            dsoCardClick?.(e);
+            dsoCardClick(e);
           }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}

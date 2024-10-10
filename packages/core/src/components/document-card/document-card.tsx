@@ -1,9 +1,15 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, forceUpdate } from "@stencil/core";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { DocumentCardClickEvent } from "./document-card.interfaces";
 
+/**
+ * @slot heading - A slot to place the title of the card in.
+ * @slot meta - An optional slot to place a `Label` in.
+ * @slot type - A slot to hold type of document with an optional `Toggletip`.
+ * @slot status - A slot to hold some status information on the document.
+ */
 @Component({
   tag: "dso-document-card",
   styleUrl: "document-card.scss",
@@ -59,23 +65,21 @@ export class DocumentCard implements ComponentInterface {
 
   render() {
     return (
-      <Host>
-        <div class="dso-document-card-container">
-          <div class="dso-document-card-heading">
-            <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
-              <slot name="heading" />
-              <dso-icon icon="chevron-right"></dso-icon>
-            </a>
-            {this.metaSlottedElement !== null && <slot name="meta" />}
-          </div>
-          <div class="dso-document-card-type">
-            <slot name="type" />
-          </div>
-          <div class="dso-document-card-status">
-            <slot name="status" />
-          </div>
+      <div class="dso-document-card-container">
+        <div class="dso-document-card-heading">
+          <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+            <slot name="heading" />
+            <dso-icon icon="chevron-right"></dso-icon>
+          </a>
+          {this.metaSlottedElement !== null && <slot name="meta" />}
         </div>
-      </Host>
+        <div class="dso-document-card-type">
+          <slot name="type" />
+        </div>
+        <div class="dso-document-card-status">
+          <slot name="status" />
+        </div>
+      </div>
     );
   }
 }

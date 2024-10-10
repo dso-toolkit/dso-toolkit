@@ -9,9 +9,9 @@ export interface DocumentCard {
   type: string;
   typeToelichting: Toggletip<never>;
   status: string;
-  dsoDocumentCardClick?: (e: CustomEvent<DsoDocumentCardClickEvent>) => void;
+  dsoDocumentCardClick: (e: CustomEvent<DocumentCardClickEvent>) => void;
 }
 
-export interface DsoDocumentCardClickEvent {
-  originalEvent?: MouseEvent;
+export interface DocumentCardClickEvent {
+  originalEvent: MouseEvent;
 }

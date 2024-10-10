@@ -31,6 +31,12 @@ const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigacti
   return <div class="dso-plekinfo-card-container">{children}</div>;
 };
 
+/**
+ * @slot symbol - An optional slot to place a symbol, representing the plekinfo item, in.
+ * @slot heading - A slot to place the title of the card in.
+ * @slot meta - An optional slot to place a `Label` in.
+ * @slot content - An optional slot to place `Rich Content` in.
+ */
 @Component({
   tag: "dso-plekinfo-card",
   styleUrl: "plekinfo-card.scss",

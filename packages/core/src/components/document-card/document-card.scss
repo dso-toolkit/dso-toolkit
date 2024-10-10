@@ -36,13 +36,13 @@
 }
 
 ::slotted([slot="meta"]) {
-  display: flex;
-  justify-content: space-between;
-  margin-inline-start: auto;
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-inline-start: auto !important;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100%;
-    margin-block-start: units.$u2;
+    flex-basis: 100% !important;
+    margin-block-start: units.$u2 !important;
   }
 }
 
