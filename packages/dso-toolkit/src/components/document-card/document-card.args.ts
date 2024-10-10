@@ -66,6 +66,6 @@ export function documentCardArgsMapper(a: DocumentCardArgs): DocumentCard {
     type: a.type,
     status: a.status,
     meta: a.meta,
-    dsoDocumentCardClick: (e) => a.dsoDocumentCardClick?.(e.detail),
+    dsoDocumentCardClick: (e) => a.dsoDocumentCardClick(e.detail),
   };
 }

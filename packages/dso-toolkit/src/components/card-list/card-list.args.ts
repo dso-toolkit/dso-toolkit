@@ -23,6 +23,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
+      dsoCardClick() {},
     },
     {
       label: "Brouwersmolen",
@@ -30,6 +31,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
+      dsoCardClick() {},
     },
     {
       label: "Maximum bouwhoogte",
@@ -37,6 +39,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
+      dsoCardClick() {},
     },
   ],
 };

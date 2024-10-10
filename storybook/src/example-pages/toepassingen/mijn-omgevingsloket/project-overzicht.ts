@@ -110,7 +110,8 @@ examplePageFactory(
                           },
                         },
                       ],
-                    })} `,
+                    })}`,
+                  dsoCardClick() {},
                 },
               ],
             })}
@@ -127,6 +128,7 @@ examplePageFactory(
                     <dt>Datum:</dt>
                     <dd>02-20-2022</dd>
                   </dl>`,
+                  dsoCardClick() {},
                 },
                 {
                   href: "#",
@@ -137,6 +139,7 @@ examplePageFactory(
                     <dt>Datum:</dt>
                     <dd>02-20-2022</dd>
                   </dl>`,
+                  dsoCardClick() {},
                 },
                 {
                   href: "#",
@@ -147,6 +150,7 @@ examplePageFactory(
                     <dt>Datum:</dt>
                     <dd>02-20-2022</dd>
                   </dl>`,
+                  dsoCardClick() {},
                 },
               ],
             })}

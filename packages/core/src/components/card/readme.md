@@ -1,4 +1,4 @@
-# <dso-card>
+# `<dso-card>`
 
 Beware: clicking the heading link with property `href` set doesn't navigate to the URL set. This is caused 
 by the storybook implementation, which inhibits this normal behavior. Use developer tools to remove the Event 
@@ -22,6 +22,16 @@ Listener `dsoCardClicked` to enable the navigation to the set `href`
 | Event          | Description                               | Type                          |
 | -------------- | ----------------------------------------- | ----------------------------- |
 | `dsoCardClick` | Emitted when the Card heading is clicked. | `CustomEvent<CardClickEvent>` |
+
+
+## Slots
+
+| Slot             | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `"content"`      | An optional slot to place `Rich Content` in.                                          |
+| `"heading"`      | A  slot to place the title of the card in.                                            |
+| `"interactions"` | An optional slot for one or more `Button`s, `Label`s, `Toggletip`s or `SlideToggle`s. |
+| `"selectable"`   | An optional slot to place a `Selectable` in.                                          |
 
 
 ## Dependencies

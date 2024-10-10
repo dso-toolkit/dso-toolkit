@@ -25,10 +25,10 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
         ?active=${active}
         @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
-            e.detail.originalEvent?.preventDefault();
+            e.detail.originalEvent.preventDefault();
           }
 
-          dsoPlekinfoCardClick?.(e);
+          dsoPlekinfoCardClick(e);
         }}
       >
         ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}

@@ -62,6 +62,6 @@ export function plekinfoCardArgsMapper<TemplateFnReturnType>(
     meta: a.meta,
     content,
     symbool,
-    dsoPlekinfoCardClick: (e) => a.dsoPlekinfoCardClick?.(e.detail),
+    dsoPlekinfoCardClick: (e) => a.dsoPlekinfoCardClick(e.detail),
   };
 }

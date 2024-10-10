@@ -16,10 +16,10 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
           mode={mode}
           onDsoCardClick={(e: CustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
-              e.detail.originalEvent?.preventDefault();
+              e.detail.originalEvent.preventDefault();
             }
 
-            dsoCardClick?.(e);
+            dsoCardClick(e);
           }}
         >
           {selectable && selectableTemplate(selectable)}

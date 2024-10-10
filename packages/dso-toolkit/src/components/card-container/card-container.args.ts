@@ -30,6 +30,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: true,
       interactions: [],
+      dsoCardClick() {},
     },
     {
       label: "Activiteiten",
@@ -46,6 +47,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
         },
       ],
       selectable: false,
+      dsoCardClick() {},
     },
     {
       label: "Werkzaamheden",
@@ -53,6 +55,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
+      dsoCardClick() {},
     },
     {
       label: "Waardelijsten",
@@ -60,6 +63,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
+      dsoCardClick() {},
     },
     {
       label: "Bronnen",
@@ -67,6 +71,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
+      dsoCardClick() {},
     },
     {
       label: "Informatieproducten",
@@ -74,6 +79,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
+      dsoCardClick() {},
     },
   ],
 };

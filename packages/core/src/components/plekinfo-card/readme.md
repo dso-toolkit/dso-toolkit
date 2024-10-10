@@ -1,4 +1,4 @@
-# <dso-plekinfo-card>
+# `<dso-plekinfo-card>`
 
 
 
@@ -19,6 +19,16 @@
 | Event                  | Description                                       | Type                                  |
 | ---------------------- | ------------------------------------------------- | ------------------------------------- |
 | `dsoPlekinfoCardClick` | Emitted when the PlekinfoCard heading is clicked. | `CustomEvent<PlekinfoCardClickEvent>` |
+
+
+## Slots
+
+| Slot        | Description                                                             |
+| ----------- | ----------------------------------------------------------------------- |
+| `"content"` | An optional slot to place `Rich Content` in.                            |
+| `"heading"` | A slot to place the title of the card in.                               |
+| `"meta"`    | An optional slot to place a `Label` in.                                 |
+| `"symbol"`  | An optional slot to place a symbol, representing the plekinfo item, in. |
 
 
 ## Dependencies
