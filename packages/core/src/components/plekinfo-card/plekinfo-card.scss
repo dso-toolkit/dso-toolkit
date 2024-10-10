@@ -39,13 +39,13 @@
 }
 
 ins.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
     background-color: plekinfo-card.$background-color-hover-voegtoe;
   }
 }
 
 del.dso-plekinfo-card-container {
-  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus)) {
+  &:has(.dso-plekinfo-card-heading a:is(:hover, :focus-visible)) {
     background-color: plekinfo-card.$background-color-hover-verwijder;
   }
 }
