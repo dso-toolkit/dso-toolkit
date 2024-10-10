@@ -14,10 +14,11 @@ import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
-import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
+import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
+import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -35,6 +36,7 @@ import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
+import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -51,10 +53,11 @@ export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
-export { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
+export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
+export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
@@ -72,6 +75,7 @@ export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
+export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
@@ -368,18 +372,13 @@ export namespace Components {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
-          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
+          * Makes the Card active.
          */
-        "clickable": boolean;
+        "active"?: boolean;
         /**
           * The URL to which the Card heading links.
          */
-        "href"?: string;
-        /**
-          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
-         */
-        "imageShape": ImageShape;
+        "href": string | undefined;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
@@ -494,6 +493,16 @@ export namespace Components {
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value": string;
+    }
+    interface DsoDocumentCard {
+        /**
+          * Makes the DocumentCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the DocumentCard heading links.
+         */
+        "href": string | undefined;
     }
     interface DsoDocumentComponent {
         /**
@@ -963,6 +972,20 @@ export namespace Components {
     }
     interface DsoPanel {
     }
+    interface DsoPlekinfoCard {
+        /**
+          * Makes the PlekinfoCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the PlekinfoCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
+         */
+        "wijzigactie"?: PlekinfoWijzigactie;
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -1285,6 +1308,10 @@ export interface DsoDatePickerLegacyCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerLegacyElement;
 }
+export interface DsoDocumentCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDocumentCardElement;
+}
 export interface DsoDocumentComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDocumentComponentElement;
@@ -1356,6 +1383,10 @@ export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
 export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPanelElement;
+}
+export interface DsoPlekinfoCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPlekinfoCardElement;
 }
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1577,7 +1608,7 @@ declare global {
         new (): HTMLDsoBannerElement;
     };
     interface HTMLDsoCardElementEventMap {
-        "dsoCardClicked": DsoCardClickedEvent;
+        "dsoCardClick": CardClickEvent;
     }
     interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoCardElementEventMap>(type: K, listener: (this: HTMLDsoCardElement, ev: DsoCardCustomEvent<HTMLDsoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1640,6 +1671,23 @@ declare global {
     var HTMLDsoDatePickerLegacyElement: {
         prototype: HTMLDsoDatePickerLegacyElement;
         new (): HTMLDsoDatePickerLegacyElement;
+    };
+    interface HTMLDsoDocumentCardElementEventMap {
+        "dsoDocumentCardClick": DocumentCardClickEvent;
+    }
+    interface HTMLDsoDocumentCardElement extends Components.DsoDocumentCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoDocumentCardElementEventMap>(type: K, listener: (this: HTMLDsoDocumentCardElement, ev: DsoDocumentCardCustomEvent<HTMLDsoDocumentCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoDocumentCardElementEventMap>(type: K, listener: (this: HTMLDsoDocumentCardElement, ev: DsoDocumentCardCustomEvent<HTMLDsoDocumentCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoDocumentCardElement: {
+        prototype: HTMLDsoDocumentCardElement;
+        new (): HTMLDsoDocumentCardElement;
     };
     interface HTMLDsoDocumentComponentElementEventMap {
         "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
@@ -1992,6 +2040,23 @@ declare global {
         prototype: HTMLDsoPanelElement;
         new (): HTMLDsoPanelElement;
     };
+    interface HTMLDsoPlekinfoCardElementEventMap {
+        "dsoPlekinfoCardClick": PlekinfoCardClickEvent;
+    }
+    interface HTMLDsoPlekinfoCardElement extends Components.DsoPlekinfoCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoPlekinfoCardElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardElement, ev: DsoPlekinfoCardCustomEvent<HTMLDsoPlekinfoCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoPlekinfoCardElementEventMap>(type: K, listener: (this: HTMLDsoPlekinfoCardElement, ev: DsoPlekinfoCardCustomEvent<HTMLDsoPlekinfoCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoPlekinfoCardElement: {
+        prototype: HTMLDsoPlekinfoCardElement;
+        new (): HTMLDsoPlekinfoCardElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -2210,6 +2275,7 @@ declare global {
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-date-picker-legacy": HTMLDsoDatePickerLegacyElement;
+        "dso-document-card": HTMLDsoDocumentCardElement;
         "dso-document-component": HTMLDsoDocumentComponentElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-expandable": HTMLDsoExpandableElement;
@@ -2233,6 +2299,7 @@ declare global {
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
+        "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
@@ -2587,26 +2654,21 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         /**
-          * Whether or not the Card is clickable. This is NOT a boolean attribute. Set to "false" to make the Card non-clickable.
-          * @deprecated Use `href` instead and `<ELEMENT_TYPE slot="heading">` should NOT be of element type `a` (anchor).
+          * Makes the Card active.
          */
-        "clickable"?: boolean;
+        "active"?: boolean;
         /**
           * The URL to which the Card heading links.
          */
-        "href"?: string;
-        /**
-          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
-         */
-        "imageShape"?: ImageShape;
+        "href": string | undefined;
         /**
           * Display the link as an external link or a download link  - "download"  - "extern"
          */
         "mode"?: string;
         /**
-          * Emitted when the Card is clickable and the user clicked the Card.
+          * Emitted when the Card heading is clicked.
          */
-        "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;
+        "onDsoCardClick"?: (event: DsoCardCustomEvent<CardClickEvent>) => void;
     }
     interface DsoCardContainer {
         /**
@@ -2745,6 +2807,20 @@ declare namespace LocalJSX {
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value"?: string;
+    }
+    interface DsoDocumentCard {
+        /**
+          * Makes the DocumentCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the DocumentCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * Emitted when the DocumentCard heading is clicked.
+         */
+        "onDsoDocumentCardClick"?: (event: DsoDocumentCardCustomEvent<DocumentCardClickEvent>) => void;
     }
     interface DsoDocumentComponent {
         /**
@@ -3332,6 +3408,24 @@ declare namespace LocalJSX {
          */
         "onDsoCloseClick"?: (event: DsoPanelCustomEvent<PanelCloseEvent>) => void;
     }
+    interface DsoPlekinfoCard {
+        /**
+          * Makes the PlekinfoCard active.
+         */
+        "active"?: boolean;
+        /**
+          * The URL to which the PlekinfoCard heading links.
+         */
+        "href": string | undefined;
+        /**
+          * Emitted when the PlekinfoCard heading is clicked.
+         */
+        "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
+        /**
+          * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
+         */
+        "wijzigactie"?: PlekinfoWijzigactie;
+    }
     interface DsoProgressBar {
         /**
           * When the operation completes.
@@ -3679,6 +3773,7 @@ declare namespace LocalJSX {
         "dso-card-container": DsoCardContainer;
         "dso-date-picker": DsoDatePicker;
         "dso-date-picker-legacy": DsoDatePickerLegacy;
+        "dso-document-card": DsoDocumentCard;
         "dso-document-component": DsoDocumentComponent;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-expandable": DsoExpandable;
@@ -3702,6 +3797,7 @@ declare namespace LocalJSX {
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
         "dso-panel": DsoPanel;
+        "dso-plekinfo-card": DsoPlekinfoCard;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-project-item": DsoProjectItem;
@@ -3746,6 +3842,7 @@ declare module "@stencil/core" {
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-date-picker-legacy": LocalJSX.DsoDatePickerLegacy & JSXBase.HTMLAttributes<HTMLDsoDatePickerLegacyElement>;
+            "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
             "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
@@ -3769,6 +3866,7 @@ declare module "@stencil/core" {
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
+            "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
