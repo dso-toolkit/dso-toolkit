@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-export const typeAuthority = html`<span class="dso-document-card-type">Bestemmingsplan</span>
-  <span class="dso-document-card-authority">Gemeente Harderwijk</span>`;
+export const typeItems = html`<span class="dso-document-card-type-item">Omgevingsplan</span>
+  <span class="dso-document-card-type-item">Gemeente Amsterdam</span>`;
 
-export const type = html`<span class="dso-document-card-type">Bestemmingsplan</span>`;
+export const typeItem = html`<span class="dso-document-card-type-item">Omgevingsplan</span>`;

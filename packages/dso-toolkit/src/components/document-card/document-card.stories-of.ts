@@ -30,8 +30,8 @@ interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnRet
 
 interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
-  typeAuthority: TemplateFnReturnType;
-  type: TemplateFnReturnType;
+  typeItems: TemplateFnReturnType;
+  typeItem: TemplateFnReturnType;
 }
 
 export function documentCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -57,8 +57,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
 }: DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentCardStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, type }) =>
-        documentCardTemplate(documentCardArgsMapper(args, type)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItem }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItem)),
       ),
     },
     WithLabel: {
@@ -70,8 +70,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
           label: "Ontwerp",
         },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeAuthority }) =>
-        documentCardTemplate(documentCardArgsMapper(args, typeAuthority)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems)),
       ),
     },
     WithTypeToeliching: {
@@ -85,8 +85,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
           secondary: false,
         },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeAuthority }) =>
-        documentCardTemplate(documentCardArgsMapper(args, typeAuthority)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems)),
       ),
     },
   };
