@@ -7,19 +7,36 @@
 @use "../button";
 
 .dso-card {
-  .dso-card-heading {
-    align-items: center;
-    display: flex;
-    margin-block-end: units.$u1;
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
+    background-color: colors.$grijs-5;
 
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-      flex-wrap: wrap;
+    .dso-card-heading a:hover {
+      color: card-variables.$heading-anchor-hover-color;
+      text-decoration: underline;
     }
   }
 
-  .dso-card-container {
-    .dso-card-selectable {
-      grid-row: span 2;
+  &.dso-is-selectable {
+    .dso-card-container {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 100%);
+
+      .dso-card-heading,
+      .dso-card-content {
+        grid-column: 2 /-1;
+      }
+    }
+  }
+
+  .dso-rich-content.dso-rich-content {
+    :first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  .dso-selectable {
+    label {
+      font-size: 0;
     }
   }
 }
@@ -30,11 +47,6 @@ dso-card {
 
     dso-icon:last-child {
       align-self: flex-start;
-    }
-
-    &:hover {
-      color: card-variables.$heading-anchor-hover-color;
-      text-decoration: underline;
     }
   }
 
@@ -64,80 +76,6 @@ dso-card {
   }
 }
 
-.dso-card {
-  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
-    background-color: colors.$grijs-5;
-
-    .dso-card-heading > a:hover {
-      color: card-variables.$heading-anchor-hover-color;
-      text-decoration: underline;
-    }
-  }
-
-  &.dso-is-selectable {
-    .dso-card-container {
-      display: grid;
-      grid-template-columns: 1fr minmax(0, 100%);
-
-      .dso-card-heading,
-      .dso-card-content {
-        grid-column: 2 /-1;
-      }
-    }
-  }
-
-  .dso-card-heading {
-    h2:first-child,
-    h3:first-child,
-    h4:first-child,
-    h5:first-child {
-      align-items: center;
-      display: flex;
-      font-size: 1.125em;
-      margin-block-end: 0;
-      margin-block-start: 0;
-
-      span {
-        margin-inline-end: units.$u1 * 0.5;
-
-        + dso-icon,
-        + svg.di {
-          flex-shrink: 0;
-          position: relative;
-        }
-      }
-    }
-
-    > a {
-      text-decoration: none;
-
-      &,
-      &#{button.$not-dso-buttons}:visited,
-      &:active,
-      &:focus {
-        color: card-variables.$heading-anchor-color;
-      }
-
-      &:hover {
-        color: card-variables.$heading-anchor-color;
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .dso-rich-content.dso-rich-content {
-    :first-child {
-      margin-block-start: 0;
-    }
-  }
-
-  .dso-selectable {
-    label {
-      font-size: 0;
-    }
-  }
-}
-
 .dso-card-container {
   padding-block: units.$u2 units.$u1;
   padding-inline: units.$u2;
@@ -145,6 +83,52 @@ dso-card {
 
   &.dso-card-active {
     background-color: card-variables.$background-color-active;
+  }
+
+  .dso-card-selectable {
+    grid-row: span 2;
+  }
+}
+
+.dso-card-heading {
+  align-items: center;
+  display: flex;
+  margin-block-end: units.$u1;
+
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child {
+    align-items: center;
+    display: flex;
+    font-size: 1.125em;
+    margin-block-end: 0;
+    margin-block-start: 0;
+
+    span {
+      margin-inline-end: units.$u1 * 0.5;
+
+      + dso-icon,
+      + svg.di {
+        flex-shrink: 0;
+        position: relative;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &,
+    &#{button.$not-dso-buttons}:visited,
+    &:active,
+    &:focus-visible {
+      color: card-variables.$heading-anchor-color;
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-wrap: wrap;
   }
 }
 
