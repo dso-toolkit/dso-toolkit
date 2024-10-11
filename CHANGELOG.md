@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Docs
 * Voorbeeldpagina: Mijn overzicht bijwerken ([#2785](https://github.com/dso-toolkit/dso-toolkit/issues/2785))
 
+### Fixed
+* Ozon Content: Een Figuur zonder Titel of alt kan niet worden ingezoomd ([#2808](https://github.com/dso-toolkit/dso-toolkit/issues/2808))
+
 ## 🛣️ Release 65.0.2 - 2024-10-04
 
 ### Fixed
