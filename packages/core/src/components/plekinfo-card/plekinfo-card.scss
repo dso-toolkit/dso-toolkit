@@ -95,19 +95,17 @@ del.dso-plekinfo-card-container {
   margin-block-start: 0 !important;
 }
 
-.dso-plekinfo-card-heading a {
+.heading-anchor {
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: plekinfo-card.$heading-anchor-color;
   text-decoration: none;
 
   &:hover {
     color: plekinfo-card.$heading-anchor-hover-color;
     text-decoration: underline;
   }
-}
-
-.heading-anchor {
-  color: plekinfo-card.$heading-anchor-color;
-  display: flex;
-  gap: units.$u1 * 0.5;
 
   &:visited {
     color: plekinfo-card.$heading-anchor-color;

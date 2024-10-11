@@ -53,19 +53,17 @@
   margin-block-start: 0 !important;
 }
 
-.dso-document-card-heading a {
+.heading-anchor {
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: document-card.$heading-anchor-color;
   text-decoration: none;
 
   &:hover {
     color: document-card.$heading-anchor-hover-color;
     text-decoration: underline;
   }
-}
-
-.heading-anchor {
-  color: document-card.$heading-anchor-color;
-  display: flex;
-  gap: units.$u1 * 0.5;
 
   &:visited {
     color: document-card.$heading-anchor-color;

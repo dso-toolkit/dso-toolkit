@@ -60,19 +60,17 @@
   }
 }
 
-.dso-card-heading a {
+.heading-anchor {
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: card.$heading-anchor-color;
   text-decoration: none;
 
   &:hover {
     color: card.$heading-anchor-hover-color;
     text-decoration: underline;
   }
-}
-
-.heading-anchor {
-  color: card.$heading-anchor-color;
-  display: flex;
-  gap: units.$u1 * 0.5;
 
   &:visited {
     color: card.$heading-anchor-color;
