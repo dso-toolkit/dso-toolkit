@@ -19,7 +19,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
               e.detail.originalEvent.preventDefault();
             }
 
-            dsoCardClick(e);
+            dsoCardClick?.(e);
           }}
         >
           {selectable && selectableTemplate(selectable)}

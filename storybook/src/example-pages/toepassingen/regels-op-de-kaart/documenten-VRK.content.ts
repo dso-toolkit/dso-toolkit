@@ -74,7 +74,6 @@ export const cardList: CardContainer<TemplateResult> = {
           children: html`Test informatie`,
         },
       ],
-      dsoCardClick() {},
     },
     {
       href: "#",
@@ -102,7 +101,6 @@ export const cardList: CardContainer<TemplateResult> = {
           children: html`Test informatie`,
         },
       ],
-      dsoCardClick() {},
     },
     {
       href: "#",
@@ -130,7 +128,6 @@ export const cardList: CardContainer<TemplateResult> = {
           children: html`Test informatie`,
         },
       ],
-      dsoCardClick() {},
     },
   ],
 };

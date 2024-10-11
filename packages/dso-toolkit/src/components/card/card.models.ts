@@ -13,9 +13,11 @@ export interface Card<TemplateFnReturnType> {
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
-  dsoCardClick: (e: CustomEvent<CardClickEvent>) => void;
+  dsoCardClick?: (e: CustomEvent<CardClickEvent>) => void;
 }
 
 export interface CardClickEvent {
   originalEvent: MouseEvent;
+  /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
 }

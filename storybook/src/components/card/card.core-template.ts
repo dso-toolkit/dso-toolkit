@@ -36,7 +36,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
               e.detail.originalEvent.preventDefault();
             }
 
-            dsoCardClick(e);
+            dsoCardClick?.(e);
           }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}

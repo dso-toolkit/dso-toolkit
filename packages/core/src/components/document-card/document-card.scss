@@ -82,6 +82,7 @@
 
 ::slotted([slot="type"]) {
   display: flex !important;
+  gap: units.$u1 !important;
 }
 
 .dso-document-card-heading + .dso-document-card-type,

@@ -16,7 +16,6 @@ export const cardList: CardList<TemplateResult> = {
           iconMode: "only",
         },
       ],
-      dsoCardClick() {},
     },
     {
       href: "#",
@@ -32,7 +31,6 @@ export const cardList: CardList<TemplateResult> = {
           iconMode: "only",
         },
       ],
-      dsoCardClick() {},
     },
     {
       href: "#",
@@ -48,7 +46,6 @@ export const cardList: CardList<TemplateResult> = {
           iconMode: "only",
         },
       ],
-      dsoCardClick() {},
     },
     {
       href: "#",
@@ -64,7 +61,6 @@ export const cardList: CardList<TemplateResult> = {
           iconMode: "only",
         },
       ],
-      dsoCardClick() {},
     },
   ],
 };

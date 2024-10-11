@@ -28,7 +28,7 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
             e.detail.originalEvent.preventDefault();
           }
 
-          dsoPlekinfoCardClick(e);
+          dsoPlekinfoCardClick?.(e);
         }}
       >
         ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}

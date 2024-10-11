@@ -26,7 +26,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
             e.detail.originalEvent.preventDefault();
           }
 
-          dsoDocumentCardClick(e);
+          dsoDocumentCardClick?.(e);
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
         ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
