@@ -1,0 +1,12 @@
+@use "../../variables/colors";
+
+$background-color-hover: colors.$grijs-5;
+$background-color-hover-voegtoe: colors.$lime-20-5;
+$background-color-hover-verwijder: colors.$rood-20-5;
+
+$background-color-active: colors.$grijs-10;
+$background-color-active-voegtoe: colors.$lime-20-10;
+$background-color-active-verwijder: colors.$rood-20-10;
+
+$heading-anchor-color: colors.$bosgroen;
+$heading-anchor-hover-color: colors.$bosgroen;

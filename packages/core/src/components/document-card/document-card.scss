@@ -1,0 +1,92 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/document-card";
+
+@include utilities.box-sizing();
+
+:host {
+  display: block;
+}
+
+.dso-document-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+
+  .dso-document-card-heading {
+    align-items: center;
+    display: flex;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &:has(.dso-document-card-heading a:is(:hover, :focus-visible)) {
+    background-color: document-card.$background-color-hover;
+  }
+}
+
+:host([active]:not([active="false"])) {
+  .dso-document-card-container {
+    background-color: document-card.$background-color-active;
+  }
+}
+
+::slotted([slot="meta"]) {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-inline-start: auto !important;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100% !important;
+    margin-block-start: units.$u2 !important;
+  }
+}
+
+::slotted([slot="heading"]) {
+  align-items: center !important;
+  display: flex !important;
+  font-size: 1.125em !important;
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+}
+
+.heading-anchor {
+  display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: document-card.$heading-anchor-color;
+  text-decoration: none;
+
+  &:hover {
+    color: document-card.$heading-anchor-hover-color;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: document-card.$heading-anchor-color;
+  }
+
+  dso-icon {
+    flex-shrink: 0;
+  }
+
+  .sr-only {
+    @include utilities.sr-only();
+  }
+}
+
+::slotted([slot="type"]) {
+  --_dt-info-button-margin-inline-start: 0;
+
+  display: flex !important;
+  gap: units.$u1 !important;
+}
+
+.dso-document-card-heading + .dso-document-card-type,
+.dso-document-card-heading + .dso-document-card-status,
+.dso-document-card-type + .dso-document-card-status {
+  margin-block-start: units.$u1;
+}

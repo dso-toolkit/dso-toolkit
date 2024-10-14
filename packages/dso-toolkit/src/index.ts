@@ -65,6 +65,8 @@ export * from "./components/definition-list";
 
 export * from "./components/description";
 
+export * from "./components/document-card";
+
 export * from "./components/document-component";
 
 export * from "./components/document-header";
@@ -176,6 +178,8 @@ export * from "./components/pagination";
 export * from "./components/panel";
 
 export * from "./components/paragraph";
+
+export * from "./components/plekinfo-card";
 
 export * from "./components/progress-bar";
 

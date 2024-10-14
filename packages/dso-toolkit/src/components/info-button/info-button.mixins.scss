@@ -7,7 +7,7 @@
     background-color: transparent;
     color: colors.$grasgroen;
     border: 0;
-    margin-inline-start: units.$u1;
+    margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);
     padding: 0;
   }
 

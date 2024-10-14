@@ -2,22 +2,47 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
 
-@use "card.mixins" as card-mixins;
 @use "card.variables" as card-variables;
 
 @use "../button";
 
 .dso-card {
-  @include card-mixins.root();
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
+    background-color: colors.$grijs-5;
+
+    .dso-card-heading a:hover {
+      color: card-variables.$heading-anchor-hover-color;
+      text-decoration: underline;
+    }
+  }
+
+  &.dso-is-selectable {
+    .dso-card-container {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 100%);
+
+      .dso-card-heading,
+      .dso-card-content {
+        grid-column: 2 /-1;
+      }
+    }
+  }
+
+  .dso-rich-content.dso-rich-content {
+    :first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  .dso-selectable {
+    label {
+      font-size: 0;
+    }
+  }
 }
 
 dso-card {
-  &[is-selectable],
-  &[has-image] {
-    @extend %card-grid;
-  }
-
-  a[slot="heading"] {
+  .dso-card-heading a {
     text-decoration: none;
 
     dso-icon:last-child {
@@ -25,33 +50,16 @@ dso-card {
     }
   }
 
-  &:hover a[slot="heading"] {
-    color: card-variables.$heading-anchor-hover-color;
-    text-decoration: underline;
-  }
-}
-
-.dso-card,
-dso-card {
-  @include card-mixins.base();
-
-  &.dso-is-selectable,
-  &.dso-has-image {
-    @extend %card-grid;
-  }
-
   h2[slot="heading"],
   h3[slot="heading"],
   h4[slot="heading"],
   h5[slot="heading"] {
-    align-items: center;
-    display: flex;
     font-size: 1.125em;
     margin-block-end: 0;
     margin-block-start: 0;
 
     span {
-      margin-inline-end: units.$u1;
+      margin-inline-end: units.$u1 * 0.5;
 
       + dso-icon,
       + svg.di {
@@ -61,79 +69,74 @@ dso-card {
     }
   }
 
-  .dso-card-heading,
-  *[slot="heading"] {
-    h2:first-child,
-    h3:first-child,
-    h4:first-child,
-    h5:first-child {
-      align-items: center;
-      display: flex;
-      font-size: 1.125em;
-      margin-block-end: 0;
-      margin-block-start: 0;
-
-      span {
-        margin-inline-end: units.$u1;
-
-        + dso-icon,
-        + svg.di {
-          flex-shrink: 0;
-          position: relative;
-        }
-      }
-    }
-
-    > a {
-      text-decoration: none;
-
-      &,
-      &#{button.$not-dso-buttons}:visited,
-      &:active,
-      &:focus {
-        color: card-variables.$heading-anchor-color;
-      }
-
-      &:hover {
-        color: card-variables.$heading-anchor-color;
-        text-decoration: underline;
-      }
-    }
-  }
-
-  *[slot="addon"] {
-    margin-inline-start: units.$u2;
-    margin-inline-end: units.$u1;
-  }
-
-  .dso-rich-content.dso-rich-content {
-    :first-child {
-      margin-block-start: 0;
-    }
-  }
-
-  .dso-selectable,
   dso-selectable {
-    @include card-mixins.selectable();
+    label {
+      font-size: 0;
+    }
+  }
+}
+
+.dso-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+
+  &.dso-card-active {
+    background-color: card-variables.$background-color-active;
   }
 
-  img {
+  .dso-card-selectable {
+    grid-row: span 2;
+  }
+}
+
+.dso-card-heading {
+  align-items: center;
+  display: flex;
+  margin-block-end: units.$u1;
+
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child {
+    align-items: center;
     display: flex;
-    block-size: units.$u3;
-    inline-size: units.$u3;
-    max-inline-size: unset;
+    font-size: 1.125em;
+    margin-block-end: 0;
+    margin-block-start: 0;
+
+    span {
+      margin-inline-end: units.$u1 * 0.5;
+
+      + dso-icon,
+      + svg.di {
+        flex-shrink: 0;
+        position: relative;
+      }
+    }
   }
 
-  &.dso-wide-image img,
-  &[image-shape="wide"] img {
-    block-size: 26px;
-    inline-size: 30px;
+  a {
+    text-decoration: none;
+
+    &,
+    &#{button.$not-dso-buttons}:visited,
+    &:active,
+    &:focus-visible {
+      color: card-variables.$heading-anchor-color;
+    }
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-wrap: wrap;
   }
 }
 
 .dso-card-interactions,
 [slot="interactions"] {
-  @include card-mixins.interactions();
+  display: flex;
+  justify-content: space-between;
+  margin-inline-start: auto;
 
   .dso-card-interaction {
     align-items: center;

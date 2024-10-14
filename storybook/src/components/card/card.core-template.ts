@@ -3,7 +3,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { DsoCardCustomEvent, DsoCardClickedEvent } from "@dso-toolkit/core";
+import { CardClickEvent, DsoCardCustomEvent } from "@dso-toolkit/core";
 
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
@@ -21,40 +21,26 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       selectable,
       content,
       interactions,
-      image,
-      imageAlt,
-      imageShape,
-      clickable = false,
       href,
+      active,
       mode,
-      dsoCardClicked,
+      dsoCardClick,
     }: Card<TemplateResult>) {
       return html`
         <dso-card
-          href=${ifDefined((!clickable && href) || undefined)}
-          mode=${ifDefined((href && mode) || undefined)}
-          clickable=${clickable}
-          image-shape=${ifDefined(imageShape)}
-          @dsoCardClicked=${(e: DsoCardCustomEvent<DsoCardClickedEvent>) => {
+          href=${href}
+          mode=${ifDefined(mode || undefined)}
+          ?active=${active}
+          @dsoCardClick=${(e: DsoCardCustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
-              e.detail.originalEvent?.preventDefault();
+              e.detail.originalEvent.preventDefault();
             }
 
-            dsoCardClicked?.(e);
+            dsoCardClick?.(e);
           }}
         >
           ${selectable ? selectableTemplate(selectable) : nothing}
-          ${image && imageAlt ? html`<img slot="image" src=${image} alt=${imageAlt} />` : nothing}
-          ${clickable && href
-            ? html`<a href=${href} slot="heading" @click=${(e: MouseEvent) => e.preventDefault()}>
-                <h2>
-                  <span id="card-title">${label}</span>
-                  <dso-icon icon="chevron-right"></dso-icon>
-                </h2>
-              </a>`
-            : html`<h2 slot="heading">
-                <span id="card-title">${label}</span>
-              </h2>`}
+          ${html`<h2 slot="heading" id="card-title">${label}</h2>`}
           ${interactions && interactions.length > 0
             ? html`<div slot="interactions">
                 ${interactions.map(
