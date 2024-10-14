@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Next
+
+## 🍆 Release 66.0.0 - 2024-10-14
+
 ### Added
 * **BREAKING** Card: Opsplitsen naar Card, Plekinfo Card en Document Card ([#2797](https://github.com/dso-toolkit/dso-toolkit/issues/2797))
 

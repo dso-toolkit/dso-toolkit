@@ -1,7 +1,7 @@
 {
   "name": "@dso-toolkit/angular",
   "description": "DSO Toolkit Angular bindings for Web Components",
-  "version": "65.0.2",
+  "version": "66.0.0",
   "homepage": "https://www.dso-toolkit.nl/",
   "publishConfig": {
     "access": "public"
