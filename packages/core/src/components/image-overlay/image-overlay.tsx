@@ -28,8 +28,7 @@ const Dimmer: FunctionalComponent<{
   click: () => void;
 }> = ({ active, src, alt, ref, click }, children) =>
   active &&
-  src &&
-  alt && (
+  src && (
     <div class="dimmer">
       <div class="wrapper" ref={ref}>
         {children[2]}
