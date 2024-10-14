@@ -1,0 +1,24 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v66.0.0 🍆
+
+## Card: Opsplitsen naar Card, Plekinfo Card en Document Card
+
+Een aangepaste Card is de oorzaak van deze breaking release! De bestaande Card is 'uitgekleed' of 'slanker' gemaakt.
+Het 'surplus aan kleding' of 'overgewicht' is overgeheveld naar twee nieuwe Web Componenten: PlekinfoCard en
+DocumentCard.
+
+Wat is komen te vervallen in Card?
+
+- Card kan niet meer Static zijn.
+- De titel van de Card wordt altijd in een anchor geplaatst. Alleen de titel van de Card is interactief en
+  aanklikbaar; overige interactieve elementen in de Card zijn ook aanklikbaar. De Card zelf is niet meer interactief.
+- Card kan geen image meer tonen voor de titel. Ook de property `imageShape` is verdwenen (deze functionaliteit is
+  overgeheveld naar het nieuwe component PlekinfoCard).
+- Het `DsoCardClickedEvent` is hernoemt naar `CardClickEvent`
+
+| Event          | Oud model                                 | Nieuw model                          |
+| -------------- | ----------------------------------------- | ------------------------------------ |
+| DsoCardClicked | `DsoCardCustomEvent<DsoCardClickedEvent>` | `DsoCardCustomEvent<CardClickEvent>` |

@@ -5,24 +5,19 @@ import { Selectable } from "../selectable/selectable.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
 import { SlideToggle } from "../slide-toggle";
 
-export const imageShapes = ["normal", "wide"] as const;
-
 export interface Card<TemplateFnReturnType> {
   label: string;
-  /** Use only with `clickable: false`. */
-  href?: string;
+  href: string;
+  active?: boolean;
   mode?: Anchor["mode"];
   selectable?: Selectable<TemplateFnReturnType>;
   content?: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
-  image?: string;
-  imageAlt?: string;
-  imageShape?: (typeof imageShapes)[number];
-  /** @deprecated use `href` */
-  clickable?: boolean;
-  dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
+  dsoCardClick?: (e: CustomEvent<CardClickEvent>) => void;
 }
 
-export interface DsoCardClickedEvent {
-  originalEvent?: MouseEvent;
+export interface CardClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
 }

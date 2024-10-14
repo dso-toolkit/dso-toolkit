@@ -1,4 +1,4 @@
-import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
+import { CardClickEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
 import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
@@ -9,40 +9,23 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate, slideToggleTemplate }) =>
-    function cardTemplate({
-      label,
-      selectable,
-      href,
-      mode,
-      content,
-      interactions,
-      image,
-      imageShape,
-      clickable,
-      dsoCardClicked,
-    }) {
+    function cardTemplate({ label, selectable, href, mode, content, interactions, dsoCardClick }) {
       return (
         <DsoCard
-          clickable={clickable}
           href={href}
           mode={mode}
-          imageShape={imageShape}
-          onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}
+          onDsoCardClick={(e: CustomEvent<CardClickEvent>) => {
+            if (!e.detail.isModifiedEvent) {
+              e.detail.originalEvent.preventDefault();
+            }
+
+            dsoCardClick?.(e);
+          }}
         >
           {selectable && selectableTemplate(selectable)}
-          {image && <img slot="image" src={image} />}
-          {clickable && href ? (
-            <a slot="heading" href={href}>
-              <h2>
-                <span id="card-title">{label}</span>
-                {iconTemplate({ icon: "chevron-right" })}
-              </h2>
-            </a>
-          ) : (
-            <h2 slot="heading">
-              <span id="card-title">{label}</span>
-            </h2>
-          )}
+          <h2 slot="heading">
+            <span id="card-title">{label}</span>
+          </h2>
           {interactions && interactions.length > 0 && (
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (

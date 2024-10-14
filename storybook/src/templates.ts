@@ -26,6 +26,7 @@ import {
   DatePickerLegacy,
   DefinitionList,
   Description,
+  DocumentCard,
   DocumentComponent,
   DocumentHeader,
   DocumentList,
@@ -75,6 +76,7 @@ import {
   Pagination,
   Panel,
   Paragraph,
+  PlekinfoCard,
   ProgressBar,
   ProgressIndicator,
   ProjectItem,
@@ -116,6 +118,7 @@ import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
+import { coreDocumentCard } from "./components/document-card/document-card.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
@@ -137,6 +140,7 @@ import { coreModal } from "./components/modal/modal.core-template";
 import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
 import { corePagination } from "./components/pagination/pagination.core-template";
 import { corePanel } from "./components/panel/panel.core-template";
+import { corePlekinfoCard } from "./components/plekinfo-card/plekinfo-card.core-template";
 import { coreProgressBar } from "./components/progress-bar/progress-bar.core-template";
 import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
 import { coreProjectItem } from "./components/project-item/project-item.core-template";
@@ -242,6 +246,7 @@ export interface Components {
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
+  documentCard: DocumentCard<TemplateResult>;
   documentComponent: DocumentComponent<TemplateResult>;
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
@@ -291,6 +296,7 @@ export interface Components {
   pagination: Pagination;
   panel: Panel<TemplateResult>;
   paragraph: Paragraph;
+  plekinfoCard: PlekinfoCard<TemplateResult>;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   projectItem: ProjectItem<TemplateResult | string>;
@@ -356,6 +362,7 @@ templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDatePickerLegacy);
+templateContainer.add(coreDocumentCard);
 templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
@@ -377,6 +384,7 @@ templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(corePanel);
+templateContainer.add(corePlekinfoCard);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
 templateContainer.add(coreProjectItem);

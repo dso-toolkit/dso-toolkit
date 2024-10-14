@@ -22,6 +22,7 @@
  - [dso-attachments-counter](../attachments-counter)
  - [dso-card](../card)
  - [dso-date-picker-legacy](../date-picker-legacy)
+ - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
@@ -37,6 +38,7 @@
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
  - [dso-panel](../panel)
+ - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
  - [dso-table](../table)
  - [dso-tree-view](../tree-view)
@@ -52,6 +54,7 @@ graph TD;
   dso-attachments-counter --> dso-icon
   dso-card --> dso-icon
   dso-date-picker-legacy --> dso-icon
+  dso-document-card --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon
@@ -67,6 +70,7 @@ graph TD;
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon
   dso-panel --> dso-icon
+  dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon
   dso-table --> dso-icon
   dso-tree-view --> dso-icon

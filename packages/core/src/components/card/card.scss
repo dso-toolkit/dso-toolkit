@@ -1,30 +1,70 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/card";
 @use "~dso-toolkit/src/components/anchor/anchor";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @include utilities.box-sizing();
 
 :host {
-  @include card.root();
-
   display: block;
 }
 
-:host(:hover) {
-  .dso-card-heading a {
-    color: card.$heading-anchor-hover-color;
-    text-decoration: underline;
+:host([is-selectable]:not([is-selectable="false"])) {
+  .dso-card-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
+
+    .dso-card-selectable {
+      grid-row: span 2;
+    }
   }
 }
 
-.dso-card-heading a {
-  text-decoration: none;
+:host([active]:not([active="false"])) {
+  .dso-card-container {
+    background-color: card.$background-color-active;
+  }
+}
+
+.dso-card-container {
+  padding-block: units.$u2 units.$u1;
+  padding-inline: units.$u2;
+  inline-size: 100%;
+  block-size: 100%;
+
+  &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
+    background-color: card.$background-color-hover;
+  }
+
+  .dso-card-heading {
+    align-items: center;
+    display: flex;
+    margin-block-end: units.$u1;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .heading-anchor {
-  color: card.$heading-anchor-color;
   display: flex;
+  gap: units.$u1 * 0.5;
+
+  color: card.$heading-anchor-color;
+  text-decoration: none;
+
+  &:hover {
+    color: card.$heading-anchor-hover-color;
+    text-decoration: underline;
+  }
 
   &:visited {
     color: card.$heading-anchor-color;

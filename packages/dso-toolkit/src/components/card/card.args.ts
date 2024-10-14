@@ -6,20 +6,17 @@ import { AnchorArgs } from "../anchor/anchor.args.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
-import { Card, imageShapes } from "./card.models.js";
+import { Card } from "./card.models.js";
 import { SlideToggle } from "../slide-toggle";
 
 export interface CardArgs {
   label: string;
-  href?: string;
+  href: string;
+  active: boolean;
   mode?: AnchorArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
-  image: string | undefined;
-  imageAlt: string | undefined;
-  imageShape: (typeof imageShapes)[number];
-  clickable: boolean;
-  dsoCardClicked?: HandlerFunction;
+  dsoCardClick: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {
@@ -31,6 +28,11 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   href: {
     control: {
       type: "text",
+    },
+  },
+  active: {
+    control: {
+      type: "boolean",
     },
   },
   mode: {
@@ -45,42 +47,21 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   interactions: {
     ...noControl,
   },
-  image: {
+  dsoCardClick: {
     ...noControl,
-  },
-  imageAlt: {
-    ...noControl,
-  },
-  imageShape: {
-    options: imageShapes,
-    control: {
-      type: "select",
-    },
-    if: { arg: "image" },
-  },
-  dsoCardClicked: {
-    ...noControl,
-    action: "dsoCardClicked",
-  },
-  clickable: {
-    control: {
-      type: "boolean",
-    },
+    action: "dsoCardClick",
   },
 };
 
-export const cardContent: CardArgs = {
-  clickable: false,
-  imageShape: "normal",
+export const cardContent: Omit<CardArgs, "dsoCardClick"> = {
   interactions: [],
   label: "Omgevingsplan Nieuwegein",
   href: "#",
   selectable: false,
-  image: undefined,
-  imageAlt: undefined,
+  active: false,
 };
 
-export const cardContentButton: CardArgs = {
+export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -94,7 +75,7 @@ export const cardContentButton: CardArgs = {
   ],
 };
 
-export const cardContentToggletip: CardArgs = {
+export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -107,7 +88,7 @@ export const cardContentToggletip: CardArgs = {
   ],
 };
 
-export const cardContentLabel: CardArgs = {
+export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -118,7 +99,7 @@ export const cardContentLabel: CardArgs = {
   ],
 };
 
-export const cardContentSlideToggle: CardArgs = {
+export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
   ...cardContent,
   interactions: [
     {
@@ -134,12 +115,9 @@ export function cardArgsMapper<TemplateFnReturnType>(
 ): Card<TemplateFnReturnType> {
   return {
     label: a.label,
-    href: a.href || undefined,
+    href: a.href,
+    active: a.active,
     mode: a.mode || undefined,
-    clickable: a.clickable,
-    image: a.image,
-    imageAlt: a.imageAlt,
-    imageShape: a.imageShape,
     interactions: a.interactions,
     selectable: a.selectable
       ? {
@@ -151,6 +129,6 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
-    dsoCardClicked: (e) => a.dsoCardClicked?.(e.detail),
+    dsoCardClick: (e) => a.dsoCardClick(e.detail),
   };
 }
