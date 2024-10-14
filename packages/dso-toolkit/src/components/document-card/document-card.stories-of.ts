@@ -30,8 +30,7 @@ interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnRet
 
 interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;
-  typeItems: TemplateFnReturnType;
-  typeItem: TemplateFnReturnType;
+  typeItems: TemplateFnReturnType[];
 }
 
 export function documentCardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -57,8 +56,8 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
 }: DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentCardStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItem }) =>
-        documentCardTemplate(documentCardArgsMapper(args, typeItem)),
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems)),
       ),
     },
     WithLabel: {

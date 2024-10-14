@@ -52,14 +52,14 @@ export const documentCardArgTypes: ArgTypes<Omit<DocumentCardArgs, "meta" | "typ
 
 export function documentCardArgsMapper<TemplateFnReturnType>(
   a: DocumentCardArgs,
-  typeAuthority: TemplateFnReturnType,
+  typeItems: TemplateFnReturnType[],
 ): DocumentCard<TemplateFnReturnType> {
   return {
     typeToelichting: a.typeToelichting,
     label: a.label,
     href: a.href,
     active: a.active,
-    typeAuthority,
+    typeItems,
     status: a.status,
     meta: a.meta,
     dsoDocumentCardClick: (e) => a.dsoDocumentCardClick(e.detail),

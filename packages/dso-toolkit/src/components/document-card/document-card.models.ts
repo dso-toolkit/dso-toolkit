@@ -6,7 +6,7 @@ export interface DocumentCard<TemplateFnReturnType> {
   href: string;
   active?: boolean;
   meta?: Label;
-  typeAuthority: TemplateFnReturnType;
+  typeItems: TemplateFnReturnType[];
   typeToelichting: Toggletip<never>;
   status: string;
   dsoDocumentCardClick?: (e: CustomEvent<DocumentCardClickEvent>) => void;

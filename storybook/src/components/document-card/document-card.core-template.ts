@@ -12,7 +12,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
       label,
       href,
       active,
-      typeAuthority,
+      typeItems,
       typeToelichting,
       meta,
       status,
@@ -30,10 +30,8 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
         ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
-        ${typeAuthority
-          ? html`<div slot="type">
-              ${typeAuthority} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}
-            </div>`
+        ${typeItems
+          ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
           : nothing}
         ${status ? html`<div slot="status">${status}</div>` : nothing}
       </dso-document-card>`;
