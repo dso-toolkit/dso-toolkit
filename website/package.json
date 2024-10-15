@@ -18,7 +18,7 @@
     "@docusaurus/module-type-aliases": "3.5.2",
     "@docusaurus/preset-classic": "3.5.2",
     "@docusaurus/theme-common": "3.5.2",
-    "@easyops-cn/docusaurus-search-local": "^0.44.5",
+    "@easyops-cn/docusaurus-search-local": "^0.45.0",
     "@iframe-resizer/react": "^5.3.1",
     "@mdx-js/react": "^3.0.1",
     "@tsconfig/docusaurus": "^2.0.3",
@@ -29,8 +29,8 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "1.79.4",
-    "typescript": "^5.5.4"
+    "sass": "1.79.5",
+    "typescript": "~5.5.4"
   },
   "browserslist": {
     "production": [

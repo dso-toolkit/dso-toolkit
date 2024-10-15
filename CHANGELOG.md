@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Tasks
+* Packages: Dependencies updates ([#2821](https://github.com/dso-toolkit/dso-toolkit/issues/2821))
+
 ## 🍆 Release 66.0.0 - 2024-10-14
 
 ### Added

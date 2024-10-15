@@ -42,7 +42,7 @@
     "@types/sass": "^1.45.0",
     "@types/uuid": "^10.0.0",
     "concurrently": "^9.0.1",
-    "debounce": "^2.1.1",
+    "debounce": "^2.2.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.random": "^3.2.0",
     "lodash.samplesize": "^4.2.0",
@@ -50,7 +50,7 @@
     "rimraf": "^6.0.1",
     "stencil-inline-svg": "^1.1.0",
     "tsx": "^4.19.1",
-    "typescript": "^5.5.4"
+    "typescript": "~5.5.4"
   },
   "peerDependencies": {
     "dso-toolkit": ">=45"
