@@ -17,6 +17,7 @@ interface ModalStories {
   Active: ModalStory;
   Loading: ModalStory;
   WithDatepicker: ModalStory;
+  WithToggletip: ModalStory;
   Fullscreen: ModalStory;
 }
 
@@ -35,6 +36,7 @@ export interface ModalTemplates<TemplateFnReturnType> {
   confirmFooter: TemplateFnReturnType;
   loadingBody: TemplateFnReturnType;
   datePickerBody: TemplateFnReturnType;
+  toggleTipBody: TemplateFnReturnType;
 }
 
 export function modalMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -117,6 +119,16 @@ export function modalStories<Implementation, Templates, TemplateFnReturnType>({
       decorators: [decorator ? (story) => decorator(story) : (story) => story()],
       render: templateContainer.render(storyTemplates, (args, { modalTemplate, datePickerBody }) =>
         modalTemplate(modalArgsMapper(args, datePickerBody)),
+      ),
+    },
+    WithToggletip: {
+      args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+        role: "dialog",
+        modalTitle: "toon de toggletip",
+      }),
+      decorators: [decorator ? (story) => decorator(story) : (story) => story()],
+      render: templateContainer.render(storyTemplates, (args, { modalTemplate, toggleTipBody }) =>
+        modalTemplate(modalArgsMapper(args, toggleTipBody)),
       ),
     },
   };
