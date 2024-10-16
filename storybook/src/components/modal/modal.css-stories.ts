@@ -16,6 +16,7 @@ import {
   passiveFooter,
   loadingBody,
   datePickerBody,
+  toggleTipBody,
 } from "./modal.content";
 
 const meta: Meta<ModalArgs> = {
@@ -40,6 +41,7 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
       confirmFooter: confirmFooter(templates),
       loadingBody: loadingBody(templates),
       datePickerBody: datePickerBody(templates),
+      toggleTipBody: toggleTipBody(templates),
     };
   },
   decorator,

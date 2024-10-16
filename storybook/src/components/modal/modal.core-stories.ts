@@ -14,6 +14,7 @@ import {
   passiveFooter,
   loadingBody,
   datePickerBody,
+  toggleTipBody,
 } from "./modal.content";
 
 const meta: Meta<ModalArgs> = {
@@ -23,7 +24,7 @@ const meta: Meta<ModalArgs> = {
 
 export default meta;
 
-const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalStories({
+const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading, WithToggletip } = modalStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { modalTemplate } = templates;
@@ -38,8 +39,9 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
       confirmFooter: confirmFooter(templates),
       loadingBody: loadingBody(templates),
       datePickerBody: datePickerBody(templates),
+      toggleTipBody: toggleTipBody(templates),
     };
   },
 });
 
-export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };
+export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading, WithToggletip };

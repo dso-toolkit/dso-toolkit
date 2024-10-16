@@ -82,3 +82,7 @@ export function loadingBody({ progressIndicatorTemplate }: Templates) {
 export function datePickerBody({ datePickerTemplate }: Templates) {
   return datePickerTemplate({ id: "modal-id", disabled: false });
 }
+
+export function toggleTipBody({ toggletipTemplate }: Templates) {
+  return toggletipTemplate({ position: "right", secondary: true, children: html`<p>Een toggletip in de modal</p>` });
+}
