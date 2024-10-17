@@ -38,7 +38,10 @@ async function updatePackageJsons(version: string) {
     packageJson.version = version;
 
     if (packageJson.peerDependencies?.["@dso-toolkit/core"]) {
-      packageJson.peerDependencies["@dso-toolkit/core"] = `${version}`;
+      packageJson.peerDependencies["@dso-toolkit/core"] = version;
+    }
+    if (packageJson.peerDependencies?.["dso-toolkit"]) {
+      packageJson.peerDependencies["dso-toolkit"] = version;
     }
 
     await writeFile(
