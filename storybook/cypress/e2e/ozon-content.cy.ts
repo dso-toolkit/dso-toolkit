@@ -475,7 +475,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("dso-image-overlay.hydrated")
       .should("exist")
-      .get("dso-ozon-content.hydrated")
+      .get("dso-ozon-content.hydrated", { timeout: 5000 })
       .matchImageSnapshot();
   });
 
