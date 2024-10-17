@@ -24,7 +24,7 @@ describe("Alert", () => {
       cy.dsoCheckA11y("dso-alert.hydrated");
     });
 
-    it(`should have appropriate message and icon for status "${status}"`, () => {
+    it(`should have appropriate Dutch message and icon for status "${status}"`, () => {
       cy.get("dso-alert.hydrated")
         .invoke("attr", "status", status)
         .shadow()
@@ -70,6 +70,29 @@ describe("Alert", () => {
         .should("exist")
         .get("dso-alert.hydrated")
         .matchImageSnapshot();
+    });
+  }
+
+  const alertsEnglish: Array<{
+    status: string;
+    message: string;
+  }> = [
+    { status: "success", message: "Success" },
+    { status: "info", message: "Notice" },
+    { status: "warning", message: "Warning" },
+    { status: "error", message: "Error" },
+  ];
+
+  for (const { status, message } of alertsEnglish) {
+    it(`should have appropriate English message status "${status}"`, () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-alert--success&globals=locale:en");
+
+      cy.get("dso-alert.hydrated")
+        .invoke("attr", "status", status)
+        .shadow()
+        .find(".alert > span.sr-only")
+        .invoke("text")
+        .should("equal", `${message}:`);
     });
   }
 });

@@ -1,9 +1,14 @@
 import { Component, Element, Event, EventEmitter, Fragment, h, Listen, Prop, State, VNode, Watch } from "@stencil/core";
+
 import debounce from "debounce";
-import { v4 } from "uuid";
 import escapeStringRegexp from "escape-string-regexp";
+import { i18n } from "i18next";
+import { v4 } from "uuid";
+
+import { dtI18n } from "../../utils/i18n";
 
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
+import { translations } from "./autosuggest.i18n";
 
 const maxSuggestionsViewable = 10;
 const listboxPaddingBlock = 8;
@@ -172,6 +177,12 @@ export class Autosuggest {
     ) {
       this.closeSuggestions();
     }
+  }
+
+  private i18nInstance: i18n | undefined;
+
+  async componentWillLoad() {
+    this.i18nInstance = await dtI18n(this.host, translations);
   }
 
   componentDidRender() {
@@ -537,11 +548,12 @@ export class Autosuggest {
                   (this.notFound && (
                     <li>
                       <span class="value">
-                        {!this.notFoundLabel ? (
-                          this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
-                        ) : (
-                          <span>{this.notFoundLabel}</span>
-                        )}
+                        {this.notFoundLabel ||
+                          this.showInputValueNotFound(
+                            this.i18nInstance
+                              ? this.i18nInstance.t("notFound", { inputValue: this.inputValue })
+                              : `${this.inputValue} is niet gevonden`,
+                          )}
                       </span>
                     </li>
                   ))}

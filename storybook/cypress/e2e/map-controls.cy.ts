@@ -53,7 +53,7 @@ describe("Map Controls", () => {
     }
   });
 
-  it('panel should have header "Kaartlagen" and close button "Verberg paneel Kaartlagen"', () => {
+  it('panel should have Dutch header "Kaartlagen" and close button "Verberg paneel Kaartlagen"', () => {
     cy.get("@toggleVisibilityButton")
       .click()
       .get("@dsoMapControlsShadow")
@@ -62,6 +62,26 @@ describe("Map Controls", () => {
       .closest("header")
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
+
+    cy.get("dso-map-controls.hydrated").matchImageSnapshot({ padding: [0, 16, 0, 100] });
+  });
+
+  it('panel should have English header "Map layers" and close button "Hide panel Map layers"', () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
+      .get("dso-map-controls")
+      .shadow()
+      .as("dsoMapControlsShadow")
+      .find("#toggle-visibility-button")
+      .as("toggleVisibilityButton");
+
+    cy.get("@toggleVisibilityButton")
+      .click()
+      .get("@dsoMapControlsShadow")
+      .find("section header h2")
+      .should("have.text", "Map layers")
+      .closest("header")
+      .find("button span")
+      .should("have.text", "Hide panel Map layers");
 
     cy.get("dso-map-controls.hydrated").matchImageSnapshot({ padding: [0, 16, 0, 100] });
   });

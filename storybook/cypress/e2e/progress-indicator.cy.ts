@@ -56,4 +56,20 @@ describe("Progress Indicator", () => {
       cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator--${size}`);
     });
   }
+
+  it("should show English text when locale is set to 'en'", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-progress-indicator--large&globals=locale:en");
+
+    cy.get("dso-progress-indicator.hydrated")
+      .shadow()
+      .find(".dso-progress-indicator-label")
+      .should("have.text", "Loading results. Please wait...");
+
+    cy.get("dso-progress-indicator.hydrated")
+      .shadow()
+      .find(".dso-progress-indicator-spinner")
+      .invoke("attr", "style", "visibility: hidden;") // hide the spinner to prevent false negatives
+      .get("dso-progress-indicator.hydrated")
+      .matchImageSnapshot();
+  });
 });

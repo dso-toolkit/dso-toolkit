@@ -29,6 +29,21 @@ describe("Modal", () => {
     cy.wait(200).matchImageSnapshot();
   });
 
+  it("should have English sr-only text", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&globals=locale:en");
+    cy.get("dso-modal").shadow().find(".dso-close span").should("have.text", "Close");
+  });
+
+  it("should have sr-only Dutch text 'Dialoog' when modalTitle is not set", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--loading");
+    cy.get("dso-modal").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialoog");
+  });
+
+  it("should have sr-only English text 'Dialog' when modalTitle is not set", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--loading&globals=locale:en");
+    cy.get("dso-modal").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialog");
+  });
+
   it("should have focus trap", () => {
     cy.get("@dsoModal")
       .find(".dso-close")

@@ -11,19 +11,22 @@ import {
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
 
-const DsoLogo: FunctionalComponent = () => (
-  <>
-    <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
-      <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
-      <path class="middle" d="M24 8A16 16 0 0 0 8 24 16 16 0 1 0 24 8Z" />
-      <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
-    </svg>
-    <div class="logo-wordmark">
-      <span class="logo-wordmark-omgevings">Omgevings</span>
-      <span class="logo-wordmark-loket">loket</span>
-    </div>
-  </>
-);
+const DsoLogo: FunctionalComponent<{ name?: string }> = ({ name }) => {
+  const splittedName = name?.split("|");
+  return (
+    <>
+      <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
+        <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
+        <path class="middle" d="M24 8A16 16 0 0 0 8 24 16 16 0 1 0 24 8Z" />
+        <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
+      </svg>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-omgevings">{splittedName?.[0] || "Omgevings"}</span>
+        <span class="logo-wordmark-loket">{splittedName?.[1] || "loket"}</span>
+      </div>
+    </>
+  );
+};
 
 @Component({
   tag: "dso-logo",
@@ -32,7 +35,16 @@ const DsoLogo: FunctionalComponent = () => (
 })
 export class Logo implements ComponentInterface {
   /**
-   *  The url the logo is pointing to.
+   * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a
+   * pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be
+   * shown in bosgroen.
+   * When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in
+   * bosgroen.
+   */
+  @Prop({ reflect: true })
+  name?: string;
+  /**
+   * The url the logo is pointing to.
    */
   @Prop({ reflect: true })
   logoUrl?: string;
@@ -82,10 +94,10 @@ export class Logo implements ComponentInterface {
       <>
         {this.logoUrl ? (
           <a class="logo-url" href={this.logoUrl} onClick={this.handleLogoClick}>
-            <DsoLogo />
+            <DsoLogo name={this.name} />
           </a>
         ) : (
-          <DsoLogo />
+          <DsoLogo name={this.name} />
         )}
 
         {this.label &&

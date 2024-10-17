@@ -15,6 +15,14 @@ describe("Logo", () => {
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
+  it("should show an alternative wordmark when name is provided", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-logo--with-name");
+    cy.get("dso-logo").shadow().find(".logo-wordmark-omgevings").should("have.text", "Environment & Planning");
+    cy.get("dso-logo").shadow().find(".logo-wordmark-loket").should("have.text", " Portal");
+
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
+  });
+
   it("should have an anchor surrounding the logo and the logo-wordmark", () => {
     cy.get("dso-logo")
       .invoke("prop", "logoUrl", "/")
@@ -192,4 +200,6 @@ describe("Logo", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
+
+  it("should show name", () => {});
 });

@@ -1,9 +1,12 @@
-import { Component, Event, EventEmitter, Prop, h, ComponentInterface } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
+import { i18n } from "i18next";
 import { v4 as uuidv4 } from "uuid";
 
-import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
+import { dtI18n } from "../../utils/i18n";
 
 import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
+import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
+import { translations } from "./map-overlays.i18n";
 
 @Component({
   tag: "dso-map-overlays",
@@ -13,6 +16,9 @@ import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
 export class MapOverlays implements ComponentInterface {
   private previousOverlays: Overlay[] | undefined;
   private selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+
+  @Element()
+  host!: HTMLDsoMapOverlaysElement;
 
   /**
    * To group the overlays together. Generally the default value suffices.
@@ -38,6 +44,12 @@ export class MapOverlays implements ComponentInterface {
     this.dsoToggleOverlay.emit({ overlay, checked });
   }
 
+  private i18nInstance: i18n | undefined;
+
+  async componentWillLoad() {
+    this.i18nInstance = await dtI18n(this.host, translations);
+  }
+
   componentDidRender() {
     this.overlays
       .filter((o) => !o.disabled && this.previousOverlays?.find((p) => p.id === o.id)?.disabled === true)
@@ -58,7 +70,7 @@ export class MapOverlays implements ComponentInterface {
         <legend class="sr-only">Kaartlagen</legend>
         <div class="dso-label-container">
           <span class="control-label" aria-hidden="true">
-            Kaartlagen
+            {this.i18nInstance?.t("title")}
           </span>
         </div>
         <div class="dso-field-container">
