@@ -33,6 +33,12 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      copy: [
+        {
+          src: "**/*.i18n.*.json",
+          dest: "i18n",
+        },
+      ],
     },
     {
       type: "dist-custom-elements",
