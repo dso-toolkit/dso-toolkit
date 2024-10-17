@@ -1,5 +1,10 @@
-import { Component, h, Host, Prop, Event, EventEmitter, State, Watch, Method } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, h, Method, Prop, State, Watch } from "@stencil/core";
+import { i18n } from "i18next";
+
+import { dtI18n } from "../../utils/i18n";
+
 import { MapControlsToggleEvent } from "./map-controls.interfaces";
+import { translations } from "./map-controls.i18n";
 
 // Sync with $transition-duration in ./map-controls.scss
 const transitionDuration = 300;
@@ -10,7 +15,8 @@ const transitionDuration = 300;
   shadow: true,
 })
 export class MapControls {
-  private panelTitle = "Kaartlagen";
+  @Element()
+  host!: HTMLDsoMapControlsElement;
 
   /**
    * To show and hide the Map Controls.
@@ -83,12 +89,18 @@ export class MapControls {
     });
   }
 
+  private i18nInstance: i18n | undefined;
+
+  async componentWillLoad() {
+    this.i18nInstance = await dtI18n(this.host, translations);
+  }
+
   #closeButtonElement: HTMLButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
 
   render() {
     return (
-      <Host>
+      <>
         <button
           type="button"
           id="toggle-visibility-button"
@@ -97,7 +109,7 @@ export class MapControls {
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
-          <span>Kaartlagen</span>
+          <span>{this.i18nInstance?.t("layersButton")}</span>
         </button>
         <div class="zoom-buttons">
           <button
@@ -105,7 +117,7 @@ export class MapControls {
             onClick={(e) => this.dsoZoomIn.emit(e)}
             disabled={this.disableZoom === "in" || this.disableZoom === "both"}
           >
-            <span>Zoom in</span>
+            <span>{this.i18nInstance?.t("zoomIn")}</span>
             <dso-icon icon="plus"></dso-icon>
           </button>
           <button
@@ -113,20 +125,20 @@ export class MapControls {
             onClick={(e) => this.dsoZoomOut.emit(e)}
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           >
-            <span>Zoom uit</span>
+            <span>{this.i18nInstance?.t("zoomOut")}</span>
             <dso-icon icon="minus"></dso-icon>
           </button>
         </div>
         <section hidden={this.hideContent}>
           <header>
-            <h2>{this.panelTitle}</h2>
+            <h2>{this.i18nInstance?.t("title")}</h2>
             <button
               type="button"
               class="close-button"
               onClick={(e) => this.toggleVisibility(e)}
               ref={(element) => (this.#closeButtonElement = element)}
             >
-              <span>Verberg paneel {this.panelTitle}</span>
+              <span>{this.i18nInstance?.t("hidePanel", { title: this.i18nInstance?.t("title") })}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>
@@ -136,7 +148,7 @@ export class MapControls {
             </div>
           </dso-scrollable>
         </section>
-      </Host>
+      </>
     );
   }
 }

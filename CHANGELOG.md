@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Web Components: Ondersteuning voor meertaligheid ([#2830](https://github.com/dso-toolkit/dso-toolkit/issues/2830))
+
 ### Fixed
 * Card: Block-end spacing too small ([#2818](https://github.com/dso-toolkit/dso-toolkit/issues/2818))
 
