@@ -1,6 +1,10 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from "./responsive-element.args.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
 
 const demoGrid = [
   ["col-md-6", "col-md-6"],
@@ -14,28 +18,47 @@ type ResponsiveElementTemplateFnType<TemplateFnReturnType> = (
   grid: string[][],
 ) => TemplateFnReturnType;
 
+interface ResponsiveElementStories {
+  ResponsiveElement: StoryObj<ResponsiveElementArgs, Renderer>;
+}
+
 export interface ResponsiveElementTemplates<TemplateFnReturnType> {
   gridTemplate: ResponsiveElementTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfResponsiveElement<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface ResponsiveElementStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     ResponsiveElementTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Responsive Element", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: responsiveElementArgTypes,
-    });
+  > {}
 
-    stories.add(
-      "Responsive Element",
-      templateMapper<ResponsiveElementArgs>((args, { gridTemplate }) => gridTemplate(args.dsoSizeChange, demoGrid)),
-    );
+export function responsiveElementMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ResponsiveElementArgs
+> {
+  return {
+    argTypes: responsiveElementArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    return stories;
-  });
+export function responsiveElementStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ResponsiveElementStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ResponsiveElementStories {
+  return {
+    ResponsiveElement: {
+      render: templateContainer.render(storyTemplates, (args: ResponsiveElementArgs, { gridTemplate }) =>
+        gridTemplate(args.dsoSizeChange, demoGrid),
+      ),
+    },
+  };
 }
