@@ -150,22 +150,11 @@ export * from "./components/list-button";
 
 export * from "./components/logo";
 
+export * from "./components/map-controls";
+
 export * from "./components/mark-bar";
 
 export * from "./components/modal";
-
-export {
-  BaseLayer,
-  BaseLayerChangeEvent,
-  MapControls,
-  Overlay,
-  OverlayChangeEvent,
-} from "./components/map-controls/map-controls.models.js";
-export {
-  MapControlsParameters,
-  MapControlsTemplates,
-  storiesOfMapControls,
-} from "./components/map-controls/map-controls.stories-of.js";
 
 export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
 export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
