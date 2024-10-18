@@ -1,69 +1,95 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { LogoArgs, logoArgsMapper, logoArgTypes } from "./logo.args.js";
 import { Logo } from "./logo.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type LogoStory = StoryObj<LogoArgs, Renderer>;
+
+interface LogoStories {
+  Default: LogoStory;
+  WithLogoUrl: LogoStory;
+  WithLabel: LogoStory;
+  WithLabelAndLabelUrl: LogoStory;
+  WithLogoUrlAndLabelAndLabelUrl: LogoStory;
+  WithRibbon: LogoStory;
+  WithLabelAndRibbon: LogoStory;
+}
 
 export interface LogoTemplates<TemplateFnReturnType> {
   logoTemplate: (logoProperties: Logo) => TemplateFnReturnType;
 }
 
-export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    LogoTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Logo", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: logoArgTypes,
-    });
+interface LogoStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LogoTemplates<TemplateFnReturnType>> {}
 
-    const template = templateMapper<LogoArgs>((args, { logoTemplate }) => logoTemplate(logoArgsMapper(args)));
+export function logoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  LogoArgs
+> {
+  return {
+    argTypes: logoArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("default", template);
-
-    stories.add("with logoUrl", template, {
-      args: {
-        logoUrl: "/",
-      },
-    });
-
-    stories.add("with label", template, {
+export function logoStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: LogoStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LogoStories {
+  const render = templateContainer.render(storyTemplates, (args: LogoArgs, { logoTemplate }) =>
+    logoTemplate(logoArgsMapper(args)),
+  );
+  return {
+    Default: { render },
+    WithLabel: {
       args: {
         label: "Regels op de kaart",
       },
-    });
-
-    stories.add("with label and labelUrl", template, {
-      args: {
-        label: "Regels op de kaart",
-        labelUrl: "regels-op-de-kaart",
-      },
-    });
-
-    stories.add("with logoUrl and label and labelUrl", template, {
+      render,
+    },
+    WithLabelAndLabelUrl: {
       args: {
         label: "Regels op de kaart",
         labelUrl: "regels-op-de-kaart",
+      },
+      render,
+    },
+    WithLogoUrl: {
+      args: {
         logoUrl: "/",
       },
-    });
-
-    stories.add("with (beta) ribbon", template, {
+      render,
+    },
+    WithLogoUrlAndLabelAndLabelUrl: {
+      args: {
+        label: "Regels op de kaart",
+        labelUrl: "regels-op-de-kaart",
+        logoUrl: "/",
+      },
+      render,
+    },
+    WithRibbon: {
       args: {
         ribbon: "beta",
       },
-    });
-
-    stories.add("with label and ribbon", template, {
+      render,
+    },
+    WithLabelAndRibbon: {
       args: {
         ribbon: "beta",
         label: "Regels op de kaart",
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }
