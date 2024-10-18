@@ -4,7 +4,7 @@
 
 @mixin children() {
   p {
-    margin-block: 0 rich-content-variables.$margin-block-end;
+    margin-block: 0 var(--_dt-rich-content-margin-block, rich-content-variables.$margin-block-end);
     margin-inline: 0;
   }
 

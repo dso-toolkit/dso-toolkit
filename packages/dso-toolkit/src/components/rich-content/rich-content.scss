@@ -8,6 +8,6 @@
   }
 
   > :last-child:not(hr, .dso-button-row) {
-    margin-block-end: rich-content.$margin-block-end * 0.5;
+    margin-block-end: var(--_dt-rich-content-margin-block-end, rich-content.$margin-block-end * 0.5);
   }
 }

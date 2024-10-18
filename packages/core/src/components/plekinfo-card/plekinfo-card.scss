@@ -13,14 +13,13 @@
 }
 
 .dso-plekinfo-card-container {
-  padding-block: units.$u2 units.$u1;
+  padding-block: units.$u2;
   padding-inline: units.$u2;
   inline-size: 100%;
 
   .dso-plekinfo-card-heading {
     align-items: center;
     display: flex;
-    margin-block-end: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -93,6 +92,11 @@ del.dso-plekinfo-card-container {
   font-size: 1.125em !important;
   margin-block-end: 0 !important;
   margin-block-start: 0 !important;
+}
+
+::slotted([slot="content"]) {
+  --_dt-rich-content-margin-block: #{units.$u1};
+  --_dt-rich-content-margin-block-end: 0;
 }
 
 .heading-anchor {
