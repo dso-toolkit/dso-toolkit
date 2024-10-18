@@ -156,8 +156,7 @@ export * from "./components/mark-bar";
 
 export * from "./components/modal";
 
-export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
-export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
+export * from "./components/navbar";
 
 export * from "./components/ozon-content";
 
