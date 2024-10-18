@@ -148,8 +148,7 @@ export * from "./components/list";
 
 export * from "./components/list-button";
 
-export { Logo } from "./components/logo/logo.models.js";
-export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.js";
+export * from "./components/logo";
 
 export * from "./components/mark-bar";
 
