@@ -18,6 +18,10 @@ export function storiesOfLogo<Implementation, Templates, TemplateFnReturnType>(
   return storiesOfFactory("Logo", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: logoArgTypes,
+      args: {
+        lang: "nl",
+      },
+      controls: { expanded: true },
     });
 
     const template = templateMapper<LogoArgs>((args, { logoTemplate }) => logoTemplate(logoArgsMapper(args)));

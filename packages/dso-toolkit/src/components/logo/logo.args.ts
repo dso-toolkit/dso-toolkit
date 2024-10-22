@@ -11,6 +11,7 @@ export interface LogoArgs {
   ribbon?: string;
   dsoLabelClick?: HandlerFunction;
   dsoLogoClick?: HandlerFunction;
+  lang: string | undefined;
 }
 
 export const logoArgTypes: ArgTypes<LogoArgs> = {
@@ -34,6 +35,15 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
     ...noControl,
     action: "dsoLogoLabelClick",
   },
+  lang: {
+    description:
+      "Bepaalt de waarde van het `lang`-attribute tbv meertaligheid<br/>(Na wijzigen dient het component" +
+      " ge`Remount` te worden)",
+    options: ["nl", "en", undefined],
+    control: {
+      type: "radio",
+    },
+  },
 };
 
 export function logoArgsMapper(a: LogoArgs): Logo {
@@ -50,5 +60,6 @@ export function logoArgsMapper(a: LogoArgs): Logo {
       event.detail.originalEvent.preventDefault();
       a.dsoLabelClick?.(event);
     },
+    lang: a.lang,
   };
 }

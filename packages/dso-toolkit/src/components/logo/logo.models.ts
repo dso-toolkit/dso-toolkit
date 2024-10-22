@@ -5,6 +5,7 @@ export interface Logo {
   ribbon?: string;
   dsoLogoClick?: (e: CustomEvent<LogoClickEvent>) => void;
   dsoLabelClick?: (e: CustomEvent<LogoLabelClickEvent>) => void;
+  lang?: string;
 }
 
 interface LogoClickEvent {

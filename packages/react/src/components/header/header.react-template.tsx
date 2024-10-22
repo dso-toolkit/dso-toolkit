@@ -24,6 +24,7 @@ export const reactHeader: ComponentImplementation<Header> = {
       userHomeUrl,
       userHomeActive,
       dsoHeaderClick,
+      lang,
     }) {
       return (
         <DsoHeader
@@ -39,9 +40,10 @@ export const reactHeader: ComponentImplementation<Header> = {
           userHomeUrl={userHomeUrl}
           userHomeActive={userHomeActive}
           onDsoHeaderClick={dsoHeaderClick}
+          lang={lang}
         >
           <div slot="logo">
-            <DsoLogo label={label} ribbon={ribbon}></DsoLogo>
+            <DsoLogo label={label} ribbon={ribbon} lang={lang}></DsoLogo>
           </div>
         </DsoHeader>
       );

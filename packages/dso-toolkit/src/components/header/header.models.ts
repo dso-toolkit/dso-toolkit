@@ -15,6 +15,7 @@ export interface Header {
   userHomeUrl?: string;
   userHomeActive?: boolean;
   dsoHeaderClick?: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+  lang?: string;
 }
 
 export interface HeaderMenuItem {
