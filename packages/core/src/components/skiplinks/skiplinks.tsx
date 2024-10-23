@@ -2,6 +2,8 @@ import { Component, ComponentInterface, h } from "@stencil/core";
 
 // import {  } from "./skiplinks.interfaces";
 
+// ToDo: make link text and href configurable, AND bake in multi-language support while we're at it.
+
 @Component({
   tag: "dso-skiplinks",
   styleUrl: "skiplinks.scss",
