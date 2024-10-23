@@ -180,8 +180,7 @@ export * from "./components/renvooi";
 
 export * from "./components/responsive-element";
 
-export { RichContent } from "./components/rich-content/rich-content.models.js";
-export { RichContentTemplates, storiesOfRichContent } from "./components/rich-content/rich-content.stories-of.js";
+export * from "./components/rich-content";
 
 export { RowEqualHeights } from "./components/row-equal-heights/row-equal-heights.models.js";
 export {
