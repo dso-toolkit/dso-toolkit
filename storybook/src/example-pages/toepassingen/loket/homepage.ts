@@ -13,9 +13,11 @@ examplePageFactory(
     { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
     templates,
   ) => html`
+    <dso-skiplinks></dso-skiplinks>
     <div class="container">
+      <div id="navigation"></div>
       ${headerPartial(templates, header)}
-      <main>
+      <main id="main">
         <div
           class="row dso-banner no-button-banner my-beautiful-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -161,6 +163,7 @@ examplePageFactory(
           </div>
         </div>
       </main>
+      <div id="footer"></div>
       ${footerPartial(templates)}
     </div>
   `,
