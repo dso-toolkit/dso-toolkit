@@ -27,6 +27,7 @@ export interface HeaderArgs {
   userHomeUrl: string;
   userHomeActive: boolean;
   dsoHeaderClick: HandlerFunction;
+  lang: string | undefined;
 }
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
@@ -97,9 +98,18 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
     ...noControl,
     action: "dsoHeaderClick",
   },
+  lang: {
+    description:
+      "Bepaalt de waarde van het `lang`-attribute tbv meertaligheid<br/>(Na wijzigen dient het component" +
+      " ge`Remount` te worden)",
+    options: ["nl", "en", undefined],
+    control: {
+      type: "radio",
+    },
+  },
 };
 
-export function headerArgsMapper(a: HeaderArgs): Required<Header> {
+export function headerArgsMapper(a: HeaderArgs): Required<Omit<Header, "lang">> {
   return {
     ...a,
     mainMenu: a.noMainMenu ? [] : a.mainMenu,

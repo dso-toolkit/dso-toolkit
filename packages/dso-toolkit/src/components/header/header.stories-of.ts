@@ -70,6 +70,7 @@ export function headerMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
       userProfileName: "J.A. Jansen",
       userProfileUrl: "#profiel",
       userHomeUrl: "#myhome",
+      lang: "nl",
     },
     parameters: {
       docs: readme
@@ -77,6 +78,7 @@ export function headerMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
             page: () => compiler(readme),
           }
         : {},
+      controls: { expanded: true },
     },
   };
 }

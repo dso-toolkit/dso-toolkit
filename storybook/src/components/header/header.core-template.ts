@@ -24,6 +24,7 @@ export const coreHeader: ComponentImplementation<Header> = {
       userHomeUrl,
       userHomeActive,
       dsoHeaderClick,
+      lang,
     }) {
       return html`<dso-header
         .mainMenu=${mainMenu}
@@ -38,6 +39,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-home-url=${ifDefined(userHomeUrl)}
         user-home-active=${ifDefined(userHomeActive)}
         @dsoHeaderClick=${dsoHeaderClick}
+        lang=${ifDefined(lang)}
       >
         <div slot="logo">${logoTemplate({ label, ribbon, labelUrl, logoUrl })}</div>
       </dso-header>`;

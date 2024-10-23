@@ -1,17 +1,27 @@
 import {
   Component,
   ComponentInterface,
-  Fragment,
-  Prop,
-  h,
+  Element,
   Event,
   EventEmitter,
+  Fragment,
   FunctionalComponent,
+  h,
+  Prop,
 } from "@stencil/core";
-import { isModifiedEvent } from "../../utils/is-modified-event";
-import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
 
-const DsoLogo: FunctionalComponent = () => (
+import { i18n } from "i18next";
+
+import { dtI18n } from "../../utils/i18n";
+import { isModifiedEvent } from "../../utils/is-modified-event";
+
+import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
+import { translations } from "./logo.i18n";
+
+const DsoLogo: FunctionalComponent<{ logoWordmarkOmgevings?: string; logoWordmarkLoket?: string }> = ({
+  logoWordmarkOmgevings,
+  logoWordmarkLoket,
+}) => (
   <>
     <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
       <path class="outer" d="M26 0a24 24 0 1 0 0 47.9A24 24 0 0 0 24 0Z" />
@@ -19,8 +29,8 @@ const DsoLogo: FunctionalComponent = () => (
       <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
     </svg>
     <div class="logo-wordmark">
-      <span class="logo-wordmark-omgevings">Omgevings</span>
-      <span class="logo-wordmark-loket">loket</span>
+      <span class="logo-wordmark-omgevings">{logoWordmarkOmgevings}</span>
+      <span class="logo-wordmark-loket">{logoWordmarkLoket}</span>
     </div>
   </>
 );
@@ -31,6 +41,9 @@ const DsoLogo: FunctionalComponent = () => (
   shadow: true,
 })
 export class Logo implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoLogoElement;
+
   /**
    *  The url the logo is pointing to.
    */
@@ -77,15 +90,27 @@ export class Logo implements ComponentInterface {
     this.dsoLabelClick.emit({ originalEvent: e, url: this.labelUrl!, isModifiedEvent: isModifiedEvent(e) });
   };
 
+  private i18nInstance: i18n | undefined;
+
+  async componentWillLoad() {
+    this.i18nInstance = await dtI18n(this.host, translations);
+  }
+
   render() {
     return (
       <>
         {this.logoUrl ? (
           <a class="logo-url" href={this.logoUrl} onClick={this.handleLogoClick}>
-            <DsoLogo />
+            <DsoLogo
+              logoWordmarkOmgevings={this.i18nInstance?.t("logoWordmarkOmgevings")}
+              logoWordmarkLoket={this.i18nInstance?.t("logoWordmarkLoket")}
+            />
           </a>
         ) : (
-          <DsoLogo />
+          <DsoLogo
+            logoWordmarkOmgevings={this.i18nInstance?.t("logoWordmarkOmgevings")}
+            logoWordmarkLoket={this.i18nInstance?.t("logoWordmarkLoket")}
+          />
         )}
 
         {this.label &&

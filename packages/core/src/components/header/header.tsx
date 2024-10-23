@@ -2,9 +2,13 @@ import { Component, Element, Event, EventEmitter, Fragment, h, Prop, State, Watc
 
 import clsx from "clsx";
 import debounce from "debounce";
+import { i18n } from "i18next";
+
+import { dtI18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { HeaderMenuItem, HeaderNavigationType, HeaderEvent } from "./header.interfaces";
+import { HeaderEvent, HeaderMenuItem, HeaderNavigationType } from "./header.interfaces";
+import { translations } from "./header.i18n";
 
 const minDesktopViewportWidth = 992;
 
@@ -150,6 +154,12 @@ export class Header {
     this.overflowMenuItems++;
   }
 
+  private i18nInstance: i18n | undefined;
+
+  async componentWillLoad() {
+    this.i18nInstance = await dtI18n(this.host, translations);
+  }
+
   componentDidRender() {
     if (this.showDropDown) {
       this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
@@ -262,7 +272,7 @@ export class Header {
                   ref={(element) => (this.dropdownElement = element)}
                 >
                   <button type="button" slot="toggle">
-                    <span>Menu</span>
+                    <span>{this.i18nInstance?.t("menu")}</span>
                   </button>
                   <div class="dso-dropdown-options">
                     <ul>
@@ -273,7 +283,7 @@ export class Header {
                             href={this.userHomeUrl}
                             onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
                           >
-                            Mijn Omgevingsloket
+                            {this.i18nInstance?.t("userHome")}
                           </a>
                         </li>
                       )}
@@ -295,11 +305,11 @@ export class Header {
                               href={this.loginUrl}
                               onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
                             >
-                              Inloggen
+                              {this.i18nInstance?.t("login")}
                             </a>
                           ) : (
                             <button type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                              Inloggen
+                              {this.i18nInstance?.t("login")}
                             </button>
                           )}
                         </li>
@@ -311,11 +321,11 @@ export class Header {
                               href={this.logoutUrl}
                               onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
                             >
-                              Uitloggen
+                              {this.i18nInstance?.t("logout")}
                             </a>
                           ) : (
                             <button type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                              Uitloggen
+                              {this.i18nInstance?.t("logout")}
                             </button>
                           )}
                         </li>
@@ -328,12 +338,12 @@ export class Header {
                               class="dso-tertiary"
                               onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
                             >
-                              <span>Help</span>
+                              <span>{this.i18nInstance?.t("help")}</span>
                               <dso-icon icon="help"></dso-icon>
                             </a>
                           ) : (
                             <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
-                              <span>Help</span>
+                              <span>{this.i18nInstance?.t("help")}</span>
                               <dso-icon icon="help"></dso-icon>
                             </button>
                           )}
@@ -366,11 +376,11 @@ export class Header {
                         class="dso-tertiary"
                         onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
                       >
-                        Inloggen
+                        {this.i18nInstance?.t("login")}
                       </a>
                     ) : (
                       <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
-                        Inloggen
+                        {this.i18nInstance?.t("login")}
                       </button>
                     )}
                   </div>
@@ -383,11 +393,11 @@ export class Header {
                         class="dso-tertiary"
                         onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
                       >
-                        Uitloggen
+                        {this.i18nInstance?.t("logout")}
                       </a>
                     ) : (
                       <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
-                        Uitloggen
+                        {this.i18nInstance?.t("logout")}
                       </button>
                     )}
                   </div>
@@ -400,12 +410,12 @@ export class Header {
                         class="dso-tertiary"
                         onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
                       >
-                        <span>Help</span>
+                        <span>{this.i18nInstance?.t("help")}</span>
                         <dso-icon icon="help"></dso-icon>
                       </a>
                     ) : (
                       <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
-                        <span>Help</span>
+                        <span>{this.i18nInstance?.t("help")}</span>
                         <dso-icon icon="help"></dso-icon>
                       </button>
                     )}
@@ -423,7 +433,7 @@ export class Header {
                       <li>
                         <dso-dropdown-menu placement="bottom">
                           <button type="button" slot="toggle">
-                            <span>Meer</span>
+                            <span>{this.i18nInstance?.t("overflowMenu")}</span>
                           </button>
                           <div class="dso-dropdown-options">
                             <ul>
@@ -447,7 +457,7 @@ export class Header {
                           onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
                         >
                           <dso-icon icon="user-line"></dso-icon>
-                          Mijn Omgevingsloket
+                          {this.i18nInstance?.t("userHome")}
                         </a>
                       </li>
                     )}

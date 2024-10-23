@@ -1008,7 +1008,7 @@ export namespace Components {
         /**
           * The label of the Progress Indicator.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The size (width) of the Progress Indicator.  If no size is set, falls back to `small`.
          */
