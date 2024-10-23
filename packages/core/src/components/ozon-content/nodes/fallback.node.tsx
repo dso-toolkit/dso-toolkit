@@ -9,6 +9,7 @@ export class OzonContentFallbackNode implements OzonContentNode {
   name = ["<fallback>"];
 
   render(node: Node, { mapNodeToJsx }: OzonContentNodeContext) {
+    node.nodeName === "Nummer" ? console.log(node) : undefined;
     return <span class={`fallback od-${getNodeName(node)}`}>{mapNodeToJsx(node.childNodes)}</span>;
   }
 }
