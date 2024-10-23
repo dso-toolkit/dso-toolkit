@@ -1093,6 +1093,8 @@ export namespace Components {
          */
         "value": string;
     }
+    interface DsoSkiplinks {
+    }
     interface DsoSlideToggle {
         /**
           * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
@@ -2135,6 +2137,12 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSkiplinksElement extends Components.DsoSkiplinks, HTMLStencilElement {
+    }
+    var HTMLDsoSkiplinksElement: {
+        prototype: HTMLDsoSkiplinksElement;
+        new (): HTMLDsoSkiplinksElement;
+    };
     interface HTMLDsoSlideToggleElementEventMap {
         "dsoActiveChange": SlideToggleActiveEvent;
     }
@@ -2307,6 +2315,7 @@ declare global {
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-skiplinks": HTMLDsoSkiplinksElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-tab": HTMLDsoTabElement;
         "dso-table": HTMLDsoTableElement;
@@ -3535,6 +3544,8 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface DsoSkiplinks {
+    }
     interface DsoSlideToggle {
         /**
           * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
@@ -3805,6 +3816,7 @@ declare namespace LocalJSX {
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
+        "dso-skiplinks": DsoSkiplinks;
         "dso-slide-toggle": DsoSlideToggle;
         "dso-tab": DsoTab;
         "dso-table": DsoTable;
@@ -3877,6 +3889,7 @@ declare module "@stencil/core" {
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-skiplinks": LocalJSX.DsoSkiplinks & JSXBase.HTMLAttributes<HTMLDsoSkiplinksElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
