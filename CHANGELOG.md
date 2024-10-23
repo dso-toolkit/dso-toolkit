@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Card: Block-end spacing too small ([#2818](https://github.com/dso-toolkit/dso-toolkit/issues/2818))
+
 ### Tasks
 * Packages: Dependencies updates ([#2821](https://github.com/dso-toolkit/dso-toolkit/issues/2821))
 * Build: Bij releasen ook dso-toolkit dependencies versioneren ([#2768](https://github.com/dso-toolkit/dso-toolkit/issues/2768))
