@@ -1,12 +1,11 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
+import { MapControlsDecorator } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
-import { legendItemDemoCss } from "dso-toolkit";
 
-export const decorator: Addon_DecoratorFunction<TemplateResult> = (story) => html`
+export const decorator: MapControlsDecorator<TemplateResult> = (story, css) => html`
   <div id="map-container-mock" style="background-color: #efefef; height: 600px; position: relative; overflow: hidden;">
     ${story()}
     <style>
-      ${legendItemDemoCss}
+      ${css}
     </style>
   </div>
 `;

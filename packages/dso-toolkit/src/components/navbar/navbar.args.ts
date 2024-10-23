@@ -1,6 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
 import { NavBarToggleExtensionEvent, Navbar, NavbarItem } from "./navbar.models.js";
+import { componentArgs } from "../../storybook";
 
 export interface NavbarArgs {
   items: NavbarItem[];
@@ -42,6 +43,12 @@ export const navbarArgTypes: ArgTypes<NavbarArgs> = {
     action: "dsoExtensionToggle",
   },
 };
+
+export const navbarArgs = componentArgs<Omit<NavbarArgs, "extension" | "extensionOpen" | "dsoExtensionToggle">>({
+  open: false,
+  modifier: "",
+  items: [],
+});
 
 export function navbarArgsMapper<TemplateFnReturnType>(
   a: NavbarArgs,
