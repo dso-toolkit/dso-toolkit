@@ -1,7 +1,7 @@
-import { storiesOfResponsiveElement } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
-
 import * as React from "react";
+import { type Meta } from "@storybook/react";
+
+import { ResponsiveElementArgs, responsiveElementMeta, responsiveElementStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
@@ -39,18 +39,22 @@ const css = `
   }
 `;
 
-storiesOfResponsiveElement({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<ResponsiveElementArgs> = {
+  ...responsiveElementMeta({ readme }),
+  title: "Responsive Element",
+};
+
+export default meta;
+
+const { ResponsiveElement } = responsiveElementStories({
   templateContainer,
-  storyTemplates: ({ responsiveElementTemplate }) => ({
-    gridTemplate: (dsoSizeChange, grid) => {
-      return (
+  storyTemplates: (templates) => {
+    const { responsiveElementTemplate } = templates;
+
+    return {
+      gridTemplate: (dsoSizeChange, grid) => (
         <>
-          <style type="text/css">{css}</style>
+          <style>{css}</style>
           {grid.map((cols) => (
             <div className="row">
               {cols.map((col) => (
@@ -63,19 +67,19 @@ storiesOfResponsiveElement({
                           <p>
                             <strong>small</strong>
                           </p>
-                          <div>${col}</div>
+                          <div>{col}</div>
                         </div>
                         <div className="demo-medium">
                           <p>
                             <strong>medium</strong>
                           </p>
-                          <div>${col}</div>
+                          <div>{col}</div>
                         </div>
                         <div className="demo-large">
                           <p>
                             <strong>large</strong>
                           </p>
-                          <div>${col}</div>
+                          <div>{col}</div>
                         </div>
                       </>
                     ),
@@ -85,7 +89,9 @@ storiesOfResponsiveElement({
             </div>
           ))}
         </>
-      );
-    },
-  }),
+      ),
+    };
+  },
 });
+
+export { ResponsiveElement };

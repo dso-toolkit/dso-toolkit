@@ -148,28 +148,15 @@ export * from "./components/list";
 
 export * from "./components/list-button";
 
-export { Logo } from "./components/logo/logo.models.js";
-export { LogoTemplates, storiesOfLogo } from "./components/logo/logo.stories-of.js";
+export * from "./components/logo";
+
+export * from "./components/map-controls";
 
 export * from "./components/mark-bar";
 
 export * from "./components/modal";
 
-export {
-  BaseLayer,
-  BaseLayerChangeEvent,
-  MapControls,
-  Overlay,
-  OverlayChangeEvent,
-} from "./components/map-controls/map-controls.models.js";
-export {
-  MapControlsParameters,
-  MapControlsTemplates,
-  storiesOfMapControls,
-} from "./components/map-controls/map-controls.stories-of.js";
-
-export { Navbar, NavbarItem } from "./components/navbar/navbar.models.js";
-export { NavbarTemplates, storiesOfNavbar } from "./components/navbar/navbar.stories-of.js";
+export * from "./components/navbar";
 
 export * from "./components/ozon-content";
 
@@ -191,14 +178,9 @@ export * from "./components/input-range";
 
 export * from "./components/renvooi";
 
-export { ResponsiveElement } from "./components/responsive-element/responsive-element.models.js";
-export {
-  ResponsiveElementTemplates,
-  storiesOfResponsiveElement,
-} from "./components/responsive-element/responsive-element.stories-of.js";
+export * from "./components/responsive-element";
 
-export { RichContent } from "./components/rich-content/rich-content.models.js";
-export { RichContentTemplates, storiesOfRichContent } from "./components/rich-content/rich-content.stories-of.js";
+export * from "./components/rich-content";
 
 export { RowEqualHeights } from "./components/row-equal-heights/row-equal-heights.models.js";
 export {
