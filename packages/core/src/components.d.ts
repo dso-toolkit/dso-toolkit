@@ -1102,6 +1102,14 @@ export namespace Components {
         "value": string;
     }
     interface DsoSkiplinks {
+        /**
+          * link text
+         */
+        "label"?: string;
+        /**
+          * The URL to which the Card heading links.
+         */
+        "to": string | undefined;
     }
     interface DsoSlideToggle {
         /**
@@ -3561,6 +3569,14 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface DsoSkiplinks {
+        /**
+          * link text
+         */
+        "label"?: string;
+        /**
+          * The URL to which the Card heading links.
+         */
+        "to": string | undefined;
     }
     interface DsoSlideToggle {
         /**

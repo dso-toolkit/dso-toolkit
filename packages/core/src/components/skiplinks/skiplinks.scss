@@ -15,7 +15,7 @@
 
 @include utilities.box-sizing();
 
-.dso-skip {
+a {
   position: absolute;
   inset-inline-start: 50%;
   inset-block-start: units.$u2;
