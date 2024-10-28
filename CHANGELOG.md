@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Web Components: Ondersteuning voor meertaligheid ([#2830](https://github.com/dso-toolkit/dso-toolkit/issues/2830))
+* Skiplink: New component ([#2746](https://github.com/dso-toolkit/dso-toolkit/issues/2746))
 
 ### Changed
 * Pagination: Make html css version equal to core version ([#2812](https://github.com/dso-toolkit/dso-toolkit/issues/2812))

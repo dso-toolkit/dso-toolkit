@@ -1097,13 +1097,13 @@ export namespace Components {
          */
         "value": string;
     }
-    interface DsoSkiplinks {
+    interface DsoSkiplink {
         /**
           * link text
          */
         "label"?: string;
         /**
-          * The URL to which the Card heading links.
+          * The location to which the skiplink links.
          */
         "to": string | undefined;
     }
@@ -2149,11 +2149,11 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
-    interface HTMLDsoSkiplinksElement extends Components.DsoSkiplinks, HTMLStencilElement {
+    interface HTMLDsoSkiplinkElement extends Components.DsoSkiplink, HTMLStencilElement {
     }
-    var HTMLDsoSkiplinksElement: {
-        prototype: HTMLDsoSkiplinksElement;
-        new (): HTMLDsoSkiplinksElement;
+    var HTMLDsoSkiplinkElement: {
+        prototype: HTMLDsoSkiplinkElement;
+        new (): HTMLDsoSkiplinkElement;
     };
     interface HTMLDsoSlideToggleElementEventMap {
         "dsoActiveChange": SlideToggleActiveEvent;
@@ -2327,7 +2327,7 @@ declare global {
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
-        "dso-skiplinks": HTMLDsoSkiplinksElement;
+        "dso-skiplink": HTMLDsoSkiplinkElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-tab": HTMLDsoTabElement;
         "dso-table": HTMLDsoTableElement;
@@ -3560,13 +3560,13 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
-    interface DsoSkiplinks {
+    interface DsoSkiplink {
         /**
           * link text
          */
         "label"?: string;
         /**
-          * The URL to which the Card heading links.
+          * The location to which the skiplink links.
          */
         "to": string | undefined;
     }
@@ -3840,7 +3840,7 @@ declare namespace LocalJSX {
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
-        "dso-skiplinks": DsoSkiplinks;
+        "dso-skiplink": DsoSkiplink;
         "dso-slide-toggle": DsoSlideToggle;
         "dso-tab": DsoTab;
         "dso-table": DsoTable;
@@ -3913,7 +3913,7 @@ declare module "@stencil/core" {
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
-            "dso-skiplinks": LocalJSX.DsoSkiplinks & JSXBase.HTMLAttributes<HTMLDsoSkiplinksElement>;
+            "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
