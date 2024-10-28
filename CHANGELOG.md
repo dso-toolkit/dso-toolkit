@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍫 Release 66.1.0 - 2024-10-28
+
 ### Fixed
 * Card: Block-end spacing too small ([#2818](https://github.com/dso-toolkit/dso-toolkit/issues/2818))
 
