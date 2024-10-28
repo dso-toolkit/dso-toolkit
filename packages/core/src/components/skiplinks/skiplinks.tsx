@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 
 // import {  } from "./skiplinks.interfaces";
 
@@ -8,22 +8,25 @@ import { Component, ComponentInterface, h } from "@stencil/core";
   shadow: true,
 })
 export class Skiplinks implements ComponentInterface {
+  /**
+   * The URL to which the Card heading links.
+   */
+  @Prop({ reflect: true })
+  to!: string | undefined;
+
+  /**
+   * link text
+   */
+
+  @Prop({ reflect: true })
+  label?: string;
+
   render() {
     return (
-      <div>
-        <a href="#navigation" class="dso-skip">
-          Ga naar navigatie
-          <dso-icon icon="chevron-right"></dso-icon>
-        </a>
-        <a href="#main" class="dso-skip">
-          Ga naar inhoud
-          <dso-icon icon="chevron-right"></dso-icon>
-        </a>
-        <a href="#footer" class="dso-skip">
-          Ga naar website-informatie
-          <dso-icon icon="chevron-right"></dso-icon>
-        </a>
-      </div>
+      <a href="#{this.to}" class="dso-skip">
+        {this.label}
+        <dso-icon icon="chevron-right"></dso-icon>
+      </a>
     );
   }
 }

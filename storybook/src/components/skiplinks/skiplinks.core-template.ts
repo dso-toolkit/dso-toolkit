@@ -8,6 +8,6 @@ export const coreSkiplinks: ComponentImplementation<Skiplinks> = {
   implementation: "core",
   template: () =>
     function skiplinksTemplate({}) {
-      return html`<dso-skiplinks></dso-skiplinks>`;
+      return html`<dso-skiplinks to="inhoud" label="Ga naar inhoud"></dso-skiplinks>`;
     },
 };
