@@ -13,11 +13,11 @@ examplePageFactory(
     { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
     templates,
   ) => html`
-    <dso-skiplinks label="Ga naar navigatie" to="#navigation"></dso-skiplinks>
-    <dso-skiplinks label="Ga naar inhoud" to="#main"></dso-skiplinks>
-    <dso-skiplinks label="Ga naar website-informatie" to="#footer"></dso-skiplinks>
+    <dso-skiplink label="Ga naar navigatie" to="navigation"></dso-skiplink>
+    <dso-skiplink label="Ga naar inhoud" to="main"></dso-skiplink>
+    <dso-skiplink label="Ga naar website-informatie" to="footer"></dso-skiplink>
     <div class="container">
-      <div id="navigation"></div>
+      <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, header)}
       <main id="main">
         <div
@@ -165,7 +165,7 @@ examplePageFactory(
           </div>
         </div>
       </main>
-      <div id="footer"></div>
+      <div id="footer"><!-- for skiplink --></div>
       ${footerPartial(templates)}
     </div>
   `,

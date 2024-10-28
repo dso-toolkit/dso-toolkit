@@ -88,7 +88,7 @@ import {
   SearchBar,
   Selectable,
   ShoppingCart,
-  Skiplinks,
+  Skiplink,
   SlideToggle,
   Table,
   Tabs,
@@ -149,7 +149,7 @@ import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
 import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
-import { coreSkiplinks } from "./components/skiplinks/skiplinks.core-template";
+import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 import { coreTable } from "./components/table/table.core-template";
 import { coreTabs } from "./components/tabs/tabs.core-template";
@@ -310,7 +310,7 @@ export interface Components {
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
-  skiplinks: Skiplinks;
+  skiplink: Skiplink;
   slideToggle: SlideToggle;
   table: Table<TemplateResult>;
   tabs: Tabs<TemplateResult>;
@@ -395,7 +395,7 @@ templateContainer.add(coreRenvooi);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
-templateContainer.add(coreSkiplinks);
+templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
 templateContainer.add(coreTable);
 templateContainer.add(coreTabs);

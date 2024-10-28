@@ -3,13 +3,13 @@ import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 // import {  } from "./skiplinks.interfaces";
 
 @Component({
-  tag: "dso-skiplinks",
-  styleUrl: "skiplinks.scss",
+  tag: "dso-skiplink",
+  styleUrl: "skiplink.scss",
   shadow: true,
 })
-export class Skiplinks implements ComponentInterface {
+export class Skiplink implements ComponentInterface {
   /**
-   * The URL to which the Card heading links.
+   * The location to which the skiplink links.
    */
   @Prop({ reflect: true })
   to!: string | undefined;
@@ -23,7 +23,7 @@ export class Skiplinks implements ComponentInterface {
 
   render() {
     return (
-      <a href="#{this.to}" class="dso-skip">
+      <a href={`#${this.to}`}>
         {this.label}
         <dso-icon icon="chevron-right"></dso-icon>
       </a>

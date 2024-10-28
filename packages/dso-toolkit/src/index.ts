@@ -1,5 +1,5 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/skiplinks";
+export * from "./components/skiplink";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
