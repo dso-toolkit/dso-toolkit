@@ -6,5 +6,10 @@
 
   & {
     text-decoration: line-through;
+    // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
+    // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd
+    @media screen and (min--moz-device-pixel-ratio: 0) {
+      font-family: sans-serif;
+    }
   }
 }
