@@ -16,4 +16,10 @@
 /// The mixin to apply a strikethrough to a delete visualisation.
 @mixin strikethrough($_value: line-through) {
   text-decoration: $_value;
+
+  // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
+  // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd
+  @media screen and (min--moz-device-pixel-ratio: 0) {
+    font-family: sans-serif;
+  }
 }

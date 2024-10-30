@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))
+
 ## 🆓 Release 65.1.0 - 2024-11-08
 
 ### Added
