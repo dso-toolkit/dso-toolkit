@@ -13,6 +13,13 @@
 | `to` _(required)_    | `to`      | The location to which the skiplink links. | `string \| undefined` | `undefined` |
 
 
+## Events
+
+| Event              | Description                           | Type                              |
+| ------------------ | ------------------------------------- | --------------------------------- |
+| `dsoSkiplinkClick` | Emitted when the Skiplink is clicked. | `CustomEvent<SkiplinkClickEvent>` |
+
+
 ## Dependencies
 
 ### Depends on
