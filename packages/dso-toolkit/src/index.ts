@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/skiplink";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -204,6 +203,8 @@ export {
   ShoppingCartSubitem,
 } from "./components/shopping-cart/shopping-cart.models.js";
 export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
+
+export * from "./components/skiplink";
 
 export * from "./components/slide-toggle";
 
