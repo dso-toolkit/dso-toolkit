@@ -1,7 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 
-// import {  } from "./skiplinks.interfaces";
-
 @Component({
   tag: "dso-skiplink",
   styleUrl: "skiplink.scss",
@@ -17,9 +15,8 @@ export class Skiplink implements ComponentInterface {
   /**
    * link text
    */
-
   @Prop({ reflect: true })
-  label?: string;
+  label!: string;
 
   render() {
     return (

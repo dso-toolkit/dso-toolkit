@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property          | Attribute | Description                               | Type                  | Default     |
-| ----------------- | --------- | ----------------------------------------- | --------------------- | ----------- |
-| `label`           | `label`   | link text                                 | `string \| undefined` | `undefined` |
-| `to` _(required)_ | `to`      | The location to which the skiplink links. | `string \| undefined` | `undefined` |
+| Property             | Attribute | Description                               | Type                  | Default     |
+| -------------------- | --------- | ----------------------------------------- | --------------------- | ----------- |
+| `label` _(required)_ | `label`   | link text                                 | `string`              | `undefined` |
+| `to` _(required)_    | `to`      | The location to which the skiplink links. | `string \| undefined` | `undefined` |
 
 
 ## Dependencies
