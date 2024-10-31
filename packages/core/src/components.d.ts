@@ -40,6 +40,7 @@ import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekin
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -79,6 +80,7 @@ export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekin
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -1414,6 +1416,10 @@ export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
 }
+export interface DsoSkiplinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSkiplinkElement;
+}
 export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSlideToggleElement;
@@ -2149,7 +2155,18 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSkiplinkElementEventMap {
+        "dsoSkiplinkClick": SkiplinkClickEvent;
+    }
     interface HTMLDsoSkiplinkElement extends Components.DsoSkiplink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSkiplinkElementEventMap>(type: K, listener: (this: HTMLDsoSkiplinkElement, ev: DsoSkiplinkCustomEvent<HTMLDsoSkiplinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSkiplinkElementEventMap>(type: K, listener: (this: HTMLDsoSkiplinkElement, ev: DsoSkiplinkCustomEvent<HTMLDsoSkiplinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoSkiplinkElement: {
         prototype: HTMLDsoSkiplinkElement;
@@ -3565,6 +3582,10 @@ declare namespace LocalJSX {
           * link text
          */
         "label": string;
+        /**
+          * Emitted when the Skiplink is clicked.
+         */
+        "onDsoSkiplinkClick"?: (event: DsoSkiplinkCustomEvent<SkiplinkClickEvent>) => void;
         /**
           * The location to which the skiplink links.
          */

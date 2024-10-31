@@ -1,4 +1,8 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from "@stencil/core";
+
+import { isModifiedEvent } from "../../utils/is-modified-event";
+
+import { SkiplinkClickEvent } from "./skiplink.interfaces";
 
 @Component({
   tag: "dso-skiplink",
@@ -18,9 +22,23 @@ export class Skiplink implements ComponentInterface {
   @Prop({ reflect: true })
   label!: string;
 
+  /**
+   * Emitted when the Skiplink is clicked.
+   */
+  @Event()
+  dsoSkiplinkClick!: EventEmitter<SkiplinkClickEvent>;
+
+  private clickEventHandler(e: MouseEvent) {
+    if (!(e.target instanceof HTMLElement) || !this.to) {
+      return;
+    }
+
+    return this.dsoSkiplinkClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+  }
+
   render() {
     return (
-      <a href={`#${this.to}`}>
+      <a href={`#${this.to}`} onClick={(e) => this.clickEventHandler(e)}>
         {this.label}
         <dso-icon icon="chevron-right"></dso-icon>
       </a>
