@@ -10,12 +10,20 @@ examplePageFactory(
   "Toepassingen/Loket",
   "Homepage",
   (
-    { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
+    {
+      anchorTemplate,
+      linkListTemplate,
+      highlightBoxTemplate,
+      richContentTemplate,
+      tileTemplate,
+      buttonTemplate,
+      skiplinkTemplate,
+    },
     templates,
   ) => html`
-    <dso-skiplink label="Ga naar navigatie" to="navigation"></dso-skiplink>
-    <dso-skiplink label="Ga naar inhoud" to="main"></dso-skiplink>
-    <dso-skiplink label="Ga naar website-informatie" to="footer"></dso-skiplink>
+    ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
+    ${skiplinkTemplate({ label: "Ga naar inhoud", to: "main" })}
+    ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
     <div class="container">
       <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, header)}
