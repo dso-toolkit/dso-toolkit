@@ -16,7 +16,7 @@
       @include di.base("chevron-down");
     }
 
-    &:hover {
+    &:active {
       &::after {
         @include di.variant("chevron-down-wit");
       }
@@ -56,7 +56,7 @@
       @include di.variant("chevron-up");
     }
 
-    &:hover::after {
+    &:active::after {
       @include di.variant("chevron-up-wit");
     }
   }
