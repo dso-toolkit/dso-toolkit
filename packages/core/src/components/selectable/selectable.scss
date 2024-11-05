@@ -10,6 +10,8 @@
   &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();
   }
+
+  @include selectable.children("dso-info");
 }
 
 :host(:not(:last-child)) {

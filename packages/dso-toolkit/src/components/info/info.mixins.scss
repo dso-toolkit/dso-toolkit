@@ -8,6 +8,8 @@
   padding-inline: units.$u2 units.$u4;
   position: relative;
 
+  @include set-colors.apply(colors.$grijs-5);
+
   > button {
     background-color: transparent;
     border-style: none;
