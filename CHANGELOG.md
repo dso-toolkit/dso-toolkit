@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Added
-* Pagination: Dots toevoegen na start en eind pagina aan HTML/CSS component ([#2861](https://github.com/dso-toolkit/dso-toolkit/issues/2812))
+* Pagination: Make html css version equal to core version ([#2861](https://github.com/dso-toolkit/dso-toolkit/issues/2812))
 
 ### Fixed
 * Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))
