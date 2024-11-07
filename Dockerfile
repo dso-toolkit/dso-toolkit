@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-13.15.0-node-20.17.0-chrome-129.0.6668.70-1-ff-130.0.1-edge-129.0.2792.52-1
+FROM cypress/included:cypress-13.15.2-node-22.11.0-chrome-130.0.6723.116-1-ff-132.0.1-edge-130.0.2849.68-1
 
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
@@ -32,7 +32,7 @@ RUN mkdir -p /etc/apt/keyrings \
   && apt-get install azure-cli=2.61.0-1~${AZ_DIST}
 
 # https://gist.github.com/aessing/76f1200c9f5b2b9671937b3b0ed5fd6f?permalink_comment_id=4855321#gistcomment-4855321
-RUN curl -L https://azcopyvnext.azureedge.net/releases/release-10.26.0-20240731/azcopy_linux_amd64_10.26.0.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
+RUN curl -L https://azcopyvnext.azureedge.net/releases/release-10.27.0-20241030/azcopy_linux_amd64_10.27.0.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 
