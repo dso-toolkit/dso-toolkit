@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))
 * Dropdown Menu: Button icon hover color ([#2851](https://github.com/dso-toolkit/dso-toolkit/issues/2851))
 
+### Tasks
+* Packages: Dependencies updates ([#2841](https://github.com/dso-toolkit/dso-toolkit/issues/2841))
+
 ## 🆓 Release 65.1.0 - 2024-11-08
 
 ### Added

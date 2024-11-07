@@ -12,6 +12,7 @@ export function sassTransformer() {
         url: `file:${file.path}`,
         sourceMap: true,
         style: "expanded",
+        verbose: true,
       });
 
       file.contents = Buffer.from(css);

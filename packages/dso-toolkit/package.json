@@ -41,7 +41,7 @@
     "@types/gulp-rename": "^2.0.6",
     "@types/list-stream": "^1.0.3",
     "@types/through2": "^2.0.41",
-    "concurrently": "^9.0.1",
+    "concurrently": "^9.1.0",
     "css": "^3.0.0",
     "cssnano": "^7.0.6",
     "del": "^8.0.0",
@@ -62,10 +62,10 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "1.79.5",
+    "sass": "1.80.6",
     "through2": "^4.0.2",
     "typescript": "~5.5.4",
-    "uuid": "^10.0.0",
+    "uuid": "^11.0.2",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
   "nx": {

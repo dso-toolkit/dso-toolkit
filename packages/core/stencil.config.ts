@@ -25,10 +25,8 @@ export const config: Config = {
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
     }),
     reactOutputTarget({
-      componentCorePackage: "@dso-toolkit/core",
       customElementsDir: "dist/components",
-      includeImportCustomElements: true,
-      proxiesFile: "../react/src/components.ts",
+      outDir: "../react/src",
     }),
     {
       type: "dist",
