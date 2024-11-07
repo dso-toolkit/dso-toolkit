@@ -23,16 +23,10 @@ Met dit component kan een `RenvooiValue` worden gepresenteerd.
  - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-annotation-locatie](../annotation/annotation-locatie)
  - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
- - [dso-renvooi](.)
-
-### Depends on
-
-- [dso-renvooi](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-renvooi --> dso-renvooi
   dso-annotation-activiteit --> dso-renvooi
   dso-annotation-gebiedsaanwijzing --> dso-renvooi
   dso-annotation-kaart --> dso-renvooi

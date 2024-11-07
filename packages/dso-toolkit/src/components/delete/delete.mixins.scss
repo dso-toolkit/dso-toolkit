@@ -1,10 +1,22 @@
 @use "../../variables/colors";
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
-@mixin root() {
+@mixin root($strikethrough: true) {
   @include set-colors.apply(colors.$rood-20);
 
-  & {
-    text-decoration: line-through;
+  @if ($strikethrough) {
+    & {
+      @include strikethrough();
+    }
+  }
+}
+
+@mixin strikethrough($value: line-through) {
+  text-decoration: $value;
+
+  // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
+  // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd
+  @media screen and (min--moz-device-pixel-ratio: 0) {
+    font-family: sans-serif;
   }
 }

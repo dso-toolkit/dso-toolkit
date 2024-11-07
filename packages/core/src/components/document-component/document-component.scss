@@ -32,7 +32,15 @@
 
 :host([wijzigactie="verwijderContainer"]) .heading-container,
 :host(:where([wijzigactie="verwijder"])) {
-  @include delete.root();
+  @include delete.root($strikethrough: false);
+
+  --_dso-document-component-text-decoration: line-through;
+  --_dso-renvooi-text-decoration: line-through;
+}
+
+.heading-element,
+.content {
+  @include delete.strikethrough($value: var(--_dso-document-component-text-decoration));
 }
 
 :host([wijzigactie="nieuweContainer"]) .heading-container,
@@ -55,7 +63,9 @@
   }
 }
 
-:host([open]) {
+:host([open]),
+:host([open-annotation]) {
+  .annotation-container,
   .heading-container {
     margin-block-end: units.$u1;
   }
@@ -126,6 +136,12 @@
   }
 }
 
+:host([type="LID"][open-annotation]) {
+  .annotation-container {
+    margin-block-start: units.$u1;
+  }
+}
+
 .editaction-label {
   font-style: italic;
   margin-inline-start: units.$u1;
@@ -134,4 +150,24 @@
 .content,
 .heading-container {
   padding-inline-end: units.$u1;
+}
+
+.annotation-container {
+  padding-inline-end: units.$u1;
+}
+
+:host(:where([wijzigactie="verwijder"])) {
+  .annotation-container {
+    dso-panel {
+      --_dso-panel-body-background-color: #{colors.$rood-10};
+    }
+  }
+}
+
+:host([wijzigactie="voegtoe"]) {
+  .annotation-container {
+    dso-panel {
+      --_dso-panel-body-background-color: #{colors.$lime-10};
+    }
+  }
 }

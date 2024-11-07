@@ -42,6 +42,8 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
   documentComponentTemplate: (
     documentComponentProperties: DocumentComponent<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
+  childrenTemplate: TemplateFnReturnType;
+  imroTemplate: (imroContent: string) => TemplateFnReturnType;
   demoTemplate: (
     jsonFile: string,
     openDefault: boolean,
@@ -73,10 +75,11 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
 ): DocumentComponentStories {
   return {
     Default: {
+      decorators: [(story) => decorator(story)],
       args: documentComponentArgs,
       argTypes: documentComponentArgTypes,
-      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate }) =>
-        documentComponentTemplate(documentComponentMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, childrenTemplate }) =>
+        documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
       ),
     },
     Demo: {
@@ -135,11 +138,10 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         annotated: undefined,
         open: true,
         alternativeTitle: "Adequaat aanbod openbaar vervoer",
-        content: imroContent,
       },
       argTypes: documentComponentArgTypes,
-      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate }) =>
-        documentComponentTemplate(documentComponentMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, imroTemplate }) =>
+        documentComponentTemplate(documentComponentMapper(args, imroTemplate(imroContent))),
       ),
     },
   };

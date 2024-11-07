@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🆓 Release 65.1.0 - 2024-11-08
+
+### Added
+* Document Component: Renvooiweergave kenmerken paneel ([#2836](https://github.com/dso-toolkit/dso-toolkit/issues/2836))
+
 ## 🛣️ Release 65.0.2 - 2024-10-04
 
 ### Fixed
