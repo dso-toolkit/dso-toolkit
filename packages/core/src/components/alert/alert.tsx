@@ -1,9 +1,8 @@
 import { Component, Element, h, Prop } from "@stencil/core";
 
 import clsx from "clsx";
-import { i18n } from "i18next";
 
-import { dtI18n } from "../../utils/i18n";
+import { i18n } from "../../utils/i18n";
 
 import { translations } from "./alert.i18n";
 
@@ -34,14 +33,10 @@ export class Alert {
   @Prop({ reflect: true })
   compact?: boolean;
 
-  private i18nInstance: i18n | undefined;
-
-  async componentWillLoad() {
-    this.i18nInstance = await dtI18n(this.host, translations);
-  }
+  private text = i18n(() => this.host, translations);
 
   render() {
-    const status = this.i18nInstance?.t(this.status);
+    const status = this.text(this.status);
     if (!status) {
       throw new Error(`Invalid status ${this.status}`);
     }

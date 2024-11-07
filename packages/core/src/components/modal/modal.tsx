@@ -1,9 +1,8 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop, State } from "@stencil/core";
-import { i18n } from "i18next";
 import { v4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
-import { dtI18n } from "../../utils/i18n";
+import { i18n } from "../../utils/i18n";
 
 import { ModalCloseEvent } from "./modal.interfaces";
 import { translations } from "./modal.i18n";
@@ -71,11 +70,7 @@ export class Modal implements ComponentInterface {
     return this.host.querySelector("[slot='footer']") !== null;
   }
 
-  private i18nInstance: i18n | undefined;
-
-  async componentWillLoad() {
-    this.i18nInstance = await dtI18n(this.host, translations);
-  }
+  private text = i18n(() => this.host, translations);
 
   componentDidLoad(): void {
     if (this.htmlDialogElement?.isConnected) {
@@ -119,13 +114,13 @@ export class Modal implements ComponentInterface {
               {this.showCloseButton && (
                 <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
                   <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">{this.i18nInstance?.t("close")}</span>
+                  <span class="sr-only">{this.text("close")}</span>
                 </button>
               )}
             </div>
           ) : (
             <span class="sr-only" id={this.ariaId}>
-              {this.i18nInstance?.t("dialog")}
+              {this.text("dialog")}
             </span>
           )}
 

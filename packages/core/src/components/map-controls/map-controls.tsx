@@ -1,7 +1,6 @@
 import { Component, Element, Event, EventEmitter, Fragment, h, Method, Prop, State, Watch } from "@stencil/core";
-import { i18n } from "i18next";
 
-import { dtI18n } from "../../utils/i18n";
+import { i18n } from "../../utils/i18n";
 
 import { MapControlsToggleEvent } from "./map-controls.interfaces";
 import { translations } from "./map-controls.i18n";
@@ -89,11 +88,7 @@ export class MapControls {
     });
   }
 
-  private i18nInstance: i18n | undefined;
-
-  async componentWillLoad() {
-    this.i18nInstance = await dtI18n(this.host, translations);
-  }
+  private text = i18n(() => this.host, translations);
 
   #closeButtonElement: HTMLButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
@@ -109,7 +104,7 @@ export class MapControls {
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
-          <span>{this.i18nInstance?.t("layersButton")}</span>
+          <span>{this.text("layersButton")}</span>
         </button>
         <div class="zoom-buttons">
           <button
@@ -117,7 +112,7 @@ export class MapControls {
             onClick={(e) => this.dsoZoomIn.emit(e)}
             disabled={this.disableZoom === "in" || this.disableZoom === "both"}
           >
-            <span>{this.i18nInstance?.t("zoomIn")}</span>
+            <span>{this.text("zoomIn")}</span>
             <dso-icon icon="plus"></dso-icon>
           </button>
           <button
@@ -125,20 +120,20 @@ export class MapControls {
             onClick={(e) => this.dsoZoomOut.emit(e)}
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           >
-            <span>{this.i18nInstance?.t("zoomOut")}</span>
+            <span>{this.text("zoomOut")}</span>
             <dso-icon icon="minus"></dso-icon>
           </button>
         </div>
         <section hidden={this.hideContent}>
           <header>
-            <h2>{this.i18nInstance?.t("title")}</h2>
+            <h2>{this.text("title")}</h2>
             <button
               type="button"
               class="close-button"
               onClick={(e) => this.toggleVisibility(e)}
               ref={(element) => (this.#closeButtonElement = element)}
             >
-              <span>{this.i18nInstance?.t("hidePanel", { title: this.i18nInstance?.t("title") })}</span>
+              <span>{this.text("hidePanel", { title: this.text("title") })}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>

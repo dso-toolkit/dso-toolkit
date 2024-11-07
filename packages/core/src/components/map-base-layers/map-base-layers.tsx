@@ -1,8 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
 import { v4 as uuidv4 } from "uuid";
-import { i18n } from "i18next";
 
-import { dtI18n } from "../../utils/i18n";
+import { i18n } from "../../utils/i18n";
 
 import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 import { translations } from "./map-base-layers.i18n";
@@ -41,11 +40,7 @@ export class MapBaseLayers implements ComponentInterface {
     this.dsoBaseLayerChange.emit({ activeBaseLayer: baseLayer });
   }
 
-  private i18nInstance: i18n | undefined;
-
-  async componentWillLoad() {
-    this.i18nInstance = await dtI18n(this.host, translations);
-  }
+  private text = i18n(() => this.host, translations);
 
   componentDidRender() {
     this.baseLayers
@@ -67,7 +62,7 @@ export class MapBaseLayers implements ComponentInterface {
         <legend class="sr-only">Achtergrond</legend>
         <div class="dso-label-container">
           <span class="control-label" aria-hidden="true">
-            {this.i18nInstance?.t("background")}
+            {this.text("background")}
           </span>
         </div>
         <div class="dso-field-container">

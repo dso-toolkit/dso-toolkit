@@ -861,7 +861,7 @@ export namespace Components {
         /**
           * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
          */

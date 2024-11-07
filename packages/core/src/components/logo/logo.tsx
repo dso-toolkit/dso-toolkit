@@ -11,8 +11,8 @@ import {
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
 
-const DsoLogo: FunctionalComponent<{ name?: string }> = ({ name }) => {
-  const splittedName = name?.split("|");
+const DsoLogo: FunctionalComponent<{ name: string }> = ({ name }) => {
+  const splittedName = name.split("|");
   return (
     <>
       <svg fill="none" viewBox="0 0 48 48" height="100%" class="logo-target">
@@ -21,8 +21,8 @@ const DsoLogo: FunctionalComponent<{ name?: string }> = ({ name }) => {
         <path class="inner" d="M24 32a8 8 0 0 0 0-16 8 8 0 0 0 0 16Z" />
       </svg>
       <div class="logo-wordmark">
-        <span class="logo-wordmark-omgevings">{splittedName?.[0] || "Omgevings"}</span>
-        <span class="logo-wordmark-loket">{splittedName?.[1] || "loket"}</span>
+        <span class="logo-wordmark-omgevings">{splittedName[0]}</span>
+        {splittedName.length === 2 && <span class="logo-wordmark-loket">{splittedName[1]}</span>}
       </div>
     </>
   );
@@ -42,7 +42,7 @@ export class Logo implements ComponentInterface {
    * bosgroen.
    */
   @Prop({ reflect: true })
-  name?: string;
+  name = "Omgevings|loket";
   /**
    * The url the logo is pointing to.
    */
