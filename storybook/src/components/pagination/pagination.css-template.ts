@@ -22,7 +22,12 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                   </li>
                 `
               : nothing}
-            ${currentPage >= 5 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
+            ${currentPage === 5 && totalPages >= 7
+              ? html` <li>
+                  <a href="#">${currentPage - 3}</a>
+                </li>`
+              : nothing}
+            ${currentPage >= 6 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
             ${currentPage >= 4 && totalPages >= 5
               ? html`
                   <li>
@@ -57,7 +62,12 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                   </li>
                 `
               : nothing}
-            ${totalPages - currentPage >= 4 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
+            ${totalPages - currentPage >= 5 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
+            ${totalPages - currentPage === 4
+              ? html`<li>
+                  <a href="#">${currentPage + 3}</a>
+                </li>`
+              : nothing}
             ${currentPage !== totalPages
               ? html`
                   <li>
