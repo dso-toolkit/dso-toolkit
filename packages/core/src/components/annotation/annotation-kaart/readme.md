@@ -35,7 +35,6 @@ graph TD;
   dso-annotation-kaart --> dso-renvooi
   dso-annotation-kaart --> dso-icon
   dso-annotation-kaart --> dso-slide-toggle
-  dso-renvooi --> dso-renvooi
   style dso-annotation-kaart fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

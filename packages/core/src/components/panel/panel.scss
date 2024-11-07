@@ -6,8 +6,10 @@
 :host {
   display: block;
 
-  border: 1px solid colors.$bosgroen-40;
+  border: 1px solid colors.$grijs-30;
   border-radius: units.$u1 * 0.5;
+
+  overflow: hidden;
 }
 
 @include utilities.box-sizing();
@@ -21,14 +23,12 @@
   padding-block: units.$u1;
   padding-inline: units.$u2 units.$u1;
 
-  border-block-end: 1px solid colors.$bosgroen-40;
+  border-block-end: 1px solid colors.$grijs-30;
 
   border-start-start-radius: units.$u1 * 0.5;
   border-start-end-radius: units.$u1 * 0.5;
 
-  background-color: colors.$bosgroen-10;
-
-  color: colors.$bosgroen;
+  background-color: colors.$grijs-10;
 
   .sr-only {
     @include utilities.sr-only();
@@ -40,6 +40,7 @@
   font-size: 1rem !important;
   font-weight: 600 !important;
   line-height: 1.5 !important;
+  color: colors.$zwart !important;
 }
 
 .panel-close {
@@ -54,7 +55,7 @@
 
   background-color: transparent;
 
-  color: colors.$bosgroen;
+  color: colors.$zwart;
 
   cursor: pointer;
 }
@@ -62,4 +63,6 @@
 .panel-body {
   padding-block: units.$u2;
   padding-inline: units.$u2;
+
+  background-color: var(--_dso-panel-body-background-color, transparent);
 }

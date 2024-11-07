@@ -21,7 +21,6 @@ export interface DocumentComponentArgs {
   gereserveerd: boolean;
   heading: DocumentComponentHeading;
   inhoud?: string;
-  content?: string;
   label: string;
   notApplicable: boolean;
   nummer: string;
@@ -159,11 +158,6 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "select",
     },
   },
-  content: {
-    control: {
-      type: "text",
-    },
-  },
   mark: {
     control: {
       type: "text",
@@ -178,6 +172,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
 
 export function documentComponentMapper<TemplateFnReturnType>(
   a: DocumentComponentArgs,
+  children?: TemplateFnReturnType,
 ): DocumentComponent<TemplateFnReturnType> {
   const { mark } = a;
 
@@ -185,6 +180,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
 
   return {
     ...a,
+    children: a.open || a.openAnnotation ? children : undefined,
     mark: mark
       ? (text) =>
           text

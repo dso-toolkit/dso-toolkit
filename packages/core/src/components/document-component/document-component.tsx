@@ -115,7 +115,7 @@ export class DocumentComponent implements ComponentInterface {
   /**
    * When the Annotation is opened, set this to true.
    */
-  @Prop()
+  @Prop({ reflect: true })
   openAnnotation = false;
 
   /**
@@ -342,14 +342,14 @@ export class DocumentComponent implements ComponentInterface {
             </div>
           </div>
         )}
-        <div class="annotation-container" part="_annotation-container">
-          {this.openAnnotation && (
+        {this.openAnnotation && (
+          <div class="annotation-container" part="_annotation-container">
             <dso-panel id="annotations" onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}>
               <h2 slot="heading">Kenmerken en kaart</h2>
               <slot name="annotations" />
             </dso-panel>
-          )}
-        </div>
+          </div>
+        )}
         {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
           <div class="content" part="_content">
             {this.gereserveerd && (
