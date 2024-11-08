@@ -5,6 +5,7 @@ import { noControl } from "../../storybook";
 import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface LogoArgs {
+  name?: string;
   label?: string;
   labelUrl?: string;
   logoUrl?: string;
@@ -14,6 +15,11 @@ export interface LogoArgs {
 }
 
 export const logoArgTypes: ArgTypes<LogoArgs> = {
+  name: {
+    control: {
+      type: "text",
+    },
+  },
   label: {
     control: {
       type: "text",
@@ -38,6 +44,7 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
 
 export function logoArgsMapper(a: LogoArgs): Logo {
   return {
+    name: a.name,
     label: a.label,
     labelUrl: a.labelUrl,
     logoUrl: a.logoUrl,

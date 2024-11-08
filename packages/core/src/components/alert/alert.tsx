@@ -1,5 +1,10 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, Element, h, Prop } from "@stencil/core";
+
 import clsx from "clsx";
+
+import { i18n } from "../../utils/i18n";
+
+import { translations } from "./alert.i18n";
 
 @Component({
   tag: "dso-alert",
@@ -7,6 +12,9 @@ import clsx from "clsx";
   shadow: true,
 })
 export class Alert {
+  @Element()
+  host!: HTMLDsoAlertElement;
+
   /**
    * Set status of alert
    */
@@ -25,15 +33,10 @@ export class Alert {
   @Prop({ reflect: true })
   compact?: boolean;
 
-  private static statusMap = new Map<string, string>([
-    ["success", "Gelukt"],
-    ["info", "Opmerking"],
-    ["warning", "Waarschuwing"],
-    ["error", "Fout"],
-  ]);
+  private text = i18n(() => this.host, translations);
 
   render() {
-    const status = Alert.statusMap.get(this.status);
+    const status = this.text(this.status);
     if (!status) {
       throw new Error(`Invalid status ${this.status}`);
     }

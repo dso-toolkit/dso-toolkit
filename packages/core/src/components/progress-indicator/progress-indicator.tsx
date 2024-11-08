@@ -1,4 +1,7 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
+
+import { i18n } from "../../utils/i18n";
+import { translations } from "./progress-indicator.i18n";
 
 @Component({
   tag: "dso-progress-indicator",
@@ -6,11 +9,14 @@ import { Component, h, Host, Prop } from "@stencil/core";
   shadow: true,
 })
 export class Progressindicator {
+  @Element()
+  host!: HTMLDsoProgressIndicatorElement;
+
   /**
    * The label of the Progress Indicator.
    */
   @Prop()
-  label = "Resultaten laden: een moment geduld alstublieft.";
+  label?: string;
 
   /**
    * The size (width) of the Progress Indicator.
@@ -26,6 +32,8 @@ export class Progressindicator {
   @Prop()
   block?: boolean;
 
+  private text = i18n(() => this.host, translations);
+
   render() {
     return (
       <Host>
@@ -33,7 +41,7 @@ export class Progressindicator {
           <dso-icon icon="spinner"></dso-icon>
         </span>
         <span id="progress-indicator-label" class="dso-progress-indicator-label">
-          {this.label}
+          {this.label || this.text("label")}
         </span>
       </Host>
     );

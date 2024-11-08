@@ -859,6 +859,10 @@ export namespace Components {
          */
         "logoUrl"?: string;
         /**
+          * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen.
+         */
+        "name": string;
+        /**
           * The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")
          */
         "ribbon"?: string;
@@ -1008,7 +1012,7 @@ export namespace Components {
         /**
           * The label of the Progress Indicator.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The size (width) of the Progress Indicator.  If no size is set, falls back to `small`.
          */
@@ -3239,6 +3243,10 @@ declare namespace LocalJSX {
           * The url the logo is pointing to.
          */
         "logoUrl"?: string;
+        /**
+          * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen.
+         */
+        "name"?: string;
         /**
           * Emitted when the label in the logo is clicked (only when labelUrl is set).
          */
