@@ -26,8 +26,13 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
 };
 
 export function paginationArgsMapper(a: PaginationArgs): Required<Pagination> {
+  const totalPages = Math.max(a.totalPages, 1);
+  const currentPage = Math.min(Math.max(a.currentPage, 1), totalPages);
+
   return {
     ...a,
+    totalPages,
+    currentPage,
     dsoSelectPage: (event) => {
       event.detail.originalEvent.preventDefault();
       a.dsoSelectPage(event);
