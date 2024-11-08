@@ -20,7 +20,7 @@ export class Skiplink implements ComponentInterface {
    * link text
    */
   @Prop({ reflect: true })
-  label!: string;
+  label!: string | undefined;
 
   /**
    * Emitted when the Skiplink is clicked.

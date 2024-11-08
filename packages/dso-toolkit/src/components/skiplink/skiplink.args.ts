@@ -35,6 +35,12 @@ export const skiplinkArgTypes: ArgTypes<SkiplinkArgs> = {
 export function skiplinkArgsMapper(a: SkiplinkArgs): Skiplink {
   return {
     ...a,
-    dsoSkiplinkClick: (e) => a.dsoSkiplinkClick(e.detail),
+    dsoSkiplinkClick: (e) => {
+      if (!e.detail.isModifiedEvent) {
+        e.detail.originalEvent.preventDefault();
+      }
+
+      a.dsoSkiplinkClick(e.detail);
+    },
   };
 }
