@@ -1107,7 +1107,7 @@ export namespace Components {
         /**
           * link text
          */
-        "label": string;
+        "label": string | undefined;
         /**
           * The location to which the skiplink links.
          */
@@ -3589,7 +3589,7 @@ declare namespace LocalJSX {
         /**
           * link text
          */
-        "label": string;
+        "label": string | undefined;
         /**
           * Emitted when the Skiplink is clicked.
          */

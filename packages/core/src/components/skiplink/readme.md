@@ -1,4 +1,4 @@
-# dso-skiplink
+# `<dso-skiplink>`
 
 
 
@@ -9,7 +9,7 @@
 
 | Property             | Attribute | Description                               | Type                  | Default     |
 | -------------------- | --------- | ----------------------------------------- | --------------------- | ----------- |
-| `label` _(required)_ | `label`   | link text                                 | `string`              | `undefined` |
+| `label` _(required)_ | `label`   | link text                                 | `string \| undefined` | `undefined` |
 | `to` _(required)_    | `to`      | The location to which the skiplink links. | `string \| undefined` | `undefined` |
 
 
