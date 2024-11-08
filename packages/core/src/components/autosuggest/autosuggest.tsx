@@ -1,9 +1,14 @@
 import { Component, Element, Event, EventEmitter, Fragment, h, Listen, Prop, State, VNode, Watch } from "@stencil/core";
+
 import debounce from "debounce";
-import { v4 } from "uuid";
 import escapeStringRegexp from "escape-string-regexp";
 
+import { v4 } from "uuid";
+
+import { i18n } from "../../utils/i18n";
+
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
+import { translations } from "./autosuggest.i18n";
 
 const maxSuggestionsViewable = 10;
 const listboxPaddingBlock = 8;
@@ -174,6 +179,8 @@ export class Autosuggest {
     }
   }
 
+  private text = i18n(() => this.host, translations);
+
   componentDidRender() {
     this.setListboxContainerMaxBlockSize();
   }
@@ -263,8 +270,8 @@ export class Autosuggest {
     }
   }
 
-  private showInputValueNotFound(text: string) {
-    return this.processAutosuggestMarkItems(this.markTerms(text, this.input?.value.split(" ").filter((t) => t) ?? []));
+  private showInputValueNotFound(text?: string) {
+    return this.processAutosuggestMarkItems(this.markTerms(this.input?.value.split(" ").filter((t) => t) ?? [], text));
   }
 
   private handleMark(
@@ -276,10 +283,10 @@ export class Autosuggest {
     if (this.mark && type) {
       return this.processAutosuggestMarkItems(this.mark(suggestion, text, type, extraIndex));
     }
-    return this.processAutosuggestMarkItems(this.markTerms(text, this.input?.value.split(" ").filter((t) => t) ?? []));
+    return this.processAutosuggestMarkItems(this.markTerms(this.input?.value.split(" ").filter((t) => t) ?? [], text));
   }
 
-  private markTerms(suggestionValue: string, terms: string[]): AutosuggestMarkItem[] {
+  private markTerms(terms: string[], suggestionValue?: string): AutosuggestMarkItem[] {
     if (!suggestionValue || !terms || terms.length === 0 || terms[0] === undefined) {
       return [""];
     }
@@ -294,7 +301,7 @@ export class Autosuggest {
       } else if (terms.length === 1) {
         total.push(valuePart);
       } else {
-        total.push(...this.markTerms(valuePart, terms.slice(1)));
+        total.push(...this.markTerms(terms.slice(1), valuePart));
       }
 
       return total;
@@ -537,11 +544,8 @@ export class Autosuggest {
                   (this.notFound && (
                     <li>
                       <span class="value">
-                        {!this.notFoundLabel ? (
-                          this.showInputValueNotFound(`${this.inputValue} is niet gevonden.`)
-                        ) : (
-                          <span>{this.notFoundLabel}</span>
-                        )}
+                        {this.notFoundLabel ||
+                          this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
                       </span>
                     </li>
                   ))}
