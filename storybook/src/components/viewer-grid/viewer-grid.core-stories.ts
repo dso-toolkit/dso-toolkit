@@ -1,3 +1,4 @@
+import { type Meta } from "@storybook/web-components";
 import {
   DocumentList,
   DocumentListItemStatusDemoContent,
@@ -8,7 +9,6 @@ import {
   ViewerGridArgs,
   viewerGridStories,
 } from "dso-toolkit";
-import { type Meta } from "@storybook/web-components";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 

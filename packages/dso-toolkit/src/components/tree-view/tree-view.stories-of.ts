@@ -1,8 +1,19 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
+import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args.js";
 import * as TreeViewDemo from "./tree-view.demo.js";
 import { TreeViewItem } from "./tree-view.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface TreeViewStories {
+  treeView: StoryObj<TreeViewArgs, Renderer>;
+}
+
+interface TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TreeViewTemplates<TemplateFnReturnType>> {}
 
 export interface TreeViewTemplates<TemplateFnReturnType> {
   treeViewDemoTemplate: (
@@ -18,17 +29,13 @@ export interface TreeViewTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TreeViewTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Tree View", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: treeViewArgTypes,
+export function treeViewMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  TreeViewArgs
+> {
+  return {
+    argTypes: treeViewArgTypes,
+    parameters: {
       options: {
         // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
         enableShortcuts: false,
@@ -36,11 +43,22 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
       controls: {
         hideNoControlsWarning: true,
       },
-    });
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "Tree View",
-      templateMapper<TreeViewArgs>((args, { treeViewDemoTemplate }) => {
+export function treeViewStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TreeViewStories {
+  return {
+    treeView: {
+      render: templateContainer.render(storyTemplates, (args, { treeViewDemoTemplate }) => {
         const click = (
           path: TreeViewItem[],
           originalEvent: MouseEvent,
@@ -58,8 +76,6 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
           TreeViewDemo.onFilter,
         );
       }),
-    );
-
-    return stories;
-  });
+    },
+  };
 }

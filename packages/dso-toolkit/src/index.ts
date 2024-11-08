@@ -223,14 +223,7 @@ export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/t
 
 export * from "./components/tooltip";
 
-export { collection, onClickItem, onCloseItem, onFilter, onOpenItem } from "./components/tree-view/tree-view.demo.js";
-export {
-  TreeView,
-  TreeViewItem,
-  TreeViewItemIcon,
-  TreeViewPointerEvent,
-} from "./components/tree-view/tree-view.models.js";
-export { TreeViewTemplates, storiesOfTreeView } from "./components/tree-view/tree-view.stories-of.js";
+export * from "./components/tree-view";
 
 export * from "./components/viewer-grid";
 

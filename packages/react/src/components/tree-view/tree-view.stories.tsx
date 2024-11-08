@@ -1,19 +1,24 @@
 import * as React from "react";
-import { storiesOfTreeView, TreeViewItem } from "dso-toolkit";
+import { type Meta } from "@storybook/react";
 
-import { storiesOf } from "@storybook/react";
+import { TreeViewArgs, TreeViewItem, treeViewMeta, treeViewStories } from "dso-toolkit";
 
 import readme from "./readme.md?raw";
+
 import { templateContainer } from "../../templates";
 
-storiesOfTreeView({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<TreeViewArgs> = {
+  ...treeViewMeta({ readme }),
+  title: "TreeView",
+};
+
+export default meta;
+
+const { treeView } = treeViewStories({
   templateContainer,
-  storyTemplates: ({ treeViewTemplate }) => {
+  storyTemplates: (templates) => {
+    const { treeViewTemplate } = templates;
+
     interface TreeViewDemoProps {
       collection: TreeViewItem[];
       dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
@@ -96,3 +101,5 @@ storiesOfTreeView({
     };
   },
 });
+
+export { treeView };
