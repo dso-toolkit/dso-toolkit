@@ -232,13 +232,6 @@ export {
 } from "./components/tree-view/tree-view.models.js";
 export { TreeViewTemplates, storiesOfTreeView } from "./components/tree-view/tree-view.stories-of.js";
 
-export {
-  ViewerGrid,
-  ViewerGridChangeSizeEvent,
-  ViewerGridDocumentHeaderProperties,
-  ViewerGridFilterblokProperties,
-  ViewerGridProperties,
-} from "./components/viewer-grid/viewer-grid.models.js";
-export { ViewerGridTemplates, storiesOfViewerGrid } from "./components/viewer-grid/viewer-grid.stories-of.js";
+export * from "./components/viewer-grid";
 
 export * from "./components/whitebox";

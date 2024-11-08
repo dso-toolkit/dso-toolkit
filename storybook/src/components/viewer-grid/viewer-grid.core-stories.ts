@@ -1,13 +1,14 @@
 import {
   DocumentList,
   DocumentListItemStatusDemoContent,
-  storiesOfViewerGrid,
   Tile,
   ViewerGridDocumentHeaderProperties,
-  StoryRoot,
   selectExampleOption,
+  viewerGridMeta,
+  ViewerGridArgs,
+  viewerGridStories,
 } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
+import { type Meta } from "@storybook/web-components";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 
@@ -59,27 +60,37 @@ const activeFilters: any = [
   },
 ];
 
-storiesOfViewerGrid({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    root: StoryRoot.Core,
-  },
+const meta: Meta<ViewerGridArgs> = {
+  ...viewerGridMeta({ readme }),
+  title: "Core/ViewerGrid",
+};
+
+export default meta;
+
+const {
+  viewerGrid,
+  filterpanel,
+  VoorbeeldpaginaTiles,
+  VoorbeeldpaginaFilterblok,
+  VoorbeeldpaginaDocumentHeader,
+  VoorbeeldpaginaDocumentList,
+} = viewerGridStories({
   templateContainer,
-  storyTemplates: ({
-    anchorTemplate,
-    badgeTemplate,
-    viewerGridTemplate,
-    alertTemplate,
-    richContentTemplate,
-    documentHeaderTemplate,
-    documentListTemplate,
-    labelGroupTemplate,
-    contextTemplate,
-    buttonTemplate,
-    tileGridTemplate,
-  }) => {
+  storyTemplates: (templates) => {
+    const {
+      anchorTemplate,
+      badgeTemplate,
+      viewerGridTemplate,
+      alertTemplate,
+      richContentTemplate,
+      documentHeaderTemplate,
+      documentListTemplate,
+      labelGroupTemplate,
+      contextTemplate,
+      buttonTemplate,
+      tileGridTemplate,
+    } = templates;
+
     function documentHeaderExampleTemplate({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
@@ -189,7 +200,6 @@ storiesOfViewerGrid({
         map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
       });
     }
-
     return {
       viewerGridTemplate,
       example: {
@@ -260,3 +270,12 @@ storiesOfViewerGrid({
     };
   },
 });
+
+export {
+  viewerGrid,
+  filterpanel,
+  VoorbeeldpaginaFilterblok,
+  VoorbeeldpaginaTiles,
+  VoorbeeldpaginaDocumentHeader,
+  VoorbeeldpaginaDocumentList,
+};
