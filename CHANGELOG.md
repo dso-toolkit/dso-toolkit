@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Tasks
 * Packages: Dependencies updates ([#2841](https://github.com/dso-toolkit/dso-toolkit/issues/2841))
+* Website: Couldn't find story matching 'annotation--default' ([#2776](https://github.com/dso-toolkit/dso-toolkit/issues/2776))
+
 
 ## 🆓 Release 65.1.0 - 2024-11-08
 
