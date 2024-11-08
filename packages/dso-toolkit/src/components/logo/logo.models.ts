@@ -1,4 +1,5 @@
 export interface Logo {
+  name?: string;
   label?: string;
   labelUrl?: string;
   logoUrl?: string;

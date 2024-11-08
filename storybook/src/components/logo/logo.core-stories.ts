@@ -15,6 +15,7 @@ export default meta;
 
 const {
   Default,
+  WithName,
   WithLabel,
   WithLabelAndLabelUrl,
   WithLogoUrl,
@@ -34,6 +35,7 @@ const {
 
 export {
   Default,
+  WithName,
   WithLabel,
   WithLabelAndLabelUrl,
   WithLogoUrl,

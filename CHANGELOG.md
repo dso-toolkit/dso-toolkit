@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Plekinfo Card: Aanvullende functionaliteit ([#2834](https://github.com/dso-toolkit/dso-toolkit/issues/2834))
+* Pagination: Make html css version equal to core version ([#2812](https://github.com/dso-toolkit/dso-toolkit/issues/2812))
+
+### Added
+* Web Components: Ondersteuning voor meertaligheid ([#2830](https://github.com/dso-toolkit/dso-toolkit/issues/2830))
 
 ### Fixed
 * Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))

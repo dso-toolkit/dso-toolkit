@@ -48,6 +48,14 @@ export function paginationStories<Implementation, Templates, TemplateFnReturnTyp
         totalPages: 16,
         currentPage: 8,
       },
+      argTypes: {
+        totalPages: {
+          control: { type: "number", min: 1 },
+        },
+        currentPage: {
+          control: { type: "number", min: 1 },
+        },
+      },
       render: templateContainer.render(storyTemplates, (args, { paginationTemplate }) =>
         paginationTemplate(paginationArgsMapper(args)),
       ),

@@ -23,6 +23,11 @@ export default function (/** @type {import('plop').NodePlopAPI} */ plop) {
       },
       {
         type: "add",
+        templateFile: "plop-templates/new-stencil-component/stencil-component.i18n.ts.hbs",
+        path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.i18n.ts",
+      },
+      {
+        type: "add",
         templateFile: "plop-templates/new-stencil-component/stencil-component.scss.hbs",
         path: "packages/core/src/components/{{ kebabCase name }}/{{ kebabCase name }}.scss",
       },

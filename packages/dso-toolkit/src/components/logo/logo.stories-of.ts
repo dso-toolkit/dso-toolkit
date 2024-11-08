@@ -11,6 +11,7 @@ type LogoStory = StoryObj<LogoArgs, Renderer>;
 
 interface LogoStories {
   Default: LogoStory;
+  WithName: LogoStory;
   WithLogoUrl: LogoStory;
   WithLabel: LogoStory;
   WithLabelAndLabelUrl: LogoStory;
@@ -51,6 +52,12 @@ export function logoStories<Implementation, Templates, TemplateFnReturnType>({
   );
   return {
     Default: { render },
+    WithName: {
+      args: {
+        name: "Environment & Planning| Portal",
+      },
+      render,
+    },
     WithLabel: {
       args: {
         label: "Regels op de kaart",

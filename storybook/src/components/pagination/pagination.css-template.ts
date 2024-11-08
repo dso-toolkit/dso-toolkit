@@ -22,15 +22,20 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                   </li>
                 `
               : nothing}
-            ${(currentPage !== totalPages || totalPages >= 4) && currentPage === totalPages && currentPage !== 1
+            ${currentPage === 5 && totalPages >= 7
+              ? html` <li>
+                  <a href="#">${currentPage - 3}</a>
+                </li>`
+              : nothing}
+            ${currentPage >= 6 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
+            ${currentPage >= 4 && totalPages >= 5
               ? html`
                   <li>
                     <a href="#">${currentPage - 2}</a>
                   </li>
                 `
               : nothing}
-            ${currentPage >= 3 &&
-            ((currentPage >= 3 && totalPages <= 5) || (totalPages > 5 && currentPage !== totalPages - 2))
+            ${currentPage >= 3 && totalPages >= 5
               ? html`
                   <li>
                     <a href="#">${currentPage - 1}</a>
@@ -38,25 +43,30 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                 `
               : nothing}
             <li class="active">
-              <span aria-current="page"
-                >${currentPage}
+              <span aria-current="page">
+                ${currentPage}
                 ${currentPage === totalPages ? html`<span class="sr-only"> (laatste pagina)</span>` : nothing}
               </span>
             </li>
-            ${currentPage <= totalPages - 2 &&
-            ((currentPage <= 3 && totalPages <= 5) || (currentPage !== 3 && totalPages > 5))
+            ${currentPage <= totalPages - 2
               ? html`
                   <li>
                     <a href="#">${currentPage + 1}</a>
                   </li>
                 `
               : nothing}
-            ${currentPage === 1 && totalPages > currentPage + 2
+            ${currentPage <= totalPages - 3
               ? html`
                   <li>
                     <a href="#">${currentPage + 2}</a>
                   </li>
                 `
+              : nothing}
+            ${totalPages - currentPage >= 5 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
+            ${totalPages - currentPage === 4
+              ? html`<li>
+                  <a href="#">${currentPage + 3}</a>
+                </li>`
               : nothing}
             ${currentPage !== totalPages
               ? html`

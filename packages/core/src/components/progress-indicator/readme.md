@@ -10,11 +10,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                            | Type                                          | Default                                              |
-| -------- | --------- | -------------------------------------------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- |
-| `block`  | `block`   | Set for bloatier Progress Indicator.                                                   | `boolean \| undefined`                        | `undefined`                                          |
-| `label`  | `label`   | The label of the Progress Indicator.                                                   | `string`                                      | `"Resultaten laden: een moment geduld alstublieft."` |
-| `size`   | `size`    | The size (width) of the Progress Indicator.  If no size is set, falls back to `small`. | `"large" \| "medium" \| "small" \| undefined` | `undefined`                                          |
+| Property | Attribute | Description                                                                            | Type                                          | Default     |
+| -------- | --------- | -------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `block`  | `block`   | Set for bloatier Progress Indicator.                                                   | `boolean \| undefined`                        | `undefined` |
+| `label`  | `label`   | The label of the Progress Indicator.                                                   | `string \| undefined`                         | `undefined` |
+| `size`   | `size`    | The size (width) of the Progress Indicator.  If no size is set, falls back to `small`. | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
 
 
 ## Dependencies

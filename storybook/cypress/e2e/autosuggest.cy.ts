@@ -296,7 +296,7 @@ describe("Autosuggest", () => {
       .should("not.exist");
   });
 
-  it("should show not found text when no results are found", () => {
+  it("should show not found text in Dutch when no results are found", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
@@ -306,6 +306,23 @@ describe("Autosuggest", () => {
       .find("ul[role='listbox'] li span")
       .should("be.visible")
       .contains("is niet gevonden.");
+
+    cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
+  });
+
+  it("should show not found text in English when no results are found", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&globals=locale:en");
+    cy.get("input").focus().type("akjehfowef");
+    cy.wait(200);
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
+    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("be.visible").contains("akjehfowef");
+    cy.get("dso-autosuggest.hydrated")
+      .find("ul[role='listbox'] li span")
+      .should("be.visible")
+      .contains("was not found.");
+
+    cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
   it("should show custom not found text when notFoundLabel attribute is set and no results are found", () => {
