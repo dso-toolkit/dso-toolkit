@@ -108,25 +108,39 @@
 
 .dso-navbar {
   flex-basis: 100%;
-
-  .dso-dropdown-options {
-    border-block-start: 1px solid colors.$grijs-20;
-  }
 }
 
 dso-dropdown-menu {
   button {
-    align-items: center;
-    background-color: transparent;
-    border: 0;
+    position: relative;
+
     display: flex;
+    align-items: center;
+
+    background-color: transparent;
+
+    border: 0;
+
     font-family: typography.$font-family-base;
-    padding-inline-end: units.$u4;
+
+    svg {
+      inline-size: units.$u3;
+      block-size: units.$u3;
+
+      margin-inline-start: units.$u1;
+    }
+
+    &[aria-expanded="true"] {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   .dso-dropdown-options {
-    border: 0;
     border-radius: 0;
+
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       inline-size: 375px;
@@ -136,33 +150,45 @@ dso-dropdown-menu {
       inline-size: 100%;
     }
 
-    ul li {
-      a,
-      button {
-        color: colors.$bosgroen;
-        font-size: 1.25rem;
-        padding: units.$u2;
-        white-space: pre-wrap;
+    ul {
+      margin: 0;
+      padding: 0;
 
-        &:focus {
-          color: colors.$wit;
-        }
+      list-style: none;
 
-        &:hover {
-          background-color: colors.$wit;
+      li {
+        a,
+        button {
+          display: block;
+
+          padding: units.$u2;
+
           color: colors.$bosgroen;
-          text-decoration: underline;
-        }
-      }
+          font-size: 1.25rem;
+          white-space: pre-wrap;
+          text-decoration: none;
 
-      &.dso-active {
-        a {
-          font-weight: 600;
-        }
-      }
+          &:focus {
+            color: colors.$wit;
+          }
 
-      + li {
-        border-block-start: 1px solid colors.$grijs-20;
+          &:hover {
+            background-color: colors.$wit;
+
+            color: colors.$bosgroen;
+            text-decoration: underline;
+          }
+        }
+
+        &.dso-active {
+          a {
+            font-weight: 600;
+          }
+        }
+
+        + li {
+          border-block-start: 1px solid colors.$grijs-20;
+        }
       }
     }
   }
@@ -179,6 +205,8 @@ dso-dropdown-menu {
     .dso-dropdown-options {
       inset-inline-end: 0;
       inset-block-start: 100%;
+
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     }
 
     > button {
@@ -264,7 +292,6 @@ dso-dropdown-menu {
 
         align-items: center;
         color: colors.$bosgroen;
-        padding-inline-end: units.$u4;
 
         &:hover,
         &:active {
