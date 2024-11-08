@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Plekinfo Card: Aanvullende functionaliteit ([#2834](https://github.com/dso-toolkit/dso-toolkit/issues/2834))
+
 ### Fixed
 * Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))
 * Dropdown Menu: Button icon hover color ([#2851](https://github.com/dso-toolkit/dso-toolkit/issues/2851))

@@ -982,6 +982,10 @@ export namespace Components {
          */
         "href": string | undefined;
         /**
+          * Opens the urls in a new window or tab
+         */
+        "targetBlank": boolean;
+        /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */
         "wijzigactie"?: PlekinfoWijzigactie;
@@ -3421,6 +3425,10 @@ declare namespace LocalJSX {
           * Emitted when the PlekinfoCard heading is clicked.
          */
         "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
+        /**
+          * Opens the urls in a new window or tab
+         */
+        "targetBlank"?: boolean;
         /**
           * An optional 'wijzigactie' that signals if the plekinfo on the card is added or removed.
          */

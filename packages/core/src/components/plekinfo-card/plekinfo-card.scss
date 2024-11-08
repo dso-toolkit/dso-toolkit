@@ -82,7 +82,6 @@ del.dso-plekinfo-card-container {
 ::slotted([slot="meta"]) {
   display: flex !important;
   justify-content: space-between !important;
-  margin-inline-start: auto !important;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100% !important;
