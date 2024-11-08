@@ -168,8 +168,10 @@ dso-dropdown-menu {
           white-space: pre-wrap;
           text-decoration: none;
 
-          &:focus {
+          &:focus-visible {
             color: colors.$wit;
+
+            background-color: colors.$grasgroen;
           }
 
           &:hover {
@@ -177,6 +179,16 @@ dso-dropdown-menu {
 
             color: colors.$bosgroen;
             text-decoration: underline;
+          }
+        }
+
+        button {
+          inline-size: 100%;
+
+          text-align: start;
+
+          dso-icon {
+            margin-inline-start: units.$u1;
           }
         }
 
