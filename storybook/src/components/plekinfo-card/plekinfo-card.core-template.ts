@@ -1,4 +1,4 @@
-import { PlekinfoCard } from "dso-toolkit";
+import { isSlideToggleInterface, PlekinfoCard } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
@@ -8,19 +8,22 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
   component: "plekinfoCard",
   implementation: "core",
-  template: ({ labelTemplate, renvooiTemplate, richContentTemplate }) =>
+  template: ({ labelTemplate, renvooiTemplate, richContentTemplate, slideToggleTemplate }) =>
     function plekinfoCardTemplate({
       label,
       href,
+      targetBlank,
       active,
       symbool,
       content,
       meta,
       wijzigactie,
+      interactions,
       dsoPlekinfoCardClick,
     }: PlekinfoCard<TemplateResult>) {
-      return html`<dso-plekinfo-card
+      return html` <dso-plekinfo-card
         href=${href}
+        target-blank=${targetBlank}
         wijzigactie=${ifDefined(wijzigactie || undefined)}
         ?active=${active}
         @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
@@ -34,6 +37,17 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
         ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}
         ${html`<h2 slot="heading">${typeof label === "string" ? label : renvooiTemplate(label)}</h2>`}
         ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
+        ${interactions && interactions.length > 0
+          ? html`<div slot="interactions">
+              ${interactions.map(
+                (interaction) => html`
+                  <div class="dso-card-interaction">
+                    ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
+                  </div>
+                `,
+              )}
+            </div>`
+          : nothing}
         ${content && richContentTemplate({ children: content, slot: "content" })}
       </dso-plekinfo-card>`;
     },
