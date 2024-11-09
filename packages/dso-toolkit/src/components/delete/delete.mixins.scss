@@ -1,6 +1,8 @@
 @use "../../variables/colors";
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
+/// The root mixin to apply the correct color and strikethrough for a delete visualisation.
+/// @param {Boolean} $strikethrough - Whether to apply a strikethrough or not. Default is true. If false, only background color will be applied. Consumers are responsible for setting strikethrough styles. For example with the `delete.strikethrough()` mixin.
 @mixin root($strikethrough: true) {
   @include set-colors.apply(colors.$rood-20);
 
@@ -11,8 +13,9 @@
   }
 }
 
-@mixin strikethrough($value: line-through) {
-  text-decoration: $value;
+/// The mixin to apply a strikethrough to a delete visualisation.
+@mixin strikethrough($_value: line-through) {
+  text-decoration: $_value;
 
   // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
   // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd

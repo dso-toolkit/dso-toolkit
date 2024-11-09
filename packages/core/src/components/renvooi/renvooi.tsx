@@ -9,6 +9,7 @@ interface RenvooiRenderProps {
 
 const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value, nested }) => {
   if (typeof value === "string" || !value) {
+    // This element is used to for --_dso-renvooi-text-decoration
     return nested ? value : <span class="text">{value}</span>;
   }
 

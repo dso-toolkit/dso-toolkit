@@ -40,7 +40,7 @@
 
 .heading-element,
 .content {
-  @include delete.strikethrough($value: var(--_dso-document-component-text-decoration));
+  @include delete.strikethrough($_value: var(--_dso-document-component-text-decoration));
 }
 
 :host([wijzigactie="nieuweContainer"]) .heading-container,
