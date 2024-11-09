@@ -8,7 +8,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<TreeViewArgs> = {
   ...treeViewMeta({ readme }),
-  title: "Core/TreeView",
+  title: "Core/Tree View",
 };
 
 export default meta;

@@ -62,7 +62,7 @@ const activeFilters: any = [
 
 const meta: Meta<ViewerGridArgs> = {
   ...viewerGridMeta({ readme }),
-  title: "Core/ViewerGrid",
+  title: "Core/Viewer Grid",
 };
 
 export default meta;

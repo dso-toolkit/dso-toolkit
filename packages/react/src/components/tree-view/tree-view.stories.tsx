@@ -9,7 +9,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<TreeViewArgs> = {
   ...treeViewMeta({ readme }),
-  title: "TreeView",
+  title: "Tree View",
 };
 
 export default meta;
@@ -47,8 +47,8 @@ const { treeView } = treeViewStories({
 
       render() {
         return (
-          <div className="container" style={{ display: "flex", width: "100%" }}>
-            <div style={{ flex: 1 }}>
+          <div style={{ display: "grid", width: "100%", gridAutoColumns: "minmax(0, 1fr)", gridAutoFlow: "column" }}>
+            <div>
               {treeViewTemplate({
                 collection: this.state.collection,
                 dsoOpenItem: (e) => {
@@ -62,7 +62,7 @@ const { treeView } = treeViewStories({
                   ),
               })}
             </div>
-            <div style={{ flex: 1 }}>
+            <div>
               <label htmlFor="treeViewSearchInput">Zoek</label>
               <input
                 type="text"
