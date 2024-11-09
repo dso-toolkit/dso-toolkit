@@ -218,8 +218,7 @@ export * from "./components/tile";
 export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
 export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
 
-export { Toggletip, isToggletipInterface } from "./components/toggletip/toggletip.models.js";
-export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/toggletip.stories-of.js";
+export * from "./components/toggletip";
 
 export * from "./components/tooltip";
 

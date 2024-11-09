@@ -1,14 +1,15 @@
-import { Meta } from "@storybook/angular";
+import { type Meta } from "@storybook/web-components";
 
 import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
-import { templateContainer } from "../../templates";
-import { children } from "./toggletip.content";
 
-import readme from "./readme.md?raw";
+import { children } from "./toggletip.content";
+import { templateContainer } from "../../templates";
+
+import readme from "@dso-toolkit/core/src/components/toggletip/readme.md?raw";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
-  title: "Toggletip",
+  title: "Core/Toggletip",
 };
 
 export default meta;
@@ -20,7 +21,7 @@ const { toggletip } = toggletipStories({
 
     return {
       toggletipTemplate,
-      children,
+      children: children(templates),
     };
   },
 });

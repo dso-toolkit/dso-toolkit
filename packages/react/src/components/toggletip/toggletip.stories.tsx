@@ -1,16 +1,28 @@
-import { storiesOfToggletip } from "dso-toolkit";
-import { storiesOf } from "@storybook/react";
+import { Meta } from "@storybook/react";
+
+import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 import { children } from "./toggletip.content";
 
-storiesOfToggletip({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<ToggletipArgs> = {
+  ...toggletipMeta({ readme }),
+  title: "Toggletip",
+};
+
+export default meta;
+
+const { toggletip } = toggletipStories({
   templateContainer,
-  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate, children }),
+  storyTemplates: (templates) => {
+    const { toggletipTemplate } = templates;
+
+    return {
+      toggletipTemplate,
+      children,
+    };
+  },
 });
+
+export { toggletip };
