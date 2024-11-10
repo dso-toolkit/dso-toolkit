@@ -266,6 +266,15 @@ export class DocumentComponentDemo implements ComponentInterface {
     }
   };
 
+  private isAnnotated(documentComponent: DocumentComponent): boolean {
+    return (
+      documentComponent.type === "DIVISIE" ||
+      documentComponent.type === "DIVISIETEKST" ||
+      documentComponent.type === "ARTIKEL" ||
+      documentComponent.type === "LID"
+    );
+  }
+
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
     if (!documentComponent) {
@@ -278,7 +287,7 @@ export class DocumentComponentDemo implements ComponentInterface {
 
     return (
       <dso-document-component
-        annotated={documentComponent.volgordeNummer % 4 === 2}
+        annotated={this.isAnnotated(documentComponent)}
         bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
         filtered={
           this.isOpen(documentComponent)

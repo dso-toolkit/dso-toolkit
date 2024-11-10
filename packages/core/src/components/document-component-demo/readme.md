@@ -57,7 +57,6 @@ graph TD;
   dso-annotation-locatie --> dso-renvooi
   dso-annotation-locatie --> dso-slide-toggle
   dso-annotation-locatie --> dso-label
-  dso-renvooi --> dso-renvooi
   style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
