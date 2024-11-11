@@ -20,6 +20,7 @@
   .dso-plekinfo-card-heading {
     display: flex;
     align-items: start;
+    column-gap: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -107,7 +108,6 @@ del.dso-plekinfo-card-container {
 
 .heading-anchor {
   display: flex;
-  column-gap: units.$u1 * 0.5;
   flex-wrap: nowrap;
 
   color: plekinfo-card.$heading-anchor-color;
