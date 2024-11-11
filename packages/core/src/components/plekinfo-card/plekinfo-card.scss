@@ -18,8 +18,9 @@
   inline-size: 100%;
 
   .dso-plekinfo-card-heading {
-    align-items: center;
     display: flex;
+    align-items: start;
+    column-gap: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
@@ -82,11 +83,12 @@ del.dso-plekinfo-card-container {
 ::slotted([slot="meta"]) {
   display: flex !important;
   justify-content: space-between !important;
-  margin-inline-start: auto !important;
+  flex-shrink: 0 !important;
+  align-self: end !important;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100% !important;
-    margin-block-start: units.$u2 !important;
+    margin-block-start: units.$u1 !important;
   }
 }
 
@@ -106,7 +108,7 @@ del.dso-plekinfo-card-container {
 
 .heading-anchor {
   display: flex;
-  gap: units.$u1 * 0.5;
+  flex-wrap: nowrap;
 
   color: plekinfo-card.$heading-anchor-color;
   text-decoration: none;
@@ -122,6 +124,7 @@ del.dso-plekinfo-card-container {
 
   dso-icon {
     flex-shrink: 0;
+    align-self: end;
   }
 
   .sr-only {

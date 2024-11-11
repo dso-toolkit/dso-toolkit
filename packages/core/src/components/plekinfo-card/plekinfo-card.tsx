@@ -1,4 +1,5 @@
 import {
+  Fragment,
   h,
   Component,
   ComponentInterface,
@@ -36,6 +37,8 @@ const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigacti
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
  * @slot content - An optional slot to place `Rich Content` in.
+ * @slot interaction - A slot for the `SlideToggle`s elments.
+ *
  */
 @Component({
   tag: "dso-plekinfo-card",
@@ -57,6 +60,12 @@ export class PlekinfoCard implements ComponentInterface {
    */
   @Prop({ reflect: true })
   href!: string | undefined;
+
+  /**
+   * Opens the urls in a new window or tab
+   */
+  @Prop()
+  targetBlank: boolean = false;
 
   /**
    * Makes the PlekinfoCard active.
@@ -100,6 +109,10 @@ export class PlekinfoCard implements ComponentInterface {
     return this.host.querySelector("[slot='meta']");
   }
 
+  get interaction() {
+    return this.host.querySelector("[slot='interaction']");
+  }
+
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
 
@@ -110,11 +123,29 @@ export class PlekinfoCard implements ComponentInterface {
             <slot name="symbol" />
           </div>
           <div class="dso-plekinfo-card-heading">
-            <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
+            {this.href ? (
+              <a
+                href={this.href}
+                target={this.targetBlank ? "_blank" : undefined}
+                rel={this.targetBlank ? "noopener noreferrer" : undefined}
+                class="heading-anchor"
+                onClick={(e) => this.clickEventHandler(e)}
+              >
+                <slot name="heading" />
+                {this.targetBlank ? (
+                  <>
+                    <dso-icon icon="external-link" />
+                    <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+                  </>
+                ) : (
+                  <dso-icon icon="chevron-right" />
+                )}
+              </a>
+            ) : (
               <slot name="heading" />
-              <dso-icon icon="chevron-right"></dso-icon>
-            </a>
+            )}
             {this.metaSlottedElement !== null && <slot name="meta" />}
+            {this.interaction !== null && <slot name="interaction" />}
           </div>
           <div class="dso-plekinfo-card-content">
             <slot name="content" />

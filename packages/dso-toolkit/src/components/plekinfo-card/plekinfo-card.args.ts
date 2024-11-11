@@ -5,18 +5,23 @@ import { noControl } from "../../storybook";
 import { PlekinfoCard, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
+import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCardArgs {
   label: Renvooi | string;
   href: string;
+  targetBlank: boolean;
+  interaction?: SlideToggle;
   active: boolean;
   meta: Label;
   wijzigactie: PlekinfoWijzigactie;
   dsoPlekinfoCardClick: HandlerFunction;
 }
 
-export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "label" | "active"> = {
+export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "targetBlank" | "label" | "active" | "interaction"> = {
   href: "#",
+  targetBlank: false,
+  interaction: undefined,
   label: "Radarverstorende bouwwerken",
   active: false,
 };
@@ -32,6 +37,12 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
       type: "text",
     },
   },
+  targetBlank: {
+    control: {
+      type: "boolean",
+      default: false,
+    },
+  },
   active: {
     control: {
       type: "boolean",
@@ -42,6 +53,9 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
     control: {
       type: "select",
     },
+  },
+  interaction: {
+    ...noControl,
   },
   dsoPlekinfoCardClick: {
     ...noControl,
@@ -57,8 +71,10 @@ export function plekinfoCardArgsMapper<TemplateFnReturnType>(
   return {
     label: a.label,
     href: a.href,
+    targetBlank: a.targetBlank,
     active: a.active,
     wijzigactie: a.wijzigactie,
+    interaction: a.interaction,
     meta: a.meta,
     content,
     symbool,

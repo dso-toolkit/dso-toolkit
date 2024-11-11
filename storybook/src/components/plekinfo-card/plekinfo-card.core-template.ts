@@ -8,19 +8,22 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
   component: "plekinfoCard",
   implementation: "core",
-  template: ({ labelTemplate, renvooiTemplate, richContentTemplate }) =>
+  template: ({ labelTemplate, renvooiTemplate, richContentTemplate, slideToggleTemplate }) =>
     function plekinfoCardTemplate({
       label,
       href,
+      targetBlank,
       active,
       symbool,
       content,
       meta,
       wijzigactie,
+      interaction,
       dsoPlekinfoCardClick,
     }: PlekinfoCard<TemplateResult>) {
-      return html`<dso-plekinfo-card
+      return html` <dso-plekinfo-card
         href=${href}
+        target-blank=${targetBlank}
         wijzigactie=${ifDefined(wijzigactie || undefined)}
         ?active=${active}
         @dsoPlekinfoCardClick=${(e: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => {
@@ -33,7 +36,12 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
       >
         ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}
         ${html`<h2 slot="heading">${typeof label === "string" ? label : renvooiTemplate(label)}</h2>`}
-        ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
+        ${meta ? html` <div slot="meta">${labelTemplate(meta)}</div>` : nothing}
+        ${interaction
+          ? html` <div slot="interaction">
+              <div class="dso-card-interaction">${slideToggleTemplate(interaction)}</div>
+            </div>`
+          : nothing}
         ${content && richContentTemplate({ children: content, slot: "content" })}
       </dso-plekinfo-card>`;
     },

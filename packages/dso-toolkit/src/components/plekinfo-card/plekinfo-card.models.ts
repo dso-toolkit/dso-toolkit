@@ -1,14 +1,17 @@
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
+import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCard<TemplateFnReturnType> {
   label: Renvooi | string;
   href: string;
+  targetBlank: boolean;
   active?: boolean;
   meta?: Label;
   content?: TemplateFnReturnType;
   symbool?: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
+  interaction?: SlideToggle;
   dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }
 

@@ -15,5 +15,6 @@ node_modules
 /.nx
 .vs
 .idea
+.DS_Store
 
 **/hashes.json
