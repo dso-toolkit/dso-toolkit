@@ -1,7 +1,5 @@
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
-import { Button } from "../button";
-import { Toggletip } from "../toggletip/toggletip.models";
 import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCard<TemplateFnReturnType> {
@@ -13,7 +11,7 @@ export interface PlekinfoCard<TemplateFnReturnType> {
   content?: TemplateFnReturnType;
   symbool?: TemplateFnReturnType;
   wijzigactie?: PlekinfoWijzigactie;
-  interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType> | SlideToggle>;
+  interaction?: SlideToggle;
   dsoPlekinfoCardClick?: (e: CustomEvent<PlekinfoCardClickEvent>) => void;
 }
 

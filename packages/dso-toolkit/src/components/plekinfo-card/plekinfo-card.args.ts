@@ -5,25 +5,23 @@ import { noControl } from "../../storybook";
 import { PlekinfoCard, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
-import { Button } from "../button";
-import { Toggletip } from "../toggletip/toggletip.models";
 import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCardArgs {
   label: Renvooi | string;
   href: string;
   targetBlank: boolean;
-  interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
+  interaction?: SlideToggle;
   active: boolean;
   meta: Label;
   wijzigactie: PlekinfoWijzigactie;
   dsoPlekinfoCardClick: HandlerFunction;
 }
 
-export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "targetBlank" | "label" | "active" | "interactions"> = {
+export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "targetBlank" | "label" | "active" | "interaction"> = {
   href: "#",
   targetBlank: false,
-  interactions: [],
+  interaction: undefined,
   label: "Radarverstorende bouwwerken",
   active: false,
 };
@@ -56,7 +54,7 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
       type: "select",
     },
   },
-  interactions: {
+  interaction: {
     ...noControl,
   },
   dsoPlekinfoCardClick: {
@@ -76,7 +74,7 @@ export function plekinfoCardArgsMapper<TemplateFnReturnType>(
     targetBlank: a.targetBlank,
     active: a.active,
     wijzigactie: a.wijzigactie,
-    interactions: a.interactions,
+    interaction: a.interaction,
     meta: a.meta,
     content,
     symbool,

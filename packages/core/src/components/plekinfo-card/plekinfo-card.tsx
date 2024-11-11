@@ -145,7 +145,7 @@ export class PlekinfoCard implements ComponentInterface {
               <slot name="heading" />
             )}
             {this.metaSlottedElement !== null && <slot name="meta" />}
-            {this.interaction !== null && <slot name="interactions" />}
+            {this.interaction !== null && <slot name="interaction" />}
           </div>
           <div class="dso-plekinfo-card-content">
             <slot name="content" />

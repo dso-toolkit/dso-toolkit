@@ -91,12 +91,10 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
     WithSlideToggle: {
       args: {
         ...plekinfoCardArgs,
-        interactions: [
-          {
-            checked: false,
-            accessibleLabel: "sr-only label van het schuifje",
-          },
-        ],
+        interaction: {
+          checked: false,
+          accessibleLabel: "sr-only label van het schuifje",
+        },
       },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>

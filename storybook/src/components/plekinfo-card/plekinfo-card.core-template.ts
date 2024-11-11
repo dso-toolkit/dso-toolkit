@@ -18,7 +18,7 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
       content,
       meta,
       wijzigactie,
-      interactions,
+      interaction,
       dsoPlekinfoCardClick,
     }: PlekinfoCard<TemplateResult>) {
       return html` <dso-plekinfo-card
@@ -37,15 +37,11 @@ export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
         ${symbool ? html`<span slot="symbol">${symbool}</span>` : nothing}
         ${html`<h2 slot="heading">${typeof label === "string" ? label : renvooiTemplate(label)}</h2>`}
         ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
-        ${interactions && interactions.length > 0
-          ? html`<div slot="interactions">
-              ${interactions.map(
-                (interaction) => html`
-                  <div class="dso-card-interaction">
-                    ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
-                  </div>
-                `,
-              )}
+        ${interaction
+          ? html`<div slot="interaction">
+              <div class="dso-card-interaction">
+                ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}
+              </div>
             </div>`
           : nothing}
         ${content && richContentTemplate({ children: content, slot: "content" })}
