@@ -83,7 +83,7 @@ del.dso-plekinfo-card-container {
   display: flex !important;
   justify-content: space-between !important;
   flex-shrink: 0 !important;
-  align-self: end;
+  align-self: end !important;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100% !important;
