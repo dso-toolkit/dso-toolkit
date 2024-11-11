@@ -13,7 +13,7 @@ const meta: Meta<PlekinfoCardArgs> = {
 
 export default meta;
 
-const { Default, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex } =
+const { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex } =
   plekinfoCardStories({
     templateContainer,
     storyTemplates: (templates) => {
@@ -28,4 +28,4 @@ const { Default, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, With
     decorator,
   });
 
-export { Default, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex };
+export { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex };

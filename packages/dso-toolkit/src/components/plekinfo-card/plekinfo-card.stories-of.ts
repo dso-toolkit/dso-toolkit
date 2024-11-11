@@ -19,6 +19,7 @@ type PlekinfoCardStory = StoryObj<PlekinfoCardArgs, Renderer>;
 
 interface PlekinfoCardStories {
   Default: PlekinfoCardStory;
+  Static: PlekinfoCardStory;
   WithoutSymbol: PlekinfoCardStory;
   WithSlideToggle: PlekinfoCardStory;
   WithLabel: PlekinfoCardStory;
@@ -66,6 +67,16 @@ export function plekinfoCardStories<Implementation, Templates, TemplateFnReturnT
 }: PlekinfoCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PlekinfoCardStories {
   return {
     Default: {
+      decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
+        plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
+      ),
+    },
+    Static: {
+      args: {
+        ...plekinfoCardArgs,
+        href: "",
+      },
       decorators: [(story) => decorator(story, plekinfoCardDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { plekinfoCardTemplate, defaultSymbol, content }) =>
         plekinfoCardTemplate(plekinfoCardArgsMapper(args, defaultSymbol, content)),
