@@ -90,4 +90,23 @@ describe("Plekinfo Card", () => {
 
     cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- active`);
   });
+
+  it("should show the title without an anchor", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--static")
+      .get("dso-plekinfo-card.hydrated")
+      .shadow()
+      .find(".dso-plekinfo-card-heading > slot[name='heading']")
+      .should("exist");
+
+    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
+
+  it("should show a slide toggle", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-plekinfo-card--with-slide-toggle")
+      .get("dso-plekinfo-card.hydrated")
+      .find("dso-slide-toggle")
+      .should("exist");
+
+    cy.get("dso-plekinfo-card.hydrated").matchImageSnapshot();
+  });
 });
