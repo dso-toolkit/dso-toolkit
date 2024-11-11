@@ -4,7 +4,6 @@ export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;
   annotated?: boolean;
   bevatOntwerpInformatie?: boolean;
-  content?: string;
   children?: TemplateFnReturnType;
   dsoAnnotationToggle?: (e: CustomEvent<DocumentComponentAnnotationToggleEvent>) => void;
   dsoToggle?: (e: CustomEvent<DocumentComponentToggleEvent>) => void;

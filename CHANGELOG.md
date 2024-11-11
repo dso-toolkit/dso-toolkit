@@ -5,12 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### Changed
-* Plekinfo Card: Aanvullende functionaliteit ([#2834](https://github.com/dso-toolkit/dso-toolkit/issues/2834))
-* Pagination: Make html css version equal to core version ([#2812](https://github.com/dso-toolkit/dso-toolkit/issues/2812))
-
 ### Added
 * Web Components: Ondersteuning voor meertaligheid ([#2830](https://github.com/dso-toolkit/dso-toolkit/issues/2830))
+* Plekinfo Card: Aanvullende functionaliteit ([#2834](https://github.com/dso-toolkit/dso-toolkit/issues/2834))
+
+### Changed
+* Pagination: Make html css version equal to core version ([#2812](https://github.com/dso-toolkit/dso-toolkit/issues/2812))
 
 ### Fixed
 * Webfont Asap: Strikethrough in Firefox ([#2424](https://github.com/dso-toolkit/dso-toolkit/issues/2424))
@@ -20,6 +20,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Packages: Dependencies updates ([#2841](https://github.com/dso-toolkit/dso-toolkit/issues/2841))
 * Website: Couldn't find story matching 'annotation--default' ([#2776](https://github.com/dso-toolkit/dso-toolkit/issues/2776))
 
+## 🆓 Release 65.1.0 - 2024-11-08
+
+### Added
+* Document Component: Renvooiweergave kenmerken paneel ([#2836](https://github.com/dso-toolkit/dso-toolkit/issues/2836))
 
 ## 🍫 Release 66.1.0 - 2024-10-28
 

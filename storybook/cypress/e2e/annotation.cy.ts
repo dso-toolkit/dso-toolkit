@@ -33,14 +33,7 @@ describe("Annotation - Activiteit", () => {
       .find("dso-renvooi.hydrated:nth-of-type(2)")
       .shadow()
       .as("locatieNoemers")
-      .should("have.text", ", ") // testing: ', ' -> "locatie 1__, __locatie 2"
-      .find("dso-renvooi.hydrated:nth-of-type(1)")
-      .shadow()
-      .should("have.text", "locatie 1")
-      .get("@locatieNoemers")
-      .find("dso-renvooi.hydrated:nth-of-type(2)")
-      .shadow()
-      .should("have.text", "locatie 2");
+      .should("have.text", "locatie 1, locatie 2");
   });
 });
 
@@ -91,14 +84,7 @@ describe("Annotation - Omgevingsnormwaarde", () => {
       .find("dso-renvooi.hydrated")
       .shadow()
       .as("waardes")
-      .should("have.text", ", ") // testing: ', ' -> "waarde 1__, __waarde 2"
-      .find("dso-renvooi.hydrated:nth-of-type(1)")
-      .shadow()
-      .should("have.text", "waarde 1")
-      .get("@waardes")
-      .find("dso-renvooi.hydrated:nth-of-type(2)")
-      .shadow()
-      .should("have.text", "waarde 2");
+      .should("have.text", "waarde 1, waarde 2");
   });
 });
 

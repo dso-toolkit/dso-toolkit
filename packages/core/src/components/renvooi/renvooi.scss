@@ -8,3 +8,7 @@
 }
 
 @include utilities.box-sizing();
+
+.text {
+  text-decoration: var(--_dso-renvooi-text-decoration);
+}

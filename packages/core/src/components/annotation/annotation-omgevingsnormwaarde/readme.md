@@ -50,7 +50,6 @@ graph TD;
   dso-annotation-omgevingsnormwaarde --> dso-renvooi
   dso-annotation-omgevingsnormwaarde --> dso-slide-toggle
   dso-annotation-omgevingsnormwaarde --> dso-label
-  dso-renvooi --> dso-renvooi
   dso-label --> dso-icon
   dso-label --> dso-tooltip
   style dso-annotation-omgevingsnormwaarde fill:#f9f,stroke:#333,stroke-width:4px

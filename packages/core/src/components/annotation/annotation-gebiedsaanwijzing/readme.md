@@ -43,7 +43,6 @@ graph TD;
   dso-annotation-gebiedsaanwijzing --> dso-renvooi
   dso-annotation-gebiedsaanwijzing --> dso-slide-toggle
   dso-annotation-gebiedsaanwijzing --> dso-label
-  dso-renvooi --> dso-renvooi
   dso-label --> dso-icon
   dso-label --> dso-tooltip
   style dso-annotation-gebiedsaanwijzing fill:#f9f,stroke:#333,stroke-width:4px

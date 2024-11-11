@@ -80,7 +80,7 @@ Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
   return cy
     .document()
     .its("fonts.status")
-    .should("equal", "loaded")
+    .should("equal", "loaded", { timeout: 10000 })
     .then(() => originalFn(...args));
 });
 
