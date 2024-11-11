@@ -1,4 +1,5 @@
 import {
+  Fragment,
   h,
   Component,
   ComponentInterface,
@@ -36,7 +37,7 @@ const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigacti
  * @slot heading - A slot to place the title of the card in.
  * @slot meta - An optional slot to place a `Label` in.
  * @slot content - An optional slot to place `Rich Content` in.
- * @slot interactions - An optional slot for one or more `Button`s, `Label`s, `Toggletip`s or `SlideToggle`s.
+ * @slot interaction - A slot for the `SlideToggle`s elments.
  *
  */
 @Component({
@@ -108,8 +109,8 @@ export class PlekinfoCard implements ComponentInterface {
     return this.host.querySelector("[slot='meta']");
   }
 
-  get interactionsSlottedElement() {
-    return this.host.querySelector("[slot='interactions']");
+  get interaction() {
+    return this.host.querySelector("[slot='interaction']");
   }
 
   render() {
@@ -131,13 +132,20 @@ export class PlekinfoCard implements ComponentInterface {
                 onClick={(e) => this.clickEventHandler(e)}
               >
                 <slot name="heading" />
-                {this.targetBlank ? <dso-icon icon="external-link" /> : <dso-icon icon="chevron-right" />}
+                {this.targetBlank ? (
+                  <>
+                    <dso-icon icon="external-link" />
+                    <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+                  </>
+                ) : (
+                  <dso-icon icon="chevron-right" />
+                )}
               </a>
             ) : (
               <slot name="heading" />
             )}
             {this.metaSlottedElement !== null && <slot name="meta" />}
-            {this.interactionsSlottedElement !== null && <slot name="interactions" />}
+            {this.interaction !== null && <slot name="interactions" />}
           </div>
           <div class="dso-plekinfo-card-content">
             <slot name="content" />

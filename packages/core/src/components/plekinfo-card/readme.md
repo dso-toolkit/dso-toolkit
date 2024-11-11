@@ -24,13 +24,13 @@
 
 ## Slots
 
-| Slot             | Description                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| `"content"`      | An optional slot to place `Rich Content` in.                                          |
-| `"heading"`      | A slot to place the title of the card in.                                             |
-| `"interactions"` | An optional slot for one or more `Button`s, `Label`s, `Toggletip`s or `SlideToggle`s. |
-| `"meta"`         | An optional slot to place a `Label` in.                                               |
-| `"symbol"`       | An optional slot to place a symbol, representing the plekinfo item, in.               |
+| Slot            | Description                                                             |
+| --------------- | ----------------------------------------------------------------------- |
+| `"content"`     | An optional slot to place `Rich Content` in.                            |
+| `"heading"`     | A slot to place the title of the card in.                               |
+| `"interaction"` | A slot for the `SlideToggle`s elments.                                  |
+| `"meta"`        | An optional slot to place a `Label` in.                                 |
+| `"symbol"`      | An optional slot to place a symbol, representing the plekinfo item, in. |
 
 
 ## Dependencies
