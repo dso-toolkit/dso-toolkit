@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪔 Release 66.2.0 - 2024-11-11
+
 ### Added
 * Web Components: Ondersteuning voor meertaligheid ([#2830](https://github.com/dso-toolkit/dso-toolkit/issues/2830))
 * Plekinfo Card: Aanvullende functionaliteit ([#2834](https://github.com/dso-toolkit/dso-toolkit/issues/2834))
