@@ -1,7 +1,5 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
-import { documentListContent } from "../document-list/document-list.content.js";
-import { tiles } from "../tile-grid/tile-grid.content.js";
-import { Tile } from "../tile/tile.models.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
 import {
   viewerGridArgTypes,
   ViewerGridArgs,
@@ -10,7 +8,35 @@ import {
   ViewerGridDocumentHeaderArgs,
 } from "./viewer-grid.args.js";
 import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models.js";
+
+import { documentListContent } from "../document-list/document-list.content.js";
+import { tiles } from "../tile-grid/tile-grid.content.js";
+import { Tile } from "../tile/tile.models.js";
 import { options } from "../advanced-select/advanced-select.content";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { componentArgs } from "../../storybook";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type ViewerGridStory = StoryObj<ViewerGridArgs, Renderer>;
+
+interface ViewerGridStories {
+  ViewerGrid: ViewerGridStory;
+  Filterpanel: ViewerGridStory;
+  VoorbeeldpaginaTiles: ViewerGridStory;
+  VoorbeeldpaginaFilterblok: ViewerGridStory;
+  VoorbeeldpaginaDocumentHeader: StoryObj<ViewerGridDocumentHeaderArgs, Renderer>;
+  VoorbeeldpaginaDocumentList: ViewerGridStory;
+}
+
+interface ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ViewerGridTemplates<TemplateFnReturnType>
+  > {}
 
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -29,107 +55,125 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
   documentListExampleTemplate: (documentList: typeof documentListContent) => TemplateFnReturnType;
 }
 
-export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ViewerGridTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Viewer Grid", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
+export function viewerGridMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ViewerGridArgs
+> {
+  return {
+    argTypes: viewerGridArgTypes,
+    parameters: {
       layout: "fullscreen",
       controls: {
         hideNoControlsWarning: true,
       },
-    });
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "Viewer Grid",
-      templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
+export function viewerGridStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ViewerGridStories {
+  return {
+    ViewerGrid: {
+      args: componentArgs<
+        Pick<
+          ViewerGridArgs,
+          | "mode"
+          | "mainSize"
+          | "filterpanelOpen"
+          | "overlayOpen"
+          | "documentPanelOpen"
+          | "documentPanelSize"
+          | "mainPanelExpanded"
+          | "mainPanelHidden"
+          | "vrkActiveTab"
+          | "vdkActiveTab"
+        >
+      >({
+        mode: "vrk",
+        mainSize: "large",
+        filterpanelOpen: false,
+        overlayOpen: false,
+        documentPanelOpen: false,
+        documentPanelSize: "small",
+        mainPanelExpanded: false,
+        mainPanelHidden: false,
+        vrkActiveTab: "main",
+        vdkActiveTab: "search",
+      }),
+      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
-      {
-        argTypes: viewerGridArgTypes,
-        args: componentArgs<
-          Pick<
-            ViewerGridArgs,
-            | "mode"
-            | "mainSize"
-            | "filterpanelOpen"
-            | "overlayOpen"
-            | "documentPanelOpen"
-            | "documentPanelSize"
-            | "mainPanelExpanded"
-            | "mainPanelHidden"
-            | "vrkActiveTab"
-            | "vdkActiveTab"
-          >
-        >({
-          mode: "vrk",
-          mainSize: "large",
-          filterpanelOpen: false,
-          overlayOpen: false,
-          documentPanelOpen: false,
-          documentPanelSize: "small",
-          mainPanelExpanded: false,
-          mainPanelHidden: false,
-          vrkActiveTab: "main",
-          vdkActiveTab: "search",
-        }),
-      },
-    );
-
-    stories.add(
-      "Filterpanel",
-      templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
+    },
+    Filterpanel: {
+      args: componentArgs<
+        Pick<
+          ViewerGridArgs,
+          | "mode"
+          | "mainSize"
+          | "filterpanelOpen"
+          | "overlayOpen"
+          | "documentPanelOpen"
+          | "documentPanelSize"
+          | "mainPanelExpanded"
+          | "mainPanelHidden"
+          | "vrkActiveTab"
+          | "vdkActiveTab"
+        >
+      >({
+        mode: "vrk",
+        mainSize: "large",
+        filterpanelOpen: true,
+        overlayOpen: false,
+        documentPanelOpen: false,
+        documentPanelSize: "small",
+        mainPanelExpanded: false,
+        mainPanelHidden: false,
+        vrkActiveTab: "main",
+        vdkActiveTab: "search",
+      }),
+      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
-      {
-        argTypes: viewerGridArgTypes,
-        args: componentArgs<
-          Pick<
-            ViewerGridArgs,
-            | "mode"
-            | "mainSize"
-            | "filterpanelOpen"
-            | "overlayOpen"
-            | "documentPanelOpen"
-            | "documentPanelSize"
-            | "mainPanelExpanded"
-            | "mainPanelHidden"
-            | "vrkActiveTab"
-            | "vdkActiveTab"
-          >
-        >({
-          mode: "vrk",
-          mainSize: "large",
-          filterpanelOpen: true,
-          overlayOpen: false,
-          documentPanelOpen: false,
-          documentPanelSize: "small",
-          mainPanelExpanded: false,
-          mainPanelHidden: false,
-          vrkActiveTab: "main",
-          vdkActiveTab: "search",
-        }),
-      },
-    );
-
-    stories.add(
-      'Voorbeeldpagina "Tiles"',
-      templateMapper((_args, { tilesExampleTemplate }) => tilesExampleTemplate(tiles)),
-    );
-
-    stories.add(
-      'Voorbeeldpagina "Filterblok"',
-      templateMapper((_args, { filterblokExampleTemplate }) => filterblokExampleTemplate()),
-    );
-
-    stories.add(
-      'Voorbeeldpagina "Document header"',
-      templateMapper<ViewerGridDocumentHeaderArgs>((args, { documentHeaderExampleTemplate }) =>
+    },
+    VoorbeeldpaginaTiles: {
+      storyName: 'Voorbeeldpagina "Tiles"',
+      render: templateContainer.render(storyTemplates, (_args, { tilesExampleTemplate }) =>
+        tilesExampleTemplate(tiles),
+      ),
+    },
+    VoorbeeldpaginaFilterblok: {
+      storyName: 'Voorbeeldpagina "Filterblok"',
+      render: templateContainer.render(storyTemplates, (_args, { filterblokExampleTemplate }) =>
+        filterblokExampleTemplate(),
+      ),
+    },
+    VoorbeeldpaginaDocumentHeader: {
+      storyName: 'Voorbeeldpagina "Document header"',
+      argTypes: viewerGridDocumentHeaderArgs,
+      args: componentArgs<
+        Pick<
+          ViewerGridDocumentHeaderArgs,
+          | "documentHeaderFeaturesOpen"
+          | "documentHeaderSticky"
+          | "documentHeaderAdvancedSelect"
+          | "documentHeaderAdvancedSelectActiveIndex"
+        >
+      >({
+        documentHeaderFeaturesOpen: false,
+        documentHeaderSticky: false,
+        documentHeaderAdvancedSelect: {
+          options,
+        },
+        documentHeaderAdvancedSelectActiveIndex: 0,
+      }),
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderExampleTemplate }) =>
         documentHeaderExampleTemplate({
           documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
           documentHeaderFeatureAction: args.documentHeaderFeatureAction,
@@ -138,32 +182,12 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           documentHeaderAdvancedSelectActiveIndex: args.documentHeaderAdvancedSelectActiveIndex,
         }),
       ),
-      {
-        args: componentArgs<
-          Pick<
-            ViewerGridDocumentHeaderArgs,
-            | "documentHeaderFeaturesOpen"
-            | "documentHeaderSticky"
-            | "documentHeaderAdvancedSelect"
-            | "documentHeaderAdvancedSelectActiveIndex"
-          >
-        >({
-          documentHeaderFeaturesOpen: false,
-          documentHeaderSticky: false,
-          documentHeaderAdvancedSelect: {
-            options,
-          },
-          documentHeaderAdvancedSelectActiveIndex: 0,
-        }),
-        argTypes: viewerGridDocumentHeaderArgs,
-      },
-    );
-
-    stories.add(
-      'Voorbeeldpagina "Document list"',
-      templateMapper((_args, { documentListExampleTemplate }) => documentListExampleTemplate(documentListContent)),
-    );
-
-    return stories;
-  });
+    },
+    VoorbeeldpaginaDocumentList: {
+      storyName: 'Voorbeeldpagina "Document list"',
+      render: templateContainer.render(storyTemplates, (_args, { documentListExampleTemplate }) =>
+        documentListExampleTemplate(documentListContent),
+      ),
+    },
+  };
 }

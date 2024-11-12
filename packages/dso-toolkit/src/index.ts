@@ -218,27 +218,12 @@ export * from "./components/tile";
 export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
 export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
 
-export { Toggletip, isToggletipInterface } from "./components/toggletip/toggletip.models.js";
-export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/toggletip.stories-of.js";
+export * from "./components/toggletip";
 
 export * from "./components/tooltip";
 
-export { collection, onClickItem, onCloseItem, onFilter, onOpenItem } from "./components/tree-view/tree-view.demo.js";
-export {
-  TreeView,
-  TreeViewItem,
-  TreeViewItemIcon,
-  TreeViewPointerEvent,
-} from "./components/tree-view/tree-view.models.js";
-export { TreeViewTemplates, storiesOfTreeView } from "./components/tree-view/tree-view.stories-of.js";
+export * from "./components/tree-view";
 
-export {
-  ViewerGrid,
-  ViewerGridChangeSizeEvent,
-  ViewerGridDocumentHeaderProperties,
-  ViewerGridFilterblokProperties,
-  ViewerGridProperties,
-} from "./components/viewer-grid/viewer-grid.models.js";
-export { ViewerGridTemplates, storiesOfViewerGrid } from "./components/viewer-grid/viewer-grid.stories-of.js";
+export * from "./components/viewer-grid";
 
 export * from "./components/whitebox";

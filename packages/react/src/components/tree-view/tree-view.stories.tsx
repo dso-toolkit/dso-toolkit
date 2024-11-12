@@ -1,19 +1,24 @@
 import * as React from "react";
-import { storiesOfTreeView, TreeViewItem } from "dso-toolkit";
+import { type Meta } from "@storybook/react";
 
-import { storiesOf } from "@storybook/react";
+import { TreeViewArgs, TreeViewItem, treeViewMeta, treeViewStories } from "dso-toolkit";
 
 import readme from "./readme.md?raw";
+
 import { templateContainer } from "../../templates";
 
-storiesOfTreeView({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-  },
+const meta: Meta<TreeViewArgs> = {
+  ...treeViewMeta({ readme }),
+  title: "Tree View",
+};
+
+export default meta;
+
+const { TreeView } = treeViewStories({
   templateContainer,
-  storyTemplates: ({ treeViewTemplate }) => {
+  storyTemplates: (templates) => {
+    const { treeViewTemplate } = templates;
+
     interface TreeViewDemoProps {
       collection: TreeViewItem[];
       dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
@@ -42,8 +47,8 @@ storiesOfTreeView({
 
       render() {
         return (
-          <div className="container" style={{ display: "flex", width: "100%" }}>
-            <div style={{ flex: 1 }}>
+          <div style={{ display: "grid", width: "100%", gridAutoColumns: "minmax(0, 1fr)", gridAutoFlow: "column" }}>
+            <div>
               {treeViewTemplate({
                 collection: this.state.collection,
                 dsoOpenItem: (e) => {
@@ -57,7 +62,7 @@ storiesOfTreeView({
                   ),
               })}
             </div>
-            <div style={{ flex: 1 }}>
+            <div>
               <label htmlFor="treeViewSearchInput">Zoek</label>
               <input
                 type="text"
@@ -96,3 +101,5 @@ storiesOfTreeView({
     };
   },
 });
+
+export { TreeView };
