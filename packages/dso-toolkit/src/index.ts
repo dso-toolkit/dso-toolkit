@@ -204,6 +204,8 @@ export {
 } from "./components/shopping-cart/shopping-cart.models.js";
 export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
 
+export * from "./components/skiplink";
+
 export * from "./components/slide-toggle";
 
 export { Table, TableContent, TableSorting } from "./components/table/table.models.js";

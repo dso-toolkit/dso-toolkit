@@ -1,0 +1,56 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+
+:host {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 2;
+
+  display: block;
+
+  inline-size: 100vw;
+}
+
+@include utilities.box-sizing();
+
+a {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: units.$u2;
+
+  display: inline-block;
+
+  inline-size: 1px;
+  block-size: 1px;
+
+  overflow: hidden;
+
+  background-color: colors.$wit;
+
+  border-radius: units.$focus-border-radius;
+
+  clip: rect(1px, 1px, 1px, 1px);
+
+  color: var(--link-color);
+  // stylelint-disable-next-line declaration-property-value-disallowed-list -- prevent wrapping
+  white-space: nowrap;
+  text-decoration: none;
+
+  transform: translate(-50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  &:focus-visible {
+    inline-size: auto;
+    block-size: auto;
+
+    padding: units.$u1;
+
+    clip: auto;
+
+    white-space: normal;
+
+    outline-offset: 2px;
+  }
+}
