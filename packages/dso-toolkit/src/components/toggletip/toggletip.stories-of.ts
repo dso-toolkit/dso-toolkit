@@ -8,7 +8,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 
 interface ToggletipStories {
-  toggletip: StoryObj<ToggletipArgs, Renderer>;
+  Toggletip: StoryObj<ToggletipArgs, Renderer>;
 }
 
 interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -45,7 +45,7 @@ export function toggletipStories<Implementation, Templates, TemplateFnReturnType
   templateContainer,
 }: ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ToggletipStories {
   return {
-    toggletip: {
+    Toggletip: {
       render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
         toggletipTemplate(toggletipArgsMapper(args, children)),
       ),

@@ -22,8 +22,8 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 type ViewerGridStory = StoryObj<ViewerGridArgs, Renderer>;
 
 interface ViewerGridStories {
-  viewerGrid: ViewerGridStory;
-  filterpanel: ViewerGridStory;
+  ViewerGrid: ViewerGridStory;
+  Filterpanel: ViewerGridStory;
   VoorbeeldpaginaTiles: ViewerGridStory;
   VoorbeeldpaginaFilterblok: ViewerGridStory;
   VoorbeeldpaginaDocumentHeader: StoryObj<ViewerGridDocumentHeaderArgs, Renderer>;
@@ -80,7 +80,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
   templateContainer,
 }: ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ViewerGridStories {
   return {
-    viewerGrid: {
+    ViewerGrid: {
       args: componentArgs<
         Pick<
           ViewerGridArgs,
@@ -111,7 +111,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
     },
-    filterpanel: {
+    Filterpanel: {
       args: componentArgs<
         Pick<
           ViewerGridArgs,

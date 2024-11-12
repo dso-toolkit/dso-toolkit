@@ -68,8 +68,8 @@ const meta: Meta<ViewerGridArgs> = {
 export default meta;
 
 const {
-  viewerGrid,
-  filterpanel,
+  ViewerGrid,
+  Filterpanel,
   VoorbeeldpaginaTiles,
   VoorbeeldpaginaFilterblok,
   VoorbeeldpaginaDocumentHeader,
@@ -272,8 +272,8 @@ const {
 });
 
 export {
-  viewerGrid,
-  filterpanel,
+  ViewerGrid,
+  Filterpanel,
   VoorbeeldpaginaFilterblok,
   VoorbeeldpaginaTiles,
   VoorbeeldpaginaDocumentHeader,

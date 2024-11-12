@@ -9,7 +9,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 
 interface TreeViewStories {
-  treeView: StoryObj<TreeViewArgs, Renderer>;
+  TreeView: StoryObj<TreeViewArgs, Renderer>;
 }
 
 interface TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -57,7 +57,7 @@ export function treeViewStories<Implementation, Templates, TemplateFnReturnType>
   templateContainer,
 }: TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TreeViewStories {
   return {
-    treeView: {
+    TreeView: {
       render: templateContainer.render(storyTemplates, (args, { treeViewDemoTemplate }) => {
         const click = (
           path: TreeViewItem[],

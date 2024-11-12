@@ -14,7 +14,7 @@ const meta: Meta<TreeViewArgs> = {
 
 export default meta;
 
-const { treeView } = treeViewStories({
+const { TreeView } = treeViewStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { treeViewTemplate } = templates;
@@ -102,4 +102,4 @@ const { treeView } = treeViewStories({
   },
 });
 
-export { treeView };
+export { TreeView };
