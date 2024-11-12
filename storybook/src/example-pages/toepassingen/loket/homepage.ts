@@ -10,12 +10,24 @@ examplePageFactory(
   "Toepassingen/Loket",
   "Homepage",
   (
-    { anchorTemplate, linkListTemplate, highlightBoxTemplate, richContentTemplate, tileTemplate, buttonTemplate },
+    {
+      anchorTemplate,
+      linkListTemplate,
+      highlightBoxTemplate,
+      richContentTemplate,
+      tileTemplate,
+      buttonTemplate,
+      skiplinkTemplate,
+    },
     templates,
   ) => html`
+    ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
+    ${skiplinkTemplate({ label: "Ga naar inhoud", to: "main" })}
+    ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
     <div class="container">
+      <div id="navigation"><!-- for skiplink --></div>
       ${headerPartial(templates, header)}
-      <main>
+      <main id="main">
         <div
           class="row dso-banner no-button-banner my-beautiful-image"
           style="background-image: url('images/hero2.jpeg')"
@@ -161,6 +173,7 @@ examplePageFactory(
           </div>
         </div>
       </main>
+      <div id="footer"><!-- for skiplink --></div>
       ${footerPartial(templates)}
     </div>
   `,

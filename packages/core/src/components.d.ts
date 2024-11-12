@@ -40,6 +40,7 @@ import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekin
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -79,6 +80,7 @@ export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekin
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -1101,6 +1103,16 @@ export namespace Components {
          */
         "value": string;
     }
+    interface DsoSkiplink {
+        /**
+          * link text
+         */
+        "label": string | undefined;
+        /**
+          * The location to which the skiplink links.
+         */
+        "to": string | undefined;
+    }
     interface DsoSlideToggle {
         /**
           * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
@@ -1407,6 +1419,10 @@ export interface DsoScrollableCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
+}
+export interface DsoSkiplinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSkiplinkElement;
 }
 export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2143,6 +2159,23 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSkiplinkElementEventMap {
+        "dsoSkiplinkClick": SkiplinkClickEvent;
+    }
+    interface HTMLDsoSkiplinkElement extends Components.DsoSkiplink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSkiplinkElementEventMap>(type: K, listener: (this: HTMLDsoSkiplinkElement, ev: DsoSkiplinkCustomEvent<HTMLDsoSkiplinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSkiplinkElementEventMap>(type: K, listener: (this: HTMLDsoSkiplinkElement, ev: DsoSkiplinkCustomEvent<HTMLDsoSkiplinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoSkiplinkElement: {
+        prototype: HTMLDsoSkiplinkElement;
+        new (): HTMLDsoSkiplinkElement;
+    };
     interface HTMLDsoSlideToggleElementEventMap {
         "dsoActiveChange": SlideToggleActiveEvent;
     }
@@ -2315,6 +2348,7 @@ declare global {
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-skiplink": HTMLDsoSkiplinkElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-tab": HTMLDsoTabElement;
         "dso-table": HTMLDsoTableElement;
@@ -3551,6 +3585,20 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface DsoSkiplink {
+        /**
+          * link text
+         */
+        "label": string | undefined;
+        /**
+          * Emitted when the Skiplink is clicked.
+         */
+        "onDsoSkiplinkClick"?: (event: DsoSkiplinkCustomEvent<SkiplinkClickEvent>) => void;
+        /**
+          * The location to which the skiplink links.
+         */
+        "to": string | undefined;
+    }
     interface DsoSlideToggle {
         /**
           * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component.
@@ -3821,6 +3869,7 @@ declare namespace LocalJSX {
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
+        "dso-skiplink": DsoSkiplink;
         "dso-slide-toggle": DsoSlideToggle;
         "dso-tab": DsoTab;
         "dso-table": DsoTable;
@@ -3893,6 +3942,7 @@ declare module "@stencil/core" {
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
