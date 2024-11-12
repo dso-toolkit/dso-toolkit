@@ -18,6 +18,9 @@ export function cypressStyling() {
           button.dso-tertiary.dso-spinner-left::before {
             visibility: hidden;
           }
+          
+          /* Om te voorkomen dat e2e-tests gaan falen op de screenshot diff zetten we "scroll-behavior: smooth;" uit */
+          html { scroll-behavior: inherit !important; }
         </style>
       `);
     })
