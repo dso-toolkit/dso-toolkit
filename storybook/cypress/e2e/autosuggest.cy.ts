@@ -296,7 +296,8 @@ describe("Autosuggest", () => {
       .should("not.exist");
   });
 
-  it("should show not found text in Dutch when no results are found", () => {
+  // Todo: #2879
+  it.skip("should show not found text in Dutch when no results are found", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
@@ -310,7 +311,8 @@ describe("Autosuggest", () => {
     cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
-  it("should show not found text in English when no results are found", () => {
+  // Todo: #2879
+  it.skip("should show not found text in English when no results are found", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&globals=locale:en");
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);

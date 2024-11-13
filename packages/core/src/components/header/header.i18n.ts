@@ -8,7 +8,6 @@ export const translations: Resource = {
       logout: "Log out",
       help: "Help",
       overflowMenu: "More",
-      userHome: "Mijn Omgevingsloket",
     },
   },
   nl: {

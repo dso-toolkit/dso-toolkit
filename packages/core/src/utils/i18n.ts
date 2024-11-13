@@ -4,18 +4,21 @@ export { Resource };
 
 const DEFAULT_LANG = "nl";
 
-function getComponentClosestLanguage(el: HTMLElement): string {
-  let element: Element | null = el;
-  let closestElement: HTMLElement | null = element.closest("[lang]");
-
-  while (element && element.parentNode !== document && !closestElement) {
-    element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
-    if (element !== null) {
-      closestElement = element.closest("[lang]");
-    }
+function getComponentClosestLanguage(element: HTMLElement): string {
+  const closestLangElement = element.closest("[lang]");
+  if (closestLangElement instanceof HTMLElement) {
+    return closestLangElement.lang || DEFAULT_LANG;
   }
 
-  return closestElement ? closestElement.lang : DEFAULT_LANG;
+  if (element.parentNode instanceof ShadowRoot && element.parentNode.host instanceof HTMLElement) {
+    return getComponentClosestLanguage(element.parentNode.host);
+  }
+
+  if (element.parentElement instanceof HTMLElement) {
+    return getComponentClosestLanguage(element.parentElement);
+  }
+
+  return DEFAULT_LANG;
 }
 
 export function i18n(
@@ -26,18 +29,21 @@ export function i18n(
   const i18NextInstance = i18next.createInstance();
 
   i18NextInstance.init({
-    lng: getComponentClosestLanguage(element),
     fallbackLng: DEFAULT_LANG,
     resources,
     defaultNS: element.tagName.toLowerCase(),
   });
 
-  const detectedLanguage = false;
+  let detectedLanguage = false;
 
   return (key: string, variables?: { [key in string]: string }) => {
     if (!detectedLanguage) {
-      i18NextInstance.language = getComponentClosestLanguage(element);
+      detectedLanguage = true;
+
+      const language = getComponentClosestLanguage(element);
+      i18NextInstance.changeLanguage(language);
     }
+
     return i18NextInstance.t(key, variables);
   };
 }
