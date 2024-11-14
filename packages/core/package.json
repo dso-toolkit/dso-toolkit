@@ -25,14 +25,14 @@
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
-    "focus-trap": "^7.6.0",
-    "i18next": "^23.16.2",
+    "focus-trap": "^7.6.1",
+    "i18next": "^23.16.5",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
-    "uuid": "^11.0.2"
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "0.7.1",
+    "@stencil/angular-output-target": "0.10.0",
     "@stencil/react-output-target": "^0.7.4",
     "@stencil/sass": "^3.0.12",
     "@types/concurrently": "^7.0.3",
