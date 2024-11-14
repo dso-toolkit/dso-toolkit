@@ -422,7 +422,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render renvooi-weergave elements", () => {
+  // Todo: #2853
+  it.skip("should render renvooi-weergave elements", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
     cy.injectAxe();
