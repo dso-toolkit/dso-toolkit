@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Skiplink: New component ([#2746](https://github.com/dso-toolkit/dso-toolkit/issues/2746))
 
+### Docs
+* I18n: Documentatie i18n voor maintainers corrigeren ([#2874](https://github.com/dso-toolkit/dso-toolkit/issues/2874))
 ## ↩️ Release 65.1.1 - 2024-11-14
 
 ### Removed

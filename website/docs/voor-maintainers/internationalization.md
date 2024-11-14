@@ -11,7 +11,7 @@ Naast het Web Component definiëren we een typescript file met daarin een const 
 `<web-component-naam>.i18n.ts`
 
 ```ts
-import { Resource } from "i18next";
+import { Resource } from "../../utils/i18n";
 
 export const translations: Resource = {
   en: {
@@ -29,14 +29,19 @@ export const translations: Resource = {
 };
 ```
 
-In het Web Component maken we gebruik van onze custom utility function (async) `dtI18n`:
+In het Web Component maken we gebruik van een onze custom utility function `i18n`.
+Daar geven we een functie die het host-element retourneert en de translations van het web component aan mee.
+(DsoAlert als voorbeeld)
 
 ```tsx
-  private i18nInstance: i18n | undefined;
+import { i18n } from "../../utils/i18n";
 
-  async componentWillLoad() {
-    this.i18nInstance = await dtI18n(this.host);
-  }
+import { translations } from "./alert.i18n";
+
+@Element()
+host!: HTMLDsoAlertElement;
+
+private text = i18n(() => this.host, translations);
 ```
 
 Dit stelt ons in staat teksten als volgt op te halen:
@@ -44,7 +49,7 @@ Dit stelt ons in staat teksten als volgt op te halen:
 Een eenvoudige tekst (zonder interpolatie):
 
 ```tsx
-this.i18nInstance.t("simple");
+this.text("simple");
 ```
 
 resulteert in : `Eenvoudige tekst` of `Simple text`.
@@ -53,7 +58,7 @@ Een tekst met interpolatie:
 
 ```tsx
 this.localVar = "dummy";
-this.i18nInstance.t("interpolate", { var: this.localVar });
+this.text("interpolate", { var: this.localVar });
 ```
 
 resulteert in : `dummy is niet gevonden` of `dummy has not been found`.
