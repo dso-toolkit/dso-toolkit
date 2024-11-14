@@ -32,15 +32,6 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
-  getStyle(breedte: number, hoogte: number) {
-    if (breedte && hoogte) {
-      return {
-        "--img-aspect-ratio": (breedte / hoogte).toString(),
-      };
-    }
-    return;
-  }
-
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
@@ -68,8 +59,6 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
-      const preventLayoutShift = !!Number(illustratie.breedte) && !!Number(illustratie.hoogte);
-
       return (
         <div class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}>
           {titel && <span class="figuur-titel">{titel}</span>}
@@ -82,12 +71,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
                 <span>{titel}</span>
               </div>
             )}
-            <img
-              src={illustratie.naam ?? undefined}
-              alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
-              class={{ "dso-ozon-figuur-reserve-space": preventLayoutShift }}
-              style={this.getStyle(Number(illustratie.breedte), Number(illustratie.hoogte))}
-            />
+            <img src={illustratie.naam ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />

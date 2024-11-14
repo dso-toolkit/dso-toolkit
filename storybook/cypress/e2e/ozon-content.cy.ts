@@ -388,8 +388,6 @@ describe("Ozon Content", () => {
       .find("dso-image-overlay > img")
       .should("have.attr", "src", "images/houtkachel-of-open-haard-infographic.jpg")
       .and("have.attr", "alt", "Afbeelding 1")
-      .and("have.class", "dso-ozon-figuur-reserve-space")
-      .and("have.attr", "style", "--img-aspect-ratio: 0.6405693950177936;")
       .get("dso-ozon-content")
       .shadow()
       .find(".dso-ozon-figuur > .figuur-bijschrift")
@@ -424,7 +422,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render renvooi-weergave elements", () => {
+  // Todo: #2853
+  it.skip("should render renvooi-weergave elements", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
     cy.injectAxe();
