@@ -42,6 +42,17 @@ describe("Document Component", () => {
       });
     }
   }
+
+  for (const state of ["default", "voegtoe", "verwijder"]) {
+    it(`matches image snapshot ${state} - table-of-contents`, () => {
+      cy.visit(
+        "http://localhost:45000/iframe.html?id=core-document-component--default&args=filtered:!false;mode:table-of-contents",
+      )
+        .get("dso-document-component.hydrated")
+        .invoke("prop", "wijzigactie", state === "default" ? null : state)
+        .matchImageSnapshot();
+    });
+  }
 });
 
 function isOdd(n: number): boolean {

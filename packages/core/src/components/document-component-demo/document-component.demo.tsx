@@ -3,8 +3,10 @@ import sampleSize from "lodash.samplesize";
 import random from "lodash.random";
 
 import {
+  DocumentComponentMode,
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentRecursiveToggleEvent,
+  DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
 } from "../document-component/document-component.models";
 import { DsoDocumentComponentCustomEvent } from "../../components";
@@ -28,6 +30,7 @@ interface DocumentComponent extends DocumentEmbedded {
   vervallen?: boolean;
   bevatOntwerpInformatie?: boolean;
   wijzigactie?: DocumentComponentWijzigactie;
+  mode: DocumentComponentMode;
 }
 
 @Component({
@@ -55,10 +58,28 @@ export class DocumentComponentDemo implements ComponentInterface {
   openDefault = false;
 
   /**
+   * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+   */
+  @Prop({ reflect: true })
+  mode: DocumentComponentMode = "document";
+
+  /**
+   * The URL to which the Heading links (only in mode="table-of-contents").
+   */
+  @Prop({ reflect: true })
+  href?: string;
+
+  /**
    * To demo user interacting with IntRef or IntIoRef elements.
    */
   @Event()
   dsotOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+
+  /**
+   * To demo user interacting the heading in mode="table-of-contents".
+   */
+  @Event({ bubbles: false })
+  dsotTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   @State()
   response?: DocumentEmbedded;
@@ -191,6 +212,10 @@ export class DocumentComponentDemo implements ComponentInterface {
     this.dsotOzonContentAnchorClick.emit(e.detail);
   }
 
+  private handleTableOfContentsClick(e: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) {
+    this.dsotTableOfContentsClick.emit(e.detail);
+  }
+
   private isCheckedSlideToggle(documentComponent: DocumentComponent) {
     return this.activeAnnotationSelectables.includes(documentComponent);
   }
@@ -275,6 +300,13 @@ export class DocumentComponentDemo implements ComponentInterface {
     );
   }
 
+  private showInTableOfContents(type?: string): boolean {
+    return (
+      !!type &&
+      ["LICHAAM", "HOOFDSTUK", "AFDELING", "ARTIKEL", "PARAGRAAF", "SUBPARAGRAAF", "SUBSUBPARAGRAAF"].includes(type)
+    );
+  }
+
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
     if (!documentComponent) {
@@ -286,55 +318,61 @@ export class DocumentComponentDemo implements ComponentInterface {
     const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
 
     return (
-      <dso-document-component
-        annotated={this.isAnnotated(documentComponent)}
-        bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
-        filtered={
-          this.isOpen(documentComponent)
-            ? this.isFiltered(documentComponent)
-            : this.hasFilteredChildren(documentComponent)
-        }
-        genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
-        gereserveerd={documentComponent.gereserveerd}
-        heading="h2"
-        inhoud={documentComponent.inhoud}
-        label={documentComponent.labelXml}
-        openAnnotation={this.isOpenedAnnotation(documentComponent)}
-        notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
-        nummer={documentComponent.nummerXml}
-        onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
-        onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
-        onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
-        open={this.isOpen(documentComponent)}
-        opschrift={documentComponent.opschrift}
-        type={documentComponent.type}
-        vervallen={documentComponent.vervallen}
-        wijzigactie={documentComponent.wijzigactie}
-        recursiveToggle={this.recursiveToggleState(documentComponent)}
-        onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
-      >
-        {this.isOpenedAnnotation(documentComponent) && (
-          <div slot="annotations">
-            <dso-annotation-locatie
-              active={this.isCheckedSlideToggle(documentComponent)}
-              gewijzigde-locatie
-              locatieNoemer={"Winkelgebied"}
-              onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
-            >
-              <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
-            </dso-annotation-locatie>
-          </div>
-        )}
-        {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
-          <ul class="dso-document-component-list">
-            {embeddedDocuments.documentComponents.map((d) => (
-              <li key={d.documentTechnischId}>
-                <DocumentComponent path={[...path, d]} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </dso-document-component>
+      (this.mode === "document" ||
+        (this.mode === "table-of-contents" && this.showInTableOfContents(documentComponent.type))) && (
+        <dso-document-component
+          annotated={this.isAnnotated(documentComponent)}
+          bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
+          filtered={
+            this.isOpen(documentComponent)
+              ? this.isFiltered(documentComponent)
+              : this.hasFilteredChildren(documentComponent)
+          }
+          genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
+          gereserveerd={documentComponent.gereserveerd}
+          heading="h2"
+          inhoud={documentComponent.inhoud}
+          label={documentComponent.labelXml}
+          openAnnotation={this.isOpenedAnnotation(documentComponent)}
+          notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
+          nummer={documentComponent.nummerXml}
+          onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
+          onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
+          onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
+          open={this.isOpen(documentComponent)}
+          opschrift={documentComponent.opschrift}
+          type={documentComponent.type}
+          vervallen={documentComponent.vervallen}
+          wijzigactie={documentComponent.wijzigactie}
+          recursiveToggle={this.recursiveToggleState(documentComponent)}
+          onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
+          mode={this.mode}
+          href={this.href}
+          onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
+        >
+          {this.isOpenedAnnotation(documentComponent) && (
+            <div slot="annotations">
+              <dso-annotation-locatie
+                active={this.isCheckedSlideToggle(documentComponent)}
+                gewijzigde-locatie
+                locatieNoemer={"Winkelgebied"}
+                onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
+              >
+                <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+              </dso-annotation-locatie>
+            </div>
+          )}
+          {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
+            <ul class="dso-document-component-list">
+              {embeddedDocuments.documentComponents.map((d) => (
+                <li key={d.documentTechnischId}>
+                  <DocumentComponent path={[...path, d]} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </dso-document-component>
+      )
     );
   };
 

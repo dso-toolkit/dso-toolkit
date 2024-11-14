@@ -1,4 +1,7 @@
 import { h, Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, Host } from "@stencil/core";
+
+import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import {
   DocumentComponentOpenToggleEvent,
   DocumentComponentToggleAnnotationEvent,
@@ -10,6 +13,8 @@ import {
   DocumentComponentMarkItemHighlightEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentRecursiveToggleState,
+  DocumentComponentMode,
+  DocumentComponentTableOfContentsClickEvent,
 } from "./document-component.models";
 import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
@@ -156,6 +161,18 @@ export class DocumentComponent implements ComponentInterface {
   recursiveToggle: DocumentComponentRecursiveToggleState;
 
   /**
+   * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+   */
+  @Prop({ reflect: true })
+  mode: DocumentComponentMode = "document";
+
+  /**
+   * The URL to which the Heading links (only in mode="table-of-contents").
+   */
+  @Prop({ reflect: true })
+  href?: string;
+
+  /**
    * Emitted when the user activates the recursive toggle.
    */
   @Event({ bubbles: false })
@@ -166,6 +183,12 @@ export class DocumentComponent implements ComponentInterface {
    */
   @Event({ bubbles: false })
   dsoOpenToggle!: EventEmitter<DocumentComponentOpenToggleEvent>;
+
+  /**
+   * Emitted when the user clicks the heading in mode="table-of-contents".
+   */
+  @Event({ bubbles: false })
+  dsoTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   /**
    * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
@@ -190,7 +213,9 @@ export class DocumentComponent implements ComponentInterface {
   }
 
   private handleHeadingClick = (e: MouseEvent) => {
-    if (this.type !== "LID") {
+    if (this.mode === "table-of-contents") {
+      this.dsoTableOfContentsClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    } else if (this.type !== "LID") {
       this.dsoOpenToggle.emit({ originalEvent: e, open: !this.open });
     }
   };
@@ -225,6 +250,7 @@ export class DocumentComponent implements ComponentInterface {
       (this.label || this.nummer || this.opschrift || this.alternativeTitle) &&
       this.type !== "LID"
     );
+
     const showHeading = !!(
       this.wijzigactie ||
       collapsible ||
@@ -242,8 +268,14 @@ export class DocumentComponent implements ComponentInterface {
           <div class="heading-container" part="_heading-container">
             {this.wijzigactie && <span class="editaction-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
-              <Heading heading={this.heading} class="heading-element" onClick={this.handleHeadingClick}>
-                {collapsible && (
+              <Heading
+                heading={this.heading}
+                class="heading-element"
+                onClick={this.handleHeadingClick}
+                mode={this.mode}
+                href={this.href}
+              >
+                {collapsible && this.mode === "document" && (
                   <button
                     type="button"
                     class="toggle-button"
@@ -307,7 +339,7 @@ export class DocumentComponent implements ComponentInterface {
                   {suffix && <span> - [{suffix}]</span>}
                 </div>
               </Heading>
-              {this.recursiveToggle !== undefined && this.open && (
+              {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
                 <button
                   type="button"
                   class="recursive-toggle"
@@ -317,14 +349,16 @@ export class DocumentComponent implements ComponentInterface {
                   <dso-icon icon={this.recursiveToggle === true ? "eye" : "eye-slash"} />
                 </button>
               )}
-              {this.genesteOntwerpInformatie && !this.open && !this.bevatOntwerpInformatie && (
-                <>
-                  <dso-badge status="warning" aria-describedby="nested-draft-description">
-                    !
-                  </dso-badge>
-                  <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
-                </>
-              )}
+              {this.genesteOntwerpInformatie &&
+                !this.bevatOntwerpInformatie &&
+                ((!this.open && this.mode === "document") || this.mode === "table-of-contents") && (
+                  <>
+                    <dso-badge status="warning" aria-describedby="nested-draft-description">
+                      !
+                    </dso-badge>
+                    <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
+                  </>
+                )}
               {(this.bevatOntwerpInformatie || this.annotated) && (
                 <div class="addons">
                   {this.bevatOntwerpInformatie && (
@@ -332,7 +366,7 @@ export class DocumentComponent implements ComponentInterface {
                       Ontwerp
                     </dso-label>
                   )}
-                  {this.annotated && (
+                  {this.annotated && this.mode === "document" && (
                     <button
                       type="button"
                       class="dso-tertiary"
@@ -357,7 +391,7 @@ export class DocumentComponent implements ComponentInterface {
             </dso-panel>
           </div>
         )}
-        {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && (
+        {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && this.mode === "document" && (
           <div class="content" part="_content">
             {this.gereserveerd && (
               <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>

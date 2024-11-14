@@ -540,6 +540,10 @@ export namespace Components {
          */
         "heading": "h2" | "h3" | "h4" | "h5" | "h6";
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * The Inhoud XML.
          */
         "inhoud"?: DocumentComponentInputType;
@@ -551,6 +555,10 @@ export namespace Components {
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
+        /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode": DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -1275,9 +1283,17 @@ export namespace Components {
     }
     interface DsotDocumentComponentDemo {
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * Name of the file to load.
          */
         "jsonFile"?: string;
+        /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode": DocumentComponentMode;
         /**
           * The default state for all Document Components.
          */
@@ -1720,6 +1736,7 @@ declare global {
     interface HTMLDsoDocumentComponentElementEventMap {
         "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
         "dsoOpenToggle": DocumentComponentOpenToggleEvent;
+        "dsoTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
         "dsoOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
         "dsoAnnotationToggle": DocumentComponentToggleAnnotationEvent;
         "dsoMarkItemHighlight": DocumentComponentMarkItemHighlightEvent;
@@ -2285,6 +2302,7 @@ declare global {
     };
     interface HTMLDsotDocumentComponentDemoElementEventMap {
         "dsotOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+        "dsotTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
     }
     interface HTMLDsotDocumentComponentDemoElement extends Components.DsotDocumentComponentDemo, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsotDocumentComponentDemoElementEventMap>(type: K, listener: (this: HTMLDsotDocumentComponentDemoElement, ev: DsotDocumentComponentDemoCustomEvent<HTMLDsotDocumentComponentDemoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2902,6 +2920,10 @@ declare namespace LocalJSX {
          */
         "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * The Inhoud XML.
          */
         "inhoud"?: DocumentComponentInputType;
@@ -2913,6 +2935,10 @@ declare namespace LocalJSX {
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
+        /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode"?: DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -2941,6 +2967,10 @@ declare namespace LocalJSX {
           * Emitted when the user activates the recursive toggle.
          */
         "onDsoRecursiveToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentRecursiveToggleEvent>) => void;
+        /**
+          * Emitted when the user clicks the heading in mode="table-of-contents".
+         */
+        "onDsoTableOfContentsClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * This boolean attribute indicates whether the children are visible.
          */
@@ -3809,13 +3839,25 @@ declare namespace LocalJSX {
     }
     interface DsotDocumentComponentDemo {
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * Name of the file to load.
          */
         "jsonFile"?: string;
         /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode"?: DocumentComponentMode;
+        /**
           * To demo user interacting with IntRef or IntIoRef elements.
          */
         "onDsotOzonContentAnchorClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        /**
+          * To demo user interacting the heading in mode="table-of-contents".
+         */
+        "onDsotTableOfContentsClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * The default state for all Document Components.
          */

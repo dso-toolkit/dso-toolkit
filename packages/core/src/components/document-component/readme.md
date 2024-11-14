@@ -40,6 +40,7 @@
 | `dsoOpenToggle`             | Emitted when the user activates the toggle.                              | `CustomEvent<DocumentComponentOpenToggleEvent>`             |
 | `dsoOzonContentAnchorClick` | Emitted when the user actives intRef or intIoRef anchors in Ozon Content | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
 | `dsoRecursiveToggle`        | Emitted when the user activates the recursive toggle.                    | `CustomEvent<DocumentComponentRecursiveToggleEvent>`        |
+| `dsoTableOfContentsClick`   | Emitted when the user clicks the heading in mode="table-of-contents".    | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
 
 
 ## Shadow Parts

@@ -2,7 +2,11 @@ import { Meta } from "@storybook/web-components";
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
-import { documentComponentMeta, documentComponentStories } from "dso-toolkit";
+import {
+  documentComponentMeta,
+  documentComponentStories,
+  DocumentComponentTableOfContentsClickEvent,
+} from "dso-toolkit";
 import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 
 import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
@@ -18,7 +22,7 @@ const meta: Meta = {
 
 export default meta;
 
-const { Default, Demo, IMRO } = documentComponentStories(
+const { Default, Demo, DemoInhoudsopgave, IMRO } = documentComponentStories(
   {
     templateContainer,
     storyTemplates: (templates) => {
@@ -55,7 +59,7 @@ const { Default, Demo, IMRO } = documentComponentStories(
           ${annotationTemplate({ type: "gebiedsaanwijzing", naam: "Opwekking energie", symboolCode: "vszt030" })}
           ${annotationTemplate({ type: "gebiedsaanwijzing", naam: "Opwekking windenergie", symboolCode: "vag000" })}
         </div>`,
-        demoTemplate: (jsonFile, openDefault, showCanvas, ozonContentAnchorClick) =>
+        demoTemplate: (jsonFile, openDefault, showCanvas, mode, href, ozonContentAnchorClick, tableOfContentsClick) =>
           html`<dsot-document-component-demo
             @dsotOzonContentAnchorClick=${(
               e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
@@ -63,6 +67,16 @@ const { Default, Demo, IMRO } = documentComponentStories(
             .jsonFile=${jsonFile}
             ?open-default=${openDefault}
             ?show-canvas=${showCanvas}
+            .mode=${mode}
+            .href=${href}
+            @dsotTableOfContentsClick=${(
+              e: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>,
+            ) => {
+              if (!e.detail.isModifiedEvent) {
+                e.detail.originalEvent.preventDefault();
+              }
+              tableOfContentsClick(e);
+            }}
           ></dsot-document-component-demo>`,
       };
     },
@@ -70,4 +84,4 @@ const { Default, Demo, IMRO } = documentComponentStories(
   decorator,
 );
 
-export { Default, Demo, IMRO };
+export { Default, Demo, DemoInhoudsopgave, IMRO };

@@ -78,6 +78,23 @@
   color: colors.$bosgroen;
 }
 
+.heading-anchor {
+  display: flex;
+  flex-wrap: nowrap;
+
+  color: document-component.$heading-anchor-color;
+  text-decoration: none;
+
+  &:hover {
+    color: document-component.$heading-anchor-hover-color;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: document-component.$heading-anchor-color;
+  }
+}
+
 .heading-element {
   align-items: start;
   display: flex;
@@ -113,6 +130,13 @@
 
   .editaction-label {
     margin-inline-start: document-component.$indent;
+  }
+}
+
+:host([mode="table-of-contents"]) {
+  .editaction-label,
+  .heading {
+    margin-inline-start: document-component.$indent-table-of-contents;
   }
 }
 
