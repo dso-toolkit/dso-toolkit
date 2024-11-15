@@ -35,7 +35,20 @@ export function buildStyling() {
     .pipe(filter("dso.css"))
     .pipe(
       gStylelintEsm({
-        configFile: ".stylelint.config.build.json",
+        config: {
+          rules: {
+            "block-no-empty": true,
+            "color-no-invalid-hex": true,
+            "declaration-block-no-duplicate-properties": true,
+            "no-invalid-position-at-import-rule": true,
+            "property-no-unknown": true,
+            "selector-pseudo-class-no-unknown": true,
+            "selector-pseudo-element-no-unknown": true,
+            "no-empty-source": true,
+            "unit-no-unknown": true,
+          },
+          defaultSeverity: "error",
+        },
       }),
     )
     .pipe(postcss(plugins))
