@@ -6,6 +6,7 @@ import rename from "gulp-rename";
 
 import { plugins } from "../postcss.config.js";
 import { sassTransformer } from "./transformers/sass.transformer.js";
+import gStylelintEsm from "gulp-stylelint-esm";
 
 function getVersion() {
   if (process.env.DT_VERSION) {
@@ -27,11 +28,16 @@ export function buildStyling() {
     .pipe(sassTransformer())
     .pipe(
       header(
-        [`/* DSO Toolkit version: ${version} */`, `:root { --dso-toolkit-version: ${version} }`, "", ""].join("\n"),
+        [`/* DSO Toolkit version: "${version}" */`, `:root { --dso-toolkit-version: "${version}" }`, "", ""].join("\n"),
       ),
     )
     .pipe(gulp.dest("dist", { sourcemaps: "." }))
     .pipe(filter("dso.css"))
+    .pipe(
+      gStylelintEsm({
+        configFile: ".stylelint.config.build.json",
+      }),
+    )
     .pipe(postcss(plugins))
     .pipe(rename("dso.min.css"))
     .pipe(gulp.dest("dist", { sourcemaps: "." }));
