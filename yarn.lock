@@ -7448,7 +7448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:7.6.20":
+"@storybook/api@npm:^7.6.20":
   version: 7.6.20
   resolution: "@storybook/api@npm:7.6.20"
   dependencies:
@@ -9921,7 +9921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whitespace/storybook-addon-html@npm:^5.1.6":
+"@whitespace/storybook-addon-html@npm:5.1.6":
   version: 5.1.6
   resolution: "@whitespace/storybook-addon-html@npm:5.1.6"
   peerDependencies:
@@ -14057,7 +14057,7 @@ __metadata:
     "@storybook/addon-actions": "npm:7.6.20"
     "@storybook/addon-essentials": "npm:7.6.20"
     "@storybook/addons": "npm:7.6.20"
-    "@storybook/api": "npm:7.6.20"
+    "@storybook/api": "npm:^7.6.20"
     "@storybook/components": "npm:^7.6.20"
     "@storybook/core-events": "npm:^7.6.20"
     "@storybook/manager-api": "npm:7.6.20"
@@ -14065,7 +14065,7 @@ __metadata:
     "@storybook/types": "npm:7.6.20"
     "@storybook/web-components": "npm:7.6.20"
     "@storybook/web-components-webpack5": "npm:7.6.20"
-    "@whitespace/storybook-addon-html": "npm:^5.1.6"
+    "@whitespace/storybook-addon-html": "npm:5.1.6"
     axe-core: "npm:^4.10.2"
     cypress: "npm:^13.15.2"
     cypress-axe: "npm:^1.5.0"
