@@ -147,6 +147,7 @@ export const addonsSections: AccordionSection<TemplateResult>[] = [
   },
   {
     ...section1,
+    handleTitleText: "Is het verplicht om de Vergunningcheck te doen?",
     status: "danger",
     icon: "user-line",
     open: true,
@@ -184,5 +185,30 @@ export const alignmentSections: AccordionSection<TemplateResult>[] = [
   {
     ...section3,
     icon: "user-line",
+  },
+];
+
+export const renvooiSections: AccordionSection<TemplateResult>[] = [
+  {
+    ...section1,
+    handleTitle: {
+      toegevoegd: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+    },
+  },
+  {
+    ...section1,
+  },
+  {
+    ...section1,
+    handleTitle: {
+      verwijderd: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+    },
+  },
+  {
+    ...section1,
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
   },
 ];

@@ -18,6 +18,7 @@ Met dit component kan een `RenvooiValue` worden gepresenteerd.
 
 ### Used by
 
+ - [dso-accordion-section](../accordion/components)
  - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
  - [dso-annotation-kaart](../annotation/annotation-kaart)
@@ -27,6 +28,7 @@ Met dit component kan een `RenvooiValue` worden gepresenteerd.
 ### Graph
 ```mermaid
 graph TD;
+  dso-accordion-section --> dso-renvooi
   dso-annotation-activiteit --> dso-renvooi
   dso-annotation-gebiedsaanwijzing --> dso-renvooi
   dso-annotation-kaart --> dso-renvooi

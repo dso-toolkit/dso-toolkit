@@ -3,7 +3,14 @@ import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { addonsSections, alignmentSections, anchorSections, basicSections, subSections } from "./accordion.content";
+import {
+  addonsSections,
+  alignmentSections,
+  anchorSections,
+  basicSections,
+  renvooiSections,
+  subSections,
+} from "./accordion.content";
 import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
 const meta: Meta<AccordionArgs> = {
@@ -13,24 +20,26 @@ const meta: Meta<AccordionArgs> = {
 
 export default meta;
 
-const { Default, Compact, Conclusion, HandleAnchors, Nested, AddonsSections, AlignmentSections } = accordionStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { accordionTemplate } = templates;
+const { Default, Compact, Conclusion, HandleAnchors, Nested, AddonsSections, AlignmentSections, RenvooiSections } =
+  accordionStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { accordionTemplate } = templates;
 
-    return {
-      accordionTemplate,
-      basicSections: basicSections(templates),
-      addonsSections,
-      alignmentSections,
-      anchorSections: anchorSections(templates),
-      conclusionSections: basicSections(templates),
-      compactSections: basicSections(templates),
-      compactBlackSections: basicSections(templates),
-      neutralSections: basicSections(templates),
-      subSections: subSections(templates),
-    };
-  },
-});
+      return {
+        accordionTemplate,
+        basicSections: basicSections(templates),
+        addonsSections,
+        alignmentSections,
+        anchorSections: anchorSections(templates),
+        conclusionSections: basicSections(templates),
+        compactSections: basicSections(templates),
+        compactBlackSections: basicSections(templates),
+        neutralSections: basicSections(templates),
+        subSections: subSections(templates),
+        renvooiSections,
+      };
+    },
+  });
 
-export { Default, Compact, Conclusion, HandleAnchors, Nested, AddonsSections, AlignmentSections };
+export { Default, Compact, Conclusion, HandleAnchors, Nested, AddonsSections, AlignmentSections, RenvooiSections };

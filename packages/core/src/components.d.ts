@@ -6,11 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
-import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
@@ -46,11 +46,11 @@ import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
-export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
@@ -109,7 +109,7 @@ export namespace Components {
         /**
           * The title of the handle
          */
-        "handleTitle"?: string;
+        "handleTitle": RenvooiValue | undefined;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
@@ -2379,7 +2379,7 @@ declare namespace LocalJSX {
         /**
           * The title of the handle
          */
-        "handleTitle"?: string;
+        "handleTitle": RenvooiValue | undefined;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */

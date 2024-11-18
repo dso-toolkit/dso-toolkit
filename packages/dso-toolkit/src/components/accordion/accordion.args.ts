@@ -5,6 +5,7 @@ import { noControl } from "../../storybook/index.js";
 
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
 import { LabelStatus } from "../label";
+import { RenvooiValue } from "../renvooi";
 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
@@ -19,15 +20,18 @@ export interface AccordionArgs {
   icon: string;
   heading: AccordionHeading;
   handleUrl: string;
-  handleTitle: string;
+  handleTitle: RenvooiValue;
+  handleTitleText: string;
   demoScrollIntoView: "start" | "end" | undefined;
   label: string;
   labelStatus: LabelStatus;
 }
 
-export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {
+export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open" | "handleTitle" | "handleTitleText"> = {
   open: false,
   demoScrollIntoView: undefined,
+  handleTitle: "ongewijzigd",
+  handleTitleText: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
 };
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -97,6 +101,13 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   handleTitle: {
+    options: ["was-wordt", "toegevoegd", "verwijderd", "ongewijzigd"],
+    control: {
+      type: "select",
+    },
+  },
+  handleTitleText: {
+    ...noControl,
     control: {
       type: "text",
     },
@@ -135,6 +146,20 @@ export function accordionArgsMapper<TemplateFnReturnType>(
       };
 
       if (i === 1) {
+        const handleTitleOptions = {
+          "was-wordt": {
+            was: section.handleTitleText || a.handleTitleText,
+            wordt: "Nieuwe waarde",
+          },
+          toegevoegd: {
+            toegevoegd: section.handleTitleText || a.handleTitleText,
+          },
+          verwijderd: {
+            verwijderd: section.handleTitleText || a.handleTitleText,
+          },
+          ongewijzigd: section.handleTitleText || a.handleTitleText,
+        };
+        section.handleTitle = handleTitleOptions[a.handleTitle as keyof typeof handleTitleOptions] ?? undefined;
         section.open = a.open;
         section.statusDescription = a.statusDescription;
         section.status = a.status;

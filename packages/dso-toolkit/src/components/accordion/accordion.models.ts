@@ -1,4 +1,5 @@
 import { LabelStatus } from "../label";
+import { RenvooiValue } from "../renvooi";
 
 export type AccordionHandleElement = "anchor" | "button";
 
@@ -16,7 +17,8 @@ export interface Accordion<TemplateFnReturnType> {
 
 export interface AccordionSection<TemplateFnReturnType> {
   open?: boolean;
-  handleTitle: string;
+  handleTitle: RenvooiValue;
+  handleTitleText?: string;
   heading: AccordionHeading;
   handleUrl?: string;
   statusDescription?: string;
