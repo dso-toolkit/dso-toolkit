@@ -5,7 +5,14 @@ import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
 import componentsReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-import { addonsSections, alignmentSections, anchorSections, basicSections, subSections } from "./accordion.content";
+import {
+  addonsSections,
+  alignmentSections,
+  anchorSections,
+  basicSections,
+  renvooiSections,
+  subSections,
+} from "./accordion.content";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme: `${readme}\n${componentsReadme}` }),
@@ -24,6 +31,7 @@ const {
   Nested,
   AddonsSections,
   AlignmentSections,
+  RenvooiSections,
 } = accordionStories({
   templateContainer,
   storyTemplates: (templates) => {
@@ -40,6 +48,7 @@ const {
       compactBlackSections: basicSections(templates),
       neutralSections: basicSections(templates),
       subSections: subSections(templates),
+      renvooiSections,
     };
   },
 });
@@ -51,6 +60,7 @@ export {
   Neutral,
   Conclusion,
   HandleAnchors,
+  RenvooiSections,
   Nested,
   AddonsSections,
   AlignmentSections,

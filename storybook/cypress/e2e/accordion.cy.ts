@@ -191,4 +191,62 @@ describe("Accordion", () => {
       .find(".dso-label.dso-label-warning")
       .should("exist");
   });
+
+  it("should render renvooi in the handle correctly", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--renvooi");
+
+    cy.get("dso-accordion")
+      .find("dso-accordion-section:nth-child(2)")
+      .as("accordionSection")
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("span.text")
+      .should("exist")
+      .get("@accordionSection")
+      .invoke("prop", "handleTitle", { toegevoegd: "Dit is toegevoegde tekst" })
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("ins")
+      .should("exist")
+      .and("have.text", "Dit is toegevoegde tekst")
+      .get("@accordionSection")
+      .invoke("prop", "handleTitle", { verwijderd: "Dit is verwijderde tekst" })
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("del")
+      .should("exist")
+      .and("have.text", "Dit is verwijderde tekst")
+      .get("@accordionSection")
+      .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("del")
+      .should("exist")
+      .and("have.text", "Dit was de tekst")
+      .get("@accordionSection")
+      .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("ins")
+      .should("exist")
+      .and("have.text", "Dit is de tekst");
+  });
+
+  it("should render change action in the section correctly", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--renvooi");
+
+    cy.get("dso-accordion")
+      .find("dso-accordion-section:nth-child(1)")
+      .as("accordionSection")
+      .invoke("prop", "changeAction", "voegtoe")
+      .should("have.class", "dso-accordion-wijzig-actie-voegtoe")
+      .get("@accordionSection")
+      .invoke("prop", "changeAction", "verwijder")
+      .should("have.class", "dso-accordion-wijzig-actie-voegtoe");
+  });
 });

@@ -5,19 +5,20 @@
 
 ## Properties
 
-| Property             | Attribute              | Description                                                                           | Type                                                                                                           | Default     |
-| -------------------- | ---------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
-| `attachmentCount`    | `attachment-count`     | `attachmentCount` takes precedence over `icon`                                        | `number \| undefined`                                                                                          | `undefined` |
-| `handleTitle`        | `handle-title`         | The title of the handle                                                               | `string \| undefined`                                                                                          | `undefined` |
-| `handleUrl`          | `handle-url`           | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                                                                          | `undefined` |
-| `hasNestedAccordion` | `has-nested-accordion` | Set when this Accordion Section contains or will contain an Accordion.                | `boolean`                                                                                                      | `false`     |
-| `heading`            | `heading`              | Which heading element to use.                                                         | `"h2" \| "h3" \| "h4" \| "h5"`                                                                                 | `"h2"`      |
-| `icon`               | `icon`                 | To set an icon in the heading handle.                                                 | `string \| undefined`                                                                                          | `undefined` |
-| `label`              | `label`                | The label to be displayed in the heading handle inside a Label (optional)             | `string \| undefined`                                                                                          | `undefined` |
-| `labelStatus`        | `label-status`         | The status of the Label in the heading handle (optional)                              | `"attention" \| "bright" \| "danger" \| "error" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `open`               | `open`                 | Set the Accordion Section open.                                                       | `boolean`                                                                                                      | `false`     |
-| `status`             | `status`               | `state` takes precedence over `attachmentCount` and `icon`                            | `"danger" \| "error" \| "info" \| "success" \| "warning" \| undefined`                                         | `undefined` |
-| `statusDescription`  | `status-description`   | The status of the section.                                                            | `string \| undefined`                                                                                          | `undefined` |
+| Property                   | Attribute              | Description                                                                           | Type                                                                                                           | Default     |
+| -------------------------- | ---------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
+| `attachmentCount`          | `attachment-count`     | `attachmentCount` takes precedence over `icon`                                        | `number \| undefined`                                                                                          | `undefined` |
+| `changeAction`             | `change-action`        | The change action of the section                                                      | `"verwijder" \| "voegtoe" \| undefined`                                                                        | `undefined` |
+| `handleTitle` _(required)_ | `handle-title`         | The title of the handle                                                               | `string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
+| `handleUrl`                | `handle-url`           | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                                                                          | `undefined` |
+| `hasNestedAccordion`       | `has-nested-accordion` | Set when this Accordion Section contains or will contain an Accordion.                | `boolean`                                                                                                      | `false`     |
+| `heading`                  | `heading`              | Which heading element to use.                                                         | `"h2" \| "h3" \| "h4" \| "h5"`                                                                                 | `"h2"`      |
+| `icon`                     | `icon`                 | To set an icon in the heading handle.                                                 | `string \| undefined`                                                                                          | `undefined` |
+| `label`                    | `label`                | The label to be displayed in the heading handle inside a Label (optional)             | `string \| undefined`                                                                                          | `undefined` |
+| `labelStatus`              | `label-status`         | The status of the Label in the heading handle (optional)                              | `"attention" \| "bright" \| "danger" \| "error" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| `open`                     | `open`                 | Set the Accordion Section open.                                                       | `boolean`                                                                                                      | `false`     |
+| `status`                   | `status`               | `state` takes precedence over `attachmentCount` and `icon`                            | `"danger" \| "error" \| "info" \| "success" \| "warning" \| undefined`                                         | `undefined` |
+| `statusDescription`        | `status-description`   | The status of the section.                                                            | `string \| undefined`                                                                                          | `undefined` |
 
 
 ## Events
@@ -46,6 +47,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [dso-renvooi](../../renvooi)
 - [dso-label](../../label)
 - [dso-icon](../../icon)
 - [dso-expandable](../../expandable)
@@ -54,6 +56,7 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
+  dso-accordion-section --> dso-renvooi
   dso-accordion-section --> dso-label
   dso-accordion-section --> dso-icon
   dso-accordion-section --> dso-expandable

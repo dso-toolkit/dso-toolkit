@@ -39,6 +39,7 @@ const {
       compactBlackSections: basicSections,
       neutralSections: basicSections,
       subSections: subSections(templates),
+      renvooiSections: subSections(templates),
     };
   },
 });

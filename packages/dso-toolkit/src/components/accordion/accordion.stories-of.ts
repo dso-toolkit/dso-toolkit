@@ -19,6 +19,7 @@ interface AccordionStories {
   Nested: AccordionStory;
   AddonsSections: AccordionStory;
   AlignmentSections: AccordionStory;
+  RenvooiSections: AccordionStory;
 }
 
 interface AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -40,6 +41,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   subSections: AccordionSection<TemplateFnReturnType>[];
   addonsSections: AccordionSection<TemplateFnReturnType>[];
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
+  renvooiSections: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -68,6 +70,7 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
       args: {
         label: "Attentie",
         labelStatus: "attention",
+        handleTitleText: "Attention",
       },
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, basicSections }) =>
         accordionTemplate(accordionArgsMapper(args, basicSections)),
@@ -124,6 +127,14 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
     AlignmentSections: {
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, alignmentSections }) =>
         accordionTemplate(accordionArgsMapper(args, alignmentSections)),
+      ),
+    },
+    RenvooiSections: {
+      args: {
+        variant: "compact-black",
+      },
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, renvooiSections }) =>
+        accordionTemplate(accordionArgsMapper(args, renvooiSections)),
       ),
     },
   };
