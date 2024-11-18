@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Map Controls: Info no background color ([#2829](https://github.com/dso-toolkit/dso-toolkit/issues/2829))
+
 ## 🐏 Release 66.3.0 - 2024-11-18
 
 ### Added
@@ -15,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Docs
 * I18n: Documentatie i18n voor maintainers corrigeren ([#2874](https://github.com/dso-toolkit/dso-toolkit/issues/2874))
+
 ## ↩️ Release 65.1.1 - 2024-11-14
 
 ### Removed
