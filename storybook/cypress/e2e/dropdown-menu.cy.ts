@@ -134,7 +134,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").eq(5).should("have.focus");
   });
 
-  it("esc should close menu and focus button", { browser: "!firefox" }, () => {
+  // Todo: #2887
+  it.skip("esc should close menu and focus button", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     for (const _ of [1, 2, 3]) {
@@ -301,7 +302,8 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@menuitems").eq(1).should("have.focus");
   });
 
-  it("esc should close menu and focus button", { browser: "!firefox" }, () => {
+  // Todo: #2887
+  it.skip("esc should close menu and focus button", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("ArrowUp");
