@@ -53,6 +53,7 @@
     "gulp-postcss": "^10.0.0",
     "gulp-prettier": "^6.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-stylelint-esm": "^3.0.0",
     "gulp-svgstore": "^9.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "list-stream": "^2.1.0",
