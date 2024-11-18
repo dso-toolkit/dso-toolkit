@@ -6,7 +6,7 @@ import rename from "gulp-rename";
 
 import { plugins } from "../postcss.config.js";
 import { sassTransformer } from "./transformers/sass.transformer.js";
-import gStylelintEsm from "gulp-stylelint-esm";
+import stylelint from "gulp-stylelint-esm";
 
 function getVersion() {
   if (process.env.DT_VERSION) {
@@ -34,7 +34,7 @@ export function buildStyling() {
     .pipe(gulp.dest("dist", { sourcemaps: "." }))
     .pipe(filter("dso.css"))
     .pipe(
-      gStylelintEsm({
+      stylelint({
         config: {
           rules: {
             "block-no-empty": true,
