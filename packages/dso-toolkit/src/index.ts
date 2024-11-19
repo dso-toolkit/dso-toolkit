@@ -127,8 +127,6 @@ export * from "./components/info";
 
 export * from "./components/info-button";
 
-export * from "./components/input-number";
-
 export { JustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.models.js";
 export {
   JustifyFormGroupsParameters,

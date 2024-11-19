@@ -18,3 +18,11 @@
     }
   }
 }
+
+.dso-input-number:not(.form-group) {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include css-form-mixins.input-number();
+}

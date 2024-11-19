@@ -1,9 +1,9 @@
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/input-number";
 @use "~dso-toolkit/src/components/list-button";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/selectable";
 @use "~dso-toolkit/src/components/form-control";
+@use "~dso-toolkit/src/components/form/form.mixins" as form-mixins;
 @use "~dso-toolkit/src/utilities";
 
 @include utilities.box-sizing();
@@ -30,7 +30,10 @@
 }
 
 .dso-input-number {
-  @include input-number.root();
+  align-items: center;
+  display: flex;
+
+  @include form-mixins.input-number();
 }
 
 .dso-button-group {

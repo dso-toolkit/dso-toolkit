@@ -58,7 +58,6 @@ import {
   ImageOverlay,
   Info,
   InfoButton,
-  InputNumber,
   InputRange,
   JustifyFormGroups,
   Label,
@@ -199,7 +198,6 @@ import { cssIcon } from "./components/icon/icon.css-template";
 import { cssImage } from "./components/image/image.css-template";
 import { cssInfo } from "./components/info/info.css-template";
 import { cssInfoButton } from "./components/info-button/info-button.css-template";
-import { cssInputNumber } from "./components/input-number/input-number.css-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
 import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
@@ -280,7 +278,6 @@ export interface Components {
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
   infoButton: InfoButton;
-  inputNumber: InputNumber;
   inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
@@ -445,7 +442,6 @@ templateContainer.add(cssIcon);
 templateContainer.add(cssImage);
 templateContainer.add(cssInfo);
 templateContainer.add(cssInfoButton);
-templateContainer.add(cssInputNumber);
 templateContainer.add(cssJustifyFormGroups);
 templateContainer.add(cssLabel);
 templateContainer.add(cssLabelGroup);

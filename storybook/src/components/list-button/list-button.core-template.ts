@@ -19,6 +19,8 @@ export const coreListButton: ComponentImplementation<ListButton> = {
       checked,
       min,
       max,
+      minusButtonInactive,
+      plusButtonInactive,
       manual,
       dsoSelectedChange,
       dsoCountChange,
@@ -30,6 +32,8 @@ export const coreListButton: ComponentImplementation<ListButton> = {
           count=${ifDefined(count)}
           min=${ifDefined(min)}
           max=${ifDefined(max)}
+          ?minusButtonInactive=${minusButtonInactive}
+          ?plusButtonInactive=${plusButtonInactive}
           ?manual=${manual}
           ?disabled=${disabled}
           ?checked=${checked}

@@ -319,12 +319,6 @@
     "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
     "type": "html-css"
   },
-  {
-    "name": "input-number-deprecated",
-    "selector": ".dso-input-number",
-    "stories": ["input-number"],
-    "type": "html-css"
-  },
   { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
   {
     "name": "link-list",

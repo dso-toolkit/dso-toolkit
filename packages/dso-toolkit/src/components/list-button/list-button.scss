@@ -3,6 +3,7 @@
 @use "../selectable";
 @use "../../variables/colors";
 @use "../../variables/units";
+@use "../form/form.mixins" as form-mixins;
 
 .dso-button-group {
   @include list-button.button-group(".dso-input-number", ".dso-list-button");
@@ -18,6 +19,13 @@
   + .dso-list-button,
   + .dso-button-group {
     @include list-button.sibling();
+  }
+
+  + .dso-input-number {
+    align-items: center;
+    display: flex;
+
+    @include form-mixins.input-number();
   }
 }
 

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* Input Number: Verwijder component ([#2708](https://github.com/dso-toolkit/dso-toolkit/issues/2708))
+
 ### Fixed
 * Map Controls: Info no background color ([#2829](https://github.com/dso-toolkit/dso-toolkit/issues/2829))
 

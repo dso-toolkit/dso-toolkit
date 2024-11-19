@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssFormGroupInputNumber: ComponentImplementation<FormGroupInputNumber<TemplateResult>> = {
   component: "formGroupInputNumber",
   implementation: "html-css",
-  template: ({ inputNumberTemplate }) =>
+  template: ({ buttonTemplate }) =>
     function formGroupInputNumberTemplate(formGroup) {
       return html`
         <div class="form-group dso-input-number">
@@ -14,14 +14,35 @@ export const cssFormGroupInputNumber: ComponentImplementation<FormGroupInputNumb
             <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
           </div>
           <div class="dso-field-container">
-            ${inputNumberTemplate({
-              id: formGroup.id,
-              min: formGroup.min,
-              max: formGroup.max,
-              count: formGroup.count,
-              minusButtonInactive: formGroup.minusButtonInactive,
-              plusButtonInactive: formGroup.plusButtonInactive,
-            })}
+            <div class="dso-input-number">
+              ${buttonTemplate({
+                type: "button",
+                label: "Aantal verlagen",
+                variant: "tertiary",
+                disabled: formGroup.minusButtonInactive,
+                icon: { icon: "minus-square" },
+                iconMode: "only",
+              })}
+              <input
+                type="number"
+                id=${formGroup.id}
+                readonly
+                tabindex="-1"
+                min=${formGroup.min}
+                max=${formGroup.max}
+                class="dso-input-step-counter"
+                aria-label="Aantal"
+                value=${formGroup.count}
+              />
+              ${buttonTemplate({
+                type: "button",
+                label: "Aantal verhogen",
+                variant: "tertiary",
+                disabled: formGroup.plusButtonInactive,
+                icon: { icon: "plus-square" },
+                iconMode: "only",
+              })}
+            </div>
           </div>
         </div>
       `;
