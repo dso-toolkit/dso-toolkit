@@ -46,10 +46,13 @@
   .dso-card-heading {
     align-items: center;
     display: flex;
-    margin-block-end: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
+    }
+
+    + .dso-card-content {
+      margin-block-start: units.$u1;
     }
   }
 }

@@ -45,47 +45,6 @@
   }
 }
 
-dso-card {
-  .dso-card-heading a {
-    text-decoration: none;
-
-    dso-icon:last-child {
-      align-self: flex-start;
-    }
-  }
-
-  h2[slot="heading"],
-  h3[slot="heading"],
-  h4[slot="heading"],
-  h5[slot="heading"] {
-    font-size: 1.125em;
-    margin-block-end: 0;
-    margin-block-start: 0;
-
-    span {
-      margin-inline-end: units.$u1 * 0.5;
-
-      + dso-icon,
-      + svg.di {
-        flex-shrink: 0;
-        position: relative;
-      }
-    }
-  }
-
-  div[slot="content"] {
-    --_dt-rich-content-margin-block: #{units.$u1};
-    --_dt-rich-content-margin-block-end: 0;
-    --_dt-rich-content-margin-block-start: 0;
-  }
-
-  dso-selectable {
-    label {
-      font-size: 0;
-    }
-  }
-}
-
 .dso-card-container {
   padding-block: units.$u2;
   padding-inline: units.$u2;
