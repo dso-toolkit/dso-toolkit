@@ -235,14 +235,6 @@ const overigeVragenFormGroups: FormGroup<never>[] = [
     ],
   },
   {
-    group: "input-number",
-    id: "mijn-aantal",
-    label: "Aantal",
-    count: 0,
-    minusButtonInactive: false,
-    plusButtonInactive: false,
-  },
-  {
     group: "textarea",
     id: "mijn-opmerking",
     label: "Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?",

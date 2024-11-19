@@ -3,7 +3,6 @@
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/selectable";
 @use "~dso-toolkit/src/components/form-control";
-@use "~dso-toolkit/src/components/form/form.mixins" as form-mixins;
 @use "~dso-toolkit/src/utilities";
 
 @include utilities.box-sizing();
@@ -33,7 +32,7 @@
   align-items: center;
   display: flex;
 
-  @include form-mixins.input-number();
+  @include list-button.input-number();
 }
 
 .dso-button-group {

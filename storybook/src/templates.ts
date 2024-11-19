@@ -43,7 +43,6 @@ import {
   FormGroupFiles,
   FormGroupInput,
   FormGroupInputDate,
-  FormGroupInputNumber,
   FormGroupRadios,
   FormGroupSearchBar,
   FormGroupSelect,
@@ -186,7 +185,6 @@ import { cssFormGroupDatePicker } from "./components/form/form-group-date-picker
 import { cssFormGroupDatePickerLegacy } from "./components/form/form-group-date-picker-legacy.css-template";
 import { cssFormGroupFiles } from "./components/form/form-group-files.css-template";
 import { cssFormGroupInput } from "./components/form/form-group-input.css-template";
-import { cssFormGroupInputNumber } from "./components/form/form-group-input-number.css-template";
 import { cssFormGroupRadios } from "./components/form/form-group-radios.css-template";
 import { cssFormGroupSearchBar } from "./components/form/form-group-search-bar.css-template";
 import { cssFormGroupSelect } from "./components/form/form-group-select.css-template";
@@ -263,7 +261,6 @@ export interface Components {
   formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateResult>;
   formGroupFiles: FormGroupFiles<TemplateResult>;
   formGroupInput: FormGroupInput<TemplateResult> | FormGroupInputDate<TemplateResult>;
-  formGroupInputNumber: FormGroupInputNumber<TemplateResult>;
   formGroupRadios: FormGroupRadios<TemplateResult>;
   formGroupSearchBar: FormGroupSearchBar<TemplateResult>;
   formGroupSelect: FormGroupSelect<TemplateResult>;
@@ -430,7 +427,6 @@ templateContainer.add(cssFormGroupDatePicker);
 templateContainer.add(cssFormGroupDatePickerLegacy);
 templateContainer.add(cssFormGroupFiles);
 templateContainer.add(cssFormGroupInput);
-templateContainer.add(cssFormGroupInputNumber);
 templateContainer.add(cssFormGroupRadios);
 templateContainer.add(cssFormGroupSearchBar);
 templateContainer.add(cssFormGroupSelect);

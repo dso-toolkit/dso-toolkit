@@ -125,7 +125,7 @@ export const listButtons: ListButton[] = [
     hasInputNumber: true,
     max: 99,
     min: 0,
-    minusButtonInactive: false,
+    minusButtonInactive: true,
     plusButtonInactive: false,
   },
   {

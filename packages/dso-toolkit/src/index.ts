@@ -91,7 +91,6 @@ export {
   FormGroupFilesFile,
   FormGroupInput,
   FormGroupInputDate,
-  FormGroupInputNumber,
   FormGroupRadios,
   FormGroupSearchBar,
   FormGroupSelect,

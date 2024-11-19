@@ -211,3 +211,32 @@
 @mixin sibling() {
   margin-block-start: list-button-variables.$margin-gap;
 }
+
+@mixin input-number() {
+  .dso-input-step-counter {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    block-size: units.$ru3;
+    text-align: center;
+    inline-size: units.$ru3;
+
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+
+    // Chrome, Safari, Edge, Opera
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Firefox
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
