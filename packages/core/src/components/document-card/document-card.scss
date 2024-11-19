@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/document-card";
 
 @include utilities.box-sizing();
@@ -47,9 +48,12 @@
 }
 
 ::slotted([slot="heading"]) {
-  align-items: center !important;
   display: flex !important;
+  align-items: center !important;
+  color: colors.$bosgroen !important;
   font-size: 1.125em !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
   margin-block-end: 0 !important;
   margin-block-start: 0 !important;
 }

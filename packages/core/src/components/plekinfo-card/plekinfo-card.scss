@@ -2,6 +2,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/plekinfo-card";
+@use "~dso-toolkit/src/variables/colors";
 
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
@@ -93,8 +94,9 @@ del.dso-plekinfo-card-container {
 }
 
 ::slotted([slot="heading"]) {
-  align-items: center !important;
   display: flex !important;
+  align-items: center !important;
+
   font-size: 1.125em !important;
   font-weight: 700 !important;
   color: colors.$bosgroen !important;
