@@ -1,6 +1,6 @@
 # Change Management Notatie
 
-Dit document beschrijft hoe wij te werk gaan bij het communiceren van changes in het CHANGELOG en in onze commits en Pull Requests. Hierin houden we bepaalde formules aan zodat het eenvoudig is om ook ver in de toekomst terug te zien wanneer een bepaalde change gedaan is en waarom.
+Dit document beschrijft hoe wij vanaf ✍️ Release 67.0.0 te werk gaan bij het communiceren van changes in het CHANGELOG en in onze commits en Pull Requests. Hierin houden we bepaalde formules aan zodat het eenvoudig is om ook ver in de toekomst terug te zien wanneer een bepaalde change gedaan is en waarom.
 
 Een correcte beschrijving van een change bestaat uit:
 
@@ -27,17 +27,18 @@ We verwijzen in elke aantekening in het CHANGELOG, en in iedere commit van een P
 ## Type
 
 Met `type` bedoelen we het soort change dat is uitgevoerd.
-Hiervoor gebruiken we altijd één van de volgende trefwoorden:
+We hanteren 7 verschillende types change:
 
-- Added
-- Changed
-- Deprecated
+- Feature
+- Change
+- Deprecate
 - Docs
-- Fixed
+- Bug
 - Removed
 - Task
 
 Dit geeft ons niet alleen het voordeel van een schone Git history, maar ook pas op de plaats om in het CHANGELOG wijzigingen van hetzelfde soort te groeperen voor de leesbaarheid.
+Dan is het ook nog mogelijk dat een change, naast 1 van de 7 hierboven genoemde types, **BREAKING** kan zijn.
 
 ## Scope
 
@@ -66,43 +67,76 @@ SCOPE: SAMENVATTING
 
 ## CHANGELOG.md
 
-Elke change wordt in de CHANGELOG in een groep gedocumenteerd. Het type wordt gebruikt om de groep te bepalen. Nieuwe changes worden altijd onder de volgende release ("Next") geplaatst.
+Elke change wordt in de CHANGELOG in een groep gedocumenteerd. De titel van de groep is het type. Met uitzondering
+van het type `Removed`; daarvoor gebruiken we `Remove` als titel van de groep in de CHANGELOG. Zonder `d` op het
+eind. Nieuwe changes worden altijd onder de volgende release ("Next") geplaatst.
 
-Het format voor een CHANGELOG entry is:
+Het format voor een non-**BREAKING** CHANGELOG-aantekening is:
 
 ```
 ## Next
 
 ### GROEP
-
 * SCOPE: SUMMARY ([#ISSUE_ID](ISSUE_URL))
 ```
 
-Met `[]()` wordt een Markdown link gemaakt. ISSUE_URL is `https://www.github.com/dso-toolkit/dso-toolkit/issues/ISSUE_ID`.
-
-### Voorbeeld
-
-Een voorbeeld van een goede CHANGELOG entry ziet er zo uit:
+Het format voor een **BREAKING** CHANGELOG-aantekening is:
 
 ```
 ## Next
 
-### Fixed
-
-* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
+### GROEP
+* **BREAKING** SCOPE: SUMMARY ([#ISSUE_ID](ISSUE_URL))
 ```
 
-Bekijk voor meer goede voorbeelden [de broncode van het huidige CHANGELOG](https://raw.githubusercontent.com/dso-toolkit/dso-toolkit/master/CHANGELOG.md).
+Met `[]()` wordt een Markdown link gemaakt. ISSUE_URL is `https://www.github.com/dso-toolkit/dso-toolkit/issues/ISSUE_ID`.
+
+### Voorbeelden
+
+Hieronder een aantal voorbeelden van goede CHANGELOG-aantekeningen:
+
+```
+## Next
+
+### Feature
+* Document Component: type "inhoudsopgave" ([#2271](https://github.com/dso-toolkit/dso-toolkit/issues/2271))
+* **BREAKING:** Accordion: Badge vervangen met Label ([#2774](https://github.com/dso-toolkit/dso-toolkit/issues/2774))
+
+### Change
+* Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
+
+### Remove
+* Input Number: Verwijder component ([#2708](https://github.com/dso-toolkit/dso-toolkit/issues/2708))
+
+### Bug
+* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
+
+### Task
+* Packages: Dependencies updates ([#2863](https://github.com/dso-toolkit/dso-toolkit/issues/2863))
+```
 
 ## Commit message
 
-De éérste commit message is altijd opgemaakt volgens de volgende formule:
+De <u>éérste</u> commit message is altijd opgemaakt volgens de volgende formule:
 
 ```
-#ISSUE_ID [TYPE] SCOPE: SAMENVATTING
+#ISSUE_ID [RESOLUTION] SCOPE: SAMENVATTING
 ```
 
-De opvolgende commit messages hoeven alleen te beginnen met het #ISSUE_ID.
+De resolution in een commit message is afhankelijk van het type change. In onderstaande tabel staat welke resolution
+(en welke titel van de groep in de CHANGELOG) bij welke type change horen:
+
+| Type change   | Github issue label | Titel groep in CHANGELOG | Resolution in commit message |
+| ------------- | ------------------ | ------------------------ | ---------------------------- |
+| **Feature**   | feature            | Feature                  | Added                        |
+| **Change**    | change             | Change                   | Changed                      |
+| **Deprecate** | deprecate          | Deprecate                | Deprecated                   |
+| **Docs**      | docs               | Docs                     | Docs                         |
+| **Bug**       | bug                | Bug                      | Fixed                        |
+| **Removed**   | remove             | Remove                   | Removed                      |
+| **Task**      | task               | Task                     | Task                         |
+
+De <u>opvolgende</u> commit messages hoeven alleen te beginnen met het #ISSUE_ID.
 
 ### Voorbeeld
 
