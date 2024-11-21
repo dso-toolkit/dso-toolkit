@@ -192,7 +192,7 @@ describe("Accordion", () => {
       .should("exist");
   });
 
-  it.only("should render renvooi in the handle correctly", () => {
+  it("should render renvooi in the handle correctly", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-accordion--renvooi");
 
     cy.get("dso-accordion")
