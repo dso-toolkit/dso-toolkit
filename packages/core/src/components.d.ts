@@ -928,6 +928,10 @@ export namespace Components {
     }
     interface DsoModal {
         /**
+          * the role for the modal `dialog` | `alert` | `alertdialog`.
+         */
+        "dialogRole": string | null;
+        /**
           * when set the modal will be shown in fullscreen.
          */
         "fullscreen"?: boolean;
@@ -939,10 +943,6 @@ export namespace Components {
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus": false | HTMLElement | undefined;
-        /**
-          * the role for the modal `dialog` | `alert` | `alertdialog`.
-         */
-        "role": string | null;
         /**
           * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
          */
@@ -3384,6 +3384,10 @@ declare namespace LocalJSX {
     }
     interface DsoModal {
         /**
+          * the role for the modal `dialog` | `alert` | `alertdialog`.
+         */
+        "dialogRole"?: string | null;
+        /**
           * when set the modal will be shown in fullscreen.
          */
         "fullscreen"?: boolean;
@@ -3399,10 +3403,6 @@ declare namespace LocalJSX {
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus"?: false | HTMLElement | undefined;
-        /**
-          * the role for the modal `dialog` | `alert` | `alertdialog`.
-         */
-        "role"?: string | null;
         /**
           * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
          */

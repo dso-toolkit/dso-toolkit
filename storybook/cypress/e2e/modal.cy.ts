@@ -11,8 +11,7 @@ describe("Modal", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
-    // Onderstaande regel weer aanzetten in de PR van #2799
-    // cy.dsoCheckA11y("dso-modal.hydrated");
+    cy.dsoCheckA11y("dso-modal.hydrated");
     cy.get("@dsoModal")
       .find(".dso-modal")
       .should("have.attr", "role", "dialog")
@@ -27,6 +26,14 @@ describe("Modal", () => {
 
     // The wait equals the modal animation-duration of 200ms
     cy.wait(200).matchImageSnapshot();
+  });
+
+  it("should have the propper role set by modal component", () => {
+    cy.get("dso-modal.hydrated")
+      .invoke("prop", "dialogRole", "alert")
+      .get("@dsoModal")
+      .find(".dso-modal")
+      .should("have.attr", "role", "alert");
   });
 
   it("should have English sr-only text", () => {

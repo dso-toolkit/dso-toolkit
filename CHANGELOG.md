@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Build: Output CSS linten ([#2742](https://github.com/dso-toolkit/dso-toolkit/issues/2742))
 * Build: CHANGELOG.md notatie herzien ([#2761](https://github.com/dso-toolkit/dso-toolkit/issues/2761))
 
+### Changed
+* **BREAKING** Modal: herevalueer gebruik reserved name `role` als property ([#2799](https://github.com/dso-toolkit/dso-toolkit/issues/2799))
+
 ## 🐏 Release 66.3.0 - 2024-11-18
 
 ### Added
