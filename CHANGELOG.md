@@ -12,11 +12,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Packages: Dependencies updates ([#2863](https://github.com/dso-toolkit/dso-toolkit/issues/2863))
 * Build: Output CSS linten ([#2742](https://github.com/dso-toolkit/dso-toolkit/issues/2742))
 
+### Added
+* Accordion: Renvooi in titel van accordion section toestaan ([#2857](https://github.com/dso-toolkit/dso-toolkit/issues/2857))
+
 ## 🐏 Release 66.3.0 - 2024-11-18
 
 ### Added
 * Skiplink: New component ([#2746](https://github.com/dso-toolkit/dso-toolkit/issues/2746))
-* Accordion: Renvooi in titel van accordion section toestaan ([#2857](https://github.com/dso-toolkit/dso-toolkit/issues/2857))
 
 ### Fixed
 * I18n: Werkt niet in Angular app ([#2880](https://github.com/dso-toolkit/dso-toolkit/issues/2880))
