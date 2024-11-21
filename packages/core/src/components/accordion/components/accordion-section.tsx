@@ -142,7 +142,7 @@ export class AccordionSection implements ComponentInterface {
   /**
    * The title of the handle
    */
-  @Prop()
+  @Prop({ reflect: true })
   handleTitle!: RenvooiValue | undefined;
 
   /**

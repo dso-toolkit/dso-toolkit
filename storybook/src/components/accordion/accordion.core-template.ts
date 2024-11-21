@@ -30,6 +30,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               html`<dso-accordion-section
                 ?open=${open}
                 .handleTitle=${handleTitle}
+                handle-title=${handleTitle}
                 heading=${heading}
                 handle-url=${ifDefined(handleUrl)}
                 status-description=${ifDefined(statusDescription)}
