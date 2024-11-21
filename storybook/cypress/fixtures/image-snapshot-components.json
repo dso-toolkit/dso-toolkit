@@ -235,10 +235,6 @@
         "stories": ["input"]
       },
       {
-        "group": "groups-input-number",
-        "stories": ["input-number"]
-      },
-      {
         "group": "groups-radios",
         "stories": ["radios"]
       },
@@ -336,18 +332,6 @@
     "name": "list",
     "selector": "",
     "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
-    "type": "html-css"
-  },
-  {
-    "name": "list-button",
-    "selector": ".dso-list-button",
-    "stories": ["single-select", "css-legacy-readonly-count"],
-    "type": "html-css"
-  },
-  {
-    "name": "list-button",
-    "selector": ".dso-button-group",
-    "stories": ["multi-select"],
     "type": "html-css"
   },
   {

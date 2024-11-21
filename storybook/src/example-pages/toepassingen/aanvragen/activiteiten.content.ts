@@ -122,11 +122,8 @@ export const listButtons: ListButton[] = [
     label: "In stand houden van bouwwerken - Melding",
     sublabel: "Gemeente",
     count: 0,
-    hasInputNumber: true,
     max: 99,
     min: 0,
-    minusButtonInactive: true,
-    plusButtonInactive: false,
   },
   {
     label: "Milieubelastende activiteit - Aanvraag vergunning",

@@ -7,7 +7,6 @@ import { ListButton } from "./list-button.models.js";
 
 export interface ListButtonArgs {
   label: string;
-  hasInputNumber?: boolean;
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
@@ -16,8 +15,6 @@ export interface ListButtonArgs {
   count?: number;
   min?: number;
   max?: number;
-  minusButtonInactive: boolean;
-  plusButtonInactive: boolean;
   manual: boolean;
   dsoCountChange: HandlerFunction;
   dsoSelectedChange: HandlerFunction;
@@ -28,9 +25,6 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
     control: {
       type: "text",
     },
-  },
-  hasInputNumber: {
-    ...noControl,
   },
   disabled: {
     control: {
@@ -73,16 +67,6 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
     },
   },
   manual: {
-    control: {
-      type: "boolean",
-    },
-  },
-  minusButtonInactive: {
-    control: {
-      type: "boolean",
-    },
-  },
-  plusButtonInactive: {
     control: {
       type: "boolean",
     },

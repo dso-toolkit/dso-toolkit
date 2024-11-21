@@ -1,17 +1,14 @@
 export interface ListButton {
   label: string;
-  hasInputNumber?: boolean; // Only HTML/CSS implementation
-  disabled?: boolean; // Only Core implementation
+  disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
-  subcontentPrefix?: string; // Only Core implementation
+  subcontentPrefix?: string;
   count?: number;
   min?: number;
   max?: number;
-  minusButtonInactive?: boolean; // Only HTML/CSS implementation
-  plusButtonInactive?: boolean; // Only HTML/CSS implementation
-  checked?: boolean; // Only Core implementation
-  manual?: boolean; // Only Core implementation
+  checked?: boolean;
+  manual?: boolean;
   dsoCountChange?: (e: CustomEvent<ListButtonChangeEvent>) => void;
   dsoSelectedChange?: (e: CustomEvent<ListButtonSelectedEvent>) => void;
 }

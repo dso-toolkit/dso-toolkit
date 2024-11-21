@@ -1,11 +1,22 @@
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/list-button";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/button";
 @use "~dso-toolkit/src/components/selectable";
 @use "~dso-toolkit/src/components/form-control";
 @use "~dso-toolkit/src/utilities";
 
+@use "list-button.variables" as list-button-variables;
+
 @include utilities.box-sizing();
+
+@mixin _state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  & {
+    background-color: $background-color;
+    border-color: $border-color;
+    color: $color;
+  }
+}
 
 :host {
   display: block;
@@ -32,11 +43,118 @@
   align-items: center;
   display: flex;
 
-  @include list-button.input-number();
+  .dso-input-step-counter {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    block-size: units.$ru3;
+    text-align: center;
+    inline-size: units.$ru3;
+
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+
+    // Chrome, Safari, Edge, Opera
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Firefox
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
 }
 
 .dso-button-group {
-  @include list-button.button-group(".dso-input-number", ".dso-list-button");
+  display: flex;
+  flex-direction: row;
+
+  &.dso-disabled {
+    > * {
+      @include _state-styling(colors.$wit, colors.$grijs-10, colors.$grijs-60);
+
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        pointer-events: none;
+      }
+    }
+  }
+
+  > * {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: list-button-variables.$border-radius 0 0 list-button-variables.$border-radius;
+    }
+
+    &:not(:first-child) {
+      border-inline-start-style: none !important;
+    }
+
+    &:last-child {
+      border-radius: 0 list-button-variables.$border-radius list-button-variables.$border-radius 0;
+    }
+
+    &:only-child {
+      border-radius: list-button-variables.$border-radius;
+    }
+  }
+
+  > .dso-input-number {
+    @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
+
+    border-style: solid;
+    border-width: 1px;
+    flex-wrap: nowrap;
+    padding-block: 0;
+    padding-inline: units.$u2;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      justify-content: center;
+    }
+  }
+
+  > *:hover + .dso-input-number,
+  > *:focus + .dso-input-number {
+    @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+  }
+
+  > *.dso-selected + .dso-input-number {
+    @include _state-styling(colors.$wit, button.$secondary-border-color, colors.$grijs-90);
+
+    box-shadow:
+      inset 0 -1px 0 0 button.$secondary-border-color,
+      inset 0 1px 0 0 button.$secondary-border-color,
+      inset -1px 0 0 0 button.$secondary-border-color;
+  }
+
+  > *:active + .dso-input-number,
+  > *.active + .dso-input-number {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+    }
+  }
+
+  > *.disabled + .dso-input-number,
+  > *[disabled] + .dso-input-number {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
+
+      opacity: 1;
+    }
+  }
+
+  .dso-list-button {
+    padding-inline-end: #{units.$u2 - 1};
+  }
 }
 
 .dso-selectable {
@@ -49,10 +167,105 @@
 
 .dso-list-button {
   @include button.base($modifiers: false);
-  @include list-button.root();
+
+  @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
+
+  border-radius: button.$border-radius;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  padding-block: #{units.$u2 - 1};
+  padding-inline: #{units.$u2 - 1} #{units.$u6 - 1};
+  position: relative;
+  text-align: start;
+  white-space: normal;
+  inline-size: 100%;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
+
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.dso-selected {
+    border-color: colors.$grasgroen;
+    border-width: 1px;
+    box-shadow:
+      inset 0px 0px 0px 1px colors.$grasgroen,
+      inset -1px 0px 0px 0px colors.$grasgroen;
+
+    &.dso-single-count {
+      @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+        border-inline-end: 0;
+        box-shadow:
+          colors.$grasgroen 0px 1px 0px 0px inset,
+          colors.$grasgroen 1px 0px 0px 0px inset,
+          colors.$grasgroen 0px -1px 0px 0px inset;
+      }
+    }
+  }
+
+  label {
+    cursor: inherit;
+  }
+
+  > span {
+    display: block;
+  }
 
   .dso-sublabel {
+    font-weight: 400;
+    inline-size: 100%;
     padding-inline-start: selectable.$size + units.$u1;
+  }
+
+  dso-icon,
+  svg.di,
+  .dso-count {
+    block-size: units.$u3;
+    position: absolute;
+    inset-inline-end: #{units.$u2 - 1};
+    inset-block-start: #{units.$u2 - 1};
+    inline-size: units.$u3;
+  }
+
+  dso-icon,
+  svg.di {
+    color: colors.$grasgroen;
+    page-break-before: always;
+  }
+
+  .dso-count {
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    &.dso-selected.dso-single-count {
+      &::after {
+        inline-size: 0;
+      }
+    }
   }
 }
 
@@ -60,7 +273,7 @@
 .dso-button-group {
   + .dso-list-button,
   + .dso-button-group {
-    @include list-button.sibling();
+    margin-block-start: list-button-variables.$margin-gap;
   }
 }
 

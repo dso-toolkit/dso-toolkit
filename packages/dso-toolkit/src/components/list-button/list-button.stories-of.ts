@@ -27,8 +27,6 @@ export function listButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     argTypes: listButtonArgTypes,
     args: {
       label: "Milieubelastende activiteit - Melding",
-      minusButtonInactive: true,
-      plusButtonInactive: true,
     },
     parameters: {
       docs: readme
@@ -61,7 +59,6 @@ export function listButtonStories<Implementation, Templates, TemplateFnReturnTyp
     },
     MultiSelect: {
       args: listButtonDefaultArgs({
-        hasInputNumber: true,
         count: 5,
         min: 0,
         max: 99,
