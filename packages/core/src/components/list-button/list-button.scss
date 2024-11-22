@@ -240,24 +240,14 @@
     padding-inline-start: selectable.$size + units.$u1;
   }
 
-  dso-icon,
-  svg.di,
-  .dso-count {
+  dso-icon {
     block-size: units.$u3;
-    position: absolute;
-    inset-inline-end: #{units.$u2 - 1};
-    inset-block-start: #{units.$u2 - 1};
-    inline-size: units.$u3;
-  }
-
-  dso-icon,
-  svg.di {
     color: colors.$grasgroen;
+    inset-block-start: #{units.$u2 - 1};
+    inset-inline-end: #{units.$u2 - 1};
+    inline-size: units.$u3;
     page-break-before: always;
-  }
-
-  .dso-count {
-    font-weight: 700;
+    position: absolute;
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
