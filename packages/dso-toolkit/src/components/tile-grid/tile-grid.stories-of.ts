@@ -1,33 +1,47 @@
-import { TileGridArgs, tileGridArgTypes } from "./tile-grid.args.js";
-import { TileGrid } from "../tile-grid/tile-grid.models.js";
-import { tiles } from "./tile-grid.content.js";
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
+import { Tile } from "../tile";
+import { TileGrid } from "./tile-grid.models";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface TileGridStories {
+  TileGrid: StoryObj<Record<string, never>, Renderer>;
+}
 
 export interface TileGridTemplates<TemplateFnReturnType> {
   tileGridTemplate: (tileGridProperties: TileGrid) => TemplateFnReturnType;
+  tiles: Tile[];
 }
 
-export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TileGridTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Tile Grid", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: tileGridArgTypes,
-      controls: {
-        hideNoControlsWarning: true,
-      },
-    });
+interface TileGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TileGridTemplates<TemplateFnReturnType>> {}
 
-    stories.add(
-      "Tile Grid",
-      templateMapper<TileGridArgs>((_args, { tileGridTemplate }) => tileGridTemplate({ tiles })),
-    );
+export function tileGridMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    return stories;
-  });
+export function tileGridStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: TileGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TileGridStories {
+  return {
+    TileGrid: {
+      render: templateContainer.render(storyTemplates, (_args, { tileGridTemplate, tiles }) =>
+        tileGridTemplate({ tiles }),
+      ),
+    },
+  };
 }

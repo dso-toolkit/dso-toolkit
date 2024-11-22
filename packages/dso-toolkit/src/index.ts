@@ -215,8 +215,7 @@ export * from "./components/tabs";
 
 export * from "./components/tile";
 
-export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
-export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
+export * from "./components/tile-grid";
 
 export * from "./components/toggletip";
 

@@ -1,4 +1,4 @@
-import { Tile } from "../tile/tile.models.js";
+import { Tile } from "../tile";
 
 export const tiles: Tile[] = [
   {
