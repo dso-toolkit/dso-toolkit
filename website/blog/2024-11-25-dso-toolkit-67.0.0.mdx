@@ -1,0 +1,47 @@
+---
+authors: [iterox, tfrijsewijk]
+---
+
+# DSO Toolkit v67.0.0 ✍️
+
+Deze release bevat breaking changes voor de volgende componenten:
+
+- Modal (Web Component)
+- Input Number (HTML/CSS Component)
+- List Button (HTML/CSS Component)
+
+<!-- truncate -->
+
+## Modal (Web Component): Property `role` hernoemd naar `dialogRole`.
+
+`role` is een property die op elk HTMLElement zit en ook door assistive technology (zoals screenreaders) wordt geinterpreteerd. Het component Modal had `role` echter ook als attribute/property opgenomen om het type dialog te zetten.
+
+Dat resulteerde in een role attribuut op de verkeerde plek. We hebben dit opgelost door de property te hernoemen naar `dialogRole`.
+
+```html
+❌
+<dso-modal role="alert"></dso-modal>
+✅
+
+<dso-modal dialog-role="alert"></dso-modal>
+```
+
+## Input Number, List Button
+
+Het HTML/CSS component `Input Number` is in 🎸 Release 63.0.0 deprecated. In deze release hebben we dit component verwijderd.
+`Input Number` had een sterke verwevenheid met de HTML/CSS implementatie van `List Button`. Dit had tot gevolg dat er tussen de Core en HTML/CSS implementatie aanzienlijke verschillen ontstonden.
+Omdat de HTML/CSS `List Button` bij navraag niet meer in gebruik bleek bij de afnemers van DSO Toolkit is besloten ook dat component te verwijderen.
+
+```html
+❌
+<div class="dso-input-number" ...></div>
+
+❌
+<button type="button" class="dso-list-button" ...></button>
+
+❌
+<div class="dso-button-group">
+  <button type="button" class="dso-list-button" ...></button>
+  <div class="dso-input-number" ...></div>
+</div>
+```

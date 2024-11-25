@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ✍️ Release 67.0.0 - 2024-11-25
+
 ### Removed
 * **BREAKING** Input Number, List Button: Verwijder HTML/CSS componenten ([#2708](https://github.com/dso-toolkit/dso-toolkit/issues/2708))
 
