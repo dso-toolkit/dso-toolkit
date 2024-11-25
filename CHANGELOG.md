@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Map Controls: Info no background color ([#2829](https://github.com/dso-toolkit/dso-toolkit/issues/2829))
+* Styling: styling via attributen (React bindings) ([#2898](https://github.com/dso-toolkit/dso-toolkit/issues/2898))
 
 ### Tasks
 * Packages: Dependencies updates ([#2863](https://github.com/dso-toolkit/dso-toolkit/issues/2863))

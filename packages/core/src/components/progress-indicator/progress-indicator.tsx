@@ -29,7 +29,7 @@ export class Progressindicator {
   /**
    * Set for bloatier Progress Indicator.
    */
-  @Prop()
+  @Prop({ reflect: true })
   block?: boolean;
 
   private text = i18n(() => this.host, translations);

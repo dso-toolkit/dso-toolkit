@@ -56,7 +56,7 @@ export class Label implements ComponentInterface {
   /**
    * Shows a button that can be used to remove the Label.
    */
-  @Prop()
+  @Prop({ reflect: true })
   removable?: boolean;
 
   /**
