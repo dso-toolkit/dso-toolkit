@@ -1,4 +1,4 @@
-import { Tile } from "../tile";
+import { Tile } from "dso-toolkit/dist/components/tile";
 
 export const tiles: Tile[] = [
   {

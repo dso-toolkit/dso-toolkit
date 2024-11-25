@@ -2,7 +2,7 @@ import { templateContainer } from "../../templates";
 import { Meta } from "@storybook/web-components";
 import readme from "dso-toolkit/src/components/tile/readme.md?raw";
 import { tileGridMeta, tileGridStories } from "dso-toolkit";
-import { tiles } from "dso-toolkit/dist/components/tile-grid/tile-grid.content";
+import { tiles } from "./tile-grid.content";
 
 const meta: Meta = {
   ...tileGridMeta({ readme }),

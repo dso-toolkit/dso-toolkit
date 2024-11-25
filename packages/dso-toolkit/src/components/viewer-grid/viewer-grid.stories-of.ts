@@ -1,17 +1,16 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import {
-  viewerGridArgTypes,
   ViewerGridArgs,
   viewerGridArgsMapper,
+  viewerGridArgTypes,
   viewerGridDocumentHeaderArgs,
   ViewerGridDocumentHeaderArgs,
 } from "./viewer-grid.args.js";
 import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models.js";
 
 import { documentListContent } from "../document-list/document-list.content.js";
-import { tiles } from "../tile-grid/tile-grid.content.js";
-import { Tile } from "../tile/tile.models.js";
+import { Tile } from "../tile";
 import { options } from "../advanced-select/advanced-select.content";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -53,6 +52,7 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
     ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties,
   ) => TemplateFnReturnType;
   documentListExampleTemplate: (documentList: typeof documentListContent) => TemplateFnReturnType;
+  tiles: Tile[];
 }
 
 export function viewerGridMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -144,7 +144,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
     },
     VoorbeeldpaginaTiles: {
       storyName: 'Voorbeeldpagina "Tiles"',
-      render: templateContainer.render(storyTemplates, (_args, { tilesExampleTemplate }) =>
+      render: templateContainer.render(storyTemplates, (_args, { tilesExampleTemplate, tiles }) =>
         tilesExampleTemplate(tiles),
       ),
     },
