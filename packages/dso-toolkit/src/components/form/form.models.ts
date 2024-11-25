@@ -4,7 +4,6 @@ export { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
 export { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
 export { FormGroupFiles, FormGroupFilesFile } from "./models/form-group-files.model.js";
 export { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
-export { FormGroupInputNumber } from "./models/form-group-input-number.model.js";
 export { FormGroupRadios } from "./models/form-group-radios.model.js";
 export { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
 export { FormGroupSelect, SelectOption, SelectOptionGroup } from "./models/form-group-select.model.js";

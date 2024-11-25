@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { ListButtonArgs, listButtonArgsMapper, listButtonArgTypes, listButtonDefaultArgs } from "./list-button.args.js";
@@ -28,12 +27,6 @@ export function listButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     argTypes: listButtonArgTypes,
     args: {
       label: "Milieubelastende activiteit - Melding",
-      inputNumber: {
-        id: uuidv4(),
-        count: 1,
-        minusButtonInactive: true,
-        plusButtonInactive: true,
-      },
     },
     parameters: {
       docs: readme
@@ -69,14 +62,12 @@ export function listButtonStories<Implementation, Templates, TemplateFnReturnTyp
         count: 5,
         min: 0,
         max: 99,
-        hasInputNumber: true,
       }),
       render,
     },
     CssLegacyReadonlyCount: {
       args: listButtonDefaultArgs({
         count: 5,
-        hasInputNumber: false,
       }),
       render,
     },

@@ -13,7 +13,6 @@ export const cssFormGroup: ComponentImplementation<FormGroup<TemplateResult>> = 
     formGroupDatePickerLegacyTemplate,
     formGroupFilesTemplate,
     formGroupInputTemplate,
-    formGroupInputNumberTemplate,
     formGroupRadiosTemplate,
     formGroupSearchBarTemplate,
     formGroupSelectTemplate,
@@ -34,8 +33,6 @@ export const cssFormGroup: ComponentImplementation<FormGroup<TemplateResult>> = 
           return formGroupFilesTemplate(formGroup);
         case "input":
           return formGroupInputTemplate(formGroup);
-        case "input-number":
-          return formGroupInputNumberTemplate(formGroup);
         case "radios":
           return formGroupRadiosTemplate(formGroup);
         case "search-bar":

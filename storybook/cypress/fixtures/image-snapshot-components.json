@@ -235,10 +235,6 @@
         "stories": ["input"]
       },
       {
-        "group": "groups-input-number",
-        "stories": ["input-number"]
-      },
-      {
         "group": "groups-radios",
         "stories": ["radios"]
       },
@@ -319,12 +315,6 @@
     "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
     "type": "html-css"
   },
-  {
-    "name": "input-number-deprecated",
-    "selector": ".dso-input-number",
-    "stories": ["input-number"],
-    "type": "html-css"
-  },
   { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
   {
     "name": "link-list",
@@ -342,18 +332,6 @@
     "name": "list",
     "selector": "",
     "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
-    "type": "html-css"
-  },
-  {
-    "name": "list-button",
-    "selector": ".dso-list-button",
-    "stories": ["single-select", "css-legacy-readonly-count"],
-    "type": "html-css"
-  },
-  {
-    "name": "list-button",
-    "selector": ".dso-button-group",
-    "stories": ["multi-select"],
     "type": "html-css"
   },
   {

@@ -4,12 +4,9 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { noControl } from "../../storybook/index.js";
 
 import { ListButton } from "./list-button.models.js";
-import { InputNumber } from "../input-number";
 
 export interface ListButtonArgs {
   label: string;
-  hasInputNumber?: boolean;
-  inputNumber?: InputNumber;
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
@@ -28,9 +25,6 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
     control: {
       type: "text",
     },
-  },
-  hasInputNumber: {
-    ...noControl,
   },
   disabled: {
     control: {

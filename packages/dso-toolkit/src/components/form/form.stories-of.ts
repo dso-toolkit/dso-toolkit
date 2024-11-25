@@ -9,7 +9,6 @@ import { checkboxesContent } from "./content/checkboxes.content.js";
 import { confirmContent } from "./content/confirm.content.js";
 import { files, filesContent } from "./content/files.content.js";
 import { inputContent } from "./content/input.content.js";
-import { inputNumberContent } from "./content/input-number.content.js";
 import { radiosContent } from "./content/radios.content.js";
 import { searchBarContent } from "./content/search-bar.content.js";
 import { selectContent } from "./content/select.content.js";
@@ -40,11 +39,6 @@ import {
 } from "./args/form-group-date-picker-legacy.args.js";
 import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from "./args/form-group-files.args.js";
 import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from "./args/form-group-input.args.js";
-import {
-  FormGroupInputNumberArgs,
-  formGroupInputNumberArgsMapper,
-  formGroupInputNumberArgTypes,
-} from "./args/form-group-input-number.args.js";
 import {
   FormGroupRadiosArgs,
   formGroupRadiosArgsMapper,
@@ -77,7 +71,6 @@ import { FormGroupConfirm } from "./models/form-group-confirm.model.js";
 import { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
 import { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
 import { FormGroupFiles } from "./models/form-group-files.model.js";
-import { FormGroupInputNumber } from "./models/form-group-input-number.model.js";
 import { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
 import { FormGroupRadios } from "./models/form-group-radios.model.js";
 import { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
@@ -99,9 +92,6 @@ export interface FormTemplates<TemplateFnReturnType> {
   formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (
     formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>,
-  ) => TemplateFnReturnType;
-  formGroupInputNumberTemplate: (
-    formGroupInputNumber: FormGroupInputNumber<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
   formGroupRadiosTemplate: (formGroupRadios: FormGroupRadios<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupSearchBarTemplate: (formGroupSearchBar: FormGroupSearchBar<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -309,24 +299,6 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupInputTemplate } = storyTemplates(templates);
 
         return formGroupInputTemplate(formGroupInputArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form/groups/input-number`, mainModule)
-    .addParameters({
-      argTypes: formGroupInputNumberArgTypes,
-      args: inputNumberContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "input number",
-      templateContainer.fromArgs<FormGroupInputNumberArgs>((args, templates) => {
-        const { formGroupInputNumberTemplate } = storyTemplates(templates);
-
-        return formGroupInputNumberTemplate(formGroupInputNumberArgsMapper(args));
       }),
     );
 

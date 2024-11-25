@@ -4,7 +4,6 @@ import { FormGroupDatePicker } from "./form-group-date-picker.model.js";
 import { FormGroupDatePickerLegacy } from "./form-group-date-picker-legacy.model.js";
 import { FormGroupFiles } from "./form-group-files.model.js";
 import { FormGroupInput, FormGroupInputDate } from "./form-group-input.model.js";
-import { FormGroupInputNumber } from "./form-group-input-number.model.js";
 import { FormGroupRadios } from "./form-group-radios.model.js";
 import { FormGroupSearchBar } from "./form-group-search-bar.model.js";
 import { FormGroupSelect } from "./form-group-select.model.js";
@@ -17,7 +16,6 @@ export type FormGroup<TemplateFnReturnType> =
   | FormGroupDatePicker<TemplateFnReturnType>
   | FormGroupFiles<TemplateFnReturnType>
   | FormGroupInput<TemplateFnReturnType>
-  | FormGroupInputNumber<TemplateFnReturnType>
   | FormGroupInputDate<TemplateFnReturnType>
   | FormGroupDatePickerLegacy<TemplateFnReturnType>
   | FormGroupRadios<TemplateFnReturnType>

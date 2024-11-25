@@ -43,7 +43,6 @@ import {
   FormGroupFiles,
   FormGroupInput,
   FormGroupInputDate,
-  FormGroupInputNumber,
   FormGroupRadios,
   FormGroupSearchBar,
   FormGroupSelect,
@@ -58,7 +57,6 @@ import {
   ImageOverlay,
   Info,
   InfoButton,
-  InputNumber,
   InputRange,
   JustifyFormGroups,
   Label,
@@ -187,7 +185,6 @@ import { cssFormGroupDatePicker } from "./components/form/form-group-date-picker
 import { cssFormGroupDatePickerLegacy } from "./components/form/form-group-date-picker-legacy.css-template";
 import { cssFormGroupFiles } from "./components/form/form-group-files.css-template";
 import { cssFormGroupInput } from "./components/form/form-group-input.css-template";
-import { cssFormGroupInputNumber } from "./components/form/form-group-input-number.css-template";
 import { cssFormGroupRadios } from "./components/form/form-group-radios.css-template";
 import { cssFormGroupSearchBar } from "./components/form/form-group-search-bar.css-template";
 import { cssFormGroupSelect } from "./components/form/form-group-select.css-template";
@@ -199,13 +196,11 @@ import { cssIcon } from "./components/icon/icon.css-template";
 import { cssImage } from "./components/image/image.css-template";
 import { cssInfo } from "./components/info/info.css-template";
 import { cssInfoButton } from "./components/info-button/info-button.css-template";
-import { cssInputNumber } from "./components/input-number/input-number.css-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
 import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
 import { cssList } from "./components/list/list.css-template";
-import { cssListButton } from "./components/list-button/list-button.css-template";
 import { cssModal } from "./components/modal/modal.css-template";
 import { cssNavbar } from "./components/navbar/navbar.css-template";
 import { cssPagination } from "./components/pagination/pagination.css-template";
@@ -265,7 +260,6 @@ export interface Components {
   formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateResult>;
   formGroupFiles: FormGroupFiles<TemplateResult>;
   formGroupInput: FormGroupInput<TemplateResult> | FormGroupInputDate<TemplateResult>;
-  formGroupInputNumber: FormGroupInputNumber<TemplateResult>;
   formGroupRadios: FormGroupRadios<TemplateResult>;
   formGroupSearchBar: FormGroupSearchBar<TemplateResult>;
   formGroupSelect: FormGroupSelect<TemplateResult>;
@@ -280,7 +274,6 @@ export interface Components {
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
   infoButton: InfoButton;
-  inputNumber: InputNumber;
   inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
@@ -433,7 +426,6 @@ templateContainer.add(cssFormGroupDatePicker);
 templateContainer.add(cssFormGroupDatePickerLegacy);
 templateContainer.add(cssFormGroupFiles);
 templateContainer.add(cssFormGroupInput);
-templateContainer.add(cssFormGroupInputNumber);
 templateContainer.add(cssFormGroupRadios);
 templateContainer.add(cssFormGroupSearchBar);
 templateContainer.add(cssFormGroupSelect);
@@ -445,13 +437,11 @@ templateContainer.add(cssIcon);
 templateContainer.add(cssImage);
 templateContainer.add(cssInfo);
 templateContainer.add(cssInfoButton);
-templateContainer.add(cssInputNumber);
 templateContainer.add(cssJustifyFormGroups);
 templateContainer.add(cssLabel);
 templateContainer.add(cssLabelGroup);
 templateContainer.add(cssLinkList);
 templateContainer.add(cssList);
-templateContainer.add(cssListButton);
 templateContainer.add(cssModal);
 templateContainer.add(cssNavbar);
 templateContainer.add(cssPagination);
