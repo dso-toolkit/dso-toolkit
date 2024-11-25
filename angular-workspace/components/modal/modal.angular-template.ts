@@ -13,7 +13,7 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
         template: `
           <dso-modal
             [fullscreen]="fullscreen"
-            [role]="role"
+            [dialogRole]="role"
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
             (dsoClose)="dsoClose?.($event)"

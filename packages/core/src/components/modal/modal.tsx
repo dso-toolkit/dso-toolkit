@@ -37,8 +37,7 @@ export class Modal implements ComponentInterface {
    * the role for the modal `dialog` | `alert` | `alertdialog`.
    */
   @Prop()
-  // eslint-disable-next-line @stencil-community/reserved-member-names
-  role: string | null = "dialog";
+  dialogRole: string | null = "dialog";
 
   /**
    * The element to return focus to after the modal is closed.
@@ -97,7 +96,7 @@ export class Modal implements ComponentInterface {
     return (
       <dialog
         class="dso-modal"
-        role={this.role ?? undefined}
+        role={this.dialogRole ?? undefined}
         aria-modal="true"
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
