@@ -9,6 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import cypress from "eslint-plugin-cypress";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,6 +44,7 @@ export default [
       "@typescript-eslint": typescriptEslint,
       "only-warn": onlyWarn,
       lit,
+      cypress,
     },
     linterOptions: {
       reportUnusedDisableDirectives: "error",
@@ -102,6 +104,19 @@ export default [
           ignoreRestSiblings: false,
           varsIgnorePattern: "^(_|h$|Fragment$)",
           argsIgnorePattern: "^_",
+        },
+      ],
+      "no-restricted-properties": [
+        "error",
+        {
+          object: "it",
+          property: "only",
+          message: "Do not commit `.only` in tests.",
+        },
+        {
+          object: "describe",
+          property: "only",
+          message: "Do not commit `.only` in tests.",
         },
       ],
     },
