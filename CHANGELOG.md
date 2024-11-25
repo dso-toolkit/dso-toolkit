@@ -12,9 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Map Controls: Info no background color ([#2829](https://github.com/dso-toolkit/dso-toolkit/issues/2829))
 * Styling: styling via attributen (React bindings) ([#2898](https://github.com/dso-toolkit/dso-toolkit/issues/2898))
 
-### Tasks
+### Task
 * Packages: Dependencies updates ([#2863](https://github.com/dso-toolkit/dso-toolkit/issues/2863))
 * Build: Output CSS linten ([#2742](https://github.com/dso-toolkit/dso-toolkit/issues/2742))
+* Build: CHANGELOG.md notatie herzien ([#2761](https://github.com/dso-toolkit/dso-toolkit/issues/2761))
 
 ## 🐏 Release 66.3.0 - 2024-11-18
 

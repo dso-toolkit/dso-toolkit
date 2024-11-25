@@ -1,6 +1,8 @@
 # Change Management Notatie
 
-Dit document beschrijft hoe wij te werk gaan bij het communiceren van changes in het CHANGELOG en in onze commits en Pull Requests. Hierin houden we bepaalde formules aan zodat het eenvoudig is om ook ver in de toekomst terug te zien wanneer een bepaalde change gedaan is en waarom.
+Dit document beschrijft hoe wij vanaf ✍️ Release 67.0.0 te werk gaan bij het communiceren van changes in het CHANGELOG
+en in onze commits en Pull Requests. Hierin houden we bepaalde formules aan zodat het eenvoudig is om ook ver in de
+toekomst terug te zien wanneer een bepaalde change gedaan is en waarom.
 
 Een correcte beschrijving van een change bestaat uit:
 
@@ -9,7 +11,8 @@ Een correcte beschrijving van een change bestaat uit:
 - [`Scope`](#scope)
 - [`Samenvatting`](#samenvatting)
 
-Al deze informatie zorgen er samen voor dat in 1 zin zo duidelijk mogelijk wordt wat het antwoord is op de volgende vragen:
+Al deze informatie zorgen er samen voor dat in 1 zin zo duidelijk mogelijk wordt wat het antwoord is op de volgende
+vragen:
 
 - 'Wat?' (`type` en `samenvatting`)
 - 'Waarom?' (`issuenummer`)
@@ -19,29 +22,36 @@ Al deze informatie zorgen er samen voor dat in 1 zin zo duidelijk mogelijk wordt
 
 ## GitHub Issuenummer
 
-We verwijzen in elke aantekening in het CHANGELOG, en in iedere commit van een Pull Request naar het issuenummer waarin we de feature, bug of deprecation aankaarten, documenteren en bespreken. Dit is waarom:
+We verwijzen in elke aantekening in het CHANGELOG, en in iedere commit van een Pull Request naar het issuenummer waarin
+we de feature, bug of deprecation aankaarten, documenteren en bespreken. Dit is waarom:
 
-- Het CHANGELOG kan elke DSO Toolkit gebruiker lezen welke wijzigingen er in een bepaalde release bij zijn gekomen. Met een duidelijke vermelding van het issuenummer kunnen zij doorklikken en zien waarom bepaalde wijzigingen tot stand zijn gekomen.
-- Als je een commit voorziet van het issuenummer, zien gebruikers die het issue hebben aangekaart of erover mee praten hoe het vordert met het oplossen of uitvoeren van het issue.
+- Het CHANGELOG kan elke DSO Toolkit gebruiker lezen welke wijzigingen er in een bepaalde release bij zijn gekomen. Met
+  een duidelijke vermelding van het issuenummer kunnen zij doorklikken en zien waarom bepaalde wijzigingen tot stand
+  zijn gekomen.
+- Als je een commit voorziet van het issuenummer, zien gebruikers die het issue hebben aangekaart of erover mee praten
+  hoe het vordert met het oplossen of uitvoeren van het issue.
 
 ## Type
 
 Met `type` bedoelen we het soort change dat is uitgevoerd.
-Hiervoor gebruiken we altijd één van de volgende trefwoorden:
+We hanteren 7 verschillende types change:
 
-- Added
-- Changed
-- Deprecated
+- Feature
+- Change
+- Deprecate
 - Docs
-- Fixed
+- Bug
 - Removed
 - Task
 
-Dit geeft ons niet alleen het voordeel van een schone Git history, maar ook pas op de plaats om in het CHANGELOG wijzigingen van hetzelfde soort te groeperen voor de leesbaarheid.
+Dit geeft ons niet alleen het voordeel van een schone Git history, maar ook pas op de plaats om in het CHANGELOG
+wijzigingen van hetzelfde soort te groeperen voor de leesbaarheid.
+Dan is het ook nog mogelijk dat een change, naast 1 van de 7 hierboven genoemde types, **BREAKING** kan zijn.
 
 ## Scope
 
-Er is geen vaste lijst trefwoorden voor `scope`. De `scope` beschrijft het onderwerp van de change. Dit kan bijvoorbeeld een component zijn, of een hele package.
+Er is geen vaste lijst trefwoorden voor `scope`. De `scope` beschrijft het onderwerp van de change. Dit kan bijvoorbeeld
+een component zijn, of een hele package.
 
 In het geval van een component kan een variant tussen haakjes worden gezet. Denk bijvoorbeeld aan:
 
@@ -50,7 +60,9 @@ In het geval van een component kan een variant tussen haakjes worden gezet. Denk
 - Build
 - Linting
 
-Let op de [casing van componenten](./schrijfwijze-componenten.md). Als je `scope` uit meer dan 1 woord bestaat, gebruiken we "Spaced Pascal Case". Dit komt neer op elk woord (van de `scope`) met een hoofdletter, en elk woord onderling gescheiden door middel van een spatie.
+Let op de [casing van componenten](./schrijfwijze-componenten.md). Als je `scope` uit meer dan 1 woord bestaat,
+gebruiken we "Spaced Pascal Case". Dit komt neer op elk woord (van de `scope`) met een hoofdletter, en elk woord
+onderling gescheiden door middel van een spatie.
 
 ## Samenvatting
 
@@ -64,45 +76,80 @@ De titel van het issue is:
 SCOPE: SAMENVATTING
 ```
 
+## Resolution
+
+De resolution in een commit message is afhankelijk van het type change. In onderstaande tabel staat welke resolution bij welke type change horen:
+
+| Type change (GitHub issue label) | Resolution (Commit message, CHANGELOG) |
+| -------------------------------- | -------------------------------------- |
+| **Feature**                      | Added                                  |
+| **Change**                       | Changed                                |
+| **Deprecate**                    | Deprecated                             |
+| **Docs**                         | Docs                                   |
+| **Bug**                          | Fixed                                  |
+| **Remove**                       | Removed                                |
+| **Task**                         | Task                                   |
+
 ## CHANGELOG.md
 
-Elke change wordt in de CHANGELOG in een groep gedocumenteerd. Het type wordt gebruikt om de groep te bepalen. Nieuwe changes worden altijd onder de volgende release ("Next") geplaatst.
+In de CHANGELOG worden de changes gegroepeerd per Resolution.
 
-Het format voor een CHANGELOG entry is:
+Nieuwe changes worden altijd onder de volgende release ("Next") geplaatst.
+
+Het format voor een non-**BREAKING** CHANGELOG-aantekening is:
 
 ```
 ## Next
 
-### GROEP
-
+### RESOLUTION
 * SCOPE: SUMMARY ([#ISSUE_ID](ISSUE_URL))
 ```
 
-Met `[]()` wordt een Markdown link gemaakt. ISSUE_URL is `https://www.github.com/dso-toolkit/dso-toolkit/issues/ISSUE_ID`.
-
-### Voorbeeld
-
-Een voorbeeld van een goede CHANGELOG entry ziet er zo uit:
+Het format voor een **BREAKING** CHANGELOG-aantekening is:
 
 ```
 ## Next
 
-### Fixed
-
-* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
+### RESOLUTION
+* **BREAKING** SCOPE: SUMMARY ([#ISSUE_ID](ISSUE_URL))
 ```
 
-Bekijk voor meer goede voorbeelden [de broncode van het huidige CHANGELOG](https://raw.githubusercontent.com/dso-toolkit/dso-toolkit/master/CHANGELOG.md).
+Met `[]()` wordt een Markdown link gemaakt. ISSUE_URL is
+`https://www.github.com/dso-toolkit/dso-toolkit/issues/ISSUE_ID`.
+
+### Voorbeelden
+
+Hieronder een aantal voorbeelden van goede CHANGELOG-aantekeningen:
+
+```
+## Next
+
+### Added
+* Document Component: type "inhoudsopgave" ([#2271](https://github.com/dso-toolkit/dso-toolkit/issues/2271))
+* **BREAKING:** Accordion: Badge vervangen met Label ([#2774](https://github.com/dso-toolkit/dso-toolkit/issues/2774))
+
+### Changed
+* Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
+
+### Removed
+* Input Number: Verwijder component ([#2708](https://github.com/dso-toolkit/dso-toolkit/issues/2708))
+
+### Fixed
+* Banner: Tooltip/toggletip verkeerde link-kleur ([#2305](https://github.com/dso-toolkit/dso-toolkit/issues/2305))
+
+### Task
+* Packages: Dependencies updates ([#2863](https://github.com/dso-toolkit/dso-toolkit/issues/2863))
+```
 
 ## Commit message
 
-De éérste commit message is altijd opgemaakt volgens de volgende formule:
+De _éérste_ commit message is altijd opgemaakt volgens de volgende formule:
 
 ```
-#ISSUE_ID [TYPE] SCOPE: SAMENVATTING
+#ISSUE_ID [RESOLUTION] SCOPE: SAMENVATTING
 ```
 
-De opvolgende commit messages hoeven alleen te beginnen met het #ISSUE_ID.
+De _opvolgende_ commit messages hoeven alleen te beginnen met het #ISSUE_ID.
 
 ### Voorbeeld
 

@@ -1,27 +1,17 @@
 import { danger, fail } from "danger";
 
 (async function main() {
-  const types = ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Docs", "Task"] as const;
-  type TypeMap = { [K in (typeof types)[number]]: string };
+  const resolutions = ["Added", "Changed", "Deprecated", "Docs", "Fixed", "Removed", "Task"] as const;
+  type ResolutionMap = { [K in (typeof resolutions)[number]]: string };
 
-  const groupMap: TypeMap = {
-    Added: "Added",
-    Changed: "Changed",
-    Deprecated: "Deprecated",
+  const resolutionMap: ResolutionMap = {
+    Added: "Feature",
+    Changed: "Change",
+    Deprecated: "Deprecate",
     Docs: "Docs",
-    Fixed: "Fixed",
-    Removed: "Removed",
-    Task: "Tasks",
-  };
-
-  const labelMap: TypeMap = {
-    Added: "feature",
-    Changed: "change",
-    Deprecated: "deprecate",
-    Docs: "docs",
-    Fixed: "bug",
-    Removed: "remove",
-    Task: "task",
+    Fixed: "Bug",
+    Removed: "Remove",
+    Task: "Task",
   };
 
   // Commit message check
@@ -35,6 +25,8 @@ import { danger, fail } from "danger";
 
     return;
   }
+
+  const githubIssue = await getGithubIssue(firstCommitMessage.issueId);
 
   // Changelog check
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
@@ -63,7 +55,6 @@ import { danger, fail } from "danger";
       }
     }
 
-    const githubIssue = await getGithubIssue(firstCommitMessage.issueId);
     if (!githubIssue) {
       fail(
         `Ik kan GitHub issue '${firstCommitMessage.issueId}' niet vinden. Controleer of het issuenummer klopt en of de issue bestaat.`,
@@ -75,7 +66,7 @@ import { danger, fail } from "danger";
         );
       }
 
-      const githubLabel = labelMap[firstCommitMessage.type];
+      const githubLabel = resolutionMap[firstCommitMessage.resolution];
       if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
         fail(
           `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`,
@@ -92,7 +83,7 @@ import { danger, fail } from "danger";
       const changelogEntry = parseChangelogEntry(diff.after, firstCommitMessage.issueId);
       if (!changelogEntry) {
         fail(
-          `De aantekening in het CHANGELOG volgt niet de juiste formule. Een aantekening in het CHANGELOG moet de volgende formule volgen: "scope: samenvatting ([#issue](https://github.com/dso-toolkit/dso-toolkit/issues/issue))". Bijvoorbeeld: \`* Packages: Dependency updates ([#9999](https://github.com/dso-toolkit/dso-toolkit/issues/9999))\`. Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
+          `De CHANGELOG-aantekening volgt niet de juiste formule. Een CHANGELOG-aantekening moet de volgende formule volgen: "scope: samenvatting ([#issue](https://github.com/dso-toolkit/dso-toolkit/issues/issue))". Bijvoorbeeld: \`* Packages: Dependency updates ([#9999](https://github.com/dso-toolkit/dso-toolkit/issues/9999))\`. Raadpleeg voor meer informatie en probleemoplossing de documentatie: [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie).`,
         );
       } else {
         if (firstCommitMessage?.issueId !== changelogEntry.linkIssueId) {
@@ -103,7 +94,7 @@ import { danger, fail } from "danger";
 
         if (firstCommitMessage?.summary !== changelogEntry.summary) {
           fail(
-            `Er is een verschil in de samenvatting (van het werk dat je hebt gedaan) zoals beschreven in je eerste commit-bericht ('${firstCommitMessage.summary}'), en de aantekening in het CHANGELOG ('${changelogEntry.summary}'). Zorg ervoor dat ze exact hetzelfde zijn.`,
+            `Er is een verschil in de samenvatting (van het werk dat je hebt gedaan) zoals beschreven in je eerste commit-bericht ('${firstCommitMessage.summary}'), en de CHANGELOG-aantekening ('${changelogEntry.summary}'). Zorg ervoor dat ze exact hetzelfde zijn.`,
           );
         }
 
@@ -113,15 +104,21 @@ import { danger, fail } from "danger";
           );
         }
 
-        if (firstCommitMessage?.group !== changelogEntry.group) {
+        if (firstCommitMessage?.resolution !== changelogEntry.group) {
           fail(
-            `Het groupgedeelte in het eerste commit-bericht ('${firstCommitMessage.group}') verschilt van de group in de CHANGELOG-aantekening ('${changelogEntry.group}'). Met 'group' bedoelen we het type wijzigingen dat is aangebracht. Dit moet een van de volgende trefwoorden zijn: 'Added', 'Changed', 'Deprecated', 'Docs', 'Fixed', 'Removed' of 'Tasks', en moet worden gebruikt in het commit-bericht zoals in dit voorbeeld: "#2241 [Task] Packages: Dependency updates". In het CHANGELOG zijn deze trefwoorden subkoppen binnen de 'Volgende' release, zodat alle wijzigingen in de resulterende release gemakkelijk te zien zijn gegroepeerd op soort wijziging.`,
+            `Het groupgedeelte in het eerste commit-bericht ('${firstCommitMessage.resolution}') verschilt van de group in de CHANGELOG-aantekening ('${changelogEntry.group}'). Met 'group' bedoelen we het type wijziging dat is aangebracht. Dit moet een van de volgende trefwoorden zijn: ${resolutions.join(", ")}. In het CHANGELOG zijn deze trefwoorden subkoppen binnen de 'Next' release, zodat alle wijzigingen in de resulterende release gemakkelijk te zien zijn gegroepeerd op resolution.`,
           );
         }
 
         if (changelogEntry.release !== "Next") {
           fail(
             `Je CHANGELOG-aantekening staat niet onder het kopje van de eerstvolgende release ('Next'), maar onder '${changelogEntry.release}'. Verplaats deze naar de juiste locatie, zodat wanneer je pull-verzoek wordt samengevoegd, de CHANGELOG-geschiedenis correct je werk weergeeft in de juiste release.`,
+          );
+        }
+
+        if (githubIssue?.labels.some((l) => l.includes("BREAKING")) && !changelogEntry.isBreaking) {
+          fail(
+            `Het label \`**BREAKING**\` ontbreekt aan het begin van je CHANGELOG-aantekening. Het gerelateerde GitHub-issue ${githubIssue.title} (#${githubIssue.issueId}) is evenwel wel gemarkeerd met het label "💥 BREAKING". Wil je deze toevoegen aan het begin van je CHANGELOG-aantekening? Zorg dat deze er als volgt uitziet:\n\n\`* **BREAKING** ${githubIssue.title} ([#${githubIssue.issueId}](https://github.com/dso-toolkit/dso-toolkit/issues/${githubIssue.issueId}))\``,
           );
         }
       }
@@ -143,7 +140,7 @@ import { danger, fail } from "danger";
 
   function parseFirstCommitMessage(commitMessage: string) {
     const commitMessageRegex = new RegExp(
-      `^#(?<issueId>\\d+) \\[(?<type>${types.join("|")})\\] (?<scope>[^\\s].*?[^\\s]): (?<summary>[^\\s].+[^\\s])`,
+      `^#(?<issueId>\\d+) \\[(?<resolution>${resolutions.join("|")})\\] (?<scope>[^\\s].*?[^\\s]): (?<summary>[^\\s].+[^\\s])`,
     );
 
     const match = commitMessage.match(commitMessageRegex);
@@ -152,16 +149,15 @@ import { danger, fail } from "danger";
     }
 
     const issueId = parseInt(match.groups["issueId"], 10);
-    const { type, scope, summary } = match.groups;
+    const { resolution, scope, summary } = match.groups;
 
-    if (isNaN(issueId) || typeof type !== "string" || typeof scope !== "string" || typeof summary !== "string") {
+    if (isNaN(issueId) || typeof resolution !== "string" || typeof scope !== "string" || typeof summary !== "string") {
       return null;
     }
 
     return {
       issueId,
-      group: groupMap[type] ?? type,
-      type,
+      resolution,
       scope,
       summary,
       issueTitle: `${scope}: ${summary}`,
