@@ -28,7 +28,7 @@ describe("Modal", () => {
     cy.wait(200).matchImageSnapshot();
   });
 
-  it("should have the propper role set by modal component", () => {
+  it("should pass role to dialog", () => {
     cy.get("dso-modal.hydrated")
       .invoke("prop", "dialogRole", "alert")
       .get("@dsoModal")
