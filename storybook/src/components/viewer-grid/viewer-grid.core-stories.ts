@@ -2,11 +2,11 @@ import { type Meta } from "@storybook/web-components";
 import {
   DocumentList,
   DocumentListItemStatusDemoContent,
-  Tile,
-  ViewerGridDocumentHeaderProperties,
   selectExampleOption,
-  viewerGridMeta,
+  Tile,
   ViewerGridArgs,
+  ViewerGridDocumentHeaderProperties,
+  viewerGridMeta,
   viewerGridStories,
 } from "dso-toolkit";
 import { html } from "lit-html";
@@ -16,6 +16,7 @@ import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 import { options } from "dso-toolkit/dist/components/advanced-select/advanced-select.content";
+import { tiles } from "../tile-grid/tile-grid.content";
 
 // Dit is nodig omdat TypeScript geen modules compileert. Zodra dso-toolkit dat wel doet kan de `const activeFilters` worden vervangen met:
 // import { activeFilters } from "dso-toolkit/src/components/label-group/label-group.content";
@@ -267,6 +268,7 @@ const {
       filterblokExampleTemplate,
       documentHeaderExampleTemplate,
       documentListExampleTemplate,
+      tiles,
     };
   },
 });
