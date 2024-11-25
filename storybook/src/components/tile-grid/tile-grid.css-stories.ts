@@ -6,7 +6,7 @@ import { tiles } from "./tile-grid.content";
 
 const meta: Meta = {
   ...tileGridMeta({ readme }),
-  title: "HTML|CSS/Tile-grid",
+  title: "HTML|CSS/Tile Grid",
 };
 
 export default meta;
