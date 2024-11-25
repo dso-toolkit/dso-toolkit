@@ -1,27 +1,17 @@
 import { danger, fail } from "danger";
 
 (async function main() {
-  const types = ["Feature", "Change", "Deprecate", "Docs", "Bug", "Removed", "Task"] as const;
+  const types = ["Feature", "Change", "Deprecate", "Docs", "Bug", "Remove", "Task"] as const;
   type TypeMap = { [K in (typeof types)[number]]: string };
 
-  const groupMap: TypeMap = {
-    Feature: "Feature",
-    Change: "Change",
-    Deprecate: "Deprecate",
+  const resolutionMap: TypeMap = {
+    Feature: "Added",
+    Change: "Changed",
+    Deprecate: "Deprecated",
     Docs: "Docs",
-    Bug: "Bug",
-    Removed: "Remove",
+    Bug: "Fixed",
+    Remove: "Removed",
     Task: "Task",
-  };
-
-  const labelMap: TypeMap = {
-    Feature: "feature",
-    Change: "change",
-    Deprecate: "deprecate",
-    Docs: "docs",
-    Bug: "bug",
-    Removed: "remove",
-    Task: "task",
   };
 
   // Commit message check
@@ -76,7 +66,7 @@ import { danger, fail } from "danger";
         );
       }
 
-      const githubLabel = labelMap[firstCommitMessage.type];
+      const githubLabel = resolutionMap[firstCommitMessage.type];
       if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
         fail(
           `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`,
@@ -166,7 +156,7 @@ import { danger, fail } from "danger";
 
     return {
       issueId,
-      group: groupMap[type] ?? type,
+      group: resolutionMap[type] ?? type,
       type,
       scope,
       summary,
