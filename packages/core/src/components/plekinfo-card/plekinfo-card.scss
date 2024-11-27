@@ -96,6 +96,10 @@ del.dso-plekinfo-card-container {
   align-items: center !important;
   display: flex !important;
   font-size: 1.125em !important;
+  font-weight: 700 !important;
+  color: colors.$bosgroen !important;
+  line-height: 1.25 !important;
+
   margin-block-end: 0 !important;
   margin-block-start: 0 !important;
 }
