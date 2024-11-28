@@ -23,6 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Document Component: type "inhoudsopgave" ([#2271](https://github.com/dso-toolkit/dso-toolkit/issues/2271))
 * Accordion: Ondersteuning voor renvooi en wijzigactie ([#2857](https://github.com/dso-toolkit/dso-toolkit/issues/2857))
 
+### Tasks
+* Card: Internalize webcomponent styling ([#2828](https://github.com/dso-toolkit/dso-toolkit/issues/2828))
+
 ## ✍️ Release 67.0.0 - 2024-11-25
 
 ### Removed
