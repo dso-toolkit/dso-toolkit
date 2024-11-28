@@ -45,10 +45,22 @@ describe("Document Card", () => {
   });
 
   it("should show toggletip next to type", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-type-toeliching")
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-type-toelichting")
       .get("dso-document-card.hydrated")
       .find("[slot='type'] > dso-toggletip")
       .should("exist");
+
+    cy.get("dso-document-card.hydrated").matchImageSnapshot();
+  });
+
+  it("should show two badges next to status text", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-status-toelichting")
+      .get("dso-document-card.hydrated")
+      .find("[slot='status']")
+      .within(() => {
+        cy.get("dso-badge").first().should("have.attr", "status", "outline");
+        cy.get("dso-badge").last().should("have.attr", "status", "warning");
+      });
 
     cy.get("dso-document-card.hydrated").matchImageSnapshot();
   });

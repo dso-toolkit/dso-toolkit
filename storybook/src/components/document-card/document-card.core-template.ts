@@ -7,13 +7,15 @@ import { DocumentCardClickEvent, DsoDocumentCardCustomEvent } from "@dso-toolkit
 export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
   component: "documentCard",
   implementation: "core",
-  template: ({ labelTemplate, toggletipTemplate }) =>
+  template: ({ labelTemplate, toggletipTemplate, badgeTemplate }) =>
     function documentCardTemplate({
       label,
       href,
       active,
       typeItems,
       typeToelichting,
+      statusToelichtingOutline,
+      statusToelichtingWarning,
       meta,
       status,
       dsoDocumentCardClick,
@@ -33,7 +35,13 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
         ${typeItems
           ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
           : nothing}
-        ${status ? html`<div slot="status">${status}</div>` : nothing}
+        ${status
+          ? statusToelichtingOutline || statusToelichtingWarning
+            ? html`<div slot="status">
+                ${status} ${badgeTemplate(statusToelichtingOutline)} ${badgeTemplate(statusToelichtingWarning)}
+              </div>`
+            : html`<div slot="status">${status}</div>`
+          : nothing}
       </dso-document-card>`;
     },
 };

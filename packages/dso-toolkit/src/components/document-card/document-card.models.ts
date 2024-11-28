@@ -1,5 +1,6 @@
-import { Label } from "../label/label.models.js";
-import { Toggletip } from "../toggletip/toggletip.models.js";
+import { Label } from "../label";
+import { Toggletip } from "../toggletip";
+import { Badge } from "../badge";
 
 export interface DocumentCard<TemplateFnReturnType> {
   label: string;
@@ -9,6 +10,8 @@ export interface DocumentCard<TemplateFnReturnType> {
   typeItems: TemplateFnReturnType[];
   typeToelichting: Toggletip<never>;
   status: string;
+  statusToelichtingOutline: Badge;
+  statusToelichtingWarning: Badge;
   dsoDocumentCardClick?: (e: CustomEvent<DocumentCardClickEvent>) => void;
 }
 
