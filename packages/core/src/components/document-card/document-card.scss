@@ -37,7 +37,8 @@
 ::slotted([slot="meta"]) {
   display: flex !important;
   justify-content: space-between !important;
-  margin-inline-start: auto !important;
+  flex-shrink: 0 !important;
+  align-self: end !important;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100% !important;

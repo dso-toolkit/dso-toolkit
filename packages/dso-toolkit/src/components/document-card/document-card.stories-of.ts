@@ -3,8 +3,8 @@ import { ComponentAnnotations, Renderer } from "@storybook/types";
 import {
   DocumentCardArgs,
   documentCardArgs,
-  documentCardArgTypes,
   documentCardArgsMapper,
+  documentCardArgTypes,
 } from "./document-card.args.js";
 import { DocumentCard } from "./document-card.models.js";
 
@@ -17,7 +17,8 @@ type DocumentCardStory = StoryObj<DocumentCardArgs, Renderer>;
 interface DocumentCardStories {
   Default: DocumentCardStory;
   WithLabel: DocumentCardStory;
-  WithTypeToeliching: DocumentCardStory;
+  WithTypeToelichting: DocumentCardStory;
+  WithStatusToelichting: DocumentCardStory;
 }
 
 interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -73,7 +74,7 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
         documentCardTemplate(documentCardArgsMapper(args, typeItems)),
       ),
     },
-    WithTypeToeliching: {
+    WithTypeToelichting: {
       args: {
         ...documentCardArgs,
         typeToelichting: {
@@ -82,6 +83,22 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
           position: "right",
           small: false,
           secondary: false,
+        },
+      },
+      render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>
+        documentCardTemplate(documentCardArgsMapper(args, typeItems)),
+      ),
+    },
+    WithStatusToelichting: {
+      args: {
+        ...documentCardArgs,
+        statusToelichtingOutline: {
+          status: "outline",
+          message: "!",
+        },
+        statusToelichtingWarning: {
+          status: "warning",
+          message: "!",
         },
       },
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>

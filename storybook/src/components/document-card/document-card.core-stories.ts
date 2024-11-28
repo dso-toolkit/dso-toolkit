@@ -13,7 +13,7 @@ const meta: Meta<DocumentCardArgs> = {
 
 export default meta;
 
-const { Default, WithLabel, WithTypeToeliching } = documentCardStories({
+const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = documentCardStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { documentCardTemplate } = templates;
@@ -25,4 +25,4 @@ const { Default, WithLabel, WithTypeToeliching } = documentCardStories({
   },
 });
 
-export { Default, WithLabel, WithTypeToeliching };
+export { Default, WithLabel, WithTypeToelichting, WithStatusToelichting };
