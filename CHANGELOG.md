@@ -32,7 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Modal: herevalueer gebruik reserved name `role` als property ([#2799](https://github.com/dso-toolkit/dso-toolkit/issues/2799))
 
 ### Added
-* Accordion: Renvooi in titel van accordion section toestaan ([#2857](https://github.com/dso-toolkit/dso-toolkit/issues/2857))
+* Accordion: Ondersteuning voor renvooi en wijzigactie ([#2857](https://github.com/dso-toolkit/dso-toolkit/issues/2857))
 
 ## 🐏 Release 66.3.0 - 2024-11-18
 
