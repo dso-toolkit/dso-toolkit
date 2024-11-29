@@ -36,7 +36,6 @@ export interface DocumentComponentArgs {
   mark?: string;
   enableRecursiveToggle?: boolean;
   mode: DocumentComponentMode;
-  href?: string;
   dsoTableOfContentsClick: HandlerFunction;
 }
 
@@ -143,11 +142,13 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     control: {
       type: "boolean",
     },
+    if: { arg: "mode", eq: "document" },
   },
   openAnnotation: {
     control: {
       type: "boolean",
     },
+    if: { arg: "mode", eq: "document" },
   },
   opschrift: {
     control: {
@@ -190,18 +191,10 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     if: { arg: "mode", eq: "document" },
   },
   mode: {
-    defaultValue: "document",
     options: ["document", "table-of-contents"],
     control: {
       type: "select",
     },
-  },
-  href: {
-    defaultValue: "/documenten/id",
-    control: {
-      type: "text",
-    },
-    if: { arg: "mode", eq: "table-of-contents" },
   },
 };
 
@@ -215,7 +208,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
 
   return {
     ...a,
-    href: a.href,
+    href: a.mode === "table-of-contents" ? "/document/id" : undefined,
     dsoTableOfContentsClick: (e) => {
       if (!e.detail.isModifiedEvent) {
         e.detail.originalEvent.preventDefault();

@@ -9,7 +9,6 @@
 
 | Property      | Attribute      | Description                                                                                          | Type                                | Default      |
 | ------------- | -------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------ |
-| `href`        | `href`         | The URL to which the Heading links (only in mode="table-of-contents").                               | `string \| undefined`               | `undefined`  |
 | `jsonFile`    | `json-file`    | Name of the file to load.                                                                            | `string \| undefined`               | `undefined`  |
 | `mode`        | `mode`         | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document" | `"document" \| "table-of-contents"` | `"document"` |
 | `openDefault` | `open-default` | The default state for all Document Components.                                                       | `boolean`                           | `false`      |

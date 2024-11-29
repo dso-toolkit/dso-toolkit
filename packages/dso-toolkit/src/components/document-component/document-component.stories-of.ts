@@ -22,7 +22,6 @@ type DocumentComponentStoryDemo = StoryObj<
     openDefault: boolean;
     showCanvas: boolean;
     mode: DocumentComponentMode;
-    href: string;
     ozonContentAnchorClick: HandlerFunction;
     tableOfContentsClick: HandlerFunction;
   },
@@ -31,8 +30,8 @@ type DocumentComponentStoryDemo = StoryObj<
 
 interface DocumentComponentStories {
   Default: StoryObj<DocumentComponentArgs, Renderer>;
-  Demo: DocumentComponentStoryDemo;
-  DemoInhoudsopgave: DocumentComponentStoryDemo;
+  Contents: DocumentComponentStoryDemo;
+  Inhoudsopgave: DocumentComponentStoryDemo;
   IMRO: StoryObj<DocumentComponentArgs, Renderer>;
 }
 
@@ -55,7 +54,6 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     openDefault: boolean,
     showCanvas: boolean,
     mode: DocumentComponentMode,
-    href: string,
     ozonContentAnchorClick: HandlerFunction,
     tableOfContentsClick: HandlerFunction,
   ) => TemplateFnReturnType;
@@ -91,7 +89,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
       ),
     },
-    Demo: {
+    Contents: {
       decorators: [(story) => decorator(story)],
       args: {
         jsonFile: "ozon-response.json",
@@ -127,12 +125,6 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        href: {
-          control: {
-            type: "text",
-          },
-          if: { arg: "mode", eq: "table-of-contents" },
-        },
         ozonContentAnchorClick: {
           action: "dsoOzonContentAnchorClick",
         },
@@ -147,20 +139,18 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.href,
           args.ozonContentAnchorClick,
           args.tableOfContentsClick,
         ),
       ),
     },
-    DemoInhoudsopgave: {
+    Inhoudsopgave: {
       decorators: [(story) => decorator(story)],
       args: {
         jsonFile: "ozon-response.json",
         openDefault: true,
         showCanvas: false,
         mode: "table-of-contents",
-        href: "/documenten/id",
       },
       argTypes: {
         jsonFile: {
@@ -190,12 +180,6 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        href: {
-          control: {
-            type: "text",
-          },
-          if: { arg: "mode", eq: "table-of-contents" },
-        },
         ozonContentAnchorClick: {
           action: "dsoOzonContentAnchorClick",
         },
@@ -210,7 +194,6 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.href,
           args.ozonContentAnchorClick,
           args.tableOfContentsClick,
         ),

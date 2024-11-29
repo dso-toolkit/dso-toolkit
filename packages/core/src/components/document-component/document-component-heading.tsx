@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from "@stencil/core";
+import { h, FunctionalComponent, VNode } from "@stencil/core";
 import { JSXBase } from "@stencil/core/internal";
 import { DocumentComponentMode } from "./document-component.models";
 
@@ -10,35 +10,53 @@ interface DocumentComponentHeadingProps {
 
 export const Heading: FunctionalComponent<
   DocumentComponentHeadingProps & JSXBase.HTMLAttributes<HTMLHeadingElement>
-> = ({ heading, ...props }, children) => {
-  let headingElement: HTMLHeadingElement;
+> = ({ heading, mode, href, onClick, ...props }, children) => {
+  let headingElement: VNode;
   switch (heading) {
     default:
     case "h2":
-      headingElement = <h2 {...props}>{children}</h2>;
+      headingElement = (
+        <h2 {...props} onClick={mode === "document" ? onClick : undefined}>
+          {children}
+        </h2>
+      );
       break;
     case "h3":
-      headingElement = <h3 {...props}>{children}</h3>;
+      headingElement = (
+        <h3 {...props} onClick={mode === "document" ? onClick : undefined}>
+          {children}
+        </h3>
+      );
       break;
     case "h4":
-      headingElement = <h4 {...props}>{children}</h4>;
+      headingElement = (
+        <h4 {...props} onClick={mode === "document" ? onClick : undefined}>
+          {children}
+        </h4>
+      );
       break;
     case "h5":
-      headingElement = <h5 {...props}>{children}</h5>;
+      headingElement = (
+        <h5 {...props} onClick={mode === "document" ? onClick : undefined}>
+          {children}
+        </h5>
+      );
       break;
     case "h6":
-      headingElement = <h6 {...props}>{children}</h6>;
+      headingElement = (
+        <h6 {...props} onClick={mode === "document" ? onClick : undefined}>
+          {children}
+        </h6>
+      );
   }
 
-  if (props.mode === "document") {
-    return headingElement;
-  }
-
-  if (props.mode === "table-of-contents" && props.href) {
+  if (mode === "table-of-contents" && href) {
     return (
-      <a href={props.href} class="heading-anchor">
+      <a href={href} onClick={onClick} class="heading-anchor">
         {headingElement}
       </a>
     );
   }
+
+  return headingElement;
 };

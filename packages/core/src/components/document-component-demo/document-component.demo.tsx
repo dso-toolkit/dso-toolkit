@@ -64,12 +64,6 @@ export class DocumentComponentDemo implements ComponentInterface {
   mode: DocumentComponentMode = "document";
 
   /**
-   * The URL to which the Heading links (only in mode="table-of-contents").
-   */
-  @Prop({ reflect: true })
-  href?: string;
-
-  /**
    * To demo user interacting with IntRef or IntIoRef elements.
    */
   @Event()
@@ -300,16 +294,9 @@ export class DocumentComponentDemo implements ComponentInterface {
     );
   }
 
-  private showInTableOfContents(type?: string): boolean {
-    return (
-      !!type &&
-      ["LICHAAM", "HOOFDSTUK", "AFDELING", "ARTIKEL", "PARAGRAAF", "SUBPARAGRAAF", "SUBSUBPARAGRAAF"].includes(type)
-    );
-  }
-
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
-    if (!documentComponent) {
+    if (!documentComponent || (this.mode === "table-of-contents" && documentComponent.type === "LID")) {
       return <Fragment />;
     }
 
@@ -318,61 +305,58 @@ export class DocumentComponentDemo implements ComponentInterface {
     const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
 
     return (
-      (this.mode === "document" ||
-        (this.mode === "table-of-contents" && this.showInTableOfContents(documentComponent.type))) && (
-        <dso-document-component
-          annotated={this.isAnnotated(documentComponent)}
-          bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
-          filtered={
-            this.isOpen(documentComponent)
-              ? this.isFiltered(documentComponent)
-              : this.hasFilteredChildren(documentComponent)
-          }
-          genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
-          gereserveerd={documentComponent.gereserveerd}
-          heading="h2"
-          inhoud={documentComponent.inhoud}
-          label={documentComponent.labelXml}
-          openAnnotation={this.isOpenedAnnotation(documentComponent)}
-          notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
-          nummer={documentComponent.nummerXml}
-          onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
-          onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
-          onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
-          open={this.isOpen(documentComponent)}
-          opschrift={documentComponent.opschrift}
-          type={documentComponent.type}
-          vervallen={documentComponent.vervallen}
-          wijzigactie={documentComponent.wijzigactie}
-          recursiveToggle={this.recursiveToggleState(documentComponent)}
-          onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
-          mode={this.mode}
-          href={this.href}
-          onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
-        >
-          {this.isOpenedAnnotation(documentComponent) && (
-            <div slot="annotations">
-              <dso-annotation-locatie
-                active={this.isCheckedSlideToggle(documentComponent)}
-                gewijzigde-locatie
-                locatieNoemer={"Winkelgebied"}
-                onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
-              >
-                <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
-              </dso-annotation-locatie>
-            </div>
-          )}
-          {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
-            <ul class="dso-document-component-list">
-              {embeddedDocuments.documentComponents.map((d) => (
-                <li key={d.documentTechnischId}>
-                  <DocumentComponent path={[...path, d]} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </dso-document-component>
-      )
+      <dso-document-component
+        annotated={this.isAnnotated(documentComponent)}
+        bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
+        filtered={
+          this.isOpen(documentComponent)
+            ? this.isFiltered(documentComponent)
+            : this.hasFilteredChildren(documentComponent)
+        }
+        genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
+        gereserveerd={documentComponent.gereserveerd}
+        heading="h2"
+        inhoud={documentComponent.inhoud}
+        label={documentComponent.labelXml}
+        openAnnotation={this.isOpenedAnnotation(documentComponent)}
+        notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
+        nummer={documentComponent.nummerXml}
+        onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
+        onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
+        onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
+        open={this.isOpen(documentComponent)}
+        opschrift={documentComponent.opschrift}
+        type={documentComponent.type}
+        vervallen={documentComponent.vervallen}
+        wijzigactie={documentComponent.wijzigactie}
+        recursiveToggle={this.recursiveToggleState(documentComponent)}
+        onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
+        mode={this.mode}
+        href={this.mode === "table-of-contents" ? "/document/" + documentComponent.documentTechnischId : undefined}
+        onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
+      >
+        {this.isOpenedAnnotation(documentComponent) && (
+          <div slot="annotations">
+            <dso-annotation-locatie
+              active={this.isCheckedSlideToggle(documentComponent)}
+              gewijzigde-locatie
+              locatieNoemer={"Winkelgebied"}
+              onDsoActiveChange={() => this.handleSelectableChange(documentComponent)}
+            >
+              <span class="symboolcode" slot="symbool" data-symboolcode="vszt030"></span>
+            </dso-annotation-locatie>
+          </div>
+        )}
+        {this.showContent(documentComponent) && embeddedDocuments?.documentComponents.length && (
+          <ul class="dso-document-component-list">
+            {embeddedDocuments.documentComponents.map((d) => (
+              <li key={d.documentTechnischId}>
+                <DocumentComponent path={[...path, d]} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </dso-document-component>
     );
   };
 

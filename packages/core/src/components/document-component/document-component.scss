@@ -134,9 +134,12 @@
 }
 
 :host([mode="table-of-contents"]) {
-  .editaction-label,
-  .heading {
-    margin-inline-start: document-component.$indent-table-of-contents;
+  .heading-container {
+    padding-inline-start: document-component.$indent-table-of-contents;
+  }
+
+  .editaction-label {
+    margin-inline-start: 0;
   }
 }
 

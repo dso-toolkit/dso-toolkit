@@ -244,6 +244,14 @@ export class DocumentComponent implements ComponentInterface {
     });
   };
 
+  private showOntwerpBadge(): boolean {
+    return (
+      this.genesteOntwerpInformatie &&
+      !this.bevatOntwerpInformatie &&
+      ((!this.open && this.mode === "document") || this.mode === "table-of-contents")
+    );
+  }
+
   render() {
     const suffix = this.suffix();
     const collapsible = !!(
@@ -349,16 +357,14 @@ export class DocumentComponent implements ComponentInterface {
                   <dso-icon icon={this.recursiveToggle === true ? "eye" : "eye-slash"} />
                 </button>
               )}
-              {this.genesteOntwerpInformatie &&
-                !this.bevatOntwerpInformatie &&
-                ((!this.open && this.mode === "document") || this.mode === "table-of-contents") && (
-                  <>
-                    <dso-badge status="warning" aria-describedby="nested-draft-description">
-                      !
-                    </dso-badge>
-                    <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
-                  </>
-                )}
+              {this.showOntwerpBadge() && (
+                <>
+                  <dso-badge status="warning" aria-describedby="nested-draft-description">
+                    !
+                  </dso-badge>
+                  <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
+                </>
+              )}
               {(this.bevatOntwerpInformatie || this.annotated) && (
                 <div class="addons">
                   {this.bevatOntwerpInformatie && (
