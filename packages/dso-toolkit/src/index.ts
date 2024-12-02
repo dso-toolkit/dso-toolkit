@@ -188,9 +188,6 @@ export {
 export { Scrollable } from "./components/scrollable/scrollable.models.js";
 export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
 
-export { SearchBar } from "./components/search-bar/search-bar.models.js";
-export { SearchBarTemplates, storiesOfSearchBar } from "./components/search-bar/search-bar.stories-of.js";
-
 export { Selectable } from "./components/selectable/selectable.models.js";
 export { SelectableTemplates, storiesOfSelectable } from "./components/selectable/selectable.stories-of.js";
 
@@ -223,3 +220,5 @@ export * from "./components/tree-view";
 export * from "./components/viewer-grid";
 
 export * from "./components/whitebox";
+
+export * from "./components/search-bar";

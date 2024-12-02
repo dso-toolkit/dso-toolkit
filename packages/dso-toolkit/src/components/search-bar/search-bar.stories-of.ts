@@ -1,104 +1,132 @@
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
-
 import { SearchBarArgs, searchBarArgsMapper, searchBarArgTypes } from "./search-bar.args.js";
 import { SearchBar } from "./search-bar.models.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { componentArgs } from "../../storybook";
 
-export interface SearchBarTemplates<TemplateFnReturnType> {
-  searchBarTemplate: (searchBarProperties: SearchBar) => TemplateFnReturnType;
+type SearchBarStory = StoryObj<SearchBarArgs, Renderer>;
+
+interface SearchBarStories {
+  VisualLabelWithIcon: SearchBarStory;
+  VisualLabelWithoutIcon: SearchBarStory;
+  PlaceholderWithLongText: SearchBarStory;
+  HiddenLabelWithIcon: SearchBarStory;
+  HiddenLabelWithoutIcon: SearchBarStory;
+  WithValue: SearchBarStory;
+  Invalid: SearchBarStory;
+  HiddenButton: SearchBarStory;
+  WithResultsMessage: SearchBarStory;
+  WithHiddenResultsMessage: SearchBarStory;
 }
 
-export function storiesOfSearchBar<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     SearchBarTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Search Bar", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: searchBarArgTypes,
-      args: componentArgs<SearchBarArgs>({
-        id: "search-bar-id",
-        label: "Label",
-        icon: true,
-        hiddenLabel: false,
-        invalid: false,
-        placeholder: "Bv. boomkap",
-        value: "",
-        buttonLabel: "Zoeken",
-        hideSearchButton: false,
-        ariaDescribedBy: "",
-        ariaErrorMessage: "",
-        resultsMessage: "",
-        resultsHidden: false,
-      }),
-    });
+  > {}
 
-    const template = templateMapper<SearchBarArgs>((args, { searchBarTemplate }) =>
-      searchBarTemplate(searchBarArgsMapper(args)),
-    );
+interface SearchBarTemplates<TemplateFnReturnType> {
+  searchBarTemplate: (searchBarProperties: SearchBar) => TemplateFnReturnType;
+}
 
-    stories.add("visual label with icon", template);
+export function searchBarMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  SearchBarArgs
+> {
+  return {
+    argTypes: searchBarArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("visual label without icon", template, {
+export function searchBarStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>): SearchBarStories {
+  const render = templateContainer.render(storyTemplates, (args: SearchBarArgs, { searchBarTemplate }) =>
+    searchBarTemplate(searchBarArgsMapper(args)),
+  );
+
+  const defaultArgs = componentArgs<SearchBarArgs>({
+    id: "search-bar-id",
+    label: "Label",
+    icon: true,
+    hiddenLabel: false,
+    invalid: false,
+    placeholder: "Bv. boomkap",
+    value: "",
+    buttonLabel: "Zoeken",
+    hideSearchButton: false,
+    ariaDescribedBy: "",
+    ariaErrorMessage: "",
+    resultsMessage: "",
+    resultsHidden: false,
+  });
+
+  return {
+    VisualLabelWithIcon: {
+      args: defaultArgs,
+      render,
+    },
+    VisualLabelWithoutIcon: {
+      args: { ...defaultArgs, icon: false },
+      render,
+    },
+    PlaceholderWithLongText: {
+      args: { ...defaultArgs, placeholder:
+          "Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text." },
+      render,
+    },
+    HiddenLabelWithIcon: {
+      args: { ...defaultArgs, hiddenLabel: true },
+      render,
+    },
+    HiddenLabelWithoutIcon: {
+      args: { ...defaultArgs, hiddenLabel: true, icon: false },
+      render,
+    },
+    WithValue: {
+      args: { ...defaultArgs, value: "Laan van Eik en Duinen 155" },
+      render,
+    },
+    Invalid: {
       args: {
-        icon: false,
-      },
-    });
-
-    stories.add("placeholder with long text", template, {
-      args: {
-        placeholder:
-          "Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text.",
-      },
-    });
-
-    stories.add("hidden label with icon", template, {
-      args: {
-        hiddenLabel: true,
-        icon: true,
-      },
-    });
-
-    stories.add("hidden label without icon", template, {
-      args: {
-        hiddenLabel: true,
-        icon: false,
-      },
-    });
-
-    stories.add("with value", template, {
-      args: {
-        value: "Laan van Eik en Duinen 155",
-      },
-    });
-
-    stories.add("invalid", template, {
-      args: {
+        ...defaultArgs,
         invalid: true,
       },
-    });
-
-    stories.add("hidden button", template, {
+      render,
+    },
+    HiddenButton: {
       args: {
+        ...defaultArgs,
         hideSearchButton: true,
       },
-    });
-
-    stories.add("with results message", template, {
+      render,
+    },
+    WithResultsMessage: {
       args: {
+        ...defaultArgs,
         resultsMessage: "7 gevonden resultaten",
       },
-    });
-
-    stories.add("with hidden results message", template, {
+      render,
+    },
+    WithHiddenResultsMessage: {
       args: {
+        ...defaultArgs,
         resultsMessage: "7 gevonden resultaten",
         resultsHidden: true,
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }
