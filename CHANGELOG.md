@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Packages: Dependencies updates ([#2904](https://github.com/dso-toolkit/dso-toolkit/issues/2904))
+* Policy: Definition of Ready en Definition of Done ([#2914](https://github.com/dso-toolkit/dso-toolkit/issues/2914))
 
 ### Docs
 * Website: Release procedure voor maintainers beschrijven ([#2876](https://github.com/dso-toolkit/dso-toolkit/issues/2876))
