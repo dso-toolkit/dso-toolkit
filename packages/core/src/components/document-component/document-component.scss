@@ -35,7 +35,6 @@
   @include delete.root($strikethrough: false);
 
   --_dso-document-component-text-decoration: line-through;
-  --_dso-renvooi-text-decoration: line-through;
 }
 
 .heading-element,
@@ -154,17 +153,22 @@
 
 .annotation-container {
   padding-inline-end: units.$u1;
+
+  dso-panel {
+    --_dso-panel-body-background-color: #{colors.$wit};
+  }
 }
 
-:host(:where([wijzigactie="verwijder"])) {
+:host(:where([annotations-wijzigactie="verwijder"])) {
   .annotation-container {
     dso-panel {
       --_dso-panel-body-background-color: #{colors.$rood-10};
+      --_dso-renvooi-text-decoration: line-through;
     }
   }
 }
 
-:host([wijzigactie="voegtoe"]) {
+:host([annotations-wijzigactie="voegtoe"]) {
   .annotation-container {
     dso-panel {
       --_dso-panel-body-background-color: #{colors.$lime-10};

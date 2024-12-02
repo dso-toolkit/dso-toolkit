@@ -12,6 +12,8 @@ export interface DocumentComponentToggleAnnotationEvent {
 
 export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
 
+export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
+
 export interface DocumentComponentOzonContentAnchorClickEvent {
   originalEvent: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>;
   ozonContentAnchorClick: OzonContentAnchorClickEvent;

@@ -4,7 +4,8 @@ import {
   DocumentComponent,
   DocumentComponentHeading,
   DocumentComponentType,
-  DocumentComponentWijzigActie,
+  DocumentComponentWijzigactie,
+  DocumentComponentAnnotationsWijzigactie,
 } from "./document-component.models";
 import { HandlerFunction } from "@storybook/addon-actions/*";
 import escapeStringRegexp from "escape-string-regexp";
@@ -29,7 +30,8 @@ export interface DocumentComponentArgs {
   opschrift: string;
   type: DocumentComponentType;
   vervallen: boolean;
-  wijzigactie: DocumentComponentWijzigActie | undefined;
+  wijzigactie: DocumentComponentWijzigactie | undefined;
+  annotationsWijzigactie: DocumentComponentAnnotationsWijzigactie | undefined;
   mark?: string;
   enableRecursiveToggle?: boolean;
 }
@@ -58,6 +60,7 @@ export const documentComponentArgs: Omit<
   type: "ARTIKEL",
   vervallen: false,
   wijzigactie: "voegtoe",
+  annotationsWijzigactie: "voegtoe",
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -154,6 +157,12 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   },
   wijzigactie: {
     options: [undefined, "voegtoe", "verwijder", "nieuweContainer", "verwijderContainer"],
+    control: {
+      type: "select",
+    },
+  },
+  annotationsWijzigactie: {
+    options: [undefined, "voegtoe", "verwijder"],
     control: {
       type: "select",
     },

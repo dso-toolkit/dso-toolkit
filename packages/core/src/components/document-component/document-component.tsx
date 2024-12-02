@@ -4,6 +4,7 @@ import {
   DocumentComponentToggleAnnotationEvent,
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentWijzigactie,
+  DocumentComponentAnnotationsWijzigactie,
   DocumentComponentInputType,
   DocumentComponentMarkFunction,
   DocumentComponentMarkItemHighlightEvent,
@@ -135,6 +136,12 @@ export class DocumentComponent implements ComponentInterface {
    */
   @Prop({ reflect: true })
   wijzigactie?: DocumentComponentWijzigactie;
+
+  /**
+   * The wijzigactie for all annotations.
+   */
+  @Prop({ reflect: true })
+  annotationsWijzigactie?: DocumentComponentAnnotationsWijzigactie;
 
   /**
    * To mark text.

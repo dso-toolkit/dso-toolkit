@@ -22,16 +22,25 @@ describe("Document Component", () => {
       ]);
   });
 
-  for (const state of ["default", "voegtoe", "verwijder"]) {
-    it(`matches image snapshot ${state}`, () => {
-      // this test uses args to set the initial state of the component because the argsMapper is needed for the annotations
-      cy.visit(
-        "http://localhost:45000/iframe.html?id=core-document-component--default&args=open:!true;openAnnotation:!true",
-      )
-        .get("dso-document-component.hydrated")
-        .invoke("prop", "wijzigactie", state === "default" ? null : state)
-        .matchImageSnapshot();
-    });
+  const states = ["default", "voegtoe", "verwijder"];
+
+  for (const wijzigactie of states) {
+    for (const annotationsWijzigactie of states) {
+      it(`matches image snapshot wijzigactie ${wijzigactie} with annotationsWijzigactie ${annotationsWijzigactie}`, () => {
+        // this test uses args to set the initial state of the component because the argsMapper is needed for the annotations
+        cy.visit(
+          "http://localhost:45000/iframe.html?id=core-document-component--default&args=open:!true;openAnnotation:!true",
+        )
+          .get("dso-document-component.hydrated")
+          .invoke("prop", "wijzigactie", wijzigactie === "default" ? null : wijzigactie)
+          .invoke(
+            "prop",
+            "annotationsWijzigactie",
+            annotationsWijzigactie === "default" ? null : annotationsWijzigactie,
+          )
+          .matchImageSnapshot();
+      });
+    }
   }
 });
 
