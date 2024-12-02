@@ -62,7 +62,7 @@
     }
   }
 
-  &:not(.dso-accordion-compact):not(.dso-accordion-conclusion) {
+  &:not(.dso-accordion-compact):not(.dso-accordion-conclusion):not(.dso-accordion-compact-black) {
     &,
     .dso-nested-accordion .dso-accordion {
       @include accordion-theme-default.default();
@@ -81,6 +81,52 @@
     &,
     .dso-nested-accordion .dso-accordion {
       @include accordion-theme-compact.compact();
+    }
+  }
+
+  &.dso-accordion-compact-black {
+    .dso-accordion-section {
+      .dso-section-handle {
+        a,
+        a:hover,
+        button,
+        button:hover {
+          color: accordion.$compact-black-color;
+          &::before {
+            @include di.base("chevron-right-zwart", accordion.$chevron-icon-size);
+          }
+        }
+      }
+      &.dso-open:not(.dso-nested-accordion) {
+        .dso-section-handle {
+          a,
+          a:hover,
+          button,
+          button:hover {
+            color: accordion.$compact-black-color;
+            &::before {
+              @include di.base("chevron-down-zwart", accordion.$chevron-icon-size);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.dso-accordion-compact-black.dso-accordion-reverse-align {
+    .dso-accordion-section {
+      &.dso-open:not(.dso-nested-accordion) {
+        .dso-section-handle {
+          a,
+          a:hover,
+          button,
+          button:hover {
+            &::before {
+              @include di.base("chevron-up-zwart", accordion.$chevron-icon-size);
+            }
+          }
+        }
+      }
     }
   }
 
