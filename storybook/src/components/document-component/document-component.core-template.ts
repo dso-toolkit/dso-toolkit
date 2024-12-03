@@ -29,6 +29,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       type,
       vervallen,
       wijzigactie,
+      annotationsWijzigactie,
       mark,
       dsoMarkItemHighlight,
     }) {
@@ -51,6 +52,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .label=${ifDefined(label)}
           .type=${type}
           .wijzigactie=${ifDefined(wijzigactie)}
+          .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
           .mark=${ifDefined(mark)}
           @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}
           @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}

@@ -20,7 +20,8 @@ export interface DocumentComponent<TemplateFnReturnType> {
   opschrift?: string;
   type: DocumentComponentType;
   vervallen?: boolean;
-  wijzigactie?: DocumentComponentWijzigActie;
+  wijzigactie?: DocumentComponentWijzigactie;
+  annotationsWijzigactie?: DocumentComponentWijzigactie;
   enableRecursiveToggle?: boolean;
   mark?: DocumentComponentMarkFunction;
   dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
@@ -28,7 +29,9 @@ export interface DocumentComponent<TemplateFnReturnType> {
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
 
-export type DocumentComponentWijzigActie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+
+export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
 
 export type DocumentComponentType =
   | "LICHAAM"
