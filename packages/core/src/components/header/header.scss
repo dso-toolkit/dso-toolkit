@@ -1,3 +1,4 @@
+@use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
@@ -7,6 +8,8 @@
 @use "~dso-toolkit/src/components/dropdown-menu";
 
 @use "header.variables" as core-header-variables;
+
+@include utilities.box-sizing();
 
 @mixin nav-item-border($color) {
   border-block-end: 4px solid $color;
