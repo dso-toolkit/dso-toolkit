@@ -297,7 +297,7 @@ dso-dropdown-menu {
       button {
         @include nav-item-main();
 
-        align-items: center;
+        align-items: flex-end;
         color: colors.$bosgroen;
 
         &:hover,
