@@ -83,8 +83,11 @@ export function searchBarStories<Implementation, Templates, TemplateFnReturnType
       render,
     },
     PlaceholderWithLongText: {
-      args: { ...defaultArgs, placeholder:
-          "Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text." },
+      args: {
+        ...defaultArgs,
+        placeholder:
+          "Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text.",
+      },
       render,
     },
     HiddenLabelWithIcon: {
