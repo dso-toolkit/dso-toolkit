@@ -4,6 +4,7 @@
 @use "~dso-toolkit/src/variables/typography";
 
 @use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/dropdown-menu";
 
 @use "header.variables" as core-header-variables;
 
@@ -111,17 +112,15 @@
 }
 
 dso-dropdown-menu {
+  @include dropdown-menu.children();
+
   button {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
     background-color: transparent;
-
     border: 0;
-
+    display: flex;
     font-family: typography.$font-family-base;
+    align-items: center;
+    position: relative;
 
     svg {
       inline-size: units.$u3;
@@ -138,8 +137,8 @@ dso-dropdown-menu {
   }
 
   .dso-dropdown-options {
+    border: 0;
     border-radius: 0;
-
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
@@ -153,30 +152,25 @@ dso-dropdown-menu {
     ul {
       margin: 0;
       padding: 0;
-
       list-style: none;
 
       li {
         a,
         button {
           display: block;
-
           padding: units.$u2;
-
           color: colors.$bosgroen;
           font-size: 1.25rem;
           white-space: pre-wrap;
           text-decoration: none;
 
           &:focus-visible {
-            color: colors.$wit;
-
             background-color: colors.$grasgroen;
+            color: colors.$wit;
           }
 
           &:hover {
             background-color: colors.$wit;
-
             color: colors.$bosgroen;
             text-decoration: underline;
           }
@@ -184,7 +178,6 @@ dso-dropdown-menu {
 
         button {
           inline-size: 100%;
-
           text-align: start;
 
           dso-icon {
@@ -217,7 +210,6 @@ dso-dropdown-menu {
     .dso-dropdown-options {
       inset-inline-end: 0;
       inset-block-start: 100%;
-
       box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     }
 

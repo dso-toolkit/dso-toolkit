@@ -71,7 +71,7 @@ describe("Header", () => {
       .dsoCheckA11y("dso-header.hydrated");
   });
 
-  it("should show/remove dropdownmenu", () => {
+  it("should show and remove dropdownmenu", () => {
     cy.get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
@@ -89,6 +89,7 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- visible`)
       .get("@dsoHeaderShadow")
       .find(".dropdown dso-dropdown-menu")
       .should("not.exist");
