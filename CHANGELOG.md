@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-## 🔵 Release 67.0.0-ghi-2365.0 - 2024-11-29
+## 🔵 Release 67.0.0-ghi-2365.1 - 2024-12-03
 
 ### Changed
 * Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
