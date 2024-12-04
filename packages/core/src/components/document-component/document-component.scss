@@ -82,17 +82,9 @@
   display: flex;
   flex-wrap: nowrap;
 
-  color: document-component.$heading-anchor-color;
+  @include anchor.root();
+
   text-decoration: none;
-
-  &:hover {
-    color: document-component.$heading-anchor-hover-color;
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: document-component.$heading-anchor-color;
-  }
 }
 
 .heading-element {
@@ -121,10 +113,12 @@
   }
 }
 
-:host(:not([not-collapsible])) {
+:host([mode="document"]:not([not-collapsible])) {
+  --link-color: document-component.$heading-anchor-color;
+  --link-hover-color: document-component.$heading-anchor-hover-color;
+
   .heading-element {
     cursor: pointer;
-
     @include anchor.pseudo();
   }
 
@@ -138,8 +132,24 @@
     padding-inline-start: document-component.$indent-table-of-contents;
   }
 
+  .heading-element {
+    color: inherit;
+  }
+
   .editaction-label {
     margin-inline-start: 0;
+  }
+}
+
+:host([mode="table-of-contents"][type="ARTIKEL"]) {
+  .heading-element {
+    color: inherit;
+  }
+}
+
+:host([mode="table-of-contents"]:not([type="HOOFDSTUK"])) {
+  .heading-element {
+    font-weight: normal;
   }
 }
 
