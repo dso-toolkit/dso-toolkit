@@ -21,12 +21,12 @@ import {
   AccordionSectionAnimationStartEvent,
   AccordionSectionState,
   AccordionSectionToggleClickEvent,
+  AccordionSectionWijzigactie,
   stateMap,
 } from "./accordion-section.interfaces";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
-import { AnnotationWijzigactie } from "dso-toolkit";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -147,10 +147,10 @@ export class AccordionSection implements ComponentInterface {
   handleTitle!: RenvooiValue | undefined;
 
   /**
-   * The change action of the section
+   * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
    */
   @Prop()
-  changeAction: AnnotationWijzigactie | undefined;
+  wijzigactie?: AccordionSectionWijzigactie;
 
   /**
    * Which heading element to use.
@@ -365,7 +365,7 @@ export class AccordionSection implements ComponentInterface {
           ["dso-accordion-" + variant]: true,
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
-          ["dso-accordion-wijzig-actie-" + this.changeAction]: !!this.changeAction,
+          ["dso-accordion-wijzig-actie-" + this.wijzigactie]: !!this.wijzigactie,
         }}
         hidden={!variant}
         onMouseenter={() => (this.hover = true)}

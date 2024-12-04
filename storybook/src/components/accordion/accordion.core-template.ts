@@ -13,7 +13,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
           ${sections.map(
             ({
               handleTitle,
-              changeAction,
+              wijzigactie,
               heading,
               attachmentCount,
               content,
@@ -31,7 +31,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               html`<dso-accordion-section
                 ?open=${open}
                 .handleTitle=${handleTitle}
-                change-action=${changeAction}
+                wijzigactie=${ifDefined(wijzigactie)}
                 heading=${heading}
                 handle-url=${ifDefined(handleUrl)}
                 status-description=${ifDefined(statusDescription)}

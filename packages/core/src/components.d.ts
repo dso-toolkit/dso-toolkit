@@ -7,11 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-import { AnnotationWijzigactie } from "dso-toolkit";
-import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
-import { AnnotationActiveChangeEvent, AnnotationWijzigactie as AnnotationWijzigactie1 } from "./components/annotation/annotation.interfaces";
+import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
@@ -48,11 +47,10 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-export { AnnotationWijzigactie } from "dso-toolkit";
-export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent } from "./components/accordion/components/accordion-section.interfaces";
+export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
-export { AnnotationActiveChangeEvent, AnnotationWijzigactie as AnnotationWijzigactie1 } from "./components/annotation/annotation.interfaces";
+export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
@@ -105,10 +103,6 @@ export namespace Components {
          */
         "attachmentCount"?: number;
         /**
-          * The change action of the section
-         */
-        "changeAction": AnnotationWijzigactie | undefined;
-        /**
           * Calling this method will set focus to the handle.
          */
         "focusHandle": () => Promise<void>;
@@ -152,6 +146,10 @@ export namespace Components {
           * The status of the section.
          */
         "statusDescription"?: string;
+        /**
+          * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
+         */
+        "wijzigactie"?: AccordionSectionWijzigactie;
     }
     interface DsoActionList {
         /**
@@ -237,7 +235,7 @@ export namespace Components {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationGebiedsaanwijzing {
         /**
@@ -255,7 +253,7 @@ export namespace Components {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationKaart {
         /**
@@ -269,7 +267,7 @@ export namespace Components {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie is toegevoegd of verwijderd.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationLocatie {
         /**
@@ -287,7 +285,7 @@ export namespace Components {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     /**
      * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
@@ -320,7 +318,7 @@ export namespace Components {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAttachmentsCounter {
         /**
@@ -2401,10 +2399,6 @@ declare namespace LocalJSX {
          */
         "attachmentCount"?: number;
         /**
-          * The change action of the section
-         */
-        "changeAction"?: AnnotationWijzigactie | undefined;
-        /**
           * The title of the handle
          */
         "handleTitle": RenvooiValue | undefined;
@@ -2456,6 +2450,10 @@ declare namespace LocalJSX {
           * The status of the section.
          */
         "statusDescription"?: string;
+        /**
+          * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
+         */
+        "wijzigactie"?: AccordionSectionWijzigactie;
     }
     interface DsoActionList {
         /**
@@ -2553,7 +2551,7 @@ declare namespace LocalJSX {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationGebiedsaanwijzing {
         /**
@@ -2575,7 +2573,7 @@ declare namespace LocalJSX {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationKaart {
         /**
@@ -2593,7 +2591,7 @@ declare namespace LocalJSX {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie is toegevoegd of verwijderd.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAnnotationLocatie {
         /**
@@ -2615,7 +2613,7 @@ declare namespace LocalJSX {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     /**
      * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
@@ -2652,7 +2650,7 @@ declare namespace LocalJSX {
         /**
           * Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is.
          */
-        "wijzigactie"?: AnnotationWijzigactie1;
+        "wijzigactie"?: AnnotationWijzigactie;
     }
     interface DsoAttachmentsCounter {
         /**

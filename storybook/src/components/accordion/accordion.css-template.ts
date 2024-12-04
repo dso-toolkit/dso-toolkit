@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "html-css",
-  template: ({ attachmentsCounterTemplate, iconTemplate, labelTemplate }) =>
+  template: ({ attachmentsCounterTemplate, iconTemplate, labelTemplate, renvooiTemplate }) =>
     function accordionTemplate(accordion) {
       const statusMap = new Map<string, string>([
         ["success", "succes"],
@@ -28,7 +28,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             : nothing}
           ${section.handleTitle
             ? typeof section.handleTitle !== "string"
-              ? html`<dso-renvooi .value=${section.handleTitle}></dso-renvooi>`
+              ? html`${renvooiTemplate({ value: section.handleTitle })}`
               : html`${section.handleTitle}`
             : nothing}
           ${section.label

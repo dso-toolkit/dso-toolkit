@@ -193,11 +193,12 @@ export const renvooiSections: AccordionSection<TemplateResult>[] = [
   },
   {
     ...section1,
-    changeAction: "verwijder",
+    wijzigactie: "verwijder",
   },
   {
     ...section1,
-    changeAction: "voegtoe",
+    wijzigactie: "voegtoe",
+    open: true,
   },
   {
     ...section1,

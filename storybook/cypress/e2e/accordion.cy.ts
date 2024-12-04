@@ -4,7 +4,7 @@ describe("Accordion", () => {
   });
 
   it("emits toggleClick events when user activates handle", () => {
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section:nth-child(2)")
       .as("accordionSection")
       .then(($accordionSection) => {
@@ -27,7 +27,7 @@ describe("Accordion", () => {
   });
 
   it("emits dsoAnimationEnd events when user activates handle", () => {
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section:nth-child(2)")
       .as("accordionSection")
       .invoke("prop", "open")
@@ -71,7 +71,7 @@ describe("Accordion", () => {
   it("should render handle as <a> when handleUrl is set", () => {
     const href = "#hekkie";
 
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section")
       .first()
       .as("dsoAccordionSection")
@@ -89,7 +89,7 @@ describe("Accordion", () => {
     const headings = ["h2", "h3", "h4", "h5"];
 
     headings.forEach((heading) => {
-      cy.get("dso-accordion")
+      cy.get("dso-accordion.hydrated")
         .find("dso-accordion-section")
         .first()
         .invoke("attr", "heading", heading)
@@ -109,7 +109,7 @@ describe("Accordion", () => {
     };
 
     Object.entries(statusMap).forEach(([key, text]) => {
-      cy.get("dso-accordion")
+      cy.get("dso-accordion.hydrated")
         .find("dso-accordion-section")
         .first()
         .invoke("attr", "status", key)
@@ -127,7 +127,7 @@ describe("Accordion", () => {
   it("should render statusDescription", () => {
     const statusDescription = "5 van 8 antwoorden beantwoord";
 
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section")
       .first()
       .invoke("attr", "status-description", statusDescription)
@@ -137,7 +137,7 @@ describe("Accordion", () => {
   });
 
   it("should render the handle correctly in reverseAlign mode", () => {
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .as("dsoAccordion")
       .find("dso-accordion-section")
       .shadow()
@@ -192,10 +192,10 @@ describe("Accordion", () => {
       .should("exist");
   });
 
-  it("should render renvooi in the handle correctly", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--renvooi");
+  it("should render renvooi in the section-handle", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact-black");
 
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section:nth-child(2)")
       .as("accordionSection")
       .shadow()
@@ -210,7 +210,14 @@ describe("Accordion", () => {
       .shadow()
       .find("ins")
       .should("exist")
-      .and("have.text", "Dit is toegevoegde tekst")
+      .and("have.text", "Dit is toegevoegde tekst");
+
+    cy.get("dso-accordion.hydrated")
+      .find("dso-accordion-section:nth-child(2)")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- toegevoegde tekst`);
+
+    cy.get("dso-accordion.hydrated")
+      .find("dso-accordion-section:nth-child(2)")
       .get("@accordionSection")
       .invoke("prop", "handleTitle", { verwijderd: "Dit is verwijderde tekst" })
       .shadow()
@@ -218,7 +225,14 @@ describe("Accordion", () => {
       .shadow()
       .find("del")
       .should("exist")
-      .and("have.text", "Dit is verwijderde tekst")
+      .and("have.text", "Dit is verwijderde tekst");
+
+    cy.get("dso-accordion.hydrated")
+      .find("dso-accordion-section:nth-child(2)")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijderde tekst`);
+
+    cy.get("dso-accordion.hydrated")
+      .find("dso-accordion-section:nth-child(2)")
       .get("@accordionSection")
       .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
       .shadow()
@@ -235,18 +249,24 @@ describe("Accordion", () => {
       .find("ins")
       .should("exist")
       .and("have.text", "Dit is de tekst");
+
+    cy.get("dso-accordion.hydrated")
+      .find("dso-accordion-section:nth-child(2)")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt`);
   });
 
-  it("should render change action in the section correctly", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--renvooi");
+  it("should render wijzigactie in the section", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-accordion--compact-black");
 
-    cy.get("dso-accordion")
+    cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section:nth-child(1)")
       .as("accordionSection")
-      .invoke("prop", "changeAction", "voegtoe")
+      .invoke("prop", "wijzigactie", "voegtoe")
       .should("have.class", "dso-accordion-wijzig-actie-voegtoe")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Toegevoegd`)
       .get("@accordionSection")
-      .invoke("prop", "changeAction", "verwijder")
-      .should("have.class", "dso-accordion-wijzig-actie-voegtoe");
+      .invoke("prop", "wijzigactie", "verwijder")
+      .should("have.class", "dso-accordion-wijzig-actie-voegtoe")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
 });
