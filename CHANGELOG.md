@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Document Card: Aanvullende functionaliteit ([#2835](https://github.com/dso-toolkit/dso-toolkit/issues/2835))
 * Document Component: Wijzigactie voor kenmerkenpaneel ([#2905](https://github.com/dso-toolkit/dso-toolkit/issues/2905))
+* Document Component: type "inhoudsopgave" ([#2271](https://github.com/dso-toolkit/dso-toolkit/issues/2271))
 
 ## ✍️ Release 67.0.0 - 2024-11-25
 

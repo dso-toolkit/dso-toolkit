@@ -8,7 +8,7 @@ import {
   DocumentComponentArgs,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
-import { DocumentComponent } from "./document-component.models.js";
+import { DocumentComponent, DocumentComponentMode } from "./document-component.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
@@ -16,17 +16,22 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 
 export type DocumentComponentDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
+type DocumentComponentStoryDemo = StoryObj<
+  {
+    jsonFile: string;
+    openDefault: boolean;
+    showCanvas: boolean;
+    mode: DocumentComponentMode;
+    ozonContentAnchorClick: HandlerFunction;
+    tableOfContentsClick: HandlerFunction;
+  },
+  Renderer
+>;
+
 interface DocumentComponentStories {
   Default: StoryObj<DocumentComponentArgs, Renderer>;
-  Demo: StoryObj<
-    {
-      jsonFile: string;
-      openDefault: boolean;
-      showCanvas: boolean;
-      ozonContentAnchorClick: HandlerFunction;
-    },
-    Renderer
-  >;
+  Contents: DocumentComponentStoryDemo;
+  Inhoudsopgave: DocumentComponentStoryDemo;
   IMRO: StoryObj<DocumentComponentArgs, Renderer>;
 }
 
@@ -48,7 +53,9 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     jsonFile: string,
     openDefault: boolean,
     showCanvas: boolean,
+    mode: DocumentComponentMode,
     ozonContentAnchorClick: HandlerFunction,
+    tableOfContentsClick: HandlerFunction,
   ) => TemplateFnReturnType;
 }
 
@@ -82,12 +89,13 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
       ),
     },
-    Demo: {
+    Contents: {
       decorators: [(story) => decorator(story)],
       args: {
-        jsonFile: "ozon-response-omgevingsvisie.json",
+        jsonFile: "ozon-response.json",
         openDefault: true,
         showCanvas: false,
+        mode: "document",
       },
       argTypes: {
         jsonFile: {
@@ -111,13 +119,84 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "boolean",
           },
         },
+        mode: {
+          options: ["document", "table-of-contents"],
+          control: {
+            type: "select",
+          },
+        },
         ozonContentAnchorClick: {
           action: "dsoOzonContentAnchorClick",
+        },
+        tableOfContentsClick: {
+          action: "dsoTableOfContentsClick",
         },
       },
       parameters: { layout: "fullscreen" },
       render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>
-        demoTemplate(args.jsonFile, args.openDefault, args.showCanvas, args.ozonContentAnchorClick),
+        demoTemplate(
+          args.jsonFile,
+          args.openDefault,
+          args.showCanvas,
+          args.mode,
+          args.ozonContentAnchorClick,
+          args.tableOfContentsClick,
+        ),
+      ),
+    },
+    Inhoudsopgave: {
+      decorators: [(story) => decorator(story)],
+      args: {
+        jsonFile: "ozon-response.json",
+        openDefault: true,
+        showCanvas: false,
+        mode: "table-of-contents",
+      },
+      argTypes: {
+        jsonFile: {
+          options: [
+            "ozon-response.json",
+            "ozon-response-bal.json",
+            "ozon-response-waterschappen.json",
+            "ozon-response-omgevingsvisie.json",
+          ],
+          control: {
+            type: "select",
+          },
+        },
+        openDefault: {
+          control: {
+            type: "boolean",
+          },
+        },
+        showCanvas: {
+          control: {
+            type: "boolean",
+          },
+        },
+        mode: {
+          options: ["document", "table-of-contents"],
+          control: {
+            type: "select",
+          },
+        },
+        ozonContentAnchorClick: {
+          action: "dsoOzonContentAnchorClick",
+        },
+        tableOfContentsClick: {
+          action: "dsoTableOfContentsClick",
+        },
+      },
+      parameters: { layout: "fullscreen" },
+      render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>
+        demoTemplate(
+          args.jsonFile,
+          args.openDefault,
+          args.showCanvas,
+          args.mode,
+          args.ozonContentAnchorClick,
+          args.tableOfContentsClick,
+        ),
       ),
     },
     IMRO: {

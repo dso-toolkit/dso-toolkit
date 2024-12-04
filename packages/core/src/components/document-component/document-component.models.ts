@@ -38,3 +38,11 @@ export interface DocumentComponentRecursiveToggleEvent {
   current: DocumentComponentRecursiveToggleState;
   next: boolean;
 }
+
+export type DocumentComponentMode = "document" | "table-of-contents";
+
+export interface DocumentComponentTableOfContentsClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user clicked the document component heading while holding Ctrl, Alt or other modifiers, or when the document component heading is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}

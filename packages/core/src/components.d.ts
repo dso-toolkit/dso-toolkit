@@ -19,7 +19,7 @@ import { CardContainerMode } from "./components/card-container/card-container.in
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -59,7 +59,7 @@ export { CardContainerMode } from "./components/card-container/card-container.in
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -540,6 +540,10 @@ export namespace Components {
          */
         "heading": "h2" | "h3" | "h4" | "h5" | "h6";
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * The Inhoud XML.
          */
         "inhoud"?: DocumentComponentInputType;
@@ -551,6 +555,10 @@ export namespace Components {
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
+        /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode": DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -1279,6 +1287,10 @@ export namespace Components {
          */
         "jsonFile"?: string;
         /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode": DocumentComponentMode;
+        /**
           * The default state for all Document Components.
          */
         "openDefault": boolean;
@@ -1720,6 +1732,7 @@ declare global {
     interface HTMLDsoDocumentComponentElementEventMap {
         "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
         "dsoOpenToggle": DocumentComponentOpenToggleEvent;
+        "dsoTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
         "dsoOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
         "dsoAnnotationToggle": DocumentComponentToggleAnnotationEvent;
         "dsoMarkItemHighlight": DocumentComponentMarkItemHighlightEvent;
@@ -2285,6 +2298,7 @@ declare global {
     };
     interface HTMLDsotDocumentComponentDemoElementEventMap {
         "dsotOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+        "dsotTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
     }
     interface HTMLDsotDocumentComponentDemoElement extends Components.DsotDocumentComponentDemo, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsotDocumentComponentDemoElementEventMap>(type: K, listener: (this: HTMLDsotDocumentComponentDemoElement, ev: DsotDocumentComponentDemoCustomEvent<HTMLDsotDocumentComponentDemoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2902,6 +2916,10 @@ declare namespace LocalJSX {
          */
         "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
         /**
+          * The URL to which the Heading links (only in mode="table-of-contents").
+         */
+        "href"?: string;
+        /**
           * The Inhoud XML.
          */
         "inhoud"?: DocumentComponentInputType;
@@ -2913,6 +2931,10 @@ declare namespace LocalJSX {
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
+        /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode"?: DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
          */
@@ -2941,6 +2963,10 @@ declare namespace LocalJSX {
           * Emitted when the user activates the recursive toggle.
          */
         "onDsoRecursiveToggle"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentRecursiveToggleEvent>) => void;
+        /**
+          * Emitted when the user clicks the heading in mode="table-of-contents".
+         */
+        "onDsoTableOfContentsClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * This boolean attribute indicates whether the children are visible.
          */
@@ -3813,9 +3839,17 @@ declare namespace LocalJSX {
          */
         "jsonFile"?: string;
         /**
+          * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+         */
+        "mode"?: DocumentComponentMode;
+        /**
           * To demo user interacting with IntRef or IntIoRef elements.
          */
         "onDsotOzonContentAnchorClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        /**
+          * To demo user interacting the heading in mode="table-of-contents".
+         */
+        "onDsotTableOfContentsClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * The default state for all Document Components.
          */

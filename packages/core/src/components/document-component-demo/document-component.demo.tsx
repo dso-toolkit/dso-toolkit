@@ -3,8 +3,10 @@ import sampleSize from "lodash.samplesize";
 import random from "lodash.random";
 
 import {
+  DocumentComponentMode,
   DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentRecursiveToggleEvent,
+  DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
 } from "../document-component/document-component.models";
 import { DsoDocumentComponentCustomEvent } from "../../components";
@@ -28,6 +30,7 @@ interface DocumentComponent extends DocumentEmbedded {
   vervallen?: boolean;
   bevatOntwerpInformatie?: boolean;
   wijzigactie?: DocumentComponentWijzigactie;
+  mode: DocumentComponentMode;
 }
 
 @Component({
@@ -55,10 +58,22 @@ export class DocumentComponentDemo implements ComponentInterface {
   openDefault = false;
 
   /**
+   * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
+   */
+  @Prop({ reflect: true })
+  mode: DocumentComponentMode = "document";
+
+  /**
    * To demo user interacting with IntRef or IntIoRef elements.
    */
   @Event()
   dsotOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+
+  /**
+   * To demo user interacting the heading in mode="table-of-contents".
+   */
+  @Event({ bubbles: false })
+  dsotTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   @State()
   response?: DocumentEmbedded;
@@ -191,6 +206,10 @@ export class DocumentComponentDemo implements ComponentInterface {
     this.dsotOzonContentAnchorClick.emit(e.detail);
   }
 
+  private handleTableOfContentsClick(e: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) {
+    this.dsotTableOfContentsClick.emit(e.detail);
+  }
+
   private isCheckedSlideToggle(documentComponent: DocumentComponent) {
     return this.activeAnnotationSelectables.includes(documentComponent);
   }
@@ -277,7 +296,7 @@ export class DocumentComponentDemo implements ComponentInterface {
 
   private DocumentComponent = ({ path }: DocumentComponentProps) => {
     const documentComponent = path.at(-1);
-    if (!documentComponent) {
+    if (!documentComponent || (this.mode === "table-of-contents" && documentComponent.type === "LID")) {
       return <Fragment />;
     }
 
@@ -312,6 +331,9 @@ export class DocumentComponentDemo implements ComponentInterface {
         wijzigactie={documentComponent.wijzigactie}
         recursiveToggle={this.recursiveToggleState(documentComponent)}
         onDsoRecursiveToggle={(e) => this.handleRecursiveToggle(documentComponent, e.detail)}
+        mode={this.mode}
+        href={this.mode === "table-of-contents" ? "/document/" + documentComponent.documentTechnischId : undefined}
+        onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <div slot="annotations">

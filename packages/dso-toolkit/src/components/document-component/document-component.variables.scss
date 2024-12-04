@@ -1,3 +1,8 @@
+@use "../../variables/colors";
 @use "../../variables/units";
 
 $indent: units.$u3;
+$indent-table-of-contents: units.$u1;
+
+$heading-anchor-color: colors.$grasgroen;
+$heading-anchor-hover-color: colors.$scampi;

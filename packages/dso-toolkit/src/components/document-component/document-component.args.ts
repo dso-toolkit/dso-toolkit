@@ -3,6 +3,7 @@ import { ArgTypes } from "@storybook/types";
 import {
   DocumentComponent,
   DocumentComponentHeading,
+  DocumentComponentMode,
   DocumentComponentType,
   DocumentComponentWijzigactie,
   DocumentComponentAnnotationsWijzigactie,
@@ -34,11 +35,13 @@ export interface DocumentComponentArgs {
   annotationsWijzigactie: DocumentComponentAnnotationsWijzigactie | undefined;
   mark?: string;
   enableRecursiveToggle?: boolean;
+  mode: DocumentComponentMode;
+  dsoTableOfContentsClick: HandlerFunction;
 }
 
 export const documentComponentArgs: Omit<
   DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight"
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
 > = {
   annotated: true,
   bevatOntwerpInformatie: true,
@@ -61,6 +64,7 @@ export const documentComponentArgs: Omit<
   vervallen: false,
   wijzigactie: "voegtoe",
   annotationsWijzigactie: "voegtoe",
+  mode: "document",
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -73,6 +77,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     control: {
       type: "boolean",
     },
+    if: { arg: "mode", eq: "document" },
   },
   bevatOntwerpInformatie: {
     control: {
@@ -87,6 +92,9 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
   },
   dsoMarkItemHighlight: {
     action: "dsoMarkItemHighlight",
+  },
+  dsoTableOfContentsClick: {
+    action: "dsoTableOfContentsClick",
   },
   filtered: {
     control: {
@@ -113,6 +121,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     control: {
       type: "text",
     },
+    if: { arg: "mode", eq: "document" },
   },
   label: {
     control: {
@@ -133,11 +142,13 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     control: {
       type: "boolean",
     },
+    if: { arg: "mode", eq: "document" },
   },
   openAnnotation: {
     control: {
       type: "boolean",
     },
+    if: { arg: "mode", eq: "document" },
   },
   opschrift: {
     control: {
@@ -171,10 +182,18 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     control: {
       type: "text",
     },
+    if: { arg: "mode", eq: "document" },
   },
   enableRecursiveToggle: {
     control: {
       type: "boolean",
+    },
+    if: { arg: "mode", eq: "document" },
+  },
+  mode: {
+    options: ["document", "table-of-contents"],
+    control: {
+      type: "select",
     },
   },
 };
@@ -189,6 +208,14 @@ export function documentComponentMapper<TemplateFnReturnType>(
 
   return {
     ...a,
+    href: a.mode === "table-of-contents" ? "/document/id" : undefined,
+    dsoTableOfContentsClick: (e) => {
+      if (!e.detail.isModifiedEvent) {
+        e.detail.originalEvent.preventDefault();
+      }
+
+      a.dsoTableOfContentsClick(e.detail);
+    },
     children: a.open || a.openAnnotation ? children : undefined,
     mark: mark
       ? (text) =>

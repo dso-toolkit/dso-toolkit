@@ -24,7 +24,10 @@ export interface DocumentComponent<TemplateFnReturnType> {
   annotationsWijzigactie?: DocumentComponentWijzigactie;
   enableRecursiveToggle?: boolean;
   mark?: DocumentComponentMarkFunction;
+  mode: DocumentComponentMode;
+  href?: string;
   dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
+  dsoTableOfContentsClick?: (e: CustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
 }
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
@@ -43,6 +46,8 @@ export type DocumentComponentType =
   | "SUBPARAGRAAF"
   | "SUBSUBPARAGRAAF";
 
+export type DocumentComponentMode = "document" | "table-of-contents";
+
 export interface DocumentComponentToggleEvent {
   originalEvent: Event;
 }
@@ -57,4 +62,10 @@ export interface DocumentComponentMarkItemHighlightEvent {
   source: DocumentComponentSource;
   text: string;
   elementRef: HTMLElement;
+}
+
+export interface DocumentComponentTableOfContentsClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user clicked the card while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
 }

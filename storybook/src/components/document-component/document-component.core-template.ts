@@ -31,7 +31,10 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       wijzigactie,
       annotationsWijzigactie,
       mark,
+      mode,
+      href,
       dsoMarkItemHighlight,
+      dsoTableOfContentsClick,
     }) {
       return html`<dso-responsive-element class="dso-document-components">
         <dso-document-component
@@ -54,9 +57,12 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .wijzigactie=${ifDefined(wijzigactie)}
           .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
           .mark=${ifDefined(mark)}
+          .mode=${ifDefined(mode)}
+          .href=${ifDefined(href)}
           @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}
           @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}
           @dsoToggle=${ifDefined(dsoToggle)}
+          @dsoTableOfContentsClick=${dsoTableOfContentsClick}
         >
           ${children}
         </dso-document-component>

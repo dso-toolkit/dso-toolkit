@@ -7,18 +7,20 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                      | Type                  | Default     |
-| ------------- | -------------- | ------------------------------------------------ | --------------------- | ----------- |
-| `jsonFile`    | `json-file`    | Name of the file to load.                        | `string \| undefined` | `undefined` |
-| `openDefault` | `open-default` | The default state for all Document Components.   | `boolean`             | `false`     |
-| `showCanvas`  | `show-canvas`  | Show canvas to where Document Component extends. | `boolean`             | `false`     |
+| Property      | Attribute      | Description                                                                                          | Type                                | Default      |
+| ------------- | -------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------ |
+| `jsonFile`    | `json-file`    | Name of the file to load.                                                                            | `string \| undefined`               | `undefined`  |
+| `mode`        | `mode`         | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document" | `"document" \| "table-of-contents"` | `"document"` |
+| `openDefault` | `open-default` | The default state for all Document Components.                                                       | `boolean`                           | `false`      |
+| `showCanvas`  | `show-canvas`  | Show canvas to where Document Component extends.                                                     | `boolean`                           | `false`      |
 
 
 ## Events
 
-| Event                        | Description                                                | Type                                                        |
-| ---------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
-| `dsotOzonContentAnchorClick` | To demo user interacting with IntRef or IntIoRef elements. | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
+| Event                        | Description                                                       | Type                                                        |
+| ---------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------- |
+| `dsotOzonContentAnchorClick` | To demo user interacting with IntRef or IntIoRef elements.        | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
+| `dsotTableOfContentsClick`   | To demo user interacting the heading in mode="table-of-contents". | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
 
 
 ## Dependencies
