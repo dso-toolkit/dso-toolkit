@@ -13,7 +13,7 @@ describe("Panel", () => {
   });
 
   it("should emit dsoCloseClick event when user clicks the panel close button", () => {
-    cy.get("dso-panel")
+    cy.get("dso-panel.hydrated")
       .then(($panel) => {
         $panel.on("dsoCloseClick", cy.stub().as("dsoCloseClickListener"));
       })
@@ -22,5 +22,13 @@ describe("Panel", () => {
       .click()
       .get("@dsoCloseClickListener")
       .should("have.been.calledOnce");
+  });
+
+  it("sets closeButtonLabel as accessible name for the close button", () => {
+    cy.get("dso-panel.hydrated")
+      .invoke("prop", "closeButtonLabel", "Labeltest")
+      .shadow()
+      .contains("button", "Labeltest")
+      .should("exist");
   });
 });

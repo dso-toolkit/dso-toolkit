@@ -993,6 +993,10 @@ export namespace Components {
         "totalPages"?: number;
     }
     interface DsoPanel {
+        /**
+          * The accessible name for the close button.
+         */
+        "closeButtonLabel"?: string;
     }
     interface DsoPlekinfoCard {
         /**
@@ -3491,6 +3495,10 @@ declare namespace LocalJSX {
         "totalPages"?: number;
     }
     interface DsoPanel {
+        /**
+          * The accessible name for the close button.
+         */
+        "closeButtonLabel"?: string;
         /**
           * Emitted when the user click the close button.
          */

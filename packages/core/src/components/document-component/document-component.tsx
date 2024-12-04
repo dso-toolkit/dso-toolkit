@@ -294,7 +294,7 @@ export class DocumentComponent implements ComponentInterface {
                     <span class="sr-only">{this.open ? "Invouwen" : "Uitvouwen"}</span>
                   </button>
                 )}
-                <div id="heading-title">
+                <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
                   {this.label || this.nummer || this.opschrift ? (
                     <>
@@ -345,7 +345,7 @@ export class DocumentComponent implements ComponentInterface {
                     this.alternativeTitle
                   )}
                   {suffix && <span> - [{suffix}]</span>}
-                </div>
+                </span>
               </Heading>
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
                 <button
@@ -381,7 +381,9 @@ export class DocumentComponent implements ComponentInterface {
                       onClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
                     >
                       <dso-icon icon="label"></dso-icon>
-                      <span class="sr-only">Toelichting bekijken</span>
+                      <span class="sr-only">
+                        Kenmerken en kaartgegevens {this.openAnnotation ? "verbergen" : "tonen"}
+                      </span>
                     </button>
                   )}
                 </div>
@@ -391,7 +393,11 @@ export class DocumentComponent implements ComponentInterface {
         )}
         {this.openAnnotation && (
           <div class="annotation-container" part="_annotation-container">
-            <dso-panel id="annotations" onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}>
+            <dso-panel
+              id="annotations"
+              onDsoCloseClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
+              closeButtonLabel="Kenmerken en kaartgegevens verbergen"
+            >
               <h2 slot="heading">Kenmerken en kaart</h2>
               <slot name="annotations" />
             </dso-panel>
