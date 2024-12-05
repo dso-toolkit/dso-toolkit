@@ -17,6 +17,7 @@
     &.form-control {
       block-size: auto;
 
+      /* prettier-ignore */
       &:not([rows]) {
         block-size: calc(
           #{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(
