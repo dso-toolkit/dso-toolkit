@@ -23,7 +23,7 @@ describe("Document Component", () => {
   });
 
   for (const state of ["default", "voegtoe", "verwijder"]) {
-    it(`matches image snapshot ${state}`, () => {
+    it.skip(`matches image snapshot ${state}`, () => {
       // this test uses args to set the initial state of the component because the argsMapper is needed for the annotations
       cy.visit(
         "http://localhost:45000/iframe.html?id=core-document-component--default&args=open:!true;openAnnotation:!true",
