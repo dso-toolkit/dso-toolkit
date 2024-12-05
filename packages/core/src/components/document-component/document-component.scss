@@ -99,6 +99,10 @@
   }
 }
 
+#heading-title {
+  display: block;
+}
+
 :host([not-collapsible]) {
   .heading-container {
     margin-block-end: 0;

@@ -4,6 +4,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property           | Attribute            | Description                               | Type                  | Default     |
+| ------------------ | -------------------- | ----------------------------------------- | --------------------- | ----------- |
+| `closeButtonLabel` | `close-button-label` | The accessible name for the close button. | `string \| undefined` | `undefined` |
+
+
 ## Events
 
 | Event           | Description                                   | Type                           |

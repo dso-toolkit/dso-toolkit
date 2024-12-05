@@ -1,4 +1,7 @@
-import { Component, ComponentInterface, Event, EventEmitter, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
+
+import { i18n } from "../../utils/i18n";
+import { translations } from "./panel.i18n";
 
 export interface PanelCloseEvent {
   originalEvent: Event;
@@ -14,11 +17,22 @@ export interface PanelCloseEvent {
   shadow: true,
 })
 export class Panel implements ComponentInterface {
+  @Element()
+  host!: HTMLDsoPanelElement;
+
+  /**
+   * The accessible name for the close button.
+   */
+  @Prop()
+  closeButtonLabel?: string;
+
   /**
    * Emitted when the user click the close button.
    */
   @Event()
   dsoCloseClick!: EventEmitter<PanelCloseEvent>;
+
+  private text = i18n(() => this.host, translations);
 
   render() {
     return (
@@ -27,7 +41,7 @@ export class Panel implements ComponentInterface {
           <slot name="heading" />
           <button type="button" class="panel-close" onClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}>
             <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">Sluiten</span>
+            <span class="sr-only">{this.closeButtonLabel || this.text("close")}</span>
           </button>
         </div>
         <div class="panel-body">
