@@ -125,15 +125,15 @@ dso-dropdown-menu {
     align-items: center;
     position: relative;
 
-    svg {
+    dso-icon {
       inline-size: units.$u3;
       block-size: units.$u3;
-
       margin-inline-start: units.$u1;
+      padding-block-start: units.$u1 * 0.25;
     }
 
     &[aria-expanded="true"] {
-      svg {
+      dso-icon {
         transform: rotate(180deg);
       }
     }

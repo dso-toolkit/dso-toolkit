@@ -268,12 +268,7 @@ export class Header {
                 >
                   <button type="button" slot="toggle">
                     <span>{this.text("menu")}</span>
-                    <svg id="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path
-                        fill="currentColor"
-                        d="M12,16,5.29,9.63a.93.93,0,0,1,0-1.35,1,1,0,0,1,1.42,0l5.29,5,5.29-5a1,1,0,0,1,1.42,0,.91.91,0,0,1,0,1.34Z"
-                      ></path>
-                    </svg>
+                    <dso-icon icon="chevron-down"></dso-icon>
                   </button>
                   <div class="dso-dropdown-options">
                     <ul>
@@ -434,13 +429,8 @@ export class Header {
                       <li>
                         <dso-dropdown-menu placement="bottom">
                           <button type="button" slot="toggle">
-                            <span>{this.text("menu")}</span>
-                            <svg id="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path
-                                fill="currentColor"
-                                d="M12,16,5.29,9.63a.93.93,0,0,1,0-1.35,1,1,0,0,1,1.42,0l5.29,5,5.29-5a1,1,0,0,1,1.42,0,.91.91,0,0,1,0,1.34Z"
-                              ></path>
-                            </svg>
+                            <span>{this.text("overflowMenu")}</span>
+                            <dso-icon icon="chevron-down"></dso-icon>
                           </button>
                           <div class="dso-dropdown-options">
                             <ul>
