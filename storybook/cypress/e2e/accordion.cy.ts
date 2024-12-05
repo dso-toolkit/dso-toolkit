@@ -212,13 +212,9 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is toegevoegde tekst");
 
-    cy.get("dso-accordion.hydrated")
-      .find("dso-accordion-section:nth-child(2)")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- toegevoegde tekst`);
+    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- toegevoegde tekst`);
 
-    cy.get("dso-accordion.hydrated")
-      .find("dso-accordion-section:nth-child(2)")
-      .get("@accordionSection")
+    cy.get("@accordionSection")
       .invoke("prop", "handleTitle", { verwijderd: "Dit is verwijderde tekst" })
       .shadow()
       .find("dso-renvooi")
@@ -227,13 +223,9 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is verwijderde tekst");
 
-    cy.get("dso-accordion.hydrated")
-      .find("dso-accordion-section:nth-child(2)")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijderde tekst`);
+    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- verwijderde tekst`);
 
-    cy.get("dso-accordion.hydrated")
-      .find("dso-accordion-section:nth-child(2)")
-      .get("@accordionSection")
+    cy.get("@accordionSection")
       .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
       .shadow()
       .find("dso-renvooi")
@@ -242,7 +234,6 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit was de tekst")
       .get("@accordionSection")
-      .invoke("prop", "handleTitle", { was: "Dit was de tekst", wordt: "Dit is de tekst" })
       .shadow()
       .find("dso-renvooi")
       .shadow()
@@ -250,9 +241,7 @@ describe("Accordion", () => {
       .should("exist")
       .and("have.text", "Dit is de tekst");
 
-    cy.get("dso-accordion.hydrated")
-      .find("dso-accordion-section:nth-child(2)")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt`);
+    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt`);
   });
 
   it("should render wijzigactie in the section", () => {
@@ -262,11 +251,11 @@ describe("Accordion", () => {
       .find("dso-accordion-section:nth-child(1)")
       .as("accordionSection")
       .invoke("prop", "wijzigactie", "voegtoe")
-      .should("have.class", "dso-accordion-wijzig-actie-voegtoe")
+      .should("have.class", "dso-accordion-wijzigactie-voegtoe")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Toegevoegd`)
       .get("@accordionSection")
       .invoke("prop", "wijzigactie", "verwijder")
-      .should("have.class", "dso-accordion-wijzig-actie-voegtoe")
+      .should("have.class", "dso-accordion-wijzigactie-voegtoe")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
 });

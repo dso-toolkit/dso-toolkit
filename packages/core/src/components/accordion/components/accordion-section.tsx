@@ -143,11 +143,11 @@ export class AccordionSection implements ComponentInterface {
   /**
    * The title of the handle
    */
-  @Prop({ reflect: true })
+  @Prop()
   handleTitle!: RenvooiValue | undefined;
 
   /**
-   * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
+   * An optional 'wijzigactie' that signals if the section is added or removed.
    */
   @Prop()
   wijzigactie?: AccordionSectionWijzigactie;
@@ -365,7 +365,7 @@ export class AccordionSection implements ComponentInterface {
           ["dso-accordion-" + variant]: true,
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
-          ["dso-accordion-wijzig-actie-" + this.wijzigactie]: !!this.wijzigactie,
+          ["dso-accordion-wijzigactie-" + this.wijzigactie]: !!this.wijzigactie,
         }}
         hidden={!variant}
         onMouseenter={() => (this.hover = true)}

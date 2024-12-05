@@ -26,11 +26,9 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
           ${section.icon && accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
-          ${section.handleTitle
-            ? typeof section.handleTitle !== "string"
-              ? html`${renvooiTemplate({ value: section.handleTitle })}`
-              : html`${section.handleTitle}`
-            : nothing}
+          ${typeof section.handleTitle !== "string"
+            ? renvooiTemplate({ value: section.handleTitle })
+            : section.handleTitle}
           ${section.label
             ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
             : nothing}

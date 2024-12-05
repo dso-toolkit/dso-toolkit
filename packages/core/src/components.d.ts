@@ -147,7 +147,7 @@ export namespace Components {
          */
         "statusDescription"?: string;
         /**
-          * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
+          * An optional 'wijzigactie' that signals if the section is added or removed.
          */
         "wijzigactie"?: AccordionSectionWijzigactie;
     }
@@ -2451,7 +2451,7 @@ declare namespace LocalJSX {
          */
         "statusDescription"?: string;
         /**
-          * An optional 'wijzigactie' that signals if the contents of the section is added or removed.
+          * An optional 'wijzigactie' that signals if the section is added or removed.
          */
         "wijzigactie"?: AccordionSectionWijzigactie;
     }
