@@ -112,7 +112,6 @@ del.dso-plekinfo-card-container {
   --_dt-rich-content-margin-block-start: 0;
 }
 
-::slotted([slot="interactions"]),
 ::slotted([slot="interaction"]) {
   display: flex !important;
   justify-content: space-between !important;
