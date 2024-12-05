@@ -82,3 +82,19 @@
     }
   }
 }
+
+@mixin dso-web-component-accordion-compact-black-voegtoe() {
+  background-color: colors.$grasgroen-10;
+
+  .dso-section-body {
+    background-color: colors.$grasgroen-10;
+  }
+}
+
+@mixin dso-web-component-accordion-compact-black-verwijder() {
+  background-color: colors.$rood-20;
+
+  .dso-section-body {
+    background-color: colors.$rood-20;
+  }
+}

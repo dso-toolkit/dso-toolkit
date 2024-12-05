@@ -1,30 +1,32 @@
 import {
-  h,
   Component,
   ComponentInterface,
   Element,
   Event,
+  EventEmitter,
   forceUpdate,
   Fragment,
+  FunctionalComponent,
+  h,
   Host,
+  Method,
   Prop,
   State,
-  EventEmitter,
-  FunctionalComponent,
-  Method,
 } from "@stencil/core";
 
 import { AccordionInternalState } from "../accordion.interfaces";
 import {
   AccordionHeading,
   AccordionSectionAnimationEndEvent,
+  AccordionSectionAnimationStartEvent,
   AccordionSectionState,
   AccordionSectionToggleClickEvent,
-  AccordionSectionAnimationStartEvent,
+  AccordionSectionWijzigactie,
   stateMap,
 } from "./accordion-section.interfaces";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 import { LabelStatus } from "../../label/label.interfaces";
+import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -142,7 +144,13 @@ export class AccordionSection implements ComponentInterface {
    * The title of the handle
    */
   @Prop()
-  handleTitle?: string;
+  handleTitle!: RenvooiValue | undefined;
+
+  /**
+   * An optional 'wijzigactie' that signals if the section is added or removed.
+   */
+  @Prop()
+  wijzigactie?: AccordionSectionWijzigactie;
 
   /**
    * Which heading element to use.
@@ -357,6 +365,7 @@ export class AccordionSection implements ComponentInterface {
           ["dso-accordion-" + variant]: true,
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
+          ["dso-accordion-wijzigactie-" + this.wijzigactie]: !!this.wijzigactie,
         }}
         hidden={!variant}
         onMouseenter={() => (this.hover = true)}
@@ -376,15 +385,12 @@ export class AccordionSection implements ComponentInterface {
                     <HandleIcon icon={this.icon} />
                   </div>
                 )}
-
-                <span>{this.handleTitle}</span>
-
+                <dso-renvooi value={this.handleTitle} />
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
                     {this.label}
                   </dso-label>
                 )}
-
                 <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
               </Fragment>
             ) : (
@@ -394,7 +400,7 @@ export class AccordionSection implements ComponentInterface {
                 {this.status && <span class="sr-only">{stateMap[this.status]}</span>}
 
                 <span>
-                  {this.handleTitle}
+                  <dso-renvooi value={this.handleTitle} />
                   {this.isNeutral && (
                     <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
                   )}

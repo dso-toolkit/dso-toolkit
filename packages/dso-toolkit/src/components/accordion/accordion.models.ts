@@ -1,4 +1,5 @@
 import { LabelStatus } from "../label";
+import { RenvooiValue } from "../renvooi";
 
 export type AccordionHandleElement = "anchor" | "button";
 
@@ -8,6 +9,8 @@ export type AccordionSectionStatus = "success" | "info" | "warning" | "danger" |
 
 export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
 
+export type AccordionSectionWijzigactie = "voegtoe" | "verwijder";
+
 export interface Accordion<TemplateFnReturnType> {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
@@ -16,9 +19,10 @@ export interface Accordion<TemplateFnReturnType> {
 
 export interface AccordionSection<TemplateFnReturnType> {
   open?: boolean;
-  handleTitle: string;
+  handleTitle: RenvooiValue;
   heading: AccordionHeading;
   handleUrl?: string;
+  wijzigactie?: AccordionSectionWijzigactie;
   statusDescription?: string;
   status?: AccordionSectionStatus;
   icon?: string;

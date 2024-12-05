@@ -1,10 +1,17 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
-import { noControl } from "../../storybook/index.js";
+import { noControl } from "../../storybook";
 
-import { Accordion, AccordionHeading, AccordionSection, AccordionSectionStatus } from "./accordion.models.js";
+import {
+  Accordion,
+  AccordionHeading,
+  AccordionSection,
+  AccordionSectionStatus,
+  AccordionSectionWijzigactie,
+} from "./accordion.models.js";
 import { LabelStatus } from "../label";
+import { RenvooiValue } from "../renvooi";
 
 export interface AccordionArgs {
   variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
@@ -19,15 +26,17 @@ export interface AccordionArgs {
   icon: string;
   heading: AccordionHeading;
   handleUrl: string;
-  handleTitle: string;
+  handleTitle: RenvooiValue;
+  wijzigactie: AccordionSectionWijzigactie | undefined;
   demoScrollIntoView: "start" | "end" | undefined;
   label: string;
   labelStatus: LabelStatus;
 }
 
-export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open"> = {
+export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open" | "handleTitle"> = {
   open: false,
   demoScrollIntoView: undefined,
+  handleTitle: "ongewijzigd",
 };
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -97,9 +106,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   handleTitle: {
-    control: {
-      type: "text",
-    },
+    ...noControl,
+  },
+  wijzigactie: {
+    ...noControl,
   },
   /** demo args */
   demoScrollIntoView: {

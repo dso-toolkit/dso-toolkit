@@ -164,6 +164,14 @@
   @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
 }
 
+:host(.dso-accordion-compact-black.dso-accordion-wijzigactie-voegtoe) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-voegtoe();
+}
+
+:host(.dso-accordion-compact-black.dso-accordion-wijzigactie-verwijder) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-verwijder();
+}
+
 :host(.dso-accordion-compact-black.dso-accordion-reverse-align) {
   @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-reverse();
 }

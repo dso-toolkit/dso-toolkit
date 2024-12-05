@@ -186,3 +186,25 @@ export const alignmentSections: AccordionSection<TemplateResult>[] = [
     icon: "user-line",
   },
 ];
+
+export const renvooiSections: AccordionSection<TemplateResult>[] = [
+  {
+    ...section1,
+  },
+  {
+    ...section1,
+    wijzigactie: "verwijder",
+  },
+  {
+    ...section1,
+    wijzigactie: "voegtoe",
+    open: true,
+  },
+  {
+    ...section1,
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
+  },
+];
