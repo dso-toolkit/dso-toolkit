@@ -1,8 +1,8 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
 import React from "react";
+import { ScrollableDecorator } from "dso-toolkit";
 
-export const decorator: Addon_DecoratorFunction<JSX.Element> = (story) => (
+export const decorator: ScrollableDecorator<JSX.Element> = (story) => (
   <div id="scrollable-mock" style={{ backgroundColor: "#efefef", height: "750px", width: "500px" }}>
-    {story()}
+    {story() as React.ReactNode}
   </div>
 );

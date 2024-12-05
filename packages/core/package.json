@@ -20,13 +20,13 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "4.22.2",
+    "@stencil/core": "4.22.3",
     "@stencil/store": "^2.0.16",
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
-    "focus-trap": "^7.6.1",
-    "i18next": "^23.16.5",
+    "focus-trap": "^7.6.2",
+    "i18next": "^24.0.5",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
     "uuid": "^11.0.3"
@@ -47,11 +47,11 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.random": "^3.2.0",
     "lodash.samplesize": "^4.2.0",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "stencil-inline-svg": "^1.1.0",
     "tsx": "^4.19.2",
-    "typescript": "~5.5.4"
+    "typescript": "~5.6.3"
   },
   "peerDependencies": {
     "dso-toolkit": "67.2.0"

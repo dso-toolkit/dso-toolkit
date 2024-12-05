@@ -12,7 +12,7 @@ const meta: Meta<ListButtonArgs> = {
   title: "List Button",
   decorators: [
     moduleMetadata({
-      declarations: [TrustHtmlPipe],
+      imports: [TrustHtmlPipe],
     }),
   ],
 };
