@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 📜 Release 67.1.0 - 2024-12-06
+
 ### Fixed
 * Accordion: Html-css compact black broken ([#2901](https://github.com/dso-toolkit/dso-toolkit/issues/2901))
 * Document Component: Accessible name voor tonen/verbergen kenmerken zijn onjuist ([#2912](https://github.com/dso-toolkit/dso-toolkit/issues/2912))
