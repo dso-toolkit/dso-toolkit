@@ -12,7 +12,7 @@ const meta: Meta<HeaderArgs> = {
   title: "Header",
   decorators: [
     moduleMetadata({
-      declarations: [TrustUrlPipe],
+      imports: [TrustUrlPipe],
     }),
   ],
 };
