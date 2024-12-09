@@ -3,10 +3,15 @@
 :host([enable-animation]) {
   display: grid;
   grid-template-rows: 0fr;
+  overflow: hidden;
   @include utilities.transition(grid-template-rows);
+}
 
+:host([enable-animation]:not([open="true"])) {
   .slot-container {
-    overflow: hidden;
+    min-block-size: 0;
+    visibility: hidden;
+    @include utilities.transition(visibility);
   }
 }
 
@@ -17,6 +22,10 @@
 
 :host([open][enable-animation]:not([open="false"])) {
   grid-template-rows: 1fr;
+
+  .slot-container {
+    visibility: visible;
+  }
 }
 
 :host([open]:not([enable-animation]):not([open="false"])),
