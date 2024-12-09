@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## Fixed
+* Accordion: nog steeds rare klapper bij sluiten van een sectie
+
 ## 📜 Release 67.1.0 - 2024-12-06
 
 ### Fixed
