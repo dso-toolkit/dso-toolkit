@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { DIRECTIVES } from "./stencil-generated";
 
 @NgModule({
-  declarations: [...DIRECTIVES],
+  imports: [...DIRECTIVES],
   exports: [...DIRECTIVES],
 })
 export class DsoToolkitModule {}
