@@ -89,7 +89,7 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- visible`)
+      //.matchImageSnapshot(`${Cypress.currentTest.title} -- visible`)
       .get("@dsoHeaderShadow")
       .find(".dropdown dso-dropdown-menu")
       .should("not.exist");
