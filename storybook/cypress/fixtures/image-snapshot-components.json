@@ -62,17 +62,6 @@
     "type": "core"
   },
   {
-    "name": "responsive-element",
-    "selector": "",
-    "stories": ["responsive-element"],
-    "type": "core",
-    "wait": [
-      "dso-responsive-element.hydrated[small]",
-      "dso-responsive-element.hydrated[medium]",
-      "dso-responsive-element.hydrated[large]"
-    ]
-  },
-  {
     "name": "anchor",
     "selector": "a",
     "stories": [
