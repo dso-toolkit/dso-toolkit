@@ -27,7 +27,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
             <span id="card-title">{label}</span>
           </h2>
           {interactions && interactions.length > 0 && (
-            <div slot="interactions" className="dso-card-interactions">
+            <div slot="interactions">
               {interactions.map((interaction, index) => (
                 <div key={index} className="dso-card-interaction">
                   {isButtonInterface(interaction) && (
