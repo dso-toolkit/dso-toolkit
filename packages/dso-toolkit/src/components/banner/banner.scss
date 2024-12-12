@@ -28,6 +28,7 @@
     }
   }
 
+  .container::before, // TEMP
   .dso-banner-inner::before {
     content: "";
     display: inline-block;
@@ -37,6 +38,7 @@
   }
 
   &:not(.dso-no-icon) {
+    .container, // TEMP
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
@@ -115,6 +117,7 @@ dso-banner {
     }
   }
 
+  .container::before, // TEMP
   .dso-banner-inner::before {
     content: "";
 
@@ -126,6 +129,7 @@ dso-banner {
   }
 
   &:not([no-icon]) {
+    .col-sm-12, // TEMP
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;

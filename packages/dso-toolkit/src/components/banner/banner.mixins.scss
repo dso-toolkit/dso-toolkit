@@ -23,6 +23,8 @@
     }
   }
 
+  .col-sm-12, // TEMP
+  .container, // TEMP
   .dso-banner-inner {
     line-height: typography.$line-height-base;
     position: relative;
@@ -106,6 +108,7 @@
 }
 
 @mixin with-icon($variant) {
+  .container, // TEMP
   .dso-banner-inner {
     &::before {
       @include di.base("status-#{$variant}");
