@@ -177,6 +177,10 @@ dso-dropdown-menu {
             color: colors.$bosgroen;
             text-decoration: underline;
           }
+
+          &:visited {
+            color: colors.$bosgroen;
+          }
         }
 
         button {
