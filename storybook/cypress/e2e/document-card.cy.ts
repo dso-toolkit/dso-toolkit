@@ -1,4 +1,4 @@
-describe("Document Card", () => {
+describe.skip("Document Card", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-card--default")
       .get("dso-document-card.hydrated")

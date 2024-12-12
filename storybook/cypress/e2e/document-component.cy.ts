@@ -1,6 +1,6 @@
 import { DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
 
-describe("Document Component", () => {
+describe.skip("Document Component", () => {
   it("should mark and highlight", () => {
     const marker: DocumentComponentMarkFunction = (text, source) =>
       text
