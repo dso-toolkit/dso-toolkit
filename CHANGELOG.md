@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Responsive-element: e2e test schrijven ([#2692](https://github.com/dso-toolkit/dso-toolkit/issues/2692))
+* Policy: Definition of Ready en Definition of Done ([#2914](https://github.com/dso-toolkit/dso-toolkit/issues/2914))
 
 ## 📜 Release 67.1.0 - 2024-12-06
 
