@@ -1,0 +1,32 @@
+---
+authors: [hansgrimm]
+---
+
+# DSO Toolkit v67.2.0 👹
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Banner (HTML/CSS Component)
+
+<!-- truncate -->
+
+## Banner (HTML/CSS Component) HTML markup gewijzigd: afhankelijkheid van grid system verwijderd.
+
+Daardoor kon de markup aanzienlijk vereenvoudigd worden:
+
+```html
+❌
+<section role="alert" class="dso-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">-content-</div>
+    </div>
+  </div>
+</section>
+✅
+<section role="alert" class="dso-banner">
+  <div class="dso-banner-inner">-content-</div>
+</section>
+```
+
+De "oude" markup wordt nu nog ondersteund door de styling, maar die tijdelijke ondersteuning wordt t.z.t. door ticket #2930 verwijderd.
