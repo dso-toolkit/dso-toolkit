@@ -179,11 +179,7 @@ export * from "./components/responsive-element";
 
 export * from "./components/rich-content";
 
-export { RowEqualHeights } from "./components/row-equal-heights/row-equal-heights.models.js";
-export {
-  RowEqualHeightsTemplates,
-  storiesOfRowEqualHeights,
-} from "./components/row-equal-heights/row-equal-heights.stories-of.js";
+export * from "./components/row-equal-heights";
 
 export { Scrollable } from "./components/scrollable/scrollable.models.js";
 export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";

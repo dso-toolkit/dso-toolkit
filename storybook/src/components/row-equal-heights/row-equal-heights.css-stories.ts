@@ -1,22 +1,26 @@
-import { storiesOfRowEqualHeights, StoryRoot } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
-import { html } from "lit-html";
+import { Meta } from "@storybook/web-components";
+import { rowEqualHeightsMeta, rowEqualHeightsStories } from "dso-toolkit";
 
+import { templateContainer } from "../../templates";
 import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 
 import { decorator } from "./row-equal-heights.decorator";
-import { templateContainer } from "../../templates";
+import { html } from "lit-html";
 
-storiesOfRowEqualHeights(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
-      root: StoryRoot.HtmlCss,
-    },
-    templateContainer,
-    storyTemplates: ({ highlightBoxTemplate, tileTemplate, whiteboxTemplate, rowEqualHeightsTemplate }) => ({
+const meta: Meta = {
+  ...rowEqualHeightsMeta({ readme }),
+  title: "HTML|CSS/Row Equal Heights",
+};
+
+export default meta;
+
+const { HighlightBoxes, Tiles, Whiteboxes } = rowEqualHeightsStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { highlightBoxTemplate, tileTemplate, whiteboxTemplate, rowEqualHeightsTemplate } = templates;
+
+    return {
+      rowEqualHeightsTemplate,
       highlightBoxExample: (highlightboxes) =>
         rowEqualHeightsTemplate({
           children: html`${highlightboxes.map(
@@ -35,9 +39,9 @@ storiesOfRowEqualHeights(
             (whitebox) => html`<div class="col-md-4 col-sm-6">${whiteboxTemplate(whitebox)}</div>`,
           )}`,
         }),
-    }),
+    };
   },
-  {
-    decorator,
-  },
-);
+  decorator,
+});
+
+export { HighlightBoxes, Tiles, Whiteboxes };
