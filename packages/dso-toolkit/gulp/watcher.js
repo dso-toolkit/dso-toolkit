@@ -1,7 +1,7 @@
 import gulp from "gulp";
 
 import { buildStyling } from "./build-styling.js";
-import { buildSvgSpritesheet } from "./build-svg-spritesheet.js";
+import { buildSvgSpritesheets } from "./build-svg-spritesheets.js";
 import { buildScripting } from "./build-scripting.js";
 
 export function watcher() {
@@ -18,7 +18,7 @@ export function watcher() {
     {
       cwd: "src",
     },
-    buildSvgSpritesheet,
+    buildSvgSpritesheets,
   );
 
   gulp.watch(

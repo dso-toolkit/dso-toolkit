@@ -4,18 +4,10 @@ caret-down {
   color: colors.$bosgroen;
 }
 
-caret-down:grasgroen {
-  color: colors.$grasgroen;
-}
-
 caret-down:disabled {
   color: colors.$grijs-40;
 }
 
 caret-down:invalid {
   color: colors.$danger-color;
-}
-
-caret-down:wit {
-  color: colors.$wit;
 }
