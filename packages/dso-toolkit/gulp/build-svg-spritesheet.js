@@ -13,135 +13,136 @@ import { sassTransformer } from "./transformers/sass.transformer.js";
 
 const iconsPath = "src/icons";
 const distPath = "dist";
+const outPutNameIcons = "dso-icons.svg";
+const outPutNameIconsWithVariants = "di.svg";
+const canvasSize = 32;
+const gutterSize = 10;
+const viewBoxChildSvg = 24;
 
-export async function buildSvgSpritesheet() {
-  const stylesheets = await new Promise((resolve, reject) => {
+async function parseStylesheets() {
+  return new Promise((resolve, reject) => {
     gulp
-      .src(`${iconsPath}/*.scss`)
-      .pipe(sassTransformer())
+      .src(`${iconsPath}/*.scss`) // Read all SCSS files in the icons directory
+      .pipe(sassTransformer()) // Transform SCSS into plain CSS
       .pipe(
         obj((error, data) => {
           if (error) {
-            reject(error);
-
-            return;
+            return reject(error);
           }
 
-          resolve(
-            data.map(({ relative, extname, contents }) => {
-              const id = basename(relative, extname);
-              const style = contents.toString();
-              const ast = parse(style);
-              const variants = ast.stylesheet.rules
-                .filter((r) => r.type === "rule")
-                .reduce((v, rule) => {
-                  const variantColors = rule.selectors.reduce((current, s) => {
-                    const color = rule.declarations.find((d) => d.property === "color")?.value;
+          // Process each transformed SCSS file
+          const parsedStyles = data.map(({ relative, extname, contents }) => {
+            const id = basename(relative, extname); // Extract the file name without the extension
+            const style = contents.toString();
+            const ast = parse(style); // Parse the CSS into an abstract syntax tree (AST)
 
-                    if (s === id && !v.some((variantColor) => variantColor.selector === s)) {
-                      return current.concat({
-                        color,
-                        selector: "default",
-                      });
+            // Extract color variants for each CSS rule
+            const variants = ast.stylesheet.rules
+              .filter((rule) => rule.type === "rule") // Keep only CSS rules (ignore comments, etc.)
+              .flatMap((rule) => {
+                const colorDeclaration = rule.declarations.find((d) => d.property === "color");
+                if (!colorDeclaration) return [];
+
+                const color = colorDeclaration.value;
+                return rule.selectors
+                  .map((selector) => {
+                    if (selector === id) {
+                      return { selector: "default", color }; // Mark as default variant
                     }
 
-                    if (
-                      s.startsWith(`${id}:`) &&
-                      !v.some((variantColor) => variantColor.selector === s.substr(`${id}:`.length))
-                    ) {
-                      return current.concat({
-                        color,
-                        selector: s.substr(`${id}:`.length),
-                      });
+                    if (selector.startsWith(`${id}:`)) {
+                      return { selector: selector.slice(id.length + 1), color }; // Extract the variant name
                     }
 
-                    return current;
-                  }, []);
+                    return null;
+                  })
+                  .filter(Boolean); // Remove null entries
+              });
 
-                  v.push(...variantColors);
+            return { id, variants };
+          });
 
-                  return v;
-                }, []);
-
-              return { id, variants };
-            }),
-          );
+          resolve(parsedStyles);
         }),
       );
   });
+}
 
-  return new Promise((resolve, reject) => {
-    gulp
-      .src(`${iconsPath}/*.svg`)
-      .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
-      .pipe(
-        svgstore({
-          inlineSvg: true,
-        }),
-      )
-      .pipe(
-        cheerio({
-          run($) {
-            const canvas = 32;
-            const gutter = 10;
-            const symbols = $("symbol").toArray();
-            const positions = symbols.reduce((position, element) => {
-              const symbol = $(element);
-              const id = symbol.attr("id");
+async function buildSprite(spriteName, iconsWithStyles = false) {
+  const stylesheets = await parseStylesheets(); // Parse stylesheets within the function
 
-              const stylesheet = stylesheets.find((s) => s.id === id);
+  return gulp
+    .src(`${iconsPath}/*.svg`)
+    .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
+    .pipe(
+      svgstore({
+        inlineSvg: true,
+      }),
+    )
+    .pipe(
+      cheerio({
+        run($) {
+          const symbols = $("symbol").toArray();
+          let position = 0;
+
+          symbols.forEach((symbol) => {
+            const id = $(symbol).attr("id");
+            const stylesheet = stylesheets.find((s) => s.id === id);
+
+            if (iconsWithStyles) {
+              if (!stylesheet) {
+                $(symbol).remove();
+                return;
+              }
 
               const variants = [
-                { selector: id, color: stylesheet?.variants.find((v) => v.selector === "default")?.color },
-                ...(stylesheet?.variants
+                { selector: id, color: stylesheet.variants.find((v) => v.selector === "default")?.color },
+                ...stylesheet.variants
                   .filter((v) => v.selector !== "default")
-                  .map((v) => ({ selector: `${id}-${v.selector}`, color: v.color })) ?? []),
+                  .map((v) => ({ selector: `${id}-${v.selector}`, color: v.color })),
               ];
 
-              const iconIds = variants.map((v) => v.selector);
-
-              symbol.before(`<!-- START: ${iconIds.join(", ")} -->`).after(`<!-- END: ${iconIds.join(", ")} -->`);
-
               variants.forEach((variant, index) => {
-                const x = (position + index) * (canvas + gutter) + gutter / 2;
-                const svg = symbol.clone().removeAttr("id");
-                $(svg).each((_index, element) => (element.tagName = "svg"));
-
-                if (variant.color) {
-                  svg.find('[fill="currentColor"]').attr("fill", variant.color);
-                }
+                const x = (position + index) * (canvasSize + gutterSize) + gutterSize / 2;
 
                 const view = $("<view>")
-                  .attr("id", `img-${variant.selector}`)
-                  .attr("viewBox", [x, 0, canvas, canvas].join(" "));
+                  .attr("id", `${variant.selector}`)
+                  .attr("viewBox", [x, 0, canvasSize, canvasSize].join(" "));
 
-                symbol.before(view);
+                const svgElement = $("<svg>").attr("id", variant.selector).attr("viewBox", $(symbol).attr("viewBox"));
 
-                const g = $("<g>").attr("transform", `translate(${x})`).append(svg);
+                $(symbol)
+                  .children()
+                  .clone()
+                  .each((_, child) => {
+                    if (variant.color && $(child).attr("fill") === "currentColor") {
+                      $(child).attr("fill", variant.color);
+                    }
+                    svgElement.append(child);
+                  });
 
-                symbol.before(g);
+                const group = $("<g>").attr("transform", `translate(${x})`).append(svgElement);
+
+                $(symbol).before(view).before(group);
               });
 
-              return position + variants.length;
-            }, 0);
+              $(symbol).remove();
+              position += variants.length;
+            }
+          });
 
-            $(":root").attr(
-              "viewBox",
-              [
-                (positions * (canvas + gutter)) / 2 - (canvas + gutter) / 2 + gutter / 2,
-                0,
-                positions * (canvas + gutter) + gutter,
-                canvas,
-              ].join(" "),
-            );
-          },
-          parserOptions: { xmlMode: true },
-        }),
-      )
-      .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
-      .pipe(rename("dso-icons.svg"))
-      .pipe(gulp.dest(distPath))
-      .on("end", resolve)
-      .on("error", reject);
-  });
+          // Calculate viewBox based on total width and height
+          const width = position * (canvasSize + gutterSize) + gutterSize;
+          $("svg:first-child").attr("viewBox", `0 0 ${width} ${canvasSize}`);
+        },
+        parserOptions: { xmlMode: true },
+      }),
+    )
+    .pipe(rename(spriteName))
+    .pipe(gulp.dest(distPath));
+}
+
+export async function buildSvgSpritesheet() {
+  // Generate both styled and unstyled spritesheets
+  await Promise.all([buildSprite(outPutNameIcons, false), buildSprite(outPutNameIconsWithVariants, true)]);
 }

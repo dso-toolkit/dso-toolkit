@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Changed
+* Icon Mixins: Grote spritesheet zorgt voor CPU usage ([#2844](https://github.com/dso-toolkit/dso-toolkit/issues/2844))
 * Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
 
 ### Fixed
