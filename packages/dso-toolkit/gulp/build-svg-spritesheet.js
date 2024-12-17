@@ -129,10 +129,6 @@ async function buildSprite(iconsWithStyles = false) {
               position += variants.length;
             }
           });
-
-          // Calculate viewBox based on total width and height
-          const width = position * (canvasSize + gutterSize) + gutterSize;
-          $("svg:first-child").attr("viewBox", `0 0 ${width} ${canvasSize}`);
         },
         parserOptions: { xmlMode: true },
       }),
