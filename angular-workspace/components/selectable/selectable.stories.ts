@@ -1,21 +1,27 @@
-import { storiesOf } from "@storybook/angular";
+import type { Meta } from "@storybook/angular";
+import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
-import { storiesOfSelectable } from "dso-toolkit";
-import { DsoSelectable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+import readme from "./readme.md?raw";
 import { infoRichContent } from "./selectable.content";
 
-import readme from "./readme.md?raw";
+const meta: Meta<SelectableArgs<unknown>> = {
+  ...selectableMeta({ readme }),
+  title: "Selectable",
+};
 
-storiesOfSelectable({
-  parameters: {
-    module,
-    storiesOf,
-    readme,
-    storyApiOptions: {
-      parameters: [{ component: DsoSelectable }],
-    },
-  },
+export default meta;
+
+const { Radio, Checkbox, WithInfo, Nested } = selectableStories({
   templateContainer,
-  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
+  storyTemplates: (templates) => {
+    const { selectableTemplate } = templates;
+
+    return {
+      selectableTemplate,
+      infoRichContent,
+    };
+  },
 });
+
+export { Radio, Checkbox, WithInfo, Nested };

@@ -1,65 +1,97 @@
-import { v4 as uuidv4 } from "uuid";
-
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { SelectableArgs, selectableArgsMapper, selectableArgTypes } from "./selectable.args.js";
 import { Selectable } from "./selectable.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+import { v4 as uuidv4 } from "uuid";
+
+type SelectableStory<TemplateFnReturnType> = StoryObj<SelectableArgs<TemplateFnReturnType>, Renderer>;
+
+interface SelectableStories<TemplateFnReturnType> {
+  Radio: SelectableStory<TemplateFnReturnType>;
+  Checkbox: SelectableStory<TemplateFnReturnType>;
+  WithInfo: SelectableStory<TemplateFnReturnType>;
+  Nested: SelectableStory<TemplateFnReturnType>;
+}
+
+interface SelectableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    SelectableTemplates<TemplateFnReturnType>
+  > {}
 
 export interface SelectableTemplates<TemplateFnReturnType> {
   selectableTemplate: (selectableProperties: Selectable<TemplateFnReturnType>) => TemplateFnReturnType;
   infoRichContent: TemplateFnReturnType;
 }
 
-export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    SelectableTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Selectable", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: selectableArgTypes,
+export function selectableMeta<TRenderer extends Renderer, TemplateFnReturnType>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer, SelectableArgs<TemplateFnReturnType>> {
+  return {
+    argTypes: selectableArgTypes,
+    args: {
+      type: "radio",
+      checked: false,
+      disabled: false,
+      id: uuidv4(),
+      indeterminate: false,
+      infoActive: false,
+      infoFixed: false,
+      invalid: false,
+      label: "Label",
+      required: false,
+      value: "the-value",
+    },
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+export function selectableStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: SelectableStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType
+>): SelectableStories<TemplateFnReturnType> {
+  const render = templateContainer.render(
+    storyTemplates,
+    (args: SelectableArgs<TemplateFnReturnType>, { selectableTemplate, infoRichContent }) =>
+      selectableTemplate(selectableArgsMapper(args, infoRichContent)),
+  );
+
+  return {
+    Radio: {
       args: {
         type: "radio",
-        checked: false,
-        disabled: false,
-        id: uuidv4(),
-        indeterminate: false,
-        infoActive: false,
-        infoFixed: false,
-        invalid: false,
-        label: "Label",
-        required: false,
-        value: "the-value",
       },
-    });
-
-    const template = templateMapper<SelectableArgs<TemplateFnReturnType>>(
-      (args, { selectableTemplate, infoRichContent }) =>
-        selectableTemplate(selectableArgsMapper(args, infoRichContent)),
-    );
-
-    stories.add("radio", template, {
-      args: {
-        type: "radio",
-      },
-    });
-
-    stories.add("checkbox", template, {
+      render,
+    },
+    Checkbox: {
       args: {
         type: "checkbox",
       },
-    });
-
-    stories.add("with info", template, {
+      render,
+    },
+    WithInfo: {
       args: {
         infoFixed: false,
       },
-    });
-
-    stories.add("nested", template, {
+      render,
+    },
+    Nested: {
       args: {
         options: [
           {
@@ -72,7 +104,7 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
             info: {
               active: true,
               content:
-                '<div class="dso-rich-content" slot="info"><h4>Toelichting bij antwoord: "Optie op niveau 1 - keuze 1"</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.</p></div>',
+                '<div class="dso-rich-content" slot="info"><h4>Toelichting bij antwoord: "Optie op niveau 1 - keuze 1"</h4><p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p></div>',
             },
             options: [
               {
@@ -146,8 +178,7 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
           },
         ] satisfies Selectable<TemplateFnReturnType>[],
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }

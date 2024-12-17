@@ -184,8 +184,7 @@ export * from "./components/row-equal-heights";
 export { Scrollable } from "./components/scrollable/scrollable.models.js";
 export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
 
-export { Selectable } from "./components/selectable/selectable.models.js";
-export { SelectableTemplates, storiesOfSelectable } from "./components/selectable/selectable.stories-of.js";
+export * from "./components/selectable";
 
 export {
   ShoppingCart,
