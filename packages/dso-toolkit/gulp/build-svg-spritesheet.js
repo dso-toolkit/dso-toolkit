@@ -17,7 +17,6 @@ const outPutNameIcons = "dso-icons.svg";
 const outPutNameIconsWithVariants = "di.svg";
 const canvasSize = 32;
 const gutterSize = 10;
-const viewBoxChildSvg = 24;
 
 async function parseStylesheets() {
   return new Promise((resolve, reject) => {
@@ -68,7 +67,7 @@ async function parseStylesheets() {
   });
 }
 
-async function buildSprite(spriteName, iconsWithStyles = false) {
+async function buildSprite(iconsWithStyles = false) {
   const stylesheets = await parseStylesheets(); // Parse stylesheets within the function
 
   return gulp
@@ -138,11 +137,11 @@ async function buildSprite(spriteName, iconsWithStyles = false) {
         parserOptions: { xmlMode: true },
       }),
     )
-    .pipe(rename(spriteName))
+    .pipe(rename(iconsWithStyles ? outPutNameIconsWithVariants : outPutNameIcons))
     .pipe(gulp.dest(distPath));
 }
 
 export async function buildSvgSpritesheet() {
   // Generate both styled and unstyled spritesheets
-  await Promise.all([buildSprite(outPutNameIcons, false), buildSprite(outPutNameIconsWithVariants, true)]);
+  await Promise.all([buildSprite(), buildSprite(true)]);
 }
