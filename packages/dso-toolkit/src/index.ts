@@ -186,12 +186,7 @@ export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollabl
 
 export * from "./components/selectable";
 
-export {
-  ShoppingCart,
-  ShoppingCartItem,
-  ShoppingCartSubitem,
-} from "./components/shopping-cart/shopping-cart.models.js";
-export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
+export * from "./components/shopping-cart";
 
 export * from "./components/skiplink";
 
