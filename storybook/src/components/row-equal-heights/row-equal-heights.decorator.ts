@@ -1,5 +1,5 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
+import { RowEqualHeightsDecorator } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
-export const decorator: Addon_DecoratorFunction<TemplateResult> = (story) =>
+export const decorator: RowEqualHeightsDecorator<TemplateResult> = (story) =>
   html`<div class="container">${story()}</div>`;
