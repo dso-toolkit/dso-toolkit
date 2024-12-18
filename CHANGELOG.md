@@ -5,12 +5,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### Fixed
-* Accordion: nog steeds rare klapper bij sluiten van een sectie ([#2643](https://github.com/dso-toolkit/dso-toolkit/issues/2643))
-
-### Task
-* Responsive-element: e2e test schrijven ([#2692](https://github.com/dso-toolkit/dso-toolkit/issues/2692))
-
 ### Changed
 * Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
 * Banner: No dependency on grid system ([#2303](https://github.com/dso-toolkit/dso-toolkit/issues/2303))

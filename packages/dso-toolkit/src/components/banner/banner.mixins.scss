@@ -23,8 +23,8 @@
     }
   }
 
-  .col-sm-12, // TEMP
-  .container, // TEMP
+  .col-sm-12, // to be removed in #2930
+  .container, // to be removed in #2930
   .dso-banner-inner {
     line-height: typography.$line-height-base;
     position: relative;
@@ -108,7 +108,7 @@
 }
 
 @mixin with-icon($variant) {
-  .container, // TEMP
+  .container, // to be removed in #2930
   .dso-banner-inner {
     &::before {
       @include di.base("status-#{$variant}");

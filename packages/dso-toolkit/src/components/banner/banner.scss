@@ -28,7 +28,7 @@
     }
   }
 
-  .container::before, // TEMP
+  .container::before, // to be removed in #2930
   .dso-banner-inner::before {
     content: "";
     display: inline-block;
@@ -38,7 +38,7 @@
   }
 
   &:not(.dso-no-icon) {
-    .container, // TEMP
+    .container, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
@@ -117,7 +117,7 @@ dso-banner {
     }
   }
 
-  .container::before, // TEMP
+  .container::before, // to be removed in #2930
   .dso-banner-inner::before {
     content: "";
 
@@ -129,7 +129,7 @@ dso-banner {
   }
 
   &:not([no-icon]) {
-    .col-sm-12, // TEMP
+    .col-sm-12, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
