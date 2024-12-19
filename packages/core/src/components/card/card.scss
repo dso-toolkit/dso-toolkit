@@ -46,10 +46,13 @@
   .dso-card-heading {
     align-items: center;
     display: flex;
-    margin-block-end: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
+    }
+
+    + .dso-card-content {
+      margin-block-start: units.$u1;
     }
   }
 }
@@ -76,5 +79,39 @@
 
   .sr-only {
     @include utilities.sr-only();
+  }
+}
+
+::slotted([slot="selectable"]) {
+  font-size: 0 !important;
+}
+
+::slotted([slot="heading"]) {
+  display: flex !important;
+  align-items: center !important;
+
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+
+  font-size: 1.125em !important;
+  font-weight: 700 !important;
+  color: colors.$bosgroen !important;
+  line-height: 1.25 !important;
+}
+
+::slotted([slot="content"]) {
+  --_dt-rich-content-margin-block: #{units.$u1};
+  --_dt-rich-content-margin-block-end: 0;
+  --_dt-rich-content-margin-block-start: 0;
+}
+
+::slotted([slot="interactions"]) {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-inline-start: auto !important;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100% !important;
+    margin-block-start: units.$u2 !important;
   }
 }
