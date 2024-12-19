@@ -14,7 +14,7 @@ const minDesktopViewportWidth = 992;
 @Component({
   tag: "dso-header",
   styleUrl: "header.scss",
-  scoped: true,
+  shadow: true,
 })
 export class Header {
   private clickHandler(
@@ -268,6 +268,7 @@ export class Header {
                 >
                   <button type="button" slot="toggle">
                     <span>{this.text("menu")}</span>
+                    <dso-icon icon="chevron-down"></dso-icon>
                   </button>
                   <div class="dso-dropdown-options">
                     <ul>
@@ -429,6 +430,7 @@ export class Header {
                         <dso-dropdown-menu placement="bottom">
                           <button type="button" slot="toggle">
                             <span>{this.text("overflowMenu")}</span>
+                            <dso-icon icon="chevron-down"></dso-icon>
                           </button>
                           <div class="dso-dropdown-options">
                             <ul>

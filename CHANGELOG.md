@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
+
 ### Fixed
 * Accordion: nog steeds rare klapper bij sluiten van een sectie ([#2643](https://github.com/dso-toolkit/dso-toolkit/issues/2643))
 
