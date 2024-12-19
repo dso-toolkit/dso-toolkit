@@ -89,7 +89,7 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- visible`)
+      .matchImageSnapshot()
       .get("@dsoHeaderShadow")
       .find(".dropdown dso-dropdown-menu")
       .should("not.exist");
@@ -176,8 +176,8 @@ describe("Header", () => {
   });
 
   it("should show login or logout when no menuItems are provided", () => {
-    cy.get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, []))
+    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, []))
       .invoke("attr", "login-url", "#login")
       .invoke("attr", "logout-url", "#logout")
       .invoke("attr", "auth-status", "loggedOut")
