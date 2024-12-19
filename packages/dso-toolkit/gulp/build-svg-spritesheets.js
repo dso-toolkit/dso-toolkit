@@ -67,9 +67,7 @@ async function parseStylesheets() {
   });
 }
 
-async function buildSprite(iconsWithStyles = false) {
-  const stylesheets = await parseStylesheets(); // Parse stylesheets within the function
-
+async function buildSpritesheet(iconStylesheets) {
   return gulp
     .src(`${iconsPath}/*.svg`)
     .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
@@ -84,14 +82,18 @@ async function buildSprite(iconsWithStyles = false) {
           const symbols = $("symbol").toArray();
           let position = 0;
 
-          symbols.forEach((symbol) => {
-            const id = $(symbol).attr("id");
-            const stylesheet = stylesheets.find((s) => s.id === id);
+          if (iconStylesheets) {
+            // Create a map for quick stylesheet lookup
+            const stylesheetMap = Object.fromEntries(iconStylesheets.map((s) => [s.id, s]));
 
-            if (iconsWithStyles) {
+            for (const symbol of symbols) {
+              const $symbol = $(symbol);
+              const id = $symbol.attr("id");
+              const stylesheet = stylesheetMap[id];
+
               if (!stylesheet) {
-                $(symbol).remove();
-                return;
+                $symbol.remove();
+                continue;
               }
 
               const variants = [
@@ -101,43 +103,47 @@ async function buildSprite(iconsWithStyles = false) {
                   .map((v) => ({ selector: `${id}-${v.selector}`, color: v.color })),
               ];
 
-              variants.forEach((variant, index) => {
+              for (const [index, variant] of variants.entries()) {
                 const x = (position + index) * (canvasSize + gutterSize) + gutterSize / 2;
 
                 const view = $("<view>")
                   .attr("id", `${variant.selector}`)
                   .attr("viewBox", [x, 0, canvasSize, canvasSize].join(" "));
 
-                const svgElement = $("<svg>").attr("id", variant.selector).attr("viewBox", $(symbol).attr("viewBox"));
+                const svgElement = $("<svg>").attr("id", variant.selector).attr("viewBox", $symbol.attr("viewBox"));
 
-                $(symbol)
-                  .children()
-                  .clone()
-                  .each((_, child) => {
-                    if (variant.color && $(child).attr("fill") === "currentColor") {
-                      $(child).attr("fill", variant.color);
-                    }
-                    svgElement.append(child);
-                  });
+                // Convert children to an array and clone each child
+                for (const child of $symbol.children().toArray()) {
+                  const clonedChild = $(child).clone();
+                  if (variant.color && clonedChild.attr("fill") === "currentColor") {
+                    clonedChild.attr("fill", variant.color);
+                  }
+                  svgElement.append(clonedChild);
+                }
 
                 const group = $("<g>").attr("transform", `translate(${x})`).append(svgElement);
 
-                $(symbol).before(view).before(group);
-              });
+                $symbol.before(view).before(group);
+              }
 
-              $(symbol).remove();
+              $symbol.remove();
               position += variants.length;
             }
-          });
+
+            // Calculate and set the parent SVG viewBox
+            const totalWidth = position * (canvasSize + gutterSize) + gutterSize;
+            $(":root").attr("viewBox", `0 0 ${totalWidth} ${canvasSize}`);
+          }
         },
         parserOptions: { xmlMode: true },
       }),
     )
-    .pipe(rename(iconsWithStyles ? outPutNameIconsWithVariants : outPutNameIcons))
+    .pipe(rename(iconStylesheets ? outPutNameIconsWithVariants : outPutNameIcons))
     .pipe(gulp.dest(distPath));
 }
 
-export async function buildSvgSpritesheet() {
+export async function buildSvgSpritesheets() {
+  const iconStylesheets = await parseStylesheets(); // Parse stylesheets within the function
   // Generate both styled and unstyled spritesheets
-  await Promise.all([buildSprite(), buildSprite(true)]);
+  return Promise.all([buildSpritesheet(iconStylesheets), buildSpritesheet()]);
 }
