@@ -18,11 +18,7 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
           })}
           role="alert"
         >
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">${content}</div>
-            </div>
-          </div>
+          <div class="dso-banner-inner">${content}</div>
         </section>
       `;
     },
