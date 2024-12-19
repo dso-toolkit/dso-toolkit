@@ -179,31 +179,20 @@ export * from "./components/responsive-element";
 
 export * from "./components/rich-content";
 
-export { RowEqualHeights } from "./components/row-equal-heights/row-equal-heights.models.js";
-export {
-  RowEqualHeightsTemplates,
-  storiesOfRowEqualHeights,
-} from "./components/row-equal-heights/row-equal-heights.stories-of.js";
+export * from "./components/row-equal-heights";
 
 export { Scrollable } from "./components/scrollable/scrollable.models.js";
 export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
 
-export { Selectable } from "./components/selectable/selectable.models.js";
-export { SelectableTemplates, storiesOfSelectable } from "./components/selectable/selectable.stories-of.js";
+export * from "./components/selectable";
 
-export {
-  ShoppingCart,
-  ShoppingCartItem,
-  ShoppingCartSubitem,
-} from "./components/shopping-cart/shopping-cart.models.js";
-export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
+export * from "./components/shopping-cart";
 
 export * from "./components/skiplink";
 
 export * from "./components/slide-toggle";
 
-export { Table, TableContent, TableSorting } from "./components/table/table.models.js";
-export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
+export * from "./components/table";
 
 export * from "./components/tabs";
 

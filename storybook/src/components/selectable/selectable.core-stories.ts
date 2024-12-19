@@ -1,14 +1,14 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
 import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/selectable/readme.md?raw";
 import { infoRichContent } from "./selectable.content";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),
-  title: "Selectable",
+  title: "Core/Selectable",
 };
 
 export default meta;
@@ -20,7 +20,7 @@ const { Radio, Checkbox, WithInfo, Nested } = selectableStories({
 
     return {
       selectableTemplate,
-      infoRichContent,
+      infoRichContent: infoRichContent(templates),
     };
   },
 });

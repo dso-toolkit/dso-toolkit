@@ -1,14 +1,14 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/web-components";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
 import { defaultTable, imageOverlayTable, sortedAscendingTable, sortedDescendingTable } from "./table.content";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 
 const meta: Meta<TableArgs> = {
   ...tableMeta({ readme }),
-  title: "Table",
+  title: "Core/Table",
 };
 
 export default meta;
@@ -20,10 +20,10 @@ const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, Sorted
 
     return {
       tableTemplate,
-      defaultTable,
-      imageOverlayTable,
-      sortedAscendingTable,
-      sortedDescendingTable,
+      defaultTable: defaultTable(templates),
+      imageOverlayTable: imageOverlayTable(templates),
+      sortedAscendingTable: sortedAscendingTable(templates),
+      sortedDescendingTable: sortedDescendingTable(templates),
     };
   },
 });
