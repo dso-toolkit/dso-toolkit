@@ -67,7 +67,8 @@ async function parseStylesheets() {
   });
 }
 
-async function buildSpritesheet(iconStylesheets) {
+async function buildDiSpritesheet() {
+  const iconStylesheets = await parseStylesheets(); // Parse stylesheets within the function
   return gulp
     .src(`${iconsPath}/*.svg`)
     .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
@@ -79,10 +80,10 @@ async function buildSpritesheet(iconStylesheets) {
     .pipe(
       cheerio({
         run($) {
-          const symbols = $("symbol").toArray();
-          let position = 0;
-
           if (iconStylesheets) {
+            const symbols = $("symbol").toArray();
+            let position = 0;
+
             // Create a map for quick stylesheet lookup
             const stylesheetMap = Object.fromEntries(iconStylesheets.map((s) => [s.id, s]));
 
@@ -138,12 +139,29 @@ async function buildSpritesheet(iconStylesheets) {
         parserOptions: { xmlMode: true },
       }),
     )
-    .pipe(rename(iconStylesheets ? outPutNameIconsWithVariants : outPutNameIcons))
+    .pipe(rename(outPutNameIconsWithVariants))
+    .pipe(gulp.dest(distPath));
+}
+
+async function buildSvgSpritesheet() {
+  return gulp
+    .src(`${iconsPath}/*.svg`)
+    .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
+    .pipe(
+      svgstore({
+        inlineSvg: true,
+      }),
+    )
+    .pipe(
+      cheerio({
+        parserOptions: { xmlMode: true },
+      }),
+    )
+    .pipe(rename(outPutNameIcons))
     .pipe(gulp.dest(distPath));
 }
 
 export async function buildSvgSpritesheets() {
-  const iconStylesheets = await parseStylesheets(); // Parse stylesheets within the function
   // Generate both styled and unstyled spritesheets
-  return Promise.all([buildSpritesheet(iconStylesheets), buildSpritesheet()]);
+  return Promise.all([buildDiSpritesheet(), buildSvgSpritesheet()]);
 }
