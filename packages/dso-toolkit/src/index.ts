@@ -192,8 +192,7 @@ export * from "./components/skiplink";
 
 export * from "./components/slide-toggle";
 
-export { Table, TableContent, TableSorting } from "./components/table/table.models.js";
-export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
+export * from "./components/table";
 
 export * from "./components/tabs";
 
