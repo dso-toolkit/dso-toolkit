@@ -8,11 +8,28 @@
 @use "banner.variables" as banner-variables;
 
 // HTML/CSS
-.dso-banner:not(.row) {
+.dso-banner {
   @include banner-mixins.root();
   @include banner-mixins.children();
 
-  .row > div::before {
+  .dso-banner-inner {
+    margin-inline: auto;
+
+    @media (min-width: media-query-breakpoints.$screen-sm-min) {
+      inline-size: banner-variables.$banner-sm;
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-md-min) {
+      inline-size: banner-variables.$banner-md;
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-lg-min) {
+      inline-size: banner-variables.$banner-lg;
+    }
+  }
+
+  .container::before, // to be removed in #2930
+  .dso-banner-inner::before {
     content: "";
     display: inline-block;
     inset-inline-start: units.$u2;
@@ -21,7 +38,8 @@
   }
 
   &:not(.dso-no-icon) {
-    .row > div {
+    .container, // to be removed in #2930
+    .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
       }
@@ -83,17 +101,36 @@
 dso-banner {
   @include banner-mixins.children();
 
-  .row > div::before {
+  .dso-banner-inner {
+    margin-inline: auto;
+
+    @media (min-width: media-query-breakpoints.$screen-sm-min) {
+      inline-size: banner-variables.$banner-sm;
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-md-min) {
+      inline-size: banner-variables.$banner-md;
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-lg-min) {
+      inline-size: banner-variables.$banner-lg;
+    }
+  }
+
+  .container::before, // to be removed in #2930
+  .dso-banner-inner::before {
     content: "";
 
-    display: inline-block;
-    inset-inline-start: units.$u2;
     position: absolute;
+    inset-inline-start: units.$u2;
     inset-block-start: 0;
+
+    display: inline-block;
   }
 
   &:not([no-icon]) {
-    .row > div {
+    .col-sm-12, // to be removed in #2930
+    .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
       }

@@ -5,9 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 👹 Release 67.2.0 - 2024-12-19
+
 ### Changed
 * Icon Mixins: Grote spritesheet zorgt voor CPU usage ([#2844](https://github.com/dso-toolkit/dso-toolkit/issues/2844))
 * Header: ShadowRoot ([#2365](https://github.com/dso-toolkit/dso-toolkit/issues/2365))
+* Banner: No dependency on grid system ([#2303](https://github.com/dso-toolkit/dso-toolkit/issues/2303))
 
 ### Fixed
 * Accordion: nog steeds rare klapper bij sluiten van een sectie ([#2643](https://github.com/dso-toolkit/dso-toolkit/issues/2643))
