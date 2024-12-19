@@ -1,10 +1,10 @@
-import type { Meta } from "@storybook/angular";
+import type { Meta } from "@storybook/react";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
-
 import readme from "./readme.md?raw";
+
+import { templateContainer } from "../../templates";
+import { decorator } from "./scrollable.decorator";
 import { defaultContent, dynamicContent } from "./scrollable.content";
 
 const meta: Meta<ScrollableArgs> = {
@@ -22,19 +22,10 @@ const { Default, DynamicContent } = scrollableStories({
     return {
       scrollableTemplate,
       defaultContent,
-      dynamicContent,
+      dynamicContent: dynamicContent(templates),
     };
   },
-  decorator: (story) => {
-    const s = story();
-    if (!isStoryFnAngularReturnTypeTemplate(s)) {
-      throw new Error("Expected a valid Angular template");
-    }
-
-    return {
-      template: `<div id="scrollable-mock" style="background-color: #efefef; height: 750px; max-width: 500px">${s.template}</div>`,
-    };
-  },
+  decorator,
 });
 
 export { Default, DynamicContent };
