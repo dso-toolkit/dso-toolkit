@@ -1,4 +1,4 @@
-import { OzonContentText } from "../ozon-content/ozon-content.models";
+import { OzonContentText } from "../ozon-content/ozon-content.models.js";
 
 export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;

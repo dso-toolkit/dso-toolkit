@@ -1,4 +1,4 @@
-import { AdvancedSelectOptionOrGroup } from "./advanced-select.models";
+import { AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
 
 export const options: AdvancedSelectOptionOrGroup<unknown>[] = [
   {

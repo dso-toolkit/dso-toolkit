@@ -7,7 +7,7 @@ import {
   DocumentComponentType,
   DocumentComponentWijzigactie,
   DocumentComponentAnnotationsWijzigactie,
-} from "./document-component.models";
+} from "./document-component.models.js";
 import { HandlerFunction } from "@storybook/addon-actions/*";
 import escapeStringRegexp from "escape-string-regexp";
 

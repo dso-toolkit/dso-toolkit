@@ -1,5 +1,5 @@
-import { OzonContentArgs } from "./ozon-content.args";
-import { OzonContentStories } from "./ozon-content.stories-of";
+import { OzonContentArgs } from "./ozon-content.args.js";
+import { OzonContentStories } from "./ozon-content.stories-of.js";
 
 interface OzonContentStory {
   title: keyof OzonContentStories;

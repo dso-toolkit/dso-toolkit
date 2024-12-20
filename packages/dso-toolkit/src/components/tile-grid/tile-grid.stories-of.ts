@@ -1,7 +1,7 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { Tile } from "../tile";
-import { TileGrid } from "./tile-grid.models";
+import { TileGrid } from "./tile-grid.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";

@@ -1,8 +1,8 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { v4 as uuidv4 } from "uuid";
 
-import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from "./shopping-cart.args";
-import { ShoppingCart } from "./shopping-cart.models";
+import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from "./shopping-cart.args.js";
+import { ShoppingCart } from "./shopping-cart.models.js";
 
 import { StoryObj, StoriesParameters } from "../../template-container";
 import { compiler } from "markdown-to-jsx";

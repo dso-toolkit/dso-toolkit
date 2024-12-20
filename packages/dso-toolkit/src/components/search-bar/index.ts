@@ -1,3 +1,3 @@
-export * from "./search-bar.args";
-export * from "./search-bar.models";
-export * from "./search-bar.stories-of";
+export * from "./search-bar.args.js";
+export * from "./search-bar.models.js";
+export * from "./search-bar.stories-of.js";

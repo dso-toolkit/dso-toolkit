@@ -1,7 +1,7 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args";
-import { DocumentHeader } from "./document-header.models";
+import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args.js";
+import { DocumentHeader } from "./document-header.models.js";
 import { DefinitionList } from "../definition-list";
 import { options } from "../advanced-select/advanced-select.content";
 

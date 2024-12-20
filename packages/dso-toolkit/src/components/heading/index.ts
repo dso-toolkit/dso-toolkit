@@ -1,1 +1,1 @@
-export * from "./heading.models";
+export * from "./heading.models.js";
