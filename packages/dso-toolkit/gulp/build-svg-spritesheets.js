@@ -141,7 +141,7 @@ async function buildDiSpritesheet() {
         parserOptions: { xmlMode: true },
       }),
     )
-    .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
+    .pipe(prettier({ parser: "html" }))
     .pipe(rename(outPutNameIconsWithVariants))
     .pipe(gulp.dest(distPath));
 }
@@ -154,7 +154,7 @@ async function buildSvgSpritesheet() {
         inlineSvg: true,
       }),
     )
-    .pipe(prettier({ plugins: ["@prettier/plugin-xml"] }))
+    .pipe(prettier({ parser: "html" }))
     .pipe(rename(outPutNameIcons))
     .pipe(gulp.dest(distPath));
 }
