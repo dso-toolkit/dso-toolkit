@@ -1,4 +1,4 @@
-import { Icon } from "../icon/icon.models";
+import { Icon } from "../icon/icon.models.js";
 
 export enum Type {
   Ul = "ul",

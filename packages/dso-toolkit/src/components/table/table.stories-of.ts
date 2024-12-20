@@ -1,6 +1,24 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
+
 import { TableArgs, tableArgsMapper, tableArgTypes } from "./table.args.js";
 import { Table, TableContent } from "./table.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type TableStory = StoryObj<TableArgs, Renderer>;
+
+interface TableStories {
+  Default: TableStory;
+  WithDsoImageOverlay: TableStory;
+  WithVerticalLines: TableStory;
+  SortedAscending: TableStory;
+  SortedDescending: TableStory;
+}
+
+interface TableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TableTemplates<TemplateFnReturnType>> {}
 
 export interface TableTemplates<TemplateFnReturnType> {
   tableTemplate: (TableProperties: Table<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -10,80 +28,64 @@ export interface TableTemplates<TemplateFnReturnType> {
   sortedDescendingTable: TableContent<TemplateFnReturnType>;
 }
 
-export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TableTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Table", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: tableArgTypes,
-    });
+export function tableMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  TableArgs
+> {
+  return {
+    argTypes: tableArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add(
-      "default",
-      templateMapper<TableArgs>((args, { tableTemplate, defaultTable }) =>
+export function tableStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: TableStoriesParameters<Implementation, Templates, TemplateFnReturnType>): TableStories {
+  return {
+    Default: {
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, defaultTable }) =>
         tableTemplate(tableArgsMapper(args, defaultTable)),
       ),
-      {
-        args: {
-          noModal: false,
-        },
+    },
+    WithDsoImageOverlay: {
+      args: {
+        noModal: false,
       },
-    );
-
-    stories.add(
-      "with dso-image-overlay",
-      templateMapper<TableArgs>((args, { tableTemplate, imageOverlayTable }) =>
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, imageOverlayTable }) =>
         tableTemplate(tableArgsMapper(args, imageOverlayTable)),
       ),
-      {
-        args: {
-          noModal: false,
-        },
+    },
+    WithVerticalLines: {
+      args: {
+        noModal: false,
+        verticalLines: true,
       },
-    );
-
-    stories.add(
-      "with vertical lines",
-      templateMapper<TableArgs>((args, { tableTemplate, imageOverlayTable }) =>
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, imageOverlayTable }) =>
         tableTemplate(tableArgsMapper(args, imageOverlayTable)),
       ),
-      {
-        args: {
-          noModal: false,
-          verticalLines: true,
-        },
+    },
+    SortedAscending: {
+      args: {
+        noModal: false,
       },
-    );
-
-    stories.add(
-      "sorted ascending",
-      templateMapper<TableArgs>((args, { tableTemplate, sortedAscendingTable }) =>
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, sortedAscendingTable }) =>
         tableTemplate(tableArgsMapper(args, sortedAscendingTable)),
       ),
-      {
-        args: {
-          noModal: false,
-        },
+    },
+    SortedDescending: {
+      args: {
+        noModal: false,
       },
-    );
-
-    stories.add(
-      "sorted descending",
-      templateMapper<TableArgs>((args, { tableTemplate, sortedDescendingTable }) =>
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, sortedDescendingTable }) =>
         tableTemplate(tableArgsMapper(args, sortedDescendingTable)),
       ),
-      {
-        args: {
-          noModal: false,
-        },
-      },
-    );
-
-    return stories;
-  });
+    },
+  };
 }

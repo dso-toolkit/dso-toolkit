@@ -1,4 +1,4 @@
-import { Card } from "../card/card.models";
+import { Card } from "../card/card.models.js";
 
 export const cardContainerContent: { cards: Omit<Card<unknown>, "dsoCardClick">[] } = {
   cards: [

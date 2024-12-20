@@ -1,43 +1,95 @@
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from "./shopping-cart.args.js";
 import { ShoppingCart } from "./shopping-cart.models.js";
-import { StoriesOfArguments, storiesOfFactory, componentArgs } from "../../storybook/index.js";
+
+import { StoryObj, StoriesParameters } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { componentArgs } from "../../storybook";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type ShoppingCartStory = StoryObj<ShoppingCartArgs, Renderer>;
+
+interface ShoppingCartStories {
+  Default: ShoppingCartStory;
+  ItemsCollapsed: ShoppingCartStory;
+  ItemsNonCollapsable: ShoppingCartStory;
+  RemoveAllItemsOption: ShoppingCartStory;
+  EditItems: ShoppingCartStory;
+  WithSubitems: ShoppingCartStory;
+  WithSubitemsAndHiddenSummary: ShoppingCartStory;
+  WithSubitemsAndWarning: ShoppingCartStory;
+}
+
+interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ShoppingCartTemplates<TemplateFnReturnType>
+  > {}
 
 export interface ShoppingCartTemplates<TemplateFnReturnType> {
   shoppingCartTemplate: (shoppingCartProperties: ShoppingCart) => TemplateFnReturnType;
 }
 
-export function storiesOfShoppingCart<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ShoppingCartTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Shopping Cart", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: shoppingCartArgTypes,
-      args: componentArgs<ShoppingCartArgs>({
-        collapsable: true,
-        collapsed: false,
-        hideSummary: false,
-        removeAll: false,
-        isOpen: false,
-        shoppingcartTitle: "Mijn activiteiten",
-        shoppingcartTitleTag: "h2",
-        items: [],
+export function shoppingCartMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ShoppingCartArgs
+> {
+  return {
+    argTypes: shoppingCartArgTypes,
+    args: componentArgs<ShoppingCartArgs>({
+      collapsable: true,
+      collapsed: false,
+      hideSummary: false,
+      removeAll: false,
+      isOpen: false,
+      shoppingcartTitle: "Mijn activiteiten",
+      shoppingcartTitleTag: "h2",
+      items: [],
+    }),
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+
+export function shoppingCartStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ShoppingCartStories {
+  const render = templateContainer.render(storyTemplates, (args: ShoppingCartArgs, { shoppingCartTemplate }) =>
+    shoppingCartTemplate(shoppingCartArgsMapper(args)),
+  );
+
+  return {
+    Default: {
+      render,
+    },
+    EditItems: {
+      args: componentArgs<Pick<ShoppingCartArgs, "items">>({
+        items: [
+          {
+            id: uuidv4(),
+            label: "Milieubelastende activiteit - Melding",
+          },
+          {
+            id: uuidv4(),
+            label: "Milieubelastende activiteit - Melding",
+            additive: "2",
+            edit: true,
+          },
+        ],
       }),
-    });
-
-    const template = templateMapper<ShoppingCartArgs>((args, { shoppingCartTemplate }) =>
-      shoppingCartTemplate(shoppingCartArgsMapper(args)),
-    );
-
-    stories.add("default", template);
-
-    stories.add("items collapsed", template, {
+      render,
+    },
+    ItemsCollapsed: {
       args: componentArgs<Pick<ShoppingCartArgs, "collapsed" | "items">>({
         collapsed: true,
         items: [
@@ -52,9 +104,9 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    stories.add("items non-collapsable", template, {
+      render,
+    },
+    ItemsNonCollapsable: {
       args: componentArgs<Pick<ShoppingCartArgs, "collapsable" | "removeAll" | "items">>({
         collapsable: false,
         removeAll: true,
@@ -80,9 +132,9 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    stories.add("remove all items option", template, {
+      render,
+    },
+    RemoveAllItemsOption: {
       args: componentArgs<Pick<ShoppingCartArgs, "removeAll" | "collapsed" | "items">>({
         removeAll: true,
         collapsed: true,
@@ -98,26 +150,9 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    stories.add("edit items", template, {
-      args: componentArgs<Pick<ShoppingCartArgs, "items">>({
-        items: [
-          {
-            id: uuidv4(),
-            label: "Milieubelastende activiteit - Melding",
-          },
-          {
-            id: uuidv4(),
-            label: "Milieubelastende activiteit - Melding",
-            additive: "2",
-            edit: true,
-          },
-        ],
-      }),
-    });
-
-    stories.add("with subitems", template, {
+      render,
+    },
+    WithSubitems: {
       args: componentArgs<Pick<ShoppingCartArgs, "items">>({
         items: [
           {
@@ -153,9 +188,9 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    stories.add("with subitems and hidden summary", template, {
+      render,
+    },
+    WithSubitemsAndHiddenSummary: {
       args: componentArgs<Pick<ShoppingCartArgs, "hideSummary" | "items">>({
         hideSummary: true,
         items: [
@@ -181,9 +216,9 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    stories.add("with subitems and warning", template, {
+      render,
+    },
+    WithSubitemsAndWarning: {
       args: componentArgs<Pick<ShoppingCartArgs, "isOpen" | "items">>({
         isOpen: true,
         items: [
@@ -213,8 +248,7 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
           },
         ],
       }),
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }
