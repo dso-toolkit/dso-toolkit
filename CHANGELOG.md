@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Task
 * Packages: Dependencies updates ([#2904](https://github.com/dso-toolkit/dso-toolkit/issues/2904))
 
+### Docs
+* Website: Release procedure voor maintainers beschrijven ([#2876](https://github.com/dso-toolkit/dso-toolkit/issues/2876))
+
 ## 👹 Release 67.2.0 - 2024-12-19
 
 ### Changed
