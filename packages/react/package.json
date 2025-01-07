@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@iframe-resizer/child": "^5.3.2",
     "@storybook/addon-a11y": "7.6.20",
@@ -38,8 +38,8 @@
     "@storybook/react-webpack5": "7.6.20",
     "@storybook/theming": "7.6.20",
     "@storybook/types": "7.6.20",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.14",
+    "@types/react-dom": "^18.3.3",
     "babel-loader": "^9.2.1",
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^3.0.3",
@@ -49,9 +49,9 @@
     "storybook": "7.6.20",
     "storybook-addon-jsx": "^7.3.14",
     "tslib": "^2.8.1",
-    "typescript": "~5.5.4",
+    "typescript": "~5.6.3",
     "wait-on": "^8.0.1",
-    "webpack": "^5.96.1"
+    "webpack": "^5.97.1"
   },
   "peerDependencies": {
     "@dso-toolkit/core": "67.2.0",

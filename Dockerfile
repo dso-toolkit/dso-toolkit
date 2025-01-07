@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-13.15.2-node-22.11.0-chrome-130.0.6723.116-1-ff-132.0.1-edge-130.0.2849.68-1
+FROM cypress/included:cypress-13.16.1-node-22.12.0-chrome-131.0.6778.108-1-ff-133.0-edge-131.0.2903.70-1
 
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \

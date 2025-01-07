@@ -51,7 +51,9 @@ h3 {
 
 .dso-action-list-item {
   display: grid;
-  grid-template-columns: calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin) 1fr;
+  grid-template-columns:
+    calc(action-list-variables.$content-indent - action-list-item-variables.$step-counter-margin)
+    1fr;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
     grid-template-columns: action-list-variables.$content-indent 1fr;

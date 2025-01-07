@@ -22,7 +22,7 @@ const meta: Meta<ModalArgs> = {
   title: "Modal",
   decorators: [
     moduleMetadata({
-      declarations: [TrustHtmlPipe],
+      imports: [TrustHtmlPipe],
     }),
   ],
 };

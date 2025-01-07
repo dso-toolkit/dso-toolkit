@@ -18,11 +18,10 @@
       block-size: auto;
 
       &:not([rows]) {
-        block-size: calc(
-          #{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(
-              units.$padding-base-block + 1
-            ) * 2}
-        );
+        $lines-block-size: typography.$line-height-base * css-form-variables.$textarea-default-rows * 1em;
+        $lines-block-padding: (units.$padding-base-block + 1) * 2;
+
+        block-size: calc(#{$lines-block-size} + #{$lines-block-padding});
       }
     }
   }
