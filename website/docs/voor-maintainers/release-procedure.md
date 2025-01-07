@@ -11,7 +11,9 @@ Alle commando's moeten in de root van het project op de lokale computer van de d
 Dit is de release procedure:
 
 1.  Check lokaal de `master`-branch uit en zorgt dat deze up-to-date is.
-2.  Controleer dat de Github milestone `67.0.0` volledig is. Zijn de issues van alle squash-commits in de `master`-branch sinds de vorige release toegevoegd aan de milestone?
+2.  Controleer dat de Github milestone `67.0.0` volledig is. Zijn de issues van alle squash-commits in de
+    `master`-branch sinds de vorige release toegevoegd aan de milestone? De Github milestones van DSO Toolkit
+    zijn hier te vinden: https://github.com/dso-toolkit/dso-toolkit/milestones.
 3.  Voer het commando `yarn release --version 67.0.0 --emoji 😍` uit:
 
     Toelichting:
@@ -37,4 +39,6 @@ Dit is de release procedure:
 
     De verwijzing in het bericht naar de blogpost is optioneel.
 
-8.  Als laatste kan de Github milestone gesloten worden.
+8.  Als laatste kan de Github milestone gesloten worden door op
+    https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
+    de Due date in te vullen en vervolgens op "Close milestone" te klikken.
