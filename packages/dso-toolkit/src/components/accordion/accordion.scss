@@ -82,6 +82,24 @@
     .dso-nested-accordion .dso-accordion {
       @include accordion-theme-compact.compact();
     }
+
+    & .dso-accordion-wijzigactie-voegtoe {
+      background-color: colors.$lime-20;
+
+      .dso-section-body {
+        background-color: colors.$lime-20;
+      }
+    }
+
+    & .dso-accordion-wijzigactie-verwijder {
+      text-decoration: line-through;
+      background-color: colors.$rood-20;
+
+      .dso-section-body {
+        text-decoration: line-through;
+        background-color: colors.$rood-20;
+      }
+    }
   }
 
   &.dso-accordion-compact-black {
