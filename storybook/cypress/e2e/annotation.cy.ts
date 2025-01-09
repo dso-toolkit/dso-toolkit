@@ -86,6 +86,17 @@ describe("Annotation - Omgevingsnormwaarde", () => {
       .as("waardes")
       .should("have.text", "waarde 1, waarde 2");
   });
+
+  it("doesn't show colon when waardes are omitted", () => {
+    cy.get("@annotation")
+      .invoke("prop", "gewijzigdeLocatie", false)
+      .invoke("prop", "waardes", [])
+      .get("@annotation")
+      .shadow()
+      .find("p.annotation-data")
+      .should("not.have.text", "Waardes worden weergegeven op de kaart: ")
+      .and("have.text", "Waardes worden weergegeven op de kaart");
+  });
 });
 
 describe("Annotation - Kaart", () => {

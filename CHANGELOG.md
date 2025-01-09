@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Icon Mixins: Grote spritesheet zorgt voor CPU usage ([#2844](https://github.com/dso-toolkit/dso-toolkit/issues/2844))
+* Annotation: Dubbele punt verwijderen bij lege waarde ([#2917](https://github.com/dso-toolkit/dso-toolkit/issues/2917))
 
 ### Task
 * Packages: Dependencies updates ([#2904](https://github.com/dso-toolkit/dso-toolkit/issues/2904))
