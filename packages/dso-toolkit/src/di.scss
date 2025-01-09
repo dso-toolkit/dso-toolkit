@@ -4,8 +4,7 @@
 
 @mixin base($icon, $size: icon.$size, $vertical-align: icon.$vertical-align) {
   & {
-    background: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
-    background-position: center;
+    background: url("#{config.$icons-path}di.svg##{$icon}") no-repeat center;
     background-size: cover;
     block-size: $size;
     vertical-align: $vertical-align;
@@ -15,6 +14,6 @@
 
 @mixin variant($icon) {
   & {
-    background-image: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}");
+    background-image: url("#{config.$icons-path}di.svg##{$icon}");
   }
 }
