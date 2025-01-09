@@ -83,7 +83,7 @@
       @include accordion-theme-compact.compact();
     }
 
-    & .dso-accordion-wijzigactie-voegtoe {
+    .dso-accordion-wijzigactie-voegtoe {
       background-color: colors.$lime-20;
 
       .dso-section-body {
@@ -91,7 +91,7 @@
       }
     }
 
-    & .dso-accordion-wijzigactie-verwijder {
+    .dso-accordion-wijzigactie-verwijder {
       text-decoration: line-through;
       background-color: colors.$rood-20;
 
