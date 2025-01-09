@@ -7,9 +7,18 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
 - Voeg icoon toe aan `/packages/dso-toolkit/src/icons`.
 - Bundel het icoon mee in de Web Component implementatie in `/packages/core/src/components/icon/icon.tsx`.
 
-## Spitesheet
+## Spritesheet
 
-Zowel de HTML/CSS implementatie als de `di` mixins maken gebruik van de spritesheet (`dso-icons.svg`). Deze spritesheet wordt gegenereerd aan de hand van de `.svg` en `.scss` files in `/packages/dso-toolkit/src/icons`.
+De `di` mixins maken gebruik van de spritesheet (`di.svg`). Deze spritesheet wordt gegenereerd aan de hand van de `.svg` en matchende (naam)`.scss` file in `/packages/dso-toolkit/src/icons`.
+
+Om een nieuw icoon toe te voegen aan deze spritesheet is het nodig om een nieuwe matchende .scss file te maken met daarin een matchende lege selector. De selector kan optioneel gevuld zijn om properties aan te passen .
+
+```scss
+// /packages/dso-toolkit/src/icons/status-danger.scss
+// stylelint-disable-next-line block-no-empty -- allow empty block so that this icon is rendered in di.svg
+status-danger {
+}
+```
 
 Het is mogelijk om van een icoon een variant met een andere kleur te maken. Dit kan door een stylesheet met dezelfde naam naast het icoon te plaatsen. In de SVG worden alle `fill="currentColor"` vervangen met de waarde van de CSS property `color`.
 
