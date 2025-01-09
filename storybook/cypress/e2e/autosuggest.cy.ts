@@ -10,7 +10,7 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
-    // cy.dsoCheckA11y("dso-autosuggest.hydrated"); Todo: #2817
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("dso-autosuggest.hydrated").find("li[role='option']").should("have.length", 10);
 
     // Take the entire page, otherwise the list of suggestions will not be snapped
@@ -296,8 +296,7 @@ describe("Autosuggest", () => {
       .should("not.exist");
   });
 
-  // Todo: #2879
-  it.skip("should show not found text in Dutch when no results are found", () => {
+  it("should show not found text in Dutch when no results are found", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
@@ -311,8 +310,7 @@ describe("Autosuggest", () => {
     cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
-  // Todo: #2879
-  it.skip("should show not found text in English when no results are found", () => {
+  it("should show not found text in English when no results are found", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&globals=locale:en");
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
