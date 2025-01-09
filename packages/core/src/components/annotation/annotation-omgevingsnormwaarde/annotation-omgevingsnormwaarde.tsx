@@ -101,8 +101,12 @@ export class AnnotationOmgevingsnormwaarde implements ComponentInterface {
         data={
           <>
             <span class="content">
-              {this.toelichting && <>{this.toelichting}: </>}
-              <dso-renvooi value={this.waardes} />
+              {this.toelichting && <>{this.toelichting}</>}
+              {this.waardes && this.waardes.length > 0 && (
+                <>
+                  : <dso-renvooi value={this.waardes} />
+                </>
+              )}
             </span>
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>
