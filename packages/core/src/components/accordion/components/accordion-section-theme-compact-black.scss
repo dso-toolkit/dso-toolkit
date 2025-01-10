@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/accordion";
+@use "~dso-toolkit/src/components/delete";
 
 @mixin dso-web-component-accordion-compact-black() {
   .dso-section-handle {
@@ -84,14 +85,16 @@
 }
 
 @mixin dso-web-component-accordion-compact-black-voegtoe() {
-  background-color: colors.$grasgroen-10;
+  background-color: colors.$lime-20;
 
   .dso-section-body {
-    background-color: colors.$grasgroen-10;
+    background-color: colors.$lime-20;
   }
 }
 
 @mixin dso-web-component-accordion-compact-black-verwijder() {
+  @include delete.root($strikethrough: true);
+
   background-color: colors.$rood-20;
 
   .dso-section-body {
