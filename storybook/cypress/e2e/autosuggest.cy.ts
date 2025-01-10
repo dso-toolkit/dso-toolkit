@@ -327,6 +327,12 @@ describe("Autosuggest", () => {
     cy.matchImageSnapshot({ clip: { x: 0, y: 0, width: 1000, height: 150 } });
   });
 
+  it("should escape special characters (only once)", () => {
+    cy.get("input").focus().type("'hardee");
+    cy.wait(200);
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("be.visible").contains("'hardee");
+  });
+
   it("should show custom not found text when notFoundLabel attribute is set and no results are found", () => {
     cy.get("dso-autosuggest.hydrated").invoke("attr", "not-found-label", "Er zijn geen resultaten gevonden.");
     cy.get("input").focus().type("akjehfowef");

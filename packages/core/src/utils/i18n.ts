@@ -32,6 +32,7 @@ export function i18n(
     fallbackLng: DEFAULT_LANG,
     resources,
     defaultNS: element.tagName.toLowerCase(),
+    interpolation: { escapeValue: false },
   });
 
   let detectedLanguage = false;
