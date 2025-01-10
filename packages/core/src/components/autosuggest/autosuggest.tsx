@@ -510,6 +510,7 @@ export class Autosuggest {
                 id={this.listboxId}
                 aria-labelledby={this.labelId}
                 ref={(element) => (this.listbox = element)}
+                tabindex="0"
               >
                 {(this.showSuggestions &&
                   this.suggestions &&
