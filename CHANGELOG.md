@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Fixed
+* Autosuggest: toont soms ten onrechte een schaduwrandje en scrollbar ([#2879](https://github.com/dso-toolkit/dso-toolkit/issues/2879))
 * Autosuggest: niet gevonden melding bevat ongecodeerd HTML Entities ([#2932](https://github.com/dso-toolkit/dso-toolkit/issues/2932))
 
 ### Changed
