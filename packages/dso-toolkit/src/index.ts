@@ -181,7 +181,8 @@ export * from "./components/rich-content";
 
 export * from "./components/row-equal-heights";
 
-export * from "./components/scrollable";
+export { Scrollable } from "./components/scrollable/scrollable.models.js";
+export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
 
 export * from "./components/selectable";
 
