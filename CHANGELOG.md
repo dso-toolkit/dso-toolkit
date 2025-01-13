@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🏓 Release 67.3.1 - 2025-01-13
+
 ### Fixed
 * Icon Mixins: Spritesheet di.svg niet beschikbaar in dso-toolkit package ([#2955](https://github.com/dso-toolkit/dso-toolkit/issues/2955))
 
