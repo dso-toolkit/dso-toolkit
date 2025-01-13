@@ -9,6 +9,7 @@
   "files": [
     "assets",
     "dist/dso-icons.svg",
+    "dist/di.svg",
     "dist/*.css",
     "dist/*.map",
     "src/**/*.scss",
