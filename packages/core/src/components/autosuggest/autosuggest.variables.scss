@@ -8,5 +8,5 @@ $border-color: rgba(0, 0, 0, 0.15);
 $listbox-padding-block: units.$u1; // Keep in sync with const listboxPaddingBlock in autosuggest.tsx
 $listbox-border-width: 1px; // Keep in sync with const listboxBorderWidth in autosuggest.tsx
 $list-item-padding-block: units.$u1 * 0.5;
-$list-item-block-size: 24px + 2 * $list-item-padding-block;
+$list-item-block-size: 24px + 2 * $listbox-border-width + 2 * $list-item-padding-block;
 $listbox-min-block-size: $list-item-block-size + 2 * $listbox-padding-block;
