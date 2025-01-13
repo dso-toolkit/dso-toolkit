@@ -85,6 +85,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
               [`dso-${section.status}`]: !!section.status,
               "dso-open": !!section.open,
               "dso-nested-accordion": hasNestedAccordion,
+              [`dso-accordion-wijzigactie-${section.wijzigactie}`]: !!section.wijzigactie,
             })}"
           >
             ${accordionHandleTemplate(accordion, section)}

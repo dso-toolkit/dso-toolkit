@@ -169,6 +169,8 @@ De titel van het pull request:
 #ISSUE_ID SCOPE: SAMENVATTING
 ```
 
+Een pull request wordt gelinked aan het betreffende issue. Een pull request krijgt geen andere metadata (zoals labels, milestones, sprints etc) gekoppeld: De papertrail loopt vanaf het pull request naar het issue.
+
 ### Voorbeeld
 
 Een goede titel van een pull request ziet er zo uit:

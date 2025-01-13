@@ -1,0 +1,12 @@
+- [ ] PR voldoet aan scope van issue, afwijkingen worden toegelicht.
+  - Bijvoorbeeld in PR of het issue.
+- [ ] PR bestaat uit logische commits.
+- [ ] PR is gekoppeld met het issue.
+- [ ] Succesvolle build:
+  - Danger tevreden.
+  - Indien de build faalt vanwege visuele regressie, onderbouwen waarom.
+  - Als er een flaky test wordt uitgezet, onderbouwen in PR met verwijzing naar nieuw issue.
+- [ ] De wijziging heeft een e2e test
+- [ ] Etaleren/aanpassen van een nieuw component op de website
+- [ ] Eigen PR doorgenomen.
+- [ ] Getest op dso-toolkit.nl
