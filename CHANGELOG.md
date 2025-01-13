@@ -5,12 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🛝 Release 67.3.0 - 2025-01-13
+
 ### Fixed
 * Autosuggest: toont soms ten onrechte een schaduwrandje en scrollbar ([#2879](https://github.com/dso-toolkit/dso-toolkit/issues/2879))
 * Autosuggest: niet gevonden melding bevat ongecodeerd HTML Entities ([#2932](https://github.com/dso-toolkit/dso-toolkit/issues/2932))
 
 ### Changed
-* Icon Mixins: Grote spritesheet zorgt voor CPU usage ([#2844](https://github.com/dso-toolkit/dso-toolkit/issues/2844))
+* Icon Mixins: Icon Mixins: Spritesheet dso-icons.svg opknippen ([#2844](https://github.com/dso-toolkit/dso-toolkit/issues/2844))
 * Annotation: Dubbele punt verwijderen bij lege waarde ([#2917](https://github.com/dso-toolkit/dso-toolkit/issues/2917))
 * Accordion: background en text-decoration verschillen van Plekinfo Card ([#2927](https://github.com/dso-toolkit/dso-toolkit/issues/2927))
 
