@@ -5,9 +5,11 @@ import { HelpcenterPanelArgs, helpcenterPanelMeta, helpcenterPanelStories } from
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+import { DsoHelpcenterPanel } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<HelpcenterPanelArgs> = {
   ...helpcenterPanelMeta({ readme }),
+  component: DsoHelpcenterPanel,
   title: "Helpcenter Panel",
 };
 

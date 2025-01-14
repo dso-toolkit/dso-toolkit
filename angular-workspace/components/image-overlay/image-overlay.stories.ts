@@ -5,9 +5,11 @@ import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 import readme from "./readme.md?raw";
 
 import { templateContainer } from "../../templates";
+import { DsoImageOverlay } from "../../projects/component-library/src/public-api";
 
 const meta: Meta = {
   ...imageOverlayMeta({ readme }),
+  component: DsoImageOverlay,
   title: "Image Overlay",
 };
 

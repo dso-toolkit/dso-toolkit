@@ -3,9 +3,11 @@ import { Meta } from "@storybook/angular";
 import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
+import { DsoOzonContent } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<OzonContentArgs> = {
   ...ozonContentMeta({ readme }),
+  component: DsoOzonContent,
   title: "Ozon Content",
 };
 

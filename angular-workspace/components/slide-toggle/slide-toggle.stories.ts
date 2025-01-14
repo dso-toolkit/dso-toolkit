@@ -4,9 +4,11 @@ import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolki
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<SlideToggleArgs> = {
   ...slideToggleMeta({ readme }),
+  component: DsoSlideToggle,
   title: "Slide Toggle",
 };
 

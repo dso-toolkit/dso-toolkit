@@ -4,9 +4,11 @@ import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 import readme from "./readme.md?raw";
 import { infoRichContent } from "./selectable.content";
+import { DsoSelectable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),
+  component: DsoSelectable,
   title: "Selectable",
 };
 

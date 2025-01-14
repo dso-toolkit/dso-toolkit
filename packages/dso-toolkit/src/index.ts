@@ -181,8 +181,9 @@ export * from "./components/rich-content";
 
 export * from "./components/row-equal-heights";
 
-export { Scrollable } from "./components/scrollable/scrollable.models.js";
-export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
+export * from "./components/scrollable";
+
+export * from "./components/search-bar";
 
 export * from "./components/selectable";
 
@@ -209,5 +210,3 @@ export * from "./components/tree-view";
 export * from "./components/viewer-grid";
 
 export * from "./components/whitebox";
-
-export * from "./components/search-bar";

@@ -5,9 +5,11 @@ import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 import readme from "./readme.md?raw";
 
 import { templateContainer } from "../../templates";
+import { DsoDropdownMenu } from "../../projects/component-library/src/public-api";
 
 const meta: Meta = {
   ...dropdownMenuMeta({ readme }),
+  component: DsoDropdownMenu,
   title: "Dropdown Menu",
 };
 

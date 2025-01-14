@@ -4,9 +4,11 @@ import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStori
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+import { DsoAttachmentsCounter } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),
+  component: DsoAttachmentsCounter,
   title: "Attachments Counter",
 };
 

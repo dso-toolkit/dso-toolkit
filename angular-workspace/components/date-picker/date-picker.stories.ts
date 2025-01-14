@@ -6,9 +6,11 @@ import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
 import { datePickerWithLabelTemplate } from "./date-picker.content";
+import { DsoDatePicker } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<DatePickerArgs> = {
   ...datePickerMeta({ readme }),
+  component: DsoDatePicker,
   title: "Date Picker",
 };
 

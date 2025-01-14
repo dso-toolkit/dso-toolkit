@@ -5,9 +5,11 @@ import { templateContainer } from "../../templates";
 import { children } from "./toggletip.content";
 
 import readme from "./readme.md?raw";
+import { DsoToggletip } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
+  component: DsoToggletip,
   title: "Toggletip",
 };
 

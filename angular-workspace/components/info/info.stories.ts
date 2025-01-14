@@ -5,9 +5,11 @@ import { richContent } from "./info.content";
 
 import readme from "./readme.md?raw";
 import type { Meta } from "@storybook/angular";
+import { DsoInfo } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),
+  component: DsoInfo,
   title: "Info",
 };
 
