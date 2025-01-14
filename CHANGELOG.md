@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Docs: Handvat voor refinement estimates publiceren ([#2893](https://github.com/dso-toolkit/dso-toolkit/issues/2893))
+
 ## 🏓 Release 67.3.1 - 2025-01-13
 
 ### Fixed
