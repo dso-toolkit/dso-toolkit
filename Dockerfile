@@ -29,10 +29,10 @@ RUN mkdir -p /etc/apt/keyrings \
   && AZ_DIST=$(lsb_release -cs) \
   && echo "Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg" | tee /etc/apt/sources.list.d/azure-cli.sources \
   && apt-get update \
-  && apt-get install azure-cli=2.61.0-1~${AZ_DIST}
+  && apt-get install azure-cli=2.68.0-1~${AZ_DIST}
 
-# https://gist.github.com/aessing/76f1200c9f5b2b9671937b3b0ed5fd6f?permalink_comment_id=4855321#gistcomment-4855321
-RUN curl -L https://azcopyvnext.azureedge.net/releases/release-10.27.1-20241113/azcopy_linux_amd64_10.27.1.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
+# https://github.com/Azure/azure-cli/issues/30635#issuecomment-2581362583
+RUN curl -L https://azcopyvnext-awgzd8g7aagqhzhe.b02.azurefd.net/releases/release-10.27.1-20241113/azcopy_linux_amd64_10.27.1.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 
