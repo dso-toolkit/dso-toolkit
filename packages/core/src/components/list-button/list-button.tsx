@@ -1,18 +1,6 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  h,
-  Prop,
-  Event,
-  EventEmitter,
-  State,
-  Watch,
-  forceUpdate,
-} from "@stencil/core";
+import { Component, ComponentInterface, Element, h, Prop, Event, EventEmitter, forceUpdate } from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
-import { createFocusTrap, FocusTrap } from "focus-trap";
 import clsx from "clsx";
 
 @Component({
@@ -24,21 +12,11 @@ export class ListButton implements ComponentInterface {
   @Element()
   host!: HTMLDsoListButtonElement;
 
-  private trap?: FocusTrap;
-
   private mutationObserver?: MutationObserver;
 
   private get subcontentSlot() {
     return this.host.querySelector<HTMLElement>("[slot='subcontent']");
   }
-
-  @State()
-  private manualInputWrapperElement?: HTMLDivElement;
-
-  private manualInputButtonElement?: HTMLButtonElement;
-
-  @State()
-  manualCount?: number;
 
   /**
    * The label of the List Button.
@@ -89,14 +67,6 @@ export class ListButton implements ComponentInterface {
   subcontentPrefix?: string;
 
   /**
-   * Allow user to directly input a value.
-   *
-   * Set to `false` to force users to use plus/minus buttons.
-   */
-  @Prop()
-  manual = true;
-
-  /**
    * Emitted when the user changes the count.
    */
   @Event()
@@ -110,13 +80,6 @@ export class ListButton implements ComponentInterface {
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
-  @Watch("manual")
-  watchManualCallback() {
-    if (!this.manual && this.manualCount) {
-      this.stopManualCountInput();
-    }
-  }
-
   connectedCallback() {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
@@ -129,39 +92,12 @@ export class ListButton implements ComponentInterface {
   }
 
   componentDidRender(): void {
-    if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
-      this.trap = createFocusTrap(this.manualInputWrapperElement, {
-        escapeDeactivates: true,
-        setReturnFocus: false,
-
-        clickOutsideDeactivates: (e) => {
-          this.setCount(e);
-
-          return true;
-        },
-        onDeactivate: () => this.stopManualCountInput(),
-        onPostDeactivate: () => this.manualInputButtonElement?.focus(),
-      }).activate();
-    } else if (this.manualCount === undefined && this.trap) {
-      this.trap?.deactivate();
-
-      delete this.trap;
-    }
-
     this.subcontentSlot?.setAttribute("aria-hidden", "true");
   }
 
   disconnectedCallback(): void {
-    this.trap?.deactivate();
-
     this.mutationObserver?.disconnect();
     delete this.mutationObserver;
-  }
-
-  private handleOnChange({ target }: Event): void {
-    if (target instanceof HTMLInputElement) {
-      this.manualCount = target.valueAsNumber;
-    }
   }
 
   private stepValue(e: Event, direction: "increment" | "decrement"): void {
@@ -176,18 +112,6 @@ export class ListButton implements ComponentInterface {
         originalEvent: e,
         count: newValue,
       });
-    }
-  }
-
-  private setCount(e: Event): void {
-    e.preventDefault();
-
-    if (typeof this.manualCount === "number" && this.isNewCountValid(this.manualCount)) {
-      this.dsoCountChange.emit({
-        originalEvent: e,
-        count: this.manualCount,
-      });
-      this.stopManualCountInput();
     }
   }
 
@@ -209,14 +133,6 @@ export class ListButton implements ComponentInterface {
     });
   }
 
-  private startManualCountInput(): void {
-    this.manualCount = this.count;
-  }
-
-  private stopManualCountInput(): void {
-    this.manualCount = undefined;
-  }
-
   private isNewCountValid(newValue: number): boolean {
     return !(
       this.min !== undefined &&
@@ -226,8 +142,6 @@ export class ListButton implements ComponentInterface {
   }
 
   render() {
-    const showButtonInputs = this.manualCount === undefined;
-
     const selected = this.checked || (this.count !== undefined && this.count > 0);
 
     return (
@@ -266,7 +180,7 @@ export class ListButton implements ComponentInterface {
 
         {this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
-            {this.manualCount === undefined && this.count > 1 && (
+            {this.count > 1 && (
               <button
                 type="button"
                 class="dso-tertiary"
@@ -278,59 +192,21 @@ export class ListButton implements ComponentInterface {
               </button>
             )}
 
-            <div class="dso-input-wrapper">
-              {this.manualCount === undefined && this.count > 1 && (
-                <input
-                  class="dso-input-step-counter"
-                  type="number"
-                  tabIndex={-1}
-                  aria-label="Aantal"
-                  value={this.count}
-                  readOnly
-                />
-              )}
-
-              <form onSubmit={(e) => this.setCount(e)}>
-                <div ref={(element) => (this.manualInputWrapperElement = element)}>
-                  <input
-                    class={clsx("form-control", { hidden: showButtonInputs })}
-                    type="number"
-                    aria-label="Aantal"
-                    value={this.manualCount}
-                    min={this.min}
-                    max={this.max}
-                    onInput={(e) => this.handleOnChange(e)}
-                  />
-                </div>
-
-                {this.manual && (
-                  <button
-                    class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
-                    type={!showButtonInputs ? "submit" : "button"}
-                    disabled={this.disabled}
-                    onClick={() => showButtonInputs && this.startManualCountInput()}
-                  >
-                    {showButtonInputs ? (
-                      <span class="sr-only">Handmatig aantal invullen</span>
-                    ) : (
-                      <span class="sr-only">Zet waarde</span>
-                    )}
-                  </button>
-                )}
-              </form>
-            </div>
-
-            {showButtonInputs && (
-              <button
-                type="button"
-                class="dso-tertiary"
-                disabled={this.count === Number(this.max) || this.disabled}
-                onClick={(e) => this.stepValue(e, "increment")}
-              >
-                <dso-icon icon="plus-circle"></dso-icon>
-                <span class="sr-only">Aantal verhogen</span>
-              </button>
+            {this.count > 1 && (
+              <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
+                {this.count}
+              </span>
             )}
+
+            <button
+              type="button"
+              class="dso-tertiary"
+              disabled={this.count === Number(this.max) || this.disabled}
+              onClick={(e) => this.stepValue(e, "increment")}
+            >
+              <dso-icon icon="plus-circle"></dso-icon>
+              <span class="sr-only">Aantal verhogen</span>
+            </button>
           </div>
         )}
       </div>

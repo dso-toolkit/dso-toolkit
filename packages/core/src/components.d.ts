@@ -843,10 +843,6 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
-         */
-        "manual": boolean;
-        /**
           * The maximum value.
          */
         "max"?: string | number;
@@ -3285,10 +3281,6 @@ declare namespace LocalJSX {
           * The label of the List Button.
          */
         "label"?: string;
-        /**
-          * Allow user to directly input a value.  Set to `false` to force users to use plus/minus buttons.
-         */
-        "manual"?: boolean;
         /**
           * The maximum value.
          */

@@ -51,7 +51,7 @@
   {
     "name": "list-button",
     "selector": "dso-list-button.hydrated",
-    "stories": ["multi-select", "css-legacy-readonly-count"],
+    "stories": ["multi-select"],
     "type": "core",
     "shadowWait": "dso-icon.hydrated"
   },
