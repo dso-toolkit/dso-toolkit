@@ -1,6 +1,6 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
-import { AlertArgs, alertArgTypes, alertArgsMapper } from "./alert.args.js";
+import { AlertArgs, alertArgsMapper, alertArgTypes } from "./alert.args.js";
 import { Alert } from "./alert.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -37,6 +37,7 @@ export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
     argTypes: alertArgTypes,
     args: {
       withButton: true,
+      closable: false,
     },
     parameters: {
       docs: readme

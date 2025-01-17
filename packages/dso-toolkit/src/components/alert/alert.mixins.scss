@@ -77,11 +77,11 @@
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
     padding-block: alert-variables.$block-padding;
-    padding-inline: alert-variables.$inline-start-padding alert-variables.$inline-padding;
+    padding-inline: alert-variables.$inline-start-padding units.$u5;
 
     &.dso-compact {
       padding-block: alert-variables.$block-padding * 0.5;
-      padding-inline: alert-variables.$inline-padding;
+      padding-inline: alert-variables.$inline-padding units.$u5;
     }
   }
 
@@ -97,6 +97,33 @@
 
   &:not(:first-child) {
     margin-block-start: units.$u3;
+  }
+
+  .icon-status {
+    @include icon-position();
+
+    block-size: units.$u4;
+    inline-size: units.$u4;
+  }
+
+  .dso-close {
+    @include button.element();
+
+    $inset-unit: calc(units.$u1 / 2);
+
+    position: absolute;
+    inset-block-start: $inset-unit;
+    inset-inline-end: $inset-unit;
+
+    block-size: units.$u4;
+    inline-size: units.$u4;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    text-align: center;
   }
 }
 

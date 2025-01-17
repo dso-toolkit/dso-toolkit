@@ -10,6 +10,7 @@ import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
+import { AlertCloseEvent } from "./components/alert/alert.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -50,6 +51,7 @@ export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
+export { AlertCloseEvent } from "./components/alert/alert.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
@@ -194,6 +196,10 @@ export namespace Components {
         "options": AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
+        /**
+          * When `false` the close button in the alert will not be rendered.
+         */
+        "closable": boolean;
         /**
           * Show alert as compact variant (without icon)
          */
@@ -1316,6 +1322,10 @@ export interface DsoAdvancedSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAdvancedSelectElement;
 }
+export interface DsoAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAlertElement;
+}
 export interface DsoAnnotationActiviteitCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAnnotationActiviteitElement;
@@ -1524,7 +1534,18 @@ declare global {
         prototype: HTMLDsoAdvancedSelectElement;
         new (): HTMLDsoAdvancedSelectElement;
     };
+    interface HTMLDsoAlertElementEventMap {
+        "dsoClose": AlertCloseEvent;
+    }
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoAlertElementEventMap>(type: K, listener: (this: HTMLDsoAlertElement, ev: DsoAlertCustomEvent<HTMLDsoAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoAlertElementEventMap>(type: K, listener: (this: HTMLDsoAlertElement, ev: DsoAlertCustomEvent<HTMLDsoAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoAlertElement: {
         prototype: HTMLDsoAlertElement;
@@ -2511,9 +2532,17 @@ declare namespace LocalJSX {
     }
     interface DsoAlert {
         /**
+          * When `false` the close button in the alert will not be rendered.
+         */
+        "closable"?: boolean;
+        /**
           * Show alert as compact variant (without icon)
          */
         "compact"?: boolean;
+        /**
+          * Emitted when the user closes the Alert.
+         */
+        "onDsoClose"?: (event: DsoAlertCustomEvent<AlertCloseEvent>) => void;
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
          */

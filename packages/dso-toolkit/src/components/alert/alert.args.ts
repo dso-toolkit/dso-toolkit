@@ -3,6 +3,7 @@ import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
 
 import { Alert, AlertStatus } from "./alert.models.js";
+import { noControl } from "../../storybook";
 
 export interface AlertArgs {
   status: AlertStatus;
@@ -10,6 +11,8 @@ export interface AlertArgs {
   compact: boolean;
   withRoleAlert: boolean;
   withButton: boolean;
+  closable: boolean;
+  dsoClose: HandlerFunction;
 }
 
 export const alertArgs: Pick<AlertArgs, "withButton" | "withRoleAlert"> = {
@@ -39,8 +42,17 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
       type: "boolean",
     },
   },
+  closable: {
+    control: {
+      type: "boolean",
+    },
+  },
   click: {
     action: "closed",
+  },
+  dsoClose: {
+    ...noControl,
+    action: "dsoClose",
   },
 };
 
@@ -54,5 +66,7 @@ export function alertArgsMapper<TemplateFnReturnType>(
     compact: a.compact,
     onClick: a.withButton ? () => a.click(a) : undefined,
     withRoleAlert: a.withRoleAlert,
+    closable: a.closable,
+    dsoClose: a.dsoClose,
   };
 }

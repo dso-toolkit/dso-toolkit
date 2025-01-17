@@ -17,7 +17,7 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
   implementation: "html-css",
   template: ({ richContentTemplate }) =>
-    function alertTemplate({ status, message, compact, onClick, withRoleAlert }) {
+    function alertTemplate({ status, message, compact, closable, onClick, withRoleAlert }) {
       return html`
         <div
           class="alert ${classMap({ [`alert-${status}`]: status, "dso-compact": !!compact })}"
@@ -32,6 +32,11 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
                 : nothing}
             `,
           })}
+          ${closable
+            ? html` <button type="button" class="dso-close" @click=${onClick}>
+                <span class="sr-only">Sluiten</span>
+              </button>`
+            : nothing}
         </div>
       `;
     },

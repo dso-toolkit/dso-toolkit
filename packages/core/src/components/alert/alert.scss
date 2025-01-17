@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/alert";
+@use "~dso-toolkit/src/components/button";
 
 :host {
   display: block;
@@ -63,13 +64,6 @@
 
 .alert {
   @include alert.root();
-
-  dso-icon {
-    @include alert.icon-position();
-
-    block-size: units.$u4;
-    inline-size: units.$u4;
-  }
 
   &.dso-compact {
     min-block-size: alert.$inline-padding;

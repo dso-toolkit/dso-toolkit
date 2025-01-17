@@ -1,10 +1,30 @@
 describe("Alert", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-alert--success");
+    cy.visit("http://localhost:45000/iframe.html?id=core-alert--success")
+      .get("dso-alert")
+      .then(($alert) => {
+        $alert.on("dsoClose", cy.stub().as("dsoCloseListener"));
+      })
+      .shadow()
+      .as("dsoAlert");
   });
 
-  it("should have button", () => {
-    cy.get("dso-alert").shadow().get("button");
+  it("should have button in the content", () => {
+    cy.get("@dsoAlert").get(".dso-alert-button");
+  });
+
+  it("should hide the close button when closable prop is false", () => {
+    cy.get("dso-alert.hydrated").invoke("attr", "closable", "false").shadow().find(".dso-close").should("not.exist");
+  });
+
+  it("should show the close button when closable prop is true and emit dsClose when the user closed the alert", () => {
+    cy.get("dso-alert.hydrated")
+      .invoke("attr", "closable", "true")
+      .shadow()
+      .find(".dso-close")
+      .click()
+      .get("@dsoCloseListener")
+      .should("have.been.calledOnce");
   });
 
   const statuses: Array<{
