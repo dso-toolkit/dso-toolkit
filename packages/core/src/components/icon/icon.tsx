@@ -51,6 +51,7 @@ import locationOutline from "dso-toolkit/src/icons/location-outline.svg";
 import locationSearch from "dso-toolkit/src/icons/location-search.svg";
 import lock from "dso-toolkit/src/icons/lock.svg";
 import magnet from "dso-toolkit/src/icons/magnet.svg";
+import mail from "dso-toolkit/src/icons/mail.svg";
 import mapLayers from "dso-toolkit/src/icons/map-layers.svg";
 import mapLocation from "dso-toolkit/src/icons/map-location.svg";
 import marker from "dso-toolkit/src/icons/marker.svg";
@@ -152,6 +153,7 @@ const icons = [
   { alias: "location-search", svg: locationSearch },
   { alias: "lock", svg: lock },
   { alias: "magnet", svg: magnet },
+  { alias: "mail", svg: mail },
   { alias: "map-layers", svg: mapLayers },
   { alias: "map-location", svg: mapLocation },
   { alias: "marker", svg: marker },
