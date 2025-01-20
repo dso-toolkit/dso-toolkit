@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Annotation (Activiteit): Lange tekst component drukt Slide Toggle weg ([#2925](https://github.com/dso-toolkit/dso-toolkit/issues/2925))
+
 ## ⚖️ Release 68.0.0 - 2025-01-20
 
 ### Added
@@ -13,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **BREAKING** List Button: Het wijzigen van het aantal met plus/min knoppen is ontoegankelijk ([#2555](https://github.com/dso-toolkit/dso-toolkit/issues/2555))
+
 
 ## 👕 Release 67.3.2 - 2025-01-16
 
