@@ -1,0 +1,26 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v68.0.0 ⚖️
+
+Deze release bevat breaking changes voor het volgende component:
+
+- List Button (Web Component)
+
+<!-- truncate -->
+
+## List Button (Web Component)
+
+### De property `manual` is verwijderd.
+
+Naar aanleiding van een bevinding van Stichting Accessibility is de mogelijkheid om handmatig een aantal in te geven
+verwijderd. Hierdoor is de property 'manual` komen te vervallen.
+
+```html
+❌
+<dso-list-button manual="" label="Milieubelastende activiteit - Melding"></dso-list-button>
+
+✅
+<dso-list-button label="Milieubelastende activiteit - Melding"></dso-list-button>
+```

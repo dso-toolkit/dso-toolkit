@@ -8,7 +8,6 @@ export interface ListButton {
   min?: number;
   max?: number;
   checked?: boolean;
-  manual?: boolean;
   dsoCountChange?: (e: CustomEvent<ListButtonChangeEvent>) => void;
   dsoSelectedChange?: (e: CustomEvent<ListButtonSelectedEvent>) => void;
 }

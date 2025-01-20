@@ -12,7 +12,6 @@ type ListButtonStory = StoryObj<ListButtonArgs, Renderer>;
 interface ListButtonStories {
   SingleSelect: ListButtonStory;
   MultiSelect: ListButtonStory;
-  CssLegacyReadonlyCount: ListButtonStory;
 }
 
 export interface ListButtonTemplates<TemplateFnReturnType> {
@@ -62,12 +61,6 @@ export function listButtonStories<Implementation, Templates, TemplateFnReturnTyp
         count: 5,
         min: 0,
         max: 99,
-      }),
-      render,
-    },
-    CssLegacyReadonlyCount: {
-      args: listButtonDefaultArgs({
-        count: 5,
       }),
       render,
     },

@@ -17,7 +17,6 @@ export const angularListButton: ComponentImplementation<ListButton> = {
             [max]="max"
             [disabled]="disabled"
             [checked]="checked"
-            [manual]="manual"
             [subcontentPrefix]="subcontentPrefix"
             (dsoCountChange)="dsoCountChange()"
             (dsoSelectedChange)="dsoSelectedChange()"

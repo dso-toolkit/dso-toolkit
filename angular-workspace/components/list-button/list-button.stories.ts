@@ -21,7 +21,7 @@ const meta: Meta<ListButtonArgs> = {
 
 export default meta;
 
-const { SingleSelect, MultiSelect, CssLegacyReadonlyCount } = listButtonStories({
+const { SingleSelect, MultiSelect } = listButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { listButtonTemplate } = templates;
@@ -32,4 +32,4 @@ const { SingleSelect, MultiSelect, CssLegacyReadonlyCount } = listButtonStories(
   },
 });
 
-export { SingleSelect, MultiSelect, CssLegacyReadonlyCount };
+export { SingleSelect, MultiSelect };

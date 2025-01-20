@@ -18,7 +18,6 @@ export const reactListButton: ComponentImplementation<ListButton> = {
       checked,
       min,
       max,
-      manual,
       dsoSelectedChange,
       dsoCountChange,
     }) {
@@ -26,7 +25,6 @@ export const reactListButton: ComponentImplementation<ListButton> = {
         <DsoListButton
           label={label}
           sublabel={sublabel}
-          manual={manual}
           count={count}
           min={min}
           max={max}

@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Icon: Mail ([#2918](https://github.com/dso-toolkit/dso-toolkit/issues/2918))
 * Alert: Nieuwe optie "closable" ([#2745](https://github.com/dso-toolkit/dso-toolkit/issues/2745))
 
+### Fixed
+* **BREAKING** List Button: Het wijzigen van het aantal met plus/min knoppen is ontoegankelijk ([#2555](https://github.com/dso-toolkit/dso-toolkit/issues/2555))
+
 ## 👕 Release 67.3.2 - 2025-01-16
 
 ### Docs
