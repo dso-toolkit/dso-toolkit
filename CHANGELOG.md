@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Icon: Mail ([#2918](https://github.com/dso-toolkit/dso-toolkit/issues/2918))
+
 ## 👕 Release 67.3.2 - 2025-01-16
 
 ### Docs
