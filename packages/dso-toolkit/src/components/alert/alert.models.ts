@@ -5,7 +5,7 @@ export interface Alert<TemplateFnReturnType> {
   message: TemplateFnReturnType | string;
   compact?: boolean;
   closable?: boolean;
-  dsoClose?: (e: AlertCloseEvent) => void;
+  dsoClose?: (e: CustomEvent<AlertCloseEvent>) => void;
   onClick?: (e: MouseEvent) => void;
   withRoleAlert?: boolean;
 }

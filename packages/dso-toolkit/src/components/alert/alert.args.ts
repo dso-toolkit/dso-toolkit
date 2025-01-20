@@ -15,11 +15,6 @@ export interface AlertArgs {
   dsoClose: HandlerFunction;
 }
 
-export const alertArgs: Pick<AlertArgs, "withButton" | "withRoleAlert"> = {
-  withButton: true,
-  withRoleAlert: false,
-};
-
 export const alertArgTypes: ArgTypes<AlertArgs> = {
   status: {
     options: ["success", "info", "warning", "error"],

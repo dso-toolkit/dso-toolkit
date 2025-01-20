@@ -17,14 +17,16 @@ describe("Alert", () => {
     cy.get("dso-alert.hydrated").invoke("attr", "closable", "false").shadow().find(".dso-close").should("not.exist");
   });
 
-  it("should show the close button when closable prop is true and emit dsClose when the user closed the alert", () => {
+  it("should show the close button when closable prop is true and emit dsoClose when the user closed the alert", () => {
     cy.get("dso-alert.hydrated")
       .invoke("attr", "closable", "true")
       .shadow()
       .find(".dso-close")
       .click()
       .get("@dsoCloseListener")
-      .should("have.been.calledOnce");
+      .should("have.been.calledOnce")
+      .get("dso-alert.hydrated")
+      .matchImageSnapshot();
   });
 
   const statuses: Array<{
