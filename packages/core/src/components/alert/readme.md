@@ -7,9 +7,17 @@
 
 | Property              | Attribute    | Description                                                                                                          | Type                                          | Default     |
 | --------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `closable`            | `closable`   | When `false` the close button in the alert will not be rendered.                                                     | `boolean`                                     | `false`     |
 | `compact`             | `compact`    | Show alert as compact variant (without icon)                                                                         | `boolean \| undefined`                        | `undefined` |
 | `roleAlert`           | `role-alert` | Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute. | `boolean \| undefined`                        | `undefined` |
 | `status` _(required)_ | `status`     | Set status of alert                                                                                                  | `"error" \| "info" \| "success" \| "warning"` | `undefined` |
+
+
+## Events
+
+| Event      | Description                             | Type                           |
+| ---------- | --------------------------------------- | ------------------------------ |
+| `dsoClose` | Emitted when the user closes the Alert. | `CustomEvent<AlertCloseEvent>` |
 
 
 ## Dependencies

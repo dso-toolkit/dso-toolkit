@@ -64,13 +64,6 @@
 .alert {
   @include alert.root();
 
-  dso-icon {
-    @include alert.icon-position();
-
-    block-size: units.$u4;
-    inline-size: units.$u4;
-  }
-
   &.dso-compact {
     min-block-size: alert.$inline-padding;
   }
