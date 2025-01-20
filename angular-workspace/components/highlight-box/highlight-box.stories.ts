@@ -6,9 +6,11 @@ import { templateContainer } from "../../templates";
 import { content } from "./highlight-box.content";
 
 import readme from "./readme.md?raw";
+import { DsoHighlightBox } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
+  component: DsoHighlightBox,
   title: "Highlight Box",
 };
 

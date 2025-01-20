@@ -9,9 +9,11 @@ import {
   datePickerLegacyShowByScriptingTemplate,
   datePickerLegacyWithLabelTemplate,
 } from "./date-picker-legacy.content";
+import { DsoDatePickerLegacy } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<DatePickerLegacyArgs> = {
   ...datePickerLegacyMeta({ readme }),
+  component: DsoDatePickerLegacy,
   title: "Date Picker (Legacy)",
 };
 

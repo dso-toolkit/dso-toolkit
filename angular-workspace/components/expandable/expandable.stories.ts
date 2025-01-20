@@ -6,9 +6,11 @@ import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
 import { expandableContent } from "./expandable.content";
+import { DsoExpandable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ExpandableArgs> = {
   ...expandableMeta({ readme }),
+  component: DsoExpandable,
   title: "Expandable",
 };
 

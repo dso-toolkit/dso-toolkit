@@ -16,9 +16,11 @@ import {
   datePickerBody,
 } from "./modal.content";
 import { TrustHtmlPipe } from "../trust-html.pipe";
+import { DsoModal } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
+  component: DsoModal,
   title: "Modal",
   decorators: [
     moduleMetadata({

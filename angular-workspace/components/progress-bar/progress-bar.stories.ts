@@ -4,9 +4,11 @@ import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolki
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+import { DsoProgressBar } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
+  component: DsoProgressBar,
   title: "Progress Bar",
 };
 

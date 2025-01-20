@@ -5,9 +5,11 @@ import { templateContainer } from "../../templates";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
 import readme from "./readme.md?raw";
+import { DsoAlert } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
+  component: DsoAlert,
   title: "Alert",
 };
 

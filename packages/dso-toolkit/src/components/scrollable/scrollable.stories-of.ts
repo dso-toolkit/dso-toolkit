@@ -1,8 +1,30 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
 import { ScrollableArgs, scrollableArgsMapper, scrollableArgTypes } from "./scrollable.args.js";
 import { Scrollable } from "./scrollable.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+export type ScrollableDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
+
+type ScrollableStory = StoryObj<ScrollableArgs, Renderer>;
+
+interface ScrollableStories {
+  Default: ScrollableStory;
+  DynamicContent: ScrollableStory;
+}
+
+interface ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ScrollableTemplates<TemplateFnReturnType>
+  > {
+  decorator: ScrollableDecorator<TemplateFnReturnType>;
+}
 
 export interface ScrollableTemplates<TemplateFnReturnType> {
   scrollableTemplate: (scrollableProperties: Scrollable<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -10,45 +32,43 @@ export interface ScrollableTemplates<TemplateFnReturnType> {
   dynamicContent: TemplateFnReturnType;
 }
 
-export interface ScrollableParameters<TemplateFnReturnType> {
-  decorator: Addon_DecoratorFunction<TemplateFnReturnType>;
+export function scrollableMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  ScrollableArgs
+> {
+  return {
+    argTypes: scrollableArgTypes,
+    parameters: {
+      html: {
+        root: "#scrollable-mock",
+      },
+      layout: "fullscreen",
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
 }
 
-export function storiesOfScrollable<Implementation, Templates, TemplateFnReturnType>(
-  storyFunctionArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ScrollableTemplates<TemplateFnReturnType>
-  >,
-  { decorator }: ScrollableParameters<TemplateFnReturnType>,
-) {
-  return storiesOfFactory("Scrollable", storyFunctionArguments, (stories, templateMapper) => {
-    stories
-      .addParameters({
-        argTypes: scrollableArgTypes,
-        args: {},
-        html: {
-          root: "#scrollable-mock",
-        },
-        layout: "fullscreen",
-      })
-      .addDecorator(decorator);
-
-    stories.add(
-      "default",
-      templateMapper<ScrollableArgs>((args, { scrollableTemplate, defaultContent }) =>
+export function scrollableStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  decorator,
+}: ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ScrollableStories {
+  return {
+    Default: {
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, defaultContent }) =>
         scrollableTemplate(scrollableArgsMapper(args, defaultContent)),
       ),
-    );
-
-    stories.add(
-      "dynamic content",
-      templateMapper<ScrollableArgs>((args, { scrollableTemplate, dynamicContent }) =>
+    },
+    DynamicContent: {
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, dynamicContent }) =>
         scrollableTemplate(scrollableArgsMapper(args, dynamicContent)),
       ),
-    );
-
-    return stories;
-  });
+    },
+  };
 }

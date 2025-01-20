@@ -6,9 +6,11 @@ import { templateContainer } from "../../templates";
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";
 
 import readme from "./readme.md?raw";
+import { DsoActionList } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ActionListArgs> = {
   ...actionListMeta({ readme }),
+  component: DsoActionList,
   title: "Action List",
 };
 

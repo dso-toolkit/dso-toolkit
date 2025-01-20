@@ -4,9 +4,11 @@ import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+import { DsoBadge } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
+  component: DsoBadge,
   title: "Badge",
 };
 
