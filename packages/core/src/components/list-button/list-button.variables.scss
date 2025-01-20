@@ -1,4 +1,6 @@
+@use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 
 $border-radius: units.$u1 * 0.5;
 $margin-gap: units.$u1 * 0.5;
+$font-size-count: typography.$font-size-small;

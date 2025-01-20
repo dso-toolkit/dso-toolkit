@@ -1,4 +1,14 @@
-import { Component, ComponentInterface, Element, h, Prop, Event, EventEmitter, forceUpdate } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Fragment,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  forceUpdate,
+} from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import clsx from "clsx";
@@ -181,21 +191,20 @@ export class ListButton implements ComponentInterface {
         {this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
             {this.count > 1 && (
-              <button
-                type="button"
-                class="dso-tertiary"
-                disabled={this.count === Number(this.min) || this.disabled}
-                onClick={(e) => this.stepValue(e, "decrement")}
-              >
-                <dso-icon icon="minus-circle"></dso-icon>
-                <span class="sr-only">Aantal verlagen</span>
-              </button>
-            )}
-
-            {this.count > 1 && (
-              <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
-                {this.count}
-              </span>
+              <>
+                <button
+                  type="button"
+                  class="dso-tertiary"
+                  disabled={this.count === Number(this.min) || this.disabled}
+                  onClick={(e) => this.stepValue(e, "decrement")}
+                >
+                  <dso-icon icon="minus-circle"></dso-icon>
+                  <span class="sr-only">Aantal verlagen</span>
+                </button>
+                <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
+                  {this.count}
+                </span>
+              </>
             )}
 
             <button
