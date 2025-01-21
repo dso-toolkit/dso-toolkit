@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Tooltip: niet getoonde inhoud neemt ruimte in ([#2968](https://github.com/dso-toolkit/dso-toolkit/issues/2968))
+
 ## ⚖️ Release 68.0.0 - 2025-01-20
 
 ### Added

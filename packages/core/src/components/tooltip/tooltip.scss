@@ -30,7 +30,6 @@
   white-space: normal;
 
   --link-color: #{colors.$grasgroen};
-
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   font-size: typography.$font-size-small;
@@ -41,6 +40,21 @@
 
   &.in {
     opacity: tooltip-variables.$opacity;
+
+    .tooltip-inner {
+      max-block-size: 200vh; // an exrteme max-block-size, just to be sure it always fits
+      visibility: visible;
+      padding-block: tooltip-variables.$padding-block; // set padding-block here to hide the div when the .in class is not active
+      padding-inline: tooltip-variables.$padding-inline; // set padding-inline here to hide the div when the .in class is not active
+    }
+  }
+
+  &:not(.in) {
+    .tooltip-inner {
+      max-block-size: 0; // hide the element
+      visibility: hidden;
+      transition: all 0s linear tooltip-variables.$transition-duration; // delay all the properties with a 0s linear animation till the parent opacity animation time has passed
+    }
   }
 
   .tooltip-inner {
@@ -50,8 +64,6 @@
     display: inline-block;
     font-size: typography.$root-font-size-base;
     max-inline-size: tooltip-variables.$max-inline-size;
-    padding-block: tooltip-variables.$padding-block;
-    padding-inline: tooltip-variables.$padding-inline;
     position: relative;
 
     &.dso-small {
