@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Annotation (Activiteit): Lange tekst component drukt Slide Toggle weg ([#2925](https://github.com/dso-toolkit/dso-toolkit/issues/2925))
+* Tooltip: niet getoonde inhoud neemt ruimte in ([#2968](https://github.com/dso-toolkit/dso-toolkit/issues/2968))
 
 ## ⚖️ Release 68.0.0 - 2025-01-20
 
