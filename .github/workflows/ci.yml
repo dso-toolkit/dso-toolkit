@@ -123,7 +123,7 @@ jobs:
           DT_AZURE_STORAGE_ACCOUNT_NAME: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_NAME_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_NAME }}
           DT_AZURE_STORAGE_ACCOUNT_KEY: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_ACCOUNT_KEY_ACC || secrets.DT_AZURE_STORAGE_ACCOUNT_KEY }}
           DT_AZURE_STORAGE_HOST: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_HOST_ACC || secrets.DT_AZURE_STORAGE_HOST }}
-          DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && secrets.DT_AZURE_STORAGE_CONTAINER_ACC || secrets.DT_AZURE_STORAGE_CONTAINER }}
+          DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && vars.DT_AZURE_STORAGE_CONTAINER_ACC || vars.DT_AZURE_STORAGE_CONTAINER }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
       - run: gh release create v${DT_REF} --generate-notes --verify-tag
