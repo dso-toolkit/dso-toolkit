@@ -42,7 +42,8 @@
     opacity: tooltip-variables.$opacity;
 
     .tooltip-inner {
-      max-block-size: 200vh; // an exrteme max-block-size, just to be sure it always fits
+      max-block-size: 200vh; // an extreme max-block-size, just to be sure it always fits
+      overflow: auto;
       visibility: visible;
       padding-block: tooltip-variables.$padding-block; // set padding-block here to hide the div when the .in class is not active
       padding-inline: tooltip-variables.$padding-inline; // set padding-inline here to hide the div when the .in class is not active
@@ -52,6 +53,7 @@
   &:not(.in) {
     .tooltip-inner {
       max-block-size: 0; // hide the element
+      overflow: hidden;
       visibility: hidden;
       transition: all 0s linear tooltip-variables.$transition-duration; // delay all the properties with a 0s linear animation till the parent opacity animation time has passed
     }
