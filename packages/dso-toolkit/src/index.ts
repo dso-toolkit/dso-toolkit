@@ -128,12 +128,9 @@ export * from "./components/info";
 
 export * from "./components/info-button";
 
-export { JustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.models.js";
-export {
-  JustifyFormGroupsParameters,
-  JustifyFormGroupsTemplates,
-  storiesOfJustifyFormGroups,
-} from "./components/justify-form-groups/justify-form-groups.stories-of.js";
+export * from "./components/input-range";
+
+export * from "./components/justify-form-groups";
 
 export * from "./components/label";
 
@@ -172,8 +169,6 @@ export * from "./components/progress-bar";
 export * from "./components/progress-indicator";
 
 export * from "./components/project-item";
-
-export * from "./components/input-range";
 
 export * from "./components/renvooi";
 

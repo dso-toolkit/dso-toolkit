@@ -1,32 +1,52 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { JustifyFormGroups } from "./justify-form-groups.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+interface JustifyFormGroupsStories {
+  JustifyFormGroups: StoryObj<Record<string, never>, Renderer>;
+}
+
+export interface JustifyFormGroupsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    JustifyFormGroupsTemplates<TemplateFnReturnType>
+  > {}
 
 export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
   justifyFormGroupsTemplate: (
     justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>,
   ) => TemplateFnReturnType;
-}
-
-export interface JustifyFormGroupsParameters<TemplateFnReturnType> {
   content: JustifyFormGroups<TemplateFnReturnType>;
 }
 
-export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    JustifyFormGroupsTemplates<TemplateFnReturnType>
-  >,
-  { content }: JustifyFormGroupsParameters<TemplateFnReturnType>,
-) {
-  return storiesOfFactory("Form/justify form groups", storiesOfArguments, (stories, templateMapper) => {
-    stories.add(
-      "justify form groups",
-      templateMapper((_args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(content)),
-    );
-
-    return stories;
-  });
+export function justifyFormGroupsMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+export function justifyFormGroupsStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: JustifyFormGroupsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): JustifyFormGroupsStories {
+  return {
+    JustifyFormGroups: {
+      render: templateContainer.render(storyTemplates, (_args, { justifyFormGroupsTemplate, content }) =>
+        justifyFormGroupsTemplate(content),
+      ),
+    },
+  };
 }
