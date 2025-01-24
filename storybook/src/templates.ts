@@ -1,5 +1,4 @@
 import {
-  // Start: named template model imports
   Accordion,
   ActionList,
   AdvancedSelect,
@@ -21,6 +20,7 @@ import {
   CardGrid,
   CardList,
   ComponentsToTemplates,
+  ContactInformation,
   Context,
   DatePicker,
   DatePickerLegacy,
@@ -98,7 +98,6 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
-  // End: named template model imports
 } from "dso-toolkit";
 
 import { TemplateResult } from "lit-html";
@@ -216,6 +215,8 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
+import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
+
 // End: import templates
 
 export interface Components {
@@ -239,6 +240,7 @@ export interface Components {
   cardGrid: CardGrid<TemplateResult>;
   cardList: CardList<TemplateResult>;
   context: Context<TemplateResult>;
+  contactInformation: ContactInformation;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
@@ -356,6 +358,7 @@ templateContainer.add(coreBadge);
 templateContainer.add(coreBanner);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
+templateContainer.add(coreContactInformation);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDatePickerLegacy);
 templateContainer.add(coreDocumentCard);

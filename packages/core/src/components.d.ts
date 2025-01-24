@@ -402,6 +402,8 @@ export namespace Components {
          */
         "mode": CardContainerMode;
     }
+    interface DsoContactInformation {
+    }
     interface DsoDatePicker {
         /**
           * ID of element that describes the input element
@@ -1695,6 +1697,12 @@ declare global {
         prototype: HTMLDsoCardContainerElement;
         new (): HTMLDsoCardContainerElement;
     };
+    interface HTMLDsoContactInformationElement extends Components.DsoContactInformation, HTMLStencilElement {
+    }
+    var HTMLDsoContactInformationElement: {
+        prototype: HTMLDsoContactInformationElement;
+        new (): HTMLDsoContactInformationElement;
+    };
     interface HTMLDsoDatePickerElementEventMap {
         "dsoDateChange": DatePickerChangeEvent;
         "dsoBlur": DatePickerBlurEvent;
@@ -2357,6 +2365,7 @@ declare global {
         "dso-banner": HTMLDsoBannerElement;
         "dso-card": HTMLDsoCardElement;
         "dso-card-container": HTMLDsoCardContainerElement;
+        "dso-contact-information": HTMLDsoContactInformationElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-date-picker-legacy": HTMLDsoDatePickerLegacyElement;
         "dso-document-card": HTMLDsoDocumentCardElement;
@@ -2772,6 +2781,8 @@ declare namespace LocalJSX {
           * The mode of the Card Container.
          */
         "mode"?: CardContainerMode;
+    }
+    interface DsoContactInformation {
     }
     interface DsoDatePicker {
         /**
@@ -3914,6 +3925,7 @@ declare namespace LocalJSX {
         "dso-banner": DsoBanner;
         "dso-card": DsoCard;
         "dso-card-container": DsoCardContainer;
+        "dso-contact-information": DsoContactInformation;
         "dso-date-picker": DsoDatePicker;
         "dso-date-picker-legacy": DsoDatePickerLegacy;
         "dso-document-card": DsoDocumentCard;
@@ -3984,6 +3996,7 @@ declare module "@stencil/core" {
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
+            "dso-contact-information": LocalJSX.DsoContactInformation & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-date-picker-legacy": LocalJSX.DsoDatePickerLegacy & JSXBase.HTMLAttributes<HTMLDsoDatePickerLegacyElement>;
             "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;

@@ -14,7 +14,9 @@ export const cssAnchor: ComponentImplementation<Anchor> = {
         aria-current=${ifDefined(ariaCurrent)}
         target=${ifDefined(mode === "extern" ? "_blank" : undefined)}
         rel=${ifDefined(mode === "extern" ? "noopener noreferrer" : undefined)}
-        >${icon && iconMode !== "after" ? iconTemplate(icon) : nothing}${label}${mode === "extern"
+        >${icon && iconMode !== "after" ? iconTemplate(icon) : nothing}${icon
+          ? html`<span>${label}</span>`
+          : label}${mode === "extern"
           ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
           : nothing}${icon && iconMode === "after" ? iconTemplate(icon) : nothing}</a
       >`;
