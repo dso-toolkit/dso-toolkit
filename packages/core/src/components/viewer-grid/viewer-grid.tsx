@@ -20,6 +20,7 @@ import {
   viewerGridVdkTabs,
   viewerGridVrkTabs,
   ViewerGridTab,
+  ViewerGridCloseFilterpanelEvent,
 } from "./viewer-grid.interfaces";
 
 const resizeObserver = new ResizeObserver(
@@ -122,6 +123,11 @@ export class ViewerGrid {
   @Event()
   dsoCloseOverlay!: EventEmitter<ViewerGridCloseOverlayEvent>;
 
+  /**
+   * **VDK only.** Emitted when user wants to close the filterpanel.
+   */
+  @Event()
+  dsoCloseFilterpanel!: EventEmitter<ViewerGridCloseFilterpanelEvent>;
   /**
    * Emitted when user cancels filterpanel.
    */
@@ -363,11 +369,16 @@ export class ViewerGrid {
             dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
           ></MainPanel>
         )}
-        <Filterpanel
-          ref={(element) => (this.filterpanel = element)}
-          onApply={this.handleFilterpanelApply}
-          onCancel={this.handleFilterpanelCancel}
-        ></Filterpanel>
+        {(!this.tabView ||
+          (this.tabView && ((this.activeTab === "main" && this.mode === "vrk") || this.activeTab === "search"))) && (
+          <Filterpanel
+            mode={this.mode}
+            ref={(element) => (this.filterpanel = element)}
+            onApply={this.handleFilterpanelApply}
+            onCancel={this.handleFilterpanelCancel}
+            dsoCloseFilterpanel={(e) => this.dsoCloseFilterpanel.emit({ originalEvent: e })}
+          ></Filterpanel>
+        )}
         {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
           <div class="map" ref={(element) => (this.mapElement = element)}>
             <slot name="map" />

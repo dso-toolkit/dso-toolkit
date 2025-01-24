@@ -16,6 +16,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
   dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
   dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoCloseFilterpanel?: (e: MouseEvent | Event) => void;
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
@@ -68,6 +69,7 @@ export interface ViewerGridProperties {
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
   dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
   dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoCloseFilterpanel?: (e: MouseEvent | Event) => void;
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;

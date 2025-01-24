@@ -24,6 +24,7 @@ export interface ViewerGridArgs {
   dsoCloseOverlay: HandlerFunction;
   dsoFilterpanelCancel: HandlerFunction;
   dsoFilterpanelApply: HandlerFunction;
+  dsoCloseFilterpanel: HandlerFunction;
   dsoDocumentPanelSizeChange: HandlerFunction;
   dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
   dsoMainPanelExpand: HandlerFunction;
@@ -113,6 +114,10 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   dsoFilterpanelApply: {
     ...noControl,
     action: "dsoFilterpanelApply",
+  },
+  dsoCloseFilterpanel: {
+    ...noControl,
+    action: "dsoCloseFilterpanel",
   },
   dsoDocumentPanelSizeChange: {
     ...noControl,

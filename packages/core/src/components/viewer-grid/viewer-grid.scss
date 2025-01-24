@@ -208,6 +208,34 @@ button {
   }
 }
 
+.filterpanel-vdk {
+  transition:
+    inline-size core-viewer-grid-variables.$transition-time linear,
+    max-inline-size core-viewer-grid-variables.$transition-time linear;
+
+  h3 {
+    color: colors.$grasgroen;
+  }
+
+  .dso-close {
+    @include button.element();
+
+    position: absolute;
+    inset-block-start: units.$u2;
+    inset-inline-end: units.$u2;
+
+    block-size: units.$u4;
+    inline-size: units.$u4;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    text-align: center;
+  }
+}
+
 .overlay {
   padding-block: units.$u5 units.$u1;
   padding-inline: css-grid.$grid-gutter-width * 0.5;
@@ -238,6 +266,12 @@ button {
 
   .cancel-button + .apply-button {
     margin-inline-start: units.$u2;
+  }
+}
+
+@media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
+  .filterpanel-vdk {
+    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
   }
 }
 
@@ -319,7 +353,7 @@ button {
     max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
     inline-size: calc(100vw - 40px);
 
-    &::before {
+    &.filterpanel-vrk::before {
       content: "";
       display: block;
       position: fixed;
@@ -339,6 +373,19 @@ button {
   .overlay {
     box-shadow: -2px 0 5px colors.$grijs-60;
     margin-inline: auto 0;
+  }
+
+  @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
+    :host([filterpanel-open]) {
+      .dso-main-panel {
+        margin-inline-start: 50vw;
+        max-inline-size: 50vw;
+      }
+    }
+
+    .filterpanel-vdk {
+      inline-size: 50vw;
+    }
   }
 }
 
@@ -373,5 +420,21 @@ button {
     max-inline-size: 100vw;
     inset-block-start: 0;
     inline-size: 100vw;
+  }
+
+  .filterpanel-vdk {
+    inline-size: 100vw;
+  }
+}
+
+@media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
+  :host([filterpanel-open]) {
+    .dso-main-panel {
+      margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+    }
+  }
+
+  .filterpanel-vdk {
+    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
   }
 }

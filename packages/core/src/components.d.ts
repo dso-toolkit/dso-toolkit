@@ -45,7 +45,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
+import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
@@ -86,7 +86,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
+export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
@@ -2305,6 +2305,7 @@ declare global {
     };
     interface HTMLDsoViewerGridElementEventMap {
         "dsoCloseOverlay": ViewerGridCloseOverlayEvent;
+        "dsoCloseFilterpanel": ViewerGridCloseFilterpanelEvent;
         "dsoFilterpanelCancel": ViewerGridFilterpanelCancelEvent;
         "dsoFilterpanelApply": ViewerGridFilterpanelApplyEvent;
         "dsoActiveTabSwitch": ViewerGridActiveTabSwitchEvent;
@@ -3840,6 +3841,10 @@ declare namespace LocalJSX {
           * Emitted when user applies filterpanel options.
          */
         "onDsoActiveTabSwitch"?: (event: DsoViewerGridCustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
+        /**
+          * **VDK only.** Emitted when user wants to close the filterpanel.
+         */
+        "onDsoCloseFilterpanel"?: (event: DsoViewerGridCustomEvent<ViewerGridCloseFilterpanelEvent>) => void;
         /**
           * Emitted when user wants to close the overlay.
          */

@@ -71,6 +71,7 @@ export default meta;
 const {
   ViewerGrid,
   Filterpanel,
+  FilterpanelVDK,
   VoorbeeldpaginaTiles,
   VoorbeeldpaginaFilterblok,
   VoorbeeldpaginaDocumentHeader,
@@ -276,6 +277,7 @@ const {
 export {
   ViewerGrid,
   Filterpanel,
+  FilterpanelVDK,
   VoorbeeldpaginaFilterblok,
   VoorbeeldpaginaTiles,
   VoorbeeldpaginaDocumentHeader,

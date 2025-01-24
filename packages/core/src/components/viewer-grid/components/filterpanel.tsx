@@ -1,27 +1,54 @@
-import { FunctionalComponent, h } from "@stencil/core";
+import { Fragment, FunctionalComponent, h } from "@stencil/core";
+import clsx from "clsx";
 
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
+import { ViewerGridMode } from "../viewer-grid.interfaces";
 
 export interface ViewerGridFilterpanelProps {
+  mode: ViewerGridMode;
   ref: ((element: HTMLDialogElement | undefined) => void) | undefined;
   onApply: (mouseEvent: MouseEvent) => void;
   onCancel: (event: MouseEvent | Event) => void;
+  dsoCloseFilterpanel: (event: MouseEvent | Event) => void;
 }
 
-export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({ ref, onApply, onCancel }) => (
+export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({
+  mode,
+  ref,
+  onApply,
+  onCancel,
+  dsoCloseFilterpanel,
+}) => (
   <dialog
     id="filterpanel"
-    class="filterpanel"
+    class={clsx(`filterpanel-${mode}`, "filterpanel")}
     ref={ref}
     onCancel={(e) => {
       e.preventDefault();
 
-      onCancel(e);
+      if (mode === "vrk") {
+        onCancel(e);
+      } else {
+        dsoCloseFilterpanel(e);
+      }
     }}
   >
-    <h1>Uw keuzes</h1>
-    <ViewerGridFilterpanelButtons onApply={onApply} onCancel={onCancel} />
-    <slot name="filterpanel" />
-    <ViewerGridFilterpanelButtons onApply={onApply} onCancel={onCancel} />
+    {mode === "vrk" ? (
+      <>
+        <h1>Uw keuzes</h1>
+        <ViewerGridFilterpanelButtons onApply={onApply} onCancel={onCancel} />
+        <slot name="filterpanel" />
+        <ViewerGridFilterpanelButtons onApply={onApply} onCancel={onCancel} />
+      </>
+    ) : (
+      <>
+        <h3>Filters</h3>
+        <button type="button" class="dso-close" onClick={dsoCloseFilterpanel}>
+          <dso-icon icon="times"></dso-icon>
+          <span class="sr-only">Sluiten</span>
+        </button>
+        <slot name="filterpanel" />
+      </>
+    )}
   </dialog>
 );

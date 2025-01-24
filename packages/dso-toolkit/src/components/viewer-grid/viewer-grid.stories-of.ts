@@ -23,6 +23,7 @@ type ViewerGridStory = StoryObj<ViewerGridArgs, Renderer>;
 interface ViewerGridStories {
   ViewerGrid: ViewerGridStory;
   Filterpanel: ViewerGridStory;
+  FilterpanelVDK: ViewerGridStory;
   VoorbeeldpaginaTiles: ViewerGridStory;
   VoorbeeldpaginaFilterblok: ViewerGridStory;
   VoorbeeldpaginaDocumentHeader: StoryObj<ViewerGridDocumentHeaderArgs, Renderer>;
@@ -134,6 +135,37 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         documentPanelOpen: false,
         documentPanelSize: "small",
         mainPanelExpanded: false,
+        mainPanelHidden: false,
+        vrkActiveTab: "main",
+        vdkActiveTab: "search",
+      }),
+      render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
+        viewerGridTemplate(viewerGridArgsMapper(args, example)),
+      ),
+    },
+    FilterpanelVDK: {
+      args: componentArgs<
+        Pick<
+          ViewerGridArgs,
+          | "mode"
+          | "mainSize"
+          | "filterpanelOpen"
+          | "overlayOpen"
+          | "documentPanelOpen"
+          | "documentPanelSize"
+          | "mainPanelExpanded"
+          | "mainPanelHidden"
+          | "vrkActiveTab"
+          | "vdkActiveTab"
+        >
+      >({
+        mode: "vdk",
+        mainSize: "medium",
+        filterpanelOpen: true,
+        overlayOpen: false,
+        documentPanelOpen: false,
+        documentPanelSize: "medium",
+        mainPanelExpanded: true,
         mainPanelHidden: false,
         vrkActiveTab: "main",
         vdkActiveTab: "search",
