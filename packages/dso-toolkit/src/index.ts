@@ -107,8 +107,7 @@ export {
 } from "./components/form/form.models.js";
 export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
 
-export { FormButtons } from "./components/form-buttons/form-buttons.models.js";
-export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-buttons/form-buttons.stories-of.js";
+export * from "./components/form-buttons";
 
 export * from "./components/header";
 

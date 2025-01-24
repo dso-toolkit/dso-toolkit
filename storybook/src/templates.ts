@@ -179,7 +179,7 @@ import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-te
 import { cssFootnote } from "./components/footnotes/footnote.css-template";
 import { cssFootnotes } from "./components/footnotes/footnotes.css-template";
 import { cssForm } from "./components/form/form.css-template";
-import { cssFormButtons } from "./components/form/form-buttons.css-template";
+import { cssFormButtons } from "./components/form-buttons/form-buttons.css-template";
 import { cssFormGroup } from "./components/form/form-group.css-template";
 import { cssFormGroupCheckboxes } from "./components/form/form-group-checkboxes.css-template";
 import { cssFormGroupConfirm } from "./components/form/form-group-confirm.css-template";

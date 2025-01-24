@@ -1,8 +1,8 @@
-@use "../../../variables/units";
-@use "../../../variables/typography";
-@use "../../button";
-@use "../../../variables/media-query-breakpoints";
-@use "../../../variables/colors";
+@use "../../variables/units";
+@use "../../variables/typography";
+@use "../button";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/colors";
 
 .dso-form-buttons {
   display: flex;
