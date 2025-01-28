@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+
+@use "../grid" as css-grid;
+
+$form-selectors: ".form, form, .dso-section-body";
+$form-group-margin: units.$u4;
+$textarea-default-rows: 3 !default;
+$label-column: css-grid.$grid-columns * 0.5;
+
+$field-invalid-border-color: colors.$danger-color;
+$field-invalid-message-color: colors.$invalid-color;
+$field-invalid-icon-size: units.$u3;
+
+$required-color: colors.$grijs-60;
+
+//** `.form-group` margin
+$form-group-margin-bottom: units.$u2;
+
+//** Default `.form-control` height
+$input-height-base: (typography.$line-height-computed + (units.$padding-base-block * 2) + 2);

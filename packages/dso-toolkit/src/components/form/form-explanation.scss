@@ -1,4 +1,4 @@
-@use "form.mixins" as css-form-mixins;
+@use "../form-group/form-group.mixins" as css-form-group-mixins;
 @use "../../variables/units";
 @use "../../variables/colors";
 
@@ -20,6 +20,6 @@
 
 .form-explanation-required {
   &::after {
-    @include css-form-mixins.form-group-required();
+    @include css-form-group-mixins.form-group-required();
   }
 }

@@ -83,31 +83,16 @@ export * from "./components/footnotes";
 
 export {
   Form,
-  FormGroup,
-  FormGroupBase,
-  FormGroupCheckboxes,
-  FormGroupConfirm,
-  FormGroupDatePicker,
-  FormGroupDatePickerLegacy,
-  FormGroupFiles,
-  FormGroupFilesFile,
-  FormGroupInput,
-  FormGroupInputDate,
-  FormGroupRadios,
-  FormGroupSearchBar,
-  FormGroupSelect,
-  FormGroupStatic,
-  FormGroupTextarea,
-  SelectOption,
-  SelectOptionGroup,
   FormAsteriskExplanationPosition,
   FormGroupCollection,
   FormGroupCollectionHeadingLevel,
   FormContent,
 } from "./components/form/form.models.js";
-export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
+export { FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
 
 export * from "./components/form-buttons";
+
+export * from "./components/form-group";
 
 export * from "./components/header";
 

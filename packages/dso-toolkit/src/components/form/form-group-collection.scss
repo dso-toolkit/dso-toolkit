@@ -4,7 +4,6 @@
 @use "../heading";
 
 @use "form.variables" as css-form-variables;
-@use "form.mixins" as css-form-mixins;
 
 #{css-form-variables.$form-selectors} {
   .dso-form-group-collection {

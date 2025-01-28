@@ -1,7 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
-import { buttons } from "./content/form.content.js";
-import { Form, FormAsteriskExplanationPosition, FormContent } from "./models/form.model.js";
+import { buttons } from "./form.content.js";
+import { Form, FormAsteriskExplanationPosition, FormContent } from "./form.models.js";
 
 export interface FormArgs {
   asteriskExplanation?: FormAsteriskExplanationPosition;

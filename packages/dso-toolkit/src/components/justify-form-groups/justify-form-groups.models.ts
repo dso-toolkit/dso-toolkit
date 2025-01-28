@@ -1,5 +1,5 @@
 import { Button } from "../button/button.models.js";
-import { FormGroup } from "../form/models/form-group.model.js";
+import { FormGroup } from "../form-group/form-group.models.js";
 
 export interface JustifyFormGroups<TemplateFnReturnType> {
   formGroups: FormGroup<TemplateFnReturnType>[];
