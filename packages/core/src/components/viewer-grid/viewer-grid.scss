@@ -66,7 +66,8 @@ button {
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-inline-size core-viewer-grid-variables.$transition-time ease-in,
-    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in,
+    margin-inline-start core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   &.compact,
@@ -209,9 +210,21 @@ button {
 }
 
 .filterpanel-vdk {
-  transition:
-    inline-size core-viewer-grid-variables.$transition-time linear,
-    max-inline-size core-viewer-grid-variables.$transition-time linear;
+  display: block;
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: calc(core-viewer-grid-variables.$filterpanel-vdk-max-inline-size * -1);
+  block-size: 100%;
+  inline-size: 100%;
+  transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
+
+  @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
+    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+  }
+
+  &[open] {
+    inset-inline-start: 0;
+  }
 
   h3 {
     color: colors.$grasgroen;
@@ -266,12 +279,6 @@ button {
 
   .cancel-button + .apply-button {
     margin-inline-start: units.$u2;
-  }
-}
-
-@media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  .filterpanel-vdk {
-    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
   }
 }
 
@@ -348,24 +355,30 @@ button {
   }
 
   .filterpanel {
-    box-shadow: 2px 0 5px colors.$grijs-60;
     margin-inline: 0 auto;
-    max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
     inline-size: calc(100vw - 40px);
 
-    &.filterpanel-vrk::before {
-      content: "";
-      display: block;
-      position: fixed;
-      inset-block-start: 0;
-      inset-block-end: 0;
-      inset-inline-end: 0;
-      inset-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
-      background-color: rgba(0, 0, 0, 0.5);
+    &[open] {
+      box-shadow: 2px 0 5px colors.$grijs-60;
+    }
 
-      @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-inline-size + 40px}) {
-        inset-inline-start: auto;
-        inline-size: 40px;
+    &.filterpanel-vrk {
+      max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
+
+      &::before {
+        content: "";
+        display: block;
+        position: fixed;
+        inset-block-start: 0;
+        inset-block-end: 0;
+        inset-inline-end: 0;
+        inset-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-inline-size + 40px}) {
+          inset-inline-start: auto;
+          inline-size: 40px;
+        }
       }
     }
   }
@@ -385,6 +398,7 @@ button {
 
     .filterpanel-vdk {
       inline-size: 50vw;
+      inset-inline-start: -50vw;
     }
   }
 }
@@ -424,6 +438,7 @@ button {
 
   .filterpanel-vdk {
     inline-size: 100vw;
+    inset-inline-start: -100vw;
   }
 }
 
@@ -432,9 +447,5 @@ button {
     .dso-main-panel {
       margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
     }
-  }
-
-  .filterpanel-vdk {
-    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
   }
 }
