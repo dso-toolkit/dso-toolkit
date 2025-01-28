@@ -1,4 +1,4 @@
-import { Addon_DecoratorFunction } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
 import { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
 import { FormGroupConfirm } from "./models/form-group-confirm.model.js";
@@ -35,7 +35,7 @@ import {
   formGroupDatePickerLegacyArgsMapper,
   formGroupDatePickerLegacyArgTypes,
 } from "./args/form-group-date-picker-legacy.args.js";
-import { DatePickerLegacyContent } from "./content/date-picker-legacy.content";
+import { datePickerLegacyContent } from "./content/date-picker-legacy.content";
 import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from "./args/form-group-files.args.js";
 import { files, filesContent } from "./content/files.content";
 import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from "./args/form-group-input.args.js";
@@ -71,9 +71,26 @@ import {
 } from "./args/form-group-textarea.args.js";
 import { textareaContent } from "./content/textarea.content";
 
-import { StorybookParameters, StoryRoot } from "../../storybook";
-import { TemplateContainer } from "../../template-container";
+import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+export type FormGroupDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
+
+interface FormGroupStories {
+  Checkboxes: StoryObj<FormGroupCheckboxesArgs, Renderer>;
+  Confirm: StoryObj<FormGroupConfirmArgs, Renderer>;
+  DatePicker: StoryObj<FormGroupDatePickerArgs, Renderer>;
+  DatePickerLegacy: StoryObj<FormGroupDatePickerLegacyArgs, Renderer>;
+  Files: StoryObj<FormGroupFilesArgs, Renderer>;
+  NoFiles: StoryObj<FormGroupFilesArgs, Renderer>;
+  Input: StoryObj<FormGroupInputArgs, Renderer>;
+  Radios: StoryObj<FormGroupRadiosArgs, Renderer>;
+  SearchBar: StoryObj<FormGroupSearchBarArgs, Renderer>;
+  Select: StoryObj<FormGroupSelectArgs, Renderer>;
+  Static: StoryObj<FormGroupStaticArgs, Renderer>;
+  Textarea: StoryObj<FormGroupTextareaArgs, Renderer>;
+}
 
 export interface FormGroupTemplates<TemplateFnReturnType> {
   formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -93,219 +110,139 @@ export interface FormGroupTemplates<TemplateFnReturnType> {
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export interface FormGroupParameters<TemplateFnReturnType> {
-  formGroupDecorator: Addon_DecoratorFunction<TemplateFnReturnType>;
+export interface FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, FormGroupTemplates<TemplateFnReturnType>> {
+  decorator: FormGroupDecorator<TemplateFnReturnType>;
 }
 
-export function storiesOfFormGroup<Implementation, Templates, TemplateFnReturnType>(
-  { module: mainModule, storiesOf, readme }: StorybookParameters,
-  templateContainer: TemplateContainer<Implementation, Templates, TemplateFnReturnType>,
-  storyTemplates: (templates: Templates) => FormGroupTemplates<TemplateFnReturnType>,
-  { formGroupDecorator }: FormGroupParameters<TemplateFnReturnType>,
-) {
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupCheckboxesArgTypes,
+export type FormGroupArgs =
+  | FormGroupCheckboxesArgs
+  | FormGroupConfirmArgs
+  | FormGroupDatePickerArgs
+  | FormGroupDatePickerLegacyArgs
+  | FormGroupFilesArgs
+  | FormGroupInputArgs
+  | FormGroupRadiosArgs
+  | FormGroupSearchBarArgs
+  | FormGroupSelectArgs
+  | FormGroupStaticArgs
+  | FormGroupTextareaArgs;
+
+export function formGroupMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  FormGroupArgs
+> {
+  return {
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
+export function formGroupStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  decorator,
+}: FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>): FormGroupStories {
+  return {
+    Checkboxes: {
       args: checkboxesContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "checkboxes",
-      templateContainer.fromArgs<FormGroupCheckboxesArgs>((args, templates) => {
-        const { formGroupCheckboxesTemplate } = storyTemplates(templates);
-
-        return formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupConfirmArgTypes,
+      argTypes: formGroupCheckboxesArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupCheckboxesTemplate }) =>
+        formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args)),
+      ),
+    },
+    Confirm: {
       args: confirmContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "confirm",
-      templateContainer.fromArgs<FormGroupConfirmArgs>((args, templates) => {
-        const { formGroupConfirmTemplate } = storyTemplates(templates);
-
-        return formGroupConfirmTemplate(formGroupConfirmArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupDatePickerArgTypes,
+      argTypes: formGroupConfirmArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupConfirmTemplate }) =>
+        formGroupConfirmTemplate(formGroupConfirmArgsMapper(args)),
+      ),
+    },
+    DatePicker: {
       args: datePickerContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "date picker",
-      templateContainer.fromArgs<FormGroupDatePickerArgs>((args, templates) => {
-        const { formGroupDatePickerTemplate } = storyTemplates(templates);
-
-        return formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
+      argTypes: formGroupDatePickerArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerTemplate }) =>
+        formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args)),
+      ),
+    },
+    DatePickerLegacy: {
+      args: datePickerLegacyContent,
       argTypes: formGroupDatePickerLegacyArgTypes,
-      args: DatePickerLegacyContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "date picker",
-      templateContainer.fromArgs<FormGroupDatePickerLegacyArgs>((args, templates) => {
-        const { formGroupDatePickerLegacyTemplate } = storyTemplates(templates);
-
-        return formGroupDatePickerLegacyTemplate(formGroupDatePickerLegacyArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupFilesArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerLegacyTemplate }) =>
+        formGroupDatePickerLegacyTemplate(formGroupDatePickerLegacyArgsMapper(args)),
+      ),
+    },
+    Files: {
       args: filesContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "files",
-      templateContainer.fromArgs<FormGroupFilesArgs>((args, templates) => {
-        const { formGroupFilesTemplate } = storyTemplates(templates);
-
-        return formGroupFilesTemplate(formGroupFilesArgsMapper(args, files));
-      }),
-    )
-    .add(
-      "no files",
-      templateContainer.fromArgs<FormGroupFilesArgs>((args, templates) => {
-        const { formGroupFilesTemplate } = storyTemplates(templates);
-
-        return formGroupFilesTemplate(formGroupFilesArgsMapper(args, []));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupInputArgTypes,
+      argTypes: formGroupFilesArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
+        formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
+      ),
+    },
+    NoFiles: {
+      args: filesContent,
+      argTypes: formGroupFilesArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
+        formGroupFilesTemplate(formGroupFilesArgsMapper(args, [])),
+      ),
+    },
+    Input: {
       args: inputContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "input",
-      templateContainer.fromArgs<FormGroupInputArgs>((args, templates) => {
-        const { formGroupInputTemplate } = storyTemplates(templates);
-
-        return formGroupInputTemplate(formGroupInputArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupRadiosArgTypes,
+      argTypes: formGroupInputArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupInputTemplate }) =>
+        formGroupInputTemplate(formGroupInputArgsMapper(args)),
+      ),
+    },
+    Radios: {
       args: radiosContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "radios",
-      templateContainer.fromArgs<FormGroupRadiosArgs>((args, templates) => {
-        const { formGroupRadiosTemplate } = storyTemplates(templates);
-
-        return formGroupRadiosTemplate(formGroupRadiosArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupSearchBarArgTypes,
+      argTypes: formGroupRadiosArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupRadiosTemplate }) =>
+        formGroupRadiosTemplate(formGroupRadiosArgsMapper(args)),
+      ),
+    },
+    SearchBar: {
       args: searchBarContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "search bar",
-      templateContainer.fromArgs<FormGroupSearchBarArgs>((args, templates) => {
-        const { formGroupSearchBarTemplate } = storyTemplates(templates);
-
-        return formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupSelectArgTypes,
+      argTypes: formGroupSearchBarArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupSearchBarTemplate }) =>
+        formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args)),
+      ),
+    },
+    Select: {
       args: selectContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "select",
-      templateContainer.fromArgs<FormGroupSelectArgs>((args, templates) => {
-        const { formGroupSelectTemplate } = storyTemplates(templates);
-
-        return formGroupSelectTemplate(formGroupSelectArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupStaticArgTypes,
+      argTypes: formGroupSelectArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupSelectTemplate }) =>
+        formGroupSelectTemplate(formGroupSelectArgsMapper(args)),
+      ),
+    },
+    Static: {
       args: staticContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "static",
-      templateContainer.fromArgs<FormGroupStaticArgs>((args, templates) => {
-        const { formGroupStaticTemplate } = storyTemplates(templates);
-
-        return formGroupStaticTemplate(formGroupStaticArgsMapper(args));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form Groups`, mainModule)
-    .addParameters({
-      argTypes: formGroupTextareaArgTypes,
+      argTypes: formGroupStaticArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupStaticTemplate }) =>
+        formGroupStaticTemplate(formGroupStaticArgsMapper(args)),
+      ),
+    },
+    Textarea: {
       args: textareaContent,
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .addDecorator(formGroupDecorator)
-    .add(
-      "textarea",
-      templateContainer.fromArgs<FormGroupTextareaArgs>((args, templates) => {
-        const { formGroupTextareaTemplate } = storyTemplates(templates);
-
-        return formGroupTextareaTemplate(formGroupTextareaArgsMapper(args));
-      }),
-    );
+      argTypes: formGroupTextareaArgTypes,
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { formGroupTextareaTemplate }) =>
+        formGroupTextareaTemplate(formGroupTextareaArgsMapper(args)),
+      ),
+    },
+  };
 }

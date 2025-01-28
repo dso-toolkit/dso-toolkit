@@ -1,45 +1,77 @@
-import { storiesOfFormGroup, StoryRoot } from "dso-toolkit";
-import { storiesOf } from "@storybook/web-components";
-import { html } from "lit-html";
+import { Meta } from "@storybook/web-components";
+
+import { FormGroupArgs, formGroupMeta, formGroupStories } from "dso-toolkit";
 
 import readme from "dso-toolkit/src/components/form-group/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+import { html } from "lit-html";
 
-storiesOfFormGroup(
-  {
-    module,
-    storiesOf,
-    readme,
-    root: StoryRoot.HtmlCss,
-  },
+const meta: Meta<FormGroupArgs> = {
+  ...formGroupMeta({ readme }),
+  title: "HTML|CSS/Form Group",
+};
+
+export default meta;
+
+const {
+  Checkboxes,
+  Confirm,
+  DatePicker,
+  DatePickerLegacy,
+  Files,
+  NoFiles,
+  Input,
+  Radios,
+  SearchBar,
+  Select,
+  Static,
+  Textarea,
+} = formGroupStories({
   templateContainer,
-  ({
-    formGroupCheckboxesTemplate,
-    formGroupConfirmTemplate,
-    formGroupDatePickerTemplate,
-    formGroupDatePickerLegacyTemplate,
-    formGroupFilesTemplate,
-    formGroupInputTemplate,
-    formGroupRadiosTemplate,
-    formGroupSearchBarTemplate,
-    formGroupSelectTemplate,
-    formGroupStaticTemplate,
-    formGroupTextareaTemplate,
-  }) => ({
-    formGroupCheckboxesTemplate,
-    formGroupConfirmTemplate,
-    formGroupDatePickerTemplate,
-    formGroupDatePickerLegacyTemplate,
-    formGroupFilesTemplate,
-    formGroupInputTemplate,
-    formGroupRadiosTemplate,
-    formGroupSearchBarTemplate,
-    formGroupSelectTemplate,
-    formGroupStaticTemplate,
-    formGroupTextareaTemplate,
-  }),
-  {
-    formGroupDecorator: (story) => html`<form>${story()}</form>`,
+  storyTemplates: (templates) => {
+    const {
+      formGroupCheckboxesTemplate,
+      formGroupConfirmTemplate,
+      formGroupDatePickerTemplate,
+      formGroupDatePickerLegacyTemplate,
+      formGroupFilesTemplate,
+      formGroupInputTemplate,
+      formGroupRadiosTemplate,
+      formGroupSearchBarTemplate,
+      formGroupSelectTemplate,
+      formGroupStaticTemplate,
+      formGroupTextareaTemplate,
+    } = templates;
+
+    return {
+      formGroupCheckboxesTemplate,
+      formGroupConfirmTemplate,
+      formGroupDatePickerTemplate,
+      formGroupDatePickerLegacyTemplate,
+      formGroupFilesTemplate,
+      formGroupInputTemplate,
+      formGroupRadiosTemplate,
+      formGroupSearchBarTemplate,
+      formGroupSelectTemplate,
+      formGroupStaticTemplate,
+      formGroupTextareaTemplate,
+    };
   },
-);
+  decorator: (story) => html`<formGroup>${story()}</formGroup>`,
+});
+
+export {
+  Checkboxes,
+  Confirm,
+  DatePicker,
+  DatePickerLegacy,
+  Files,
+  NoFiles,
+  Input,
+  Radios,
+  SearchBar,
+  Select,
+  Static,
+  Textarea,
+};
