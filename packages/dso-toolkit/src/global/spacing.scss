@@ -59,10 +59,6 @@
   }
 }
 
-li:has(dso-project-item) + li:has(dso-project-item) {
-  margin-block-start: units.$block-spacing-small;
-}
-
 $spacers: (
   (
     space: units.$block-spacing-small,
@@ -94,9 +90,9 @@ $spacers: (
 );
 
 @each $spacer in $spacers {
+  $space: map.get($spacer, space);
   $predecessors: map.get($spacer, predecessors);
   $successors: map.get($spacer, successors);
-  $space: map.get($spacer, space);
 
   :where(#{$predecessors}) + :where(#{$successors}, :has(#{$successors})) {
     margin-block-start: $space;
