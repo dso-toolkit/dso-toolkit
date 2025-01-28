@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/contact-information/readme.md?raw";
 import { ContactInformation, contactInformationMeta, contactInformationStories } from "dso-toolkit";
 import { content } from "./contact-information.content";
 

@@ -29,6 +29,7 @@
 
   @include pseudo();
 
+  svg + span,
   dso-icon + span {
     margin-inline-start: units.$u1;
   }
