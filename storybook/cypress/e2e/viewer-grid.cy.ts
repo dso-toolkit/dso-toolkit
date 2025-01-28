@@ -305,10 +305,21 @@ describe("Viewer Grid", () => {
       .should("have.class", "invisible");
   });
 
+  it("shows the correct title for the VDK filterpanel", () => {
+    cy.visit(urlVDK)
+      .get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filterpanel-title", "Laten we gaan filteren")
+      .get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find("#filterpanel h3")
+      .should("have.text", "Laten we gaan filteren");
+  });
+
   it("should emit dsoCloseFilterpanel event for VDK filterpanel", () => {
     cy.visit(urlVDK)
       .get("dso-viewer-grid.hydrated")
       .then((e) => e.on("dsoCloseFilterpanel", cy.stub().as("listener")))
+      .invoke("attr", "filterpanel-title", "Filters")
       .invoke("attr", "filterpanel-open", "")
       .get("dso-viewer-grid.hydrated")
       .shadow()
@@ -322,6 +333,7 @@ describe("Viewer Grid", () => {
     cy.visit(urlVDK)
       .get("dso-viewer-grid.hydrated")
       .then((e) => e.on("dsoCloseFilterpanel", cy.stub().as("listener")))
+      .invoke("attr", "filterpanel-title", "Filters")
       .invoke("attr", "filterpanel-open", "")
       .get("dso-viewer-grid.hydrated")
       .shadow()

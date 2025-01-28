@@ -11,6 +11,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
     function viewerGridTemplate({
       mode,
       filterpanelOpen,
+      filterpanelTitle,
       overlayOpen,
       documentPanelOpen,
       mainSize,
@@ -41,6 +42,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           main-size=${ifDefined(mainSize)}
           document-panel-size=${ifDefined(documentPanelSize)}
           active-tab=${ifDefined(activeTab)}
+          filterpanel-title=${ifDefined(filterpanelTitle)}
           ?filterpanel-open=${filterpanelOpen}
           ?overlay-open=${overlayOpen}
           ?document-panel-open=${documentPanelOpen}

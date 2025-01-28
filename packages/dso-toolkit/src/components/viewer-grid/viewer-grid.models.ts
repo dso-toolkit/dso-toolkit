@@ -4,6 +4,7 @@ import { AdvancedSelect } from "../advanced-select";
 export interface ViewerGrid<TemplateFnReturnType> {
   mode?: ViewerGridMode;
   filterpanelOpen?: boolean;
+  filterpanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
   mainSize?: ViewerGridPanelSize;
@@ -57,6 +58,7 @@ export interface ViewerGridMainToggleEvent {
 export interface ViewerGridProperties {
   mode?: ViewerGridMode;
   filterpanelOpen?: boolean;
+  filterpanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
   mainSize?: ViewerGridPanelSize;

@@ -1273,6 +1273,10 @@ export namespace Components {
          */
         "filterpanelOpen": boolean;
         /**
+          * **VDK only.** The title of the Filterpanel
+         */
+        "filterpanelTitle"?: string;
+        /**
           * **VDK only.** Set to show main panel expanded.
          */
         "mainPanelExpanded": boolean;
@@ -3821,6 +3825,10 @@ declare namespace LocalJSX {
           * Set to true when filterpanel should show.
          */
         "filterpanelOpen"?: boolean;
+        /**
+          * **VDK only.** The title of the Filterpanel
+         */
+        "filterpanelTitle"?: string;
         /**
           * **VDK only.** Set to show main panel expanded.
          */

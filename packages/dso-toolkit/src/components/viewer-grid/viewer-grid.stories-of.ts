@@ -149,6 +149,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
           ViewerGridArgs,
           | "mode"
           | "mainSize"
+          | "filterpanelTitle"
           | "filterpanelOpen"
           | "overlayOpen"
           | "documentPanelOpen"
@@ -161,6 +162,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
       >({
         mode: "vdk",
         mainSize: "medium",
+        filterpanelTitle: "Titel van het filter paneel",
         filterpanelOpen: true,
         overlayOpen: false,
         documentPanelOpen: false,

@@ -12,6 +12,7 @@ export interface ViewerGridArgs {
   mode: ViewerGridMode;
   overlayOpen: boolean;
   filterpanelOpen: boolean;
+  filterpanelTitle?: string;
   documentPanelOpen?: boolean;
   mainSize: ViewerGridPanelSize;
   vrkActiveTab?: Tab;
@@ -49,6 +50,12 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
         vdk: "VDK",
       },
     },
+  },
+  filterpanelTitle: {
+    control: {
+      type: "text",
+    },
+    if: { arg: "mode", eq: "vdk" },
   },
   filterpanelOpen: {
     type: "boolean",

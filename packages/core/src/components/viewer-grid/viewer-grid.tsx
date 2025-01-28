@@ -66,6 +66,11 @@ export class ViewerGrid {
   mode: ViewerGridMode = "vrk";
 
   /**
+   * **VDK only.** The title of the Filterpanel
+   */
+  @Prop({ reflect: true })
+  filterpanelTitle?: string;
+  /**
    * Set to true when filterpanel should show.
    */
   @Prop({ reflect: true })
@@ -372,6 +377,7 @@ export class ViewerGrid {
         {(!this.tabView ||
           (this.tabView && ((this.activeTab === "main" && this.mode === "vrk") || this.activeTab === "search"))) && (
           <Filterpanel
+            title={this.filterpanelTitle}
             mode={this.mode}
             ref={(element) => (this.filterpanel = element)}
             onApply={this.handleFilterpanelApply}

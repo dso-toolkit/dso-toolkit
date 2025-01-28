@@ -5,6 +5,7 @@ import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons"
 import { ViewerGridMode } from "../viewer-grid.interfaces";
 
 export interface ViewerGridFilterpanelProps {
+  title?: string;
   mode: ViewerGridMode;
   ref: ((element: HTMLDialogElement | undefined) => void) | undefined;
   onApply: (mouseEvent: MouseEvent) => void;
@@ -13,6 +14,7 @@ export interface ViewerGridFilterpanelProps {
 }
 
 export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({
+  title,
   mode,
   ref,
   onApply,
@@ -42,7 +44,7 @@ export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({
       </>
     ) : (
       <>
-        <h3>Filters</h3>
+        <h3>{title}</h3>
         <button type="button" class="dso-close" onClick={dsoCloseFilterpanel}>
           <dso-icon icon="times"></dso-icon>
           <span class="sr-only">Sluiten</span>
