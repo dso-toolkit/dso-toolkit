@@ -81,14 +81,7 @@ export * from "./components/expandable";
 
 export * from "./components/footnotes";
 
-export {
-  Form,
-  FormAsteriskExplanationPosition,
-  FormGroupCollection,
-  FormGroupCollectionHeadingLevel,
-  FormContent,
-} from "./components/form/form.models.js";
-export { FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
+export * from "./components/form";
 
 export * from "./components/form-buttons";
 

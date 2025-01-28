@@ -1,94 +1,81 @@
-import { StorybookParameters, StoryRoot } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { FormArgs, formArgsMapper, formArgTypes } from "./form.args.js";
 import { Form } from "./form.models.js";
 import { formGroupCollectionContent, formGroupContent } from "./form.content.js";
 
+import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
-import { TemplateContainer } from "../../template-container.js";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+
+type FormStory = StoryObj<FormArgs, Renderer>;
+
+interface FormStories {
+  Horizontal: FormStory;
+  HorizontalCollections: FormStory;
+  Vertical: FormStory;
+  VerticalCollections: FormStory;
+}
 
 export interface FormTemplates<TemplateFnReturnType> {
   formTemplate: (form: Form<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
-  { module: mainModule, storiesOf, readme }: StorybookParameters,
-  templateContainer: TemplateContainer<Implementation, Templates, TemplateFnReturnType>,
-  storyTemplates: (templates: Templates) => FormTemplates<TemplateFnReturnType>,
-) {
-  storiesOf(`${StoryRoot.HtmlCss}/Form`, mainModule)
-    .addParameters({
-      argTypes: formArgTypes,
-      args: {
-        mode: "vertical",
-      },
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .add(
-      "vertical",
-      templateContainer.fromArgs<FormArgs>((args, templates) => {
-        const { formTemplate } = storyTemplates(templates);
+interface FormStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, FormTemplates<TemplateFnReturnType>> {}
 
-        return formTemplate(formArgsMapper(args, formGroupContent));
-      }),
-    );
+export function formMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
+  TRenderer,
+  FormArgs
+> {
+  return {
+    argTypes: formArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-  storiesOf(`${StoryRoot.HtmlCss}/Form`, mainModule)
-    .addParameters({
-      argTypes: formArgTypes,
+export function formStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: FormStoriesParameters<Implementation, Templates, TemplateFnReturnType>): FormStories {
+  return {
+    Horizontal: {
       args: {
         mode: "horizontal",
       },
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .add(
-      "horizontal",
-      templateContainer.fromArgs<FormArgs>((args, templates) => {
-        const { formTemplate } = storyTemplates(templates);
-
-        return formTemplate(formArgsMapper(args, formGroupContent));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form`, mainModule)
-    .addParameters({
-      argTypes: formArgTypes,
-      args: {
-        mode: "vertical",
-      },
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
-      },
-    })
-    .add(
-      "vertical (collections)",
-      templateContainer.fromArgs<FormArgs>((args, templates) => {
-        const { formTemplate } = storyTemplates(templates);
-
-        return formTemplate(formArgsMapper(args, formGroupCollectionContent));
-      }),
-    );
-
-  storiesOf(`${StoryRoot.HtmlCss}/Form`, mainModule)
-    .addParameters({
-      argTypes: formArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
+        formTemplate(formArgsMapper(args, formGroupContent)),
+      ),
+    },
+    HorizontalCollections: {
       args: {
         mode: "horizontal",
       },
-      docs: {
-        page: () => compiler(readme, { forceBlock: true }),
+      render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
+        formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+      ),
+    },
+    Vertical: {
+      args: {
+        mode: "vertical",
       },
-    })
-    .add(
-      "horizontal (collections)",
-      templateContainer.fromArgs<FormArgs>((args, templates) => {
-        const { formTemplate } = storyTemplates(templates);
-
-        return formTemplate(formArgsMapper(args, formGroupCollectionContent));
-      }),
-    );
+      render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
+        formTemplate(formArgsMapper(args, formGroupContent)),
+      ),
+    },
+    VerticalCollections: {
+      args: {
+        mode: "vertical",
+      },
+      render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
+        formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+      ),
+    },
+  };
 }
