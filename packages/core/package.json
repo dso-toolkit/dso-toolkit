@@ -20,13 +20,13 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "4.23.2",
+    "@stencil/core": "4.25.1",
     "@stencil/store": "^2.0.16",
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
     "focus-trap": "^7.6.4",
-    "i18next": "^24.2.1",
+    "i18next": "^24.2.2",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
     "uuid": "^11.0.5"
