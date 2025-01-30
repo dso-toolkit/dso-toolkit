@@ -11,6 +11,10 @@
 
 @include utilities.box-sizing();
 
+:host {
+  display: block;
+}
+
 .tabs {
   border-block-end: 1px solid colors.$grasgroen;
   display: flex;
