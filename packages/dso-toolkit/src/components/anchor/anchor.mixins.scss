@@ -4,10 +4,10 @@
 @use "../../variables/units";
 @use "anchor.variables" as anchor-variables;
 
-@mixin hideDiIcons() {
+@mixin hideIcons() {
   --_dso-di-background-image: none;
-  --_dso-di-padding-inline-start: 0;
-  --_dso-di-padding-inline-end: 0;
+  --_dso-anchor-icon-padding-inline-start: 0;
+  --_dso-anchor-icon-padding-inline-end: 0;
 }
 
 @mixin pseudo() {
@@ -29,8 +29,7 @@
 
   @include pseudo();
 
-  svg + span,
-  dso-icon + span {
+  :is(dso-icon, svg.di) + span {
     margin-inline-start: units.$u1;
   }
 
@@ -85,12 +84,12 @@
   background-size: 1.25em 1.25em;
 
   @if $icon-placement == "before" {
-    padding-inline-start: var(--_dso-di-padding-inline-start, 1.5em);
+    padding-inline-start: var(--_dso-anchor-icon-padding-inline-start, 1.5em);
     background-position: bottom 0 left 0;
   }
 
   @if $icon-placement == "after" {
-    padding-inline-end: var(--_dso-di-padding-inline-end, 1.5em);
+    padding-inline-end: var(--_dso-anchor-icon-padding-inline-end, 1.5em);
     background-position: bottom 0 right 0;
   }
 

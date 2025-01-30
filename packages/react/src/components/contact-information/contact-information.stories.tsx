@@ -3,7 +3,6 @@ import { templateContainer } from "../../templates";
 
 import readme from "@dso-toolkit/react/src/components/contact-information/readme.md?raw";
 import { CardContainerArgs, contactInformationMeta, contactInformationStories } from "dso-toolkit";
-import { content } from "./contact-information.content";
 
 const meta: Meta<CardContainerArgs> = {
   ...contactInformationMeta({ readme }),
@@ -19,7 +18,6 @@ const { Default } = contactInformationStories({
 
     return {
       contactInformationTemplate,
-      content,
     };
   },
 });

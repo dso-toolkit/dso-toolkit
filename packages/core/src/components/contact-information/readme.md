@@ -7,11 +7,11 @@
 
 ## Slots
 
-| Slot           | Description                                                            |
-| -------------- | ---------------------------------------------------------------------- |
-| `"buttons"`    | A slot to place the interactive buttons of the contact information in. |
-| `"heading"`    | A slot to place the title of the contact information in.               |
-| `"info-items"` | A slot to place the info-items of the contact information in.          |
+| Slot             | Description                                       |
+| ---------------- | ------------------------------------------------- |
+| `"anchor-items"` | Interactive anchors-items showed in a list.       |
+| `"heading"`      | The heading of the contact information component. |
+| `"info-items"`   | Text info-items showed in a list.                 |
 
 
 ----------------------------------------------

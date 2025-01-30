@@ -1,9 +1,9 @@
 import { Component, ComponentInterface, h } from "@stencil/core";
 
 /**
- * @slot heading - A slot to place the title of the contact information in.
- * @slot buttons - A slot to place the interactive buttons of the contact information in.
- * @slot info-items - A slot to place the info-items of the contact information in.
+ * @slot heading - The heading of the contact information component.
+ * @slot anchor-items - Interactive anchors-items showed in a list.
+ * @slot info-items - Text info-items showed in a list.
  */
 
 @Component({
@@ -16,8 +16,8 @@ export class ContactInformation implements ComponentInterface {
     return (
       <div class="dso-contact-information">
         <slot name="heading" />
-        <slot name="anchors" />
-        <slot name="info" />
+        <slot name="anchor-items" />
+        <slot name="info-items" />
       </div>
     );
   }

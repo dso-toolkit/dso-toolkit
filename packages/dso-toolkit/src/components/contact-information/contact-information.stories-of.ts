@@ -4,14 +4,16 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { ContactInformation } from "./contact-information.models";
+import { content } from "./contact-information.content";
 
 interface ContactInformationStories {
-  Default: StoryObj<ContactInformation, Renderer>;
+  Default: StoryObj<Record<string, never>, Renderer>;
 }
 
 interface ContactInformationTemplates<TemplateFnReturnType> {
-  contactInformationTemplate: (contactInformationProperties: ContactInformation) => TemplateFnReturnType;
-  content: ContactInformation;
+  contactInformationTemplate: (
+    contactInformationProperties: ContactInformation<TemplateFnReturnType>,
+  ) => TemplateFnReturnType;
 }
 
 interface ContactInformationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -42,8 +44,8 @@ export function contactInformationStories<Implementation, Templates, TemplateFnR
 }: ContactInformationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ContactInformationStories {
   return {
     Default: {
-      render: templateContainer.render(storyTemplates, (_args, { contactInformationTemplate, content }) =>
-        contactInformationTemplate(content),
+      render: templateContainer.render(storyTemplates, (_args, { contactInformationTemplate }) =>
+        contactInformationTemplate(content()),
       ),
     },
   };

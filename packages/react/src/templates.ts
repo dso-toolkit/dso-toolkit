@@ -16,6 +16,7 @@ import {
   DropdownMenu,
   Expandable,
   Header,
+  Heading,
   HelpcenterPanel,
   HighlightBox,
   Icon,
@@ -89,12 +90,13 @@ export interface Components {
   banner: Banner<JSX.Element>;
   card: Card<JSX.Element>;
   cardContainer: CardContainer<JSX.Element>;
-  contactInformation: ContactInformation;
+  contactInformation: ContactInformation<JSX.Element>;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<JSX.Element>;
   header: Header;
+  heading: Heading<JSX.Element>;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<JSX.Element>;
   icon: Icon;

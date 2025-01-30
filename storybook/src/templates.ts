@@ -99,7 +99,7 @@ import {
   ViewerGrid,
   Whitebox,
 } from "dso-toolkit";
-
+// End: named template model imports
 import { TemplateResult } from "lit-html";
 
 // Start: import templates
@@ -114,6 +114,7 @@ import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
+import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
 import { coreDocumentCard } from "./components/document-card/document-card.core-template";
@@ -215,7 +216,6 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
-import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 
 // End: import templates
 
@@ -240,7 +240,7 @@ export interface Components {
   cardGrid: CardGrid<TemplateResult>;
   cardList: CardList<TemplateResult>;
   context: Context<TemplateResult>;
-  contactInformation: ContactInformation;
+  contactInformation: ContactInformation<TemplateResult | string>;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
