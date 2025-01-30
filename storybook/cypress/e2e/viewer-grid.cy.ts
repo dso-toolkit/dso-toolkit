@@ -329,22 +329,6 @@ describe("Viewer Grid", () => {
     cy.get("@listener").should("be.calledOnce");
   });
 
-  it("should emit dsoCloseFilterpanel event for VDK filterpanel on escape", () => {
-    cy.visit(urlVDK)
-      .get("dso-viewer-grid.hydrated")
-      .then((e) => e.on("dsoCloseFilterpanel", cy.stub().as("listener")))
-      .invoke("attr", "filterpanel-title", "Filters")
-      .invoke("attr", "filterpanel-open", "")
-      .get("dso-viewer-grid.hydrated")
-      .shadow()
-      .find("#filterpanel:focus-within")
-      .should("exist")
-      .and("have.attr", "open")
-      .realPress("Escape")
-      .get("@listener")
-      .should("have.been.calledOnce");
-  });
-
   it("should emit correct currentSize and nextSize", () => {
     cy.visit(url)
       .get("dso-viewer-grid.hydrated")

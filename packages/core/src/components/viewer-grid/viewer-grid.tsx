@@ -221,7 +221,14 @@ export class ViewerGrid {
     }
 
     if (open) {
-      this.filterpanel?.showModal();
+      if (this.mode === "vdk") {
+        // 'vdk' mode displays the filterpanel modelessly, i.e. still allowing interaction with content outside it.
+        this.filterpanel?.show();
+      } else {
+        // 'vrk' mode displays the filterpanel as a modal; interaction outside the dialog is blocked and the content
+        // outside it is rendered inert
+        this.filterpanel?.showModal();
+      }
     } else {
       this.filterpanel?.close();
     }
