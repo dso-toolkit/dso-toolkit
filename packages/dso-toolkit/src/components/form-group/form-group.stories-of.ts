@@ -1,75 +1,75 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 
-import { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
-import { FormGroupConfirm } from "./models/form-group-confirm.model.js";
-import { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
-import { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
-import { FormGroupFiles } from "./models/form-group-files.model.js";
-import { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
-import { FormGroupRadios } from "./models/form-group-radios.model.js";
-import { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
-import { FormGroupSelect } from "./models/form-group-select.model.js";
-import { FormGroupStatic } from "./models/form-group-static.model.js";
-import { FormGroupTextarea } from "./models/form-group-textarea.model.js";
+import { FormGroupCheckboxes } from "./checkboxes/form-group-checkboxes.models";
+import { FormGroupConfirm } from "./confirm/form-group-confirm.models";
+import { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
+import { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
+import { FormGroupFiles } from "./files/form-group-files.models";
+import { FormGroupInput, FormGroupInputDate } from "./input/form-group-input.models";
+import { FormGroupRadios } from "./radios/form-group-radios.models";
+import { FormGroupSearchBar } from "./search-bar/form-group-search-bar.models";
+import { FormGroupSelect } from "./select/form-group-select.models";
+import { FormGroupStatic } from "./static/form-group-static.models";
+import { FormGroupTextarea } from "./textarea/form-group-textarea.models";
 import {
   FormGroupCheckboxesArgs,
   formGroupCheckboxesArgsMapper,
   formGroupCheckboxesArgTypes,
-} from "./args/form-group-checkboxes.args.js";
-import { checkboxesContent } from "./content/checkboxes.content";
+} from "./checkboxes/form-group-checkboxes.args";
+import { checkboxesContent } from "./checkboxes/form-group-checkboxes.content";
 import {
   FormGroupConfirmArgs,
   formGroupConfirmArgsMapper,
   formGroupConfirmArgTypes,
-} from "./args/form-group-confirm.args.js";
-import { confirmContent } from "./content/confirm.content";
+} from "./confirm/form-group-confirm.args";
+import { formGroupConfirmContent } from "./confirm/form-group-confirm.content";
 import {
   FormGroupDatePickerArgs,
   formGroupDatePickerArgsMapper,
   formGroupDatePickerArgTypes,
-} from "./args/form-group-date-picker.args.js";
-import { datePickerContent } from "./content/date-picker.content";
+} from "./date-picker/form-group-date-picker.args";
+import { datePickerContent } from "./date-picker/form-group-date-picker.content";
 
 import {
   FormGroupDatePickerLegacyArgs,
   formGroupDatePickerLegacyArgsMapper,
   formGroupDatePickerLegacyArgTypes,
-} from "./args/form-group-date-picker-legacy.args.js";
-import { datePickerLegacyContent } from "./content/date-picker-legacy.content";
-import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from "./args/form-group-files.args.js";
-import { files, filesContent } from "./content/files.content";
-import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from "./args/form-group-input.args.js";
-import { inputContent } from "./content/input.content";
+} from "./date-picker-legacy/form-group-date-picker-legacy.args";
+import { datePickerLegacyContent } from "./date-picker-legacy/form-group-date-picker-legacy.content";
+import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from "./files/form-group-files.args";
+import { files, filesContent } from "./files/form-group-files.content";
+import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from "./input/form-group-input.args";
+import { inputContent } from "./input/form-group-input.content";
 import {
   FormGroupRadiosArgs,
   formGroupRadiosArgsMapper,
   formGroupRadiosArgTypes,
-} from "./args/form-group-radios.args.js";
-import { radiosContent } from "./content/radios.content";
+} from "./radios/form-group-radios.args";
+import { radiosContent } from "./radios/form-group-radios.content";
 import {
   FormGroupSearchBarArgs,
   formGroupSearchBarArgsMapper,
   formGroupSearchBarArgTypes,
-} from "./args/form-group-search-bar.args.js";
-import { searchBarContent } from "./content/search-bar.content";
+} from "./search-bar/form-group-search-bar.args";
+import { searchBarContent } from "./search-bar/form-group-search-bar.content";
 import {
   FormGroupSelectArgs,
   formGroupSelectArgsMapper,
   formGroupSelectArgTypes,
-} from "./args/form-group-select.args.js";
-import { selectContent } from "./content/select.content";
+} from "./select/form-group-select.args";
+import { selectContent } from "./select/form-group-select.content";
 import {
   FormGroupStaticArgs,
   formGroupStaticArgsMapper,
   formGroupStaticArgTypes,
-} from "./args/form-group-static.args.js";
-import { staticContent } from "./content/static.content";
+} from "./static/form-group-static.args";
+import { staticContent } from "./static/form-group-static.content";
 import {
   FormGroupTextareaArgs,
   formGroupTextareaArgsMapper,
   formGroupTextareaArgTypes,
-} from "./args/form-group-textarea.args.js";
-import { textareaContent } from "./content/textarea.content";
+} from "./textarea/form-group-textarea.args";
+import { textareaContent } from "./textarea/form-group-textarea.content";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
@@ -157,7 +157,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Confirm: {
-      args: confirmContent,
+      args: formGroupConfirmContent,
       argTypes: formGroupConfirmArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupConfirmTemplate }) =>
@@ -187,6 +187,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
         formGroupFilesTemplate(formGroupFilesArgsMapper(args, files)),
       ),
+      storyName: "Files (files uploaded)",
     },
     NoFiles: {
       args: filesContent,
@@ -195,6 +196,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
         formGroupFilesTemplate(formGroupFilesArgsMapper(args, [])),
       ),
+      storyName: "Files (no files uploaded)",
     },
     Input: {
       args: inputContent,

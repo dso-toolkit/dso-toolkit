@@ -1,0 +1,35 @@
+@use "../../../variables/units";
+@use "../../../variables/typography";
+
+@use "../form-group.mixins" as css-form-group-mixins;
+@use "../form-group.variables" as css-form-group-variables;
+
+.form-group.dso-textarea {
+  &.dso-required {
+    .control-label::after {
+      @include css-form-group-mixins.form-group-required();
+    }
+  }
+
+  textarea {
+    resize: vertical;
+
+    &.form-control {
+      block-size: auto;
+
+      &:not([rows]) {
+        $lines-block-size: typography.$line-height-base * css-form-group-variables.$textarea-default-rows * 1em;
+        $lines-block-padding: (units.$padding-base-block + 1) * 2;
+
+        block-size: calc(#{$lines-block-size} + #{$lines-block-padding});
+      }
+    }
+  }
+
+  .form-control {
+    .form-horizontal & {
+      padding-block-end: units.$padding-base-block - 1;
+      padding-block-start: units.$padding-base-block - 1;
+    }
+  }
+}

@@ -1,27 +1,27 @@
-import { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
-import { FormGroupConfirm } from "./models/form-group-confirm.model.js";
-import { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
-import { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
-import { FormGroupFiles } from "./models/form-group-files.model.js";
-import { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
-import { FormGroupRadios } from "./models/form-group-radios.model.js";
-import { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
-import { FormGroupSelect } from "./models/form-group-select.model.js";
-import { FormGroupStatic } from "./models/form-group-static.model.js";
-import { FormGroupTextarea } from "./models/form-group-textarea.model.js";
+import { FormGroupCheckboxes } from "./checkboxes/form-group-checkboxes.models";
+import { FormGroupConfirm } from "./confirm/form-group-confirm.models";
+import { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
+import { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
+import { FormGroupFiles } from "./files/form-group-files.models";
+import { FormGroupInput, FormGroupInputDate } from "./input/form-group-input.models";
+import { FormGroupRadios } from "./radios/form-group-radios.models";
+import { FormGroupSearchBar } from "./search-bar/form-group-search-bar.models";
+import { FormGroupSelect } from "./select/form-group-select.models";
+import { FormGroupStatic } from "./static/form-group-static.models";
+import { FormGroupTextarea } from "./textarea/form-group-textarea.models";
 
-export { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
-export { FormGroupConfirm } from "./models/form-group-confirm.model.js";
-export { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
-export { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
-export { FormGroupFiles, FormGroupFilesFile } from "./models/form-group-files.model.js";
-export { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
-export { FormGroupRadios } from "./models/form-group-radios.model.js";
-export { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
-export { FormGroupSelect, SelectOption, SelectOptionGroup } from "./models/form-group-select.model.js";
-export { FormGroupStatic } from "./models/form-group-static.model.js";
-export { FormGroupTextarea } from "./models/form-group-textarea.model.js";
-export { FormGroupBase } from "./models/form-group.base-model.js";
+export { FormGroupCheckboxes } from "./checkboxes/form-group-checkboxes.models";
+export { FormGroupConfirm } from "./confirm/form-group-confirm.models";
+export { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
+export { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
+export { FormGroupFiles, FormGroupFilesFile } from "./files/form-group-files.models";
+export { FormGroupInput, FormGroupInputDate } from "./input/form-group-input.models";
+export { FormGroupRadios } from "./radios/form-group-radios.models";
+export { FormGroupSearchBar } from "./search-bar/form-group-search-bar.models";
+export { FormGroupSelect, SelectOption, SelectOptionGroup } from "./select/form-group-select.models";
+export { FormGroupStatic } from "./static/form-group-static.models";
+export { FormGroupTextarea } from "./textarea/form-group-textarea.models";
+export { FormGroupBase } from "./form-group.base-model";
 
 export type FormGroup<TemplateFnReturnType> =
   | FormGroupCheckboxes<TemplateFnReturnType>

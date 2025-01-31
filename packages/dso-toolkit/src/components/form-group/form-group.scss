@@ -14,15 +14,15 @@
 
 @use "form-group.variables" as css-form-group-variables;
 
-@use "form-group-checkboxes";
-@use "form-group-confirm";
-@use "form-group-files";
-@use "form-group-input";
-@use "form-group-radios";
-@use "form-group-search-bar";
-@use "form-group-select";
-@use "form-group-static";
-@use "form-group-textarea";
+@use "checkboxes/form-group-checkboxes";
+@use "confirm/form-group-confirm";
+@use "files/form-group-files";
+@use "input/form-group-input";
+@use "radios/form-group-radios";
+@use "search-bar/form-group-search-bar";
+@use "select/form-group-select";
+@use "static/form-group-static";
+@use "textarea/form-group-textarea";
 
 .form-group {
   margin-block-end: css-form-group-variables.$form-group-margin-bottom;
