@@ -8,21 +8,21 @@ export const coreContactInformation: ComponentImplementation<ContactInformation<
   implementation: "core",
   template: ({ anchorTemplate, headingTemplate }) =>
     function contactInformationTemplate({ heading, anchorItems, infoItems }) {
-      return html` <dso-contact-information>
+      return html`<dso-contact-information>
         ${heading
           ? headingTemplate({
               ...heading,
               slotName: "heading",
             })
           : nothing}
-        ${anchorItems
+        ${anchorItems && anchorItems.length > 0
           ? html`
               <ul slot="anchor-items">
                 ${anchorItems.map((anchor) => html`<li>${anchorTemplate(anchor)}</li>`)}
               </ul>
             `
           : nothing}
-        ${infoItems
+        ${infoItems && infoItems.length > 0
           ? html`
               <ul slot="info-items">
                 ${infoItems.map((infoItem) => html`<li>${infoItem}</li>`)}

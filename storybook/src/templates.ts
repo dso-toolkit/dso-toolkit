@@ -1,4 +1,5 @@
 import {
+  // Start: named template model imports
   Accordion,
   ActionList,
   AdvancedSelect,
@@ -98,8 +99,9 @@ import {
   TreeView,
   ViewerGrid,
   Whitebox,
+  // End: named template model imports
 } from "dso-toolkit";
-// End: named template model imports
+
 import { TemplateResult } from "lit-html";
 
 // Start: import templates

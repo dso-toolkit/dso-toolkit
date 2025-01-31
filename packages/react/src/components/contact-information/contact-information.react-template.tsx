@@ -10,7 +10,7 @@ export const reactContactInformation: ComponentImplementation<ContactInformation
     function contactInformationTemplate({ heading, anchorItems, infoItems }) {
       return (
         <DsoContactInformation>
-          <h5 slot="heading">{heading?.children}</h5>
+          {heading && <h5 slot="heading">{heading?.children}</h5>}
           {anchorItems && anchorItems.length > 0 && (
             <ul slot="anchor-items">
               {anchorItems?.map((anchor, i) => (

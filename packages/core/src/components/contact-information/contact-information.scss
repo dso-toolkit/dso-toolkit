@@ -8,6 +8,8 @@
 
 :host {
   @include anchor.hideIcons();
+
+  display: block;
 }
 
 @include utilities.box-sizing();
