@@ -1,11 +1,5 @@
+@use "sass:map";
 @use "../variables/units";
-
-// Create space between action list and form buttons
-// -------------------------------------------------
-// To Do: integrate this with things to come within this file.
-:where(dso-action-list) + :where(.dso-form-buttons) {
-  margin-block-start: units.$block-spacing-xlarge;
-}
 
 // Original spacing of dso-button-row
 // ----------------------------------
@@ -65,6 +59,43 @@
   }
 }
 
-li:has(dso-project-item) + li:has(dso-project-item) {
-  margin-block-start: units.$block-spacing-small;
+$spacers: (
+  (
+    space: units.$block-spacing-small,
+    predecessors: (
+      ".dso-context-wrapper",
+    ),
+    successors: (
+      ".dso-table-responsive",
+    ),
+  ),
+  (
+    space: units.$block-spacing-medium,
+    predecessors: (
+      ".dso-app-heading",
+    ),
+    successors: (
+      ".dso-context-wrapper",
+      "dso-tabs",
+    ),
+  ),
+  (
+    space: units.$block-spacing-xlarge,
+    predecessors: (
+      "dso-action-list",
+    ),
+    successors: (
+      ".dso-form-buttons",
+    ),
+  )
+);
+
+@each $spacer in $spacers {
+  $space: map.get($spacer, space);
+  $predecessors: map.get($spacer, predecessors);
+  $successors: map.get($spacer, successors);
+
+  :where(#{$predecessors}) + :where(#{$successors}, :has(#{$successors})) {
+    margin-block-start: $space;
+  }
 }
