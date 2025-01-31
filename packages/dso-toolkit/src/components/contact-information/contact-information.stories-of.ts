@@ -4,7 +4,7 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { ContactInformation } from "./contact-information.models";
-import { content } from "./contact-information.content";
+import { contactInformationContent } from "./contact-information.content";
 
 interface ContactInformationStories {
   Default: StoryObj<Record<string, never>, Renderer>;
@@ -45,7 +45,7 @@ export function contactInformationStories<Implementation, Templates, TemplateFnR
   return {
     Default: {
       render: templateContainer.render(storyTemplates, (_args, { contactInformationTemplate }) =>
-        contactInformationTemplate(content()),
+        contactInformationTemplate(contactInformationContent()),
       ),
     },
   };

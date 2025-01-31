@@ -1,6 +1,6 @@
 import { ContactInformation } from "./contact-information.models";
 
-export function content<T>(): ContactInformation<T> {
+export function contactInformationContent<T>(): ContactInformation<T> {
   return {
     heading: {
       level: 5,

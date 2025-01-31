@@ -1,9 +1,8 @@
-import { ActionList } from "dso-toolkit";
+import { ActionList, contactInformationContent } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation, Templates } from "../../templates";
-import { content as contactInformationContent } from "dso-toolkit/dist/components/contact-information/contact-information.content";
 
 export const coreActionList: ComponentImplementation<ActionList<TemplateResult>> = {
   component: "actionList",

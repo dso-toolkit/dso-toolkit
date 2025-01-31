@@ -1,8 +1,7 @@
-import { ActionListItem } from "dso-toolkit";
+import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
 import { Templates } from "../../templates";
-import { content as contactInformationContent } from "dso-toolkit/dist/components/contact-information/contact-information.content";
 
 function item1({ buttonTemplate }: Templates): ActionListItem<TemplateResult> {
   return {
