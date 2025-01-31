@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ActionListItem } from "dso-toolkit";
+import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import { Templates } from "../../templates";
 
 function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
@@ -15,7 +15,7 @@ function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {
   };
 }
 
-function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<JSX.Element> {
+function item2({ accordionTemplate, contactInformationTemplate }: Templates): ActionListItem<JSX.Element> {
   return {
     title: "Neem contact op met het waterschap en de gemeente",
     flowLine: true,
@@ -42,15 +42,7 @@ function item2({ accordionTemplate, iconTemplate }: Templates): ActionListItem<J
                     Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
                     vervangen".
                   </p>
-                  <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
-                  <span>{iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
-                  <span>
-                    {iconTemplate({ icon: "air" })}
-                    <a href="#">www.agv.nl {iconTemplate({ icon: "external-link" })}</a>
-                  </span>
-                  <span>
-                    {iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam
-                  </span>
+                  {contactInformationTemplate(contactInformationContent())}
                 </div>
               ),
             },

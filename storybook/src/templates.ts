@@ -21,6 +21,7 @@ import {
   CardGrid,
   CardList,
   ComponentsToTemplates,
+  ContactInformation,
   Context,
   DatePicker,
   DatePickerLegacy,
@@ -115,6 +116,7 @@ import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
+import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
 import { coreDocumentCard } from "./components/document-card/document-card.core-template";
@@ -239,6 +241,7 @@ export interface Components {
   cardGrid: CardGrid<TemplateResult>;
   cardList: CardList<TemplateResult>;
   context: Context<TemplateResult>;
+  contactInformation: ContactInformation<TemplateResult | string>;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
@@ -356,6 +359,7 @@ templateContainer.add(coreBadge);
 templateContainer.add(coreBanner);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
+templateContainer.add(coreContactInformation);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDatePickerLegacy);
 templateContainer.add(coreDocumentCard);

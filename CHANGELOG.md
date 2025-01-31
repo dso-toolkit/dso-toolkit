@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Contactinformatie: Nieuw component ([#2142](https://github.com/dso-toolkit/dso-toolkit/issues/2142))
+
 ### Task
 * Build: Secrets voor storage account name vervangen met repository variable ([#2892](https://github.com/dso-toolkit/dso-toolkit/issues/2892))
 
