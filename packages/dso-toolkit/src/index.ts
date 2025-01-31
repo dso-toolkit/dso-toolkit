@@ -55,6 +55,8 @@ export * from "./components/card-grid";
 
 export * from "./components/card-list";
 
+export * from "./components/contact-information";
+
 export * from "./components/context";
 
 export * from "./components/date-picker";

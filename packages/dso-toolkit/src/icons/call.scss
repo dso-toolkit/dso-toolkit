@@ -1,0 +1,9 @@
+@use "../variables/colors";
+
+call:grasgroen {
+  color: colors.$grasgroen;
+}
+
+call:scampi {
+  color: colors.$scampi;
+}

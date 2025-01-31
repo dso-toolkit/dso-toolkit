@@ -1,4 +1,4 @@
-import { ActionList } from "dso-toolkit";
+import { ActionList, contactInformationContent } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -7,7 +7,7 @@ import { ComponentImplementation, Templates } from "../../templates";
 export const coreActionList: ComponentImplementation<ActionList<TemplateResult>> = {
   component: "actionList",
   implementation: "core",
-  template: ({ accordionTemplate, richContentTemplate }: Templates) =>
+  template: ({ accordionTemplate, contactInformationTemplate, richContentTemplate }: Templates) =>
     function actionListTemplate({ title, actionListItems }) {
       return html`
         <dso-action-list list-title=${title}>
@@ -31,6 +31,8 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
                   {
                     handleTitle: "Contactinformatie gemeente Utrecht",
                     heading: "h3",
+                    open: true,
+                    content: html` ${contactInformationTemplate(contactInformationContent(4))} `,
                   },
                   {
                     handleTitle: "Contactinformatie waterschap Amstel, Gooi en Vecht",

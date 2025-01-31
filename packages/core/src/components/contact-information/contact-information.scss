@@ -1,0 +1,38 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+:host {
+  @include anchor.hideIcons();
+
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+::slotted([slot="anchor-items"]),
+::slotted([slot="info-items"]) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: units.$block-spacing-medium units.$block-spacing-large !important;
+  padding-inline-start: 0 !important;
+  list-style: none !important;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+    flex-direction: column !important;
+    gap: units.$block-spacing-medium !important;
+  }
+}
+
+::slotted([slot="info-items"]) {
+  margin-block-end: 0 !important;
+}
+
+::slotted([slot="heading"]) {
+  margin-block: 0 units.$block-spacing-medium !important;
+  font-size: typography.$font-size-base !important;
+}

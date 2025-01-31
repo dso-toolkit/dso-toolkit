@@ -10,11 +10,13 @@ import {
   Card,
   CardContainer,
   ComponentsToTemplates,
+  ContactInformation,
   DatePicker,
   DatePickerLegacy,
   DropdownMenu,
   Expandable,
   Header,
+  Heading,
   HelpcenterPanel,
   HighlightBox,
   Icon,
@@ -49,6 +51,7 @@ import { reactBadge } from "./components/badge/badge.react-template";
 import { reactBanner } from "./components/banner/banner.react-template";
 import { reactCard } from "./components/card/card.react-template";
 import { reactCardContainer } from "./components/card-container/card-container.react-template";
+import { reactContactInformation } from "./components/contact-information/contact-information.react-template";
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
 import { reactDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
@@ -87,11 +90,13 @@ export interface Components {
   banner: Banner<JSX.Element>;
   card: Card<JSX.Element>;
   cardContainer: CardContainer<JSX.Element>;
+  contactInformation: ContactInformation<JSX.Element>;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<JSX.Element>;
   header: Header;
+  heading: Heading<JSX.Element>;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<JSX.Element>;
   icon: Icon;
@@ -131,6 +136,7 @@ templateContainer.add(reactBadge);
 templateContainer.add(reactBanner);
 templateContainer.add(reactCard);
 templateContainer.add(reactCardContainer);
+templateContainer.add(reactContactInformation);
 templateContainer.add(reactDatePicker);
 templateContainer.add(reactDatePickerLegacy);
 templateContainer.add(reactDropdownMenu);

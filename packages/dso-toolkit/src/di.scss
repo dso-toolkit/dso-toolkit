@@ -14,6 +14,6 @@
 
 @mixin variant($icon) {
   & {
-    background-image: url("#{config.$icons-path}di.svg##{$icon}");
+    background-image: var(--_dso-di-background-image, url("#{config.$icons-path}di.svg##{$icon}"));
   }
 }
