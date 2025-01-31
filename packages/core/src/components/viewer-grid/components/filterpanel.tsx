@@ -44,7 +44,7 @@ export const Filterpanel: FunctionalComponent<ViewerGridFilterpanelProps> = ({
       </>
     ) : (
       <>
-        <h3>{title}</h3>
+        {title && <h3>{title}</h3>}
         <button type="button" class="dso-close" onClick={dsoCloseFilterpanel}>
           <dso-icon icon="times"></dso-icon>
           <span class="sr-only">Sluiten</span>
