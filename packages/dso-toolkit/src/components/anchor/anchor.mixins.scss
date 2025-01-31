@@ -33,6 +33,10 @@
     margin-inline-start: units.$u1;
   }
 
+  span:has(+ dso-icon, + svg.di)  {
+    margin-inline-end: units.$u1;
+  }
+
   @if ($is-html-a-element) {
     &:visited {
       color: var(--link-visited-color);

@@ -218,7 +218,6 @@ import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
-
 // End: import templates
 
 export interface Components {
