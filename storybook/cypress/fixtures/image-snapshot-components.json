@@ -199,7 +199,7 @@
   {
     "name": "form-buttons",
     "selector": "",
-    "stories": ["default", "multi-page", "sections", "single-page", "simpel-form"],
+    "stories": ["default", "multi-page", "sections", "single-page", "simple-form"],
     "type": "html-css"
   },
   {

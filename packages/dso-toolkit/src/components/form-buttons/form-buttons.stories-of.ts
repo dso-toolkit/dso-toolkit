@@ -14,7 +14,7 @@ interface FormButtonsStories {
   MultiPage: FormButtonsStory;
   Sections: FormButtonsStory;
   SinglePage: FormButtonsStory;
-  SimpelForm: FormButtonsStory;
+  SimpleForm: FormButtonsStory;
 }
 
 export interface FormButtonsTemplates<TemplateFnReturnType> {
@@ -127,7 +127,7 @@ export function formButtonsStories<Implementation, Templates, TemplateFnReturnTy
       },
       render,
     },
-    SimpelForm: {
+    SimpleForm: {
       args: {
         buttons: [
           {
