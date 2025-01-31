@@ -18,7 +18,7 @@ const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value }) => {
         {value.map((v, i, { length }) => (
           <>
             <RenvooiRender value={v} />
-            {i < length - 1 && " "}
+            {i < length - 1 ? ", " : ""}
           </>
         ))}
       </>

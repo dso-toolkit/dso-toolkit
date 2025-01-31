@@ -29,12 +29,9 @@
 
   @include pseudo();
 
-  :is(dso-icon, svg.di) + span {
+  :is(dso-icon, svg.di) + span,
+  span + :is(dso-icon, svg.di) {
     margin-inline-start: units.$u1;
-  }
-
-  span:has(+ dso-icon, + svg.di)  {
-    margin-inline-end: units.$u1;
   }
 
   @if ($is-html-a-element) {
