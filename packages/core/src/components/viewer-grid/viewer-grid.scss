@@ -66,8 +66,7 @@ button {
   transition:
     flex-basis core-viewer-grid-variables.$transition-time ease-in,
     max-inline-size core-viewer-grid-variables.$transition-time ease-in,
-    min-inline-size core-viewer-grid-variables.$transition-time ease-in,
-    margin-inline-start core-viewer-grid-variables.$transition-time ease-in;
+    min-inline-size core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-main-panel;
 
   &.compact,
@@ -107,6 +106,14 @@ button {
       border-end-end-radius: 4px;
       border-start-end-radius: 4px;
     }
+  }
+}
+
+:host[mode="vdk"] {
+  .dso-main-panel {
+    transition:
+      min-inline-size core-viewer-grid-variables.$transition-time ease-in,
+      margin-inline-start core-viewer-grid-variables.$transition-time ease-in;
   }
 }
 
@@ -396,7 +403,7 @@ button {
   }
 
   @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
-    :host([filterpanel-open]) {
+    :host([filterpanel-open][mode="vdk"]) {
       .dso-main-panel {
         margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
         max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filterpanel-vdk-max-inline-size});
@@ -450,7 +457,7 @@ button {
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  :host([filterpanel-open]) {
+  :host([filterpanel-open][mode="vdk"]) {
     .dso-main-panel {
       margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
     }
