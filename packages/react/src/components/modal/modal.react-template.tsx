@@ -15,7 +15,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
           fullscreen={fullscreen}
           dialogRole={role}
           modalTitle={modalTitle}
-          showCloseButton={showCloseButton ?? true}
+          showCloseButton={showCloseButton}
           onDsoClose={(e: DsoModalCustomEvent<ModalCloseEvent>) => dsoClose?.(e)}
         >
           <div slot="body">{body}</div>
