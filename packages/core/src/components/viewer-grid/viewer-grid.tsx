@@ -70,6 +70,7 @@ export class ViewerGrid {
    */
   @Prop({ reflect: true })
   filterpanelTitle?: string;
+
   /**
    * Set to true when filterpanel should show.
    */
@@ -221,14 +222,7 @@ export class ViewerGrid {
     }
 
     if (open) {
-      if (this.mode === "vdk") {
-        // 'vdk' mode displays the filterpanel modelessly, i.e. still allowing interaction with content outside it.
-        this.filterpanel?.show();
-      } else {
-        // 'vrk' mode displays the filterpanel as a modal; interaction outside the dialog is blocked and the content
-        // outside it is rendered inert
-        this.filterpanel?.showModal();
-      }
+      this.showFilterpanel(this.mode);
     } else {
       this.filterpanel?.close();
     }
@@ -323,13 +317,24 @@ export class ViewerGrid {
     this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
   };
 
+  private showFilterpanel = (mode: ViewerGridMode) => {
+    if (mode === "vdk") {
+      // 'vdk' mode displays the filterpanel modelessly, i.e. still allowing interaction with content outside it.
+      this.filterpanel?.show();
+    } else {
+      // 'vrk' mode displays the filterpanel as a modal; interaction outside the dialog is blocked and the content
+      // outside it is rendered inert
+      this.filterpanel?.showModal();
+    }
+  };
+
   connectedCallback() {
     window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
   }
 
   componentDidLoad() {
     if (this.filterpanelOpen && this.filterpanelSlot) {
-      this.filterpanel?.showModal();
+      this.showFilterpanel(this.mode);
     }
 
     if (this.overlayOpen && this.overlaySlot) {
