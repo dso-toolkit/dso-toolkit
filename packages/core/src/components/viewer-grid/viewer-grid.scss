@@ -224,6 +224,8 @@ button {
 
   &[open] {
     inset-inline-start: 0;
+    box-shadow: none;
+    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-vdk-border-color;
   }
 
   h3 {
@@ -383,6 +385,11 @@ button {
     }
   }
 
+  .filterpanel-vdk[open] {
+    box-shadow: none;
+    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-vdk-border-color;
+  }
+
   .overlay {
     box-shadow: -2px 0 5px colors.$grijs-60;
     margin-inline: auto 0;
@@ -391,14 +398,14 @@ button {
   @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
     :host([filterpanel-open]) {
       .dso-main-panel {
-        margin-inline-start: 50vw;
-        max-inline-size: 50vw;
+        margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filterpanel-vdk-max-inline-size});
       }
     }
 
     .filterpanel-vdk {
-      inline-size: 50vw;
-      inset-inline-start: -50vw;
+      inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+      inset-inline-start: -(core-viewer-grid-variables.$filterpanel-vdk-max-inline-size);
     }
   }
 }
