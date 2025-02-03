@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ☎️ Release 68.1.0 - 2025-02-03
+
 ### Added
 * Contactinformatie: Nieuw component ([#2142](https://github.com/dso-toolkit/dso-toolkit/issues/2142))
 
