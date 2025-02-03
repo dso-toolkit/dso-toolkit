@@ -1,7 +1,5 @@
-import { h, Component, ComponentInterface, Prop, Host, Method, Watch, Element } from "@stencil/core";
-
+import { h, Component, ComponentInterface, Prop, Host, Method, Element } from "@stencil/core";
 import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";
-
 import { createStore } from "@stencil/store";
 
 @Component({
@@ -15,28 +13,36 @@ export class Accordion implements ComponentInterface {
   @Element()
   host!: HTMLDsoAccordionElement;
 
+  constructor() {
+    const { state } = createStore<AccordionInternalState>({});
+
+    this.accordionState = state;
+  }
+
   /**
    * The variant of the Accordion.
    */
+  // eslint-disable-next-line @stencil-community/decorators-context
   @Prop({ reflect: true })
-  variant: AccordionVariant = "default";
+  get variant() {
+    return this.accordionState.variant;
+  }
+  set variant(value: undefined | AccordionVariant) {
+    this.accordionState.variant = value || "default";
+  }
 
   /**
    * Places the chevron at the opposite side.
    *
    * Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
    */
+  // eslint-disable-next-line @stencil-community/decorators-context
   @Prop({ reflect: true })
-  reverseAlign = false;
-
-  @Watch("variant")
-  updateVariant(variant: AccordionVariant = "default") {
-    this.accordionState.variant = variant;
+  get reverseAlign() {
+    return this.accordionState.reverseAlign || false;
   }
-
-  @Watch("reverseAlign")
-  updateReverseAlign(reverseAlign: boolean) {
-    this.accordionState.reverseAlign = reverseAlign;
+  set reverseAlign(value: boolean) {
+    this.accordionState.reverseAlign = value;
   }
 
   /**
@@ -45,17 +51,6 @@ export class Accordion implements ComponentInterface {
   @Method()
   async _getState(): Promise<AccordionInternalState> {
     return this.accordionState;
-  }
-
-  componentWillLoad() {
-    this.accordionState.variant = this.variant;
-    this.accordionState.reverseAlign = this.reverseAlign;
-  }
-
-  constructor() {
-    const { state } = createStore<AccordionInternalState>({});
-
-    this.accordionState = state;
   }
 
   render() {
