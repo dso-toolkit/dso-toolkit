@@ -23,9 +23,11 @@ describe("Viewer Grid", () => {
     cy.get("@viewer-grid")
       .invoke("attr", "mode", "vdk")
       .invoke("attr", "main-size", "medium")
-      .invoke("attr", "main-panel-expanded", "")
+      .invoke("attr", "main-panel-expanded", true)
       .invoke("attr", "document-panel-open", false)
-      .invoke("attr", "filterpanel-open", "")
+      .invoke("attr", "filterpanel-title", "De titel van het filter paneel")
+      .invoke("attr", "filterpanel-open", true)
+      .wait(250)
       .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK - filterpanel-open - large viewport`);
 
     cy.viewport(900, 600)
