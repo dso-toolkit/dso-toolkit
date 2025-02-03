@@ -8,6 +8,7 @@ import angleUp from "dso-toolkit/src/icons/angle-up.svg";
 import asterisk from "dso-toolkit/src/icons/asterisk.svg";
 import balloon from "dso-toolkit/src/icons/balloon.svg";
 import bars from "dso-toolkit/src/icons/bars.svg";
+import bell from "dso-toolkit/src/icons/bell.svg";
 import buildings from "dso-toolkit/src/icons/buildings.svg";
 import calendar from "dso-toolkit/src/icons/calendar.svg";
 import call from "dso-toolkit/src/icons/call.svg";
@@ -93,6 +94,7 @@ import statusWarningInline from "dso-toolkit/src/icons/status-warning-inline.svg
 import statusWarningInlineNegative from "dso-toolkit/src/icons/status-warning-inline-negative.svg";
 import table from "dso-toolkit/src/icons/table.svg";
 import times from "dso-toolkit/src/icons/times.svg";
+import toDoList from "dso-toolkit/src/icons/to-do-list.svg";
 import trash from "dso-toolkit/src/icons/trash.svg";
 import undo from "dso-toolkit/src/icons/undo.svg";
 import userLine from "dso-toolkit/src/icons/user-line.svg";
@@ -110,6 +112,7 @@ const icons = [
   { alias: "asterisk", svg: asterisk },
   { alias: "balloon", svg: balloon },
   { alias: "bars", svg: bars },
+  { alias: "bell", svg: bell },
   { alias: "buildings", svg: buildings },
   { alias: "calendar", svg: calendar },
   { alias: "call", svg: call },
@@ -195,6 +198,7 @@ const icons = [
   { alias: "status-warning-inline-negative", svg: statusWarningInlineNegative },
   { alias: "table", svg: table },
   { alias: "times", svg: times },
+  { alias: "to-do-list", svg: toDoList },
   { alias: "trash", svg: trash },
   { alias: "undo", svg: undo },
   { alias: "user-line", svg: userLine },

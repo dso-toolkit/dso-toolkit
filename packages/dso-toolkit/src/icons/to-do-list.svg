@@ -1,0 +1,16 @@
+<svg id="to-do-list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 6.35 6.35">
+    <g stroke="currentColor"><rect width="3.015" height="3.862" x="1.667" y="1.244" fill="none" stroke-width=".372" ry=".126"/>
+        <g stroke-linecap="round">
+            <g fill="none">
+                <path stroke-width=".265" d="m2.2 2.09.265.264.533-.537"/>
+                <path stroke-width=".384" d="M4.098 2.113h-.675"/>
+            </g>
+            <path fill="none" stroke-width=".265" d="m2.196 3.152.265.264.533-.537"/>
+            <path fill="#none" stroke-width=".384" d="M4.094 3.175H3.42"/>
+            <g fill="none">
+                <path stroke-width=".265" d="m2.198 4.214.265.264.533-.537"/>
+                <path stroke-width=".384" d="M4.096 4.237h-.675"/>
+            </g>
+        </g>
+    </g>
+</svg>
