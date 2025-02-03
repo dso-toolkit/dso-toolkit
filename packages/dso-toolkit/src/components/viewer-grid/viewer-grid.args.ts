@@ -12,6 +12,7 @@ export interface ViewerGridArgs {
   mode: ViewerGridMode;
   overlayOpen: boolean;
   filterpanelOpen: boolean;
+  filterpanelTitle?: string;
   documentPanelOpen?: boolean;
   mainSize: ViewerGridPanelSize;
   vrkActiveTab?: Tab;
@@ -24,6 +25,7 @@ export interface ViewerGridArgs {
   dsoCloseOverlay: HandlerFunction;
   dsoFilterpanelCancel: HandlerFunction;
   dsoFilterpanelApply: HandlerFunction;
+  dsoCloseFilterpanel: HandlerFunction;
   dsoDocumentPanelSizeChange: HandlerFunction;
   dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
   dsoMainPanelExpand: HandlerFunction;
@@ -48,6 +50,12 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
         vdk: "VDK",
       },
     },
+  },
+  filterpanelTitle: {
+    control: {
+      type: "text",
+    },
+    if: { arg: "mode", eq: "vdk" },
   },
   filterpanelOpen: {
     type: "boolean",
@@ -113,6 +121,10 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   dsoFilterpanelApply: {
     ...noControl,
     action: "dsoFilterpanelApply",
+  },
+  dsoCloseFilterpanel: {
+    ...noControl,
+    action: "dsoCloseFilterpanel",
   },
   dsoDocumentPanelSizeChange: {
     ...noControl,

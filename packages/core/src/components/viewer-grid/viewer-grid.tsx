@@ -20,6 +20,7 @@ import {
   viewerGridVdkTabs,
   viewerGridVrkTabs,
   ViewerGridTab,
+  ViewerGridCloseFilterpanelEvent,
 } from "./viewer-grid.interfaces";
 
 const resizeObserver = new ResizeObserver(
@@ -63,6 +64,12 @@ export class ViewerGrid {
    */
   @Prop({ reflect: true })
   mode: ViewerGridMode = "vrk";
+
+  /**
+   * **VDK only.** The title of the Filterpanel
+   */
+  @Prop({ reflect: true })
+  filterpanelTitle?: string;
 
   /**
    * Set to true when filterpanel should show.
@@ -122,6 +129,11 @@ export class ViewerGrid {
   @Event()
   dsoCloseOverlay!: EventEmitter<ViewerGridCloseOverlayEvent>;
 
+  /**
+   * **VDK only.** Emitted when user wants to close the filterpanel.
+   */
+  @Event()
+  dsoCloseFilterpanel!: EventEmitter<ViewerGridCloseFilterpanelEvent>;
   /**
    * Emitted when user cancels filterpanel.
    */
@@ -210,7 +222,7 @@ export class ViewerGrid {
     }
 
     if (open) {
-      this.filterpanel?.showModal();
+      this.showFilterpanel(this.mode);
     } else {
       this.filterpanel?.close();
     }
@@ -305,13 +317,24 @@ export class ViewerGrid {
     this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
   };
 
+  private showFilterpanel = (mode: ViewerGridMode) => {
+    if (mode === "vdk") {
+      // 'vdk' mode displays the filterpanel modelessly, i.e. still allowing interaction with content outside it.
+      this.filterpanel?.show();
+    } else {
+      // 'vrk' mode displays the filterpanel as a modal; interaction outside the dialog is blocked and the content
+      // outside it is rendered inert
+      this.filterpanel?.showModal();
+    }
+  };
+
   connectedCallback() {
     window.matchMedia(this.mediaCondition).addEventListener("change", this.changeListener);
   }
 
   componentDidLoad() {
     if (this.filterpanelOpen && this.filterpanelSlot) {
-      this.filterpanel?.showModal();
+      this.showFilterpanel(this.mode);
     }
 
     if (this.overlayOpen && this.overlaySlot) {
@@ -363,11 +386,17 @@ export class ViewerGrid {
             dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
           ></MainPanel>
         )}
-        <Filterpanel
-          ref={(element) => (this.filterpanel = element)}
-          onApply={this.handleFilterpanelApply}
-          onCancel={this.handleFilterpanelCancel}
-        ></Filterpanel>
+        {(!this.tabView ||
+          (this.tabView && ((this.activeTab === "main" && this.mode === "vrk") || this.activeTab === "search"))) && (
+          <Filterpanel
+            title={this.filterpanelTitle}
+            mode={this.mode}
+            ref={(element) => (this.filterpanel = element)}
+            onApply={this.handleFilterpanelApply}
+            onCancel={this.handleFilterpanelCancel}
+            dsoCloseFilterpanel={(e) => this.dsoCloseFilterpanel.emit({ originalEvent: e })}
+          ></Filterpanel>
+        )}
         {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
           <div class="map" ref={(element) => (this.mapElement = element)}>
             <slot name="map" />

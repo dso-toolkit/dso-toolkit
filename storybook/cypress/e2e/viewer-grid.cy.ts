@@ -1,10 +1,11 @@
 const url = "http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid";
+const urlVDK = "http://localhost:45000/iframe.html?args=mode:vdk&id=core-viewer-grid--viewer-grid";
 const urlOverlayClosed = `${url}&args=overlayOpen:false`;
 const urlOverlayOpened = `${url}&args=overlayOpen:true`;
 
 describe("Viewer Grid", () => {
   it("matches snapshots", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-viewer-grid--viewer-grid");
+    cy.visit(url);
 
     cy.get("dso-viewer-grid.hydrated")
       .as("viewer-grid")
@@ -17,8 +18,28 @@ describe("Viewer Grid", () => {
       .invoke("attr", "main-panel-expanded", "")
       .invoke("attr", "document-panel-open", "")
       .invoke("attr", "document-panel-size", "small")
-      .invoke("attr", "document-panel-open", "")
       .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK`);
+
+    cy.get("@viewer-grid")
+      .invoke("attr", "mode", "vdk")
+      .invoke("attr", "main-size", "medium")
+      .invoke("attr", "main-panel-expanded", true)
+      .invoke("attr", "document-panel-open", false)
+      .invoke("attr", "filterpanel-title", "De titel van het filter paneel")
+      .invoke("attr", "filterpanel-open", true)
+      .wait(250)
+      .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK - filterpanel-open - large viewport`);
+
+    cy.viewport(900, 600)
+      .wait(250)
+      .get("@viewer-grid")
+      .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK - filterpanel-open - medium viewport`);
+
+    cy.viewport(800, 600)
+      .get("@viewer-grid")
+      .invoke("attr", "active-tab", "search")
+      .wait(250)
+      .matchImageSnapshot(`${Cypress.currentTest.title}" -- VDK - filterpanel-open - small viewport`);
   });
 
   it("should be accessible (overlay closed)", () => {
@@ -284,6 +305,30 @@ describe("Viewer Grid", () => {
       .get("@viewerGrid")
       .find(".dso-main-panel .content")
       .should("have.class", "invisible");
+  });
+
+  it("shows the correct title for the VDK filterpanel", () => {
+    cy.visit(urlVDK)
+      .get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filterpanel-title", "Laten we gaan filteren")
+      .get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find("#filterpanel h3")
+      .should("have.text", "Laten we gaan filteren");
+  });
+
+  it("should emit dsoCloseFilterpanel event for VDK filterpanel", () => {
+    cy.visit(urlVDK)
+      .get("dso-viewer-grid.hydrated")
+      .then((e) => e.on("dsoCloseFilterpanel", cy.stub().as("listener")))
+      .invoke("attr", "filterpanel-title", "Filters")
+      .invoke("attr", "filterpanel-open", "")
+      .get("dso-viewer-grid.hydrated")
+      .shadow()
+      .find("#filterpanel .dso-close")
+      .click();
+
+    cy.get("@listener").should("be.calledOnce");
   });
 
   it("should emit correct currentSize and nextSize", () => {

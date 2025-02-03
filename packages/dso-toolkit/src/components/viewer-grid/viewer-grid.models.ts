@@ -4,6 +4,7 @@ import { AdvancedSelect } from "../advanced-select";
 export interface ViewerGrid<TemplateFnReturnType> {
   mode?: ViewerGridMode;
   filterpanelOpen?: boolean;
+  filterpanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
   mainSize?: ViewerGridPanelSize;
@@ -16,6 +17,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
   dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
   dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoCloseFilterpanel?: (e: MouseEvent | Event) => void;
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
@@ -56,6 +58,7 @@ export interface ViewerGridMainToggleEvent {
 export interface ViewerGridProperties {
   mode?: ViewerGridMode;
   filterpanelOpen?: boolean;
+  filterpanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
   mainSize?: ViewerGridPanelSize;
@@ -68,6 +71,7 @@ export interface ViewerGridProperties {
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
   dsoFilterpanelCancel?: (e: MouseEvent | Event) => void;
   dsoFilterpanelApply?: (e: MouseEvent | Event) => void;
+  dsoCloseFilterpanel?: (e: MouseEvent | Event) => void;
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;

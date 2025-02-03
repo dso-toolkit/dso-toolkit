@@ -11,6 +11,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
     function viewerGridTemplate({
       mode,
       filterpanelOpen,
+      filterpanelTitle,
       overlayOpen,
       documentPanelOpen,
       mainSize,
@@ -22,6 +23,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       dsoMainSizeChangeAnimationEnd,
       dsoFilterpanelApply,
       dsoFilterpanelCancel,
+      dsoCloseFilterpanel,
       dsoCloseOverlay,
       dsoActiveTabSwitch,
       dsoDocumentPanelSizeChange,
@@ -40,6 +42,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           main-size=${ifDefined(mainSize)}
           document-panel-size=${ifDefined(documentPanelSize)}
           active-tab=${ifDefined(activeTab)}
+          filterpanel-title=${ifDefined(filterpanelTitle)}
           ?filterpanel-open=${filterpanelOpen}
           ?overlay-open=${overlayOpen}
           ?document-panel-open=${documentPanelOpen}
@@ -50,6 +53,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           @dsoCloseOverlay=${dsoCloseOverlay}
           @dsoFilterpanelApply=${dsoFilterpanelApply}
           @dsoFilterpanelCancel=${dsoFilterpanelCancel}
+          @dsoCloseFilterpanel=${dsoCloseFilterpanel}
           @dsoActiveTabSwitch=${dsoActiveTabSwitch}
           @dsoDocumentPanelSizeChange=${dsoDocumentPanelSizeChange}
           @dsoDocumentPanelSizeChangeAnimationEnd=${dsoDocumentPanelSizeChangeAnimationEnd}
