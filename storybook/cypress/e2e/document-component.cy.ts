@@ -22,6 +22,20 @@ describe("Document Component", () => {
       ]);
   });
 
+  it("shows a badge with an exclamationmark with tooltip", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-component--default")
+      .get("dso-document-component")
+      .invoke("attr", "geneste-ontwerp-informatie", true)
+      .invoke("attr", "bevat-ontwerp-informatie", false)
+      .shadow()
+      .as("dsoDocumentComponent")
+      .find("dso-badge[aria-describedby='nested-draft-description'].hydrated")
+      .should("have.text", "!")
+      .get("@dsoDocumentComponent")
+      .find("dso-tooltip#nested-draft-description.hydrated")
+      .should("have.text", "Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.");
+  });
+
   const states = ["default", "voegtoe", "verwijder"];
 
   for (const wijzigactie of states) {
