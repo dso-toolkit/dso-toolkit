@@ -424,7 +424,7 @@ describe("Autosuggest", () => {
   it("should limit the block-size of the listbox-container to 10 items", () => {
     cy.get("input").focus().type("sugg");
     cy.wait(200);
-
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.matchImageSnapshot();
   });
 
@@ -433,7 +433,7 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.get("input").focus().type("sugg");
     cy.wait(200);
-
+    cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
     cy.matchImageSnapshot();
   });
 });
