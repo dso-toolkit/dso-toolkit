@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🛢️ Release 68.2.0 - 2025-02-04
+
 ### Added
 * Viewer Grid: Extra filterpaneel ([#2696](https://github.com/dso-toolkit/dso-toolkit/issues/2696))
 * Icon: Bell en To-do-List toevoegen ([#2673](https://github.com/dso-toolkit/dso-toolkit/issues/2673))
 
 ### Fixed
 * Modal: Angular modal toont geen sluitkruisje in storybook ([#2961](https://github.com/dso-toolkit/dso-toolkit/issues/2961))
+
+### Task
 * Autosuggest: incorrecte matchImageSnapshot in baseline ([#2984](https://github.com/dso-toolkit/dso-toolkit/issues/2984))
 
 ## ☎️ Release 68.1.0 - 2025-02-03
