@@ -362,7 +362,9 @@ export class DocumentComponent implements ComponentInterface {
                   <dso-badge status="warning" aria-describedby="nested-draft-description">
                     !
                   </dso-badge>
-                  <dso-tooltip id="nested-draft-description">Er is een ontwerp beschikbaar.</dso-tooltip>
+                  <dso-tooltip id="nested-draft-description">
+                    Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.
+                  </dso-tooltip>
                 </>
               )}
               {(this.bevatOntwerpInformatie || this.annotated) && (
