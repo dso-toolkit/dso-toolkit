@@ -212,7 +212,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content")
       .shadow()
       .find("a[href='doc'][target='_blank'][rel='noopener noreferrer']")
-      .and("have.text", "document")
+      .should("have.text", "document")
       .should("have.attr", "title")
       .and("include", "Opent andere website in nieuw tabblad");
 
