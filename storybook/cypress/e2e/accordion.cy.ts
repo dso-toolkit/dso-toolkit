@@ -255,7 +255,7 @@ describe("Accordion", () => {
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Toegevoegd`)
       .get("@accordionSection")
       .invoke("prop", "wijzigactie", "verwijder")
-      .should("have.class", "dso-accordion-wijzigactie-voegtoe")
+      .should("have.class", "dso-accordion-wijzigactie-verwijder")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
 });
