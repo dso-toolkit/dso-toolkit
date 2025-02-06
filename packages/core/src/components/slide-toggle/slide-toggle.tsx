@@ -1,10 +1,11 @@
-import { h, Component, ComponentInterface, Event, Fragment, Prop, EventEmitter, Element, State } from "@stencil/core";
+import { h, Component, ComponentInterface, Event, Prop, EventEmitter, Element, State, Fragment } from "@stencil/core";
 import { v4 } from "uuid";
 import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 
 @Component({
   tag: "dso-slide-toggle",
   styleUrl: "slide-toggle.scss",
+  scoped: true,
   shadow: false,
 })
 export class SlideToggle implements ComponentInterface {

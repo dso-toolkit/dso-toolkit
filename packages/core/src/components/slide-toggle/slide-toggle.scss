@@ -2,6 +2,11 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 
+:host {
+  display: inline-block;
+  padding-block-start: 2px;
+}
+
 button.dso-slider {
   border: 0;
   padding: 0;
