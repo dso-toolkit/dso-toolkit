@@ -212,8 +212,9 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content")
       .shadow()
       .find("a[href='doc'][target='_blank'][rel='noopener noreferrer']")
-      .should("exist")
-      .and("have.text", "document (Opent andere website in nieuw tabblad)");
+      .and("have.text", "document")
+      .should("have.attr", "title")
+      .and("include", "Opent andere website in nieuw tabblad");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
@@ -233,10 +234,7 @@ describe("Ozon Content", () => {
         "href",
         "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1",
       )
-      .and(
-        "have.text",
-        "/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1 (Opent andere website in nieuw tabblad)",
-      );
+      .and("have.text", "/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
@@ -493,7 +491,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("dso-table > div > .dso-ozon-bron")
       .should("exist")
-      .and("have.text", "bron: artikel 4.7 van de wet (Opent andere website in nieuw tabblad)");
+      .and("have.text", "bron: artikel 4.7 van de wet");
   });
 
   it("should accept XMLDocument", () => {

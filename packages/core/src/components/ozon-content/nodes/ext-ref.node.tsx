@@ -12,8 +12,14 @@ export class OzonContentExtRefNode implements OzonContentNode {
     const className = kebabCase(node.tagName);
 
     return (
-      <a target="_blank" rel="noopener noreferrer" href={href ?? undefined} class={className}>
-        {mapNodeToJsx(node.childNodes)} <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={href ?? undefined}
+        class={className}
+        title="Opent andere website in nieuw tabblad"
+      >
+        {mapNodeToJsx(node.childNodes)}
         <dso-icon icon="external-link"></dso-icon>
       </a>
     );
