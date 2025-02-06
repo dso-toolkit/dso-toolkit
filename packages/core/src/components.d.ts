@@ -1001,6 +1001,10 @@ export namespace Components {
           * The accessible name for the close button.
          */
         "closeButtonLabel"?: string;
+        /**
+          * To display the panel as an emphasized panel.
+         */
+        "emphasized"?: boolean;
     }
     interface DsoPlekinfoCard {
         /**
@@ -3536,6 +3540,10 @@ declare namespace LocalJSX {
           * The accessible name for the close button.
          */
         "closeButtonLabel"?: string;
+        /**
+          * To display the panel as an emphasized panel.
+         */
+        "emphasized"?: boolean;
         /**
           * Emitted when the user click the close button.
          */

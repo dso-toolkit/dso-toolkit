@@ -31,4 +31,14 @@ describe("Panel", () => {
       .contains("button", "Labeltest")
       .should("exist");
   });
+
+  it("is emphasized", () => {
+    cy.get("dso-panel.hydrated")
+      .invoke("prop", "emphasized", true)
+      .shadow()
+      .find(".panel-heading")
+      .should("have.css", "background-color", "rgb(220, 212, 0)");
+
+    cy.get("dso-panel.hydrated").matchImageSnapshot();
+  });
 });

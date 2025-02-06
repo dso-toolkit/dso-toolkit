@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
-
+import clsx from "clsx";
 import { i18n } from "../../utils/i18n";
+
 import { translations } from "./panel.i18n";
 
 export interface PanelCloseEvent {
@@ -27,6 +28,11 @@ export class Panel implements ComponentInterface {
   closeButtonLabel?: string;
 
   /**
+   * To display the panel as an emphasized panel.
+   */
+  @Prop()
+  emphasized?: boolean;
+  /**
    * Emitted when the user click the close button.
    */
   @Event()
@@ -36,7 +42,7 @@ export class Panel implements ComponentInterface {
 
   render() {
     return (
-      <div class="dso-panel">
+      <div class={clsx(["dso-panel", { emphasized: this.emphasized }])}>
         <div class="panel-heading">
           <slot name="heading" />
           <button type="button" class="panel-close" onClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}>

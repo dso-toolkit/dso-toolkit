@@ -3,6 +3,8 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/di";
 
+@use "panel.variables" as core-panel-variables;
+
 :host {
   display: block;
 
@@ -33,6 +35,10 @@
   .sr-only {
     @include utilities.sr-only();
   }
+}
+
+.emphasized .panel-heading {
+  background-color: core-panel-variables.$background-color-emphasized;
 }
 
 ::slotted([slot="heading"]) {

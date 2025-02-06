@@ -5,13 +5,21 @@ import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface PanelArgs {
   dsoCloseClick: HandlerFunction;
+  emphasized: boolean;
 }
 
-export const panelArgs: Omit<PanelArgs, "dsoCloseClick"> = {};
+export const panelArgs: Omit<PanelArgs, "dsoCloseClick"> = {
+  emphasized: false,
+};
 
 export const panelArgTypes: ArgTypes<PanelArgs> = {
   dsoCloseClick: {
     action: "dsoCloseClick",
+  },
+  emphasized: {
+    control: {
+      type: "boolean",
+    },
   },
 };
 
