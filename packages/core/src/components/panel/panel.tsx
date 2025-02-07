@@ -32,6 +32,7 @@ export class Panel implements ComponentInterface {
    */
   @Prop()
   emphasized?: boolean;
+
   /**
    * Emitted when the user click the close button.
    */

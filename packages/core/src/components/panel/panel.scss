@@ -3,7 +3,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/di";
 
-@use "panel.variables" as core-panel-variables;
+@use "panel.variables" as panel-variables;
 
 :host {
   display: block;
@@ -38,7 +38,7 @@
 }
 
 .emphasized .panel-heading {
-  background-color: core-panel-variables.$background-color-emphasized;
+  background-color: panel-variables.$background-color-emphasized;
 }
 
 ::slotted([slot="heading"]) {
