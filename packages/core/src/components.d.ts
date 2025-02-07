@@ -97,7 +97,7 @@ export namespace Components {
         /**
           * The variant of the Accordion.
          */
-        "variant": AccordionVariant | undefined;
+        "variant": "default" | "compact" | "conclusion" | "neutral" | "compact-black";
     }
     interface DsoAccordionSection {
         /**
@@ -2430,7 +2430,7 @@ declare namespace LocalJSX {
         /**
           * The variant of the Accordion.
          */
-        "variant"?: AccordionVariant | undefined;
+        "variant"?: "default" | "compact" | "conclusion" | "neutral" | "compact-black";
     }
     interface DsoAccordionSection {
         /**

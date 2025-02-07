@@ -8,13 +8,16 @@ import { createStore } from "@stencil/store";
   shadow: true,
 })
 export class Accordion implements ComponentInterface {
-  private accordionState: AccordionInternalState;
+  private readonly accordionState: AccordionInternalState;
 
   @Element()
   host!: HTMLDsoAccordionElement;
 
   constructor() {
-    const { state } = createStore<AccordionInternalState>({});
+    const { state } = createStore<AccordionInternalState>({
+      variant: "default",
+      reverseAlign: false,
+    });
 
     this.accordionState = state;
   }
@@ -23,11 +26,11 @@ export class Accordion implements ComponentInterface {
    * The variant of the Accordion.
    */
   // eslint-disable-next-line @stencil-community/decorators-context
-  @Prop({ reflect: true })
+  @Prop()
   get variant() {
     return this.accordionState.variant;
   }
-  set variant(value: undefined | AccordionVariant) {
+  set variant(value: AccordionVariant) {
     this.accordionState.variant = value || "default";
   }
 
@@ -37,12 +40,12 @@ export class Accordion implements ComponentInterface {
    * Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
    */
   // eslint-disable-next-line @stencil-community/decorators-context
-  @Prop({ reflect: true })
+  @Prop()
   get reverseAlign() {
-    return this.accordionState.reverseAlign || false;
+    return this.accordionState.reverseAlign;
   }
   set reverseAlign(value: boolean) {
-    this.accordionState.reverseAlign = value;
+    this.accordionState.reverseAlign = value || false;
   }
 
   /**
