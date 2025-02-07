@@ -27,7 +27,7 @@ export class Accordion implements ComponentInterface {
    */
   // eslint-disable-next-line @stencil-community/decorators-context
   @Prop()
-  get variant() {
+  get variant(): AccordionVariant {
     return this.accordionState.variant;
   }
   set variant(value: AccordionVariant) {
