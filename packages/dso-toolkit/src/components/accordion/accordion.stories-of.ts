@@ -11,6 +11,7 @@ type AccordionStory = StoryObj<AccordionArgs, Renderer>;
 
 interface AccordionStories {
   Default: AccordionStory;
+  Activatable: AccordionStory;
   Compact: AccordionStory;
   CompactBlack: AccordionStory;
   Neutral: AccordionStory;
@@ -42,6 +43,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   addonsSections: AccordionSection<TemplateFnReturnType>[];
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
   renvooiSections: AccordionSection<TemplateFnReturnType>[];
+  activatableSections: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -89,6 +91,16 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
       },
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, compactBlackSections }) =>
         accordionTemplate(accordionArgsMapper(args, compactBlackSections)),
+      ),
+    },
+    Activatable: {
+      args: {
+        variant: "compact-black",
+        activatable: true,
+        active: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, activatableSections }) =>
+        accordionTemplate(accordionArgsMapper(args, activatableSections)),
       ),
     },
     Neutral: {

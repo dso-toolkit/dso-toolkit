@@ -208,3 +208,30 @@ export const renvooiSections: AccordionSection<TemplateResult>[] = [
     },
   },
 ];
+
+export const activatableSections: AccordionSection<TemplateResult>[] = [
+  {
+    ...section1,
+    activatable: true,
+  },
+  {
+    ...section1,
+    wijzigactie: "verwijder",
+    activatable: true,
+    active: true,
+  },
+  {
+    ...section1,
+    wijzigactie: "voegtoe",
+    open: true,
+    activatable: true,
+  },
+  {
+    ...section1,
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
+    activatable: true,
+  },
+];

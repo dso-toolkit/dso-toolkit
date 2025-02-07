@@ -49,3 +49,17 @@ export interface AccordionSectionAnimationEndEvent {
    */
   open: boolean;
 }
+
+export interface AccordionSectionActiveChangeEvent {
+  /**
+   * De current status van de Accordion Section.
+   */
+  current: boolean;
+
+  /**
+   * De desired status van de Accordion Section.
+   */
+  next: boolean;
+
+  originalEvent: Event;
+}

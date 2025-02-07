@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-import { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
+import { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AlertCloseEvent } from "./components/alert/alert.interfaces";
@@ -49,7 +49,7 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
-export { AccordionHeading, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
+export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AlertCloseEvent } from "./components/alert/alert.interfaces";
@@ -102,6 +102,14 @@ export namespace Components {
         "variant": AccordionVariant;
     }
     interface DsoAccordionSection {
+        /**
+          * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
+         */
+        "activatable": boolean;
+        /**
+          * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is `activatable`.
+         */
+        "active": boolean;
         /**
           * `attachmentCount` takes precedence over `icon`
          */
@@ -1511,6 +1519,7 @@ declare global {
         new (): HTMLDsoAccordionElement;
     };
     interface HTMLDsoAccordionSectionElementEventMap {
+        "dsoActiveChange": AccordionSectionActiveChangeEvent;
         "dsoToggleClick": AccordionSectionToggleClickEvent;
         "dsoAnimationStart": AccordionSectionAnimationStartEvent;
         "dsoAnimationEnd": AccordionSectionAnimationEndEvent;
@@ -2472,6 +2481,14 @@ declare namespace LocalJSX {
     }
     interface DsoAccordionSection {
         /**
+          * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
+         */
+        "activatable"?: boolean;
+        /**
+          * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is `activatable`.
+         */
+        "active"?: boolean;
+        /**
           * `attachmentCount` takes precedence over `icon`
          */
         "attachmentCount"?: number;
@@ -2503,6 +2520,10 @@ declare namespace LocalJSX {
           * The status of the Label in the heading handle (optional)
          */
         "labelStatus"?: LabelStatus;
+        /**
+          * An optional event listener for changes on the value of property `active`.
+         */
+        "onDsoActiveChange"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionActiveChangeEvent>) => void;
         /**
           * Event emitted when the Accordion Section completes its toggle animation.
          */

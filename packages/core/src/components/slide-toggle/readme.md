@@ -27,6 +27,7 @@
 
 ### Used by
 
+ - [dso-accordion-section](../accordion/components)
  - [dso-annotation-activiteit](../annotation/annotation-activiteit)
  - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
  - [dso-annotation-kaart](../annotation/annotation-kaart)
@@ -36,6 +37,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  dso-accordion-section --> dso-slide-toggle
   dso-annotation-activiteit --> dso-slide-toggle
   dso-annotation-gebiedsaanwijzing --> dso-slide-toggle
   dso-annotation-kaart --> dso-slide-toggle

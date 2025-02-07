@@ -3,6 +3,16 @@
 @use "~dso-toolkit/src/components/accordion";
 @use "~dso-toolkit/src/components/delete";
 
+@mixin dso-web-component-accordion-compact-black-activate() {
+  @include dso-web-component-accordion-compact-black();
+
+  .dso-section-handle {
+    border-block-start: 0;
+  }
+
+  border-block-start: 1px solid accordion.$compact-border-color;
+}
+
 @mixin dso-web-component-accordion-compact-black() {
   .dso-section-handle {
     border-block-end: 1px solid transparent;

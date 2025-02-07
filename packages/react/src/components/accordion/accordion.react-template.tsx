@@ -1,10 +1,11 @@
+import * as React from "react";
+
 import {
+  Accordion,
+  AccordionSectionActiveChangeEvent,
   AccordionSectionAnimationEndEvent,
   AccordionSectionToggleClickEvent,
-} from "@dso-toolkit/core/dist/types/components/accordion/components/accordion-section.interfaces";
-import { Accordion } from "dso-toolkit";
-
-import * as React from "react";
+} from "dso-toolkit";
 
 import { DsoAccordion, DsoAccordionSection } from "../..";
 import { ComponentImplementation } from "../../templates";
@@ -32,6 +33,9 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 statusDescription,
                 labelStatus,
                 label,
+                activatable,
+                active,
+                dsoActiveChange,
               },
               i,
             ) => (
@@ -47,11 +51,16 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 attachmentCount={attachmentCount}
                 labelStatus={labelStatus}
                 label={label}
+                activatable={activatable}
+                active={active}
                 onDsoToggleClick={(e: CustomEvent<AccordionSectionToggleClickEvent>) => {
                   dsoToggleClick?.(e);
                 }}
                 onDsoAnimationEnd={(e: CustomEvent<AccordionSectionAnimationEndEvent>) => {
                   dsoAnimationEnd?.(e);
+                }}
+                onDsoActiveChange={(e: CustomEvent<AccordionSectionActiveChangeEvent>) => {
+                  dsoActiveChange?.(e);
                 }}
               >
                 {content}

@@ -27,6 +27,9 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
               statusDescription,
               labelStatus,
               label,
+              activatable,
+              active,
+              dsoActiveChange,
             }) =>
               html`<dso-accordion-section
                 ?open=${open}
@@ -40,9 +43,12 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
                 attachment-count=${ifDefined(attachmentCount)}
                 label-status=${ifDefined(labelStatus)}
                 label=${ifDefined(label)}
+                ?activatable=${activatable}
+                ?active=${active}
                 @dsoToggleClick=${dsoToggleClick}
                 @dsoAnimationStart=${dsoAnimationStart}
                 @dsoAnimationEnd=${dsoAnimationEnd}
+                @dsoActiveChange=${dsoActiveChange}
               >
                 ${content}
               </dso-accordion-section>`,

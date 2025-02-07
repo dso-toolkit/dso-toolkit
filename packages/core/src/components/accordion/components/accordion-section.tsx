@@ -17,6 +17,7 @@ import {
 import { AccordionInternalState } from "../accordion.interfaces";
 import {
   AccordionHeading,
+  AccordionSectionActiveChangeEvent,
   AccordionSectionAnimationEndEvent,
   AccordionSectionAnimationStartEvent,
   AccordionSectionState,
@@ -213,6 +214,26 @@ export class AccordionSection implements ComponentInterface {
   labelStatus?: LabelStatus;
 
   /**
+   * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays
+   * on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
+   */
+  @Prop({ reflect: true })
+  activatable = false;
+
+  /**
+   * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is
+   * `activatable`.
+   */
+  @Prop({ reflect: true })
+  active = false;
+
+  /**
+   * An optional event listener for changes on the value of property `active`.
+   */
+  @Event()
+  dsoActiveChange!: EventEmitter<AccordionSectionActiveChangeEvent>;
+
+  /**
    * Calling this method will set focus to the handle.
    */
   @Method()
@@ -357,6 +378,7 @@ export class AccordionSection implements ComponentInterface {
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
     const hasAddons = !!this.statusDescription || !!this.status || !!this.icon || !!this.attachmentCount;
+    const showSlideToggle = this.activatable && variant === "compact-black" && !reverseAlign;
 
     return (
       <Host
@@ -366,6 +388,7 @@ export class AccordionSection implements ComponentInterface {
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
           ["dso-accordion-wijzigactie-" + this.wijzigactie]: !!this.wijzigactie,
+          "dso-accordion-section-activate": showSlideToggle,
         }}
         hidden={!variant}
         onMouseenter={() => (this.hover = true)}
@@ -422,6 +445,19 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
+        {showSlideToggle && (
+          <dso-slide-toggle
+            accessibleLabel="Toon op kaart"
+            checked={this.active}
+            onDsoActiveChange={(e) =>
+              this.dsoActiveChange.emit({
+                current: Boolean(this.active),
+                next: !this.active,
+                originalEvent: e,
+              })
+            }
+          />
+        )}
         <dso-expandable
           class="dso-section-body"
           open={this.open}

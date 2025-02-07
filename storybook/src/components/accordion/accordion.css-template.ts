@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "html-css",
-  template: ({ attachmentsCounterTemplate, iconTemplate, labelTemplate, renvooiTemplate }) =>
+  template: ({ attachmentsCounterTemplate, iconTemplate, labelTemplate, renvooiTemplate, slideToggleTemplate }) =>
     function accordionTemplate(accordion) {
       const statusMap = new Map<string, string>([
         ["success", "succes"],
@@ -74,6 +74,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         section: AccordionSection<TemplateResult>,
       ): TemplateResult {
         const hasNestedAccordion = section.content?.strings.includes("<dso-accordion") ?? false;
+        const showSlideToggle = section.activatable && accordion.variant === "compact-black" && !accordion.reverseAlign;
 
         if (!section.heading) {
           section.heading = "h2";
@@ -86,9 +87,16 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
               "dso-open": !!section.open,
               "dso-nested-accordion": hasNestedAccordion,
               [`dso-accordion-wijzigactie-${section.wijzigactie}`]: !!section.wijzigactie,
+              "dso-accordion-section-activate": !!showSlideToggle,
             })}"
           >
             ${accordionHandleTemplate(accordion, section)}
+            ${showSlideToggle
+              ? slideToggleTemplate({
+                  accessibleLabel: "Toon op kaart",
+                  checked: !!section.active,
+                })
+              : nothing}
             ${section.open ? html`<div class="dso-section-body">${section.content}</div>` : nothing}
           </div>
         `;

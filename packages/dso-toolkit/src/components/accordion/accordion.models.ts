@@ -1,8 +1,6 @@
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
-export type AccordionHandleElement = "anchor" | "button";
-
 export type AccordionVariant = "default" | "compact" | "conclusion" | "neutral" | "compact-black";
 
 export type AccordionSectionStatus = "success" | "info" | "warning" | "danger" | "error";
@@ -30,6 +28,9 @@ export interface AccordionSection<TemplateFnReturnType> {
   content?: TemplateFnReturnType;
   labelStatus?: LabelStatus;
   label?: string;
+  activatable?: boolean;
+  active?: boolean;
+  dsoActiveChange?: (e: CustomEvent<AccordionSectionActiveChangeEvent>) => void;
   dsoToggleClick?: (e: CustomEvent<AccordionSectionToggleClickEvent>) => void;
   dsoAnimationStart?: (e: CustomEvent<AccordionSectionAnimationStartEvent>) => void;
   dsoAnimationEnd?: (e: CustomEvent<AccordionSectionAnimationEndEvent>) => void;
@@ -66,4 +67,18 @@ export interface AccordionSectionAnimationEndEvent {
    * The state of the Accordion Section after animation.
    */
   open: boolean;
+}
+
+export interface AccordionSectionActiveChangeEvent {
+  /**
+   * De current value of property `active`.
+   */
+  current: boolean;
+
+  /**
+   * De desired value of property `active`.
+   */
+  next: boolean;
+
+  originalEvent: Event;
 }
