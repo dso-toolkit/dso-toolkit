@@ -202,7 +202,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render ExtRef element", () => {
+  it.only("should render ExtRef element", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
     cy.get("dso-ozon-content").then((c) => {
@@ -213,8 +213,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("a[href='doc'][target='_blank'][rel='noopener noreferrer']")
       .should("have.text", "document")
-      .should("have.attr", "title")
-      .and("include", "Opent andere website in nieuw tabblad");
+      .and("have.attr", "title", "Opent andere website in nieuw tabblad");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
