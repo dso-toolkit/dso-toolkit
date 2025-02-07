@@ -1,30 +1,59 @@
-import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
+import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { FormButtonsArgs, formButtonsArgsMapper, formButtonsArgTypes } from "./form-buttons.args.js";
 import { FormButtons } from "./form-buttons.models.js";
+
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { compiler } from "markdown-to-jsx";
+
+type FormButtonsStory = StoryObj<FormButtonsArgs, Renderer>;
+
+interface FormButtonsStories {
+  Default: FormButtonsStory;
+  MultiPage: FormButtonsStory;
+  Sections: FormButtonsStory;
+  SinglePage: FormButtonsStory;
+  SimpleForm: FormButtonsStory;
+}
 
 export interface FormButtonsTemplates<TemplateFnReturnType> {
   formButtonsTemplate: (formButtonsProperties: FormButtons) => TemplateFnReturnType;
 }
 
-export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturnType>(
-  storiesOfArguments: StoriesOfArguments<
+interface FormButtonsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
+  extends StoriesParameters<
     Implementation,
     Templates,
     TemplateFnReturnType,
     FormButtonsTemplates<TemplateFnReturnType>
-  >,
-) {
-  return storiesOfFactory("Form/Form Buttons", storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: formButtonsArgTypes,
-    });
+  > {}
 
-    const template = templateMapper<FormButtonsArgs>((args, { formButtonsTemplate }) =>
-      formButtonsTemplate(formButtonsArgsMapper(args)),
-    );
+export function formButtonsMeta<TRenderer extends Renderer>({
+  readme,
+}: MetaOptions = {}): ComponentAnnotations<TRenderer> {
+  return {
+    argTypes: formButtonsArgTypes,
+    parameters: {
+      docs: readme
+        ? {
+            page: () => compiler(readme),
+          }
+        : {},
+    },
+  };
+}
 
-    stories.add("default", template, {
+export function formButtonsStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+}: FormButtonsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): FormButtonsStories {
+  const render = templateContainer.render(storyTemplates, (args: FormButtonsArgs, { formButtonsTemplate }) =>
+    formButtonsTemplate(formButtonsArgsMapper(args)),
+  );
+
+  return {
+    Default: {
       args: {
         buttons: [
           {
@@ -37,9 +66,9 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    stories.add("multi page", template, {
+      render,
+    },
+    MultiPage: {
       args: {
         buttons: [
           {
@@ -65,9 +94,9 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    stories.add("sections", template, {
+      render,
+    },
+    Sections: {
       args: {
         buttons: [
           {
@@ -80,9 +109,9 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    stories.add("single page", template, {
+      render,
+    },
+    SinglePage: {
       args: {
         formModifier: "dso-single-page",
         buttons: [
@@ -96,9 +125,9 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    stories.add("simpel form", template, {
+      render,
+    },
+    SimpleForm: {
       args: {
         buttons: [
           {
@@ -107,8 +136,7 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
           },
         ],
       },
-    });
-
-    return stories;
-  });
+      render,
+    },
+  };
 }

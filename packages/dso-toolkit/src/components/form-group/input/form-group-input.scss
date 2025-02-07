@@ -1,0 +1,9 @@
+@use "../form-group.mixins" as form-group-mixins;
+
+.form-group.dso-input {
+  &.dso-required {
+    .control-label::after {
+      @include form-group-mixins.form-group-required();
+    }
+  }
+}

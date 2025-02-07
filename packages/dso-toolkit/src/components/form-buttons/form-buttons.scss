@@ -1,0 +1,68 @@
+@use "../../variables/units";
+@use "../../variables/typography";
+@use "../button";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/colors";
+
+.dso-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: units.$u2;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-direction: column;
+  }
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    margin-block-end: units.$block-spacing-medium;
+  }
+
+  &:last-child {
+    margin-block-end: units.$block-spacing-xlarge;
+  }
+
+  :is(.dso-primary, .dso-secondary, .dso-tertiary) {
+    text-align: center;
+  }
+
+  :is(.dso-primary, .dso-secondary, .dso-tertiary) + :is(.dso-primary, .dso-secondary, .dso-tertiary) {
+    margin-inline: 0; // reset
+  }
+
+  a,
+  button {
+    &.dso-tertiary {
+      padding-block: button.$block-padding;
+      padding-inline-end: button.$inline-padding;
+
+      line-height: typography.$line-height-base;
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+        display: block;
+
+        inline-size: 100%;
+
+        padding-inline-start: button.$inline-padding;
+
+        background-color: colors.$grasgroen-10;
+
+        border-radius: button.$border-radius;
+
+        color: colors.$bosgroen;
+      }
+    }
+  }
+
+  .dso-aside {
+    @media screen and (min-width: media-query-breakpoints.$screen-xs-min + 1) {
+      display: inline-block;
+
+      margin-inline-end: auto;
+    }
+  }
+
+  .dso-single-page & {
+    justify-content: flex-start;
+  }
+}

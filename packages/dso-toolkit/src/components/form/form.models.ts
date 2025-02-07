@@ -1,20 +1,23 @@
-export { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
-export { FormGroupConfirm } from "./models/form-group-confirm.model.js";
-export { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
-export { FormGroupDatePickerLegacy } from "./models/form-group-date-picker-legacy.model.js";
-export { FormGroupFiles, FormGroupFilesFile } from "./models/form-group-files.model.js";
-export { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
-export { FormGroupRadios } from "./models/form-group-radios.model.js";
-export { FormGroupSearchBar } from "./models/form-group-search-bar.model.js";
-export { FormGroupSelect, SelectOption, SelectOptionGroup } from "./models/form-group-select.model.js";
-export { FormGroupStatic } from "./models/form-group-static.model.js";
-export { FormGroupTextarea } from "./models/form-group-textarea.model.js";
-export { FormGroupBase } from "./models/form-group.base-model.js";
-export { FormGroup } from "./models/form-group.model.js";
-export {
-  Form,
-  FormAsteriskExplanationPosition,
-  FormGroupCollection,
-  FormGroupCollectionHeadingLevel,
-  FormContent,
-} from "./models/form.model.js";
+import { FormButtons } from "../form-buttons/form-buttons.models.js";
+import { FormGroup } from "../form-group/form-group.models.js";
+
+export interface Form<TemplateFnReturnType> {
+  asteriskExplanation?: FormAsteriskExplanationPosition;
+  mode?: "vertical" | "horizontal";
+  content: FormContent<TemplateFnReturnType>;
+  formButtons?: FormButtons;
+}
+
+export type FormAsteriskExplanationPosition = "top" | "bottom" | "both";
+
+export interface FormGroupCollection<TemplateFnReturnType> {
+  title: string;
+  headingLevel?: FormGroupCollectionHeadingLevel;
+  formGroups: FormGroup<TemplateFnReturnType>[];
+}
+
+export type FormContent<TemplateFnReturnType> =
+  | FormGroup<TemplateFnReturnType>[]
+  | FormGroupCollection<TemplateFnReturnType>[];
+
+export type FormGroupCollectionHeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

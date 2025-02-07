@@ -1,0 +1,220 @@
+@use "../../../utilities";
+@use "../../../variables/units";
+@use "../../../variables/colors";
+@use "../../../variables/media-query-breakpoints";
+@use "../../../variables/typography";
+@use "../../button";
+
+@use "../../../di";
+
+@use "../form-group.variables" as form-group-variables;
+@use "../form-group.mixins" as form-group-mixins;
+
+.form-group.dso-files {
+  &.dso-required {
+    .control-label::after {
+      @include form-group-mixins.form-group-required();
+    }
+  }
+
+  dso-selectable,
+  .dso-selectable {
+    margin-block: #{units.$u1 * 0.5};
+    margin-inline: 0;
+  }
+
+  .dso-upload-loading {
+    margin-block: #{units.$u1 * 0.5};
+    margin-inline: 0;
+    padding-inline-end: units.$u3;
+
+    span {
+      padding-inline-start: units.$u1;
+    }
+  }
+
+  .dso-file-upload {
+    input[type="file"] {
+      @include utilities.sr-only();
+
+      + label {
+        cursor: pointer;
+      }
+
+      &[disabled] {
+        + label {
+          cursor: default;
+
+          &.dso-primary {
+            background-color: button.$primary-disabled-background-color;
+            border-color: button.$primary-disabled-background-color;
+          }
+
+          &.dso-secondary {
+            background-color: colors.$wit;
+            border-color: button.$secondary-disabled-color;
+            color: button.$secondary-disabled-color;
+          }
+        }
+      }
+    }
+
+    &:focus-within {
+      label {
+        @include utilities.focus-outline();
+      }
+    }
+  }
+
+  .dso-filelist {
+    list-style: none;
+
+    margin-block-end: 0;
+    padding-inline-start: 0;
+
+    li {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+
+      background-color: colors.$grijs-5;
+      border: 1px solid colors.$grijs-10;
+      border-radius: button.$border-radius;
+
+      padding-block: #{units.$u1 * 0.5 - 1} #{units.$u1 * 0.5 - 2};
+      padding-inline: #{units.$u1 - 1};
+
+      + li {
+        margin-block-start: units.$u1;
+      }
+
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        flex-wrap: wrap;
+      }
+
+      .dso-filename {
+        flex-grow: 1;
+
+        padding-inline-end: units.$u1;
+
+        font-weight: 600;
+        word-break: break-all;
+
+        @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+          inline-size: 100%;
+
+          padding-inline-end: 0;
+        }
+      }
+
+      .dso-selectable,
+      dso-selectable {
+        + .dso-remove {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      .dso-remove,
+      .dso-download {
+        font-size: 0;
+        min-inline-size: auto;
+        padding: #{units.$u1 * 0.5};
+        margin-inline-start: units.$u1 * 0.5;
+
+        &::before {
+          content: "";
+          display: block;
+          font-size: typography.$root-font-size-base;
+        }
+      }
+
+      .dso-remove {
+        &::before {
+          @include di.base("trash-bosgroen");
+        }
+      }
+
+      .dso-download {
+        &::before {
+          @include di.base("download-bosgroen");
+        }
+      }
+
+      .dso-filename,
+      .dso-confidential {
+        margin-block: #{units.$u1 * 0.5};
+        margin-inline: 0;
+      }
+
+      > dso-icon,
+      > svg.di {
+        flex: 0 0 24px;
+        block-size: 24px;
+        margin-block: #{units.$u1 * 0.5};
+        margin-inline: #{units.$u1} #{units.$u1 * 0.5};
+      }
+    }
+
+    + .dso-file-upload {
+      margin-block-start: units.$u2;
+    }
+
+    &:has(.dso-download) {
+      .dso-selectable,
+      dso-selectable,
+      .dso-upload-loading {
+        + .dso-remove {
+          margin-inline-start: (units.$u4 * 2) + (units.$u1 * 1.5);
+        }
+        + .dso-download {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      dso-icon,
+      svg.di {
+        + .dso-remove {
+          margin-inline-start: units.$u4 + units.$u1;
+        }
+      }
+
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        li:has(.dso-download) {
+          .dso-selectable,
+          dso-selectable,
+          .dso-upload-loading,
+          dso-icon,
+          svg.di {
+            + .dso-download {
+              margin-inline-start: auto;
+            }
+          }
+        }
+
+        li:not(:has(.dso-download)) {
+          .dso-selectable,
+          dso-selectable,
+          .dso-upload-loading,
+          dso-icon,
+          svg.di {
+            + .dso-remove {
+              margin-inline-start: auto;
+            }
+          }
+        }
+      }
+    }
+    &:not(:has(.dso-download)) {
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        .dso-selectable,
+        dso-selectable,
+        dso-icon,
+        svg.di {
+          + .dso-remove {
+            margin-inline-start: auto;
+          }
+        }
+      }
+    }
+  }
+}

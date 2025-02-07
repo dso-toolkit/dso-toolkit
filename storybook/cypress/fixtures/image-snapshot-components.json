@@ -192,82 +192,51 @@
   {
     "name": "form",
     "selector": "",
-    "storyGroups": [
-      {
-        "group": "form-buttons",
-        "stories": ["default", "multi-page", "sections", "single-page", "simpel-form"]
-      },
-      {
-        "group": "groups-checkboxes",
-        "stories": ["checkboxes"]
-      },
-      {
-        "group": "groups-confirm",
-        "stories": ["confirm"]
-      },
-      {
-        "group": "groups-date-picker",
-        "stories": ["date-picker"],
-        "wait": "dso-date-picker.hydrated"
-      },
-      {
-        "group": "groups-date-picker-legacy",
-        "stories": ["date-picker"],
-        "wait": "dso-date-picker-legacy.hydrated"
-      },
-      {
-        "group": "groups-files",
-        "stories": ["files", "no-files"]
-      },
-      {
-        "group": "groups-input",
-        "stories": ["input"]
-      },
-      {
-        "group": "groups-radios",
-        "stories": ["radios"]
-      },
-      {
-        "group": "groups-search-bar",
-        "stories": ["search-bar"]
-      },
-      {
-        "group": "groups-select",
-        "stories": ["select"]
-      },
-      {
-        "group": "groups-static",
-        "stories": ["static"]
-      },
-      {
-        "group": "groups-textarea",
-        "stories": ["textarea"]
-      },
-      {
-        "group": "horizontal",
-        "stories": ["form"],
-        "wait": "dso-date-picker.hydrated"
-      },
-      {
-        "group": "horizontal-collections",
-        "stories": ["form"],
-        "wait": "dso-date-picker.hydrated"
-      },
-      {
-        "group": "justify-form-groups",
-        "stories": ["justify-form-groups"]
-      },
-      {
-        "group": "vertical",
-        "stories": ["form"],
-        "wait": "dso-date-picker.hydrated"
-      },
-      {
-        "group": "vertical-collections",
-        "stories": ["form"],
-        "wait": "dso-date-picker.hydrated"
-      }
+    "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections"],
+    "type": "html-css",
+    "wait": "dso-date-picker.hydrated"
+  },
+  {
+    "name": "form-buttons",
+    "selector": "",
+    "stories": ["default", "multi-page", "sections", "single-page", "simple-form"],
+    "type": "html-css"
+  },
+  {
+    "name": "form-group",
+    "selector": "",
+    "stories": [
+      "checkboxes",
+      "confirm",
+      "files",
+      "no-files",
+      "input",
+      "radios",
+      "search-bar",
+      "select",
+      "static",
+      "textarea"
     ],
+    "type": "html-css"
+  },
+  {
+    "name": "form-group",
+    "selector": "",
+    "stories": ["date-picker"],
+    "type": "html-css",
+    "wait": "dso-date-picker.hydrated"
+  },
+  {
+    "name": "form-group",
+    "selector": "",
+    "stories": ["date-picker-legacy"],
+    "type": "html-css",
+    "wait": "dso-date-picker-legacy.hydrated"
+  },
+  {
+    "name": "justify-form-groups",
+    "selector": "",
+    "stories": ["justify-form-groups"],
     "type": "html-css"
   },
   {

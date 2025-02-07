@@ -3,17 +3,16 @@
 @use "../../variables/units";
 @use "../heading";
 
-@use "form.variables" as css-form-variables;
-@use "form.mixins" as css-form-mixins;
+@use "form.variables" as form-variables;
 
-#{css-form-variables.$form-selectors} {
+#{form-variables.$form-selectors} {
   .dso-form-group-collection {
     margin-block-end: units.$u2;
 
     > legend {
       & {
         border-block-end: 0;
-        margin-block-end: css-form-variables.$fieldset-separator-unit;
+        margin-block-end: form-variables.$fieldset-separator-unit;
       }
 
       &,
@@ -42,8 +41,8 @@
 
     + .dso-form-group-collection {
       > legend {
-        border-block-start: 1px solid css-form-variables.$fieldset-separator-color;
-        padding-block-start: css-form-variables.$fieldset-separator-unit;
+        border-block-start: 1px solid form-variables.$fieldset-separator-color;
+        padding-block-start: form-variables.$fieldset-separator-unit;
       }
     }
   }

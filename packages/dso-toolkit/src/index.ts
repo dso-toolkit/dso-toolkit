@@ -81,34 +81,11 @@ export * from "./components/expandable";
 
 export * from "./components/footnotes";
 
-export {
-  Form,
-  FormGroup,
-  FormGroupBase,
-  FormGroupCheckboxes,
-  FormGroupConfirm,
-  FormGroupDatePicker,
-  FormGroupDatePickerLegacy,
-  FormGroupFiles,
-  FormGroupFilesFile,
-  FormGroupInput,
-  FormGroupInputDate,
-  FormGroupRadios,
-  FormGroupSearchBar,
-  FormGroupSelect,
-  FormGroupStatic,
-  FormGroupTextarea,
-  SelectOption,
-  SelectOptionGroup,
-  FormAsteriskExplanationPosition,
-  FormGroupCollection,
-  FormGroupCollectionHeadingLevel,
-  FormContent,
-} from "./components/form/form.models.js";
-export { FormParameters, FormTemplates, storiesOfForm } from "./components/form/form.stories-of.js";
+export * from "./components/form";
 
-export { FormButtons } from "./components/form-buttons/form-buttons.models.js";
-export { FormButtonsTemplates, storiesOfFormButtons } from "./components/form-buttons/form-buttons.stories-of.js";
+export * from "./components/form-buttons";
+
+export * from "./components/form-group";
 
 export * from "./components/header";
 
@@ -128,12 +105,9 @@ export * from "./components/info";
 
 export * from "./components/info-button";
 
-export { JustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.models.js";
-export {
-  JustifyFormGroupsParameters,
-  JustifyFormGroupsTemplates,
-  storiesOfJustifyFormGroups,
-} from "./components/justify-form-groups/justify-form-groups.stories-of.js";
+export * from "./components/input-range";
+
+export * from "./components/justify-form-groups";
 
 export * from "./components/label";
 
@@ -172,8 +146,6 @@ export * from "./components/progress-bar";
 export * from "./components/progress-indicator";
 
 export * from "./components/project-item";
-
-export * from "./components/input-range";
 
 export * from "./components/renvooi";
 
