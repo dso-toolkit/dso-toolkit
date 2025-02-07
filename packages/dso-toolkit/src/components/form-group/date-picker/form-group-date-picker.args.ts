@@ -1,5 +1,5 @@
 import { ArgTypes } from "@storybook/types";
-import { FormGroupDatePicker } from "../form-group.models";
+import { FormGroupDatePicker } from "./form-group-date-picker.models";
 
 export interface FormGroupDatePickerArgs {
   id: string;

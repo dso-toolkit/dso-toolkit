@@ -3,7 +3,7 @@ import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
 
-import { FormGroupInput, FormGroupInputDate } from "../form-group.models";
+import { FormGroupInput, FormGroupInputDate } from "./form-group-input.models";
 
 export interface FormGroupInputArgs {
   id: string;

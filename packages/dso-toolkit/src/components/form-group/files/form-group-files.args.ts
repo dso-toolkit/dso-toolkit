@@ -1,6 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
-import { FormGroupFiles, FormGroupFilesFile } from "../form-group.models";
+import { FormGroupFiles, FormGroupFilesFile } from "./form-group-files.models";
 
 export interface FormGroupFilesArgs {
   id: string;

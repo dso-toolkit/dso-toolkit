@@ -3,7 +3,7 @@ import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
 
-import { FormGroupTextarea } from "../form-group.models";
+import { FormGroupTextarea } from "./form-group-textarea.models";
 
 export interface FormGroupTextareaArgs {
   id: string;

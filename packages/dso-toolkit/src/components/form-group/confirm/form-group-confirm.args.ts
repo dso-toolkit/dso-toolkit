@@ -1,7 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 import { v4 as uuidv4 } from "uuid";
 
-import { FormGroupConfirm } from "../form-group.models";
+import { FormGroupConfirm } from "./form-group-confirm.models";
 
 export interface FormGroupConfirmArgs {
   id: string;

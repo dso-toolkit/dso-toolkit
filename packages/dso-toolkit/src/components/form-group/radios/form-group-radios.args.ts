@@ -4,7 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { noControl } from "../../../storybook";
 import { v4 as uuidv4 } from "uuid";
 
-import { FormGroupRadios } from "../form-group.models";
+import { FormGroupRadios } from "./form-group-radios.models";
 
 export interface FormGroupRadiosArgs {
   id: string;

@@ -3,7 +3,7 @@ import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
 
-import { FormGroupStatic } from "../form-group.models";
+import { FormGroupStatic } from "./form-group-static.models";
 
 export interface FormGroupStaticArgs {
   id: string;
