@@ -24,7 +24,7 @@ interface CardStories {
   WithToggletip: CardStory;
   WithLabel: CardStory;
   WithSelectableAndButton: CardStory;
-  WithSlidetoggle: CardStory;
+  WithSlideToggle: CardStory;
 }
 
 export interface CardTemplates<TemplateFnReturnType> {
@@ -88,7 +88,7 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
-    WithSlidetoggle: {
+    WithSlideToggle: {
       args: cardContentSlideToggle,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
