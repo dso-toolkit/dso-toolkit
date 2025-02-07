@@ -3,9 +3,9 @@
 @use "../../../variables/media-query-breakpoints";
 @use "../../selectable";
 
-@use "../../grid/index" as css-grid;
-@use "../form-group.variables" as css-form-group-variables;
-@use "../form-group.mixins" as css-form-group-mixins;
+@use "../../grid";
+@use "../form-group.variables" as form-group-variables;
+@use "../form-group.mixins" as form-group-mixins;
 
 .form-group.dso-confirm {
   &.dso-invalid {
@@ -16,14 +16,14 @@
 
   &.dso-required {
     .control-label::after {
-      @include css-form-group-mixins.form-group-required();
+      @include form-group-mixins.form-group-required();
     }
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .form-horizontal & .dso-field-container {
-      margin-inline-start: math.percentage(math.div(css-form-group-variables.$label-column, css-grid.$grid-columns));
-      padding-inline-start: css-grid.$grid-gutter-width * 0.5;
+      margin-inline-start: math.percentage(math.div(form-group-variables.$label-column, grid.$grid-columns));
+      padding-inline-start: grid.$grid-gutter-width * 0.5;
     }
   }
 }

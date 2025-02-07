@@ -1,13 +1,13 @@
 @use "../../../variables/units";
 @use "../../../variables/typography";
 
-@use "../form-group.mixins" as css-form-group-mixins;
-@use "../form-group.variables" as css-form-group-variables;
+@use "../form-group.mixins" as form-group-mixins;
+@use "../form-group.variables" as form-group-variables;
 
 .form-group.dso-textarea {
   &.dso-required {
     .control-label::after {
-      @include css-form-group-mixins.form-group-required();
+      @include form-group-mixins.form-group-required();
     }
   }
 
@@ -18,7 +18,7 @@
       block-size: auto;
 
       &:not([rows]) {
-        $lines-block-size: typography.$line-height-base * css-form-group-variables.$textarea-default-rows * 1em;
+        $lines-block-size: typography.$line-height-base * form-group-variables.$textarea-default-rows * 1em;
         $lines-block-padding: (units.$padding-base-block + 1) * 2;
 
         block-size: calc(#{$lines-block-size} + #{$lines-block-padding});

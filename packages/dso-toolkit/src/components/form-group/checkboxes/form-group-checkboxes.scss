@@ -2,7 +2,7 @@
 @use "../../../variables/media-query-breakpoints";
 @use "../../selectable";
 
-@use "../form-group.mixins" as css-form-group-mixins;
+@use "../form-group.mixins" as form-group-mixins;
 
 .form-group.dso-checkboxes {
   &.dso-invalid {
@@ -13,7 +13,7 @@
 
   &.dso-required {
     .control-label::after {
-      @include css-form-group-mixins.form-group-required();
+      @include form-group-mixins.form-group-required();
     }
   }
 

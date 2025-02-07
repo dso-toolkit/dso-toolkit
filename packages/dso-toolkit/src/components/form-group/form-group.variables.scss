@@ -4,12 +4,12 @@
 @use "../../variables/colors";
 @use "../../variables/typography";
 
-@use "../grid" as css-grid;
+@use "../grid";
 
 $form-selectors: ".form, form, .dso-section-body";
 $form-group-margin: units.$u4;
 $textarea-default-rows: 3 !default;
-$label-column: css-grid.$grid-columns * 0.5;
+$label-column: grid.$grid-columns * 0.5;
 
 $field-invalid-border-color: colors.$danger-color;
 $field-invalid-message-color: colors.$invalid-color;

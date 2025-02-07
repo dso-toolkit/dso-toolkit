@@ -10,9 +10,9 @@
 
 @use "../../di";
 
-@use "../grid" as css-grid;
+@use "../grid";
 
-@use "form-group.variables" as css-form-group-variables;
+@use "form-group.variables" as form-group-variables;
 
 @use "checkboxes/form-group-checkboxes";
 @use "confirm/form-group-confirm";
@@ -25,16 +25,16 @@
 @use "textarea/form-group-textarea";
 
 .form-group {
-  margin-block-end: css-form-group-variables.$form-group-margin-bottom;
+  margin-block-end: form-group-variables.$form-group-margin-bottom;
 
   + .form-group:not(.dso-static),
   + .dso-form-buttons {
-    margin-block-start: css-form-group-variables.$form-group-margin;
+    margin-block-start: form-group-variables.$form-group-margin;
   }
 
   &:not(.dso-static) + .form-group.dso-static,
   &.dso-static + .form-group:not(.dso-static) {
-    margin-block-start: css-form-group-variables.$form-group-margin * 0.5;
+    margin-block-start: form-group-variables.$form-group-margin * 0.5;
   }
 
   &.dso-edit + .form-group {
@@ -104,8 +104,8 @@
     .form-control-feedback {
       color: colors.$bosgroen;
       display: block;
-      block-size: css-form-group-variables.$input-height-base;
-      line-height: css-form-group-variables.$input-height-base;
+      block-size: form-group-variables.$input-height-base;
+      line-height: form-group-variables.$input-height-base;
       pointer-events: none;
       position: absolute;
       inset-inline-end: 0;
@@ -123,20 +123,20 @@
 
   &.dso-invalid {
     .form-control {
-      border-color: css-form-group-variables.$field-invalid-border-color;
+      border-color: form-group-variables.$field-invalid-border-color;
 
       &:focus {
-        box-shadow: inset 0 0 0 form-control.$focus-border-width css-form-group-variables.$field-invalid-border-color;
+        box-shadow: inset 0 0 0 form-control.$focus-border-width form-group-variables.$field-invalid-border-color;
       }
     }
 
     .dso-message {
-      color: css-form-group-variables.$field-invalid-message-color;
+      color: form-group-variables.$field-invalid-message-color;
       padding-inline-start: units.$u4;
       position: relative;
 
       &::before {
-        @include di.base("status-error", css-form-group-variables.$field-invalid-icon-size);
+        @include di.base("status-error", form-group-variables.$field-invalid-icon-size);
 
         // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
         & {
@@ -163,10 +163,10 @@
 
 .form-horizontal .form-group {
   // Make form groups behave like rows
-  @include css-grid.make-row();
+  @include grid.make-row();
 
   > .dso-label-container {
-    @include css-grid.make-sm-column(css-form-group-variables.$label-column);
+    @include grid.make-sm-column(form-group-variables.$label-column);
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       padding-block-start: units.$u1;
@@ -188,7 +188,7 @@
   }
 
   > .dso-field-container {
-    @include css-grid.make-sm-column(css-grid.$grid-columns - css-form-group-variables.$label-column);
+    @include grid.make-sm-column(grid.$grid-columns - form-group-variables.$label-column);
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       margin-block-start: 0;
@@ -196,7 +196,7 @@
   }
 
   &.has-feedback .form-control-feedback {
-    inset-inline-end: math.floor((css-grid.$grid-gutter-width * 0.5));
+    inset-inline-end: math.floor((grid.$grid-gutter-width * 0.5));
   }
 
   > .dso-info {
@@ -210,7 +210,7 @@
   margin-block-start: units.$block-spacing-xlarge;
 }
 
-#{css-form-group-variables.$form-selectors} {
+#{form-group-variables.$form-selectors} {
   .dso-field-container {
     position: relative;
   }
