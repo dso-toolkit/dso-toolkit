@@ -19,7 +19,7 @@ export class OzonContentExtRefNode implements OzonContentNode {
         class={className}
         title="Opent andere website in nieuw tabblad"
       >
-        {mapNodeToJsx(node.childNodes)}
+        <span>{mapNodeToJsx(node.childNodes)}</span>
         <dso-icon icon="external-link"></dso-icon>
       </a>
     );

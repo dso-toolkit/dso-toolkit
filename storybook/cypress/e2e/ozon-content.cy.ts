@@ -202,7 +202,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it.only("should render ExtRef element", () => {
+  it("should render ExtRef element", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
     cy.get("dso-ozon-content").then((c) => {
