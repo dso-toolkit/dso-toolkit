@@ -21,6 +21,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
             (
               {
                 handleTitle,
+                wijzigactie,
                 heading,
                 attachmentCount,
                 content,
@@ -43,6 +44,7 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
                 key={`dsoAccordionSection-${i}`}
                 open={open}
                 handleTitle={handleTitle}
+                wijzigactie={wijzigactie}
                 heading={heading}
                 handleUrl={handleUrl}
                 statusDescription={statusDescription}

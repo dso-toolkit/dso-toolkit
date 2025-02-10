@@ -10,6 +10,7 @@ import {
   alignmentSections,
   anchorSections,
   basicSections,
+  renvooiSections,
   subSections,
 } from "./accordion.content";
 
