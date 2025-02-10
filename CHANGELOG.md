@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Panel: Optie "emphasized" ([#2978](https://github.com/dso-toolkit/dso-toolkit/issues/2978))
+
 ### Changed
 * Document Component: Tooltip bij Ontwerp wijzigen ([#2929](https://github.com/dso-toolkit/dso-toolkit/issues/2929))
 

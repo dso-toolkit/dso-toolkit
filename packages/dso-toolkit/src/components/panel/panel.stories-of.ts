@@ -11,6 +11,7 @@ type PanelStory = StoryObj<PanelArgs, Renderer>;
 
 interface PanelStories {
   Default: PanelStory;
+  Emphasized: PanelStory;
 }
 
 interface PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -45,6 +46,12 @@ export function panelStories<Implementation, Templates, TemplateFnReturnType>({
 }: PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PanelStories {
   return {
     Default: {
+      render: templateContainer.render(storyTemplates, (args, { panelTemplate, children, heading }) =>
+        panelTemplate(panelArgsMapper(args, children, heading)),
+      ),
+    },
+    Emphasized: {
+      args: { emphasized: true },
       render: templateContainer.render(storyTemplates, (args, { panelTemplate, children, heading }) =>
         panelTemplate(panelArgsMapper(args, children, heading)),
       ),

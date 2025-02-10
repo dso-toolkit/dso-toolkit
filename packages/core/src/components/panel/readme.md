@@ -6,9 +6,10 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                               | Type                  | Default     |
-| ------------------ | -------------------- | ----------------------------------------- | --------------------- | ----------- |
-| `closeButtonLabel` | `close-button-label` | The accessible name for the close button. | `string \| undefined` | `undefined` |
+| Property           | Attribute            | Description                                  | Type                  | Default     |
+| ------------------ | -------------------- | -------------------------------------------- | --------------------- | ----------- |
+| `closeButtonLabel` | `close-button-label` | The accessible name for the close button.    | `string \| undefined` | `undefined` |
+| `emphasized`       | `emphasized`         | To display the panel as an emphasized panel. | `boolean`             | `false`     |
 
 
 ## Events

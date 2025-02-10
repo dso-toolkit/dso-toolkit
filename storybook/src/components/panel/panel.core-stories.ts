@@ -13,7 +13,7 @@ const meta: Meta<PanelArgs> = {
 
 export default meta;
 
-const { Default } = panelStories({
+const { Default, Emphasized } = panelStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { panelTemplate, richContentTemplate } = templates;
@@ -47,4 +47,4 @@ const { Default } = panelStories({
   },
 });
 
-export { Default };
+export { Default, Emphasized };
