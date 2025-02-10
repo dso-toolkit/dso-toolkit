@@ -1004,7 +1004,7 @@ export namespace Components {
         /**
           * To display the panel as an emphasized panel.
          */
-        "emphasized"?: boolean;
+        "emphasized": boolean;
     }
     interface DsoPlekinfoCard {
         /**

@@ -31,7 +31,7 @@ export class Panel implements ComponentInterface {
    * To display the panel as an emphasized panel.
    */
   @Prop()
-  emphasized?: boolean;
+  emphasized = false;
 
   /**
    * Emitted when the user click the close button.
