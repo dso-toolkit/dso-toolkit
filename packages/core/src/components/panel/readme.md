@@ -32,6 +32,7 @@
 ### Used by
 
  - [dso-document-component](../document-component)
+ - [dso-survey-rating](../survey-rating)
 
 ### Depends on
 
@@ -42,6 +43,7 @@
 graph TD;
   dso-panel --> dso-icon
   dso-document-component --> dso-panel
+  dso-survey-rating --> dso-panel
   style dso-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

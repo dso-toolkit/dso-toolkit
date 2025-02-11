@@ -167,6 +167,8 @@ export * from "./components/skiplink";
 
 export * from "./components/slide-toggle";
 
+export * from "./components/survey-rating";
+
 export * from "./components/table";
 
 export * from "./components/tabs";

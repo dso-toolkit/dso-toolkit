@@ -43,6 +43,7 @@ import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
+import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
@@ -84,6 +85,7 @@ export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
+export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
@@ -1163,6 +1165,8 @@ export namespace Components {
          */
         "labelledbyId"?: string;
     }
+    interface DsoSurveyRating {
+    }
     interface DsoTab {
         "_dsoFocus": () => Promise<void>;
         /**
@@ -1467,6 +1471,10 @@ export interface DsoSkiplinkCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSlideToggleElement;
+}
+export interface DsoSurveyRatingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSurveyRatingElement;
 }
 export interface DsoTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2251,6 +2259,24 @@ declare global {
         prototype: HTMLDsoSlideToggleElement;
         new (): HTMLDsoSlideToggleElement;
     };
+    interface HTMLDsoSurveyRatingElementEventMap {
+        "dsoSubmit": SurveyRatingSubmitEvent;
+        "dsoClose": SurveyRatingCloseEvent;
+    }
+    interface HTMLDsoSurveyRatingElement extends Components.DsoSurveyRating, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSurveyRatingElementEventMap>(type: K, listener: (this: HTMLDsoSurveyRatingElement, ev: DsoSurveyRatingCustomEvent<HTMLDsoSurveyRatingElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSurveyRatingElementEventMap>(type: K, listener: (this: HTMLDsoSurveyRatingElement, ev: DsoSurveyRatingCustomEvent<HTMLDsoSurveyRatingElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoSurveyRatingElement: {
+        prototype: HTMLDsoSurveyRatingElement;
+        new (): HTMLDsoSurveyRatingElement;
+    };
     interface HTMLDsoTabElementEventMap {
         "dsoTabSwitch": TabsSwitchEvent;
     }
@@ -2411,6 +2437,7 @@ declare global {
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-skiplink": HTMLDsoSkiplinkElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
+        "dso-survey-rating": HTMLDsoSurveyRatingElement;
         "dso-tab": HTMLDsoTabElement;
         "dso-table": HTMLDsoTableElement;
         "dso-tabs": HTMLDsoTabsElement;
@@ -3720,6 +3747,16 @@ declare namespace LocalJSX {
          */
         "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
     }
+    interface DsoSurveyRating {
+        /**
+          * Emitted when the user wants to close the  Survey Ratin.
+         */
+        "onDsoClose"?: (event: DsoSurveyRatingCustomEvent<SurveyRatingCloseEvent>) => void;
+        /**
+          * Emitted when user submits the Survey Rating.
+         */
+        "onDsoSubmit"?: (event: DsoSurveyRatingCustomEvent<SurveyRatingSubmitEvent>) => void;
+    }
     interface DsoTab {
         /**
           * Makes the tab active. The tab for which the tabpanel is visible is the active tab.
@@ -3983,6 +4020,7 @@ declare namespace LocalJSX {
         "dso-selectable": DsoSelectable;
         "dso-skiplink": DsoSkiplink;
         "dso-slide-toggle": DsoSlideToggle;
+        "dso-survey-rating": DsoSurveyRating;
         "dso-tab": DsoTab;
         "dso-table": DsoTable;
         "dso-tabs": DsoTabs;
@@ -4057,6 +4095,7 @@ declare module "@stencil/core" {
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
+            "dso-survey-rating": LocalJSX.DsoSurveyRating & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;
             "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-tabs": LocalJSX.DsoTabs & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;

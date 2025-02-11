@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Survey Rating: Nieuw component ([#2603](https://github.com/dso-toolkit/dso-toolkit/issues/2603))
+
 ## 🎶 Release 68.3.0 - 2025-02-13
 
 ### Added
