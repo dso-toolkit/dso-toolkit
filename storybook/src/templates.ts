@@ -89,6 +89,7 @@ import {
   ShoppingCart,
   Skiplink,
   SlideToggle,
+  SurveyRating,
   Table,
   Tabs,
   TemplateContainer,
@@ -151,6 +152,7 @@ import { coreScrollable } from "./components/scrollable/scrollable.core-template
 import { coreSelectable } from "./components/selectable/selectable.core-template";
 import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
+import { coreSurveyRating } from "./components/survey-rating/survey-rating.core-template";
 import { coreTable } from "./components/table/table.core-template";
 import { coreTabs } from "./components/tabs/tabs.core-template";
 import { coreToggletip } from "./components/toggletip/toggletip.core-template";
@@ -240,8 +242,8 @@ export interface Components {
   cardContainer: CardContainer<TemplateResult>;
   cardGrid: CardGrid<TemplateResult>;
   cardList: CardList<TemplateResult>;
-  context: Context<TemplateResult>;
   contactInformation: ContactInformation<TemplateResult | string>;
+  context: Context<TemplateResult>;
   datePicker: DatePicker;
   datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
@@ -308,6 +310,7 @@ export interface Components {
   shoppingCart: ShoppingCart;
   skiplink: Skiplink;
   slideToggle: SlideToggle;
+  surveyRating: SurveyRating;
   table: Table<TemplateResult>;
   tabs: Tabs<TemplateResult>;
   tile: Tile;
@@ -394,6 +397,7 @@ templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
+templateContainer.add(coreSurveyRating);
 templateContainer.add(coreTable);
 templateContainer.add(coreTabs);
 templateContainer.add(coreToggletip);

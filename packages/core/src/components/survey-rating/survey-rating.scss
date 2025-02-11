@@ -1,0 +1,133 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+
+@use "survey-rating.variables" as survey-rating-variables;
+
+:host {
+  display: block;
+  position: absolute;
+  inset-block-end: units.$u2;
+  inset-inline-start: units.$u2;
+  inline-size: survey-rating-variables.$survey-rating-inline-size;
+  box-shadow: -3px 3px 6px 0 rgba(0, 0, 0, 0.5);
+  border-radius: survey-rating-variables.$survey-rating-border-radius;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+.visual-rating-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-block: units.$u1;
+}
+
+input[type="radio"] {
+  appearance: none;
+  position: absolute;
+  margin-inline: 0;
+  margin-block: 0;
+  inset-block: units.$u1 0;
+  inset-inline: 0;
+  z-index: 1;
+}
+
+label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: survey-rating-variables.$survey-rating-input-label-size;
+  block-size: survey-rating-variables.$survey-rating-input-label-size;
+  border: 1px solid survey-rating-variables.$survey-rating-border-color;
+  border-inline-end-width: 0;
+  padding-block-start: units.$u1;
+
+  &:hover {
+    background-color: survey-rating-variables.$survey-rating-color-hover;
+  }
+
+  &:active {
+    background-color: survey-rating-variables.$survey-rating-color-active;
+  }
+
+  &:first-of-type {
+    border-radius: survey-rating-variables.$survey-rating-border-radius 0 0
+      survey-rating-variables.$survey-rating-border-radius;
+
+    &::before {
+      border-radius: (survey-rating-variables.$survey-rating-border-radius - 1) 0 0;
+    }
+  }
+
+  &:last-of-type {
+    border-inline-end-width: 1px;
+    border-radius: 0 survey-rating-variables.$survey-rating-border-radius
+      survey-rating-variables.$survey-rating-border-radius 0;
+
+    &::before {
+      border-radius: 0 (survey-rating-variables.$survey-rating-border-radius - 1) 0 0;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset-block-start: 0;
+    block-size: units.$u1;
+    inline-size: 100%;
+    border-block-end: 1px solid survey-rating-variables.$survey-rating-border-color;
+  }
+
+  &:has(input:checked) {
+    font-weight: bold;
+  }
+
+  @each $survey-rating in survey-rating-variables.$survey-ratings {
+    $i: list.index(survey-rating-variables.$survey-ratings, $survey-rating);
+    $color: map.get($survey-rating, color);
+
+    &.survey-rating-#{$i} {
+      &::before,
+      &:has(input:checked) {
+        @include set-colors.apply($color, survey-rating-variables.$survey-rating-border-color);
+      }
+    }
+  }
+}
+
+button {
+  @include button.element();
+
+  &.dso-secondary {
+    @include button.secondary($base-styling: true);
+  }
+
+  margin-block-start: units.$u2;
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  :host {
+    inline-size: survey-rating-variables.$survey-rating-xs-min-inline-size;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+
+    --panel-heading-padding-inline-start: #{units.$u1};
+    --panel-body-padding-inline: #{units.$u1};
+  }
+
+  label {
+    inline-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
+    block-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
+  }
+}

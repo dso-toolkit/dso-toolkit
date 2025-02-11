@@ -1,0 +1,38 @@
+@use "sass:math";
+
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+$survey-rating-inline-size: 370px;
+$survey-rating-xs-min-inline-size: 320px;
+$survey-rating-input-label-size: units.$u6;
+$survey-rating-rating-label-xs-min-size: units.$u5 + 3px;
+$survey-rating-border-radius: math.div(units.$u1, 2);
+$survey-rating-border-color: colors.$grijs-20;
+
+$survey-rating-color-hover: colors.$grijs-5;
+$survey-rating-color-active: colors.$grijs-10;
+
+$survey-ratings: (
+  (
+    color: colors.$rood-110,
+  ),
+  (
+    color: colors.$rood,
+  ),
+  (
+    color: colors.$oranje,
+  ),
+  (
+    color: colors.$geel,
+  ),
+  (
+    color: colors.$lime,
+  ),
+  (
+    color: colors.$grasgroen,
+  ),
+  (
+    color: colors.$bosgroen,
+  )
+);

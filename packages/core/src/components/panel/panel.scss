@@ -23,7 +23,8 @@
   align-items: flex-start;
 
   padding-block: units.$u1;
-  padding-inline: units.$u2 units.$u1;
+  padding-inline-start: var(--panel-heading-padding-inline-start, panel-variables.$panel-heading-padding-inline-start);
+  padding-inline-end: units.$u1;
 
   border-block-end: 1px solid colors.$grijs-30;
 
@@ -68,7 +69,7 @@
 
 .panel-body {
   padding-block: units.$u2;
-  padding-inline: units.$u2;
+  padding-inline: var(--panel-body-padding-inline, panel-variables.$panel-body-padding-inline);
 
   background-color: var(--_dso-panel-body-background-color, transparent);
 }
