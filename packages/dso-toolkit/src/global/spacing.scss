@@ -59,6 +59,11 @@
   }
 }
 
+// https://github.com/dso-toolkit/dso-toolkit/issues/2989
+.dso-app-heading + * {
+  margin-block-start: units.$block-spacing-medium;
+}
+
 $spacers: (
   (
     space: units.$block-spacing-small,
