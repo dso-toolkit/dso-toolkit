@@ -73,10 +73,12 @@ $spacers: (
     space: units.$block-spacing-medium,
     predecessors: (
       ".dso-app-heading",
+      "dso-contact-information",
     ),
     successors: (
       ".dso-context-wrapper",
       "dso-tabs",
+      "dso-contact-information",
     ),
   ),
   (

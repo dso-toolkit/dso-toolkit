@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Tooltip: Exceptie bij unmounten ([#2997](https://github.com/dso-toolkit/dso-toolkit/issues/2997))
+* Verticaal Ritme: Marge ontbreekt bij meerdere Contact Information ([#2999](https://github.com/dso-toolkit/dso-toolkit/issues/2999))
 
 ### Task
 * Packages: Dependencies updates ([#2951](https://github.com/dso-toolkit/dso-toolkit/issues/2951))
