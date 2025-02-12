@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Document Component: Tooltip bij Ontwerp wijzigen ([#2929](https://github.com/dso-toolkit/dso-toolkit/issues/2929))
 
+### Fixed
+* Tooltip: Exceptie bij unmounten ([#2997](https://github.com/dso-toolkit/dso-toolkit/issues/2997))
+
 ### Task
 * Packages: Dependencies updates ([#2951](https://github.com/dso-toolkit/dso-toolkit/issues/2951))
 

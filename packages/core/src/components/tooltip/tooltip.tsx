@@ -1,6 +1,6 @@
 import { beforeWrite, createPopper, Instance as PopperInstance, Placement, State as PopperState } from "@popperjs/core";
 import maxSize from "popper-max-size-modifier";
-import { h, Component, Element, Host, Method, Prop, State, Watch } from "@stencil/core";
+import { h, Component, Element, Host, Method, Prop, State, Watch, ComponentInterface } from "@stencil/core";
 import clsx from "clsx";
 import { hasOverflow } from "../../utils/has-overflow";
 import debounce from "debounce";
@@ -31,7 +31,7 @@ const applyMaxSize = {
   styleUrl: "tooltip.scss",
   shadow: true,
 })
-export class Tooltip {
+export class Tooltip implements ComponentInterface {
   /**
    * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
    */
@@ -164,7 +164,15 @@ export class Tooltip {
 
   private callbacks: TooltipCallbacks = {
     activate: () => (this.active = true),
-    deactivate: () => (this.active = false),
+    deactivate: () => {
+      // Zie https://github.com/dso-toolkit/dso-toolkit/issues/2997#issuecomment-2654330094 voor de aanleiding
+      // van setTimeout() met 2ms.
+      setTimeout(() => {
+        if (this.element.isConnected) {
+          this.active = false;
+        }
+      }, 2);
+    },
   };
 
   private onMouseLeave = () => {
