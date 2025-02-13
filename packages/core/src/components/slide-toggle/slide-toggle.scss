@@ -1,10 +1,13 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/typography";
+
+$slide-toggle-height: 200px;
 
 :host {
   display: inline-block;
-  padding-block-start: 2px;
+  padding-block-start: (typography.$line-height-base * typography.$font-size-base - $slide-toggle-height) * 0.5;
 }
 
 button.dso-slider {
