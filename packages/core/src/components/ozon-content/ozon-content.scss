@@ -1,5 +1,3 @@
-@use "~dso-toolkit/src/utilities";
-
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 
@@ -21,10 +19,6 @@
 
 :host([inline]) {
   display: inline;
-}
-
-.sr-only {
-  @include utilities.sr-only();
 }
 
 button.toggle-note {
