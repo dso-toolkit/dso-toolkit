@@ -9,7 +9,7 @@ export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> =
   template: () =>
     function accordionTemplate({ variant, reverseAlign, sections }) {
       return html`
-        <dso-accordion variant=${ifDefined(variant)} ?reverse-align=${reverseAlign}>
+        <dso-accordion .variant=${variant} ?reverse-align=${reverseAlign}>
           ${sections.map(
             ({
               handleTitle,

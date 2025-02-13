@@ -14,7 +14,7 @@ import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
 export interface AccordionArgs {
-  variant: undefined | "compact" | "conclusion" | "neutral" | "compact-black";
+  variant: undefined | "default" | "compact" | "conclusion" | "neutral" | "compact-black";
   reverseAlign: boolean;
   dsoToggleClick: HandlerFunction;
   dsoAnimationStart: HandlerFunction;
@@ -41,12 +41,9 @@ export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open" | 
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   variant: {
-    options: [undefined, "compact", "conclusion", "neutral", "compact-black"],
+    options: [undefined, "default", "compact", "conclusion", "neutral", "compact-black"],
     control: {
       type: "select",
-      labels: {
-        undefined: "default",
-      },
     },
   },
   reverseAlign: {

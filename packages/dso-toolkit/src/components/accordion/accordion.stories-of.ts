@@ -118,7 +118,6 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     AddonsSections: {
-      args: {},
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, addonsSections }) =>
         accordionTemplate(accordionArgsMapper(args, addonsSections)),
       ),
