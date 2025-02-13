@@ -16,7 +16,7 @@ export class SurveyRating implements ComponentInterface {
   dsoSubmit!: EventEmitter<SurveyRatingSubmitEvent>;
 
   /**
-   * Emitted when the user wants to close the  Survey Ratin.
+   * Emitted when the user wants to close the  Survey Rating.
    */
   @Event()
   dsoClose!: EventEmitter<SurveyRatingCloseEvent>;

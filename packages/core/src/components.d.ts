@@ -3749,7 +3749,7 @@ declare namespace LocalJSX {
     }
     interface DsoSurveyRating {
         /**
-          * Emitted when the user wants to close the  Survey Ratin.
+          * Emitted when the user wants to close the  Survey Rating.
          */
         "onDsoClose"?: (event: DsoSurveyRatingCustomEvent<SurveyRatingCloseEvent>) => void;
         /**
