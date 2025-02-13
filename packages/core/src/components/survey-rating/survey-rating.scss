@@ -17,6 +17,15 @@
   inline-size: survey-rating-variables.$survey-rating-inline-size;
   box-shadow: -3px 3px 6px 0 rgba(0, 0, 0, 0.5);
   border-radius: survey-rating-variables.$survey-rating-border-radius;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    inline-size: survey-rating-variables.$survey-rating-xs-min-inline-size;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+
+    --panel-heading-padding-inline-start: #{units.$u1};
+    --panel-body-padding-inline: #{units.$u1};
+  }
 }
 
 @include utilities.box-sizing();
@@ -33,6 +42,7 @@
 
 input[type="radio"] {
   appearance: none;
+  cursor: pointer;
   position: absolute;
   margin-inline: 0;
   margin-block: 0;
@@ -51,6 +61,11 @@ label {
   border: 1px solid survey-rating-variables.$survey-rating-border-color;
   border-inline-end-width: 0;
   padding-block-start: units.$u1;
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    inline-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
+    block-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
+  }
 
   &:hover {
     background-color: survey-rating-variables.$survey-rating-color-hover;
@@ -114,20 +129,4 @@ button {
   }
 
   margin-block-start: units.$u2;
-}
-
-@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-  :host {
-    inline-size: survey-rating-variables.$survey-rating-xs-min-inline-size;
-    inset-block-end: 0;
-    inset-inline-start: 0;
-
-    --panel-heading-padding-inline-start: #{units.$u1};
-    --panel-body-padding-inline: #{units.$u1};
-  }
-
-  label {
-    inline-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
-    block-size: survey-rating-variables.$survey-rating-rating-label-xs-min-size;
-  }
 }
