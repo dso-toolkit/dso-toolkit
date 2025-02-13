@@ -1,7 +1,5 @@
-import { h, Component, ComponentInterface, Prop, Host, Method, Watch, Element } from "@stencil/core";
-
+import { h, Component, ComponentInterface, Prop, Host, Method, Element } from "@stencil/core";
 import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";
-
 import { createStore } from "@stencil/store";
 
 @Component({
@@ -10,33 +8,44 @@ import { createStore } from "@stencil/store";
   shadow: true,
 })
 export class Accordion implements ComponentInterface {
-  private accordionState: AccordionInternalState;
+  private readonly accordionState: AccordionInternalState;
 
   @Element()
   host!: HTMLDsoAccordionElement;
 
+  constructor() {
+    const { state } = createStore<AccordionInternalState>({
+      variant: "default",
+      reverseAlign: false,
+    });
+
+    this.accordionState = state;
+  }
+
   /**
    * The variant of the Accordion.
    */
-  @Prop({ reflect: true })
-  variant: AccordionVariant = "default";
+  // eslint-disable-next-line @stencil-community/decorators-context
+  @Prop()
+  get variant(): AccordionVariant {
+    return this.accordionState.variant;
+  }
+  set variant(value: AccordionVariant) {
+    this.accordionState.variant = value || "default";
+  }
 
   /**
    * Places the chevron at the opposite side.
    *
    * Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
    */
-  @Prop({ reflect: true })
-  reverseAlign = false;
-
-  @Watch("variant")
-  updateVariant(variant: AccordionVariant = "default") {
-    this.accordionState.variant = variant;
+  // eslint-disable-next-line @stencil-community/decorators-context
+  @Prop()
+  get reverseAlign() {
+    return this.accordionState.reverseAlign;
   }
-
-  @Watch("reverseAlign")
-  updateReverseAlign(reverseAlign: boolean) {
-    this.accordionState.reverseAlign = reverseAlign;
+  set reverseAlign(value: boolean) {
+    this.accordionState.reverseAlign = value || false;
   }
 
   /**
@@ -45,17 +54,6 @@ export class Accordion implements ComponentInterface {
   @Method()
   async _getState(): Promise<AccordionInternalState> {
     return this.accordionState;
-  }
-
-  componentWillLoad() {
-    this.accordionState.variant = this.variant;
-    this.accordionState.reverseAlign = this.reverseAlign;
-  }
-
-  constructor() {
-    const { state } = createStore<AccordionInternalState>({});
-
-    this.accordionState = state;
   }
 
   render() {
