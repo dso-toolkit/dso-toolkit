@@ -15,7 +15,7 @@ import { OzonContentIntRefNode } from "./nodes/int-ref.node";
 import { OzonContentLijstNode } from "./nodes/lijst.node";
 import { OzonContentNieuweTekstNode } from "./nodes/nieuwe-tekst.node";
 import { OzonContentNootNode } from "./nodes/noot.node";
-import { OzonContentOpschriftNode } from "./nodes/opschrift.node";
+import { OzonContentKopNode } from "./nodes/kop.node";
 import { OzonContentTableNode } from "./nodes/table.node";
 import { OzonContentTextNode } from "./nodes/text.node";
 import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";
@@ -28,7 +28,7 @@ export class Mapper {
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
     new OzonContentInhoudNode(),
-    new OzonContentOpschriftNode(),
+    new OzonContentKopNode(),
     new OzonContentIntRefNode(),
     new OzonContentExtRefNode(),
     new OzonContentAlNode(),
@@ -74,11 +74,35 @@ export class Mapper {
 
   mapNodeToJsx(node: Node | Node[] | NodeList, context: OzonContentContext, path: Node[]): JSX.Element {
     if (node instanceof NodeList) {
-      return <Fragment>{Array.from(node).map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
+      return (
+        <Fragment>
+          {Array.from(node).map((n, index, arr) => {
+            const isLast = index === arr.length - 1;
+            return (
+              <>
+                {this.mapNodeToJsx(n, context, path)}
+                {context.addSpaceAfterNode && !isLast && " "}
+              </>
+            );
+          })}
+        </Fragment>
+      );
     }
 
     if (Array.isArray(node)) {
-      return <Fragment>{node.map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
+      return (
+        <Fragment>
+          {node.map((n, index, arr) => {
+            const isLast = index === arr.length - 1;
+            return (
+              <>
+                {this.mapNodeToJsx(n, context, path)}
+                {context.addSpaceAfterNode && !isLast && " "}
+              </>
+            );
+          })}
+        </Fragment>
+      );
     }
 
     const nodeName = getNodeName(node);

@@ -562,6 +562,10 @@ export namespace Components {
          */
         "inhoud"?: DocumentComponentInputType;
         /**
+          * The Kop XML.
+         */
+        "kop"?: DocumentComponentInputType;
+        /**
           * The Label XML.
          */
         "label"?: DocumentComponentInputType;
@@ -971,6 +975,10 @@ export namespace Components {
         "showCloseButton": boolean;
     }
     interface DsoOzonContent {
+        /**
+          * Adds a non breaking space to the node element.
+         */
+        "addSpaceAfterNode": boolean;
         /**
           * The XML to be rendered.
          */
@@ -3008,6 +3016,10 @@ declare namespace LocalJSX {
          */
         "inhoud"?: DocumentComponentInputType;
         /**
+          * The Kop XML.
+         */
+        "kop"?: DocumentComponentInputType;
+        /**
           * The Label XML.
          */
         "label"?: DocumentComponentInputType;
@@ -3523,6 +3535,10 @@ declare namespace LocalJSX {
         "showCloseButton"?: boolean;
     }
     interface DsoOzonContent {
+        /**
+          * Adds a non breaking space to the node element.
+         */
+        "addSpaceAfterNode"?: boolean;
         /**
           * The XML to be rendered.
          */

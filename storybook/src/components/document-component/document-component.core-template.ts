@@ -20,6 +20,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       gereserveerd,
       heading,
       inhoud,
+      kop,
       label,
       notApplicable,
       nummer,
@@ -50,6 +51,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .alternativeTitle=${ifDefined(alternativeTitle)}
           .heading=${heading}
           .inhoud=${ifDefined(inhoud)}
+          .kop=${ifDefined(kop)}
           .nummer=${ifDefined(nummer)}
           .opschrift=${ifDefined(opschrift)}
           .label=${ifDefined(label)}

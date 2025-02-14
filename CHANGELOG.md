@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Document Component: `<Kop>` ([#2974](https://github.com/dso-toolkit/dso-toolkit/issues/2974))
+
 ## 🐇 Release 68.4.0 - 2025-02-17
 
 ### Changed

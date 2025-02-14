@@ -5,6 +5,7 @@ import { OzonContentAnchorClickEvent, OzonContentMarkFunction } from "./ozon-con
 
 export interface OzonContentContext {
   state: OzonContentNodeState;
+  addSpaceAfterNode: boolean;
   inline: boolean;
   mark: OzonContentMarkFunction | undefined;
   setState(state: OzonContentNodeState): void;
