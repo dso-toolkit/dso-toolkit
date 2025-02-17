@@ -45,7 +45,7 @@ export class OzonContent implements ComponentInterface {
    * Adds a non breaking space to the node element.
    */
   @Prop({ reflect: true })
-  addSpaceAfterNode = false;
+  addSpaceBeforeNode = false;
 
   /**
    * To mark text.
@@ -80,7 +80,7 @@ export class OzonContent implements ComponentInterface {
   render(): JSX.Element {
     const context: OzonContentContext = {
       state: this.state,
-      addSpaceAfterNode: this.addSpaceAfterNode,
+      addSpaceBeforeNode: this.addSpaceBeforeNode,
       inline: this.inline,
       mark: this.mark,
       setState: (state) => (this.state = state),

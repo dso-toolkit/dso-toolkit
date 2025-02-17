@@ -76,12 +76,11 @@ export class Mapper {
     if (node instanceof NodeList) {
       return (
         <Fragment>
-          {Array.from(node).map((n, index, arr) => {
-            const isLast = index === arr.length - 1;
+          {Array.from(node).map((n, index) => {
             return (
               <>
+                {context.addSpaceBeforeNode && index > 0 && " "}
                 {this.mapNodeToJsx(n, context, path)}
-                {context.addSpaceAfterNode && !isLast && " "}
               </>
             );
           })}
@@ -92,12 +91,11 @@ export class Mapper {
     if (Array.isArray(node)) {
       return (
         <Fragment>
-          {node.map((n, index, arr) => {
-            const isLast = index === arr.length - 1;
+          {node.map((n, index) => {
             return (
               <>
+                {context.addSpaceBeforeNode && index > 0 && " "}
                 {this.mapNodeToJsx(n, context, path)}
-                {context.addSpaceAfterNode && !isLast && " "}
               </>
             );
           })}

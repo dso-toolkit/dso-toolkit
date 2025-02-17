@@ -567,6 +567,7 @@ export namespace Components {
         "kop"?: DocumentComponentInputType;
         /**
           * The Label XML.
+          * @deprecated Use `kop` instead.
          */
         "label"?: DocumentComponentInputType;
         /**
@@ -583,6 +584,7 @@ export namespace Components {
         "notApplicable": boolean;
         /**
           * The Nummer XML.
+          * @deprecated Use `kop` instead.
          */
         "nummer"?: DocumentComponentInputType;
         /**
@@ -595,6 +597,7 @@ export namespace Components {
         "openAnnotation": boolean;
         /**
           * The Opschrift XML.
+          * @deprecated Use `kop` instead.
          */
         "opschrift"?: DocumentComponentInputType;
         /**
@@ -978,7 +981,7 @@ export namespace Components {
         /**
           * Adds a non breaking space to the node element.
          */
-        "addSpaceAfterNode": boolean;
+        "addSpaceBeforeNode": boolean;
         /**
           * The XML to be rendered.
          */
@@ -3021,6 +3024,7 @@ declare namespace LocalJSX {
         "kop"?: DocumentComponentInputType;
         /**
           * The Label XML.
+          * @deprecated Use `kop` instead.
          */
         "label"?: DocumentComponentInputType;
         /**
@@ -3037,6 +3041,7 @@ declare namespace LocalJSX {
         "notApplicable"?: boolean;
         /**
           * The Nummer XML.
+          * @deprecated Use `kop` instead.
          */
         "nummer"?: DocumentComponentInputType;
         /**
@@ -3073,6 +3078,7 @@ declare namespace LocalJSX {
         "openAnnotation"?: boolean;
         /**
           * The Opschrift XML.
+          * @deprecated Use `kop` instead.
          */
         "opschrift"?: DocumentComponentInputType;
         /**
@@ -3538,7 +3544,7 @@ declare namespace LocalJSX {
         /**
           * Adds a non breaking space to the node element.
          */
-        "addSpaceAfterNode"?: boolean;
+        "addSpaceBeforeNode"?: boolean;
         /**
           * The XML to be rendered.
          */

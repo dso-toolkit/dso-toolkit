@@ -48,18 +48,21 @@ export class DocumentComponent implements ComponentInterface {
 
   /**
    * The Label XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   label?: DocumentComponentInputType;
 
   /**
    * The Nummer XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   nummer?: DocumentComponentInputType;
 
   /**
    * The Opschrift XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   opschrift?: DocumentComponentInputType;
@@ -306,7 +309,7 @@ export class DocumentComponent implements ComponentInterface {
                   {this.kop && (
                     <dso-ozon-content
                       content={this.kop}
-                      addSpaceAfterNode
+                      addSpaceBeforeNode
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>

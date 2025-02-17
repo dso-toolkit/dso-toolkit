@@ -4,7 +4,7 @@ import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
 export class OzonContentKopNode implements OzonContentNode {
-  name = ["Opschrift", "label", "nummer", "kop"];
+  name = ["Opschrift", "Label", "Nummer", "Kop"];
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     let content = mapNodeToJsx(node.childNodes);
