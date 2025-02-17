@@ -129,7 +129,7 @@
 
 dso-slide-toggle {
   position: absolute;
-  inset-block-start: 0.75em;
+  inset-block-start: accordion.$block-padding - accordion.$compact-border-width;
   inset-inline-end: units.$u1;
 }
 
