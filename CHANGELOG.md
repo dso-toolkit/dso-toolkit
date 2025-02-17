@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🐇 Release 68.4.0 - 2025-02-17
+
 ### Changed
 * Slide Toggle: Uitlijning klopt niet met titel in Annotation component ([#2946](https://github.com/dso-toolkit/dso-toolkit/issues/2946))
 
