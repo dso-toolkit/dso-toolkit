@@ -28,6 +28,9 @@ import {
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
+
+import { DsoSlideToggleCustomEvent } from "../../../components";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -35,21 +38,34 @@ const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
   open: boolean;
+  showSlideToggle: boolean;
+  active: boolean;
+  onActiveChange: (e: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
   handleElementRef: (element: HTMLAnchorElement | HTMLButtonElement | undefined) => void;
   onClick: (e: MouseEvent) => void;
-}> = ({ handleUrl, onClick, open, handleElementRef }, children) => {
+}> = ({ handleUrl, onClick, open, showSlideToggle, active, onActiveChange, handleElementRef }, children) => {
   if (handleUrl) {
     return (
-      <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
-        {children}
-      </a>
+      <>
+        <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+          {children}
+        </a>
+        {showSlideToggle && (
+          <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
+        )}
+      </>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
-      {children}
-    </button>
+    <>
+      <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+        {children}
+      </button>
+      {showSlideToggle && (
+        <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
+      )}
+    </>
   );
 };
 
@@ -341,6 +357,14 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
+  private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {
+    this.dsoActiveChange.emit({
+      current: Boolean(this.active),
+      next: !this.active,
+      originalEvent: event,
+    });
+  };
+
   private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
@@ -399,6 +423,9 @@ export class AccordionSection implements ComponentInterface {
             handleUrl={this.handleUrl}
             onClick={this.handleClick}
             open={this.open}
+            showSlideToggle={showSlideToggle}
+            active={this.active}
+            onActiveChange={this.handleActiveChange}
             handleElementRef={(e) => (this.handleElementRef = e)}
           >
             {reverseAlign ? (
@@ -445,19 +472,6 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
-        {showSlideToggle && (
-          <dso-slide-toggle
-            accessibleLabel="Toon op kaart"
-            checked={this.active}
-            onDsoActiveChange={(e) =>
-              this.dsoActiveChange.emit({
-                current: Boolean(this.active),
-                next: !this.active,
-                originalEvent: e,
-              })
-            }
-          />
-        )}
         <dso-expandable
           class="dso-section-body"
           open={this.open}

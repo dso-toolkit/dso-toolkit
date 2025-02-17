@@ -119,20 +119,6 @@
   }
 }
 
-:host(.dso-accordion-section-activate) {
-  position: relative;
-
-  .dso-section-handle {
-    max-inline-size: calc(100% - #{accordion-variables.$slide-toggle-inline-size} - #{units.$u1} - #{units.$u1});
-  }
-}
-
-dso-slide-toggle {
-  position: absolute;
-  inset-block-start: accordion.$block-padding - accordion.$compact-border-width;
-  inset-inline-end: units.$u1;
-}
-
 .dso-section-body {
   background-color: colors.$wit;
   border-block-start: 0;
@@ -180,6 +166,7 @@ dso-slide-toggle {
 }
 
 :host(.dso-accordion-compact-black.dso-accordion-section-activate) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
   @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-activate();
 }
 

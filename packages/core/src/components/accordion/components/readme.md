@@ -53,8 +53,8 @@ Type: `Promise<void>`
 - [dso-renvooi](../../renvooi)
 - [dso-label](../../label)
 - [dso-icon](../../icon)
-- [dso-slide-toggle](../../slide-toggle)
 - [dso-expandable](../../expandable)
+- [dso-slide-toggle](../../slide-toggle)
 - [dso-attachments-counter](../../attachments-counter)
 
 ### Graph
@@ -63,8 +63,8 @@ graph TD;
   dso-accordion-section --> dso-renvooi
   dso-accordion-section --> dso-label
   dso-accordion-section --> dso-icon
-  dso-accordion-section --> dso-slide-toggle
   dso-accordion-section --> dso-expandable
+  dso-accordion-section --> dso-slide-toggle
   dso-accordion-section --> dso-attachments-counter
   dso-label --> dso-icon
   dso-label --> dso-tooltip

@@ -4,13 +4,15 @@
 @use "~dso-toolkit/src/components/delete";
 
 @mixin dso-web-component-accordion-compact-black-activate() {
-  @include dso-web-component-accordion-compact-black();
-
   .dso-section-handle {
-    border-block-start: 0;
+    display: flex;
+    justify-content: space-between;
   }
 
-  border-block-start: 1px solid accordion.$compact-border-color;
+  dso-slide-toggle {
+    margin-block-start: accordion.$block-padding - accordion.$compact-border-width;
+    margin-inline: units.$u1;
+  }
 }
 
 @mixin dso-web-component-accordion-compact-black() {
@@ -19,7 +21,7 @@
     border-block-start: 1px solid accordion.$compact-border-color;
 
     a,
-    button {
+    button:not(.dso-slider) {
       color: accordion.$compact-black-color;
       padding-block-end: accordion.$block-padding - accordion.$compact-border-width;
       padding-inline-start: 0;
