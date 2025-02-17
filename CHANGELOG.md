@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Slide Toggle: Uitlijning klopt niet met titel in Annotation component ([#2946](https://github.com/dso-toolkit/dso-toolkit/issues/2946))
+* Autosuggest: aria-live van ul naar eerste li verplaatsen ([#2947](https://github.com/dso-toolkit/dso-toolkit/issues/2947))
 
 ### Added
 * Survey Rating: Nieuw component ([#2603](https://github.com/dso-toolkit/dso-toolkit/issues/2603))

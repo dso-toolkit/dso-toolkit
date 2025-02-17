@@ -506,7 +506,6 @@ export class Autosuggest {
             >
               <ul
                 role="listbox"
-                aria-live="polite"
                 id={this.listboxId}
                 aria-labelledby={this.labelId}
                 ref={(element) => (this.listbox = element)}
@@ -514,7 +513,7 @@ export class Autosuggest {
               >
                 {(this.showSuggestions &&
                   this.suggestions &&
-                  this.suggestions.map((suggestion) => (
+                  this.suggestions.map((suggestion, suggestionIndex) => (
                     <li
                       role="option"
                       id={this.listboxItemId(suggestion)}
@@ -524,6 +523,7 @@ export class Autosuggest {
                       onClick={() => this.pickSelectedValue()}
                       aria-selected={(suggestion === this.selectedSuggestion).toString()}
                       aria-label={suggestion.value}
+                      aria-live={suggestionIndex === 0 ? "polite" : undefined}
                       ref={(li) => li && this.listboxItems.push(li)}
                     >
                       <div class="suggestion-row">
@@ -543,7 +543,7 @@ export class Autosuggest {
                     </li>
                   ))) ||
                   (this.notFound && (
-                    <li>
+                    <li aria-live="polite">
                       <span class="value">
                         {this.notFoundLabel ||
                           this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}

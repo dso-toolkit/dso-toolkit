@@ -44,6 +44,8 @@ describe("Autosuggest", () => {
       .find("ul[role='listbox']")
       .then(($listbox) => cy.get("input").should("have.attr", "aria-controls", $listbox.prop("id")));
 
+    cy.get("dso-autosuggest.hydrated").find("li:first-child").should("have.attr", "aria-live", "polite");
+
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
@@ -300,7 +302,7 @@ describe("Autosuggest", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
-    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
+    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1).and("have.attr", "aria-live", "polite");
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("be.visible").contains("akjehfowef");
     cy.get("dso-autosuggest.hydrated")
       .find("ul[role='listbox'] li span")
@@ -315,7 +317,7 @@ describe("Autosuggest", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
-    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
+    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1).and("have.attr", "aria-live", "polite");
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox'] li mark").should("be.visible").contains("akjehfowef");
     cy.get("dso-autosuggest.hydrated")
       .find("ul[role='listbox'] li span")
@@ -336,7 +338,7 @@ describe("Autosuggest", () => {
     cy.get("input").focus().type("akjehfowef");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("ul[role='listbox']").should("be.visible");
-    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1);
+    cy.get("dso-autosuggest.hydrated").find("li").should("have.length", 1).and("have.attr", "aria-live", "polite");
     cy.get("dso-autosuggest.hydrated")
       .find("li span")
       .should("be.visible")
