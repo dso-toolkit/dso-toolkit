@@ -12,12 +12,13 @@ export interface DocumentComponent<TemplateFnReturnType> {
   gereserveerd?: boolean;
   heading: DocumentComponentHeading;
   inhoud?: string;
-  label: string;
+  label?: string;
   notApplicable?: boolean;
-  nummer: string;
+  nummer?: string;
   open?: boolean;
   openAnnotation?: boolean;
   opschrift?: string;
+  kop?: string;
   type: DocumentComponentType;
   vervallen?: boolean;
   wijzigactie?: DocumentComponentWijzigactie;

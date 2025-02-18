@@ -23,6 +23,7 @@ export interface DocumentComponentArgs {
   gereserveerd: boolean;
   heading: DocumentComponentHeading;
   inhoud?: string;
+  kop: string;
   label: string;
   notApplicable: boolean;
   nummer: string;
@@ -41,7 +42,7 @@ export interface DocumentComponentArgs {
 
 export const documentComponentArgs: Omit<
   DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "kop"
 > = {
   annotated: true,
   bevatOntwerpInformatie: true,
@@ -65,6 +66,14 @@ export const documentComponentArgs: Omit<
   wijzigactie: "voegtoe",
   annotationsWijzigactie: "voegtoe",
   mode: "document",
+};
+
+export const documentComponentKopArgs: Omit<
+  DocumentComponentArgs,
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
+> = {
+  ...documentComponentArgs,
+  kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Artikel</Label><Nummer xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>13.12a</Nummer><Opschrift xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -122,6 +131,11 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "text",
     },
     if: { arg: "mode", eq: "document" },
+  },
+  kop: {
+    control: {
+      type: "text",
+    },
   },
   label: {
     control: {

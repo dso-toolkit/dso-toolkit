@@ -48,21 +48,30 @@ export class DocumentComponent implements ComponentInterface {
 
   /**
    * The Label XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   label?: DocumentComponentInputType;
 
   /**
    * The Nummer XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   nummer?: DocumentComponentInputType;
 
   /**
    * The Opschrift XML.
+   * @deprecated Use `kop` instead.
    */
   @Prop()
   opschrift?: DocumentComponentInputType;
+
+  /**
+   * The Kop XML.
+   */
+  @Prop()
+  kop?: DocumentComponentInputType;
 
   /**
    * The Inhoud XML.
@@ -296,7 +305,21 @@ export class DocumentComponent implements ComponentInterface {
                 )}
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
-                  {this.label || this.nummer || this.opschrift ? (
+
+                  {this.kop && (
+                    <dso-ozon-content
+                      content={this.kop}
+                      addSpaceBeforeNode
+                      onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                      mark={this.mark && ((text) => this.mark?.(text, "kop"))}
+                      onDsoOzonContentMarkItemHighlight={(e) =>
+                        this.dsoMarkItemHighlight.emit({ ...e.detail, source: "kop" })
+                      }
+                      inline
+                    />
+                  )}
+
+                  {(this.label || this.nummer || this.opschrift) && !this.kop ? (
                     <>
                       {this.label && (
                         <>

@@ -7,11 +7,12 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                  | Type                                                              | Default     |
-| --------- | --------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
-| `content` | `content` | The XML to be rendered.                                                                      | `XMLDocument \| string \| undefined`                              | `undefined` |
-| `inline`  | `inline`  | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`                                                         | `false`     |
-| `mark`    | --        | To mark text.                                                                                | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
+| Property             | Attribute               | Description                                                                                  | Type                                                              | Default     |
+| -------------------- | ----------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
+| `addSpaceBeforeNode` | `add-space-before-node` | Adds a non breaking space to the node element.                                               | `boolean`                                                         | `false`     |
+| `content`            | `content`               | The XML to be rendered.                                                                      | `XMLDocument \| string \| undefined`                              | `undefined` |
+| `inline`             | `inline`                | Setting this property creates dso-ozon-content as inline element instead of a block element. | `boolean`                                                         | `false`     |
+| `mark`               | --                      | To mark text.                                                                                | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
 
 
 ## Events

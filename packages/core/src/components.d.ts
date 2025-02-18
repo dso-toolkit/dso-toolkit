@@ -562,7 +562,12 @@ export namespace Components {
          */
         "inhoud"?: DocumentComponentInputType;
         /**
+          * The Kop XML.
+         */
+        "kop"?: DocumentComponentInputType;
+        /**
           * The Label XML.
+          * @deprecated Use `kop` instead.
          */
         "label"?: DocumentComponentInputType;
         /**
@@ -579,6 +584,7 @@ export namespace Components {
         "notApplicable": boolean;
         /**
           * The Nummer XML.
+          * @deprecated Use `kop` instead.
          */
         "nummer"?: DocumentComponentInputType;
         /**
@@ -591,6 +597,7 @@ export namespace Components {
         "openAnnotation": boolean;
         /**
           * The Opschrift XML.
+          * @deprecated Use `kop` instead.
          */
         "opschrift"?: DocumentComponentInputType;
         /**
@@ -971,6 +978,10 @@ export namespace Components {
         "showCloseButton": boolean;
     }
     interface DsoOzonContent {
+        /**
+          * Adds a non breaking space to the node element.
+         */
+        "addSpaceBeforeNode": boolean;
         /**
           * The XML to be rendered.
          */
@@ -3008,7 +3019,12 @@ declare namespace LocalJSX {
          */
         "inhoud"?: DocumentComponentInputType;
         /**
+          * The Kop XML.
+         */
+        "kop"?: DocumentComponentInputType;
+        /**
           * The Label XML.
+          * @deprecated Use `kop` instead.
          */
         "label"?: DocumentComponentInputType;
         /**
@@ -3025,6 +3041,7 @@ declare namespace LocalJSX {
         "notApplicable"?: boolean;
         /**
           * The Nummer XML.
+          * @deprecated Use `kop` instead.
          */
         "nummer"?: DocumentComponentInputType;
         /**
@@ -3061,6 +3078,7 @@ declare namespace LocalJSX {
         "openAnnotation"?: boolean;
         /**
           * The Opschrift XML.
+          * @deprecated Use `kop` instead.
          */
         "opschrift"?: DocumentComponentInputType;
         /**
@@ -3523,6 +3541,10 @@ declare namespace LocalJSX {
         "showCloseButton"?: boolean;
     }
     interface DsoOzonContent {
+        /**
+          * Adds a non breaking space to the node element.
+         */
+        "addSpaceBeforeNode"?: boolean;
         /**
           * The XML to be rendered.
          */

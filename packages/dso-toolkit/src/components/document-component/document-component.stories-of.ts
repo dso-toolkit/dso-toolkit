@@ -6,6 +6,7 @@ import {
   documentComponentArgTypes,
   documentComponentArgs,
   DocumentComponentArgs,
+  documentComponentKopArgs,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
 import { DocumentComponent, DocumentComponentMode } from "./document-component.models.js";
@@ -30,6 +31,7 @@ type DocumentComponentStoryDemo = StoryObj<
 
 interface DocumentComponentStories {
   Default: StoryObj<DocumentComponentArgs, Renderer>;
+  Kop: StoryObj<DocumentComponentArgs, Renderer>;
   Contents: DocumentComponentStoryDemo;
   Inhoudsopgave: DocumentComponentStoryDemo;
   IMRO: StoryObj<DocumentComponentArgs, Renderer>;
@@ -84,6 +86,14 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     Default: {
       decorators: [(story) => decorator(story)],
       args: documentComponentArgs,
+      argTypes: documentComponentArgTypes,
+      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, childrenTemplate }) =>
+        documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
+      ),
+    },
+    Kop: {
+      decorators: [(story) => decorator(story)],
+      args: documentComponentKopArgs,
       argTypes: documentComponentArgTypes,
       render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, childrenTemplate }) =>
         documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
