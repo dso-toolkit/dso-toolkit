@@ -6,7 +6,6 @@
 @mixin dso-web-component-accordion-compact-black-activate() {
   .dso-section-handle {
     display: flex;
-    justify-content: space-between;
   }
 
   dso-slide-toggle {

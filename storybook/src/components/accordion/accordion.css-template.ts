@@ -43,12 +43,19 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
       function accordionHandleContent(accordion: Accordion<TemplateResult>, section: AccordionSection<TemplateResult>) {
         const ariaExpanded = (section.open ?? false).toString();
         const children = accordionHandleChildren(accordion, section);
+        const showSlideToggle = section.activatable && accordion.variant === "compact-black" && !accordion.reverseAlign;
+        const slideToggle = showSlideToggle
+          ? slideToggleTemplate({
+              accessibleLabel: "Toon op kaart",
+              checked: !!section.active,
+            })
+          : nothing;
 
         if (section.handleUrl) {
-          return html`<a href=${section.handleUrl} aria-expanded=${ariaExpanded}>${children}</a>`;
+          return html`<a href=${section.handleUrl} aria-expanded=${ariaExpanded}>${children}</a>${slideToggle}`;
         }
 
-        return html`<button type="button" aria-expanded=${ariaExpanded}>${children}</button>`;
+        return html`<button type="button" aria-expanded=${ariaExpanded}>${children}</button>${slideToggle}`;
       }
 
       function accordionHandleTemplate(
@@ -91,12 +98,6 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             })}"
           >
             ${accordionHandleTemplate(accordion, section)}
-            ${showSlideToggle
-              ? slideToggleTemplate({
-                  accessibleLabel: "Toon op kaart",
-                  checked: !!section.active,
-                })
-              : nothing}
             ${section.open ? html`<div class="dso-section-body">${section.content}</div>` : nothing}
           </div>
         `;

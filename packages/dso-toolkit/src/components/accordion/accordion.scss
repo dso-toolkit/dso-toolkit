@@ -110,7 +110,6 @@
         button,
         button:hover {
           color: accordion.$compact-black-color;
-
           &::before {
             @include di.base("chevron-right-zwart", accordion.$chevron-icon-size);
           }
@@ -130,20 +129,26 @@
         }
       }
       &.dso-accordion-section-activate {
-        position: relative;
-
         .dso-section-handle {
-          border-block-start: 0;
-          max-inline-size: calc(100% - #{accordion.$slide-toggle-inline-size} - #{units.$u1} - #{units.$u1});
+          display: flex;
         }
 
         dso-slide-toggle {
-          position: absolute;
-          inset-block-start: 0.75em;
-          inset-inline-end: units.$u1;
-        }
+          margin-block-start: accordion.$block-padding - accordion.$compact-border-width;
+          margin-inline: units.$u1;
 
-        border-block-start: 1px solid accordion.$compact-border-color;
+          button.dso-slider {
+            padding-inline-start: 0;
+          }
+
+          button.dso-slider,
+          button.dso-slider:hover {
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
       }
     }
   }
