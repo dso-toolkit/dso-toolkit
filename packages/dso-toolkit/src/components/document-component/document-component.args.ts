@@ -73,13 +73,7 @@ export const documentComponentKopArgs: Omit<
   "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
 > = {
   ...documentComponentArgs,
-  kop:
-    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' +
-    '<Kop xmlns="https://standaarden.overheid.nl/stop/imop/tekst/">\n' +
-    '    <Label xmlns="https://standaarden.overheid.nl/stop/imop/tekst/">Artikel</Label>\n' +
-    '    <Nummer xmlns="https://standaarden.overheid.nl/stop/imop/tekst/">13.12a</Nummer>\n' +
-    '    <Opschrift xmlns="https://standaarden.overheid.nl/stop/imop/tekst/">NootInKop III <Noot type="voet" id="N8"><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift>\n' +
-    "</Kop>",
+  kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Artikel</Label><Nummer xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>13.12a</Nummer><Opschrift xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
