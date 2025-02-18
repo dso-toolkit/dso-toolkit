@@ -233,11 +233,3 @@
     }
   }
 }
-
-.dso-list-button,
-.dso-button-group {
-  + .dso-list-button,
-  + .dso-button-group {
-    margin-block-start: list-button-variables.$margin-gap;
-  }
-}

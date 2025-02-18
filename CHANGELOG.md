@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Document Component: `<Kop>` ([#2974](https://github.com/dso-toolkit/dso-toolkit/issues/2974))
 * Accordion: Slide Toggle toevoegen aan sectie ([#2936](https://github.com/dso-toolkit/dso-toolkit/issues/2936))
 
+### Fixed
+* Verticaal Ritme: List Buttons staan tegen elkaar aan geplakt ([#3008](https://github.com/dso-toolkit/dso-toolkit/issues/3008))
+
 ## 🐇 Release 68.4.0 - 2025-02-17
 
 ### Changed
