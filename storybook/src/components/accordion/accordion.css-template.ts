@@ -35,8 +35,16 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
-          ${section.statusDescription ? html`<span class="dso-status">${section.statusDescription}</span>` : nothing}
-          ${section.attachmentCount ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}` : nothing}
+          ${section.statusDescription || section.attachmentCount
+            ? html`<div class="dso-section-handle-addons">
+                ${section.statusDescription
+                  ? html`<span class="dso-status">${section.statusDescription}</span>`
+                  : nothing}
+                ${!section.status && !accordion.reverseAlign && section.attachmentCount
+                  ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}`
+                  : nothing}
+              </div>`
+            : nothing}
         `;
       }
 
@@ -90,7 +98,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         return html`
           <div
             class="dso-accordion-section ${classMap({
-              [`dso-${section.status}`]: !!section.status,
+              [`dso-${section.status}`]: !!section.status && !accordion.reverseAlign,
               "dso-open": !!section.open,
               "dso-nested-accordion": hasNestedAccordion,
               [`dso-accordion-wijzigactie-${section.wijzigactie}`]: !!section.wijzigactie,

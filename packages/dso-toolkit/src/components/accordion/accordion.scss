@@ -210,28 +210,29 @@
       inset-block-start: (accordion.$handle-block-size - accordion.$state-icon-size) * 0.5;
     }
 
-    .dso-status,
-    .dso-icon {
-      font-weight: 400;
+    .dso-section-handle-addons {
       margin-inline-start: auto;
-      padding-inline-start: units.$u2;
-      text-decoration: underline;
-    }
+      text-align: end;
 
-    dso-attachments-counter,
-    .dso-attachments {
-      margin-inline-start: auto;
-      padding-inline-start: units.$u2;
-    }
+      .dso-status,
+      .dso-icon {
+        font-weight: 400;
+        margin-inline-start: units.$u2;
+      }
 
-    .dso-attachments {
-      &::after {
-        @include di.base("paperclip-grijs", accordion.$chevron-icon-size);
+      dso-attachments-counter,
+      .dso-attachments {
+        margin-inline-start: units.$u2;
+      }
+
+      .dso-attachments {
+        &::after {
+          @include di.base("paperclip-grijs", accordion.$chevron-icon-size);
+        }
       }
     }
 
     > .dso-label {
-      margin-inline-start: auto;
       padding-inline-start: units.$u1;
       word-break: normal;
 
@@ -253,7 +254,7 @@
 }
 
 // exceptions to the rule ^^:
-:where(.dso-accordion-compact, .dso-accordion-neutral, .dso-accordion-compact-black) {
+:where(.dso-accordion-compact, .dso-accordion-compact-black) {
   + :where(.dso-accordion-section) {
     margin-block-start: 0;
   }
