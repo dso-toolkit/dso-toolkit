@@ -3,7 +3,7 @@ import React from "react";
 import { AccordionSection } from "dso-toolkit";
 import { Templates } from "../../templates";
 
-const section1: AccordionSection<JSX.Element> = {
+const section1: AccordionSection<React.JSX.Element> = {
   handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
   heading: "h2",
   content: (
@@ -20,7 +20,7 @@ const section1: AccordionSection<JSX.Element> = {
   ),
 };
 
-const section2: AccordionSection<JSX.Element> = {
+const section2: AccordionSection<React.JSX.Element> = {
   handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
   heading: "h2",
   content: (
@@ -31,7 +31,7 @@ const section2: AccordionSection<JSX.Element> = {
   ),
 };
 
-const section3: AccordionSection<JSX.Element> = {
+const section3: AccordionSection<React.JSX.Element> = {
   handleTitle: "Hoe lang duurt de Vergunningcheck?",
   heading: "h2",
   content: (
@@ -42,7 +42,7 @@ const section3: AccordionSection<JSX.Element> = {
   ),
 };
 
-const section4: AccordionSection<JSX.Element> = {
+const section4: AccordionSection<React.JSX.Element> = {
   handleTitle: "Wat kan ik met de uitkomst van de Vergunningcheck?",
   heading: "h2",
   content: (
@@ -73,7 +73,7 @@ const section4: AccordionSection<JSX.Element> = {
   ),
 };
 
-export const basicSections: AccordionSection<JSX.Element>[] = [
+export const basicSections: AccordionSection<React.JSX.Element>[] = [
   section1,
   section2,
   {
@@ -83,7 +83,7 @@ export const basicSections: AccordionSection<JSX.Element>[] = [
   section4,
 ];
 
-export const anchorSections: AccordionSection<JSX.Element>[] = [
+export const anchorSections: AccordionSection<React.JSX.Element>[] = [
   {
     ...section1,
     handleUrl: "#",
@@ -103,7 +103,7 @@ export const anchorSections: AccordionSection<JSX.Element>[] = [
   },
 ];
 
-export function subSections({ accordionTemplate }: Templates): AccordionSection<JSX.Element>[] {
+export function subSections({ accordionTemplate }: Templates): AccordionSection<React.JSX.Element>[] {
   return [
     {
       ...section1,
@@ -156,7 +156,7 @@ export function subSections({ accordionTemplate }: Templates): AccordionSection<
   ];
 }
 
-export const addonsSections: AccordionSection<JSX.Element>[] = [
+export const addonsSections: AccordionSection<React.JSX.Element>[] = [
   {
     ...section1,
     icon: "user-line",
@@ -187,7 +187,7 @@ export const addonsSections: AccordionSection<JSX.Element>[] = [
   },
 ];
 
-export const alignmentSections: AccordionSection<JSX.Element>[] = [
+export const alignmentSections: AccordionSection<React.JSX.Element>[] = [
   {
     ...section1,
     icon: "user-line",
@@ -200,5 +200,54 @@ export const alignmentSections: AccordionSection<JSX.Element>[] = [
   {
     ...section3,
     icon: "user-line",
+  },
+];
+
+export const renvooiSections: AccordionSection<React.JSX.Element>[] = [
+  {
+    ...section1,
+  },
+  {
+    ...section1,
+    wijzigactie: "verwijder",
+  },
+  {
+    ...section1,
+    wijzigactie: "voegtoe",
+    open: true,
+  },
+  {
+    ...section1,
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
+  },
+];
+
+export const activatableSections: AccordionSection<React.JSX.Element>[] = [
+  {
+    ...section1,
+    activatable: true,
+  },
+  {
+    ...section1,
+    wijzigactie: "verwijder",
+    activatable: true,
+    active: true,
+  },
+  {
+    ...section1,
+    wijzigactie: "voegtoe",
+    open: true,
+    activatable: true,
+  },
+  {
+    ...section1,
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
+    activatable: true,
   },
 ];

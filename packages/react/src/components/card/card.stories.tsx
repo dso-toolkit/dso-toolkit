@@ -12,7 +12,7 @@ const meta: Meta<CardArgs> = {
 
 export default meta;
 
-const { Default, WithButton, WithSlidetoggle, WithToggletip, WithLabel, WithSelectableAndButton } = cardStories({
+const { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSelectableAndButton } = cardStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { cardTemplate } = templates;
@@ -24,4 +24,4 @@ const { Default, WithButton, WithSlidetoggle, WithToggletip, WithLabel, WithSele
   },
 });
 
-export { Default, WithButton, WithSlidetoggle, WithToggletip, WithLabel, WithSelectableAndButton };
+export { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSelectableAndButton };

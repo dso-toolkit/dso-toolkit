@@ -128,6 +128,28 @@
           }
         }
       }
+      &.dso-accordion-section-activate {
+        .dso-section-handle {
+          display: flex;
+        }
+
+        dso-slide-toggle {
+          margin-block-start: accordion.$block-padding - accordion.$compact-border-width;
+          margin-inline: units.$u1;
+
+          button.dso-slider {
+            padding-inline-start: 0;
+          }
+
+          button.dso-slider,
+          button.dso-slider:hover {
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
+      }
     }
   }
 

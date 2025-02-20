@@ -1,5 +1,11 @@
-import { CardClickEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
-import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface, isToggletipInterface } from "dso-toolkit";
+import {
+  Card,
+  CardClickEvent,
+  isButtonInterface,
+  isLabelInterface,
+  isSlideToggleInterface,
+  isToggletipInterface,
+} from "dso-toolkit";
 import * as React from "react";
 
 import { DsoCard } from "../../components";

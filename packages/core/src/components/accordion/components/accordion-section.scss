@@ -164,6 +164,11 @@
   @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
 }
 
+:host(.dso-accordion-compact-black.dso-accordion-section-activate) {
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black();
+  @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-activate();
+}
+
 :host(.dso-accordion-compact-black.dso-accordion-wijzigactie-voegtoe) {
   @include accordion-section-theme-compact-black.dso-web-component-accordion-compact-black-voegtoe();
 }

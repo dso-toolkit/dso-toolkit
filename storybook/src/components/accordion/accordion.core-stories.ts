@@ -6,6 +6,7 @@ import componentsReadme from "@dso-toolkit/core/src/components/accordion/compone
 
 import { templateContainer } from "../../templates";
 import {
+  activatableSections,
   addonsSections,
   alignmentSections,
   anchorSections,
@@ -32,6 +33,7 @@ const {
   AddonsSections,
   AlignmentSections,
   RenvooiSections,
+  Activatable,
 } = accordionStories({
   templateContainer,
   storyTemplates: (templates) => {
@@ -49,6 +51,7 @@ const {
       neutralSections: basicSections(templates),
       subSections: subSections(templates),
       renvooiSections,
+      activatableSections,
     };
   },
 });
@@ -64,4 +67,5 @@ export {
   Nested,
   AddonsSections,
   AlignmentSections,
+  Activatable,
 };

@@ -17,6 +17,7 @@ import {
 import { AccordionInternalState } from "../accordion.interfaces";
 import {
   AccordionHeading,
+  AccordionSectionActiveChangeEvent,
   AccordionSectionAnimationEndEvent,
   AccordionSectionAnimationStartEvent,
   AccordionSectionState,
@@ -27,6 +28,9 @@ import {
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
+
+import { DsoSlideToggleCustomEvent } from "../../../components";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};
@@ -34,21 +38,34 @@ const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) 
 const HandleElement: FunctionalComponent<{
   handleUrl: string | undefined;
   open: boolean;
+  showSlideToggle: boolean;
+  active: boolean;
+  onActiveChange: (e: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
   handleElementRef: (element: HTMLAnchorElement | HTMLButtonElement | undefined) => void;
   onClick: (e: MouseEvent) => void;
-}> = ({ handleUrl, onClick, open, handleElementRef }, children) => {
+}> = ({ handleUrl, onClick, open, showSlideToggle, active, onActiveChange, handleElementRef }, children) => {
   if (handleUrl) {
     return (
-      <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
-        {children}
-      </a>
+      <>
+        <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+          {children}
+        </a>
+        {showSlideToggle && (
+          <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
+        )}
+      </>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
-      {children}
-    </button>
+    <>
+      <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
+        {children}
+      </button>
+      {showSlideToggle && (
+        <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
+      )}
+    </>
   );
 };
 
@@ -213,6 +230,26 @@ export class AccordionSection implements ComponentInterface {
   labelStatus?: LabelStatus;
 
   /**
+   * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays
+   * on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
+   */
+  @Prop({ reflect: true })
+  activatable = false;
+
+  /**
+   * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is
+   * `activatable`.
+   */
+  @Prop({ reflect: true })
+  active = false;
+
+  /**
+   * An optional event listener for changes on the value of property `active`.
+   */
+  @Event()
+  dsoActiveChange!: EventEmitter<AccordionSectionActiveChangeEvent>;
+
+  /**
    * Calling this method will set focus to the handle.
    */
   @Method()
@@ -320,6 +357,14 @@ export class AccordionSection implements ComponentInterface {
     });
   };
 
+  private handleActiveChange = (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => {
+    this.dsoActiveChange.emit({
+      current: Boolean(this.active),
+      next: !this.active,
+      originalEvent: event,
+    });
+  };
+
   private handleExpandableAnimationStart = (e: CustomEvent<any>) => {
     this.dsoAnimationStart.emit({
       animation: this.open ? "opening" : "closing",
@@ -357,6 +402,7 @@ export class AccordionSection implements ComponentInterface {
   render() {
     const { variant, reverseAlign } = this.accordionState ?? {};
     const hasAddons = !!this.statusDescription || !!this.status || !!this.icon || !!this.attachmentCount;
+    const showSlideToggle = this.activatable && variant === "compact-black" && !reverseAlign;
 
     return (
       <Host
@@ -366,6 +412,7 @@ export class AccordionSection implements ComponentInterface {
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
           ["dso-accordion-wijzigactie-" + this.wijzigactie]: !!this.wijzigactie,
+          "dso-accordion-section-activate": showSlideToggle,
         }}
         hidden={!variant}
         onMouseenter={() => (this.hover = true)}
@@ -376,6 +423,9 @@ export class AccordionSection implements ComponentInterface {
             handleUrl={this.handleUrl}
             onClick={this.handleClick}
             open={this.open}
+            showSlideToggle={showSlideToggle}
+            active={this.active}
+            onActiveChange={this.handleActiveChange}
             handleElementRef={(e) => (this.handleElementRef = e)}
           >
             {reverseAlign ? (

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Document Component: `<Kop>` ([#2974](https://github.com/dso-toolkit/dso-toolkit/issues/2974))
+* Accordion: Slide Toggle toevoegen aan sectie ([#2936](https://github.com/dso-toolkit/dso-toolkit/issues/2936))
 
 ## 🐇 Release 68.4.0 - 2025-02-17
 
@@ -15,6 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Survey Rating: Nieuw component ([#2603](https://github.com/dso-toolkit/dso-toolkit/issues/2603))
+
+### Changed
+* Slide Toggle: Uitlijning klopt niet met titel in Annotation component ([#2946](https://github.com/dso-toolkit/dso-toolkit/issues/2946))
 
 ## 🎶 Release 68.3.0 - 2025-02-13
 

@@ -31,6 +31,9 @@ export interface AccordionArgs {
   demoScrollIntoView: "start" | "end" | undefined;
   label: string;
   labelStatus: LabelStatus;
+  active: boolean;
+  activatable: boolean;
+  dsoActiveChange: HandlerFunction;
 }
 
 export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open" | "handleTitle"> = {
@@ -108,6 +111,18 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   wijzigactie: {
     ...noControl,
   },
+  active: {
+    control: {
+      type: "boolean",
+    },
+  },
+  activatable: {
+    ...noControl,
+  },
+  dsoActiveChange: {
+    ...noControl,
+    action: "dsoActiveChange",
+  },
   /** demo args */
   demoScrollIntoView: {
     options: [undefined, "start", "end"],
@@ -139,6 +154,7 @@ export function accordionArgsMapper<TemplateFnReturnType>(
       const section: AccordionSection<TemplateFnReturnType> = {
         ...s,
         dsoToggleClick: (e) => a.dsoToggleClick(e.detail),
+        dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
       };
 
       if (i === 1) {
@@ -151,6 +167,8 @@ export function accordionArgsMapper<TemplateFnReturnType>(
         section.handleUrl = a.handleUrl;
         section.labelStatus = a.labelStatus;
         section.label = a.label;
+        section.activatable = a.activatable;
+        section.active = a.active;
         section.dsoAnimationStart = (e) => {
           if (a.demoScrollIntoView === "start" && a.open) {
             e.detail.scrollIntoView();

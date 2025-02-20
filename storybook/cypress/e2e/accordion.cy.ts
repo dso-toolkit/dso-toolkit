@@ -258,4 +258,76 @@ describe("Accordion", () => {
       .should("have.class", "dso-accordion-wijzigactie-verwijder")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
+
+  describe("Activatable", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-accordion--activatable");
+
+      cy.get("dso-accordion.hydrated")
+        .find("dso-accordion-section:nth-child(2)")
+        .as("accordionSection")
+        .then(($accordionSection) => {
+          $accordionSection.on("dsoActiveChange", cy.stub().as("dsoActiveChange"));
+        });
+    });
+
+    it("shows a Slide Toggle", () => {
+      cy.get("dso-accordion.hydrated").should("exist").matchImageSnapshot();
+
+      cy.get("@accordionSection").shadow().find("dso-slide-toggle").should("exist");
+    });
+
+    it("does not show a Slide Toggle", () => {
+      cy.get("@accordionSection")
+        .invoke("prop", "activatable", "false")
+        .shadow()
+        .find("dso-slide-toggle")
+        .should("not.exist");
+    });
+
+    it("emits dsoActiveChange with current true and next false", () => {
+      cy.get("@accordionSection")
+        .shadow()
+        .find("dso-slide-toggle")
+        .should("exist")
+        .click()
+        .get("@dsoActiveChange")
+        .should("be.calledOnce")
+        .invoke("getCalls")
+        .invoke("at", -1)
+        .its("args.0.detail")
+        .as("detail")
+        .its("current")
+        .should("be.true")
+        .get("@detail")
+        .its("next")
+        .should("be.false")
+        .get("@detail")
+        .its("originalEvent")
+        .should("exist");
+    });
+
+    it("emits dsoActiveChange with current false and next true", () => {
+      cy.get("@accordionSection")
+        .invoke("prop", "active", "false")
+        .shadow()
+        .find("dso-slide-toggle")
+        .should("exist")
+        .click()
+        .get("@dsoActiveChange")
+        .should("be.calledOnce")
+        .invoke("getCalls")
+        .invoke("at", -1)
+        .its("args.0.detail")
+        .as("detail")
+        .its("current")
+        .should("be.false")
+        .get("@detail")
+        .its("next")
+        .should("be.true")
+        .get("@detail")
+        .its("originalEvent")
+        .should("exist");
+    });
+  });
 });
