@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Accordion: Default variant tussenruimte secties is niet consistent ([#3009](https://github.com/dso-toolkit/dso-toolkit/issues/3009))
+
 ### Added
 * Document Component: `<Kop>` ([#2974](https://github.com/dso-toolkit/dso-toolkit/issues/2974))
 * Accordion: Slide Toggle toevoegen aan sectie ([#2936](https://github.com/dso-toolkit/dso-toolkit/issues/2936))
