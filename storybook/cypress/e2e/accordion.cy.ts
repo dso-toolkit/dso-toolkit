@@ -157,7 +157,8 @@ describe("Accordion", () => {
       .should("not.exist")
       .get("@dsoAccordionHandle")
       .find(".dso-section-handle-addons")
-      .children("dso-icon");
+      .children("dso-icon")
+      .should("exist");
   });
 
   it("should focus handle element with AccordionSection.focusHandle()", () => {
