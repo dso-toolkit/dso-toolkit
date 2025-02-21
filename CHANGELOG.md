@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Verticaal Ritme: List Buttons staan tegen elkaar aan geplakt ([#3008](https://github.com/dso-toolkit/dso-toolkit/issues/3008))
 * Accordion: Default variant tussenruimte secties is niet consistent ([#3009](https://github.com/dso-toolkit/dso-toolkit/issues/3009))
 
+### Task
+* Accordion: Verbeter het etaleren van de `Nested` Accordion ([#2991](https://github.com/dso-toolkit/dso-toolkit/issues/2991))
+
 ## 🐇 Release 68.4.0 - 2025-02-17
 
 ### Changed

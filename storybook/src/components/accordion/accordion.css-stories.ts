@@ -10,7 +10,7 @@ import {
   anchorSections,
   basicSections,
   renvooiSections,
-  subSections,
+  nestedSections,
 } from "./accordion.content";
 import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
@@ -47,7 +47,7 @@ const {
       compactSections: basicSections(templates),
       compactBlackSections: basicSections(templates),
       neutralSections: basicSections(templates),
-      subSections: subSections(templates),
+      nestedSections: nestedSections(templates),
       renvooiSections,
       activatableSections,
     };
