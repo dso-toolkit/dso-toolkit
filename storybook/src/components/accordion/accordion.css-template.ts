@@ -29,14 +29,14 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
           ${typeof section.handleTitle !== "string"
             ? renvooiTemplate({ value: section.handleTitle })
             : section.handleTitle}
-          ${section.label
-            ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
-            : nothing}
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
-          ${section.statusDescription || section.attachmentCount
+          ${section.statusDescription || section.attachmentCount || section.label
             ? html`<div class="dso-section-handle-addons">
+                ${section.label
+                  ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
+                  : nothing}
                 ${section.statusDescription
                   ? html`<span class="dso-status">${section.statusDescription}</span>`
                   : nothing}
