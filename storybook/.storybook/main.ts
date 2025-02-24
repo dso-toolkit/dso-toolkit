@@ -25,7 +25,7 @@ const config: StorybookConfig = {
       if (test.endsWith(`(m?js|ts)x?$/${indexer.test.flags}`)) {
         return {
           ...indexer,
-          test: /\.(core-stories|css-stories)\.(ts)x?$/,
+          test: /\.(core-stories|css-stories|stories)\.(ts)x?$/,
         };
       }
 
@@ -84,7 +84,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-a11y"),
   ],
   stories: testStoryStoryV7
-    ? ["../src/components/**/*.{core-,css-}stories.ts"]
+    ? ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"]
     : ["../src/components/**/*.{core-,css-,}stories.ts", "../src/example-pages/**/*.ts"],
   previewHead: (head) => `
     ${head}

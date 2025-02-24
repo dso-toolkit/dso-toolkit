@@ -1,4 +1,5 @@
-import { Addon_StoryFn, Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
+import { Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
+import { TemplateResult } from "lit-html";
 
 export type StoryObj<TArgs, TRenderer extends Renderer> = StoryAnnotations<TRenderer, TArgs>;
 
@@ -77,18 +78,6 @@ export class TemplateContainer<
     );
   }
 
-  fromArgs<StoryArgs>(
-    mapper: (args: StoryArgs, templates: Templates) => TemplateFnReturnType,
-  ): Addon_StoryFn<TemplateFnReturnType> {
-    return (a, context) => {
-      const { preferredImplementation } = a;
-      const args = { ...a };
-      delete args["preferredImplementation"];
-
-      return mapper(args as StoryArgs, this.create(preferredImplementation, context.kind));
-    };
-  }
-
   render<StoryTemplates, TRenderer extends Renderer, TArgs extends Args>(
     storyTemplates: (templates: Templates) => StoryTemplates,
     callback: (args: TArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType,
@@ -101,6 +90,21 @@ export class TemplateContainer<
       const templates = this.create(preferredImplementation, context.kind);
 
       return callback(args, storyTemplates(templates));
+    };
+  }
+
+  renderExamplePage<TRenderer extends Renderer, TArgs extends Args>(
+    storyTemplates: (templates: Templates, allTemplates: Templates) => TemplateResult,
+    callback: (args: TArgs, storyTemplates: TemplateResult) => TemplateFnReturnType,
+  ): ArgsStoryFn<TRenderer, TArgs & { preferredImplementation?: Implementation }> {
+    return (a, context) => {
+      const { preferredImplementation } = a;
+      const args = { ...a };
+      delete args.preferredImplementation;
+
+      const templates = this.create(preferredImplementation, context.kind);
+
+      return callback(args, storyTemplates(templates, templates));
     };
   }
 
