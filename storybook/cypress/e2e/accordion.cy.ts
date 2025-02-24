@@ -260,6 +260,14 @@ describe("Accordion", () => {
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Verwijderd`);
   });
 
+  describe("Nested", () => {
+    it("shows a nested accordion", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-accordion--nested");
+
+      cy.get("dso-accordion.hydrated:has(dso-accordion.hydrated)").should("exist").matchImageSnapshot();
+    });
+  });
+
   describe("Activatable", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-accordion--activatable");

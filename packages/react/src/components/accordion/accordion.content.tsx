@@ -103,10 +103,11 @@ export const anchorSections: AccordionSection<React.JSX.Element>[] = [
   },
 ];
 
-export function subSections({ accordionTemplate }: Templates): AccordionSection<React.JSX.Element>[] {
+export function nestedSections({ accordionTemplate }: Templates): AccordionSection<React.JSX.Element>[] {
   return [
+    section1,
     {
-      ...section1,
+      ...section2,
       content: (
         <>
           <div className="dso-rich-content">
@@ -150,7 +151,6 @@ export function subSections({ accordionTemplate }: Templates): AccordionSection<
         </>
       ),
     },
-    section2,
     section3,
     section4,
   ];

@@ -11,7 +11,7 @@ import {
   anchorSections,
   basicSections,
   renvooiSections,
-  subSections,
+  nestedSections,
 } from "./accordion.content";
 
 const meta: Meta<AccordionArgs> = {
@@ -48,7 +48,7 @@ const {
       compactSections: basicSections,
       compactBlackSections: basicSections,
       neutralSections: basicSections,
-      subSections: subSections(templates),
+      nestedSections: nestedSections(templates),
       renvooiSections,
       activatableSections,
     };

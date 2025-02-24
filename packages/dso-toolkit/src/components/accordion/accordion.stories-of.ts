@@ -39,7 +39,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   neutralSections: AccordionSection<TemplateFnReturnType>[];
   compactBlackSections: AccordionSection<TemplateFnReturnType>[];
   anchorSections: AccordionSection<TemplateFnReturnType>[];
-  subSections: AccordionSection<TemplateFnReturnType>[];
+  nestedSections: AccordionSection<TemplateFnReturnType>[];
   addonsSections: AccordionSection<TemplateFnReturnType>[];
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
   renvooiSections: AccordionSection<TemplateFnReturnType>[];
@@ -125,8 +125,11 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Nested: {
-      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, subSections }) =>
-        accordionTemplate(accordionArgsMapper(args, subSections)),
+      args: {
+        open: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, nestedSections }) =>
+        accordionTemplate(accordionArgsMapper(args, nestedSections)),
       ),
     },
     AddonsSections: {
