@@ -34,7 +34,7 @@ const config: StorybookConfig = {
     getAbsolutePath("storybook-addon-jsx"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
-  stories: ["../src/**/*.stories.@(ts|tsx)"],
+  stories: ["../src/**/*.stories.tsx"],
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
@@ -63,9 +63,6 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
-  },
-  features: {
-    storyStoreV7: false,
   },
 };
 
