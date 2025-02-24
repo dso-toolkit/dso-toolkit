@@ -153,10 +153,11 @@ describe("Accordion", () => {
       .invoke("prop", "reverseAlign")
       .should("eq", true)
       .get("@dsoAccordionHandle")
-      .find("dso-icon:first-child")
+      .children("dso-icon")
       .should("not.exist")
       .get("@dsoAccordionHandle")
-      .find("dso-icon:last-child")
+      .find(".dso-section-handle-addons")
+      .children("dso-icon")
       .should("exist");
   });
 

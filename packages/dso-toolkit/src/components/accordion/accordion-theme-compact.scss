@@ -29,6 +29,10 @@
         &.active {
           color: accordion.$compact-color;
         }
+
+        .dso-status {
+          color: accordion.$compact-black-color;
+        }
       }
     }
 

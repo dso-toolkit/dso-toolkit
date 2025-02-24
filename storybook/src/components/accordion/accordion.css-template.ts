@@ -29,14 +29,22 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
           ${typeof section.handleTitle !== "string"
             ? renvooiTemplate({ value: section.handleTitle })
             : section.handleTitle}
-          ${section.label
-            ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
-            : nothing}
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
-          ${section.statusDescription ? html`<span class="dso-status">${section.statusDescription}</span>` : nothing}
-          ${section.attachmentCount ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}` : nothing}
+          ${section.statusDescription || section.attachmentCount || section.label
+            ? html`<div class="dso-section-handle-addons">
+                ${section.label
+                  ? labelTemplate({ status: section.labelStatus, label: section.label, compact: true })
+                  : nothing}
+                ${section.statusDescription
+                  ? html`<span class="dso-status">${section.statusDescription}</span>`
+                  : nothing}
+                ${!section.status && !accordion.reverseAlign && section.attachmentCount
+                  ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}`
+                  : nothing}
+              </div>`
+            : nothing}
         `;
       }
 
@@ -90,7 +98,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         return html`
           <div
             class="dso-accordion-section ${classMap({
-              [`dso-${section.status}`]: !!section.status,
+              [`dso-${section.status}`]: !!section.status && !accordion.reverseAlign,
               "dso-open": !!section.open,
               "dso-nested-accordion": hasNestedAccordion,
               [`dso-accordion-wijzigactie-${section.wijzigactie}`]: !!section.wijzigactie,

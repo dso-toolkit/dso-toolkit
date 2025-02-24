@@ -430,7 +430,7 @@ export class AccordionSection implements ComponentInterface {
           >
             {reverseAlign ? (
               <Fragment>
-                {hasAddons && (
+                {this.icon && (
                   <div class="dso-section-handle-addons">
                     <HandleIcon icon={this.icon} />
                   </div>
@@ -441,27 +441,26 @@ export class AccordionSection implements ComponentInterface {
                     {this.label}
                   </dso-label>
                 )}
-                <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
+                <div class="dso-section-handle-addons">
+                  {this.statusDescription && <span class="dso-status">{this.statusDescription}</span>}
+                  <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
+                </div>
               </Fragment>
             ) : (
               <Fragment>
                 <dso-icon class="dso-section-handle-chevron" icon="chevron-right"></dso-icon>
-
                 {this.status && <span class="sr-only">{stateMap[this.status]}</span>}
-
                 <span>
                   <dso-renvooi value={this.handleTitle} />
                   {this.isNeutral && (
                     <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
                   )}
                 </span>
-
                 {this.label && (
                   <dso-label status={this.labelStatus} compact>
                     {this.label}
                   </dso-label>
                 )}
-
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
                     {this.statusDescription && <span class="dso-status">{this.statusDescription}</span>}
