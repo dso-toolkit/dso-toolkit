@@ -10,7 +10,7 @@ export const corePagination: ComponentImplementation<Pagination> = {
     function paginationTemplate({ totalPages, currentPage, dsoSelectPage, formatHref }) {
       return html`
         <dso-pagination
-          total-pages=${totalPages}
+          total-pages=${ifDefined(totalPages)}
           current-page=${currentPage}
           .formatHref=${ifDefined(formatHref)}
           @dsoSelectPage=${ifDefined(dsoSelectPage)}

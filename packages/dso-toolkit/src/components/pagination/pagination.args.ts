@@ -4,7 +4,7 @@ import { ArgTypes } from "@storybook/types";
 import { Pagination } from "./pagination.models.js";
 
 export interface PaginationArgs {
-  totalPages: number;
+  totalPages?: number;
   currentPage: number;
   dsoSelectPage: HandlerFunction;
 }
@@ -13,11 +13,13 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
   totalPages: {
     control: {
       type: "number",
+      min: 1,
     },
   },
   currentPage: {
     control: {
       type: "number",
+      min: 1,
     },
   },
   dsoSelectPage: {
@@ -25,9 +27,9 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
   },
 };
 
-export function paginationArgsMapper(a: PaginationArgs): Required<Pagination> {
-  const totalPages = Math.max(a.totalPages, 1);
-  const currentPage = Math.min(Math.max(a.currentPage, 1), totalPages);
+export function paginationArgsMapper(a: PaginationArgs): Pagination {
+  const totalPages = a.totalPages ? Math.max(a.totalPages, 1) : undefined;
+  const currentPage = totalPages ? Math.min(Math.max(a.currentPage, 1), totalPages) : a.currentPage;
 
   return {
     ...a,

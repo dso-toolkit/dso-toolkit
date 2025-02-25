@@ -84,10 +84,6 @@ export class Pagination implements ComponentInterface {
   }
 
   render() {
-    if (!this.totalPages) {
-      return null;
-    }
-
     if (this.availablePositions === undefined) {
       return <dso-responsive-element ref={(element) => (this.responsiveElement = element)}></dso-responsive-element>;
     }
@@ -102,7 +98,7 @@ export class Pagination implements ComponentInterface {
       <dso-responsive-element ref={(element) => (this.responsiveElement = element)}>
         <nav class="pagination" aria-label="Paginering">
           <ul>
-            <li class={currentPage <= 1 || currentPage > this.totalPages ? "dso-page-hidden" : undefined}>
+            <li class={this.isCurrentFirstPage(currentPage, this.totalPages) ? "dso-page-hidden" : undefined}>
               <a
                 href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)}
                 aria-label="Vorige"
@@ -135,16 +131,28 @@ export class Pagination implements ComponentInterface {
                     <span>...</span>
                   </li>
                 )}
+
+                {this.showEllipsisLastWithoutTotal(pages, page, this.totalPages) && (
+                  <li>
+                    <span>...</span>
+                  </li>
+                )}
               </>
             ))}
-            <li class={currentPage < 1 || currentPage >= this.totalPages ? "dso-page-hidden" : undefined}>
+            <li class={this.isCurrentLastPage(currentPage, this.totalPages) ? "dso-page-hidden" : undefined}>
+              {pages[pages.indexOf(currentPage) + 1]}
               <a
-                href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}
+                href={this.formatHref(
+                  pages[pages.indexOf(currentPage) + 1] ?? (this.totalPages ? this.totalPages : pages.length - 1),
+                )}
                 aria-label="Volgende"
                 onClick={(e) =>
                   currentPage &&
                   this.totalPages &&
-                  this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
+                  this.clickHandler(
+                    e,
+                    pages[pages.indexOf(currentPage) + 1] ?? (this.totalPages ? this.totalPages : pages.length - 1),
+                  )
                 }
               >
                 <dso-icon icon="chevron-right"></dso-icon>
@@ -169,21 +177,24 @@ export class Pagination implements ComponentInterface {
     return sizePositions;
   }
 
-  private getPages(currentPage: number, availablePositions: number, totalPages: number): number[] {
-    if (totalPages + 2 <= availablePositions) {
-      // + 2 voor de vorige en volgende knop
-      return Array.from({ length: totalPages }, (_value, i) => i + 1);
-    }
+  private getPages(currentPage: number, availablePositions: number, totalPages?: number): number[] {
+    if (totalPages) {
+      if (totalPages + 2 <= availablePositions) {
+        // + 2 voor de vorige en volgende knop
+        return Array.from({ length: totalPages }, (_value, i) => i + 1);
+      }
 
-    if (availablePositions === 3) {
-      return [currentPage];
-    }
+      if (availablePositions === 3) {
+        return [currentPage];
+      }
 
-    if (availablePositions === 5) {
-      return [1, currentPage, totalPages];
-    }
+      if (availablePositions === 5) {
+        return [1, currentPage, totalPages];
+      }
 
-    return [1, ...this.getPageRange(currentPage, availablePositions, totalPages), totalPages];
+      return [1, ...this.getPageRange(currentPage, availablePositions, totalPages), totalPages];
+    }
+    return this.getPageRangeWithoutTotalPages(currentPage, availablePositions);
   }
 
   private getPageRange(currentPage: number, availablePositions: number, totalPages: number): number[] {
@@ -236,29 +247,60 @@ export class Pagination implements ComponentInterface {
 
   private showEllipsisAfterFirst(pages: number[], page: number, availablePositions: number): boolean {
     const totalPages = pages[pages.length - 1];
+
     if (!totalPages) {
       throw new Error("No totalPages");
     }
 
-    return (
-      pages.indexOf(page) === 0 &&
-      totalPages > availablePositions - 2 &&
-      !pages.some((p) => p === 2) &&
-      availablePositions >= 7
-    );
+    const isFirstPage = pages.indexOf(page) === 0;
+    const hasManyPages = totalPages > availablePositions - (this.totalPages ? 2 : 6);
+    const isPageTwoMissing = !pages.includes(2);
+    const hasEnoughPositions = availablePositions >= 7;
+
+    return isFirstPage && hasManyPages && isPageTwoMissing && hasEnoughPositions;
   }
 
   private showEllipsisBeforeLast(pages: number[], page: number, availablePositions: number): boolean {
     const totalPages = pages[pages.length - 1];
+
     if (!totalPages) {
       throw new Error("No totalPages");
     }
 
-    return (
-      pages.indexOf(page) === pages.length - 1 &&
-      totalPages > availablePositions - 2 &&
-      !pages.some((p) => p === totalPages - 1) &&
-      availablePositions >= 7
-    );
+    const isLastPage = pages.indexOf(page) === pages.length - 1;
+    const hasManyPages = totalPages > availablePositions - (this.totalPages ? 2 : 6);
+    const isSecondLastPageMissing = !pages.includes(totalPages - 1);
+    const hasEnoughPositions = availablePositions >= 7;
+
+    return isLastPage && hasManyPages && isSecondLastPageMissing && hasEnoughPositions;
+  }
+
+  private showEllipsisLastWithoutTotal(pages: number[], page: number, totalPages?: number) {
+    return totalPages ? false : pages.at(-1) === page;
+  }
+
+  private getPageRangeWithoutTotalPages(currentPage: number, availablePositions: number): number[] {
+    const positionRange = availablePositions >= 9 ? 2 : 0;
+    const start = Math.max(1, currentPage - positionRange);
+    const result: number[] = [];
+
+    for (let i = start; i <= currentPage; i++) {
+      result.push(i);
+    }
+
+    result.push(currentPage + 1);
+
+    // Adds 1 to start of the result array if index is >= 2
+    if (start >= 2) result.unshift(1);
+
+    return result;
+  }
+
+  private isCurrentFirstPage(currentPage: number, totalPages?: number) {
+    return totalPages ? currentPage > totalPages || currentPage <= 1 : currentPage <= 1;
+  }
+
+  private isCurrentLastPage(currentPage: number, totalPages?: number) {
+    return totalPages ? currentPage >= totalPages || currentPage < 1 : false;
   }
 }
