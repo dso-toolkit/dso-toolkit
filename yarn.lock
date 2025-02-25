@@ -3677,7 +3677,7 @@ __metadata:
     typescript: "npm:~5.6.3"
     uuid: "npm:^11.0.5"
   peerDependencies:
-    dso-toolkit: 68.4.0
+    dso-toolkit: 68.5.0
   languageName: unknown
   linkType: soft
 
@@ -3718,7 +3718,7 @@ __metadata:
     wait-on: "npm:^8.0.2"
     webpack: "npm:^5.97.1"
   peerDependencies:
-    "@dso-toolkit/core": 68.4.0
+    "@dso-toolkit/core": 68.5.0
     react: ^17.0.2 || ^18.3.0
     react-dom: ^17.0.2 || ^18.3.0
   languageName: unknown
