@@ -22,7 +22,7 @@
   z-index: zindex.$autosuggest;
 }
 
-ul,
+.listbox,
 .autosuggest-progress-box {
   background-clip: padding-box;
   background-color: core-autosuggest-variables.$background-color;
@@ -38,11 +38,24 @@ ul,
   padding-inline: units.$u1;
 }
 
-ul {
+.listbox {
   padding-block: core-autosuggest-variables.$listbox-padding-block;
   padding-inline: 0;
 
-  li {
+  .group:not(:first-child) {
+    .group-label {
+      border-block-start: 1px solid colors.$grijs-30;
+    }
+  }
+
+  .group-label {
+    color: colors.$bosgroen;
+    font-weight: 700;
+    padding-block: core-autosuggest-variables.$list-item-padding-block;
+    margin-inline: units.$u2;
+  }
+
+  .option {
     padding-block: core-autosuggest-variables.$list-item-padding-block;
     padding-inline: units.$u2;
 
@@ -50,18 +63,22 @@ ul {
       display: flex;
       justify-content: space-between;
     }
+
+    &:active {
+      background-color: colors.$bosgroen;
+
+      &,
+      .type,
+      .extra {
+        color: colors.$wit;
+      }
+    }
   }
 }
 
-li[aria-selected="true"] {
+.option[aria-selected="true"] {
   cursor: pointer;
-  background-color: colors.$grasgroen;
-
-  &,
-  .type,
-  .extra {
-    color: colors.$wit;
-  }
+  background-color: colors.$grasgroen-20;
 }
 
 mark {

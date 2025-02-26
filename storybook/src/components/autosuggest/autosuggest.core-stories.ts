@@ -1,5 +1,11 @@
 import { type Meta } from "@storybook/web-components";
-import { AutosuggestArgs, autosuggestMeta, autosuggestStories, AutosuggestSuggestion } from "dso-toolkit";
+import {
+  AutosuggestArgs,
+  autosuggestMeta,
+  autosuggestStories,
+  AutosuggestSuggestion,
+  AutosuggestSuggestionGroup,
+} from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
@@ -13,7 +19,7 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate, buttonTemplate } = templates;
@@ -68,7 +74,7 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
       mark,
     });
 
-    const processSuggestions = (suggestions: AutosuggestSuggestion[] | null): void => {
+    const processSuggestions = (suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[] | null): void => {
       const suggestionsDemoPreElement = document.getElementById("suggestions-demo");
       if (suggestionsDemoPreElement) {
         suggestionsDemoPreElement.textContent = JSON.stringify(suggestions, null, 2);
@@ -151,4 +157,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };
