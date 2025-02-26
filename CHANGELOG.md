@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Autosuggest: Suggestielijst groepering koppen ([#2981](https://github.com/dso-toolkit/dso-toolkit/issues/2981))
+
 ### Deprecated
 * Pagination: Deprecate HTML CSS component ([#2867](https://github.com/dso-toolkit/dso-toolkit/issues/2867))
 

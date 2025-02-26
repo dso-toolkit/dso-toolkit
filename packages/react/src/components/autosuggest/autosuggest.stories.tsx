@@ -1,5 +1,11 @@
 import { Meta } from "@storybook/react";
-import { AutosuggestArgs, autosuggestMeta, autosuggestStories, AutosuggestSuggestion } from "dso-toolkit";
+import {
+  AutosuggestArgs,
+  autosuggestMeta,
+  autosuggestStories,
+  AutosuggestSuggestion,
+  AutosuggestSuggestionGroup,
+} from "dso-toolkit";
 import React from "react";
 
 import readme from "./readme.md?raw";
@@ -13,13 +19,13 @@ const meta: Meta<AutosuggestArgs> = {
 
 export default meta;
 
-const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = autosuggestStories({
+const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups } = autosuggestStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { autosuggestTemplate } = templates;
 
     interface AutosuggestDemoTemplateProps {
-      fetchSuggestions: (value: string) => AutosuggestSuggestion[];
+      fetchSuggestions: (value: string) => AutosuggestSuggestion[] | AutosuggestSuggestionGroup[];
       dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
       dsoChange: (value: CustomEvent<string>) => void;
       dsoSearch: (value: CustomEvent<string>) => void;
@@ -31,7 +37,7 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
     }
 
     interface AutosuggestDemoTemplateState {
-      suggestions: AutosuggestSuggestion[];
+      suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[];
     }
 
     class AutosuggestDemoTemplate extends React.Component<
@@ -104,4 +110,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction } = a
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction };
+export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };

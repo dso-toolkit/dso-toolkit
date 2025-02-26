@@ -1,5 +1,38 @@
-import { AutosuggestMarkItem, AutosuggestSuggestion } from "./autosuggest.models.js";
+import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 import escapeStringRegexp from "escape-string-regexp";
+
+const suggestionGroups: AutosuggestSuggestionGroup[] = [
+  {
+    groupLabel: "Eerste groep",
+    suggestions: [
+      { value: "Item 1 van de eerste groep" },
+      { value: "Item 2 van de eerste groep" },
+      { value: "Item 3 van de eerste groep" },
+    ],
+  },
+  {
+    groupLabel: "Tweede groep",
+    suggestions: [
+      { value: "Item 1 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 2 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 3 met een wat langere naam van de tweede groep", type: "Typering" },
+    ],
+  },
+  {
+    groupLabel: "Derde groep",
+    suggestions: [
+      {
+        value: "Eenzaam item (met extra's)",
+        type: "Typering",
+        extras: ["Eerste extra", "Tweede extra", "Laatste extra"],
+      },
+    ],
+  },
+  {
+    groupLabel: "Laatste groep",
+    suggestions: [{ value: "Groep met slechts één item" }],
+  },
+];
 
 const suggestions: AutosuggestSuggestion[] = [
   {
@@ -209,6 +242,24 @@ export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
     ? suggestions.filter((suggestion) =>
         terms.every((term) => new RegExp(escapeStringRegexp(term), "i").test(suggestion.value)),
       )
+    : [];
+}
+
+export function fetchSuggestionGroups(value: string): AutosuggestSuggestionGroup[] {
+  const suggestionGroupsDeepCopy: AutosuggestSuggestionGroup[] = JSON.parse(JSON.stringify(suggestionGroups));
+
+  const terms = value.match(/(\S+)/g);
+
+  return terms
+    ? suggestionGroupsDeepCopy.filter((suggestionGroup) => {
+        const filteredSuggestions = suggestionGroup.suggestions.filter((suggestion) =>
+          terms.every((term) => new RegExp(escapeStringRegexp(term), "i").test(suggestion.value)),
+        );
+
+        suggestionGroup.suggestions = filteredSuggestions;
+
+        return filteredSuggestions.length > 0;
+      })
     : [];
 }
 
