@@ -5,6 +5,7 @@ import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 import { watcher } from "../annotation-watcher";
 import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { AnnotationListRenvooiValues } from "../annotation-list-renvooi-values";
 
 /**
  * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.
@@ -94,7 +95,7 @@ export class AnnotationActiviteit implements ComponentInterface {
                 </>
               )}
               {this.regelKwalificatieVoorzetsel && `${this.regelKwalificatieVoorzetsel}: `}
-              <dso-renvooi value={this.locatieNoemers} />
+              <AnnotationListRenvooiValues values={this.locatieNoemers} />
             </span>
             {this.gewijzigdeLocatie && <AnnotationGewijzigdeLocatie />}
           </>

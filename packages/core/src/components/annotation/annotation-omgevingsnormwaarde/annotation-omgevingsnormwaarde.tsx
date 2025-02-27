@@ -6,6 +6,7 @@ import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
 import { watcher } from "../annotation-watcher";
 import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { AnnotationListRenvooiValues } from "../annotation-list-renvooi-values";
 
 /**
  * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
@@ -104,7 +105,7 @@ export class AnnotationOmgevingsnormwaarde implements ComponentInterface {
               {this.toelichting && <>{this.toelichting}</>}
               {this.waardes && this.waardes.length > 0 && (
                 <>
-                  : <dso-renvooi value={this.waardes} />
+                  : <AnnotationListRenvooiValues values={this.waardes} />
                 </>
               )}
             </span>

@@ -1,0 +1,26 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v69.0.0 XXXX
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Renvooi (Web Component)
+
+<!-- truncate -->
+
+## Renvooi (Web Component)
+
+Dit component heeft een property `value?: RenvooiValue | RenvooiValue[];`. Als er een array werd doorgegeven maakt dit component er een komma gescheiden lijst van. Deze functionaliteit is verdwenen. Mocht je een array als een komma gescheiden lijst willen tonen moet je dat zelf regelen. De betekenis van een lijst `RenvooiValue[]` is dat het een reeks van wijzigingen over dezelfde entiteit is, en geen opsomming van wijzigingen.
+
+```html
+<!-- 👻 pseudo code -->
+<dso-renvooi value="[{ was: 'oud' }, 'nieuw']"></dso-renvooi>
+
+<!-- ❌ werd voorheen -->
+<span><del>oud</del>, nieuw</span>
+
+<!-- ✅ wordt vanaf deze release -->
+<span><del>oud</del>nieuw</span>
+```

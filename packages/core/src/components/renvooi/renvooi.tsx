@@ -3,26 +3,13 @@ import { Component, ComponentInterface, Fragment, FunctionalComponent, Prop, h }
 import { RenvooiValue } from "./renvooi.interfaces";
 
 interface RenvooiRenderProps {
-  value: RenvooiValue | RenvooiValue[] | undefined;
+  value: RenvooiValue;
 }
 
 const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value }) => {
   if (typeof value === "string" || !value) {
     // This element is used for --_dso-renvooi-text-decoration
     return <span class="text">{value}</span>;
-  }
-
-  if (Array.isArray(value)) {
-    return (
-      <>
-        {value.map((v, i, { length }) => (
-          <>
-            <RenvooiRender value={v} />
-            {i < length - 1 ? ", " : ""}
-          </>
-        ))}
-      </>
-    );
   }
 
   if ("toegevoegd" in value) {
@@ -35,7 +22,8 @@ const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value }) => {
 
   return (
     <>
-      <del>{value.was}</del> <ins>{value.wordt}</ins>
+      <del>{value.was}</del>
+      <ins>{value.wordt}</ins>
     </>
   );
 };
@@ -55,7 +43,21 @@ export class Renvooi implements ComponentInterface {
   @Prop()
   value?: RenvooiValue | RenvooiValue[];
 
+  get values(): RenvooiValue[] {
+    if (!this.value) {
+      return [];
+    }
+
+    return Array.isArray(this.value) ? this.value : [this.value];
+  }
+
   render() {
-    return <RenvooiRender value={this.value} />;
+    return (
+      <>
+        {this.values.map((v) => (
+          <RenvooiRender value={v} />
+        ))}
+      </>
+    );
   }
 }

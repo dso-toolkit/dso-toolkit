@@ -20,7 +20,7 @@ describe("Annotation - Activiteit", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("always.have.text", " in: ") // testing ' in: ' -> "toegestaan__ in: __locatie 1, locatie 2"
+      .should("always.have.text", " in: , ") // testing ' in: ' -> "toegestaan__ in: __locatie 1__, __locatie 2"
       .find("dso-renvooi.hydrated:nth-of-type(1)")
       .shadow()
       .should("have.text", "toegestaan")
@@ -29,11 +29,10 @@ describe("Annotation - Activiteit", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("have.text", " ") // testing: ' ' -> "toegestaan__ __locatie 1, locatie 2"
-      .find("dso-renvooi.hydrated:nth-of-type(2)")
+      .should("have.text", " , ") // testing: ' ' -> "toegestaan__ __locatie 1__, __locatie 2"
+      .find("dso-renvooi.hydrated:nth-of-type(2), dso-renvooi.hydrated:nth-of-type(3)")
       .shadow()
-      .as("locatieNoemers")
-      .should("have.text", "locatie 1, locatie 2");
+      .should("have.text", "locatie 1locatie 2");
   });
 });
 
@@ -80,11 +79,10 @@ describe("Annotation - Omgevingsnormwaarde", () => {
       .get("@annotation")
       .shadow()
       .find("p.annotation-data")
-      .should("have.text", "Waardes worden weergegeven op de kaart: ")
+      .should("have.text", "Waardes worden weergegeven op de kaart: , ")
       .find("dso-renvooi.hydrated")
       .shadow()
-      .as("waardes")
-      .should("have.text", "waarde 1, waarde 2");
+      .should("have.text", "waarde 1waarde 2");
   });
 
   it("doesn't show colon when waardes are omitted", () => {

@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Pagination: Deprecate HTML CSS component ([#2867](https://github.com/dso-toolkit/dso-toolkit/issues/2867))
 
+### Changed
+* **BREAKING** Annotation & Renvooi: Presenteren van renvooi items als komma gescheiden lijst verplaatsen ([#2975](https://github.com/dso-toolkit/dso-toolkit/issues/2975))
+
 ## 🪗 Release 68.5.0 - 2025-02-25
 
 ### Added
