@@ -4,7 +4,7 @@ import { ExpandableDecorator } from "dso-toolkit";
 export const decorator: ExpandableDecorator<JSX.Element> = (story) => (
   <>
     <span>toggle open control in the controls panel to expand/collapse.</span>
-    {story()}
+    {story() as React.ReactNode}
     <style>
       {`
         dso-expandable[open]:not([open="false"]),
