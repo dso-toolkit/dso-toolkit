@@ -7,7 +7,7 @@ import readme from "dso-toolkit/src/components/pagination/readme.md?raw";
 
 const meta: Meta<PaginationArgs> = {
   ...paginationMeta({ readme }),
-  title: "HTML|CSS/Pagination",
+  title: "HTML|CSS/Pagination (Deprecated)",
 };
 
 export default meta;
