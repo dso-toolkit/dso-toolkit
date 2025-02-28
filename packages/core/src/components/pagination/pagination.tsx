@@ -98,7 +98,7 @@ export class Pagination implements ComponentInterface {
       <dso-responsive-element ref={(element) => (this.responsiveElement = element)}>
         <nav class="pagination" aria-label="Paginering">
           <ul>
-            <li class={this.isCurrentFirstPage(currentPage, this.totalPages) ? "dso-page-hidden" : undefined}>
+            <li class={currentPage <= 1 ? "dso-page-hidden" : undefined}>
               <a
                 href={this.formatHref(currentPage - 1)}
                 aria-label="Vorige"
@@ -139,7 +139,7 @@ export class Pagination implements ComponentInterface {
                 )}
               </>
             ))}
-            <li class={this.isCurrentLastPage(currentPage, this.totalPages) ? "dso-page-hidden" : undefined}>
+            <li class={this.totalPages && currentPage >= this.totalPages ? "dso-page-hidden" : undefined}>
               <a
                 href={this.formatHref(currentPage + 1)}
                 aria-label="Volgende"
@@ -272,25 +272,13 @@ export class Pagination implements ComponentInterface {
   private getPageRangeWithoutTotalPages(currentPage: number, availablePositions: number): number[] {
     const positionRange = availablePositions >= 9 ? 2 : 0;
     const start = Math.max(1, currentPage - positionRange);
-    const result: number[] = [];
 
-    for (let i = start; i <= currentPage; i++) {
-      result.push(i);
-    }
+    // Creates an array of numbers from `start` to `currentPage + 1`
+    const result = Array.from({ length: currentPage - start + 2 }, (_, i) => start + i);
 
-    result.push(currentPage + 1);
-
-    // Adds 1 to start of the result array if index is >= 2
+    // Adds 1 to the start of the result array if `start` is >= 2
     if (start >= 2) result.unshift(1);
 
     return result;
-  }
-
-  private isCurrentFirstPage(currentPage: number, totalPages?: number) {
-    return totalPages ? currentPage > totalPages || currentPage <= 1 : currentPage <= 1;
-  }
-
-  private isCurrentLastPage(currentPage: number, totalPages?: number) {
-    return totalPages ? currentPage >= totalPages || currentPage < 1 : false;
   }
 }
