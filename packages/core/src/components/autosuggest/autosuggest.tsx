@@ -82,17 +82,23 @@ const NotFound: FunctionalComponent<{
 function isGrouped(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is SuggestionGroup[] {
   return (
     !!suggestions &&
-    suggestions.every((suggestion) => suggestion !== undefined) &&
-    suggestions.every((suggestion) => "groupLabel" in suggestion && suggestion.groupLabel !== undefined) &&
-    suggestions.every((suggestion) => "suggestions" in suggestion && suggestion.suggestions.length > 0)
+    suggestions.every(
+      (suggestion) =>
+        suggestion !== undefined &&
+        "groupLabel" in suggestion &&
+        suggestion.groupLabel !== undefined &&
+        "suggestions" in suggestion &&
+        suggestion.suggestions.length > 0,
+    )
   );
 }
 
 function isFlat(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is Suggestion[] {
   return (
     !!suggestions &&
-    suggestions.every((suggestion) => suggestion !== undefined) &&
-    suggestions.every((suggestion) => "value" in suggestion && suggestion.value !== undefined)
+    suggestions.every(
+      (suggestion) => suggestion !== undefined && "value" in suggestion && suggestion.value !== undefined,
+    )
   );
 }
 
@@ -539,10 +545,6 @@ export class Autosuggest {
   private get suggestionGroups(): SuggestionGroup[] {
     return isGrouped(this.suggestions) ? this.suggestions : [];
   }
-
-  // private get flatSuggestion(): Suggestion[] {
-  //   return isGrouped(this.suggestions) ? [] : this.suggestions;
-  // }
 
   private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
