@@ -80,15 +80,19 @@ const NotFound: FunctionalComponent<{
   );
 
 function isGrouped(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is SuggestionGroup[] {
-  const suggestionGroup: SuggestionGroup[] = suggestions as SuggestionGroup[];
-
   return (
-    suggestionGroup &&
-    suggestionGroup.length > 0 &&
-    suggestionGroup[0] !== undefined &&
-    suggestionGroup[0].groupLabel !== undefined &&
-    suggestionGroup[0].suggestions &&
-    suggestionGroup[0].suggestions.length > 0
+    !!suggestions &&
+    suggestions.every((suggestion) => suggestion !== undefined) &&
+    suggestions.every((suggestion) => "groupLabel" in suggestion && suggestion.groupLabel !== undefined) &&
+    suggestions.every((suggestion) => "suggestions" in suggestion && suggestion.suggestions.length > 0)
+  );
+}
+
+function isFlat(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is Suggestion[] {
+  return (
+    !!suggestions &&
+    suggestions.every((suggestion) => suggestion !== undefined) &&
+    suggestions.every((suggestion) => "value" in suggestion && suggestion.value !== undefined)
   );
 }
 
@@ -419,10 +423,12 @@ export class Autosuggest {
       return;
     }
 
-    if (this.selectedSuggestionGroup) {
+    if (isGrouped(this.suggestions) && this.selectedSuggestionGroup) {
       this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[0];
     } else {
-      this.selectedSuggestion = this.suggestions[0] as Suggestion;
+      if (isFlat(this.suggestions)) {
+        this.selectedSuggestion = this.suggestions[0];
+      }
     }
 
     this.setAriaActiveDescendant(true);
@@ -433,11 +439,13 @@ export class Autosuggest {
       return;
     }
 
-    if (this.selectedSuggestionGroup) {
+    if (isGrouped(this.suggestions) && this.selectedSuggestionGroup) {
       this.selectedSuggestion =
         this.selectedSuggestionGroup.suggestions[this.selectedSuggestionGroup.suggestions.length - 1];
     } else {
-      this.selectedSuggestion = this.suggestions[this.suggestions.length - 1] as Suggestion;
+      if (isFlat(this.suggestions)) {
+        this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
+      }
     }
     this.setAriaActiveDescendant(true);
   }
@@ -448,24 +456,7 @@ export class Autosuggest {
     }
 
     if (isGrouped(this.suggestions)) {
-      if (this.selectedSuggestionGroup) {
-        const indexInGroup = this.selectedSuggestion
-          ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
-          : -1;
-
-        if (indexInGroup === this.selectedSuggestionGroup.suggestions.length - 1) {
-          // Move to first suggestion in next or first group
-          const groupIndex = (this.suggestions as SuggestionGroup[]).indexOf(this.selectedSuggestionGroup);
-          this.selectedSuggestionGroup = (this.suggestions[groupIndex + 1] ?? this.suggestions[0]) as SuggestionGroup;
-          this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[0];
-        } else {
-          // Within this group
-          this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup + 1];
-        }
-      } else {
-        this.selectedSuggestionGroup = this.suggestions[0];
-        this.selectedSuggestion = this.selectedSuggestionGroup!.suggestions[0];
-      }
+      this.selectNextGroupedSuggestion();
     } else {
       const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : -1;
 
@@ -475,34 +466,38 @@ export class Autosuggest {
     this.setAriaActiveDescendant(true);
   }
 
+  private selectNextGroupedSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
+    if (this.selectedSuggestionGroup) {
+      const indexInGroup = this.selectedSuggestion
+        ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
+        : -1;
+
+      if (indexInGroup === this.selectedSuggestionGroup.suggestions.length - 1) {
+        // Move to first suggestion in next or first group
+        const groupIndex = this.suggestionGroups.indexOf(this.selectedSuggestionGroup);
+        this.selectedSuggestionGroup = this.suggestionGroups[groupIndex + 1] ?? this.suggestionGroups[0];
+        this.selectedSuggestion = this.selectedSuggestionGroup!.suggestions[0];
+      } else {
+        // Within this group
+        this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup + 1];
+      }
+    } else {
+      this.selectedSuggestionGroup = this.suggestionGroups[0];
+      this.selectedSuggestion = this.selectedSuggestionGroup!.suggestions[0];
+    }
+  }
+
   private selectPreviousSuggestion() {
     if (!this.suggestions) {
       return;
     }
 
     if (isGrouped(this.suggestions)) {
-      if (this.selectedSuggestionGroup) {
-        const indexInGroup = this.selectedSuggestion
-          ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
-          : -1;
-
-        if (indexInGroup === 0) {
-          // Move to last suggestion in previous or last group
-          const groupIndex = (this.suggestions as SuggestionGroup[]).indexOf(this.selectedSuggestionGroup);
-
-          this.selectedSuggestionGroup = (this.suggestions[groupIndex - 1] ??
-            this.suggestions[this.suggestions.length - 1]) as SuggestionGroup;
-          this.selectedSuggestion =
-            this.selectedSuggestionGroup.suggestions[this.selectedSuggestionGroup.suggestions.length - 1];
-        } else {
-          // Within this group
-          this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup - 1];
-        }
-      } else {
-        this.selectedSuggestionGroup = this.suggestions[this.suggestions.length - 1];
-        this.selectedSuggestion =
-          this.selectedSuggestionGroup!.suggestions[this.selectedSuggestionGroup!.suggestions.length - 1];
-      }
+      this.selectPreviousGroupedSuggestion();
     } else {
       const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : 0;
 
@@ -511,6 +506,43 @@ export class Autosuggest {
 
     this.setAriaActiveDescendant(true);
   }
+
+  private selectPreviousGroupedSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
+    if (this.selectedSuggestionGroup) {
+      const indexInGroup = this.selectedSuggestion
+        ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
+        : -1;
+
+      if (indexInGroup === 0) {
+        // Move to last suggestion in previous or last group
+        const groupIndex = this.suggestionGroups.indexOf(this.selectedSuggestionGroup);
+
+        this.selectedSuggestionGroup =
+          this.suggestionGroups[groupIndex - 1] ?? this.suggestionGroups[this.suggestions.length - 1];
+        this.selectedSuggestion =
+          this.selectedSuggestionGroup!.suggestions[this.selectedSuggestionGroup!.suggestions.length - 1];
+      } else {
+        // Within this group
+        this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup - 1];
+      }
+    } else {
+      this.selectedSuggestionGroup = this.suggestionGroups[this.suggestions.length - 1];
+      this.selectedSuggestion =
+        this.selectedSuggestionGroup!.suggestions[this.selectedSuggestionGroup!.suggestions.length - 1];
+    }
+  }
+
+  private get suggestionGroups(): SuggestionGroup[] {
+    return isGrouped(this.suggestions) ? this.suggestions : [];
+  }
+
+  // private get flatSuggestion(): Suggestion[] {
+  //   return isGrouped(this.suggestions) ? [] : this.suggestions;
+  // }
 
   private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
@@ -608,7 +640,7 @@ export class Autosuggest {
     if (!this.suggestions) {
       return "";
     }
-    return `${this.inputId}-${(this.suggestions as Suggestion[]).indexOf(suggestion) + 1}`;
+    return `${this.inputId}-${isFlat(this.suggestions) && this.suggestions.indexOf(suggestion) + 1}`;
   }
 
   private listboxGroupedItemId(suggestionGroup: SuggestionGroup, suggestion: Suggestion): string {
@@ -616,7 +648,7 @@ export class Autosuggest {
       return "";
     }
 
-    return `${this.inputId}-${(this.suggestions as SuggestionGroup[]).indexOf(suggestionGroup) + 1}-${suggestionGroup.suggestions.indexOf(suggestion) + 1}`;
+    return `${this.inputId}-${this.suggestionGroups.indexOf(suggestionGroup) + 1}-${suggestionGroup.suggestions.indexOf(suggestion) + 1}`;
   }
 
   private getMarkedChunkedExtras(extras: string[], suggestion: Suggestion): (string | VNode)[][][] {
@@ -649,6 +681,7 @@ export class Autosuggest {
     const showListbox = this.showSuggestions || this.notFound;
 
     const grouped = isGrouped(this.suggestions);
+    const flat = isFlat(this.suggestions);
 
     if (showListbox && this.input) {
       this.input.setAttribute("aria-controls", this.listboxId);
@@ -670,7 +703,7 @@ export class Autosuggest {
               ref={(element) => (this.listboxContainer = element)}
               style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
             >
-              {!grouped && (
+              {flat && (
                 <div
                   class="listbox"
                   role="listbox"
