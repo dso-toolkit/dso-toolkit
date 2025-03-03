@@ -1,10 +1,17 @@
 import { LabelDecorator } from "dso-toolkit";
 import * as React from "react";
 
-export const decorator: LabelDecorator<JSX.Element> = (story, css) => (
-  <>
-    {story() as React.ReactNode}
+export const decorator: LabelDecorator<JSX.Element> = (story, css) => {
+  const s = story();
+  if (!React.isValidElement(s)) {
+    throw new Error("Expected a valid JSX element");
+  }
 
-    <style>{css}</style>
-  </>
-);
+  return (
+    <>
+      {s}
+
+      <style>{css}</style>
+    </>
+  );
+};
