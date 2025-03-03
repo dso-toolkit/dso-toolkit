@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Ozon Content: Ondersteuning voor STOP element `<abbr>` ([#2860](https://github.com/dso-toolkit/dso-toolkit/issues/2860))
+
 ### Changed
 * Pagination: maak totalPages optioneel ([#2875](https://github.com/dso-toolkit/dso-toolkit/issues/2875))
 

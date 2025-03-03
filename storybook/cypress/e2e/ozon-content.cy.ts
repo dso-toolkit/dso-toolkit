@@ -530,6 +530,40 @@ describe("Ozon Content", () => {
         cy.wrap(element).should(index === 0 ? "have.class" : "not.have.class", "dso-highlight");
       });
   });
+
+  it("renders <abbr> with title between parentheses", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--abbr");
+
+    cy.get("dso-ozon-content").then((c) => {
+      c.prop("content", "<abbr title='Alfa Beta Gamma'>ABG</abbr>");
+    });
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("span.od-abbr")
+      .should("exist")
+      .and("have.text", "ABG (Alfa Beta Gamma)");
+    cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "ABG");
+  });
+
+  it("renders <abbr> without title between parentheses", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--abbr");
+
+    cy.get("dso-ozon-content").then((c) => {
+      c.prop("content", "<abbr>XYZ</abbr>");
+    });
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+
+    cy.get("dso-ozon-content.hydrated").shadow().find("span.od-abbr").should("exist").and("not.have.text");
+    cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "XYZ");
+  });
 });
 
 function isOdd(n: number): boolean {
