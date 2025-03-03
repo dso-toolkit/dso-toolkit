@@ -9,6 +9,10 @@ interface OzonContentStory {
 
 export const content: OzonContentStory[] = [
   {
+    title: "Abbr",
+    content: "<abbr title='Natuur Netwerk Nederland'>NNN</abbr>",
+  },
+  {
     title: "Al",
     content: `<Inhoud><Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>
       <Al wijzigactie='verwijder'><ExtIoRef xmlns='' wId='gm1979_1__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-01-25;1</ExtIoRef></Al><Al wijzigactie='voegtoe'><ExtIoRef xmlns='' wId='gm1979_2__cmp_II__content_o_1__list_o_1__item_o_16__ref_o_1' href='https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4'>/join/id/regdata/gm1979/2022/vuurwerkverbodsgebied/nld@2022-06-16;ontwerp4</ExtIoRef></Al></Inhoud>`,

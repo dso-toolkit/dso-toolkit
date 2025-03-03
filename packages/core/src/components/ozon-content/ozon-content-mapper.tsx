@@ -1,6 +1,7 @@
 import { Fragment, h, JSX } from "@stencil/core";
 
 import { getNodeName } from "./get-node-name.function";
+import { OzonContentAbbrNode } from "./nodes/abbr.node";
 import { OzonContentAlNode } from "./nodes/al.node";
 import { OzonContentBronNode } from "./nodes/bron.node";
 import { OzonContentDocumentNode } from "./nodes/document.node";
@@ -25,6 +26,7 @@ import { OzonContentInputType } from "./ozon-content.interfaces";
 
 export class Mapper {
   private mappers: OzonContentNode[] = [
+    new OzonContentAbbrNode(),
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
     new OzonContentInhoudNode(),
