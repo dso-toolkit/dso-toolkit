@@ -1,4 +1,4 @@
-import { Header, Breadcrumbs } from "dso-toolkit";
+import { Breadcrumbs, Header } from "dso-toolkit";
 
 export const header: Header = {
   label: "Regels op de kaart",

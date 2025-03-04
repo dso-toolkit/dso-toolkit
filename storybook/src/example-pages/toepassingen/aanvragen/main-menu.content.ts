@@ -1,6 +1,6 @@
-import { Header } from "dso-toolkit";
+import { HeaderMenuItem } from "dso-toolkit";
 
-export const mainMenu: Header["mainMenu"] = [
+export const mainMenu: HeaderMenuItem[] = [
   {
     label: "Home",
     url: "#",
@@ -12,6 +12,7 @@ export const mainMenu: Header["mainMenu"] = [
   {
     label: "Aanvragen",
     url: "#",
+    active: true,
   },
   {
     label: "Regels op de kaart",

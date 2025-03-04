@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Patronen: opruimen ([#2939](https://github.com/dso-toolkit/dso-toolkit/issues/2939))
+* Voorbeeldpagina's: Voorzien van Header en Footer ([#2940](https://github.com/dso-toolkit/dso-toolkit/issues/2940))
 
 ## 🌻 Release 69.1.0 - 2025-03-06
 
