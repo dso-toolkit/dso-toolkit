@@ -1,7 +1,7 @@
 export type AutosuggestMarkItem = { mark: string } | string;
 
 export interface Autosuggest<TemplateFnReturnType> {
-  suggestions: AutosuggestSuggestion[] | null;
+  suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[] | null;
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel?: string;
@@ -24,4 +24,9 @@ export interface AutosuggestSuggestion {
   value: string;
   type?: string;
   item?: unknown;
+}
+
+export interface AutosuggestSuggestionGroup {
+  groupLabel: string;
+  suggestions: AutosuggestSuggestion[];
 }

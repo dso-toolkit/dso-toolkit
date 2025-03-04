@@ -20,6 +20,18 @@ export interface Suggestion {
   extras?: string[];
 }
 
+export interface SuggestionGroup {
+  /**
+   * The label of the group of suggestions
+   */
+  groupLabel: string;
+
+  /**
+   * The suggestions of this group for the value of the slotted input element.
+   */
+  suggestions: Suggestion[];
+}
+
 export type AutosuggestMarkItem = { mark: string } | string;
 
 export type AutosuggestMarkFunction = (

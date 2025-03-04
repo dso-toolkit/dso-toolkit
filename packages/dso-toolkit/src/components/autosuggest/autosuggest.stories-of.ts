@@ -1,8 +1,8 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
-import { fetchSuggestions, mark } from "./autosuggest.demo.js";
-import { AutosuggestMarkItem, AutosuggestSuggestion } from "./autosuggest.models.js";
+import { fetchSuggestionGroups, fetchSuggestions, mark } from "./autosuggest.demo.js";
+import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
@@ -15,6 +15,7 @@ interface AutosuggestStories {
   Minimal3Characters: AutosuggestStory;
   InSearchbar: AutosuggestStory;
   WithProvidedMarkFunction: AutosuggestStory;
+  SuggestionGroups: AutosuggestStory;
 }
 
 interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -26,7 +27,7 @@ interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnRetu
   > {}
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
-  fetchSuggestions: (value: string) => AutosuggestSuggestion[],
+  fetchSuggestions: (value: string) => AutosuggestSuggestion[] | AutosuggestSuggestionGroup[],
   dsoSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
   dsoChange: (event: CustomEvent<string>) => void,
   dsoSearch: (event: CustomEvent<string>) => void,
@@ -130,6 +131,21 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
           args.notFoundLabel,
           undefined,
           mark,
+        ),
+      ),
+    },
+    SuggestionGroups: {
+      render: templateContainer.render(storyTemplates, (args, { autosuggestDemoTemplate }) =>
+        autosuggestDemoTemplate(
+          fetchSuggestionGroups,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.suggestOnFocus,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel,
         ),
       ),
     },
