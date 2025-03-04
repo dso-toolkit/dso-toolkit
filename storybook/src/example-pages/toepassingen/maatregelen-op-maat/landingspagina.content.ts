@@ -1,5 +1,29 @@
-import { AccordionSection } from "dso-toolkit";
+import { AccordionSection, HeaderMenuItem } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+
+export const mainMenu: HeaderMenuItem[] = [
+  {
+    label: "Home",
+    url: "#",
+  },
+  {
+    label: "Vergunningscheck",
+    url: "#",
+  },
+  {
+    label: "Aanvragen",
+    url: "#",
+  },
+  {
+    label: "Regels op de kaart",
+    url: "#",
+  },
+  {
+    label: "Maatregelen op maat",
+    url: "#",
+    active: true,
+  },
+];
 
 export const accordionSections: AccordionSection<TemplateResult>[] = [
   {
