@@ -6,8 +6,11 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { compiler } from "markdown-to-jsx";
 
+type PaginationStory = StoryObj<PaginationArgs, Renderer>;
+
 interface PaginationStories {
-  Pagination: StoryObj<PaginationArgs, Renderer>;
+  Pagination: PaginationStory;
+  PaginationWithoutTotal: PaginationStory;
 }
 
 interface PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -42,23 +45,22 @@ export function paginationStories<Implementation, Templates, TemplateFnReturnTyp
   storyTemplates,
   templateContainer,
 }: PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType>): PaginationStories {
+  const render = templateContainer.render(storyTemplates, (args: PaginationArgs, { paginationTemplate }) =>
+    paginationTemplate(paginationArgsMapper(args)),
+  );
   return {
     Pagination: {
       args: {
         totalPages: 16,
         currentPage: 8,
       },
-      argTypes: {
-        totalPages: {
-          control: { type: "number", min: 1 },
-        },
-        currentPage: {
-          control: { type: "number", min: 1 },
-        },
+      render,
+    },
+    PaginationWithoutTotal: {
+      args: {
+        currentPage: 8,
       },
-      render: templateContainer.render(storyTemplates, (args, { paginationTemplate }) =>
-        paginationTemplate(paginationArgsMapper(args)),
-      ),
+      render,
     },
   };
 }

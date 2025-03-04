@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Pagination: maak totalPages optioneel ([#2875](https://github.com/dso-toolkit/dso-toolkit/issues/2875))
+
 ### Task
 * Packages: Typescript updaten naar `~5.7.3` of hoger ([#2987](https://github.com/dso-toolkit/dso-toolkit/issues/2987))
 

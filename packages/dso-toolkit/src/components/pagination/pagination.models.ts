@@ -8,7 +8,7 @@ export interface PaginationSelectPageEvent {
 }
 
 export interface Pagination {
-  totalPages: number;
+  totalPages?: number;
   currentPage: number;
   formatHref?: (page: number) => string;
   dsoSelectPage?: (e: CustomEvent<PaginationSelectPageEvent>) => void;

@@ -23,20 +23,20 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                   </li>
                 `
               : nothing}
-            ${currentPage === 5 && totalPages >= 7
+            ${currentPage === 5
               ? html` <li>
                   <a href="#">${currentPage - 3}</a>
                 </li>`
               : nothing}
-            ${currentPage >= 6 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
-            ${currentPage >= 4 && totalPages >= 5
+            ${currentPage >= 6 ? html` <li><span>...</span></li>` : nothing}
+            ${currentPage >= 4
               ? html`
                   <li>
                     <a href="#">${currentPage - 2}</a>
                   </li>
                 `
               : nothing}
-            ${currentPage >= 3 && totalPages >= 5
+            ${currentPage >= 3
               ? html`
                   <li>
                     <a href="#">${currentPage - 1}</a>
@@ -49,27 +49,40 @@ export const cssPagination: ComponentImplementation<Pagination> = {
                 ${currentPage === totalPages ? html`<span class="sr-only"> (laatste pagina)</span>` : nothing}
               </span>
             </li>
-            ${currentPage <= totalPages - 2
+            ${totalPages && currentPage <= totalPages - 2
               ? html`
                   <li>
                     <a href="#">${currentPage + 1}</a>
                   </li>
                 `
               : nothing}
-            ${currentPage <= totalPages - 3
+            ${totalPages && currentPage <= totalPages - 3
               ? html`
                   <li>
                     <a href="#">${currentPage + 2}</a>
                   </li>
                 `
               : nothing}
-            ${totalPages - currentPage >= 5 && totalPages >= 7 ? html` <li><span>...</span></li>` : nothing}
-            ${totalPages - currentPage === 4
+            ${totalPages && totalPages - currentPage >= 5 && totalPages >= 7
+              ? html` <li><span>...</span></li>`
+              : nothing}
+            ${!totalPages
+              ? html` <li>
+                    <a href="#">${currentPage + 1}</a>
+                  </li>
+                  <li><span>...</span></li>
+                  <li>
+                    <a href="#" aria-label="Volgende">
+                      <span class="dso-next" aria-hidden="true"></span>
+                    </a>
+                  </li>`
+              : nothing}
+            ${totalPages && totalPages - currentPage === 4
               ? html`<li>
                   <a href="#">${currentPage + 3}</a>
                 </li>`
               : nothing}
-            ${currentPage !== totalPages
+            ${totalPages && currentPage !== totalPages
               ? html`
                   <li>
                     <a href="#">${totalPages} <span class="sr-only"> (laatste pagina)</span></a>
