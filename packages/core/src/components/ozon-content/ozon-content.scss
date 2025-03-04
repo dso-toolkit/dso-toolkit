@@ -204,3 +204,7 @@ del {
 .dso-rich-content {
   @include rich-content.children();
 }
+
+.od-abbr {
+  text-decoration: underline dotted;
+}
