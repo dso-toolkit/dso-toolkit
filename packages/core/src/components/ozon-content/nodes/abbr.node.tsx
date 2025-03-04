@@ -12,7 +12,7 @@ export class OzonContentAbbrNode implements OzonContentNode {
     return (
       <span class="od-abbr">
         <abbr>{mapNodeToJsx(node.childNodes)}</abbr>
-        {title ? ` (${title})` : null}
+        {title && ` (${title})`}
       </span>
     );
   }
