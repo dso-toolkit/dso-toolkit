@@ -143,7 +143,7 @@ export class Pagination implements ComponentInterface {
               <a
                 href={this.formatHref(currentPage + 1)}
                 aria-label="Volgende"
-                onClick={(e) => currentPage && this.totalPages && this.clickHandler(e, currentPage + 1)}
+                onClick={(e) => currentPage && this.clickHandler(e, currentPage + 1)}
               >
                 <dso-icon icon="chevron-right"></dso-icon>
               </a>
