@@ -21,8 +21,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true })}
-
+      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         ${applicationHeadingTemplate({ title: "Mijn projecten" })}
         ${contextTemplate({

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Packages: Typescript updaten naar `~5.7.3` of hoger ([#2987](https://github.com/dso-toolkit/dso-toolkit/issues/2987))
+* Voorbeeldpagina's: Voorzien van Header en Footer ([#2940](https://github.com/dso-toolkit/dso-toolkit/issues/2940))
 
 ## 💞 Release 69.0.0 - 2025-03-03
 
