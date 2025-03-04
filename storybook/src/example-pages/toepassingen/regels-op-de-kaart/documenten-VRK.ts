@@ -2,7 +2,7 @@ import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
-import { header, cardList } from "./documenten-VRK.content";
+import { cardList, header } from "./documenten-VRK.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",

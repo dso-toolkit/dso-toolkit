@@ -4,7 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
 import { header } from "../../partials/header.content";
-import { accordionSections } from "./landingspagina.content";
+import { accordionSections, mainMenu } from "./landingspagina.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -12,7 +12,7 @@ examplePageFactory(
   "Landingspagina",
   ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(templates, { ...header, mainMenu })}
       <main>
         <div
           class="row dso-banner dso-banner-implementation-specific-image"

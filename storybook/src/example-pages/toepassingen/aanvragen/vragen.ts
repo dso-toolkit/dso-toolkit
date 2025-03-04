@@ -2,6 +2,10 @@ import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { checkboxes, radios } from "./vragen.content";
+import { headerPartial } from "../../partials/header";
+import { mainMenu } from "./main-menu.content";
+import { header } from "../../partials/header.content";
+import { footerPartial } from "../../partials/footer";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -20,6 +24,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
+      ${headerPartial(templates, { ...header, mainMenu })}
       <main>
         <form class="form-horizontal">
           ${applicationHeadingTemplate({
@@ -107,6 +112,7 @@ examplePageFactory(
             ],
           })}
         </form>
+        ${footerPartial(templates)}
       </main>
     </div>
   `,

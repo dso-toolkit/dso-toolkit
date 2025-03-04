@@ -5,6 +5,7 @@ import { definitionList1, definitionlist2, radios } from "./conceptverzoek.conte
 import { headerPartial } from "../../partials/header";
 import { header } from "../../partials/header.content";
 import { footerPartial } from "../../partials/footer";
+import { mainMenu } from "./main-menu.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -15,32 +16,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, {
-        ...header,
-        mainMenu: [
-          {
-            label: "Home",
-            url: "#",
-          },
-          {
-            label: "Vergunningscheck",
-            url: "#",
-          },
-          {
-            label: "Aanvragen",
-            url: "#",
-            active: true,
-          },
-          {
-            label: "Regels op de kaart",
-            url: "#",
-          },
-          {
-            label: "Mijn Omgevingsloket",
-            url: "#",
-          },
-        ],
-      })}
+      ${headerPartial(templates, { ...header, mainMenu })}
       <main>
         <form>
           ${applicationHeadingTemplate({

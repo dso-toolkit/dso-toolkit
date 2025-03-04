@@ -1,4 +1,4 @@
-import { LinkList, LinkListType, HeaderMenuItem } from "dso-toolkit";
+import { HeaderMenuItem, LinkList, LinkListType } from "dso-toolkit";
 
 export const mainMenu: HeaderMenuItem[] = [
   {
@@ -15,6 +15,10 @@ export const mainMenu: HeaderMenuItem[] = [
   },
   {
     label: "Regels op de kaart",
+    url: "#",
+  },
+  {
+    label: "Maatregelen op maat",
     url: "#",
   },
 ];

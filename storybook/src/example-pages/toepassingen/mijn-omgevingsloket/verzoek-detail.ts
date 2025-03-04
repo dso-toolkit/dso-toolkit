@@ -12,7 +12,7 @@ examplePageFactory(
   "Verzoek Detail",
   ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, anchorTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         <div class="row">
           <div class="col-md-12">
@@ -133,7 +133,7 @@ examplePageFactory(
                   icon: { icon: "chevron-left" },
                 },
               ],
-            })}S
+            })}
           </div>
         </div>
       </main>

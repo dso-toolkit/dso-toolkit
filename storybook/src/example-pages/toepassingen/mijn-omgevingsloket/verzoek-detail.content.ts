@@ -19,9 +19,8 @@ export const mainMenu: Header["mainMenu"] = [
     url: "#",
   },
   {
-    label: "Mijn Omgevingsloket",
+    label: "Maatregelen op maat",
     url: "#",
-    active: true,
   },
 ];
 
