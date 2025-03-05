@@ -69,6 +69,10 @@ export class Scrollable {
    */
   @Method()
   async _setScrollState() {
+    if (!this.host.isConnected) {
+      return;
+    }
+
     const scrollPosition = this.getScrollPosition();
     if (this.scrollPosition !== scrollPosition) {
       this.scrollPosition = scrollPosition;
