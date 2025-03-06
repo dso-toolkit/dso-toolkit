@@ -12,7 +12,7 @@ const meta: Meta<PaginationArgs> = {
 
 export default meta;
 
-const { Pagination } = paginationStories({
+const { Pagination, PaginationWithoutTotal } = paginationStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { paginationTemplate } = templates;
@@ -23,4 +23,4 @@ const { Pagination } = paginationStories({
   },
 });
 
-export { Pagination };
+export { Pagination, PaginationWithoutTotal };
