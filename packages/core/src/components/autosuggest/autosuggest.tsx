@@ -1,4 +1,17 @@
-import { Component, Element, Event, EventEmitter, Fragment, h, Listen, Prop, State, VNode, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  FunctionalComponent,
+  h,
+  Listen,
+  Prop,
+  State,
+  VNode,
+  Watch,
+} from "@stencil/core";
 
 import debounce from "debounce";
 import escapeStringRegexp from "escape-string-regexp";
@@ -7,12 +20,79 @@ import { v4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
 
-import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion } from "./autosuggest.interfaces";
+import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion, SuggestionGroup } from "./autosuggest.interfaces";
 import { translations } from "./autosuggest.i18n";
+
+interface MarkedSuggestion {
+  value: (VNode | string)[];
+  type?: (VNode | string)[];
+  extras?: (VNode | string)[][][];
+}
 
 const maxSuggestionsViewable = 10;
 const listboxPaddingBlock = 8;
 const listboxBorderWidth = 1;
+
+const Option: FunctionalComponent<{
+  id: string;
+  mouseEnter: () => void;
+  mouseLeave: () => void;
+  click: () => void;
+  selected: string;
+  suggestion: Suggestion;
+  markedSuggestion: MarkedSuggestion;
+  ref: (element: HTMLDivElement | undefined) => void;
+}> = ({ id, mouseEnter, mouseLeave, click, selected, suggestion, ref, markedSuggestion }) => (
+  <div
+    class="option"
+    role="option"
+    id={id}
+    onMouseEnter={mouseEnter}
+    onMouseLeave={mouseLeave}
+    onClick={click}
+    aria-selected={selected}
+    aria-label={suggestion.value}
+    ref={ref}
+  >
+    <div class="suggestion-row">
+      <span class="value">{markedSuggestion.value}</span>
+      {markedSuggestion.type ? <span class="type">{markedSuggestion.type}</span> : undefined}
+    </div>
+    {markedSuggestion.extras &&
+      markedSuggestion.extras.map((markedChunk) => (
+        <div class="suggestion-row">
+          {markedChunk.map((extra) => (
+            <span class="extra">{extra}</span>
+          ))}
+        </div>
+      ))}
+  </div>
+);
+
+function isGrouped(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is SuggestionGroup[] {
+  return (
+    !!suggestions &&
+    suggestions.length > 0 &&
+    suggestions.every(
+      (suggestion) =>
+        suggestion !== undefined &&
+        "groupLabel" in suggestion &&
+        suggestion.groupLabel !== undefined &&
+        "suggestions" in suggestion &&
+        suggestion.suggestions.length > 0,
+    )
+  );
+}
+
+function isFlat(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is Suggestion[] {
+  return (
+    !!suggestions &&
+    suggestions.length > 0 &&
+    suggestions.every(
+      (suggestion) => suggestion !== undefined && "value" in suggestion && suggestion.value !== undefined,
+    )
+  );
+}
 
 @Component({
   tag: "dso-autosuggest",
@@ -21,16 +101,21 @@ const listboxBorderWidth = 1;
 })
 export class Autosuggest {
   /**
-   * The suggestions for the value of the slotted input element. Optionally a
-   * Suggestion can have a `type` and `item`.
+   * The suggestions for the value of the slotted input element.
    *
-   * The `type` is used to style the suggestion. `item` can be use to reference
-   * the original object that was used to create the suggestion.
+   * This can be an array of type Suggestion or an Array of type SuggestionGroup.
+   *
+   * A suggestionGroup must have a `groupLabel` and `suggestions`.
+   *
+   * A suggestion must have a `value` and can have a `type`, an `item` or `extras`.
+   *
+   * The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to
+   * create the suggestion. `extras` is an array of additional strings to further specify the suggestion.
    *
    * The value should be null when no suggestions have been fetched.
    */
   @Prop()
-  readonly suggestions: Suggestion[] | null = null;
+  readonly suggestions: Suggestion[] | SuggestionGroup[] | null = null;
 
   /**
    * Shows progress indicator when fetching results.
@@ -98,6 +183,9 @@ export class Autosuggest {
   selectedSuggestion: Suggestion | undefined;
 
   @State()
+  selectedSuggestionGroup: SuggestionGroup | undefined;
+
+  @State()
   notFound = false;
 
   @State()
@@ -124,9 +212,9 @@ export class Autosuggest {
 
   private listboxContainer: HTMLDsoScrollableElement | undefined;
 
-  private listbox: HTMLUListElement | undefined;
+  private listbox: HTMLDivElement | undefined;
 
-  private listboxItems: HTMLLIElement[] = [];
+  private listboxItems: HTMLDivElement[] = [];
 
   private listboxId: string = v4();
 
@@ -321,8 +409,9 @@ export class Autosuggest {
     });
   }
 
-  private selectSuggestion(suggestion: Suggestion) {
+  private selectSuggestion(suggestion: Suggestion, group?: SuggestionGroup) {
     this.selectedSuggestion = suggestion;
+    this.selectedSuggestionGroup = group;
 
     this.setAriaActiveDescendant();
   }
@@ -332,7 +421,13 @@ export class Autosuggest {
       return;
     }
 
-    this.selectedSuggestion = this.suggestions[0];
+    if (isGrouped(this.suggestions) && this.selectedSuggestionGroup) {
+      this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[0];
+    } else {
+      if (isFlat(this.suggestions)) {
+        this.selectedSuggestion = this.suggestions[0];
+      }
+    }
 
     this.setAriaActiveDescendant(true);
   }
@@ -342,8 +437,14 @@ export class Autosuggest {
       return;
     }
 
-    this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
-
+    if (isGrouped(this.suggestions) && this.selectedSuggestionGroup) {
+      this.selectedSuggestion =
+        this.selectedSuggestionGroup.suggestions[this.selectedSuggestionGroup.suggestions.length - 1];
+    } else {
+      if (isFlat(this.suggestions)) {
+        this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
+      }
+    }
     this.setAriaActiveDescendant(true);
   }
 
@@ -352,11 +453,40 @@ export class Autosuggest {
       return;
     }
 
-    const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : -1;
+    if (isGrouped(this.suggestions)) {
+      this.selectNextGroupedSuggestion();
+    } else {
+      const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : -1;
 
-    this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
+      this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
+    }
 
     this.setAriaActiveDescendant(true);
+  }
+
+  private selectNextGroupedSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
+    if (this.selectedSuggestionGroup) {
+      const indexInGroup = this.selectedSuggestion
+        ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
+        : -1;
+
+      if (indexInGroup === this.selectedSuggestionGroup.suggestions.length - 1) {
+        // Move to first suggestion in next or first group
+        const groupIndex = this.suggestionGroups.indexOf(this.selectedSuggestionGroup);
+        this.selectedSuggestionGroup = this.suggestionGroups[groupIndex + 1] ?? this.suggestionGroups[0];
+        this.selectedSuggestion = this.selectedSuggestionGroup!.suggestions[0];
+      } else {
+        // Within this group
+        this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup + 1];
+      }
+    } else {
+      this.selectedSuggestionGroup = this.suggestionGroups[0];
+      this.selectedSuggestion = this.selectedSuggestionGroup!.suggestions[0];
+    }
   }
 
   private selectPreviousSuggestion() {
@@ -364,16 +494,55 @@ export class Autosuggest {
       return;
     }
 
-    const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : 0;
+    if (isGrouped(this.suggestions)) {
+      this.selectPreviousGroupedSuggestion();
+    } else {
+      const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : 0;
 
-    this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
+      this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
+    }
 
     this.setAriaActiveDescendant(true);
   }
 
+  private selectPreviousGroupedSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
+    if (this.selectedSuggestionGroup) {
+      const indexInGroup = this.selectedSuggestion
+        ? this.selectedSuggestionGroup.suggestions.indexOf(this.selectedSuggestion)
+        : -1;
+
+      if (indexInGroup === 0) {
+        // Move to last suggestion in previous or last group
+        const groupIndex = this.suggestionGroups.indexOf(this.selectedSuggestionGroup);
+
+        this.selectedSuggestionGroup =
+          this.suggestionGroups[groupIndex - 1] ?? this.suggestionGroups[this.suggestions.length - 1];
+        this.selectedSuggestion =
+          this.selectedSuggestionGroup!.suggestions[this.selectedSuggestionGroup!.suggestions.length - 1];
+      } else {
+        // Within this group
+        this.selectedSuggestion = this.selectedSuggestionGroup.suggestions[indexInGroup - 1];
+      }
+    } else {
+      this.selectedSuggestionGroup = this.suggestionGroups[this.suggestions.length - 1];
+      this.selectedSuggestion =
+        this.selectedSuggestionGroup!.suggestions[this.selectedSuggestionGroup!.suggestions.length - 1];
+    }
+  }
+
+  private get suggestionGroups(): SuggestionGroup[] {
+    return isGrouped(this.suggestions) ? this.suggestions : [];
+  }
+
   private setAriaActiveDescendant(scroll = false): void {
     if (this.selectedSuggestion) {
-      const id = this.listboxItemId(this.selectedSuggestion);
+      const id = this.selectedSuggestionGroup
+        ? this.listboxGroupedItemId(this.selectedSuggestionGroup, this.selectedSuggestion)
+        : this.listboxItemId(this.selectedSuggestion);
       this.input?.setAttribute("aria-activedescendant", id);
       if (scroll) {
         document.getElementById(id)?.scrollIntoView({ block: "nearest" });
@@ -385,6 +554,7 @@ export class Autosuggest {
     this.showLoading = !this.loadingDelayed;
     this.notFound = false;
     this.selectedSuggestion = undefined;
+    this.selectedSuggestionGroup = undefined;
     this.input?.setAttribute("aria-activedescendant", "");
   }
 
@@ -464,11 +634,19 @@ export class Autosuggest {
     if (!this.suggestions) {
       return "";
     }
-    return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
+    return `${this.inputId}-${isFlat(this.suggestions) && this.suggestions.indexOf(suggestion) + 1}`;
   }
 
-  private getChunkedExtras(extras: string[]): string[][] {
-    return extras.reduce((resultArray: string[][], extra, index) => {
+  private listboxGroupedItemId(suggestionGroup: SuggestionGroup, suggestion: Suggestion): string {
+    if (!this.suggestions) {
+      return "";
+    }
+
+    return `${this.inputId}-${this.suggestionGroups.indexOf(suggestionGroup) + 1}-${suggestionGroup.suggestions.indexOf(suggestion) + 1}`;
+  }
+
+  private getMarkedChunkedExtras(extras: string[], suggestion: Suggestion): (string | VNode)[][][] {
+    const chunkedExtras = extras.reduce((resultArray: string[][], extra, index) => {
       const chunkIndex = Math.floor(index / 2);
 
       if (!resultArray[chunkIndex]) {
@@ -477,12 +655,27 @@ export class Autosuggest {
       resultArray[chunkIndex]?.push(extra);
       return resultArray;
     }, []);
+
+    return chunkedExtras.map((chunk, index) =>
+      chunk.map((c, i) => this.handleMark(suggestion, c, "extra", index * 2 + i)),
+    );
+  }
+
+  private getMarkedSuggestions(suggestion: Suggestion): MarkedSuggestion {
+    return {
+      value: this.handleMark(suggestion, suggestion.value, "value"),
+      type: suggestion.type ? this.handleMark(suggestion, suggestion.type, "type") : undefined,
+      extras: suggestion.extras ? this.getMarkedChunkedExtras(suggestion.extras, suggestion) : undefined,
+    };
   }
 
   render() {
     this.listboxItems = [];
 
     const showListbox = this.showSuggestions || this.notFound;
+
+    const grouped = isGrouped(this.suggestions);
+    const flat = isFlat(this.suggestions);
 
     if (showListbox && this.input) {
       this.input.setAttribute("aria-controls", this.listboxId);
@@ -504,7 +697,8 @@ export class Autosuggest {
               ref={(element) => (this.listboxContainer = element)}
               style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
             >
-              <ul
+              <div
+                class="listbox"
                 role="listbox"
                 aria-live="polite"
                 id={this.listboxId}
@@ -512,45 +706,55 @@ export class Autosuggest {
                 ref={(element) => (this.listbox = element)}
                 tabindex="0"
               >
-                {(this.showSuggestions &&
+                {(flat &&
+                  this.showSuggestions &&
                   this.suggestions &&
                   this.suggestions.map((suggestion) => (
-                    <li
-                      role="option"
+                    <Option
                       id={this.listboxItemId(suggestion)}
-                      key={suggestion.value}
-                      onMouseEnter={() => this.selectSuggestion(suggestion)}
-                      onMouseLeave={() => this.resetSelectedSuggestion()}
-                      onClick={() => this.pickSelectedValue()}
-                      aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                      aria-label={suggestion.value}
-                      ref={(li) => li && this.listboxItems.push(li)}
-                    >
-                      <div class="suggestion-row">
-                        <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
-                        {suggestion.type ? (
-                          <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
-                        ) : undefined}
-                      </div>
-                      {suggestion.extras &&
-                        this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
-                          <div class="suggestion-row">
-                            {chunk.map((c, i) => (
-                              <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
-                            ))}
-                          </div>
-                        ))}
-                    </li>
+                      mouseEnter={() => this.selectSuggestion(suggestion)}
+                      mouseLeave={() => this.resetSelectedSuggestion()}
+                      click={() => this.pickSelectedValue()}
+                      selected={(suggestion === this.selectedSuggestion).toString()}
+                      suggestion={suggestion}
+                      ref={(element) => element && this.listboxItems.push(element)}
+                      markedSuggestion={this.getMarkedSuggestions(suggestion)}
+                    />
                   ))) ||
+                  (grouped &&
+                    this.showSuggestions &&
+                    this.suggestions &&
+                    this.suggestions.map((suggestionGroup) => {
+                      const groupLabelId = v4();
+                      return (
+                        <div role="group" class="group" aria-labelledby={groupLabelId}>
+                          <div class="group-label" role="presentation" id={groupLabelId}>
+                            {suggestionGroup.groupLabel}
+                          </div>
+                          {suggestionGroup.suggestions.map((suggestion) => (
+                            <Option
+                              id={this.listboxGroupedItemId(suggestionGroup, suggestion)}
+                              mouseEnter={() => this.selectSuggestion(suggestion, suggestionGroup)}
+                              mouseLeave={() => this.resetSelectedSuggestion()}
+                              click={() => this.pickSelectedValue()}
+                              selected={(suggestion === this.selectedSuggestion).toString()}
+                              suggestion={suggestion}
+                              ref={(element) => element && this.listboxItems.push(element)}
+                              markedSuggestion={this.getMarkedSuggestions(suggestion)}
+                            />
+                          ))}
+                        </div>
+                      );
+                    })) ||
                   (this.notFound && (
-                    <li>
+                    <div class="option">
                       <span class="value">
                         {this.notFoundLabel ||
                           this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
                       </span>
-                    </li>
+                    </div>
                   ))}
-              </ul>
+              </div>
             </dso-scrollable>
           )
         )}

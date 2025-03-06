@@ -13,7 +13,7 @@ import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOr
 import { AlertCloseEvent } from "./components/alert/alert.interfaces";
 import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
-import { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+import { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
 import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -55,7 +55,7 @@ export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOr
 export { AlertCloseEvent } from "./components/alert/alert.interfaces";
 export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components/annotation/annotation.interfaces";
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
-export { AutosuggestMarkFunction, Suggestion } from "./components/autosuggest/autosuggest.interfaces";
+export { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
 export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -368,9 +368,9 @@ export namespace Components {
          */
         "suggestOnFocus": boolean;
         /**
-          * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.  The value should be null when no suggestions have been fetched.
+          * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
          */
-        "suggestions": Suggestion[] | null;
+        "suggestions": Suggestion[] | SuggestionGroup[] | null;
     }
     interface DsoBadge {
         /**
@@ -2802,9 +2802,9 @@ declare namespace LocalJSX {
          */
         "suggestOnFocus"?: boolean;
         /**
-          * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.  The value should be null when no suggestions have been fetched.
+          * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
          */
-        "suggestions"?: Suggestion[] | null;
+        "suggestions"?: Suggestion[] | SuggestionGroup[] | null;
     }
     interface DsoBadge {
         /**
