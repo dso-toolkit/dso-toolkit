@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Pagination: maak totalPages optioneel ([#2875](https://github.com/dso-toolkit/dso-toolkit/issues/2875))
+
 ## 💞 Release 69.0.0 - 2025-03-03
 
 ### Deprecated
