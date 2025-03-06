@@ -12,6 +12,7 @@ const meta: Meta<OzonContentArgs> = {
 export default meta;
 
 const {
+  Abbr,
   Al,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
@@ -41,6 +42,7 @@ const {
 });
 
 export {
+  Abbr,
   Al,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
