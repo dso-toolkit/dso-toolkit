@@ -12,6 +12,7 @@ import { content } from "./ozon-content.content.js";
 export type OzonContentStory = StoryObj<OzonContentArgs, Renderer>;
 
 export interface OzonContentStories {
+  Abbr: OzonContentStory;
   Al: OzonContentStory;
   Inhoud: OzonContentStory;
   Opschrift: OzonContentStory;
