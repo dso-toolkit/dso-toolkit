@@ -1,11 +1,11 @@
 import { html } from "lit-html";
-import { examplePageFactory } from "../../example-page-factory";
-import { footerPartial } from "../partials/footer";
+import { examplePageFactory } from "../../../example-page-factory";
+import { footerPartial } from "../../partials/footer";
 import { header, breadcrumbs, definitionList } from "./beheer-basis.content";
 
 examplePageFactory(
-  "Patronen",
-  "Beheer Basis",
+  "Toepassingen",
+  "Beheer",
   (
     { headerTemplate, breadcrumbsTemplate, buttonTemplate, paginationTemplate, definitionListTemplate, tableTemplate },
     templates,
