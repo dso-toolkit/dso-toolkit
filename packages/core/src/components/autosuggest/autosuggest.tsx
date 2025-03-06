@@ -69,19 +69,10 @@ const Option: FunctionalComponent<{
   </div>
 );
 
-const NotFound: FunctionalComponent<{
-  notFound: boolean;
-  value: string | (string | VNode)[];
-}> = ({ notFound, value }) =>
-  notFound && (
-    <div class="option">
-      <span class="value">{value}</span>
-    </div>
-  );
-
 function isGrouped(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is SuggestionGroup[] {
   return (
     !!suggestions &&
+    suggestions.length > 0 &&
     suggestions.every(
       (suggestion) =>
         suggestion !== undefined &&
@@ -96,6 +87,7 @@ function isGrouped(suggestions: Suggestion[] | SuggestionGroup[] | null): sugges
 function isFlat(suggestions: Suggestion[] | SuggestionGroup[] | null): suggestions is Suggestion[] {
   return (
     !!suggestions &&
+    suggestions.length > 0 &&
     suggestions.every(
       (suggestion) => suggestion !== undefined && "value" in suggestion && suggestion.value !== undefined,
     )
@@ -705,51 +697,32 @@ export class Autosuggest {
               ref={(element) => (this.listboxContainer = element)}
               style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
             >
-              {flat && (
-                <div
-                  class="listbox"
-                  role="listbox"
-                  aria-live="polite"
-                  id={this.listboxId}
-                  aria-labelledby={this.labelId}
-                  ref={(element) => (this.listbox = element)}
-                  tabindex="0"
-                >
-                  {this.showSuggestions &&
-                    this.suggestions &&
-                    this.suggestions.map((suggestion) => (
-                      <Option
-                        id={this.listboxItemId(suggestion)}
-                        mouseEnter={() => this.selectSuggestion(suggestion)}
-                        mouseLeave={() => this.resetSelectedSuggestion()}
-                        click={() => this.pickSelectedValue()}
-                        selected={(suggestion === this.selectedSuggestion).toString()}
-                        suggestion={suggestion}
-                        ref={(element) => element && this.listboxItems.push(element)}
-                        markedSuggestion={this.getMarkedSuggestions(suggestion)}
-                      />
-                    ))}
-                  <NotFound
-                    notFound={this.notFound}
-                    value={
-                      this.notFoundLabel ||
-                      this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))
-                    }
-                  />
-                </div>
-              )}
-
-              {grouped && (
-                <div
-                  class="listbox"
-                  role="listbox"
-                  aria-live="polite"
-                  id={this.listboxId}
-                  aria-labelledby={this.labelId}
-                  ref={(element) => (this.listbox = element)}
-                  tabindex="0"
-                >
-                  {this.showSuggestions &&
+              <div
+                class="listbox"
+                role="listbox"
+                aria-live="polite"
+                id={this.listboxId}
+                aria-labelledby={this.labelId}
+                ref={(element) => (this.listbox = element)}
+                tabindex="0"
+              >
+                {(flat &&
+                  this.showSuggestions &&
+                  this.suggestions &&
+                  this.suggestions.map((suggestion) => (
+                    <Option
+                      id={this.listboxItemId(suggestion)}
+                      mouseEnter={() => this.selectSuggestion(suggestion)}
+                      mouseLeave={() => this.resetSelectedSuggestion()}
+                      click={() => this.pickSelectedValue()}
+                      selected={(suggestion === this.selectedSuggestion).toString()}
+                      suggestion={suggestion}
+                      ref={(element) => element && this.listboxItems.push(element)}
+                      markedSuggestion={this.getMarkedSuggestions(suggestion)}
+                    />
+                  ))) ||
+                  (grouped &&
+                    this.showSuggestions &&
                     this.suggestions &&
                     this.suggestions.map((suggestionGroup) => {
                       const groupLabelId = v4();
@@ -772,16 +745,16 @@ export class Autosuggest {
                           ))}
                         </div>
                       );
-                    })}
-                  <NotFound
-                    notFound={this.notFound}
-                    value={
-                      this.notFoundLabel ||
-                      this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))
-                    }
-                  />
-                </div>
-              )}
+                    })) ||
+                  (this.notFound && (
+                    <div class="option">
+                      <span class="value">
+                        {this.notFoundLabel ||
+                          this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
+                      </span>
+                    </div>
+                  ))}
+              </div>
             </dso-scrollable>
           )
         )}
