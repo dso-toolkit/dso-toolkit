@@ -1,0 +1,22 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v69.1.0 🌻
+
+Deze release bevat changes voor het volgende component:
+
+- Pagination (Core Implementatie)
+
+<!-- truncate -->
+
+## Pagination
+
+In de Stelselcatalogus (SC) wordt de HTML/CSS implementatie van `Pagination` ingezet ten behoeve van het
+kunnen navigeren door lange lijsten, waarvan op voorhand niet bekend is wat het totale aantal pagina's is. Omdat in de
+Core implementatie van het component `Pagination` de property `totalPages` verplicht is, kon SC hier geen gebruik van
+maken.
+
+In deze release is de property `totalPages` van het webcomponent `Pagination` optioneel gemaakt. In samenhang
+daarmee heeft de HTML/CSS implementatie van `Pagination` geen toegevoegde waarde meer. Daarom hebben we in de
+vorige release (💞 69.0.0) de HTML/CSS implementatie van `Pagination` deprecated.

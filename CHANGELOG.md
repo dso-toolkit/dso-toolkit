@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🌻 Release 69.1.0 - 2025-03-06
+
 ### Added
 * Ozon Content: Ondersteuning voor STOP element `<abbr>` ([#2860](https://github.com/dso-toolkit/dso-toolkit/issues/2860))
 * Autosuggest: Suggestielijst groepering koppen ([#2981](https://github.com/dso-toolkit/dso-toolkit/issues/2981))
