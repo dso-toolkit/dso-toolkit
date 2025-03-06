@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Pagination: maak totalPages optioneel ([#2875](https://github.com/dso-toolkit/dso-toolkit/issues/2875))
 
+### Fixed
+* Autosuggest: TypeError reading `$instanceValues$` bij unmounten ([#3007](https://github.com/dso-toolkit/dso-toolkit/issues/3007))
+
 ### Task
 * Packages: Typescript updaten naar `~5.7.3` of hoger ([#2987](https://github.com/dso-toolkit/dso-toolkit/issues/2987))
 
