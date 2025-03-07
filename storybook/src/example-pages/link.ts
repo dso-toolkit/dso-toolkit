@@ -1,10 +1,10 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
+import { examplePageFactory } from "../example-page-factory";
 
 examplePageFactory(
   "Voorbeeldpagina's",
-  "Toepassingen/Componenten",
+  null,
   "Link",
   ({ anchorTemplate, buttonTemplate }) => html`
     <div class="container">
