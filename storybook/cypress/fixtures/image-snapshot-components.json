@@ -363,6 +363,19 @@
     "type": "html-css"
   },
   {
+    "name": "table",
+    "selector": "dso-table.hydrated",
+    "type": "core",
+    "stories": [
+      "data-grid",
+      "data-table",
+      "sorted-ascending",
+      "sorted-descending",
+      "with-dso-image-overlay",
+      "with-vertical-lines"
+    ]
+  },
+  {
     "name": "tabs-deprecated",
     "selector": "ul.nav.nav-tabs",
     "stories": ["as-anchors", "as-anchors-disabled"],

@@ -1,6 +1,12 @@
 import type { Meta } from "@storybook/web-components";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
-import { defaultTable, imageOverlayTable, sortedAscendingTable, sortedDescendingTable } from "./table.content";
+import {
+  dataGridTable,
+  defaultTable,
+  imageOverlayTable,
+  sortedAscendingTable,
+  sortedDescendingTable,
+} from "./table.content";
 
 import { templateContainer } from "../../templates";
 
@@ -13,19 +19,22 @@ const meta: Meta<TableArgs> = {
 
 export default meta;
 
-const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending } = tableStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { tableTemplate } = templates;
+const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending, DataGrid, DataTable } =
+  tableStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { tableTemplate } = templates;
 
-    return {
-      tableTemplate,
-      defaultTable: defaultTable(templates),
-      imageOverlayTable: imageOverlayTable(templates),
-      sortedAscendingTable: sortedAscendingTable(templates),
-      sortedDescendingTable: sortedDescendingTable(templates),
-    };
-  },
-});
+      return {
+        tableTemplate,
+        defaultTable: defaultTable(templates),
+        imageOverlayTable: imageOverlayTable(templates),
+        sortedAscendingTable: sortedAscendingTable(templates),
+        sortedDescendingTable: sortedDescendingTable(templates),
+        dataGridTable: dataGridTable(templates, true),
+        dataTableTable: dataGridTable(templates),
+      };
+    },
+  });
 
-export { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending };
+export { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending, DataGrid, DataTable };
