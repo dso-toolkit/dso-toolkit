@@ -6,6 +6,7 @@ import { footerPartial } from "../../partials/footer";
 import { header } from "../../partials/header.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Vergunningscheck",
   "Resultaat",
   (

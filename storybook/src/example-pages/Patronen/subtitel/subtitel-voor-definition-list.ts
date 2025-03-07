@@ -6,7 +6,8 @@ import { header } from "../../partials/header.content";
 import { definitionList } from "./subtitle.content";
 
 examplePageFactory(
-  "Patronen/Subtitel",
+  "Patronen",
+  "Subtitel",
   "Subtitel voor een Definitie Lijst",
   ({ definitionListTemplate }, templates) => html`
     <div class="container">

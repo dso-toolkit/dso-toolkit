@@ -8,6 +8,7 @@ import { definitionList, listGroup, mainMenu } from "./full-width.content";
 
 examplePageFactory(
   "Patronen",
+  null,
   "Full Width",
   ({ anchorTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
     <div class="container">

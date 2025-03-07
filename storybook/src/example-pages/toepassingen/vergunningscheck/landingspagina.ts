@@ -7,6 +7,7 @@ import { header } from "../../partials/header.content";
 import { accordionSections } from "./landingspagina.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Vergunningscheck",
   "Landingspagina",
   ({ anchorTemplate, accordionTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
