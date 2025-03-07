@@ -33,6 +33,7 @@ import {
   DocumentList,
   DropdownMenu,
   Expandable,
+  Footer,
   Footnote,
   Form,
   FormButtons,
@@ -178,6 +179,7 @@ import { cssDescription } from "./components/description/description.css-templat
 import { cssDocumentHeader } from "./components/document-header/document-header.css-template";
 import { cssDocumentList } from "./components/document-list/document-list.css-template";
 import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-template";
+import { cssFooter } from "./components/footer/footer.css-template";
 import { cssFootnote } from "./components/footnotes/footnote.css-template";
 import { cssFootnotes } from "./components/footnotes/footnotes.css-template";
 import { cssForm } from "./components/form/form.css-template";
@@ -254,6 +256,7 @@ export interface Components {
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<TemplateResult>;
+  footer: Footer<TemplateResult>;
   footnote: Footnote;
   footnotes: Footnote[];
   form: Form<TemplateResult>;
@@ -423,6 +426,7 @@ templateContainer.add(cssDescription);
 templateContainer.add(cssDocumentHeader);
 templateContainer.add(cssDocumentList);
 templateContainer.add(cssDropdownMenu);
+templateContainer.add(cssFooter);
 templateContainer.add(cssFootnote);
 templateContainer.add(cssFootnotes);
 templateContainer.add(cssForm);
