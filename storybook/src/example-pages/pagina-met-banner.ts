@@ -1,12 +1,12 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
-import { footerPartial } from "../partials/footer";
-import { headerPartial } from "../partials/header";
-import { header } from "../partials/header.content";
+import { examplePageFactory } from "../example-page-factory";
+import { footerPartial } from "./partials/footer";
+import { headerPartial } from "./partials/header";
+import { header } from "./partials/header.content";
 
 examplePageFactory(
-  "Patronen",
+  "Voorbeeldpagina's",
   null,
   "Pagina met banner",
   ({ anchorTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
