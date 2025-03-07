@@ -6,6 +6,7 @@ import { headerPartial } from "../../partials/header";
 import { header } from "../../partials/header.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Landingspagina",
   ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`

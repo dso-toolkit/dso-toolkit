@@ -7,6 +7,7 @@ import { header } from "../../partials/header.content";
 import { definitions, mainMenu } from "./verzoek-detail.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Mijn Omgevingsloket",
   "Verzoek Detail",
   ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, anchorTemplate }, templates) => html`

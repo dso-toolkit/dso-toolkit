@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { form } from "./project.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Project",
   ({ applicationHeadingTemplate, alertTemplate, formTemplate, formButtonsTemplate, anchorTemplate }) => html`

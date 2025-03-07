@@ -7,6 +7,7 @@ import { header } from "../../partials/header.content";
 import { linkList } from "./helpcentrum.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Loket",
   "Helpcentrum",
   ({ linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate }, templates) => html`

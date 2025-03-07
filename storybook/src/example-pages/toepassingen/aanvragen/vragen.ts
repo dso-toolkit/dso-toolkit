@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { checkboxes, radios } from "./vragen.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Vragen",
   (

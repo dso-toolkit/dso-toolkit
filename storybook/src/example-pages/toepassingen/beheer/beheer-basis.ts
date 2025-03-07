@@ -4,6 +4,7 @@ import { footerPartial } from "../../partials/footer";
 import { header, breadcrumbs, definitionList } from "./beheer-basis.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen",
   "Beheer",
   (

@@ -8,6 +8,7 @@ import { cardList } from "./zoeken-in-lijst-cards.content";
 
 examplePageFactory(
   "Patronen",
+  null,
   "Zoeken in lijst cards",
   (
     {

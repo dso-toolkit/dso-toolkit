@@ -8,6 +8,7 @@ import { mainMenu } from "./full-width.content";
 
 examplePageFactory(
   "Patronen",
+  null,
   "Meerdere highlight boxes",
   (templates) => html`
     <div class="container">

@@ -4,6 +4,7 @@ import { headerPartial } from "../../partials/header";
 import { header } from "./locatie-overzicht.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Regels op de kaart",
   "Locatie overzicht",
   (
