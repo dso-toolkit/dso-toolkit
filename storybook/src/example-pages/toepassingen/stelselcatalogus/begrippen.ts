@@ -7,6 +7,7 @@ import { header } from "../../partials/header.content";
 import { definitions1, definitions2, definitions3, definitions4, definitions5, mainMenu } from "./begrippen.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Stelselcatalogus",
   "Begrippen",
   ({ definitionListTemplate, buttonRowTemplate }, templates) => html`

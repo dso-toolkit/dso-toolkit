@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./activiteiten.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Activiteiten",
   ({

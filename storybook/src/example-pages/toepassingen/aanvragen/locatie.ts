@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { dropdownItems, formGroup } from "./locatie.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Locatie",
   ({ applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate }) => html`

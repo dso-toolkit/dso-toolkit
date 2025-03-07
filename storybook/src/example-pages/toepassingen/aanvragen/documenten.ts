@@ -2,6 +2,7 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Documenten",
   ({

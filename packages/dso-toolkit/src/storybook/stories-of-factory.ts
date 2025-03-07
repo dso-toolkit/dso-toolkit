@@ -32,7 +32,7 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
   const stories = createStories(name, parameters);
 
   const implementations = templateContainer.getImplementationTypes();
-  if (name.startsWith("Voorbeeldpagina") && implementations.length > 1) {
+  if ((name.startsWith("Voorbeeldpagina") || name.startsWith("Patronen")) && implementations.length > 1) {
     stories.addParameters({
       argTypes: {
         preferredImplementation: {

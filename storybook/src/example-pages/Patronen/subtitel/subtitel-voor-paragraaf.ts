@@ -5,7 +5,8 @@ import { headerPartial } from "../../partials/header";
 import { header } from "../../partials/header.content";
 
 examplePageFactory(
-  "Patronen/Subtitel",
+  "Patronen",
+  "Subtitel",
   "Subtitel voor een Paragraaf",
   (templates) => html`
     <div class="container">

@@ -6,7 +6,8 @@ import { headerPartial } from "../partials/header";
 import { header } from "../partials/header.content";
 
 examplePageFactory(
-  "patronen",
+  "Patronen",
+  null,
   "Row Equal Heights",
   (
     { highlightBoxTemplate, richContentTemplate, rowEqualHeightsTemplate, tileTemplate, whiteboxTemplate },

@@ -7,6 +7,7 @@ import { header } from "../../partials/header.content";
 import { linkList, mainMenu } from "./project-overzicht.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Mijn Omgevingsloket",
   "Project Overzicht",
   (

@@ -3,6 +3,7 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Componenten/Application Heading",
   "Application Heading met Subtitle en Step",
   ({ applicationHeadingTemplate }) => html`

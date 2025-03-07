@@ -6,7 +6,8 @@ import { headerPartial } from "../partials/header";
 import { header } from "../partials/header.content";
 
 examplePageFactory(
-  "patronen",
+  "Patronen",
+  null,
   "Pagina met banner",
   ({ anchorTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     ${bannerTemplate({
