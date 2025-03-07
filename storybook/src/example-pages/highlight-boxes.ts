@@ -1,13 +1,15 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
-import { footerPartial } from "../partials/footer";
-import { headerPartial } from "../partials/header";
-import { header } from "../partials/header.content";
-import { mainMenu } from "./full-width.content";
+import { examplePageFactory } from "../example-page-factory";
+
+import { mainMenu } from "./content/main-menu.content";
+
+import { footerPartial } from "./partials/footer";
+import { headerPartial } from "./partials/header";
+import { header } from "./partials/header.content";
 
 examplePageFactory(
-  "Patronen",
+  "Voorbeeldpagina's",
   null,
   "Meerdere highlight boxes",
   (templates) => html`
