@@ -15,6 +15,8 @@ interface TableStories {
   WithVerticalLines: TableStory;
   SortedAscending: TableStory;
   SortedDescending: TableStory;
+  DataGrid: TableStory;
+  DataTable: TableStory;
 }
 
 interface TableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -26,6 +28,8 @@ export interface TableTemplates<TemplateFnReturnType> {
   imageOverlayTable: TableContent<TemplateFnReturnType>;
   sortedAscendingTable: TableContent<TemplateFnReturnType>;
   sortedDescendingTable: TableContent<TemplateFnReturnType>;
+  dataGridTable: TableContent<TemplateFnReturnType>;
+  dataTableTable: TableContent<TemplateFnReturnType>;
 }
 
 export function tableMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -85,6 +89,22 @@ export function tableStories<Implementation, Templates, TemplateFnReturnType>({
       },
       render: templateContainer.render(storyTemplates, (args, { tableTemplate, sortedDescendingTable }) =>
         tableTemplate(tableArgsMapper(args, sortedDescendingTable)),
+      ),
+    },
+    DataGrid: {
+      args: {
+        noModal: true,
+        headingColumns: true,
+        role: "grid",
+      },
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, dataGridTable }) =>
+        tableTemplate(tableArgsMapper(args, dataGridTable)),
+      ),
+    },
+    DataTable: {
+      args: { noModal: true, headingColumns: true },
+      render: templateContainer.render(storyTemplates, (args, { tableTemplate, dataTableTable }) =>
+        tableTemplate(tableArgsMapper(args, dataTableTable)),
       ),
     },
   };
