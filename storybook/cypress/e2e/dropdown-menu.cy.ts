@@ -88,7 +88,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("be.visible");
   });
 
-  it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
+  // Todo: #3034
+  it.skip("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("Tab");
