@@ -181,6 +181,12 @@
     "type": "html-css",
     "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
   },
+  {
+    "name": "footer",
+    "type": "html-css",
+    "stories": ["footer"],
+    "selector": "footer"
+  },
   { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
   { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
   {

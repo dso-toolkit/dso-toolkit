@@ -1,4 +1,4 @@
-import components from "../fixtures/image-snapshot-components.json";
+import _components from "../fixtures/image-snapshot-components.json";
 
 interface StoryGroup {
   group: string;
@@ -15,6 +15,8 @@ interface Component {
   wait?: string | string[];
   shadowWait?: string;
 }
+
+const components: Component[] = _components;
 
 function checkA11y(component: Component) {
   if (component.type === "core") {
