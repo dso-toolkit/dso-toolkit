@@ -118,8 +118,8 @@
 }
 
 :host([mode="document"]:not([not-collapsible])) {
-  --link-color: document-component.$heading-anchor-color;
-  --link-hover-color: document-component.$heading-anchor-hover-color;
+  --link-color: #{document-component.$heading-anchor-color};
+  --link-hover-color: #{document-component.$heading-anchor-hover-color};
 
   .heading-element {
     cursor: pointer;
