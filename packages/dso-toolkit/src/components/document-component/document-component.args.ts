@@ -1,5 +1,7 @@
 import { ArgTypes } from "@storybook/types";
-
+import { HandlerFunction } from "@storybook/addon-actions/*";
+import escapeStringRegexp from "escape-string-regexp";
+import { isOdd } from "../../storybook";
 import {
   DocumentComponent,
   DocumentComponentHeading,
@@ -8,8 +10,6 @@ import {
   DocumentComponentWijzigactie,
   DocumentComponentAnnotationsWijzigactie,
 } from "./document-component.models.js";
-import { HandlerFunction } from "@storybook/addon-actions/*";
-import escapeStringRegexp from "escape-string-regexp";
 
 export interface DocumentComponentArgs {
   alternativeTitle?: string;
@@ -240,8 +240,4 @@ export function documentComponentMapper<TemplateFnReturnType>(
             )
       : undefined,
   };
-}
-
-function isOdd(n: number): boolean {
-  return Math.abs(n % 2) === 1;
 }

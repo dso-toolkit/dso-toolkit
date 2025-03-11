@@ -2,6 +2,7 @@
 
 @use "~dso-toolkit/src/components/insert/insert";
 @use "~dso-toolkit/src/components/delete/delete";
+@use "~dso-toolkit/src/components/mark/mark";
 
 :host {
   display: inline;

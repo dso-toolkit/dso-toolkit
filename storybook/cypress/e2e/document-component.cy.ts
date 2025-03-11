@@ -1,4 +1,5 @@
 import { DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
+import { isOdd } from "dso-toolkit";
 
 describe("Document Component", () => {
   it("should mark and highlight", () => {
@@ -70,7 +71,3 @@ describe("Document Component", () => {
     });
   }
 });
-
-function isOdd(n: number): boolean {
-  return Math.abs(n % 2) === 1;
-}

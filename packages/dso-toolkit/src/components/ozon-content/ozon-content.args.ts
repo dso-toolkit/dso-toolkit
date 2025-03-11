@@ -1,7 +1,7 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
-import { noControl } from "../../storybook/index.js";
+import { isOdd, noControl } from "../../storybook";
 
 import { OzonContent } from "./ozon-content.models.js";
 import escapeStringRegexp from "escape-string-regexp";
@@ -66,8 +66,4 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
     dsoAnchorClick: (e) => dsoAnchorClick(e.detail),
   };
-}
-
-function isOdd(n: number): boolean {
-  return Math.abs(n % 2) === 1;
 }
