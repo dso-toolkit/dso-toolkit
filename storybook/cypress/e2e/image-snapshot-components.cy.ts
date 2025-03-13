@@ -1,22 +1,13 @@
-import _components from "../fixtures/image-snapshot-components.json";
-
-interface StoryGroup {
-  group: string;
-  stories: string[];
-  wait?: string;
-}
+import components from "../fixtures/image-snapshot-components.json";
 
 interface Component {
   name: string;
   selector: string;
   stories?: string[];
-  storyGroups?: StoryGroup[];
   type: string;
   wait?: string | string[];
   shadowWait?: string;
 }
-
-const components: Component[] = _components;
 
 function checkA11y(component: Component) {
   if (component.type === "core") {
@@ -78,21 +69,11 @@ function test(id: string, component: Component, wait: string | string[]) {
 }
 
 describe("Components without e2e tests", () => {
-  const componentsWithStories: Component[] = components.filter((component) => component.stories);
-  for (const component of componentsWithStories) {
+  const stories: Component[] = components.filter((component) => component.stories);
+  for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
       test(id, component, component.wait);
-    }
-  }
-
-  const componentsWithStoryGroups: Component[] = components.filter((component) => component.storyGroups);
-  for (const component of componentsWithStoryGroups) {
-    for (const storyGroup of component.storyGroups) {
-      for (const story of storyGroup.stories) {
-        const id = `${component.type}-${component.name}-${storyGroup.group}--${story}`;
-        test(id, component, storyGroup.wait);
-      }
     }
   }
 });
