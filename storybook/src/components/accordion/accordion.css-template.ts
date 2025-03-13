@@ -27,7 +27,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
             : nothing}
           ${typeof section.handleTitle !== "string"
-            ? renvooiTemplate({ value: section.handleTitle, dsoRenvooiMarkItemHighlight: () => {} })
+            ? renvooiTemplate({ value: section.handleTitle })
             : section.handleTitle}
           ${section.icon && !accordion.reverseAlign
             ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`

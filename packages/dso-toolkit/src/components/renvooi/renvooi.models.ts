@@ -1,7 +1,7 @@
 export interface Renvooi {
   value: RenvooiValue | RenvooiValue[];
   mark?: RenvooiMarkFunction;
-  dsoRenvooiMarkItemHighlight: (e: CustomEvent) => void;
+  dsoRenvooiMarkItemHighlight?: (e: CustomEvent) => void;
 }
 
 type RenvooiMarkFunction = (text: string, value: RenvooiValue, source: RenvooiValue[]) => RenvooiText[];

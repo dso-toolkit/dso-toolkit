@@ -57,7 +57,7 @@ export function renvooiArgsMapper(a: RenvooiArgs): Renvooi {
   return {
     value: examples[a.voorbeeld],
     mark: mark
-      ? (text) =>
+      ? (text: string) =>
           text
             .split(new RegExp(`(${escapeStringRegexp(mark)})`, "gi"))
             .map((item, index) =>

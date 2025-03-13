@@ -18,19 +18,25 @@ import {
 
 interface RenvooiRenderProps {
   value: RenvooiValue;
-  mark?: RenvooiRenderMarkFunction;
-  emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
+  mark: RenvooiRenderMarkFunction | undefined;
+  onDsoMarkItemHighlight: (text: string, elementRef: HTMLElement) => void | undefined;
 }
 
-function renderText(text: string, emit: (text: string, ref: HTMLElement) => void, mark?: RenvooiRenderMarkFunction) {
+interface RenderTextProps {
+  text: string;
+  mark: RenvooiRenderMarkFunction | undefined;
+  emitMarkItemHighlight: (text: string, ref: HTMLElement) => void | undefined;
+}
+
+const RenderText: FunctionalComponent<RenderTextProps> = ({ text, mark, emitMarkItemHighlight }) => {
   if (!mark) {
-    return text;
+    return <>{text}</>;
   }
 
   const result = mark(text);
 
   if (!result) {
-    return text;
+    return <>{text}</>;
   }
 
   return result.map((renvooiText) => {
@@ -41,32 +47,50 @@ function renderText(text: string, emit: (text: string, ref: HTMLElement) => void
     return (
       <mark
         class={renvooiText.highlight ? "dso-highlight" : undefined}
-        ref={(ref) => renvooiText.highlight && ref && emit(renvooiText.text, ref)}
+        ref={(ref) => renvooiText.highlight && ref && emitMarkItemHighlight(renvooiText.text, ref)}
       >
         {renvooiText.text}
       </mark>
     );
   });
-}
+};
 
-const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value, mark, emitMarkItemHighlight }) => {
+const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value, mark, onDsoMarkItemHighlight }) => {
   if (typeof value === "string" || !value) {
     // This element is used for --_dso-renvooi-text-decoration
-    return <span class="text">{renderText(value, emitMarkItemHighlight, mark)}</span>;
+    return (
+      <span class="text">
+        <RenderText text={value} mark={mark} emitMarkItemHighlight={onDsoMarkItemHighlight} />
+      </span>
+    );
   }
 
   if ("toegevoegd" in value) {
-    return <ins>{renderText(value.toegevoegd, emitMarkItemHighlight, mark)}</ins>;
+    return (
+      <ins>
+        <RenderText text={value.toegevoegd} mark={mark} emitMarkItemHighlight={onDsoMarkItemHighlight} />
+      </ins>
+    );
   }
 
   if ("verwijderd" in value) {
-    return <del>{renderText(value.verwijderd, emitMarkItemHighlight, mark)}</del>;
+    return (
+      <del>
+        <RenderText text={value.verwijderd} mark={mark} emitMarkItemHighlight={onDsoMarkItemHighlight} />
+      </del>
+    );
   }
 
-  return [
-    <del>{renderText(value.was, emitMarkItemHighlight, mark)}</del>,
-    <ins>{renderText(value.wordt, emitMarkItemHighlight, mark)}</ins>,
-  ];
+  return (
+    <>
+      <del>
+        <RenderText text={value.was} mark={mark} emitMarkItemHighlight={onDsoMarkItemHighlight} />
+      </del>
+      <ins>
+        <RenderText text={value.wordt} mark={mark} emitMarkItemHighlight={onDsoMarkItemHighlight} />
+      </ins>
+    </>
+  );
 };
 
 /**
@@ -115,7 +139,7 @@ export class Renvooi implements ComponentInterface {
           <RenvooiRender
             value={v}
             mark={this.mark && ((text) => this.mark?.(text, v, this.values))}
-            emitMarkItemHighlight={this.handleMarkItemHighlight}
+            onDsoMarkItemHighlight={this.handleMarkItemHighlight}
           />
         ))}
       </>
