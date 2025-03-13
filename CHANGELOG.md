@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Document Component: Links zijn niet groen ([#3038](https://github.com/dso-toolkit/dso-toolkit/issues/3038))
+
 ## 🌻 Release 69.1.0 - 2025-03-06
 
 ### Added
