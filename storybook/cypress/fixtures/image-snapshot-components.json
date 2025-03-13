@@ -29,7 +29,14 @@
     "stories": ["default", "yellow", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
     "type": "core"
   },
-  { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["icon"], "type": "core" },
+  { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["default"], "type": "core" },
+  {
+    "name": "icon",
+    "selector": "#icon-overview-list",
+    "stories": ["overview"],
+    "type": "core",
+    "wait": "dso-icon.hydrated"
+  },
   {
     "name": "info-button",
     "selector": "dso-info-button.hydrated",
@@ -260,7 +267,8 @@
     ],
     "type": "html-css"
   },
-  { "name": "icon", "selector": "svg.di", "stories": ["icon"], "type": "html-css" },
+  { "name": "icon", "selector": "svg.di", "stories": ["default"], "type": "html-css" },
+  { "name": "icon", "selector": "#icon-overview-list", "stories": ["overview"], "type": "html-css" },
   {
     "name": "image",
     "selector": "img",

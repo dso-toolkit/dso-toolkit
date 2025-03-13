@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Patronen: opruimen ([#2939](https://github.com/dso-toolkit/dso-toolkit/issues/2939))
+* Icon: Visuele regressietest ([#2938](https://github.com/dso-toolkit/dso-toolkit/issues/2938))
 
 ## 🌻 Release 69.1.0 - 2025-03-06
 
