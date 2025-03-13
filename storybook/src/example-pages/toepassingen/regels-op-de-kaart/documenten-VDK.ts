@@ -9,24 +9,28 @@ import {
   documentPanelSubmenu,
   mainSubmenu,
   plekinfoCardsListActiviteiten,
+  advancedSelect,
+  features,
 } from "./documenten-VDK.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Regels op de kaart",
   "Documenten VDK",
   (
     {
       accordionTemplate,
-      plekinfoCardTemplate,
+      anchorTemplate,
+      buttonTemplate,
+      cardListTemplate,
+      documentHeaderTemplate,
+      highlightBoxTemplate,
+      iconTemplate,
+      mapControlsTemplate,
       navbarTemplate,
+      plekinfoCardTemplate,
       selectableTemplate,
       viewerGridTemplate,
-      buttonTemplate,
-      contextTemplate,
-      mapControlsTemplate,
-      cardListTemplate,
-      iconTemplate,
-      advancedSelectTemplate,
     },
     templates,
   ) => html`
@@ -48,14 +52,11 @@ examplePageFactory(
             icon: { icon: "chevron-left" },
           })}
           <section class="dso-filterblok">
-            <div class="dso-highlight-box">
-              ${contextTemplate({
-                type: "label",
-                label: html`<h2>Laan van Westenenk 701, 7334 DP Apeldoorn</h2>`,
-                content: html``,
-                children: html``,
-              })}
-            </div>
+            ${highlightBoxTemplate({
+              content: html`<h2 style="margin-block-start: 0; color: #8b4a6a;">
+                Laan van Westenenk 701, 7334 DP Apeldoorn
+              </h2>`,
+            })}
           </section>
           ${buttonTemplate({
             label: "Verberg documenten op gekozen locatie",
@@ -70,54 +71,23 @@ examplePageFactory(
           ${mapControlsTemplate({ baseLayers: [], open: false, overlays: [] })}
         `,
         documentPanel: html`
-          <div class="dso-document-header">
-            <div class="dso-highlight-box">
-              ${contextTemplate({
-                type: "label",
-                label: html`<h2>Omgevingsplan gemeente Apeldoorn</h2>`,
-                content: html`${iconTemplate({ icon: "map-location" })}`,
-                children: html` <p>Omgevingsplan - Gemeente Apeldoorn</p>
-                  ${buttonTemplate({
-                    label: "meer kenmerken",
-                    type: "button",
-                    variant: "tertiary",
-                    iconMode: "after",
-                    compact: true,
-                    icon: { icon: "chevron-down" },
-                  })}
-                  ${advancedSelectTemplate({
-                    active: { label: "In werking - Laatst gewijzigd: 01-01-2024" },
-                    options: [
-                      {
-                        label: "Geldende versie",
-                        variant: "success",
-                        redirect: {
-                          href: "#",
-                          label: "Bekijk eerder vastgestelde versies",
-                        },
-                        options: [
-                          {
-                            label: "In werking (laatst gewijzigd: 01-01-2024)",
-                          },
-                        ],
-                      },
-                    ],
-                  })}`,
-              })}
-            </div>
-          </div>
+          ${documentHeaderTemplate({
+            title: "Omgevingsplan gemeente Gouda",
+            type: "Een omgevingsplan waar de omgeving mooier van wordt",
+            owner: "Gemeente Gouda",
+            features,
+            advancedSelect,
+          })}
           ${navbarTemplate(documentPanelSubmenu)}
-          <div class="dso-highlight-box">
-            <div class="dso-button-row dso-align-right">
-              ${selectableTemplate({
-                type: "checkbox",
-                id: "waarde1",
-                value: "compacte weergave",
-                label: "Compact weergave",
-                name: "weergave",
-              })}
-            </div>
-          </div>
+          ${highlightBoxTemplate({
+            content: selectableTemplate({
+              type: "checkbox",
+              id: "waarde1",
+              value: "compacte weergave",
+              label: "Compact weergave",
+              name: "weergave",
+            }),
+          })}
           ${accordionTemplate({
             variant: "compact-black",
             reverseAlign: true,
@@ -130,10 +100,10 @@ examplePageFactory(
                   ${plekinfoCardsListActiviteiten.map((plekinfoCard) =>
                     plekinfoCardTemplate({
                       ...plekinfoCard,
-                      symbool: html`${iconTemplate({ icon: "house" })}`,
+                      symbool: iconTemplate({ icon: "house" }),
                     }),
                   )}
-                  <a href="#">Toon alle activiteiten</a>
+                  ${anchorTemplate({ url: "#", label: "Toon alle activiteiten" })}
                 `,
               },
 
@@ -145,7 +115,7 @@ examplePageFactory(
                   ${plekinfoCardsListLocaties.map((plekinfoCard) =>
                     plekinfoCardTemplate({
                       ...plekinfoCard,
-                      symbool: html`${iconTemplate({ icon: "house" })}`,
+                      symbool: iconTemplate({ icon: "house" }),
                     }),
                   )}
                 `,
