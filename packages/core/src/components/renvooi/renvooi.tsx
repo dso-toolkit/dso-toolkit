@@ -22,57 +22,51 @@ interface RenvooiRenderProps {
   emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
 }
 
-const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value, mark, emitMarkItemHighlight }) => {
-  if (typeof value === "string" || !value) {
-    // This element is used for --_dso-renvooi-text-decoration
-    return <span class="text">{renderText(value)}</span>;
+function renderText(text: string, emit: (text: string, ref: HTMLElement) => void, mark?: RenvooiRenderMarkFunction) {
+  if (!mark) {
+    return text;
   }
 
-  if ("toegevoegd" in value) {
-    return <ins>{renderText(value.toegevoegd)}</ins>;
+  const result = mark(text);
+
+  if (!result) {
+    return text;
   }
 
-  if ("verwijderd" in value) {
-    return <del>{renderText(value.verwijderd)}</del>;
-  }
-
-  return (
-    <>
-      <del>{renderText(value.was)}</del>
-      <ins>{renderText(value.wordt)}</ins>
-    </>
-  );
-
-  function renderText(text: string) {
-    if (!mark) {
-      return text;
-    }
-
-    const result = mark(text);
-
-    if (!result) {
-      return text;
+  return result.map((renvooiText) => {
+    if (typeof renvooiText === "string") {
+      return <>{renvooiText}</>;
     }
 
     return (
-      <>
-        {result.map((renvooiText) => {
-          if (typeof renvooiText === "string") {
-            return <>{renvooiText}</>;
-          }
-
-          return (
-            <mark
-              class={renvooiText.highlight ? "dso-highlight" : undefined}
-              ref={(ref) => renvooiText.highlight && ref && emitMarkItemHighlight(renvooiText.text, ref)}
-            >
-              {renvooiText.text}
-            </mark>
-          );
-        })}
-      </>
+      <mark
+        class={renvooiText.highlight ? "dso-highlight" : undefined}
+        ref={(ref) => renvooiText.highlight && ref && emit(renvooiText.text, ref)}
+      >
+        {renvooiText.text}
+      </mark>
     );
+  });
+}
+
+const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value, mark, emitMarkItemHighlight }) => {
+  if (typeof value === "string" || !value) {
+    // This element is used for --_dso-renvooi-text-decoration
+    return <span class="text">{renderText(value, emitMarkItemHighlight, mark)}</span>;
   }
+
+  if ("toegevoegd" in value) {
+    return <ins>{renderText(value.toegevoegd, emitMarkItemHighlight, mark)}</ins>;
+  }
+
+  if ("verwijderd" in value) {
+    return <del>{renderText(value.verwijderd, emitMarkItemHighlight, mark)}</del>;
+  }
+
+  return [
+    <del>{renderText(value.was, emitMarkItemHighlight, mark)}</del>,
+    <ins>{renderText(value.wordt, emitMarkItemHighlight, mark)}</ins>,
+  ];
 };
 
 /**
