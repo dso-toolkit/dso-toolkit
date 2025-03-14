@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { alerts } from "./verzoeken.content";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { mainMenu } from "./main-menu.content";
-import { header } from "../../partials/header.content";
+import { alerts } from "./verzoeken.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -13,7 +13,7 @@ examplePageFactory(
   "Verzoeken",
   ({ applicationHeadingTemplate, alertTemplate, formTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form class="form-horizontal">
           ${applicationHeadingTemplate({

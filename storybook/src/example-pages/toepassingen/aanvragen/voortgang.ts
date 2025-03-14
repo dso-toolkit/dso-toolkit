@@ -1,8 +1,8 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { mainMenu } from "./main-menu.content";
-import { header } from "../../partials/header.content";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { headerPartial } from "../../partials/header";
 import { footerPartial } from "../../partials/footer";
 
@@ -12,7 +12,7 @@ examplePageFactory(
   "Voortgang",
   ({ listTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <h1>Bezig met verzenden...</h1>
         <h2>Object Laan van Eik en Duinen 125, 's-Gravenhage</h2>

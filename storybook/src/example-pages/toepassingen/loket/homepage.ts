@@ -1,9 +1,10 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
 import { linkList } from "./homepage.content";
 
 examplePageFactory(
@@ -27,7 +28,7 @@ examplePageFactory(
     ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
     <div class="container">
       <div id="navigation"><!-- for skiplink --></div>
-      ${headerPartial(templates, header)}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main id="main">
         <div
           class="row dso-banner no-button-banner my-beautiful-image"

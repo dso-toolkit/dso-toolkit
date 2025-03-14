@@ -1,28 +1,5 @@
-import { DefinitionList, Header } from "dso-toolkit";
+import { DefinitionList } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
-
-export const mainMenu: Header["mainMenu"] = [
-  {
-    label: "Home",
-    url: "#",
-  },
-  {
-    label: "Vergunningscheck",
-    url: "#",
-  },
-  {
-    label: "Aanvragen",
-    url: "#",
-  },
-  {
-    label: "Regels op de kaart",
-    url: "#",
-  },
-  {
-    label: "Maatregelen op maat",
-    url: "#",
-  },
-];
 
 export const definitions: DefinitionList<TemplateResult> = {
   definitions: [

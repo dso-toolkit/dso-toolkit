@@ -1,10 +1,11 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { mainMenu } from "../../content/main-menu.content";
+import { header } from "../../content/header.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
-import { definitions, mainMenu } from "./verzoek-detail.content";
+import { definitions } from "./verzoek-detail.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -12,7 +13,7 @@ examplePageFactory(
   "Verzoek Detail",
   ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, anchorTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true, authStatus: "loggedIn" })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
         <div class="row">
           <div class="col-md-12">

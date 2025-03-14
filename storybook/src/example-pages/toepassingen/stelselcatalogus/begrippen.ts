@@ -3,7 +3,7 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
+import { header } from "../../content/header.content";
 import { definitions1, definitions2, definitions3, definitions4, definitions5, mainMenu } from "./begrippen.content";
 
 examplePageFactory(

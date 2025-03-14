@@ -1,13 +1,10 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../example-page-factory";
-
+import { header } from "./content/header.content";
 import { mainMenu } from "./content/main-menu.content";
-
 import { footerPartial } from "./partials/footer";
 import { headerPartial } from "./partials/header";
-import { header } from "./partials/header.content";
-
 import { definitionList, listGroup } from "./full-width.content";
 
 examplePageFactory(
@@ -16,7 +13,7 @@ examplePageFactory(
   "Full Width",
   ({ anchorTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
         <div class="row dso-featured">
           <div class="col-md-6">

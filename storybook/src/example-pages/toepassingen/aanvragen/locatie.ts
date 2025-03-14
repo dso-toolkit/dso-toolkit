@@ -1,11 +1,11 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { dropdownItems, formGroup } from "./locatie.content";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
-import { mainMenu } from "./main-menu.content";
+import { dropdownItems, formGroup } from "./locatie.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -26,7 +26,7 @@ examplePageFactory(
     </style>
 
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         ${applicationHeadingTemplate({
           title: "Aanvraag Laan van Eik en Duinen 125, Den Haag",

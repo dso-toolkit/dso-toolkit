@@ -1,10 +1,11 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
-import { accordionSections, mainMenu } from "./landingspagina.content";
+import { accordionSections } from "./landingspagina.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -12,7 +13,7 @@ examplePageFactory(
   "Landingspagina",
   ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
         <div
           class="row dso-banner dso-banner-implementation-specific-image"

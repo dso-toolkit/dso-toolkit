@@ -3,28 +3,6 @@ import { Breadcrumbs, Header } from "dso-toolkit";
 export const header: Header = {
   label: "Regels op de kaart",
   ribbon: "beta",
-  mainMenu: [
-    {
-      label: "Home",
-      url: "#",
-    },
-    {
-      label: "Vergunningcheck",
-      url: "#",
-    },
-    {
-      label: "Aanvragen",
-      url: "#",
-    },
-    {
-      label: "Regels op de kaart",
-      url: "#",
-    },
-    {
-      label: "Maatregelen op maat",
-      url: "#",
-    },
-  ],
   useDropDownMenu: "always",
   authStatus: "loggedIn",
   loginUrl: "#login",

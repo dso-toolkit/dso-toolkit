@@ -1,9 +1,10 @@
 import { html } from "lit-html";
+
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
-import { mainMenu } from "./main-menu.content";
+import { mainMenu } from "../../content/main-menu.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -21,7 +22,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form>
           ${applicationHeadingTemplate({
