@@ -1,3 +1,5 @@
+import { isOdd } from "dso-toolkit";
+
 describe("Ozon Content", () => {
   it("should emit anchorClick on IntRef anchor click", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref");
@@ -565,7 +567,3 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").shadow().find("abbr").should("exist").and("have.text", "XYZ");
   });
 });
-
-function isOdd(n: number): boolean {
-  return Math.abs(n % 2) === 1;
-}

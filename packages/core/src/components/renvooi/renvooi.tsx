@@ -1,32 +1,7 @@
-import { Component, ComponentInterface, Fragment, FunctionalComponent, Prop, h } from "@stencil/core";
+import { Component, ComponentInterface, Fragment, Prop, h, Event, EventEmitter } from "@stencil/core";
 
-import { RenvooiValue } from "./renvooi.interfaces";
-
-interface RenvooiRenderProps {
-  value: RenvooiValue;
-}
-
-const RenvooiRender: FunctionalComponent<RenvooiRenderProps> = ({ value }) => {
-  if (typeof value === "string" || !value) {
-    // This element is used for --_dso-renvooi-text-decoration
-    return <span class="text">{value}</span>;
-  }
-
-  if ("toegevoegd" in value) {
-    return <ins>{value.toegevoegd}</ins>;
-  }
-
-  if ("verwijderd" in value) {
-    return <del>{value.verwijderd}</del>;
-  }
-
-  return (
-    <>
-      <del>{value.was}</del>
-      <ins>{value.wordt}</ins>
-    </>
-  );
-};
+import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./renvooi.interfaces";
+import { RenvooiRender } from "./renvooi-render";
 
 /**
  * Met dit component kan een `RenvooiValue` worden gepresenteerd.
@@ -43,6 +18,18 @@ export class Renvooi implements ComponentInterface {
   @Prop()
   value?: RenvooiValue | RenvooiValue[];
 
+  /**
+   * To mark text.
+   */
+  @Prop()
+  mark?: RenvooiMarkFunction;
+
+  /**
+   * Emitted when a marked item is highlighted.
+   */
+  @Event({ bubbles: false })
+  dsoRenvooiMarkItemHighlight!: EventEmitter<RenvooiMarkItemHighlightEvent>;
+
   get values(): RenvooiValue[] {
     if (!this.value) {
       return [];
@@ -51,11 +38,19 @@ export class Renvooi implements ComponentInterface {
     return Array.isArray(this.value) ? this.value : [this.value];
   }
 
+  private handleMarkItemHighlight = (text: string, elementRef: HTMLElement) => {
+    this.dsoRenvooiMarkItemHighlight.emit({ text, elementRef });
+  };
+
   render() {
     return (
       <>
         {this.values.map((v) => (
-          <RenvooiRender value={v} />
+          <RenvooiRender
+            value={v}
+            mark={this.mark && ((text) => this.mark?.(text, v, this.values))}
+            onMarkItemHighlight={this.handleMarkItemHighlight}
+          />
         ))}
       </>
     );

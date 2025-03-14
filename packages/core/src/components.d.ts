@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
-import { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
+import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
@@ -48,7 +48,7 @@ import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
-export { RenvooiValue } from "./components/renvooi/renvooi.interfaces";
+export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
@@ -1084,6 +1084,10 @@ export namespace Components {
      */
     interface DsoRenvooi {
         /**
+          * To mark text.
+         */
+        "mark"?: RenvooiMarkFunction;
+        /**
           * The renvooi value to render.
          */
         "value"?: RenvooiValue | RenvooiValue[];
@@ -1470,6 +1474,10 @@ export interface DsoPanelCustomEvent<T> extends CustomEvent<T> {
 export interface DsoPlekinfoCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoPlekinfoCardElement;
+}
+export interface DsoRenvooiCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoRenvooiElement;
 }
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2185,10 +2193,21 @@ declare global {
         prototype: HTMLDsoProjectItemElement;
         new (): HTMLDsoProjectItemElement;
     };
+    interface HTMLDsoRenvooiElementEventMap {
+        "dsoRenvooiMarkItemHighlight": RenvooiMarkItemHighlightEvent;
+    }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
      */
     interface HTMLDsoRenvooiElement extends Components.DsoRenvooi, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoRenvooiElementEventMap>(type: K, listener: (this: HTMLDsoRenvooiElement, ev: DsoRenvooiCustomEvent<HTMLDsoRenvooiElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoRenvooiElementEventMap>(type: K, listener: (this: HTMLDsoRenvooiElement, ev: DsoRenvooiCustomEvent<HTMLDsoRenvooiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoRenvooiElement: {
         prototype: HTMLDsoRenvooiElement;
@@ -3679,6 +3698,14 @@ declare namespace LocalJSX {
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
      */
     interface DsoRenvooi {
+        /**
+          * To mark text.
+         */
+        "mark"?: RenvooiMarkFunction;
+        /**
+          * Emitted when a marked item is highlighted.
+         */
+        "onDsoRenvooiMarkItemHighlight"?: (event: DsoRenvooiCustomEvent<RenvooiMarkItemHighlightEvent>) => void;
         /**
           * The renvooi value to render.
          */
