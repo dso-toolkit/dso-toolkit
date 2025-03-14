@@ -82,7 +82,6 @@
 
   &[data-popper-placement="top"] {
     margin-block-start: -3px;
-    padding-block: tooltip-variables.$arrow-inline-size;
     padding-inline: 0;
 
     .tooltip-arrow {
@@ -96,8 +95,7 @@
 
   &[data-popper-placement="right"] {
     margin-inline-start: 3px;
-    padding-block: 0;
-    padding-inline: tooltip-variables.$arrow-inline-size;
+    padding-inline-start: tooltip-variables.$arrow-inline-size;
 
     .tooltip-arrow {
       inset-inline-start: 0;
@@ -110,7 +108,7 @@
 
   &[data-popper-placement="bottom"] {
     margin-block-start: 3px;
-    padding-block: tooltip-variables.$arrow-inline-size;
+    padding-block-start: tooltip-variables.$arrow-inline-size;
     padding-inline: 0;
 
     .tooltip-arrow {
@@ -126,7 +124,7 @@
     margin-inline-start: -3px;
     margin-inline-end: var(--tooltip-margin-inline-end, unset);
     padding-block: 0;
-    padding-inline: tooltip-variables.$arrow-inline-size;
+    padding-inline-end: tooltip-variables.$arrow-inline-size;
 
     .tooltip-arrow {
       inset-inline-end: 0;
