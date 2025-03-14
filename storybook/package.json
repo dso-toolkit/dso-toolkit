@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-typescript": "^7.26.0",
     "@dso-toolkit/core": "workspace:^",
-    "@iframe-resizer/child": "^5.3.2",
+    "@iframe-resizer/child": "^5.3.3",
     "@infoprojects/prettier-config": "^1.0.0",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@storybook/addon-a11y": "7.6.20",
