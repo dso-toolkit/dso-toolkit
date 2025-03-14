@@ -1,10 +1,12 @@
 import { ArgTypes } from "@storybook/types";
 import { Table, TableContent } from "./table.models.js";
+import { noControl } from "../../storybook";
 
 export interface TableArgs {
   noModal: boolean;
   headingColumns: boolean;
   verticalLines: boolean;
+  role?: string;
 }
 
 export const tableArgTypes: ArgTypes<TableArgs> = {
@@ -22,6 +24,9 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
     control: {
       type: "boolean",
     },
+  },
+  role: {
+    ...noControl,
   },
 };
 

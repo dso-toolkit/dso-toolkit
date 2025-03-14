@@ -5,6 +5,7 @@ import { headerPartial } from "../../partials/header";
 import { header } from "./samenwerken-overzicht.content";
 
 examplePageFactory(
+  "Voorbeeldpagina's",
   "Toepassingen/Samenwerken",
   "Samenwerken overzicht",
   ({ anchorTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`

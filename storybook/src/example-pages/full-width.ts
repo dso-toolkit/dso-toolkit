@@ -1,13 +1,18 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
-import { footerPartial } from "../partials/footer";
-import { headerPartial } from "../partials/header";
-import { header } from "../partials/header.content";
-import { definitionList, listGroup, mainMenu } from "./full-width.content";
+import { examplePageFactory } from "../example-page-factory";
+
+import { mainMenu } from "./content/main-menu.content";
+
+import { footerPartial } from "./partials/footer";
+import { headerPartial } from "./partials/header";
+import { header } from "./partials/header.content";
+
+import { definitionList, listGroup } from "./full-width.content";
 
 examplePageFactory(
-  "Patronen",
+  "Voorbeeldpagina's",
+  null,
   "Full Width",
   ({ anchorTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
     <div class="container">

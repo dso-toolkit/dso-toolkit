@@ -1,9 +1,10 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
+import { examplePageFactory } from "../example-page-factory";
 
 examplePageFactory(
-  "Toepassingen/Componenten",
+  "Voorbeeldpagina's",
+  null,
   "Typografie",
   ({ anchorTemplate }) => html`
     <div class="container">

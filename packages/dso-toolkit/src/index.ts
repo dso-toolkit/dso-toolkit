@@ -79,6 +79,8 @@ export * from "./components/dropdown-menu";
 
 export * from "./components/expandable";
 
+export * from "./components/footer";
+
 export * from "./components/footnotes";
 
 export * from "./components/form";

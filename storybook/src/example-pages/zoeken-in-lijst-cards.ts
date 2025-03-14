@@ -1,13 +1,14 @@
 import { html } from "lit-html";
 
-import { examplePageFactory } from "../../example-page-factory";
-import { footerPartial } from "../partials/footer";
-import { headerPartial } from "../partials/header";
-import { header } from "../partials/header.content";
+import { examplePageFactory } from "../example-page-factory";
+import { footerPartial } from "./partials/footer";
+import { headerPartial } from "./partials/header";
+import { header } from "./partials/header.content";
 import { cardList } from "./zoeken-in-lijst-cards.content";
 
 examplePageFactory(
-  "Patronen",
+  "Voorbeeldpagina's",
+  null,
   "Zoeken in lijst cards",
   (
     {

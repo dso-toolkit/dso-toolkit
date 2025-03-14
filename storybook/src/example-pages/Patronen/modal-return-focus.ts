@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../example-page-factory";
 
 examplePageFactory(
   "Patronen",
+  null,
   "Modal return focus",
   ({ buttonTemplate, modalTemplate }) => html`
     <div class="container">

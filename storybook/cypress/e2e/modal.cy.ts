@@ -115,7 +115,7 @@ describe("Modal", () => {
   });
 
   it("should return focus to previous element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=voorbeeldpagina-s-patronen-modal-return-focus--modal-return-focus");
+    cy.visit("http://localhost:45000/iframe.html?id=patronen-modal-return-focus--modal-return-focus");
 
     cy.contains("Open modal").as("activate-button").click().should("not.have.focus");
 

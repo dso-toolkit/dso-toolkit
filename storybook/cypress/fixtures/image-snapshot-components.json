@@ -181,6 +181,12 @@
     "type": "html-css",
     "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
   },
+  {
+    "name": "footer",
+    "type": "html-css",
+    "stories": ["footer"],
+    "selector": "footer"
+  },
   { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
   { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
   {
@@ -361,6 +367,19 @@
       "with-subitems-and-warning"
     ],
     "type": "html-css"
+  },
+  {
+    "name": "table",
+    "selector": "dso-table.hydrated",
+    "type": "core",
+    "stories": [
+      "data-grid",
+      "data-table",
+      "sorted-ascending",
+      "sorted-descending",
+      "with-dso-image-overlay",
+      "with-vertical-lines"
+    ]
   },
   {
     "name": "tabs-deprecated",
