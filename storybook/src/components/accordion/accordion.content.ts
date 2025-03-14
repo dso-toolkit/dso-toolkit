@@ -207,6 +207,17 @@ export const renvooiSections: AccordionSection<TemplateResult>[] = [
       wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
     },
   },
+  {
+    ...section1,
+    handleTitle: [
+      {
+        was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+        wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+      },
+      " - ",
+      { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
+    ],
+  },
 ];
 
 export const activatableSections: AccordionSection<TemplateResult>[] = [
@@ -232,6 +243,18 @@ export const activatableSections: AccordionSection<TemplateResult>[] = [
       was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
       wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
     },
+    activatable: true,
+  },
+  {
+    ...section1,
+    handleTitle: [
+      {
+        was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+        wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+      },
+      " - ",
+      { toegevoegd: "Zit er een limiet aan Vergunningchecks?" },
+    ],
     activatable: true,
   },
 ];

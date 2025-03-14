@@ -243,6 +243,38 @@ describe("Accordion", () => {
       .and("have.text", "Dit is de tekst");
 
     cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt`);
+
+    cy.get("@accordionSection")
+      .invoke("prop", "handleTitle", [
+        { was: "Dit was de tekst", wordt: "Dit is de tekst" },
+        {
+          toegevoegd: "Nog meer toegevoegde tekst",
+        },
+      ])
+      .shadow()
+      .find("dso-renvooi")
+      .should("exist")
+      .shadow()
+      .find("del")
+      .and("have.text", "Dit was de tekst")
+      .get("@accordionSection")
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("ins")
+      .eq(0)
+      .should("exist")
+      .and("have.text", "Dit is de tekst")
+      .get("@accordionSection")
+      .shadow()
+      .find("dso-renvooi")
+      .shadow()
+      .find("ins")
+      .eq(1)
+      .should("exist")
+      .and("have.text", "Nog meer toegevoegde tekst");
+
+    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- was wordt toegevoegd`);
   });
 
   it("should render wijzigactie in the section", () => {

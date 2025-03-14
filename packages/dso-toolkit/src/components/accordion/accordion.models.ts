@@ -17,7 +17,7 @@ export interface Accordion<TemplateFnReturnType> {
 
 export interface AccordionSection<TemplateFnReturnType> {
   open?: boolean;
-  handleTitle: RenvooiValue;
+  handleTitle: RenvooiValue | RenvooiValue[];
   heading: AccordionHeading;
   handleUrl?: string;
   wijzigactie?: AccordionSectionWijzigactie;

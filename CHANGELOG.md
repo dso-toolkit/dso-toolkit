@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Accordion: Een Section `handleTitle` moet ook type `RenvooiValue[]` zijn ([#3029](https://github.com/dso-toolkit/dso-toolkit/issues/3029))
+
 ### Fixed
 * Document Component: Links zijn niet groen ([#3038](https://github.com/dso-toolkit/dso-toolkit/issues/3038))
 

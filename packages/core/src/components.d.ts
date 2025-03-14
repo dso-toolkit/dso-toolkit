@@ -121,7 +121,7 @@ export namespace Components {
         /**
           * The title of the handle
          */
-        "handleTitle": RenvooiValue | undefined;
+        "handleTitle": RenvooiValue | RenvooiValue[] | undefined;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
@@ -2495,7 +2495,7 @@ declare namespace LocalJSX {
         /**
           * The title of the handle
          */
-        "handleTitle": RenvooiValue | undefined;
+        "handleTitle": RenvooiValue | RenvooiValue[] | undefined;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */

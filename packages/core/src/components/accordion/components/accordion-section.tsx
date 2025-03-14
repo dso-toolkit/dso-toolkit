@@ -161,7 +161,7 @@ export class AccordionSection implements ComponentInterface {
    * The title of the handle
    */
   @Prop()
-  handleTitle!: RenvooiValue | undefined;
+  handleTitle!: RenvooiValue | RenvooiValue[] | undefined;
 
   /**
    * An optional 'wijzigactie' that signals if the section is added or removed.
