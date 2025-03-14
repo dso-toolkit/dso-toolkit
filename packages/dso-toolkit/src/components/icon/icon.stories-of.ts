@@ -48,7 +48,8 @@ export function iconStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
   decorator,
 }: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
-  const icons = process.env.ICONS?.split(",");
+  const icons = process.env.ICONS?.split(",") || [];
+
   return {
     Default: {
       argTypes: iconArgTypes,
@@ -58,7 +59,7 @@ export function iconStories<Implementation, Templates, TemplateFnReturnType>({
       render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
     },
     Overview: {
-      decorators: [(story) => (decorator ? decorator(story, icons || []) : story)],
+      decorators: [(story) => (decorator ? decorator(story, icons) : story)],
       render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
     },
   };
