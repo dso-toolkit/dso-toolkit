@@ -14591,11 +14591,11 @@ __metadata:
     list-stream: "npm:^2.1.0"
     markdown-to-jsx: "npm:^7.7.3"
     plugin-error: "npm:^2.0.1"
-    postcss: "npm:^8.5.1"
+    postcss: "npm:^8.5.3"
     prettier: "npm:^3.4.2"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    sass: "npm:1.83.4"
+    sass: "npm:1.86.0"
     through2: "npm:^4.0.2"
     typescript: "npm:~5.6.3"
     uuid: "npm:^11.0.5"
@@ -25791,14 +25791,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.14, postcss@npm:^8.4.21, postcss@npm:^8.4.24, postcss@npm:^8.4.26, postcss@npm:^8.4.33, postcss@npm:^8.4.38, postcss@npm:^8.4.47, postcss@npm:^8.4.49, postcss@npm:^8.5.1":
-  version: 8.5.1
-  resolution: "postcss@npm:8.5.1"
+"postcss@npm:^8.2.14, postcss@npm:^8.4.21, postcss@npm:^8.4.24, postcss@npm:^8.4.26, postcss@npm:^8.4.33, postcss@npm:^8.4.38, postcss@npm:^8.4.47, postcss@npm:^8.4.49, postcss@npm:^8.5.1, postcss@npm:^8.5.3":
+  version: 8.5.3
+  resolution: "postcss@npm:8.5.3"
   dependencies:
     nanoid: "npm:^3.3.8"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10/1fbd28753143f7f03e4604813639918182b15343c7ad0f4e72f3875fc2cc0b8494c887f55dc05008fad5fbf1e1e908ce2edbbce364a91f84dcefb71edf7cd31d
+  checksum: 10/6d7e21a772e8b05bf102636918654dac097bac013f0dc8346b72ac3604fc16829646f94ea862acccd8f82e910b00e2c11c1f0ea276543565d278c7ca35516a7c
   languageName: node
   linkType: hard
 
@@ -27740,9 +27740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:*, sass@npm:1.83.4, sass@npm:^1.81.0":
-  version: 1.83.4
-  resolution: "sass@npm:1.83.4"
+"sass@npm:*, sass@npm:1.86.0, sass@npm:^1.81.0":
+  version: 1.86.0
+  resolution: "sass@npm:1.86.0"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -27753,7 +27753,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10/9a7d1c6be1a9e711a1c561d189b9816aa7715f6d0ec0b2ec181f64163788d0caaf4741924eeadce558720b58b1de0e9b21b9dae6a0d14489c4d2a142d3f3b12e
+  checksum: 10/d943e114340781d1d77bf8dc09c7daa8e1310bbdcdcf9cdd798e3d67c339132b19f6a88838800d11f48fc32e6726266fb87528d4aa087682a95abe690af1009c
   languageName: node
   linkType: hard
 
@@ -31420,7 +31420,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    sass: "npm:1.83.4"
+    sass: "npm:1.86.0"
     typescript: "npm:~5.6.3"
   languageName: unknown
   linkType: soft
