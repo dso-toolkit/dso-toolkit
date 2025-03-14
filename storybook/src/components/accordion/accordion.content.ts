@@ -202,12 +202,10 @@ export const renvooiSections: AccordionSection<TemplateResult>[] = [
   },
   {
     ...section1,
-    handleTitle: [
-      {
-        was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-        wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
-      },
-    ],
+    handleTitle: {
+      was: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+      wordt: "Voor hoeveel locaties mag ik de Vergunningcheck doen?",
+    },
   },
   {
     ...section1,
