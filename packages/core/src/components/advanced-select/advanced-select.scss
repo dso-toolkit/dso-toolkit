@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 @use "~dso-toolkit/src/components/advanced-select";
+@use "~dso-toolkit/src/variables/zindex";
 
 :host {
   display: block;
@@ -63,6 +64,7 @@
 
 .groups-container {
   position: relative;
+  z-index: zindex.$advanced-select-group
 }
 
 .groups {
