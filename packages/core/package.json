@@ -26,7 +26,7 @@
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
     "focus-trap": "^7.6.4",
-    "i18next": "^24.2.2",
+    "i18next": "^24.2.3",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
     "uuid": "^11.1.0"
