@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
     "minimist": "^1.2.8",
-    "nx": "20.4.0",
+    "nx": "20.6.2",
     "patch-package": "^8.0.0",
     "plop": "^4.0.1",
     "postinstall-postinstall": "^2.1.0",
