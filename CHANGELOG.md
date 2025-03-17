@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Accordion: Een Section `handleTitle` moet ook type `RenvooiValue[]` zijn ([#3029](https://github.com/dso-toolkit/dso-toolkit/issues/3029))
 * Renvooi: Ondersteuning voor markeren ([#2948](https://github.com/dso-toolkit/dso-toolkit/issues/2948))
 
+### Changed
+* Verticaal Ritme: aanpassing ruimte tussen contactinformatie blokken ([#3012](https://github.com/dso-toolkit/dso-toolkit/issues/3012))
+
 ### Fixed
 * Document Component: Links zijn niet groen ([#3038](https://github.com/dso-toolkit/dso-toolkit/issues/3038))
 * Tooltip: Ruimte tussen tooltip-arrow en tooltip-inner ([#3005](https://github.com/dso-toolkit/dso-toolkit/issues/3005))

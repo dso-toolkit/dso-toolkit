@@ -1,25 +1,20 @@
 import { ContactInformation } from "./contact-information.models";
+import { TemplateResult } from "lit-html";
 
-export function contactInformationContent<T>(headingLevel = 5): ContactInformation<T> {
-  return {
-    heading: {
-      level: headingLevel,
-      children: "Gemeente Utrecht",
+export const contactInformationContent: ContactInformation<TemplateResult> = {
+  anchorItems: [
+    { label: "14-303", url: "tel:40-303", icon: { icon: "call" } },
+    { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "email" } },
+    {
+      label: "Online contactformulier",
+      url: "https://www.google.nl",
+      icon: { icon: "external-link" },
+      mode: "extern",
     },
-    anchorItems: [
-      { label: "14-303", url: "tel:40-303", icon: { icon: "call" } },
-      { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "email" } },
-      {
-        label: "Online contactformulier",
-        url: "http://www.google.nl",
-        icon: { icon: "external-link" },
-        mode: "extern",
-      },
-      { label: "www.utrecht.nl", url: "http://www.utrecht.nl", icon: { icon: "external-link" }, mode: "extern" },
-    ],
-    infoItems: [
-      "Bezoekadres: Stadsplateau 1, 3521AZ Utrecht",
-      "Postadres: afd. Bouwvergunningen, Postbus 100, 3500AA Utrecht",
-    ],
-  };
-}
+    { label: "www.utrecht.nl", url: "https://www.utrecht.nl", icon: { icon: "external-link" }, mode: "extern" },
+  ],
+  infoItems: [
+    "Bezoekadres: Stadsplateau 1, 3521AZ Utrecht",
+    "Postadres: afd. Bouwvergunningen, Postbus 100, 3500AA Utrecht",
+  ],
+};

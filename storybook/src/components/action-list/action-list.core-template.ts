@@ -32,7 +32,16 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
                     handleTitle: "Contactinformatie gemeente Utrecht",
                     heading: "h3",
                     open: true,
-                    content: html` ${contactInformationTemplate(contactInformationContent(4))} `,
+                    content: html`
+                      ${contactInformationTemplate({
+                        ...contactInformationContent,
+                        heading: {
+                          level: 4,
+                          children: "Gemeente Utrecht",
+                        },
+                      })}
+                      ${contactInformationTemplate({ ...contactInformationContent })}
+                    `,
                   },
                   {
                     handleTitle: "Contactinformatie waterschap Amstel, Gooi en Vecht",

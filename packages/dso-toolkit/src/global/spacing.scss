@@ -80,21 +80,21 @@ $spacers: (
     space: units.$block-spacing-medium,
     predecessors: (
       ".dso-app-heading",
-      "dso-contact-information",
     ),
     successors: (
       ".dso-context-wrapper",
       "dso-tabs",
-      "dso-contact-information",
     ),
   ),
   (
     space: units.$block-spacing-xlarge,
     predecessors: (
       "dso-action-list",
+      "dso-contact-information",
     ),
     successors: (
       ".dso-form-buttons",
+      "dso-contact-information",
     ),
   )
 );
