@@ -1,13 +1,4 @@
-import {
-  AdvancedSelect,
-  Breadcrumbs,
-  Card,
-  CardContainer,
-  DefinitionList,
-  Header,
-  Navbar,
-  PlekinfoCard,
-} from "dso-toolkit";
+import { AdvancedSelect, Breadcrumbs, DefinitionList, DocumentCard, Header, Navbar, PlekinfoCard } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
 export const header: Header = {
@@ -51,22 +42,6 @@ export const breadcrumbs: Breadcrumbs = {
     {
       label: "Test",
       url: "#",
-    },
-  ],
-};
-
-const cardDefault: Card<TemplateResult> = {
-  href: "#",
-  label: "Omgevingsplan gemeente Utrecht",
-  content: html`<p>
-    Omgevingsplan gemeente Utrecht <br />
-    In werking vanaf 03-03-2023
-  </p>`,
-  interactions: [
-    {
-      position: "right",
-      label: "test",
-      children: html`Test informatie`,
     },
   ],
 };
@@ -137,36 +112,54 @@ export const advancedSelect: AdvancedSelect<unknown> = {
   ],
 };
 
-export const cardList: CardContainer<TemplateResult> = {
-  mode: "list",
-  cards: [
-    { ...cardDefault },
-    {
-      ...cardDefault,
-      label: "Chw bestemmingsplan Algemene regels Harderwijk",
-      content: html`<p>
-        Omgevingsplan gemeente Utrecht <br />
-        In werking vanaf 03-03-2023 - vastgesteld
-      </p>`,
-    },
-    {
-      ...cardDefault,
-      label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-    },
-    {
-      ...cardDefault,
-      label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-    },
-    {
-      ...cardDefault,
-      label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-    },
-    {
-      ...cardDefault,
-      label: "Detailhandel en bezorging 2023",
-    },
+const cardDefault: DocumentCard<TemplateResult> = {
+  href: "#",
+  label: "Omgevingsplan gemeente Utrecht",
+  status: "In werking vanaf 03-03-2023",
+  typeItems: [
+    html`<span class="dso-document-card-type-item">Omgevingsplan</span>`,
+    html`<span class="dso-document-card-type-item">Gemeente Amsterdam</span>`,
   ],
+  typeToelichting: {
+    children: "Extra informatie",
+    label: "Toon informatie over type",
+    position: "right",
+    small: false,
+    secondary: false,
+  },
 };
+
+export const cardList: DocumentCard<TemplateResult>[] = [
+  cardDefault,
+  { ...cardDefault, label: "Chw bestemmingsplan Algemene regels Harderwijk" },
+];
+//
+//     {
+//       ...cardDefault,
+//       label: "Chw bestemmingsplan Algemene regels Harderwijk",
+//       content: html`<p>
+//         Omgevingsplan gemeente Utrecht <br />
+//         In werking vanaf 03-03-2023 - vastgesteld
+//       </p>`,
+//     },
+//     {
+//       ...cardDefault,
+//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
+//     },
+//     {
+//       ...cardDefault,
+//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
+//     },
+//     {
+//       ...cardDefault,
+//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
+//     },
+//     {
+//       ...cardDefault,
+//       label: "Detailhandel en bezorging 2023",
+//     },
+//   ],
+// };
 
 export const mainSubmenu: Navbar<TemplateResult> = {
   open: false,
@@ -179,6 +172,10 @@ export const mainSubmenu: Navbar<TemplateResult> = {
     },
     {
       label: "Provincie",
+      href: "#",
+    },
+    {
+      label: "Waterschap",
       href: "#",
     },
     {
