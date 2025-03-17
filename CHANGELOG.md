@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Document Component: Links zijn niet groen ([#3038](https://github.com/dso-toolkit/dso-toolkit/issues/3038))
 * Tooltip: Ruimte tussen tooltip-arrow en tooltip-inner ([#3005](https://github.com/dso-toolkit/dso-toolkit/issues/3005))
+* Survey Rating: z-positionering en background-problemen ([#3045](https://github.com/dso-toolkit/dso-toolkit/issues/3045))
 
 ### Task
 * Patronen: opruimen ([#2939](https://github.com/dso-toolkit/dso-toolkit/issues/2939))

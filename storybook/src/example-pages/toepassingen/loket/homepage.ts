@@ -20,10 +20,11 @@ examplePageFactory(
       tileTemplate,
       buttonTemplate,
       skiplinkTemplate,
+      surveyRatingTemplate,
     },
     templates,
   ) => html`
-    ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
+    ${surveyRatingTemplate({})} ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
     ${skiplinkTemplate({ label: "Ga naar inhoud", to: "main" })}
     ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
     <div class="container">

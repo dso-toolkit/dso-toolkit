@@ -6,17 +6,20 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/zindex";
 
 @use "survey-rating.variables" as survey-rating-variables;
 
 :host {
   display: block;
-  position: absolute;
+  position: fixed;
   inset-block-end: units.$u2;
   inset-inline-start: units.$u2;
   inline-size: survey-rating-variables.$survey-rating-inline-size;
+  background-color: survey-rating-variables.$survey-rating-background-color;
   box-shadow: -3px 3px 6px 0 rgba(0, 0, 0, 0.5);
   border-radius: survey-rating-variables.$survey-rating-border-radius;
+  z-index: zindex.$survey-rating;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     inline-size: survey-rating-variables.$survey-rating-xs-min-inline-size;
