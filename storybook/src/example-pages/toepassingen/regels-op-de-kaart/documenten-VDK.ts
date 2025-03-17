@@ -22,7 +22,7 @@ examplePageFactory(
       accordionTemplate,
       anchorTemplate,
       buttonTemplate,
-      cardListTemplate,
+      documentCardTemplate,
       documentHeaderTemplate,
       highlightBoxTemplate,
       iconTemplate,
@@ -64,7 +64,12 @@ examplePageFactory(
             variant: "tertiary",
             icon: { icon: "chevron-up" },
           })}
-          ${navbarTemplate(mainSubmenu)} ${cardListTemplate(cardList)}
+          ${navbarTemplate(mainSubmenu)}
+          <ul class="dso-card-list">
+            ${cardList.map((documentCardItem) => {
+              return html`<li>${documentCardTemplate(documentCardItem)}</li>`;
+            })}
+          </ul>
         `,
         map: html`
           <img src="images/kaart.png" aria-hidden="true" />
@@ -73,8 +78,8 @@ examplePageFactory(
         documentPanel: html`
           ${documentHeaderTemplate({
             title: "Omgevingsplan gemeente Gouda",
-            type: "Een omgevingsplan waar de omgeving mooier van wordt",
-            owner: "Gemeente Gouda",
+            type: "Omgevingsplan - Gemeente Gouda",
+            owner: "",
             features,
             advancedSelect,
           })}
@@ -97,12 +102,13 @@ examplePageFactory(
                 heading: "h4",
                 open: true,
                 content: html`
-                  ${plekinfoCardsListActiviteiten.map((plekinfoCard) =>
-                    plekinfoCardTemplate({
-                      ...plekinfoCard,
-                      symbool: iconTemplate({ icon: "house" }),
-                    }),
-                  )}
+                  ${plekinfoCardsListActiviteiten.map((plekinfoCard) => {
+                    return html`${plekinfoCardTemplate({
+                        ...plekinfoCard,
+                        symbool: iconTemplate({ icon: "house" }),
+                      })}
+                      <hr />`;
+                  })}
                   ${anchorTemplate({ url: "#", label: "Toon alle activiteiten" })}
                 `,
               },
