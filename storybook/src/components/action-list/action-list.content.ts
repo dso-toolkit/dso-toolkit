@@ -44,7 +44,13 @@ function item2({
                   Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
                   vervangen".
                 </p>
-                ${contactInformationTemplate(contactInformationContent())}
+                ${contactInformationTemplate({
+                  ...contactInformationContent,
+                  heading: {
+                    level: 4,
+                    children: "Gemeente Utrecht",
+                  },
+                })}
               `,
             }),
           },

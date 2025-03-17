@@ -42,7 +42,13 @@ function item2({ accordionTemplate, contactInformationTemplate }: Templates): Ac
                     Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding aanbrengen of
                     vervangen".
                   </p>
-                  {contactInformationTemplate(contactInformationContent())}
+                  {contactInformationTemplate({
+                    ...contactInformationContent,
+                    heading: {
+                      level: 4,
+                      children: "Gemeente Utrecht",
+                    },
+                  })}
                 </div>
               ),
             },

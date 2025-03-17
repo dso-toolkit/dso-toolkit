@@ -45,7 +45,13 @@ export function contactInformationStories<Implementation, Templates, TemplateFnR
   return {
     Default: {
       render: templateContainer.render(storyTemplates, (_args, { contactInformationTemplate }) =>
-        contactInformationTemplate(contactInformationContent()),
+        contactInformationTemplate({
+          ...contactInformationContent,
+          heading: {
+            level: 4,
+            children: "Gemeente Utrecht",
+          },
+        }),
       ),
     },
   };

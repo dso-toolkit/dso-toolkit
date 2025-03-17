@@ -33,8 +33,14 @@ export const coreActionList: ComponentImplementation<ActionList<TemplateResult>>
                     heading: "h3",
                     open: true,
                     content: html`
-                      ${contactInformationTemplate(contactInformationContent(4))}
-                      ${contactInformationTemplate(contactInformationContent(4))}
+                      ${contactInformationTemplate({
+                        ...contactInformationContent,
+                        heading: {
+                          level: 4,
+                          children: "Gemeente Utrecht",
+                        },
+                      })}
+                      ${contactInformationTemplate({ ...contactInformationContent })}
                     `,
                   },
                   {
