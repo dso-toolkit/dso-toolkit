@@ -1,26 +1,34 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
+import { footerPartial } from "../../partials/footer";
+import { headerPartial } from "../../partials/header";
 import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./activiteiten.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Activiteiten",
-  ({
-    applicationHeadingTemplate,
-    alertTemplate,
-    anchorTemplate,
-    shoppingCartTemplate,
-    highlightBoxTemplate,
-    searchBarTemplate,
-    formGroupCheckboxesTemplate,
-    contextTemplate,
-    labelGroupTemplate,
-    listButtonTemplate,
-    formButtonsTemplate,
-  }) => html`
+  (
+    {
+      applicationHeadingTemplate,
+      alertTemplate,
+      anchorTemplate,
+      shoppingCartTemplate,
+      highlightBoxTemplate,
+      searchBarTemplate,
+      formGroupCheckboxesTemplate,
+      contextTemplate,
+      labelGroupTemplate,
+      listButtonTemplate,
+      formButtonsTemplate,
+    },
+    templates,
+  ) => html`
     <div class="container">
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form>
           ${applicationHeadingTemplate({
@@ -107,6 +115,7 @@ examplePageFactory(
             asideButtons: [{ label: "Vorige stap", variant: "tertiary", icon: { icon: "chevron-left" } }],
           })}
         </form>
+        ${footerPartial(templates)}
       </main>
     </div>
   `,

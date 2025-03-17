@@ -1,4 +1,4 @@
-import { Breadcrumbs, Header, DefinitionList, Tabs } from "dso-toolkit";
+import { Breadcrumbs, DefinitionList, Header, Tabs } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 import { Templates } from "../../../templates";
 

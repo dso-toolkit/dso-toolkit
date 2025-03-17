@@ -1,23 +1,4 @@
-import { LinkList, LinkListType, HeaderMenuItem } from "dso-toolkit";
-
-export const mainMenu: HeaderMenuItem[] = [
-  {
-    label: "Home",
-    url: "#",
-  },
-  {
-    label: "Vergunningscheck",
-    url: "#",
-  },
-  {
-    label: "Aanvragen",
-    url: "#",
-  },
-  {
-    label: "Regels op de kaart",
-    url: "#",
-  },
-];
+import { LinkList, LinkListType } from "dso-toolkit";
 
 export const linkList: LinkList = {
   navLabel: "Projecttaken",

@@ -1,10 +1,10 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
-import { mainMenu } from "./mijn-projecten.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -22,8 +22,12 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu, userHomeActive: true })}
-
+      ${headerPartial(templates, {
+        ...header,
+        mainMenu: mainMenu(),
+        userHomeActive: true,
+        authStatus: "loggedIn",
+      })}
       <main>
         ${applicationHeadingTemplate({ title: "Mijn projecten" })}
         ${contextTemplate({

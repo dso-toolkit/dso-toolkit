@@ -1,9 +1,10 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { headerPartial } from "../../partials/header";
 import { footerPartial } from "../../partials/footer";
-import { header } from "../../partials/header.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -25,32 +26,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, {
-        ...header,
-        mainMenu: [
-          {
-            label: "Home",
-            url: "#",
-          },
-          {
-            label: "Vergunningscheck",
-            url: "#",
-            active: true,
-          },
-          {
-            label: "Aanvragen",
-            url: "#",
-          },
-          {
-            label: "Regels op de kaart",
-            url: "#",
-          },
-          {
-            label: "Mijn Omgevingsloket",
-            url: "#",
-          },
-        ],
-      })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
         <form>
           ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}

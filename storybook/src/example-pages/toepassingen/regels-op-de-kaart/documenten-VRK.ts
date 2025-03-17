@@ -2,7 +2,8 @@ import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
-import { header, cardList } from "./documenten-VRK.content";
+import { cardList, header } from "./documenten-VRK.content";
+import { mainMenu } from "../../content/main-menu.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -21,7 +22,7 @@ examplePageFactory(
     },
     templates,
   ) => html`
-    ${headerPartial(templates, header)}
+    ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
     <main>
       ${viewerGridTemplate({
         filterpanelOpen: false,

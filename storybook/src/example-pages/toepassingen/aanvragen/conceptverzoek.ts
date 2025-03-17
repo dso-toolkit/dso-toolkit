@@ -1,10 +1,11 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { definitionList1, definitionlist2, radios } from "./conceptverzoek.content";
-import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
+import { headerPartial } from "../../partials/header";
+import { definitionList1, definitionlist2, radios } from "./conceptverzoek.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
@@ -15,32 +16,7 @@ examplePageFactory(
     templates,
   ) => html`
     <div class="container">
-      ${headerPartial(templates, {
-        ...header,
-        mainMenu: [
-          {
-            label: "Home",
-            url: "#",
-          },
-          {
-            label: "Vergunningscheck",
-            url: "#",
-          },
-          {
-            label: "Aanvragen",
-            url: "#",
-            active: true,
-          },
-          {
-            label: "Regels op de kaart",
-            url: "#",
-          },
-          {
-            label: "Mijn Omgevingsloket",
-            url: "#",
-          },
-        ],
-      })}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         <form>
           ${applicationHeadingTemplate({

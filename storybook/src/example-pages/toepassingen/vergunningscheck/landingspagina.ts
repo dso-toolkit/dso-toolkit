@@ -1,9 +1,10 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { mainMenu } from "../../content/main-menu.content";
+import { header } from "../../content/header.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header } from "../../partials/header.content";
 import { accordionSections } from "./landingspagina.content";
 
 examplePageFactory(
@@ -12,7 +13,7 @@ examplePageFactory(
   "Landingspagina",
   ({ anchorTemplate, accordionTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, header)}
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
         <div
           class="row dso-banner dso-banner-implementation-specific-image"

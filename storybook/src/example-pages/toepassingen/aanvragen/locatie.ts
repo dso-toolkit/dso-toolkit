@@ -1,13 +1,20 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
+import { header } from "../../content/header.content";
+import { mainMenu } from "../../content/main-menu.content";
+import { footerPartial } from "../../partials/footer";
+import { headerPartial } from "../../partials/header";
 import { dropdownItems, formGroup } from "./locatie.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Locatie",
-  ({ applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate }) => html`
+  (
+    { applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate },
+    templates,
+  ) => html`
     <style>
       .dso-map-example {
         background-image: url("/images/map-lved125.png");
@@ -19,6 +26,7 @@ examplePageFactory(
     </style>
 
     <div class="container">
+      ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
         ${applicationHeadingTemplate({
           title: "Aanvraag Laan van Eik en Duinen 125, Den Haag",
@@ -55,6 +63,7 @@ examplePageFactory(
             ],
           })}
         </form>
+        ${footerPartial(templates)}
       </main>
     </div>
   `,
