@@ -3664,7 +3664,7 @@ __metadata:
     "@popperjs/core": "npm:^2.11.8"
     "@stencil/angular-output-target": "npm:0.7.1"
     "@stencil/core": "npm:4.28.2"
-    "@stencil/react-output-target": "npm:^0.7.4"
+    "@stencil/react-output-target": "npm:^0.8.2"
     "@stencil/sass": "npm:^3.2.0"
     "@stencil/store": "npm:^2.1.2"
     "@types/concurrently": "npm:^7.0.3"
@@ -3706,7 +3706,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.26.3"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@iframe-resizer/child": "npm:^5.3.3"
-    "@stencil/react-output-target": "npm:^0.7.4"
+    "@stencil/react-output-target": "npm:^0.8.2"
     "@storybook/addon-a11y": "npm:7.6.20"
     "@storybook/addon-actions": "npm:7.6.20"
     "@storybook/addon-essentials": "npm:7.6.20"
@@ -7637,21 +7637,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/react-output-target@npm:^0.7.4":
-  version: 0.7.4
-  resolution: "@stencil/react-output-target@npm:0.7.4"
+"@stencil/react-output-target@npm:^0.8.2":
+  version: 0.8.2
+  resolution: "@stencil/react-output-target@npm:0.8.2"
   dependencies:
     "@lit/react": "npm:^1.0.4"
     html-react-parser: "npm:^5.1.10"
-    react-dom: "npm:^18.3.1"
     style-object-to-css-string: "npm:^1.0.0"
     ts-morph: "npm:^22.0.0"
   peerDependencies:
     "@stencil/core": ">=3 || >= 4.0.0-beta.0 || >= 4.0.0"
+    react: ^18 || ^19
+    react-dom: ^18 || ^19
   peerDependenciesMeta:
     "@stencil/core":
       optional: false
-  checksum: 10/538afcc79dfa554d7dded5593714ae1ffbc884e3db04db8979809361cd12c694d6e9ec540c285ef67d5f8d36f9d07b37cd107d2f237e1010784783960e0164fb
+    react:
+      optional: false
+    react-dom:
+      optional: false
+  checksum: 10/4ca1e16474d6b26f6fbe693f64ced80bb7315486b28b300abc3b191ad12f4c7640a054c3eba7d6a7ea3f5eba70c590c1814e65b56813636f9631ee0d0d3cb7ca
   languageName: node
   linkType: hard
 
