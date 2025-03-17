@@ -67,7 +67,7 @@
     "sass": "1.86.0",
     "through2": "^4.0.2",
     "typescript": "~5.6.3",
-    "uuid": "^11.0.5",
+    "uuid": "^11.1.0",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
   "nx": {

@@ -29,7 +29,7 @@
     "i18next": "^24.2.2",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "0.7.1",
