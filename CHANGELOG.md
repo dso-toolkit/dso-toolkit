@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧳 Release 69.2.0 - 2025-03-17
+
 ### Added
 * Accordion: Een Section `handleTitle` moet ook type `RenvooiValue[]` zijn ([#3029](https://github.com/dso-toolkit/dso-toolkit/issues/3029))
 * Renvooi: Ondersteuning voor markeren ([#2948](https://github.com/dso-toolkit/dso-toolkit/issues/2948))
