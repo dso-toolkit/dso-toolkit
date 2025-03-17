@@ -114,11 +114,11 @@ export const advancedSelect: AdvancedSelect<unknown> = {
 
 const cardDefault: DocumentCard<TemplateResult> = {
   href: "#",
-  label: "Omgevingsplan gemeente Utrecht",
+  label: "Omgevingsplan gemeente Apeldoorn",
   status: "In werking vanaf 03-03-2023",
   typeItems: [
     html`<span class="dso-document-card-type-item">Omgevingsplan</span>`,
-    html`<span class="dso-document-card-type-item">Gemeente Amsterdam</span>`,
+    html`<span class="dso-document-card-type-item">Gemeente Apeldoorn</span>`,
   ],
   typeToelichting: {
     children: "Extra informatie",
@@ -131,35 +131,9 @@ const cardDefault: DocumentCard<TemplateResult> = {
 
 export const cardList: DocumentCard<TemplateResult>[] = [
   cardDefault,
-  { ...cardDefault, label: "Chw bestemmingsplan Algemene regels Harderwijk" },
+  { ...cardDefault, label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
+  { ...cardDefault, label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
 ];
-//
-//     {
-//       ...cardDefault,
-//       label: "Chw bestemmingsplan Algemene regels Harderwijk",
-//       content: html`<p>
-//         Omgevingsplan gemeente Utrecht <br />
-//         In werking vanaf 03-03-2023 - vastgesteld
-//       </p>`,
-//     },
-//     {
-//       ...cardDefault,
-//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-//     },
-//     {
-//       ...cardDefault,
-//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-//     },
-//     {
-//       ...cardDefault,
-//       label: "Voorbereidingsbesluit detailhandel en bezorging 2023",
-//     },
-//     {
-//       ...cardDefault,
-//       label: "Detailhandel en bezorging 2023",
-//     },
-//   ],
-// };
 
 export const mainSubmenu: Navbar<TemplateResult> = {
   open: false,
