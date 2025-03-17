@@ -14,7 +14,7 @@ const meta: Meta<IconArgs> = {
 
 export default meta;
 
-const { Icon } = iconStories({
+const { Default } = iconStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { iconTemplate } = templates;
@@ -25,4 +25,4 @@ const { Icon } = iconStories({
   },
 });
 
-export { Icon };
+export { Default };

@@ -4,6 +4,7 @@ import { templateContainer } from "../../templates";
 
 import readme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
+import { decorator } from "./icon-overview.decorator";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
@@ -12,7 +13,7 @@ const meta: Meta<IconArgs> = {
 
 export default meta;
 
-const { Icon } = iconStories({
+const { Default, Overview } = iconStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { iconTemplate } = templates;
@@ -21,6 +22,7 @@ const { Icon } = iconStories({
       iconTemplate,
     };
   },
+  decorator,
 });
 
-export { Icon };
+export { Default, Overview };

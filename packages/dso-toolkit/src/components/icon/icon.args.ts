@@ -7,7 +7,7 @@ export interface IconArgs {
 
 export const iconArgTypes: ArgTypes<IconArgs> = {
   icon: {
-    options: ["user", "table"],
+    options: process.env.ICONS?.split(","),
     control: {
       type: "select",
     },

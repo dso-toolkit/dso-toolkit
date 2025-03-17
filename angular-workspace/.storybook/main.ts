@@ -1,5 +1,6 @@
-import { dirname, join } from "path";
+import { dirname, join, parse, resolve } from "path";
 import { StorybookConfig } from "@storybook/angular";
+import { readdirSync } from "fs";
 
 const config: StorybookConfig = {
   typescript: {
@@ -16,6 +17,18 @@ const config: StorybookConfig = {
       to: "iframe-resizer",
     },
   ],
+  env: (config) => {
+    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const iconsPath = resolve(corePath, "src/icons");
+    const icons = readdirSync(iconsPath)
+      .map((f) => parse(f))
+      .filter((p) => p.ext === ".svg")
+      .map((p) => p.name);
+    return {
+      ...config,
+      ICONS: icons.join(","),
+    };
+  },
   stories: ["../components/*/*.stories.ts"],
   addons: [
     {
