@@ -9510,7 +9510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:^5.1.5":
+"@types/jasmine@npm:^5.1.7":
   version: 5.1.7
   resolution: "@types/jasmine@npm:5.1.7"
   checksum: 10/ce117e3dea932d8f7d643ef30a39dd1e95a97f26073ab1b697871570cbe7071fca6cf53501710998c429062dbd35c916edd0e75015b1328fc0a6d7a28ef7fef0
@@ -10741,11 +10741,11 @@ __metadata:
     "@storybook/angular": "npm:7.6.20"
     "@storybook/manager-api": "npm:7.6.20"
     "@storybook/types": "npm:7.6.20"
-    "@types/jasmine": "npm:^5.1.5"
+    "@types/jasmine": "npm:^5.1.7"
     babel-loader: "npm:^9.2.1"
     dso-toolkit: "workspace:^"
     http-proxy-middleware: "npm:^3.0.3"
-    jasmine-core: "npm:~5.5.0"
+    jasmine-core: "npm:~5.6.0"
     karma: "npm:~6.4.4"
     karma-chrome-launcher: "npm:~3.2.0"
     karma-coverage: "npm:~2.2.1"
@@ -19770,10 +19770,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:~5.5.0":
-  version: 5.5.0
-  resolution: "jasmine-core@npm:5.5.0"
-  checksum: 10/459dbe93b8e9cf702cf05ef8c93814fb4b4ed9f5f1a867d5660dd3d44a541418f5195d9de5945dce9e711fdf538bd4fdea8cec2c948f7e6f27ada76ca9994627
+"jasmine-core@npm:~5.6.0":
+  version: 5.6.0
+  resolution: "jasmine-core@npm:5.6.0"
+  checksum: 10/0171a28634c6d9667278a628483bc9c6a075512078e74d208ae9172525e108d386621915449b30abe008d1bd86568a7f057cfc170be2286da5e21c4d5f2eba8e
   languageName: node
   linkType: hard
 
