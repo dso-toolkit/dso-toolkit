@@ -25,7 +25,6 @@ export class Accordion implements ComponentInterface {
   /**
    * The variant of the Accordion.
    */
-  // eslint-disable-next-line @stencil-community/decorators-context
   @Prop()
   get variant(): AccordionVariant {
     return this.accordionState.variant;
@@ -39,7 +38,6 @@ export class Accordion implements ComponentInterface {
    *
    * Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
    */
-  // eslint-disable-next-line @stencil-community/decorators-context
   @Prop()
   get reverseAlign() {
     return this.accordionState.reverseAlign;

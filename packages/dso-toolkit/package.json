@@ -61,7 +61,7 @@
     "markdown-to-jsx": "^7.7.3",
     "plugin-error": "^2.0.1",
     "postcss": "^8.5.3",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "1.86.0",
