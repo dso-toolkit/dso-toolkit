@@ -3,14 +3,14 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
 import {
-  header,
-  cardList,
-  plekinfoCardsListLocaties,
-  documentPanelSubmenu,
-  mainSubmenu,
-  plekinfoCardsListActiviteiten,
   advancedSelect,
+  documentCardList,
+  documentPanelSubmenu,
   features,
+  header,
+  mainSubmenu,
+  plekinfoCardsListLocaties,
+  plekinfoCardsListActiviteiten,
 } from "./documenten-VDK.content";
 
 examplePageFactory(
@@ -65,8 +65,9 @@ examplePageFactory(
             icon: { icon: "chevron-up" },
           })}
           ${navbarTemplate(mainSubmenu)}
+
           <ul class="dso-card-list">
-            ${cardList.map((documentCardItem) => {
+            ${documentCardList.map((documentCardItem) => {
               return html`<li>${documentCardTemplate(documentCardItem)}</li>`;
             })}
           </ul>
