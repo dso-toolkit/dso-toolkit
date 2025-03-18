@@ -2,7 +2,25 @@
 
 Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de nieuwe versies zelf kunnen ervaren. Dit sluit bevindingen van afnemers natuurlijk niet uit.
 
+## Patches
+
 Inventariseer voor welke packages er patches zijn gemaakt in `/patches`. Voor een update van een package met 'n patch betekent onderzoek naar de gevolgen.
+
+In release 🪼 69.3.0 kennen we 2 patches:
+
+### `@stencil+angular-output-target+0.7.1.patch`
+
+In deze patch fixen wij een bug (omissie) in `@stencil/angular-output-target`, waarbij de events die web-componenten
+kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de door
+`@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
+intellisense/code-completion is in de IDE.
+Momenteel kunnen we `@stencil/angular-output-target` niet zonder meerwerk updaten. Pas wanneer het DSO-toolkit
+github-issue [3049](https://github.com/dso-toolkit/dso-toolkit/pull/3059) in een reproduceerbare en in een
+Angular-project verifieerbare oplossing heeft geresulteerd gaan we daar mee verder.
+
+### `@whitespace+storybook-addon-html+5.1.6.patch`
+
+🚧 Documentatie volgt 🚧
 
 ## Yarn update
 

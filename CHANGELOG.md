@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* "@stencil/angular-output-target": downgrade naar versie 0.7.1 inclusief patch ([#3058](https://github.com/dso-toolkit/dso-toolkit/issues/3058))
+
 ## 🧳 Release 69.2.0 - 2025-03-17
 
 ### Added
