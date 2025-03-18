@@ -48,7 +48,24 @@ export const breadcrumbs: Breadcrumbs = {
 
 export const features: DefinitionList<TemplateResult> = {
   modifier: "dso-document-header-features",
-  definitions: [],
+  definitions: [
+    {
+      term: html`Opschrift:`,
+      descriptions: [
+        {
+          content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
+        },
+      ],
+    },
+    {
+      term: html`Identificatie:`,
+      descriptions: [
+        {
+          content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+        },
+      ],
+    },
+  ],
 };
 
 export const advancedSelect: AdvancedSelect<unknown> = {
@@ -112,7 +129,7 @@ export const advancedSelect: AdvancedSelect<unknown> = {
   ],
 };
 
-const cardDefault: DocumentCard<TemplateResult> = {
+const documentCardDefault: DocumentCard<TemplateResult> = {
   href: "#",
   label: "Omgevingsplan gemeente Apeldoorn",
   status: "In werking vanaf 03-03-2023",
@@ -129,10 +146,10 @@ const cardDefault: DocumentCard<TemplateResult> = {
   },
 };
 
-export const cardList: DocumentCard<TemplateResult>[] = [
-  cardDefault,
-  { ...cardDefault, label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
-  { ...cardDefault, label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
+export const documentCardList: DocumentCard<TemplateResult>[] = [
+  documentCardDefault,
+  { ...documentCardDefault, label: "Chw bestemmingsplan Algemene regels Apeldoorn" },
+  { ...documentCardDefault, label: "TAM-voorbereidingsbesluit voorbeschermingsregels" },
 ];
 
 export const mainSubmenu: Navbar<TemplateResult> = {
