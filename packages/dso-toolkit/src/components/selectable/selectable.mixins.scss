@@ -104,7 +104,9 @@
   zoom: 1;
 
   @media (prefers-contrast: more) {
-    opacity: 1;
+    & {
+      opacity: 1;
+    }
   }
 
   &:not([disabled]) {

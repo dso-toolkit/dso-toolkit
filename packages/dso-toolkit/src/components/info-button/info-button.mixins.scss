@@ -3,13 +3,11 @@
 @use "../../variables/media-query-breakpoints";
 
 @mixin root() {
-  & {
-    background-color: transparent;
-    color: colors.$grasgroen;
-    border: 0;
-    margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);
-    padding: 0;
-  }
+  background-color: transparent;
+  color: colors.$grasgroen;
+  border: 0;
+  margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);
+  padding: 0;
 
   &.dso-info-secondary {
     color: colors.$grijs-60;

@@ -133,7 +133,9 @@
 }
 
 @mixin small() {
-  line-height: typography.$root-font-size-base;
+  & {
+    line-height: typography.$root-font-size-base;
+  }
 
   dso-icon,
   svg.di,

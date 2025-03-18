@@ -5,7 +5,10 @@
 :host {
   @include selectable.root(false);
 
-  padding-inline-start: selectable.$symbol-indent;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
+  & {
+    padding-inline-start: selectable.$symbol-indent;
+  }
 
   &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();

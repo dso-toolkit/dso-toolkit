@@ -36,10 +36,13 @@
 :host .dso-modal {
   @include modal.root();
 
-  inset: 0px;
-  block-size: 100%;
-  position: fixed;
-  z-index: zindex.$modal;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
+  & {
+    inset: 0px;
+    block-size: 100%;
+    position: fixed;
+    z-index: zindex.$modal;
+  }
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {

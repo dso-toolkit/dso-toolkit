@@ -26,7 +26,10 @@ h2 {
   @include heading.base();
   @include heading.h2();
 
-  margin-block: 0 units.$u2;
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
+  & {
+    margin-block: 0 units.$u2;
+  }
 }
 
 .dso-action-list-content {
