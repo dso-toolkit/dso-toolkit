@@ -1,14 +1,13 @@
 import { Form, FormGroupCollection, FormGroupCollectionHeadingLevel } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-
 import { ComponentImplementation } from "../../templates";
+import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
   implementation: "html-css",
   template: ({ formGroupTemplate, formButtonsTemplate }) =>
-    function formTemplate({ asteriskExplanation, mode, content, formButtons }) {
+    function formTemplate({ asteriskExplanation, mode, formModifier, content, formButtons }) {
       function asteriskExplanationTemplate() {
         return html`<div class="form-explanation" aria-hidden="true">
           <p class="form-explanation-text">
@@ -53,7 +52,12 @@ export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
       }
 
       return html`
-        <form class=${ifDefined(mode === "horizontal" ? "form-horizontal" : undefined)}>
+        <form
+          class=${classMap({
+            "form-horizontal": mode === "horizontal",
+            [formModifier || ""]: !!formModifier,
+          })}
+        >
           ${asteriskExplanation === "top" || asteriskExplanation === "both" ? asteriskExplanationTemplate() : nothing}
           ${content.map((formGroup) =>
             "title" in formGroup ? formGroupCollection(formGroup) : formGroupTemplate(formGroup),

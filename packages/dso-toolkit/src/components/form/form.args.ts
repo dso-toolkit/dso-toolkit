@@ -6,6 +6,7 @@ import { Form, FormAsteriskExplanationPosition, FormContent } from "./form.model
 export interface FormArgs {
   asteriskExplanation?: FormAsteriskExplanationPosition;
   mode: "horizontal" | "vertical" | undefined;
+  formModifier?: string;
 }
 
 export const formArgTypes: ArgTypes<FormArgs> = {
@@ -31,6 +32,7 @@ export function formArgsMapper<TemplateFnReturnType>(
     asteriskExplanation: a.asteriskExplanation,
     mode: a.mode,
     content,
+    formModifier: a.formModifier,
     formButtons: buttons,
   };
 }

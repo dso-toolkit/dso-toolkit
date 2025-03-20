@@ -64,6 +64,11 @@
   margin-block-start: units.$block-spacing-medium;
 }
 
+:where(*) + :where(.dso-form-buttons),
+:where(.dso-form-buttons) + :where(*) {
+  margin-block: units.$block-spacing-xlarge;
+}
+
 $spacers: (
   (
     space: units.$block-spacing-small,
