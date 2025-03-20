@@ -13,6 +13,7 @@ interface FormButtonsStories {
   Default: FormButtonsStory;
   MultiPage: FormButtonsStory;
   Sections: FormButtonsStory;
+  SinglePage: FormButtonsStory;
   SimpleForm: FormButtonsStory;
 }
 
@@ -105,6 +106,22 @@ export function formButtonsStories<Implementation, Templates, TemplateFnReturnTy
           {
             variant: "primary",
             label: "Primaire actie",
+          },
+        ],
+      },
+      render,
+    },
+    SinglePage: {
+      args: {
+        formModifier: "dso-single-page",
+        buttons: [
+          {
+            variant: "primary",
+            label: "Primaire actie",
+          },
+          {
+            variant: "secondary",
+            label: "Secundaire actie",
           },
         ],
       },

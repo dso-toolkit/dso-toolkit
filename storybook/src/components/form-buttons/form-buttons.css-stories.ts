@@ -13,7 +13,7 @@ const meta: Meta = {
 
 export default meta;
 
-const { Default, MultiPage, Sections, SimpleForm } = formButtonsStories({
+const { Default, MultiPage, Sections, SinglePage, SimpleForm } = formButtonsStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { formButtonsTemplate } = templates;
@@ -24,4 +24,4 @@ const { Default, MultiPage, Sections, SimpleForm } = formButtonsStories({
   },
 });
 
-export { Default, MultiPage, Sections, SimpleForm };
+export { Default, MultiPage, Sections, SinglePage, SimpleForm };
