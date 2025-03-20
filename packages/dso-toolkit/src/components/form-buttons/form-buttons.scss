@@ -13,11 +13,6 @@
     flex-direction: column;
   }
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    margin-block-end: units.$block-spacing-medium;
-  }
-
   &:last-child {
     margin-block-end: units.$block-spacing-xlarge;
   }
@@ -60,9 +55,5 @@
 
       margin-inline-end: auto;
     }
-  }
-
-  .dso-single-page & {
-    justify-content: flex-start;
   }
 }
