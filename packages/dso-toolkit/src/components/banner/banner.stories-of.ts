@@ -86,7 +86,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         status: "info",
         compact: true,
-        noIcon: true,
+        icon: false,
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, infoCompactNonRemovableRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, infoCompactNonRemovableRichContent)),
@@ -120,7 +120,7 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         status: "info",
         compact: true,
-        noIcon: true,
+        icon: false,
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richInfoRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, richInfoRichContent)),
