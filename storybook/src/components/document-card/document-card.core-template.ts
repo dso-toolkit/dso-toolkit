@@ -38,7 +38,7 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
         ${status
           ? html`<div slot="status">
               ${status} ${statusToelichtingOutline && badgeTemplate(statusToelichtingOutline)}
-              ${statusToelichtingWarning && badgeTemplate(statusToelichtingWarning)}
+              ${statusToelichtingWarning ? badgeTemplate(statusToelichtingWarning) : nothing}
             </div>`
           : nothing}
       </dso-document-card>`;
