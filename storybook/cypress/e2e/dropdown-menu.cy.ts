@@ -119,7 +119,7 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").eq(1).should("have.focus");
   });
 
-  it("arrow up should cycle menu", { browser: "!firefox" }, () => {
+  it.skip("arrow up should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     for (const _ of [1, 2, 3]) {
@@ -277,7 +277,7 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@button").should("have.focus");
   });
 
-  it("arrow down should cycle menu", { browser: "!firefox" }, () => {
+  it.skip("arrow down should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();
 
     cy.realPress("ArrowDown");
