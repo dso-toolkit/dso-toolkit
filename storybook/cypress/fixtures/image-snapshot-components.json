@@ -205,7 +205,7 @@
   {
     "name": "form",
     "selector": "",
-    "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections"],
+    "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections", "single-page"],
     "type": "html-css",
     "wait": "dso-date-picker.hydrated"
   },
