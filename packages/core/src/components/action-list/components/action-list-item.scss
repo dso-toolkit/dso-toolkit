@@ -40,15 +40,13 @@
 }
 
 h3 {
+  margin-block-end: units.$u2;
+  margin-block-start: 0;
+  min-block-size: units.$u6;
+  padding-block-start: 9px;
+
   @include heading.base();
   @include heading.h3();
-
-  & {
-    margin-block-end: units.$u2;
-    margin-block-start: 0;
-    min-block-size: units.$u6;
-    padding-block-start: 9px;
-  }
 }
 
 .dso-action-list-item {

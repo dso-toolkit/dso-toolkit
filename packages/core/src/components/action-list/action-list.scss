@@ -23,12 +23,10 @@
 @include utilities.box-sizing();
 
 h2 {
+  margin-block: 0 units.$u2;
+
   @include heading.base();
   @include heading.h2();
-
-  & {
-    margin-block: 0 units.$u2;
-  }
 }
 
 .dso-action-list-content {
