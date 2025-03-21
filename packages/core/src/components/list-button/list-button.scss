@@ -84,7 +84,6 @@
   > .dso-input-number {
     @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
     & {
       border-style: solid;
       border-width: 1px;
@@ -106,7 +105,6 @@
   > *.dso-selected + .dso-input-number {
     @include _state-styling(colors.$wit, button.$secondary-border-color, colors.$grijs-90);
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
     & {
       box-shadow:
         inset 0 -1px 0 0 button.$secondary-border-color,
@@ -129,7 +127,6 @@
     &:hover {
       @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
       & {
         opacity: 1;
       }
@@ -154,7 +151,6 @@
 
   @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
   & {
     border-radius: button.$border-radius;
     border-width: 1px;

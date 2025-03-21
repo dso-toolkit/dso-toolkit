@@ -43,7 +43,6 @@ h3 {
   @include heading.base();
   @include heading.h3();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
   & {
     margin-block-end: units.$u2;
     margin-block-start: 0;
