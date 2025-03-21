@@ -35,14 +35,24 @@ examplePageFactory(
     templates,
   ) => html`
     <style>
-      dso-viewer-grid {
+      .demo-container {
+        display: flex;
+        flex-direction: column;
+        block-size: 100vh;
+      }
+
+      .demo-main {
+        overflow-y: hidden;
+      }
+
+      .demo-main > dso-viewer-grid {
         block-size: 100%;
       }
     </style>
-    <div style="display: flex; flex-direction: column; height: 100vh;">
+    <div class="demo-container">
       ${headerPartial(templates, header)}
 
-      <main style="block-size: 100%; overflow-y: hidden">
+      <main class="demo-main">
         ${viewerGridTemplate({
           mode: "vdk",
           filterpanelOpen: false,
