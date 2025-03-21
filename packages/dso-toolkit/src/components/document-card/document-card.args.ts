@@ -14,8 +14,8 @@ export interface DocumentCardArgs {
   typeToelichting: Toggletip<never>;
   meta: Label;
   status: string;
-  statusToelichtingOutline: Badge;
-  statusToelichtingWarning: Badge;
+  statusToelichtingOutline?: Badge;
+  statusToelichtingWarning?: Badge;
   dsoDocumentCardClick: HandlerFunction;
 }
 
