@@ -1,32 +1,11 @@
 import { AdvancedSelect, Breadcrumbs, DefinitionList, DocumentCard, Header, Navbar, PlekinfoCard } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+import { mainMenu } from "../../content/main-menu.content";
 
 export const header: Header = {
   label: "Regels op de kaart",
   ribbon: "beta",
-  mainMenu: [
-    {
-      label: "Home",
-      url: "#",
-    },
-    {
-      label: "Vergunningcheck",
-      url: "#",
-    },
-    {
-      label: "Aanvragen",
-      url: "#",
-    },
-    {
-      label: "Regels op de kaart",
-      url: "#",
-      active: true,
-    },
-    {
-      label: "Maatregelen op maat",
-      url: "#",
-    },
-  ],
+  mainMenu: mainMenu("Regels op de kaart"),
   useDropDownMenu: "always",
   authStatus: "loggedIn",
   loginUrl: "#login",
