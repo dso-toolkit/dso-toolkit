@@ -34,12 +34,12 @@
 }
 
 :host .dso-modal {
-  @include modal.root();
-
   inset: 0px;
   block-size: 100%;
   position: fixed;
   z-index: zindex.$modal;
+
+  @include modal.root();
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {

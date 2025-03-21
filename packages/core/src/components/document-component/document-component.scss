@@ -32,9 +32,9 @@
 
 :host([wijzigactie="verwijderContainer"]) .heading-container,
 :host(:where([wijzigactie="verwijder"])) {
-  @include delete.root($strikethrough: false);
-
   --_dso-document-component-text-decoration: line-through;
+
+  @include delete.root($strikethrough: false);
 }
 
 .heading-element,

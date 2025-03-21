@@ -23,7 +23,7 @@
     $contrast-color: contrast-color.apply($background-color);
 
     // set link and icon color according to text color
-    @if color.lightness($background-color) < 100% {
+    @if color.channel($background-color, "lightness", $space: hsl) < 100% {
       @if $links == true {
         --link-color: currentColor;
         --link-hover-color: currentColor;

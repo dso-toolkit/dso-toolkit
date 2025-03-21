@@ -20,21 +20,21 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "4.25.1",
-    "@stencil/store": "^2.0.16",
+    "@stencil/core": "4.28.2",
+    "@stencil/store": "^2.1.2",
     "clsx": "^2.1.1",
     "dso-toolkit": "workspace:^",
     "escape-string-regexp": "^5.0.0",
     "focus-trap": "^7.6.4",
-    "i18next": "^24.2.2",
+    "i18next": "^24.2.3",
     "popper-max-size-modifier": "^0.2.0",
     "tabbable": "^6.2.0",
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "0.7.1",
-    "@stencil/react-output-target": "^0.7.4",
-    "@stencil/sass": "^3.0.12",
+    "@stencil/react-output-target": "^0.8.2",
+    "@stencil/sass": "^3.2.0",
     "@types/concurrently": "^7.0.3",
     "@types/debounce": "^1.2.4",
     "@types/lodash.kebabcase": "^4.1.9",
@@ -47,10 +47,10 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.random": "^3.2.0",
     "lodash.samplesize": "^4.2.0",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "tsx": "^4.19.2",
+    "tsx": "^4.19.3",
     "typescript": "~5.6.3"
   },
   "peerDependencies": {
