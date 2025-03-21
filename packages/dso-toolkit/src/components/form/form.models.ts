@@ -4,6 +4,7 @@ import { FormGroup } from "../form-group/form-group.models.js";
 export interface Form<TemplateFnReturnType> {
   asteriskExplanation?: FormAsteriskExplanationPosition;
   mode?: "vertical" | "horizontal";
+  formModifier?: string;
   content: FormContent<TemplateFnReturnType>;
   formButtons?: FormButtons;
 }

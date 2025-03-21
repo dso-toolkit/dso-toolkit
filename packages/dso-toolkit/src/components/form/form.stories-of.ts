@@ -15,6 +15,7 @@ interface FormStories {
   HorizontalCollections: FormStory;
   Vertical: FormStory;
   VerticalCollections: FormStory;
+  SinglePage: FormStory;
 }
 
 export interface FormTemplates<TemplateFnReturnType> {
@@ -72,6 +73,14 @@ export function formStories<Implementation, Templates, TemplateFnReturnType>({
     VerticalCollections: {
       args: {
         mode: "vertical",
+      },
+      render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
+        formTemplate(formArgsMapper(args, formGroupCollectionContent)),
+      ),
+    },
+    SinglePage: {
+      args: {
+        formModifier: "dso-single-page",
       },
       render: templateContainer.render(storyTemplates, (args, { formTemplate }) =>
         formTemplate(formArgsMapper(args, formGroupCollectionContent)),

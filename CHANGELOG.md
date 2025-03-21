@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Verticaal Ritme: afstand boven en onder knoppenbalk naar 32px ([#3013](https://github.com/dso-toolkit/dso-toolkit/issues/3013))
+
 ## 🧳 Release 69.2.0 - 2025-03-17
 
 ### Added

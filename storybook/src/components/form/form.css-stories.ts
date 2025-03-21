@@ -13,7 +13,7 @@ const meta: Meta<FormArgs> = {
 
 export default meta;
 
-const { Horizontal, HorizontalCollections, Vertical, VerticalCollections } = formStories({
+const { Horizontal, HorizontalCollections, Vertical, VerticalCollections, SinglePage } = formStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { formTemplate } = templates;
@@ -24,4 +24,4 @@ const { Horizontal, HorizontalCollections, Vertical, VerticalCollections } = for
   },
 });
 
-export { Horizontal, HorizontalCollections, Vertical, VerticalCollections };
+export { Horizontal, HorizontalCollections, Vertical, VerticalCollections, SinglePage };
