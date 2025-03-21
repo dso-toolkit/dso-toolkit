@@ -1,7 +1,7 @@
 export interface Banner<TemplateFnReturnType> {
   status: BannerStatus;
   compact?: boolean;
-  noIcon?: boolean;
+  icon?: boolean;
   content: TemplateFnReturnType;
 }
 

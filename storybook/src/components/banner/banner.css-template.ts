@@ -8,13 +8,13 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
   implementation: "html-css",
   template: () =>
-    function bannerTemplate({ status, compact, noIcon, content }) {
+    function bannerTemplate({ status, compact, icon, content }) {
       return html`
         <section
           class=${clsx("dso-banner", {
             [`alert-${status}`]: status,
             ["dso-compact"]: compact,
-            ["dso-no-icon"]: compact && noIcon,
+            ["dso-icon"]: icon,
           })}
           role="alert"
         >

@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Task
 * Packages: Dependencies updates ([#2977](https://github.com/dso-toolkit/dso-toolkit/issues/2977))
 
+### Task
+* **BREAKING** ESLint: diverse `@stencil-community` rules implementeren ([#2447](https://github.com/dso-toolkit/dso-toolkit/issues/2447))
+
 ## 🪼 Release 69.2.1 - 2025-03-21
 
 ### Fixed

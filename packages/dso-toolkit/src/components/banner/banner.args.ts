@@ -5,7 +5,7 @@ import { Banner, BannerStatus } from "./banner.models.js";
 export interface BannerArgs {
   status: BannerStatus;
   compact: boolean;
-  noIcon: boolean;
+  icon: boolean;
 }
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
@@ -18,7 +18,7 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
   compact: {
     type: "boolean",
   },
-  noIcon: {
+  icon: {
     type: "boolean",
   },
 };

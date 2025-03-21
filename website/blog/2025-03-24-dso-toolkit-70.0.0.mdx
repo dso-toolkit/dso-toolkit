@@ -1,0 +1,31 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v70.0.0 📜
+
+Deze release bevat changes voor het volgende component:
+
+- Banner (Web Component)
+
+<!-- truncate -->
+
+## Banner (Web Component)
+
+### De property `noIcon` is hernoemt naar `icon`.
+
+Stencil verbiedt het direct instellen van een prop-defaultwaarde op true in de @Prop()-decorator omdat props over het algemeen van buitenaf worden beheerd (bijv. via een parent-component of attribuut in HTML). In deze release is de prop `noIcon`, die default op `true`, staat hernoemt naar `icon` die default op `false`is gezet.
+
+**🔍 Waarom mag het niet?**
+
+- Unidirectional Data Flow: Stencil volgt een unidirectionele datastroom. Props komen van buitenaf, en Stencil verwacht dat de parent de waarden beheert.
+- DOM-Attribuut Parsing: HTML-attributen zijn standaard strings, en een attribuut zonder waarde wordt als "" (een lege string) geïnterpreteerd, wat in JavaScript als true wordt gezien. Dit kan onvoorspelbaar gedrag veroorzaken.
+- Typeconsistentie: Stencil probeert consistent te zijn met hoe properties worden verwerkt in webcomponenten. Automatisch een boolean op true zetten, zonder een attribuut in de DOM, kan verwarrend zijn.
+
+```html
+❌
+<dso-banner></dso-banner>
+
+✅
+<dso-banner icon="false"></dso-banner>
+```

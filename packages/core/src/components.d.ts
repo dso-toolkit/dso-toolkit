@@ -386,7 +386,7 @@ export namespace Components {
         /**
           * *Only available when `compact` is set to `true`.  Option to show banner icon.
          */
-        "noIcon": boolean;
+        "icon": boolean;
         /**
           * The status of the banner.
          */
@@ -2822,7 +2822,7 @@ declare namespace LocalJSX {
         /**
           * *Only available when `compact` is set to `true`.  Option to show banner icon.
          */
-        "noIcon"?: boolean;
+        "icon"?: boolean;
         /**
           * The status of the banner.
          */

@@ -25,7 +25,7 @@ export class Banner {
    * Option to show banner icon.
    */
   @Prop()
-  noIcon = true;
+  icon = false;
 
   render() {
     return (
