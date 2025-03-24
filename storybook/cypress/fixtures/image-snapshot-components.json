@@ -205,14 +205,14 @@
   {
     "name": "form",
     "selector": "",
-    "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections"],
+    "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections", "single-page"],
     "type": "html-css",
     "wait": "dso-date-picker.hydrated"
   },
   {
     "name": "form-buttons",
     "selector": "",
-    "stories": ["default", "multi-page", "sections", "single-page", "simple-form"],
+    "stories": ["default", "multi-page", "sections", "simple-form"],
     "type": "html-css"
   },
   {
