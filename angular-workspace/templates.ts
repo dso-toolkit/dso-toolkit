@@ -10,7 +10,6 @@ import {
   DropdownMenu,
   Expandable,
   Header,
-  HelpcenterPanel,
   HighlightBox,
   Icon,
   ImageOverlay,
@@ -38,7 +37,6 @@ import { angularDatePickerLegacy } from "./components/date-picker-legacy/date-pi
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
-import { angularHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.angular-template";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
 import { angularIcon } from "./components/icon/icon.angular-template";
 import { angularImageOverlay } from "./components/image-overlay/image-overlay.angular-template";
@@ -68,7 +66,6 @@ export interface Components {
   dropdownMenu: DropdownMenu;
   expandable: Expandable<StoryFnAngularReturnType>;
   header: Header;
-  helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<StoryFnAngularReturnType>;
   icon: Icon;
   imageOverlay: ImageOverlay;
@@ -129,7 +126,6 @@ templateContainer.add(angularDatePickerLegacy);
 templateContainer.add(angularDropdownMenu);
 templateContainer.add(angularExpandable);
 templateContainer.add(angularHeader);
-templateContainer.add(angularHelpcenterPanel);
 templateContainer.add(angularHighlightBox);
 templateContainer.add(angularIcon);
 templateContainer.add(angularImageOverlay);

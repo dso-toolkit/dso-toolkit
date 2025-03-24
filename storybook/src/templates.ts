@@ -52,7 +52,6 @@ import {
   FormGroupTextarea,
   Header,
   Heading,
-  HelpcenterPanel,
   HighlightBox,
   Icon,
   Image,
@@ -126,7 +125,6 @@ import { coreDocumentComponent } from "./components/document-component/document-
 import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
 import { coreHeader } from "./components/header/header.core-template";
-import { coreHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
 import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-template";
@@ -275,7 +273,6 @@ export interface Components {
   formGroupTextarea: FormGroupTextarea<TemplateResult>;
   header: Header;
   heading: Heading<TemplateResult>;
-  helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<TemplateResult | string>;
   icon: Icon;
   image: Image;
@@ -373,7 +370,6 @@ templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
 templateContainer.add(coreHeader);
-templateContainer.add(coreHelpcenterPanel);
 templateContainer.add(coreHighlightBox);
 templateContainer.add(coreIcon);
 templateContainer.add(coreImageOverlay);

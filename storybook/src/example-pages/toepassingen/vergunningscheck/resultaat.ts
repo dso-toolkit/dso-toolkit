@@ -19,7 +19,6 @@ examplePageFactory(
       applicationHeadingTemplate,
       formButtonsTemplate,
       buttonTemplate,
-      helpcenterPanelTemplate,
       iconTemplate,
       richContentTemplate,
     },
@@ -257,7 +256,7 @@ examplePageFactory(
           `,
         })}
       </main>
-      ${footerPartial(templates)} ${helpcenterPanelTemplate({ label: "Hulp nodig?", url: "#" })}
+      ${footerPartial(templates)}
     </div>
   `,
 );

@@ -11,14 +11,7 @@ examplePageFactory(
   "Toepassingen/Mijn Omgevingsloket",
   "Mijn Projecten",
   (
-    {
-      applicationHeadingTemplate,
-      contextTemplate,
-      buttonRowTemplate,
-      searchBarTemplate,
-      helpcenterPanelTemplate,
-      projectItemTemplate,
-    },
+    { applicationHeadingTemplate, contextTemplate, buttonRowTemplate, searchBarTemplate, projectItemTemplate },
     templates,
   ) => html`
     <div class="container">
@@ -112,9 +105,6 @@ examplePageFactory(
         })}
       </main>
 
-      ${helpcenterPanelTemplate({
-        url: location.host.startsWith("localhost") ? "/" : "https://dso-toolkit.nl/",
-      })}
       ${footerPartial(templates)}
     </div>
   `,
