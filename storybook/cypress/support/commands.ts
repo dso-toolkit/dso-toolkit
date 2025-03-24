@@ -72,16 +72,12 @@ Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
 });
 
 /**
- * This overwrite tries to wait for all fonts to load before taking the screenshot.
+ * This overwrite waits for the DOM to stabilise before taking the screenshot.
  *
- * See #2748 for more information.
+ * See https://github.com/narinluangrath/cypress-wait-for-stable-dom.
  */
 Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
-  return cy
-    .document()
-    .its("fonts.status")
-    .should("equal", "loaded", { timeout: 10000 })
-    .then(() => originalFn(...args));
+  return cy.waitForStableDOM().then(() => originalFn(...args));
 });
 
 /**

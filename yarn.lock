@@ -13744,6 +13744,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cypress-wait-for-stable-dom@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "cypress-wait-for-stable-dom@npm:0.1.0"
+  checksum: 10/c8d505dcc92c9e56831543b07beecc46937076e643a77cbfef57bb05c32c3a1d446b84ef3da6f38517a5f74d8d6ee9767550c15ce1612643cd16f557efddb3fc
+  languageName: node
+  linkType: hard
+
 "cypress@npm:^13.17.0":
   version: 13.17.0
   resolution: "cypress@npm:13.17.0"
@@ -14667,6 +14674,7 @@ __metadata:
     cypress-multi-reporters: "npm:2.0.5"
     cypress-parallel: "npm:0.14.0"
     cypress-real-events: "npm:^1.14.0"
+    cypress-wait-for-stable-dom: "npm:^0.1.0"
     dso-toolkit: "workspace:^"
     http-proxy-middleware: "npm:^3.0.3"
     http-server: "npm:^14.1.1"

@@ -36,6 +36,7 @@
     "cypress-multi-reporters": "2.0.5",
     "cypress-parallel": "0.14.0",
     "cypress-real-events": "^1.14.0",
+    "cypress-wait-for-stable-dom": "^0.1.0",
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^3.0.3",
     "http-server": "^14.1.1",

@@ -102,7 +102,9 @@ export class ListButton implements ComponentInterface {
   }
 
   componentDidRender(): void {
-    this.subcontentSlot?.setAttribute("aria-hidden", "true");
+    if (!this.subcontentSlot?.hasAttribute("aria-hidden")) {
+      this.subcontentSlot?.setAttribute("aria-hidden", "true");
+    }
   }
 
   disconnectedCallback(): void {

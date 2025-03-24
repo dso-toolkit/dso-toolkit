@@ -20,6 +20,7 @@ import "cypress-axe";
 import "cypress-real-events";
 
 import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
+import { registerCommand } from "cypress-wait-for-stable-dom";
 
 addMatchImageSnapshotCommand({
   failureThreshold: 0.1,
@@ -28,3 +29,5 @@ addMatchImageSnapshotCommand({
   customDiffDir: "cypress/snapshot-diff",
   customSnapshotsDir: "cypress/snapshot-baseline",
 });
+
+registerCommand();
