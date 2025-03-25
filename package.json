@@ -19,7 +19,7 @@
     "lint:eslint": "eslint --max-warnings=2 .",
     "build": "nx run-many --target=build",
     "build-www": "nx run-many --target=build-www",
-    "e2e": "yarn workspace dso-storybook cypress run --spec '**/dropdown-menu.cy.ts'",
+    "e2e": "yarn workspace dso-storybook e2e",
     "release": "yarn tsx scripts/release",
     "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
