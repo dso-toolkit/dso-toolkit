@@ -14,14 +14,12 @@ export class Banner {
   status!: "danger" | "error" | "info" | "warning";
 
   /**
-   * compact mode.
+   * Compact mode.
    */
   @Prop()
   compact = false;
 
   /**
-   * *Only available when `compact` is set to `true`.
-   *
    * Option to show banner icon.
    */
   @Prop()
