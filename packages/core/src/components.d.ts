@@ -384,7 +384,7 @@ export namespace Components {
          */
         "compact": boolean;
         /**
-          * Option to show banner icon.
+          * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
          */
         "icon": boolean;
         /**
@@ -2820,7 +2820,7 @@ declare namespace LocalJSX {
          */
         "compact"?: boolean;
         /**
-          * Option to show banner icon.
+          * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
          */
         "icon"?: boolean;
         /**

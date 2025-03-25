@@ -1,15 +1,56 @@
 ---
-authors: [iterox]
+authors: [iterox, cvanderleij]
 ---
 
 # DSO Toolkit Next 📜
 
-Deze release bevat breaking changes voor het Helpcenter Panel (Web Component).
+Deze release bevat breaking changes voor de volgende componenten:
+
+- Helpcenter Panel (Web Component).
+- Banner (Web Component)
+
+<!-- truncate -->
 
 ## Helpcenter Panel
 
-Het Helpcenter Panel (Core implementatie) werd niet gebruikt. Daarom hebben we het in deze release verwijderd.
-
 ```html
 ❌ <dso-helpcenter-panel ...></dso-helpcenter-panel>
+```
+
+## Banner (Web Component)
+
+### De property `noIcon` is hernoemd naar `icon`.
+
+Stencil verbiedt het direct instellen van een prop-defaultwaarde op `true` in de @Prop()-decorator. In deze release is de prop `noIcon`, die default op `true` staat, hernoemd naar `icon` die default op `false` staat. Daarnaast is het webcomponent gelijk getrokken aan de HTML/CSS variant betreft het verbergen van het icon. Dat kan alleen wanneer de prop `compact` op `true` staat.
+
+** Web component **
+
+```html
+❌
+<dso-banner status="danger">
+  ✅
+  <dso-banner status="danger" icon></dso-banner
+></dso-banner>
+```
+
+** HTML/CSS component **
+
+```html
+❌
+<section role="alert" class="dso-banner alert-danger">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+    <!-- inhoud banner -->
+    </div>
+  </div>
+</dso-banner>
+
+✅
+<section role="alert" class="dso-banner alert-danger dso-icon">
+  <div class="dso-banner-inner">
+    <div class="dso-rich-content">
+    <!-- inhoud banner -->
+    </div>
+  </div>
+</dso-banner>
 ```

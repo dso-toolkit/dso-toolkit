@@ -20,6 +20,8 @@ export class Banner {
   compact = false;
 
   /**
+   * *Icon can only be hidden when the 'compact' property is set to true.
+   *
    * Option to show banner icon.
    */
   @Prop()

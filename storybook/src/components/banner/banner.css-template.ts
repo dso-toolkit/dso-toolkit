@@ -14,7 +14,7 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
           class=${clsx("dso-banner", {
             [`alert-${status}`]: status,
             ["dso-compact"]: compact,
-            ["dso-icon"]: icon,
+            ["dso-icon"]: icon || !compact,
           })}
           role="alert"
         >
