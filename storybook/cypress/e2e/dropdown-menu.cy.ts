@@ -303,9 +303,8 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@menuitems").eq(1).should("have.focus");
   });
 
-  // Todo: #2887
-  it.skip("esc should close menu and focus button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("esc should close menu and focus button", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("ArrowUp");
 
