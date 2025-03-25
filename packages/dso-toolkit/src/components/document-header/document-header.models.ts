@@ -4,7 +4,7 @@ import { AdvancedSelect } from "../advanced-select";
 export interface DocumentHeader<TemplateFnReturnType> {
   title: string;
   type: string;
-  owner: string;
+  owner?: string;
   features: DefinitionList<TemplateFnReturnType>;
   featuresOpen?: boolean;
   featureAction?: (e: MouseEvent) => void;

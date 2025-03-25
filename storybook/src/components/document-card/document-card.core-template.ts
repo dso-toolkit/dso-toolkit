@@ -36,11 +36,10 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
           ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
           : nothing}
         ${status
-          ? statusToelichtingOutline || statusToelichtingWarning
-            ? html`<div slot="status">
-                ${status} ${badgeTemplate(statusToelichtingOutline)} ${badgeTemplate(statusToelichtingWarning)}
-              </div>`
-            : html`<div slot="status">${status}</div>`
+          ? html`<div slot="status">
+              ${status} ${statusToelichtingOutline && badgeTemplate(statusToelichtingOutline)}
+              ${statusToelichtingWarning ? badgeTemplate(statusToelichtingWarning) : nothing}
+            </div>`
           : nothing}
       </dso-document-card>`;
     },
