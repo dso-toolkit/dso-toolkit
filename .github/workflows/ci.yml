@@ -94,7 +94,7 @@ jobs:
             --volume ${{ github.workspace }}/storybook/cypress-parallel:/usr/src/app/storybook/cypress-parallel
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
-          run: yarn e2e --spec "storybook/cypress/e2e/dropdown-menu.cy.ts"
+          run: yarn e2e
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
