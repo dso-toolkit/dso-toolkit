@@ -17,7 +17,6 @@ import {
   Expandable,
   Header,
   Heading,
-  HelpcenterPanel,
   HighlightBox,
   Icon,
   ImageOverlay,
@@ -57,7 +56,6 @@ import { reactDatePickerLegacy } from "./components/date-picker-legacy/date-pick
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
 import { reactExpandable } from "./components/expandable/expandable.react-template";
 import { reactHeader } from "./components/header/header.react-template";
-import { reactHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
 import { reactIcon } from "./components/icon/icon.react-template";
 import { reactImageOverlay } from "./components/image-overlay/image-overlay.react-template";
@@ -97,7 +95,6 @@ export interface Components {
   expandable: Expandable<JSX.Element>;
   header: Header;
   heading: Heading<JSX.Element>;
-  helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<JSX.Element>;
   icon: Icon;
   imageOverlay: ImageOverlay;
@@ -142,7 +139,6 @@ templateContainer.add(reactDatePickerLegacy);
 templateContainer.add(reactDropdownMenu);
 templateContainer.add(reactExpandable);
 templateContainer.add(reactHeader);
-templateContainer.add(reactHelpcenterPanel);
 templateContainer.add(reactHighlightBox);
 templateContainer.add(reactIcon);
 templateContainer.add(reactImageOverlay);

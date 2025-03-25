@@ -25,7 +25,6 @@
  - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
- - [dso-helpcenter-panel](../helpcenter-panel)
  - [dso-image-overlay](../image-overlay)
  - [dso-info](../info)
  - [dso-info-button](../info-button)
@@ -58,7 +57,6 @@ graph TD;
   dso-document-card --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
-  dso-helpcenter-panel --> dso-icon
   dso-image-overlay --> dso-icon
   dso-info --> dso-icon
   dso-info-button --> dso-icon

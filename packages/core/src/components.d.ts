@@ -715,16 +715,6 @@ export namespace Components {
          */
         "userProfileUrl"?: string;
     }
-    interface DsoHelpcenterPanel {
-        /**
-          * The label on the help button that activates the Helpcenter.
-         */
-        "label": string;
-        /**
-          * The URL that's loaded when the Helpcenter opens.
-         */
-        "url": string;
-    }
     interface DsoHighlightBox {
         /**
           * For a bordered Highlight Box.
@@ -1869,12 +1859,6 @@ declare global {
         prototype: HTMLDsoHeaderElement;
         new (): HTMLDsoHeaderElement;
     };
-    interface HTMLDsoHelpcenterPanelElement extends Components.DsoHelpcenterPanel, HTMLStencilElement {
-    }
-    var HTMLDsoHelpcenterPanelElement: {
-        prototype: HTMLDsoHelpcenterPanelElement;
-        new (): HTMLDsoHelpcenterPanelElement;
-    };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
     var HTMLDsoHighlightBoxElement: {
@@ -2447,7 +2431,6 @@ declare global {
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-expandable": HTMLDsoExpandableElement;
         "dso-header": HTMLDsoHeaderElement;
-        "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
@@ -3239,16 +3222,6 @@ declare namespace LocalJSX {
           * The URL to open when the user activates the profile url.
          */
         "userProfileUrl"?: string;
-    }
-    interface DsoHelpcenterPanel {
-        /**
-          * The label on the help button that activates the Helpcenter.
-         */
-        "label"?: string;
-        /**
-          * The URL that's loaded when the Helpcenter opens.
-         */
-        "url": string;
     }
     interface DsoHighlightBox {
         /**
@@ -4061,7 +4034,6 @@ declare namespace LocalJSX {
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-expandable": DsoExpandable;
         "dso-header": DsoHeader;
-        "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-image-overlay": DsoImageOverlay;
@@ -4133,7 +4105,6 @@ declare module "@stencil/core" {
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
-            "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
