@@ -390,12 +390,6 @@
     ]
   },
   {
-    "name": "tabs-deprecated",
-    "selector": "ul.nav.nav-tabs",
-    "stories": ["as-anchors", "as-anchors-disabled"],
-    "type": "html-css"
-  },
-  {
     "name": "tile",
     "selector": ".dso-tile",
     "stories": ["default", "theme"],

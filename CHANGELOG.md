@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Helpcentrum Panel: Remove ([#3068](https://github.com/dso-toolkit/dso-toolkit/issues/3068))
+* **BREAKING** Tabs: Verwijder HTML/CSS implementatie ([#2833](https://github.com/dso-toolkit/dso-toolkit/issues/2833))
 
 ### Task
 * **BREAKING** ESLint: diverse `@stencil-community` rules implementeren ([#2447](https://github.com/dso-toolkit/dso-toolkit/issues/2447))
