@@ -18,7 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Packages: Dependencies updates ([#2977](https://github.com/dso-toolkit/dso-toolkit/issues/2977))
 * Dropdown Menu: flaky tab cycle test ([#2967](https://github.com/dso-toolkit/dso-toolkit/issues/2967))
 
-
 ## 🪼 Release 69.2.1 - 2025-03-21
 
 ### Fixed
