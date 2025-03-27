@@ -37,7 +37,7 @@
     inset-block-start: 0;
   }
 
-  &:not(.dso-no-icon) {
+  &.dso-icon {
     .container, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
@@ -57,7 +57,7 @@
   &.alert-danger {
     @include banner-mixins.danger();
 
-    &:not(.dso-no-icon) {
+    &.dso-icon {
       @include banner-mixins.with-icon("danger");
     }
   }
@@ -65,7 +65,7 @@
   &.alert-error {
     @include banner-mixins.error();
 
-    &:not(.dso-no-icon) {
+    &.dso-icon {
       @include banner-mixins.with-icon("error");
     }
   }
@@ -73,7 +73,7 @@
   &.alert-info {
     @include banner-mixins.info();
 
-    &:not(.dso-no-icon) {
+    &.dso-icon {
       @include banner-mixins.with-icon("info");
     }
   }
@@ -81,7 +81,7 @@
   &.alert-warning {
     @include banner-mixins.warning();
 
-    &:not(.dso-no-icon) {
+    &.dso-icon {
       @include banner-mixins.with-icon("warning");
     }
   }
@@ -128,7 +128,7 @@ dso-banner {
     display: inline-block;
   }
 
-  &:not([no-icon]) {
+  &[icon] {
     .col-sm-12, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
@@ -148,7 +148,7 @@ dso-banner {
   &[status="danger"] {
     @include banner-mixins.danger();
 
-    &:not([no-icon]) {
+    &[icon] {
       @include banner-mixins.with-icon("danger");
     }
   }
@@ -156,7 +156,7 @@ dso-banner {
   &[status="error"] {
     @include banner-mixins.error();
 
-    &:not([no-icon]) {
+    &[icon] {
       @include banner-mixins.with-icon("error");
     }
   }
@@ -164,7 +164,7 @@ dso-banner {
   &[status="info"] {
     @include banner-mixins.info();
 
-    &:not([no-icon]) {
+    &[icon] {
       @include banner-mixins.with-icon("info");
     }
   }
@@ -172,7 +172,7 @@ dso-banner {
   &[status="warning"] {
     @include banner-mixins.warning();
 
-    &:not([no-icon]) {
+    &[icon] {
       @include banner-mixins.with-icon("warning");
     }
   }

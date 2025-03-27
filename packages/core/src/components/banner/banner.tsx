@@ -14,18 +14,18 @@ export class Banner {
   status!: "danger" | "error" | "info" | "warning";
 
   /**
-   * compact mode.
+   * Compact mode.
    */
   @Prop()
   compact = false;
 
   /**
-   * *Only available when `compact` is set to `true`.
+   * *Icon can only be hidden when the 'compact' property is set to true.
    *
    * Option to show banner icon.
    */
-  @Prop()
-  noIcon = true;
+  @Prop({ reflect: true })
+  icon = false;
 
   render() {
     return (

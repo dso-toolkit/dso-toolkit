@@ -380,13 +380,13 @@ export namespace Components {
     }
     interface DsoBanner {
         /**
-          * compact mode.
+          * Compact mode.
          */
         "compact": boolean;
         /**
-          * *Only available when `compact` is set to `true`.  Option to show banner icon.
+          * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
          */
-        "noIcon": boolean;
+        "icon": boolean;
         /**
           * The status of the banner.
          */
@@ -2816,13 +2816,13 @@ declare namespace LocalJSX {
     }
     interface DsoBanner {
         /**
-          * compact mode.
+          * Compact mode.
          */
         "compact"?: boolean;
         /**
-          * *Only available when `compact` is set to `true`.  Option to show banner icon.
+          * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
          */
-        "noIcon"?: boolean;
+        "icon"?: boolean;
         /**
           * The status of the banner.
          */
