@@ -23,7 +23,7 @@ describe("Dropdown menu - anchors", () => {
 
     cy.dsoCheckA11y("dso-dropdown-menu.hydrated");
 
-    cy.get("@button").focus().click().should("have.focus");
+    cy.get("@button").should("be.visible").focus().click().should("have.focus");
 
     cy.get("@options").should("be.visible");
 
@@ -71,7 +71,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("Tab");
@@ -88,9 +88,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("be.visible");
   });
 
-  // Todo: #3034
-  it.skip("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -104,7 +103,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("arrow down should cycle menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowDown");
@@ -119,8 +118,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").eq(1).should("have.focus");
   });
 
-  it.skip("arrow up should cycle menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("arrow up should cycle menu", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowUp");
@@ -135,9 +134,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").eq(5).should("have.focus");
   });
 
-  // Todo: #2887
-  it.skip("esc should close menu and focus button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("esc should close menu and focus button", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("ArrowUp");
@@ -153,13 +151,13 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("click outside menu should close menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.get("body").click();
 
     cy.get("@options").should("not.be.visible");
 
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -177,7 +175,7 @@ describe("Dropdown menu - anchors", () => {
         });
       });
 
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.get("@options").should("be.visible");
 
@@ -217,6 +215,7 @@ describe("Dropdown menu - buttons", () => {
 
   it("should have aria-expanded", () => {
     cy.get("@button")
+      .should("be.visible")
       .focus()
       .should("have.attr", "aria-expanded", "false")
       .click()
@@ -243,13 +242,13 @@ describe("Dropdown menu - buttons", () => {
   it("checkable should have role menuitemradio", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons&args=isCheckable:true");
 
-    cy.get("@button").click().blur();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
     cy.realPress("Tab");
@@ -264,7 +263,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -277,8 +276,8 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@button").should("have.focus");
   });
 
-  it.skip("arrow down should cycle menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("arrow down should cycle menu", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
@@ -291,7 +290,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("arrow up should cycle menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("ArrowUp");
     cy.realPress("ArrowUp");
@@ -303,9 +302,8 @@ describe("Dropdown menu - buttons", () => {
     cy.get("@menuitems").eq(1).should("have.focus");
   });
 
-  // Todo: #2887
-  it.skip("esc should close menu and focus button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("esc should close menu and focus button", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("ArrowUp");
 
@@ -319,13 +317,13 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("click outside menu should close menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.get("body").click();
 
     cy.get("@options").should("not.be.visible");
 
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
