@@ -71,7 +71,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     for (const _ of [1, 2, 3]) {
       cy.realPress("Tab");
@@ -88,9 +88,8 @@ describe("Dropdown menu - anchors", () => {
     cy.get("@menuitems").should("be.visible");
   });
 
-  // Todo: #3034
-  it.skip("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+  it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -153,13 +152,13 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("click outside menu should close menu", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.get("body").click();
 
     cy.get("@options").should("not.be.visible");
 
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -249,7 +248,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("tab should cycle through options and button", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
     cy.realPress("Tab");
@@ -264,7 +263,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("shift-tab should cycle through options and button in reverse order", { browser: "!firefox" }, () => {
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
@@ -325,7 +324,7 @@ describe("Dropdown menu - buttons", () => {
 
     cy.get("@options").should("not.be.visible");
 
-    cy.get("@button").focus().click();
+    cy.get("@button").should("be.visible").focus().click();
 
     cy.realPress("Tab");
 
