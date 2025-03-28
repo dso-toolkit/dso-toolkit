@@ -41,8 +41,7 @@ describe("Document Component", () => {
 
   for (const wijzigactie of states) {
     for (const annotationsWijzigactie of states) {
-      // Test uitgezet ivm flakyness. Gaan we weer aanzetten in #2934
-      it.skip(`matches image snapshot wijzigactie ${wijzigactie} with annotationsWijzigactie ${annotationsWijzigactie}`, () => {
+      it(`matches image snapshot wijzigactie ${wijzigactie} with annotationsWijzigactie ${annotationsWijzigactie}`, () => {
         // this test uses args to set the initial state of the component because the argsMapper is needed for the annotations
         cy.visit(
           "http://localhost:45000/iframe.html?id=core-document-component--default&args=open:!true;openAnnotation:!true",
@@ -60,8 +59,7 @@ describe("Document Component", () => {
   }
 
   for (const state of ["default", "voegtoe", "verwijder"]) {
-    // Test uitgezet ivm flakyness. Gaan we weer aanzetten in #2934
-    it.skip(`matches image snapshot ${state} - table-of-contents`, () => {
+    it(`matches image snapshot ${state} - table-of-contents`, () => {
       cy.visit(
         "http://localhost:45000/iframe.html?id=core-document-component--default&args=filtered:!false;mode:table-of-contents",
       )
