@@ -59,6 +59,15 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
               <span>Tertiaire button</span>
               {iconTemplate({ icon: "chevron-down" })}
             </a>
+            <a href="#" className="dso-primary extern">
+              <span>Externe primary button</span>
+            </a>
+            <a href="#" className="dso-secondary download">
+              <span>Download secondary button</span>
+            </a>
+            <a href="#" className="dso-tertiary extern">
+              <span>Externe tertiary button</span>
+            </a>
           </div>
         </>
       ),
