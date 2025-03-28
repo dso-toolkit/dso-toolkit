@@ -216,7 +216,6 @@ import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-hei
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { cssSelectable } from "./components/selectable/selectable.css-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
-import { cssTabs } from "./components/tabs/tabs.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
@@ -461,7 +460,6 @@ templateContainer.add(cssRowEqualHeights);
 templateContainer.add(cssSearchBar);
 templateContainer.add(cssSelectable);
 templateContainer.add(cssShoppingCart);
-templateContainer.add(cssTabs);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
 templateContainer.add(cssWhitebox);
