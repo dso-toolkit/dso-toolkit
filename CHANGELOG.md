@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Dropdown Menu: Flaky tests fix ([#3081](https://github.com/dso-toolkit/dso-toolkit/issues/3081))
 * Action List: flaky screenshot test ([#2894](https://github.com/dso-toolkit/dso-toolkit/issues/2894))
 * Document Component: flaky e2e tests verbeteren ([#2934](https://github.com/dso-toolkit/dso-toolkit/issues/2934))
+* Ozon Content: onderzoek en fix flaky e2e test ([#2853](https://github.com/dso-toolkit/dso-toolkit/issues/2853))
 * Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
 
 ## 🪼 Release 69.2.1 - 2025-03-21

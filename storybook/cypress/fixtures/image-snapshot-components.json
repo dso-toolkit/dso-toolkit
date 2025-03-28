@@ -34,8 +34,7 @@
     "name": "icon",
     "selector": "#icon-overview-list",
     "stories": ["overview"],
-    "type": "core",
-    "wait": "dso-icon.hydrated"
+    "type": "core"
   },
   {
     "name": "info-button",
@@ -59,8 +58,7 @@
     "name": "list-button",
     "selector": "dso-list-button.hydrated",
     "stories": ["multi-select"],
-    "type": "core",
-    "shadowWait": "dso-icon.hydrated"
+    "type": "core"
   },
   {
     "name": "progress-bar",
@@ -151,7 +149,7 @@
   { "name": "card-list", "selector": ".dso-card-list", "stories": ["card-list"], "type": "html-css" },
   {
     "name": "context",
-    "selector": "",
+
     "stories": ["label", "label-align-left", "legend", "legend-align-left"],
     "type": "html-css"
   },
@@ -185,8 +183,7 @@
     "name": "document-list",
     "selector": ".dso-document-list",
     "stories": ["default", "sticky"],
-    "type": "html-css",
-    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
+    "type": "html-css"
   },
   {
     "name": "footer",
@@ -194,7 +191,7 @@
     "stories": ["footer"],
     "selector": "footer"
   },
-  { "name": "footnotes", "selector": "", "stories": ["example"], "type": "html-css" },
+  { "name": "footnotes", "stories": ["example"], "type": "html-css" },
   { "name": "footnotes", "selector": ".dso-footnotes", "stories": ["list"], "type": "html-css" },
   {
     "name": "footnotes",
@@ -204,20 +201,18 @@
   },
   {
     "name": "form",
-    "selector": "",
+
     "stories": ["horizontal", "horizontal-collections", "vertical", "vertical-collections", "single-page"],
-    "type": "html-css",
-    "wait": "dso-date-picker.hydrated"
+    "type": "html-css"
   },
   {
     "name": "form-buttons",
-    "selector": "",
     "stories": ["default", "multi-page", "sections", "simple-form"],
     "type": "html-css"
   },
   {
     "name": "form-group",
-    "selector": "",
+
     "stories": [
       "checkboxes",
       "confirm",
@@ -234,21 +229,17 @@
   },
   {
     "name": "form-group",
-    "selector": "",
     "stories": ["date-picker"],
-    "type": "html-css",
-    "wait": "dso-date-picker.hydrated"
+    "type": "html-css"
   },
   {
     "name": "form-group",
-    "selector": "",
     "stories": ["date-picker-legacy"],
-    "type": "html-css",
-    "wait": "dso-date-picker-legacy.hydrated"
+    "type": "html-css"
   },
   {
     "name": "justify-form-groups",
-    "selector": "",
+
     "stories": ["justify-form-groups"],
     "type": "html-css"
   },
@@ -296,13 +287,13 @@
   },
   {
     "name": "link-list",
-    "selector": "",
+
     "stories": ["in-highlight-box"],
     "type": "html-css"
   },
   {
     "name": "list",
-    "selector": "",
+
     "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
     "type": "html-css"
   },
@@ -314,14 +305,13 @@
   },
   {
     "name": "navbar",
-    "selector": "",
+
     "stories": ["with-extension"],
-    "type": "html-css",
-    "wait": "dso-mark-bar.hydrated"
+    "type": "html-css"
   },
   {
     "name": "paragraph",
-    "selector": "",
+
     "stories": ["default", "disclaimer"],
     "type": "html-css"
   },
@@ -333,10 +323,9 @@
   },
   {
     "name": "rich-content",
-    "selector": "",
+
     "stories": ["rich-content"],
-    "type": "html-css",
-    "wait": "dso-highlight-box.hydrated"
+    "type": "html-css"
   },
   {
     "name": "row-equal-heights",
@@ -399,8 +388,7 @@
     "name": "tile-grid",
     "selector": ".dso-tile-grid",
     "stories": ["tile-grid"],
-    "type": "html-css",
-    "wait": "dso-responsive-element.hydrated:where([small], [medium], [large])"
+    "type": "html-css"
   },
   {
     "name": "whitebox",
