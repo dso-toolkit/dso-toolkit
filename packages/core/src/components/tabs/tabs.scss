@@ -7,8 +7,6 @@
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/components/anchor";
 
-@use "tabs.variables" as tab-variables;
-
 @include utilities.box-sizing();
 
 :host {
@@ -20,7 +18,7 @@
   display: flex;
   gap: 2px;
   flex-wrap: wrap;
-  margin-block-end: tab-variables.$margin-block-end;
+  margin-block-end: units.$block-spacing-large;
   padding-inline-start: 0;
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
