@@ -22,6 +22,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Action List: flaky screenshot test ([#2894](https://github.com/dso-toolkit/dso-toolkit/issues/2894))
 * Document Component: flaky e2e tests verbeteren ([#2934](https://github.com/dso-toolkit/dso-toolkit/issues/2934))
 
+### Fixed
+* Button: Externe links in highlight box hebben herhalend icoon ([#3055](https://github.com/dso-toolkit/dso-toolkit/issues/3055))
+
 ## 🪼 Release 69.2.1 - 2025-03-21
 
 ### Fixed
