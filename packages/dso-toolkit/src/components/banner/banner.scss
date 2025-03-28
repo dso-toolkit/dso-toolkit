@@ -28,7 +28,6 @@
     }
   }
 
-  .container::before, // to be removed in #2930
   .dso-banner-inner::before {
     content: "";
     display: inline-block;
@@ -38,7 +37,6 @@
   }
 
   &.dso-icon {
-    .container, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
@@ -117,7 +115,6 @@ dso-banner {
     }
   }
 
-  .container::before, // to be removed in #2930
   .dso-banner-inner::before {
     content: "";
 
@@ -129,7 +126,6 @@ dso-banner {
   }
 
   &[icon] {
-    .col-sm-12, // to be removed in #2930
     .dso-banner-inner {
       @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min}) {
         padding-inline-start: banner-variables.$inline-start-padding;
