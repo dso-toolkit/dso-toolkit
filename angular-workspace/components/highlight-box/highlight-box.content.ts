@@ -36,6 +36,15 @@ export function content(): StoryFnAngularReturnType {
             <span>Tertiaire button</span>
             <dso-icon icon="chevron-down"></dso-icon>
           </a>
+          <a href="#" class="dso-primary extern">
+            <span>Externe primary button</span>
+          </a>
+          <a href="#" class="dso-secondary download">
+            <span>Download secondary button</span>
+          </a>
+          <a href="#" class="dso-tertiary extern">
+            <span>Externe tertiary button</span>
+          </a>
         </div>
       </div>
     `,

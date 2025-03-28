@@ -8,7 +8,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
   implementation: "html-css",
   template: ({ iconTemplate, tooltipTemplate }) => {
-    function getClassName(variant: "primary" | "secondary" | "tertiary" | null, modifier?: string, mode?: string) {
+    function getClassNames(variant: "primary" | "secondary" | "tertiary" | null, modifier?: string, mode?: string) {
       const classNames = [];
 
       if (variant) {
@@ -27,12 +27,12 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
     }
 
     function anchorElement({ variant, url, label, modifier, mode, id, icon, iconMode, slot, autofocus }: ButtonAnchor) {
-      const className = getClassName(variant, modifier, mode);
+      const classNames = getClassNames(variant, modifier, mode);
 
       return html`
         <a
           href=${url}
-          class=${ifDefined(className)}
+          class=${ifDefined(classNames.filter((c) => !!c).join(" "))}
           id=${ifDefined(id)}
           slot=${ifDefined(slot)}
           ?autofocus=${autofocus}
@@ -71,7 +71,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       mode,
     }: Button) {
       type ??= "button";
-      const classNames = getClassName(variant, modifier, mode);
+      const classNames = getClassNames(variant, modifier, mode);
 
       if (compact) {
         classNames.push("dso-small");

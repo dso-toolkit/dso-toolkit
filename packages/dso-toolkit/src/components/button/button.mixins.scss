@@ -64,16 +64,20 @@
       @include utilities.sr-only();
     }
   } @else {
-    dso-icon,
-    svg.di {
+    dso-icon:has(+ span),
+    svg.di:has(+ span) {
       margin-inline-start: units.$u1 * -1;
-      margin-inline-end: units.$u1;
     }
 
-    span + dso-icon,
-    span + svg.di {
+    span:not(.sr-only) + dso-icon,
+    span:not(.sr-only) + svg.di {
       margin-inline-start: units.$u1;
       margin-inline-end: units.$u1 * -1;
+    }
+
+    dso-icon + span:not(.sr-only),
+    svg.di + span:not(.sr-only) {
+      margin-inline-start: units.$u1;
     }
   }
 }
@@ -171,6 +175,7 @@
   text-align: start;
   user-select: none;
   vertical-align: middle;
+  background-image: none !important;
 
   &:focus,
   &:focus-visible {
