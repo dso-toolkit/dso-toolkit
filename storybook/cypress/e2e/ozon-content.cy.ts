@@ -421,8 +421,7 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  // Todo: #2853
-  it.skip("should render renvooi-weergave elements", () => {
+  it("should render renvooi-weergave elements", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
     cy.injectAxe();
@@ -473,7 +472,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("dso-image-overlay.hydrated")
       .should("exist")
-      .get("dso-ozon-content.hydrated", { timeout: 10000 }) // Prevent flaky test, see #2789, we'll investigate further in #2853
+      .get("dso-ozon-content.hydrated")
       .matchImageSnapshot();
   });
 

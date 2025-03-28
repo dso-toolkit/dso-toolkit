@@ -77,7 +77,16 @@ Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
  * See https://github.com/narinluangrath/cypress-wait-for-stable-dom.
  */
 Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
-  return cy.waitForStableDOM().then(() => originalFn(...args));
+  return (
+    cy
+      .waitForStableDOM()
+      // overwrite the default timeout, because screenshot does that internally
+      // otherwise the `then` is limited to the default command timeout
+      .then({ timeout: Cypress.config("responseTimeout") }, () => {
+        // return the original function so that cypress waits for it
+        return originalFn(...args);
+      })
+  );
 });
 
 /**
