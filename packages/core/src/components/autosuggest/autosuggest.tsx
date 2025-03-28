@@ -527,24 +527,33 @@ export class Autosuggest {
                       ref={(li) => li && this.listboxItems.push(li)}
                     >
                       <div class="suggestion-row">
-                        <span class="value">{this.handleMark(suggestion, suggestion.value, "value")}</span>
+                        <span aria-label={suggestion.value} class="value">
+                          {this.handleMark(suggestion, suggestion.value, "value")}
+                        </span>
                         {suggestion.type ? (
-                          <span class="type">{this.handleMark(suggestion, suggestion.type, "type")}</span>
+                          <span aria-label={suggestion.type} class="type">
+                            {this.handleMark(suggestion, suggestion.type, "type")}
+                          </span>
                         ) : undefined}
                       </div>
                       {suggestion.extras &&
                         this.getChunkedExtras(suggestion.extras).map((chunk, index) => (
                           <div class="suggestion-row">
                             {chunk.map((c, i) => (
-                              <span class="extra">{this.handleMark(suggestion, c, "extra", index * 2 + i)}</span>
+                              <span aria-label={c} class="extra">
+                                {this.handleMark(suggestion, c, "extra", index * 2 + i)}
+                              </span>
                             ))}
                           </div>
                         ))}
                     </li>
                   ))) ||
                   (this.notFound && (
-                    <li aria-live="polite">
-                      <span class="value">
+                    <li aria-live="polite" role="option">
+                      <span
+                        aria-label={this.notFoundLabel || `${this.text("notFound", { inputValue: this.inputValue })}`}
+                        class="value"
+                      >
                         {this.notFoundLabel ||
                           this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
                       </span>
