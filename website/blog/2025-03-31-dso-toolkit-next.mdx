@@ -56,3 +56,23 @@ Stencil verbiedt het direct instellen van een prop-defaultwaarde op `true` in de
   </div>
 </dso-banner>
 ```
+
+### Legacy selectors voor grid-system zijn verwijderd
+
+In DSO Toolkit v67.2.0 👹 is van de HTML/CSS implementatie van Banner de HTML markup gewijzigd: de afhankelijkheid van het grid system is verwijderd. De "oude" markup werd nog ondersteund via de styling, maar die tijdelijke ondersteuning is in deze versie van DSO Toolkit verwijderd. Het gaat om de banner specieke styling; `.container` en de daarin geneste `.col-sm-12`.
+
+```html
+❌
+<section role="alert" class="dso-banner alert-danger">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">-content-</div>
+    </div>
+  </div>
+</section>
+
+✅
+<section role="alert" class="dso-banner alert-danger">
+  <div class="dso-banner-inner">-content-</div>
+</section>
+```

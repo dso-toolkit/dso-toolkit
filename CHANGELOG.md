@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Verticaal Ritme: afstand boven en onder knoppenbalk naar 32px ([#3013](https://github.com/dso-toolkit/dso-toolkit/issues/3013))
+* **BREAKING** Banner: Legacy selector `.banner` verwijderen ([#2930](https://github.com/dso-toolkit/dso-toolkit/issues/2930))
 
 ### Removed
 * **BREAKING** Helpcentrum Panel: Remove ([#3068](https://github.com/dso-toolkit/dso-toolkit/issues/3068))
