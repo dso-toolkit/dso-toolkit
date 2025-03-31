@@ -2,11 +2,9 @@ import components from "../fixtures/image-snapshot-components.json";
 
 interface Component {
   name: string;
-  selector: string;
+  selector?: string;
   stories?: string[];
   type: string;
-  wait?: string | string[];
-  shadowWait?: string;
 }
 
 function checkA11y(component: Component) {
@@ -18,53 +16,18 @@ function checkA11y(component: Component) {
 
 function matchImageSnapshot(id: string, component: Component) {
   if (component.selector) {
-    if (component.shadowWait) {
-      cy.get(component.selector)
-        .shadow()
-        .find(component.shadowWait)
-        .should("exist")
-        .get(component.selector)
-        .matchImageSnapshot(id);
-    } else {
-      cy.get(component.selector).matchImageSnapshot(id);
-    }
+    cy.get(component.selector).matchImageSnapshot(id);
   } else {
     cy.matchImageSnapshot(id);
   }
 }
 
-function waitForExist(id: string, component: Component, wait: string[]) {
-  cy.get(wait.pop())
-    .should("exist")
-    .then(() => {
-      if (wait.length) {
-        waitForExist(id, component, wait);
-      } else {
-        matchImageSnapshot(id, component);
-        checkA11y(component);
-      }
-    });
-}
-
-function test(id: string, component: Component, wait: string | string[]) {
+function test(id: string, component: Component) {
   it(`take screenshot of ${id}`, () => {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
-    if (wait) {
-      if (Array.isArray(wait)) {
-        waitForExist(id, component, wait);
-      } else {
-        cy.get(wait)
-          .should("exist")
-          .then(() => {
-            matchImageSnapshot(id, component);
-            checkA11y(component);
-          });
-      }
-    } else {
-      matchImageSnapshot(id, component);
-      checkA11y(component);
-    }
+    checkA11y(component);
+    matchImageSnapshot(id, component);
   });
 }
 
@@ -73,7 +36,7 @@ describe("Components without e2e tests", () => {
   for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
-      test(id, component, component.wait);
+      test(id, component);
     }
   }
 });
