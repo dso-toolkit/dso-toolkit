@@ -21,8 +21,8 @@
 /packages/react/src/components.ts
 /packages/react/src/react-component-lib
 /storybook/www
+# Onderstaande ignore verwijderen bij mergen naar master. Dit moet weg, maar de build faalt omdat deze file wel in de cache zit en dus door prettier wordt gelint.
 /storybook/cypress-parallel
-/storybook/multi-reporter-config.json
 /storybook/runner-results
 /website/.docusaurus
 /website/www
