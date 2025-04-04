@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
+
 ### Docs
 * Voorbeeldpagina: Highlight-box Banner aspect-ratio demo pagina missen iconen in buttons ([#3050](https://github.com/dso-toolkit/dso-toolkit/issues/3050))
 
