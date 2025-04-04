@@ -457,7 +457,7 @@ describe("Autosuggest", () => {
       cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
       cy.dsoCheckA11y("dso-autosuggest.hydrated");
       cy.get("dso-autosuggest.hydrated").find("div[role='group']").should("have.length", 2);
-      cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 6);
+      cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 12);
 
       // Take the entire page, otherwise the list of suggestions will not be snapped
       cy.matchImageSnapshot();
@@ -474,7 +474,7 @@ describe("Autosuggest", () => {
       cy.get("input").focus().type("groep");
       cy.wait(200);
       cy.realPress("ArrowUp");
-      cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(5).should("have.attr", "aria-selected", "true");
+      cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(11).should("have.attr", "aria-selected", "true");
     });
 
     it("ArrowDown and ArrowUp skips group labels", () => {

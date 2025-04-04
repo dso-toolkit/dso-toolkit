@@ -192,9 +192,6 @@ export class Autosuggest {
   showLoading = false;
 
   @State()
-  listItemBlockSize = 0;
-
-  @State()
   listboxContainerMaxBlockSize = 0;
 
   @Watch("suggestions")
@@ -214,6 +211,7 @@ export class Autosuggest {
 
   private listbox: HTMLDivElement | undefined;
 
+  // ListboxItems are used for the calculation of the listboxContainerMaxBlockSize
   private listboxItems: HTMLDivElement[] = [];
 
   private listboxId: string = v4();
@@ -341,16 +339,18 @@ export class Autosuggest {
       return;
     }
 
-    if (this.listboxItems[0] && this.showSuggestions) {
-      this.listItemBlockSize = this.listboxItems[0].getBoundingClientRect().height;
-    }
+    if (this.showSuggestions) {
+      let blockSizeFirst10ListItems = 0;
+      const total = this.listboxItems.length ? Math.min(this.listboxItems.length, maxSuggestionsViewable) : 0;
+      for (let i = 0; i < total; i++) {
+        blockSizeFirst10ListItems =
+          blockSizeFirst10ListItems + (this.listboxItems[i]?.getBoundingClientRect().height || 0);
+      }
 
-    const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
-    const listboxMaxBlockSize =
-      this.listItemBlockSize * maxSuggestionsViewable + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+      const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
+      const listboxMaxBlockSize = blockSizeFirst10ListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
-    if (availableBlockSize > this.listItemBlockSize) {
-      if (availableBlockSize < listboxMaxBlockSize) {
+      if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeFirst10ListItems) {
         this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
         this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
@@ -728,7 +728,12 @@ export class Autosuggest {
                       const groupLabelId = v4();
                       return (
                         <div role="group" class="group" aria-labelledby={groupLabelId}>
-                          <div class="group-label" role="presentation" id={groupLabelId}>
+                          <div
+                            class="group-label"
+                            role="presentation"
+                            id={groupLabelId}
+                            ref={(element) => element && this.listboxItems.push(element)}
+                          >
                             {suggestionGroup.groupLabel}
                           </div>
                           {suggestionGroup.suggestions.map((suggestion) => (
