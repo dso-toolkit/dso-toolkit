@@ -114,11 +114,11 @@ label {
     }
 
     &.download {
-      @include tertiary-icon("download", "download-grasgroen-40", "download-scampi");
+      @include tertiary-icon("download", "download-grasgroen-40", "download-bosgroen");
     }
 
     &.extern {
-      @include tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+      @include tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-bosgroen");
     }
   }
 }
