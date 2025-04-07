@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧶 Release 70.0.1 - 2025-04-07
+
 ### Fixed
 * Autosuggest: memory leak ([#3085](https://github.com/dso-toolkit/dso-toolkit/issues/3085))
 
