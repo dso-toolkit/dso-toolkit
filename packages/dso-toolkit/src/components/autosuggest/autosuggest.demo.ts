@@ -16,6 +16,12 @@ const suggestionGroups: AutosuggestSuggestionGroup[] = [
       { value: "Item 1 met een wat langere naam van de tweede groep", type: "Typering" },
       { value: "Item 2 met een wat langere naam van de tweede groep", type: "Typering" },
       { value: "Item 3 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 4 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 5 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 6 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 7 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 8 met een wat langere naam van de tweede groep", type: "Typering" },
+      { value: "Item 9 met een wat langere naam van de tweede groep", type: "Typering" },
     ],
   },
   {
@@ -31,6 +37,395 @@ const suggestionGroups: AutosuggestSuggestionGroup[] = [
   {
     groupLabel: "Vierde groep",
     suggestions: [{ value: "Slechts één item" }],
+  },
+  {
+    groupLabel: "Activiteiten",
+    suggestions: [
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW08x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW088c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW07Ax7717d4581b6d17xb2a3c9fc96f",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW07A8c57cc32ac69958x3e87a881852",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/regOW01",
+              annotatieId: "nl.imow-mnre1034.activiteit.GelegenheidZwemmen",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.GelegenheidZwemmen",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW01x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW018c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW04x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW048c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW10x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW108c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW048c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW03x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW038c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW078c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW038c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW09x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW098c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW018c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW098c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW028c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW05x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW058c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW058c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW068c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW06x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW068c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW07x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW078c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2020/OW02x7717d4581b6d17xb2a3c9fc96f3",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW028c57cc32ac69958x3e87a881852b",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW088c57cc32ac69958x3e87a881852b",
+            },
+          ],
+        },
+      },
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.ZwemBadBadwaterbassin",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW04xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW07xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW03xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW01xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW09xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW02xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW05xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW06xb559284d26a86ae756926454aba",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW08xb559284d26a86ae756926454aba",
+            },
+          ],
+        },
+      },
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin voor eenmalig gebruik",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin voor eenmalig gebruik",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.ZwemBassinEenmalig",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW049x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW079x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW039x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW019x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW099x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW029x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW059x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW069x447d719e5a6d1ccb72cx9eff91",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW089x447d719e5a6d1ccb72cx9eff91",
+            },
+          ],
+        },
+      },
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin waarin het water wordt gedesinfecteerd",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden in een badwaterbassin waarin het water wordt gedesinfecteerd",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.ZwemBassinDesinfect",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW04f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW07f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW03f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW01f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW09f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW02f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW05f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW06f18377x53fe4b9f1f546x26dbc5x",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW08f18377x53fe4b9f1f546x26dbc5x",
+            },
+          ],
+        },
+      },
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden in een zwemvijver",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden in een zwemvijver",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.ZwemZwemvijver",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW041a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW071a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW031a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW011a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW091a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW021a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW051a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW061a489d7ae4xx9e94a44fd2d839a1",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW081a489d7ae4xx9e94a44fd2d839a1",
+            },
+          ],
+        },
+      },
+      {
+        value: "Gelegenheid bieden tot zwemmen of baden in overige badwaterbassin",
+        item: {
+          naam: "Gelegenheid bieden tot zwemmen of baden in overige badwaterbassin",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.ZwemOverigBassin",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW04a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW07a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW03a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW01a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW09a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW02a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW05a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW06a34b37b6x755a6292c412fc7b68c",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW08a34b37b6x755a6292c412fc7b68c",
+            },
+          ],
+        },
+      },
+      {
+        value: "Ongewoon voorval bij het bieden van gelegenheid tot zwemmen of baden in een badwaterbassin",
+        item: {
+          naam: "Ongewoon voorval bij het bieden van gelegenheid tot zwemmen of baden in een badwaterbassin",
+          koppelingen: [
+            {
+              documentId: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              annotatieId: "nl.imow-mnre1034.activiteit.OngVoorvalZwemBaden",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW04146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW047dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW07146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW077dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW03146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW037dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW01146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW017dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW09146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW097dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2019/OW02146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW027dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW05146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW057dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW06146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW067dxdbdf47183x3692c7cd876cf48",
+            },
+            {
+              documentId: "/akn/nl/act/mnre1034/2018/OW08146b7397b3f85255ca2exa3acc48",
+              annotatieId: "nl.imow-mnre1034.activiteit.OW087dxdbdf47183x3692c7cd876cf48",
+            },
+          ],
+        },
+      },
+    ],
   },
 ];
 
