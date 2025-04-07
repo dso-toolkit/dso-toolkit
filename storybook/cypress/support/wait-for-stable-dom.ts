@@ -41,7 +41,7 @@ export function getWaitForStableDOM() {
       });
 
       function observe(element: Element | ShadowRoot) {
-        if (observing.includes(element)) {
+        if (observing.includes(element) || observing.includes(element.getRootNode())) {
           return;
         }
 
@@ -69,6 +69,10 @@ export function getWaitForStableDOM() {
         }
 
         element.querySelectorAll("*").forEach((el) => {
+          if (el.tagName.startsWith("DSO-")) {
+            cy.wrap(el).should("have.class", "hydrated");
+          }
+
           if (el.shadowRoot) {
             observe(el.shadowRoot);
           }
