@@ -340,17 +340,19 @@ export class Autosuggest {
     }
 
     if (this.showSuggestions) {
-      let blockSizeFirst10ListItems = 0;
+      let blockSizeViewableListItems = 0;
+
+      // The total number of list items to reserve vertical space for.
       const total = this.listboxItems.length ? Math.min(this.listboxItems.length, maxSuggestionsViewable) : 0;
       for (let i = 0; i < total; i++) {
-        blockSizeFirst10ListItems =
-          blockSizeFirst10ListItems + (this.listboxItems[i]?.getBoundingClientRect().height || 0);
+        blockSizeViewableListItems =
+          blockSizeViewableListItems + (this.listboxItems[i]?.getBoundingClientRect().height || 0);
       }
 
       const availableBlockSize = window.innerHeight - this.host.getBoundingClientRect().bottom;
-      const listboxMaxBlockSize = blockSizeFirst10ListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
+      const listboxMaxBlockSize = blockSizeViewableListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
-      if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeFirst10ListItems) {
+      if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeViewableListItems) {
         this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
         this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
