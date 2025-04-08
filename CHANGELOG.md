@@ -5,10 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Ozon Content: `<Illustratie>` attributen toepassen ([#3040](https://github.com/dso-toolkit/dso-toolkit/issues/3040))
+
 ## 🛩️ Release 70.1.0 - 2025-04-14
 
 ### Changed
 * Accordion: Kleine visuele verbeteringen ([#3042](https://github.com/dso-toolkit/dso-toolkit/issues/3042))
+
 
 ### Fixed
 * Button: Externe links in Highlight-box hebben herhalend icoon ([#3055](https://github.com/dso-toolkit/dso-toolkit/issues/3055))
