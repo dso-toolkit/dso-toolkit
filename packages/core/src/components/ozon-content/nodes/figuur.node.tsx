@@ -15,6 +15,15 @@ interface IBijschrift {
   locatie: string;
 }
 
+interface Illustratie {
+  naam: string | null;
+  breedte: string | null;
+  hoogte: string | null;
+  dpi: string | null;
+  uitlijning: string | null;
+  alt: string | null;
+}
+
 const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSpanElement => {
   return (
     <span class="figuur-bijschrift">
@@ -32,6 +41,21 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
+  getStyle(illustratie: Illustratie) {
+    const widthPixels = Number(illustratie.breedte);
+    const heightPixels = Number(illustratie.hoogte);
+    let widthPercentage = (16.4 * widthPixels) / Number(illustratie.dpi);
+
+    if (widthPixels && heightPixels) {
+      widthPercentage = Math.min(widthPercentage, 100);
+      return {
+        "--ozon-illustratie-aspect-ratio": (widthPixels / heightPixels).toString(),
+        "--ozon-illustratie-width": `${widthPercentage}%`,
+      };
+    }
+    return;
+  }
+
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
@@ -47,6 +71,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
         naam: illustratieNode.getAttribute("naam"),
         breedte: illustratieNode.getAttribute("breedte"),
         hoogte: illustratieNode.getAttribute("hoogte"),
+        dpi: illustratieNode.getAttribute("dpi"),
         uitlijning: illustratieNode.getAttribute("uitlijning"),
         alt: illustratieNode.getAttribute("alt"),
       };
@@ -71,7 +96,12 @@ export class OzonContentFiguurNode implements OzonContentNode {
                 <span>{titel}</span>
               </div>
             )}
-            <img src={illustratie.naam ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
+            <img
+              src={illustratie.naam ?? undefined}
+              alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
+              class="dso-ozon-figuur-reserve-space"
+              style={this.getStyle(illustratie)}
+            />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
