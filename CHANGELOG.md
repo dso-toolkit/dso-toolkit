@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Docs
+* Voorbeeldpagina: Highlight-box Banner aspect-ratio demo pagina missen iconen in buttons ([#3050](https://github.com/dso-toolkit/dso-toolkit/issues/3050))
+
 ## 🧶 Release 70.0.1 - 2025-04-07
 
 ### Fixed

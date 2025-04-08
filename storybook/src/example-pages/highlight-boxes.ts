@@ -12,7 +12,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   null,
   "Meerdere highlight boxes",
-  (templates) => html`
+  ({ buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -22,101 +22,95 @@ examplePageFactory(
         </p>
         <div class="row dso-featured dso-equal-heights">
           <div class="col-md-4 col-sm-6">
-            <div class="dso-highlight-box dso-white dso-drop-shadow">
-              <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
-              <div class="dso-rich-content functie-blok">
-                <h2>Vergunning aanvragen of melding doen</h2>
-                <p>
-                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u
-                  een aanvraag of melding starten.
-                </p>
-                <button type="button" class="dso-secondary" tabindex="0">
-                  <span>Aanvragen</span
-                  ><svg dsoSvgIcon="chevron-right" class="di di-chevron-right" aria-hidden="true" version="1.1">
-                    <use xlink:href="dso-icons.svg#chevron-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            ${highlightBoxTemplate({
+              white: true,
+              dropShadow: true,
+              bannerImage: true,
+              content: richContentTemplate({
+                children: html`
+                  <h2>Vergunning aanvragen of melding doen</h2>
+                  <p>
+                    Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
+                    u een aanvraag of melding starten.
+                  </p>
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
+                `,
+              }),
+            })}
           </div>
 
           <div class="col-md-4 col-sm-6">
-            <div class="dso-highlight-box dso-white dso-drop-shadow">
-              <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
-              <div class="dso-rich-content functie-blok">
-                <h2>Vergunning aanvragen of melding doen</h2>
-                <p>
-                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u
-                  een aanvraag of melding starten.
-                </p>
-                <button type="button" class="dso-secondary" tabindex="0">
-                  <span>Aanvragen</span
-                  ><svg dsoSvgIcon="chevron-right" class="di di-chevron-right" aria-hidden="true" version="1.1">
-                    <use xlink:href="dso-icons.svg#chevron-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            ${highlightBoxTemplate({
+              white: true,
+              dropShadow: true,
+              bannerImage: true,
+              content: richContentTemplate({
+                children: html`
+                  <h2>Vergunning aanvragen of melding doen</h2>
+                  <p>
+                    Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
+                    u een aanvraag of melding starten.
+                  </p>
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
+                `,
+              }),
+            })}
           </div>
 
           <div class="col-md-4 col-sm-6">
-            <div class="dso-highlight-box dso-white dso-drop-shadow">
-              <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
-              <div class="dso-rich-content functie-blok">
-                <h2>Vergunning aanvragen of melding doen</h2>
-                <p>
-                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u
-                  een aanvraag of melding starten.
-                </p>
-                <button type="button" class="dso-secondary" tabindex="0">
-                  <span>Aanvragen</span
-                  ><svg dsoSvgIcon="chevron-right" class="di di-chevron-right" aria-hidden="true" version="1.1">
-                    <use xlink:href="dso-icons.svg#chevron-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
+            ${highlightBoxTemplate({
+              white: true,
+              dropShadow: true,
+              bannerImage: true,
+              content: richContentTemplate({
+                children: html`
+                  <h2>Vergunning aanvragen of melding doen</h2>
+                  <p>
+                    Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
+                    u een aanvraag of melding starten.
+                  </p>
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
+                `,
+              }),
+            })}
         </div>
-
+        </div>
         <!-- rij met twee boxes -->
         <div class="row dso-featured dso-equal-heights">
           <div class="col-md-6 col-sm-6">
-            <div class="dso-highlight-box dso-white dso-drop-shadow">
-              <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
-              <div class="dso-rich-content functie-blok">
-                <h2>Vergunning aanvragen of melding doen</h2>
-                <p>
-                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u
-                  een aanvraag of melding starten.
-                </p>
-                <button type="button" class="dso-secondary" tabindex="0">
-                  <span>Aanvragen</span
-                  ><svg dsoSvgIcon="chevron-right" class="di di-chevron-right" aria-hidden="true" version="1.1">
-                    <use xlink:href="dso-icons.svg#chevron-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            ${highlightBoxTemplate({
+              white: true,
+              dropShadow: true,
+              bannerImage: true,
+              content: richContentTemplate({
+                children: html`
+                  <h2>Vergunning aanvragen of melding doen</h2>
+                  <p>
+                    Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
+                    u een aanvraag of melding starten.
+                  </p>
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
+                `,
+              }),
+            })}
           </div>
 
           <div class="col-md-6 col-sm-6">
-            <div class="dso-highlight-box dso-white dso-drop-shadow">
-              <img src="images/man-vrouw-kaart.png" alt="" aria-hidden="true" class="dso-highlight-box-banner" />
-              <div class="dso-rich-content functie-blok">
-                <h2>Vergunning aanvragen of melding doen</h2>
-                <p>
-                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u
-                  een aanvraag of melding starten.
-                </p>
-                <button type="button" class="dso-secondary" tabindex="0">
-                  <span>Aanvragen</span
-                  ><svg dsoSvgIcon="chevron-right" class="di di-chevron-right" aria-hidden="true" version="1.1">
-                    <use xlink:href="dso-icons.svg#chevron-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            ${highlightBoxTemplate({
+              white: true,
+              dropShadow: true,
+              bannerImage: true,
+              content: richContentTemplate({
+                children: html`
+                  <h2>Vergunning aanvragen of melding doen</h2>
+                  <p>
+                    Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan
+                    u een aanvraag of melding starten.
+                  </p>
+                  ${buttonTemplate({ label: "Aanvragen", url: "#", variant: "secondary" })}
+                `,
+              }),
+            })}
           </div>
         </div>
       </main>
