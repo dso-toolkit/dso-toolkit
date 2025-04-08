@@ -96,7 +96,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     Contents: {
       decorators: [(story) => decorator(story)],
       args: {
-        jsonFile: "ozon-response.json",
+        jsonFile: "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
         openDefault: true,
         showCanvas: false,
         mode: "document",
@@ -118,6 +118,10 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             if (figuurWId?.startsWith("gm0262")) {
               // ozon-response-omgevingsvisie.json
               return `https://pro.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/gm0262/_akn_nl_act_gm0262_2024_Regelingafc0c6a68c684c5190bc3924b2c99adc_nld_2024_10_10_14210083/${value}`;
+            }
+            if (figuurWId?.startsWith("gm1980")) {
+              // ozon-response-strategische-omgevingsvisie-dijk-en-waard.json
+              return `https://pro.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/gm1980/_akn_nl_act_gm1980_2024_omgevingsvisie_nld_1041/${value}`;
             }
             // ozon-response-waterschappen.json bevat geen illustraties
 
@@ -156,6 +160,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             "ozon-response-bal.json",
             "ozon-response-waterschappen.json",
             "ozon-response-omgevingsvisie.json",
+            "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
           ],
           control: {
             type: "select",
@@ -215,6 +220,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             "ozon-response-bal.json",
             "ozon-response-waterschappen.json",
             "ozon-response-omgevingsvisie.json",
+            "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
           ],
           control: {
             type: "select",

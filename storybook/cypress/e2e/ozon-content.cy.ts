@@ -375,7 +375,9 @@ describe("Ozon Content", () => {
             naam="houtkachel-of-open-haard-infographic.jpg"
             breedte="720"
             hoogte="1124"
+            dpi="400"
             alt="Afbeelding 1"
+            uitlijning="center"
           />
           <Bijschrift locatie="onder">Bijschrift bij het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
@@ -389,7 +391,20 @@ describe("Ozon Content", () => {
       .and("have.attr", "alt", "Afbeelding 1")
       .get("dso-ozon-content")
       .shadow()
-      .find(".dso-ozon-figuur > .figuur-bijschrift")
+      .find("dso-image-overlay")
+      .and("have.class", "dso-ozon-figuur-reserve-space")
+      .and(
+        "have.attr",
+        "style",
+        "--ozon-illustratie-aspect-ratio: 0.6405693950177936; --ozon-illustratie-width: 29.519999999999996%;",
+      )
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-ozon-figuur")
+      .should("have.attr", "style", "--ozon-illustratie-uitlijning: center;")
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-ozon-figuur > div > .figuur-bijschrift")
       .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();

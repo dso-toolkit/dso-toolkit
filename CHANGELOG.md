@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Ozon Content: Compatible met Presenteren v8 ([#3089](https://github.com/dso-toolkit/dso-toolkit/issues/3089))
+* Ozon Content: `<Illustratie>` attributen toepassen ([#3040](https://github.com/dso-toolkit/dso-toolkit/issues/3040))
 
 ### Changed
 * Autosuggest: Aria-live van ul naar vaste div met .sr-only verplaatsen ([#3015](https://github.com/dso-toolkit/dso-toolkit/issues/3015))
