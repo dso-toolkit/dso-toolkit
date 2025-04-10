@@ -35,7 +35,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
           ${stepCounter()}
           ${bannerImage
             ? imageTemplate({
-                source: "images/man-vrouw-kaart.png",
+                source: "images/banner-image.webp",
                 alt: "man en vrouw met kaart",
                 modifier: "dso-highlight-box-banner",
               })
