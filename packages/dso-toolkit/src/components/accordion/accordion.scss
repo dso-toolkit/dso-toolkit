@@ -1,5 +1,6 @@
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/typography";
 @use "../../components/anchor";
 @use "../../components/accordion";
 
@@ -46,7 +47,7 @@
 
         &::before {
           inset-inline-start: auto;
-          inset-inline-end: units.$u2;
+          inset-inline-end: 0;
         }
 
         .dso-icon {
@@ -73,6 +74,13 @@
     &,
     .dso-nested-accordion .dso-accordion {
       @include accordion-theme-conclusion.conclusion();
+    }
+  }
+
+  &:not(.dso-accordion-compact):not(.dso-accordion-compact-black).dso-accordion-reverse-align .dso-section-handle {
+    a::before,
+    button::before {
+      inset-inline-end: units.$u2;
     }
   }
 
@@ -217,6 +225,8 @@
       .dso-status,
       .dso-icon {
         font-weight: 400;
+        color: colors.$zwart;
+        font-size: typography.$font-size-small;
         margin-inline-start: units.$u2;
       }
 
