@@ -32,7 +32,7 @@
             a,
             button {
               &::before {
-                @include di.variant("chevron-down-mauve");
+                @include di.variant("chevron-down-wit");
               }
             }
           }
@@ -62,6 +62,7 @@
 
       .dso-status {
         text-decoration: underline;
+        color: colors.$zwart;
       }
     }
   }
@@ -93,6 +94,10 @@
             &::after {
               @include di.variant("paperclip-wit");
             }
+          }
+
+          .dso-status {
+            color: colors.$wit;
           }
         }
       }

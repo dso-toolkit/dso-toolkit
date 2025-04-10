@@ -47,8 +47,7 @@
   .dso-section-handle {
     a,
     button {
-      padding-inline-start: units.$u2;
-      padding-inline-end: 0;
+      padding-inline: units.$u2 0;
     }
   }
 

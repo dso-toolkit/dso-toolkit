@@ -46,8 +46,7 @@
         padding-inline-end: units.$u6;
 
         &::before {
-          inset-inline-start: auto;
-          inset-inline-end: 0;
+          inset-inline: auto 0;
         }
 
         .dso-icon {
@@ -162,6 +161,18 @@
   }
 
   &.dso-accordion-compact-black.dso-accordion-reverse-align {
+    .dso-accordion-section:not(.dso-open) {
+      .dso-section-handle {
+        a,
+        a:hover,
+        button,
+        button:hover {
+          &::before {
+            @include di.base("chevron-down-zwart", accordion.$chevron-icon-size);
+          }
+        }
+      }
+    }
     .dso-accordion-section {
       &.dso-open:not(.dso-nested-accordion) {
         .dso-section-handle {
@@ -225,7 +236,6 @@
       .dso-status,
       .dso-icon {
         font-weight: 400;
-        color: colors.$zwart;
         font-size: typography.$font-size-small;
         margin-inline-start: units.$u2;
       }
