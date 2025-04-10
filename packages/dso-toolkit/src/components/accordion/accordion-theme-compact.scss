@@ -115,6 +115,7 @@
       a,
       button {
         padding-inline-start: units.$u2;
+        padding-inline-end: units.$u4;
 
         &::before {
           @include di.base("chevron-down-grasgroen");
