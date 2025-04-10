@@ -37,6 +37,8 @@
     }
 
     .dso-status {
+      color: colors.$zwart;
+      font-size: typography.$font-size-small;
       font-weight: 400;
     }
   }
@@ -83,7 +85,7 @@
 
       dso-attachments-counter,
       dso-icon {
-        margin-inline-start: units.$u2;
+        margin-inline-start: units.$u1;
       }
     }
 

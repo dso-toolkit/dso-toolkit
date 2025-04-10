@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Accordion: Kleine visuele verbeteringen ([#3042](https://github.com/dso-toolkit/dso-toolkit/issues/3042))
+
 ### Docs
 * Voorbeeldpagina: Highlight-box Banner aspect-ratio demo pagina missen iconen in buttons ([#3050](https://github.com/dso-toolkit/dso-toolkit/issues/3050))
 
