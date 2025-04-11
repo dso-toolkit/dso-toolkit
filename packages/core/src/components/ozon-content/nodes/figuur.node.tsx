@@ -44,6 +44,9 @@ export class OzonContentFiguurNode implements OzonContentNode {
   getStyle(illustratie: Illustratie) {
     const widthPixels = Number(illustratie.breedte);
     const heightPixels = Number(illustratie.hoogte);
+
+    // This is the STOP formula to calculate the width in percentage
+    // see: https://koop.gitlab.io/stop/standaard/1.4.0-ic/regeltekst_afbeelding.html
     let widthPercentage = (16.4 * widthPixels) / Number(illustratie.dpi);
 
     if (widthPixels && heightPixels) {
@@ -90,24 +93,30 @@ export class OzonContentFiguurNode implements OzonContentNode {
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
-          <dso-image-overlay wijzigactie={wijzigactie}>
+          <dso-image-overlay
+            wijzigactie={wijzigactie}
+            class="dso-ozon-figuur-reserve-space"
+            style={this.getStyle(illustratie)}
+          >
             {titel && (
               <div slot="titel">
                 <span>{titel}</span>
               </div>
             )}
-            <img
-              src={illustratie.naam ?? undefined}
-              alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
-              class="dso-ozon-figuur-reserve-space"
-              style={this.getStyle(illustratie)}
-            />
+            <img src={illustratie.naam ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
               </div>
             )}
           </dso-image-overlay>
+          <div>
+            {illustratie.breedte}{" "}
+            <span class={{ notgood: Number(illustratie.hoogte) > 3000 }}>{illustratie.hoogte}</span>{" "}
+            <span class={{ notgood: Number(illustratie.dpi) < 300 || Number(illustratie.dpi) > 600 }}>
+              {illustratie.dpi}
+            </span>
+          </div>
           {(bijschrift?.locatie === "onder" || (!bijschrift && bron)) && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
