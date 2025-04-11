@@ -112,7 +112,7 @@
     }
   }
 
-  &:not(.dso-border, [border]):not(.dso-white, [white]) .dso-button-row .dso-tertiary {
+  &:not(#{$border-selector}):not(#{$white-selector}) .dso-button-row .dso-tertiary {
     &.extern::after {
       @include di.variant("external-link-zwart");
     }

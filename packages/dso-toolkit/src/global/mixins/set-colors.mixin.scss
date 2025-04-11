@@ -3,6 +3,7 @@
 
 @use "../../variables/colors";
 @use "../../components/anchor/anchor.variables" as anchor-variables;
+@use "../../components/button/button.variables" as button-variables;
 @use "../../di";
 
 @use "../functions/contrast-color.functions" as contrast-color;
@@ -67,11 +68,7 @@
     $selector: map.get($value, "selector");
     $icon: map.get($value, "icon") + "-" + $icon-color;
 
-    a:not(#{anchor-variables.$excludedAnchorIconColorsClasses}):is(
-        #{$selector},
-        #{$selector}:hover,
-        #{$selector}:focus-visible
-      ) {
+    a:not(#{button-variables.$buttons}):is(#{$selector}, #{$selector}:hover, #{$selector}:focus-visible) {
       // set icon color
       @include di.variant($icon);
     }

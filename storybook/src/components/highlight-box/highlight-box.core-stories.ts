@@ -58,19 +58,19 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
               })}
               ${buttonTemplate({
                 variant: "primary",
-                label: "primary extern anchor",
+                label: "Primary extern anchor",
                 mode: "extern",
                 url: "#",
               })}
               ${buttonTemplate({
                 variant: "secondary",
-                label: "secondary extern anchor",
+                label: "Secondary download anchor",
                 mode: "download",
                 url: "#",
               })}
               ${buttonTemplate({
                 variant: "tertiary",
-                label: "tertiary extern anchor",
+                label: "Tertiary extern anchor",
                 mode: "extern",
                 url: "#",
               })}

@@ -64,8 +64,8 @@
       @include utilities.sr-only();
     }
   } @else {
-    dso-icon:has(+ span),
-    svg.di:has(+ span) {
+    dso-icon:has(+ span:not(.sr-only)),
+    svg.di:has(+ span:not(.sr-only)) {
       margin-inline-start: units.$u1 * -1;
     }
 

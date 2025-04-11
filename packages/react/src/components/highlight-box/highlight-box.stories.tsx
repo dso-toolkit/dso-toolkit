@@ -60,13 +60,13 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
               {iconTemplate({ icon: "chevron-down" })}
             </a>
             <a href="#" className="dso-primary extern">
-              <span>Externe primary button</span>
+              <span>Primary extern anchor</span>
             </a>
             <a href="#" className="dso-secondary download">
-              <span>Download secondary button</span>
+              <span>Secondary download anchor</span>
             </a>
             <a href="#" className="dso-tertiary extern">
-              <span>Externe tertiary button</span>
+              <span>Tertiary extern anchor</span>
             </a>
           </div>
         </>
