@@ -64,11 +64,26 @@ describe("Header", () => {
     cy.get("dso-header.hydrated").invoke("attr", "useDropDownMenu", "always").dsoCheckA11y("dso-header.hydrated");
 
     cy.get("dso-header.hydrated")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")
       .dsoCheckA11y("dso-header.hydrated");
+  });
+
+  it("screenshot", () => {
+    cy.viewport(1225, 660)
+      .get("dso-header.hydrated")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);
+
+    cy.viewport(1000, 660)
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu.hydrated")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dso-dropdown-options ul li")
+      .should("have.length", 2);
+
+    cy.get("dso-header.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- 2 menuitems in dropdown menu`);
   });
 
   it("should show and remove dropdownmenu", () => {
@@ -89,7 +104,6 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
-      .matchImageSnapshot()
       .get("@dsoHeaderShadow")
       .find(".dropdown dso-dropdown-menu")
       .should("not.exist");
