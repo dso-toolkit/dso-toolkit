@@ -15,6 +15,15 @@ interface IBijschrift {
   locatie: string;
 }
 
+interface Illustratie {
+  naam: string | null;
+  breedte: string | null;
+  hoogte: string | null;
+  dpi: string | null;
+  uitlijning: string | null;
+  alt: string | null;
+}
+
 const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSpanElement => {
   return (
     <span class="figuur-bijschrift">
@@ -32,6 +41,24 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
+  getStyle(illustratie: Illustratie) {
+    const widthPixels = Number(illustratie.breedte);
+    const heightPixels = Number(illustratie.hoogte);
+
+    // This is the STOP formula to calculate the width in percentage
+    // see: https://koop.gitlab.io/stop/standaard/1.4.0-ic/regeltekst_afbeelding.html
+    let widthPercentage = (16.4 * widthPixels) / Number(illustratie.dpi);
+
+    if (widthPixels && heightPixels) {
+      widthPercentage = Math.min(widthPercentage, 100);
+      return {
+        "--ozon-illustratie-aspect-ratio": (widthPixels / heightPixels).toString(),
+        "--ozon-illustratie-width": `${widthPercentage}%`,
+      };
+    }
+    return;
+  }
+
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
@@ -47,6 +74,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
         naam: illustratieNode.getAttribute("naam"),
         breedte: illustratieNode.getAttribute("breedte"),
         hoogte: illustratieNode.getAttribute("hoogte"),
+        dpi: illustratieNode.getAttribute("dpi"),
         uitlijning: illustratieNode.getAttribute("uitlijning"),
         alt: illustratieNode.getAttribute("alt"),
       };
@@ -65,7 +93,11 @@ export class OzonContentFiguurNode implements OzonContentNode {
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
-          <dso-image-overlay wijzigactie={wijzigactie}>
+          <dso-image-overlay
+            wijzigactie={wijzigactie}
+            class="dso-ozon-figuur-reserve-space"
+            style={this.getStyle(illustratie)}
+          >
             {titel && (
               <div slot="titel">
                 <span>{titel}</span>
@@ -78,6 +110,13 @@ export class OzonContentFiguurNode implements OzonContentNode {
               </div>
             )}
           </dso-image-overlay>
+          <div>
+            {illustratie.breedte}{" "}
+            <span class={{ notgood: Number(illustratie.hoogte) > 3000 }}>{illustratie.hoogte}</span>{" "}
+            <span class={{ notgood: Number(illustratie.dpi) < 300 || Number(illustratie.dpi) > 600 }}>
+              {illustratie.dpi}
+            </span>
+          </div>
           {(bijschrift?.locatie === "onder" || (!bijschrift && bron)) && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}

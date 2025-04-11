@@ -102,7 +102,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     Contents: {
       decorators: [(story) => decorator(story)],
       args: {
-        jsonFile: "ozon-response.json",
+        jsonFile: "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
         openDefault: true,
         showCanvas: false,
         mode: "document",
@@ -114,6 +114,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             "ozon-response-bal.json",
             "ozon-response-waterschappen.json",
             "ozon-response-omgevingsvisie.json",
+            "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
           ],
           control: {
             type: "select",
@@ -169,6 +170,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             "ozon-response-bal.json",
             "ozon-response-waterschappen.json",
             "ozon-response-omgevingsvisie.json",
+            "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
           ],
           control: {
             type: "select",
