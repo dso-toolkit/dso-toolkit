@@ -97,6 +97,8 @@ export function getWaitForStableDOM() {
             return wait(iteration + 1);
           }
 
+          mutationObserver.disconnect();
+
           throw Error("Timed out waiting for stable DOM");
         });
       }
