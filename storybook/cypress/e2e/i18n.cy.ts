@@ -48,11 +48,10 @@ describe("Internationalization", () => {
       .should("have.text", "Resultaten laden: een moment geduld alstublieft.");
   });
 
-  it("should default to locale 'nl' when lang attribute is empty", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-progress-indicator--large&globals=locale:en");
+  it("should default to locale 'nl' when lang attribute is unknown", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-progress-indicator--large&globals=locale:unknown");
 
-    cy.document().get("html").invoke("removeAttr", "lang");
-    cy.document().get("html").invoke("attr", "lang", "");
+    cy.document().get("html").should("have.attr", "lang", "unknown");
 
     cy.get("dso-progress-indicator.hydrated")
       .shadow()
