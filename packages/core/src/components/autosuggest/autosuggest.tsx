@@ -268,10 +268,14 @@ export class Autosuggest {
   }
 
   private text = i18n(() => this.host, translations);
+  private isListboxContainerMaxBlockSizeSet = false;
 
   componentDidRender() {
-    this.setListboxContainerMaxBlockSize();
-    this.updateAriaAutoSuggestStatus();
+    if (!this.isListboxContainerMaxBlockSizeSet) {
+      this.setListboxContainerMaxBlockSize();
+      this.isListboxContainerMaxBlockSizeSet = true;
+      this.updateAriaAutoSuggestStatus();
+    }
   }
 
   connectedCallback() {
