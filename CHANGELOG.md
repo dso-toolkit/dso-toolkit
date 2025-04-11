@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Autosuggest: memory leak (vervolg) ([#3106](https://github.com/dso-toolkit/dso-toolkit/issues/3106))
+
 ### Added
 * Viewer Grid: Top bar in het grid plaatsen ([#3103](https://github.com/dso-toolkit/dso-toolkit/issues/3103))
 
