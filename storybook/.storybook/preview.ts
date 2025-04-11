@@ -32,6 +32,13 @@ export const parameters: Parameters = {
 };
 
 import "@iframe-resizer/child";
+import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
+
+const spriteContainer = document.createElement("div");
+spriteContainer.hidden = true;
+spriteContainer.insertAdjacentHTML("afterbegin", sprite);
+document.body.insertAdjacentElement("afterbegin", spriteContainer);
+
 import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
 import "dso-toolkit/dist/dso.css";
 

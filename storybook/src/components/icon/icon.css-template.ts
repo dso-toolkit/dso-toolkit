@@ -10,7 +10,7 @@ export const cssIcon: ComponentImplementation<Icon> = {
   template: () =>
     function iconTemplate({ icon, slot }) {
       return html`<svg class="di di-${icon}" slot=${ifDefined(slot)}>
-        <use href="dso-toolkit/dist/dso-icons.svg#${icon}" />
+        <use href="#${icon}" />
       </svg>`;
     },
 };

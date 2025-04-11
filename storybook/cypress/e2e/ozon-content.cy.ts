@@ -90,11 +90,13 @@ describe("Ozon Content", () => {
   it("should render Al element", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
-    cy.get("dso-ozon-content").then((c) => {
-      c.prop("content", "<Al>Tekst<Al>Meer tekst</Al></Al>");
-    });
+    cy.get("dso-ozon-content").invoke("prop", "content", "<Al>Tekst<Al>Meer tekst</Al></Al>");
 
-    cy.get("dso-ozon-content").shadow().find("p").should("exist").children('span[role="paragraph"]').should("exist");
+    cy.get("dso-ozon-content")
+      .shadow()
+      .find("p > span[role='paragraph']")
+      .should("exist")
+      .and("have.text", "Meer tekst");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
