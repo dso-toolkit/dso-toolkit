@@ -45,14 +45,6 @@ export function getWaitForStableDOM() {
           return;
         }
 
-        if (element instanceof win.ShadowRoot) {
-          cy.log(`Observing ShadowRoot of ${element.host.tagName}`);
-        } else if (element instanceof win.Document) {
-          cy.log(`Observing document`);
-        } else if (element instanceof win.Element) {
-          cy.log(`Observing ${element.tagName}`);
-        }
-
         observing.push(element);
 
         mutationObserver.observe(element, {
