@@ -111,6 +111,16 @@
       }
     }
   }
+
+  &:not(#{$border-selector}):not(#{$white-selector}) .dso-button-row .dso-tertiary {
+    &.extern::after {
+      @include di.variant("external-link-zwart");
+    }
+
+    &.download::after {
+      @include di.variant("download-zwart");
+    }
+  }
 }
 
 @mixin exoticChildren() {
