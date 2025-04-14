@@ -130,6 +130,7 @@ describe("Accordion", () => {
     cy.get("dso-accordion.hydrated")
       .find("dso-accordion-section")
       .first()
+      .as("accordionSection")
       .invoke("attr", "status-description", statusDescription)
       .shadow()
       .find(".dso-section-handle .dso-status")
@@ -162,7 +163,7 @@ describe("Accordion", () => {
       .children("dso-icon")
       .should("exist");
 
-    cy.get("@accordionSection").matchImageSnapshot(`${Cypress.currentTest.title} -- reverse-align mode`);
+    cy.get("@dsoAccordion").matchImageSnapshot(`${Cypress.currentTest.title} -- reverse-align mode`);
   });
 
   it("should focus handle element with AccordionSection.focusHandle()", () => {
