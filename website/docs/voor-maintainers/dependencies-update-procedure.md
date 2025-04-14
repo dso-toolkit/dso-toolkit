@@ -20,15 +20,17 @@ Angular-project verifieerbare oplossing heeft geresulteerd gaan we daar mee verd
 
 ### `@whitespace+storybook-addon-html+5.1.6.patch`
 
+🚧 Documentatie volgt 🚧
+
 ## TypeScript-versiebeleid
 
-Bij het updaten van typescript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
+Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
 
 - Stencil ondersteunt momenteel TypeScript tot en met versie 5.5.4 (Stencil v4.27.2).
 - Storybook (v7) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v19) ondersteunt TypeScript tot en met 5.5.0.
+- Angular (v19.02) ondersteunt TypeScript \>=5.5.0 \<5.9.0.
 
-In github-issue [2987](https://github.com/dso-toolkit/dso-toolkit/pull/2987) is typescript geüpdatet van 5.6.3 naar 5.7.x. Hoewel dit geen build errors opleverde, veroorzaakte het wel IDE-errors omdat Stencil nog geen support biedt voor TypeScript 5.7. Om geen nieuwe issues te introduceren is besloten om terug te keren naar versie 5.6.3.
+In github-issue [2987](https://github.com/dso-toolkit/dso-toolkit/pull/2987) is TypeScript geüpdatet van 5.6.3 naar 5.7.x. Hoewel dit geen build errors opleverde, veroorzaakte het wel IDE-errors omdat Stencil nog geen support biedt voor TypeScript 5.7. Om geen nieuwe issues te introduceren is besloten om terug te keren naar versie 5.6.3.
 
 Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
 
@@ -37,8 +39,6 @@ Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij to
 - Angular TypeScript versie ondersteuning ([documentatie](https://angular.dev/reference/versions#) Angular)
 
 Pas de TypeScript-versie dus alleen aan als alle gebruikte tools deze ondersteunen, óf als de build én ontwikkelervaring (IDE) geen fouten opleveren.
-
-🚧 Documentatie volgt 🚧
 
 ## Yarn update
 
