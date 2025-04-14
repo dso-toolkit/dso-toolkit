@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🛩️ Release 70.1.0 - 2025-04-14
+
 ### Changed
 * Accordion: Kleine visuele verbeteringen ([#3042](https://github.com/dso-toolkit/dso-toolkit/issues/3042))
 

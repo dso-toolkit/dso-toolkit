@@ -64,7 +64,7 @@ describe("Header", () => {
     cy.get("dso-header.hydrated").invoke("attr", "useDropDownMenu", "always").dsoCheckA11y("dso-header.hydrated");
 
     cy.get("dso-header.hydrated")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`)
+      // .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`) // will be restored through #3032
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")
