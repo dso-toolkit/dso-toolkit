@@ -114,7 +114,7 @@
     .dso-section-handle {
       a,
       button {
-        padding-inline-start: units.$u2;
+        padding-inline: units.$u2 units.$u4;
 
         &::before {
           @include di.base("chevron-down-grasgroen");
