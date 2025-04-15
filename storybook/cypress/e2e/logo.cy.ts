@@ -222,6 +222,19 @@ describe("Logo", () => {
     cy.dsoCheckA11y("dso-logo.hydrated");
   });
 
+  it("with an empty label-url, the beta tag still shows on the correct place", () => {
+    cy.get("dso-logo")
+      .invoke("attr", "ribbon", "beta")
+      .invoke("attr", "label-url", "")
+      .shadow()
+      .find(".logo-ribbon")
+      .should("be.visible")
+      .should("have.text", "beta");
+    cy.get("dso-logo.hydrated").matchImageSnapshot();
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-logo.hydrated");
+  });
+
   it("should be accessible", () => {
     cy.get("dso-logo.hydrated").matchImageSnapshot();
     cy.injectAxe();
