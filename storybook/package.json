@@ -4,10 +4,9 @@
   "scripts": {
     "start": "storybook dev --port 45000",
     "storybook:build": "storybook build --output-dir ./www",
-    "cy:run": "cypress run",
     "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
-    "e2e:test": "cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
+    "e2e:test": "cypress run"
   },
   "dependencies": {
     "@babel/core": "^7.26.10",
@@ -33,8 +32,6 @@
     "axe-core": "^4.10.3",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.6.0",
-    "cypress-multi-reporters": "2.0.5",
-    "cypress-parallel": "0.15.0",
     "cypress-real-events": "^1.14.0",
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^3.0.5",
