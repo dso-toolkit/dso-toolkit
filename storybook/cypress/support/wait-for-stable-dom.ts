@@ -23,7 +23,7 @@ export function getWaitForStableDOM() {
   return function waitForStableDOM(subject: JQuery<HTMLElement> | undefined) {
     cy.log(`Waiting for stable DOM...`);
     const options = {
-      poll: 75,
+      poll: 500,
       timeout: 6000,
     };
 
