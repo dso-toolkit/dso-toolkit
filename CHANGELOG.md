@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Survey Rating: Vraagteken achter de vraag en role alert toevoegen ([#3046](https://github.com/dso-toolkit/dso-toolkit/issues/3046))
+
 ### Fixed
 * Logo: Ribbon uit positie wanneer logo-url aanwezig is en label-url afwezig is ([#3101](https://github.com/dso-toolkit/dso-toolkit/issues/3101))
 * Viewer Grid: ScrollIntoView scrolled te ver door ([#3096](https://github.com/dso-toolkit/dso-toolkit/issues/3096))
