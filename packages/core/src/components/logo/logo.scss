@@ -35,17 +35,11 @@
   }
 }
 
-:host([logo-url][ribbon]) {
+:host([logo-url]:not([logo-url=""])[ribbon]:not([ribbon=""])) {
   grid-template-areas: "targetwordmark label";
 
-  .logo-url {
-    grid-area: targetwordmark;
-    + .logo-ribbon {
-      grid-area: targetwordmark;
-    }
-  }
-
-  .logo-label-url + .logo-ribbon {
+  .logo-url,
+  .logo-ribbon {
     grid-area: targetwordmark;
   }
 }
