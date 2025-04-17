@@ -337,7 +337,7 @@ button {
   :host {
     display: flex;
     block-size: 100vh;
-    overflow: hidden;
+    overflow: clip;
     position: relative;
 
     .dso-main-panel.compact,
