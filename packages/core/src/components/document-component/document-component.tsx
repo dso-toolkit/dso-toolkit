@@ -16,7 +16,7 @@ import {
   DocumentComponentMode,
   DocumentComponentTableOfContentsClickEvent,
 } from "./document-component.models";
-import { OzonContentAnchorClickEvent } from "../ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClickEvent, OzonContentUrlResolver } from "../ozon-content/ozon-content.interfaces";
 import { Heading } from "./document-component-heading";
 
 import { DsoOzonContentCustomEvent } from "../../components";
@@ -170,6 +170,12 @@ export class DocumentComponent implements ComponentInterface {
   recursiveToggle: DocumentComponentRecursiveToggleState;
 
   /**
+   * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+   */
+  @Prop()
+  ozonContentUrlResolver?: OzonContentUrlResolver;
+
+  /**
    * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
    */
   @Prop({ reflect: true })
@@ -264,7 +270,7 @@ export class DocumentComponent implements ComponentInterface {
   render() {
     const suffix = this.suffix();
     const collapsible = !!(
-      (this.label || this.nummer || this.opschrift || this.alternativeTitle) &&
+      (this.label || this.nummer || this.opschrift || this.kop || this.alternativeTitle) &&
       this.type !== "LID"
     );
 
@@ -274,6 +280,7 @@ export class DocumentComponent implements ComponentInterface {
       this.label ||
       this.nummer ||
       this.opschrift ||
+      this.kop ||
       this.alternativeTitle ||
       this.bevatOntwerpInformatie ||
       this.annotated
@@ -309,13 +316,13 @@ export class DocumentComponent implements ComponentInterface {
                   {this.kop && (
                     <dso-ozon-content
                       content={this.kop}
-                      addSpaceBeforeNode
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>
                         this.dsoMarkItemHighlight.emit({ ...e.detail, source: "kop" })
                       }
                       inline
+                      urlResolver={this.ozonContentUrlResolver}
                     />
                   )}
 
@@ -442,6 +449,7 @@ export class DocumentComponent implements ComponentInterface {
                 onDsoOzonContentMarkItemHighlight={(e) =>
                   this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })
                 }
+                urlResolver={this.ozonContentUrlResolver}
               />
             )}
           </div>

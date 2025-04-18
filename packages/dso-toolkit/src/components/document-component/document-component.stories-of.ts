@@ -6,7 +6,6 @@ import {
   documentComponentArgTypes,
   documentComponentArgs,
   DocumentComponentArgs,
-  documentComponentKopArgs,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
 import { DocumentComponent, DocumentComponentMode } from "./document-component.models.js";
@@ -14,6 +13,8 @@ import { DocumentComponent, DocumentComponentMode } from "./document-component.m
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { OzonContentUrlResolver } from "../ozon-content";
+import { noControl } from "../../storybook";
 
 export type DocumentComponentDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
@@ -25,13 +26,13 @@ type DocumentComponentStoryDemo = StoryObj<
     mode: DocumentComponentMode;
     ozonContentAnchorClick: HandlerFunction;
     tableOfContentsClick: HandlerFunction;
+    ozonContentUrlResolver?: OzonContentUrlResolver;
   },
   Renderer
 >;
 
 interface DocumentComponentStories {
   Default: StoryObj<DocumentComponentArgs, Renderer>;
-  Kop: StoryObj<DocumentComponentArgs, Renderer>;
   Contents: DocumentComponentStoryDemo;
   Inhoudsopgave: DocumentComponentStoryDemo;
   IMRO: StoryObj<DocumentComponentArgs, Renderer>;
@@ -58,6 +59,7 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     mode: DocumentComponentMode,
     ozonContentAnchorClick: HandlerFunction,
     tableOfContentsClick: HandlerFunction,
+    ozonContentUrlResolver?: OzonContentUrlResolver,
   ) => TemplateFnReturnType;
 }
 
@@ -91,14 +93,6 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
       ),
     },
-    Kop: {
-      decorators: [(story) => decorator(story)],
-      args: documentComponentKopArgs,
-      argTypes: documentComponentArgTypes,
-      render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, childrenTemplate }) =>
-        documentComponentTemplate(documentComponentMapper(args, childrenTemplate)),
-      ),
-    },
     Contents: {
       decorators: [(story) => decorator(story)],
       args: {
@@ -106,6 +100,55 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "document",
+        ozonContentUrlResolver: (
+          name: "Illustratie" | "InlineTekstAfbeelding" | "ExtIoRef" | "ExtRef",
+          attribute: "naam" | "ref",
+          value: string,
+          element: Element,
+        ) => {
+          if (name === "Illustratie" && attribute === "naam" && element) {
+            const figuurWId = element.getAttribute("wId");
+            if (figuurWId?.startsWith("gm1979")) {
+              // ozon-response.json
+              return `https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpafbeeldingen/gm1979/_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/${value}`;
+            }
+            if (figuurWId?.startsWith("mnre1034")) {
+              // ozon-response-bal.json
+              return `https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/mnre1034/_akn_nl_act_mnre1034_2018_OW10146b7397b3f85255ca2exa3acc48_nld_6_0/${value}`;
+            }
+            if (figuurWId?.startsWith("gm0262")) {
+              // ozon-response-omgevingsvisie.json
+              return `https://pro.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/gm0262/_akn_nl_act_gm0262_2024_Regelingafc0c6a68c684c5190bc3924b2c99adc_nld_2024_10_10_14210083/${value}`;
+            }
+            // ozon-response-waterschappen.json bevat geen illustraties
+
+            return value;
+          }
+
+          if (name === "InlineTekstAfbeelding" && attribute === "naam" && element) {
+            return value;
+          }
+
+          if (name === "ExtRef" && attribute === "ref" && element) {
+            const soort = element.getAttribute("soort");
+            switch (soort) {
+              case "JCI":
+                return `http://wetten.overheid.nl/${value}`;
+              case "document":
+                return `https://zoek.officielebekendmakingen.nl/${value}`;
+              case "AKN":
+              case "URL":
+              default:
+                return value;
+            }
+          }
+
+          if (name === "ExtIoRef" && attribute === "ref" && element) {
+            return `https://identifier-eto.overheid.nl/${value}`;
+          }
+
+          return value;
+        },
       },
       argTypes: {
         jsonFile: {
@@ -141,6 +184,9 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         tableOfContentsClick: {
           action: "dsoTableOfContentsClick",
         },
+        ozonContentUrlResolver: {
+          ...noControl,
+        },
       },
       parameters: { layout: "fullscreen" },
       render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>
@@ -151,6 +197,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.mode,
           args.ozonContentAnchorClick,
           args.tableOfContentsClick,
+          args.ozonContentUrlResolver,
         ),
       ),
     },
@@ -212,9 +259,6 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     IMRO: {
       args: {
         ...documentComponentArgs,
-        label: undefined,
-        nummer: undefined,
-        opschrift: undefined,
         wijzigactie: undefined,
         inhoud: undefined,
         type: undefined,

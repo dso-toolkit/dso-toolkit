@@ -18,7 +18,9 @@ import {
   OzonContentInputType,
   OzonContentMarkFunction,
   OzonContentMarkItemHighlightEvent,
+  OzonContentUrlResolver,
 } from "./ozon-content.interfaces";
+
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 const mapper = new Mapper();
@@ -42,16 +44,16 @@ export class OzonContent implements ComponentInterface {
   inline = false;
 
   /**
-   * Adds a non breaking space to the node element.
-   */
-  @Prop({ reflect: true })
-  addSpaceBeforeNode = false;
-
-  /**
    * To mark text.
    */
   @Prop()
   mark?: OzonContentMarkFunction;
+
+  /**
+   * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+   */
+  @Prop()
+  urlResolver?: OzonContentUrlResolver;
 
   /**
    * Emitted when `<a>` is clicked.
@@ -80,12 +82,12 @@ export class OzonContent implements ComponentInterface {
   render(): JSX.Element {
     const context: OzonContentContext = {
       state: this.state,
-      addSpaceBeforeNode: this.addSpaceBeforeNode,
       inline: this.inline,
       mark: this.mark,
       setState: (state) => (this.state = state),
       emitMarkItemHighlight: this.handleMarkItemHighlight,
       emitAnchorClick: this.dsoAnchorClick.emit,
+      urlResolver: this.urlResolver,
     };
 
     const transformed = mapper.transform(this.content, context);

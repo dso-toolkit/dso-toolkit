@@ -22,7 +22,7 @@ const meta: Meta = {
 
 export default meta;
 
-const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories(
+const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
   {
     templateContainer,
     storyTemplates: (templates) => {
@@ -59,7 +59,15 @@ const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories
           ${annotationTemplate({ type: "gebiedsaanwijzing", naam: "Opwekking energie", symboolCode: "vszt030" })}
           ${annotationTemplate({ type: "gebiedsaanwijzing", naam: "Opwekking windenergie", symboolCode: "vag000" })}
         </div>`,
-        demoTemplate: (jsonFile, openDefault, showCanvas, mode, ozonContentAnchorClick, tableOfContentsClick) =>
+        demoTemplate: (
+          jsonFile,
+          openDefault,
+          showCanvas,
+          mode,
+          ozonContentAnchorClick,
+          tableOfContentsClick,
+          ozonContentUrlResolver,
+        ) =>
           html`<dsot-document-component-demo
             @dsotOzonContentAnchorClick=${(
               e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
@@ -68,6 +76,7 @@ const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories
             ?open-default=${openDefault}
             ?show-canvas=${showCanvas}
             .mode=${mode}
+            .ozonContentUrlResolver=${ozonContentUrlResolver}
             @dsotTableOfContentsClick=${(
               e: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>,
             ) => {
@@ -83,4 +92,4 @@ const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories
   decorator,
 );
 
-export { Default, Contents, Inhoudsopgave, IMRO, Kop };
+export { Default, Contents, Inhoudsopgave, IMRO };

@@ -14,12 +14,14 @@ describe("Document Component", () => {
       .then(($documentComponent) => ($documentComponent[0].mark = cy.spy(marker).as("marker")))
       .get("@marker")
       .invoke("getCalls")
-      .should("have.length", 3)
+      .should("have.length", 5)
       .then((calls) => calls.map((c) => c.args))
       .should("have.deep.members", [
-        ["Overgangsrecht: rijksbeschermde stads- en dorpsgezichten", "opschrift"],
-        ["Artikel", "label"],
-        ["3.3", "nummer"],
+        ["Artikel", "kop"],
+        ["13.12c", "kop"],
+        ["NootInKop III ", "kop"],
+        ["Thomas en Eric test 3.", "kop"],
+        ["Opschrift", "kop"],
       ]);
   });
 
