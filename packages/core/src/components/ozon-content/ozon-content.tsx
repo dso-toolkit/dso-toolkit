@@ -18,7 +18,9 @@ import {
   OzonContentInputType,
   OzonContentMarkFunction,
   OzonContentMarkItemHighlightEvent,
+  OzonContentUrlResolver,
 } from "./ozon-content.interfaces";
+
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 const mapper = new Mapper();
@@ -54,6 +56,12 @@ export class OzonContent implements ComponentInterface {
   mark?: OzonContentMarkFunction;
 
   /**
+   * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+   */
+  @Prop()
+  urlResolver?: OzonContentUrlResolver;
+
+  /**
    * Emitted when `<a>` is clicked.
    */
   @Event({ bubbles: false })
@@ -86,6 +94,7 @@ export class OzonContent implements ComponentInterface {
       setState: (state) => (this.state = state),
       emitMarkItemHighlight: this.handleMarkItemHighlight,
       emitAnchorClick: this.dsoAnchorClick.emit,
+      urlResolver: this.urlResolver,
     };
 
     const transformed = mapper.transform(this.content, context);

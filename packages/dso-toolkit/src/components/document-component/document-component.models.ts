@@ -1,4 +1,4 @@
-import { OzonContentText } from "../ozon-content/ozon-content.models.js";
+import { OzonContentText, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;
@@ -29,6 +29,7 @@ export interface DocumentComponent<TemplateFnReturnType> {
   href?: string;
   dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
   dsoTableOfContentsClick?: (e: CustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
+  ozonContentUrlResolver?: OzonContentUrlResolver;
 }
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";

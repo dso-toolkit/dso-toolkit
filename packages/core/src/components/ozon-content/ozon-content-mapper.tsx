@@ -125,6 +125,7 @@ export class Mapper {
       emitMarkItemHighlight: context.emitMarkItemHighlight,
       state,
       path,
+      urlResolver: context.urlResolver,
     });
   }
 

@@ -23,3 +23,8 @@ export interface OzonContentMarkItemHighlightEvent {
 }
 
 export type OzonContentWijzigActie = "voegtoe" | "verwijder";
+
+export interface OzonContentUrlResolver {
+  (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
+  (name: "ExtIoRef" | "ExtRef", attribute: "ref", value: string | null, element: Element): string;
+}
