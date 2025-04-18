@@ -9,12 +9,12 @@ import {
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
 } from "../document-component/document-component.models";
-import { DsoDocumentComponentCustomEvent } from "../../components";
+import { DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
 
 interface DocumentEmbedded {
   _embedded?: {
-    ontwerpTekststructuurDocumentComponenten?: DocumentComponent[];
-    tekststructuurDocumentComponenten?: DocumentComponent[];
+    ontwerpDocumentComponenten?: DocumentComponent[];
+    documentComponenten?: DocumentComponent[];
   };
 }
 
@@ -26,6 +26,7 @@ interface DocumentComponent extends DocumentEmbedded {
   volgordeNummer: number;
   opschrift?: string;
   inhoud?: string;
+  kop?: string;
   gereserveerd?: boolean;
   vervallen?: boolean;
   bevatOntwerpInformatie?: boolean;
@@ -62,6 +63,12 @@ export class DocumentComponentDemo implements ComponentInterface {
    */
   @Prop({ reflect: true })
   mode: DocumentComponentMode = "document";
+
+  /**
+   * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+   */
+  @Prop()
+  ozonContentUrlResolver?: OzonContentUrlResolver;
 
   /**
    * To demo user interacting with IntRef or IntIoRef elements.
@@ -115,16 +122,16 @@ export class DocumentComponentDemo implements ComponentInterface {
   }
 
   private getEmbeddedDocumentComponents(documentEmbedded: DocumentEmbedded | undefined) {
-    if (documentEmbedded?._embedded?.ontwerpTekststructuurDocumentComponenten) {
+    if (documentEmbedded?._embedded?.ontwerpDocumentComponenten) {
       return {
-        documentComponents: documentEmbedded._embedded.ontwerpTekststructuurDocumentComponenten,
+        documentComponents: documentEmbedded._embedded.ontwerpDocumentComponenten,
         ontwerp: true,
       };
     }
 
-    if (documentEmbedded?._embedded?.tekststructuurDocumentComponenten) {
+    if (documentEmbedded?._embedded?.documentComponenten) {
       return {
-        documentComponents: documentEmbedded._embedded.tekststructuurDocumentComponenten,
+        documentComponents: documentEmbedded._embedded.documentComponenten,
         ontwerp: false,
       };
     }
@@ -316,16 +323,14 @@ export class DocumentComponentDemo implements ComponentInterface {
         genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
         gereserveerd={documentComponent.gereserveerd}
         heading="h2"
+        kop={documentComponent.kop}
         inhoud={documentComponent.inhoud}
-        label={documentComponent.labelXml}
         openAnnotation={this.isOpenedAnnotation(documentComponent)}
         notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
-        nummer={documentComponent.nummerXml}
         onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
         onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
         onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
         open={this.isOpen(documentComponent)}
-        opschrift={documentComponent.opschrift}
         type={documentComponent.type}
         vervallen={documentComponent.vervallen}
         wijzigactie={documentComponent.wijzigactie}
@@ -334,6 +339,7 @@ export class DocumentComponentDemo implements ComponentInterface {
         mode={this.mode}
         href={this.mode === "table-of-contents" ? "/document/" + documentComponent.documentTechnischId : undefined}
         onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
+        ozonContentUrlResolver={this.ozonContentUrlResolver}
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <div slot="annotations">

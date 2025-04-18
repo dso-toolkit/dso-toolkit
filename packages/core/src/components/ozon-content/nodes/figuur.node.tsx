@@ -32,7 +32,7 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
-  render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
+  render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
     const bron = childNodes.find((n) => getNodeName(n) === "Bron");
@@ -59,6 +59,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
+      const src = urlResolver ? urlResolver("Illustratie", "naam", illustratie.naam, node) : illustratie.naam;
+
       return (
         <div class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}>
           {titel && <span class="figuur-titel">{titel}</span>}
@@ -71,7 +73,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
                 <span>{titel}</span>
               </div>
             )}
-            <img src={illustratie.naam ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
+            <img src={src ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />

@@ -213,7 +213,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content")
       .shadow()
-      .find("a[href='doc'][target='_blank'][rel='noopener noreferrer']")
+      .find("a[href='https://wetten.overheid.nl/doc'][target='_blank'][rel='noopener noreferrer']")
       .should("have.text", "document")
       .and("have.attr", "title", "Opent andere website in nieuw tabblad");
 
@@ -249,7 +249,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content")
       .shadow()
-      .find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']")
+      .find("img[src = 'images/afbeelding.jpg'][height = '12'][width = '34']")
       .should("exist");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
@@ -372,7 +372,7 @@ describe("Ozon Content", () => {
         >
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
-            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            naam="houtkachel-of-open-haard-infographic.jpg"
             breedte="720"
             hoogte="1124"
             alt="Afbeelding 1"

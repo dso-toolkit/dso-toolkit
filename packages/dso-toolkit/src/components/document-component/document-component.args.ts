@@ -10,6 +10,7 @@ import {
   DocumentComponentWijzigactie,
   DocumentComponentAnnotationsWijzigactie,
 } from "./document-component.models.js";
+import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 export interface DocumentComponentArgs {
   alternativeTitle?: string;
@@ -38,6 +39,7 @@ export interface DocumentComponentArgs {
   enableRecursiveToggle?: boolean;
   mode: DocumentComponentMode;
   dsoTableOfContentsClick: HandlerFunction;
+  ozonContentUrlResolver?: OzonContentUrlResolver;
 }
 
 export const documentComponentArgs: Omit<
@@ -70,7 +72,7 @@ export const documentComponentArgs: Omit<
 
 export const documentComponentKopArgs: Omit<
   DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "ozonContentUrlResolver"
 > = {
   ...documentComponentArgs,
   kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Artikel</Label><Nummer xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>13.12a</Nummer><Opschrift xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
