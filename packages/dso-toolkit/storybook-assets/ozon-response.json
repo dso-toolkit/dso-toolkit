@@ -13315,7 +13315,7 @@
               "expressie": "chp_22",
               "type": "HOOFDSTUK",
               "volgordeNummer": 14,
-              "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label><VerwijderdeTekst>Chapter</VerwijderdeTekst><NieuweTekst>Hoofdstuk</NieuweTekst></Label><Nummer>2</Nummer><Opschrift wijzigactie='voegtoe'>Nieuwe regels</Opschrift><Subtitel wijzigactie='verwijder'>Verwijderde regels</Subtitel></Kop>",
+              "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label><VerwijderdeTekst>Chapter</VerwijderdeTekst><NieuweTekst>Hoofdstuk</NieuweTekst></Label><Nummer>2</Nummer><Opschrift wijzigactie='voegtoe'>Nieuwe regels</Opschrift></Kop>",
               "_embedded": {
                 "ontwerpDocumentComponenten": [
                   {

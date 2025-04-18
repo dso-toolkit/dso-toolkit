@@ -78,13 +78,8 @@ export class Mapper {
     if (node instanceof NodeList) {
       return (
         <Fragment>
-          {Array.from(node).map((n, index) => {
-            return (
-              <>
-                {context.addSpaceBeforeNode && index > 0 && " "}
-                {this.mapNodeToJsx(n, context, path)}
-              </>
-            );
+          {Array.from(node).map((n) => {
+            return <>{this.mapNodeToJsx(n, context, path)}</>;
           })}
         </Fragment>
       );
@@ -93,13 +88,8 @@ export class Mapper {
     if (Array.isArray(node)) {
       return (
         <Fragment>
-          {node.map((n, index) => {
-            return (
-              <>
-                {context.addSpaceBeforeNode && index > 0 && " "}
-                {this.mapNodeToJsx(n, context, path)}
-              </>
-            );
+          {node.map((n) => {
+            return <>{this.mapNodeToJsx(n, context, path)}</>;
           })}
         </Fragment>
       );

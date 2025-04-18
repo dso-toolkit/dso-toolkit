@@ -25,12 +25,9 @@ export interface DocumentComponentArgs {
   heading: DocumentComponentHeading;
   inhoud?: string;
   kop: string;
-  label: string;
   notApplicable: boolean;
-  nummer: string;
   open: boolean;
   openAnnotation: boolean;
-  opschrift: string;
   type: DocumentComponentType;
   vervallen: boolean;
   wijzigactie: DocumentComponentWijzigactie | undefined;
@@ -44,7 +41,7 @@ export interface DocumentComponentArgs {
 
 export const documentComponentArgs: Omit<
   DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "kop"
+  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
 > = {
   annotated: true,
   bevatOntwerpInformatie: true,
@@ -54,28 +51,15 @@ export const documentComponentArgs: Omit<
   heading: "h2",
   inhoud:
     "<Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Al>De artikelen 3.28, derde lid, en 3.38, aanhef en onder b, zijn van overeenkomstige toepassing op een activiteit als bedoeld in die artikelonderdelen die wordt verricht op een locatie waarvoor een op grond van artikel 4.35, eerste lid, van de Invoeringswet Omgevingswet als instructie geldende aanwijzing als beschermd stads- of dorpsgezicht als bedoeld in artikel 35, eerste lid, van de Monumentenwet 1988 zoals die wet luidde voor de inwerkingtreding van de Erfgoedwet van kracht is, zolang in dit omgevingsplan aan die locatie nog niet de functie-aanduiding rijksbeschermd stads- of dorpsgezicht is gegeven.</Al></Inhoud>",
-  label:
-    "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Label xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Artikel</Label>",
   notApplicable: false,
-  nummer:
-    "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Nummer xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>3.3</Nummer>",
   open: false,
   openAnnotation: false,
-  opschrift:
-    "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Opschrift xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Overgangsrecht: rijksbeschermde stads- en dorpsgezichten</Opschrift>",
   type: "ARTIKEL",
   vervallen: false,
   wijzigactie: "voegtoe",
   annotationsWijzigactie: "voegtoe",
   mode: "document",
-};
-
-export const documentComponentKopArgs: Omit<
-  DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "ozonContentUrlResolver"
-> = {
-  ...documentComponentArgs,
-  kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>Artikel</Label><Nummer xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>13.12a</Nummer><Opschrift xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
+  kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>13.12c</Nummer><Opschrift>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -139,19 +123,9 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "text",
     },
   },
-  label: {
-    control: {
-      type: "text",
-    },
-  },
   notApplicable: {
     control: {
       type: "boolean",
-    },
-  },
-  nummer: {
-    control: {
-      type: "text",
     },
   },
   open: {
@@ -165,11 +139,6 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "boolean",
     },
     if: { arg: "mode", eq: "document" },
-  },
-  opschrift: {
-    control: {
-      type: "text",
-    },
   },
   type: {
     options: ["LICHAAM", "HOOFDSTUK", "AFDELING", "ARTIKEL", "LID", "PARAGRAAF", "SUBPARAGRAAF", "SUBSUBPARAGRAAF"],

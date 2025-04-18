@@ -9,7 +9,6 @@ import {
 
 export interface OzonContentContext {
   state: OzonContentNodeState;
-  addSpaceBeforeNode: boolean;
   inline: boolean;
   mark: OzonContentMarkFunction | undefined;
   setState(state: OzonContentNodeState): void;
