@@ -252,6 +252,8 @@ export class Autosuggest {
     }
   };
 
+  private ariaAutoSuggestStatus: string = "";
+
   @Listen("click", { target: "document" })
   onDocumentClick(event: MouseEvent) {
     if (
@@ -269,6 +271,7 @@ export class Autosuggest {
 
   componentDidRender() {
     this.setListboxContainerMaxBlockSize();
+    this.updateAriaAutoSuggestStatus();
   }
 
   connectedCallback() {
@@ -671,6 +674,22 @@ export class Autosuggest {
     };
   }
 
+  private updateAriaAutoSuggestStatus() {
+    if (this.notFound) {
+      this.ariaAutoSuggestStatus = `"${this.inputValue}" is niet gevonden.`;
+    } else {
+      let totalSuggestions = 0;
+
+      if (isFlat(this.suggestions)) {
+        totalSuggestions = this.suggestions.length;
+      } else if (isGrouped(this.suggestions)) {
+        totalSuggestions = this.suggestions.reduce((count, group) => count + group.suggestions.length, 0);
+      }
+
+      this.ariaAutoSuggestStatus = `${totalSuggestions} resultaten gevonden.`;
+    }
+  }
+
   render() {
     this.listboxItems = [];
 
@@ -694,75 +713,79 @@ export class Autosuggest {
           </div>
         ) : (
           showListbox && (
-            <dso-scrollable
-              class="listbox-container"
-              ref={(element) => (this.listboxContainer = element)}
-              style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
-            >
-              <div
-                class="listbox"
-                role="listbox"
-                aria-live="polite"
-                id={this.listboxId}
-                aria-labelledby={this.labelId}
-                ref={(element) => (this.listbox = element)}
-                tabindex="0"
+            <>
+              <dso-scrollable
+                class="listbox-container"
+                ref={(element) => (this.listboxContainer = element)}
+                style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
               >
-                {(flat &&
-                  this.showSuggestions &&
-                  this.suggestions &&
-                  this.suggestions.map((suggestion) => (
-                    <Option
-                      id={this.listboxItemId(suggestion)}
-                      mouseEnter={() => this.selectSuggestion(suggestion)}
-                      mouseLeave={() => this.resetSelectedSuggestion()}
-                      click={() => this.pickSelectedValue()}
-                      selected={(suggestion === this.selectedSuggestion).toString()}
-                      suggestion={suggestion}
-                      ref={(element) => element && this.listboxItems.push(element)}
-                      markedSuggestion={this.getMarkedSuggestions(suggestion)}
-                    />
-                  ))) ||
-                  (grouped &&
+                <div
+                  class="listbox"
+                  role="listbox"
+                  id={this.listboxId}
+                  aria-labelledby={this.labelId}
+                  ref={(element) => (this.listbox = element)}
+                  tabindex="0"
+                >
+                  {(flat &&
                     this.showSuggestions &&
                     this.suggestions &&
-                    this.suggestions.map((suggestionGroup) => {
-                      const groupLabelId = v4();
-                      return (
-                        <div role="group" class="group" aria-labelledby={groupLabelId}>
-                          <div
-                            class="group-label"
-                            role="presentation"
-                            id={groupLabelId}
-                            ref={(element) => element && this.listboxItems.push(element)}
-                          >
-                            {suggestionGroup.groupLabel}
-                          </div>
-                          {suggestionGroup.suggestions.map((suggestion) => (
-                            <Option
-                              id={this.listboxGroupedItemId(suggestionGroup, suggestion)}
-                              mouseEnter={() => this.selectSuggestion(suggestion, suggestionGroup)}
-                              mouseLeave={() => this.resetSelectedSuggestion()}
-                              click={() => this.pickSelectedValue()}
-                              selected={(suggestion === this.selectedSuggestion).toString()}
-                              suggestion={suggestion}
+                    this.suggestions.map((suggestion) => (
+                      <Option
+                        id={this.listboxItemId(suggestion)}
+                        mouseEnter={() => this.selectSuggestion(suggestion)}
+                        mouseLeave={() => this.resetSelectedSuggestion()}
+                        click={() => this.pickSelectedValue()}
+                        selected={(suggestion === this.selectedSuggestion).toString()}
+                        suggestion={suggestion}
+                        ref={(element) => element && this.listboxItems.push(element)}
+                        markedSuggestion={this.getMarkedSuggestions(suggestion)}
+                      />
+                    ))) ||
+                    (grouped &&
+                      this.showSuggestions &&
+                      this.suggestions &&
+                      this.suggestions.map((suggestionGroup) => {
+                        const groupLabelId = v4();
+                        return (
+                          <div role="group" class="group" aria-labelledby={groupLabelId}>
+                            <div
+                              class="group-label"
+                              role="presentation"
+                              id={groupLabelId}
                               ref={(element) => element && this.listboxItems.push(element)}
-                              markedSuggestion={this.getMarkedSuggestions(suggestion)}
-                            />
-                          ))}
-                        </div>
-                      );
-                    })) ||
-                  (this.notFound && (
-                    <div class="option">
-                      <span class="value">
-                        {this.notFoundLabel ||
-                          this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
-                      </span>
-                    </div>
-                  ))}
+                            >
+                              {suggestionGroup.groupLabel}
+                            </div>
+                            {suggestionGroup.suggestions.map((suggestion) => (
+                              <Option
+                                id={this.listboxGroupedItemId(suggestionGroup, suggestion)}
+                                mouseEnter={() => this.selectSuggestion(suggestion, suggestionGroup)}
+                                mouseLeave={() => this.resetSelectedSuggestion()}
+                                click={() => this.pickSelectedValue()}
+                                selected={(suggestion === this.selectedSuggestion).toString()}
+                                suggestion={suggestion}
+                                ref={(element) => element && this.listboxItems.push(element)}
+                                markedSuggestion={this.getMarkedSuggestions(suggestion)}
+                              />
+                            ))}
+                          </div>
+                        );
+                      })) ||
+                    (this.notFound && (
+                      <div class="option">
+                        <span class="value">
+                          {this.notFoundLabel ||
+                            this.showInputValueNotFound(this.text("notFound", { inputValue: this.inputValue }))}
+                        </span>
+                      </div>
+                    ))}
+                </div>
+              </dso-scrollable>
+              <div class="sr-only" aria-live="polite" aria-atomic="true">
+                {this.ariaAutoSuggestStatus}
               </div>
-            </dso-scrollable>
+            </>
           )
         )}
       </>
