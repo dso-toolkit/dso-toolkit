@@ -16,6 +16,11 @@ export class OzonContentKopNode implements OzonContentNode {
       content = <del class="removed-text">{content}</del>;
     }
 
-    return <>{content}</>;
+    return (
+      <>
+        {node.tagName !== "Kop" && " "}
+        {content}
+      </>
+    );
   }
 }

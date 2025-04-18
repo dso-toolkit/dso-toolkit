@@ -316,7 +316,6 @@ export class DocumentComponent implements ComponentInterface {
                   {this.kop && (
                     <dso-ozon-content
                       content={this.kop}
-                      addSpaceBeforeNode
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>

@@ -76,33 +76,11 @@ export class Mapper {
 
   mapNodeToJsx(node: Node | Node[] | NodeList, context: OzonContentContext, path: Node[]): JSX.Element {
     if (node instanceof NodeList) {
-      return (
-        <Fragment>
-          {Array.from(node).map((n, index) => {
-            return (
-              <>
-                {context.addSpaceBeforeNode && index > 0 && " "}
-                {this.mapNodeToJsx(n, context, path)}
-              </>
-            );
-          })}
-        </Fragment>
-      );
+      return <Fragment>{Array.from(node).map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
     }
 
     if (Array.isArray(node)) {
-      return (
-        <Fragment>
-          {node.map((n, index) => {
-            return (
-              <>
-                {context.addSpaceBeforeNode && index > 0 && " "}
-                {this.mapNodeToJsx(n, context, path)}
-              </>
-            );
-          })}
-        </Fragment>
-      );
+      return <Fragment>{node.map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
     }
 
     const nodeName = getNodeName(node);
