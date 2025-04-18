@@ -21,6 +21,7 @@ import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -34,7 +35,6 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -47,6 +47,7 @@ import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/su
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
+import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
@@ -63,6 +64,7 @@ export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
+export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -76,7 +78,6 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent } from "./components/ozon-content/ozon-content.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -89,6 +90,7 @@ export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/su
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
+export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
@@ -609,6 +611,10 @@ export namespace Components {
          */
         "opschrift"?: DocumentComponentInputType;
         /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "ozonContentUrlResolver"?: OzonContentUrlResolver;
+        /**
           * Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted.
          */
         "recursiveToggle": DocumentComponentRecursiveToggleState;
@@ -992,6 +998,10 @@ export namespace Components {
           * To mark text.
          */
         "mark"?: OzonContentMarkFunction;
+        /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "urlResolver"?: OzonContentUrlResolver;
     }
     interface DsoPagination {
         /**
@@ -1331,6 +1341,10 @@ export namespace Components {
           * The default state for all Document Components.
          */
         "openDefault": boolean;
+        /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "ozonContentUrlResolver"?: OzonContentUrlResolver1;
         /**
           * Show canvas to where Document Component extends.
          */
@@ -3105,6 +3119,10 @@ declare namespace LocalJSX {
          */
         "opschrift"?: DocumentComponentInputType;
         /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "ozonContentUrlResolver"?: OzonContentUrlResolver;
+        /**
           * Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted.
          */
         "recursiveToggle"?: DocumentComponentRecursiveToggleState;
@@ -3578,6 +3596,10 @@ declare namespace LocalJSX {
           * Emitted when a marked item is highlighted.
          */
         "onDsoOzonContentMarkItemHighlight"?: (event: DsoOzonContentCustomEvent<OzonContentMarkItemHighlightEvent>) => void;
+        /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "urlResolver"?: OzonContentUrlResolver;
     }
     interface DsoPagination {
         /**
@@ -4003,6 +4025,10 @@ declare namespace LocalJSX {
           * The default state for all Document Components.
          */
         "openDefault"?: boolean;
+        /**
+          * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
+         */
+        "ozonContentUrlResolver"?: OzonContentUrlResolver1;
         /**
           * Show canvas to where Document Component extends.
          */
