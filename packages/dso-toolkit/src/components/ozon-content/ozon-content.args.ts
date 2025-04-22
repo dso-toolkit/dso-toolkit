@@ -3,7 +3,7 @@ import { ArgTypes } from "@storybook/types";
 
 import { isOdd, noControl } from "../../storybook";
 
-import { OzonContent } from "./ozon-content.models.js";
+import { OzonContent, OzonContentUrlResolver } from "./ozon-content.models.js";
 import escapeStringRegexp from "escape-string-regexp";
 
 export interface OzonContentArgs {
@@ -13,6 +13,7 @@ export interface OzonContentArgs {
   highlight?: boolean;
   dsoAnchorClick: HandlerFunction;
   dsoOzonContentMarkItemHighlight: HandlerFunction;
+  urlResolver?: OzonContentUrlResolver;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -44,6 +45,9 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     ...noControl,
     action: "dsoOzonContentMarkItemHighlight",
   },
+  urlResolver: {
+    ...noControl,
+  },
 };
 
 export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
@@ -65,5 +69,24 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
     dsoAnchorClick: (e) => dsoAnchorClick(e.detail),
+    urlResolver: (name, attribute, value, element) => {
+      if (!value) {
+        return "";
+      }
+
+      if (name === "Illustratie" && attribute === "naam" && element) {
+        return `images/${value}`;
+      }
+
+      if (name === "ExtRef" && attribute === "ref" && element) {
+        return `https://wetten.overheid.nl/${value}`;
+      }
+
+      if (name === "ExtIoRef" && attribute === "ref" && element) {
+        return `https://identifier-eto.overheid.nl/${value}`;
+      }
+
+      return value;
+    },
   };
 }

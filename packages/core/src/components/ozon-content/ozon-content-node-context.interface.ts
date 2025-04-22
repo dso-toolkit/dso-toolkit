@@ -1,6 +1,10 @@
 import { JSX } from "@stencil/core";
 
-import { OzonContentAnchorClickEvent, OzonContentMarkFunction } from "./ozon-content.interfaces";
+import {
+  OzonContentAnchorClickEvent,
+  OzonContentMarkFunction,
+  OzonContentUrlResolver,
+} from "./ozon-content.interfaces";
 
 export interface OzonContentNodeContext<T = unknown> {
   inline: boolean;
@@ -11,4 +15,5 @@ export interface OzonContentNodeContext<T = unknown> {
   state?: T;
   setState?(state: T): void;
   emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
+  urlResolver: OzonContentUrlResolver | undefined;
 }

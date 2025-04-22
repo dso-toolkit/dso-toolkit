@@ -389,7 +389,7 @@ export const content: OzonContentStory[] = [
   },
   {
     title: "ExtRef",
-    content: `<ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
+    content: `<ExtRef ref="jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
   },
   {
     title: "IntIoRef",
@@ -413,7 +413,7 @@ export const content: OzonContentStory[] = [
           <Term>Overstromingskans bebouwd gebied 1</Term>
           <Definitie>
             <Al>
-              <ExtIoRef xmlns='' href='https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1'>/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1</ExtIoRef>
+              <ExtIoRef xmlns='' ref='/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1'>/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1</ExtIoRef>
             </Al>
           </Definitie>
         </Begrip>
@@ -488,7 +488,7 @@ export const content: OzonContentStory[] = [
         >
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
-            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            naam="houtkachel-of-open-haard-infographic.jpg"
             uitlijning="start"
             alt="Afbeelding 1"
             schaal="50"
@@ -595,7 +595,7 @@ export const content: OzonContentStory[] = [
                   wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
                 >
                   <Illustratie
-                    naam="https://nep-knooppunt-test.viewer.dso.kadaster.nl/publiek/omgevingsdocumenten/api/presenteren/v7/afbeeldingen/gm1979/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_nld_2/image1.png"
+                    naam="image1.png"
                     breedte="7813"
                     hoogte="4228"
                     uitlijning="start"
@@ -1715,13 +1715,13 @@ export const content: OzonContentStory[] = [
           <Inhoud>
             <Figuur eId='chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wijzigactie='verwijder'>
                 <Titel>Klimaatambities</Titel>
-                <Illustratie naam='images/klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
                 <Bijschrift locatie='onder'>test</Bijschrift>
                 <Bron>www.google.nl</Bron>
             </Figuur>
             <Figuur eId='chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wijzigactie='voegtoe'>
                 <Titel>Klimaatambities</Titel>
-                <Illustratie naam='images/klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
                 <Bijschrift locatie='onder'>test</Bijschrift>
                 <Bron>www.google.nl</Bron>
             </Figuur>

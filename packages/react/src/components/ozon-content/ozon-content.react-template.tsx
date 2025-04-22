@@ -8,7 +8,15 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
   component: "ozonContent",
   implementation: "react",
   template: () =>
-    function ozonContentTemplate({ slotName, content, inline, mark, dsoAnchorClick, dsoOzonContentMarkItemHighlight }) {
+    function ozonContentTemplate({
+      slotName,
+      content,
+      inline,
+      mark,
+      urlResolver,
+      dsoAnchorClick,
+      dsoOzonContentMarkItemHighlight,
+    }) {
       const slotProp = slotName && { slot: slotName };
 
       return (
@@ -16,6 +24,7 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
           content={content}
           inline={inline}
           mark={mark}
+          urlResolver={urlResolver}
           onDsoAnchorClick={dsoAnchorClick}
           onDsoOzonContentMarkItemHighlight={dsoOzonContentMarkItemHighlight}
           {...slotProp}
