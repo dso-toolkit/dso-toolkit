@@ -30,7 +30,7 @@ export const angularOzonContent: ComponentImplementation<OzonContent> = {
             [content]="${content}"
             [inline]="${inline}"
             [mark]="${mark}"
-            [urlResolver]=${urlResolver}
+            [urlResolver]="${urlResolver}"
             (dsoAnchorClick)="${dsoAnchorClick}"
             (dsoOzonContentMarkItemHighlight)="${dsoOzonContentMarkItemHighlight}"
           ></dso-ozon-content>

@@ -69,12 +69,7 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
     dsoAnchorClick: (e) => dsoAnchorClick(e.detail),
-    urlResolver: (
-      name: "Illustratie" | "InlineTekstAfbeelding" | "ExtIoRef" | "ExtRef",
-      attribute: "naam" | "ref",
-      value: string | null,
-      element: Element,
-    ) => {
+    urlResolver: (name, attribute, value, element) => {
       if (!value) {
         return "";
       }

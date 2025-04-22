@@ -110,12 +110,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "document",
-        ozonContentUrlResolver: (
-          name: "Illustratie" | "InlineTekstAfbeelding" | "ExtIoRef" | "ExtRef",
-          attribute: "naam" | "ref",
-          value: string | null,
-          element: Element,
-        ) => {
+        ozonContentUrlResolver: (name, attribute, value, element) => {
           if (!value) {
             return "";
           }
