@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Logo: Ribbon uit positie wanneer logo-url aanwezig is en label-url afwezig is ([#3101](https://github.com/dso-toolkit/dso-toolkit/issues/3101))
 * Viewer Grid: ScrollIntoView scrolled te ver door ([#3096](https://github.com/dso-toolkit/dso-toolkit/issues/3096))
+* Angular: Karma testrunner error in @stencil/core/internal/client/index.js ([#3100](https://github.com/dso-toolkit/dso-toolkit/issues/3100))
 
 ## 🛩️ Release 70.1.0 - 2025-04-14
 
