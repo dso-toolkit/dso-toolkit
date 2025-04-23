@@ -18,7 +18,7 @@ export class OzonContentKopNode implements OzonContentNode {
 
     return (
       <>
-        {node.tagName !== "Kop" && " "}
+        {(node.tagName === "Nummer" || node.tagName === "Opschrift") && " "}
         {content}
       </>
     );

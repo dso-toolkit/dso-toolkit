@@ -270,6 +270,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         annotated: undefined,
         open: true,
         alternativeTitle: "Adequaat aanbod openbaar vervoer",
+        kop: undefined,
       },
       argTypes: documentComponentArgTypes,
       render: templateContainer.render(storyTemplates, (args, { documentComponentTemplate, imroTemplate }) =>
