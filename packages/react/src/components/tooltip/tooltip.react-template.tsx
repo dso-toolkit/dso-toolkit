@@ -4,14 +4,22 @@ import * as React from "react";
 import { DsoTooltip } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
-export const reactTooltip: ComponentImplementation<Tooltip> = {
+import { DsoTooltipCustomEvent, TooltipCloseEvent } from "@dso-toolkit/core";
+
+export const reactTooltip: ComponentImplementation<Tooltip<React.JSX.Element>> = {
   component: "tooltip",
   implementation: "react",
   template: () =>
-    function tooltipTemplate({ position, label, id }) {
+    function tooltipTemplate({ position, label, id, variant, dsoClose, content, heading }) {
       return (
-        <DsoTooltip position={position} id={id}>
-          {label}
+        <DsoTooltip
+          position={position}
+          id={id}
+          variant={variant}
+          onDsoClose={(e: DsoTooltipCustomEvent<TooltipCloseEvent>) => dsoClose?.(e)}
+        >
+          {heading}
+          {label} {content}
         </DsoTooltip>
       );
     },

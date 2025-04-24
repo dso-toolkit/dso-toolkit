@@ -52,6 +52,7 @@ graph TD;
   dso-annotation-omgevingsnormwaarde --> dso-label
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-tooltip --> dso-icon
   style dso-annotation-omgevingsnormwaarde fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

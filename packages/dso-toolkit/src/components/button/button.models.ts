@@ -1,5 +1,4 @@
 import { Icon } from "../icon/icon.models.js";
-import { Tooltip } from "../tooltip/tooltip.models.js";
 
 export interface Button {
   /**
@@ -23,7 +22,6 @@ export interface Button {
   screenreaderPrefix?: string;
   screenreaderSuffix?: string;
   onClick?: (event: MouseEvent) => void;
-  tooltip?: Tooltip;
   slot?: string;
   compact?: boolean;
   align?: boolean;

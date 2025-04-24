@@ -38,6 +38,7 @@ graph TD;
   dso-advanced-select --> dso-label
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-tooltip --> dso-icon
   style dso-advanced-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

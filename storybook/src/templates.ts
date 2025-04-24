@@ -315,7 +315,7 @@ export interface Components {
   tile: Tile;
   tileGrid: TileGrid;
   toggletip: Toggletip<TemplateResult>;
-  tooltip: Tooltip;
+  tooltip: Tooltip<TemplateResult>;
   treeView: TreeView;
   viewerGrid: ViewerGrid<TemplateResult>;
   whitebox: Whitebox;

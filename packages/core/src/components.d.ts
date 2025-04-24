@@ -45,6 +45,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+import { TooltipCloseEvent } from "./components/tooltip/tooltip.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -88,6 +89,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+export { TooltipCloseEvent } from "./components/tooltip/tooltip.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridFilterpanelApplyEvent, ViewerGridFilterpanelCancelEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridMode, ViewerGridPanelSize, ViewerGridVdkTab, ViewerGridVrkTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -1268,6 +1270,10 @@ export namespace Components {
           * Set position strategy of tooltip
          */
         "strategy": "auto" | "absolute" | "fixed";
+        /**
+          * The variant of the Tooltip.
+         */
+        "variant": "onboarding" | undefined;
     }
     interface DsoTreeView {
         /**
@@ -1506,6 +1512,10 @@ export interface DsoSurveyRatingCustomEvent<T> extends CustomEvent<T> {
 export interface DsoTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoTabElement;
+}
+export interface DsoTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoTooltipElement;
 }
 export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2345,7 +2355,18 @@ declare global {
         prototype: HTMLDsoToggletipElement;
         new (): HTMLDsoToggletipElement;
     };
+    interface HTMLDsoTooltipElementEventMap {
+        "dsoClose": TooltipCloseEvent;
+    }
     interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoTooltipElementEventMap>(type: K, listener: (this: HTMLDsoTooltipElement, ev: DsoTooltipCustomEvent<HTMLDsoTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoTooltipElementEventMap>(type: K, listener: (this: HTMLDsoTooltipElement, ev: DsoTooltipCustomEvent<HTMLDsoTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoTooltipElement: {
         prototype: HTMLDsoTooltipElement;
@@ -3876,6 +3897,10 @@ declare namespace LocalJSX {
          */
         "noArrow"?: boolean;
         /**
+          * Emitted when the user closes the Tooltip. Only emitted when the variant is `onboarding` and the user clicks the close-button.
+         */
+        "onDsoClose"?: (event: DsoTooltipCustomEvent<TooltipCloseEvent>) => void;
+        /**
           * Set position of tooltip relative to target
          */
         "position"?: Placement;
@@ -3891,6 +3916,10 @@ declare namespace LocalJSX {
           * Set position strategy of tooltip
          */
         "strategy"?: "auto" | "absolute" | "fixed";
+        /**
+          * The variant of the Tooltip.
+         */
+        "variant"?: "onboarding" | undefined;
     }
     interface DsoTreeView {
         /**

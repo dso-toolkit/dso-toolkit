@@ -1,9 +1,23 @@
 import { beforeWrite, createPopper, Instance as PopperInstance, Placement, State as PopperState } from "@popperjs/core";
 import maxSize from "popper-max-size-modifier";
-import { h, Component, Element, Host, Method, Prop, State, Watch, ComponentInterface } from "@stencil/core";
+import {
+  h,
+  Component,
+  Element,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import clsx from "clsx";
 import { hasOverflow } from "../../utils/has-overflow";
 import debounce from "debounce";
+
+import { TooltipCloseEvent } from "./tooltip.interfaces";
 
 // Keep const in sync with $tooltip-transition-duration in dso-toolkit/src/components/tooltip/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
@@ -77,6 +91,19 @@ export class Tooltip implements ComponentInterface {
   active = false;
 
   /**
+   * The variant of the Tooltip.
+   */
+  @Prop()
+  variant: "onboarding" | undefined;
+
+  /**
+   * Emitted when the user closes the Tooltip. Only emitted when the variant is `onboarding` and the user clicks the
+   * close-button.
+   */
+  @Event()
+  dsoClose!: EventEmitter<TooltipCloseEvent>;
+
+  /**
    * Activate the tooltip (Sets the `active` attribute)
    */
   @Method()
@@ -89,7 +116,7 @@ export class Tooltip implements ComponentInterface {
    */
   @Method()
   async deactivate(): Promise<void> {
-    this.active = false;
+    this.active = this.variant === "onboarding";
   }
 
   @Watch("position")
@@ -169,7 +196,7 @@ export class Tooltip implements ComponentInterface {
       // van setTimeout() met 2ms.
       setTimeout(() => {
         if (this.element.isConnected) {
-          this.active = false;
+          this.active = this.variant === "onboarding";
         }
       }, 2);
     },
@@ -227,13 +254,31 @@ export class Tooltip implements ComponentInterface {
     }
   };
 
+  get headingSlottedElement() {
+    return this.element.querySelector("[slot='heading']");
+  }
+
   render() {
     return (
       <Host class={{ hidden: this.hidden }} role="tooltip" onClick={this.listenClick}>
-        <div class={clsx("tooltip", { in: this.active })}>
+        <div class={clsx("tooltip", { in: this.active }, { "tooltip-onboarding": this.variant === "onboarding" })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div aria-hidden={!this.descriptive || undefined} class={clsx("tooltip-inner", { "dso-small": this.small })}>
-            <slot></slot>
+            <div class="tooltip-content-wrapper">
+              {this.headingSlottedElement !== null && (
+                <div class="tooltip-content-heading">
+                  <dso-icon icon="light-bulb"></dso-icon>
+                  <slot name="heading" />
+                </div>
+              )}
+              <slot></slot>
+            </div>
+            {this.variant === "onboarding" && (
+              <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
+                <dso-icon icon="times"></dso-icon>
+                <span class="sr-only">Sluiten</span>
+              </button>
+            )}
           </div>
         </div>
       </Host>

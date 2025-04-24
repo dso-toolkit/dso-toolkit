@@ -49,6 +49,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 graph TD;
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-tooltip --> dso-icon
   dso-accordion-section --> dso-label
   dso-advanced-select --> dso-label
   dso-annotation-activiteit --> dso-label

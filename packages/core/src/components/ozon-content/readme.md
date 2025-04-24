@@ -45,6 +45,7 @@ graph TD;
   dso-ozon-content --> dso-tooltip
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon
+  dso-tooltip --> dso-icon
   dso-table --> dso-icon
   dso-document-component --> dso-ozon-content
   dsot-document-component-demo --> dso-ozon-content

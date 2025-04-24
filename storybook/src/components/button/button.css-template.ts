@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
   implementation: "html-css",
-  template: ({ iconTemplate, tooltipTemplate }) => {
+  template: ({ iconTemplate }) => {
     function getClassNames(variant: "primary" | "secondary" | "tertiary" | null, modifier?: string, mode?: string) {
       const classNames = [];
 
@@ -63,7 +63,6 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       screenreaderPrefix,
       screenreaderSuffix,
       slot,
-      tooltip,
       compact,
       truncate,
       onClick,
@@ -102,7 +101,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
               : nothing}${label}${screenreaderSuffix
               ? html`<span class="sr-only">${screenreaderSuffix}</span>`
               : nothing}</span
-          >${icon && iconMode ? iconTemplate(icon) : nothing} ${tooltip ? tooltipTemplate(tooltip) : nothing}
+          >${icon && iconMode ? iconTemplate(icon) : nothing}
         </button>
       `;
     }

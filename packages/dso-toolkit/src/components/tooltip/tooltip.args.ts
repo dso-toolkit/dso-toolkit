@@ -2,6 +2,8 @@ import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ArgTypes } from "@storybook/types";
 
+import { noControl } from "../../storybook";
+
 import { Tooltip, tooltipPositions, tooltipStrategy } from "./tooltip.models.js";
 
 export interface TooltipArgs {
@@ -12,6 +14,8 @@ export interface TooltipArgs {
   label: string;
   id: string;
   action: HandlerFunction;
+  variant?: "onboarding";
+  dsoClose: HandlerFunction;
 }
 
 export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
@@ -50,15 +54,30 @@ export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
   action: {
     action: "Button",
   },
+  variant: {
+    ...noControl,
+  },
+  dsoClose: {
+    ...noControl,
+    action: "dsoClose",
+  },
 };
 
-export function tooltipArgsMapper(a: TooltipArgs): Tooltip {
+export function tooltipArgsMapper<TemplateFnReturnType>(
+  a: TooltipArgs,
+  heading?: TemplateFnReturnType,
+  content?: TemplateFnReturnType,
+): Tooltip<TemplateFnReturnType> {
   return {
     active: a.active,
     descriptive: a.descriptive,
-    label: a.label || `Ik sta "${a.position}"`,
+    label: !a.variant ? a.label || `Ik sta "${a.position}"` : undefined,
     position: a.position,
     strategy: a.strategy,
     id: a.id,
+    variant: a.variant,
+    dsoClose: a.dsoClose,
+    content,
+    heading,
   };
 }

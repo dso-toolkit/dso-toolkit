@@ -20,6 +20,14 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
 | `small`       | `small`       | Defines if the tooltip has a smaller max-width                                                                                                                                   | `boolean \| undefined`                                                                                                                                                                                       | `undefined` |
 | `stateless`   | `stateless`   | Deactivates mouseover behaviour                                                                                                                                                  | `boolean \| undefined`                                                                                                                                                                                       | `undefined` |
 | `strategy`    | `strategy`    | Set position strategy of tooltip                                                                                                                                                 | `"absolute" \| "auto" \| "fixed"`                                                                                                                                                                            | `"auto"`    |
+| `variant`     | `variant`     | The variant of the Tooltip.                                                                                                                                                      | `"onboarding" \| undefined`                                                                                                                                                                                  | `undefined` |
+
+
+## Events
+
+| Event      | Description                                                                                                                   | Type                             |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `dsoClose` | Emitted when the user closes the Tooltip. Only emitted when the variant is `onboarding` and the user clicks the close-button. | `CustomEvent<TooltipCloseEvent>` |
 
 
 ## Methods
@@ -54,9 +62,14 @@ Type: `Promise<void>`
  - [dso-ozon-content](../ozon-content)
  - [dso-toggletip](../toggletip)
 
+### Depends on
+
+- [dso-icon](../icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  dso-tooltip --> dso-icon
   dso-document-component --> dso-tooltip
   dso-label --> dso-tooltip
   dso-ozon-content --> dso-tooltip

@@ -95,7 +95,9 @@ export function children({ anchorTemplate, imageTemplate, richContentTemplate, b
         proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze
         door elkaar husselde om een font-catalogus te maken.
       </p>
-      <p>${imageTemplate({ source: "/dummy/images/ocean-480.jpg", alt: "Afbeelding van een oceaangolf" })}</p>
+      <p>
+        ${imageTemplate({ source: "images/640px-Ocean_Beach.jpg", alt: "Afbeelding van een oceaangolf op het strand" })}
+      </p>
       <p>
         Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische
         letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met deze

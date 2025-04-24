@@ -15,15 +15,18 @@ type TooltipStory = StoryObj<TooltipArgs, Renderer>;
 interface TooltipStories {
   AsChild: TooltipStory;
   AsSibling: TooltipStory;
+  Onboarding: TooltipStory;
 }
 
 interface TooltipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
   extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TooltipTemplates<TemplateFnReturnType>> {}
 
 interface TooltipTemplates<TemplateFnReturnType> {
-  tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
+  tooltipTemplate: (tooltipProperties: Tooltip<TemplateFnReturnType>) => TemplateFnReturnType;
   asChildTemplate: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
   asSiblingTemplate: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
+  richContent: TemplateFnReturnType;
+  headingContent: TemplateFnReturnType;
 }
 
 export function tooltipMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -63,6 +66,22 @@ export function tooltipStories<Implementation, Templates, TemplateFnReturnType>(
       },
       render: templateContainer.render(storyTemplates, (args, { tooltipTemplate, asSiblingTemplate }) =>
         asSiblingTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action),
+      ),
+    },
+    Onboarding: {
+      args: {
+        id: uuidv4(),
+        position: "right",
+        variant: "onboarding",
+      },
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { tooltipTemplate, asSiblingTemplate, headingContent, richContent }) =>
+          asSiblingTemplate(
+            tooltipTemplate(tooltipArgsMapper(args, headingContent, richContent)),
+            args.id,
+            args.action,
+          ),
       ),
     },
   };

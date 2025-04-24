@@ -48,6 +48,7 @@ graph TD;
   dso-annotation-activiteit --> dso-label
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-tooltip --> dso-icon
   style dso-annotation-activiteit fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

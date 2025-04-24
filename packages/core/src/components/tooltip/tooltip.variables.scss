@@ -14,3 +14,7 @@ $max-inline-size-small: 40 * units.$u1;
 
 // Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss
 $transition-duration: 0.15s;
+
+$onboarding-color: colors.$donkerblauw;
+$onboarding-inline-size: 360px;
+$onboarding-min-block-size: 198px;

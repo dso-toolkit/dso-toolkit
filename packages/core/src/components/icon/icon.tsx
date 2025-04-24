@@ -47,6 +47,7 @@ import label from "dso-toolkit/src/icons/label.svg";
 import land from "dso-toolkit/src/icons/land.svg";
 import landscape from "dso-toolkit/src/icons/landscape.svg";
 import layers from "dso-toolkit/src/icons/layers.svg";
+import lightBulb from "dso-toolkit/src/icons/light-bulb.svg";
 import location from "dso-toolkit/src/icons/location.svg";
 import locationOutline from "dso-toolkit/src/icons/location-outline.svg";
 import locationSearch from "dso-toolkit/src/icons/location-search.svg";
@@ -151,6 +152,7 @@ const icons = [
   { alias: "land", svg: land },
   { alias: "landscape", svg: landscape },
   { alias: "layers", svg: layers },
+  { alias: "light-bulb", svg: lightBulb },
   { alias: "location", svg: location },
   { alias: "location-outline", svg: locationOutline },
   { alias: "location-search", svg: locationSearch },

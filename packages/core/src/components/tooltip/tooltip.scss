@@ -1,8 +1,13 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
+
+@use "~dso-toolkit/src/components/button";
+
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 @use "tooltip.variables" as tooltip-variables;
 
@@ -11,6 +16,21 @@
 }
 
 @include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+::slotted([slot="heading"]) {
+  display: flex !important;
+  align-items: center !important;
+
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+
+  color: colors.$wit !important;
+  line-height: 1.375 !important;
+}
 
 .tooltip {
   font-family: typography.$font-family-base;
@@ -37,6 +57,77 @@
   position: absolute;
   transition: opacity tooltip-variables.$transition-duration linear;
   z-index: zindex.$tooltip;
+
+  &.tooltip-onboarding {
+    &.in {
+      .tooltip-inner {
+        --link-color: #{colors.$wit};
+        background-color: tooltip-variables.$onboarding-color;
+        color: colors.$wit;
+        inline-size: tooltip-variables.$onboarding-inline-size;
+        min-block-size: tooltip-variables.$onboarding-min-block-size;
+        padding-block: units.$u4 units.$u1;
+        padding-inline: units.$u1;
+
+        @include set-colors.apply(tooltip-variables.$onboarding-color);
+
+        @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+          inline-size: 100vw;
+        }
+      }
+
+      .tooltip-content-wrapper {
+        padding-inline: units.$u2;
+        padding-block-end: units.$u2;
+      }
+
+      .tooltip-content-heading {
+        display: flex;
+
+        dso-icon {
+          margin-inline-end: units.$u1;
+        }
+      }
+    }
+
+    .dso-close {
+      @include button.element();
+
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      block-size: units.$u4;
+      inline-size: units.$u4;
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+      text-align: center;
+    }
+
+    &[data-popper-placement="top"] {
+      .tooltip-arrow {
+        border-block-start-color: tooltip-variables.$onboarding-color;
+      }
+    }
+
+    &[data-popper-placement="right"] {
+      .tooltip-arrow {
+        border-inline-end-color: tooltip-variables.$onboarding-color;
+      }
+    }
+
+    &[data-popper-placement="bottom"] {
+      .tooltip-arrow {
+        border-block-end-color: tooltip-variables.$onboarding-color;
+      }
+    }
+
+    &[data-popper-placement="left"] {
+      .tooltip-arrow {
+        border-inline-start-color: tooltip-variables.$onboarding-color;
+      }
+    }
+  }
 
   &.in {
     opacity: tooltip-variables.$opacity;

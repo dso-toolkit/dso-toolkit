@@ -24,6 +24,7 @@ graph TD;
   dso-project-item --> dso-label
   dso-label --> dso-icon
   dso-label --> dso-tooltip
+  dso-tooltip --> dso-icon
   style dso-project-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

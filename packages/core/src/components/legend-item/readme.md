@@ -46,6 +46,7 @@ graph TD;
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon
+  dso-tooltip --> dso-icon
   style dso-legend-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

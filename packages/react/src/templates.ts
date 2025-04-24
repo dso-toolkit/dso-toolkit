@@ -114,7 +114,7 @@ export interface Components {
   table: Table<JSX.Element>;
   tabs: Tabs<JSX.Element>;
   toggletip: Toggletip<JSX.Element>;
-  tooltip: Tooltip;
+  tooltip: Tooltip<JSX.Element>;
   treeView: TreeView;
 }
 
