@@ -156,7 +156,11 @@ export class Header {
   private text = i18n(() => this.host, translations);
 
   componentDidRender() {
-    if (this.showDropDown && this.host.isConnected) {
+    if (!this.host.isConnected) {
+      return;
+    }
+
+    if (this.showDropDown) {
       this.dropdownOptionsOffset = this.calculateDropdownOptionsOffset();
 
       return;
