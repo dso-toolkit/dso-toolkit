@@ -12,8 +12,8 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 | `addSpaceBeforeNode` | `add-space-before-node` | Adds a non breaking space to the node element.                                                                  | `boolean`                                                         | `false`     |
 | `content`            | `content`               | The XML to be rendered.                                                                                         | `XMLDocument \| string \| undefined`                              | `undefined` |
 | `inline`             | `inline`                | Setting this property creates dso-ozon-content as inline element instead of a block element.                    | `boolean`                                                         | `false`     |
-| `mark`               | --                      | To mark text.                                                                                                   | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
-| `urlResolver`        | --                      | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`                             | `undefined` |
+| `mark`               | `mark`                  | To mark text.                                                                                                   | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
+| `urlResolver`        | `url-resolver`          | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`                             | `undefined` |
 
 
 ## Events

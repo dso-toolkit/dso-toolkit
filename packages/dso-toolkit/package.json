@@ -58,7 +58,7 @@
     "gulp-svgstore": "^9.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "list-stream": "^2.1.0",
-    "markdown-to-jsx": "^7.7.4",
+    "markdown-to-jsx": "^7.7.6",
     "plugin-error": "^2.0.1",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
