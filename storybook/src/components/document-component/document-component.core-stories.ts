@@ -22,7 +22,7 @@ const meta: Meta = {
 
 export default meta;
 
-const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories(
+const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
   {
     templateContainer,
     storyTemplates: (templates) => {
@@ -92,4 +92,4 @@ const { Default, Contents, Inhoudsopgave, IMRO, Kop } = documentComponentStories
   decorator,
 );
 
-export { Default, Contents, Inhoudsopgave, IMRO, Kop };
+export { Default, Contents, Inhoudsopgave, IMRO };

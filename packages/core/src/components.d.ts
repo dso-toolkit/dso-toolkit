@@ -983,10 +983,6 @@ export namespace Components {
     }
     interface DsoOzonContent {
         /**
-          * Adds a non breaking space to the node element.
-         */
-        "addSpaceBeforeNode": boolean;
-        /**
           * The XML to be rendered.
          */
         "content"?: OzonContentInputType;
@@ -3572,10 +3568,6 @@ declare namespace LocalJSX {
         "showCloseButton"?: boolean;
     }
     interface DsoOzonContent {
-        /**
-          * Adds a non breaking space to the node element.
-         */
-        "addSpaceBeforeNode"?: boolean;
         /**
           * The XML to be rendered.
          */
