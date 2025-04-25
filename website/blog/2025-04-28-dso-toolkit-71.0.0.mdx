@@ -1,0 +1,19 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v71.0.0 🎱
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Ozon Content
+
+<!-- truncate -->
+
+## Ozon Content
+
+De property `addSpaceBeforeNode` bestaat niet meer.
+
+Bij de verwerking van de STOP `Kop` node werd binnen het Document Component gebruik gemaakt van deze property op Ozon Content. Het toevoegen van een spatie voor STOP nodes `Nummer` en `Opschrift`, die onderdeel van de `Kop` node zijn, wordt nu zonder deze property binnen Ozon Content afgehandeld.
+
+Er is geen uitgestippeld migratiepad. Hoogstwaarschijnlijk wil je als high-level afnemer gebruik maken van Document Component. Ozon Content kan gezien worden als een "Low Level component".
