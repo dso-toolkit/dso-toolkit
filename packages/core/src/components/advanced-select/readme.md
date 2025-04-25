@@ -9,9 +9,9 @@
 
 | Property     | Attribute     | Description                                                               | Type                                       | Default     |
 | ------------ | ------------- | ------------------------------------------------------------------------- | ------------------------------------------ | ----------- |
-| `active`     | --            | The active option. By object reference.                                   | `AdvancedSelectOption<never> \| undefined` | `undefined` |
+| `active`     | `active`      | The active option. By object reference.                                   | `AdvancedSelectOption<never> \| undefined` | `undefined` |
 | `activeHint` | `active-hint` | An extra text for the active option. Only visible in the list of options. | `string \| undefined`                      | `undefined` |
-| `options`    | --            | The options to display in the select.                                     | `AdvancedSelectOptionOrGroup<never>[]`     | `[]`        |
+| `options`    | `options`     | The options to display in the select.                                     | `AdvancedSelectOptionOrGroup<never>[]`     | `[]`        |
 
 
 ## Events

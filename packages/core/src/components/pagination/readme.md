@@ -10,7 +10,7 @@
 | Property      | Attribute      | Description                                | Type                       | Default                |
 | ------------- | -------------- | ------------------------------------------ | -------------------------- | ---------------------- |
 | `currentPage` | `current-page` | Current page                               | `number \| undefined`      | `undefined`            |
-| `formatHref`  | --             | This function is called to format the href | `(page: number) => string` | `(page) => "#" + page` |
+| `formatHref`  | `format-href`  | This function is called to format the href | `(page: number) => string` | `(page) => "#" + page` |
 | `totalPages`  | `total-pages`  | Total pages                                | `number \| undefined`      | `undefined`            |
 
 
