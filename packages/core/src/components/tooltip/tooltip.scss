@@ -94,14 +94,15 @@
     &.in {
       .tooltip-inner {
         --link-color: #{colors.$wit};
-        background-color: tooltip-variables.$onboarding-color;
-        color: colors.$wit;
+        --link-hover-color: #{colors.$grijs-30};
+        --link-visited-color: #{colors.$grijs-50};
+
         max-inline-size: min(#{tooltip-variables.$onboarding-max-inline-size}, calc(100vw - 2 * units.$u1));
         min-block-size: tooltip-variables.$onboarding-min-block-size;
         padding-block: units.$u4 units.$u1;
         padding-inline: units.$u1;
 
-        @include set-colors.apply(tooltip-variables.$onboarding-color);
+        @include set-colors.apply(tooltip-variables.$onboarding-color, $icons: false, $links: false);
       }
 
       .tooltip-content-wrapper {
