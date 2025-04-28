@@ -87,21 +87,21 @@
   z-index: zindex.$tooltip;
 
   &.tooltip-onboarding {
+    @media screen and (max-width: tooltip-variables.$onboarding-max-inline-size) {
+      padding-inline-start: units.$u1 !important;
+    }
+
     &.in {
       .tooltip-inner {
         --link-color: #{colors.$wit};
         background-color: tooltip-variables.$onboarding-color;
         color: colors.$wit;
-        inline-size: tooltip-variables.$onboarding-inline-size;
+        max-inline-size: min(#{tooltip-variables.$onboarding-max-inline-size}, calc(100vw - 2 * units.$u1));
         min-block-size: tooltip-variables.$onboarding-min-block-size;
         padding-block: units.$u4 units.$u1;
         padding-inline: units.$u1;
 
         @include set-colors.apply(tooltip-variables.$onboarding-color);
-
-        @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-          inline-size: 100vw;
-        }
       }
 
       .tooltip-content-wrapper {
