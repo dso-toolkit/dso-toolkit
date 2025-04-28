@@ -16,6 +16,7 @@ heeft.
 - Simpele aanpassing aan bestaand component
 - Licht nadenkwerk
 - Verwijderen van een component of HTML/CSS
+- PeerDependency updates
 
 3
 
