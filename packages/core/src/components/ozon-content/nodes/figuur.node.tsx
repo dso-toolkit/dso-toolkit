@@ -1,4 +1,4 @@
-import { Fragment, h, JSX } from "@stencil/core";
+import { Fragment, FunctionalComponent, h, JSX } from "@stencil/core";
 
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
@@ -16,15 +16,15 @@ interface IBijschrift {
 }
 
 interface Illustratie {
-  naam: string | null;
-  breedte: string | null;
-  hoogte: string | null;
-  dpi: string | null;
-  uitlijning: string | null;
-  alt: string | null;
+  naam: string;
+  breedte: number;
+  hoogte: number;
+  dpi: number;
+  uitlijning: "start" | "center" | "end";
+  alt: string | undefined;
 }
 
-const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSpanElement => {
+const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx }) => {
   return (
     <span class="figuur-bijschrift">
       {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud)}
@@ -41,21 +41,40 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
 export class OzonContentFiguurNode implements OzonContentNode {
   name = ["Figuur"];
 
-  getStyle(illustratie: Illustratie) {
+  private getStyle(illustratie: Illustratie) {
     const widthPixels = Number(illustratie.breedte);
     const heightPixels = Number(illustratie.hoogte);
+
+    const style = {
+      "--_dso-ozon-content-illustratie-uitlijning": illustratie.uitlijning,
+    };
 
     if (widthPixels && heightPixels) {
       // This is the STOP formula to calculate the width in percentage
       // see: https://koop.gitlab.io/stop/standaard/1.4.0-ic/regeltekst_afbeelding.html
       // We maximise it to 100% in the case of missing dpi or a calculated percentage greater than 100%
       const widthPercentage = Math.min(illustratie.dpi ? (16.4 * widthPixels) / Number(illustratie.dpi) : 100, 100);
-      return {
-        "--ozon-illustratie-aspect-ratio": (widthPixels / heightPixels).toString(),
-        "--ozon-illustratie-width": `${widthPercentage}%`,
-      };
+
+      Object.assign(style, {
+        "--_dso-ozon-content-illustratie-aspect-ratio": (widthPixels / heightPixels).toString(),
+        "--_dso-ozon-content-illustratie-width": `${widthPercentage}%`,
+      });
     }
-    return;
+
+    return style;
+  }
+
+  private mapIllustratieNode(node: Element): Illustratie {
+    return {
+      naam: node.getAttribute("naam") ?? "",
+      breedte: Number(node.getAttribute("breedte")),
+      hoogte: Number(node.getAttribute("hoogte")),
+      dpi: Number(node.getAttribute("dpi")),
+      uitlijning:
+        ["start", "center", "end"].find((u): u is Illustratie["uitlijning"] => node.getAttribute("uitlijning") === u) ??
+        "start",
+      alt: node.getAttribute("alt") ?? undefined,
+    };
   }
 
   render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext) {
@@ -69,14 +88,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
     const wijzigactie = node.getAttribute("wijzigactie") || undefined;
 
     if (illustratieNode instanceof Element) {
-      const illustratie = {
-        naam: illustratieNode.getAttribute("naam"),
-        breedte: illustratieNode.getAttribute("breedte"),
-        hoogte: illustratieNode.getAttribute("hoogte"),
-        dpi: illustratieNode.getAttribute("dpi"),
-        uitlijning: illustratieNode.getAttribute("uitlijning") || "start",
-        alt: illustratieNode.getAttribute("alt"),
-      };
+      const illustratie = this.mapIllustratieNode(illustratieNode);
 
       const bijschrift =
         bijschriftNode instanceof Element
@@ -91,17 +103,13 @@ export class OzonContentFiguurNode implements OzonContentNode {
       return (
         <div
           class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}
-          style={{ "--ozon-illustratie-uitlijning": `${illustratie.uitlijning}` }}
+          style={this.getStyle(illustratie)}
         >
           {titel && <span class="figuur-titel">{titel}</span>}
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
-          <dso-image-overlay
-            wijzigactie={wijzigactie}
-            class="dso-ozon-figuur-reserve-space"
-            style={this.getStyle(illustratie)}
-          >
+          <dso-image-overlay wijzigactie={wijzigactie}>
             {titel && (
               <div slot="titel">
                 <span>{titel}</span>

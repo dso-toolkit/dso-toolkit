@@ -491,7 +491,6 @@ export const content: OzonContentStory[] = [
             naam="houtkachel-of-open-haard-infographic.jpg"
             uitlijning="start"
             alt="Afbeelding 1"
-            schaal="50"
             hoogte="1124"
             breedte="720"
             dpi="150"

@@ -391,20 +391,13 @@ describe("Ozon Content", () => {
       .and("have.attr", "alt", "Afbeelding 1")
       .get("dso-ozon-content")
       .shadow()
-      .find("dso-image-overlay")
-      .and("have.class", "dso-ozon-figuur-reserve-space")
-      .and(
-        "have.attr",
-        "style",
-        "--ozon-illustratie-aspect-ratio: 0.6405693950177936; --ozon-illustratie-width: 29.519999999999996%;",
-      )
-      .get("dso-ozon-content")
-      .shadow()
       .find(".dso-ozon-figuur")
-      .should("have.attr", "style", "--ozon-illustratie-uitlijning: center;")
+      .should("have.css", "--_dso-ozon-content-illustratie-aspect-ratio", "0.6405693950177936")
+      .and("have.css", "--_dso-ozon-content-illustratie-width", "29.519999999999996%")
+      .and("have.css", "--_dso-ozon-content-illustratie-uitlijning", "center")
       .get("dso-ozon-content")
       .shadow()
-      .find(".dso-ozon-figuur > div > .figuur-bijschrift")
+      .find(".dso-ozon-figuur > .figuur-bijschrift")
       .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
