@@ -32,6 +32,34 @@
   line-height: 1.375 !important;
 }
 
+:host {
+  --_dso-button-primary-background-color: #{colors.$wit};
+  --_dso-button-primary-border-color: #{colors.$wit};
+  --_dso-button-primary-color: #{colors.$zwart};
+  --_dso-button-primary-hover-background-color: #{colors.$grijs-20};
+  --_dso-button-primary-hover-border-color: #{colors.$grijs-20};
+  --_dso-button-primary-hover-color: #{colors.$zwart};
+  --_dso-button-primary-active-background-color: #{colors.$grijs-40};
+  --_dso-button-primary-active-border-color: #{colors.$grijs-40};
+  --_dso-button-primary-active-color: #{colors.$zwart};
+  --_dso-button-primary-disabled-background-color: #{colors.$wit};
+  --_dso-button-primary-disabled-border-color: #{colors.$wit};
+  --_dso-button-primary-disabled-color: #{colors.$grijs-30};
+
+  --_dso-button-secondary-background-color: #{colors.$wit};
+  --_dso-button-secondary-border-color: #{colors.$wit};
+  --_dso-button-secondary-color: #{colors.$zwart};
+  --_dso-button-secondary-hover-background-color: #{colors.$grijs-20};
+  --_dso-button-secondary-hover-border-color: #{colors.$grijs-20};
+  --_dso-button-secondary-hover-color: #{colors.$zwart};
+  --_dso-button-secondary-active-background-color: #{colors.$grijs-40};
+  --_dso-button-secondary-active-border-color: #{colors.$grijs-40};
+  --_dso-button-secondary-active-color: #{colors.$zwart};
+  --_dso-button-secondary-disabled-background-color: #{colors.$wit};
+  --_dso-button-secondary-disabled-border-color: #{colors.$wit};
+  --_dso-button-secondary-disabled-color: #{colors.$grijs-30};
+}
+
 .tooltip {
   font-family: typography.$font-family-base;
   // We deliberately do NOT reset font-size.

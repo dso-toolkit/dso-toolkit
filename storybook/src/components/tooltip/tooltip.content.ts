@@ -29,11 +29,19 @@ export function richContent(templates: Templates) {
       <p>
         En ook een afbeelding: ${imageTemplate({ source: "images/sneeuwpop.png", alt: "Afbeelding van een sneeuwpop" })}
       </p>
+
       ${buttonRowTemplate({
         align: "right",
         buttons: [
           {
-            label: "Oke!",
+            label: "Oké! Oké!",
+            type: "button",
+            variant: "secondary",
+            onClick: () => null,
+            icon: { icon: "chevron-left" },
+          },
+          {
+            label: "Oké!",
             type: "button",
             variant: "primary",
             onClick: () => null,
