@@ -491,7 +491,9 @@ export const content: OzonContentStory[] = [
             naam="houtkachel-of-open-haard-infographic.jpg"
             uitlijning="start"
             alt="Afbeelding 1"
-            schaal="50"
+            hoogte="1124"
+            breedte="720"
+            dpi="150"
           />
           <Bijschrift locatie="onder">Bijschrift van het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
@@ -596,8 +598,10 @@ export const content: OzonContentStory[] = [
                 >
                   <Illustratie
                     naam="image1.png"
+                    formaat='image/png'
                     breedte="7813"
                     hoogte="4228"
+                    dpi='72'
                     uitlijning="start"
                   />
                 </Figuur>
@@ -1715,13 +1719,13 @@ export const content: OzonContentStory[] = [
           <Inhoud>
             <Figuur eId='chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_17__subchp_17.1__subsec_17.1.1__subsec_17.1.1.1__subsec_17.1.1.1.1__art_17.1__para_4__img_o_1_inst2' wijzigactie='verwijder'>
                 <Titel>Klimaatambities</Titel>
-                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206' dpi="72"/>
                 <Bijschrift locatie='onder'>test</Bijschrift>
                 <Bron>www.google.nl</Bron>
             </Figuur>
             <Figuur eId='chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wId='gm0344_499f564bbf174298975d7d7ece6b61e2__chp_18__subchp_18.1__subsec_18.1.1__subsec_18.1.1.1__subsec_18.1.1.1.1__art_18.1__para_1__img_o_1' wijzigactie='voegtoe'>
                 <Titel>Klimaatambities</Titel>
-                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206'/>
+                <Illustratie naam='klimaatambities_agv_infographic_002_1.jpg' breedte='366' hoogte='206' dpi="72"/>
                 <Bijschrift locatie='onder'>test</Bijschrift>
                 <Bron>www.google.nl</Bron>
             </Figuur>

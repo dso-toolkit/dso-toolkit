@@ -73,6 +73,7 @@ a {
 }
 
 .dso-ozon-figuur {
+  text-align: var(--_dso-ozon-content-illustratie-uitlijning);
   margin-block-end: units.$u1;
 
   .figuur-bijschrift {
@@ -98,6 +99,18 @@ a {
     display: block;
     font-weight: 500;
     padding-block-end: 0.5rem;
+  }
+
+  > dso-image-overlay {
+    inline-size: var(--_dso-ozon-content-illustratie-width);
+    block-size: auto;
+    max-block-size: 200vh;
+    aspect-ratio: var(--_dso-ozon-content-illustratie-aspect-ratio);
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+    }
   }
 }
 

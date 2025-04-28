@@ -375,7 +375,9 @@ describe("Ozon Content", () => {
             naam="houtkachel-of-open-haard-infographic.jpg"
             breedte="720"
             hoogte="1124"
+            dpi="400"
             alt="Afbeelding 1"
+            uitlijning="center"
           />
           <Bijschrift locatie="onder">Bijschrift bij het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
@@ -387,6 +389,12 @@ describe("Ozon Content", () => {
       .find("dso-image-overlay > img")
       .should("have.attr", "src", "images/houtkachel-of-open-haard-infographic.jpg")
       .and("have.attr", "alt", "Afbeelding 1")
+      .get("dso-ozon-content")
+      .shadow()
+      .find(".dso-ozon-figuur")
+      .should("have.css", "--_dso-ozon-content-illustratie-aspect-ratio", "0.6405693950177936")
+      .and("have.css", "--_dso-ozon-content-illustratie-width", "29.519999999999996%")
+      .and("have.css", "--_dso-ozon-content-illustratie-uitlijning", "center")
       .get("dso-ozon-content")
       .shadow()
       .find(".dso-ozon-figuur > .figuur-bijschrift")
