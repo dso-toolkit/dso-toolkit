@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🎱 Release 71.0.0 - 2025-04-28
+
 ### Added
 * Ozon Content: Compatible met Presenteren v8 ([#3089](https://github.com/dso-toolkit/dso-toolkit/issues/3089))
 * Ozon Content: `<Illustratie>` attributen toepassen ([#3040](https://github.com/dso-toolkit/dso-toolkit/issues/3040))
