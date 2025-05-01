@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 💎 Release 72.0.0 - 2025-05-01
+
 ### Task
 * **BREAKING** React: Update peerDependencies naar 19, verwijder 17 ([#3077](https://github.com/dso-toolkit/dso-toolkit/issues/3077))
 
