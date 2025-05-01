@@ -50,7 +50,8 @@ Er zijn twee implementaties van het Icon component:
 - HTML/CSS: `<svg class="di">`.
 - Web Component: `<dso-icon>`.
 
-Zie de betreffende documentatie in Storybook voor meer informatie over het gebruik van deze twee implementaties. Onder "Voorbeeldpagina's" is er een overzicht van alle beschikbare iconen.
+Zie de betreffende documentatie in Storybook voor meer informatie over het gebruik van deze twee implementaties. Een
+overzicht van alle beschikbare iconen is terug te vinden onder het Icon component onder Overview (HTML/CSS en Core).
 
 Als maintainer kunnen wij ook gebruik maken van Icon:
 
@@ -61,7 +62,8 @@ Als maintainer kunnen wij ook gebruik maken van Icon:
 
 ## `di` mixins.
 
-"di" staat voor **D**SO Toolkit **I**con. De `di.base()` en `di.variant()` mixis worden in HTML/CSS implementaties gebruikt voor werkvormen waar de afnemer geen vrije keuze voor iconen heeft. Denk bijvoorbeeld aan het Alert component: De iconen zijn gekoppeld aan de variant. "Danger" heeft altijd het gele gevarendriehoek. Het icoon is afhankelijk van de variant. Bij de Web Component implementatie is dit scriptend geregeld, maar voor de HTMl/CSS implementatie is het icoon gekoppeld aan de modifier classes voor de varianten.
+"di" staat voor **D**SO Toolkit **I**con. De `di.base()` en `di.variant()` mixins worden in HTML/CSS implementaties
+gebruikt voor werkvormen waar de afnemer geen vrije keuze voor iconen heeft. Denk bijvoorbeeld aan het Alert component: De iconen zijn gekoppeld aan de variant. "Danger" heeft altijd het gele gevarendriehoek. Het icoon is afhankelijk van de variant. Bij de Web Component implementatie is dit scriptend geregeld, maar voor de HTMl/CSS implementatie is het icoon gekoppeld aan de modifier classes voor de varianten.
 
 Deze mixins gaan niet uit van een pseudo element. Die verantwoordelijkheid ligt bij de maintainer.
 

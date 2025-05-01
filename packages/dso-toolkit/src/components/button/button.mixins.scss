@@ -12,21 +12,21 @@
 // Private mixins
 // ====================
 
-@mixin _shared-variant($defaults-map, $variant-map: ()) {
-  $map: map.merge($defaults-map, $variant-map);
+@mixin _shared-variant($defaults-map, $variant, $state-map: (), $state: "") {
+  $map: map.merge($defaults-map, $state-map);
 
-  background-color: map.get($map, "background-color");
-  border-color: map.get($map, "border-color");
-  color: map.get($map, "color");
+  background-color: var(--_dso-button-#{$variant}#{$state}-background-color, #{map.get($map, "background-color")});
+  border-color: var(--_dso-button-#{$variant}#{$state}-border-color, #{map.get($map, "border-color")});
+  color: var(--_dso-button-#{$variant}#{$state}-color, #{map.get($map, "color")});
 }
 
-@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
+@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only, $variant) {
   @if ($base-styling) {
     @include base($modifiers);
   }
 
   & {
-    @include _shared-variant($defaults-map);
+    @include _shared-variant($defaults-map, $variant);
   }
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
@@ -41,17 +41,17 @@
   }
 
   &:hover {
-    @include _shared-variant($defaults-map, $hover-map);
+    @include _shared-variant($defaults-map, $variant, $hover-map, "-hover");
   }
 
   &:active {
-    @include _shared-variant($defaults-map, $active-map);
+    @include _shared-variant($defaults-map, $variant, $active-map, "-active");
   }
 
   &[disabled] {
     &,
     &:hover {
-      @include _shared-variant($defaults-map, $disabled-map);
+      @include _shared-variant($defaults-map, $variant, $disabled-map, "-disabled");
     }
   }
 
@@ -228,7 +228,7 @@
     "border-color": button-variables.$primary-disabled-background-color,
   );
 
-  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false);
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false, "primary");
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -286,7 +286,16 @@
     "color": button-variables.$secondary-disabled-color,
   );
 
-  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
+  @include _shared(
+    $base-styling,
+    $modifiers,
+    $defaults-map,
+    $hover-map,
+    $active-map,
+    $disabled-map,
+    $icon-only,
+    "secondary"
+  );
 
   &.dso-spinner-left,
   &.dso-spinner-right {

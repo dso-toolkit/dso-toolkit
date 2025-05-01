@@ -1,0 +1,57 @@
+import { HandlerFunction } from "@storybook/addon-actions";
+
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../storybook";
+
+import { OnboardingTip, onboardingTipPlacements } from "./onboarding-tip.models";
+
+export interface OnboardingTipArgs {
+  active: boolean;
+  id: string;
+  box: number;
+  placement: (typeof onboardingTipPlacements)[number];
+  dsoClose: HandlerFunction;
+}
+
+export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
+  active: {
+    control: {
+      type: "boolean",
+    },
+  },
+  id: {
+    ...noControl,
+  },
+  placement: {
+    options: onboardingTipPlacements,
+    control: {
+      type: "select",
+    },
+  },
+  box: {
+    options: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    control: {
+      type: "select",
+    },
+  },
+  dsoClose: {
+    ...noControl,
+    action: "dsoClose",
+  },
+};
+
+export function onboardingTipArgsMapper<TemplateFnReturnType>(
+  a: OnboardingTipArgs,
+  heading?: TemplateFnReturnType,
+  content?: TemplateFnReturnType,
+): OnboardingTip<TemplateFnReturnType> {
+  return {
+    active: a.active,
+    id: a.id,
+    placement: a.placement,
+    dsoClose: a.dsoClose,
+    content,
+    heading,
+  };
+}

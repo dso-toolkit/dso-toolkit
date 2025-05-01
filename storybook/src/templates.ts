@@ -89,6 +89,7 @@ import {
   ShoppingCart,
   Skiplink,
   SlideToggle,
+  OnboardingTip,
   SurveyRating,
   Table,
   Tabs,
@@ -138,6 +139,7 @@ import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
 import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 import { coreModal } from "./components/modal/modal.core-template";
+import { coreOnboardingTip } from "./components/onboarding-tip/onboarding-tip.core-template";
 import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
 import { corePagination } from "./components/pagination/pagination.core-template";
 import { corePanel } from "./components/panel/panel.core-template";
@@ -291,6 +293,7 @@ export interface Components {
   markBar: MarkBar;
   modal: Modal<TemplateResult>;
   navbar: Navbar<TemplateResult>;
+  onboardingTip: OnboardingTip<TemplateResult>;
   ozonContent: OzonContent;
   pagination: Pagination;
   panel: Panel<TemplateResult>;
@@ -395,6 +398,7 @@ templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
+templateContainer.add(coreOnboardingTip);
 templateContainer.add(coreSurveyRating);
 templateContainer.add(coreTable);
 templateContainer.add(coreTabs);

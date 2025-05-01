@@ -35,6 +35,8 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
+import { Placement as Placement1 } from "@floating-ui/dom";
+import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -78,6 +80,8 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
+export { Placement as Placement1 } from "@floating-ui/dom";
+export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -981,6 +985,16 @@ export namespace Components {
          */
         "showCloseButton": boolean;
     }
+    interface DsoOnboardingTip {
+        /**
+          * Shows or hides the Onboarding Tip. To show the Onboarding Tip add the attribute `active`. To hide the Onboarding Tip remove the attribute `active`.
+         */
+        "active": boolean;
+        /**
+          * Where to place the Onboarding Tip relative to its reference element.
+         */
+        "placement": Placement1;
+    }
     interface DsoOzonContent {
         /**
           * The XML to be rendered.
@@ -1458,6 +1472,10 @@ export interface DsoMarkBarCustomEvent<T> extends CustomEvent<T> {
 export interface DsoModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoModalElement;
+}
+export interface DsoOnboardingTipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoOnboardingTipElement;
 }
 export interface DsoOzonContentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2100,6 +2118,23 @@ declare global {
         prototype: HTMLDsoModalElement;
         new (): HTMLDsoModalElement;
     };
+    interface HTMLDsoOnboardingTipElementEventMap {
+        "dsoClose": OnboardingTipCloseEvent;
+    }
+    interface HTMLDsoOnboardingTipElement extends Components.DsoOnboardingTip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoOnboardingTipElementEventMap>(type: K, listener: (this: HTMLDsoOnboardingTipElement, ev: DsoOnboardingTipCustomEvent<HTMLDsoOnboardingTipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoOnboardingTipElementEventMap>(type: K, listener: (this: HTMLDsoOnboardingTipElement, ev: DsoOnboardingTipCustomEvent<HTMLDsoOnboardingTipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoOnboardingTipElement: {
+        prototype: HTMLDsoOnboardingTipElement;
+        new (): HTMLDsoOnboardingTipElement;
+    };
     interface HTMLDsoOzonContentElementEventMap {
         "dsoAnchorClick": OzonContentAnchorClickEvent;
         "dsoOzonContentMarkItemHighlight": OzonContentMarkItemHighlightEvent;
@@ -2456,6 +2491,7 @@ declare global {
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-mark-bar": HTMLDsoMarkBarElement;
         "dso-modal": HTMLDsoModalElement;
+        "dso-onboarding-tip": HTMLDsoOnboardingTipElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
@@ -3567,6 +3603,20 @@ declare namespace LocalJSX {
          */
         "showCloseButton"?: boolean;
     }
+    interface DsoOnboardingTip {
+        /**
+          * Shows or hides the Onboarding Tip. To show the Onboarding Tip add the attribute `active`. To hide the Onboarding Tip remove the attribute `active`.
+         */
+        "active"?: boolean;
+        /**
+          * Emitted when the user closes the Onboarding Tip.
+         */
+        "onDsoClose"?: (event: DsoOnboardingTipCustomEvent<OnboardingTipCloseEvent>) => void;
+        /**
+          * Where to place the Onboarding Tip relative to its reference element.
+         */
+        "placement"?: Placement1;
+    }
     interface DsoOzonContent {
         /**
           * The XML to be rendered.
@@ -4067,6 +4117,7 @@ declare namespace LocalJSX {
         "dso-map-overlays": DsoMapOverlays;
         "dso-mark-bar": DsoMarkBar;
         "dso-modal": DsoModal;
+        "dso-onboarding-tip": DsoOnboardingTip;
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
         "dso-panel": DsoPanel;
@@ -4138,6 +4189,7 @@ declare module "@stencil/core" {
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
+            "dso-onboarding-tip": LocalJSX.DsoOnboardingTip & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
