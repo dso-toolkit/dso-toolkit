@@ -1,0 +1,149 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/zindex";
+
+@use "~dso-toolkit/src/components/button";
+
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "onboarding-tip.variables" as onboarding-tip-variables;
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+::slotted([slot="heading"]) {
+  display: flex !important;
+  align-items: center !important;
+
+  margin-block-end: 0 !important;
+  margin-block-start: 0 !important;
+
+  color: colors.$wit !important;
+  line-height: 1.375 !important;
+}
+
+:host {
+  --_dso-button-primary-background-color: #{colors.$wit};
+  --_dso-button-primary-border-color: #{colors.$wit};
+  --_dso-button-primary-color: #{colors.$zwart};
+  --_dso-button-primary-hover-background-color: #{colors.$grijs-20};
+  --_dso-button-primary-hover-border-color: #{colors.$grijs-20};
+  --_dso-button-primary-hover-color: #{colors.$zwart};
+  --_dso-button-primary-active-background-color: #{colors.$grijs-40};
+  --_dso-button-primary-active-border-color: #{colors.$grijs-40};
+  --_dso-button-primary-active-color: #{colors.$zwart};
+  --_dso-button-primary-disabled-background-color: #{colors.$wit};
+  --_dso-button-primary-disabled-border-color: #{colors.$wit};
+  --_dso-button-primary-disabled-color: #{colors.$grijs-30};
+
+  --_dso-button-secondary-background-color: #{colors.$wit};
+  --_dso-button-secondary-border-color: #{colors.$wit};
+  --_dso-button-secondary-color: #{colors.$zwart};
+  --_dso-button-secondary-hover-background-color: #{colors.$grijs-20};
+  --_dso-button-secondary-hover-border-color: #{colors.$grijs-20};
+  --_dso-button-secondary-hover-color: #{colors.$zwart};
+  --_dso-button-secondary-active-background-color: #{colors.$grijs-40};
+  --_dso-button-secondary-active-border-color: #{colors.$grijs-40};
+  --_dso-button-secondary-active-color: #{colors.$zwart};
+  --_dso-button-secondary-disabled-background-color: #{colors.$wit};
+  --_dso-button-secondary-disabled-border-color: #{colors.$wit};
+  --_dso-button-secondary-disabled-color: #{colors.$grijs-30};
+
+  display: block;
+  filter: drop-shadow(2px 2px 16px rgba(0, 0, 0, 0.4));
+}
+
+:host([popover]) {
+  margin: 0 !important;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: unset;
+}
+
+.onboarding-tip {
+  font-family: typography.$font-family-base;
+  font-style: normal;
+  font-weight: 400;
+  line-height: typography.$line-height-base;
+  line-break: auto;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: break-word;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  font-size: typography.$font-size-small;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: zindex.$onboarding-tip;
+
+  @media screen and (max-width: onboarding-tip-variables.$max-inline-size) {
+    padding-inline-start: units.$u1 !important;
+  }
+}
+
+.dso-close {
+  @include button.element();
+
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  block-size: units.$u4;
+  inline-size: units.$u4;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+}
+
+.onboarding-tip-inner {
+  --link-color: #{colors.$wit};
+  --link-hover-color: #{colors.$grijs-30};
+  --link-visited-color: #{colors.$grijs-50};
+
+  max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
+  max-block-size: 40vh;
+  overflow: auto;
+  padding-block: onboarding-tip-variables.$padding-block;
+  padding-inline: onboarding-tip-variables.$padding-inline;
+  border-radius: onboarding-tip-variables.$border-radius;
+  display: block;
+  font-size: typography.$root-font-size-base;
+  position: relative;
+  z-index: 2; // z-index higher than the arrow
+
+  @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
+}
+
+.onboarding-tip-arrow {
+  border-start-start-radius: onboarding-tip-variables.$border-radius;
+  position: absolute;
+  block-size: onboarding-tip-variables.$arrow-block-size;
+  inline-size: onboarding-tip-variables.$arrow-inline-size;
+  background: onboarding-tip-variables.$background-color;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.onboarding-tip-content-wrapper {
+  padding-inline: units.$u2;
+  padding-block-end: units.$u2;
+}
+
+.onboarding-tip-content-heading {
+  display: flex;
+
+  dso-icon {
+    margin-inline-end: units.$u1;
+  }
+}

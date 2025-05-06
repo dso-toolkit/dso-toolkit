@@ -132,6 +132,8 @@ export * from "./components/modal";
 
 export * from "./components/navbar";
 
+export * from "./components/onboarding-tip";
+
 export * from "./components/ozon-content";
 
 export * from "./components/pagination";

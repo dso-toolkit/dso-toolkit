@@ -34,6 +34,7 @@
  - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
  - [dso-modal](../modal)
+ - [dso-onboarding-tip](../onboarding-tip)
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
  - [dso-panel](../panel)
@@ -66,6 +67,7 @@ graph TD;
   dso-map-controls --> dso-icon
   dso-mark-bar --> dso-icon
   dso-modal --> dso-icon
+  dso-onboarding-tip --> dso-icon
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon
   dso-panel --> dso-icon
