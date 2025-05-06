@@ -1,11 +1,23 @@
 # `<dso-onboarding-tip>`
 
-Een Onboarding Tip hoort bij een `reference` element. Dit dient aangegeven worden met het attribuut `id`. Het 
-reference element dient een `aria-describedby` attribuut te hebben met dezelfde waarde.
+De `<dso-onboarding-tip>` is bedoeld om extra uitleg of hulp te geven bij een specifiek element op de pagina, het zogenaamde referentie-element.
 
-De Onboarding Tip kan met het attribuut `active` getoond worden.
+### Koppeling met een referentie-element
+Om een Onboarding Tip correct te koppelen:
+- Geef het referentie-element een uniek id.
+- Verwijs vanuit het referentie-element naar de tip via `aria-describedby`, met als waarde het id van de `<dso-onboarding-tip>`.
 
-Het positioneren van de onboarding-tip wordt met [Floating-UI](https://floating-ui.com/) gedaan.
+Zorg ervoor dat de tip in het DOM zo dicht mogelijk bij het referentie-element staat.
+
+### Zichtbaarheid en toegankelijkheid
+- De Onboarding Tip wordt getoond wanneer het `active` attribuut aanwezig is.
+- Wanneer de Onboarding Tip verdwijnt (bijvoorbeeld doordat hij uit het DOM wordt verwijderd), moet ook de verwijzing via `aria-describedby` van het referentie-element worden verwijderd.
+
+### Positionering
+De positionering van de tip gebeurt automatisch met behulp van [Floating-UI](https://floating-ui.com/), zodat deze altijd op de juiste plek verschijnt ten opzichte van het referentie-element.
+
+### Top Layer
+De onboarding tip wordt in de top layer geplaatst. Dit betekent dat hij altijd boven andere elementen in hetzelfde document zichtbaar is.
 
 <!-- Auto Generated Below -->
 
