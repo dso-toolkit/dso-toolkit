@@ -9,7 +9,7 @@ export const decorator: OnboardingTipDecorator<TemplateResult> = (story, args: O
       koppelen aan het nummer van de betreffende box.
     </p>
     <div class="board">
-      ${[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => box(args, number))}
+      ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((number) => box(args, number))}
       ${typeof args.box === "number" ? story() : undefined}
     </div>
 
@@ -27,7 +27,7 @@ export const decorator: OnboardingTipDecorator<TemplateResult> = (story, args: O
       .board {
         border: 1px solid #555;
         display: grid;
-        grid-template-rows: repeat(3, 300px);
+        grid-template-rows: repeat(7, 300px);
         grid-template-columns: repeat(3, 300px);
       }
 

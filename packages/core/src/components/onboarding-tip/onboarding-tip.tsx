@@ -54,8 +54,8 @@ export class OnboardingTip implements ComponentInterface {
     placement: Placement,
   ) {
     // Get half the arrow box's hypotenuse length
-    const arrowLen = tipArrowRef.offsetWidth;
-    const floatingOffset = Math.sqrt(2 * arrowLen ** 2) / 2;
+    const arrowLength = tipArrowRef.offsetWidth;
+    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
     const padding = 5;
 
     return autoUpdate(referenceElement, tipRef, () => {
@@ -70,6 +70,7 @@ export class OnboardingTip implements ComponentInterface {
             padding,
           }),
           arrow({
+            padding: padding + arrowLength,
             element: tipArrowRef,
           }),
         ],
@@ -116,7 +117,7 @@ export class OnboardingTip implements ComponentInterface {
             bottom: "",
             left: arrowX ? `${arrowX}px` : "",
             top: arrowY ? `${arrowY}px` : "",
-            [staticSide]: `${-arrowLen / 2}px`,
+            [staticSide]: `${-arrowLength / 2}px`,
             transform: `rotate(${angle}deg)`,
           });
         }

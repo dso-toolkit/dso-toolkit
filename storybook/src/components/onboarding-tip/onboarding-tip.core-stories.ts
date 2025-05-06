@@ -5,7 +5,7 @@ import { headingContent, richContent } from "./onboarding-tip.content";
 import { templateContainer } from "../../templates";
 
 import readme from "@dso-toolkit/core/src/components/onboarding-tip/readme.md?raw";
-import { decorator } from "./omboarding-tip.decorator";
+import { decorator } from "./onboarding-tip.decorator";
 
 const meta: Meta<OnboardingTipArgs> = {
   ...onboardingTipMeta({ readme }),

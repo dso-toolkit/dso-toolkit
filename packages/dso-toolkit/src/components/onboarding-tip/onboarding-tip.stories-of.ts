@@ -59,7 +59,7 @@ export function onboardingTipStories<Implementation, Templates, TemplateFnReturn
       args: {
         id: uuidv4(),
         placement: "right",
-        box: 5,
+        box: 2,
       },
       decorators: [(story, context) => decorator(story, context.args)],
       render: templateContainer.render(storyTemplates, (args, { onboardingTipTemplate, headingContent, richContent }) =>
