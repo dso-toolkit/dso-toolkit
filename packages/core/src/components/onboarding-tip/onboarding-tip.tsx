@@ -1,4 +1,4 @@
-import { arrow, autoUpdate, computePosition, offset, Placement, flip, shift } from "@floating-ui/dom";
+import { arrow, autoUpdate, computePosition, hide, offset, Placement, flip, shift } from "@floating-ui/dom";
 import { h, Component, Element, Prop, ComponentInterface, Event, EventEmitter, Host } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
@@ -73,9 +73,18 @@ export class OnboardingTip implements ComponentInterface {
             padding: padding + arrowLength,
             element: tipArrowRef,
           }),
+          hide({
+            padding: 42,
+          }),
         ],
         placement,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
+        if (middlewareData.hide) {
+          Object.assign(tipRef.style, {
+            visibility: middlewareData.hide.referenceHidden ? "hidden" : "visible",
+          });
+        }
+
         Object.assign(tipRef.style, {
           left: `${x}px`,
           top: `${y}px`,
