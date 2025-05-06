@@ -12,10 +12,9 @@ Het positioneren van de onboarding-tip wordt met [Floating-UI](https://floating-
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                                                                                         | Type                                                                                                                                                                 | Default   |
-| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `active`    | `active`    | Shows or hides the Onboarding Tip. To show the Onboarding Tip add the attribute `active`. To hide the Onboarding Tip remove the attribute `active`. | `boolean`                                                                                                                                                            | `false`   |
-| `placement` | `placement` | Where to place the Onboarding Tip relative to its reference element.                                                                                | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"right"` |
+| Property    | Attribute   | Description                                                          | Type                                                                                                                                                                 | Default   |
+| ----------- | ----------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `placement` | `placement` | Where to place the Onboarding Tip relative to its reference element. | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"right"` |
 
 
 ## Events

@@ -7,19 +7,13 @@ import { noControl } from "../../storybook";
 import { OnboardingTip, onboardingTipPlacements } from "./onboarding-tip.models";
 
 export interface OnboardingTipArgs {
-  active: boolean;
   id: string;
-  box: number;
+  box: number | undefined;
   placement: (typeof onboardingTipPlacements)[number];
   dsoClose: HandlerFunction;
 }
 
 export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
-  active: {
-    control: {
-      type: "boolean",
-    },
-  },
   id: {
     ...noControl,
   },
@@ -30,7 +24,7 @@ export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
     },
   },
   box: {
-    options: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    options: [undefined, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     control: {
       type: "select",
     },
@@ -47,7 +41,6 @@ export function onboardingTipArgsMapper<TemplateFnReturnType>(
   content?: TemplateFnReturnType,
 ): OnboardingTip<TemplateFnReturnType> {
   return {
-    active: a.active,
     id: a.id,
     placement: a.placement,
     dsoClose: a.dsoClose,

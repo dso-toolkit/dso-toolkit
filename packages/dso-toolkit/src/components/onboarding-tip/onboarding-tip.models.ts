@@ -1,7 +1,6 @@
 export const onboardingTipPlacements = ["top", "right", "bottom", "left"] as const;
 
 export interface OnboardingTip<TemplateFnReturnType> {
-  active?: boolean;
   id: string;
   placement: (typeof onboardingTipPlacements)[number];
   heading?: TemplateFnReturnType;

@@ -54,6 +54,17 @@
   --_dso-button-secondary-disabled-background-color: #{colors.$wit};
   --_dso-button-secondary-disabled-border-color: #{colors.$wit};
   --_dso-button-secondary-disabled-color: #{colors.$grijs-30};
+
+  display: block;
+  filter: drop-shadow(2px 2px 16px rgba(0, 0, 0, 0.4));
+}
+
+:host([popover]) {
+  margin: 0 !important;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: unset;
 }
 
 .onboarding-tip {
@@ -71,91 +82,67 @@
   word-spacing: normal;
   word-wrap: normal;
   white-space: normal;
-  display: block;
-  filter: drop-shadow(2px 2px 16px rgba(0, 0, 0, 0.4));
   font-size: typography.$font-size-small;
-  opacity: 0;
-  position: absolute;
-  inline-size: max-content;
   inset-block-start: 0;
   inset-inline-start: 0;
-  transition: opacity onboarding-tip-variables.$transition-duration linear;
   z-index: zindex.$onboarding-tip;
 
   @media screen and (max-width: onboarding-tip-variables.$max-inline-size) {
     padding-inline-start: units.$u1 !important;
   }
+}
 
-  &.active {
-    opacity: onboarding-tip-variables.$opacity;
+.dso-close {
+  @include button.element();
 
-    .onboarding-tip-inner {
-      visibility: visible;
-    }
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  block-size: units.$u4;
+  inline-size: units.$u4;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+}
 
-    .onboarding-tip-content-wrapper {
-      padding-inline: units.$u2;
-      padding-block-end: units.$u2;
-    }
+.onboarding-tip-inner {
+  --link-color: #{colors.$wit};
+  --link-hover-color: #{colors.$grijs-30};
+  --link-visited-color: #{colors.$grijs-50};
 
-    .onboarding-tip-content-heading {
-      display: flex;
+  max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
+  max-block-size: 200vh; // an extreme max-block-size, just to be sure it always fits
+  overflow: auto;
+  padding-block: onboarding-tip-variables.$padding-block;
+  padding-inline: onboarding-tip-variables.$padding-inline;
+  border-radius: onboarding-tip-variables.$border-radius;
+  display: block;
+  font-size: typography.$root-font-size-base;
+  position: relative;
 
-      dso-icon {
-        margin-inline-end: units.$u1;
-      }
-    }
-  }
+  @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
+}
 
-  &:not(.active) {
-    .onboarding-tip-inner {
-      max-block-size: 0; // hide the element
-      overflow: hidden;
-      visibility: hidden;
-      transition: all 0s linear onboarding-tip-variables.$transition-duration; // delay all the properties with a 0s linear animation till the parent opacity animation time has passed
-    }
-  }
+.onboarding-tip-arrow {
+  border-start-start-radius: onboarding-tip-variables.$border-radius;
+  position: absolute;
+  block-size: onboarding-tip-variables.$arrow-block-size;
+  inline-size: onboarding-tip-variables.$arrow-inline-size;
+  background: onboarding-tip-variables.$background-color;
+  z-index: calc(#{zindex.$onboarding-tip} - 1);
+  pointer-events: none;
+}
 
-  .dso-close {
-    @include button.element();
+.onboarding-tip-content-wrapper {
+  padding-inline: units.$u2;
+  padding-block-end: units.$u2;
+}
 
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-end: 0;
-    block-size: units.$u4;
-    inline-size: units.$u4;
-    padding: 0;
-    background-color: transparent;
-    border: 0;
-    text-align: center;
-  }
+.onboarding-tip-content-heading {
+  display: flex;
 
-  .onboarding-tip-inner {
-    --link-color: #{colors.$wit};
-    --link-hover-color: #{colors.$grijs-30};
-    --link-visited-color: #{colors.$grijs-50};
-
-    max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
-    max-block-size: 200vh; // an extreme max-block-size, just to be sure it always fits
-    min-block-size: onboarding-tip-variables.$min-block-size;
-    overflow: auto;
-    padding-block: onboarding-tip-variables.$padding-block;
-    padding-inline: onboarding-tip-variables.$padding-inline;
-    border-radius: onboarding-tip-variables.$border-radius;
-    display: block;
-    font-size: typography.$root-font-size-base;
-    position: relative;
-
-    @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
-  }
-
-  .onboarding-tip-arrow {
-    border-start-start-radius: onboarding-tip-variables.$border-radius;
-    position: absolute;
-    block-size: onboarding-tip-variables.$arrow-block-size;
-    inline-size: onboarding-tip-variables.$arrow-inline-size;
-    background: onboarding-tip-variables.$background-color;
-    z-index: calc(#{zindex.$onboarding-tip} - 1);
-    pointer-events: none;
+  dso-icon {
+    margin-inline-end: units.$u1;
   }
 }

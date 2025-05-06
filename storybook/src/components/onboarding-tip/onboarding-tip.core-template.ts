@@ -7,13 +7,8 @@ export const coreOnboardingTip: ComponentImplementation<OnboardingTip<TemplateRe
   component: "onboardingTip",
   implementation: "core",
   template: () =>
-    function onboardingTipTemplate({ active, placement, id, dsoClose, content, heading }) {
-      return html`<dso-onboarding-tip
-        id=${ifDefined(id)}
-        placement=${placement}
-        ?active=${active}
-        @dsoClose=${dsoClose}
-      >
+    function onboardingTipTemplate({ placement, id, dsoClose, content, heading }) {
+      return html`<dso-onboarding-tip id=${ifDefined(id)} placement=${placement} @dsoClose=${dsoClose}>
         ${heading} ${content}
       </dso-onboarding-tip>`;
     },

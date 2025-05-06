@@ -987,10 +987,6 @@ export namespace Components {
     }
     interface DsoOnboardingTip {
         /**
-          * Shows or hides the Onboarding Tip. To show the Onboarding Tip add the attribute `active`. To hide the Onboarding Tip remove the attribute `active`.
-         */
-        "active": boolean;
-        /**
           * Where to place the Onboarding Tip relative to its reference element.
          */
         "placement": Placement1;
@@ -3604,10 +3600,6 @@ declare namespace LocalJSX {
         "showCloseButton"?: boolean;
     }
     interface DsoOnboardingTip {
-        /**
-          * Shows or hides the Onboarding Tip. To show the Onboarding Tip add the attribute `active`. To hide the Onboarding Tip remove the attribute `active`.
-         */
-        "active"?: boolean;
         /**
           * Emitted when the user closes the Onboarding Tip.
          */

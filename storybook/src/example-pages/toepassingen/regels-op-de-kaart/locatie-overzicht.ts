@@ -21,6 +21,7 @@ examplePageFactory(
       searchBarTemplate,
       mapControlsTemplate,
       tileTemplate,
+      onboardingTipTemplate,
     },
     templates,
   ) => html`
@@ -86,12 +87,18 @@ examplePageFactory(
                   buttons: [
                     {
                       label: "Bekijk documenten",
+                      ariaDescribedby: "bekijk-alle-documenten",
                       type: "button",
                       variant: "tertiary",
                       icon: { icon: "chevron-right" },
                     },
                   ],
                   align: "right",
+                })}
+                ${onboardingTipTemplate({
+                  id: "bekijk-alle-documenten",
+                  placement: "top",
+                  content: richContentTemplate({ children: html`<p>Klik hier om alle documenten te bekijken.</p>` }),
                 })}
               `,
             }),
