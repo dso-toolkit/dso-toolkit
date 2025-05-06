@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🛹 Release 72.1.0 - 2025-05-06
+
 ### Added
 * Onboarding Tip: Nieuw component ([#3069](https://github.com/dso-toolkit/dso-toolkit/issues/3069))
 
