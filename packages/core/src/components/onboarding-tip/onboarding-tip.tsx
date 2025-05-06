@@ -1,7 +1,7 @@
 import { arrow, autoUpdate, computePosition, offset, Placement, flip, shift } from "@floating-ui/dom";
 import { h, Component, Element, Prop, ComponentInterface, Event, EventEmitter, Host } from "@stencil/core";
 
-import { OnboardingTipCloseEvent } from "./onboarding-tip.interfaces";
+import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
 
 @Component({
   tag: "dso-onboarding-tip",
@@ -16,7 +16,7 @@ export class OnboardingTip implements ComponentInterface {
    * Where to place the Onboarding Tip relative to its reference element.
    */
   @Prop()
-  placement: Placement = "right";
+  placement: OnboardingTipPlacement = "right";
 
   /**
    * Emitted when the user closes the Onboarding Tip.
@@ -56,16 +56,22 @@ export class OnboardingTip implements ComponentInterface {
     // Get half the arrow box's hypotenuse length
     const arrowLen = tipArrowRef.offsetWidth;
     const floatingOffset = Math.sqrt(2 * arrowLen ** 2) / 2;
+    const padding = 5;
 
     return autoUpdate(referenceElement, tipRef, () => {
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
         middleware: [
           offset(floatingOffset),
-          // autoplacement(),
-          flip(),
-          shift({ padding: 5 }),
-          arrow({ element: tipArrowRef }),
+          flip({
+            padding,
+          }),
+          shift({
+            padding,
+          }),
+          arrow({
+            element: tipArrowRef,
+          }),
         ],
         placement,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {

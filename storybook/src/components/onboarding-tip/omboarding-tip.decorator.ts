@@ -27,8 +27,8 @@ export const decorator: OnboardingTipDecorator<TemplateResult> = (story, args: O
       .board {
         border: 1px solid #555;
         display: grid;
-        grid-template-rows: 300px 300px 300px;
-        grid-template-columns: 300px 300px 300px;
+        grid-template-rows: repeat(3, 300px);
+        grid-template-columns: repeat(3, 300px);
       }
 
       .box {

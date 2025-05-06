@@ -112,7 +112,7 @@
   --link-visited-color: #{colors.$grijs-50};
 
   max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
-  max-block-size: 200vh; // an extreme max-block-size, just to be sure it always fits
+  max-block-size: 40vh;
   overflow: auto;
   padding-block: onboarding-tip-variables.$padding-block;
   padding-inline: onboarding-tip-variables.$padding-inline;
@@ -120,6 +120,7 @@
   display: block;
   font-size: typography.$root-font-size-base;
   position: relative;
+  z-index: 2; // z-index higher than the arrow
 
   @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
 }
@@ -130,7 +131,7 @@
   block-size: onboarding-tip-variables.$arrow-block-size;
   inline-size: onboarding-tip-variables.$arrow-inline-size;
   background: onboarding-tip-variables.$background-color;
-  z-index: calc(#{zindex.$onboarding-tip} - 1);
+  z-index: 1;
   pointer-events: none;
 }
 

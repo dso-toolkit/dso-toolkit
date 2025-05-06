@@ -35,8 +35,7 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { Placement as Placement1 } from "@floating-ui/dom";
-import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
+import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -80,8 +79,7 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { Placement as Placement1 } from "@floating-ui/dom";
-export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
+export { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -989,7 +987,7 @@ export namespace Components {
         /**
           * Where to place the Onboarding Tip relative to its reference element.
          */
-        "placement": Placement1;
+        "placement": OnboardingTipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -3607,7 +3605,7 @@ declare namespace LocalJSX {
         /**
           * Where to place the Onboarding Tip relative to its reference element.
          */
-        "placement"?: Placement1;
+        "placement"?: OnboardingTipPlacement;
     }
     interface DsoOzonContent {
         /**
