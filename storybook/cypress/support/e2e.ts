@@ -21,6 +21,10 @@ import "cypress-real-events";
 
 import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
 
+Cypress.on("test:before:run", () => {
+  cy.viewport(1280, 800);
+});
+
 addMatchImageSnapshotCommand({
   failureThreshold: 0.1,
   failureThresholdType: "percent",

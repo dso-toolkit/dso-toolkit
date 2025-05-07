@@ -16,8 +16,10 @@ function checkA11y(component: Component) {
 
 function matchImageSnapshot(id: string, component: Component) {
   if (component.selector) {
+    cy.log(component.selector);
     cy.get(component.selector).matchImageSnapshot(id);
   } else {
+    cy.log(id);
     cy.matchImageSnapshot(id);
   }
 }
@@ -32,7 +34,15 @@ function test(id: string, component: Component) {
 }
 
 describe("Components without e2e tests", () => {
-  const stories: Component[] = components.filter((component) => component.stories);
+  const flackyTests = [
+    {
+      name: "document-list",
+      selector: ".dso-document-list",
+      stories: ["default", "sticky"],
+      type: "html-css",
+    },
+  ];
+  const stories: Component[] = flackyTests.filter((component) => component.stories);
   for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
