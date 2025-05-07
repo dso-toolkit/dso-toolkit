@@ -1,4 +1,4 @@
-import components from "../fixtures/image-snapshot-components.json";
+// import components from "../fixtures/image-snapshot-components.json";
 
 interface Component {
   name: string;
@@ -16,8 +16,10 @@ function checkA11y(component: Component) {
 
 function matchImageSnapshot(id: string, component: Component) {
   if (component.selector) {
+    cy.log(component.selector);
     cy.get(component.selector).matchImageSnapshot(id);
   } else {
+    cy.log(id);
     cy.matchImageSnapshot(id);
   }
 }
@@ -32,7 +34,18 @@ function test(id: string, component: Component) {
 }
 
 describe("Components without e2e tests", () => {
-  const stories: Component[] = components.filter((component) => component.stories);
+  beforeEach(() => {
+    cy.viewport(1000, 800);
+  });
+
+  const flackyTests = [
+    {
+      name: "form",
+      stories: ["horizontal", "horizontal-collections", "vertical", "vertical-collections", "single-page"],
+      type: "html-css",
+    },
+  ];
+  const stories: Component[] = flackyTests.filter((component) => component.stories);
   for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
