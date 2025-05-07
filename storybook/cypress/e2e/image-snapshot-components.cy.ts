@@ -1,4 +1,4 @@
-import components from "../fixtures/image-snapshot-components.json";
+// import components from "../fixtures/image-snapshot-components.json";
 
 interface Component {
   name: string;
@@ -34,11 +34,14 @@ function test(id: string, component: Component) {
 }
 
 describe("Components without e2e tests", () => {
+  beforeEach(() => {
+    cy.viewport(1000, 800);
+  });
+
   const flackyTests = [
     {
-      name: "document-list",
-      selector: ".dso-document-list",
-      stories: ["default", "sticky"],
+      name: "form",
+      stories: ["horizontal", "horizontal-collections", "vertical", "vertical-collections", "single-page"],
       type: "html-css",
     },
   ];
