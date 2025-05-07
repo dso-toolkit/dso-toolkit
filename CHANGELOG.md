@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
+
 ## 🛹 Release 72.1.0 - 2025-05-06
 
 ### Added
@@ -14,7 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * **BREAKING** React: Update peerDependencies naar 19, verwijder 17 ([#3077](https://github.com/dso-toolkit/dso-toolkit/issues/3077))
-* Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
 
 ## 🎱 Release 71.0.0 - 2025-04-28
 
