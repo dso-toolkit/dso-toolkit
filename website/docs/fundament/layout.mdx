@@ -62,50 +62,14 @@ De pagina layout en de breedte van de componenten schalen mee met de afmetingen 
 
 ![Het responsive grid en de columns op een laptop, tablet en mobiel](/docs/layout/layout_1.png)
 
-<table>
-    <tr>
-        <th></th>
-        <th>BreedteBreedte</th>
-        <th>Aantal kolommen</th>
-    </tr>
-    <tr>
-        <th>xs-min (extra small)</th>
-        <td>&gt;= 480px</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <th>xs-max (extra small)</th>
-        <td>&lt;= 767px</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <th>sm-min (small)</th>
-        <td>&gt;= 768px</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <th>sm-max (small)</th>
-        <td>&lt;= 991px</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <th>md-min (medium)</th>
-        <td>&gt;= 992px</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <th>md-max (medium)</th>
-        <td>&lt;= 1199px</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <th>lg-min (medium)</th>
-        <td>&gt;= 1200px</td>
-        <td>3</td>
-    </tr>
-</table>
+| Viewport         | Breakpoint | Kolommen |
+| ---------------- | ---------- | -------- |
+| Extra small (XS) | < 768px    | 2        |
+| Small (SM)       | ≥ 768px    | 2        |
+| Medium (MD)      | ≥ 992px    | 3        |
+| Large (LG)       | ≥ 1200px   | 3        |
 
-- De gutter breedte is voor elk breakpoint gelijk. 16px aan beide zijdes. 32px in totaal.
+De gutter is voor elke viewport 32px: 16px links en rechts van de kolom.
 
 ## Verticale lay-out
 
@@ -156,35 +120,32 @@ NB: `.row` en `.col-*` worden alléén gebruikt voor horizontale positionering v
 
 Voor het responsive gedrag van de pagina en de onderdelen gelden 4 breakpoints, die de volgende viewport-classificaties opleveren:
 
-- Extra small: 480px en kleiner;
-- Small: tot 768px;
-- Medium: tot 992px;
-- Large: tot 1200px;
-- Extra large: vanaf 1200px;
+- Extra small: tot 768px;
+- Small: vanaf 768px;
+- Medium: vanaf 992px;
+- Large: vanaf 1200px;
 
 Onderstaand staan deze viewports toegelicht. Alhoewel wordt genoemd voor welk soort devices deze viewports primair bedoeld zijn, mag dat niet letterlijk genomen worden. Als een applicatie op een desktop bekeken wordt, maar bv. 400% ingezoomed, zal toch de viewport 'small'
 
 ### Extra small
 
-Van sommige componenten (bv. een navigatiebalk, of alert) wordt de vorm aangepast als ze getoond worden in een viewport kleiner dan 480px.
+Van sommige componenten (bv. een navigatiebalk, of alert) wordt de vorm aangepast als ze getoond worden in een viewport kleiner dan 768px.
 Dit breakpoint kan _niet_ gebruikt worden om een alternatieve positionering te programmeren.
-
-### Small
 
 Primair voor mobiele telefoons. De bladspiegel (de `.container`) krijgt de volledige breedte.
 Programmeren van responsive gedrag met `col-xs-*`.
 
-### Medium
+### Small
 
 Primair voor tablets. De bladspiegel krijgt de volledige breedte.
 Programmeren van responsive gedrag met `col-sm-*`.
 
-### Large
+### Medium
 
 Primair voor desktops/laptops. De bladspiegel wordt horizontaal beperkt tot maximaal 992px.
 Programmeren van responsive gedrag met `col-md-*`.
 
-### Extra large
+### Large
 
 Primair voor desktops/laptops. De bladspiegel wordt horizontaal beperkt tot maximaal 1152px.
 Programmeren van responsive gedrag met `col-lg-*`.
@@ -193,7 +154,7 @@ Programmeren van responsive gedrag met `col-lg-*`.
 
 Op de homepage staat een aantal 'whiteboxes', in een `.row`. Deze onderdelen hebben als class `col-lg-2 col-md-4 col-sm-6 col-xs-12`. Dit betekent dat:
 
-- `col-lg-2` : in de extra large viewport (vanaf het 'large' breakpoint, vandaar de `lg`) neemt dit onderdeel 2 kolommen in beslag: 2/12, er kunnen dus 6 van deze blokken naast elkaar staan.
-- `col-md-4` : in de large viewport (vanaf het 'medium' breakpoint) neemt dit onderdeel 4 kolommen in beslag;
-- `col-sm-6` : in de medium viewport (vanaf het 'small' breakpoint) neemt dit onderdeel 6 kolommen in beslag;
-- `col-xs-12` : in de small viewport (totaan het 'small' breakpoint) neemt dit onderdeel de volledige breedte van de `.row` in beslag;
+- `col-lg-2` : in de large viewport neemt dit onderdeel 2 kolommen in beslag: 2/12, er kunnen dus 6 van deze blokken naast elkaar staan.
+- `col-md-4` : in de medium viewport neemt dit onderdeel 4 kolommen in beslag;
+- `col-sm-6` : in de small viewport neemt dit onderdeel 6 kolommen in beslag;
+- `col-xs-12` : in de extra small viewport neemt dit onderdeel de volledige breedte van de `.row` in beslag;
