@@ -43,7 +43,7 @@ const tabViewBreakpoint = 768 + buttonWidth;
 const minMapElementWidth = 440;
 
 /**
- * @slot top-bar
+ * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
  * @slot main
  * @slot map
  * @slot filterpanel
@@ -357,11 +357,10 @@ export class ViewerGrid {
 
   render() {
     const tabLabels = this.mode === "vdk" ? viewerGridVdkTabs : viewerGridVrkTabs;
-    const hasTopBarSlot = !!this.host.querySelector("[slot='top-bar']");
 
     return (
       <>
-        {hasTopBarSlot && <slot name="top-bar" />}
+        <slot name="top-bar" />
         <div class="viewer-grid-columns">
           {this.tabView && (
             <nav class="dso-navbar">
