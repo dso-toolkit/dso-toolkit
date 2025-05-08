@@ -43,8 +43,15 @@ export class SurveyRating implements ComponentInterface {
     ];
 
     return (
-      <dso-panel emphasized onDsoCloseClick={(e) => this.dsoClose.emit({ originalEvent: e })} role="alert">
-        <h2 slot="heading">Help ons met een onderzoek</h2>
+      <dso-panel
+        emphasized
+        onDsoCloseClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+        role="dialog"
+        aria-labelledby="panel-heading"
+      >
+        <h2 id="panel-heading" slot="heading">
+          Help ons met een onderzoek
+        </h2>
         <strong>Hoe moeilijk of makkelijk was deze taak om uit te voeren?</strong>
         <form onSubmit={(e) => this.handleForm(e)}>
           <div class="visual-rating-labels" aria-hidden="true">

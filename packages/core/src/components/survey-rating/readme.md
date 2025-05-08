@@ -10,7 +10,7 @@
 | Event       | Description                                              | Type                                   |
 | ----------- | -------------------------------------------------------- | -------------------------------------- |
 | `dsoClose`  | Emitted when the user wants to close the  Survey Rating. | `CustomEvent<SurveyRatingCloseEvent>`  |
-| `dsoSubmit` | Emitted when user submits the Survey Rating.             | `CustomEvent<SurveyRatingSubmitEvent>` |
+| `dsoSubmit` | Emitted when the user submits the Survey Rating.         | `CustomEvent<SurveyRatingSubmitEvent>` |
 
 
 ## Dependencies

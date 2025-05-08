@@ -3850,7 +3850,7 @@ declare namespace LocalJSX {
          */
         "onDsoClose"?: (event: DsoSurveyRatingCustomEvent<SurveyRatingCloseEvent>) => void;
         /**
-          * Emitted when user submits the Survey Rating.
+          * Emitted when the user submits the Survey Rating.
          */
         "onDsoSubmit"?: (event: DsoSurveyRatingCustomEvent<SurveyRatingSubmitEvent>) => void;
     }
