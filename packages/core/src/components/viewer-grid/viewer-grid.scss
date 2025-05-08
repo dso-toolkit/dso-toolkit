@@ -336,6 +336,7 @@ button {
 
   :host {
     display: flex;
+    flex-direction: column;
     block-size: 100vh;
     overflow: clip;
     position: relative;
@@ -346,6 +347,11 @@ button {
       min-inline-size: unset;
       max-inline-size: unset;
       inline-size: 440px;
+    }
+
+    .viewer-grid-columns {
+      display: flex;
+      overflow: hidden;
     }
   }
 
