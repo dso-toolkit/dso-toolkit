@@ -21,6 +21,7 @@ examplePageFactory(
     {
       accordionTemplate,
       anchorTemplate,
+      bannerTemplate,
       buttonTemplate,
       documentCardTemplate,
       documentHeaderTemplate,
@@ -60,6 +61,11 @@ examplePageFactory(
           mainSize: "medium",
           documentPanelOpen: true,
           documentPanelSize: "medium",
+          topBar: bannerTemplate({
+            status: "info",
+            content: html`U bekijkt nu de informatie die op 05-02-2024 zichtbaar was.
+            ${anchorTemplate({ url: "#", label: "Terug naar vandaag" })}`,
+          }),
           main: html`
             ${buttonTemplate({
               label: "Opnieuw zoeken",

@@ -43,6 +43,7 @@ const tabViewBreakpoint = 768 + buttonWidth;
 const minMapElementWidth = 440;
 
 /**
+ * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
  * @slot main
  * @slot map
  * @slot filterpanel
@@ -359,62 +360,65 @@ export class ViewerGrid {
 
     return (
       <>
-        {this.tabView && (
-          <nav class="dso-navbar">
-            <ul class="dso-nav dso-nav-sub">
-              {tabLabels.map((tab) => (
-                <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
-                  <button type="button" class="dso-tertiary" onClick={() => this.switchActiveTab(tab)}>
-                    {viewerGridTabLabelMap[tab]}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-        {(!this.tabView || (this.tabView && (this.activeTab === "main" || this.activeTab === "search"))) && (
-          <MainPanel
-            mode={this.mode}
-            tabView={this.tabView}
-            mainSize={this.mainSize}
-            documentPanelOpen={this.documentPanelOpen}
-            mainPanelExpanded={this.mainPanelExpanded}
-            mainPanelHidden={this.mainPanelHidden}
-            shrinkMain={this.emitShrinkMain}
-            expandMain={this.emitExpandMain}
-            toggleMainPanel={this.toggleMainPanel}
-            dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
-          ></MainPanel>
-        )}
-        {(!this.tabView ||
-          (this.tabView && ((this.activeTab === "main" && this.mode === "vrk") || this.activeTab === "search"))) && (
-          <Filterpanel
-            title={this.filterpanelTitle}
-            mode={this.mode}
-            ref={(element) => (this.filterpanel = element)}
-            onApply={this.handleFilterpanelApply}
-            onCancel={this.handleFilterpanelCancel}
-            dsoCloseFilterpanel={(e) => this.dsoCloseFilterpanel.emit({ originalEvent: e })}
-          ></Filterpanel>
-        )}
-        {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
-          <div class="map" ref={(element) => (this.mapElement = element)}>
-            <slot name="map" />
-          </div>
-        )}
-        {((!this.tabView && this.documentPanelOpen) || (this.tabView && this.activeTab === "document")) && (
-          <DocumentPanel
-            tabView={this.tabView}
-            panelSize={this.documentPanelSize}
-            shrinkDocumentPanel={this.shrinkDocumentPanel}
-            expandDocumentPanel={this.expandDocumentPanel}
-            dsoDocumentPanelSizeChangeAnimationEnd={this.dsoDocumentPanelSizeChangeAnimationEnd}
-          ></DocumentPanel>
-        )}
-        <Overlay
-          ref={(element) => (this.overlay = element)}
-          dsoCloseOverlay={(e) => this.dsoCloseOverlay.emit({ originalEvent: e })}
-        ></Overlay>
+        <slot name="top-bar" />
+        <div class="viewer-grid-columns">
+          {this.tabView && (
+            <nav class="dso-navbar">
+              <ul class="dso-nav dso-nav-sub">
+                {tabLabels.map((tab) => (
+                  <li key={tab} class={clsx({ "dso-active": this.activeTab === tab })}>
+                    <button type="button" class="dso-tertiary" onClick={() => this.switchActiveTab(tab)}>
+                      {viewerGridTabLabelMap[tab]}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+          {(!this.tabView || (this.tabView && (this.activeTab === "main" || this.activeTab === "search"))) && (
+            <MainPanel
+              mode={this.mode}
+              tabView={this.tabView}
+              mainSize={this.mainSize}
+              documentPanelOpen={this.documentPanelOpen}
+              mainPanelExpanded={this.mainPanelExpanded}
+              mainPanelHidden={this.mainPanelHidden}
+              shrinkMain={this.emitShrinkMain}
+              expandMain={this.emitExpandMain}
+              toggleMainPanel={this.toggleMainPanel}
+              dsoMainSizeChangeAnimationEnd={this.dsoMainSizeChangeAnimationEnd}
+            ></MainPanel>
+          )}
+          {(!this.tabView ||
+            (this.tabView && ((this.activeTab === "main" && this.mode === "vrk") || this.activeTab === "search"))) && (
+            <Filterpanel
+              title={this.filterpanelTitle}
+              mode={this.mode}
+              ref={(element) => (this.filterpanel = element)}
+              onApply={this.handleFilterpanelApply}
+              onCancel={this.handleFilterpanelCancel}
+              dsoCloseFilterpanel={(e) => this.dsoCloseFilterpanel.emit({ originalEvent: e })}
+            ></Filterpanel>
+          )}
+          {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
+            <div class="map" ref={(element) => (this.mapElement = element)}>
+              <slot name="map" />
+            </div>
+          )}
+          {((!this.tabView && this.documentPanelOpen) || (this.tabView && this.activeTab === "document")) && (
+            <DocumentPanel
+              tabView={this.tabView}
+              panelSize={this.documentPanelSize}
+              shrinkDocumentPanel={this.shrinkDocumentPanel}
+              expandDocumentPanel={this.expandDocumentPanel}
+              dsoDocumentPanelSizeChangeAnimationEnd={this.dsoDocumentPanelSizeChangeAnimationEnd}
+            ></DocumentPanel>
+          )}
+          <Overlay
+            ref={(element) => (this.overlay = element)}
+            dsoCloseOverlay={(e) => this.dsoCloseOverlay.emit({ originalEvent: e })}
+          ></Overlay>
+        </div>
       </>
     );
   }

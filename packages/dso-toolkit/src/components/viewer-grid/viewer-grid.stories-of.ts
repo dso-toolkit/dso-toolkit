@@ -41,6 +41,7 @@ interface ViewerGridStoriesParameters<Implementation, Templates, TemplateFnRetur
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
   example: {
+    topBar?: TemplateFnReturnType;
     main: (mainExpanded: boolean) => TemplateFnReturnType;
     map: TemplateFnReturnType;
     documentPanel: TemplateFnReturnType;

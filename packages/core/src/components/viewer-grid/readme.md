@@ -38,13 +38,14 @@
 
 ## Slots
 
-| Slot               | Description |
-| ------------------ | ----------- |
-| `"document-panel"` | VDK only    |
-| `"filterpanel"`    |             |
-| `"main"`           |             |
-| `"map"`            |             |
-| `"overlay"`        |             |
+| Slot               | Description                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| `"document-panel"` | VDK only                                                                                    |
+| `"filterpanel"`    |                                                                                             |
+| `"main"`           |                                                                                             |
+| `"map"`            |                                                                                             |
+| `"overlay"`        |                                                                                             |
+| `"top-bar"`        | Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner. |
 
 
 ----------------------------------------------

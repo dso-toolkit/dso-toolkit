@@ -23,6 +23,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
   dsoMainPanelExpand?: (e: CustomEvent<ViewerGridMainExpandEvent>) => void;
   dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
+  topBar?: TemplateFnReturnType;
   filterpanel?: TemplateFnReturnType;
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
