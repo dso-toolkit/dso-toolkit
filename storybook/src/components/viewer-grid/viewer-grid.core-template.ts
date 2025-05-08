@@ -62,6 +62,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           @dsoMainPanelToggle=${dsoMainPanelToggle}
         >
           ${filterpanel ? html`<div slot="filterpanel">${filterpanel}</div>` : nothing}
+          <div slot="top-bar">${topBar}</div>
           <div slot="main">${main}</div>
           <div slot="map">${map}</div>
           ${documentPanel ? html`<div slot="document-panel">${documentPanel}</div>` : nothing}
