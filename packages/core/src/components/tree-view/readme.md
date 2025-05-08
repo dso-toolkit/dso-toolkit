@@ -11,9 +11,9 @@ When the user interacts with the Tree View, events are emitted when a node is op
 
 ## Properties
 
-| Property                  | Attribute | Description                     | Type             | Default     |
-| ------------------------- | --------- | ------------------------------- | ---------------- | ----------- |
-| `collection` _(required)_ | --        | The collection of TreeViewItems | `TreeViewItem[]` | `undefined` |
+| Property                  | Attribute    | Description                     | Type             | Default     |
+| ------------------------- | ------------ | ------------------------------- | ---------------- | ----------- |
+| `collection` _(required)_ | `collection` | The collection of TreeViewItems | `TreeViewItem[]` | `undefined` |
 
 
 ## Events

@@ -7,10 +7,10 @@ Private component, do not use.
 
 ## Properties
 
-| Property                  | Attribute | Description                                                           | Type          | Default     |
-| ------------------------- | --------- | --------------------------------------------------------------------- | ------------- | ----------- |
-| `baseLayers` _(required)_ | --        | The base layers.                                                      | `BaseLayer[]` | `undefined` |
-| `group`                   | `group`   | To group the overlays together. Generally the default value suffices. | `string`      | `uuidv4()`  |
+| Property                  | Attribute     | Description                                                           | Type          | Default     |
+| ------------------------- | ------------- | --------------------------------------------------------------------- | ------------- | ----------- |
+| `baseLayers` _(required)_ | `base-layers` | The base layers.                                                      | `BaseLayer[]` | `undefined` |
+| `group`                   | `group`       | To group the overlays together. Generally the default value suffices. | `string`      | `uuidv4()`  |
 
 
 ## Events

@@ -11,7 +11,7 @@ Met dit component kan een `RenvooiValue` worden gepresenteerd.
 
 | Property | Attribute | Description                  | Type                                                                                                                             | Default     |
 | -------- | --------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `mark`   | --        | To mark text.                | `((text: string, value: RenvooiValue, source: RenvooiValue[]) => RenvooiText[]) \| undefined`                                    | `undefined` |
+| `mark`   | `mark`    | To mark text.                | `((text: string, value: RenvooiValue, source: RenvooiValue[]) => RenvooiText[]) \| undefined`                                    | `undefined` |
 | `value`  | `value`   | The renvooi value to render. | `RenvooiValue[] \| string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
 
 
