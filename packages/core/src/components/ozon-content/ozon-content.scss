@@ -221,3 +221,17 @@ del {
 .od-abbr {
   text-decoration: underline dotted;
 }
+
+.subtitel {
+  color: colors.$bosgroen-80;
+  font-weight: 700;
+  margin-block: 0 units.$u2;
+  margin-inline: 0;
+
+  .removed-text,
+  .new-text {
+    color: colors.$bosgroen-140;
+    padding-inline: units.$u1 * 0.5;
+    margin-inline: units.$u1 * -0.5;
+  }
+}
