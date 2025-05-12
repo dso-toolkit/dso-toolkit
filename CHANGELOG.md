@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
+
 ## 🏋🏼 Release 72.2.0 - 2025-05-08
 
 ### Docs

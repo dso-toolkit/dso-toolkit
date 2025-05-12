@@ -45,6 +45,7 @@
   .group:not(:first-child) {
     .group-label {
       border-block-start: 1px solid colors.$grijs-30;
+      padding-block-start: 3 * core-autosuggest-variables.$list-item-padding-block;
     }
   }
 
