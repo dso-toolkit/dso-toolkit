@@ -15,6 +15,7 @@ export interface OzonContentStories {
   Abbr: OzonContentStory;
   Al: OzonContentStory;
   Inhoud: OzonContentStory;
+  Subtitel: OzonContentStory;
   Opschrift: OzonContentStory;
   Lijst: OzonContentStory;
   IntRef: OzonContentStory;

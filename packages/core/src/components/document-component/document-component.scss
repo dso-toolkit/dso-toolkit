@@ -70,6 +70,13 @@
   }
 }
 
+:host(:not([open])),
+:host([mode="table-of-contents"]) {
+  dso-ozon-content::part(subtitel) {
+    display: none;
+  }
+}
+
 .recursive-toggle,
 .toggle-button {
   border: 0;

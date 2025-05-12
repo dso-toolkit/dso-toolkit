@@ -4,15 +4,16 @@ import { OzonContentWijzigActie } from "../ozon-content.interfaces";
 
 export interface WrapWijzigactieProps {
   wijzigactie: OzonContentWijzigActie | undefined;
+  className?: string;
 }
 
-export const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigactie }, children) => {
+export const WrapWijzigactie: FunctionalComponent<WrapWijzigactieProps> = ({ wijzigactie, className }, children) => {
   if (wijzigactie === "voegtoe") {
-    return <ins>{children}</ins>;
+    return <ins class={className}>{children}</ins>;
   }
 
   if (wijzigactie === "verwijder") {
-    return <del>{children}</del>;
+    return <del class={className}>{children}</del>;
   }
 
   return children;

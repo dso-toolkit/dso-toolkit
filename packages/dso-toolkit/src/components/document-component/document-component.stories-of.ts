@@ -96,7 +96,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
     Contents: {
       decorators: [(story) => decorator(story)],
       args: {
-        jsonFile: "ozon-response-strategische-omgevingsvisie-dijk-en-waard.json",
+        jsonFile: "ozon-response.json",
         openDefault: true,
         showCanvas: false,
         mode: "document",
