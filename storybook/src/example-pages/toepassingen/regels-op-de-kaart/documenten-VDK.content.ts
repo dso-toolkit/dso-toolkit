@@ -1,4 +1,13 @@
-import { AdvancedSelect, Breadcrumbs, DefinitionList, DocumentCard, Header, Navbar, PlekinfoCard } from "dso-toolkit";
+import {
+  AdvancedSelect,
+  Breadcrumbs,
+  DefinitionList,
+  DocumentCard,
+  Header,
+  Navbar,
+  PlekinfoCard,
+  TabsItem,
+} from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 import { mainMenu } from "../../content/main-menu.content";
 
@@ -222,5 +231,17 @@ export const plekinfoCardsListLocaties: PlekinfoCard<TemplateResult>[] = [
   {
     ...plekInfoCardDefault,
     label: "Ambtsgebied Gemeente Midden-Groningen",
+  },
+];
+
+export const tabItems: TabsItem[] = [
+  {
+    label: "Locatie zoeken",
+    modifier: "active",
+    href: "#",
+  },
+  {
+    label: "Documenten zoeken",
+    href: "#",
   },
 ];
