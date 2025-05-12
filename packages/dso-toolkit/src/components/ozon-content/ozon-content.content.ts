@@ -99,6 +99,19 @@ export const content: OzonContentStory[] = [
     },
   },
   {
+    title: "Subtitel",
+    content: `
+      <Kop>
+        <Subtitel>Hier lees je hoe dit actieplan <VerwijderdeTekst>is onststaan</VerwijderdeTekst> <NieuweTekst>tot stand is gekomen</NieuweTekst> en wie er aan hebben bijgedragen.</Subtitel>
+        <Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel>
+        <Subtitel>Derde subtitel</Subtitel>
+      </Kop>
+    `,
+    args: {
+      inline: true,
+    },
+  },
+  {
     title: "Lijst",
     content: `
       <Inhoud>
