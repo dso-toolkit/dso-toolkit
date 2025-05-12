@@ -5,12 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### Task
-* Prettier: gebruik prettier-config van `@infoprojects/prettier-config` ([#3127](https://github.com/dso-toolkit/dso-toolkit/issues/3127))
-
 ### Changed
 * Searchbar: Uitlijnen dropdown met titel invulveld ([#3104](https://github.com/dso-toolkit/dso-toolkit/issues/3104))
 * Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
+* ListButton: indent en styling subcontent ([#3116](https://github.com/dso-toolkit/dso-toolkit/issues/3116))
+* 
+### Task
+* Prettier: gebruik prettier-config van `@infoprojects/prettier-config` ([#3127](https://github.com/dso-toolkit/dso-toolkit/issues/3127))
 
 ## 🏋🏼 Release 72.2.0 - 2025-05-08
 
