@@ -26,6 +26,7 @@
   background-color: transparent;
   color: var(--link-color);
   text-decoration: underline;
+  text-underline-offset: link-variables.$link-underline-offset;
 
   @include pseudo();
 
