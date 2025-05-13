@@ -5,7 +5,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/scaffolding";
 @use "~dso-toolkit/src/variables/typography";
-@use "../../../../dso-toolkit/src/components/link";
+@use "~dso-toolkit/src/components/link";
 
 @include utilities.box-sizing();
 
