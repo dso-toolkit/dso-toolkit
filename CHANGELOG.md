@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Prettier: gebruik prettier-config van `@infoprojects/prettier-config` ([#3127](https://github.com/dso-toolkit/dso-toolkit/issues/3127))
+
 ### Changed
 * Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
 
