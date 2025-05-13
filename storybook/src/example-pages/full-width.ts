@@ -55,13 +55,7 @@ examplePageFactory(
                   ["1", linkTemplate({ label: "Fabien", url: "#" }), "Potentier", "fabpot", html`<code>tr</code>`],
                   ["2", linkTemplate({ label: "Andrew", url: "#" }), "Nesbitt", "andrew", html`<code>tr</code>`],
                   ["3", linkTemplate({ label: "Taylor", url: "#" }), "Otwell", "taylorotwell", html`<code>tr</code>`],
-                  [
-                    "4",
-                    linkTemplate({ label: "Kitty", url: "#" }),
-                    "Giraudel",
-                    "KittyGiraudel",
-                    html`<code>tr</code>`,
-                  ],
+                  ["4", linkTemplate({ label: "Kitty", url: "#" }), "Giraudel", "KittyGiraudel", html`<code>tr</code>`],
                 ],
               },
             })}

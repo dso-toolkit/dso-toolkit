@@ -22,8 +22,8 @@ examplePageFactory(
             <p>
               De ${linkTemplate({ label: "Bouwregelgeving", url: "#", mode: "extern" })} is een database met alle
               bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan
-              de ${linkTemplate({ label: "eisen", url: "#", mode: "download" })} van de Omgevingswet (3B's), en
-              daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+              de ${linkTemplate({ label: "eisen", url: "#", mode: "download" })} van de Omgevingswet (3B's), en daarmee
+              bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
             </p>
           </div>
         </div>

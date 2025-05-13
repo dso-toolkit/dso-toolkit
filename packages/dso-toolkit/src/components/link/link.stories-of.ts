@@ -51,9 +51,7 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Home",
         url: "#",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
     DownloadLink: {
       args: {
@@ -61,9 +59,7 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "afvalkalender.pdf",
         mode: "download",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
     ExternalLink: {
       args: {
@@ -71,9 +67,7 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "http://www.google.nl",
         mode: "extern",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
     LinkWithIcon: {
       args: {
@@ -81,27 +75,21 @@ export function linkStories<Implementation, Templates, TemplateFnReturnType>({
         url: "#",
         icon: "search",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
     MailLinkWithIcon: {
       args: {
         label: "noreply@dso-toolkit.nl",
         url: "mailto:no-reply@dso-toolkit.nl",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
     PhoneLinkWithIcon: {
       args: {
         label: "Bel ons",
         url: "tel:012-34567891",
       },
-      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) =>
-        linkTemplate(linkArgsMapper(args)),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { linkTemplate }) => linkTemplate(linkArgsMapper(args))),
     },
   };
 }
