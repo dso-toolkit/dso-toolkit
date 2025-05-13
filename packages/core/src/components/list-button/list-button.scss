@@ -211,7 +211,8 @@
     display: block;
   }
 
-  .dso-sublabel {
+  .dso-sublabel,
+  .subcontent {
     font-weight: 400;
     inline-size: 100%;
     padding-inline-start: selectable.$size + units.$u1;
