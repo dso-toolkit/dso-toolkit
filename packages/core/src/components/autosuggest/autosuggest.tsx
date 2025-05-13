@@ -191,9 +191,6 @@ export class Autosuggest {
   @State()
   showLoading = false;
 
-  @State()
-  listboxContainerMaxBlockSize = 0;
-
   @Watch("suggestions")
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -204,6 +201,8 @@ export class Autosuggest {
       this.closeSuggestions();
     }
   }
+
+  private listboxContainerMaxBlockSize = 0;
 
   private input?: HTMLInputElement;
 
@@ -268,14 +267,9 @@ export class Autosuggest {
   }
 
   private text = i18n(() => this.host, translations);
-  private isListboxContainerMaxBlockSizeSet = false;
 
   componentDidRender() {
-    if (!this.isListboxContainerMaxBlockSizeSet) {
-      this.setListboxContainerMaxBlockSize();
-      this.isListboxContainerMaxBlockSizeSet = true;
-      this.updateAriaAutoSuggestStatus();
-    }
+    this.setListboxContainerMaxBlockSize();
   }
 
   connectedCallback() {
@@ -363,6 +357,10 @@ export class Autosuggest {
         this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
         this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
+      }
+
+      if (this.listboxContainer) {
+        Object.assign(this.listboxContainer.style, { "--max-block-size": `${this.listboxContainerMaxBlockSize}px` });
       }
     }
   }
@@ -708,6 +706,8 @@ export class Autosuggest {
       this.input.removeAttribute("aria-controls");
     }
 
+    this.updateAriaAutoSuggestStatus();
+
     return (
       <>
         <slot />
@@ -718,11 +718,7 @@ export class Autosuggest {
         ) : (
           showListbox && (
             <>
-              <dso-scrollable
-                class="listbox-container"
-                ref={(element) => (this.listboxContainer = element)}
-                style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
-              >
+              <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
                 <div
                   class="listbox"
                   role="listbox"
