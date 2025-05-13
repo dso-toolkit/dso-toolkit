@@ -14644,7 +14644,6 @@ __metadata:
     "@azure/storage-blob": "npm:^12.27.0"
     "@eslint/eslintrc": "npm:^3.3.0"
     "@eslint/js": "npm:^9.22.0"
-    "@infoprojects/prettier-config": "npm:^1.0.0"
     "@lit-labs/ssr": "npm:^3.3.1"
     "@octokit/rest": "npm:^21.1.1"
     "@stencil-community/eslint-plugin": "npm:^0.10.0"
