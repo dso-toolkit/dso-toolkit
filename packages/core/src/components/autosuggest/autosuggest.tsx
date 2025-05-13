@@ -271,50 +271,46 @@ export class Autosuggest {
   }
 
   connectedCallback() {
-    setTimeout(() => {
-      const input = this.host.querySelector('input[type="text"]');
-      if (!(input instanceof HTMLInputElement)) {
-        return;
-        // throw new ReferenceError("Mandatory text input not found"); #2293
-      }
+    const input = this.host.querySelector('input[type="text"]');
+    if (!(input instanceof HTMLInputElement)) {
+      return;
+      // throw new ReferenceError("Mandatory text input not found"); #2293
+    }
 
-      this.input = input;
-      if (input.id) {
-        this.inputId = input.id;
-      } else {
-        input.id = this.inputId;
-      }
+    this.input = input;
+    if (input.id) {
+      this.inputId = input.id;
+    } else {
+      input.id = this.inputId;
+    }
 
-      if (!this.input.labels || this.input.labels.length < 1) {
-        return;
-        // throw new ReferenceError("Mandatory label for text input not found"); #2293
-      }
+    if (!this.input.labels || this.input.labels.length < 1) {
+      return;
+      // throw new ReferenceError("Mandatory label for text input not found"); #2293
+    }
 
-      const label = this.input.labels[0];
-      if (label?.id) {
-        this.labelId = label.id;
-      } else if (label) {
-        label.id = this.labelId;
-      }
+    const label = this.input.labels[0];
+    if (label?.id) {
+      this.labelId = label.id;
+    } else if (label) {
+      label.id = this.labelId;
+    }
 
-      this.input.setAttribute("role", "combobox");
-      this.input.setAttribute("aria-haspopup", "listbox");
-      this.input.setAttribute("aria-expanded", "false");
-      this.input.setAttribute("autocomplete", "off");
-      this.input.setAttribute("aria-autocomplete", "list");
-      this.input.setAttribute("aria-activedescendant", "");
-      this.input.addEventListener("input", this.onInput);
-      this.input.addEventListener("keydown", this.onKeyDown);
-      this.input.addEventListener("focusin", this.onFocusIn);
+    this.input.setAttribute("role", "combobox");
+    this.input.setAttribute("aria-haspopup", "listbox");
+    this.input.setAttribute("aria-expanded", "false");
+    this.input.setAttribute("autocomplete", "off");
+    this.input.setAttribute("aria-autocomplete", "list");
+    this.input.setAttribute("aria-activedescendant", "");
+    this.input.addEventListener("input", this.onInput);
+    this.input.addEventListener("keydown", this.onKeyDown);
+    this.input.addEventListener("focusin", this.onFocusIn);
 
-      window.addEventListener("resize", this.onWindowResize);
+    window.addEventListener("resize", this.onWindowResize);
 
-      document.addEventListener("scrollend", this.onScrollend);
+    document.addEventListener("scrollend", this.onScrollend);
 
-      this.resizeObserver.observe(this.host);
-
-      this.setListboxContainerMaxBlockSize();
-    });
+    this.resizeObserver.observe(this.host);
   }
 
   disconnectedCallback() {
