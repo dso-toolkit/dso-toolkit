@@ -9,7 +9,7 @@ import { when } from "lit-html/directives/when.js";
 export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
   component: "navbar",
   implementation: "html-css",
-  template: ({ iconTemplate, anchorTemplate }) =>
+  template: ({ iconTemplate, linkTemplate }) =>
     function navbarTemplate({
       items,
       modifier,
@@ -39,7 +39,7 @@ export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
             ${items.map(
               (item: NavbarItem) => html`
                 <li class=${ifDefined(item.active ? "dso-active" : undefined)}>
-                  ${anchorTemplate({
+                  ${linkTemplate({
                     label: item.label,
                     url: item.href,
                     ariaCurrent: item.active ? "page" : undefined,

@@ -1,6 +1,6 @@
-import { Icon } from "../icon/icon.models.js";
+import { Icon } from "../icon";
 
-export interface Anchor {
+export interface Link {
   icon?: Icon;
   iconMode?: "after";
   label: string;

@@ -4,7 +4,6 @@ import {
   ActionList,
   AdvancedSelect,
   Alert,
-  Anchor,
   Annotation,
   ApplicationHeading,
   AttachmentsCounter,
@@ -63,6 +62,7 @@ import {
   Label,
   LabelGroup,
   LegendItem,
+  Link,
   LinkList,
   List,
   ListButton,
@@ -71,6 +71,7 @@ import {
   MarkBar,
   Modal,
   Navbar,
+  OnboardingTip,
   OzonContent,
   Pagination,
   Panel,
@@ -89,7 +90,6 @@ import {
   ShoppingCart,
   Skiplink,
   SlideToggle,
-  OnboardingTip,
   SurveyRating,
   Table,
   Tabs,
@@ -162,7 +162,7 @@ import { coreTreeView } from "./components/tree-view/tree-view.core-template";
 import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
 import { cssAccordion } from "./components/accordion/accordion.css-template";
 import { cssAlert } from "./components/alert/alert.css-template";
-import { cssAnchor } from "./components/anchor/anchor.css-template";
+import { cssLink } from "./components/link/link.css-template";
 import { cssApplicationHeading } from "./components/application-heading/application-heading.css-template";
 import { cssAttachmentsCounter } from "./components/attachments-counter/attachments-counter.css-template";
 import { cssBadge } from "./components/badge/badge.css-template";
@@ -229,7 +229,6 @@ export interface Components {
   actionList: ActionList<TemplateResult>;
   advancedSelect: AdvancedSelect<unknown>;
   alert: Alert<TemplateResult>;
-  anchor: Anchor;
   annotation: Annotation;
   applicationHeading: ApplicationHeading;
   attachmentsCounter: AttachmentsCounter;
@@ -285,6 +284,7 @@ export interface Components {
   label: Label;
   labelGroup: LabelGroup;
   legendItem: LegendItem<TemplateResult>;
+  link: Link;
   linkList: LinkList;
   list: List;
   listButton: ListButton;
@@ -408,7 +408,7 @@ templateContainer.add(coreTreeView);
 templateContainer.add(coreViewerGrid);
 templateContainer.add(cssAccordion);
 templateContainer.add(cssAlert);
-templateContainer.add(cssAnchor);
+templateContainer.add(cssLink);
 templateContainer.add(cssApplicationHeading);
 templateContainer.add(cssAttachmentsCounter);
 templateContainer.add(cssBadge);

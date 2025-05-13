@@ -2,7 +2,7 @@
 @use "sass:color";
 
 @use "../../variables/colors";
-@use "../../components/anchor/anchor.variables" as anchor-variables;
+@use "../../components/link/link.variables" as link-variables;
 @use "../../components/button/button.variables" as button-variables;
 @use "../../di";
 
@@ -64,7 +64,7 @@
 // ==================
 @mixin _anchorIconColors($icon-color) {
   // loop through map to set icon mode
-  @each $mode, $value in anchor-variables.$anchorIcons {
+  @each $mode, $value in link-variables.$linkIcons {
     $selector: map.get($value, "selector");
     $icon: map.get($value, "icon") + "-" + $icon-color;
 

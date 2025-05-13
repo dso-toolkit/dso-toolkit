@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Searchbar: Uitlijnen dropdown met titel invulveld ([#3104](https://github.com/dso-toolkit/dso-toolkit/issues/3104))
 * Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
+* Anchor: Anchor wordt Link component ([#3071](https://github.com/dso-toolkit/dso-toolkit/issues/3071))
 
 ## 🏋🏼 Release 72.2.0 - 2025-05-08
 

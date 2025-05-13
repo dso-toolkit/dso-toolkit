@@ -2,7 +2,7 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export function children({ anchorTemplate, linkListTemplate }: Templates) {
+export function children({ linkTemplate, linkListTemplate }: Templates) {
   return html`
     <div class="row">
       <div class="col-sm-6 col-md-3">
@@ -33,7 +33,7 @@ export function children({ anchorTemplate, linkListTemplate }: Templates) {
       </div>
       <div class="col-sm-6 col-md-3">
         <h2>Combinatie links en tekst</h2>
-        <p>Tekst kan worden gevolgd door verscheidene ${anchorTemplate({ label: "links", url: "#" })}.</p>
+        <p>Tekst kan worden gevolgd door verscheidene ${linkTemplate({ label: "links", url: "#" })}.</p>
         ${linkListTemplate({
           links: [
             { label: "Combinatie link", url: "#" },

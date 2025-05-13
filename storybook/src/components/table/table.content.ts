@@ -9,7 +9,7 @@ const imageOverlayHtml = `<dso-image-overlay>
   >
 </dso-image-overlay>`;
 
-export function defaultTable({ anchorTemplate }: Templates) {
+export function defaultTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -23,7 +23,7 @@ export function defaultTable({ anchorTemplate }: Templates) {
     rows: [
       [
         "1",
-        anchorTemplate({ label: "Fabien", url: "#fabien" }),
+        linkTemplate({ label: "Fabien", url: "#fabien" }),
         "Potencier",
         "fabpot",
         "<code>tr</code>",
@@ -31,7 +31,7 @@ export function defaultTable({ anchorTemplate }: Templates) {
       ],
       [
         "2",
-        anchorTemplate({ label: "Andrew", url: "#andrew" }),
+        linkTemplate({ label: "Andrew", url: "#andrew" }),
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
@@ -39,7 +39,7 @@ export function defaultTable({ anchorTemplate }: Templates) {
       ],
       [
         "3",
-        anchorTemplate({ label: "Taylor", url: "#taylor" }),
+        linkTemplate({ label: "Taylor", url: "#taylor" }),
         "Otwell",
         "taylorotwell",
         "<code>tr</code>",
@@ -47,7 +47,7 @@ export function defaultTable({ anchorTemplate }: Templates) {
       ],
       [
         "4",
-        anchorTemplate({ label: "Kitty", url: "#kitty" }),
+        linkTemplate({ label: "Kitty", url: "#kitty" }),
         "Giraudel",
         "KittyGiraudel",
         "<code>tr</code>",
@@ -57,7 +57,7 @@ export function defaultTable({ anchorTemplate }: Templates) {
   };
 }
 
-export function imageOverlayTable({ anchorTemplate }: Templates) {
+export function imageOverlayTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -69,22 +69,22 @@ export function imageOverlayTable({ anchorTemplate }: Templates) {
       { label: "Een wat langere kolom" },
     ],
     rows: [
-      ["1", anchorTemplate({ label: "Fabien", url: "#fabien" }), "Potencier", "fabpot", "<code>tr</code>", ""],
+      ["1", linkTemplate({ label: "Fabien", url: "#fabien" }), "Potencier", "fabpot", "<code>tr</code>", ""],
       [
         "2",
-        anchorTemplate({ label: "Andrew", url: "#andrew" }),
+        linkTemplate({ label: "Andrew", url: "#andrew" }),
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
         imageOverlayHtml,
       ],
-      ["3", anchorTemplate({ label: "Taylor", url: "#taylor" }), "Otwell", "taylorotwell", "<code>tr</code>", ""],
-      ["4", anchorTemplate({ label: "Kitty", url: "#kitty" }), "Giraudel", "KittyGiraudel", "<code>tr</code>", ""],
+      ["3", linkTemplate({ label: "Taylor", url: "#taylor" }), "Otwell", "taylorotwell", "<code>tr</code>", ""],
+      ["4", linkTemplate({ label: "Kitty", url: "#kitty" }), "Giraudel", "KittyGiraudel", "<code>tr</code>", ""],
     ],
   };
 }
 
-export function sortedAscendingTable({ anchorTemplate }: Templates) {
+export function sortedAscendingTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -98,7 +98,7 @@ export function sortedAscendingTable({ anchorTemplate }: Templates) {
     rows: [
       [
         "1",
-        anchorTemplate({ label: "Fabien", url: "#fabien" }),
+        linkTemplate({ label: "Fabien", url: "#fabien" }),
         "Potencier",
         "fabpot",
         "<code>tr</code>",
@@ -106,7 +106,7 @@ export function sortedAscendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "2",
-        anchorTemplate({ label: "Andrew", url: "#andrew" }),
+        linkTemplate({ label: "Andrew", url: "#andrew" }),
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
@@ -114,7 +114,7 @@ export function sortedAscendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "3",
-        anchorTemplate({ label: "Taylor", url: "#taylor" }),
+        linkTemplate({ label: "Taylor", url: "#taylor" }),
         "Otwell",
         "taylorotwell",
         "<code>tr</code>",
@@ -122,7 +122,7 @@ export function sortedAscendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "4",
-        anchorTemplate({ label: "Kitty", url: "#kitty" }),
+        linkTemplate({ label: "Kitty", url: "#kitty" }),
         "Giraudel",
         "KittyGiraudel",
         "<code>tr</code>",
@@ -132,7 +132,7 @@ export function sortedAscendingTable({ anchorTemplate }: Templates) {
   };
 }
 
-export function sortedDescendingTable({ anchorTemplate }: Templates) {
+export function sortedDescendingTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
@@ -146,7 +146,7 @@ export function sortedDescendingTable({ anchorTemplate }: Templates) {
     rows: [
       [
         "4",
-        anchorTemplate({ label: "Kitty", url: "#kitty" }),
+        linkTemplate({ label: "Kitty", url: "#kitty" }),
         "Giraudel",
         "KittyGiraudel",
         "<code>tr</code>",
@@ -154,7 +154,7 @@ export function sortedDescendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "3",
-        anchorTemplate({ label: "Taylor", url: "#taylor" }),
+        linkTemplate({ label: "Taylor", url: "#taylor" }),
         "Otwell",
         "taylorotwell",
         "<code>tr</code>",
@@ -162,7 +162,7 @@ export function sortedDescendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "2",
-        anchorTemplate({ label: "Andrew", url: "#andrew" }),
+        linkTemplate({ label: "Andrew", url: "#andrew" }),
         "Nesbitt",
         "andrew",
         "<code>tr</code>",
@@ -170,7 +170,7 @@ export function sortedDescendingTable({ anchorTemplate }: Templates) {
       ],
       [
         "1",
-        anchorTemplate({ label: "Fabien", url: "#fabien" }),
+        linkTemplate({ label: "Fabien", url: "#fabien" }),
         "Potencier",
         "fabpot",
         "<code>tr</code>",
@@ -198,7 +198,7 @@ function actionsTemplate({ buttonTemplate }: Templates) {
 }
 
 export function dataGridTable(templates: Templates, actions = false) {
-  const { anchorTemplate } = templates;
+  const { linkTemplate } = templates;
 
   return {
     caption: "Overzicht toegevoegde documenten",
@@ -206,19 +206,19 @@ export function dataGridTable(templates: Templates, actions = false) {
       actions ? { label: "Acties" } : [],
     ),
     rows: [
-      ["1", anchorTemplate({ label: "Tekening.jpg", url: "#tekening" }), "P.K. Puk", "21-07-2019"].concat(
+      ["1", linkTemplate({ label: "Tekening.jpg", url: "#tekening" }), "P.K. Puk", "21-07-2019"].concat(
         actions ? actionsTemplate(templates) : [],
       ),
-      ["2", anchorTemplate({ label: "Omgevingsplan.jpg", url: "#omgevingsplan" }), "H.G. Griff", "22-07-2019"].concat(
+      ["2", linkTemplate({ label: "Omgevingsplan.jpg", url: "#omgevingsplan" }), "H.G. Griff", "22-07-2019"].concat(
         actions ? actionsTemplate(templates) : [],
       ),
-      ["3", anchorTemplate({ label: "Bodemonderzoek.jpg", url: "#bodemonderzoek" }), "P.K. Puk", "23-07-2019"].concat(
+      ["3", linkTemplate({ label: "Bodemonderzoek.jpg", url: "#bodemonderzoek" }), "P.K. Puk", "23-07-2019"].concat(
         actions ? actionsTemplate(templates) : [],
       ),
-      ["4", anchorTemplate({ label: "Maatregelen.jpg", url: "#maatregelen" }), "P.K. Puk", "23-07-2019"].concat(
+      ["4", linkTemplate({ label: "Maatregelen.jpg", url: "#maatregelen" }), "P.K. Puk", "23-07-2019"].concat(
         actions ? actionsTemplate(templates) : [],
       ),
-      ["5", anchorTemplate({ label: "Plattegrond.jpg", url: "#omgevingsplan" }), "P.K. Puk", "28-07-2019"].concat(
+      ["5", linkTemplate({ label: "Plattegrond.jpg", url: "#omgevingsplan" }), "P.K. Puk", "28-07-2019"].concat(
         actions ? actionsTemplate(templates) : [],
       ),
     ],

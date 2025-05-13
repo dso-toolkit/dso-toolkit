@@ -15,7 +15,7 @@ examplePageFactory(
     {
       applicationHeadingTemplate,
       alertTemplate,
-      anchorTemplate,
+      linkTemplate,
       shoppingCartTemplate,
       highlightBoxTemplate,
       searchBarTemplate,
@@ -38,7 +38,7 @@ examplePageFactory(
           })}
           ${alertTemplate({
             message: html`Hulp nodig bij kiezen? Doe dan eerst de
-            ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
+            ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
             status: "info",
           })}
           ${shoppingCartTemplate(shoppingCart)}

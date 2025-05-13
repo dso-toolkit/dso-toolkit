@@ -4,7 +4,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 @use "~dso-toolkit/src/components/dropdown-menu";
 
 @use "header.variables" as core-header-variables;
@@ -284,7 +284,7 @@ dso-dropdown-menu {
 
     > li {
       > a {
-        @include anchor.reverse();
+        @include link.reverse();
         @include nav-item-main();
 
         // stylelint-disable-next-line declaration-property-value-disallowed-list -- no wrapping wanted because of icon

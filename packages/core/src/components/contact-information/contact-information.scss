@@ -3,11 +3,11 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 :host {
-  @include anchor.hideIcons();
+  @include link.hideIcons();
 
   display: block;
 }

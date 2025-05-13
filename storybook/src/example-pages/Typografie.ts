@@ -6,7 +6,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   null,
   "Typografie",
-  ({ anchorTemplate }) => html`
+  ({ linkTemplate }) => html`
     <div class="container">
       <div class="dso-table-responsive">
         <table class="table">
@@ -109,11 +109,11 @@ examplePageFactory(
                 <code>&#60;a href="#"&gt;Anchor&#60;/a&gt;</code>
               </td>
               <td>
-                ${anchorTemplate({ label: "Example", url: "#" })}
+                ${linkTemplate({ label: "Example", url: "#" })}
                 <ul>
-                  <li>${anchorTemplate({ label: "Anchor #39870C", url: "#" })}</li>
-                  <li>${anchorTemplate({ label: "Hover #676CB0", url: "#" })}</li>
-                  <li>${anchorTemplate({ label: "Visited #8B4A6AC", url: "#" })}</li>
+                  <li>${linkTemplate({ label: "Anchor #39870C", url: "#" })}</li>
+                  <li>${linkTemplate({ label: "Hover #676CB0", url: "#" })}</li>
+                  <li>${linkTemplate({ label: "Visited #8B4A6AC", url: "#" })}</li>
                 </ul>
               </td>
             </tr>

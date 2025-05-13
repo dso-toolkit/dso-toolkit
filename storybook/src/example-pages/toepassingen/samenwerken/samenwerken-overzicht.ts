@@ -8,7 +8,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Samenwerken",
   "Samenwerken overzicht",
-  ({ anchorTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`
+  ({ linkTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -36,7 +36,7 @@ examplePageFactory(
             <tbody>
               <tr>
                 <th scope="row">
-                  ${anchorTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
+                  ${linkTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
                 </th>
                 <td>Gemeente Gasselterboerveenschemond</td>
                 <td>24-09-20277</td>
@@ -45,7 +45,7 @@ examplePageFactory(
               </tr>
               <tr>
                 <th scope="row">
-                  ${anchorTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
+                  ${linkTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
                 </th>
                 <td>Gemeente Gasselterboerveenschemond</td>
                 <td>24-09-20277</td>
@@ -54,7 +54,7 @@ examplePageFactory(
               </tr>
               <tr>
                 <th scope="row">
-                  ${anchorTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
+                  ${linkTemplate({ label: "Boomkappen in de achtertuin", url: "#", modifier: "dso-tertiary" })}
                 </th>
                 <td>Gemeente Gasselterboerveenschemond</td>
                 <td>24-09-20277</td>

@@ -10,7 +10,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Landingspagina",
-  ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+  ({ linkTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
@@ -29,7 +29,7 @@ examplePageFactory(
                     zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
                     bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
                   </p>
-                  <p>${anchorTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
+                  <p>${linkTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
                 `,
               }),
             })}
@@ -76,7 +76,7 @@ examplePageFactory(
                   Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt
                   vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard.
                   Dat scheelt u veel werk in de toekomst. Start
-                  ${anchorTemplate({ label: "de Vergunningscheck", url: "#" })}.
+                  ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}.
                 </p>
               `,
             })}
@@ -91,7 +91,7 @@ examplePageFactory(
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
                   </p>
                 `,
               }),
@@ -112,7 +112,7 @@ examplePageFactory(
                       <h3>Project aanmaken</h3>
                       <p>
                         Maak eerst een project aan. Deze vindt u daarna terug in
-                        ${anchorTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
+                        ${linkTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
                       </p>
                     `,
                   }),
@@ -233,7 +233,7 @@ examplePageFactory(
                   <h3>Aanvullen verzoek</h3>
                   <p>
                     Als er iets mist of niet klopt wordt u gevraagd het verzoek aan te vullen. Dit kan in
-                    ${anchorTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
+                    ${linkTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
                     genomen wordt kan worden verlengd.
                   </p>
                 `,

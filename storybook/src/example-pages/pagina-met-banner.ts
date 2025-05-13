@@ -10,7 +10,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   null,
   "Pagina met banner",
-  ({ anchorTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+  ({ linkTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     ${bannerTemplate({
       status: "danger",
       content: richContentTemplate({
@@ -68,8 +68,8 @@ examplePageFactory(
                   <h3>Bel 088 - 79 70 790</h3>
                   <p>
                     Bereikbaar op werkdagen van 9.00-12.00 uur en van 13.00-16.30 uur. Kijk op de website
-                    ${anchorTemplate({ label: "www.aandeslagmetdeomgevingswet.nl", url: "#" })} of neem
-                    ${anchorTemplate({ label: "contant", url: "#" })} met ons op.
+                    ${linkTemplate({ label: "www.aandeslagmetdeomgevingswet.nl", url: "#" })} of neem
+                    ${linkTemplate({ label: "contant", url: "#" })} met ons op.
                   </p>`,
               }),
             })}

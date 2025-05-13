@@ -1,6 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/scaffolding";
@@ -66,7 +66,7 @@
 }
 
 a {
-  @include anchor.clean();
+  @include link.clean();
 
   &:visited {
     color: tab-variables.$text-color;

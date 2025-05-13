@@ -1,4 +1,4 @@
-import { Anchor } from "../anchor/anchor.models.js";
+import { Link } from "../link/link.models.js";
 
 export enum LinkListType {
   Ul = "ul",
@@ -8,5 +8,5 @@ export enum LinkListType {
 export interface LinkList {
   navLabel?: string;
   type?: LinkListType;
-  links: Anchor[];
+  links: Link[];
 }

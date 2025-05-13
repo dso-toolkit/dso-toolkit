@@ -14,7 +14,7 @@ function closeButton({ buttonTemplate }: Templates) {
 }
 
 export function warningRichContent(templates: Templates) {
-  const { anchorTemplate, richContentTemplate } = templates;
+  const { linkTemplate, richContentTemplate } = templates;
 
   return html`
     ${richContentTemplate({
@@ -22,7 +22,7 @@ export function warningRichContent(templates: Templates) {
         <h2>Onderhoudsmelding:</h2>
         <p>
           Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
-          Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
+          Omgevingsloket. ${linkTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
         </p>
       `,
     })}
@@ -37,14 +37,14 @@ export function warningNonRemovableRichContent({ richContentTemplate }: Template
 }
 
 export function dangerRichContent(templates: Templates) {
-  const { anchorTemplate, richContentTemplate } = templates;
+  const { linkTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
       <p>
         Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
-        ${anchorTemplate({
+        ${linkTemplate({
           label: "aanvraag",
           url: "#",
           mode: "download",
@@ -57,14 +57,14 @@ export function dangerRichContent(templates: Templates) {
 }
 
 export function errorRichContent(templates: Templates) {
-  const { anchorTemplate, richContentTemplate } = templates;
+  const { linkTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
       <h2>Storingsmelding:</h2>
       <p>
         Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
-        ${anchorTemplate({
+        ${linkTemplate({
           label: "aanvraag",
           url: "#",
           mode: "download",
@@ -77,13 +77,13 @@ export function errorRichContent(templates: Templates) {
 }
 
 export function infoRichContent(templates: Templates) {
-  const { anchorTemplate, richContentTemplate } = templates;
+  const { linkTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
       <p>
         Een informatieve banner die je weg kan klikken.
-        ${anchorTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
+        ${linkTemplate({ label: "Meer informatie", url: "#", mode: "download" })}
       </p>
     `,
   })}
@@ -130,7 +130,7 @@ export function richInfoRichContent({ richContentTemplate, toggletipTemplate }: 
 }
 
 export function dangerWithHeadingsRichContent(templates: Templates) {
-  const { anchorTemplate, richContentTemplate } = templates;
+  const { linkTemplate, richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
@@ -139,7 +139,7 @@ export function dangerWithHeadingsRichContent(templates: Templates) {
       <h2>Dit is een H2</h2>
       <p>
         Dit is een informatiemelding. Deze wordt gebruikt voor
-        ${anchorTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
+        ${linkTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
       </p>
       <h3>Dit is een H3</h3>
       <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>

@@ -1,16 +1,16 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export function richContent({ anchorTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
+export function richContent({ linkTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       <h2>Heading 2</h2>
 
       <p>
-        De ${anchorTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle
+        De ${linkTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle
         <strong>bouwregelgeving</strong> in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die
         voldoet aan
-        ${anchorTemplate({
+        ${linkTemplate({
           label: "de eisen van de Omgevingswet (3B's)",
           url: "#",
           mode: "download",

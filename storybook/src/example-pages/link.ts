@@ -6,23 +6,23 @@ examplePageFactory(
   "Voorbeeldpagina's",
   null,
   "Link",
-  ({ anchorTemplate, buttonTemplate }) => html`
+  ({ linkTemplate, buttonTemplate }) => html`
     <div class="container">
       <div class="anchor-example">
         <h2 style="margin-bottom: 24px">Link</h2>
         <div class="row">
-          <div class="col-md-3">${anchorTemplate({ label: "Link voorbeeld", url: "#" })}</div>
-          <div class="col-md-3">${anchorTemplate({ label: "Externe link", url: "#", mode: "extern" })}</div>
-          <div class="col-md-3">${anchorTemplate({ label: "Download link", url: "#", mode: "download" })}</div>
+          <div class="col-md-3">${linkTemplate({ label: "Link voorbeeld", url: "#" })}</div>
+          <div class="col-md-3">${linkTemplate({ label: "Externe link", url: "#", mode: "extern" })}</div>
+          <div class="col-md-3">${linkTemplate({ label: "Download link", url: "#", mode: "download" })}</div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
             <h3 class="toolkit-example-label">Voorbeeld in lopende tekst:</h3>
             <p>
-              De ${anchorTemplate({ label: "Bouwregelgeving", url: "#", mode: "extern" })} is een database met alle
+              De ${linkTemplate({ label: "Bouwregelgeving", url: "#", mode: "extern" })} is een database met alle
               bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan
-              de ${anchorTemplate({ label: "eisen", url: "#", mode: "download" })} van de Omgevingswet (3B's), en
+              de ${linkTemplate({ label: "eisen", url: "#", mode: "download" })} van de Omgevingswet (3B's), en
               daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
             </p>
           </div>
@@ -41,7 +41,7 @@ examplePageFactory(
         <div class="row">
           <div class="col-md-6">
             ${buttonTemplate({ variant: "tertiary", label: "Link button", url: "#" })}
-            <!-- IconOnly bestaat niet op anchorTemplate -->
+            <!-- IconOnly bestaat niet op linkTemplate -->
             ${buttonTemplate({ variant: "tertiary", label: "Link button", url: "#", icon: { icon: "info" } })}
             ${buttonTemplate({
               variant: "tertiary",

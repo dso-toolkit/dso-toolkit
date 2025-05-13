@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResult>> = {
   component: "documentList",
   implementation: "html-css",
-  template: ({ anchorTemplate, dropdownMenuTemplate }) =>
+  template: ({ linkTemplate, dropdownMenuTemplate }) =>
     function documentListTemplate({ items }) {
       function documentListItemTemplate({ title, type, owner, status, sticky }: DocumentListItem<TemplateResult>) {
         return html`
@@ -18,7 +18,7 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
                 <p class="dso-document-list-item-owner">${owner}</p>
                 <p class="dso-document-list-item-status">
                   ${status}
-                  ${anchorTemplate({
+                  ${linkTemplate({
                     url: "#",
                     label: "Hele document bekijken",
                     modifier: "dso-document-list-item-open-document",

@@ -1,4 +1,4 @@
-@use "../anchor";
+@use "../link";
 
 sup {
   font-size: 0.65em;
@@ -8,6 +8,6 @@ sup {
   vertical-align: baseline;
 
   a {
-    @include anchor.reverse();
+    @include link.reverse();
   }
 }

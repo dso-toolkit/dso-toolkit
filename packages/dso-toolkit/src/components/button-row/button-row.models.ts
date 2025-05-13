@@ -1,8 +1,8 @@
-import { Anchor } from "../anchor/anchor.models.js";
+import { Link } from "../link/link.models.js";
 import { Button } from "../button/button.models.js";
 
 export interface ButtonRow {
-  buttons: (Anchor | Button)[];
+  buttons: (Link | Button)[];
   emphasized?: boolean;
   align?: ButtonRowAlign;
   noWrap?: boolean;
