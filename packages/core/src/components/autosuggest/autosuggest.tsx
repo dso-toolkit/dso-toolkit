@@ -202,8 +202,6 @@ export class Autosuggest {
     }
   }
 
-  private listboxContainerMaxBlockSize = 0;
-
   private input?: HTMLInputElement;
 
   private listboxContainer: HTMLDsoScrollableElement | undefined;
@@ -342,6 +340,7 @@ export class Autosuggest {
 
     if (this.showSuggestions) {
       let blockSizeViewableListItems = 0;
+      let listboxContainerMaxBlockSize = 0;
 
       // The total number of list items to reserve vertical space for.
       const total = this.listboxItems.length ? Math.min(this.listboxItems.length, maxSuggestionsViewable) : 0;
@@ -354,14 +353,12 @@ export class Autosuggest {
       const listboxMaxBlockSize = blockSizeViewableListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
       if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeViewableListItems) {
-        this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
+        listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
-        this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
+        listboxContainerMaxBlockSize = listboxMaxBlockSize;
       }
 
-      if (this.listboxContainer) {
-        Object.assign(this.listboxContainer.style, { "--max-block-size": `${this.listboxContainerMaxBlockSize}px` });
-      }
+      this.listboxContainer.style.setProperty("--_dso-autosuggest-max-block-size", `${listboxContainerMaxBlockSize}px`);
     }
   }
 
