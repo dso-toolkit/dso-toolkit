@@ -187,7 +187,11 @@ export class ListButton implements ComponentInterface {
               {this.sublabel}
             </span>
           )}
-          <slot name="subcontent" />
+          {this.subcontentSlot && (
+            <div class="subcontent">
+              <slot name="subcontent" />
+            </div>
+          )}
         </div>
 
         {this.count !== undefined && this.count > 0 && (
