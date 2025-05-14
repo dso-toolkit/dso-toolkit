@@ -7,7 +7,7 @@ export const coreContactInformation: ComponentImplementation<ContactInformation<
   component: "contactInformation",
   implementation: "core",
   template: ({ linkTemplate, headingTemplate }) =>
-    function contactInformationTemplate({ heading, anchorItems, infoItems }) {
+    function contactInformationTemplate({ heading, linkItems, infoItems }) {
       return html`<dso-contact-information>
         ${heading
           ? headingTemplate({
@@ -15,10 +15,10 @@ export const coreContactInformation: ComponentImplementation<ContactInformation<
               slotName: "heading",
             })
           : nothing}
-        ${anchorItems && anchorItems.length > 0
+        ${linkItems && linkItems.length > 0
           ? html`
               <ul slot="anchor-items">
-                ${anchorItems.map((anchor) => html`<li>${linkTemplate(anchor)}</li>`)}
+                ${linkItems.map((anchor) => html`<li>${linkTemplate(anchor)}</li>`)}
               </ul>
             `
           : nothing}
