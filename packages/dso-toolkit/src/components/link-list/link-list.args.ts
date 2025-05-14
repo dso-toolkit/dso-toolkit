@@ -1,12 +1,12 @@
 import { ArgTypes } from "@storybook/types";
 
 import { LinkList, LinkListType } from "./link-list.models.js";
-import { Anchor } from "../anchor/anchor.models.js";
+import { Link } from "../link/link.models.js";
 
 export interface LinkListArgs {
   navLabel: string;
   type: LinkListType;
-  links: Anchor[];
+  links: Link[];
 }
 
 export const linkListArgTypes: ArgTypes<LinkListArgs> = {

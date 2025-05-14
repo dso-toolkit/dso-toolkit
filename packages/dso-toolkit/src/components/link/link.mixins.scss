@@ -2,12 +2,12 @@
 
 @use "../../di";
 @use "../../variables/units";
-@use "anchor.variables" as anchor-variables;
+@use "link.variables" as link-variables;
 
 @mixin hideIcons() {
   --_dso-di-background-image: none;
-  --_dso-anchor-icon-padding-inline-start: 0;
-  --_dso-anchor-icon-padding-inline-end: 0;
+  --_dso-link-icon-padding-inline-start: 0;
+  --_dso-link-icon-padding-inline-end: 0;
 }
 
 @mixin pseudo() {
@@ -26,6 +26,7 @@
   background-color: transparent;
   color: var(--link-color);
   text-decoration: underline;
+  text-underline-offset: link-variables.$link-underline-offset;
 
   @include pseudo();
 
@@ -66,16 +67,16 @@
   }
 }
 
-@mixin anchorIcons() {
-  @each $mode, $value in anchor-variables.$anchorIcons {
+@mixin linkIcons() {
+  @each $mode, $value in link-variables.$linkIcons {
     &#{map.get($value, "selector")} {
       @include _mode-base($value);
     }
   }
 }
 
-@mixin _mode-base($anchor-map) {
-  $icon-placement: map.get($anchor-map, "icon-placement");
+@mixin _mode-base($link-map) {
+  $icon-placement: map.get($link-map, "icon-placement");
 
   @if $icon-placement != "after" and $icon-placement != "before" {
     @error 'Use mixin argument "before" or "after".';
@@ -85,24 +86,24 @@
   background-size: 1.25em 1.25em;
 
   @if $icon-placement == "before" {
-    padding-inline-start: var(--_dso-anchor-icon-padding-inline-start, 1.5em);
+    padding-inline-start: var(--_dso-link-icon-padding-inline-start, 1.5em);
     background-position: bottom 0 left 0;
   }
 
   @if $icon-placement == "after" {
-    padding-inline-end: var(--_dso-anchor-icon-padding-inline-end, 1.5em);
+    padding-inline-end: var(--_dso-link-icon-padding-inline-end, 1.5em);
     background-position: bottom 0 right 0;
   }
 
   $icon: if(
-    map.has-key($anchor-map, "icon-color"),
-    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-color"),
-    map.get($anchor-map, "icon")
+    map.has-key($link-map, "icon-color"),
+    map.get($link-map, "icon") + "-" + map.get($link-map, "icon-color"),
+    map.get($link-map, "icon")
   );
   $icon-hover: if(
-    map.has-key($anchor-map, "icon-hover-color"),
-    map.get($anchor-map, "icon") + "-" + map.get($anchor-map, "icon-hover-color"),
-    map.get($anchor-map, "icon")
+    map.has-key($link-map, "icon-hover-color"),
+    map.get($link-map, "icon") + "-" + map.get($link-map, "icon-hover-color"),
+    map.get($link-map, "icon")
   );
 
   @include di.variant($icon);
@@ -116,17 +117,17 @@
 }
 
 @mixin mode-download() {
-  @include _mode-base(map.get(anchor-variables.$anchorIcons, "download"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "download"));
 }
 
 @mixin mode-extern() {
-  @include _mode-base(map.get(anchor-variables.$anchorIcons, "extern"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "extern"));
 }
 
 @mixin mode-phone() {
-  @include _mode-base(map.get(anchor-variables.$anchorIcons, "phone"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "phone"));
 }
 
 @mixin mode-email() {
-  @include _mode-base(map.get(anchor-variables.$anchorIcons, "mail"));
+  @include _mode-base(map.get(link-variables.$linkIcons, "mail"));
 }

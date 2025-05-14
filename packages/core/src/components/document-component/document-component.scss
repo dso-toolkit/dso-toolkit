@@ -3,7 +3,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 @use "~dso-toolkit/src/components/button/button";
 @use "~dso-toolkit/src/components/document-component";
 @use "~dso-toolkit/src/components/delete";
@@ -82,7 +82,7 @@
   display: flex;
   flex-wrap: nowrap;
 
-  @include anchor.root();
+  @include link.root();
 
   text-decoration: none;
 }
@@ -123,7 +123,7 @@
 
   .heading-element {
     cursor: pointer;
-    @include anchor.pseudo();
+    @include link.pseudo();
   }
 
   .editaction-label {

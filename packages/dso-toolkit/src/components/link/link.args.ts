@@ -1,8 +1,8 @@
 import { ArgTypes } from "@storybook/types";
 
-import { Anchor } from "./anchor.models.js";
+import { Link } from "./link.models.js";
 
-export interface AnchorArgs {
+export interface LinkArgs {
   icon?: string;
   iconMode?: "after";
   label: string;
@@ -12,7 +12,7 @@ export interface AnchorArgs {
   ariaCurrent?: string;
 }
 
-export const anchorArgTypes: ArgTypes<AnchorArgs> = {
+export const linkArgTypes: ArgTypes<LinkArgs> = {
   icon: {
     control: {
       type: "string",
@@ -47,7 +47,7 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
   },
 };
 
-export function anchorArgsMapper(a: AnchorArgs): Anchor {
+export function linkArgsMapper(a: LinkArgs): Link {
   return {
     ...a,
     icon: a.icon

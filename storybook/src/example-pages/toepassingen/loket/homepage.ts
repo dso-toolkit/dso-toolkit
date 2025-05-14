@@ -13,7 +13,7 @@ examplePageFactory(
   "Homepage",
   (
     {
-      anchorTemplate,
+      linkTemplate,
       linkListTemplate,
       highlightBoxTemplate,
       richContentTemplate,
@@ -69,7 +69,7 @@ examplePageFactory(
                             Doe hier de vergunningcheck om te kijken of u een vergunning nodig heeft of een melding moet
                             doen.
                           </p>
-                          ${anchorTemplate({ label: "Vergunningcheck", url: "#", modifier: "dso-secondary" })}
+                          ${linkTemplate({ label: "Vergunningcheck", url: "#", modifier: "dso-secondary" })}
                         `,
                       })}
                     </div>

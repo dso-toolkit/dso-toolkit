@@ -2,7 +2,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 
 :host {
   max-block-size: units.$ru6;
@@ -24,7 +24,7 @@
     align-items: center;
     gap: units.$u2;
 
-    @include anchor.reverse();
+    @include link.reverse();
 
     &,
     &:hover,

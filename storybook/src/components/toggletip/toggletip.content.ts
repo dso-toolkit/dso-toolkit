@@ -2,13 +2,13 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export function children({ anchorTemplate, richContentTemplate }: Templates) {
+export function children({ linkTemplate, richContentTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       <h2>Samenspel tussen wetgever en ontwikkelaars</h2>
       <p>
         Het DSO wordt ontwikkeld door het programma
-        ${anchorTemplate({
+        ${linkTemplate({
           label: "Aan de slag met de Omgevingswet",
           url: "https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/",
         })}

@@ -1,9 +1,0 @@
-@use "anchor.mixins" as anchor-mixins;
-
-a {
-  @include anchor-mixins.root();
-
-  &:where(:not(.dso-primary, .dso-secondary, .dso-tertiary)) {
-    @include anchor-mixins.anchorIcons();
-  }
-}

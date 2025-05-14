@@ -1,0 +1,9 @@
+@use "link.mixins" as link-mixins;
+
+a {
+  @include link-mixins.root();
+
+  &:where(:not(.dso-primary, .dso-secondary, .dso-tertiary)) {
+    @include link-mixins.linkIcons();
+  }
+}

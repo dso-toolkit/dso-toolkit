@@ -11,7 +11,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   null,
   "Full Width",
-  ({ anchorTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
+  ({ linkTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -52,16 +52,10 @@ examplePageFactory(
                   { label: "Modifier" },
                 ],
                 rows: [
-                  ["1", anchorTemplate({ label: "Fabien", url: "#" }), "Potentier", "fabpot", html`<code>tr</code>`],
-                  ["2", anchorTemplate({ label: "Andrew", url: "#" }), "Nesbitt", "andrew", html`<code>tr</code>`],
-                  ["3", anchorTemplate({ label: "Taylor", url: "#" }), "Otwell", "taylorotwell", html`<code>tr</code>`],
-                  [
-                    "4",
-                    anchorTemplate({ label: "Kitty", url: "#" }),
-                    "Giraudel",
-                    "KittyGiraudel",
-                    html`<code>tr</code>`,
-                  ],
+                  ["1", linkTemplate({ label: "Fabien", url: "#" }), "Potentier", "fabpot", html`<code>tr</code>`],
+                  ["2", linkTemplate({ label: "Andrew", url: "#" }), "Nesbitt", "andrew", html`<code>tr</code>`],
+                  ["3", linkTemplate({ label: "Taylor", url: "#" }), "Otwell", "taylorotwell", html`<code>tr</code>`],
+                  ["4", linkTemplate({ label: "Kitty", url: "#" }), "Giraudel", "KittyGiraudel", html`<code>tr</code>`],
                 ],
               },
             })}
@@ -73,7 +67,7 @@ examplePageFactory(
             <h2>History (h2)</h2>
             <p>
               See also:
-              ${anchorTemplate({
+              ${linkTemplate({
                 label: "Timeline of The Hague",
                 url: "https://en.wikipedia.org/wiki/Timeline_of_The_Hague",
                 mode: "extern",
@@ -101,7 +95,7 @@ examplePageFactory(
             <h5>More information (h5)</h5>
             <p>
               See
-              ${anchorTemplate({
+              ${linkTemplate({
                 label: "Wikipedia",
                 url: "https://en.wikipedia.org/wiki/The_Hague",
                 mode: "extern",
@@ -131,7 +125,7 @@ examplePageFactory(
             <h5>More information (h5)</h5>
             <p>
               See
-              ${anchorTemplate({
+              ${linkTemplate({
                 label: "Wikipedia",
                 url: "https://en.wikipedia.org/wiki/The_Hague",
                 mode: "extern",

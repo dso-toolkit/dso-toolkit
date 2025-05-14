@@ -17,7 +17,7 @@ export default meta;
 const { Default, Sticky } = documentHeaderStories({
   templateContainer,
   storyTemplates: (templates) => {
-    const { documentHeaderTemplate, anchorTemplate } = templates;
+    const { documentHeaderTemplate, linkTemplate } = templates;
 
     const features: DefinitionList<TemplateResult> = {
       modifier: "dso-document-header-features",
@@ -42,7 +42,7 @@ const { Default, Sticky } = documentHeaderStories({
           term: html`Besluit:`,
           descriptions: [
             {
-              content: anchorTemplate({
+              content: linkTemplate({
                 label: "Bekijk besluit",
                 url: "#",
                 icon: {

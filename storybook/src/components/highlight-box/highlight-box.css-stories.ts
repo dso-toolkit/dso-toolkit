@@ -17,7 +17,7 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
   highlightBoxStories({
     templateContainer,
     storyTemplates: (templates) => {
-      const { highlightBoxTemplate, anchorTemplate, buttonTemplate, richContentTemplate } = templates;
+      const { highlightBoxTemplate, linkTemplate, buttonTemplate, richContentTemplate } = templates;
 
       return {
         highlightBoxTemplate,
@@ -35,7 +35,7 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
               en inspecties).
             </p>
             <p>
-              De ${anchorTemplate({ label: "Bouwregelgeving", url: "#", mode: "download" })} is een database met alle
+              De ${linkTemplate({ label: "Bouwregelgeving", url: "#", mode: "download" })} is een database met alle
               bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan
               de eisen van de Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder
               bouwwerk.

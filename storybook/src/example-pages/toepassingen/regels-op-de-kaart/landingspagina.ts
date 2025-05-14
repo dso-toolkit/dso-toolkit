@@ -11,7 +11,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Regels op de kaart",
   "Landingspagina",
-  ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+  ({ accordionTemplate, linkTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
@@ -98,7 +98,7 @@ examplePageFactory(
               </div>
               <div class="col-md-6">
                 <p>
-                  ${anchorTemplate({
+                  ${linkTemplate({
                     label: "Zoek documenten via eigenschappen",
                     url: "#",
                     modifier: "dso-secondary extern",
@@ -118,7 +118,7 @@ examplePageFactory(
               </div>
               <div class="col-md-6">
                 <p>
-                  ${anchorTemplate({
+                  ${linkTemplate({
                     label: "Bekijk regels uit het verleden",
                     url: "#",
                     modifier: "dso-secondary extern",
@@ -151,7 +151,7 @@ examplePageFactory(
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
                   </p>
                 `,
               }),
@@ -166,7 +166,7 @@ examplePageFactory(
                 children: html`
                   <h3>Actueel</h3>
                   <p>Regels op de kaart is in ontwikkeling. Regelmatig worden er verbeteringen doorgevoerd.</p>
-                  ${anchorTemplate({
+                  ${linkTemplate({
                     label: "Wijzigingen in Regels op de kaart",
                     url: "#",
                     modifier: "dso-tertiary",

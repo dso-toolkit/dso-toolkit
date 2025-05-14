@@ -1,6 +1,6 @@
 import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
-# Anchor
+# Link
 
 <StorybookComponent name="voorbeeldpagina-s-link" isExamplePage variant="link" />
 
@@ -13,7 +13,7 @@ Het anchor-element heeft een `href`-attribuut en wordt vaak gebruikt als hyperli
 - Iets anders waar een URL naar verwijst
   De bestemming van de link moet tussen de `<a>` en `</a>` tag staan.
 
-Er zijn verschillende anchorelementen:
+Er zijn verschillende anchor-elementen:
 
 - In-page links. Ze linken naar verschillende secties of elementen op dezelfde pagina.
 - Skiplinks en jumplinks. Gebruik ze bijvoorbeeld om gebruikers te laten 'skippen' naar de belangrijkste onderdelen van een pagina. Ook zijn ze te gebruiken om te springen naar een specifiek blok op een pagina, zoals back-to-top.
@@ -81,11 +81,11 @@ Verminder dubbelzinnigheid door een label met een icoon op te nemen. Zorg dat zo
 
 ## Gedrag en toegankelijkheid
 
-- Gebruik een label voor duidelijkheid en toegankelijkheid. Screenreader-software voegt vaak audio-feedback toe wanneer het een anchor link leest. Schermvergrotende software doet dat niet. Een label gebruiken lost dat op.
-- Ga na of de tekst van de anchor link duidelijk is voor iemand die het bijbehorende icoontje niet ziet. Geef eventueel een tekstueel alternatief.
+- Gebruik een label voor duidelijkheid en toegankelijkheid. Screenreader-software voegt vaak audio-feedback toe wanneer het een link leest. Schermvergrotende software doet dat niet. Een label gebruiken lost dat op.
+- Ga na of de tekst van de link duidelijk is voor iemand die het bijbehorende icoontje niet ziet. Geef eventueel een tekstueel alternatief.
 - Als er een link "product" is met rechts daarvan een vergrootglasicoontje, is visueel duidelijk dat hier "product zoeken" wordt bedoeld. Dat is alleen niet duidelijk voor iemand die alleen de tekst "product" leest. Dit is een voorbeeld van dat het icoontje essentieel is om de functie van de link te begrijpen. Het is daarom aan te raden om de zoekfunctie ook in de tekst duidelijk te maken. Doe dat bijvoorbeeld met de tekst "product zoeken".
 - Stel dat er een link "Google" is, met rechts daarvan een icoontje om aan te geven dat een externe website wordt geopend. U moet voor dit icoontje een tekstueel alternatief geven. Maar omdat het icoontje niet essentieel is om te begrijpen wat de link doet, hoeft het tekstuele alternatief niet zichtbaar te zijn. Gebruik daarom een `sr-only` span om het aan te bieden. Formuleer het bijvoorbeeld als: Google `<span class="sr-only">(Opent in nieuw venster)</span>`
-- Als de anchor link verwijst naar een deel van de huidige pagina ('same page link'), dan moet je dit voor gebruikers van screenreaders duidelijk maken door "spring naar" `sr-only` voor de linktekst te zetten. Bijvoorbeeld: `<span class="sr-only">spring naar</span> inhoudsopgave`.
+- Als de link verwijst naar een deel van de huidige pagina ('same page link'), dan moet je dit voor gebruikers van screenreaders duidelijk maken door "spring naar" `sr-only` voor de linktekst te zetten. Bijvoorbeeld: `<span class="sr-only">spring naar</span> inhoudsopgave`.
 
 ## Bronvermelding
 

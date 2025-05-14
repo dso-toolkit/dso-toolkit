@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssLinkList: ComponentImplementation<LinkList> = {
   component: "linkList",
   implementation: "html-css",
-  template: ({ anchorTemplate }) =>
+  template: ({ linkTemplate }) =>
     function linkListTemplate({ navLabel, type, links }) {
       function ul(children: TemplateResult) {
         return html`
@@ -27,7 +27,7 @@ export const cssLinkList: ComponentImplementation<LinkList> = {
         throw new Error("Content mismatch between LinkList.navLabel and Anchor.ariaCurrent");
       }
 
-      const children = html`${links.map((link) => html`<li>${anchorTemplate(link)}</li>`)}`;
+      const children = html`${links.map((link) => html`<li>${linkTemplate(link)}</li>`)}`;
 
       const list = type === LinkListType.Ol ? ol(children) : ul(children);
 

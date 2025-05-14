@@ -1,6 +1,6 @@
 @use "../../variables/units";
 @use "../../variables/colors";
-@use "../anchor";
+@use "../link";
 
 @use "tile.variables" as tile-variables;
 
@@ -63,7 +63,7 @@
   }
 
   a {
-    @include anchor.clean();
+    @include link.clean();
 
     &:hover,
     &:active {

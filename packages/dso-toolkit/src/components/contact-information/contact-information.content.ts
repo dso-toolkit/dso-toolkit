@@ -2,7 +2,7 @@ import { ContactInformation } from "./contact-information.models";
 import { TemplateResult } from "lit-html";
 
 export const contactInformationContent: ContactInformation<TemplateResult> = {
-  anchorItems: [
+  linkItems: [
     { label: "14-303", url: "tel:40-303", icon: { icon: "call" } },
     { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "email" } },
     {

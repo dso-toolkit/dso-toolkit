@@ -2,7 +2,7 @@
 @use "../../variables/colors";
 
 @use "../../utilities";
-@use "../anchor";
+@use "../link";
 
 @mixin root() {
   @include utilities.clearfix();
@@ -37,7 +37,7 @@
     }
 
     > a {
-      @include anchor.reverse();
+      @include link.reverse();
 
       &,
       &:visited {

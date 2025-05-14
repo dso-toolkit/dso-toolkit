@@ -1,7 +1,7 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 
-@use "~dso-toolkit/src/components/anchor";
+@use "~dso-toolkit/src/components/link";
 @use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
 @use "~dso-toolkit/src/components/insert";
 @use "~dso-toolkit/src/components/delete";
@@ -35,7 +35,7 @@ span[role="paragraph"] {
 }
 
 a {
-  @include anchor.root();
+  @include link.root();
 }
 
 // Styling below copied from DSO Viewer 20211011
