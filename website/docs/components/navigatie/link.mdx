@@ -2,13 +2,6 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Link
 
-<StorybookComponent implementations={["html-css"]} variant="default" />
-<StorybookComponent implementations={["html-css"]} variant="download-link" />
-<StorybookComponent implementations={["html-css"]} variant="external-link" />
-<StorybookComponent implementations={["html-css"]} variant="link-with-icon" />
-<StorybookComponent implementations={["html-css"]} variant="mail-link-with-icon" />
-<StorybookComponent implementations={["html-css"]} variant="phone-link-with-icon" />
-
 Het anchor-element heeft een `href`-attribuut en wordt vaak gebruikt als hyperlink naar:
 
 - Webpagina's
@@ -29,6 +22,32 @@ Er zijn verschillende anchor-elementen:
 ## Technische opmerkingen
 
 Externe links moeten `class="extern" target="_blank" rel="noopener noreferrer"` krijgen. In de link staat een `span.sr-only` met de tekst 'opent in nieuw venster'.
+
+## Varianten
+
+#### Default
+
+<StorybookComponent implementations={["html-css"]} variant="default" />
+
+#### Download Link
+
+<StorybookComponent implementations={["html-css"]} variant="download-link" />
+
+#### External Link
+
+<StorybookComponent implementations={["html-css"]} variant="external-link" />
+
+#### Link With Icon
+
+<StorybookComponent implementations={["html-css"]} variant="link-with-icon" />
+
+#### Mail Link With Icon
+
+<StorybookComponent implementations={["html-css"]} variant="mail-link-with-icon" />
+
+#### Phone Link With Icon
+
+<StorybookComponent implementations={["html-css"]} variant="phone-link-with-icon" />
 
 ## Skiplinks en jumplinks: wanneer te gebruiken
 
