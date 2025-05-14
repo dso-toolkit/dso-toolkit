@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoProgressBar } from "../../projects/component-library/src/public-api"
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
-  component: DsoProgressBar,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoProgressBar],
+    }),
+  ],
   title: "Progress Bar",
 };
 

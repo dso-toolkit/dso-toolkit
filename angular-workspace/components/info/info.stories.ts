@@ -4,12 +4,16 @@ import { templateContainer } from "../../templates";
 import { richContent } from "./info.content";
 
 import readme from "./readme.md?raw";
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { DsoInfo } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),
-  component: DsoInfo,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoInfo],
+    }),
+  ],
   title: "Info",
 };
 

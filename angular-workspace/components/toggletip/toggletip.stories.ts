@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
@@ -9,7 +9,11 @@ import { DsoToggletip } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
-  component: DsoToggletip,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoToggletip],
+    }),
+  ],
   title: "Toggletip",
 };
 

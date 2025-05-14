@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 
@@ -9,7 +9,11 @@ import { DsoImageOverlay } from "../../projects/component-library/src/public-api
 
 const meta: Meta = {
   ...imageOverlayMeta({ readme }),
-  component: DsoImageOverlay,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoImageOverlay],
+    }),
+  ],
   title: "Image Overlay",
 };
 

@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoSlideToggle } from "../../projects/component-library/src/public-api"
 
 const meta: Meta<SlideToggleArgs> = {
   ...slideToggleMeta({ readme }),
-  component: DsoSlideToggle,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoSlideToggle],
+    }),
+  ],
   title: "Slide Toggle",
 };
 

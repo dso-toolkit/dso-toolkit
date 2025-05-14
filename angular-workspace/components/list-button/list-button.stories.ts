@@ -10,11 +10,10 @@ import { DsoListButton } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ListButtonArgs> = {
   ...listButtonMeta({ readme }),
-  component: DsoListButton,
   title: "List Button",
   decorators: [
     moduleMetadata({
-      imports: [TrustHtmlPipe],
+      imports: [DsoListButton, TrustHtmlPipe],
     }),
   ],
 };

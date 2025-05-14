@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -10,7 +10,11 @@ import { DsoScrollable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ScrollableArgs> = {
   ...scrollableMeta({ readme }),
-  component: DsoScrollable,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoScrollable],
+    }),
+  ],
   title: "Scrollable",
 };
 

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 
@@ -9,7 +9,11 @@ import { DsoDropdownMenu } from "../../projects/component-library/src/public-api
 
 const meta: Meta = {
   ...dropdownMenuMeta({ readme }),
-  component: DsoDropdownMenu,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoDropdownMenu],
+    }),
+  ],
   title: "Dropdown Menu",
 };
 

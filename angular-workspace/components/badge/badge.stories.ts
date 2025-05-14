@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoBadge } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
-  component: DsoBadge,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoBadge],
+    }),
+  ],
   title: "Badge",
 };
 
