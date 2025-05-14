@@ -13,7 +13,7 @@ const meta: Meta<ActionListArgs> = {
   decorators: [
     moduleMetadata({
       imports: [DsoActionList],
-    })
+    }),
   ],
   title: "Action List",
 };
