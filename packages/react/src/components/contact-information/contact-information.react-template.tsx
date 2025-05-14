@@ -7,13 +7,13 @@ export const reactContactInformation: ComponentImplementation<ContactInformation
   component: "contactInformation",
   implementation: "react",
   template: ({ iconTemplate }) =>
-    function contactInformationTemplate({ heading, anchorItems, infoItems }) {
+    function contactInformationTemplate({ heading, linkItems, infoItems }) {
       return (
         <DsoContactInformation>
           {heading && <h5 slot="heading">{heading?.children}</h5>}
-          {anchorItems && anchorItems.length > 0 && (
+          {linkItems && linkItems.length > 0 && (
             <ul slot="anchor-items">
-              {anchorItems?.map((anchor, i) => (
+              {linkItems?.map((anchor, i) => (
                 <li key={i}>
                   <a
                     href={anchor.url}
