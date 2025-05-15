@@ -191,9 +191,6 @@ export class Autosuggest {
   @State()
   showLoading = false;
 
-  @State()
-  listboxContainerMaxBlockSize = 0;
-
   @Watch("suggestions")
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -252,8 +249,6 @@ export class Autosuggest {
     }
   };
 
-  private ariaAutoSuggestStatus: string = "";
-
   @Listen("click", { target: "document" })
   onDocumentClick(event: MouseEvent) {
     if (
@@ -271,54 +266,49 @@ export class Autosuggest {
 
   componentDidRender() {
     this.setListboxContainerMaxBlockSize();
-    this.updateAriaAutoSuggestStatus();
   }
 
   connectedCallback() {
-    setTimeout(() => {
-      const input = this.host.querySelector('input[type="text"]');
-      if (!(input instanceof HTMLInputElement)) {
-        return;
-        // throw new ReferenceError("Mandatory text input not found"); #2293
-      }
+    const input = this.host.querySelector('input[type="text"]');
+    if (!(input instanceof HTMLInputElement)) {
+      return;
+      // throw new ReferenceError("Mandatory text input not found"); #2293
+    }
 
-      this.input = input;
-      if (input.id) {
-        this.inputId = input.id;
-      } else {
-        input.id = this.inputId;
-      }
+    this.input = input;
+    if (input.id) {
+      this.inputId = input.id;
+    } else {
+      input.id = this.inputId;
+    }
 
-      if (!this.input.labels || this.input.labels.length < 1) {
-        return;
-        // throw new ReferenceError("Mandatory label for text input not found"); #2293
-      }
+    if (!this.input.labels || this.input.labels.length < 1) {
+      return;
+      // throw new ReferenceError("Mandatory label for text input not found"); #2293
+    }
 
-      const label = this.input.labels[0];
-      if (label?.id) {
-        this.labelId = label.id;
-      } else if (label) {
-        label.id = this.labelId;
-      }
+    const label = this.input.labels[0];
+    if (label?.id) {
+      this.labelId = label.id;
+    } else if (label) {
+      label.id = this.labelId;
+    }
 
-      this.input.setAttribute("role", "combobox");
-      this.input.setAttribute("aria-haspopup", "listbox");
-      this.input.setAttribute("aria-expanded", "false");
-      this.input.setAttribute("autocomplete", "off");
-      this.input.setAttribute("aria-autocomplete", "list");
-      this.input.setAttribute("aria-activedescendant", "");
-      this.input.addEventListener("input", this.onInput);
-      this.input.addEventListener("keydown", this.onKeyDown);
-      this.input.addEventListener("focusin", this.onFocusIn);
+    this.input.setAttribute("role", "combobox");
+    this.input.setAttribute("aria-haspopup", "listbox");
+    this.input.setAttribute("aria-expanded", "false");
+    this.input.setAttribute("autocomplete", "off");
+    this.input.setAttribute("aria-autocomplete", "list");
+    this.input.setAttribute("aria-activedescendant", "");
+    this.input.addEventListener("input", this.onInput);
+    this.input.addEventListener("keydown", this.onKeyDown);
+    this.input.addEventListener("focusin", this.onFocusIn);
 
-      window.addEventListener("resize", this.onWindowResize);
+    window.addEventListener("resize", this.onWindowResize);
 
-      document.addEventListener("scrollend", this.onScrollend);
+    document.addEventListener("scrollend", this.onScrollend);
 
-      this.resizeObserver.observe(this.host);
-
-      this.setListboxContainerMaxBlockSize();
-    });
+    this.resizeObserver.observe(this.host);
   }
 
   disconnectedCallback() {
@@ -344,6 +334,7 @@ export class Autosuggest {
 
     if (this.showSuggestions) {
       let blockSizeViewableListItems = 0;
+      let listboxContainerMaxBlockSize = 0;
 
       // The total number of list items to reserve vertical space for.
       const total = this.listboxItems.length ? Math.min(this.listboxItems.length, maxSuggestionsViewable) : 0;
@@ -356,10 +347,12 @@ export class Autosuggest {
       const listboxMaxBlockSize = blockSizeViewableListItems + 2 * listboxPaddingBlock + 2 * listboxBorderWidth;
 
       if (availableBlockSize < listboxMaxBlockSize || availableBlockSize <= blockSizeViewableListItems) {
-        this.listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
+        listboxContainerMaxBlockSize = availableBlockSize - 2 * listboxPaddingBlock;
       } else {
-        this.listboxContainerMaxBlockSize = listboxMaxBlockSize;
+        listboxContainerMaxBlockSize = listboxMaxBlockSize;
       }
+
+      this.listboxContainer.style.setProperty("--_dso-autosuggest-max-block-size", `${listboxContainerMaxBlockSize}px`);
     }
   }
 
@@ -674,20 +667,20 @@ export class Autosuggest {
     };
   }
 
-  private updateAriaAutoSuggestStatus() {
+  private getAutosuggestStatus() {
     if (this.notFound) {
-      this.ariaAutoSuggestStatus = `"${this.inputValue}" is niet gevonden.`;
-    } else {
-      let totalSuggestions = 0;
-
-      if (isFlat(this.suggestions)) {
-        totalSuggestions = this.suggestions.length;
-      } else if (isGrouped(this.suggestions)) {
-        totalSuggestions = this.suggestions.reduce((count, group) => count + group.suggestions.length, 0);
-      }
-
-      this.ariaAutoSuggestStatus = `${totalSuggestions} resultaten gevonden.`;
+      return `"${this.inputValue}" is niet gevonden.`;
     }
+
+    let totalSuggestions = 0;
+
+    if (isFlat(this.suggestions)) {
+      totalSuggestions = this.suggestions.length;
+    } else if (isGrouped(this.suggestions)) {
+      totalSuggestions = this.suggestions.reduce((count, group) => count + group.suggestions.length, 0);
+    }
+
+    return `${totalSuggestions} resultaten gevonden.`;
   }
 
   render() {
@@ -714,11 +707,7 @@ export class Autosuggest {
         ) : (
           showListbox && (
             <>
-              <dso-scrollable
-                class="listbox-container"
-                ref={(element) => (this.listboxContainer = element)}
-                style={{ "--max-block-size": `${this.listboxContainerMaxBlockSize}px` }}
-              >
+              <dso-scrollable class="listbox-container" ref={(element) => (this.listboxContainer = element)}>
                 <div
                   class="listbox"
                   role="listbox"
@@ -783,7 +772,7 @@ export class Autosuggest {
                 </div>
               </dso-scrollable>
               <div class="sr-only" aria-live="polite" aria-atomic="true">
-                {this.ariaAutoSuggestStatus}
+                {this.getAutosuggestStatus()}
               </div>
             </>
           )

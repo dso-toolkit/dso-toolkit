@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Autosuggest: memory leak (vervolg) ([#3106](https://github.com/dso-toolkit/dso-toolkit/issues/3106))
+
 ### Changed
 * Searchbar: Uitlijnen dropdown met titel invulveld ([#3104](https://github.com/dso-toolkit/dso-toolkit/issues/3104))
 * Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
