@@ -249,8 +249,6 @@ export class Autosuggest {
     }
   };
 
-  private ariaAutoSuggestStatus: string = "";
-
   @Listen("click", { target: "document" })
   onDocumentClick(event: MouseEvent) {
     if (
@@ -671,18 +669,18 @@ export class Autosuggest {
 
   private updateAriaAutoSuggestStatus() {
     if (this.notFound) {
-      this.ariaAutoSuggestStatus = `"${this.inputValue}" is niet gevonden.`;
-    } else {
-      let totalSuggestions = 0;
-
-      if (isFlat(this.suggestions)) {
-        totalSuggestions = this.suggestions.length;
-      } else if (isGrouped(this.suggestions)) {
-        totalSuggestions = this.suggestions.reduce((count, group) => count + group.suggestions.length, 0);
-      }
-
-      this.ariaAutoSuggestStatus = `${totalSuggestions} resultaten gevonden.`;
+      return `"${this.inputValue}" is niet gevonden.`;
     }
+
+    let totalSuggestions = 0;
+
+    if (isFlat(this.suggestions)) {
+      totalSuggestions = this.suggestions.length;
+    } else if (isGrouped(this.suggestions)) {
+      totalSuggestions = this.suggestions.reduce((count, group) => count + group.suggestions.length, 0);
+    }
+
+    return `${totalSuggestions} resultaten gevonden.`;
   }
 
   render() {
@@ -776,7 +774,7 @@ export class Autosuggest {
                 </div>
               </dso-scrollable>
               <div class="sr-only" aria-live="polite" aria-atomic="true">
-                {this.ariaAutoSuggestStatus}
+                {this.updateAriaAutoSuggestStatus()}
               </div>
             </>
           )
