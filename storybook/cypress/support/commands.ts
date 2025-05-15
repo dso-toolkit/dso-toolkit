@@ -29,7 +29,6 @@
 import { cypressStyling } from "./cypress-styling";
 import * as axe from "axe-core";
 import { Options } from "cypress-axe";
-import { getWaitForStableDOM } from "./wait-for-stable-dom";
 
 export {};
 
@@ -72,22 +71,14 @@ Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
   });
 });
 
-Cypress.Commands.add("waitForStableDOM", { prevSubject: "optional" }, getWaitForStableDOM());
-
 /**
  * This overwrite waits for the DOM to stabilise before taking the screenshot.
  */
 Cypress.Commands.overwrite("screenshot", (originalFn, ...args) => {
-  return (
-    cy
-      .waitForStableDOM()
-      // overwrite the default timeout, because screenshot does that internally
-      // otherwise the `then` is limited to the default command timeout
-      .then({ timeout: Cypress.config("responseTimeout") }, () => {
-        // return the original function so that cypress waits for it
-        return originalFn(...args);
-      })
-  );
+  return cy.then({ timeout: Cypress.config("responseTimeout") }, () => {
+    // return the original function so that cypress waits for it
+    return originalFn(...args);
+  });
 });
 
 /**
