@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * 
 ### Task
 * Prettier: gebruik prettier-config van `@infoprojects/prettier-config` ([#3127](https://github.com/dso-toolkit/dso-toolkit/issues/3127))
+* Issue: Nieuwe issues koppelen aan project-id ([#3145](https://github.com/dso-toolkit/dso-toolkit/issues/3145))
 * Angular Storybook: Component vervangen met decorators in stories ([#3125](https://github.com/dso-toolkit/dso-toolkit/issues/3125))
 
 ## 🏋🏼 Release 72.2.0 - 2025-05-08
