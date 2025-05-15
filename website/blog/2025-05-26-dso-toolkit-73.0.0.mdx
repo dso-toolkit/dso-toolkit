@@ -6,4 +6,18 @@ authors: [cvanderleij]
 
 ## Breaking change
 
-In deze release hebben we het component `Anchor` hernoemd naar `Link`. De HTML-structuur blijft ongewijzigd, dus bestaande markup vereist geen aanpassing. **Let op**: de bijbehorende SCSS-variabelen zijn hernoemd om aan te sluiten bij de nieuwe componentnaam.
+In deze release hebben we het component `Anchor` hernoemd naar `Link`. De HTML-structuur blijft ongewijzigd, maar het volgende is wel aangepast:
+
+* Het pad is veranderd
+  * ❌ `dso-toolkit/src/components/anchor/`
+  * ✅ `dso-toolkit/src/components/link/`
+* De bestanden zijn hernoemd
+  * ❌ `anchor.mixins.scss`
+  * ✅ `link.mixins.scss`
+  * ❌ `anchor.scss`
+  * ✅ `link.scss`
+  * ❌ `anchor.variables.scss`
+  * ✅ `link.variables.scss`
+* 1 Sass-variable is hernoemd
+  * ❌ `$anchorIcons`
+  * ✅ `$linkIcons`
