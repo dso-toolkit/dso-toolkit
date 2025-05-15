@@ -667,7 +667,7 @@ export class Autosuggest {
     };
   }
 
-  private updateAriaAutoSuggestStatus() {
+  private getAutosuggestStatus() {
     if (this.notFound) {
       return `"${this.inputValue}" is niet gevonden.`;
     }
@@ -696,8 +696,6 @@ export class Autosuggest {
     } else if (this.input) {
       this.input.removeAttribute("aria-controls");
     }
-
-    this.updateAriaAutoSuggestStatus();
 
     return (
       <>
@@ -774,7 +772,7 @@ export class Autosuggest {
                 </div>
               </dso-scrollable>
               <div class="sr-only" aria-live="polite" aria-atomic="true">
-                {this.updateAriaAutoSuggestStatus()}
+                {this.getAutosuggestStatus()}
               </div>
             </>
           )
