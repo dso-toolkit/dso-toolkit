@@ -13,7 +13,7 @@ examplePageFactory(
   "Project Overzicht",
   (
     {
-      anchorTemplate,
+      linkTemplate,
       applicationHeadingTemplate,
       buttonRowTemplate,
       cardListTemplate,
@@ -65,7 +65,7 @@ examplePageFactory(
                         Wit u dat iemand anders uw aanvraag kan maken of indienen? Dan kunt u iemand hiervoor machtigen
                         bij Deelnemers
                       </p>
-                      ${anchorTemplate({
+                      ${linkTemplate({
                         label: "Deelnemers",
                         url: "#",
                         modifier: "dso-secondary",

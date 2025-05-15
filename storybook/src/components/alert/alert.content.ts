@@ -5,18 +5,18 @@ export const successMessage = html`<p>
   Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 </p>`;
 
-export function infoMessage({ anchorTemplate }: Templates) {
+export function infoMessage({ linkTemplate }: Templates) {
   return html`<p>
     Dit is een informatiemelding. Deze wordt gebruikt voor
-    ${anchorTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
+    ${linkTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
   </p>`;
 }
 
 export const warningMessage = html`<p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>`;
 
-export function errorMessage({ anchorTemplate }: Templates) {
+export function errorMessage({ linkTemplate }: Templates) {
   return html`<p>
-    Dit is een ${anchorTemplate({ label: "foutmelding", url: "#" })}. Deze wordt getoond als er iets is misgegaan.
+    Dit is een ${linkTemplate({ label: "foutmelding", url: "#" })}. Deze wordt getoond als er iets is misgegaan.
   </p>`;
 }
 

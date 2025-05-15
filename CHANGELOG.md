@@ -12,7 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Searchbar: Uitlijnen dropdown met titel invulveld ([#3104](https://github.com/dso-toolkit/dso-toolkit/issues/3104))
 * Autosuggest: Aanpassing top padding Suggestion Groups ([#3060](https://github.com/dso-toolkit/dso-toolkit/issues/3060))
 * ListButton: indent en styling subcontent ([#3116](https://github.com/dso-toolkit/dso-toolkit/issues/3116))
-* 
+* **BREAKING** Anchor: Anchor wordt Link component en krijgt 15% underline offset ([#3071](https://github.com/dso-toolkit/dso-toolkit/issues/3071))
+
 ### Task
 * Prettier: gebruik prettier-config van `@infoprojects/prettier-config` ([#3127](https://github.com/dso-toolkit/dso-toolkit/issues/3127))
 * Angular Storybook: Component vervangen met decorators in stories ([#3125](https://github.com/dso-toolkit/dso-toolkit/issues/3125))

@@ -67,7 +67,7 @@
     "type": "core"
   },
   {
-    "name": "anchor",
+    "name": "link",
     "selector": "a",
     "stories": [
       "default",

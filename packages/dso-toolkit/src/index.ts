@@ -28,7 +28,7 @@ export * from "./components/advanced-select";
 
 export * from "./components/alert";
 
-export * from "./components/anchor";
+export * from "./components/link";
 
 export * from "./components/application-heading";
 

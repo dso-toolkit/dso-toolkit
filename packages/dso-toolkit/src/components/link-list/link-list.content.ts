@@ -1,6 +1,6 @@
-import { Anchor } from "../anchor/anchor.models.js";
+import { Link } from "../link/link.models.js";
 
-export const links: Anchor[] = [
+export const links: Link[] = [
   {
     url: "#",
     label: "Externe link",
@@ -17,7 +17,7 @@ export const links: Anchor[] = [
   },
 ];
 
-export const navLinks: Anchor[] = [
+export const navLinks: Link[] = [
   {
     url: "#",
     label: "Ingediende verzoeken",

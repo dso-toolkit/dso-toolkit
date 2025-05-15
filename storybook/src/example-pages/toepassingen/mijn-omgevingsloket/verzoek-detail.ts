@@ -11,7 +11,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Mijn Omgevingsloket",
   "Verzoek Detail",
-  ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, anchorTemplate }, templates) => html`
+  ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, linkTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
@@ -77,7 +77,7 @@ examplePageFactory(
               <tbody>
                 <tr>
                   <th scope="row">
-                    ${anchorTemplate({
+                    ${linkTemplate({
                       label: "Brief opzichter de koning.doc",
                       url: "#",
                       modifier: "dso-tertiary",
@@ -88,7 +88,7 @@ examplePageFactory(
                 </tr>
                 <tr>
                   <th scope="row">
-                    ${anchorTemplate({
+                    ${linkTemplate({
                       label: "Boom-23.jpg",
                       url: "#",
                       modifier: "dso-tertiary",
@@ -99,7 +99,7 @@ examplePageFactory(
                 </tr>
                 <tr>
                   <th scope="row">
-                    ${anchorTemplate({
+                    ${linkTemplate({
                       label: "Straat-overzichr-boom23.jpg",
                       url: "#",
                       modifier: "dso-tertiary",
@@ -110,7 +110,7 @@ examplePageFactory(
                 </tr>
                 <tr>
                   <th scope="row">
-                    ${anchorTemplate({
+                    ${linkTemplate({
                       label: "Brochure-gemeente-Den-Haag.pdf",
                       url: "#",
                       modifier: "dso-tertiary",

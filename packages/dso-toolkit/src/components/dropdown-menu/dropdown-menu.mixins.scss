@@ -6,7 +6,7 @@
 @use "../../variables/typography";
 @use "../../variables/zindex";
 
-@use "../anchor";
+@use "../link";
 
 @use "dropdown-menu.variables" as dropdown-menu-variables;
 
@@ -78,7 +78,7 @@
 
       a,
       button {
-        @include anchor.reverse();
+        @include link.reverse();
 
         // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
         & {

@@ -15,7 +15,7 @@ examplePageFactory(
       accordionTemplate,
       actionListTemplate,
       alertTemplate,
-      anchorTemplate,
+      linkTemplate,
       applicationHeadingTemplate,
       formButtonsTemplate,
       buttonTemplate,
@@ -81,7 +81,7 @@ examplePageFactory(
                             <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
                             <span
                               >${iconTemplate({ icon: "air" })}
-                              ${anchorTemplate({ url: "#", label: "www.agv.nl", mode: "extern" })}</span
+                              ${linkTemplate({ url: "#", label: "www.agv.nl", mode: "extern" })}</span
                             >
                             <span
                               >${iconTemplate({ icon: "buildings" })} Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC

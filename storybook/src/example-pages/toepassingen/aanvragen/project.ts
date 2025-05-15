@@ -11,7 +11,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Aanvragen",
   "Project",
-  ({ applicationHeadingTemplate, alertTemplate, formTemplate, formButtonsTemplate, anchorTemplate }, templates) => html`
+  ({ applicationHeadingTemplate, alertTemplate, formTemplate, formButtonsTemplate, linkTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
@@ -19,7 +19,7 @@ examplePageFactory(
         ${alertTemplate({
           status: "info",
           message: html`Hulp nodig bij kiezen? Doe dan eerst de
-          ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
+          ${linkTemplate({ label: "Vergunningscheck", url: "#" })}.`,
         })}
         ${formTemplate(form)}
         ${formButtonsTemplate({

@@ -2,7 +2,7 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export function children({ anchorTemplate, imageTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
+export function children({ linkTemplate, imageTemplate, richContentTemplate, buttonRowTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       <h1>Kop 1</h1>
@@ -14,7 +14,7 @@ export function children({ anchorTemplate, imageTemplate, richContentTemplate, b
         Verder doen we aan <sub>lage</sub> en <sup>hoge</sup> letters en voegen we wel eens wat <del>weg</del
         ><ins>toe</ins>.
       </p>
-      <p>Een ${anchorTemplate({ label: "externe link", url: "#", mode: "extern" })} maak je zo</p>
+      <p>Een ${linkTemplate({ label: "externe link", url: "#", mode: "extern" })} maak je zo</p>
       <ul>
         <li>Ongesorteerde lijst</li>
         <li>Item 2</li>
@@ -65,7 +65,7 @@ export function children({ anchorTemplate, imageTemplate, richContentTemplate, b
             </p>
             <p>
               De
-              ${anchorTemplate({
+              ${linkTemplate({
                 label: "Bouwregelgeving",
                 url: "#",
                 mode: "download",

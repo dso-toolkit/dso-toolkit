@@ -2,7 +2,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
-import { AnchorArgs } from "../anchor/anchor.args.js";
+import { LinkArgs } from "../link/link.args.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
@@ -13,7 +13,7 @@ export interface CardArgs {
   label: string;
   href: string;
   active: boolean;
-  mode?: AnchorArgs["mode"];
+  mode?: LinkArgs["mode"];
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never> | SlideToggle>;
   dsoCardClick: HandlerFunction;

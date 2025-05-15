@@ -20,7 +20,7 @@ examplePageFactory(
   (
     {
       accordionTemplate,
-      anchorTemplate,
+      linkTemplate,
       bannerTemplate,
       buttonTemplate,
       documentCardTemplate,
@@ -64,7 +64,7 @@ examplePageFactory(
           topBar: bannerTemplate({
             status: "info",
             content: html`U bekijkt nu de informatie die op 05-02-2024 zichtbaar was.
-            ${anchorTemplate({ url: "#", label: "Terug naar vandaag" })}`,
+            ${linkTemplate({ url: "#", label: "Terug naar vandaag" })}`,
           }),
           main: html`
             ${buttonTemplate({
@@ -132,7 +132,7 @@ examplePageFactory(
                         })}
                         <hr />`;
                     })}
-                    ${anchorTemplate({ url: "#", label: "Toon alle activiteiten" })}
+                    ${linkTemplate({ url: "#", label: "Toon alle activiteiten" })}
                   `,
                 },
 

@@ -6,8 +6,8 @@ import { ContactInformation } from "dso-toolkit";
 export const coreContactInformation: ComponentImplementation<ContactInformation<TemplateResult>> = {
   component: "contactInformation",
   implementation: "core",
-  template: ({ anchorTemplate, headingTemplate }) =>
-    function contactInformationTemplate({ heading, anchorItems, infoItems }) {
+  template: ({ linkTemplate, headingTemplate }) =>
+    function contactInformationTemplate({ heading, linkItems, infoItems }) {
       return html`<dso-contact-information>
         ${heading
           ? headingTemplate({
@@ -15,10 +15,10 @@ export const coreContactInformation: ComponentImplementation<ContactInformation<
               slotName: "heading",
             })
           : nothing}
-        ${anchorItems && anchorItems.length > 0
+        ${linkItems && linkItems.length > 0
           ? html`
               <ul slot="anchor-items">
-                ${anchorItems.map((anchor) => html`<li>${anchorTemplate(anchor)}</li>`)}
+                ${linkItems.map((anchor) => html`<li>${linkTemplate(anchor)}</li>`)}
               </ul>
             `
           : nothing}

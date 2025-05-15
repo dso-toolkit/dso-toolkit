@@ -11,7 +11,7 @@ examplePageFactory(
   "Voorbeeldpagina's",
   "Toepassingen/Maatregelen op maat",
   "Landingspagina",
-  ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+  ({ accordionTemplate, linkTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -30,7 +30,7 @@ examplePageFactory(
                     zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
                     bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
                   </p>
-                  <p>${anchorTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
+                  <p>${linkTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
                 `,
               }),
             })}
@@ -46,7 +46,7 @@ examplePageFactory(
             </p>
             <p>
               Weet u nog niet of u eerst een vergunning nodig heeft of melding moet doen? Doe dan eerst
-              ${anchorTemplate({ label: "de Vergunningscheck", url: "#" })}
+              ${linkTemplate({ label: "de Vergunningscheck", url: "#" })}
             </p>
           </div>
           <div class="col-lg-4">
@@ -59,7 +59,7 @@ examplePageFactory(
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
+                    ${linkTemplate({ label: "het Informatiepunt", url: "#", mode: "extern" })}.
                   </p>
                 `,
               }),

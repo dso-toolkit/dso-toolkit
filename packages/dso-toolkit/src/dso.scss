@@ -11,7 +11,6 @@
 @use "components/accordion/accordion";
 @use "components/action-list/action-list";
 @use "components/alert/alert";
-@use "components/anchor/anchor";
 @use "components/application-heading/application-heading";
 @use "components/attachments-counter/attachments-counter";
 @use "components/badge/badge";
@@ -56,6 +55,7 @@
 @use "components/label/label";
 @use "components/label-group/label-group";
 @use "components/legend-item/legend-item";
+@use "components/link/link";
 @use "components/link-list/link-list";
 @use "components/list/list";
 @use "components/map-controls/map-controls";

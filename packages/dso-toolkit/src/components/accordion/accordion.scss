@@ -1,7 +1,7 @@
 @use "../../variables/units";
 @use "../../variables/colors";
 @use "../../variables/typography";
-@use "../../components/anchor";
+@use "../../components/link";
 @use "../../components/accordion";
 
 @use "../../di";
@@ -200,7 +200,7 @@
   position: relative;
 
   a {
-    @include anchor.clean();
+    @include link.clean();
   }
 
   a,

@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssButtonRow: ComponentImplementation<ButtonRow> = {
   component: "buttonRow",
   implementation: "html-css",
-  template: ({ buttonTemplate, anchorTemplate }) =>
+  template: ({ buttonTemplate, linkTemplate }) =>
     function buttonRowTemplate({ buttons, emphasized, align, noWrap }) {
       return html`<div
         class="dso-button-row ${classMap({
@@ -16,7 +16,7 @@ export const cssButtonRow: ComponentImplementation<ButtonRow> = {
           [`dso-no-wrap`]: !!noWrap,
         })}"
       >
-        ${buttons.map((button) => ("variant" in button ? buttonTemplate(button) : anchorTemplate(button)))}
+        ${buttons.map((button) => ("variant" in button ? buttonTemplate(button) : linkTemplate(button)))}
       </div>`;
     },
 };
