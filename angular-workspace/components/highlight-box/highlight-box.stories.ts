@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 
@@ -10,7 +10,11 @@ import { DsoHighlightBox } from "../../projects/component-library/src/public-api
 
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
-  component: DsoHighlightBox,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoHighlightBox],
+    }),
+  ],
   title: "Highlight Box",
 };
 

@@ -1,4 +1,4 @@
-import { type Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { ActionListArgs, actionListMeta, actionListStories } from "dso-toolkit";
 
@@ -10,7 +10,11 @@ import { DsoActionList } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ActionListArgs> = {
   ...actionListMeta({ readme }),
-  component: DsoActionList,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoActionList],
+    }),
+  ],
   title: "Action List",
 };
 

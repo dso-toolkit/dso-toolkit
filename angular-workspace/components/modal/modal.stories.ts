@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -20,11 +20,10 @@ import { DsoModal } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
-  component: DsoModal,
   title: "Modal",
   decorators: [
     moduleMetadata({
-      imports: [TrustHtmlPipe],
+      imports: [DsoModal, TrustHtmlPipe],
     }),
   ],
 };

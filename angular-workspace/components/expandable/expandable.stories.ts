@@ -1,4 +1,4 @@
-import { type Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -10,7 +10,11 @@ import { DsoExpandable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ExpandableArgs> = {
   ...expandableMeta({ readme }),
-  component: DsoExpandable,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoExpandable],
+    }),
+  ],
   title: "Expandable",
 };
 

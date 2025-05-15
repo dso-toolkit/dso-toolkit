@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
@@ -8,7 +8,11 @@ import { DsoInfoButton } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
-  component: DsoInfoButton,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoInfoButton],
+    }),
+  ],
   title: "Info Button",
 };
 

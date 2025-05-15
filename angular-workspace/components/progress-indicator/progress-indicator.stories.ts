@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoProgressIndicator } from "../../projects/component-library/src/publi
 
 const meta: Meta<ProgressIndicatorArgs> = {
   ...progressIndicatorMeta({ readme }),
-  component: DsoProgressIndicator,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoProgressIndicator],
+    }),
+  ],
   title: "Progress Indicator",
 };
 

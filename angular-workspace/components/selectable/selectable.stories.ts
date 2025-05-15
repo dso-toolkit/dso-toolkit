@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoSelectable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),
-  component: DsoSelectable,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoSelectable],
+    }),
+  ],
   title: "Selectable",
 };
 

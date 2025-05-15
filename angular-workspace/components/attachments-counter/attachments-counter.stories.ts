@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
@@ -8,7 +8,11 @@ import { DsoAttachmentsCounter } from "../../projects/component-library/src/publ
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),
-  component: DsoAttachmentsCounter,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoAttachmentsCounter],
+    }),
+  ],
   title: "Attachments Counter",
 };
 

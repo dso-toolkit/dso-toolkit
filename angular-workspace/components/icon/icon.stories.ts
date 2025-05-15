@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { templateContainer } from "../../templates";
 
@@ -8,7 +8,11 @@ import { DsoIcon } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
-  component: DsoIcon,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoIcon],
+    }),
+  ],
   title: "Icon",
 };
 

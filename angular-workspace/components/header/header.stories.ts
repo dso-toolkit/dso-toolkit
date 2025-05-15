@@ -1,4 +1,4 @@
-import { type Meta } from "@storybook/angular";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
@@ -9,7 +9,11 @@ import { DsoHeader } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),
-  component: DsoHeader,
+  decorators: [
+    moduleMetadata({
+      imports: [DsoHeader],
+    }),
+  ],
   title: "Header",
 };
 
