@@ -41,24 +41,30 @@ export function getWaitForStableDOM() {
       });
 
       function observe(element: Element | ShadowRoot) {
-        if (observing.includes(element) || observing.includes(element.getRootNode()) || !element.isConnected) {
+        if (!element.isConnected) {
           return;
         }
 
-        if (element instanceof Element && element.tagName.startsWith("DSO-")) {
-          cy.wrap(element).should("have.class", "hydrated");
+        if (!observing.includes(element) && !observing.includes(element.getRootNode())) {
+          observing.push(element);
+
+          mutationObserver.observe(element, {
+            subtree: true,
+            childList: true,
+            attributes: true,
+            attributeOldValue: true,
+            characterData: true,
+            characterDataOldValue: true,
+          });
         }
 
-        observing.push(element);
+        if (element instanceof win.Element && element.tagName.startsWith("DSO-")) {
+          console.log(`DSO- element detected: ${element.tagName}`);
 
-        mutationObserver.observe(element, {
-          subtree: true,
-          childList: true,
-          attributes: true,
-          attributeOldValue: true,
-          characterData: true,
-          characterDataOldValue: true,
-        });
+          cy.wrap(element)
+            .should("have.class", "hydrated")
+            .then((e) => e.each((_, el) => observe(el)));
+        }
 
         if (element instanceof win.Element && element.shadowRoot) {
           observe(element.shadowRoot);
