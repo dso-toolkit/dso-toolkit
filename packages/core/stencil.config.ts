@@ -44,6 +44,13 @@ export const config: Config = {
       ],
     },
     {
+      type: "dist-custom-elements",
+      customElementsExportBehavior: "bundle",
+      dir: "dist/bundle",
+      minify: false,
+      externalRuntime: false,
+    },
+    {
       type: "docs-readme",
       strict: true,
     },
