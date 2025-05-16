@@ -352,6 +352,7 @@ button {
     .viewer-grid-columns {
       display: flex;
       overflow: hidden;
+      flex-grow: 1;
     }
   }
 

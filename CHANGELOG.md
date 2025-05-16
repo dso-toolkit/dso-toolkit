@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Viewer-grid: Het grid pakt volledige hoogte bij inladen ([#3152](https://github.com/dso-toolkit/dso-toolkit/issues/3152))
+
 ## 👛 Release 73.0.0 - 2025-05-15
 
 ### Fixed
