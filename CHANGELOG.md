@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🪜 Release 73.0.1 - 2025-05-16
+
 ### Fixed
 * Viewer-grid: Het grid pakt volledige hoogte bij inladen ([#3152](https://github.com/dso-toolkit/dso-toolkit/issues/3152))
 
@@ -32,7 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Viewer Grid: Top bar in het grid plaatsen ([#3103](https://github.com/dso-toolkit/dso-toolkit/issues/3103))
 * Survey Rating: Vraagteken achter de vraag en role alert toevoegen ([#3046](https://github.com/dso-toolkit/dso-toolkit/issues/3046))
-
+  
 ### Task
 * Packages: Dependencies updates ([#3091](https://github.com/dso-toolkit/dso-toolkit/issues/3091))
 
