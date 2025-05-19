@@ -224,14 +224,25 @@ del {
 
 .subtitel {
   color: colors.$bosgroen-80;
+  cursor: default;
   font-weight: 700;
   margin-block: 0 units.$u2;
   margin-inline: 0;
 
-  .removed-text,
-  .new-text {
+  &:has(del, ins) {
     color: colors.$bosgroen-140;
-    padding-inline: units.$u1 * 0.5;
+    display: inline-block;
+    inline-size: 100%;
     margin-inline: units.$u1 * -0.5;
+    padding-inline: units.$u1 * 0.5;
+  }
+
+  &:has(del:not(.removed-text)) {
+    @include delete.root();
+  }
+
+  &:has(ins:not(.new-text)) {
+    @include insert.element();
+    @include insert.root();
   }
 }
