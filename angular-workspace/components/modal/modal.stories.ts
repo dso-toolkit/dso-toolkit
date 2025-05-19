@@ -1,9 +1,10 @@
+import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
+import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
+import { TrustHtmlPipe } from "../trust-html.pipe";
 
 import {
   activeBody,
@@ -15,8 +16,6 @@ import {
   loadingBody,
   datePickerBody,
 } from "./modal.content";
-import { TrustHtmlPipe } from "../trust-html.pipe";
-import { DsoModal } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),

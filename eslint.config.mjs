@@ -1,14 +1,16 @@
 // @ts-check
 
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import onlyWarn from "eslint-plugin-only-warn";
-import lit from "eslint-plugin-lit";
-import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
+
 import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import importPlugin from "eslint-plugin-import";
+import lit from "eslint-plugin-lit";
+import onlyWarn from "eslint-plugin-only-warn";
+import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,6 +44,7 @@ export default [
     plugins: {
       "@typescript-eslint": typescriptEslint,
       "only-warn": onlyWarn,
+      import: importPlugin,
       lit,
     },
     linterOptions: {
@@ -115,6 +118,26 @@ export default [
           object: "describe",
           property: "only",
           message: "Do not commit `.only` in tests.",
+        },
+      ],
+      "import/default": "error",
+      "import/no-duplicates": "warn",
+      "import/export": "error",
+      "import/order": [
+        "warn",
+        {
+          groups: [
+            "builtin", // Node.js builtins zoals fs, path, etc.
+            "external", // NPM packages
+            "internal", // Interne modules (configureerbaar met 'pathGroups')
+            "parent", // import vanuit ../
+            "sibling", // import vanuit ./
+            "index", // import vanuit huidige directory zonder pad
+            "object", // import {...} from "object"
+            "type", // TypeScript type imports
+          ],
+          "newlines-between": "always",
+          alphabetize: { order: "asc", caseInsensitive: true },
         },
       ],
     },

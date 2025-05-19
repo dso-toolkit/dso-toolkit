@@ -14,6 +14,7 @@ import {
 } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
+
 import { LabelStatus } from "./label.interfaces";
 
 const resizeObserver = new ResizeObserver(

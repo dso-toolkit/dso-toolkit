@@ -8,9 +8,9 @@ import {
 } from "dso-toolkit";
 import React from "react";
 
-import readme from "./readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta<AutosuggestArgs> = {
   ...autosuggestMeta({ readme }),

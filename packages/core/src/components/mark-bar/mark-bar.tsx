@@ -1,4 +1,5 @@
 import { h, Component, ComponentInterface, Prop, Event, EventEmitter, Method } from "@stencil/core";
+
 import {
   MarkBarInputEvent,
   MarkBarClearEvent,

@@ -1,10 +1,10 @@
+import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
 import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
-import { html } from "lit-html";
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 const meta: Meta<DatePickerArgs> = {

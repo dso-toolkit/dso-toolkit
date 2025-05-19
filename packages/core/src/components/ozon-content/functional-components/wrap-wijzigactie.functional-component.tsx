@@ -1,4 +1,5 @@
 import { FunctionalComponent, h } from "@stencil/core";
+
 import { OzonContentWijzigActie } from "../ozon-content.interfaces";
 
 export interface WrapWijzigactieProps {

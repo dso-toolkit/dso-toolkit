@@ -1,11 +1,10 @@
+import { DsoTabCustomEvent } from "@dso-toolkit/core";
+import { TabsSwitchEvent } from "@dso-toolkit/core/src";
 import { Tabs } from "dso-toolkit";
-
 import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { DsoTabCustomEvent } from "@dso-toolkit/core";
-import { TabsSwitchEvent } from "@dso-toolkit/core/src";
 
 export const coreTabs: ComponentImplementation<Tabs<TemplateResult>> = {
   component: "tabs",

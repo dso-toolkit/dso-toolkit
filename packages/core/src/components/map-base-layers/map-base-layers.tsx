@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
 
-import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 import { translations } from "./map-base-layers.i18n";
+import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 
 @Component({
   tag: "dso-map-base-layers",

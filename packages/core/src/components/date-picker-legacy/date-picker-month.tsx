@@ -1,4 +1,5 @@
 import { h, FunctionalComponent } from "@stencil/core";
+
 import { DsoLocalizedText } from "./date-localization";
 import { DatePickerLegacyDay, DatePickerLegacyDayProps } from "./date-picker-day";
 import { getViewOfMonth, inRange, DaysOfWeek, isEqual } from "./date-utils";

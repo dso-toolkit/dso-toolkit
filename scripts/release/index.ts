@@ -1,6 +1,7 @@
-import * as prettier from "prettier";
 import { readFile, writeFile } from "fs/promises";
+
 import minimist from "minimist";
+import * as prettier from "prettier";
 
 interface Args {
   version: string | undefined;

@@ -1,7 +1,8 @@
-import type { Meta } from "@storybook/web-components";
 import { DefinitionListArgs, definitionListMeta, definitionListStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import {
   columnDefinitions,
   definitions,
@@ -10,7 +11,7 @@ import {
   smallContentDefinitions,
 } from "./definition-list.content";
 
-import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<DefinitionListArgs> = {
   ...definitionListMeta({ readme }),

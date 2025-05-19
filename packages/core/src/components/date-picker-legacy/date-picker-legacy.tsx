@@ -13,6 +13,15 @@ import {
 } from "@stencil/core";
 
 import { createIdentifier } from "../../utils/create-identifier";
+
+import defaultLocalization, { DsoLocalizedText } from "./date-localization";
+import {
+  DsoDatePickerLegacyDirection,
+  DsoDatePickerLegacyChangeEvent,
+  DsoDatePickerLegacyFocusEvent,
+  DsoDatePickerLegacyKeyboardEvent,
+} from "./date-picker-legacy.interfaces";
+import { DatePickerLegacyMonth } from "./date-picker-month";
 import {
   addDays,
   startOfWeek,
@@ -27,14 +36,6 @@ import {
   parseDutchDate,
   DaysOfWeek,
 } from "./date-utils";
-import { DatePickerLegacyMonth } from "./date-picker-month";
-import defaultLocalization, { DsoLocalizedText } from "./date-localization";
-import {
-  DsoDatePickerLegacyDirection,
-  DsoDatePickerLegacyChangeEvent,
-  DsoDatePickerLegacyFocusEvent,
-  DsoDatePickerLegacyKeyboardEvent,
-} from "./date-picker-legacy.interfaces";
 import { monthRange } from "./utils/month-range";
 import { range } from "./utils/range";
 

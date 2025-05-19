@@ -1,6 +1,7 @@
 import { h, Component, ComponentInterface, Prop, Host, Method, Element } from "@stencil/core";
-import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";
 import { createStore } from "@stencil/store";
+
+import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";
 
 @Component({
   tag: "dso-accordion",

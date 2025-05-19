@@ -1,8 +1,9 @@
 import { Meta } from "@storybook/react";
+import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
+
+import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
-import { templateContainer } from "../../templates";
 
 const meta: Meta<OzonContentArgs> = {
   ...ozonContentMeta({ readme }),

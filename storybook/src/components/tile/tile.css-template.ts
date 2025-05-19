@@ -1,6 +1,7 @@
 import { Tile } from "dso-toolkit";
 import { html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssTile: ComponentImplementation<Tile> = {

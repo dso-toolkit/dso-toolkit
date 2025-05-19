@@ -1,6 +1,9 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
 
 import { componentArgs } from "../../storybook";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import {
   FootnotesExampleArgs,
@@ -12,12 +15,8 @@ import {
   footnotesListArgTypes,
   footnotesReferenceArgTypes,
 } from "./footnotes.args.js";
-import { Footnote } from "./footnotes.models.js";
-
 import { footnotes } from "./footnotes.content.js";
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
+import { Footnote } from "./footnotes.models.js";
 
 interface FootnotesStories {
   Example: StoryObj<FootnotesExampleArgs, Renderer>;

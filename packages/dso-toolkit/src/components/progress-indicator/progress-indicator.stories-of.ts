@@ -1,4 +1,8 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import {
   ProgressIndicatorArgs,
@@ -6,9 +10,6 @@ import {
   progressIndicatorArgTypes,
 } from "./progress-indicator.args.js";
 import { ProgressIndicator } from "./progress-indicator.models.js";
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
-import { compiler } from "markdown-to-jsx";
 
 type ProgressIndicatorStory = StoryObj<ProgressIndicatorArgs, Renderer>;
 

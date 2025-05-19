@@ -1,9 +1,11 @@
-import type { Meta } from "@storybook/web-components";
+import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
 import { cardStories, CardArgs, cardMeta } from "dso-toolkit";
 
-import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
 import { templateContainer } from "../../templates";
+
 import { content } from "./card.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<CardArgs> = {
   ...cardMeta({ readme }),

@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
 
 import { BadgeArgs, badgeArgTypes, badgeArgsMapper } from "./badge.args.js";
 import { Badge } from "./badge.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type BadgeStory = StoryObj<BadgeArgs, Renderer>;
 

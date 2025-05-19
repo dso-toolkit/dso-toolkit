@@ -1,9 +1,10 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
+import escapeStringRegexp from "escape-string-regexp";
+
+import { isOdd, noControl } from "../../storybook";
 
 import { Renvooi, RenvooiValue } from "./renvooi.models.js";
-import escapeStringRegexp from "escape-string-regexp";
-import { isOdd, noControl } from "../../storybook";
-import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface RenvooiArgs {
   voorbeeld: "was-wordt" | "toegevoegd" | "verwijderd" | "ongewijzigd";

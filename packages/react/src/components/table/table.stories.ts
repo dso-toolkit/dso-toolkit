@@ -1,5 +1,8 @@
-import type { Meta } from "@storybook/react";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
+
+import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 import {
   dataGridTable,
   dataTableTable,
@@ -9,9 +12,7 @@ import {
   sortedDescendingTable,
 } from "./table.content";
 
-import { templateContainer } from "../../templates";
-
-import readme from "./readme.md?raw";
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<TableArgs> = {
   ...tableMeta({ readme }),

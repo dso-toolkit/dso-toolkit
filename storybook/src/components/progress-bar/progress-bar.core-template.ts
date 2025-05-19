@@ -1,6 +1,7 @@
 import { ProgressBar } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const coreProgressBar: ComponentImplementation<ProgressBar> = {

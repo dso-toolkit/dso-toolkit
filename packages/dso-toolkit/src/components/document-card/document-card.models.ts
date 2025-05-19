@@ -1,6 +1,6 @@
+import { Badge } from "../badge";
 import { Label } from "../label";
 import { Toggletip } from "../toggletip";
-import { Badge } from "../badge";
 
 export interface DocumentCard<TemplateFnReturnType> {
   label: string;

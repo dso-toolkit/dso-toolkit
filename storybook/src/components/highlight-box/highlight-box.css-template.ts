@@ -2,6 +2,7 @@ import { HighlightBox } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssHighlightBox: ComponentImplementation<HighlightBox> = {

@@ -1,7 +1,8 @@
 import { Form, FormGroupCollection, FormGroupCollectionHeadingLevel } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
-import { ComponentImplementation } from "../../templates";
 import { classMap } from "lit-html/directives/class-map.js";
+
+import { ComponentImplementation } from "../../templates";
 
 export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",

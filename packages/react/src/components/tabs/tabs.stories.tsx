@@ -1,9 +1,9 @@
-import type { Meta } from "@storybook/react";
+import readme from "@dso-toolkit/react/src/components/tabs/readme.md?raw";
 import { TabsArgs, tabsMeta, tabsStories } from "dso-toolkit";
 
-import readme from "@dso-toolkit/react/src/components/tabs/readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<TabsArgs<unknown>> = {
   ...tabsMeta({ readme }),

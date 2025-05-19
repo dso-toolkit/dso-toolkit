@@ -1,5 +1,5 @@
-import { storiesOfFactory } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
+import { storiesOfFactory } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
 
 import { templateContainer, Templates } from "./templates";

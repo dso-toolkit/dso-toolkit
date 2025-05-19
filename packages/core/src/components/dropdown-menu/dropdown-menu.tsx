@@ -3,8 +3,8 @@ import { h, Component, Element, Host, Prop, Watch, Listen } from "@stencil/core"
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
-import { hasOverflow } from "../../utils/has-overflow";
 import { getActiveElement } from "../../utils/get-active-element";
+import { hasOverflow } from "../../utils/has-overflow";
 
 @Component({
   tag: "dso-dropdown-menu",

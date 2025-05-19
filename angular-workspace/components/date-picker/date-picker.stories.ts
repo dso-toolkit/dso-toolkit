@@ -1,12 +1,12 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
 
+import { DsoDatePicker } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
-import readme from "./readme.md?raw";
 import { datePickerWithLabelTemplate } from "./date-picker.content";
-import { DsoDatePicker } from "../../projects/component-library/src/public-api";
+import readme from "./readme.md?raw";
 
 const meta: Meta<DatePickerArgs> = {
   ...datePickerMeta({ readme }),

@@ -1,5 +1,5 @@
-import React from "react";
 import { ExpandableDecorator } from "dso-toolkit";
+import React from "react";
 
 export const decorator: ExpandableDecorator<JSX.Element> = (story) => (
   <>

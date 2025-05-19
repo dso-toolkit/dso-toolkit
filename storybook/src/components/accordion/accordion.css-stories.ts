@@ -1,5 +1,5 @@
-import type { Meta } from "@storybook/web-components";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
@@ -12,7 +12,8 @@ import {
   renvooiSections,
   nestedSections,
 } from "./accordion.content";
-import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme }),

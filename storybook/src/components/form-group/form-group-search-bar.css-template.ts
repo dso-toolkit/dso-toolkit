@@ -1,5 +1,4 @@
 import { FormGroupSearchBar } from "dso-toolkit";
-
 import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 

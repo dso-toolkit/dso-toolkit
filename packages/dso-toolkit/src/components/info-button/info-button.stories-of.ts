@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { InfoButtonArgs, infoButtonArgsMapper, infoButtonArgTypes } from "./info-button.args.js";
 import { InfoButton } from "./info-button.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 
 type InfoButtonStory = StoryObj<InfoButtonArgs, Renderer>;
 

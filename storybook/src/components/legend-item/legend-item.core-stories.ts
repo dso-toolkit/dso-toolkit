@@ -1,14 +1,13 @@
-import type { Meta } from "@storybook/web-components";
+import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
 import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
 import { defaultSymbol } from "./legend-item.content";
-
 import { decorator } from "./legend-item.decorator";
 
-import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
-import { html } from "lit-html";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<LegendItemArgs> = {
   ...legendItemMeta({ readme }),

@@ -2,7 +2,6 @@ import { Header } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoHeader, DsoLogo } from "../../components";
-
 import { ComponentImplementation } from "../../templates";
 
 export const reactHeader: ComponentImplementation<Header> = {

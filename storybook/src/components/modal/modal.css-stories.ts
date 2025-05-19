@@ -1,11 +1,7 @@
-import type { Meta } from "@storybook/web-components";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/modal/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import { decorator } from "./modal.decorator";
-
-import readme from "dso-toolkit/src/components/modal/readme.md?raw";
 
 import {
   activeBody,
@@ -17,6 +13,9 @@ import {
   loadingBody,
   datePickerBody,
 } from "./modal.content";
+import { decorator } from "./modal.decorator";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),

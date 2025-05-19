@@ -1,5 +1,5 @@
-import { jsxDecorator } from "storybook-addon-jsx";
 import { Preview } from "@storybook/react";
+import { jsxDecorator } from "storybook-addon-jsx";
 
 const preview: Preview = {
   parameters: {

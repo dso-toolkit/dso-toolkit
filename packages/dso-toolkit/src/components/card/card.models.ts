@@ -1,9 +1,9 @@
-import { Link } from "../link/link.models.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
+import { Link } from "../link/link.models.js";
 import { Selectable } from "../selectable/selectable.models.js";
-import { Toggletip } from "../toggletip/toggletip.models.js";
 import { SlideToggle } from "../slide-toggle";
+import { Toggletip } from "../toggletip/toggletip.models.js";
 
 export interface Card<TemplateFnReturnType> {
   label: string;

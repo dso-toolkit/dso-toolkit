@@ -1,10 +1,9 @@
-import type { Meta } from "@storybook/web-components";
-
+import readme from "@dso-toolkit/core/src/components/logo/readme.md?raw";
 import { LogoArgs, logoMeta, logoStories } from "dso-toolkit";
 
-import readme from "@dso-toolkit/core/src/components/logo/readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<LogoArgs> = {
   ...logoMeta({ readme }),

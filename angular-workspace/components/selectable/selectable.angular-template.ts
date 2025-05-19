@@ -1,6 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
-
 import { Selectable } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 const defaultPropValues = {

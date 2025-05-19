@@ -1,5 +1,6 @@
 import { Pagination } from "dso-toolkit";
 import { html, nothing } from "lit-html";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssPagination: ComponentImplementation<Pagination> = {

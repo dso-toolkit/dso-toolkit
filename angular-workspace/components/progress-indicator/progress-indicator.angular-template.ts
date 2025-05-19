@@ -1,4 +1,5 @@
 import { ProgressIndicator } from "dso-toolkit";
+
 import { ComponentImplementation, DefaultPropValues } from "../../templates";
 
 const defaultPropValues: DefaultPropValues<ProgressIndicator> = {

@@ -1,4 +1,7 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { StoriesParameters, StoryObj } from "../../template-container.js";
 
 import {
   annotationActiviteitArgs,
@@ -23,9 +26,6 @@ import {
   AnnotationKaartArgs,
 } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
 
 export type AnnotationDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

@@ -1,10 +1,11 @@
-import type { Meta } from "@storybook/react";
 import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 import { infoRichContent } from "./selectable.content";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),

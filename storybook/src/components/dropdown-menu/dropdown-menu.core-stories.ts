@@ -1,8 +1,6 @@
-import { Meta } from "@storybook/web-components";
-
-import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
-
 import readme from "@dso-toolkit/core/src/components/dropdown-menu/readme.md?raw";
+import { Meta } from "@storybook/web-components";
+import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 

@@ -1,9 +1,9 @@
 import { ArgTypes } from "@storybook/types";
 
+import { noControl } from "../../storybook/no-control.js";
 import { Button } from "../button/button.models.js";
 
 import { ButtonRow } from "./button-row.models.js";
-import { noControl } from "../../storybook/no-control.js";
 
 export interface ButtonRowArgs {
   buttons: Button[];

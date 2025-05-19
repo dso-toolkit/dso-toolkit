@@ -1,6 +1,5 @@
-import { ActionListItem } from "dso-toolkit";
-
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import { ActionListItem } from "dso-toolkit";
 
 const item1: ActionListItem<StoryFnAngularReturnType> = {
   flowLine: true,

@@ -1,8 +1,9 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
 import { MarkBarArgs, markBarArgTypes, markBarArgsMapper, markBarArgs } from "./mark-bar.args.js";
 import { MarkBar } from "./mark-bar.models.js";
 

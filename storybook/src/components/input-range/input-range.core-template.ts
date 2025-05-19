@@ -1,9 +1,9 @@
+import { DsoInputRangeCustomEvent } from "@dso-toolkit/core";
 import { InputRange, InputRangeChangeEvent } from "dso-toolkit";
 import { html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-import { DsoInputRangeCustomEvent } from "@dso-toolkit/core";
 
 export const coreInputRange: ComponentImplementation<InputRange> = {
   component: "inputRange",

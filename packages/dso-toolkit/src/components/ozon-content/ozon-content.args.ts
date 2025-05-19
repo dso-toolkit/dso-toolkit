@@ -1,10 +1,10 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
+import escapeStringRegexp from "escape-string-regexp";
 
 import { isOdd, noControl } from "../../storybook";
 
 import { OzonContent, OzonContentUrlResolver } from "./ozon-content.models.js";
-import escapeStringRegexp from "escape-string-regexp";
 
 export interface OzonContentArgs {
   content: string;

@@ -1,6 +1,6 @@
+import { CardContainer } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
-import { CardContainer } from "dso-toolkit";
 import { ComponentImplementation } from "../../templates";
 
 export const coreCardContainer: ComponentImplementation<CardContainer<TemplateResult>> = {

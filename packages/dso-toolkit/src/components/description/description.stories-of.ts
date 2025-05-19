@@ -1,4 +1,8 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import {
   DescriptionArgs,
@@ -9,10 +13,6 @@ import {
 } from "./description.args.js";
 import { termContent, descriptionExample } from "./description.content.js";
 import { Description } from "./description.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 
 interface DescriptionStories {
   Term: StoryObj<DescriptionArgs, Renderer>;

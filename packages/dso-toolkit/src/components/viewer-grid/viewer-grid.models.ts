@@ -1,5 +1,5 @@
-import { Label } from "../label/label.models.js";
 import { AdvancedSelect } from "../advanced-select";
+import { Label } from "../label/label.models.js";
 
 export interface ViewerGrid<TemplateFnReturnType> {
   mode?: ViewerGridMode;

@@ -1,10 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
-
 import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-import readme from "./readme.md?raw";
 import { DsoInfoButton } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),

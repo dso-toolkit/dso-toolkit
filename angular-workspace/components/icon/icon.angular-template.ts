@@ -1,4 +1,5 @@
 import { Icon } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 const defaultPropValues = {

@@ -1,10 +1,10 @@
-import type { Meta } from "@storybook/web-components";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
-
-import { templateContainer } from "../../templates";
+import readme from "dso-toolkit/src/components/highlight-box/readme.md?raw";
 import { html } from "lit-html";
 
-import readme from "dso-toolkit/src/components/highlight-box/readme.md?raw";
+import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),

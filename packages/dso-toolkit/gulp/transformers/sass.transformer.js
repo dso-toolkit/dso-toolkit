@@ -1,8 +1,9 @@
+import { relative } from "path";
+import { fileURLToPath } from "url";
+
+import PluginError from "plugin-error";
 import { compileString } from "sass";
 import { obj } from "through2";
-import PluginError from "plugin-error";
-import { fileURLToPath } from "url";
-import { relative } from "path";
 import applySourceMap from "vinyl-sourcemaps-apply";
 
 export function sassTransformer() {

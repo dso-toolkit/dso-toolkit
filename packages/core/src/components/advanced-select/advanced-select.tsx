@@ -12,6 +12,11 @@ import {
   Listen,
 } from "@stencil/core";
 import clsx from "clsx";
+import { createFocusTrap, FocusTrap } from "focus-trap";
+import { tabbable } from "tabbable";
+
+import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import {
   AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
@@ -20,9 +25,6 @@ import {
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
 } from "./advanced-select.interfaces";
-import { createFocusTrap, FocusTrap } from "focus-trap";
-import { tabbable } from "tabbable";
-import { isModifiedEvent } from "../../utils/is-modified-event";
 
 @Component({
   tag: "dso-advanced-select",

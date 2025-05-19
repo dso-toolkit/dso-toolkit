@@ -1,10 +1,9 @@
+import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
 import { ResponsiveElementArgs, responsiveElementMeta, responsiveElementStories } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md?raw";
-import { html } from "lit-html";
 
 const css = `
   dso-responsive-element:not([small]) .demo-small {

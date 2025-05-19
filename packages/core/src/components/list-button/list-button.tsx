@@ -9,9 +9,9 @@ import {
   EventEmitter,
   forceUpdate,
 } from "@stencil/core";
-import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
-
 import clsx from "clsx";
+
+import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 @Component({
   tag: "dso-list-button",

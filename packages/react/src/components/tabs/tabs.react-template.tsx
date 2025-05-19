@@ -1,5 +1,4 @@
 import { Tabs } from "dso-toolkit";
-
 import * as React from "react";
 
 import { DsoTabs, DsoTab } from "../../components";
