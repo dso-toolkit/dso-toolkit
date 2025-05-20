@@ -28,6 +28,8 @@ export class OzonContentKopNode implements OzonContentNode {
 
     const wijzigactieOpschrift = opschrift ? parseWijzigactieFromNode(opschrift) : undefined;
 
+    const subtitelsArray = Array.from(subtitels);
+
     return (
       <WrapWijzigactie wijzigactie={parseWijzigactieFromNode(node)}>
         {label && <WrapWijzigactie wijzigactie={wijzigactieLabel}>{mapNodeToJsx(label.childNodes)}</WrapWijzigactie>}
@@ -43,15 +45,21 @@ export class OzonContentKopNode implements OzonContentNode {
             <WrapWijzigactie wijzigactie={wijzigactieOpschrift}>{mapNodeToJsx(opschrift.childNodes)}</WrapWijzigactie>
           </>
         )}
-        {Array.from(subtitels).map((subtitel) => {
-          const wijzigactieSubtitel = parseWijzigactieFromNode(subtitel);
+        {subtitelsArray.length && (
+          <div class="subtitels-container">
+            {subtitelsArray.map((subtitel) => {
+              const wijzigactieSubtitel = parseWijzigactieFromNode(subtitel);
 
-          return (
-            <div class="subtitel" part="subtitel">
-              <WrapWijzigactie wijzigactie={wijzigactieSubtitel}>{mapNodeToJsx(subtitel.childNodes)}</WrapWijzigactie>
-            </div>
-          );
-        })}
+              return (
+                <div class="subtitel" part="subtitel">
+                  <WrapWijzigactie wijzigactie={wijzigactieSubtitel}>
+                    {mapNodeToJsx(subtitel.childNodes)}
+                  </WrapWijzigactie>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </WrapWijzigactie>
     );
   }
