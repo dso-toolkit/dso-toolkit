@@ -58,7 +58,13 @@ export default [
 
       parser: tsParser,
     },
-
+    settings: {
+      "import/resolver": {
+        typescript: {
+          project: "./tsconfig.json",
+        },
+      },
+    },
     rules: {
       "lit/attribute-value-entities": "error",
       "lit/binding-positions": "error",
@@ -120,11 +126,9 @@ export default [
           message: "Do not commit `.only` in tests.",
         },
       ],
-      "import/default": "error",
-      "import/no-duplicates": "warn",
-      "import/export": "error",
+      "import/no-duplicates": "error",
       "import/order": [
-        "warn",
+        "error",
         {
           groups: [
             "builtin", // Node.js builtins zoals fs, path, etc.
@@ -136,6 +140,14 @@ export default [
             "object", // import {...} from "object"
             "type", // TypeScript type imports
           ],
+          pathGroups: [
+            {
+              pattern: "@site/**",
+              group: "internal",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
         },

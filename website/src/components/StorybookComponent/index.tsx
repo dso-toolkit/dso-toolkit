@@ -2,8 +2,9 @@ import BrowserOnly from "@docusaurus/BrowserOnly";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 import IframeResizer from "@iframe-resizer/react";
-import { getVersion } from "@site/src/functions/versions.function";
 import React, { useEffect, useState } from "react";
+
+import { getVersion } from "@site/src/functions/versions.function";
 
 import styles from "./styles.module.scss";
 

@@ -1,5 +1,6 @@
-import readme from "@dso-toolkit/react/src/components/badge/readme.md?raw";
 import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
+
+import readme from "@dso-toolkit/react/src/components/badge/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

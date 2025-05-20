@@ -1,5 +1,6 @@
-import readme from "@dso-toolkit/react/src/components/banner/readme.md?raw";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
+
+import readme from "@dso-toolkit/react/src/components/banner/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

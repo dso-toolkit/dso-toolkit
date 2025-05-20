@@ -1,6 +1,7 @@
-import readme from "@dso-toolkit/react/src/components/label/readme.md?raw";
 import { type Meta } from "@storybook/react";
 import { labelStories, labelMeta, LabelArgs } from "dso-toolkit";
+
+import readme from "@dso-toolkit/react/src/components/label/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
