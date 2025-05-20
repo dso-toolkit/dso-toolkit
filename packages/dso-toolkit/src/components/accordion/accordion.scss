@@ -213,7 +213,7 @@
     padding-inline: accordion.$chevron-inline-start-offset accordion.$inline-padding;
     text-align: start;
     inline-size: 100%;
-    word-break: break-word;
+    overflow-wrap: anywhere;
 
     &::before {
       content: "";
