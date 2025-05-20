@@ -1,6 +1,5 @@
-import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
-
 import readme from "@dso-toolkit/react/src/components/slide-toggle/readme.md?raw";
+import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 

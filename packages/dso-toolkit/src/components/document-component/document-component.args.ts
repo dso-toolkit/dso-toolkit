@@ -1,9 +1,9 @@
-import { HandlerFunction } from "@storybook/addon-actions/*";
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
 
 import { isOdd } from "../../storybook";
-import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
+import { OzonContentUrlResolver } from "../ozon-content";
 
 import {
   DocumentComponent,

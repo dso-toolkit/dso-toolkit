@@ -1,6 +1,5 @@
-import { CardContainerArgs, contactInformationMeta, contactInformationStories } from "dso-toolkit";
- 
 import readme from "@dso-toolkit/react/src/components/contact-information/readme.md?raw";
+import { CardContainerArgs, contactInformationMeta, contactInformationStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 

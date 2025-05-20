@@ -1,7 +1,5 @@
-import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
-
 import readme from "@dso-toolkit/react/src/components/accordion/readme.md?raw";
-
+import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 

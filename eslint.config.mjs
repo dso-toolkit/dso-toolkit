@@ -39,7 +39,12 @@ export default [
       "website/www",
     ],
   },
-  ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"),
+  ...compat.extends(
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ),
   {
     plugins: {
       "@typescript-eslint": typescriptEslint,
@@ -55,17 +60,37 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
-
       parser: tsParser,
     },
-    settings: {
-      "import/resolver": {
-        typescript: {
-          project: "./tsconfig.json",
-        },
-      },
-    },
     rules: {
+      // import-plugin rules
+      "import/no-duplicates": "error",
+      "import/newline-after-import": "error",
+      "import/first": "error",
+      "import/no-unresolved": "off",
+      "import/named": "off",
+      "import/namespace": "off",
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+          pathGroups: [
+            {
+              pattern: "@site/**",
+              group: "internal",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: false,
+          },
+        },
+      ],
+
+      // lit rules
       "lit/attribute-value-entities": "error",
       "lit/binding-positions": "error",
       "lit/no-duplicate-template-bindings": "error",
@@ -77,8 +102,31 @@ export default [
       "lit/no-template-bind": "error",
       "lit/no-useless-template-literals": "error",
       "lit/quoted-expressions": "error",
+
+      // Common rules
       "no-duplicate-imports": "error",
+      eqeqeq: ["error"],
+      "no-console": [
+        "error",
+        {
+          allow: ["assert", "debug", "error", "group", "info", "table", "trace", "warn"],
+        },
+      ],
+      "no-else-return": ["error", { allowElseIf: false }],
+      "object-shorthand": ["error"],
+
+      // typescript
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          args: "all",
+          ignoreRestSiblings: false,
+          varsIgnorePattern: "^(_|h$|Fragment$)",
+          argsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/no-require-imports": [
         "error",
         {
@@ -94,25 +142,6 @@ export default [
           ],
         },
       ],
-      eqeqeq: ["error"],
-      "no-console": [
-        "error",
-        {
-          allow: ["assert", "debug", "error", "group", "info", "table", "trace", "warn"],
-        },
-      ],
-      "no-else-return": ["error", { allowElseIf: false }],
-      "object-shorthand": ["error"],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          vars: "all",
-          args: "all",
-          ignoreRestSiblings: false,
-          varsIgnorePattern: "^(_|h$|Fragment$)",
-          argsIgnorePattern: "^_",
-        },
-      ],
       "no-restricted-properties": [
         "error",
         {
@@ -124,32 +153,6 @@ export default [
           object: "describe",
           property: "only",
           message: "Do not commit `.only` in tests.",
-        },
-      ],
-      "import/no-duplicates": "error",
-      "import/order": [
-        "error",
-        {
-          groups: [
-            "builtin", // Node.js builtins zoals fs, path, etc.
-            "external", // NPM packages
-            "internal", // Interne modules (configureerbaar met 'pathGroups')
-            "parent", // import vanuit ../
-            "sibling", // import vanuit ./
-            "index", // import vanuit huidige directory zonder pad
-            "object", // import {...} from "object"
-            "type", // TypeScript type imports
-          ],
-          pathGroups: [
-            {
-              pattern: "@site/**",
-              group: "internal",
-              position: "after",
-            },
-          ],
-          pathGroupsExcludedImportTypes: ["builtin"],
-          "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true },
         },
       ],
     },
@@ -175,6 +178,7 @@ export default [
       },
     },
     rules: {
+      "import/no-unresolved": "off",
       "func-style": [
         2,
         "declaration",
@@ -185,7 +189,6 @@ export default [
       "no-shadow": 0,
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
-      // @stencil-community overrides
       "@stencil-community/strict-boolean-conditions": 0,
       "@stencil-community/decorators-style": [
         "error",

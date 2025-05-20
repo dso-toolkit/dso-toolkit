@@ -1,6 +1,5 @@
-import { TabsArgs, tabsMeta, tabsStories } from "dso-toolkit";
-
 import readme from "@dso-toolkit/react/src/components/tabs/readme.md?raw";
+import { TabsArgs, tabsMeta, tabsStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 

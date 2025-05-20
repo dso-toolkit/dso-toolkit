@@ -2,9 +2,6 @@
   "include": ["scripts/**/*"],
   "compilerOptions": {
     "strict": true,
-    "esModuleInterop": true,
-    "paths": {
-      "@site/*": ["site/*"],
-    }
+    "forceConsistentCasingInFileNames": true
   }
 }

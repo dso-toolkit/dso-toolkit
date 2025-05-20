@@ -1,4 +1,4 @@
-import { HandlerFunction } from "@storybook/addon-actions/*";
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { MarkBar } from "./mark-bar.models.js";

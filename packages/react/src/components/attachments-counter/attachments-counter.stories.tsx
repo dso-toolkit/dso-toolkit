@@ -1,6 +1,5 @@
-import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
-
 import readme from "@dso-toolkit/react/src/components/attachments-counter/readme.md?raw";
+import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
