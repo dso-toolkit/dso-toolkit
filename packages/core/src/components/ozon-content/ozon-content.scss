@@ -222,9 +222,12 @@ del {
   text-decoration: underline dotted;
 }
 
+.subtitels-container {
+  cursor: default;
+}
+
 .subtitel {
   color: colors.$bosgroen-80;
-  cursor: default;
   font-weight: 700;
   margin-block: 0 units.$u2;
   margin-inline: 0;
