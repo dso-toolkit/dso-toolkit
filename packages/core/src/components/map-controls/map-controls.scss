@@ -140,7 +140,7 @@ header {
     }
 
     span {
-      visibility: hidden;
+      @include utilities.sr-only();
     }
   }
 
