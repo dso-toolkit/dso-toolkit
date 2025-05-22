@@ -72,7 +72,7 @@
 
 :host(:not([open])),
 :host([mode="table-of-contents"]) {
-  dso-ozon-content::part(subtitel) {
+  dso-ozon-content::part(subtitels) {
     display: none;
   }
 }

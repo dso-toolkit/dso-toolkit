@@ -10,7 +10,7 @@ function mapData(node: Element) {
     label: node.querySelector("Label"),
     nummer: node.querySelector("Nummer"),
     opschrift: node.querySelector("Opschrift"),
-    subtitels: node.querySelectorAll("Subtitel"),
+    subtitels: Array.from(node.querySelectorAll("Subtitel")),
   };
 }
 
@@ -28,8 +28,6 @@ export class OzonContentKopNode implements OzonContentNode {
 
     const wijzigactieOpschrift = opschrift ? parseWijzigactieFromNode(opschrift) : undefined;
 
-    const subtitelsArray = Array.from(subtitels);
-
     return (
       <WrapWijzigactie wijzigactie={parseWijzigactieFromNode(node)}>
         {label && <WrapWijzigactie wijzigactie={wijzigactieLabel}>{mapNodeToJsx(label.childNodes)}</WrapWijzigactie>}
@@ -45,13 +43,13 @@ export class OzonContentKopNode implements OzonContentNode {
             <WrapWijzigactie wijzigactie={wijzigactieOpschrift}>{mapNodeToJsx(opschrift.childNodes)}</WrapWijzigactie>
           </>
         )}
-        {subtitelsArray.length && (
-          <div class="subtitels-container">
-            {subtitelsArray.map((subtitel) => {
+        {subtitels.length > 0 && (
+          <div class="subtitels-container" part="subtitels">
+            {subtitels.map((subtitel) => {
               const wijzigactieSubtitel = parseWijzigactieFromNode(subtitel);
 
               return (
-                <div class="subtitel" part="subtitel">
+                <div class="subtitel">
                   <WrapWijzigactie wijzigactie={wijzigactieSubtitel}>
                     {mapNodeToJsx(subtitel.childNodes)}
                   </WrapWijzigactie>
