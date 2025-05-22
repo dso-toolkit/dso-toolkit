@@ -13,4 +13,3 @@ _Omschrijving van het waargenomen gedrag, eventueel met screenshots_
 ## Kaders van de wijziging
 
 _Geef aan op welke componenten de wijzigingen van toepassing zijn._
-
