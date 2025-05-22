@@ -1,0 +1,13 @@
+diff --git a/dist/index.cjs.js b/dist/index.cjs.js
+index 42d26c6fc5ee9c32007dc3e485bf302e145a5dfe..abc1dad85976f0e91148eda90592a4093b7ff3be 100644
+--- a/dist/index.cjs.js
++++ b/dist/index.cjs.js
+@@ -222,7 +222,7 @@ const createAngularComponentDefinition = (tagName, inputs, outputs, methods, inc
+   changeDetection: ChangeDetectionStrategy.OnPush,
+   template: '<ng-content></ng-content>',
+   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+-  inputs: [${formattedInputs}],${standaloneOption}
++  inputs: [${formattedInputs}],outputs:[${formattedOutputs}],${standaloneOption}
+ })
+ export class ${tagNameAsPascal} {
+   ${propertiesDeclarationText}
