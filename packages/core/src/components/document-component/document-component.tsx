@@ -3,6 +3,8 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, h, Host,P
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { OzonContentAnchorClickEvent, OzonContentUrlResolver } from "../ozon-content/ozon-content.interfaces";
+
+import { Heading } from "./document-component-heading";
 import {
   DocumentComponentAnnotationsWijzigactie,
   DocumentComponentInputType,
@@ -17,7 +19,6 @@ import {
   DocumentComponentToggleAnnotationEvent,
   DocumentComponentWijzigactie,
 } from "./document-component.models";
-import { Heading } from "./document-component-heading";
 
 const wijzigactieLabels: { [wijzigactie in DocumentComponentWijzigactie]: string } = {
   nieuweContainer: "Toegevoegd",

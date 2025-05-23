@@ -1,9 +1,10 @@
 import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
 import { PanelArgs, panelMeta, panelStories } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<PanelArgs> = {
   ...panelMeta({ readme }),

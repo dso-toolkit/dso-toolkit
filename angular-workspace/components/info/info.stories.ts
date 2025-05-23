@@ -3,6 +3,7 @@ import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 
 import { DsoInfo } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+
 import { richContent } from "./info.content";
 import readme from "./readme.md?raw";
 

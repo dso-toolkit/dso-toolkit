@@ -1,9 +1,11 @@
-import type { Meta } from "@storybook/web-components";
 import { LabelArgs,labelMeta, labelStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/label/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./label.decorator";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<LabelArgs> = {
   ...labelMeta({ readme }),

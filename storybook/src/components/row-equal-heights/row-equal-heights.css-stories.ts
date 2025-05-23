@@ -4,6 +4,7 @@ import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./row-equal-heights.decorator";
 
 const meta: Meta = {

@@ -9,8 +9,8 @@ import { OzonContentExtRefNode } from "./nodes/ext-ref.node";
 import { OzonContentFallbackNode } from "./nodes/fallback.node";
 import { OzonContentFiguurNode } from "./nodes/figuur.node";
 import { OzonContentInhoudNode } from "./nodes/inhoud.node";
-import { OzonContentInlineNodes } from "./nodes/inline.nodes";
 import { OzonContentInlineTekstAfbeeldingNode } from "./nodes/inline-tekst-afbeelding.node";
+import { OzonContentInlineNodes } from "./nodes/inline.nodes";
 import { OzonContentIntIoRefNode } from "./nodes/int-io-ref.node";
 import { OzonContentIntRefNode } from "./nodes/int-ref.node";
 import { OzonContentKopNode } from "./nodes/kop.node";
@@ -20,9 +20,9 @@ import { OzonContentNootNode } from "./nodes/noot.node";
 import { OzonContentTableNode } from "./nodes/table.node";
 import { OzonContentTextNode } from "./nodes/text.node";
 import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";
-import { OzonContentInputType } from "./ozon-content.interfaces";
 import { OzonContentContext } from "./ozon-content-context.interface";
 import { OzonContentNode } from "./ozon-content-node.interface";
+import { OzonContentInputType } from "./ozon-content.interfaces";
 
 export class Mapper {
   private mappers: OzonContentNode[] = [

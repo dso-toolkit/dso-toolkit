@@ -4,6 +4,7 @@ import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } f
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
+
 import {
   datePickerLegacyShowByScriptingTemplate,
   datePickerLegacyWithLabelTemplate,

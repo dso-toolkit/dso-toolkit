@@ -1,6 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
+
 import { RichContent } from "./rich-content.models.js";
 
 export interface RichContentArgs<TemplateFnReturnType> {

@@ -1,6 +1,7 @@
 import { Component, Element, Event, EventEmitter, Fragment, h, Method, Prop, State, Watch } from "@stencil/core";
 
 import { i18n } from "../../utils/i18n";
+
 import { translations } from "./map-controls.i18n";
 import { MapControlsToggleEvent } from "./map-controls.interfaces";
 

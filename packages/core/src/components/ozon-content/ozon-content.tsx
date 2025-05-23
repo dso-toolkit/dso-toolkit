@@ -11,6 +11,9 @@ import {
   Watch,
 } from "@stencil/core";
 
+import { OzonContentContext } from "./ozon-content-context.interface";
+import { Mapper } from "./ozon-content-mapper";
+import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import {
   OzonContentAnchorClickEvent,
   OzonContentInputType,
@@ -18,9 +21,6 @@ import {
   OzonContentMarkItemHighlightEvent,
   OzonContentUrlResolver,
 } from "./ozon-content.interfaces";
-import { OzonContentContext } from "./ozon-content-context.interface";
-import { Mapper } from "./ozon-content-mapper";
-import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 const mapper = new Mapper();
 

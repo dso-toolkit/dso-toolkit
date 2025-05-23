@@ -1,3 +1,7 @@
+import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
+import clsx from "clsx";
+import React, { useEffect, useState } from "react";
+
 import {
   getAllVersions,
   getVersion,
@@ -10,12 +14,10 @@ import {
   Topic,
   Version,
 } from "@site/src/functions/versions.function";
-import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
-import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
-import clsx from "clsx";
-import React, { useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
+
+import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
 
 function mapVersion(version: Version) {
   return {

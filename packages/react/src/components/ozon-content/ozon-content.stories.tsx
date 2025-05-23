@@ -2,6 +2,7 @@ import { Meta } from "@storybook/react";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
 
 const meta: Meta<OzonContentArgs> = {

@@ -3,6 +3,7 @@ import { type Meta } from "@storybook/web-components";
 import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import { children } from "./toggletip.content";
 
 const meta: Meta<ToggletipArgs> = {

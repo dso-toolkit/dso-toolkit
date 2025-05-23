@@ -4,8 +4,8 @@ import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.funct
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
 import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";
-import { OzonContentNode } from "../ozon-content-node.interface";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
+import { OzonContentNode } from "../ozon-content-node.interface";
 
 function isNestedAl(path: Node[]) {
   return path.some((n) => {

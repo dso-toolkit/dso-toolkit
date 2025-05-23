@@ -2,6 +2,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
+
 import { SurveyRating } from "./survey-rating.models.js";
 
 export interface SurveyRatingArgs {

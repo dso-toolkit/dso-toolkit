@@ -1,8 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import {
   dataGridTable,
   defaultTable,
@@ -10,6 +10,8 @@ import {
   sortedAscendingTable,
   sortedDescendingTable,
 } from "./table.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<TableArgs> = {
   ...tableMeta({ readme }),

@@ -1,9 +1,11 @@
-import type { Meta } from "@storybook/web-components";
 import { RichContentArgs, richContentMeta, richContentStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/rich-content/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import { children } from "./rich-content.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<RichContentArgs<unknown>> = {
   ...richContentMeta({ readme }),

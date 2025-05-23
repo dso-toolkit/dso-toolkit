@@ -1,8 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import {
   activeBody,
   activeFooter,
@@ -13,6 +13,8 @@ import {
   passiveBody,
   passiveFooter,
 } from "./modal.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),

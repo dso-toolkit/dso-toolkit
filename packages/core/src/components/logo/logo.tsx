@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import { LogoClickEvent, LogoLabelClickEvent } from "./logo.interfaces";
 
 const DsoLogo: FunctionalComponent<{ name: string }> = ({ name }) => {

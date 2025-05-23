@@ -3,6 +3,7 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 import { mainMenu } from "../../content/main-menu.content";
 import { headerPartial } from "../../partials/header";
+
 import { header } from "./locatie-overzicht.content";
 
 examplePageFactory(

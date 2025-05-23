@@ -1,8 +1,10 @@
-import type { Meta } from "@storybook/react";
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),

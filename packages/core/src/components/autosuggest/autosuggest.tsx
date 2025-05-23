@@ -17,6 +17,7 @@ import escapeStringRegexp from "escape-string-regexp";
 import { v4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
+
 import { translations } from "./autosuggest.i18n";
 import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion, SuggestionGroup } from "./autosuggest.interfaces";
 

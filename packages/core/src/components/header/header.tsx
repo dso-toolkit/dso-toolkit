@@ -4,6 +4,7 @@ import debounce from "debounce";
 
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import { translations } from "./header.i18n";
 import { HeaderEvent, HeaderMenuItem, HeaderNavigationType } from "./header.interfaces";
 

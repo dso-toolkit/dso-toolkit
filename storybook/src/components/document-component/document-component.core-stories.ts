@@ -10,6 +10,7 @@ import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./document-component.decorator";
 
 const meta: Meta = {

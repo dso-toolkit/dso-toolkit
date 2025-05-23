@@ -4,6 +4,7 @@ import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
+
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 const meta: Meta<DatePickerArgs> = {

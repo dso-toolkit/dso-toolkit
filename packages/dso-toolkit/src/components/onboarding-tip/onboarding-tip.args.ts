@@ -2,6 +2,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
+
 import { OnboardingTip, onboardingTipPlacements } from "./onboarding-tip.models";
 
 export interface OnboardingTipArgs {

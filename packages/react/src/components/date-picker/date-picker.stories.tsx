@@ -4,6 +4,7 @@ import { DatePickerArgs, DatePickerDecorator, datePickerMeta, datePickerStories 
 import React from "react";
 
 import { templateContainer } from "../../templates";
+
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 const decorator: DatePickerDecorator<JSX.Element> = (story) => {

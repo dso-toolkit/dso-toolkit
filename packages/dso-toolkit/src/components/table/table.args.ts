@@ -1,6 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
+
 import { Table, TableContent } from "./table.models.js";
 
 export interface TableArgs {

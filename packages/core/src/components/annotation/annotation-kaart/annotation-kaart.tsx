@@ -2,8 +2,9 @@ import { Component, ComponentInterface, Event, EventEmitter,h, Prop } from "@ste
 
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
-import { AnnotationWijzigactie } from "../annotation.interfaces";
 import { AnnotationBody } from "../annotation-body";
+import { AnnotationWijzigactie } from "../annotation.interfaces";
+
 import { AnnotationKaartClickEvent } from "./annotation-kaart.interfaces";
 
 @Component({

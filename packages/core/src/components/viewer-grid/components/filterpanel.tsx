@@ -2,6 +2,7 @@ import { Fragment, FunctionalComponent, h } from "@stencil/core";
 import clsx from "clsx";
 
 import { ViewerGridMode } from "../viewer-grid.interfaces";
+
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
 
 export interface ViewerGridFilterpanelProps {

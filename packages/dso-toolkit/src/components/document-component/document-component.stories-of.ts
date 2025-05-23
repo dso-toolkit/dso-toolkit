@@ -6,6 +6,7 @@ import { noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { OzonContentUrlResolver } from "../ozon-content";
+
 import {
   DocumentComponentArgs,
   documentComponentArgs,

@@ -1,8 +1,9 @@
-import type { Meta } from "@storybook/web-components";
 import { ApplicationHeadingArgs, applicationHeadingMeta, applicationHeadingStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/application-heading/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ApplicationHeadingArgs> = {
   ...applicationHeadingMeta({ readme }),

@@ -3,6 +3,7 @@ import { type Meta } from "@storybook/react";
 import { LabelArgs,labelMeta, labelStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./label.decorator";
 
 const meta: Meta<LabelArgs> = {

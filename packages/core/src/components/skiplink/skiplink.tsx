@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import { SkiplinkClickEvent } from "./skiplink.interfaces";
 
 @Component({

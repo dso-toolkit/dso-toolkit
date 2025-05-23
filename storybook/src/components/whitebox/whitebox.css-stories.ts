@@ -1,8 +1,9 @@
-import type { Meta } from "@storybook/web-components";
 import { WhiteboxArgs, whiteboxMeta, whiteboxStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/whitebox/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<WhiteboxArgs> = {
   ...whiteboxMeta({ readme }),

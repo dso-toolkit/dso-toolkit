@@ -2,6 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Prop } from "@stencil/core"
 import clsx from "clsx";
 
 import { i18n } from "../../utils/i18n";
+
 import { translations } from "./alert.i18n";
 import { AlertCloseEvent } from "./alert.interfaces";
 

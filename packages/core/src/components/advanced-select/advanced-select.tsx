@@ -16,6 +16,7 @@ import { createFocusTrap, FocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import {
   AdvancedSelectChangeEvent,
   AdvancedSelectGroup,

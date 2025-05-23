@@ -1,9 +1,11 @@
-import type { Meta } from "@storybook/web-components";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/icon/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import { decorator } from "./icon-overview.decorator";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),

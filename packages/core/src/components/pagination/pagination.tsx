@@ -13,6 +13,7 @@ import {
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { ResponsiveElementSize } from "../responsive-element/responsive-element.interfaces";
+
 import { PaginationSelectPageEvent } from "./pagination.interfaces";
 
 @Component({

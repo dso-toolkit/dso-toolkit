@@ -1,8 +1,10 @@
-import type { Meta } from "@storybook/react";
 import { PaginationArgs, paginationMeta, paginationStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<PaginationArgs> = {
   ...paginationMeta({ readme }),

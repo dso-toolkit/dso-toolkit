@@ -1,8 +1,9 @@
-import type { Meta } from "@storybook/web-components";
 import { ShoppingCartArgs, shoppingCartMeta, shoppingCartStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/shopping-cart/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ShoppingCartArgs> = {
   ...shoppingCartMeta({ readme }),

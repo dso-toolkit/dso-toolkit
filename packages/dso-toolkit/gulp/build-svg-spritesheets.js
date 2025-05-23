@@ -1,5 +1,7 @@
 /* eslint-env node */
 
+import { basename } from "path";
+
 import { parse } from "css";
 import gulp from "gulp";
 import cheerio from "gulp-cheerio";
@@ -7,7 +9,6 @@ import gulpPrettier from "gulp-prettier";
 import rename from "gulp-rename";
 import svgstore from "gulp-svgstore";
 import { obj } from "list-stream";
-import { basename } from "path";
 
 import { sassTransformer } from "./transformers/sass.transformer.js";
 

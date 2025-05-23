@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 
 import { createIdentifier } from "../../utils/create-identifier";
+
 import defaultLocalization, { DsoLocalizedText } from "./date-localization";
 import {
   DsoDatePickerLegacyChangeEvent,

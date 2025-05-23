@@ -9,6 +9,7 @@ import {
 import React from "react";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
 
 const meta: Meta<AutosuggestArgs> = {

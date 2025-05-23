@@ -1,8 +1,8 @@
 import readme from "@dso-toolkit/react/src/components/accordion/readme.md?raw";
-import type { Meta } from "@storybook/react";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import {
   activatableSections,
   addonsSections,
@@ -12,6 +12,8 @@ import {
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme }),

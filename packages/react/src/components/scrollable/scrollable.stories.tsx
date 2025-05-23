@@ -1,10 +1,12 @@
-import type { Meta } from "@storybook/react";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
 import { defaultContent, dynamicContent } from "./scrollable.content";
 import { decorator } from "./scrollable.decorator";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<ScrollableArgs> = {
   ...scrollableMeta({ readme }),

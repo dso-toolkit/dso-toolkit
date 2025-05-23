@@ -10,7 +10,6 @@ import tsParser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
 import lit from "eslint-plugin-lit";
 import onlyWarn from "eslint-plugin-only-warn";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +50,6 @@ export default [
       "@typescript-eslint": typescriptEslint,
       "only-warn": onlyWarn,
       import: importPlugin,
-      "simple-import-sort": simpleImportSort,
       lit,
     },
     linterOptions: {
@@ -65,9 +63,6 @@ export default [
       parser: tsParser,
     },
     rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-
       // import-plugin rules
       "import/no-duplicates": "error",
       "import/newline-after-import": "error",
@@ -75,6 +70,26 @@ export default [
       "import/no-unresolved": "off",
       "import/named": "off",
       "import/namespace": "off",
+      "import/order": [
+        "error",
+        {
+          named: true,
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+          pathGroups: [
+            {
+              pattern: "@site/**",
+              group: "internal",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
 
       // lit rules
       "lit/attribute-value-entities": "error",

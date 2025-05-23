@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./plekinfo-card.interfaces";
 
 interface WrapWijzigactieProps {

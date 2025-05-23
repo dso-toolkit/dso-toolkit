@@ -1,9 +1,9 @@
 import componentsReadme from "@dso-toolkit/core/src/components/accordion/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/accordion/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
+
 import {
   activatableSections,
   addonsSections,
@@ -13,6 +13,8 @@ import {
   nestedSections,
   renvooiSections,
 } from "./accordion.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme: `${readme}\n${componentsReadme}` }),

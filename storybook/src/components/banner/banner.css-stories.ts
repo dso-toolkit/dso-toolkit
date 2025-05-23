@@ -1,8 +1,8 @@
-import type { Meta } from "@storybook/web-components";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/banner/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import {
   dangerRichContent,
   dangerWithHeadingsRichContent,
@@ -14,6 +14,8 @@ import {
   warningNonRemovableRichContent,
   warningRichContent,
 } from "./banner.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
