@@ -33,7 +33,7 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch",
+    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch",
     "@stencil/react-output-target": "^1.0.2",
     "@stencil/sass": "^3.2.1",
     "@types/concurrently": "^7.0.3",
