@@ -48,4 +48,4 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-export { Active, Confirm, Fullscreen, Loading,Passive, WithDatepicker };
+export { Active, Confirm, Fullscreen, Loading, Passive, WithDatepicker };

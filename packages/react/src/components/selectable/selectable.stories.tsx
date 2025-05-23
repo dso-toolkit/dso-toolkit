@@ -26,4 +26,4 @@ const { Radio, Checkbox, WithInfo, Nested } = selectableStories({
   },
 });
 
-export { Checkbox, Nested,Radio, WithInfo };
+export { Checkbox, Nested, Radio, WithInfo };

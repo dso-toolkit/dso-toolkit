@@ -42,4 +42,4 @@ const { Activiteit, Gebiedsaanwijzing, Omgevingsnormwaarde, Locatie, Kaart } = a
   decorator,
 );
 
-export { Activiteit, Gebiedsaanwijzing, Kaart,Locatie, Omgevingsnormwaarde };
+export { Activiteit, Gebiedsaanwijzing, Kaart, Locatie, Omgevingsnormwaarde };

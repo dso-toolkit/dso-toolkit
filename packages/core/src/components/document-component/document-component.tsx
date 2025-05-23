@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, Fragment, h, Host,Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment, h, Host, Prop } from "@stencil/core";
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";

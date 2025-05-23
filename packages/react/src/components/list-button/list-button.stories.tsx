@@ -24,4 +24,4 @@ const { SingleSelect, MultiSelect } = listButtonStories({
   },
 });
 
-export { MultiSelect,SingleSelect };
+export { MultiSelect, SingleSelect };

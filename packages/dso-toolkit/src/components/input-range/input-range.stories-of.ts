@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { InputRangeArgs, inputRangeArgs, inputRangeArgsMapper,inputRangeArgTypes } from "./input-range.args.js";
+import { InputRangeArgs, inputRangeArgs, inputRangeArgsMapper, inputRangeArgTypes } from "./input-range.args.js";
 import { InputRange } from "./input-range.models.js";
 
 type InputRangeStory = StoryObj<InputRangeArgs, Renderer>;

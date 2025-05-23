@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element,Event, EventEmitter, Fragment, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, h, Prop } from "@stencil/core";
 
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { AnnotationBody } from "../annotation-body";

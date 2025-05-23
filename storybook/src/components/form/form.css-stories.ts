@@ -22,4 +22,4 @@ const { Horizontal, HorizontalCollections, Vertical, VerticalCollections, Single
   },
 });
 
-export { Horizontal, HorizontalCollections, SinglePage,Vertical, VerticalCollections };
+export { Horizontal, HorizontalCollections, SinglePage, Vertical, VerticalCollections };

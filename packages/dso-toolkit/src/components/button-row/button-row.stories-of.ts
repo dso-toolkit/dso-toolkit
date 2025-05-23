@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { ButtonRowArgs, buttonRowArgsMapper,buttonRowArgTypes } from "./button-row.args.js";
+import { ButtonRowArgs, buttonRowArgsMapper, buttonRowArgTypes } from "./button-row.args.js";
 import { ButtonRow } from "./button-row.models.js";
 
 type ButtonRowStory = StoryObj<ButtonRowArgs, Renderer>;

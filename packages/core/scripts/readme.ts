@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- For now quick and dirty, sorry. /Th */
-import { readFile,writeFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { dirname, join } from "path";
 
 import { ComponentCompilerReferencedType } from "@stencil/core/internal";

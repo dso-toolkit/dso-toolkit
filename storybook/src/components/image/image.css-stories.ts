@@ -23,4 +23,4 @@ const { Default, Responsive, Circle } = imageStories({
   },
 });
 
-export { Circle,Default, Responsive };
+export { Circle, Default, Responsive };

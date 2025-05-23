@@ -1,5 +1,5 @@
-import { createPopper, Instance as PopperInstance,Placement } from "@popperjs/core";
-import { Component, Element, h, Host, Listen,Prop, Watch } from "@stencil/core";
+import { createPopper, Instance as PopperInstance, Placement } from "@popperjs/core";
+import { Component, Element, h, Host, Listen, Prop, Watch } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 

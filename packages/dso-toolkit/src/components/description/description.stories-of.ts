@@ -11,7 +11,7 @@ import {
   DescriptionExampleArgs,
   descriptionExampleArgTypes,
 } from "./description.args.js";
-import { descriptionExample,termContent } from "./description.content.js";
+import { descriptionExample, termContent } from "./description.content.js";
 import { Description } from "./description.models.js";
 
 interface DescriptionStories {

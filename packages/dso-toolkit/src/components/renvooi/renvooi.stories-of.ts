@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { RenvooiArgs, renvooiArgs, renvooiArgsMapper,renvooiArgTypes } from "./renvooi.args.js";
+import { RenvooiArgs, renvooiArgs, renvooiArgsMapper, renvooiArgTypes } from "./renvooi.args.js";
 import { Renvooi } from "./renvooi.models.js";
 
 type RenvooiStory = StoryObj<RenvooiArgs, Renderer>;

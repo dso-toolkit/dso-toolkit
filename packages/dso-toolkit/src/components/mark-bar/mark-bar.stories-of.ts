@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { MarkBarArgs, markBarArgs,markBarArgsMapper, markBarArgTypes } from "./mark-bar.args.js";
+import { MarkBarArgs, markBarArgs, markBarArgsMapper, markBarArgTypes } from "./mark-bar.args.js";
 import { MarkBar } from "./mark-bar.models.js";
 
 type MarkBarStory = StoryObj<MarkBarArgs, Renderer>;

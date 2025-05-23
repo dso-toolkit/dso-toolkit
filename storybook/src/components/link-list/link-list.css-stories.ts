@@ -42,4 +42,4 @@ const { InFooter, InHighlightBox, InNav, Ol, Ul } = linkListStories({
   },
 });
 
-export { InFooter,InHighlightBox, InNav, Ol, Ul };
+export { InFooter, InHighlightBox, InNav, Ol, Ul };

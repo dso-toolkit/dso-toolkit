@@ -25,4 +25,4 @@ const { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, With
     },
   });
 
-export { Default, UserHomeActive, WithButtonToHelp,WithLabel, WithLabelAndRibbon, WithLinkToHelp, WithRibbon };
+export { Default, UserHomeActive, WithButtonToHelp, WithLabel, WithLabelAndRibbon, WithLinkToHelp, WithRibbon };

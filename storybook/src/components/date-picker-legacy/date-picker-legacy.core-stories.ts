@@ -32,4 +32,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     decorator: (story) => html`<div style="width: 175px;">${story()}</div>`,
   });
 
-export { Default, Disabled, Invalid, MonthRange, NarrowInput,ShowByScripting, WithLabel, WithMinAndMax, WithValue };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, ShowByScripting, WithLabel, WithMinAndMax, WithValue };

@@ -1,4 +1,4 @@
-import { Fragment,FunctionalComponent, h } from "@stencil/core";
+import { Fragment, FunctionalComponent, h } from "@stencil/core";
 import clsx from "clsx";
 
 import { TreeView } from "./tree-view";

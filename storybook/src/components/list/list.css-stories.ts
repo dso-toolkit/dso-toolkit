@@ -23,4 +23,4 @@ const { Columns, Group, Unordered, Unstyled, ImageList, Ordered, Icons } = listS
   },
 });
 
-export { Columns, Group, Icons,ImageList, Ordered, Unordered, Unstyled };
+export { Columns, Group, Icons, ImageList, Ordered, Unordered, Unstyled };

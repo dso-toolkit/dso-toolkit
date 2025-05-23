@@ -26,4 +26,4 @@ const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = docum
   },
 });
 
-export { Default, WithLabel, WithStatusToelichting,WithTypeToelichting };
+export { Default, WithLabel, WithStatusToelichting, WithTypeToelichting };

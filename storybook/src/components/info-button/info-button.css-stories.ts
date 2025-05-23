@@ -23,4 +23,4 @@ const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStori
   },
 });
 
-export { Active, Inactive, SecondaryActive,SecondaryInactive };
+export { Active, Inactive, SecondaryActive, SecondaryInactive };

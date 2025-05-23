@@ -30,4 +30,4 @@ const { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChan
     decorator,
   });
 
-export { Default, Static, WithLabel, WithNameChange, WithNameChangeComplex,WithoutSymbol, WithSlideToggle };
+export { Default, Static, WithLabel, WithNameChange, WithNameChangeComplex, WithoutSymbol, WithSlideToggle };

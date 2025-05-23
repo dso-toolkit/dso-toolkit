@@ -5,7 +5,7 @@ import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
-import { OzonContentArgs,ozonContentArgsMapper, ozonContentArgTypes } from "./ozon-content.args.js";
+import { OzonContentArgs, ozonContentArgsMapper, ozonContentArgTypes } from "./ozon-content.args.js";
 import { content } from "./ozon-content.content.js";
 import { OzonContent } from "./ozon-content.models.js";
 

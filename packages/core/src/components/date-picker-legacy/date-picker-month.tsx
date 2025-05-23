@@ -1,4 +1,4 @@
-import { FunctionalComponent,h } from "@stencil/core";
+import { FunctionalComponent, h } from "@stencil/core";
 
 import { DsoLocalizedText } from "./date-localization";
 import { DatePickerLegacyDay, DatePickerLegacyDayProps } from "./date-picker-day";

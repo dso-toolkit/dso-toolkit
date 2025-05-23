@@ -1,6 +1,6 @@
 import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
 
-import { ViewerGridChangeSizeAnimationEndEvent,ViewerGridPanelSize } from "../viewer-grid.interfaces";
+import { ViewerGridChangeSizeAnimationEndEvent, ViewerGridPanelSize } from "../viewer-grid.interfaces";
 
 import { SizingButtons } from "./sizing-buttons";
 

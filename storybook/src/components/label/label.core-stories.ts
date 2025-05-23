@@ -1,6 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/label/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
-import { LabelArgs,labelMeta, labelStories } from "dso-toolkit";
+import { LabelArgs, labelMeta, labelStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
@@ -25,4 +25,4 @@ const { Default, WithAction, Truncate, WithSymbolImage, WithSymbolColor } = labe
   decorator,
 });
 
-export { Default, Truncate, WithAction, WithSymbolColor,WithSymbolImage };
+export { Default, Truncate, WithAction, WithSymbolColor, WithSymbolImage };

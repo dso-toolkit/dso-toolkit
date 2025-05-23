@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element,h, Host, Method, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Element, h, Host, Method, Prop } from "@stencil/core";
 import { createStore } from "@stencil/store";
 
 import { AccordionInternalState, AccordionVariant } from "./accordion.interfaces";

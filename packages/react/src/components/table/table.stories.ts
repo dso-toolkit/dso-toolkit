@@ -39,4 +39,4 @@ const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, Sorted
     },
   });
 
-export { DataGrid, DataTable,Default, SortedAscending, SortedDescending, WithDsoImageOverlay, WithVerticalLines };
+export { DataGrid, DataTable, Default, SortedAscending, SortedDescending, WithDsoImageOverlay, WithVerticalLines };

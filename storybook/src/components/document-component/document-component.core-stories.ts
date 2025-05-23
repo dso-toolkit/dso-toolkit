@@ -90,4 +90,4 @@ const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
   decorator,
 );
 
-export { Contents, Default, IMRO,Inhoudsopgave };
+export { Contents, Default, IMRO, Inhoudsopgave };

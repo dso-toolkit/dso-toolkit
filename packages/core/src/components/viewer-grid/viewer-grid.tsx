@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Fragment, h,Method, Prop, State, Watch } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, h, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
 

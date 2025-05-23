@@ -1,5 +1,5 @@
 import { ActionListItem, contactInformationContent } from "dso-toolkit";
-import { html,TemplateResult } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 import { Templates } from "../../templates";
 

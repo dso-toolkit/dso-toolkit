@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Method,Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, h, Method, Prop } from "@stencil/core";
 
 import {
   MarkBarClearEvent,

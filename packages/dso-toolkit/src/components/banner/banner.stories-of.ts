@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { BannerArgs, bannerArgsMapper,bannerArgTypes } from "./banner.args.js";
+import { BannerArgs, bannerArgsMapper, bannerArgTypes } from "./banner.args.js";
 import { Banner } from "./banner.models.js";
 
 type BannerStory = StoryObj<BannerArgs, Renderer>;

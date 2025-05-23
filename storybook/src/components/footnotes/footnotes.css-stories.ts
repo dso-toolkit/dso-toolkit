@@ -35,4 +35,4 @@ const { Example, Reference, List } = footnotesStories({
   },
 });
 
-export { Example, List,Reference };
+export { Example, List, Reference };

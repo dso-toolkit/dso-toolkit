@@ -6,7 +6,7 @@ import { componentArgs } from "../../storybook/index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
-import { DropdownMenuArgs,dropdownMenuArgsMapper, dropdownMenuArgTypes } from "./dropdown-menu.args.js";
+import { DropdownMenuArgs, dropdownMenuArgsMapper, dropdownMenuArgTypes } from "./dropdown-menu.args.js";
 import * as content from "./dropdown-menu.content.js";
 import { DropdownMenu } from "./dropdown-menu.models.js";
 

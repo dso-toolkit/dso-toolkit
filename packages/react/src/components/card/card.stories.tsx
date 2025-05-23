@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/react/src/components/card/readme.md?raw";
-import { CardArgs, cardMeta,cardStories } from "dso-toolkit";
+import { CardArgs, cardMeta, cardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
@@ -26,4 +26,4 @@ const { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSele
   },
 });
 
-export { Default, WithButton, WithLabel, WithSelectableAndButton,WithSlideToggle, WithToggletip };
+export { Default, WithButton, WithLabel, WithSelectableAndButton, WithSlideToggle, WithToggletip };

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Fragment,h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Fragment, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "dso-project-item",

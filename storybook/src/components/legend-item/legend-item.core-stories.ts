@@ -69,4 +69,4 @@ const { Default, WithSelectable, Removable, WithSelectables, WithInputRange } = 
   decorator,
 });
 
-export { Default, Removable, WithInputRange,WithSelectable, WithSelectables };
+export { Default, Removable, WithInputRange, WithSelectable, WithSelectables };

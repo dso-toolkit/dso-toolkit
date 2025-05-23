@@ -1,4 +1,4 @@
-import { Addon_StoryApi,Args } from "@storybook/types";
+import { Addon_StoryApi, Args } from "@storybook/types";
 
 import { TemplateContainer } from "../template-container.js";
 

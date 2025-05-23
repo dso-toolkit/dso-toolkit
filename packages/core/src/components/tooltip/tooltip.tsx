@@ -1,5 +1,5 @@
 import { beforeWrite, createPopper, Instance as PopperInstance, Placement, State as PopperState } from "@popperjs/core";
-import { Component, ComponentInterface,Element, h, Host, Method, Prop, State, Watch } from "@stencil/core";
+import { Component, ComponentInterface, Element, h, Host, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
 import maxSize from "popper-max-size-modifier";

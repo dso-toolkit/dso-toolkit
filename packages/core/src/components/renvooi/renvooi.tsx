@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter,Fragment, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment, h, Prop } from "@stencil/core";
 
 import { RenvooiRender } from "./renvooi-render";
 import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./renvooi.interfaces";

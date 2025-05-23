@@ -23,4 +23,4 @@ const { Default, WithSubtitle, WithSubtitleAndSteps, SubtitleOnly, SubtitleAndSt
   },
 });
 
-export { Default, SubtitleAndStepsOnly,SubtitleOnly, WithSubtitle, WithSubtitleAndSteps };
+export { Default, SubtitleAndStepsOnly, SubtitleOnly, WithSubtitle, WithSubtitleAndSteps };

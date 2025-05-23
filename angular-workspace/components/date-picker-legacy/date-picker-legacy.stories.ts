@@ -45,4 +45,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     },
   });
 
-export { Default, Disabled, Invalid, MonthRange, NarrowInput,WithLabel, WithMinAndMax, WithValue };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, WithLabel, WithMinAndMax, WithValue };

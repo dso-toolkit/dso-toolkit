@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment,h, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, h, Prop, State } from "@stencil/core";
 import { v4 } from "uuid";
 
 import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";

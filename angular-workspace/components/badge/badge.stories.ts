@@ -29,4 +29,4 @@ const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plai
   },
 });
 
-export { Attention, Danger, Error, Info, Outline, Plain,Primary, Success, Warning };
+export { Attention, Danger, Error, Info, Outline, Plain, Primary, Success, Warning };

@@ -40,4 +40,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
   decorator,
 });
 
-export { Default, Disabled, Invalid, MonthRange, NarrowInput,WithLabel, WithMinAndMax, WithValue };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, WithLabel, WithMinAndMax, WithValue };

@@ -4,7 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { PanelArgs, panelArgs, panelArgsMapper,panelArgTypes } from "./panel.args.js";
+import { PanelArgs, panelArgs, panelArgsMapper, panelArgTypes } from "./panel.args.js";
 import { Panel } from "./panel.models.js";
 
 type PanelStory = StoryObj<PanelArgs, Renderer>;

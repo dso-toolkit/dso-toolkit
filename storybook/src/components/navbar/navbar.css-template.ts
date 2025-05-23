@@ -1,5 +1,5 @@
 import { Navbar, NavbarItem } from "dso-toolkit";
-import { html, nothing,TemplateResult } from "lit-html";
+import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { when } from "lit-html/directives/when.js";

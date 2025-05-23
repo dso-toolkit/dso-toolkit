@@ -81,4 +81,4 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
     },
   });
 
-export { Default, Grey, GreyWithBorder, WhiteWithDropshadow, WithBannerImage,WithBorder, WithIcon, Yellow };
+export { Default, Grey, GreyWithBorder, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

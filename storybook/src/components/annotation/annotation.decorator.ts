@@ -1,5 +1,5 @@
 import { AnnotationDecorator } from "dso-toolkit";
-import { html,TemplateResult } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 export const decorator: AnnotationDecorator<TemplateResult> = (story) => html`
   ${story()}

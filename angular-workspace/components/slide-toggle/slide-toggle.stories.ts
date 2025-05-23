@@ -29,4 +29,4 @@ const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
   },
 });
 
-export { Default, Disabled, LabelledById,ZichtbaarLabel };
+export { Default, Disabled, LabelledById, ZichtbaarLabel };

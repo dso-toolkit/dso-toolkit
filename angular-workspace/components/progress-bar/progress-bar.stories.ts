@@ -29,4 +29,4 @@ const { Default, ArbitraryValues } = progressBarStories({
   },
 });
 
-export { ArbitraryValues,Default };
+export { ArbitraryValues, Default };
