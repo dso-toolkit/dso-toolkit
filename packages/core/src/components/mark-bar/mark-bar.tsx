@@ -1,10 +1,10 @@
-import { h, Component, ComponentInterface, Prop, Event, EventEmitter, Method } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, h, Method,Prop } from "@stencil/core";
 
 import {
-  MarkBarInputEvent,
   MarkBarClearEvent,
-  MarkBarPaginationEvent,
   MarkBarFocusOptions,
+  MarkBarInputEvent,
+  MarkBarPaginationEvent,
 } from "./mark-bar.interfaces";
 
 @Component({

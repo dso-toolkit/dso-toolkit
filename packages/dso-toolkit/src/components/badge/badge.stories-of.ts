@@ -3,8 +3,7 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
-import { BadgeArgs, badgeArgTypes, badgeArgsMapper } from "./badge.args.js";
+import { BadgeArgs, badgeArgsMapper,badgeArgTypes } from "./badge.args.js";
 import { Badge } from "./badge.models.js";
 
 type BadgeStory = StoryObj<BadgeArgs, Renderer>;

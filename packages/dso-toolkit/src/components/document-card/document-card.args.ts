@@ -5,7 +5,6 @@ import { noControl } from "../../storybook";
 import { Badge } from "../badge";
 import { Label } from "../label";
 import { Toggletip } from "../toggletip";
-
 import { DocumentCard } from "./document-card.models.js";
 
 export interface DocumentCardArgs {

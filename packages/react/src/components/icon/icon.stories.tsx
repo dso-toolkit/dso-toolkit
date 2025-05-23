@@ -1,11 +1,9 @@
+import type { Meta } from "@storybook/react";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { decorator } from "./icon-overview.decorator";
 import readme from "./readme.md?raw";
-
-import type { Meta } from "@storybook/react";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),

@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { HeadingLevel } from "../heading/heading.models.js";
-
 import { ProjectItem } from "./project-item.models.js";
 
 export interface ProjectItemArgs {

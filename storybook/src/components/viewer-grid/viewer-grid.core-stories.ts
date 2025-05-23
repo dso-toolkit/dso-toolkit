@@ -274,11 +274,11 @@ const {
 });
 
 export {
-  ViewerGrid,
   Filterpanel,
   FilterpanelVDK,
-  VoorbeeldpaginaFilterblok,
-  VoorbeeldpaginaTiles,
+  ViewerGrid,
   VoorbeeldpaginaDocumentHeader,
   VoorbeeldpaginaDocumentList,
+  VoorbeeldpaginaFilterblok,
+  VoorbeeldpaginaTiles,
 };

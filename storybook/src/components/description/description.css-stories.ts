@@ -25,4 +25,4 @@ const { Term, Example } = descriptionStories({
   },
 });
 
-export { Term, Example };
+export { Example,Term };

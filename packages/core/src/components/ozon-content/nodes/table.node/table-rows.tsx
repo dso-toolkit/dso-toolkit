@@ -1,7 +1,6 @@
 import { Fragment, FunctionalComponent, h } from "@stencil/core";
 
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
-
 import { Colspecs } from "./colspec/colspec.interface";
 import { Cell } from "./table-cell";
 

@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
-
 import { selectOptionGroupContent, selectOptionsContent } from "./form-group-select.content";
 import { FormGroupSelect } from "./form-group-select.models";
 

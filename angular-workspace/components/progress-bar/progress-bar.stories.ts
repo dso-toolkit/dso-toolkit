@@ -3,7 +3,6 @@ import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolki
 
 import { DsoProgressBar } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<ProgressBarArgs> = {
@@ -29,4 +28,4 @@ const { Default, ArbitraryValues } = progressBarStories({
   },
 });
 
-export { Default, ArbitraryValues };
+export { ArbitraryValues,Default };

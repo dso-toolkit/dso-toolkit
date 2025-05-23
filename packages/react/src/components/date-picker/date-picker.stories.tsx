@@ -4,7 +4,6 @@ import { DatePickerArgs, DatePickerDecorator, datePickerMeta, datePickerStories 
 import React from "react";
 
 import { templateContainer } from "../../templates";
-
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
 const decorator: DatePickerDecorator<JSX.Element> = (story) => {
@@ -40,4 +39,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
   decorator,
 });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput,WithLabel, WithMinAndMax, WithValue };

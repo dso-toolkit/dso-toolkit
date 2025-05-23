@@ -6,7 +6,6 @@ import rename from "gulp-rename";
 import stylelint from "gulp-stylelint-esm";
 
 import { plugins } from "../postcss.config.js";
-
 import { sassTransformer } from "./transformers/sass.transformer.js";
 
 function getVersion() {

@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
-
 import { FormGroupStatic } from "./form-group-static.models";
 
 export interface FormGroupStaticArgs {

@@ -1,9 +1,8 @@
 import readme from "@dso-toolkit/core/src/components/logo/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 import { LogoArgs, logoMeta, logoStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<LogoArgs> = {
   ...logoMeta({ readme }),
@@ -34,11 +33,11 @@ const {
 
 export {
   Default,
-  WithName,
   WithLabel,
   WithLabelAndLabelUrl,
+  WithLabelAndRibbon,
   WithLogoUrl,
   WithLogoUrlAndLabelAndLabelUrl,
+  WithName,
   WithRibbon,
-  WithLabelAndRibbon,
 };

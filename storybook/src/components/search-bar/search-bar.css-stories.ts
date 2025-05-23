@@ -34,14 +34,14 @@ const {
 });
 
 export {
-  VisualLabelWithIcon,
-  VisualLabelWithoutIcon,
-  PlaceholderWithLongText,
+  HiddenButton,
   HiddenLabelWithIcon,
   HiddenLabelWithoutIcon,
-  WithValue,
   Invalid,
-  HiddenButton,
-  WithResultsMessage,
+  PlaceholderWithLongText,
+  VisualLabelWithIcon,
+  VisualLabelWithoutIcon,
   WithHiddenResultsMessage,
+  WithResultsMessage,
+  WithValue,
 };

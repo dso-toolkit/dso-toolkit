@@ -1,7 +1,7 @@
-import { h, Component, ComponentInterface, Event, EventEmitter, Prop, Method } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, h, Method,Prop } from "@stencil/core";
 
 import { DsoTreeItem } from "./tree-item";
-import { TreeViewPointerEvent, TreeViewItem } from "./tree-view.interfaces";
+import { TreeViewItem,TreeViewPointerEvent } from "./tree-view.interfaces";
 
 @Component({
   tag: "dso-tree-view",

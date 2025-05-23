@@ -20,7 +20,6 @@ import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
 import { AccordionInternalState } from "../accordion.interfaces";
-
 import {
   AccordionHeading,
   AccordionSectionActiveChangeEvent,

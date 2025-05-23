@@ -1,11 +1,9 @@
+import type { Meta } from "@storybook/react";
 import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 import * as React from "react";
 
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
-
-import type { Meta } from "@storybook/react";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),

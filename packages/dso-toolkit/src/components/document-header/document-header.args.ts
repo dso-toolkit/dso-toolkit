@@ -5,7 +5,6 @@ import { noControl } from "../../storybook/index.js";
 import { AdvancedSelect, selectExampleOption } from "../advanced-select";
 import { options } from "../advanced-select/advanced-select.content";
 import { DefinitionList } from "../definition-list/definition-list.models.js";
-
 import { DocumentHeader } from "./document-header.models.js";
 
 export interface DocumentHeaderArgs {

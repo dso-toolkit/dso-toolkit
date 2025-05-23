@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../../storybook";
-
 import { FormGroupSearchBar } from "./form-group-search-bar.models";
 
 export interface FormGroupSearchBarArgs {

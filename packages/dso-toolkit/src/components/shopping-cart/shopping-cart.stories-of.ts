@@ -4,8 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { StoryObj, StoriesParameters } from "../../template-container";
-
+import { StoriesParameters,StoryObj } from "../../template-container";
 import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from "./shopping-cart.args.js";
 import { ShoppingCart } from "./shopping-cart.models.js";
 

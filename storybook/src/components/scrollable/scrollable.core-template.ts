@@ -1,5 +1,5 @@
 import { Scrollable } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html,TemplateResult } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 

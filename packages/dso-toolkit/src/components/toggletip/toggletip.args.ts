@@ -1,7 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
 import { tooltipPositions } from "../tooltip/tooltip.models.js";
-
 import { Toggletip } from "./toggletip.models.js";
 
 export interface ToggletipArgs {

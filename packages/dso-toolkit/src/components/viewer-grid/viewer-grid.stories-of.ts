@@ -7,13 +7,12 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import { options } from "../advanced-select/advanced-select.content";
 import { documentListContent } from "../document-list/document-list.content.js";
 import { Tile } from "../tile";
-
 import {
   ViewerGridArgs,
   viewerGridArgsMapper,
   viewerGridArgTypes,
-  viewerGridDocumentHeaderArgs,
   ViewerGridDocumentHeaderArgs,
+  viewerGridDocumentHeaderArgs,
 } from "./viewer-grid.args.js";
 import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models.js";
 

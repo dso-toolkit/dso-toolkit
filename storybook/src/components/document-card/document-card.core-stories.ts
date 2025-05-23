@@ -1,11 +1,9 @@
 import readme from "@dso-toolkit/core/src/components/document-card/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 import { DocumentCardArgs, documentCardMeta, documentCardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { typeItems } from "./document-card.content";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<DocumentCardArgs> = {
   ...documentCardMeta({ readme }),
@@ -26,4 +24,4 @@ const { Default, WithLabel, WithTypeToelichting, WithStatusToelichting } = docum
   },
 });
 
-export { Default, WithLabel, WithTypeToelichting, WithStatusToelichting };
+export { Default, WithLabel, WithStatusToelichting,WithTypeToelichting };

@@ -2,28 +2,27 @@ import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types
 import { compiler } from "markdown-to-jsx";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
 import {
-  annotationActiviteitArgs,
   AnnotationActiviteitArgs,
-  annotationActiviteitArgTypes,
+  annotationActiviteitArgs,
   annotationActiviteitArgsMapper,
-  annotationGebiedsaanwijzingArgs,
+  annotationActiviteitArgTypes,
   AnnotationGebiedsaanwijzingArgs,
-  annotationOmgevingsnormwaardeArgs,
-  AnnotationOmgevingsnormwaardeArgs,
-  annotationLocatieArgs,
-  AnnotationLocatieArgs,
+  annotationGebiedsaanwijzingArgs,
   annotationGebiedsaanwijzingArgsMapper,
-  annotationLocatieArgsMapper,
-  annotationOmgevingsnormwaardeArgsMapper,
   annotationGebiedsaanwijzingArgTypes,
-  annotationOmgevingsnormwaardeArgTypes,
-  annotationLocatieArgTypes,
-  annotationKaartArgs,
-  annotationKaartArgTypes,
-  annotationKaartArgsMapper,
   AnnotationKaartArgs,
+  annotationKaartArgs,
+  annotationKaartArgsMapper,
+  annotationKaartArgTypes,
+  AnnotationLocatieArgs,
+  annotationLocatieArgs,
+  annotationLocatieArgsMapper,
+  annotationLocatieArgTypes,
+  AnnotationOmgevingsnormwaardeArgs,
+  annotationOmgevingsnormwaardeArgs,
+  annotationOmgevingsnormwaardeArgsMapper,
+  annotationOmgevingsnormwaardeArgTypes,
 } from "./annotation.args.js";
 import { Annotation } from "./annotation.models.js";
 

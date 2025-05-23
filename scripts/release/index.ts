@@ -1,5 +1,4 @@
 import { readFile, writeFile } from "fs/promises";
-
 import minimist from "minimist";
 import * as prettier from "prettier";
 

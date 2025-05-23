@@ -3,7 +3,6 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-
 import { header, items } from "./samenwerking-gegevens.content";
 
 examplePageFactory(

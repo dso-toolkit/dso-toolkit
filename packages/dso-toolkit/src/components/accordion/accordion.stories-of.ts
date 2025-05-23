@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { AccordionArgs, accordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
 import { Accordion, AccordionSection } from "./accordion.models.js";
 

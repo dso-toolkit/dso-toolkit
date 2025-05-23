@@ -1,7 +1,6 @@
-import { readdirSync } from "fs";
-import { resolve, dirname, parse, join } from "path";
-
 import { StorybookConfig } from "@storybook/web-components-webpack5";
+import { readdirSync } from "fs";
+import { dirname, join,parse, resolve } from "path";
 
 // Niet op `true` inchecken (#2316)
 const testStoryStoryV7 = false;

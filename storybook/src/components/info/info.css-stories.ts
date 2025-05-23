@@ -1,11 +1,9 @@
+import type { Meta } from "@storybook/web-components";
 import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/info/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
 import { richContent } from "./info.content";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),

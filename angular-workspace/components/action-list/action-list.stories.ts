@@ -3,7 +3,6 @@ import { ActionListArgs, actionListMeta, actionListStories } from "dso-toolkit";
 
 import { DsoActionList } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";
 import readme from "./readme.md?raw";
 

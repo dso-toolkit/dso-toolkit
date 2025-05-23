@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, State, Prop, Watch, Event, EventEmitter, Fragment } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment,h, Prop, State, Watch } from "@stencil/core";
 import random from "lodash.random";
 import sampleSize from "lodash.samplesize";
 

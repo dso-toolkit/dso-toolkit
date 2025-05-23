@@ -3,8 +3,7 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
-import { mapControlsArgsMapper, mapControlsArgTypes, MapControlsArgs } from "./map-controls.args.js";
+import { MapControlsArgs,mapControlsArgsMapper, mapControlsArgTypes } from "./map-controls.args.js";
 import { baseLayers, overlays } from "./map-controls.content.js";
 import { mapControlsDemoCss } from "./map-controls.demo";
 import { MapControls } from "./map-controls.models.js";

@@ -3,7 +3,6 @@ import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
 
 import { isOdd, noControl } from "../../storybook";
-
 import { OzonContent, OzonContentUrlResolver } from "./ozon-content.models.js";
 
 export interface OzonContentArgs {

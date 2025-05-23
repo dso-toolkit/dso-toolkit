@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, Element, Fragment, Event, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter,Fragment, h, Prop } from "@stencil/core";
 
 import { InputRangeChangeEvent } from "./input-range.interfaces";
 

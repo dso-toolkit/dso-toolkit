@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { PaginationArgs, paginationArgsMapper, paginationArgTypes } from "./pagination.args.js";
 import { Pagination } from "./pagination.models.js";
 

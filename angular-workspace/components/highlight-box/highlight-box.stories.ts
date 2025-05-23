@@ -3,7 +3,6 @@ import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-too
 
 import { DsoHighlightBox } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import { content } from "./highlight-box.content";
 import readme from "./readme.md?raw";
 
@@ -31,4 +30,4 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
   },
 });
 
-export { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage };
+export { Default, WhiteWithDropshadow, WithBannerImage,WithBorder, WithIcon, Yellow };

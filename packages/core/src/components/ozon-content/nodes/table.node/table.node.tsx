@@ -3,9 +3,8 @@ import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
 import { getNodeName } from "../../get-node-name.function";
-import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 import { OzonContentNode } from "../../ozon-content-node.interface";
-
+import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 import { mapColspecs } from "./colspec/colspec-mapper";
 import { Colgroup } from "./table-colgroup";
 import { Rows } from "./table-rows";

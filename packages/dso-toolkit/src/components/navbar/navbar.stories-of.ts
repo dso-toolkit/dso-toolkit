@@ -4,8 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { componentArgs } from "../../storybook/index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
-import { navbarArgs, NavbarArgs, navbarArgsMapper, navbarArgTypes } from "./navbar.args.js";
+import { NavbarArgs, navbarArgs, navbarArgsMapper, navbarArgTypes } from "./navbar.args.js";
 import { Navbar } from "./navbar.models.js";
 
 type NavbarStory = StoryObj<NavbarArgs, Renderer>;

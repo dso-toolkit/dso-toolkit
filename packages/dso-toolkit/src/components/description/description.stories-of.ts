@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import {
   DescriptionArgs,
   descriptionArgsMapper,
@@ -11,7 +10,7 @@ import {
   DescriptionExampleArgs,
   descriptionExampleArgTypes,
 } from "./description.args.js";
-import { termContent, descriptionExample } from "./description.content.js";
+import { descriptionExample,termContent } from "./description.content.js";
 import { Description } from "./description.models.js";
 
 interface DescriptionStories {

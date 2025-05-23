@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
-
 import { Tabs, TabsItem } from "./tabs.models.js";
 
 export interface TabsArgs<TemplateFnReturnType> {

@@ -1,9 +1,8 @@
+import type { Meta } from "@storybook/web-components";
 import { ListArgs, listMeta, listStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ListArgs> = {
   ...listMeta({ readme }),
@@ -23,4 +22,4 @@ const { Columns, Group, Unordered, Unstyled, ImageList, Ordered, Icons } = listS
   },
 });
 
-export { Unordered, Ordered, Group, Columns, ImageList, Unstyled, Icons };
+export { Columns, Group, Icons,ImageList, Ordered, Unordered, Unstyled };

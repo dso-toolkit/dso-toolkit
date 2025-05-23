@@ -4,7 +4,6 @@ import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 import { DsoExpandable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
-
 import { expandableContent } from "./expandable.content";
 import readme from "./readme.md?raw";
 

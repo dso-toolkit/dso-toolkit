@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { TableArgs, tableArgsMapper, tableArgTypes } from "./table.args.js";
 import { Table, TableContent } from "./table.models.js";
 

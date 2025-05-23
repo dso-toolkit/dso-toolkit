@@ -4,7 +4,6 @@ import { compiler } from "markdown-to-jsx";
 import { componentArgs } from "../../storybook/index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args.js";
 import { Modal } from "./modal.models.js";
 

@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
 import { TooltipArgs, tooltipArgsMapper, tooltipArgTypes } from "./tooltip.args.js";
 import { Tooltip } from "./tooltip.models.js";
 

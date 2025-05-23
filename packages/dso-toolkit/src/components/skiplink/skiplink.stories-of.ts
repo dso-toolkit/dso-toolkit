@@ -3,8 +3,7 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
-import { SkiplinkArgs, skiplinkArgs, skiplinkArgTypes, skiplinkArgsMapper } from "./skiplink.args.js";
+import { SkiplinkArgs, skiplinkArgs, skiplinkArgsMapper,skiplinkArgTypes } from "./skiplink.args.js";
 import { Skiplink } from "./skiplink.models.js";
 
 type SkiplinkStory = StoryObj<SkiplinkArgs, Renderer>;

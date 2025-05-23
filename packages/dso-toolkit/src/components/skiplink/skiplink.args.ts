@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
-
 import { Skiplink } from "./skiplink.models.js";
 
 export interface SkiplinkArgs {

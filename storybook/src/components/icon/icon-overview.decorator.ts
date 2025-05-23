@@ -1,5 +1,5 @@
 import { IconOverviewDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html,TemplateResult } from "lit-html";
 
 export const decorator: IconOverviewDecorator<TemplateResult> = (story, icons) => html`
   <ul id="icon-overview-list" class="icon-overview-list">

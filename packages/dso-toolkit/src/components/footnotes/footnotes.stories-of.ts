@@ -4,15 +4,14 @@ import { compiler } from "markdown-to-jsx";
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import {
   FootnotesExampleArgs,
-  FootnotesReferenceArgs,
-  FootnotesListArgs,
   footnotesExampleArgTypes,
+  FootnotesListArgs,
   footnotesListArgsMapper,
-  footnotesReferenceArgsMapper,
   footnotesListArgTypes,
+  FootnotesReferenceArgs,
+  footnotesReferenceArgsMapper,
   footnotesReferenceArgTypes,
 } from "./footnotes.args.js";
 import { footnotes } from "./footnotes.content.js";

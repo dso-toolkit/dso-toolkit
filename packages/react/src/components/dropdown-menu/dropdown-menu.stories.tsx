@@ -2,7 +2,6 @@ import { Meta } from "@storybook/react";
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta = {

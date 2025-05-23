@@ -5,16 +5,15 @@ import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { TrustHtmlPipe } from "../trust-html.pipe";
-
 import {
   activeBody,
   activeFooter,
   confirmBody,
   confirmFooter,
+  datePickerBody,
+  loadingBody,
   passiveBody,
   passiveFooter,
-  loadingBody,
-  datePickerBody,
 } from "./modal.content";
 
 const meta: Meta<ModalArgs> = {
@@ -48,4 +47,4 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };
+export { Active, Confirm, Fullscreen, Loading,Passive, WithDatepicker };

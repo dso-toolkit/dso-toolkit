@@ -1,8 +1,8 @@
 import { h } from "@stencil/core";
 
 import { getNodeName } from "../get-node-name.function";
-import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 
 export class OzonContentFallbackNode implements OzonContentNode {
   // This name does not match any elements

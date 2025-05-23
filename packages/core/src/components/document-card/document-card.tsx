@@ -1,7 +1,6 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, forceUpdate } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, forceUpdate,h, Prop } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
-
 import { DocumentCardClickEvent } from "./document-card.interfaces";
 
 /**

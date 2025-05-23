@@ -3,8 +3,7 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
-import { LabelArgs, labelArgTypes, labelArgsMapper } from "./label.args.js";
+import { LabelArgs, labelArgsMapper,labelArgTypes } from "./label.args.js";
 import { css } from "./label.demo.js";
 import { Label } from "./label.models.js";
 

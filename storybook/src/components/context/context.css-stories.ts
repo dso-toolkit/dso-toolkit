@@ -1,11 +1,9 @@
+import type { Meta } from "@storybook/web-components";
 import { ContextArgs, contextMeta, contextStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/context/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
 import { children, content, label } from "./context.content";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ContextArgs> = {
   ...contextMeta({ readme }),
@@ -28,4 +26,4 @@ const { Label, Legend, LabelAlignLeft, LegendAlignLeft } = contextStories({
   },
 });
 
-export { Label, Legend, LabelAlignLeft, LegendAlignLeft };
+export { Label, LabelAlignLeft, Legend, LegendAlignLeft };

@@ -2,7 +2,6 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } 
 import { v4 as uuidv4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
-
 import { translations } from "./map-base-layers.i18n";
 import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 

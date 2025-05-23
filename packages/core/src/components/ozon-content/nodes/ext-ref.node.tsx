@@ -1,8 +1,8 @@
 import { h } from "@stencil/core";
 import kebabCase from "lodash.kebabcase";
 
-import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 
 export class OzonContentExtRefNode implements OzonContentNode {
   name = ["ExtRef", "ExtIoRef"];

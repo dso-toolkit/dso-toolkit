@@ -1,7 +1,6 @@
+import { StorybookConfig } from "@storybook/react-webpack5";
 import { readdirSync } from "fs";
 import { dirname, join, parse, resolve } from "path";
-
-import { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   typescript: {

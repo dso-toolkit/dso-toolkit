@@ -1,12 +1,10 @@
+import type { Meta } from "@storybook/react";
 import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { expandableContent } from "./expandable.content";
 import { decorator } from "./expandable.decorator";
 import readme from "./readme.md?raw";
-
-import type { Meta } from "@storybook/react";
 
 const meta: Meta<ExpandableArgs> = {
   ...expandableMeta({ readme }),

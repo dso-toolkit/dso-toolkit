@@ -2,12 +2,12 @@ import {
   Component,
   ComponentInterface,
   Element,
-  Fragment,
-  h,
-  Prop,
   Event,
   EventEmitter,
   forceUpdate,
+  Fragment,
+  h,
+  Prop,
 } from "@stencil/core";
 import clsx from "clsx";
 

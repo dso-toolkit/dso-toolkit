@@ -1,7 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
-
 import {
   Annotation,
   AnnotationActiveChangeEvent,

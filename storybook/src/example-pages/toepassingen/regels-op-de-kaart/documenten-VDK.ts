@@ -2,7 +2,6 @@ import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
-
 import {
   advancedSelect,
   documentCardList,
@@ -10,8 +9,8 @@ import {
   features,
   header,
   mainSubmenu,
-  plekinfoCardsListLocaties,
   plekinfoCardsListActiviteiten,
+  plekinfoCardsListLocaties,
 } from "./documenten-VDK.content";
 
 examplePageFactory(

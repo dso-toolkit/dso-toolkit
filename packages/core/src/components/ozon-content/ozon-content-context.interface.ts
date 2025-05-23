@@ -1,11 +1,11 @@
 import { EventEmitter } from "@stencil/core";
 
-import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import {
   OzonContentAnchorClickEvent,
   OzonContentMarkFunction,
   OzonContentUrlResolver,
 } from "./ozon-content.interfaces";
+import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 export interface OzonContentContext {
   state: OzonContentNodeState;

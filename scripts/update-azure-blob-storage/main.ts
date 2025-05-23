@@ -9,7 +9,7 @@ import { BlobClient, BlobItem, BlobServiceClient } from "@azure/storage-blob";
 import { render } from "@lit-labs/ssr";
 import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import minimist from "minimist";
-import { valid, sort, rsort } from "semver";
+import { rsort,sort, valid } from "semver";
 
 import { getGithubBranches } from "./get-github-branches.function";
 import { indexHtml } from "./index-html.template";

@@ -4,7 +4,6 @@ import { compiler } from "markdown-to-jsx";
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { SearchBarArgs, searchBarArgsMapper, searchBarArgTypes } from "./search-bar.args.js";
 import { SearchBar } from "./search-bar.models.js";
 

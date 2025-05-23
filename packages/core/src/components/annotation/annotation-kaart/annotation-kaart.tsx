@@ -1,10 +1,9 @@
-import { Component, ComponentInterface, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter,h, Prop } from "@stencil/core";
 
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
-import { AnnotationBody } from "../annotation-body";
 import { AnnotationWijzigactie } from "../annotation.interfaces";
-
+import { AnnotationBody } from "../annotation-body";
 import { AnnotationKaartClickEvent } from "./annotation-kaart.interfaces";
 
 @Component({

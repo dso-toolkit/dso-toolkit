@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { LogoArgs, logoArgsMapper, logoArgTypes } from "./logo.args.js";
 import { Logo } from "./logo.models.js";
 

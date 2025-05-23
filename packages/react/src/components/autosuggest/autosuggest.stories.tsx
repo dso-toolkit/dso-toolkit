@@ -9,7 +9,6 @@ import {
 import React from "react";
 
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<AutosuggestArgs> = {
@@ -110,4 +109,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };
+export { Example, InSearchbar, Minimal3Characters, SuggestionGroups,WithProvidedMarkFunction };

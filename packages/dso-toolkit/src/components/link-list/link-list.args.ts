@@ -1,7 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
 import { Link } from "../link/link.models.js";
-
 import { LinkList, LinkListType } from "./link-list.models.js";
 
 export interface LinkListArgs {

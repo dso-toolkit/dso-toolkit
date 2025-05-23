@@ -1,7 +1,7 @@
 import { h } from "@stencil/core";
 
-import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 
 export class OzonContentInlineNodes implements OzonContentNode {
   name = ["sub", "sup", "strong", "b", "u", "i", "br"];

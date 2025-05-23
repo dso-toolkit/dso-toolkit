@@ -1,7 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
-
 import { Paragraph } from "./paragraph.models.js";
 
 export interface ParagraphArgs {

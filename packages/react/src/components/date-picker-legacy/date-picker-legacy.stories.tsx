@@ -9,10 +9,9 @@ import {
 import React from "react";
 
 import { templateContainer } from "../../templates";
-
 import {
-  datePickerLegacyWithLabelTemplate,
   datePickerLegacyShowByScriptingTemplate,
+  datePickerLegacyWithLabelTemplate,
 } from "./date-picker-legacy.react-template";
 
 const decorator: DatePickerLegacyDecorator<JSX.Element> = (story) => {
@@ -50,4 +49,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     decorator,
   });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput, ShowByScripting };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, ShowByScripting,WithLabel, WithMinAndMax, WithValue };

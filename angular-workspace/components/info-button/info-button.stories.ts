@@ -3,7 +3,6 @@ import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 import { DsoInfoButton } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<InfoButtonArgs> = {

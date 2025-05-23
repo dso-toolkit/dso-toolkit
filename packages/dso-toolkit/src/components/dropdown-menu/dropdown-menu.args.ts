@@ -1,7 +1,6 @@
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
-
 import { DropdownMenu, DropdownMenuGroup, dropdownMenuStrategy } from "./dropdown-menu.models.js";
 
 export interface DropdownMenuArgs {

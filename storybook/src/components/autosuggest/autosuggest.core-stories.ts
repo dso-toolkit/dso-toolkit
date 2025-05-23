@@ -156,4 +156,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };
+export { Example, InSearchbar, Minimal3Characters, SuggestionGroups,WithProvidedMarkFunction };

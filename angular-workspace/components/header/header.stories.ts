@@ -3,7 +3,6 @@ import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { DsoHeader } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<HeaderArgs> = {
@@ -30,4 +29,4 @@ const { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, With
     },
   });
 
-export { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, WithLinkToHelp, WithButtonToHelp };
+export { Default, UserHomeActive, WithButtonToHelp,WithLabel, WithLabelAndRibbon, WithLinkToHelp, WithRibbon };

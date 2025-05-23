@@ -2,7 +2,6 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
-
 import { Alert, AlertStatus } from "./alert.models.js";
 
 export interface AlertArgs {

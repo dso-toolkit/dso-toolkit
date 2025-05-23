@@ -4,7 +4,6 @@ import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } f
 import { DsoDatePickerLegacy } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
-
 import {
   datePickerLegacyShowByScriptingTemplate,
   datePickerLegacyWithLabelTemplate,
@@ -45,4 +44,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     },
   });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput,WithLabel, WithMinAndMax, WithValue };

@@ -1,16 +1,16 @@
 import {
-  h,
   Component,
   ComponentInterface,
   Element,
   Event,
   EventEmitter,
   Fragment,
+  h,
+  Listen,
   Method,
   Prop,
   State,
   Watch,
-  Listen,
 } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";

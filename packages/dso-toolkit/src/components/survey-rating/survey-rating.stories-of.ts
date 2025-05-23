@@ -3,8 +3,7 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
-import { SurveyRatingArgs, surveyRatingArgTypes, surveyRatingArgsMapper } from "./survey-rating.args.js";
+import { SurveyRatingArgs, surveyRatingArgsMapper,surveyRatingArgTypes } from "./survey-rating.args.js";
 import { SurveyRating } from "./survey-rating.models.js";
 
 type SurveyRatingStory = StoryObj<SurveyRatingArgs, Renderer>;

@@ -1,12 +1,10 @@
 import readme from "@dso-toolkit/core/src/components/plekinfo-card/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 import { PlekinfoCardArgs, plekinfoCardMeta, plekinfoCardStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { content, defaultSymbol } from "./plekinfo-card.content";
 import { decorator } from "./plekinfo-card.decorator";
-
-import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<PlekinfoCardArgs> = {
   ...plekinfoCardMeta({ readme }),
@@ -30,4 +28,4 @@ const { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChan
     decorator,
   });
 
-export { Default, Static, WithoutSymbol, WithLabel, WithSlideToggle, WithNameChange, WithNameChangeComplex };
+export { Default, Static, WithLabel, WithNameChange, WithNameChangeComplex,WithoutSymbol, WithSlideToggle };

@@ -3,7 +3,6 @@ import { type Meta } from "@storybook/web-components";
 import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { expandableContent } from "./expandable.content";
 import { decorator } from "./expandable.decorator";
 

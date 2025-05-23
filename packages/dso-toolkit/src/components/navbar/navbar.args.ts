@@ -1,8 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
 import { componentArgs } from "../../storybook";
-
-import { NavBarToggleExtensionEvent, Navbar, NavbarItem } from "./navbar.models.js";
+import { Navbar, NavbarItem,NavBarToggleExtensionEvent } from "./navbar.models.js";
 
 export interface NavbarArgs {
   items: NavbarItem[];

@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-
 import { OnboardingTipArgs, onboardingTipArgsMapper, onboardingTipArgTypes } from "./onboarding-tip.args";
 import { OnboardingTip } from "./onboarding-tip.models";
 

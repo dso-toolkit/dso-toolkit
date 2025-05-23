@@ -1,5 +1,5 @@
 import { CardClickEvent, DsoCardCustomEvent } from "@dso-toolkit/core";
-import { Card, isButtonInterface, isToggletipInterface, isLabelInterface, isSlideToggleInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface,isToggletipInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 

@@ -4,10 +4,9 @@ import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } f
 import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-
 import {
-  datePickerLegacyWithLabelTemplate,
   datePickerLegacyShowByScriptingTemplate,
+  datePickerLegacyWithLabelTemplate,
 } from "./date-picker-legacy.content";
 
 const meta: Meta<DatePickerLegacyArgs> = {
@@ -32,4 +31,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     decorator: (story) => html`<div style="width: 175px;">${story()}</div>`,
   });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, ShowByScripting, NarrowInput };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput,ShowByScripting, WithLabel, WithMinAndMax, WithValue };

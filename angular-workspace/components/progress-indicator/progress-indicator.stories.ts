@@ -3,7 +3,6 @@ import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories 
 
 import { DsoProgressIndicator } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<ProgressIndicatorArgs> = {
@@ -29,4 +28,4 @@ const { Small, Medium, Large } = progressIndicatorStories({
   },
 });
 
-export { Small, Medium, Large };
+export { Large,Medium, Small };

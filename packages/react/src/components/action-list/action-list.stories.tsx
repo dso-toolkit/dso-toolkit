@@ -2,7 +2,6 @@ import { type Meta } from "@storybook/react";
 import { ActionListArgs, actionListMeta, actionListStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";
 import readme from "./readme.md?raw";
 

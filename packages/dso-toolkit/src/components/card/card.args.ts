@@ -7,7 +7,6 @@ import { Label } from "../label/label.models.js";
 import { LinkArgs } from "../link/link.args.js";
 import { SlideToggle } from "../slide-toggle";
 import { Toggletip } from "../toggletip/toggletip.models.js";
-
 import { Card } from "./card.models.js";
 
 export interface CardArgs {

@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- For now quick and dirty, sorry. /Th */
-import { writeFile, readFile } from "fs/promises";
-import { dirname, join } from "path";
-
 import { ComponentCompilerReferencedType } from "@stencil/core/internal";
+import { readFile,writeFile } from "fs/promises";
+import { dirname, join } from "path";
 import * as prettier from "prettier";
 
 const AUTO_GENERATED_TOOLKIT = "<!-- Auto Generated dso-toolkit -->";

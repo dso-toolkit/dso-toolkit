@@ -3,7 +3,6 @@ import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolki
 
 import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const meta: Meta<SlideToggleArgs> = {
@@ -29,4 +28,4 @@ const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
   },
 });
 
-export { Default, Disabled, ZichtbaarLabel, LabelledById };
+export { Default, Disabled, LabelledById,ZichtbaarLabel };

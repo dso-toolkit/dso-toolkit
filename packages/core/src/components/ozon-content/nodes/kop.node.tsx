@@ -1,7 +1,7 @@
-import { h, Fragment } from "@stencil/core";
+import { Fragment,h } from "@stencil/core";
 
-import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 
 export class OzonContentKopNode implements OzonContentNode {
   name = ["Opschrift", "Label", "Nummer", "Kop"];

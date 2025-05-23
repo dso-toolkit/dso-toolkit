@@ -3,7 +3,6 @@ import { ResponsiveElementArgs, responsiveElementMeta, responsiveElementStories 
 import * as React from "react";
 
 import { templateContainer } from "../../templates";
-
 import readme from "./readme.md?raw";
 
 const css = `

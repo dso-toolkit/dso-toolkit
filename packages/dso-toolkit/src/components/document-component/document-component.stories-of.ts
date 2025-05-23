@@ -6,12 +6,11 @@ import { noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { OzonContentUrlResolver } from "../ozon-content";
-
 import {
-  documentComponentMapper,
-  documentComponentArgTypes,
-  documentComponentArgs,
   DocumentComponentArgs,
+  documentComponentArgs,
+  documentComponentArgTypes,
+  documentComponentMapper,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
 import { DocumentComponent, DocumentComponentMode } from "./document-component.models.js";

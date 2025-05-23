@@ -3,7 +3,6 @@ import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-
 import { IconArgs, iconArgsMapper, iconArgTypes } from "./icon.args.js";
 import { Icon } from "./icon.models.js";
 

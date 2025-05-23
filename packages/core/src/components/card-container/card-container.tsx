@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Fragment, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Fragment, h, Prop } from "@stencil/core";
 
 import { CardContainerMode } from "./card-container.interfaces";
 

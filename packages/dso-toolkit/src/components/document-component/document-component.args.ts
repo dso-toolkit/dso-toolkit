@@ -4,14 +4,13 @@ import escapeStringRegexp from "escape-string-regexp";
 
 import { isOdd } from "../../storybook";
 import { OzonContentUrlResolver } from "../ozon-content";
-
 import {
   DocumentComponent,
+  DocumentComponentAnnotationsWijzigactie,
   DocumentComponentHeading,
   DocumentComponentMode,
   DocumentComponentType,
   DocumentComponentWijzigactie,
-  DocumentComponentAnnotationsWijzigactie,
 } from "./document-component.models.js";
 
 export interface DocumentComponentArgs {
