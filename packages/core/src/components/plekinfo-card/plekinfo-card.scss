@@ -94,8 +94,7 @@ del.dso-plekinfo-card-container {
 }
 
 ::slotted([slot="heading"]) {
-  display: flex !important;
-  align-items: center !important;
+  display: inline !important;
 
   font-size: 1.125em !important;
   font-weight: 700 !important;
@@ -124,9 +123,6 @@ del.dso-plekinfo-card-container {
 }
 
 .heading-anchor {
-  display: flex;
-  flex-wrap: nowrap;
-
   color: plekinfo-card.$heading-anchor-color;
   text-decoration: none;
 
@@ -146,5 +142,18 @@ del.dso-plekinfo-card-container {
 
   .sr-only {
     @include utilities.sr-only();
+  }
+
+  .icon-container {
+    position: relative;
+    padding-inline-end: units.$u3;
+
+    dso-icon {
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block-end: -3px;
+      block-size: units.$u3;
+      inline-size: units.$u3;
+    }
   }
 }
