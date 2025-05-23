@@ -3707,7 +3707,7 @@ __metadata:
   dependencies:
     "@floating-ui/dom": "npm:^1.7.0"
     "@popperjs/core": "npm:^2.11.8"
-    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch"
+    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch"
     "@stencil/core": "npm:4.31.0"
     "@stencil/react-output-target": "npm:^1.0.2"
     "@stencil/sass": "npm:^3.2.1"
@@ -7630,7 +7630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch":
+"@stencil/angular-output-target@patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch":
   version: 0.10.2
   resolution: "@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch::version=0.10.2&hash=6d561e"
   peerDependencies:
@@ -10452,7 +10452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whitespace/storybook-addon-html@patch:@whitespace/storybook-addon-html@npm%3A5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch":
+"@whitespace/storybook-addon-html@patch:@whitespace/storybook-addon-html@5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch":
   version: 5.1.6
   resolution: "@whitespace/storybook-addon-html@patch:@whitespace/storybook-addon-html@npm%3A5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch::version=5.1.6&hash=f78103"
   peerDependencies:
@@ -14676,7 +14676,7 @@ __metadata:
     "@storybook/types": "npm:7.6.20"
     "@storybook/web-components": "npm:7.6.20"
     "@storybook/web-components-webpack5": "npm:7.6.20"
-    "@whitespace/storybook-addon-html": "patch:@whitespace/storybook-addon-html@npm%3A5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch"
+    "@whitespace/storybook-addon-html": "patch:@whitespace/storybook-addon-html@5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch"
     axe-core: "npm:^4.10.3"
     cypress: "npm:^13.17.0"
     cypress-axe: "npm:^1.6.0"
