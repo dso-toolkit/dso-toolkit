@@ -13,6 +13,7 @@ const meta: Meta<OzonContentArgs> = {
 export default meta;
 
 const {
+  Abbr,
   Al,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
@@ -23,13 +24,14 @@ const {
   IntIoRef,
   IntRef,
   Lijst,
-  Opschrift,
   RenvooiWeergave,
   Table,
   TableMetBron,
   TableMetNoot,
   TableMetThead,
   TableZonderColsepEnMetRowsep,
+  Kop,
+  KopMetRenvooi,
 } = ozonContentStories({
   templateContainer,
   storyTemplates: (templates) => {
@@ -42,6 +44,7 @@ const {
 });
 
 export {
+  Abbr,
   Al,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
@@ -51,8 +54,9 @@ export {
   InhoudAlNoot,
   IntIoRef,
   IntRef,
+  Kop,
+  KopMetRenvooi,
   Lijst,
-  Opschrift,
   RenvooiWeergave,
   Table,
   TableMetBron,
