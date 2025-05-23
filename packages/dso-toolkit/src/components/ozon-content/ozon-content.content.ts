@@ -2,6 +2,7 @@ import { OzonContentArgs } from "./ozon-content.args.js";
 import { OzonContentStories } from "./ozon-content.stories-of.js";
 
 interface OzonContentStory {
+  element?: "Kop";
   title: keyof OzonContentStories;
   content: string;
   args?: Partial<OzonContentArgs>;
@@ -27,53 +28,35 @@ export const content: OzonContentStory[] = [
     `,
   },
   {
-    title: "Opschrift",
+    title: "Kop",
     content: `<Kop>
+  <Label>Afdeling</Label>
+  <Nummer>2.1</Nummer>
   <Opschrift>
     Programma's met programmatische aanpak <Noot id="Noot5000" type="voet"><NootNummer>5</NootNummer>
       <Al>Een Testnoot</Al>
     </Noot>
   </Opschrift>
+  <Subtitel>Ik ben een subtitel</Subtitel>
 </Kop>`,
     args: {
       inline: true,
     },
   },
   {
-    title: "OpschriftWijzigactieVoegtoe",
+    title: "KopMetRenvooi",
     content: `<Kop>
-  <Opschrift wijzigactie="voegtoe">
-    Programma's met programmatische aanpak <Noot id="Noot5001" type="voet"><NootNummer>5</NootNummer>
+  <Label><NieuweTekst>Afdeling</NieuweTekst><VerwijderdeTekst>Avdeling</VerwijderdeTekst></Label>
+  <Nummer><NieuweTekst>2.1</NieuweTekst><VerwijderdeTekst>2.0</VerwijderdeTekst></Nummer>
+  <Opschrift>
+    Programma's met <NieuweTekst>programmatische</NieuweTekst><VerwijderdeTekst>programatissche</VerwijderdeTekst> aanpak <Noot id="Noot5000" type="voet"><NootNummer>5</NootNummer>
       <Al>Een Testnoot</Al>
     </Noot>
   </Opschrift>
+  <Subtitel>Hier lees je hoe deze programmatische aanpak <VerwijderdeTekst>is onststaan</VerwijderdeTekst><NieuweTekst>tot stand is gekomen</NieuweTekst> en wie er aan hebben bijgedragen.</Subtitel>
+  <Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel>
+  <Subtitel>Derde subtitel</Subtitel>
 </Kop>`,
-    args: {
-      inline: true,
-    },
-  },
-  {
-    title: "OpschriftWijzigactieVerwijder",
-    content: `<Kop>
-  <Opschrift wijzigactie="verwijder" >
-    Programma's met programmatische aanpak <Noot id="Noot5002" type="voet"><NootNummer>5</NootNummer>
-      <Al>Een Testnoot</Al>
-    </Noot>
-  </Opschrift>
-</Kop>`,
-    args: {
-      inline: true,
-    },
-  },
-  {
-    title: "Subtitel",
-    content: `
-      <Kop>
-        <Subtitel>Hier lees je hoe dit actieplan <VerwijderdeTekst>is onststaan</VerwijderdeTekst> <NieuweTekst>tot stand is gekomen</NieuweTekst> en wie er aan hebben bijgedragen.</Subtitel>
-        <Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel>
-        <Subtitel>Derde subtitel</Subtitel>
-      </Kop>
-    `,
     args: {
       inline: true,
     },
