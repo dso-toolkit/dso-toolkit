@@ -46,7 +46,6 @@ COPY storybook/package.json ./storybook/package.json
 COPY website/package.json ./website/package.json
 
 COPY .yarn ./.yarn
-COPY patches ./patches
 
 ARG CI
 
