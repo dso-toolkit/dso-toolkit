@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Plekinfo Card: Chevron wordt niet op de juiste plek weergegeven ([#3066](https://github.com/dso-toolkit/dso-toolkit/issues/3066))
+* Ozon Content: Ondersteuning voor Subtitel ([#3027](https://github.com/dso-toolkit/dso-toolkit/issues/3027))
 
 ### Fixed
 * Map Controls: bij inzoomen heeft de knop kaartlagen geen accessible name meer ([#3130](https://github.com/dso-toolkit/dso-toolkit/issues/3130))
