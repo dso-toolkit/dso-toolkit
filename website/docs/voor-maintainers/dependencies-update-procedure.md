@@ -15,7 +15,7 @@ kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de do
 `@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
 intellisense/code-completion is in de IDE.
 Momenteel kunnen we `@stencil/angular-output-target` niet zonder meerwerk updaten. Pas wanneer het DSO-toolkit
-github-issue [3049](https://github.com/dso-toolkit/dso-toolkit/pull/3059) in een reproduceerbare en in een
+github-issue [3049](https://github.com/dso-toolkit/dso-toolkit/issues/3049) in een reproduceerbare en in een
 Angular-project verifieerbare oplossing heeft geresulteerd gaan we daar mee verder.
 
 ### `@whitespace+storybook-addon-html+5.1.6.patch`

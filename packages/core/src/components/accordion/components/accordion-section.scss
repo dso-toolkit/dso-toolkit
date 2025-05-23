@@ -59,7 +59,7 @@
     padding-inline: accordion.$inline-padding;
     text-align: start;
     inline-size: 100%;
-    word-break: break-word;
+    overflow-wrap: anywhere;
 
     dso-icon {
       flex-shrink: 0;

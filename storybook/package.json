@@ -10,9 +10,9 @@
     "e2e:test": "cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
   },
   "dependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/preset-env": "^7.26.9",
-    "@babel/preset-typescript": "^7.27.0",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-typescript": "^7.27.1",
     "@dso-toolkit/core": "workspace:^",
     "@iframe-resizer/child": "^5.4.6",
     "@infoprojects/prettier-config": "^1.0.0",
@@ -46,7 +46,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-syntax-highlighter": "^15.6.1",
-    "start-server-and-test": "^2.0.11",
+    "start-server-and-test": "^2.0.12",
     "storybook": "7.6.20",
     "typescript": "~5.6.3"
   },

@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Map Controls: bij inzoomen heeft de knop kaartlagen geen accessible name meer ([#3130](https://github.com/dso-toolkit/dso-toolkit/issues/3130))
+
+### Task
+* Packages: Dependencies updates ([#3128](https://github.com/dso-toolkit/dso-toolkit/issues/3128))
+
 ## 🪜 Release 73.0.1 - 2025-05-16
 
 ### Fixed
