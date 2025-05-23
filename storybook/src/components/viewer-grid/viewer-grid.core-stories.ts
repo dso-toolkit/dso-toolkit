@@ -1,3 +1,4 @@
+import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
 import {
   DocumentList,
@@ -9,13 +10,11 @@ import {
   viewerGridMeta,
   viewerGridStories,
 } from "dso-toolkit";
+import { options } from "dso-toolkit/dist/components/advanced-select/advanced-select.content";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 
-import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
-
 import { templateContainer } from "../../templates";
-import { options } from "dso-toolkit/dist/components/advanced-select/advanced-select.content";
 import { tiles } from "../tile-grid/tile-grid.content";
 
 // Dit is nodig omdat TypeScript geen modules compileert. Zodra dso-toolkit dat wel doet kan de `const activeFilters` worden vervangen met:
@@ -275,11 +274,11 @@ const {
 });
 
 export {
-  ViewerGrid,
   Filterpanel,
   FilterpanelVDK,
-  VoorbeeldpaginaFilterblok,
-  VoorbeeldpaginaTiles,
+  ViewerGrid,
   VoorbeeldpaginaDocumentHeader,
   VoorbeeldpaginaDocumentList,
+  VoorbeeldpaginaFilterblok,
+  VoorbeeldpaginaTiles,
 };

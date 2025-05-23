@@ -1,5 +1,5 @@
-import { TreeViewItem } from "./tree-view.models.js";
 import { items, subItems } from "./tree-view.content.js";
+import { TreeViewItem } from "./tree-view.models.js";
 
 export let collection = items;
 

@@ -1,14 +1,13 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 import { compiler } from "markdown-to-jsx";
 
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 import { HighlightBox } from "../highlight-box";
 import { Tile } from "../tile";
 import { Whitebox } from "../whitebox";
 
-import { tiles, whiteboxes, highlightBoxes } from "./row-equal-heights.content.js";
+import { highlightBoxes, tiles, whiteboxes } from "./row-equal-heights.content.js";
 
 export type RowEqualHeightsDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

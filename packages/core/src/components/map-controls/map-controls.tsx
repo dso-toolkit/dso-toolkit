@@ -2,8 +2,8 @@ import { Component, Element, Event, EventEmitter, Fragment, h, Method, Prop, Sta
 
 import { i18n } from "../../utils/i18n";
 
-import { MapControlsToggleEvent } from "./map-controls.interfaces";
 import { translations } from "./map-controls.i18n";
+import { MapControlsToggleEvent } from "./map-controls.interfaces";
 
 // Sync with $transition-duration in ./map-controls.scss
 const transitionDuration = 300;

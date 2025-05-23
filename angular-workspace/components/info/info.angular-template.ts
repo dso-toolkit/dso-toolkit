@@ -1,6 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
-
 import { Info } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularInfo: ComponentImplementation<Info<StoryFnAngularReturnType>> = {

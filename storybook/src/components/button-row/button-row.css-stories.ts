@@ -1,9 +1,9 @@
-import type { Meta } from "@storybook/web-components";
 import { ButtonRowArgs, buttonRowMeta, buttonRowStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
-import readme from "dso-toolkit/src/components/button-row/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ButtonRowArgs> = {
   ...buttonRowMeta({ readme }),
@@ -31,10 +31,10 @@ const {
 });
 
 export {
-  Default,
   AlleButtonVarianten,
+  Default,
+  Emphasized,
   PrimaireButtonVarianten,
   SecundaireButtonVarianten,
   TertiaireButtonVarianten,
-  Emphasized,
 };

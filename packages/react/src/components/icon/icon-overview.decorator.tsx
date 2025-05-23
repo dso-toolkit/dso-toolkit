@@ -1,5 +1,5 @@
-import React from "react";
 import { IconOverviewDecorator } from "dso-toolkit";
+import React from "react";
 
 export const decorator: IconOverviewDecorator<React.JSX.Element> = (story, icons) => {
   return (

@@ -1,4 +1,5 @@
 import { html } from "lit-html";
+
 import { Templates } from "../../templates";
 
 export function richContent({ linkTemplate, richContentTemplate, buttonRowTemplate }: Templates) {

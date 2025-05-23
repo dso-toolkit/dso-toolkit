@@ -1,10 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
+import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { DsoSlideToggle } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<SlideToggleArgs> = {
   ...slideToggleMeta({ readme }),
@@ -29,4 +29,4 @@ const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
   },
 });
 
-export { Default, Disabled, ZichtbaarLabel, LabelledById };
+export { Default, Disabled, LabelledById, ZichtbaarLabel };

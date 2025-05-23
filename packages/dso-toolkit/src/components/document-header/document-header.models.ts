@@ -1,5 +1,5 @@
-import { DefinitionList } from "../definition-list/definition-list.models.js";
 import { AdvancedSelect } from "../advanced-select";
+import { DefinitionList } from "../definition-list/definition-list.models.js";
 
 export interface DocumentHeader<TemplateFnReturnType> {
   title: string;

@@ -1,11 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
-
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 
-import readme from "./readme.md?raw";
-
-import { templateContainer } from "../../templates";
 import { DsoDropdownMenu } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta = {
   ...dropdownMenuMeta({ readme }),

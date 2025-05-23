@@ -1,12 +1,12 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
 import { fetchSuggestionGroups, fetchSuggestions, mark } from "./autosuggest.demo.js";
 import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 
 type AutosuggestStory = StoryObj<AutosuggestArgs, Renderer>;
 

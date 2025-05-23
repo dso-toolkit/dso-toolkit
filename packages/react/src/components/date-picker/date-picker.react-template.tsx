@@ -1,4 +1,4 @@
-import { DsoDatePickerCustomEvent, DatePickerChangeEvent } from "@dso-toolkit/core";
+import { DatePickerChangeEvent, DsoDatePickerCustomEvent } from "@dso-toolkit/core";
 import { DatePicker } from "dso-toolkit";
 import * as React from "react";
 

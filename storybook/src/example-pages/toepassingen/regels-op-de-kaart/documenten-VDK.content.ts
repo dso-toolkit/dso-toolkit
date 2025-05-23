@@ -9,6 +9,7 @@ import {
   TabsItem,
 } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+
 import { mainMenu } from "../../content/main-menu.content";
 
 export const header: Header = {

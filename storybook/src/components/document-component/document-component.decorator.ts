@@ -1,5 +1,5 @@
 import { DocumentComponentDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 export const decorator: DocumentComponentDecorator<TemplateResult> = (story) => html`
   ${story()}

@@ -1,10 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolkit";
 
+import { DsoProgressBar } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { DsoProgressBar } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
@@ -29,4 +29,4 @@ const { Default, ArbitraryValues } = progressBarStories({
   },
 });
 
-export { Default, ArbitraryValues };
+export { ArbitraryValues, Default };

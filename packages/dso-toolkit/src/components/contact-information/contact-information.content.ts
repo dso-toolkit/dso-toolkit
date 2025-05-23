@@ -1,5 +1,6 @@
-import { ContactInformation } from "./contact-information.models";
 import { TemplateResult } from "lit-html";
+
+import { ContactInformation } from "./contact-information.models";
 
 export const contactInformationContent: ContactInformation<TemplateResult> = {
   linkItems: [

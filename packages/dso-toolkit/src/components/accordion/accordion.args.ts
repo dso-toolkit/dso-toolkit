@@ -2,6 +2,8 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
+import { LabelStatus } from "../label";
+import { RenvooiValue } from "../renvooi";
 
 import {
   Accordion,
@@ -10,8 +12,6 @@ import {
   AccordionSectionStatus,
   AccordionSectionWijzigactie,
 } from "./accordion.models.js";
-import { LabelStatus } from "../label";
-import { RenvooiValue } from "../renvooi";
 
 export interface AccordionArgs {
   variant: undefined | "default" | "compact" | "conclusion" | "neutral" | "compact-black";

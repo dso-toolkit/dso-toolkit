@@ -2,7 +2,6 @@ import { ResponsiveElement } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoResponsiveElement } from "../../components";
-
 import { ComponentImplementation } from "../../templates";
 
 export const reactResponsiveElement: ComponentImplementation<ResponsiveElement<JSX.Element>> = {

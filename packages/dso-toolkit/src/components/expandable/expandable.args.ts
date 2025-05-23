@@ -1,6 +1,7 @@
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
+
 import { Expandable } from "./expandable.models.js";
 
 export interface ExpandableArgs {

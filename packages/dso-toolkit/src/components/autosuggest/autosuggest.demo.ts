@@ -1,5 +1,6 @@
-import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 import escapeStringRegexp from "escape-string-regexp";
+
+import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 
 const suggestionGroups: AutosuggestSuggestionGroup[] = [
   {

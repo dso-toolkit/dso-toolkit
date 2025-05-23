@@ -1,4 +1,5 @@
 import { FunctionalComponent, h } from "@stencil/core";
+
 import { ViewerGridPanelSize, viewerGridSizeLabelMap } from "../viewer-grid.interfaces";
 
 interface SizingButtonProp {

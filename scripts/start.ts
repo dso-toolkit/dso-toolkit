@@ -1,6 +1,7 @@
 import concurrently from "concurrently";
-import { rimraf } from "rimraf";
 import minimist from "minimist";
+import { rimraf } from "rimraf";
+
 const argv = minimist(process.argv.slice(2));
 
 rimraf.sync("packages/dso-toolkit/dist");

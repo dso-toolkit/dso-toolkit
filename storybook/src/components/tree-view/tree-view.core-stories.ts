@@ -1,8 +1,7 @@
+import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
 import { TreeViewArgs, treeViewMeta, treeViewStories } from "dso-toolkit";
 import { html } from "lit-html";
-
-import readme from "@dso-toolkit/core/src/components/tree-view/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 

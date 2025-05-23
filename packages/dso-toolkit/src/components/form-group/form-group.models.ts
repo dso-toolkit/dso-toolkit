@@ -15,13 +15,13 @@ export { FormGroupConfirm } from "./confirm/form-group-confirm.models";
 export { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
 export { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
 export { FormGroupFiles, FormGroupFilesFile } from "./files/form-group-files.models";
+export { FormGroupBase } from "./form-group.base-model";
 export { FormGroupInput, FormGroupInputDate } from "./input/form-group-input.models";
 export { FormGroupRadios } from "./radios/form-group-radios.models";
 export { FormGroupSearchBar } from "./search-bar/form-group-search-bar.models";
 export { FormGroupSelect, SelectOption, SelectOptionGroup } from "./select/form-group-select.models";
 export { FormGroupStatic } from "./static/form-group-static.models";
 export { FormGroupTextarea } from "./textarea/form-group-textarea.models";
-export { FormGroupBase } from "./form-group.base-model";
 
 export type FormGroup<TemplateFnReturnType> =
   | FormGroupCheckboxes<TemplateFnReturnType>

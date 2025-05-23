@@ -1,5 +1,5 @@
 import { LabelDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 export const decorator: LabelDecorator<TemplateResult> = (story, css) => html`
   ${story()}

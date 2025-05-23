@@ -1,3 +1,4 @@
+import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
 import {
   AutosuggestArgs,
@@ -6,11 +7,9 @@ import {
   AutosuggestSuggestion,
   AutosuggestSuggestionGroup,
 } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
-import { html } from "lit-html";
 
 const meta: Meta<AutosuggestArgs> = {
   ...autosuggestMeta({ readme }),
@@ -157,4 +156,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };
+export { Example, InSearchbar, Minimal3Characters, SuggestionGroups, WithProvidedMarkFunction };

@@ -1,18 +1,19 @@
 import {
-  h,
   Component,
   ComponentInterface,
   Element,
   Event,
   EventEmitter,
   Fragment,
+  h,
   Listen,
   Prop,
   State,
 } from "@stencil/core";
-import { isModifiedEvent } from "../../utils/is-modified-event";
 
+import { isModifiedEvent } from "../../utils/is-modified-event";
 import { ResponsiveElementSize } from "../responsive-element/responsive-element.interfaces";
+
 import { PaginationSelectPageEvent } from "./pagination.interfaces";
 
 @Component({

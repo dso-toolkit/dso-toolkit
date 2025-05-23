@@ -1,12 +1,12 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
+import { DsoScrollable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import readme from "./readme.md?raw";
 import { defaultContent, dynamicContent } from "./scrollable.content";
-import { DsoScrollable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ScrollableArgs> = {
   ...scrollableMeta({ readme }),

@@ -1,11 +1,11 @@
-import type { Meta } from "@storybook/web-components";
 import { AlertArgs, alertMeta, alertStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/alert/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
-import readme from "dso-toolkit/src/components/alert/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<AlertArgs> = {
   ...alertMeta({ readme }),
@@ -30,4 +30,4 @@ const { Success, Error, Info, Warning, WithHeadings } = alertStories({
   },
 });
 
-export { Success, Error, Info, Warning, WithHeadings };
+export { Error, Info, Success, Warning, WithHeadings };

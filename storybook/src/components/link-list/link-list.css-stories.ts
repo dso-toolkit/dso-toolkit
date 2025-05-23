@@ -1,11 +1,10 @@
-import type { Meta } from "@storybook/web-components";
-
 import { LinkListArgs, linkListMeta, linkListStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
+import { html, TemplateResult } from "lit-html";
 
 import { templateContainer } from "../../templates";
-import { html, TemplateResult } from "lit-html";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<LinkListArgs> = {
   ...linkListMeta({ readme }),
@@ -43,4 +42,4 @@ const { InFooter, InHighlightBox, InNav, Ol, Ul } = linkListStories({
   },
 });
 
-export { Ul, Ol, InHighlightBox, InNav, InFooter };
+export { InFooter, InHighlightBox, InNav, Ol, Ul };

@@ -1,9 +1,11 @@
-import type { Meta } from "@storybook/react";
-import { cardStories, CardArgs, cardMeta } from "dso-toolkit";
-
 import readme from "@dso-toolkit/react/src/components/card/readme.md?raw";
+import { CardArgs, cardMeta, cardStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
+
 import { content } from "./card.content";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<CardArgs> = {
   ...cardMeta({ readme }),
@@ -24,4 +26,4 @@ const { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSele
   },
 });
 
-export { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSelectableAndButton };
+export { Default, WithButton, WithLabel, WithSelectableAndButton, WithSlideToggle, WithToggletip };

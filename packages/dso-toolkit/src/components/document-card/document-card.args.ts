@@ -2,10 +2,11 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
-import { DocumentCard } from "./document-card.models.js";
+import { Badge } from "../badge";
 import { Label } from "../label";
 import { Toggletip } from "../toggletip";
-import { Badge } from "../badge";
+
+import { DocumentCard } from "./document-card.models.js";
 
 export interface DocumentCardArgs {
   label: string;

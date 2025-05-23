@@ -1,4 +1,5 @@
-import { FunctionalComponent, Fragment, h } from "@stencil/core";
+import { Fragment, FunctionalComponent, h } from "@stencil/core";
+
 import { RenvooiValue } from "../renvooi/renvooi.interfaces";
 
 interface AnnotationListRenvooiValues {

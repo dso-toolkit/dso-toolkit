@@ -1,15 +1,15 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { DatePickerLegacyArgs, datePickerLegacyMeta, datePickerLegacyStories } from "dso-toolkit";
 
+import { DsoDatePickerLegacy } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
-import readme from "./readme.md?raw";
 import {
   datePickerLegacyShowByScriptingTemplate,
   datePickerLegacyWithLabelTemplate,
 } from "./date-picker-legacy.content";
-import { DsoDatePickerLegacy } from "../../projects/component-library/src/public-api";
+import readme from "./readme.md?raw";
 
 const meta: Meta<DatePickerLegacyArgs> = {
   ...datePickerLegacyMeta({ readme }),
@@ -45,4 +45,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
     },
   });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, WithLabel, WithMinAndMax, WithValue };

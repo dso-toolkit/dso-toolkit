@@ -1,5 +1,4 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-
 import { ArgTypes } from "@storybook/types";
 
 import { Tooltip, tooltipPositions, tooltipStrategy } from "./tooltip.models.js";

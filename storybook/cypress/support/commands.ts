@@ -26,9 +26,10 @@
 
 /// <reference types="cypress" />
 
-import { cypressStyling } from "./cypress-styling";
 import * as axe from "axe-core";
 import { Options } from "cypress-axe";
+
+import { cypressStyling } from "./cypress-styling";
 
 export {};
 

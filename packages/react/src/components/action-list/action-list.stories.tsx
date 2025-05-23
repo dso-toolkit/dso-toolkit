@@ -3,8 +3,8 @@ import { ActionListArgs, actionListMeta, actionListStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "./readme.md?raw";
 import { actionListItems, actionListWithWarningItems } from "./action-list.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<ActionListArgs> = {
   ...actionListMeta({ readme }),

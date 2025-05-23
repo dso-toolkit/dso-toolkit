@@ -1,5 +1,5 @@
-import { html, TemplateResult } from "lit-html";
 import { Definition } from "dso-toolkit";
+import { html, TemplateResult } from "lit-html";
 
 export const definitions: Definition<TemplateResult>[] = [
   {
@@ -50,7 +50,7 @@ export const definitions: Definition<TemplateResult>[] = [
     descriptions: [
       {
         content:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+          "<p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
       },
       {
         content:
@@ -135,7 +135,7 @@ export const definitionsSrOnlyColon: Definition<TemplateResult>[] = [
     descriptions: [
       {
         content:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+          "<p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
       },
       {
         content:

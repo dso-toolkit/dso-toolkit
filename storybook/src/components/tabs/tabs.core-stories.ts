@@ -1,11 +1,10 @@
-import type { Meta } from "@storybook/web-components";
-
+import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/readme.md?raw";
+import readme from "@dso-toolkit/core/src/components/tabs/readme.md?raw";
 import { TabsArgs, tabsMeta, tabsStories } from "dso-toolkit";
 
-import readme from "@dso-toolkit/core/src/components/tabs/readme.md?raw";
-import componentsReadme from "@dso-toolkit/core/src/components/tabs/components/readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<TabsArgs<unknown>> = {
   ...tabsMeta({ readme: `${readme}\n${componentsReadme}` }),

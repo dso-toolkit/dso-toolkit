@@ -1,11 +1,11 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { ExpandableArgs, expandableArgsMapper, expandableArgTypes } from "./expandable.args.js";
 import { Expandable } from "./expandable.models.js";
-import { StoriesParameters, StoryObj } from "../../template-container";
-
-import { MetaOptions } from "../../storybook/meta-options.interface";
-import { compiler } from "markdown-to-jsx";
 
 export type ExpandableDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

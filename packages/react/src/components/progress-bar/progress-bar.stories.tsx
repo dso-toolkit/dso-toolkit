@@ -1,9 +1,10 @@
-import type { Meta } from "@storybook/react";
 import { ProgressBarArgs, progressBarMeta, progressBarStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
@@ -23,4 +24,4 @@ const { Default, ArbitraryValues } = progressBarStories({
   },
 });
 
-export { Default, ArbitraryValues };
+export { ArbitraryValues, Default };

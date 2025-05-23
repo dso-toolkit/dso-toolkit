@@ -1,11 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
-
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 
-import readme from "./readme.md?raw";
-
-import { templateContainer } from "../../templates";
 import { DsoImageOverlay } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta = {
   ...imageOverlayMeta({ readme }),

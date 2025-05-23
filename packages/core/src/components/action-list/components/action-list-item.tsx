@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Host, Prop } from "@stencil/core";
+import { Component, ComponentInterface, h, Host, Prop } from "@stencil/core";
 
 @Component({
   tag: "dso-action-list-item",

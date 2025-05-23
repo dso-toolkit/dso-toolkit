@@ -1,8 +1,7 @@
+import { Skiplink } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-
-import { Skiplink } from "dso-toolkit";
 
 export const coreSkiplink: ComponentImplementation<Skiplink> = {
   component: "skiplink",

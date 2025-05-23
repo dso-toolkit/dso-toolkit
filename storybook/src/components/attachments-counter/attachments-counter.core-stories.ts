@@ -1,9 +1,9 @@
-import type { Meta } from "@storybook/web-components";
+import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
 import { AttachmentsCounterArgs, attachmentsCounterMeta, attachmentsCounterStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/core/src/components/attachments-counter/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<AttachmentsCounterArgs> = {
   ...attachmentsCounterMeta({ readme }),

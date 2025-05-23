@@ -1,9 +1,9 @@
-import type { Meta } from "@storybook/web-components";
 import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/progress-indicator/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
-import readme from "dso-toolkit/src/components/progress-indicator/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<ProgressIndicatorArgs> = {
   ...progressIndicatorMeta({ readme }),
@@ -23,4 +23,4 @@ const { Small, Medium, Large } = progressIndicatorStories({
   },
 });
 
-export { Small, Medium, Large };
+export { Large, Medium, Small };

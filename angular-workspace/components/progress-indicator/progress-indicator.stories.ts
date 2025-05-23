@@ -1,10 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ProgressIndicatorArgs, progressIndicatorMeta, progressIndicatorStories } from "dso-toolkit";
 
+import { DsoProgressIndicator } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { DsoProgressIndicator } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ProgressIndicatorArgs> = {
   ...progressIndicatorMeta({ readme }),
@@ -29,4 +29,4 @@ const { Small, Medium, Large } = progressIndicatorStories({
   },
 });
 
-export { Small, Medium, Large };
+export { Large, Medium, Small };

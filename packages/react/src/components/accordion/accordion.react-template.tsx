@@ -1,11 +1,10 @@
-import * as React from "react";
-
 import {
   Accordion,
   AccordionSectionActiveChangeEvent,
   AccordionSectionAnimationEndEvent,
   AccordionSectionToggleClickEvent,
 } from "dso-toolkit";
+import * as React from "react";
 
 import { DsoAccordion, DsoAccordionSection } from "../..";
 import { ComponentImplementation } from "../../templates";

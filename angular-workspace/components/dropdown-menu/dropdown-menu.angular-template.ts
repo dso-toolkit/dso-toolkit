@@ -1,4 +1,5 @@
 import { DropdownMenu } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularDropdownMenu: ComponentImplementation<DropdownMenu> = {

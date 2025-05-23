@@ -6,13 +6,13 @@
  */
 
 import { BlobClient, BlobItem, BlobServiceClient } from "@azure/storage-blob";
-import { valid, sort, rsort } from "semver";
-import minimist from "minimist";
-import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import { render } from "@lit-labs/ssr";
+import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
+import minimist from "minimist";
+import { rsort, sort, valid } from "semver";
 
-import { indexHtml } from "./index-html.template";
 import { getGithubBranches } from "./get-github-branches.function";
+import { indexHtml } from "./index-html.template";
 
 interface Args {
   azureStorageHost: string | undefined;

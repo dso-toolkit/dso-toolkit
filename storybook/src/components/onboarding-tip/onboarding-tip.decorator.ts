@@ -1,5 +1,5 @@
 import { OnboardingTipArgs, OnboardingTipDecorator } from "dso-toolkit";
-import { TemplateResult, html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const decorator: OnboardingTipDecorator<TemplateResult> = (story, args: OnboardingTipArgs) => html`

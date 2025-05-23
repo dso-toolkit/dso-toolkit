@@ -1,8 +1,7 @@
-import { MapControls } from "dso-toolkit";
-import { html } from "lit-html";
-
 import { BaseLayerChangeEvent } from "@dso-toolkit/core/src/components/map-base-layers/map-base-layers.interfaces";
 import { OverlayChangeEvent } from "@dso-toolkit/core/src/components/map-overlays/map-overlays.interfaces";
+import { MapControls } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 import { defaultSymbol } from "../legend-item/legend-item.content";

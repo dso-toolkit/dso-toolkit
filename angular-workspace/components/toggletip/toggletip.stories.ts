@@ -1,11 +1,11 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
-
 import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
+
+import { DsoToggletip } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-import { children } from "./toggletip.content";
 
 import readme from "./readme.md?raw";
-import { DsoToggletip } from "../../projects/component-library/src/public-api";
+import { children } from "./toggletip.content";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),

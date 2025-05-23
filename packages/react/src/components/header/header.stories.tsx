@@ -1,9 +1,10 @@
-import type { Meta } from "@storybook/react";
 import { HeaderArgs, headerMeta, headerStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
+
+import type { Meta } from "@storybook/react";
 
 const meta: Meta<HeaderArgs> = {
   ...headerMeta({ readme }),
@@ -24,4 +25,4 @@ const { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, With
     },
   });
 
-export { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, WithLinkToHelp, WithButtonToHelp };
+export { Default, UserHomeActive, WithButtonToHelp, WithLabel, WithLabelAndRibbon, WithLinkToHelp, WithRibbon };

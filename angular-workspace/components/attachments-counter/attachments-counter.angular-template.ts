@@ -1,4 +1,5 @@
 import { AttachmentsCounter } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularAttachmentsCounter: ComponentImplementation<AttachmentsCounter> = {

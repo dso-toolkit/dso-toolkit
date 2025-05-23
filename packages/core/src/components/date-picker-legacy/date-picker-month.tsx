@@ -1,7 +1,8 @@
-import { h, FunctionalComponent } from "@stencil/core";
+import { FunctionalComponent, h } from "@stencil/core";
+
 import { DsoLocalizedText } from "./date-localization";
 import { DatePickerLegacyDay, DatePickerLegacyDayProps } from "./date-picker-day";
-import { getViewOfMonth, inRange, DaysOfWeek, isEqual } from "./date-utils";
+import { DaysOfWeek, getViewOfMonth, inRange, isEqual } from "./date-utils";
 
 function chunk<T>(array: T[], chunkSize: number): T[][] {
   const result = [];

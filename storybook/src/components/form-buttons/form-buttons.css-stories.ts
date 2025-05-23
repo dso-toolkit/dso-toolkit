@@ -1,7 +1,5 @@
 import { Meta } from "@storybook/web-components";
-
 import { formButtonsMeta, formButtonsStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/form-buttons/readme.md?raw";
 
 import { templateContainer } from "../../templates";

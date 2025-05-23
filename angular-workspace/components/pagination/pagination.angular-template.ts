@@ -1,4 +1,5 @@
 import { Pagination } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularPagination: ComponentImplementation<Pagination> = {

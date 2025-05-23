@@ -1,7 +1,8 @@
 import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
 import clsx from "clsx";
 
-import { ViewerGridPanelSize, ViewerGridChangeSizeAnimationEndEvent, ViewerGridMode } from "../viewer-grid.interfaces";
+import { ViewerGridChangeSizeAnimationEndEvent, ViewerGridMode, ViewerGridPanelSize } from "../viewer-grid.interfaces";
+
 import { SizingButtons } from "./sizing-buttons";
 
 export interface ViewerGridMainPanelProps {

@@ -1,10 +1,9 @@
-import { type Meta, moduleMetadata } from "@storybook/angular";
-
-import { templateContainer } from "../../templates";
-
 import readme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
+
 import { DsoIcon } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),

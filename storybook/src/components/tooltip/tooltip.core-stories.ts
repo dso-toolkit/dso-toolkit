@@ -1,10 +1,11 @@
-import type { Meta } from "@storybook/web-components";
+import readme from "@dso-toolkit/core/src/components/tooltip/readme.md?raw";
 import { TooltipArgs, tooltipMeta, tooltipStories } from "dso-toolkit";
 
-import { asChildTemplate, asSiblingTemplate } from "./tooltip.content";
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/core/src/components/tooltip/readme.md?raw";
+import { asChildTemplate, asSiblingTemplate } from "./tooltip.content";
+
+import type { Meta } from "@storybook/web-components";
 
 const meta: Meta<TooltipArgs> = {
   ...tooltipMeta({ readme }),

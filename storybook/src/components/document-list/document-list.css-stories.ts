@@ -1,11 +1,9 @@
 import { Meta } from "@storybook/web-components";
-
 import { documentListMeta, documentListStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/document-list/readme.md?raw";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-import { html } from "lit-html";
 
 const meta: Meta = {
   ...documentListMeta({ readme }),
