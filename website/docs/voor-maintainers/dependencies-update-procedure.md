@@ -15,7 +15,7 @@ kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de do
 `@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
 intellisense/code-completion is in de IDE.
 
-### `@whitespace+storybook-addon-html+5.1.6.patch`
+### `@whitespace-storybook-addon-html-npm-5.1.6.patch`
 
 🚧 Documentatie volgt 🚧
 
