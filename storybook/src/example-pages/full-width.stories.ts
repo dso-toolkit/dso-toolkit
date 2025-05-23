@@ -1,16 +1,19 @@
+import type { Meta } from "@storybook/web-components";
+import { examplePageStories } from "../example-page-stories";
 import { html } from "lit-html";
-
-import { examplePageFactory } from "../example-page-factory";
+import { headerPartial } from "./partials/header";
 import { header } from "./content/header.content";
 import { mainMenu } from "./content/main-menu.content";
-import { footerPartial } from "./partials/footer";
-import { headerPartial } from "./partials/header";
 import { definitionList, listGroup } from "./full-width.content";
+import { footerPartial } from "./partials/footer";
 
-examplePageFactory(
-  "Voorbeeldpagina's",
-  null,
-  "Full Width",
+const meta: Meta = {
+  title: "Voorbeeldpagina's/Full Width",
+};
+
+export default meta;
+
+const FullWidth = examplePageStories(
   ({ linkTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
@@ -138,3 +141,5 @@ examplePageFactory(
     </div>
   `,
 );
+
+export { FullWidth };
