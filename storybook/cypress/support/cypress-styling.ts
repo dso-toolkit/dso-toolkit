@@ -22,7 +22,10 @@ export function cypressStyling() {
           /* Om te voorkomen dat e2e-tests gaan falen op de screenshot diff zetten we "scroll-behavior: smooth;" uit */
           html { scroll-behavior: inherit !important; }
 
-          /* Tijdelijke fix voor flaky tests op voorbeeldpagina's. Dit zorgt ervoor dat dso-header alleen zichtbaar is op de component pagina en verborgen is op alle voorbeeldpagina's */
+          /**
+           * Tijdelijke fix voor flaky tests op voorbeeldpagina's. Dit zorgt ervoor dat dso-header alleen zichtbaar is op de component pagina en verborgen is op alle voorbeeldpagina's
+           * Todo: #2693
+           */
           :not(#dt-i18n-decorator-container) > dso-header {
             display: none;
           }

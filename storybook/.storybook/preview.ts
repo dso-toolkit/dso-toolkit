@@ -32,6 +32,8 @@ export const parameters: Parameters = {
 };
 
 import "@iframe-resizer/child";
+
+// @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
 import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
 
 const spriteContainer = document.createElement("div");
