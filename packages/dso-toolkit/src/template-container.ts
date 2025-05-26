@@ -33,7 +33,7 @@ export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
 };
 
 export interface Options {
-  getNameByKind?(kind: string): string | undefined;
+  getNameByTitle?(title: string): string | undefined;
 }
 
 export class TemplateContainer<
@@ -42,7 +42,7 @@ export class TemplateContainer<
   TemplateFnReturnType,
   TemplateFunction = DefaultTemplateFunction<never, TemplateFnReturnType>,
 > {
-  private getNameByKind: Options["getNameByKind"] | undefined;
+  private getNameByTitle: Options["getNameByTitle"] | undefined;
 
   private componentImplementations: BaseComponentImplementation<
     never,
@@ -53,7 +53,7 @@ export class TemplateContainer<
   >[] = [];
 
   constructor(options?: Options) {
-    this.getNameByKind = options?.getNameByKind;
+    this.getNameByTitle = options?.getNameByTitle;
   }
 
   add<Model>(
@@ -87,7 +87,7 @@ export class TemplateContainer<
       const args = { ...a };
       delete args.preferredImplementation;
 
-      const templates = this.create(preferredImplementation, context.kind);
+      const templates = this.create(preferredImplementation, context.title);
 
       return callback(args, storyTemplates(templates));
     };
@@ -102,13 +102,13 @@ export class TemplateContainer<
       const args = { ...a };
       delete args.preferredImplementation;
 
-      const templates = this.create(preferredImplementation, context.kind);
+      const templates = this.create(preferredImplementation, context.title);
 
       return callback(args, storyTemplates(templates, templates));
     };
   }
 
-  create(preferredImplementation: Implementation | undefined, kind: string): Templates {
+  create(preferredImplementation: Implementation | undefined, title: string): Templates {
     const container = this.componentImplementations.reduce<
       Templates & { [key: string]: BaseComponentImplementation<never, Implementation, Templates, TemplateFnReturnType> }
     >((templates, { component, implementation, template }) => {
@@ -116,7 +116,7 @@ export class TemplateContainer<
 
       if (
         !templates[functionName] &&
-        ((preferredImplementation ?? this.getNameByKind?.(kind)) === implementation ||
+        ((preferredImplementation ?? this.getNameByTitle?.(title)) === implementation ||
           this.componentImplementations.filter(({ component: c }) => component === c).length === 1)
       ) {
         Object.defineProperty(templates, functionName, { get: () => template(templates) });
