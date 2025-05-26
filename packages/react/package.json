@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/react",
-  "version": "73.0.1",
+  "version": "73.1.0",
   "description": "React specific wrapper for @dso-toolkit/core web components",
   "homepage": "https://www.dso-toolkit.nl/",
   "repository": {
@@ -54,7 +54,7 @@
     "webpack": "^5.99.9"
   },
   "peerDependencies": {
-    "@dso-toolkit/core": "73.0.1",
+    "@dso-toolkit/core": "73.1.0",
     "react": "^18.3.0 || ^19.0.0",
     "react-dom": "^18.3.0 || ^19.0.0"
   },
