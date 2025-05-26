@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Storybook: `storiesOf()` naar CSF ([#2316](https://github.com/dso-toolkit/dso-toolkit/issues/2316))
+
 ## ☀️ Release 73.1.0 - 2025-05-26
 
 ### Added
