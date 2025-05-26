@@ -15302,16 +15302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-shim-unscopables@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "es-shim-unscopables@npm:1.0.2"
-  dependencies:
-    hasown: "npm:^2.0.0"
-  checksum: 10/6d3bf91f658a27cc7217cd32b407a0d714393a84d125ad576319b9e83a893bea165cf41270c29e9ceaa56d3cf41608945d7e2a2c31fd51c0009b0c31402b91c7
-  languageName: node
-  linkType: hard
-
-"es-shim-unscopables@npm:^1.1.0":
+"es-shim-unscopables@npm:^1.0.2, es-shim-unscopables@npm:^1.1.0":
   version: 1.1.0
   resolution: "es-shim-unscopables@npm:1.1.0"
   dependencies:
@@ -17987,7 +17978,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hasown@npm:^2.0.0, hasown@npm:^2.0.2":
+"hasown@npm:^2.0.2":
   version: 2.0.2
   resolution: "hasown@npm:2.0.2"
   dependencies:

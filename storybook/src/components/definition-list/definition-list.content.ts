@@ -50,11 +50,11 @@ export const definitions: Definition<TemplateResult>[] = [
     descriptions: [
       {
         content:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+          "<p>Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en Ruimtelijke Ordening (VRO).</p>",
       },
       {
         content:
-          "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "<p>Hier kunnen gebruikers vergunningaanvragen indienen, meldingen doen en informatie opvragen over de fysieke leefomgeving.</p>",
       },
     ],
   },
@@ -135,7 +135,7 @@ export const definitionsSrOnlyColon: Definition<TemplateResult>[] = [
     descriptions: [
       {
         content:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+          "<p>Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en Ruimtelijke Ordening (VRO).</p>",
       },
       {
         content:
