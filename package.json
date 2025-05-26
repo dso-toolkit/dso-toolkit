@@ -11,7 +11,6 @@
   },
   "scripts": {
     "graph": "nx graph --watch=true",
-    "postinstall": "patch-package",
     "format": "prettier --write .",
     "lint": "yarn lint:prettier && yarn lint:stylelint && yarn lint:eslint",
     "lint:prettier": "prettier --check .",
@@ -48,9 +47,7 @@
     "globals": "^16.1.0",
     "minimist": "^1.2.8",
     "nx": "20.8.2",
-    "patch-package": "^8.0.0",
     "plop": "^4.0.1",
-    "postinstall-postinstall": "^2.1.0",
     "prettier": "^3.5.3",
     "react-helmet-async": "^2.0.5",
     "rimraf": "^6.0.1",

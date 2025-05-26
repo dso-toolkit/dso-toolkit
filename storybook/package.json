@@ -29,7 +29,7 @@
     "@storybook/types": "7.6.20",
     "@storybook/web-components": "7.6.20",
     "@storybook/web-components-webpack5": "7.6.20",
-    "@whitespace/storybook-addon-html": "5.1.6",
+    "@whitespace/storybook-addon-html": "patch:@whitespace/storybook-addon-html@5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch",
     "axe-core": "^4.10.3",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.6.0",
