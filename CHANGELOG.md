@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
+* Storybook: `storiesOf()` naar CSF ([#2316](https://github.com/dso-toolkit/dso-toolkit/issues/2316))
 
 ## 🐻 Release 73.2.0 - 2025-06-04
 
