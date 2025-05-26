@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Method, State, h } from "@stencil/core";
 
 import { ElementSize, ResponsiveElementSize } from "./responsive-element.interfaces";
 

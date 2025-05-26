@@ -1,6 +1,6 @@
 import { EventEmitter } from "@stencil/core";
-import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
+import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import {
   OzonContentAnchorClickEvent,
   OzonContentMarkFunction,

@@ -1,9 +1,8 @@
+import readme from "@dso-toolkit/core/src/components/slide-toggle/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { SlideToggleArgs, slideToggleMeta, slideToggleStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/slide-toggle/readme.md?raw";
 
 const meta: Meta<SlideToggleArgs> = {
   ...slideToggleMeta({ readme }),
@@ -37,4 +36,4 @@ const { Default, Disabled, ZichtbaarLabel, LabelledById } = slideToggleStories({
   },
 });
 
-export { Default, Disabled, ZichtbaarLabel, LabelledById };
+export { Default, Disabled, LabelledById, ZichtbaarLabel };

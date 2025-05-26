@@ -5,23 +5,21 @@ import {
   EventEmitter,
   Fragment,
   FunctionalComponent,
-  h,
   Listen,
   Prop,
   State,
   VNode,
   Watch,
+  h,
 } from "@stencil/core";
-
 import debounce from "debounce";
 import escapeStringRegexp from "escape-string-regexp";
-
 import { v4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
 
-import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion, SuggestionGroup } from "./autosuggest.interfaces";
 import { translations } from "./autosuggest.i18n";
+import { AutosuggestMarkFunction, AutosuggestMarkItem, Suggestion, SuggestionGroup } from "./autosuggest.interfaces";
 
 interface MarkedSuggestion {
   value: (VNode | string)[];

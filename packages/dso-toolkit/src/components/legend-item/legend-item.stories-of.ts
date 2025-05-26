@@ -1,12 +1,12 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import { LegendItemArgs, legendItemArgs, legendItemArgTypes, legendItemArgsMapper } from "./legend-item.args.js";
-import { LegendItem } from "./legend-item.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { legendItemDemoCss } from "./legend-item.demo.js";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { LegendItemArgs, legendItemArgTypes, legendItemArgs, legendItemArgsMapper } from "./legend-item.args.js";
+import { legendItemDemoCss } from "./legend-item.demo.js";
+import { LegendItem } from "./legend-item.models.js";
 
 export type LegendItemDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: string) => TemplateFnReturnType;
 

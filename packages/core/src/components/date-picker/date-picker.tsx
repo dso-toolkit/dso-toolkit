@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Prop, Element, h, Event, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, h } from "@stencil/core";
 
 import {
   DatePickerBlurEvent,
@@ -7,7 +7,7 @@ import {
   DatePickerFocusEvent,
   DatePickerKeyboardEvent,
 } from "./date-picker.interfaces";
-import { parseToValueFormat, parseToDutchFormat } from "./date-utils";
+import { parseToDutchFormat, parseToValueFormat } from "./date-utils";
 
 @Component({
   tag: "dso-date-picker",

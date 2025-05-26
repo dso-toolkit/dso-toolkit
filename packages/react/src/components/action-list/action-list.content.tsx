@@ -1,6 +1,6 @@
+import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import React from "react";
 
-import { ActionListItem, contactInformationContent } from "dso-toolkit";
 import { Templates } from "../../templates";
 
 function item1({ iconTemplate }: Templates): ActionListItem<JSX.Element> {

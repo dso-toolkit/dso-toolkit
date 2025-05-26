@@ -1,7 +1,8 @@
-import { ComponentImplementation } from "../../templates";
 import { ContactInformation } from "dso-toolkit";
-import { DsoContactInformation } from "../../components";
 import React from "react";
+
+import { DsoContactInformation } from "../../components";
+import { ComponentImplementation } from "../../templates";
 
 export const reactContactInformation: ComponentImplementation<ContactInformation<JSX.Element>> = {
   component: "contactInformation",

@@ -1,7 +1,8 @@
 import { OnboardingTip } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
-import { ComponentImplementation } from "../../templates";
+import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { ComponentImplementation } from "../../templates";
 
 export const coreOnboardingTip: ComponentImplementation<OnboardingTip<TemplateResult>> = {
   component: "onboardingTip",

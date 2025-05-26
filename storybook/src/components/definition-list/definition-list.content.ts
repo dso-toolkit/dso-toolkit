@@ -1,5 +1,5 @@
-import { html, TemplateResult } from "lit-html";
 import { Definition } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 export const definitions: Definition<TemplateResult>[] = [
   {

@@ -1,11 +1,11 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment, Element } from "@stencil/core";
-import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 
+import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { AnnotationBody } from "../annotation-body";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
-import { watcher } from "../annotation-watcher";
 import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
-import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { watcher } from "../annotation-watcher";
+import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
 /**
  * @slot symbool - Een optionele afbeelding die de annotatie symboliseert.

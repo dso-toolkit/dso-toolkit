@@ -1,7 +1,7 @@
-import { Component, ComponentInterface, Fragment, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 
-import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./renvooi.interfaces";
 import { RenvooiRender } from "./renvooi-render";
+import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./renvooi.interfaces";
 
 /**
  * Met dit component kan een `RenvooiValue` worden gepresenteerd.

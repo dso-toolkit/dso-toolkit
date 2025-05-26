@@ -1,6 +1,6 @@
-import { h, Component, ComponentInterface, Element, Host, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Host, Prop, State, h } from "@stencil/core";
 import debounce from "debounce";
-import { createFocusTrap, FocusTrap } from "focus-trap";
+import { FocusTrap, createFocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
 @Component({

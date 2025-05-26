@@ -1,7 +1,6 @@
-import * as React from "react";
 import type { Meta } from "@storybook/react";
-
 import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
+import * as React from "react";
 
 import { templateContainer } from "../../templates";
 

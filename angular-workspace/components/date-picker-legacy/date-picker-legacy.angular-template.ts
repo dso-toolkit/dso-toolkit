@@ -1,4 +1,5 @@
 import { DatePickerLegacy } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularDatePickerLegacy: ComponentImplementation<DatePickerLegacy> = {

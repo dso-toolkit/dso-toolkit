@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { RichContentArgs, richContentArgsMapper, richContentArgTypes } from "./rich-content.args.js";
-import { RichContent } from "./rich-content.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { RichContentArgs, richContentArgTypes, richContentArgsMapper } from "./rich-content.args.js";
+import { RichContent } from "./rich-content.models.js";
 
 interface RichContentStories<TemplateFnReturnType> {
   RichContent: StoryObj<RichContentArgs<TemplateFnReturnType>, Renderer>;

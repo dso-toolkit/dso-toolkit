@@ -1,4 +1,5 @@
 import { ProgressBar } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularProgressBar: ComponentImplementation<ProgressBar> = {

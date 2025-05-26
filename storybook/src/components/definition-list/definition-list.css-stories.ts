@@ -1,7 +1,9 @@
 import type { Meta } from "@storybook/web-components";
 import { DefinitionListArgs, definitionListMeta, definitionListStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import {
   columnDefinitions,
   definitions,
@@ -9,8 +11,6 @@ import {
   listDefinitions,
   smallContentDefinitions,
 } from "./definition-list.content";
-
-import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
 
 const meta: Meta<DefinitionListArgs> = {
   ...definitionListMeta({ readme }),
@@ -50,17 +50,17 @@ const {
 });
 
 export {
-  Default,
-  Vertical,
-  EmphasizeDescription,
-  VerticalWithEmphasizeDescription,
-  ColumnVariantOneThree,
-  ColumnVariantTwoTwo,
-  ColumnVariantThreeOne,
-  TwoColumnsSmall,
-  TwoColumns,
-  ThreeColumnsSmall,
-  ThreeColumns,
   Bordered,
+  ColumnVariantOneThree,
+  ColumnVariantThreeOne,
+  ColumnVariantTwoTwo,
   ColumnsList,
+  Default,
+  EmphasizeDescription,
+  ThreeColumns,
+  ThreeColumnsSmall,
+  TwoColumns,
+  TwoColumnsSmall,
+  Vertical,
+  VerticalWithEmphasizeDescription,
 };

@@ -1,5 +1,6 @@
-import { Templates } from "../../templates";
 import { html } from "lit-html";
+
+import { Templates } from "../../templates";
 
 const imageOverlayHtml = `<dso-image-overlay>
   <img

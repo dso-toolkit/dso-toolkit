@@ -1,6 +1,7 @@
 import { FormButtons } from "../form-buttons/form-buttons.models.js";
-import { FormGroupCollection } from "./form.models.js";
 import { FormGroup } from "../form-group/form-group.models.js";
+
+import { FormGroupCollection } from "./form.models.js";
 
 const persoonlijkeGegevensFormGroups: FormGroup<never>[] = [
   {

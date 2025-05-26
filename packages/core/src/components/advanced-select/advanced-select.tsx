@@ -1,28 +1,30 @@
 import {
   Component,
   ComponentInterface,
-  Prop,
-  h,
-  FunctionalComponent,
   Element,
   Event,
   EventEmitter,
-  State,
   Fragment,
+  FunctionalComponent,
   Listen,
+  Prop,
+  State,
+  h,
 } from "@stencil/core";
 import clsx from "clsx";
+import { FocusTrap, createFocusTrap } from "focus-trap";
+import { tabbable } from "tabbable";
+
+import { isModifiedEvent } from "../../utils/is-modified-event";
+
 import {
+  AdvancedSelectChangeEvent,
   AdvancedSelectGroup,
   AdvancedSelectGroupRedirect,
   AdvancedSelectOption,
-  AdvancedSelectChangeEvent,
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
 } from "./advanced-select.interfaces";
-import { createFocusTrap, FocusTrap } from "focus-trap";
-import { tabbable } from "tabbable";
-import { isModifiedEvent } from "../../utils/is-modified-event";
 
 @Component({
   tag: "dso-advanced-select",

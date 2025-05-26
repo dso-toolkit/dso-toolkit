@@ -1,6 +1,7 @@
 import { Fragment, FunctionalComponent, h } from "@stencil/core";
-import { RenvooiRenderMarkFunction, RenvooiValue } from "./renvooi.interfaces";
+
 import { RenvooiRenderText } from "./renvooi-render-text";
+import { RenvooiRenderMarkFunction, RenvooiValue } from "./renvooi.interfaces";
 
 interface RenvooiRenderProps {
   value: RenvooiValue;

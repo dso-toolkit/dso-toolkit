@@ -4,12 +4,12 @@ import {
   Element,
   Event,
   EventEmitter,
-  h,
   Host,
   Listen,
   Prop,
   State,
   Watch,
+  h,
 } from "@stencil/core";
 import clsx from "clsx";
 

@@ -1,5 +1,6 @@
-import { html, TemplateResult } from "lit-html";
 import { AccordionSection } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
+
 import { Templates } from "../../templates";
 
 const section1: AccordionSection<TemplateResult> = {

@@ -1,11 +1,9 @@
 import { Meta } from "@storybook/web-components";
-
 import { DefinitionList, DocumentHeaderArgs, documentHeaderMeta, documentHeaderStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/document-header/readme.md?raw";
+import { TemplateResult, html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-import { html, TemplateResult } from "lit-html";
 
 const meta: Meta<DocumentHeaderArgs> = {
   ...documentHeaderMeta({ readme }),

@@ -1,7 +1,8 @@
 import { ArgTypes } from "@storybook/types";
 
-import { Toggletip } from "./toggletip.models.js";
 import { tooltipPositions } from "../tooltip/tooltip.models.js";
+
+import { Toggletip } from "./toggletip.models.js";
 
 export interface ToggletipArgs {
   position: "top" | "right" | "bottom" | "left";

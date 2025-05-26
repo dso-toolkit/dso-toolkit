@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { LinkArgs, linkArgsMapper, linkArgTypes } from "./link.args.js";
-import { Link } from "./link.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { LinkArgs, linkArgTypes, linkArgsMapper } from "./link.args.js";
+import { Link } from "./link.models.js";
 
 type LinkStory = StoryObj<LinkArgs, Renderer>;
 

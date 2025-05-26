@@ -1,9 +1,8 @@
+import readme from "@dso-toolkit/core/src/components/badge/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { BadgeArgs, badgeMeta, badgeStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/badge/readme.md?raw";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
@@ -23,4 +22,4 @@ const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plai
   },
 });
 
-export { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain };
+export { Attention, Danger, Error, Info, Outline, Plain, Primary, Success, Warning };

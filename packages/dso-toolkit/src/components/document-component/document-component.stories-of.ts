@@ -1,20 +1,20 @@
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { noControl } from "../../storybook";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+import { OzonContentUrlResolver } from "../ozon-content";
 
 import {
-  documentComponentMapper,
+  DocumentComponentArgs,
   documentComponentArgTypes,
   documentComponentArgs,
-  DocumentComponentArgs,
+  documentComponentMapper,
 } from "./document-component.args.js";
 import { imroContent } from "./document-component.content.js";
 import { DocumentComponent, DocumentComponentMode } from "./document-component.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
-import { OzonContentUrlResolver } from "../ozon-content";
-import { noControl } from "../../storybook";
 
 export type DocumentComponentDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

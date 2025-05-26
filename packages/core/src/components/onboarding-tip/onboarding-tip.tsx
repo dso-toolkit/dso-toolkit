@@ -1,5 +1,5 @@
-import { arrow, autoUpdate, computePosition, hide, offset, Placement, flip, shift } from "@floating-ui/dom";
-import { h, Component, Element, Prop, ComponentInterface, Event, EventEmitter, Host } from "@stencil/core";
+import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
 

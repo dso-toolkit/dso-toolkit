@@ -1,19 +1,21 @@
 import {
-  h,
   Component,
-  Prop,
+  ComponentInterface,
+  Element,
   Event,
   EventEmitter,
   Fragment,
-  Element,
-  State,
-  forceUpdate,
-  Watch,
   Method,
-  ComponentInterface,
+  Prop,
+  State,
+  Watch,
+  forceUpdate,
+  h,
 } from "@stencil/core";
 import clsx from "clsx";
+
 import { createIdentifier } from "../../utils/create-identifier";
+
 import { SelectableChangeEvent } from "./selectable.interfaces";
 
 /**

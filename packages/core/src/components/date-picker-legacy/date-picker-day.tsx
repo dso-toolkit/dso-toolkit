@@ -1,4 +1,5 @@
-import { h, FunctionalComponent } from "@stencil/core";
+import { FunctionalComponent, h } from "@stencil/core";
+
 import { isEqual, printDutchDate } from "./date-utils";
 
 export type DatePickerLegacyDayProps = {

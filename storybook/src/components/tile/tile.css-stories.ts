@@ -1,9 +1,8 @@
 import type { Meta } from "@storybook/web-components";
 import { TileArgs, tileMeta, tileStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/tile/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import readme from "dso-toolkit/src/components/tile/readme.md?raw";
 
 const meta: Meta<TileArgs> = {
   ...tileMeta({ readme }),

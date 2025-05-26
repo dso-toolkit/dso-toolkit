@@ -1,5 +1,4 @@
 import { Icon } from "../../icon/icon.models";
-
 import { FormGroupBase } from "../form-group.base-model";
 
 export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {

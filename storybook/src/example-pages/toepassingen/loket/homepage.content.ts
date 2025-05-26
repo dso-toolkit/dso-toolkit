@@ -1,5 +1,5 @@
 import { AccordionSection, LinkList, LinkListType } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 export const accordionSections: AccordionSection<TemplateResult>[] = [
   {

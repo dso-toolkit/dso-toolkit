@@ -5,6 +5,7 @@ import { header } from "../../content/header.content";
 import { mainMenu } from "../../content/main-menu.content";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
+
 import { bestuurslaag, labels, listButtons, shoppingCart, toestemming } from "./activiteiten.content";
 
 examplePageFactory(

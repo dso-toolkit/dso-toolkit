@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { TableArgs, tableArgsMapper, tableArgTypes } from "./table.args.js";
-import { Table, TableContent } from "./table.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { TableArgs, tableArgTypes, tableArgsMapper } from "./table.args.js";
+import { Table, TableContent } from "./table.models.js";
 
 type TableStory = StoryObj<TableArgs, Renderer>;
 

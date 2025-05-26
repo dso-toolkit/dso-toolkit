@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { SkiplinkArgs, skiplinkArgs, skiplinkArgTypes, skiplinkArgsMapper } from "./skiplink.args.js";
-import { Skiplink } from "./skiplink.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { SkiplinkArgs, skiplinkArgTypes, skiplinkArgs, skiplinkArgsMapper } from "./skiplink.args.js";
+import { Skiplink } from "./skiplink.models.js";
 
 type SkiplinkStory = StoryObj<SkiplinkArgs, Renderer>;
 

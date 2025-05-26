@@ -1,8 +1,9 @@
-import type { Meta } from "@storybook/web-components";
-import { cardStories, CardArgs, cardMeta } from "dso-toolkit";
-
 import readme from "@dso-toolkit/core/src/components/card/readme.md?raw";
+import type { Meta } from "@storybook/web-components";
+import { CardArgs, cardMeta, cardStories } from "dso-toolkit";
+
 import { templateContainer } from "../../templates";
+
 import { content } from "./card.content";
 
 const meta: Meta<CardArgs> = {
@@ -24,4 +25,4 @@ const { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSele
   },
 });
 
-export { Default, WithButton, WithSlideToggle, WithToggletip, WithLabel, WithSelectableAndButton };
+export { Default, WithButton, WithLabel, WithSelectableAndButton, WithSlideToggle, WithToggletip };

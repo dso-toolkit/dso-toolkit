@@ -1,6 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
-
 import { HighlightBox } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularHighlightBox: ComponentImplementation<HighlightBox<StoryFnAngularReturnType>> = {

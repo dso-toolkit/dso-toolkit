@@ -1,5 +1,5 @@
 import { DefinitionList } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 export const definitionList: DefinitionList<TemplateResult> = {
   modifier: "dso-bordered",

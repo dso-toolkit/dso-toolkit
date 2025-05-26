@@ -1,8 +1,8 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
+import { v4 as uuidv4 } from "uuid";
 
 import { noControl } from "../../../storybook";
-import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupCheckboxes } from "./form-group-checkboxes.models";
 

@@ -1,12 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { labelGroupArgsMapper } from "./label-group.args.js";
 import { LabelGroup } from "./label-group.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
-
-import { compiler } from "markdown-to-jsx";
 
 interface LabelGroupStories {
   LabelGroup: StoryObj<Record<string, never>, Renderer>;

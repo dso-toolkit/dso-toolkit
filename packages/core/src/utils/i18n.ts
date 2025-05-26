@@ -1,4 +1,4 @@
-import i18next, { Resource } from "i18next";
+import { Resource, createInstance } from "i18next";
 
 export { Resource };
 
@@ -26,7 +26,7 @@ export function i18n(
   resources: Resource,
 ): (key: string, variables?: { [key in string]: string }) => string {
   const element = getElement();
-  const i18NextInstance = i18next.createInstance();
+  const i18NextInstance = createInstance();
 
   i18NextInstance.init({
     fallbackLng: DEFAULT_LANG,

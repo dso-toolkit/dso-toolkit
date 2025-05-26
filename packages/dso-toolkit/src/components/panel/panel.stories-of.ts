@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { PanelArgs, panelArgs, panelArgTypes, panelArgsMapper } from "./panel.args.js";
-import { Panel } from "./panel.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { PanelArgs, panelArgTypes, panelArgs, panelArgsMapper } from "./panel.args.js";
+import { Panel } from "./panel.models.js";
 
 type PanelStory = StoryObj<PanelArgs, Renderer>;
 

@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/web-components";
 import { descriptionMeta, descriptionStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/description/readme.md?raw";
-import { templateContainer } from "../../templates";
 import { html } from "lit-html";
+
+import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...descriptionMeta({ readme }),
@@ -25,4 +25,4 @@ const { Term, Example } = descriptionStories({
   },
 });
 
-export { Term, Example };
+export { Example, Term };

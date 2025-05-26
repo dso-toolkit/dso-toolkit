@@ -3,10 +3,11 @@ import filter from "gulp-filter";
 import header from "gulp-header";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
+import stylelint from "gulp-stylelint-esm";
 
 import { plugins } from "../postcss.config.js";
+
 import { sassTransformer } from "./transformers/sass.transformer.js";
-import stylelint from "gulp-stylelint-esm";
 
 function getVersion() {
   if (process.env.DT_VERSION) {

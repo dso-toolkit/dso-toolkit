@@ -1,5 +1,9 @@
+import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
+
+import { templateContainer } from "../../templates";
+
 import {
   dataGridTable,
   defaultTable,
@@ -7,10 +11,6 @@ import {
   sortedAscendingTable,
   sortedDescendingTable,
 } from "./table.content";
-
-import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/table/readme.md?raw";
 
 const meta: Meta<TableArgs> = {
   ...tableMeta({ readme }),
@@ -37,4 +37,4 @@ const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, Sorted
     },
   });
 
-export { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending, DataGrid, DataTable };
+export { DataGrid, DataTable, Default, SortedAscending, SortedDescending, WithDsoImageOverlay, WithVerticalLines };

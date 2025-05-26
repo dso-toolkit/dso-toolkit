@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { ImageArgs, imageArgsMapper, imageArgTypes } from "./image.args.js";
-import { Image } from "./image.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { ImageArgs, imageArgTypes, imageArgsMapper } from "./image.args.js";
+import { Image } from "./image.models.js";
 
 type ImageStory = StoryObj<ImageArgs, Renderer>;
 

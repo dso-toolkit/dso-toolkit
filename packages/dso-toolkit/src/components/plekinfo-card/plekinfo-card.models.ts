@@ -1,5 +1,5 @@
-import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
+import { Renvooi } from "../renvooi/renvooi.models.js";
 import { SlideToggle } from "../slide-toggle";
 
 export interface PlekinfoCard<TemplateFnReturnType> {

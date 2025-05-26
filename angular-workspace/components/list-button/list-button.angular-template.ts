@@ -1,4 +1,5 @@
 import { ListButton } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularListButton: ComponentImplementation<ListButton> = {

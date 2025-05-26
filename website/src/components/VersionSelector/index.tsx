@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
-import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
-
-import styles from "./styles.module.scss";
+import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 import clsx from "clsx";
+import React, { useEffect, useState } from "react";
+
 import {
+  Master,
+  Release,
+  Topic,
+  Version,
   getAllVersions,
   getVersion,
   isMasterVersion,
   isReleaseVersion,
   isSelectedVersion,
   isTopicVersion,
-  Master,
-  Release,
-  Topic,
-  Version,
 } from "@site/src/functions/versions.function";
+
+import styles from "./styles.module.scss";
 
 function mapVersion(version: Version) {
   return {

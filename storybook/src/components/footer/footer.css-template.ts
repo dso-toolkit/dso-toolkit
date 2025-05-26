@@ -1,7 +1,7 @@
-import { html, TemplateResult } from "lit-html";
+import { Footer } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { Footer } from "dso-toolkit";
 
 export const cssFooter: ComponentImplementation<Footer<TemplateResult>> = {
   component: "footer",

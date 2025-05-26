@@ -1,10 +1,11 @@
-import { Selectable } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-import { ComponentImplementation } from "../../templates";
 import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
-import { when } from "lit-html/directives/when.js";
+import { Selectable } from "dso-toolkit";
+import { TemplateResult, html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import { when } from "lit-html/directives/when.js";
+
+import { ComponentImplementation } from "../../templates";
 
 export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
   component: "selectable",

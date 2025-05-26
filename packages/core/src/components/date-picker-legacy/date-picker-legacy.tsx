@@ -1,40 +1,41 @@
 import {
   Component,
   ComponentInterface,
-  Host,
-  Prop,
   Element,
-  h,
   Event,
   EventEmitter,
-  State,
+  Host,
   Listen,
   Method,
+  Prop,
+  State,
+  h,
 } from "@stencil/core";
 
 import { createIdentifier } from "../../utils/create-identifier";
-import {
-  addDays,
-  startOfWeek,
-  endOfWeek,
-  setMonth,
-  setYear,
-  clamp,
-  inRange,
-  endOfMonth,
-  startOfMonth,
-  printDutchDate,
-  parseDutchDate,
-  DaysOfWeek,
-} from "./date-utils";
-import { DatePickerLegacyMonth } from "./date-picker-month";
+
 import defaultLocalization, { DsoLocalizedText } from "./date-localization";
 import {
-  DsoDatePickerLegacyDirection,
   DsoDatePickerLegacyChangeEvent,
+  DsoDatePickerLegacyDirection,
   DsoDatePickerLegacyFocusEvent,
   DsoDatePickerLegacyKeyboardEvent,
 } from "./date-picker-legacy.interfaces";
+import { DatePickerLegacyMonth } from "./date-picker-month";
+import {
+  DaysOfWeek,
+  addDays,
+  clamp,
+  endOfMonth,
+  endOfWeek,
+  inRange,
+  parseDutchDate,
+  printDutchDate,
+  setMonth,
+  setYear,
+  startOfMonth,
+  startOfWeek,
+} from "./date-utils";
 import { monthRange } from "./utils/month-range";
 import { range } from "./utils/range";
 

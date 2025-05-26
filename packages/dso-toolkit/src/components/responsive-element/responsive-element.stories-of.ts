@@ -1,10 +1,10 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from "./responsive-element.args.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
-import { compiler } from "markdown-to-jsx";
 
 const demoGrid = [
   ["col-md-6", "col-md-6"],

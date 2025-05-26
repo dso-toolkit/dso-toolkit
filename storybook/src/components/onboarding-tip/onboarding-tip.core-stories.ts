@@ -1,10 +1,10 @@
+import readme from "@dso-toolkit/core/src/components/onboarding-tip/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { OnboardingTipArgs, onboardingTipMeta, onboardingTipStories } from "dso-toolkit";
 
-import { headingContent, richContent } from "./onboarding-tip.content";
 import { templateContainer } from "../../templates";
 
-import readme from "@dso-toolkit/core/src/components/onboarding-tip/readme.md?raw";
+import { headingContent, richContent } from "./onboarding-tip.content";
 import { decorator } from "./onboarding-tip.decorator";
 
 const meta: Meta<OnboardingTipArgs> = {

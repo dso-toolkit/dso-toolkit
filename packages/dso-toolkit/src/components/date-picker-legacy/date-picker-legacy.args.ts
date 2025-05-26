@@ -1,5 +1,6 @@
-import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "@storybook/types";
+
 import { DatePickerLegacy } from "./date-picker-legacy.models.js";
 
 export interface DatePickerLegacyArgs {

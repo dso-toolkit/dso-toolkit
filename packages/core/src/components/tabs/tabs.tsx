@@ -1,4 +1,4 @@
-import { Element, Component, h, Host, forceUpdate } from "@stencil/core";
+import { Component, Element, Host, forceUpdate, h } from "@stencil/core";
 
 /**
  * @slot - The dso-tab elements. These should be direct children of the dso-tabs element.

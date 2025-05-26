@@ -1,13 +1,13 @@
-import { Annotation, AnnotationKaartClickEvent } from "dso-toolkit";
-import { html, nothing } from "lit-html";
-
-import { ComponentImplementation } from "../../templates";
 import {
   AnnotationActiveChangeEvent,
   DsoAnnotationActiviteitCustomEvent,
   DsoAnnotationKaartCustomEvent,
 } from "@dso-toolkit/core";
+import { Annotation, AnnotationKaartClickEvent } from "dso-toolkit";
+import { html, nothing } from "lit-html";
+
 import { assertNever } from "../../shared/assert-never";
+import { ComponentImplementation } from "../../templates";
 
 export const coreAnnotation: ComponentImplementation<Annotation> = {
   component: "annotation",

@@ -1,4 +1,5 @@
 import { Fragment, FunctionalComponent, h } from "@stencil/core";
+
 import { RenvooiRenderMarkFunction } from "./renvooi.interfaces";
 
 interface RenvooiRenderTextProps {

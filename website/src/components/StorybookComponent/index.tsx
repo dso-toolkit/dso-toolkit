@@ -1,11 +1,12 @@
-import IframeResizer from "@iframe-resizer/react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import Link from "@docusaurus/Link";
+import { useLocation } from "@docusaurus/router";
+import IframeResizer from "@iframe-resizer/react";
 import React, { useEffect, useState } from "react";
 
 import { getVersion } from "@site/src/functions/versions.function";
+
 import styles from "./styles.module.scss";
-import Link from "@docusaurus/Link";
-import { useLocation } from "@docusaurus/router";
 
 type Implementation = "core" | "angular" | "html-css" | "react";
 

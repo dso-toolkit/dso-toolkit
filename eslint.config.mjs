@@ -1,14 +1,16 @@
 // @ts-check
 
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import onlyWarn from "eslint-plugin-only-warn";
-import lit from "eslint-plugin-lit";
-import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
+
 import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import importPlugin from "eslint-plugin-import";
+import lit from "eslint-plugin-lit";
+import onlyWarn from "eslint-plugin-only-warn";
+import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,11 +39,17 @@ export default [
       "website/www",
     ],
   },
-  ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"),
+  ...compat.extends(
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ),
   {
     plugins: {
       "@typescript-eslint": typescriptEslint,
       "only-warn": onlyWarn,
+      import: importPlugin,
       lit,
     },
     linterOptions: {
@@ -52,11 +60,37 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
-
       parser: tsParser,
     },
-
     rules: {
+      // import-plugin rules
+      "import/no-duplicates": "error",
+      "import/newline-after-import": "error",
+      "import/first": "error",
+      "import/no-unresolved": "off",
+      "import/named": "off",
+      "import/namespace": "off",
+      "import/order": [
+        "error",
+        {
+          named: true,
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+          pathGroups: [
+            {
+              pattern: "@site/**",
+              group: "internal",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+          },
+        },
+      ],
+
+      // lit rules
       "lit/attribute-value-entities": "error",
       "lit/binding-positions": "error",
       "lit/no-duplicate-template-bindings": "error",
@@ -68,8 +102,31 @@ export default [
       "lit/no-template-bind": "error",
       "lit/no-useless-template-literals": "error",
       "lit/quoted-expressions": "error",
+
+      // Common rules
       "no-duplicate-imports": "error",
+      eqeqeq: ["error"],
+      "no-console": [
+        "error",
+        {
+          allow: ["assert", "debug", "error", "group", "info", "table", "trace", "warn"],
+        },
+      ],
+      "no-else-return": ["error", { allowElseIf: false }],
+      "object-shorthand": ["error"],
+
+      // typescript
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          args: "all",
+          ignoreRestSiblings: false,
+          varsIgnorePattern: "^(_|h$|Fragment$)",
+          argsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/no-require-imports": [
         "error",
         {
@@ -83,25 +140,6 @@ export default [
             "path",
             "prism-react-renderer",
           ],
-        },
-      ],
-      eqeqeq: ["error"],
-      "no-console": [
-        "error",
-        {
-          allow: ["assert", "debug", "error", "group", "info", "table", "trace", "warn"],
-        },
-      ],
-      "no-else-return": ["error", { allowElseIf: false }],
-      "object-shorthand": ["error"],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          vars: "all",
-          args: "all",
-          ignoreRestSiblings: false,
-          varsIgnorePattern: "^(_|h$|Fragment$)",
-          argsIgnorePattern: "^_",
         },
       ],
       "no-restricted-properties": [
@@ -150,7 +188,6 @@ export default [
       "no-shadow": 0,
       "react/jsx-no-bind": 0,
       "@typescript-eslint/no-shadow": 2,
-      // @stencil-community overrides
       "@stencil-community/strict-boolean-conditions": 0,
       "@stencil-community/decorators-style": [
         "error",

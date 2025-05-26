@@ -1,25 +1,24 @@
-import { h, Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, Host } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Prop, h } from "@stencil/core";
 
+import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
+import { OzonContentAnchorClickEvent, OzonContentUrlResolver } from "../ozon-content/ozon-content.interfaces";
 
+import { Heading } from "./document-component-heading";
 import {
-  DocumentComponentOpenToggleEvent,
-  DocumentComponentToggleAnnotationEvent,
-  DocumentComponentOzonContentAnchorClickEvent,
-  DocumentComponentWijzigactie,
   DocumentComponentAnnotationsWijzigactie,
   DocumentComponentInputType,
   DocumentComponentMarkFunction,
   DocumentComponentMarkItemHighlightEvent,
+  DocumentComponentMode,
+  DocumentComponentOpenToggleEvent,
+  DocumentComponentOzonContentAnchorClickEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentRecursiveToggleState,
-  DocumentComponentMode,
   DocumentComponentTableOfContentsClickEvent,
+  DocumentComponentToggleAnnotationEvent,
+  DocumentComponentWijzigactie,
 } from "./document-component.models";
-import { OzonContentAnchorClickEvent, OzonContentUrlResolver } from "../ozon-content/ozon-content.interfaces";
-import { Heading } from "./document-component-heading";
-
-import { DsoOzonContentCustomEvent } from "../../components";
 
 const wijzigactieLabels: { [wijzigactie in DocumentComponentWijzigactie]: string } = {
   nieuweContainer: "Toegevoegd",

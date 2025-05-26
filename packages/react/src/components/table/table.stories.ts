@@ -1,5 +1,9 @@
 import type { Meta } from "@storybook/react";
 import { TableArgs, tableMeta, tableStories } from "dso-toolkit";
+
+import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 import {
   dataGridTable,
   dataTableTable,
@@ -8,10 +12,6 @@ import {
   sortedAscendingTable,
   sortedDescendingTable,
 } from "./table.content";
-
-import { templateContainer } from "../../templates";
-
-import readme from "./readme.md?raw";
 
 const meta: Meta<TableArgs> = {
   ...tableMeta({ readme }),
@@ -38,4 +38,4 @@ const { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, Sorted
     },
   });
 
-export { Default, WithDsoImageOverlay, WithVerticalLines, SortedAscending, SortedDescending, DataGrid, DataTable };
+export { DataGrid, DataTable, Default, SortedAscending, SortedDescending, WithDsoImageOverlay, WithVerticalLines };

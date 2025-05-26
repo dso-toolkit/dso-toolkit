@@ -1,5 +1,6 @@
 import { Footnote } from "dso-toolkit";
 import { html } from "lit-html";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssFootnote: ComponentImplementation<Footnote> = {

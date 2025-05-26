@@ -1,9 +1,9 @@
 import { type Meta } from "@storybook/web-components";
+import { justifyFormGroupsMeta, justifyFormGroupsStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/justify-form-groups/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
-import readme from "dso-toolkit/src/components/justify-form-groups/readme.md?raw";
-import { justifyFormGroupsMeta, justifyFormGroupsStories } from "dso-toolkit";
 import { content } from "./justify-form-groups.content";
 
 const meta: Meta = {

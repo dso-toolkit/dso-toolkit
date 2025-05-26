@@ -1,10 +1,9 @@
+import readme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
-
-import { templateContainer } from "../../templates";
 import { html } from "lit-html";
 
-import readme from "@dso-toolkit/core/src/components/highlight-box/readme.md?raw";
+import { templateContainer } from "../../templates";
 
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
@@ -81,4 +80,4 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
     },
   });
 
-export { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage };
+export { Default, Grey, GreyWithBorder, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

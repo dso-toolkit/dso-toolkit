@@ -1,11 +1,11 @@
 import { Meta } from "@storybook/web-components";
 import { rowEqualHeightsMeta, rowEqualHeightsStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
-import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 
 import { decorator } from "./row-equal-heights.decorator";
-import { html } from "lit-html";
 
 const meta: Meta = {
   ...rowEqualHeightsMeta({ readme }),

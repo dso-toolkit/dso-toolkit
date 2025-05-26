@@ -1,20 +1,20 @@
 import type { Meta } from "@storybook/web-components";
 import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/banner/readme.md?raw";
 
 import { templateContainer } from "../../templates";
+
 import {
   dangerRichContent,
-  errorRichContent,
   dangerWithHeadingsRichContent,
-  richWarningRichContent,
-  warningRichContent,
-  infoRichContent,
+  errorRichContent,
   infoCompactNonRemovableRichContent,
-  warningNonRemovableRichContent,
+  infoRichContent,
   richInfoRichContent,
+  richWarningRichContent,
+  warningNonRemovableRichContent,
+  warningRichContent,
 } from "./banner.content";
-
-import readme from "dso-toolkit/src/components/banner/readme.md?raw";
 
 const meta: Meta<BannerArgs> = {
   ...bannerMeta({ readme }),
@@ -55,12 +55,12 @@ const {
 
 export {
   Danger,
+  DangerWithHeadings,
   Error,
   Info,
   InfoCompactNonRemovable,
-  Warning,
   InfoNonRemovable,
-  RichWarning,
   RichInfo,
-  DangerWithHeadings,
+  RichWarning,
+  Warning,
 };

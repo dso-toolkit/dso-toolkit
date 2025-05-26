@@ -1,9 +1,8 @@
 import type { Meta } from "@storybook/web-components";
+import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/info-button/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import readme from "dso-toolkit/src/components/info-button/readme.md?raw";
-import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
@@ -23,4 +22,4 @@ const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStori
   },
 });
 
-export { Inactive, Active, SecondaryInactive, SecondaryActive };
+export { Active, Inactive, SecondaryActive, SecondaryInactive };

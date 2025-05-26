@@ -1,11 +1,11 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, h } from "@stencil/core";
 import { v4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
 import { i18n } from "../../utils/i18n";
 
-import { ModalCloseEvent } from "./modal.interfaces";
 import { translations } from "./modal.i18n";
+import { ModalCloseEvent } from "./modal.interfaces";
 
 @Component({
   tag: "dso-modal",

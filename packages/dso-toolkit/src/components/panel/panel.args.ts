@@ -1,7 +1,7 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { Panel } from "./panel.models.js";
-import { HandlerFunction } from "@storybook/addon-actions";
 
 export interface PanelArgs {
   dsoCloseClick: HandlerFunction;
