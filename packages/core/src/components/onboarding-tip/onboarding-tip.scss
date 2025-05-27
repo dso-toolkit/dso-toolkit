@@ -59,7 +59,9 @@
   filter: drop-shadow(2px 2px 16px rgba(0, 0, 0, 0.4));
 
   // Visibility & opacity are updated using Floating-UI
-  transition: visibility onboarding-tip-variables.$transition-time, opacity onboarding-tip-variables.$transition-time;
+  transition:
+    visibility onboarding-tip-variables.$transition-time,
+    opacity onboarding-tip-variables.$transition-time;
 }
 
 :host(.is-hidden) {
