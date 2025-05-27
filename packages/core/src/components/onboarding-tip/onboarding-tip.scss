@@ -57,6 +57,14 @@
 
   display: block;
   filter: drop-shadow(2px 2px 16px rgba(0, 0, 0, 0.4));
+
+  // Visibility & opacity are updated using Floating-UI
+  transition: visibility onboarding-tip-variables.$transition-time, opacity onboarding-tip-variables.$transition-time;
+}
+
+:host(.is-hidden) {
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 :host([popover]) {
@@ -112,7 +120,7 @@
   --link-visited-color: #{colors.$grijs-50};
 
   max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
-  max-block-size: 40vh;
+  max-block-size: 80vh;
   overflow: auto;
   padding-block: onboarding-tip-variables.$padding-block;
   padding-inline: onboarding-tip-variables.$padding-inline;
@@ -123,6 +131,10 @@
   z-index: 2; // z-index higher than the arrow
 
   @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
+
+  @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+    max-block-size: unset;
+  }
 }
 
 .onboarding-tip-arrow {

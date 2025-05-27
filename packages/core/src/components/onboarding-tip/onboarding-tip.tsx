@@ -1,7 +1,8 @@
-import { arrow, autoUpdate, computePosition, hide, offset, Placement, flip, shift } from "@floating-ui/dom";
-import { h, Component, Element, Prop, ComponentInterface, Event, EventEmitter, Host } from "@stencil/core";
+import { arrow, autoUpdate, computePosition, flip, hide, offset, Placement, shift } from "@floating-ui/dom";
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
+import clsx from "clsx";
 
 @Component({
   tag: "dso-onboarding-tip",
@@ -24,6 +25,9 @@ export class OnboardingTip implements ComponentInterface {
   @Event()
   dsoClose!: EventEmitter<OnboardingTipCloseEvent>;
 
+  @State()
+  hidden = true;
+
   componentDidRender() {
     if (!this.host.matches(":popover-open")) {
       this.host.showPopover();
@@ -32,6 +36,13 @@ export class OnboardingTip implements ComponentInterface {
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
       this.cleanUp = OnboardingTip.positionTip(this.referenceElement, this.host, this.tipArrowRef, this.placement);
     }
+  }
+
+  componentDidLoad() {
+    // Startup fade-in transition
+    setTimeout(() => {
+      this.hidden = false;
+    }, 100);
   }
 
   disconnectedCallback(): void {
@@ -53,35 +64,47 @@ export class OnboardingTip implements ComponentInterface {
     tipArrowRef: HTMLDivElement,
     placement: Placement,
   ) {
-    // Get half the arrow box's hypotenuse length
-    const arrowLength = tipArrowRef.offsetWidth;
-    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
     const padding = 5;
+    const arrowLength = tipArrowRef.offsetWidth;
+
+    // Get half the arrow box's hypotenuse length
+    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
+
+    // 1.5 times the diagonal of the arrow box
+    const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
 
     return autoUpdate(referenceElement, tipRef, () => {
+      const smallViewport = document.body.clientWidth < 992; // Same as media-query-breakpoints.$screen-md-min
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
         middleware: [
           offset(floatingOffset),
           flip({
             padding,
+            // Left & Right are the main axis. When there's no space on either side, Top & Bottom are also used.
+            fallbackAxisSideDirection: smallViewport ? "start" : "none",
           }),
-          shift({
-            padding,
-          }),
+          smallViewport
+            ? undefined
+            : shift({
+                padding,
+              }),
           arrow({
-            padding: padding + arrowLength,
+            padding: arrowPadding,
             element: tipArrowRef,
           }),
           hide({
-            padding: 42,
+            padding: arrowPadding + arrowLength + padding,
+            rootBoundary: smallViewport ? "document" : "viewport",
           }),
         ],
         placement,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
         if (middlewareData.hide) {
           Object.assign(tipRef.style, {
+            // Both of these properties have a CSS transition
             visibility: middlewareData.hide.referenceHidden ? "hidden" : "visible",
+            opacity: middlewareData.hide.referenceHidden ? 0 : 1,
           });
         }
 
@@ -136,7 +159,7 @@ export class OnboardingTip implements ComponentInterface {
 
   render() {
     return (
-      <Host popover="manual">
+      <Host popover="manual" class={clsx({ "is-hidden": this.hidden })}>
         <div class="onboarding-tip" role="tooltip">
           <div class="onboarding-tip-inner">
             <div class="onboarding-tip-content-wrapper">
