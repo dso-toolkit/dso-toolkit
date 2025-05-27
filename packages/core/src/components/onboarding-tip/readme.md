@@ -10,7 +10,6 @@ Om een Onboarding Tip correct te koppelen:
 Zorg ervoor dat de tip in het DOM zo dicht mogelijk bij het referentie-element staat.
 
 ### Zichtbaarheid en toegankelijkheid
-- De Onboarding Tip wordt getoond wanneer het `active` attribuut aanwezig is.
 - Wanneer de Onboarding Tip verdwijnt (bijvoorbeeld doordat hij uit het DOM wordt verwijderd), moet ook de verwijzing via `aria-describedby` van het referentie-element worden verwijderd.
 
 ### Positionering

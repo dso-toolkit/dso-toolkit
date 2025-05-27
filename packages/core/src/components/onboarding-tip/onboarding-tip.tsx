@@ -1,4 +1,5 @@
-import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { Side } from "@floating-ui/utils";
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
@@ -34,6 +35,12 @@ export class OnboardingTip implements ComponentInterface {
     }
   }
 
+  componentDidLoad() {
+    // Startup fade-in transition
+    this.host.classList.add("fade-in");
+    this.host.onanimationend = () => this.host.classList.remove("fade-in");
+  }
+
   disconnectedCallback(): void {
     if (this.host.matches(":popover-open")) {
       this.host.hidePopover();
@@ -51,18 +58,33 @@ export class OnboardingTip implements ComponentInterface {
     referenceElement: HTMLElement,
     tipRef: HTMLDsoOnboardingTipElement,
     tipArrowRef: HTMLDivElement,
-    placement: Placement,
+    placement: Side,
   ) {
-    // Get half the arrow box's hypotenuse length
-    const arrowLength = tipArrowRef.offsetWidth;
-    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
     const padding = 5;
-
     return autoUpdate(referenceElement, tipRef, () => {
+      const arrowLength = tipArrowRef.offsetWidth;
+
+      // Get half the arrow box's hypotenuse length
+      const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
+
+      // 1.5 times the diagonal of the arrow box
+      const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
+
+      // Same as media-query-breakpoints.$screen-md-min
+      const smallViewport = document.body.clientWidth < 992;
+
+      if (smallViewport) {
+        // Only use top and bottom placement when the viewport is small
+        placement = "top";
+      }
+
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
         middleware: [
-          offset(floatingOffset),
+          offset({
+            mainAxis: mainAxisOffset,
+            alignmentAxis: -arrowPadding,
+          }),
           flip({
             padding,
           }),
@@ -70,18 +92,22 @@ export class OnboardingTip implements ComponentInterface {
             padding,
           }),
           arrow({
-            padding: padding + arrowLength,
+            padding: arrowPadding,
             element: tipArrowRef,
           }),
           hide({
-            padding: 42,
+            padding: arrowPadding + arrowLength + padding,
           }),
         ],
-        placement,
+        placement: smallViewport ? placement : `${placement}-start`,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
         if (middlewareData.hide) {
+          // Tooltip needs to be visible at all times on small viewports
+          const disappear = !smallViewport && middlewareData.hide.referenceHidden;
           Object.assign(tipRef.style, {
-            visibility: middlewareData.hide.referenceHidden ? "hidden" : "visible",
+            // Both of these properties have a CSS transition
+            visibility: disappear ? "hidden" : "visible",
+            opacity: disappear ? 0 : 1,
           });
         }
 
