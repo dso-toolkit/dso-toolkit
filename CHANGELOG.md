@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Onboarding Tip: Diverse verbeteringen ([#3138](https://github.com/dso-toolkit/dso-toolkit/issues/3138))
+
 ### Task
 * Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
 * Storybook: `storiesOf()` naar CSF ([#2316](https://github.com/dso-toolkit/dso-toolkit/issues/2316))
