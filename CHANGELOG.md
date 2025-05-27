@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
+
 ### Added
 * Document Card: Chevron wordt niet op de juiste plek weergegeven ([#3067](https://github.com/dso-toolkit/dso-toolkit/issues/3067))
 

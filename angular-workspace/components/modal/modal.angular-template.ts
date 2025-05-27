@@ -15,7 +15,7 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [fullscreen]="fullscreen"
             [dialogRole]="role"
             [modalTitle]="modalTitle"
-            [showCloseButton]="showCloseButton"
+            [closable]="closable"
             (dsoClose)="dsoClose?.($event)"
           >
             <div slot="body" [innerHTML]="body.template | trustHtml"></div>

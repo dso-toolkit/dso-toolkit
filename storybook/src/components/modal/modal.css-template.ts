@@ -10,11 +10,11 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "html-css",
   template: () =>
-    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, body, footer }) {
+    function modalTemplate({ fullscreen, modalTitle, role, closable, body, footer }) {
       const ariaId = v4();
 
-      if (showCloseButton === undefined) {
-        showCloseButton = true;
+      if (closable === undefined) {
+        closable = true;
       }
 
       return html`
@@ -29,7 +29,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
               ? html`
                   <div class="dso-header">
                     <h2 id=${ariaId}>${modalTitle}</h2>
-                    ${showCloseButton
+                    ${closable
                       ? html` <button type="button" class="dso-close">
                           <span class="sr-only">Sluiten</span>
                         </button>`

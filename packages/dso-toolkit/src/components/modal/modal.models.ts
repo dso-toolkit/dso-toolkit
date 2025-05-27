@@ -4,7 +4,7 @@ export interface Modal<TemplateFnReturnType> {
   modalTitle?: string;
   footer?: TemplateFnReturnType;
   role?: ModalRole;
-  showCloseButton?: boolean;
+  closable?: boolean;
   dsoClose?: (e: CustomEvent<ModalCloseEvent>) => void;
 }
 
