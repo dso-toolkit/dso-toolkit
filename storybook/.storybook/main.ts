@@ -2,9 +2,6 @@ import { StorybookConfig } from "@storybook/web-components-webpack5";
 import { readdirSync } from "fs";
 import { resolve, dirname, parse, join } from "path";
 
-// Niet op `true` inchecken (#2316)
-const testStoryStoryV7 = false;
-
 function getVersion() {
   if (process.env.CI && process.env.DT_REF) {
     return process.env.DT_REF;
@@ -14,24 +11,6 @@ function getVersion() {
 }
 
 const config: StorybookConfig = {
-  experimental_indexers: (existingIndexers) => {
-    if (!testStoryStoryV7) {
-      return existingIndexers;
-    }
-
-    return existingIndexers.map((indexer) => {
-      const test = indexer.test.toString();
-
-      if (test.endsWith(`(m?js|ts)x?$/${indexer.test.flags}`)) {
-        return {
-          ...indexer,
-          test: /\.(core-stories|css-stories)\.(ts)x?$/,
-        };
-      }
-
-      return indexer;
-    });
-  },
   typescript: {
     check: true,
   },
@@ -83,9 +62,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@whitespace/storybook-addon-html"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
-  stories: testStoryStoryV7
-    ? ["../src/components/**/*.{core-,css-}stories.ts"]
-    : ["../src/components/**/*.{core-,css-,}stories.ts", "../src/example-pages/**/*.ts"],
+  stories: ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"],
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
@@ -115,9 +92,6 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
-  },
-  features: {
-    storyStoreV7: testStoryStoryV7,
   },
 };
 

@@ -30,7 +30,7 @@ import { danger, fail } from "danger";
 
   // Changelog check
   const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md");
-  if (!hasChangelog && firstCommitMessage?.issueId !== 2316) {
+  if (!hasChangelog) {
     fail(
       `Het lijkt erop dat je geen aantekening hebt toegevoegd aan het CHANGELOG. Lees de [Change management notatie](https://www.dso-toolkit.nl/master/voor-maintainers/change-management-notatie) om te lezen wat dit inhoudt en hoe je dit op de juiste manier doet.`,
     );
