@@ -429,6 +429,15 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
+  it("should render Subtitel element", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--subtitel");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+  });
+
   it("should render renvooi-weergave elements", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
 
@@ -522,7 +531,7 @@ describe("Ozon Content", () => {
   it("should mark and highlight", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al")
       .get("dso-ozon-content")
-      .invoke("prop", "content", "<Label>Dit is absoluut fantastisch gemaakt!</Label>")
+      .invoke("prop", "content", "<Kop><Label>Dit is absoluut fantastisch gemaakt!</Label></Kop>")
       .get("dso-ozon-content")
       .then(
         ($ozonContent) =>
