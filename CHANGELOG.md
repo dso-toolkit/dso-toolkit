@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
+
 ### Task
 * Website: Aanpassing structuur van de opdeling van alle componenten ([#3072](https://github.com/dso-toolkit/dso-toolkit/issues/3072))
 

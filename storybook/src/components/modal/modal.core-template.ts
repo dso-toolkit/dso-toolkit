@@ -8,12 +8,12 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "core",
   template: () =>
-    function modalTemplate({ fullscreen, modalTitle, role, showCloseButton, body, footer, dsoClose }) {
+    function modalTemplate({ fullscreen, modalTitle, role, closable, body, footer, dsoClose }) {
       return html`
         <dso-modal
           dialog-role=${role}
           modal-title=${ifDefined(modalTitle)}
-          show-close-button=${ifDefined(showCloseButton)}
+          closable=${ifDefined(closable)}
           ?fullscreen=${fullscreen}
           @dsoClose=${dsoClose}
         >

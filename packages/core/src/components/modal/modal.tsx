@@ -50,12 +50,12 @@ export class Modal implements ComponentInterface {
   returnFocus: false | HTMLElement | undefined = undefined;
 
   /**
-   * when `false` the close button in the header will not be rendered. Defaults to `true`.
+   * when `false` the close button in the header will not be rendered.
    *
    * Needs `modalTitle` to be set.
    */
   @Prop()
-  showCloseButton = true;
+  closable = false;
 
   private returnFocusElement: HTMLElement | undefined;
 
@@ -79,6 +79,12 @@ export class Modal implements ComponentInterface {
       }
 
       this.htmlDialogElement.showModal();
+
+      this.htmlDialogElement.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape" && !this.closable) {
+          e.preventDefault();
+        }
+      });
     }
   }
 
@@ -92,6 +98,16 @@ export class Modal implements ComponentInterface {
     (this.returnFocus ?? this.returnFocusElement)?.focus();
   }
 
+  private handleDialogClick(e: MouseEvent) {
+    if (!this.closable) {
+      return;
+    }
+
+    if (e.target === this.htmlDialogElement) {
+      this.dsoClose.emit({ originalEvent: e });
+    }
+  }
+
   render() {
     return (
       <dialog
@@ -100,17 +116,20 @@ export class Modal implements ComponentInterface {
         aria-modal="true"
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
+        onClick={(e) => this.handleDialogClick(e)}
         onCancel={(e) => {
           e.preventDefault();
 
-          this.dsoClose.emit({ originalEvent: e });
+          if (this.closable) {
+            this.dsoClose.emit({ originalEvent: e });
+          }
         }}
       >
         <div class="dso-dialog" role="document">
           {this.modalTitle ? (
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>
-              {this.showCloseButton && (
+              {this.closable && (
                 <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
                   <dso-icon icon="times"></dso-icon>
                   <span class="sr-only">{this.text("close")}</span>

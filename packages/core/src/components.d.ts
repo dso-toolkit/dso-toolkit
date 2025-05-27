@@ -963,6 +963,10 @@ export namespace Components {
     }
     interface DsoModal {
         /**
+          * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
+         */
+        "closable": boolean;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "dialogRole": string | null;
@@ -978,10 +982,6 @@ export namespace Components {
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus": false | HTMLElement | undefined;
-        /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
-         */
-        "showCloseButton": boolean;
     }
     interface DsoOnboardingTip {
         /**
@@ -3569,6 +3569,10 @@ declare namespace LocalJSX {
     }
     interface DsoModal {
         /**
+          * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
+         */
+        "closable"?: boolean;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "dialogRole"?: string | null;
@@ -3588,10 +3592,6 @@ declare namespace LocalJSX {
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus"?: false | HTMLElement | undefined;
-        /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
-         */
-        "showCloseButton"?: boolean;
     }
     interface DsoOnboardingTip {
         /**
