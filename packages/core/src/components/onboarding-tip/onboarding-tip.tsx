@@ -65,20 +65,26 @@ export class OnboardingTip implements ComponentInterface {
     placement: Placement,
   ) {
     const padding = 5;
-    const arrowLength = tipArrowRef.offsetWidth;
-
-    // Get half the arrow box's hypotenuse length
-    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
-
-    // 1.5 times the diagonal of the arrow box
-    const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
-
     return autoUpdate(referenceElement, tipRef, () => {
+      const arrowLength = tipArrowRef.offsetWidth;
+
+      // Get half the arrow box's hypotenuse length
+      const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
+
+      // 1.5 times the diagonal of the arrow box
+      const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
+
       const smallViewport = document.body.clientWidth < 992; // Same as media-query-breakpoints.$screen-md-min
+
+      const crossAxisOffset = smallViewport ? 0 : ((['top', 'bottom'].includes(placement) ? tipRef.clientWidth : tipRef.clientHeight) / 2) - (arrowPadding + arrowLength - (padding * 2));
+
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
         middleware: [
-          offset(floatingOffset),
+          offset({
+            mainAxis: mainAxisOffset,
+            crossAxis: crossAxisOffset,
+          }),
           flip({
             padding,
             // Left & Right are the main axis. When there's no space on either side, Top & Bottom are also used.
