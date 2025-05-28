@@ -1,5 +1,5 @@
-import { arrow, autoUpdate, computePosition, hide, offset, Placement, flip, shift } from "@floating-ui/dom";
-import { h, Component, Element, Prop, ComponentInterface, Event, EventEmitter, Host } from "@stencil/core";
+import { arrow, autoUpdate, computePosition, flip, hide, offset, Placement, shift } from "@floating-ui/dom";
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
 
@@ -34,6 +34,11 @@ export class OnboardingTip implements ComponentInterface {
     }
   }
 
+  componentDidLoad() {
+    // Startup fade-in transition
+    this.host.classList.add("fade-in");
+  }
+
   disconnectedCallback(): void {
     if (this.host.matches(":popover-open")) {
       this.host.hidePopover();
@@ -53,35 +58,58 @@ export class OnboardingTip implements ComponentInterface {
     tipArrowRef: HTMLDivElement,
     placement: Placement,
   ) {
-    // Get half the arrow box's hypotenuse length
-    const arrowLength = tipArrowRef.offsetWidth;
-    const floatingOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
     const padding = 5;
-
     return autoUpdate(referenceElement, tipRef, () => {
+      const arrowLength = tipArrowRef.offsetWidth;
+
+      // Get half the arrow box's hypotenuse length
+      const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
+
+      // 1.5 times the diagonal of the arrow box
+      const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
+
+      // Same as media-query-breakpoints.$screen-md-min
+      const smallViewport = document.body.clientWidth < 992;
+
+      // Make sure the arrow is always in a corner (+ padding)
+      const crossAxisOffset = smallViewport
+        ? 0
+        : (["top", "bottom"].includes(placement) ? tipRef.clientWidth : tipRef.clientHeight) / 2 -
+          (arrowPadding + arrowLength - padding * 2);
+
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
         middleware: [
-          offset(floatingOffset),
+          offset({
+            mainAxis: mainAxisOffset,
+            crossAxis: crossAxisOffset,
+          }),
           flip({
             padding,
+            // Left & Right are the main axis. When there's no space on either side, Top & Bottom are also used.
+            fallbackAxisSideDirection: smallViewport ? "start" : "none",
           }),
-          shift({
-            padding,
-          }),
+          smallViewport
+            ? undefined
+            : shift({
+                padding,
+              }),
           arrow({
-            padding: padding + arrowLength,
+            padding: arrowPadding,
             element: tipArrowRef,
           }),
           hide({
-            padding: 42,
+            padding: arrowPadding + arrowLength + padding,
+            rootBoundary: smallViewport ? "document" : "viewport",
           }),
         ],
         placement,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
         if (middlewareData.hide) {
           Object.assign(tipRef.style, {
+            // Both of these properties have a CSS transition
             visibility: middlewareData.hide.referenceHidden ? "hidden" : "visible",
+            opacity: middlewareData.hide.referenceHidden ? 0 : 1,
           });
         }
 
