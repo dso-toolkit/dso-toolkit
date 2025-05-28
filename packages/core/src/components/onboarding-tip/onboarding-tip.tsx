@@ -1,8 +1,7 @@
 import { arrow, autoUpdate, computePosition, flip, hide, offset, Placement, shift } from "@floating-ui/dom";
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
-import clsx from "clsx";
 
 @Component({
   tag: "dso-onboarding-tip",
@@ -25,9 +24,6 @@ export class OnboardingTip implements ComponentInterface {
   @Event()
   dsoClose!: EventEmitter<OnboardingTipCloseEvent>;
 
-  @State()
-  hidden = true;
-
   componentDidRender() {
     if (!this.host.matches(":popover-open")) {
       this.host.showPopover();
@@ -40,9 +36,7 @@ export class OnboardingTip implements ComponentInterface {
 
   componentDidLoad() {
     // Startup fade-in transition
-    setTimeout(() => {
-      this.hidden = false;
-    }, 100);
+    this.host.classList.add("fade-in");
   }
 
   disconnectedCallback(): void {
@@ -74,9 +68,14 @@ export class OnboardingTip implements ComponentInterface {
       // 1.5 times the diagonal of the arrow box
       const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
 
-      const smallViewport = document.body.clientWidth < 992; // Same as media-query-breakpoints.$screen-md-min
+      // Same as media-query-breakpoints.$screen-md-min
+      const smallViewport = document.body.clientWidth < 992;
 
-      const crossAxisOffset = smallViewport ? 0 : ((['top', 'bottom'].includes(placement) ? tipRef.clientWidth : tipRef.clientHeight) / 2) - (arrowPadding + arrowLength - (padding * 2));
+      // Make sure the arrow is always in a corner (+ padding)
+      const crossAxisOffset = smallViewport
+        ? 0
+        : (["top", "bottom"].includes(placement) ? tipRef.clientWidth : tipRef.clientHeight) / 2 -
+          (arrowPadding + arrowLength - padding * 2);
 
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
@@ -165,7 +164,7 @@ export class OnboardingTip implements ComponentInterface {
 
   render() {
     return (
-      <Host popover="manual" class={clsx({ "is-hidden": this.hidden })}>
+      <Host popover="manual">
         <div class="onboarding-tip" role="tooltip">
           <div class="onboarding-tip-inner">
             <div class="onboarding-tip-content-wrapper">

@@ -64,9 +64,10 @@
     opacity onboarding-tip-variables.$transition-time;
 }
 
-:host(.is-hidden) {
-  visibility: hidden !important;
-  opacity: 0 !important;
+// Startup fade-in transition
+:host(.fade-in) {
+  opacity: 1;
+  animation: onboarding-tip-variables.$transition-time ease-in 1 normal both fadeInOpacity;
 }
 
 :host([popover]) {
@@ -159,5 +160,14 @@
 
   dso-icon {
     margin-inline-end: units.$u1;
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
