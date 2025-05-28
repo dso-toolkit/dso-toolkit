@@ -77,15 +77,15 @@ export default [
           groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
           pathGroups: [
             {
-              pattern: "@site/**",
+              pattern: "{@site/**,@theme/**}",
               group: "internal",
               position: "after",
             },
-            {
-              pattern: "@theme/**",
-              group: "internal",
-              position: "after",
-            },
+            // {
+            //   pattern: "@theme/**",
+            //   group: "internal",
+            //   position: "after",
+            // },
           ],
           pathGroupsExcludedImportTypes: ["builtin"],
           "newlines-between": "always",

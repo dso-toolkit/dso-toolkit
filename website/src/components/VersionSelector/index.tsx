@@ -13,7 +13,6 @@ import {
   isSelectedVersion,
   isTopicVersion,
 } from "@site/src/functions/versions.function";
-
 import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
 import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 
