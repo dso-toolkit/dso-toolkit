@@ -90,11 +90,9 @@ export class OnboardingTip implements ComponentInterface {
             // Left & Right are the main axis. When there's no space on either side, Top & Bottom are also used.
             fallbackAxisSideDirection: smallViewport ? "start" : "none",
           }),
-          smallViewport
-            ? undefined
-            : shift({
-                padding,
-              }),
+          shift({
+            padding,
+          }),
           arrow({
             padding: arrowPadding,
             element: tipArrowRef,

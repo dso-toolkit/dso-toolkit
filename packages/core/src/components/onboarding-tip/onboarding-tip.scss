@@ -123,7 +123,7 @@
   --link-visited-color: #{colors.$grijs-50};
 
   max-inline-size: min(#{onboarding-tip-variables.$max-inline-size}, calc(100vw - 2 * #{units.$u1}));
-  max-block-size: 80vh;
+  max-block-size: calc(100vh - 10px); // 10px is the padding given to floating-ui
   overflow: auto;
   padding-block: onboarding-tip-variables.$padding-block;
   padding-inline: onboarding-tip-variables.$padding-inline;
