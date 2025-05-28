@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 

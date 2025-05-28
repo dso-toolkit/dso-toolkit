@@ -1,6 +1,6 @@
+import { ImageOverlay } from "dso-toolkit";
 import { html } from "lit-html";
 
-import { ImageOverlay } from "dso-toolkit";
 import { ComponentImplementation } from "../../templates";
 
 export const coreImageOverlay: ComponentImplementation<ImageOverlay> = {

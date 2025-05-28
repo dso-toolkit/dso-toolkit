@@ -3,6 +3,7 @@ import { h } from "@stencil/core/internal";
 import clsx from "clsx";
 
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
+
 import { Colspecs } from "./colspec/colspec.interface";
 
 function getColspecStartColsep({ columns }: Colspecs, nameStart: string): string | null {

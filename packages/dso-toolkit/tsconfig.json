@@ -21,7 +21,8 @@
     "noUncheckedIndexedAccess": true,
     "outDir": "dist",
     "declarationDir": "dist/types",
-    "target": "ESNext"
+    "target": "ESNext",
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

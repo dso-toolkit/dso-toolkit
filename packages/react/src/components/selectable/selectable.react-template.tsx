@@ -1,9 +1,9 @@
+import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
 import { Selectable } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoSelectable } from "../../components";
 import { ComponentImplementation } from "../../templates";
-import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
 
 export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> = {
   component: "selectable",

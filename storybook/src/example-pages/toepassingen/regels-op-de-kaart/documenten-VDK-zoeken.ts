@@ -2,8 +2,9 @@ import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
-import { header, tabItems } from "./documenten-VDK.content";
 import { dropdownItems } from "../aanvragen/locatie.content";
+
+import { header, tabItems } from "./documenten-VDK.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",

@@ -1,12 +1,12 @@
 import { h } from "@stencil/core";
+import clsx from "clsx";
 
+import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
+import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
+import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
-import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
-import clsx from "clsx";
-import { wijzigactieToClassName } from "../functions/wijzigactie-to-class-name.function";
-import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
 
 export class OzonContentLijstNode implements OzonContentNode {
   name = "Lijst";

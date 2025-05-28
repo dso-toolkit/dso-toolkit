@@ -1,5 +1,5 @@
-import { html, TemplateResult } from "lit-html";
 import { ExpandableDecorator } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 export const decorator: ExpandableDecorator<TemplateResult> = (story) => html`
   <span

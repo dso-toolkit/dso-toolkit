@@ -1,8 +1,9 @@
-import { Logo } from "./logo.models.js";
-
-import { ArgTypes } from "@storybook/types";
-import { noControl } from "../../storybook";
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "@storybook/types";
+
+import { noControl } from "../../storybook";
+
+import { Logo } from "./logo.models.js";
 
 export interface LogoArgs {
   name?: string;

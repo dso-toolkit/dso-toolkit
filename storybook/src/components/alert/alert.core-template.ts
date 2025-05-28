@@ -1,9 +1,9 @@
 import { Alert } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
-import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",

@@ -1,4 +1,5 @@
 import { SlideToggle } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularSlideToggle: ComponentImplementation<SlideToggle> = {

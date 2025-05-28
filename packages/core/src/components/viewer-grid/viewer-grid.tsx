@@ -4,23 +4,23 @@ import debounce from "debounce";
 
 import { DocumentPanel, Filterpanel, MainPanel, Overlay } from "./components";
 import {
-  ViewerGridPanelSize,
-  ViewerGridVdkTab,
-  ViewerGridVrkTab,
+  ViewerGridActiveTabSwitchEvent,
   ViewerGridChangeSizeAnimationEndEvent,
   ViewerGridChangeSizeEvent,
+  ViewerGridCloseFilterpanelEvent,
   ViewerGridCloseOverlayEvent,
   ViewerGridFilterpanelApplyEvent,
   ViewerGridFilterpanelCancelEvent,
   ViewerGridMainExpandEvent,
   ViewerGridMainToggleEvent,
-  ViewerGridActiveTabSwitchEvent,
   ViewerGridMode,
+  ViewerGridPanelSize,
+  ViewerGridTab,
+  ViewerGridVdkTab,
+  ViewerGridVrkTab,
   viewerGridTabLabelMap,
   viewerGridVdkTabs,
   viewerGridVrkTabs,
-  ViewerGridTab,
-  ViewerGridCloseFilterpanelEvent,
 } from "./viewer-grid.interfaces";
 
 const resizeObserver = new ResizeObserver(

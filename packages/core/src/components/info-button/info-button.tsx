@@ -1,4 +1,4 @@
-import { h, Component, Event, Prop, EventEmitter, Method, Host, State } from "@stencil/core";
+import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";

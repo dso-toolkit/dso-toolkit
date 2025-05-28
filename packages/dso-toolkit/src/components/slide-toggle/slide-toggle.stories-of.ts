@@ -1,17 +1,17 @@
-import { v4 as uuidv4 } from "uuid";
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+import { v4 as uuidv4 } from "uuid";
+
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
 
 import {
   SlideToggleArgs,
-  slideToggleArgsMapper,
   slideToggleArgTypes,
+  slideToggleArgsMapper,
   slideToggleDefaultArgs,
 } from "./slide-toggle.args.js";
 import { SlideToggle } from "./slide-toggle.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
 
 type SlideToggleStory = StoryObj<SlideToggleArgs, Renderer>;
 

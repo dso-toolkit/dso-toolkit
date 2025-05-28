@@ -1,19 +1,18 @@
+import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 
 import {
   activeBody,
   activeFooter,
   confirmBody,
   confirmFooter,
+  datePickerBody,
+  loadingBody,
   passiveBody,
   passiveFooter,
-  loadingBody,
-  datePickerBody,
 } from "./modal.content";
 
 const meta: Meta<ModalArgs> = {
@@ -42,4 +41,4 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };
+export { Active, Confirm, Fullscreen, Loading, Passive, WithDatepicker };

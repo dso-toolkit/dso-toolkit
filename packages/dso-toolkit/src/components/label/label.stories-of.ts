@@ -1,12 +1,12 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
 
 import { LabelArgs, labelArgTypes, labelArgsMapper } from "./label.args.js";
-import { Label } from "./label.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { css } from "./label.demo.js";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { Label } from "./label.models.js";
 
 export type LabelDecorator<TemplateFnReturnType> = (story: PartialStoryFn, css: string) => TemplateFnReturnType;
 

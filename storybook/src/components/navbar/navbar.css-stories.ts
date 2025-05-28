@@ -1,7 +1,5 @@
 import type { Meta } from "@storybook/web-components";
-
 import { NavbarArgs, navbarMeta, navbarStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/navbar/readme.md?raw";
 
 import { templateContainer } from "../../templates";

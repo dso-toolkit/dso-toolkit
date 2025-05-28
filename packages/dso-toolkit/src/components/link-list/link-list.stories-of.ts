@@ -1,12 +1,12 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
 
-import { LinkListArgs, linkListArgsMapper, linkListArgTypes } from "./link-list.args.js";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { LinkListArgs, linkListArgTypes, linkListArgsMapper } from "./link-list.args.js";
 import { links, navLinks } from "./link-list.content.js";
 import { LinkList, LinkListType } from "./link-list.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 
 type LinkListStory = StoryObj<LinkListArgs, Renderer>;
 

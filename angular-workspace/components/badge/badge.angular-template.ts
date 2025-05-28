@@ -1,4 +1,5 @@
 import { Badge } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularBadge: ComponentImplementation<Badge> = {

@@ -1,7 +1,7 @@
-import { html, nothing, TemplateResult } from "lit-html";
+import { ContactInformation } from "dso-toolkit";
+import { TemplateResult, html, nothing } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { ContactInformation } from "dso-toolkit";
 
 export const coreContactInformation: ComponentImplementation<ContactInformation<TemplateResult>> = {
   component: "contactInformation",

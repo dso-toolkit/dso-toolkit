@@ -4,17 +4,23 @@ import {
   Element,
   Event,
   EventEmitter,
-  forceUpdate,
   Fragment,
   FunctionalComponent,
-  h,
   Host,
   Method,
   Prop,
   State,
+  forceUpdate,
+  h,
 } from "@stencil/core";
 
+import { DsoSlideToggleCustomEvent } from "../../../components";
+import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
+import { LabelStatus } from "../../label/label.interfaces";
+import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
 import { AccordionInternalState } from "../accordion.interfaces";
+
 import {
   AccordionHeading,
   AccordionSectionActiveChangeEvent,
@@ -25,12 +31,6 @@ import {
   AccordionSectionWijzigactie,
   stateMap,
 } from "./accordion-section.interfaces";
-import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
-import { LabelStatus } from "../../label/label.interfaces";
-import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
-import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
-
-import { DsoSlideToggleCustomEvent } from "../../../components";
 
 // eslint-disable-next-line no-console
 const log = (window as any)["_dsoLog"] === true ? console.log.bind(console.log) : function () {};

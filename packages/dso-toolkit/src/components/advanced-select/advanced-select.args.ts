@@ -1,8 +1,9 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
-import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
 import { noControl } from "../../storybook";
-import { HandlerFunction } from "@storybook/addon-actions";
+
+import { AdvancedSelect, AdvancedSelectOptionOrGroup } from "./advanced-select.models.js";
 
 export interface AdvancedSelectArgs {
   activeIndex?: number;

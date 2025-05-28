@@ -1,11 +1,10 @@
-import * as React from "react";
 import { type Meta } from "@storybook/react";
-
 import { TreeViewArgs, TreeViewItem, treeViewMeta, treeViewStories } from "dso-toolkit";
-
-import readme from "./readme.md?raw";
+import * as React from "react";
 
 import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta<TreeViewArgs> = {
   ...treeViewMeta({ readme }),

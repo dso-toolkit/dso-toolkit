@@ -17,7 +17,8 @@
     "skipLibCheck": true,
     "jsx": "react",
     "jsxFragmentFactory": "Fragment",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src", "scripts/readme.ts"],
   "exclude": ["node_modules"]

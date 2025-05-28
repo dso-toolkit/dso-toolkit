@@ -1,12 +1,12 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import { OnboardingTipArgs, onboardingTipArgsMapper, onboardingTipArgTypes } from "./onboarding-tip.args";
-import { OnboardingTip } from "./onboarding-tip.models";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { v4 as uuidv4 } from "uuid";
+
+import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { OnboardingTipArgs, onboardingTipArgTypes, onboardingTipArgsMapper } from "./onboarding-tip.args";
+import { OnboardingTip } from "./onboarding-tip.models";
 
 export type OnboardingTipDecorator<TemplateFnReturnType> = (
   story: PartialStoryFn,

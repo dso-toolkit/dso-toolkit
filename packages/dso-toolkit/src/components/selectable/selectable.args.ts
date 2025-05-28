@@ -1,5 +1,4 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-
 import { ArgTypes } from "@storybook/types";
 
 import { Selectable } from "./selectable.models.js";

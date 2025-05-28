@@ -1,4 +1,4 @@
-import { h, Component, Event, Prop, EventEmitter, Fragment } from "@stencil/core";
+import { Component, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "dso-info",

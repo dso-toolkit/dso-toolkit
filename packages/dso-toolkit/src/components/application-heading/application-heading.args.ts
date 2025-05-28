@@ -1,4 +1,5 @@
 import { ArgTypes } from "@storybook/types";
+
 import { ApplicationHeading } from "./application-heading.models.js";
 
 export interface ApplicationHeadingArgs {

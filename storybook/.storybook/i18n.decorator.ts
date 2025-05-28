@@ -1,5 +1,5 @@
 import { PartialStoryFn, StoryContext } from "@storybook/types";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 import { keyed } from "lit-html/directives/keyed.js";
 
 type I18nDecorator<TemplateFnReturnType> = (story: PartialStoryFn, context: StoryContext) => TemplateFnReturnType;

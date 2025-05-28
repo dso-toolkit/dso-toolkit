@@ -1,4 +1,4 @@
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 import { Templates } from "../../templates";
 

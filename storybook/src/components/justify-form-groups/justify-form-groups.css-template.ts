@@ -1,5 +1,6 @@
 import { JustifyFormGroups } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssJustifyFormGroups: ComponentImplementation<JustifyFormGroups<TemplateResult>> = {

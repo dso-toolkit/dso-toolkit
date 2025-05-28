@@ -1,5 +1,6 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 import clsx from "clsx";
+
 import { BadgeStatus } from "./badge.interfaces";
 
 @Component({

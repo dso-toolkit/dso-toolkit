@@ -1,4 +1,4 @@
-import { Fragment, FunctionalComponent, h, JSX } from "@stencil/core";
+import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";

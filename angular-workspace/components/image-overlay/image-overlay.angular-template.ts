@@ -1,4 +1,5 @@
 import { ImageOverlay } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularImageOverlay: ComponentImplementation<ImageOverlay> = {

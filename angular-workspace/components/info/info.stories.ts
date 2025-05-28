@@ -1,11 +1,11 @@
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { InfoArgs, infoMeta, infoStories } from "dso-toolkit";
 
-import { templateContainer } from "../../templates";
-import { richContent } from "./info.content";
-
-import readme from "./readme.md?raw";
-import { type Meta, moduleMetadata } from "@storybook/angular";
 import { DsoInfo } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+
+import { richContent } from "./info.content";
+import readme from "./readme.md?raw";
 
 const meta: Meta<InfoArgs> = {
   ...infoMeta({ readme }),

@@ -1,11 +1,9 @@
-import React from "react";
+import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 import { type Meta } from "@storybook/react";
-
 import { DatePickerArgs, DatePickerDecorator, datePickerMeta, datePickerStories } from "dso-toolkit";
+import React from "react";
 
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 
@@ -42,4 +40,4 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
   decorator,
 });
 
-export { Default, Disabled, Invalid, WithValue, WithMinAndMax, MonthRange, WithLabel, NarrowInput };
+export { Default, Disabled, Invalid, MonthRange, NarrowInput, WithLabel, WithMinAndMax, WithValue };

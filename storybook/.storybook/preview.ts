@@ -1,4 +1,5 @@
 import { Preview } from "@storybook/web-components";
+
 import { i18nDecorator } from "./i18n.decorator";
 
 const preview: Preview = {

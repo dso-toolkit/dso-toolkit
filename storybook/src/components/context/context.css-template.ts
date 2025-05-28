@@ -1,8 +1,8 @@
 import { Context } from "dso-toolkit";
-
-import { html, TemplateResult } from "lit-html";
-import { ComponentImplementation } from "../../templates";
+import { TemplateResult, html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+
+import { ComponentImplementation } from "../../templates";
 
 function contextLabelTemplate({ label, content, children, alignLeft }: Context<TemplateResult>) {
   return html`

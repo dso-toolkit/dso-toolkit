@@ -1,6 +1,6 @@
-import { Banner } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
 import clsx from "clsx";
+import { Banner } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 

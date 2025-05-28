@@ -1,15 +1,13 @@
+import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
+import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
 import { Meta } from "@storybook/web-components";
-import { html } from "lit-html";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
-
 import {
+  DocumentComponentTableOfContentsClickEvent,
   documentComponentMeta,
   documentComponentStories,
-  DocumentComponentTableOfContentsClickEvent,
 } from "dso-toolkit";
-import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
-
-import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
+import { html } from "lit-html";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { templateContainer } from "../../templates";
 
@@ -92,4 +90,4 @@ const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
   decorator,
 );
 
-export { Default, Contents, Inhoudsopgave, IMRO };
+export { Contents, Default, IMRO, Inhoudsopgave };

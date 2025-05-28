@@ -1,10 +1,11 @@
-import { Component, ComponentInterface, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { AnnotationWijzigactie } from "../annotation.interfaces";
+import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
 
-import { AnnotationBody } from "../annotation-body";
-import { AnnotationKaartClickEvent } from "./annotation-kaart.interfaces";
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
+import { AnnotationBody } from "../annotation-body";
+import { AnnotationWijzigactie } from "../annotation.interfaces";
+
+import { AnnotationKaartClickEvent } from "./annotation-kaart.interfaces";
 
 @Component({
   tag: "dso-annotation-kaart",

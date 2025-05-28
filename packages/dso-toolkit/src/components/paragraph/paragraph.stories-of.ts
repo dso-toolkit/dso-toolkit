@@ -1,12 +1,12 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { ParagraphArgs, paragraphArgTypes, paragraphArgsMapper } from "./paragraph.args.js";
-import { Paragraph } from "./paragraph.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 import { defaultContent, disclaimerContent } from "./paragraph.content.js";
+import { Paragraph } from "./paragraph.models.js";
 
 type ParagraphStory = StoryObj<ParagraphArgs, Renderer>;
 

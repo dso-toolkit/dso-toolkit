@@ -1,13 +1,12 @@
-import { Component, Element, Event, EventEmitter, Fragment, h, Prop, State, Watch } from "@stencil/core";
-
+import { Component, Element, Event, EventEmitter, Fragment, Prop, State, Watch, h } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
 
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { HeaderEvent, HeaderMenuItem, HeaderNavigationType } from "./header.interfaces";
 import { translations } from "./header.i18n";
+import { HeaderEvent, HeaderMenuItem, HeaderNavigationType } from "./header.interfaces";
 
 const minDesktopViewportWidth = 992;
 

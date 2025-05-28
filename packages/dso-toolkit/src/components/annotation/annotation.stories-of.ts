@@ -1,31 +1,31 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import {
-  annotationActiviteitArgs,
-  AnnotationActiviteitArgs,
-  annotationActiviteitArgTypes,
-  annotationActiviteitArgsMapper,
-  annotationGebiedsaanwijzingArgs,
-  AnnotationGebiedsaanwijzingArgs,
-  annotationOmgevingsnormwaardeArgs,
-  AnnotationOmgevingsnormwaardeArgs,
-  annotationLocatieArgs,
-  AnnotationLocatieArgs,
-  annotationGebiedsaanwijzingArgsMapper,
-  annotationLocatieArgsMapper,
-  annotationOmgevingsnormwaardeArgsMapper,
-  annotationGebiedsaanwijzingArgTypes,
-  annotationOmgevingsnormwaardeArgTypes,
-  annotationLocatieArgTypes,
-  annotationKaartArgs,
-  annotationKaartArgTypes,
-  annotationKaartArgsMapper,
-  AnnotationKaartArgs,
-} from "./annotation.args.js";
-import { Annotation } from "./annotation.models.js";
+import { compiler } from "markdown-to-jsx";
 
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
+
+import {
+  AnnotationActiviteitArgs,
+  AnnotationGebiedsaanwijzingArgs,
+  AnnotationKaartArgs,
+  AnnotationLocatieArgs,
+  AnnotationOmgevingsnormwaardeArgs,
+  annotationActiviteitArgTypes,
+  annotationActiviteitArgs,
+  annotationActiviteitArgsMapper,
+  annotationGebiedsaanwijzingArgTypes,
+  annotationGebiedsaanwijzingArgs,
+  annotationGebiedsaanwijzingArgsMapper,
+  annotationKaartArgTypes,
+  annotationKaartArgs,
+  annotationKaartArgsMapper,
+  annotationLocatieArgTypes,
+  annotationLocatieArgs,
+  annotationLocatieArgsMapper,
+  annotationOmgevingsnormwaardeArgTypes,
+  annotationOmgevingsnormwaardeArgs,
+  annotationOmgevingsnormwaardeArgsMapper,
+} from "./annotation.args.js";
+import { Annotation } from "./annotation.models.js";
 
 export type AnnotationDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

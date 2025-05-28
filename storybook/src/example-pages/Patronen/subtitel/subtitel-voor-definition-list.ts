@@ -4,6 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 import { header } from "../../content/header.content";
 import { mainMenu } from "../../content/main-menu.content";
 import { headerPartial } from "../../partials/header";
+
 import { definitionList } from "./subtitle.content";
 
 examplePageFactory(

@@ -1,8 +1,8 @@
+import { DocumentCardClickEvent, DsoDocumentCardCustomEvent } from "@dso-toolkit/core";
 import { DocumentCard } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { DocumentCardClickEvent, DsoDocumentCardCustomEvent } from "@dso-toolkit/core";
 
 export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
   component: "documentCard",

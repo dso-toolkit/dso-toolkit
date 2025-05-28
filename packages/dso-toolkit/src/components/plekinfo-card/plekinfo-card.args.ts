@@ -2,10 +2,11 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook";
-import { PlekinfoCard, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
-import { Renvooi } from "../renvooi/renvooi.models.js";
 import { Label } from "../label/label.models.js";
+import { Renvooi } from "../renvooi/renvooi.models.js";
 import { SlideToggle } from "../slide-toggle";
+
+import { PlekinfoCard, PlekinfoWijzigactie } from "./plekinfo-card.models.js";
 
 export interface PlekinfoCardArgs {
   label: Renvooi | string;

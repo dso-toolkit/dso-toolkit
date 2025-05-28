@@ -1,5 +1,5 @@
-import { Link } from "../link/link.models.js";
 import { Button } from "../button/button.models.js";
+import { Link } from "../link/link.models.js";
 
 export interface ButtonRow {
   buttons: (Link | Button)[];

@@ -1,7 +1,8 @@
 import { Logo } from "dso-toolkit";
 import { html } from "lit-html";
-import { ComponentImplementation } from "../../templates";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { ComponentImplementation } from "../../templates";
 
 export const coreLogo: ComponentImplementation<Logo> = {
   component: "logo",

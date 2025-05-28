@@ -1,8 +1,8 @@
-import { h, FunctionalComponent, Fragment } from "@stencil/core";
+import { Fragment, FunctionalComponent, h } from "@stencil/core";
 import clsx from "clsx";
-import { TreeViewItem, TreeViewItemIcon } from "./tree-view.interfaces";
 
 import { TreeView } from "./tree-view";
+import { TreeViewItem, TreeViewItemIcon } from "./tree-view.interfaces";
 
 interface TreeViewItemProps {
   owner: TreeView;

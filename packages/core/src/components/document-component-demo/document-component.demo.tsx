@@ -1,7 +1,8 @@
-import { h, Component, ComponentInterface, State, Prop, Watch, Event, EventEmitter, Fragment } from "@stencil/core";
-import sampleSize from "lodash.samplesize";
+import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, State, Watch, h } from "@stencil/core";
 import random from "lodash.random";
+import sampleSize from "lodash.samplesize";
 
+import { DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
 import {
   DocumentComponentMode,
   DocumentComponentOzonContentAnchorClickEvent,
@@ -9,7 +10,6 @@ import {
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
 } from "../document-component/document-component.models";
-import { DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
 
 interface DocumentEmbedded {
   _embedded?: {

@@ -1,9 +1,9 @@
+import { DsoPlekinfoCardCustomEvent, PlekinfoCardClickEvent } from "@dso-toolkit/core";
 import { PlekinfoCard } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { DsoPlekinfoCardCustomEvent, PlekinfoCardClickEvent } from "@dso-toolkit/core";
-import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const corePlekinfoCard: ComponentImplementation<PlekinfoCard<never>> = {
   component: "plekinfoCard",

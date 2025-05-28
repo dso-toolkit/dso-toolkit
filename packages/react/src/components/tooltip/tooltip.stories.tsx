@@ -1,8 +1,8 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import type { Meta } from "@storybook/react";
 import { TooltipArgs, tooltipMeta, tooltipStories } from "dso-toolkit";
-
-import { HandlerFunction } from "@storybook/addon-actions";
 import * as React from "react";
+
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
