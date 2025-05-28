@@ -37,6 +37,7 @@ export class OnboardingTip implements ComponentInterface {
   componentDidLoad() {
     // Startup fade-in transition
     this.host.classList.add("fade-in");
+    this.host.onanimationend = () => this.host.classList.remove("fade-in");
   }
 
   disconnectedCallback(): void {
