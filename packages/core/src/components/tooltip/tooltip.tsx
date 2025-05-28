@@ -1,9 +1,10 @@
-import { beforeWrite, createPopper, Instance as PopperInstance, Placement, State as PopperState } from "@popperjs/core";
-import maxSize from "popper-max-size-modifier";
-import { h, Component, Element, Host, Method, Prop, State, Watch, ComponentInterface } from "@stencil/core";
+import { Instance as PopperInstance, Placement, State as PopperState, beforeWrite, createPopper } from "@popperjs/core";
+import { Component, ComponentInterface, Element, Host, Method, Prop, State, Watch, h } from "@stencil/core";
 import clsx from "clsx";
-import { hasOverflow } from "../../utils/has-overflow";
 import debounce from "debounce";
+import maxSize from "popper-max-size-modifier";
+
+import { hasOverflow } from "../../utils/has-overflow";
 
 // Keep const in sync with $tooltip-transition-duration in dso-toolkit/src/components/tooltip/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;

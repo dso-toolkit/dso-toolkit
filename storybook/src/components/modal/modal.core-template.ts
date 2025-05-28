@@ -1,6 +1,5 @@
 import { Modal } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
-
+import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";

@@ -1,4 +1,5 @@
-import { Component, Element, Event, EventEmitter, Prop, h, Method } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
+
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { TabsSwitchEvent } from "../tabs.interfaces";
 

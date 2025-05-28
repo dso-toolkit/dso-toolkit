@@ -2,7 +2,6 @@ import { Badge } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoBadge } from "../../components";
-
 import { ComponentImplementation } from "../../templates";
 
 export const reactBadge: ComponentImplementation<Badge> = {

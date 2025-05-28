@@ -1,4 +1,4 @@
-import { Fragment, h, JSX } from "@stencil/core";
+import { Fragment, JSX, h } from "@stencil/core";
 
 import { getNodeName } from "./get-node-name.function";
 import { OzonContentAbbrNode } from "./nodes/abbr.node";
@@ -13,10 +13,10 @@ import { OzonContentInlineTekstAfbeeldingNode } from "./nodes/inline-tekst-afbee
 import { OzonContentInlineNodes } from "./nodes/inline.nodes";
 import { OzonContentIntIoRefNode } from "./nodes/int-io-ref.node";
 import { OzonContentIntRefNode } from "./nodes/int-ref.node";
+import { OzonContentKopNode } from "./nodes/kop.node";
 import { OzonContentLijstNode } from "./nodes/lijst.node";
 import { OzonContentNieuweTekstNode } from "./nodes/nieuwe-tekst.node";
 import { OzonContentNootNode } from "./nodes/noot.node";
-import { OzonContentKopNode } from "./nodes/kop.node";
 import { OzonContentTableNode } from "./nodes/table.node";
 import { OzonContentTextNode } from "./nodes/text.node";
 import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";

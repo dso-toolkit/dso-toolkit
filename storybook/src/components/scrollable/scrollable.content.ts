@@ -1,42 +1,39 @@
 import { html } from "lit-html";
+
 import { Templates } from "../../templates";
 
 export const defaultContent = html`
   <div>
     <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-      pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
-      vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-      mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-      feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-      ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-      tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-      blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien
-      ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
-      fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue
-      velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam,
-      scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit
-      fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis
-      mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet
-      iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.
-      Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium
-      libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy
-      id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque
-      facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit
-      quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada.
-      Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan
-      cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam,
-      nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer
-      vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit
-      amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc
-      augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a,
-      suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat
-      nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-      posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis
-      diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-      egestas.
+      De Omgevingswet bundelt en vereenvoudigt de regels voor de fysieke leefomgeving in Nederland. Met deze wet worden
+      26 bestaande wetten samengevoegd, waardoor procedures voor ruimtelijke projecten overzichtelijker en efficiënter
+      worden. Via het Omgevingsloket kunnen burgers en bedrijven vergunningen aanvragen, meldingen doen en informatie
+      vinden over geldende regels op specifieke locaties. De wet stimuleert integrale besluitvorming en biedt ruimte
+      voor maatwerk door gemeenten, provincies en waterschappen. Door de invoering van het Digitaal Stelsel Omgevingswet
+      (DSO) wordt het eenvoudiger om relevante informatie te vinden en aanvragen digitaal in te dienen. Deze
+      modernisering draagt bij aan een transparanter en toegankelijker omgevingsbeleid voor alle betrokkenen. Het
+      Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en Ruimtelijke Ordening
+      (VRO), gemeenten, provincies en waterschappen. Hier kunnen gebruikers vergunningaanvragen indienen, meldingen doen
+      en informatie opvragen over de fysieke leefomgeving. Het loket biedt een centrale toegang tot regels en
+      beleidsdocumenten die van toepassing zijn op specifieke locaties, waardoor het proces van vergunningverlening en
+      informatievoorziening wordt vereenvoudigd. In het Omgevingsloket vindt u digitale informatie over de fysieke
+      leefomgeving. U kunt hier checken of u uw werkzaamheden mag uitvoeren volgens de Omgevingswet. En of u daarvoor
+      een vergunning nodig hebt, een melding moet doen of informatie moet geven. Ook kunt u de regels bekijken die op
+      een bepaalde locatie gelden. En checken aan welke maatregelen u zich moet houden bij uw werkzaamheden. In Mijn
+      Omgevingsloket vindt u al uw aanvragen en meldingen terug. In het Omgevingsloket vindt u digitale informatie over
+      de fysieke leefomgeving. U kunt hier checken of u uw werkzaamheden mag uitvoeren volgens de Omgevingswet. En of u
+      daarvoor een vergunning nodig hebt, een melding moet doen of informatie moet geven. Ook kunt u de regels bekijken
+      die op een bepaalde locatie gelden. En checken aan welke maatregelen u zich moet houden bij uw werkzaamheden. In
+      Mijn Omgevingsloket vindt u al uw aanvragen en meldingen terug. Hier vindt u de regels en het beleid van alle
+      overheden bij elkaar. Zo kunt u opzoeken wat er op een locatie wel of niet mag. Dat is handig als u zelf iets wil
+      gaan doen, zoals een uitrit aanleggen. Maar ook als u wilt weten of een verandering in uw buurt is toegestaan. Ook
+      kunt u toekomstige projecten bekijken zoals wanneer de provincie een rondweg wil gaan aanleggen. De regels van de
+      gemeente staan vaak in verschillende documenten: het omgevingsplan en bestemmingsplannen. Daarnaast hebben ook het
+      waterschap, de provincie en het Rijk regels en beleid voor een bepaalde plek. Verder ziet u ook de regels en het
+      beleid waar nog aan wordt gewerkt. Zo kunt bekijken wat er in de toekomst gaat veranderen in uw omgeving. Wilt u
+      op een locatie regels zoeken voor een bepaald onderwerp, zoals een activiteit, thema of gebiedsaanwijzing? Zoeken
+      op onderwerp is nu opgenomen als filtermogelijkheid in regels op de kaart. U kunt zoeken op onderwerpen door eerst
+      op locatie te zoeken en vervolgens de knop “extra filters” in de documentenlijst te gebruiken.
     </p>
   </div>
 `;
@@ -45,9 +42,18 @@ export function dynamicContent({ accordionTemplate }: Templates) {
   return html`
     <div>
       <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-        nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        De Omgevingswet bundelt en vereenvoudigt de regels voor de fysieke leefomgeving in Nederland. Met deze wet
+        worden 26 bestaande wetten samengevoegd, waardoor procedures voor ruimtelijke projecten overzichtelijker en
+        efficiënter worden. Via het Omgevingsloket kunnen burgers en bedrijven vergunningen aanvragen, meldingen doen en
+        informatie vinden over geldende regels op specifieke locaties. De wet stimuleert integrale besluitvorming en
+        biedt ruimte voor maatwerk door gemeenten, provincies en waterschappen. Door de invoering van het Digitaal
+        Stelsel Omgevingswet (DSO) wordt het eenvoudiger om relevante informatie te vinden en aanvragen digitaal in te
+        dienen. Deze modernisering draagt bij aan een transparanter en toegankelijker omgevingsbeleid voor alle
+        betrokkenen. Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van Volkshuisvesting en
+        Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen. Hier kunnen gebruikers vergunningaanvragen
+        indienen, meldingen doen en informatie opvragen over de fysieke leefomgeving. Het loket biedt een centrale
+        toegang tot regels en beleidsdocumenten die van toepassing zijn op specifieke locaties, waardoor het proces van
+        vergunningverlening en informatievoorziening wordt vereenvoudigd.
       </p>
     </div>
     ${accordionTemplate({
@@ -60,38 +66,11 @@ export function dynamicContent({ accordionTemplate }: Templates) {
           content: html`
             <div>
               <p>
-                aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
-                nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-                enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus
-                varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
-                ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam
-                semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,
-                hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis
-                faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-                mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue
-                velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus
-                quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu
-                turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor,
-                suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu,
-                accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum
-                rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl
-                sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed
-                lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet
-                imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.
-                Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada.
-                Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus
-                accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis
-                orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non,
-                nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean
-                posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-                Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar,
-                augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus.
-                Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                In de functie 'Regels op de kaart' binnen het Omgevingsloket kunnen gebruikers eenvoudig regels en
+                beleidsdocumenten van alle overheden vinden die gelden op een specifieke locatie. Door een plek op de
+                kaart te selecteren, worden direct de relevante regels en documenten weergegeven. Deze interactieve
+                weergave helpt burgers en bedrijven om inzicht te krijgen in de regelgeving die van toepassing is op hun
+                plannen of activiteiten. Meer informatie is te vinden op de officiële website van het Omgevingsloket.
               </p>
             </div>
           `,

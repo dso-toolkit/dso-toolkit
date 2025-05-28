@@ -1,15 +1,15 @@
 import {
-  Fragment,
-  h,
   Component,
   ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Fragment,
+  FunctionalComponent,
   Host,
   Prop,
   forceUpdate,
-  FunctionalComponent,
+  h,
 } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";

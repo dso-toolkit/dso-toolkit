@@ -1,10 +1,9 @@
 import { Meta } from "@storybook/react";
-
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 
-import readme from "./readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta = {
   ...imageOverlayMeta({ readme }),

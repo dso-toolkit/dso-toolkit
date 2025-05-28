@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Event, EventEmitter, Fragment, h } from "@stencil/core";
+
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./survey-rating.interfaces";
 
 @Component({

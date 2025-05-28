@@ -1,4 +1,5 @@
 import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
+
 import { AnnotationActiveChangeEvent } from "./annotation.interfaces";
 
 interface AnnotationBodyProps {

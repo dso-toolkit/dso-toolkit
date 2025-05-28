@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Document Card: Chevron wordt niet op de juiste plek weergegeven ([#3067](https://github.com/dso-toolkit/dso-toolkit/issues/3067))
 
+### Task
+* Eslint: Implementeer eslint-plugin-import ([#3065](https://github.com/dso-toolkit/dso-toolkit/issues/3065))
+
 ## ☀️ Release 73.1.0 - 2025-05-26
 
 ### Added

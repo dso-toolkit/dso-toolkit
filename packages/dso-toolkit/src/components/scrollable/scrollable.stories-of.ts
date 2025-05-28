@@ -1,11 +1,11 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import { ScrollableArgs, scrollableArgsMapper, scrollableArgTypes } from "./scrollable.args.js";
-import { Scrollable } from "./scrollable.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { ScrollableArgs, scrollableArgTypes, scrollableArgsMapper } from "./scrollable.args.js";
+import { Scrollable } from "./scrollable.models.js";
 
 export type ScrollableDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

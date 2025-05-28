@@ -1,14 +1,12 @@
+import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
 import { defaultSymbol } from "./legend-item.content";
-
 import { decorator } from "./legend-item.decorator";
-
-import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
-import { html } from "lit-html";
 
 const meta: Meta<LegendItemArgs> = {
   ...legendItemMeta({ readme }),
@@ -70,4 +68,4 @@ const { Default, WithSelectable, Removable, WithSelectables, WithInputRange } = 
   decorator,
 });
 
-export { Default, WithSelectable, Removable, WithSelectables, WithInputRange };
+export { Default, Removable, WithInputRange, WithSelectable, WithSelectables };

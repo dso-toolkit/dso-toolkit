@@ -1,7 +1,7 @@
+import { HandlerFunction } from "@storybook/addon-actions/*";
 import { ArgTypes } from "@storybook/types";
 
 import { MarkBar } from "./mark-bar.models.js";
-import { HandlerFunction } from "@storybook/addon-actions/*";
 
 export interface MarkBarArgs {
   value: string;

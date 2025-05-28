@@ -1,9 +1,9 @@
-import { Card, isButtonInterface, isToggletipInterface, isLabelInterface, isSlideToggleInterface } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { CardClickEvent, DsoCardCustomEvent } from "@dso-toolkit/core";
+import { Card, isButtonInterface, isLabelInterface, isSlideToggleInterface, isToggletipInterface } from "dso-toolkit";
+import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { CardClickEvent, DsoCardCustomEvent } from "@dso-toolkit/core";
 
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",

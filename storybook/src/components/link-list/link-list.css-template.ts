@@ -1,5 +1,6 @@
 import { LinkList, LinkListType } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssLinkList: ComponentImplementation<LinkList> = {

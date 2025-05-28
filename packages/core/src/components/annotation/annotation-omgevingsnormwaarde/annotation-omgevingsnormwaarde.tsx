@@ -1,12 +1,12 @@
-import { Component, ComponentInterface, Prop, Event, h, EventEmitter, Fragment, Element } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, h } from "@stencil/core";
 
-import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
+import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { AnnotationBody } from "../annotation-body";
 import { AnnotationGewijzigdeLocatie } from "../annotation-gewijzigde-locatie";
-import { watcher } from "../annotation-watcher";
-import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
-import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { AnnotationListRenvooiValues } from "../annotation-list-renvooi-values";
+import { AnnotationSymbolSlot } from "../annotation-symbol-slot";
+import { watcher } from "../annotation-watcher";
+import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "../annotation.interfaces";
 
 /**
  * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.

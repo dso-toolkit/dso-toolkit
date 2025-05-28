@@ -1,5 +1,6 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
+
 import { LegendItemRemoveClickEvent } from "./legend-item.interfaces";
 
 /**

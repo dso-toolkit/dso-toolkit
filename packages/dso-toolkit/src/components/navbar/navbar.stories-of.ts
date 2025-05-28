@@ -1,12 +1,12 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-import { componentArgs } from "../../storybook/index.js";
-
-import { navbarArgs, NavbarArgs, navbarArgsMapper, navbarArgTypes } from "./navbar.args.js";
-import { Navbar } from "./navbar.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
+import { componentArgs } from "../../storybook/index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { NavbarArgs, navbarArgTypes, navbarArgs, navbarArgsMapper } from "./navbar.args.js";
+import { Navbar } from "./navbar.models.js";
 
 type NavbarStory = StoryObj<NavbarArgs, Renderer>;
 

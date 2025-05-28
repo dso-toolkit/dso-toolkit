@@ -1,11 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { AccordionArgs, accordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args.js";
-import { Accordion, AccordionSection } from "./accordion.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { AccordionArgs, accordionArgTypes, accordionArgs, accordionArgsMapper } from "./accordion.args.js";
+import { Accordion, AccordionSection } from "./accordion.models.js";
 
 type AccordionStory = StoryObj<AccordionArgs, Renderer>;
 

@@ -1,5 +1,6 @@
 import { Breadcrumbs, DefinitionList, Header, Tabs } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
+
 import { Templates } from "../../../templates";
 
 export const header: Header = {

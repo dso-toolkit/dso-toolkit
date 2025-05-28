@@ -1,6 +1,7 @@
-import { dirname, join, parse, resolve } from "path";
-import { StorybookConfig } from "@storybook/angular";
 import { readdirSync } from "fs";
+import { dirname, join, parse, resolve } from "path";
+
+import { StorybookConfig } from "@storybook/angular";
 
 const config: StorybookConfig = {
   typescript: {

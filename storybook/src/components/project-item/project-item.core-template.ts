@@ -1,5 +1,5 @@
 import { ProjectItem } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
 

@@ -1,7 +1,9 @@
 import { html } from "lit-html";
+
 import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
-import { header, breadcrumbs, definitionList } from "./beheer-basis.content";
+
+import { breadcrumbs, definitionList, header } from "./beheer-basis.content";
 
 examplePageFactory(
   "Voorbeeldpagina's",

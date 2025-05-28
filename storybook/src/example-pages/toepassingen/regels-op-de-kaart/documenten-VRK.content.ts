@@ -1,5 +1,5 @@
 import { Breadcrumbs, CardContainer, Header } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 export const header: Header = {
   label: "Regels op de kaart",

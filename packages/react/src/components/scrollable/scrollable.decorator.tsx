@@ -1,5 +1,5 @@
-import React from "react";
 import { ScrollableDecorator } from "dso-toolkit";
+import React from "react";
 
 export const decorator: ScrollableDecorator<React.JSX.Element> = (storyFn) => {
   const story = storyFn();

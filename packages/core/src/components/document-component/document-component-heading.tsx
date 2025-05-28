@@ -1,5 +1,6 @@
-import { h, FunctionalComponent, VNode } from "@stencil/core";
+import { FunctionalComponent, VNode, h } from "@stencil/core";
 import { JSXBase } from "@stencil/core/internal";
+
 import { DocumentComponentMode } from "./document-component.models";
 
 interface DocumentComponentHeadingProps {

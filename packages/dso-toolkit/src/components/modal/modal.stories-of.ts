@@ -1,11 +1,12 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-import { componentArgs } from "../../storybook/index.js";
-
-import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args.js";
-import { Modal } from "./modal.models.js";
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 import { compiler } from "markdown-to-jsx";
+
+import { componentArgs } from "../../storybook/index.js";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { ModalArgs, modalArgTypes, modalArgsMapper } from "./modal.args.js";
+import { Modal } from "./modal.models.js";
 
 export type ModalDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

@@ -1,5 +1,5 @@
-import { h, Component, Fragment, Element, Prop, State } from "@stencil/core";
 import { Placement } from "@popperjs/core";
+import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "dso-toggletip",

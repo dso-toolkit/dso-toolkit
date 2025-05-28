@@ -1,13 +1,13 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-import { componentArgs } from "../../storybook";
-
-import { ozonContentArgTypes, ozonContentArgsMapper, OzonContentArgs } from "./ozon-content.args.js";
-import { OzonContent } from "./ozon-content.models.js";
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 import { compiler } from "markdown-to-jsx";
 
+import { componentArgs } from "../../storybook";
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { OzonContentArgs, ozonContentArgTypes, ozonContentArgsMapper } from "./ozon-content.args.js";
 import { content } from "./ozon-content.content.js";
+import { OzonContent } from "./ozon-content.models.js";
 
 export type OzonContentStory = StoryObj<OzonContentArgs, Renderer>;
 

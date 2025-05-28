@@ -1,9 +1,9 @@
-import { html, TemplateResult } from "lit-html";
-
-import { ComponentImplementation } from "../../templates";
-import { Panel } from "dso-toolkit";
 import { DsoPanelCustomEvent } from "@dso-toolkit/core";
 import { PanelCloseEvent } from "@dso-toolkit/core/src";
+import { Panel } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
+
+import { ComponentImplementation } from "../../templates";
 
 export const corePanel: ComponentImplementation<Panel<TemplateResult>> = {
   component: "panel",

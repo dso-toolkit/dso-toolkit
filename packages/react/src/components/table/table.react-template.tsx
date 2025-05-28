@@ -1,6 +1,6 @@
+import { clsx } from "clsx";
 import { Table, TableSorting } from "dso-toolkit";
 import * as React from "react";
-import { clsx } from "clsx";
 
 import { DsoIcon, DsoTable } from "../../components";
 import { ComponentImplementation } from "../../templates";

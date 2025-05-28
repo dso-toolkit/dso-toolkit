@@ -1,22 +1,21 @@
+import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ModalArgs, modalMeta, modalStories } from "dso-toolkit";
 
+import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-
-import readme from "@dso-toolkit/core/src/components/modal/readme.md?raw";
+import { TrustHtmlPipe } from "../trust-html.pipe";
 
 import {
   activeBody,
   activeFooter,
   confirmBody,
   confirmFooter,
+  datePickerBody,
+  loadingBody,
   passiveBody,
   passiveFooter,
-  loadingBody,
-  datePickerBody,
 } from "./modal.content";
-import { TrustHtmlPipe } from "../trust-html.pipe";
-import { DsoModal } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
@@ -49,4 +48,4 @@ const { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading } = modalS
   },
 });
 
-export { Passive, Confirm, Fullscreen, Active, WithDatepicker, Loading };
+export { Active, Confirm, Fullscreen, Loading, Passive, WithDatepicker };

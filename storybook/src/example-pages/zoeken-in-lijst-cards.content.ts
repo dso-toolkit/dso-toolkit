@@ -1,5 +1,5 @@
 import { CardList } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 
 export const cardList: CardList<TemplateResult> = {
   cards: [

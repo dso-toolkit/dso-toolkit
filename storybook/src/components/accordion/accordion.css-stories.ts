@@ -1,5 +1,6 @@
 import type { Meta } from "@storybook/web-components";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
@@ -9,10 +10,9 @@ import {
   alignmentSections,
   anchorSections,
   basicSections,
-  renvooiSections,
   nestedSections,
+  renvooiSections,
 } from "./accordion.content";
-import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme }),
@@ -55,14 +55,14 @@ const {
 });
 
 export {
-  Default,
+  Activatable,
+  AddonsSections,
+  AlignmentSections,
   Compact,
   CompactBlack,
   Conclusion,
+  Default,
   HandleAnchors,
   Nested,
-  AddonsSections,
-  AlignmentSections,
   RenvooiSections,
-  Activatable,
 };

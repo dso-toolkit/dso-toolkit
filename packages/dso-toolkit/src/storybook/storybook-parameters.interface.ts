@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- Er zit een bug in de routine waarmee het nu niet mogelijk is om statisch te typeren, vandaar any */
-import { Addon_StoryApi, Addon_ClientStoryApi } from "@storybook/types";
+import { Addon_ClientStoryApi, Addon_StoryApi } from "@storybook/types";
 
 import { StoryRoot } from "./story-root.enum.js";
 

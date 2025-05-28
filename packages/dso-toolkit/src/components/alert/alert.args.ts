@@ -1,9 +1,9 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
-import { HandlerFunction } from "@storybook/addon-actions";
+import { noControl } from "../../storybook";
 
 import { Alert, AlertStatus } from "./alert.models.js";
-import { noControl } from "../../storybook";
 
 export interface AlertArgs {
   status: AlertStatus;

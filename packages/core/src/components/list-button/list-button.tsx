@@ -2,16 +2,16 @@ import {
   Component,
   ComponentInterface,
   Element,
-  Fragment,
-  h,
-  Prop,
   Event,
   EventEmitter,
+  Fragment,
+  Prop,
   forceUpdate,
+  h,
 } from "@stencil/core";
-import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
-
 import clsx from "clsx";
+
+import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 @Component({
   tag: "dso-list-button",

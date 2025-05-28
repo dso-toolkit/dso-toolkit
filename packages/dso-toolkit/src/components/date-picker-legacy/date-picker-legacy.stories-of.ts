@@ -1,16 +1,16 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+import { compiler } from "markdown-to-jsx";
 import { v4 as uuidv4 } from "uuid";
+
+import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
 
 import {
   DatePickerLegacyArgs,
-  datePickerLegacyArgsMapper,
   datePickerLegacyArgTypes,
+  datePickerLegacyArgsMapper,
 } from "./date-picker-legacy.args.js";
 import { DatePickerLegacy } from "./date-picker-legacy.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
-import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface";
 
 export type DatePickerLegacyDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 

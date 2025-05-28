@@ -1,10 +1,10 @@
 import { Modal } from "dso-toolkit";
-import { html, nothing, TemplateResult } from "lit-html";
+import { TemplateResult, html, nothing } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { v4 } from "uuid";
 
 import { ComponentImplementation } from "../../templates";
-import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",

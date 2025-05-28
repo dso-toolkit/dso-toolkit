@@ -1,9 +1,9 @@
 import type { Meta } from "@storybook/web-components";
 import { footnotesMeta, footnotesStories } from "dso-toolkit";
-
 import readme from "dso-toolkit/src/components/footnotes/readme.md?raw";
-import { templateContainer } from "../../templates";
 import { html } from "lit-html";
+
+import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...footnotesMeta({ readme }),
@@ -34,4 +34,4 @@ const { Example, Reference, List } = footnotesStories({
   },
 });
 
-export { Example, Reference, List };
+export { Example, List, Reference };

@@ -1,9 +1,9 @@
-import { type Meta, moduleMetadata } from "@storybook/angular";
-
 import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
+import { type Meta, moduleMetadata } from "@storybook/angular";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
-import { templateContainer } from "../../templates";
+
 import { DsoOzonContent } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
 
 const meta: Meta<OzonContentArgs> = {
   ...ozonContentMeta({ readme }),

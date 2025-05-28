@@ -1,11 +1,11 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, h } from "@stencil/core";
 import { v4 as uuidv4 } from "uuid";
 
 import { i18n } from "../../utils/i18n";
-
 import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
-import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
+
 import { translations } from "./map-overlays.i18n";
+import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
 
 @Component({
   tag: "dso-map-overlays",

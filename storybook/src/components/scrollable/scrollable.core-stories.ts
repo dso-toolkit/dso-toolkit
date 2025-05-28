@@ -1,11 +1,11 @@
+import readme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
-import readme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
-
 import { templateContainer } from "../../templates";
-import { decorator } from "./scrollable.decorator";
+
 import { defaultContent, dynamicContent } from "./scrollable.content";
+import { decorator } from "./scrollable.decorator";
 
 const meta: Meta<ScrollableArgs> = {
   ...scrollableMeta({ readme }),

@@ -1,10 +1,10 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { PaginationArgs, paginationMeta, paginationStories } from "dso-toolkit";
 
+import { DsoPagination } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
-import { DsoPagination } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<PaginationArgs> = {
   ...paginationMeta({ readme }),

@@ -2,9 +2,10 @@ import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes } from "@storybook/types";
 
 import { noControl } from "../../storybook/index.js";
-import { ViewerGridPanelSize, ViewerGridMode, Tab, ViewerGrid } from "./viewer-grid.models.js";
-import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
 import { AdvancedSelect } from "../advanced-select";
+
+import { Tab, ViewerGrid, ViewerGridMode, ViewerGridPanelSize } from "./viewer-grid.models.js";
+import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
 
 const panelSizes = ["small", "medium", "large"];
 

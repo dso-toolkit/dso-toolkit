@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Host } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "dso-highlight-box",

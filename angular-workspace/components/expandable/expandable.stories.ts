@@ -1,12 +1,12 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { ExpandableArgs, expandableMeta, expandableStories } from "dso-toolkit";
 
+import { DsoExpandable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
-import readme from "./readme.md?raw";
 import { expandableContent } from "./expandable.content";
-import { DsoExpandable } from "../../projects/component-library/src/public-api";
+import readme from "./readme.md?raw";
 
 const meta: Meta<ExpandableArgs> = {
   ...expandableMeta({ readme }),

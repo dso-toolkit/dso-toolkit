@@ -2,7 +2,6 @@ import { ImageOverlay } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoImageOverlay } from "../../components";
-
 import { ComponentImplementation } from "../../templates";
 
 export const reactImageOverlay: ComponentImplementation<ImageOverlay> = {

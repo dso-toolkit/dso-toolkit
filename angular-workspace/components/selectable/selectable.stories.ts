@@ -1,10 +1,11 @@
 import { type Meta, moduleMetadata } from "@storybook/angular";
 import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
+import { DsoSelectable } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+
 import readme from "./readme.md?raw";
 import { infoRichContent } from "./selectable.content";
-import { DsoSelectable } from "../../projects/component-library/src/public-api";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),
@@ -30,4 +31,4 @@ const { Radio, Checkbox, WithInfo, Nested } = selectableStories({
   },
 });
 
-export { Radio, Checkbox, WithInfo, Nested };
+export { Checkbox, Nested, Radio, WithInfo };

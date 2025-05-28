@@ -1,5 +1,6 @@
-import { ArgTypes } from "@storybook/types";
 import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "@storybook/types";
+
 import { Info } from "./info.models.js";
 
 export interface InfoArgs {

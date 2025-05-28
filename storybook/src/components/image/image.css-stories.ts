@@ -1,9 +1,8 @@
 import type { Meta } from "@storybook/web-components";
+import { ImageArgs, imageMeta, imageStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/image/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import readme from "dso-toolkit/src/components/image/readme.md?raw";
-import { ImageArgs, imageMeta, imageStories } from "dso-toolkit";
 
 const meta: Meta<ImageArgs> = {
   ...imageMeta({ readme }),
@@ -23,4 +22,4 @@ const { Default, Responsive, Circle } = imageStories({
   },
 });
 
-export { Default, Responsive, Circle };
+export { Circle, Default, Responsive };

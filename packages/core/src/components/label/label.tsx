@@ -1,19 +1,20 @@
 import {
-  h,
   Component,
   ComponentInterface,
   Element,
   Event,
   EventEmitter,
   Fragment,
+  Listen,
   Method,
   Prop,
   State,
   Watch,
-  Listen,
+  h,
 } from "@stencil/core";
 import clsx from "clsx";
 import debounce from "debounce";
+
 import { LabelStatus } from "./label.interfaces";
 
 const resizeObserver = new ResizeObserver(

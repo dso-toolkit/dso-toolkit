@@ -1,8 +1,8 @@
-import React from "react";
 import { Expandable } from "dso-toolkit";
+import React from "react";
 
-import { ComponentImplementation } from "../../templates";
 import { DsoExpandable } from "../../components";
+import { ComponentImplementation } from "../../templates";
 
 export const reactExpandable: ComponentImplementation<Expandable<JSX.Element>> = {
   component: "expandable",

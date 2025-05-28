@@ -1,6 +1,7 @@
 import { Whitebox } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssWhitebox: ComponentImplementation<Whitebox> = {

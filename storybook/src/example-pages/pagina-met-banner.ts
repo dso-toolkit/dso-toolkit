@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../example-page-factory";
+
 import { header } from "./content/header.content";
 import { mainMenu } from "./content/main-menu.content";
 import { footerPartial } from "./partials/footer";

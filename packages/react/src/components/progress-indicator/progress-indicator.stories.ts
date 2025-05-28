@@ -23,4 +23,4 @@ const { Small, Medium, Large } = progressIndicatorStories({
   },
 });
 
-export { Small, Medium, Large };
+export { Large, Medium, Small };

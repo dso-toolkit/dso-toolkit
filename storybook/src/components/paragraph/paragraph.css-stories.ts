@@ -1,9 +1,8 @@
 import type { Meta } from "@storybook/web-components";
 import { ParagraphArgs, paragraphMeta, paragraphStories } from "dso-toolkit";
+import readme from "dso-toolkit/src/components/paragraph/readme.md?raw";
 
 import { templateContainer } from "../../templates";
-
-import readme from "dso-toolkit/src/components/paragraph/readme.md?raw";
 
 const meta: Meta<ParagraphArgs> = {
   ...paragraphMeta({ readme }),

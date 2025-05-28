@@ -1,11 +1,11 @@
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
-
-import { IconArgs, iconArgsMapper, iconArgTypes } from "./icon.args.js";
-import { Icon } from "./icon.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
+import { IconArgs, iconArgTypes, iconArgsMapper } from "./icon.args.js";
+import { Icon } from "./icon.models.js";
 
 export type IconOverviewDecorator<TemplateFnReturnType> = (
   story: PartialStoryFn,

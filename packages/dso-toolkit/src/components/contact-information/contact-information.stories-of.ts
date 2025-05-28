@@ -1,10 +1,11 @@
 import { ComponentAnnotations, Renderer } from "@storybook/types";
-
-import { StoriesParameters, StoryObj } from "../../template-container";
 import { compiler } from "markdown-to-jsx";
+
 import { MetaOptions } from "../../storybook/meta-options.interface";
-import { ContactInformation } from "./contact-information.models";
+import { StoriesParameters, StoryObj } from "../../template-container";
+
 import { contactInformationContent } from "./contact-information.content";
+import { ContactInformation } from "./contact-information.models";
 
 interface ContactInformationStories {
   Default: StoryObj<Record<string, never>, Renderer>;

@@ -1,6 +1,7 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 import { i18n } from "../../utils/i18n";
+
 import { translations } from "./progress-indicator.i18n";
 
 @Component({

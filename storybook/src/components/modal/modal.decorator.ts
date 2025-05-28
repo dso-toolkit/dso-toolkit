@@ -1,5 +1,5 @@
-import { html, TemplateResult } from "lit-html";
 import { ModalDecorator } from "dso-toolkit";
+import { TemplateResult, html } from "lit-html";
 
 export const decorator: ModalDecorator<TemplateResult> = (story) => {
   setTimeout(() => {

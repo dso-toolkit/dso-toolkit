@@ -1,16 +1,16 @@
 import { Meta } from "@storybook/react";
 import {
   AutosuggestArgs,
-  autosuggestMeta,
-  autosuggestStories,
   AutosuggestSuggestion,
   AutosuggestSuggestionGroup,
+  autosuggestMeta,
+  autosuggestStories,
 } from "dso-toolkit";
 import React from "react";
 
-import readme from "./readme.md?raw";
-
 import { templateContainer } from "../../templates";
+
+import readme from "./readme.md?raw";
 
 const meta: Meta<AutosuggestArgs> = {
   ...autosuggestMeta({ readme }),
@@ -110,4 +110,4 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
   },
 });
 
-export { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, SuggestionGroups };
+export { Example, InSearchbar, Minimal3Characters, SuggestionGroups, WithProvidedMarkFunction };

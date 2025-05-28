@@ -1,8 +1,8 @@
 import type { Meta } from "@storybook/react";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
+import * as React from "react";
 
 import { templateContainer } from "../../templates";
-import * as React from "react";
 
 import readme from "./readme.md?raw";
 
@@ -75,4 +75,4 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
   },
 });
 
-export { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage };
+export { Default, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

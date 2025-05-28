@@ -1,6 +1,7 @@
 import { DocumentList, DocumentListItem } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResult>> = {

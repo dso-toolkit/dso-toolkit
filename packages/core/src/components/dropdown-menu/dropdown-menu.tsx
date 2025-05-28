@@ -1,10 +1,10 @@
-import { createPopper, Placement, Instance as PopperInstance } from "@popperjs/core";
-import { h, Component, Element, Host, Prop, Watch, Listen } from "@stencil/core";
+import { Instance as PopperInstance, Placement, createPopper } from "@popperjs/core";
+import { Component, Element, Host, Listen, Prop, Watch, h } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
-import { hasOverflow } from "../../utils/has-overflow";
 import { getActiveElement } from "../../utils/get-active-element";
+import { hasOverflow } from "../../utils/has-overflow";
 
 @Component({
   tag: "dso-dropdown-menu",

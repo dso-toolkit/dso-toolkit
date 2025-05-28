@@ -1,9 +1,9 @@
+import { DsoDatePickerLegacyChangeEvent } from "@dso-toolkit/core/src/components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DatePickerLegacy } from "dso-toolkit";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-import { ComponentImplementation } from "../../templates";
 
-import { DsoDatePickerLegacyChangeEvent } from "@dso-toolkit/core/src/components/date-picker-legacy/date-picker-legacy.interfaces";
+import { ComponentImplementation } from "../../templates";
 
 export const coreDatePickerLegacy: ComponentImplementation<DatePickerLegacy> = {
   component: "datePickerLegacy",

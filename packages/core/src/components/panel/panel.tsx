@@ -1,5 +1,6 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Prop, h } from "@stencil/core";
 import clsx from "clsx";
+
 import { i18n } from "../../utils/i18n";
 
 import { translations } from "./panel.i18n";

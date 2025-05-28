@@ -1,8 +1,8 @@
-import { html, nothing, TemplateResult } from "lit-html";
-
 import { DocumentHeader } from "dso-toolkit";
-import { ComponentImplementation } from "../../templates";
+import { TemplateResult, html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+
+import { ComponentImplementation } from "../../templates";
 
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",

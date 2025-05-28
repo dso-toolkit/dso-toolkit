@@ -1,8 +1,8 @@
-import { storiesOfFactory } from "dso-toolkit";
 import { storiesOf } from "@storybook/web-components";
+import { storiesOfFactory } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
 
-import { templateContainer, Templates } from "./templates";
+import { Templates, templateContainer } from "./templates";
 
 export function examplePageFactory(
   category: "Voorbeeldpagina's" | "Patronen",

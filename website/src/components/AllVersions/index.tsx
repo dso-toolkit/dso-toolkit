@@ -1,6 +1,7 @@
 import Link from "@docusaurus/Link";
-import { getAllVersions, isReleaseVersion, Release } from "@site/src/functions/versions.function";
 import React, { useEffect, useState } from "react";
+
+import { Release, getAllVersions, isReleaseVersion } from "@site/src/functions/versions.function";
 
 export function AllVersions() {
   const [versions, setVersions] = useState<Release[] | undefined>(undefined);
