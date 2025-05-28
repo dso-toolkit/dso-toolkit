@@ -18,7 +18,6 @@ import HtmlNavbarItem from "@theme/NavbarItem/HtmlNavbarItem";
 import LocaleDropdownNavbarItem from "@theme/NavbarItem/LocaleDropdownNavbarItem";
 import SearchNavbarItem from "@theme/NavbarItem/SearchNavbarItem";
 
-
 const ComponentTypes: ComponentTypesObject = {
   default: DefaultNavbarItem,
   localeDropdown: LocaleDropdownNavbarItem,
