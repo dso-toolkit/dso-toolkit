@@ -80,7 +80,7 @@ export default [
               pattern: "{@site/**,@theme/**}",
               group: "internal",
               position: "after",
-            }
+            },
           ],
           pathGroupsExcludedImportTypes: ["builtin"],
           "newlines-between": "always",
