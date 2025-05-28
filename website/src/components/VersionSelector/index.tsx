@@ -1,5 +1,3 @@
-import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
-import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 
@@ -15,6 +13,9 @@ import {
   isSelectedVersion,
   isTopicVersion,
 } from "@site/src/functions/versions.function";
+
+import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
+import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 
 import styles from "./styles.module.scss";
 

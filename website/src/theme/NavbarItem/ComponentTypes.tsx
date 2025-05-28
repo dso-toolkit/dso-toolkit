@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import VersionSelector from "@site/src/components/VersionSelector";
+
 import type { ComponentTypesObject } from "@theme/NavbarItem/ComponentTypes";
 import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
 import DocNavbarItem from "@theme/NavbarItem/DocNavbarItem";
@@ -16,7 +18,6 @@ import HtmlNavbarItem from "@theme/NavbarItem/HtmlNavbarItem";
 import LocaleDropdownNavbarItem from "@theme/NavbarItem/LocaleDropdownNavbarItem";
 import SearchNavbarItem from "@theme/NavbarItem/SearchNavbarItem";
 
-import VersionSelector from "@site/src/components/VersionSelector";
 
 const ComponentTypes: ComponentTypesObject = {
   default: DefaultNavbarItem,

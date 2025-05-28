@@ -81,6 +81,11 @@ export default [
               group: "internal",
               position: "after",
             },
+            {
+              pattern: "@theme/**",
+              group: "internal",
+              position: "after",
+            },
           ],
           pathGroupsExcludedImportTypes: ["builtin"],
           "newlines-between": "always",
