@@ -5,11 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Document Card: Chevron wordt niet op de juiste plek weergegeven ([#3067](https://github.com/dso-toolkit/dso-toolkit/issues/3067))
+
 ## ☀️ Release 73.1.0 - 2025-05-26
 
 ### Added
 * Plekinfo Card: Chevron wordt niet op de juiste plek weergegeven ([#3066](https://github.com/dso-toolkit/dso-toolkit/issues/3066))
-* Document Card: Chevron wordt niet op de juiste plek weergegeven ([#3067](https://github.com/dso-toolkit/dso-toolkit/issues/3067))
 
 ### Fixed
 * Map Controls: bij inzoomen heeft de knop kaartlagen geen accessible name meer ([#3130](https://github.com/dso-toolkit/dso-toolkit/issues/3130))
