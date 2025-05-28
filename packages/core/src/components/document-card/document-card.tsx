@@ -68,8 +68,10 @@ export class DocumentCard implements ComponentInterface {
       <div class="dso-document-card-container">
         <div class="dso-document-card-heading">
           <a href={this.href} class="heading-anchor" onClick={(e) => this.clickEventHandler(e)}>
-            <slot name="heading" />
-            <dso-icon icon="chevron-right"></dso-icon>
+            <span class="icon-container">
+              <dso-icon icon="chevron-right" />
+              <slot name="heading" />
+            </span>
           </a>
           {this.metaSlottedElement !== null && <slot name="meta" />}
         </div>
