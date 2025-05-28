@@ -135,11 +135,6 @@ del.dso-plekinfo-card-container {
     color: plekinfo-card.$heading-anchor-color;
   }
 
-  dso-icon {
-    flex-shrink: 0;
-    align-self: end;
-  }
-
   .sr-only {
     @include utilities.sr-only();
   }

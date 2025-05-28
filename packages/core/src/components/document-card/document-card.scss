@@ -48,8 +48,7 @@
 }
 
 ::slotted([slot="heading"]) {
-  display: flex !important;
-  align-items: center !important;
+  display: inline !important;
   color: colors.$bosgroen !important;
   font-size: 1.125em !important;
   font-weight: 700 !important;
@@ -59,9 +58,6 @@
 }
 
 .heading-anchor {
-  display: flex;
-  gap: units.$u1 * 0.5;
-
   color: document-card.$heading-anchor-color;
   text-decoration: none;
 
@@ -74,12 +70,21 @@
     color: document-card.$heading-anchor-color;
   }
 
-  dso-icon {
-    flex-shrink: 0;
-  }
-
   .sr-only {
     @include utilities.sr-only();
+  }
+
+  .icon-container {
+    position: relative;
+    padding-inline-end: units.$u3;
+
+    dso-icon {
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block-end: -3px;
+      block-size: units.$u3;
+      inline-size: units.$u3;
+    }
   }
 }
 
