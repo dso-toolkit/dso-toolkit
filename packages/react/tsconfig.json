@@ -24,7 +24,8 @@
     "inlineSources": false,
     "sourceMap": false,
     "jsx": "react",
-    "target": "ESNext"
+    "target": "ESNext",
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/__tests__/**", "node_modules"],

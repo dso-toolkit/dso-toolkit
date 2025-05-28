@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "noUncheckedIndexedAccess": true,
-    "strict": true
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

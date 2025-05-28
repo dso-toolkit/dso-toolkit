@@ -18,7 +18,8 @@
     "skipLibCheck": true,
     "jsx": "react",
     "jsxFragmentFactory": "Fragment",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
