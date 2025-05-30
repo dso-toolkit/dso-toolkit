@@ -71,7 +71,7 @@ describe("Header", () => {
       .dsoCheckA11y("dso-header.hydrated");
   });
 
-  it("screenshot", () => {
+  it("matches snapshot", () => {
     cy.viewport(1225, 660)
       .get("dso-header.hydrated")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);

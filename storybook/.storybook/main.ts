@@ -1,5 +1,5 @@
 import { readdirSync } from "fs";
-import { dirname, join, parse, resolve } from "path";
+import { dirname, parse, resolve } from "path";
 
 import { StorybookConfig } from "@storybook/web-components-webpack5";
 
@@ -66,14 +66,16 @@ const config: StorybookConfig = {
 
     return {};
   },
-  addons: [
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@whitespace/storybook-addon-html"),
-    getAbsolutePath("@storybook/addon-a11y"),
-  ],
+  addons: ["@storybook/addon-essentials", "@whitespace/storybook-addon-html", "@storybook/addon-a11y"],
   stories: testStoryStoryV7
     ? ["../src/components/**/*.{core-,css-}stories.ts"]
     : ["../src/components/**/*.{core-,css-,}stories.ts", "../src/example-pages/**/*.ts"],
+  previewHead: (head) => `
+    ${head}
+    <link rel="preload" href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-Italic-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/static/packages/dso-toolkit/dist/di.svg" as="image" type="image/svg+xml">
+  `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
   //   !process.env.CI
@@ -92,7 +94,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   framework: {
-    name: getAbsolutePath("@storybook/web-components-webpack5"),
+    name: "@storybook/web-components-webpack5",
     options: {},
   },
   docs: {
@@ -104,7 +106,3 @@ const config: StorybookConfig = {
 };
 
 export default config;
-
-function getAbsolutePath(value: string): string {
-  return dirname(require.resolve(join(value, "package.json")));
-}

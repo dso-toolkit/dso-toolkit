@@ -75,9 +75,9 @@ describe("Renvooi", () => {
   it("should mark and highlight", () => {
     let highlighted = false;
 
-    cy.get("dso-renvooi")
-      .should("have.class", "hydrated") // Instead of cy.get('dso-renvooi.hydrated'), the result statically typed and we can use the property "mark" to set the mark function
+    cy.get("dso-renvooi.hydrated")
       .invoke("prop", "value", { was: "waarde voorheen", wordt: "waarde nu" })
+      .get("dso-renvooi")
       .then(
         ($renvooi) =>
           ($renvooi[0].mark = (text) =>

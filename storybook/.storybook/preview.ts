@@ -1,4 +1,11 @@
-import { GlobalTypes, DecoratorFunction, Parameters } from "@storybook/types";
+import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
+import "@iframe-resizer/child";
+import { DecoratorFunction, GlobalTypes, Parameters } from "@storybook/types";
+// @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
+import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
+
+import "dso-toolkit/dist/dso.css";
+
 import { i18nDecorator } from "./i18n.decorator";
 
 export const globalTypes: GlobalTypes = {
@@ -31,17 +38,9 @@ export const parameters: Parameters = {
   },
 };
 
-import "@iframe-resizer/child";
-
-// @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
-import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
-
 const spriteContainer = document.createElement("div");
 spriteContainer.hidden = true;
 spriteContainer.insertAdjacentHTML("afterbegin", sprite);
 document.body.insertAdjacentElement("afterbegin", spriteContainer);
-
-import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
-import "dso-toolkit/dist/dso.css";
 
 defineCustomElements();

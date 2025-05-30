@@ -45,7 +45,7 @@
   {
     "name": "info",
     "selector": "dso-info.hydrated",
-    "stories": ["fixed"],
+    "stories": ["default", "fixed"],
     "type": "core"
   },
   {
@@ -269,7 +269,7 @@
   {
     "name": "info",
     "selector": ".dso-info:not(.dso-accordion-section)",
-    "stories": ["fixed"],
+    "stories": ["default", "fixed"],
     "type": "html-css"
   },
   {
