@@ -1,5 +1,12 @@
 import { isOdd } from "dso-toolkit";
 
+/**
+ * Notes:
+ *
+ * We're screenshotting the parent of the component, because <dso-renvooi> is an inline element which makes it difficult to
+ * stabilize the snapshots. Block elements are more stable, so we screenshot the parent element.
+ */
+
 describe("Renvooi", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-renvooi--default");
@@ -22,6 +29,7 @@ describe("Renvooi", () => {
       .find("span.text")
       .should("contain", "ongewijzigd")
       .get("@renvooi")
+      .parent()
       .matchImageSnapshot();
   });
 
@@ -33,6 +41,7 @@ describe("Renvooi", () => {
       .find("ins")
       .should("contain", "toegevoegd")
       .get("@renvooi")
+      .parent()
       .matchImageSnapshot();
   });
 
@@ -59,13 +68,14 @@ describe("Renvooi", () => {
       .find("ins")
       .should("contain", "nieuwe waarde")
       .get("@renvooi")
+      .parent()
       .matchImageSnapshot();
   });
 
   it("should mark and highlight", () => {
     let highlighted = false;
 
-    cy.get("dso-renvooi")
+    cy.get("dso-renvooi.hydrated")
       .invoke("prop", "value", { was: "waarde voorheen", wordt: "waarde nu" })
       .get("dso-renvooi")
       .then(
@@ -78,14 +88,24 @@ describe("Renvooi", () => {
               )),
       )
       .get("dso-renvooi.hydrated")
-      .as("renvooi")
+      .invoke("prop", "mark")
+      .should("be.a", "function")
+      .get("dso-renvooi.hydrated")
       .shadow()
+      .as("renvooi-shadow")
+      .find("del")
+      .should("contain", "waarde voorheen")
+      .get("@renvooi-shadow")
+      .find("ins")
+      .should("contain", "waarde nu")
+      .get("@renvooi-shadow")
       .find("mark")
       .should("have.length", 2)
       .each((element, index) => {
         cy.wrap(element).should(index === 0 ? "have.class" : "not.have.class", "dso-highlight");
       })
-      .get("@renvooi")
+      .get("dso-renvooi.hydrated")
+      .parent()
       .matchImageSnapshot();
   });
 });

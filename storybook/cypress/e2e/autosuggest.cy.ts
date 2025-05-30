@@ -141,7 +141,7 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(1).should("contain", "adres in Rotterdam");
   });
 
-  it("suggestOnFocus should show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
+  it("suggestOnFocus should not show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
@@ -149,7 +149,9 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
     cy.realPress(["Shift", "Tab"]);
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+  });
 
+  it("suggestOnFocus should show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true");
 
     cy.get("input").focus().type("rotterdam");

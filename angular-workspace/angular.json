@@ -39,7 +39,8 @@
             "browserTarget": "component-library:build",
             "port": 46006,
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."]
+            "compodocArgs": ["-e", "json", "-d", "."],
+            "styles": ["dso-toolkit/dist/dso.css"]
           }
         },
         "build-storybook": {
@@ -49,7 +50,8 @@
             "browserTarget": "component-library:build",
             "outputDir": "www",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."]
+            "compodocArgs": ["-e", "json", "-d", "."],
+            "styles": ["dso-toolkit/dist/dso.css"]
           }
         }
       }

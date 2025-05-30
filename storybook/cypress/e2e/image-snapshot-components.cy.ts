@@ -1,4 +1,5 @@
 import components from "../fixtures/image-snapshot-components.json";
+import { waitForHydration } from "../support/wait-for-hydration";
 
 interface Component {
   name: string;
@@ -27,6 +28,7 @@ function test(id: string, component: Component) {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
     checkA11y(component);
+    waitForHydration();
     matchImageSnapshot(id, component);
   });
 }

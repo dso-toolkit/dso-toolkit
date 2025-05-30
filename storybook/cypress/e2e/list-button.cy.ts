@@ -113,9 +113,10 @@ describe("ListButton", () => {
   });
 
   it("should emit dsoCountChange", () => {
-    cy.get("dso-list-button")
+    cy.get("dso-list-button.hydrated")
       .as("dsoListButton")
       .invoke("attr", "count", 8)
+      .get("dso-list-button")
       .then(($listButton) => {
         $listButton.on("dsoCountChange", cy.stub().as("dsoCountChangeListener"));
       })

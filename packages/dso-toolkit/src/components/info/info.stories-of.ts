@@ -44,6 +44,9 @@ export function infoStories<Implementation, Templates, TemplateFnReturnType>({
 }: InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoStories {
   return {
     Default: {
+      args: {
+        active: true,
+      },
       render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
         infoTemplate(infoArgsMapper(args, richContent)),
       ),
