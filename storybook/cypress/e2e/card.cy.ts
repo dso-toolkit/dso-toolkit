@@ -74,10 +74,10 @@ describe("Card", () => {
       .shadow()
       .find("a.heading-anchor")
       .should("have.attr", "href", "#")
-      .find("dso-icon")
+      .get("dso-card")
       .shadow()
-      .find("svg")
-      .should("have.attr", "id", "download");
+      .find("dso-icon")
+      .should("have.prop", "icon", "download");
   });
 
   it("should show different background-color when active='true'", () => {
