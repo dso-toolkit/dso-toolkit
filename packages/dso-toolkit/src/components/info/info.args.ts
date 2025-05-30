@@ -27,7 +27,7 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
     },
   },
   dsoClose: {
-    action: "dsoClosed",
+    action: "dsoClose",
   },
 };
 

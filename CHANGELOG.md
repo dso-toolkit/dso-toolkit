@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Eslint: Implementeer eslint-plugin-import ([#3065](https://github.com/dso-toolkit/dso-toolkit/issues/3065))
+* Voorbeeldpagina's: activeer visueel regressietesten ([#3032](https://github.com/dso-toolkit/dso-toolkit/issues/3032))
 
 ### Deprecated
 * Tooltip: Deprecate ([#3163](https://github.com/dso-toolkit/dso-toolkit/issues/3163))
