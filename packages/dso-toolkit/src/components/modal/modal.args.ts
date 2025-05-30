@@ -9,7 +9,7 @@ export interface ModalArgs {
   fullscreen: boolean;
   modalTitle: string;
   role: ModalRole;
-  showCloseButton: boolean;
+  closable: boolean;
   dsoClose: HandlerFunction;
 }
 
@@ -30,7 +30,7 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
       type: "select",
     },
   },
-  showCloseButton: {
+  closable: {
     control: {
       type: "boolean",
     },

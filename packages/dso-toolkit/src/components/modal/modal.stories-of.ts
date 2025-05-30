@@ -45,7 +45,7 @@ export function modalMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
   return {
     argTypes: modalArgTypes,
     args: {
-      showCloseButton: true,
+      closable: true,
     },
     parameters: {
       docs: readme

@@ -35,7 +35,7 @@ examplePageFactory(
                       })}
                     </p>`,
                   footer: buttonTemplate({ label: "Bevestigen", type: "button", variant: "primary" }),
-                  showCloseButton: true,
+                  closable: true,
                   dsoClose: () => render(nothing, container),
                 }),
                 container,
