@@ -1211,10 +1211,6 @@ export namespace Components {
     }
     interface DsoTable {
         /**
-          * Indicates whether the table is currently horizontally scrollable.
-         */
-        "isResponsive": boolean;
-        /**
           * Prevents the table being opened in a modal.
          */
         "noModal": boolean;
@@ -3873,10 +3869,6 @@ declare namespace LocalJSX {
         "onDsoTabSwitch"?: (event: DsoTabCustomEvent<TabsSwitchEvent>) => void;
     }
     interface DsoTable {
-        /**
-          * Indicates whether the table is currently horizontally scrollable.
-         */
-        "isResponsive"?: boolean;
         /**
           * Prevents the table being opened in a modal.
          */

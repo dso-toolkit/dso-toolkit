@@ -94,6 +94,10 @@ describe("Document Component", () => {
         cy.get("dso-document-component.hydrated").should("not.have.attr", "wijzigactie");
       }
 
+      cy.get("dso-document-component.hydrated")
+        .should("have.attr", "mode", "table-of-contents")
+        .and("not.have.attr", "filtered");
+
       cy.get("dso-document-component.hydrated").matchImageSnapshot();
     });
   }
