@@ -53,6 +53,8 @@ export {
   InhoudAlNoot,
   IntIoRef,
   IntRef,
+  Kop,
+  KopMetRenvooi,
   Lijst,
   RenvooiWeergave,
   Table,
@@ -60,6 +62,4 @@ export {
   TableMetNoot,
   TableMetThead,
   TableZonderColsepEnMetRowsep,
-  Kop,
-  KopMetRenvooi,
 };
