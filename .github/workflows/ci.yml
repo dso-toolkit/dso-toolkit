@@ -87,7 +87,9 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
-          path: ${{ github.workspace }}/storybook/cypress/snapshot-${{ env.DT_REF == 'master' && 'baseline' || 'diff' }}
+          path: |
+            ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+            ${{ github.workspace }}/storybook/cypress/snapshot-diff
       - uses: addnab/docker-run-action@v3
         if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success') }}
         name: Deploy
