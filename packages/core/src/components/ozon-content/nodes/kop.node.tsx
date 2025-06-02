@@ -1,9 +1,9 @@
 import { Fragment, h } from "@stencil/core";
 
-import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
-import { OzonContentNode } from "../ozon-content-node.interface";
 import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
+import { OzonContentNode } from "../ozon-content-node.interface";
 
 function mapData(node: Element) {
   return {
