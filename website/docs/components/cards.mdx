@@ -1,8 +1,8 @@
+import Link from "@docusaurus/Link";
+
 import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
-# Card List
-
-<StorybookComponent implementations={["html-css"]} variant="card-list" />
+# Cards
 
 Cards zijn containers voor korte stukken informatie die met elkaar te maken hebben. Qua grootte en vorm lijken ze op speelkaarten. Ze hebben de volgende eigenschappen:
 
@@ -47,3 +47,80 @@ Let op de volgende dingen als u cards gebruikt:
 
 - NN/g Nielsen Norman Group. Cards: UI-Component Definition Geraadpleegd op 20 maart 2020, van https://www.nngroup.com/articles/cards-component/
 - U.S. Web Design System (USWDS). Cards contain content and actions about a single subject. Geraadpleegd op 20 maart 2020, van https://designsystem.digital.gov/components/card/
+
+## Card
+
+### Default
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="default" />
+
+### With Button
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-button" />
+
+### With Label
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-label" />
+
+### With Selectable And Button
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-selectable-and-button" />
+
+### With Slide Toggle
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-slide-toggle" />
+
+### With Toggletip
+
+<StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-toggletip" />
+
+Een Card mag uitsluitend in een <Link to="./card-container#card-list">Card List</Link> of <Link to="./card-container#card-grid">Card Grid</Link>
+worden gebruikt.
+
+## Document Card
+
+### Default
+
+<StorybookComponent name="document-card" implementations={["core"]} variant="default" />
+
+### With Label
+
+<StorybookComponent name="document-card" implementations={["core"]} variant="with-label" />
+
+### With Status Toelichting
+
+<StorybookComponent name="document-card" implementations={["core"]} variant="with-status-toelichting" />
+
+### With Type Toelichting
+
+<StorybookComponent name="document-card" implementations={["core"]} variant="with-type-toelichting" />
+
+## Plekinfo Card
+
+### Default
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="default" />
+
+### Static
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="static" />
+
+### With Label
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="with-label" />
+
+### With Name Change
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="with-name-change" />
+
+### With Name Change Complex
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="with-name-change-complex" />
+
+### With Slide Toggle
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="with-slide-toggle" />
+
+### Without Symbol
+
+<StorybookComponent name="plekinfo-card" implementations={["core"]} variant="without-symbol" />

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Website: Aanpassing structuur van de opdeling van alle componenten ([#3072](https://github.com/dso-toolkit/dso-toolkit/issues/3072))
+
 ## 🛼 Release 73.3.0 - 2025-06-12
 
 ### Changed
