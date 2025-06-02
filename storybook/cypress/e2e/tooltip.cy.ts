@@ -1,6 +1,6 @@
 describe("Tooltip", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-tooltip--as-child");
+    cy.visit("http://localhost:45000/iframe.html?id=core-tooltip-deprecated--as-child");
   });
 
   it("should be accessible", () => {
@@ -51,7 +51,7 @@ describe("Tooltip", () => {
   });
 
   it("should not hide tooltip when hover is in tooltip, but outside button", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-tooltip--as-sibling");
+    cy.visit("http://localhost:45000/iframe.html?id=core-tooltip-deprecated--as-sibling");
 
     cy.get("#storybook-root").invoke("attr", "style", "min-height: 360px;");
 
