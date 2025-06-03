@@ -61,7 +61,7 @@ export class Table implements ComponentInterface {
     const caption = this.host.querySelector(":scope > table > caption")?.textContent?.trim();
 
     return (
-      <Host is-responsive={this.isResponsive}>
+      <Host is-responsive={this.isResponsive?.toString()}>
         {this.modalActive && this.placeholderHeight && (
           <div class="dso-table-placeholder" style={{ height: `${this.placeholderHeight}px` }} />
         )}

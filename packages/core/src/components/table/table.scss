@@ -61,7 +61,7 @@
   }
 }
 
-:host([is-responsive]) {
+:host([is-responsive="true"]) {
   .dso-table-body {
     border: 1px solid table.$border-color;
     margin-block-end: 0;

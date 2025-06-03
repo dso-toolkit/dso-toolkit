@@ -88,6 +88,7 @@ jobs:
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
           path: |
+            ${{ github.workspace }}/storybook/cypress/screenshots
             ${{ github.workspace }}/storybook/cypress/snapshot-baseline
             ${{ github.workspace }}/storybook/cypress/snapshot-diff
       - uses: addnab/docker-run-action@v3
