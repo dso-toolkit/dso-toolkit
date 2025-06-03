@@ -8,7 +8,7 @@ import { asChildTemplate, asSiblingTemplate } from "./tooltip.content";
 
 const meta: Meta<TooltipArgs> = {
   ...tooltipMeta({ readme }),
-  title: "Core/Tooltip",
+  title: "Core/Tooltip (Deprecated)",
 };
 
 export default meta;

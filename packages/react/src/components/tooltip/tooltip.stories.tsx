@@ -9,7 +9,7 @@ import readme from "./readme.md?raw";
 
 const meta: Meta<TooltipArgs> = {
   ...tooltipMeta({ readme }),
-  title: "Tooltip",
+  title: "Tooltip (Deprecated)",
 };
 
 export default meta;
