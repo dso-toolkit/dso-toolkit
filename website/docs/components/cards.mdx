@@ -1,5 +1,3 @@
-import Link from "@docusaurus/Link";
-
 import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Cards
@@ -50,6 +48,9 @@ Let op de volgende dingen als u cards gebruikt:
 
 ## Card
 
+Een Card mag uitsluitend in een [Card List](./card-container#card-list) of [Card Grid](./card-container#card-grid)
+worden gebruikt.
+
 ### Default
 
 <StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="default" />
@@ -73,9 +74,6 @@ Let op de volgende dingen als u cards gebruikt:
 ### With Toggletip
 
 <StorybookComponent name="card" implementations={["core", "html-css", "react"]} variant="with-toggletip" />
-
-Een Card mag uitsluitend in een <Link to="./card-container#card-list">Card List</Link> of <Link to="./card-container#card-grid">Card Grid</Link>
-worden gebruikt.
 
 ## Document Card
 
