@@ -44,12 +44,12 @@ export class OzonContentKopNode implements OzonContentNode {
           </>
         )}
         {subtitels.length > 0 && (
-          <div class="subtitels-container" part="subtitels">
+          <div class="subtitels-container" part="subtitels" onClick={(e) => e.stopPropagation()}>
             {subtitels.map((subtitel) => {
               const wijzigactieSubtitel = parseWijzigactieFromNode(subtitel);
 
               return (
-                <div class="subtitel">
+                <div class="subtitel" onClick={(e) => e.stopPropagation()}>
                   <WrapWijzigactie wijzigactie={wijzigactieSubtitel}>
                     {mapNodeToJsx(subtitel.childNodes)}
                   </WrapWijzigactie>
