@@ -1,4 +1,4 @@
-import { waitForHydration } from "./wait-for-hydration";
+import { waitForComponents } from "./wait-for-components";
 
 export function voorbeeldpaginaImageSnapshots(label: string, voorbeeldpaginas: string[], args?: string) {
   describe(`Voorbeeldpagina image snapshots (${label})`, () => {
@@ -6,7 +6,7 @@ export function voorbeeldpaginaImageSnapshots(label: string, voorbeeldpaginas: s
       it(`matches image snapshot of ${id} (${label})`, () => {
         cy.visit(`http://localhost:45000/iframe.html?id=${id}${args ? `&args=${args}` : ""}`);
 
-        waitForHydration();
+        waitForComponents();
 
         cy.matchImageSnapshot();
       });
