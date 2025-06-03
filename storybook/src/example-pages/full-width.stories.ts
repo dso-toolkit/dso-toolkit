@@ -15,8 +15,10 @@ const meta: Meta = {
 
 export default meta;
 
-const FullWidth = examplePageStories(
-  ({ linkTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate }, templates) => html`
+const FullWidth = examplePageStories((templates) => {
+  const { linkTemplate, definitionListTemplate, listTemplate, richContentTemplate, tableTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -141,7 +143,7 @@ const FullWidth = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { FullWidth };

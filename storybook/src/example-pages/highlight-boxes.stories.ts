@@ -14,8 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const MeerdereHighlightBoxes = examplePageStories(
-  ({ buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+const MeerdereHighlightBoxes = examplePageStories((templates) => {
+  const { buttonTemplate, highlightBoxTemplate, richContentTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -119,7 +121,7 @@ const MeerdereHighlightBoxes = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { MeerdereHighlightBoxes };

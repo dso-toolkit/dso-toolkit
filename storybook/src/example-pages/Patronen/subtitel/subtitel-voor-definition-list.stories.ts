@@ -14,8 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SubtitelVoorEenDefinitieLijst = examplePageStories(
-  ({ definitionListTemplate }, templates) => html`
+const SubtitelVoorEenDefinitieLijst = examplePageStories((templates) => {
+  const { definitionListTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Home") })}
 
@@ -25,7 +27,7 @@ const SubtitelVoorEenDefinitieLijst = examplePageStories(
         ${definitionListTemplate(definitionList)}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { SubtitelVoorEenDefinitieLijst };

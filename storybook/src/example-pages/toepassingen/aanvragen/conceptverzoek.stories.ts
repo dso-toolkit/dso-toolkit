@@ -15,11 +15,11 @@ const meta: Meta = {
 
 export default meta;
 
-const Conceptverzoek = examplePageStories(
-  (
-    { applicationHeadingTemplate, definitionListTemplate, formButtonsTemplate, formGroupRadiosTemplate },
-    templates,
-  ) => html`
+const Conceptverzoek = examplePageStories((templates) => {
+  const { applicationHeadingTemplate, definitionListTemplate, formButtonsTemplate, formGroupRadiosTemplate } =
+    templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
@@ -45,7 +45,7 @@ const Conceptverzoek = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Conceptverzoek };

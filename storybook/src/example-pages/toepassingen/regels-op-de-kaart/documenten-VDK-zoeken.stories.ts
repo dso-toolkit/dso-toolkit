@@ -13,11 +13,17 @@ const meta: Meta = {
 
 export default meta;
 
-const DocumentenVDKZoeken = examplePageStories(
-  (
-    { buttonTemplate, dropdownMenuTemplate, mapControlsTemplate, searchBarTemplate, viewerGridTemplate, tabsTemplate },
-    templates,
-  ) => html`
+const DocumentenVDKZoeken = examplePageStories((templates) => {
+  const {
+    buttonTemplate,
+    dropdownMenuTemplate,
+    mapControlsTemplate,
+    searchBarTemplate,
+    viewerGridTemplate,
+    tabsTemplate,
+  } = templates;
+
+  return html`
     <style>
       .demo-container {
         display: flex;
@@ -95,7 +101,7 @@ const DocumentenVDKZoeken = examplePageStories(
         })}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { DocumentenVDKZoeken };

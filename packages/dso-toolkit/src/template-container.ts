@@ -1,5 +1,4 @@
 import { Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
-import { TemplateResult } from "lit-html";
 
 export type StoryObj<TArgs, TRenderer extends Renderer> = StoryAnnotations<TRenderer, TArgs>;
 
@@ -90,21 +89,6 @@ export class TemplateContainer<
       const templates = this.create(preferredImplementation, context.title);
 
       return callback(args, storyTemplates(templates));
-    };
-  }
-
-  renderExamplePage<TRenderer extends Renderer, TArgs extends Args>(
-    storyTemplates: (templates: Templates, allTemplates: Templates) => TemplateResult,
-    callback: (args: TArgs, storyTemplates: TemplateResult) => TemplateFnReturnType,
-  ): ArgsStoryFn<TRenderer, TArgs & { preferredImplementation?: Implementation }> {
-    return (a, context) => {
-      const { preferredImplementation } = a;
-      const args = { ...a };
-      delete args.preferredImplementation;
-
-      const templates = this.create(preferredImplementation, context.title);
-
-      return callback(args, storyTemplates(templates, templates));
     };
   }
 

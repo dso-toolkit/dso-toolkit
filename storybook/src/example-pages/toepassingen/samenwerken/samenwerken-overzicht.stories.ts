@@ -13,8 +13,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SamenwerkenOverzicht = examplePageStories(
-  ({ linkTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`
+const SamenwerkenOverzicht = examplePageStories((templates) => {
+  const { linkTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -73,7 +75,7 @@ const SamenwerkenOverzicht = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { SamenwerkenOverzicht };

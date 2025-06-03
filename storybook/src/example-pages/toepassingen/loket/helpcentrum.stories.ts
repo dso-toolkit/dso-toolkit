@@ -15,8 +15,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Helpcentrum = examplePageStories(
-  ({ linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate }, templates) => html`
+const Helpcentrum = examplePageStories((templates) => {
+  const { linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
       <main>
@@ -118,7 +120,7 @@ const Helpcentrum = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Helpcentrum };

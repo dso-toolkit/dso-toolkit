@@ -14,8 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const PaginaMetBanner = examplePageStories(
-  ({ linkTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+const PaginaMetBanner = examplePageStories((templates) => {
+  const { linkTemplate, bannerTemplate, highlightBoxTemplate, richContentTemplate } = templates;
+
+  return html`
     ${bannerTemplate({
       status: "danger",
       content: richContentTemplate({
@@ -85,7 +87,7 @@ const PaginaMetBanner = examplePageStories(
       ${footerPartial(templates)}
       </div>
     </div>
-  `,
-);
+  `;
+});
 
 export { PaginaMetBanner };

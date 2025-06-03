@@ -13,21 +13,20 @@ const meta: Meta = {
 
 export default meta;
 
-const Resultaat = examplePageStories(
-  (
-    {
-      accordionTemplate,
-      actionListTemplate,
-      alertTemplate,
-      linkTemplate,
-      applicationHeadingTemplate,
-      formButtonsTemplate,
-      buttonTemplate,
-      iconTemplate,
-      richContentTemplate,
-    },
-    templates,
-  ) => html`
+const Resultaat = examplePageStories((templates) => {
+  const {
+    accordionTemplate,
+    actionListTemplate,
+    alertTemplate,
+    linkTemplate,
+    applicationHeadingTemplate,
+    formButtonsTemplate,
+    buttonTemplate,
+    iconTemplate,
+    richContentTemplate,
+  } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Vergunningscheck") })}
       <main>
@@ -262,7 +261,7 @@ const Resultaat = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Resultaat };

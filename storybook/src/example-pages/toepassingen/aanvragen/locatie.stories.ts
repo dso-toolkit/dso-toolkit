@@ -15,11 +15,11 @@ const meta: Meta = {
 
 export default meta;
 
-const Locatie = examplePageStories(
-  (
-    { applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate },
-    templates,
-  ) => html`
+const Locatie = examplePageStories((templates) => {
+  const { applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate } =
+    templates;
+
+  return html`
     <style>
       .dso-map-example {
         background-image: url("/images/map-lved125.png");
@@ -71,7 +71,7 @@ const Locatie = examplePageStories(
         ${footerPartial(templates)}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { Locatie };

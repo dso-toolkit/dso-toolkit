@@ -13,11 +13,11 @@ const meta: Meta = {
 
 export default meta;
 
-const MijnProjecten = examplePageStories(
-  (
-    { applicationHeadingTemplate, contextTemplate, buttonRowTemplate, searchBarTemplate, projectItemTemplate },
-    templates,
-  ) => html`
+const MijnProjecten = examplePageStories((templates) => {
+  const { applicationHeadingTemplate, contextTemplate, buttonRowTemplate, searchBarTemplate, projectItemTemplate } =
+    templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, {
         ...header,
@@ -111,7 +111,7 @@ const MijnProjecten = examplePageStories(
 
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { MijnProjecten };

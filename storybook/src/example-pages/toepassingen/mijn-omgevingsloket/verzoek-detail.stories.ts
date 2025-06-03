@@ -15,8 +15,10 @@ const meta: Meta = {
 
 export default meta;
 
-const VerzoekDetail = examplePageStories(
-  ({ buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, linkTemplate }, templates) => html`
+const VerzoekDetail = examplePageStories((templates) => {
+  const { buttonRowTemplate, applicationHeadingTemplate, definitionListTemplate, linkTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
@@ -145,7 +147,7 @@ const VerzoekDetail = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { VerzoekDetail };

@@ -15,20 +15,19 @@ const meta: Meta = {
 
 export default meta;
 
-const Homepage = examplePageStories(
-  (
-    {
-      linkTemplate,
-      linkListTemplate,
-      highlightBoxTemplate,
-      richContentTemplate,
-      tileTemplate,
-      buttonTemplate,
-      skiplinkTemplate,
-      surveyRatingTemplate,
-    },
-    templates,
-  ) => html`
+const Homepage = examplePageStories((templates) => {
+  const {
+    linkTemplate,
+    linkListTemplate,
+    highlightBoxTemplate,
+    richContentTemplate,
+    tileTemplate,
+    buttonTemplate,
+    skiplinkTemplate,
+    surveyRatingTemplate,
+  } = templates;
+
+  return html`
     ${surveyRatingTemplate({})} ${skiplinkTemplate({ label: "Ga naar navigatie", to: "navigation" })}
     ${skiplinkTemplate({ label: "Ga naar inhoud", to: "main" })}
     ${skiplinkTemplate({ label: "Ga naar website-informatie", to: "footer" })}
@@ -184,7 +183,7 @@ const Homepage = examplePageStories(
       <div id="footer"><!-- for skiplink --></div>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Homepage };

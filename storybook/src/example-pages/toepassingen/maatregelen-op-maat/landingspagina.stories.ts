@@ -15,8 +15,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Landingspagina = examplePageStories(
-  ({ accordionTemplate, linkTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
+const Landingspagina = examplePageStories((templates) => {
+  const { accordionTemplate, linkTemplate, highlightBoxTemplate, richContentTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Maatregelen op maat") })}
       <main>
@@ -142,7 +144,7 @@ const Landingspagina = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Landingspagina };

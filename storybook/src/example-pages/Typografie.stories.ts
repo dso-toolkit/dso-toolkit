@@ -9,8 +9,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Typografie = examplePageStories(
-  ({ linkTemplate }) => html`
+const Typografie = examplePageStories((templates) => {
+  const { linkTemplate } = templates;
+
+  return html`
     <div class="container">
       <div class="dso-table-responsive">
         <table class="table">
@@ -125,7 +127,7 @@ const Typografie = examplePageStories(
         </table>
       </div>
     </div>
-  `,
-);
+  `;
+});
 
 export { Typografie };

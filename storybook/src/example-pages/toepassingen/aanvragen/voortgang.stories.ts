@@ -13,8 +13,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Voortgang = examplePageStories(
-  ({ listTemplate }, templates) => html`
+const Voortgang = examplePageStories((templates) => {
+  const { listTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu("Aanvragen") })}
       <main>
@@ -46,7 +48,7 @@ const Voortgang = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Voortgang };

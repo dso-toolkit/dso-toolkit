@@ -21,25 +21,24 @@ const meta: Meta = {
 
 export default meta;
 
-const DocumentenVDK = examplePageStories(
-  (
-    {
-      accordionTemplate,
-      linkTemplate,
-      bannerTemplate,
-      buttonTemplate,
-      documentCardTemplate,
-      documentHeaderTemplate,
-      highlightBoxTemplate,
-      iconTemplate,
-      mapControlsTemplate,
-      navbarTemplate,
-      plekinfoCardTemplate,
-      selectableTemplate,
-      viewerGridTemplate,
-    },
-    templates,
-  ) => html`
+const DocumentenVDK = examplePageStories((templates) => {
+  const {
+    accordionTemplate,
+    linkTemplate,
+    bannerTemplate,
+    buttonTemplate,
+    documentCardTemplate,
+    documentHeaderTemplate,
+    highlightBoxTemplate,
+    iconTemplate,
+    mapControlsTemplate,
+    navbarTemplate,
+    plekinfoCardTemplate,
+    selectableTemplate,
+    viewerGridTemplate,
+  } = templates;
+
+  return html`
     <style>
       .demo-container {
         display: flex;
@@ -160,7 +159,7 @@ const DocumentenVDK = examplePageStories(
         })}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { DocumentenVDK };

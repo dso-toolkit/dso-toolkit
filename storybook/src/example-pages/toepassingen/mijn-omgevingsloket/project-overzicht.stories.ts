@@ -15,19 +15,18 @@ const meta: Meta = {
 
 export default meta;
 
-const ProjectOverzicht = examplePageStories(
-  (
-    {
-      linkTemplate,
-      applicationHeadingTemplate,
-      buttonRowTemplate,
-      cardListTemplate,
-      highlightBoxTemplate,
-      linkListTemplate,
-      richContentTemplate,
-    },
-    templates,
-  ) => html`
+const ProjectOverzicht = examplePageStories((templates) => {
+  const {
+    linkTemplate,
+    applicationHeadingTemplate,
+    buttonRowTemplate,
+    cardListTemplate,
+    highlightBoxTemplate,
+    linkListTemplate,
+    richContentTemplate,
+  } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu: mainMenu(), userHomeActive: true, authStatus: "loggedIn" })}
       <main>
@@ -176,7 +175,7 @@ const ProjectOverzicht = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { ProjectOverzicht };

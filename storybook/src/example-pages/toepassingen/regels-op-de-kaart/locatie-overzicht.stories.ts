@@ -13,24 +13,23 @@ const meta: Meta = {
 
 export default meta;
 
-const LocatieOverzicht = examplePageStories(
-  (
-    {
-      viewerGridTemplate,
-      buttonTemplate,
-      buttonRowTemplate,
-      contextTemplate,
-      labelGroupTemplate,
-      highlightBoxTemplate,
-      richContentTemplate,
-      toggletipTemplate,
-      searchBarTemplate,
-      mapControlsTemplate,
-      tileTemplate,
-      onboardingTipTemplate,
-    },
-    templates,
-  ) => html`
+const LocatieOverzicht = examplePageStories((templates) => {
+  const {
+    viewerGridTemplate,
+    buttonTemplate,
+    buttonRowTemplate,
+    contextTemplate,
+    labelGroupTemplate,
+    highlightBoxTemplate,
+    richContentTemplate,
+    toggletipTemplate,
+    searchBarTemplate,
+    mapControlsTemplate,
+    tileTemplate,
+    onboardingTipTemplate,
+  } = templates;
+
+  return html`
     ${headerPartial(templates, { ...header, mainMenu: mainMenu("Regels op de kaart") })}
     <main>
       ${viewerGridTemplate({
@@ -229,7 +228,7 @@ const LocatieOverzicht = examplePageStories(
         `,
       })}
     </main>
-  `,
-);
+  `;
+});
 
 export { LocatieOverzicht };

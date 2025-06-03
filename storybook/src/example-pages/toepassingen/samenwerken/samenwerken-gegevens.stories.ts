@@ -5,7 +5,7 @@ import { examplePageStories } from "../../../example-page-stories";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
 
-import { header, items } from "./samenwerking-gegevens.content";
+import { header, items } from "./samenwerken-gegevens.content";
 
 const meta: Meta = {
   title: "Voorbeeldpagina's/Toepassingen/Samenwerken/Samenwerken gegevens",
@@ -13,8 +13,10 @@ const meta: Meta = {
 
 export default meta;
 
-const SamenwerkenGegevens = examplePageStories(
-  ({ buttonTemplate, buttonRowTemplate, tabsTemplate }, templates) => html`
+const SamenwerkenGegevens = examplePageStories((templates) => {
+  const { buttonTemplate, buttonRowTemplate, tabsTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -49,7 +51,7 @@ const SamenwerkenGegevens = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { SamenwerkenGegevens };

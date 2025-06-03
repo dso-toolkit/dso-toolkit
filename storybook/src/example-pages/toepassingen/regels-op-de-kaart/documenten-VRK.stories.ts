@@ -13,20 +13,19 @@ const meta: Meta = {
 
 export default meta;
 
-const DocumentenVRK = examplePageStories(
-  (
-    {
-      viewerGridTemplate,
-      buttonTemplate,
-      contextTemplate,
-      labelGroupTemplate,
-      toggletipTemplate,
-      mapControlsTemplate,
-      accordionTemplate,
-      cardListTemplate,
-    },
-    templates,
-  ) => html`
+const DocumentenVRK = examplePageStories((templates) => {
+  const {
+    viewerGridTemplate,
+    buttonTemplate,
+    contextTemplate,
+    labelGroupTemplate,
+    toggletipTemplate,
+    mapControlsTemplate,
+    accordionTemplate,
+    cardListTemplate,
+  } = templates;
+
+  return html`
     <style>
       .demo-container {
         display: flex;
@@ -127,7 +126,7 @@ const DocumentenVRK = examplePageStories(
         })}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { DocumentenVRK };

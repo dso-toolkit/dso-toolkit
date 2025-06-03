@@ -9,8 +9,10 @@ const meta: Meta = {
 
 export default meta;
 
-const ModalReturnFocus = examplePageStories(
-  ({ buttonTemplate, modalTemplate }) => html`
+const ModalReturnFocus = examplePageStories((templates) => {
+  const { buttonTemplate, modalTemplate } = templates;
+
+  return html`
     <div class="container">
       <main>
         <h1>Modal focus return</h1>
@@ -49,7 +51,7 @@ const ModalReturnFocus = examplePageStories(
         })}
       </main>
     </div>
-  `,
-);
+  `;
+});
 
 export { ModalReturnFocus };

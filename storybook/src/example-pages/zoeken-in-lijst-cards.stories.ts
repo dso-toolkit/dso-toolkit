@@ -14,19 +14,18 @@ const meta: Meta = {
 
 export default meta;
 
-const ZoekenInLijstCards = examplePageStories(
-  (
-    {
-      applicationHeadingTemplate,
-      searchBarTemplate,
-      badgeTemplate,
-      cardListTemplate,
-      footnoteTemplate,
-      footnotesTemplate,
-      formTemplate,
-    },
-    templates,
-  ) => html`
+const ZoekenInLijstCards = examplePageStories((templates) => {
+  const {
+    applicationHeadingTemplate,
+    searchBarTemplate,
+    badgeTemplate,
+    cardListTemplate,
+    footnoteTemplate,
+    footnotesTemplate,
+    formTemplate,
+  } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, {
         ...header,
@@ -115,7 +114,7 @@ const ZoekenInLijstCards = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { ZoekenInLijstCards };

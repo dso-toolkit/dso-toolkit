@@ -14,8 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Begrippen = examplePageStories(
-  ({ definitionListTemplate, buttonRowTemplate }, templates) => html`
+const Begrippen = examplePageStories((templates) => {
+  const { definitionListTemplate, buttonRowTemplate } = templates;
+
+  return html`
     <div class="container">
       ${headerPartial(templates, { ...header, mainMenu })}
 
@@ -51,7 +53,7 @@ const Begrippen = examplePageStories(
       </main>
       ${footerPartial(templates)}
     </div>
-  `,
-);
+  `;
+});
 
 export { Begrippen };
