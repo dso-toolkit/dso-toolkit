@@ -72,9 +72,29 @@ const config: StorybookConfig = {
     : ["../src/components/**/*.{core-,css-,}stories.ts", "../src/example-pages/**/*.ts"],
   previewHead: (head) => `
     ${head}
-    <link rel="preload" href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-Italic-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/static/packages/dso-toolkit/dist/di.svg" as="image" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-Italic-VariableFont_wdth,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+      data-dt-postbuild-href
+    >
+    <link
+      rel="preload"
+      href="/static/packages/dso-toolkit/assets/fonts/Asap/Asap-VariableFont_wdth,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+      data-dt-postbuild-href
+    >
+    <link
+      rel="preload"
+      href="/static/packages/dso-toolkit/dist/di.svg"
+      as="image"
+      type="image/svg+xml"
+      data-dt-postbuild-href
+    >
   `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>

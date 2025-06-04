@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "storybook dev --port 45000",
-    "storybook:build": "storybook build --output-dir ./www",
+    "storybook:build": "storybook build --output-dir ./www && tsx scripts/postbuild-transform.ts",
     "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
     "e2e:test": "cypress run"
@@ -30,6 +30,7 @@
     "@storybook/web-components-webpack5": "7.6.20",
     "@whitespace/storybook-addon-html": "patch:@whitespace/storybook-addon-html@5.1.6#~/.yarn/patches/@whitespace-storybook-addon-html-npm-5.1.6.patch",
     "axe-core": "^4.10.3",
+    "cheerio": "^1.0.0",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.6.0",
     "cypress-real-events": "^1.14.0",
@@ -44,6 +45,7 @@
     "react-syntax-highlighter": "^15.6.1",
     "start-server-and-test": "^2.0.12",
     "storybook": "7.6.20",
+    "tsx": "^4.19.4",
     "typescript": "~5.6.3"
   },
   "prettier": "@infoprojects/prettier-config",
