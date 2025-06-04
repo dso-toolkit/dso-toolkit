@@ -38,9 +38,8 @@ describe("Components without e2e tests", () => {
   for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
-      if (component.name === "info") {
-        test(id, component);
-      }
+
+      test(id, component);
     }
   }
 });
