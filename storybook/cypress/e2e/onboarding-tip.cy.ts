@@ -23,7 +23,7 @@ describe("Onboarding Tip", () => {
 
     cy.get("@dsoOnboardingTip").should("not.have.class", "fade-in");
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should hide onboarding tip when its outside the viewport", () => {
@@ -34,7 +34,7 @@ describe("Onboarding Tip", () => {
       .should("have.css", "visibility", "hidden")
       .should("have.css", "opacity", "0");
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the left", () => {
@@ -42,7 +42,7 @@ describe("Onboarding Tip", () => {
 
     prepareComponent();
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the right", () => {
@@ -50,7 +50,7 @@ describe("Onboarding Tip", () => {
 
     prepareComponent();
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the top", () => {
@@ -58,7 +58,7 @@ describe("Onboarding Tip", () => {
 
     prepareComponent();
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the bottom", () => {
@@ -68,6 +68,6 @@ describe("Onboarding Tip", () => {
 
     cy.scrollTo(0, 200);
 
-    cy.matchImageSnapshot({capture: "viewport"});
+    cy.matchImageSnapshot({ capture: "viewport" });
   });
 });
