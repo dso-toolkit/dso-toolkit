@@ -32,11 +32,6 @@ const config: StorybookConfig = {
   },
   addons: ["@storybook/addon-essentials", "storybook-addon-jsx", "@storybook/addon-a11y"],
   stories: ["../src/**/*.stories.@(ts|tsx)"],
-  previewHead: (head) => `
-    ${head}
-    <link rel="preload" href="/static/dso-toolkit/assets/fonts/Asap/Asap-Italic-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/static/dso-toolkit/assets/fonts/Asap/Asap-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-  `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
   //   !process.env.CI

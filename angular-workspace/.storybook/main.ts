@@ -43,11 +43,6 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
-  previewHead: (head) => `
-    ${head}
-    <link rel="preload" href="/Asap-Italic-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/Asap-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
-  `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
   //   !process.env.CI
