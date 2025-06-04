@@ -236,6 +236,10 @@ const {
           status: "info",
           message: html`Dit is <code>slot="filterpanel"</code>.`,
         }),
+        topBar: alertTemplate({
+          status: "info",
+          message: html`Dit is <code>slot="top-bar"</code>.`,
+        }),
         overlay: html`${alertTemplate({
           status: "info",
           message: html`Dit is <code>slot="overlay"</code>.`,
