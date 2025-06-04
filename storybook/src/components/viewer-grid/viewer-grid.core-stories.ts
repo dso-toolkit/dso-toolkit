@@ -83,6 +83,7 @@ const {
       badgeTemplate,
       viewerGridTemplate,
       alertTemplate,
+      bannerTemplate,
       richContentTemplate,
       documentHeaderTemplate,
       documentListTemplate,
@@ -236,9 +237,9 @@ const {
           status: "info",
           message: html`Dit is <code>slot="filterpanel"</code>.`,
         }),
-        topBar: alertTemplate({
-          status: "info",
-          message: html`Dit is <code>slot="top-bar"</code>.`,
+        topBar: bannerTemplate({
+          status: "warning",
+          content: html`Dit is <code>slot="top-bar"</code>.`,
         }),
         overlay: html`${alertTemplate({
           status: "info",
