@@ -49,6 +49,10 @@ button {
   visibility: hidden;
 }
 
+.viewer-grid-columns {
+  position: relative;
+}
+
 .dso-main-panel,
 .dso-document-panel {
   .content {
@@ -218,6 +222,8 @@ button {
 
 .filterpanel-vdk {
   display: block;
+  position: absolute;
+  inset-block-start: 0;
   inset-inline-start: calc(core-viewer-grid-variables.$filterpanel-vdk-max-inline-size * -1);
   block-size: 100%;
   inline-size: 100%;
