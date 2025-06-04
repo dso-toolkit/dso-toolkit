@@ -83,6 +83,7 @@ const {
       badgeTemplate,
       viewerGridTemplate,
       alertTemplate,
+      bannerTemplate,
       richContentTemplate,
       documentHeaderTemplate,
       documentListTemplate,
@@ -235,6 +236,10 @@ const {
         filterpanel: alertTemplate({
           status: "info",
           message: html`Dit is <code>slot="filterpanel"</code>.`,
+        }),
+        topBar: bannerTemplate({
+          status: "warning",
+          content: html`Dit is <code>slot="top-bar"</code>.`,
         }),
         overlay: html`${alertTemplate({
           status: "info",
