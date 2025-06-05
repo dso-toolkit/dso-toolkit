@@ -53,17 +53,6 @@ jobs:
           build-args: |
             CI
             DT_REF
-      - name: Prepare Cypress Parallel weights file
-        run: mkdir --verbose --parents ${{ github.workspace }}/storybook/cypress-parallel
-      - name: "Cache: Cypress Parallel weights file"
-        id: cypress-parallel-weights-file-cache
-        uses: actions/cache@v4
-        with:
-          key: weights-file-${{ hashFiles('yarn.lock', 'storybook/cypress/**') }}
-          path: ${{ github.workspace }}/storybook/cypress-parallel/parallel-weights.json
-          restore-keys: |
-            weights-file-${{ hashFiles('yarn.lock', 'storybook/cypress/**') }}
-            weights-file-
       - name: "Cache: Cypress snapshots"
         id: cypress-snapshots-cache
         uses: actions/cache@v4
@@ -91,7 +80,6 @@ jobs:
           options: --env CI
             --env DT_REF
             --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
-            --volume ${{ github.workspace }}/storybook/cypress-parallel:/usr/src/app/storybook/cypress-parallel
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
           run: yarn e2e
@@ -99,7 +87,10 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
-          path: ${{ github.workspace }}/storybook/cypress/snapshot-${{ env.DT_REF == 'master' && 'baseline' || 'diff' }}
+          path: |
+            ${{ github.workspace }}/storybook/cypress/screenshots
+            ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+            ${{ github.workspace }}/storybook/cypress/snapshot-diff
       - uses: addnab/docker-run-action@v3
         if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success') }}
         name: Deploy

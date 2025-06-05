@@ -263,10 +263,12 @@ describe("Date Picker (Legacy)", () => {
 
   it("should emit changed event with error on date input before min", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
-      DatePickerLegacy.get(0).min = "1-1-2022";
-      DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
-    });
+    cy.get("dso-date-picker-legacy")
+      .should("have.class", "hydrated")
+      .then(($datePickerLegacy) => {
+        $datePickerLegacy.get(0).min = "1-1-2022";
+        $datePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
+      });
 
     cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
@@ -295,10 +297,12 @@ describe("Date Picker (Legacy)", () => {
 
   it("should emit changed event with error on date input after max", () => {
     const details = [];
-    cy.get("dso-date-picker-legacy.hydrated").then((DatePickerLegacy) => {
-      DatePickerLegacy.get(0).max = "31-12-2021";
-      DatePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
-    });
+    cy.get("dso-date-picker-legacy")
+      .should("have.class", "hydrated")
+      .then(($datePickerLegacy) => {
+        $datePickerLegacy.get(0).max = "31-12-2021";
+        $datePickerLegacy.get(0).addEventListener("dsoDateChange", (event: CustomEvent) => details.push(event.detail));
+      });
 
     cy.get("dso-date-picker-legacy.hydrated")
       .find("input.dso-date__input")
