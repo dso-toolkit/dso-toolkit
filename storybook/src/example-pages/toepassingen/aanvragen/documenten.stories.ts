@@ -49,7 +49,7 @@ const Documenten = examplePageStories((templates) => {
                         Een plattegrond is een schematische tekening van een horizontale doorsnede van het bouwwerk van
                         bovenaf gezien.<br />
                         Hieronder staat een voor deze vraag een niet relevante afbeelding tbv de test.
-                        <img src="https://image.ibb.co/g1dKZf/019.jpg" alt="Afbeelding 19" /><br />
+                        <img src="images/019.jpg" alt="Afbeelding 19" /><br />
                         Een doorsnede is een schematische tekening van een aanzicht van een dwarsdoorsnede van het
                         bouwwerk
                       </p>

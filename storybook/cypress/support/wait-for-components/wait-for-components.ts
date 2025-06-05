@@ -5,21 +5,27 @@ import { WaitForTable } from "./wait-for-table";
 const waitableComponents: WaitForComponent<HTMLElement>[] = [new WaitForAccordion(), new WaitForTable()];
 
 export function waitForComponents() {
-  cy.document().then((doc) => {
-    const dsoComponents = Array.from(doc.querySelectorAll("*")).filter((el) => el.tagName.startsWith("DSO-"));
+  cy.get("body")
+    .should("have.class", "sb-show-main")
+    .get("#root-inner")
+    .should("exist")
+    .and("be.visible")
+    .document()
+    .then((doc) => {
+      const dsoComponents = Array.from(doc.querySelectorAll("*")).filter((el) => el.tagName.startsWith("DSO-"));
 
-    if (dsoComponents.length > 0) {
-      cy.log(prettyPrintResults(dsoComponents));
-      cy.get("*")
-        .filter((_, el) => el.tagName.startsWith("DSO-"))
-        .should("have.class", "hydrated")
-        .then(($components) => {
-          $components.each((_, el) => {
-            waitableComponents.find((c) => c.is(el))?.wait(el);
+      if (dsoComponents.length > 0) {
+        cy.log(prettyPrintResults(dsoComponents));
+        cy.get("*")
+          .filter((_, el) => el.tagName.startsWith("DSO-"))
+          .should("have.class", "hydrated")
+          .then(($components) => {
+            $components.each((_, el) => {
+              waitableComponents.find((c) => c.is(el))?.wait(el);
+            });
           });
-        });
-    }
-  });
+      }
+    });
 }
 
 function prettyPrintResults(dsoComponents: Element[]) {
