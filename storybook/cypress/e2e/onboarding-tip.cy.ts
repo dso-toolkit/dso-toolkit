@@ -8,31 +8,14 @@ describe("Onboarding Tip", () => {
     cy.dsoCheckA11y("dso-onboarding-tip.hydrated");
   });
 
-  function prepareComponent() {
-    cy.get(".board")
-      .as("dsoBoard")
-      .find("dso-onboarding-tip.hydrated")
-      .as("dsoOnboardingTip")
-      .shadow()
-      .find("button.dso-close")
-      .as("dsoCloseButton");
-  }
-
   it("should render onboarding tip", () => {
-    prepareComponent();
-
-    cy.get("@dsoOnboardingTip").should("not.have.class", "fade-in");
+    cy.get("dso-onboarding-tip").should("have.attr", "ready");
 
     cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should hide onboarding tip when its outside the viewport", () => {
-    prepareComponent();
-
-    cy.scrollTo(0, 1000)
-      .get("@dsoOnboardingTip")
-      .should("have.css", "visibility", "hidden")
-      .should("have.css", "opacity", "0");
+    cy.scrollTo(0, 1000).get("dso-onboarding-tip").should("not.be.visible");
 
     cy.matchImageSnapshot({ capture: "viewport" });
   });
@@ -40,15 +23,11 @@ describe("Onboarding Tip", () => {
   it("should place onboarding tip to the left", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-onboarding-tip--default&args=box:5;placement:left");
 
-    prepareComponent();
-
     cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the right", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-onboarding-tip--default&args=box:5;placement:right");
-
-    prepareComponent();
 
     cy.matchImageSnapshot({ capture: "viewport" });
   });
@@ -56,15 +35,11 @@ describe("Onboarding Tip", () => {
   it("should place onboarding tip to the top", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-onboarding-tip--default&args=box:5;placement:top");
 
-    prepareComponent();
-
     cy.matchImageSnapshot({ capture: "viewport" });
   });
 
   it("should place onboarding tip to the bottom", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-onboarding-tip--default&args=box:5;placement:bottom");
-
-    prepareComponent();
 
     cy.scrollTo(0, 200);
 

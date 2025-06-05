@@ -65,7 +65,7 @@
 }
 
 // Startup fade-in transition
-:host(.fade-in) {
+:host(:not([ready])) {
   opacity: 1;
   animation: onboarding-tip-variables.$transition-time ease-in 1 normal both fadeInOpacity;
 }

@@ -1,6 +1,7 @@
 import { arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
 import { Side } from "@floating-ui/utils";
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
+import { Placement } from "@popperjs/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
 
@@ -25,6 +26,9 @@ export class OnboardingTip implements ComponentInterface {
   @Event()
   dsoClose!: EventEmitter<OnboardingTipCloseEvent>;
 
+  @State()
+  ready = false;
+
   componentDidRender() {
     if (!this.host.matches(":popover-open")) {
       this.host.showPopover();
@@ -33,12 +37,6 @@ export class OnboardingTip implements ComponentInterface {
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
       this.cleanUp = OnboardingTip.positionTip(this.referenceElement, this.host, this.tipArrowRef, this.placement);
     }
-  }
-
-  componentDidLoad() {
-    // Startup fade-in transition
-    this.host.classList.add("fade-in");
-    this.host.onanimationend = () => this.host.classList.remove("fade-in");
   }
 
   disconnectedCallback(): void {
@@ -58,7 +56,7 @@ export class OnboardingTip implements ComponentInterface {
     referenceElement: HTMLElement,
     tipRef: HTMLDsoOnboardingTipElement,
     tipArrowRef: HTMLDivElement,
-    placement: Side,
+    position: Side,
   ) {
     const padding = 5;
     return autoUpdate(referenceElement, tipRef, () => {
@@ -73,10 +71,8 @@ export class OnboardingTip implements ComponentInterface {
       // Same as media-query-breakpoints.$screen-md-min
       const smallViewport = document.body.clientWidth < 992;
 
-      if (smallViewport) {
-        // Only use top and bottom placement when the viewport is small
-        placement = "top";
-      }
+      // Only use top and bottom placement when the viewport is small
+      const placement: Placement = smallViewport ? "top" : `${position}-start`;
 
       computePosition(referenceElement, tipRef, {
         strategy: "fixed",
@@ -99,7 +95,7 @@ export class OnboardingTip implements ComponentInterface {
             padding: arrowPadding + arrowLength + padding,
           }),
         ],
-        placement: smallViewport ? placement : `${placement}-start`,
+        placement,
       }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
         if (middlewareData.hide) {
           // Tooltip needs to be visible at all times on small viewports
@@ -162,7 +158,7 @@ export class OnboardingTip implements ComponentInterface {
 
   render() {
     return (
-      <Host popover="manual">
+      <Host popover="manual" ready={this.ready} onAnimationend={() => (this.ready = true)}>
         <div class="onboarding-tip" role="tooltip">
           <div class="onboarding-tip-inner">
             <div class="onboarding-tip-content-wrapper">
