@@ -79,12 +79,6 @@ export class Modal implements ComponentInterface {
       }
 
       this.htmlDialogElement.showModal();
-
-      this.htmlDialogElement.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Escape" && !this.closable) {
-          e.preventDefault();
-        }
-      });
     }
   }
 
@@ -108,6 +102,24 @@ export class Modal implements ComponentInterface {
     }
   }
 
+  private blockEscapeKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+
+      if (this.closable) {
+        this.dsoClose.emit({ originalEvent: e });
+      }
+    }
+  };
+
+  private handleDialogCancel(e: Event) {
+    e.preventDefault();
+
+    if (this.closable) {
+      this.dsoClose.emit({ originalEvent: e });
+    }
+  }
+
   render() {
     return (
       <dialog
@@ -117,13 +129,8 @@ export class Modal implements ComponentInterface {
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
         onClick={(e) => this.handleDialogClick(e)}
-        onCancel={(e) => {
-          e.preventDefault();
-
-          if (this.closable) {
-            this.dsoClose.emit({ originalEvent: e });
-          }
-        }}
+        onCancel={(e) => this.handleDialogCancel(e)}
+        onKeyDown={(e) => this.blockEscapeKey(e)}
       >
         <div class="dso-dialog" role="document">
           {this.modalTitle ? (
