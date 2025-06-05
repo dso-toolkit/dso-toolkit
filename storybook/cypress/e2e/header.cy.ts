@@ -71,6 +71,22 @@ describe("Header", () => {
       .dsoCheckA11y("dso-header.hydrated");
   });
 
+  it("matches snapshot", () => {
+    cy.viewport(1225, 660)
+      .get("dso-header.hydrated")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);
+
+    cy.viewport(1000, 660)
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu.hydrated")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dso-dropdown-options ul li")
+      .should("have.length", 2);
+
+    cy.get("dso-header.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- 2 menuitems in dropdown menu`);
+  });
+
   it("should show and remove dropdownmenu", () => {
     cy.get("@dsoHeaderShadow")
       .find("nav")
@@ -89,7 +105,6 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("be.visible")
-      .matchImageSnapshot()
       .get("@dsoHeaderShadow")
       .find(".dropdown dso-dropdown-menu")
       .should("not.exist");

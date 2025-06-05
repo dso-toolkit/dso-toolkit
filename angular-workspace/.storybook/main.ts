@@ -1,5 +1,5 @@
 import { readdirSync } from "fs";
-import { dirname, join, parse, resolve } from "path";
+import { dirname, parse, resolve } from "path";
 
 import { StorybookConfig } from "@storybook/angular";
 
@@ -38,16 +38,11 @@ const config: StorybookConfig = {
         transcludeMarkdown: true,
       },
     },
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-a11y"),
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y",
   ],
-  previewHead: (head) => `
-    ${head}
-    <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
-    <script src="iframe-resizer/child/index.umd.js"></script>
-  `,
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
   //   !process.env.CI
@@ -63,7 +58,7 @@ const config: StorybookConfig = {
     return config;
   },
   framework: {
-    name: getAbsolutePath("@storybook/angular"),
+    name: "@storybook/angular",
     options: {},
   },
   core: {
@@ -78,7 +73,3 @@ const config: StorybookConfig = {
 };
 
 export default config;
-
-function getAbsolutePath(value: string): string {
-  return dirname(require.resolve(join(value, "package.json")));
-}

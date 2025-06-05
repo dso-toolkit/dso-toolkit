@@ -408,7 +408,7 @@ export class AccordionSection implements ComponentInterface {
       <Host
         class={{
           "dso-accordion-section": true,
-          ["dso-accordion-" + variant]: true,
+          ["dso-accordion-" + variant]: !!variant,
           "dso-nested-accordion": this.hasNestedAccordion || this.containsNestedAccordion,
           "dso-accordion-reverse-align": reverseAlign ?? false,
           ["dso-accordion-wijzigactie-" + this.wijzigactie]: !!this.wijzigactie,

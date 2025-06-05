@@ -1,4 +1,5 @@
 import components from "../fixtures/image-snapshot-components.json";
+import { waitForComponents } from "../support/wait-for-components";
 
 interface Component {
   name: string;
@@ -27,6 +28,7 @@ function test(id: string, component: Component) {
     cy.visit(`http://localhost:45000/iframe.html?id=${id}`);
 
     checkA11y(component);
+    waitForComponents();
     matchImageSnapshot(id, component);
   });
 }
@@ -36,6 +38,7 @@ describe("Components without e2e tests", () => {
   for (const component of stories) {
     for (const story of component.stories) {
       const id = `${component.type}-${component.name}--${story}`;
+
       test(id, component);
     }
   }
