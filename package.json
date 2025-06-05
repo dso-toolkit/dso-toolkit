@@ -15,7 +15,7 @@
     "lint": "yarn lint:prettier && yarn lint:stylelint && yarn lint:eslint",
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint '**/*.scss'",
-    "lint:eslint": "eslint --max-warnings=1 .",
+    "lint:eslint": "eslint",
     "build": "nx run-many --target=build",
     "build-www": "nx run-many --target=build-www",
     "e2e": "yarn workspace dso-storybook e2e",

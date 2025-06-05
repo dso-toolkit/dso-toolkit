@@ -13,7 +13,7 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
         <dso-modal
           dialog-role=${role}
           modal-title=${ifDefined(modalTitle)}
-          closable=${ifDefined(closable)}
+          ?closable=${closable}
           ?fullscreen=${fullscreen}
           @dsoClose=${dsoClose}
         >
