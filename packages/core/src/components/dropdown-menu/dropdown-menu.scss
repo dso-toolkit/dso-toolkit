@@ -7,3 +7,17 @@
 :host {
   @include dropdown-menu.root();
 }
+
+.dropdown-menu-container {
+  display: block;
+  visibility: visible;
+  margin: 0 !important;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: unset;
+
+  &[hidden] {
+    visibility: hidden;
+  }
+}
