@@ -3707,7 +3707,7 @@ __metadata:
   dependencies:
     "@floating-ui/dom": "npm:^1.7.0"
     "@popperjs/core": "npm:^2.11.8"
-    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2-c5e12145dd.patch"
+    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch"
     "@stencil/core": "npm:4.31.0"
     "@stencil/react-output-target": "npm:^1.0.2"
     "@stencil/sass": "npm:^3.2.1"
@@ -7637,9 +7637,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2-c5e12145dd.patch":
+"@stencil/angular-output-target@patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch":
   version: 0.10.2
-  resolution: "@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2-c5e12145dd.patch::version=0.10.2&hash=a6d3d3"
+  resolution: "@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch::version=0.10.2&hash=a6d3d3"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0"
   checksum: 10/c4ff550cba9c820a55de66c9a26fbb5c44aa5f707ffcb221747f4db540ac3fa6a80f94ed2e0ed21e9ad85cd4c8e8e9058f467ff4d86d0a1d74ddd271ba7cd515
