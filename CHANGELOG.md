@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING** Legend Item: Aanpassingen ([#3185](https://github.com/dso-toolkit/dso-toolkit/issues/3185))
+* List Button: beter zichtbare focusstate ([#3094](https://github.com/dso-toolkit/dso-toolkit/issues/3094))
 
 ### Task
 * Website: Deep linking naar component werkt niet ([#3215](https://github.com/dso-toolkit/dso-toolkit/issues/3215))

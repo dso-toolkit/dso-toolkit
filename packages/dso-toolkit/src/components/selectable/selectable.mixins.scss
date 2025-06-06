@@ -17,7 +17,7 @@
   }
 }
 
-@mixin root($set-padding: true) {
+@mixin root($set-padding: true, $omit-focus-outline: false) {
   position: relative;
 
   display: var(--dso-selectable-display, block);
@@ -40,7 +40,7 @@
 
   input[type="checkbox"],
   input[type="radio"] {
-    @include _selectableFunctionalStyling();
+    @include _selectableFunctionalStyling($omit-focus-outline);
   }
 
   input[type="checkbox"] {
@@ -92,7 +92,7 @@
   }
 }
 
-@mixin _selectableFunctionalStyling() {
+@mixin _selectableFunctionalStyling($omit-focus-outline) {
   block-size: selectable-variables.$size;
   inset-inline-start: 0;
   margin: 0;
@@ -132,16 +132,21 @@
     }
   }
 
-  &:focus {
-    outline: 0;
+  @if ($omit-focus-outline == false) {
+    &:focus {
+      outline: 0;
 
-    + label::before {
-      box-shadow: 0 0 0 selectable-variables.$focus-border-width
-        var(--dso-selectable-color, selectable-variables.$valid-color);
-      block-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
-      inset-inline-start: selectable-variables.$focus-border-width;
-      inset-block-start: selectable-variables.$focus-border-width;
-      inline-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
+      + label::before {
+        box-shadow: 0
+          0
+          0
+          selectable-variables.$focus-border-width
+          var(--dso-selectable-color, selectable-variables.$valid-color);
+        block-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
+        inset-inline-start: selectable-variables.$focus-border-width;
+        inset-block-start: selectable-variables.$focus-border-width;
+        inline-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
+      }
     }
   }
 

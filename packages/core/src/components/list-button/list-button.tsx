@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Fragment,
   Prop,
+  State,
   forceUpdate,
   h,
 } from "@stencil/core";
@@ -90,6 +91,9 @@ export class ListButton implements ComponentInterface {
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
+  @State()
+  keyboardFocus = false;
+
   connectedCallback() {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
@@ -162,7 +166,7 @@ export class ListButton implements ComponentInterface {
           class={clsx(["dso-list-button", { "dso-selected": selected, "dso-single-count": this.count === 1 }])}
           onClick={(e) => this.handleSelectClick(e)}
         >
-          <div class="dso-selectable">
+          <div class={clsx(["dso-selectable", { "dso-keyboard-focus": this.keyboardFocus }])}>
             <input
               id="dso-list-button-checkbox"
               type="checkbox"
@@ -173,6 +177,8 @@ export class ListButton implements ComponentInterface {
               }
               checked={selected}
               disabled={this.disabled}
+              onBlur={() => (this.keyboardFocus = false)}
+              onKeyUp={() => (this.keyboardFocus = true)}
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
             {this.subcontentSlot && (

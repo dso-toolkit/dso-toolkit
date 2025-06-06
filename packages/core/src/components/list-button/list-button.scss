@@ -133,10 +133,16 @@
 }
 
 .dso-selectable {
-  @include selectable.root("dso-info");
+  @include selectable.root($omit-focus-outline: true);
 
   label {
     font-weight: 700;
+  }
+
+  &:focus-within.dso-keyboard-focus {
+    padding-inline-start: selectable.$symbol-indent;
+
+    @include utilities.focus-outline();
   }
 }
 
