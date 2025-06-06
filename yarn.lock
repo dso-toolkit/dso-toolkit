@@ -7639,10 +7639,10 @@ __metadata:
 
 "@stencil/angular-output-target@patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch":
   version: 0.10.2
-  resolution: "@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch::version=0.10.2&hash=6d561e"
+  resolution: "@stencil/angular-output-target@patch:@stencil/angular-output-target@npm%3A0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch::version=0.10.2&hash=a6d3d3"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0"
-  checksum: 10/a645b7fa6c8fde93824ff7d40d53c3f16d43e83d328f2036584de08b33fa4b7ae95f100d5974b48c04f72f0e6c034c14f0ba6314ca88d4e9b447f622a54b12b2
+  checksum: 10/c4ff550cba9c820a55de66c9a26fbb5c44aa5f707ffcb221747f4db540ac3fa6a80f94ed2e0ed21e9ad85cd4c8e8e9058f467ff4d86d0a1d74ddd271ba7cd515
   languageName: node
   linkType: hard
 

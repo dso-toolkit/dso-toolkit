@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Angular: toolkit component-events worden dubbel uitgevoerd ([#3195](https://github.com/dso-toolkit/dso-toolkit/issues/3195))
+
 ## 🐻 Release 73.2.0 - 2025-06-04
 
 ### Added
