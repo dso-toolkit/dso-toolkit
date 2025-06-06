@@ -6,6 +6,10 @@
   display: block;
 }
 
+:host(:not(:first-child)) {
+  margin-block-start: units.$u3;
+}
+
 @include utilities.box-sizing();
 
 .sr-only {

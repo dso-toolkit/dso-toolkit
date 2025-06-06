@@ -132,8 +132,4 @@ dso-alert {
       background-color: alert.$info-compact-accent-bg;
     }
   }
-
-  &:not(:first-child) {
-    margin-block-start: units.$u3;
-  }
 }
