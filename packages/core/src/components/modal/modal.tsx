@@ -112,14 +112,6 @@ export class Modal implements ComponentInterface {
     }
   };
 
-  private handleDialogCancel(e: Event) {
-    e.preventDefault();
-
-    if (this.closable) {
-      this.dsoClose.emit({ originalEvent: e });
-    }
-  }
-
   render() {
     return (
       <dialog
@@ -129,7 +121,6 @@ export class Modal implements ComponentInterface {
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
         onClick={(e) => this.handleDialogClick(e)}
-        onCancel={(e) => this.handleDialogCancel(e)}
         onKeyDown={(e) => this.blockEscapeKey(e)}
       >
         <div class="dso-dialog" role="document">

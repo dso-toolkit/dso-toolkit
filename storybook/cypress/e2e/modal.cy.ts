@@ -85,6 +85,12 @@ describe("Modal", () => {
     cy.get("dso-modal:focus-within").realPress("Escape").get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
+  it("should not emit dsoClose on escape press if closable is false", () => {
+    cy.get("dso-modal.hydrated").invoke("prop", "closable", false);
+    cy.realPress("Escape");
+    cy.get("@dsoCloseListener").should("not.have.been.called");
+  });
+
   it("should not emit dsoClose upon disconnecting", () => {
     cy.get("dso-modal").should("have.class", "hydrated").shadow().find(".dso-body").should("exist");
 
