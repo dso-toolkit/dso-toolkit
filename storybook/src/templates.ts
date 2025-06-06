@@ -338,12 +338,12 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<
   TemplateResult
 >;
 export const templateContainer = new TemplateContainer<Implementation, Templates, TemplateResult>({
-  getNameByKind: (kind: string): string | undefined => {
-    if (kind.startsWith("HTML|CSS")) {
+  getNameByTitle: (title: string): string | undefined => {
+    if (title.startsWith("HTML|CSS")) {
       return "html-css";
     }
 
-    if (kind.startsWith("Core")) {
+    if (title.startsWith("Core")) {
       return "core";
     }
 

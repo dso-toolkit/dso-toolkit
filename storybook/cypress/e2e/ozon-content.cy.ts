@@ -511,6 +511,11 @@ describe("Ozon Content", () => {
 
   it("should accept XMLDocument", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al")
+      .get("body")
+      .should("have.class", "sb-show-main")
+      .get("#root-inner")
+      .should("exist")
+      .and("be.visible")
       .window()
       .then(($window) => {
         // eval() is needed because of instanceof differences. The cypress test runner does not run in the same window as the application under test, which means
