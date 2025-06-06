@@ -51,13 +51,7 @@
   {
     "name": "list-button",
     "selector": "dso-list-button.hydrated",
-    "stories": ["single-select"],
-    "type": "core"
-  },
-  {
-    "name": "list-button",
-    "selector": "dso-list-button.hydrated",
-    "stories": ["multi-select"],
+    "stories": ["single-select", "multi-select"],
     "type": "core"
   },
   {
