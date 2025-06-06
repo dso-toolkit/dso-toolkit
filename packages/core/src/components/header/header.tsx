@@ -265,7 +265,6 @@ export class Header {
               <div class="dropdown">
                 <dso-dropdown-menu
                   dropdown-align="right"
-                  strategy="absolute"
                   dropdownOptionsOffset={this.dropdownOptionsOffset}
                   ref={(element) => (this.dropdownElement = element)}
                 >
@@ -430,7 +429,7 @@ export class Header {
                         .map(this.MenuItem)}
                     {this.overflowMenuItems > 0 && (
                       <li>
-                        <dso-dropdown-menu placement="bottom">
+                        <dso-dropdown-menu>
                           <button type="button" slot="toggle">
                             <span>{this.text("overflowMenu")}</span>
                             <dso-icon icon="chevron-down"></dso-icon>
