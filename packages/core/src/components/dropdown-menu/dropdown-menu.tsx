@@ -1,14 +1,14 @@
-import { Instance as PopperInstance, Placement, createPopper } from "@popperjs/core";
-import { Component, Element, Host, Listen, Prop, Watch, h } from "@stencil/core";
+// import { Instance as PopperInstance, Placement, createPopper } from "@popperjs/core";
+import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
-import { hasOverflow } from "../../utils/has-overflow";
+import { autoUpdate, computePosition, offset } from "@floating-ui/dom";
 
 @Component({
   tag: "dso-dropdown-menu",
-  styleUrl: "dropdown-menu.scss",
+  styleUrl: "dropdown-menu.scss", // TODO: Alle CSS refactoren naar dit bestand
   shadow: true,
 })
 export class DropdownMenu {
@@ -37,94 +37,10 @@ export class DropdownMenu {
   @Prop()
   checkable = false;
 
-  /**
-   * Selector for the element the dropdown options should not be overflowing.
-   */
-  @Prop()
-  boundary?: string;
-
-  /**
-   * Force placement of dropdown.
-   *
-   * This property overrides `dropdownAlign`.
-   */
-  @Prop()
-  placement?: Placement;
-
-  /**
-   * Set position strategy of dropdown options
-   */
-  @Prop()
-  strategy: "auto" | "absolute" | "fixed" = "auto";
-
-  @Watch("placement")
-  @Watch("dropdownAlign")
-  watchPosition() {
-    if (!this.popper) {
-      return;
-    }
-
-    this.popper.setOptions({
-      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
-    });
-  }
-
-  @Watch("dropdownOptionsOffset")
-  watchOptionsOffset() {
-    this.popper?.setOptions({
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, this.dropdownOptionsOffset],
-          },
-        },
-      ],
-    });
-  }
-
-  @Watch("strategy")
-  watchStrategy() {
-    this.setStrategy();
-  }
-
-  private setStrategy() {
-    if (!this.popper) {
-      return;
-    }
-
-    if (this.strategy === "absolute" || this.strategy === "fixed") {
-      this.popper.setOptions({
-        strategy: this.strategy,
-      });
-
-      return;
-    }
-
-    let element: Element | null = this.host;
-
-    const boundary = this.boundary || document;
-
-    while (element && element.parentNode !== boundary) {
-      element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
-      if (element !== null && hasOverflow(element)) {
-        this.popper.setOptions({
-          strategy: "fixed",
-        });
-
-        return;
-      }
-    }
-
-    this.popper.setOptions({
-      strategy: "absolute",
-    });
-  }
-
   @Element()
   host!: HTMLDsoDropdownMenuElement;
 
-  private popper: PopperInstance | undefined;
+  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
 
   get button(): HTMLButtonElement {
     const button = this.host.querySelector('button[slot="toggle"]');
@@ -149,13 +65,14 @@ export class DropdownMenu {
       this.button.id = uuidv4();
     }
 
-    const options = this.host.querySelector(".dso-dropdown-options");
-    if (!options) {
-      throw new ReferenceError("Dropdown options not found");
+    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
+
+    if (!(dropdownOptionsElement instanceof HTMLElement)) {
+      throw new Error("dropdown options element is not instanceof HTMLElement");
     }
 
-    options.setAttribute("role", "menu");
-    options.setAttribute("aria-labelledby", this.button.id);
+    dropdownOptionsElement.setAttribute("role", "menu");
+    dropdownOptionsElement.setAttribute("aria-labelledby", this.button.id);
 
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("role", "group");
@@ -164,42 +81,25 @@ export class DropdownMenu {
       }
     }
 
-    if (this.popper) {
+    if (this.cleanUp) {
       return;
     }
 
-    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
-
-    if (!(dropdownOptionsElement instanceof HTMLElement)) {
-      throw new Error("dropdown options element is not instanceof HTMLElement");
-    }
-
-    this.popper = createPopper(this.button, dropdownOptionsElement, {
-      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, this.dropdownOptionsOffset],
-          },
-        },
-        {
-          name: "preventOverflow",
-          options: {
-            boundary: this.boundary ? document.querySelector(this.boundary) : null,
-          },
-          enabled: this.boundary !== undefined,
-        },
-      ],
+    this.cleanUp = autoUpdate(this.button, dropdownOptionsElement, () => {
+      computePosition(this.button, dropdownOptionsElement, {
+        strategy: "fixed",
+        middleware: [offset(this.dropdownOptionsOffset)],
+        placement: this.dropdownAlign || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
+      }).then(({ x, y }) => {
+        Object.assign(dropdownOptionsElement.style, {
+          left: `${x}px`,
+          top: `${y}px`,
+        });
+      });
     });
   }
 
   componentDidRender() {
-    this.setStrategy();
-    if (this.open) {
-      this.popper?.update();
-    }
-
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of this.host.isConnected ? tabbable(li) : []) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
@@ -233,7 +133,8 @@ export class DropdownMenu {
   }
 
   disconnectedCallback() {
-    this.popper?.destroy();
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   }
 
   private focusOutListener = (event: FocusEvent) => {
@@ -304,11 +205,12 @@ export class DropdownMenu {
     this.open = false;
   };
 
+  // TODO: popover werkend maken.
   render() {
     return (
       <Host onFocusout={this.focusOutListener}>
         <slot name="toggle" />
-        <div hidden={!this.open}>
+        <div popover="manual" hidden={!this.open}>
           <slot />
         </div>
       </Host>
