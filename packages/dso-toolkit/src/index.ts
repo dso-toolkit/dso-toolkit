@@ -9,15 +9,12 @@ export {
 
 export {
   ArgsError,
-  StoriesOfArguments,
-  StoryOfFactoryArguments,
   StoryRoot,
   StorybookParameters,
   componentArgs,
   createStories,
   isOdd,
   noControl,
-  storiesOfFactory,
 } from "./storybook/index.js";
 
 export * from "./components/accordion";

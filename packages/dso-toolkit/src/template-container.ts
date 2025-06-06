@@ -1,4 +1,4 @@
-import { Addon_StoryFn, Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
+import { Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
 
 export type StoryObj<TArgs, TRenderer extends Renderer> = StoryAnnotations<TRenderer, TArgs>;
 
@@ -32,7 +32,7 @@ export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
 };
 
 export interface Options {
-  getNameByKind?(kind: string): string | undefined;
+  getNameByTitle?(title: string): string | undefined;
 }
 
 export class TemplateContainer<
@@ -41,7 +41,7 @@ export class TemplateContainer<
   TemplateFnReturnType,
   TemplateFunction = DefaultTemplateFunction<never, TemplateFnReturnType>,
 > {
-  private getNameByKind: Options["getNameByKind"] | undefined;
+  private getNameByTitle: Options["getNameByTitle"] | undefined;
 
   private componentImplementations: BaseComponentImplementation<
     never,
@@ -52,7 +52,7 @@ export class TemplateContainer<
   >[] = [];
 
   constructor(options?: Options) {
-    this.getNameByKind = options?.getNameByKind;
+    this.getNameByTitle = options?.getNameByTitle;
   }
 
   add<Model>(
@@ -77,18 +77,6 @@ export class TemplateContainer<
     );
   }
 
-  fromArgs<StoryArgs>(
-    mapper: (args: StoryArgs, templates: Templates) => TemplateFnReturnType,
-  ): Addon_StoryFn<TemplateFnReturnType> {
-    return (a, context) => {
-      const { preferredImplementation } = a;
-      const args = { ...a };
-      delete args["preferredImplementation"];
-
-      return mapper(args as StoryArgs, this.create(preferredImplementation, context.kind));
-    };
-  }
-
   render<StoryTemplates, TRenderer extends Renderer, TArgs extends Args>(
     storyTemplates: (templates: Templates) => StoryTemplates,
     callback: (args: TArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType,
@@ -98,13 +86,13 @@ export class TemplateContainer<
       const args = { ...a };
       delete args.preferredImplementation;
 
-      const templates = this.create(preferredImplementation, context.kind);
+      const templates = this.create(preferredImplementation, context.title);
 
       return callback(args, storyTemplates(templates));
     };
   }
 
-  create(preferredImplementation: Implementation | undefined, kind: string): Templates {
+  create(preferredImplementation: Implementation | undefined, title: string): Templates {
     const container = this.componentImplementations.reduce<
       Templates & { [key: string]: BaseComponentImplementation<never, Implementation, Templates, TemplateFnReturnType> }
     >((templates, { component, implementation, template }) => {
@@ -112,7 +100,7 @@ export class TemplateContainer<
 
       if (
         !templates[functionName] &&
-        ((preferredImplementation ?? this.getNameByKind?.(kind)) === implementation ||
+        ((preferredImplementation ?? this.getNameByTitle?.(title)) === implementation ||
           this.componentImplementations.filter(({ component: c }) => component === c).length === 1)
       ) {
         Object.defineProperty(templates, functionName, { get: () => template(templates) });

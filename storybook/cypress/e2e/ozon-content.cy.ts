@@ -511,15 +511,12 @@ describe("Ozon Content", () => {
 
   it("should accept XMLDocument", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al")
-      .window()
-      .then(($window) => {
-        // eval() is needed because of instanceof differences. The cypress test runner does not run in the same window as the application under test, which means
-        // the instanceof test in ozon-content.tsx will never pass.
-        $window.eval(`document.querySelector("dso-ozon-content").content = new DOMParser().parseFromString(
-          "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud><Al>De content wordt als <code>XMLDocument</code> aangeleverd.</Al></Inhoud>",
-          "text/xml"
-        )`);
-      })
+      .get("dso-ozon-content.hydrated")
+      .invoke(
+        "prop",
+        "content",
+        "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud><Al>De content wordt als <code>XMLDocument</code> aangeleverd.</Al></Inhoud>",
+      )
       .get("dso-ozon-content.hydrated")
       .shadow()
       .invoke("text")
