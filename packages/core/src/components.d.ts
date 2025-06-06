@@ -23,7 +23,6 @@ import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePi
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
-import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -47,6 +46,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -68,7 +68,6 @@ export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePi
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
-export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -92,6 +91,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -628,10 +628,6 @@ export namespace Components {
     }
     interface DsoDropdownMenu {
         /**
-          * Selector for the element the dropdown options should not be overflowing.
-         */
-        "boundary"?: string;
-        /**
           * Whether the menu is checkable.
          */
         "checkable": boolean;
@@ -647,14 +643,6 @@ export namespace Components {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
-        /**
-          * Force placement of dropdown.  This property overrides `dropdownAlign`.
-         */
-        "placement"?: Placement;
-        /**
-          * Set position strategy of dropdown options
-         */
-        "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
         /**
@@ -3152,10 +3140,6 @@ declare namespace LocalJSX {
     }
     interface DsoDropdownMenu {
         /**
-          * Selector for the element the dropdown options should not be overflowing.
-         */
-        "boundary"?: string;
-        /**
           * Whether the menu is checkable.
          */
         "checkable"?: boolean;
@@ -3171,14 +3155,6 @@ declare namespace LocalJSX {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
-        /**
-          * Force placement of dropdown.  This property overrides `dropdownAlign`.
-         */
-        "placement"?: Placement;
-        /**
-          * Set position strategy of dropdown options
-         */
-        "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
         /**
