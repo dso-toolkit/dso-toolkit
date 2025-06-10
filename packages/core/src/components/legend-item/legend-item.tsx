@@ -1,10 +1,10 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
-import { LegendItemRemoveClickEvent } from "./legend-item.interfaces";
+import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
- * @slot - Either the label for this legend item or a `dso-selectable` holding the label.
+ * @slot The label for this legend item
  * @slot symbol - A span where the symbol is styled upon
  * @slot body - The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
@@ -30,16 +30,16 @@ export class LegendItem implements ComponentInterface {
   disabledMessage?: string;
 
   /**
-   * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
+   * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
    */
-  @Prop()
-  removable?: boolean;
+  @Prop({ reflect: true })
+  active?: boolean;
 
   /**
-   * Emitted when the user activates the remove button.
+   * Emitted when user checks or unchecks the Slide Toggle.
    */
   @Event()
-  dsoRemoveClick!: EventEmitter<LegendItemRemoveClickEvent>;
+  dsoActiveChange!: EventEmitter<LegendItemActiveChangeEvent>;
 
   /**
    * Emitted when the mouse enters the Legend Item
@@ -60,10 +60,6 @@ export class LegendItem implements ComponentInterface {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get selectableSlottedElement() {
-    return this.host.querySelector(":scope > dso-selectable");
-  }
-
   get bodySlottedElement() {
     return this.host.querySelector("[slot='body']");
   }
@@ -71,38 +67,41 @@ export class LegendItem implements ComponentInterface {
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
     const hasBody = this.bodySlottedElement !== null;
-    const isSelectable = this.selectableSlottedElement !== null;
 
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
-        <div
-          class={clsx("legend-item", {
-            "legend-item-symbol": hasSymbol,
-            "legend-item-selectable": isSelectable,
-          })}
-        >
+        <div class={clsx("legend-item", { "legend-item-symbol": hasSymbol })}>
           <div hidden={!hasSymbol}>
             <slot name="symbol" />
           </div>
           <div>
-            <slot></slot>
+            <slot />
           </div>
           {this.disabled && this.disabledMessage && (
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
-          {this.removable && (
-            <button id="remove-button" type="button" onClick={(e) => this.dsoRemoveClick.emit({ originalEvent: e })}>
-              <span class="sr-only">Legenda item verwijderen</span>
-              <dso-icon icon="trash"></dso-icon>
-            </button>
-          )}
 
-          {hasBody && !this.disabled && (
-            <button id="edit-button" type="button" onClick={() => (this.showBody = !this.showBody)}>
-              <span class="sr-only">Legenda item aanpassen</span>
-              <dso-icon icon={this.showBody ? "times" : "more"} />
-            </button>
-          )}
+          <div class="legend-item-right-content">
+            {hasBody && !this.disabled && (
+              <button
+                id="edit-button"
+                type="button"
+                onClick={() => (this.showBody = !this.showBody)}
+                class={{ active: this.showBody }}
+              >
+                <span class="sr-only">Legenda item aanpassen</span>
+                <dso-icon icon="more" />
+              </button>
+            )}
+            <dso-slide-toggle
+              accessibleLabel="Maak actief"
+              checked={this.active}
+              disabled={this.disabled}
+              onDsoActiveChange={(e) =>
+                this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
+              }
+            />
+          </div>
         </div>
         <div hidden={!hasBody || this.disabled || !this.showBody} class="body">
           <slot name="body" />
