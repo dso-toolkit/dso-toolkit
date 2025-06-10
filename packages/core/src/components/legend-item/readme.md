@@ -8,18 +8,18 @@
 
 | Property          | Attribute          | Description                                                             | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
+| `active`          | `active`           | Shows a slide-toggle, when toggled, emits `dsoActiveToggled`.           | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
-| `removable`       | `removable`        | Shows a trash-can that, when clicked, emits `dsoRemoveClick`.           | `boolean \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event            | Description                                        | Type                                      |
-| ---------------- | -------------------------------------------------- | ----------------------------------------- |
-| `dsoMouseEnter`  | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`                        |
-| `dsoMouseLeave`  | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`                        |
-| `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<LegendItemRemoveClickEvent>` |
+| Event             | Description                                        | Type                                   |
+| ----------------- | -------------------------------------------------- | -------------------------------------- |
+| `dsoActiveChange` | Emitted when the user activates the remove button. | `CustomEvent<LegendActiveChangeEvent>` |
+| `dsoMouseEnter`   | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`                     |
+| `dsoMouseLeave`   | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`                     |
 
 
 ## Slots
@@ -37,12 +37,14 @@
 
 - [dso-toggletip](../toggletip)
 - [dso-icon](../icon)
+- [dso-slide-toggle](../slide-toggle)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-legend-item --> dso-toggletip
   dso-legend-item --> dso-icon
+  dso-legend-item --> dso-slide-toggle
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon

@@ -17,33 +17,27 @@
   display: flex;
   position: relative;
 
-  &.legend-item-symbol {
-    + .body {
-      margin-inline-start: legend-item-variables.$symbol-inline-size + units.$u1;
-    }
-  }
-
-  &.legend-item-selectable {
-    + .body {
-      margin-inline-start: legend-item-variables.$selectable-inline-size;
-    }
-
-    &.legend-item-symbol {
-      + .body {
-        margin-inline-start: (
-          legend-item-variables.$symbol-inline-size + units.$u1 + legend-item-variables.$selectable-inline-size
-        );
-      }
-    }
+  &.legend-item-symbol + .body {
+    margin-block-start: units.$u1;
   }
 }
 
-button {
-  @include button.tertiary($icon-only: true, $modifiers: false);
+.legend-right-content {
+  margin-inline-start: auto;
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    position: absolute;
-    inset-inline-end: 0;
+  button {
+    @include button.tertiary($icon-only: true, $modifiers: false);
+
+    cursor: pointer;
+
+    &.active {
+      color: colors.$bosgroen-140;
+    }
+  }
+
+  dso-slide-toggle {
+    align-self: center;
+    margin-inline-start: 8px;
+    padding-block-start: 0 !important;
   }
 }

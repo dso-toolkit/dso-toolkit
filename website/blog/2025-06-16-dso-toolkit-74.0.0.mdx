@@ -1,0 +1,22 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v74.0.0 🗺️
+
+## Breaking change
+
+In deze release hebben we de HTML structuur, props en emitters in het `Legend item` component aangepast.
+
+### Props en emitters
+
+- ❌ De property `removeable` is verwijderd..
+- ❌ De EventEmitter`dsoRemoveClick` is verwijderd.
+- ✅ De property `active` is toegevoegd.
+- ✅ De EventEmitter `dsoActiveChange` is toegevoegd.
+
+### HTML structuur en CSS
+
+- ❌ De prullebak button is verwijderd.
+- ✅ De slide-toggle is toegevoegd en is gekoppeld aan de `disabled` prop.
+- Het slot `body` wordt over de volledige breedte van het component getoond.
