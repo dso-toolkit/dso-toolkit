@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Legend Item: Aanpassingen ([#3185](https://github.com/dso-toolkit/dso-toolkit/issues/3185))
+
 ### Task
 * Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
 
