@@ -8,7 +8,7 @@ import { autoUpdate, computePosition, offset } from "@floating-ui/dom";
 
 @Component({
   tag: "dso-dropdown-menu",
-  styleUrl: "dropdown-menu.scss", // TODO: Alle CSS refactoren naar dit bestand
+  styleUrl: "dropdown-menu.scss", // TODO: Alle CSS kopieeren & refactoren naar dit bestand
   shadow: true,
 })
 export class DropdownMenu {
@@ -52,6 +52,16 @@ export class DropdownMenu {
     return button;
   }
 
+  get container(): HTMLDivElement {
+    const container = this.host.shadowRoot?.querySelector('.dropdown-menu-container');
+
+    if (!(container instanceof HTMLDivElement)) {
+      throw new ReferenceError("Mandatory dropdown container not found");
+    }
+
+    return container;
+  }
+
   private tabbables(withButton: boolean): FocusableElement[] {
     const tabbables = this.host.isConnected ? tabbable(this.host) : [];
 
@@ -85,13 +95,13 @@ export class DropdownMenu {
       return;
     }
 
-    this.cleanUp = autoUpdate(this.button, dropdownOptionsElement, () => {
-      computePosition(this.button, dropdownOptionsElement, {
+    this.cleanUp = autoUpdate(this.button, this.container, () => {
+      computePosition(this.button, this.container, {
         strategy: "fixed",
         middleware: [offset(this.dropdownOptionsOffset)],
-        placement: this.dropdownAlign || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
+        placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
       }).then(({ x, y }) => {
-        Object.assign(dropdownOptionsElement.style, {
+        Object.assign(this.container.style, {
           left: `${x}px`,
           top: `${y}px`,
         });
@@ -210,7 +220,7 @@ export class DropdownMenu {
     return (
       <Host onFocusout={this.focusOutListener}>
         <slot name="toggle" />
-        <div popover="manual" hidden={!this.open}>
+        <div class="dropdown-menu-container" popover="manual" hidden={!this.open}>
           <slot />
         </div>
       </Host>
