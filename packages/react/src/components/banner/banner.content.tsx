@@ -30,16 +30,6 @@ export const warningNonRemovableRichContent = (
   </div>
 );
 
-export const dangerRichContent = (templates: Templates) => (
-  <>
-    <div className="dso-rich-content">
-      <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-    </div>
-    {closeButton(templates)}
-  </>
-);
-
 export const errorRichContent = (templates: Templates) => (
   <>
     <div className="dso-rich-content">
@@ -100,27 +90,11 @@ export const richInfoRichContent = ({ toggletipTemplate }: Templates) => (
   </div>
 );
 
-export const dangerWithHeadingsRichContent = (templates: Templates) => (
+export const successRichContent = (templates: Templates) => (
   <>
     <div className="dso-rich-content">
-      <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-      <h2>Dit is een H2</h2>
-      <p>
-        Dit is een informatiemelding. Deze wordt gebruikt voor{" "}
-        <a href="#" className="extern" target="_blank" rel="noopener noreferrer">
-          aanvullende
-        </a>{" "}
-        informatie of tips.
-      </p>
-      <h3>Dit is een H3</h3>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h4>Dit is een H4</h4>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h5>Dit is een H5</h5>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h6>Dit is een H6</h6>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
+      <h2>Gelukt!</h2>
+      <p>U bent succesvol ingelogd.</p>
     </div>
     {closeButton(templates)}
   </>

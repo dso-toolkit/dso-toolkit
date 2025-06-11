@@ -394,7 +394,7 @@ export namespace Components {
         /**
           * The status of the banner.
          */
-        "status": "danger" | "error" | "info" | "warning";
+        "status": "success" | "error" | "info" | "warning";
     }
     interface DsoCard {
         /**
@@ -2862,7 +2862,7 @@ declare namespace LocalJSX {
         /**
           * The status of the banner.
          */
-        "status": "danger" | "error" | "info" | "warning";
+        "status": "success" | "error" | "info" | "warning";
     }
     interface DsoCard {
         /**

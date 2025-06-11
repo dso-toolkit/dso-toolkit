@@ -19,7 +19,7 @@ const PaginaMetBanner = examplePageStories((templates) => {
 
   return html`
     ${bannerTemplate({
-      status: "danger",
+      status: "error",
       content: richContentTemplate({
         children: html`
           <h2>Storingsmelding:</h2>

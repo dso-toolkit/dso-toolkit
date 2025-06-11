@@ -5,4 +5,4 @@ export interface Banner<TemplateFnReturnType> {
   content: TemplateFnReturnType;
 }
 
-export type BannerStatus = "danger" | "error" | "info" | "warning";
+export type BannerStatus = "success" | "error" | "info" | "warning";

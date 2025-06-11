@@ -36,26 +36,6 @@ export function warningNonRemovableRichContent({ richContentTemplate }: Template
   });
 }
 
-export function dangerRichContent(templates: Templates) {
-  const { linkTemplate, richContentTemplate } = templates;
-
-  return html`${richContentTemplate({
-    children: html`
-      <h2>Storingsmelding:</h2>
-      <p>
-        Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een
-        ${linkTemplate({
-          label: "aanvraag",
-          url: "#",
-          mode: "download",
-        })}
-        of melding indienen.
-      </p>
-    `,
-  })}
-  ${closeButton(templates)} `;
-}
-
 export function errorRichContent(templates: Templates) {
   const { linkTemplate, richContentTemplate } = templates;
 
@@ -129,26 +109,13 @@ export function richInfoRichContent({ richContentTemplate, toggletipTemplate }: 
   });
 }
 
-export function dangerWithHeadingsRichContent(templates: Templates) {
-  const { linkTemplate, richContentTemplate } = templates;
+export function successRichContent(templates: Templates) {
+  const { richContentTemplate } = templates;
 
   return html`${richContentTemplate({
     children: html`
-      <h2>Storingsmelding:</h2>
-      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-      <h2>Dit is een H2</h2>
-      <p>
-        Dit is een informatiemelding. Deze wordt gebruikt voor
-        ${linkTemplate({ label: "aanvullende", url: "#", mode: "extern" })} informatie of tips.
-      </p>
-      <h3>Dit is een H3</h3>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h4>Dit is een H4</h4>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h5>Dit is een H5</h5>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-      <h6>Dit is een H6</h6>
-      <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
+      <h2>Gelukt!</h2>
+      <p>U bent succesvol ingelogd.</p>
     `,
   })}
   ${closeButton(templates)} `;
