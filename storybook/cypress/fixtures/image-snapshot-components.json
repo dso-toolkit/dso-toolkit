@@ -14,7 +14,7 @@
   {
     "name": "banner",
     "selector": "dso-banner.hydrated",
-    "stories": ["danger", "error", "info", "warning", "rich-warning", "danger-with-headings"],
+    "stories": ["success", "error", "info", "warning", "rich-warning"],
     "type": "core"
   },
   {
@@ -101,8 +101,7 @@
     "name": "banner",
     "selector": ".dso-banner",
     "stories": [
-      "danger",
-      "danger-with-headings",
+      "success",
       "error",
       "info",
       "info-compact-non-removable",
