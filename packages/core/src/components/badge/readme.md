@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property | Attribute | Description              | Type                                                                                                            | Default     |
-| -------- | --------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| `status` | `status`  | The status of the Badge. | `"attention" \| "danger" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| Property | Attribute | Description              | Type                                                                                                | Default     |
+| -------- | --------- | ------------------------ | --------------------------------------------------------------------------------------------------- | ----------- |
+| `status` | `status`  | The status of the Badge. | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ## Dependencies

@@ -4,7 +4,10 @@ authors: [cvanderleij]
 
 # DSO Toolkit v74.0.0 🐻
 
-In deze release is er een breaking change doorgevoerd voor Modal.
+Deze release bevat breaking changes voor de volgende componenten:
+
+- Modal
+- Badge
 
 <!-- truncate -->
 
@@ -31,4 +34,16 @@ De DSO Toolkit maakt gebruik van StencilJS voor het maken van Web Components. Zi
 
 ✅ >= 74.0.0
 <dso-modal></dso-modal>
+```
+
+## Badge
+
+In deze release is in het component `badge` de status `danger` verwijderd inclusief de styling die daarbij hoort. Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de `danger` status. Daarnaast is de kleur aangepast van de `info` status. Deze heeft nu een donkerblauwe achtergrond en witte tekst.
+
+```html
+❌ < 74.0.0
+<dso-badge status="danger"></dso-badge>
+
+✅ >= 74.0.0
+<dso-badge status="error"></dso-badge>
 ```

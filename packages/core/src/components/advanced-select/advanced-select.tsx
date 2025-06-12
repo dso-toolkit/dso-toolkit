@@ -12,6 +12,7 @@ import {
   h,
 } from "@stencil/core";
 import clsx from "clsx";
+import { BadgeStatus } from "dso-toolkit";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 
@@ -24,6 +25,7 @@ import {
   AdvancedSelectOption,
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
+  AdvancedSelectVariant,
 } from "./advanced-select.interfaces";
 
 @Component({
@@ -141,6 +143,13 @@ export class AdvancedSelect implements ComponentInterface {
     this.open = false;
   };
 
+  private mapVariantToStatus(variant?: AdvancedSelectVariant): BadgeStatus {
+    if (variant === "danger") {
+      return "error";
+    }
+    return variant ?? "outline";
+  }
+
   render() {
     return (
       <>
@@ -164,7 +173,7 @@ export class AdvancedSelect implements ComponentInterface {
                       "options" in option && "summaryCounter" in option && !!option?.summaryCounter,
                   )
                   .map((group) => (
-                    <dso-badge status={group.variant ?? "outline"}>{group.options.length}</dso-badge>
+                    <dso-badge status={this.mapVariantToStatus(group.variant)}>{group.options.length}</dso-badge>
                   ))}
               </span>
             )}
