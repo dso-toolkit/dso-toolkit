@@ -963,6 +963,10 @@ export namespace Components {
     }
     interface DsoModal {
         /**
+          * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
+         */
+        "closable": boolean;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "dialogRole": string | null;
@@ -978,10 +982,6 @@ export namespace Components {
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus": false | HTMLElement | undefined;
-        /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
-         */
-        "showCloseButton": boolean;
     }
     interface DsoOnboardingTip {
         /**
@@ -3569,6 +3569,10 @@ declare namespace LocalJSX {
     }
     interface DsoModal {
         /**
+          * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
+         */
+        "closable"?: boolean;
+        /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
          */
         "dialogRole"?: string | null;
@@ -3581,17 +3585,13 @@ declare namespace LocalJSX {
          */
         "modalTitle"?: string;
         /**
-          * Emitted when the user wants to close the Modal.
+          * Emitted when the user: - clicks the close button - dismisses the Modal with the Escape button - clicks or taps outside the Modal
          */
         "onDsoClose"?: (event: DsoModalCustomEvent<ModalCloseEvent>) => void;
         /**
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
          */
         "returnFocus"?: false | HTMLElement | undefined;
-        /**
-          * when `false` the close button in the header will not be rendered. Defaults to `true`.  Needs `modalTitle` to be set.
-         */
-        "showCloseButton"?: boolean;
     }
     interface DsoOnboardingTip {
         /**
