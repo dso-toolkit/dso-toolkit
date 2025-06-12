@@ -28,14 +28,14 @@
     min-block-size: units.$u3;
 
     &:focus-within.dso-keyboard-focus {
+      @include utilities.focus-outline();
+
       position: relative;
       inset-inline-start: -(selectable.$symbol-indent);
 
       padding-inline-start: selectable.$symbol-indent;
 
       margin-inline-end: -(selectable.$symbol-indent);
-
-      @include utilities.focus-outline();
     }
 
     input[type="radio"],
