@@ -140,9 +140,9 @@
   }
 
   &:focus-within.dso-keyboard-focus {
-    padding-inline-start: selectable.$symbol-indent;
-
     @include utilities.focus-outline();
+
+    padding-inline-start: selectable.$symbol-indent;
   }
 }
 
