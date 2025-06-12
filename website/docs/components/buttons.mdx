@@ -41,7 +41,7 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 
 <StorybookComponent implementations={["html-css"]} variant="primary" args={{ label: "Small", compact: true }} />
 
-✨ Zie voor meer voorbeelden en het gebruik van de primaire button de [button-row](/components/layout/button-row) pagina.
+✨ Zie voor meer voorbeelden en het gebruik van de primaire button de [button-row](button-row) pagina.
 
 ## Secundaire buttons
 
@@ -51,7 +51,7 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
 - Dit is de standaard button voor de meeste gebruikscasussen
 
-✨ Zie voor meer voorbeelden en het gebruik van de secondary button de [button-row](/components/layout/button-row) pagina.
+✨ Zie voor meer voorbeelden en het gebruik van de secondary button de [button-row](button-row) pagina.
 
 ## Tertiaire buttons
 
@@ -66,7 +66,7 @@ In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 - Tekst grasgroen (`#39870c`), Asap semibold 16
 - En/of icoon in grasgroen (`#39870c`)
 
-✨ Zie voor meer voorbeelden en het gebruik van de tertiare button de [button-row](/components/layout/button-row) pagina.
+✨ Zie voor meer voorbeelden en het gebruik van de tertiare button de [button-row](button-row) pagina.
 
 ### Afbrekingen met ellipsis
 
@@ -90,3 +90,35 @@ Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pi
 
 - [Nielsen Norman Group](https://www.nngroup.com/)
 - [Dienst digitale overheid](https://www.digitoegankelijk.nl)
+
+# Button Row
+
+<StorybookComponent implementations={["html-css"]} variant="default" />
+
+Button rows geven de gebruiker de mogelijkheid om meerdere buttons achter elkaar te plaatsen. Dit kan dienen om bijvoorbeeld een 'toolbar' na te bootsen of om te laten zien welke opties er mogelijk zijn voor het desbetreffende onderdeel of sector op de pagina. Er gaan maximaal 6 buttons in een `button-row`. Anders wordt het te onoverzichtelijk en verliest het zijn functie.
+
+De buttons die achter elkaar geplaatst worden dienen dezelfde `variant` te hebben: `primary`, `secondary` of `tertiary`. Ze worden niet door elkaar gebruikt.
+
+## Emphasized
+
+<StorybookComponent implementations={["html-css"]} variant="emphasized" />
+
+Een variant van de button-row is de `emphasized` variant. Hierin worden `tertiaire` buttons geplaatst die zwart zijn en de row heeft een grijze achtergrond.
+
+## Primaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="primaire-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de primaire button en zijn varianten. Deze zijn hier in de `button-row` gepresenteerd zodat men ook het gebruik van de `row` ziet.
+
+## Secundaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="secundaire-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de secundaire button.
+
+## Tertiaire buttons in een `button-row`
+
+<StorybookComponent implementations={["html-css"]} variant="tertiare-button-varianten" />
+
+Hierboven staan enkele voorbeelden van het gebruik van de tertiare button.
