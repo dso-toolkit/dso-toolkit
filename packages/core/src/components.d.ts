@@ -3585,7 +3585,7 @@ declare namespace LocalJSX {
          */
         "modalTitle"?: string;
         /**
-          * Emitted when the user wants to close the Modal.
+          * Emitted when the user: - clicks the close button - dismisses the Modal with the Escape button - clicks or taps outside the Modal
          */
         "onDsoClose"?: (event: DsoModalCustomEvent<ModalCloseEvent>) => void;
         /**

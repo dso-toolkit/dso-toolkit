@@ -60,7 +60,10 @@ export class Modal implements ComponentInterface {
   private returnFocusElement: HTMLElement | undefined;
 
   /**
-   * Emitted when the user wants to close the Modal.
+   * Emitted when the user:
+   * - clicks the close button
+   * - dismisses the Modal with the Escape button
+   * - clicks or taps outside the Modal
    */
   @Event()
   dsoClose!: EventEmitter<ModalCloseEvent>;
