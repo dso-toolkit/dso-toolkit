@@ -1,0 +1,34 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v74.0.0 🐻
+
+In deze release is er een breaking change doorgevoerd voor Modal.
+
+<!-- truncate -->
+
+## Modal
+
+In deze release is in het component `modal` de prop `showCloseButton` hernoemd naar `closable` die default op `false` staat. Het default gedrag van de Modal is veranderd. Voorheen waren alle Modals standaard sluitbaar, vanaf deze release zijn ze standaard niet-sluitbaar. Zie voor beide situaties onderstaand migratiepad:
+De DSO Toolkit maakt gebruik van StencilJS voor het maken van Web Components. Zij raden het gebruik van default properties en attributes met default value `true`. Dit was het laatste attribuut met een default value `true`.
+
+**Sluitbaar:**
+
+```html
+❌ < 74.0.0
+<dso-modal></dso-modal>
+
+✅ >= 74.0.0
+<dso-modal closable></dso-modal>
+```
+
+**Niet sluitbaar:**
+
+```html
+❌ < 74.0.0
+<dso-modal show-close-button="false"></dso-modal>
+
+✅ >= 74.0.0
+<dso-modal></dso-modal>
+```

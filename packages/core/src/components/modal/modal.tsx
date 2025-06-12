@@ -50,17 +50,20 @@ export class Modal implements ComponentInterface {
   returnFocus: false | HTMLElement | undefined = undefined;
 
   /**
-   * when `false` the close button in the header will not be rendered. Defaults to `true`.
+   * when `false` the close button in the header will not be rendered.
    *
    * Needs `modalTitle` to be set.
    */
   @Prop()
-  showCloseButton = true;
+  closable = false;
 
   private returnFocusElement: HTMLElement | undefined;
 
   /**
-   * Emitted when the user wants to close the Modal.
+   * Emitted when the user:
+   * - clicks the close button
+   * - dismisses the Modal with the Escape button
+   * - clicks or taps outside the Modal
    */
   @Event()
   dsoClose!: EventEmitter<ModalCloseEvent>;
@@ -92,6 +95,26 @@ export class Modal implements ComponentInterface {
     (this.returnFocus ?? this.returnFocusElement)?.focus();
   }
 
+  private handleDialogClick(e: MouseEvent) {
+    if (!this.closable) {
+      return;
+    }
+
+    if (e.target === this.htmlDialogElement) {
+      this.dsoClose.emit({ originalEvent: e });
+    }
+  }
+
+  private blockEscapeKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+
+      if (this.closable) {
+        this.dsoClose.emit({ originalEvent: e });
+      }
+    }
+  };
+
   render() {
     return (
       <dialog
@@ -100,17 +123,14 @@ export class Modal implements ComponentInterface {
         aria-modal="true"
         aria-labelledby={this.ariaId}
         ref={(element) => (this.htmlDialogElement = element)}
-        onCancel={(e) => {
-          e.preventDefault();
-
-          this.dsoClose.emit({ originalEvent: e });
-        }}
+        onClick={(e) => this.handleDialogClick(e)}
+        onKeyDown={(e) => this.blockEscapeKey(e)}
       >
         <div class="dso-dialog" role="document">
           {this.modalTitle ? (
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>
-              {this.showCloseButton && (
+              {this.closable && (
                 <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
                   <dso-icon icon="times"></dso-icon>
                   <span class="sr-only">{this.text("close")}</span>
