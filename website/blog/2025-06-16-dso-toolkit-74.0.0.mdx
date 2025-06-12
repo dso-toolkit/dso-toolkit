@@ -9,6 +9,7 @@ Deze release bevat breaking changes voor de volgende componenten:
 - Banner
 - Modal
 - Legend Item
+- Badge
 
 <!-- truncate -->
 
@@ -69,4 +70,19 @@ In deze release hebben we de HTML structuur, props en event-emitters van het `Le
 
 ✅ >= 74.0.0
 <dso-legend-item active (dsoActiveChange)="..." [...]></dso-legend-item>
+```
+
+## Badge
+
+In deze release is in het component `badge` de status `danger` verwijderd inclusief de styling die daarbij hoort.
+Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de
+`danger` status. Daarnaast is de kleur aangepast van de `info` status. Deze heeft nu een donkerblauwe achtergrond en
+witte tekst.
+
+```html
+❌ < 74.0.0
+<dso-badge status="danger"></dso-badge>
+
+✅ >= 74.0.0
+<dso-badge status="error"></dso-badge>
 ```
