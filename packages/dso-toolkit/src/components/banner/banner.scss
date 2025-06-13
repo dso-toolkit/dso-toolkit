@@ -52,11 +52,11 @@
     }
   }
 
-  &.alert-danger {
-    @include banner-mixins.danger();
+  &.alert-success {
+    @include banner-mixins.success();
 
     &.dso-icon {
-      @include banner-mixins.with-icon("danger");
+      @include banner-mixins.with-icon("success");
     }
   }
 
@@ -141,11 +141,11 @@ dso-banner {
     }
   }
 
-  &[status="danger"] {
-    @include banner-mixins.danger();
+  &[status="success"] {
+    @include banner-mixins.success();
 
     &[icon] {
-      @include banner-mixins.with-icon("danger");
+      @include banner-mixins.with-icon("success");
     }
   }
 

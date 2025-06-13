@@ -5,13 +5,12 @@ import { BannerArgs, bannerMeta, bannerStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import {
-  dangerRichContent,
-  dangerWithHeadingsRichContent,
   errorRichContent,
   infoCompactNonRemovableRichContent,
   infoRichContent,
   richInfoRichContent,
   richWarningRichContent,
+  successRichContent,
   warningNonRemovableRichContent,
   warningRichContent,
 } from "./banner.content";
@@ -23,44 +22,24 @@ const meta: Meta<BannerArgs> = {
 
 export default meta;
 
-const {
-  Danger,
-  Error,
-  Info,
-  InfoCompactNonRemovable,
-  Warning,
-  InfoNonRemovable,
-  RichWarning,
-  RichInfo,
-  DangerWithHeadings,
-} = bannerStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { bannerTemplate } = templates;
+const { Error, Info, InfoCompactNonRemovable, Warning, InfoNonRemovable, RichWarning, RichInfo, Success } =
+  bannerStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { bannerTemplate } = templates;
 
-    return {
-      bannerTemplate,
-      dangerRichContent: dangerRichContent(templates),
-      errorRichContent: errorRichContent(templates),
-      infoRichContent: infoRichContent(templates),
-      infoCompactNonRemovableRichContent,
-      warningRichContent: warningRichContent(templates),
-      warningNonRemovableRichContent,
-      richWarningRichContent: richWarningRichContent(templates),
-      richInfoRichContent: richInfoRichContent(templates),
-      dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
-    };
-  },
-});
+      return {
+        bannerTemplate,
+        errorRichContent: errorRichContent(templates),
+        infoRichContent: infoRichContent(templates),
+        infoCompactNonRemovableRichContent,
+        warningRichContent: warningRichContent(templates),
+        warningNonRemovableRichContent,
+        richWarningRichContent: richWarningRichContent(templates),
+        richInfoRichContent: richInfoRichContent(templates),
+        successRichContent: successRichContent(templates),
+      };
+    },
+  });
 
-export {
-  Danger,
-  DangerWithHeadings,
-  Error,
-  Info,
-  InfoCompactNonRemovable,
-  InfoNonRemovable,
-  RichInfo,
-  RichWarning,
-  Warning,
-};
+export { Error, Info, InfoCompactNonRemovable, InfoNonRemovable, RichInfo, RichWarning, Success, Warning };
