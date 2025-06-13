@@ -1,7 +1,8 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 
-$arrow-inline-size: 6px;
+$arrow-block-size: 10px;
+$arrow-inline-size: 10px;
 $opacity: 1;
 $padding-block: units.$u1;
 $padding-inline: units.$u2;

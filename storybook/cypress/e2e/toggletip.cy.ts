@@ -8,12 +8,11 @@ describe("Toggletip", () => {
     cy.dsoCheckA11y("dso-toggletip.hydrated");
   });
 
-  function prepareComponent() {
+  it("should focus on button after escape", () => {
     cy.get("dso-toggletip.hydrated")
       .as("dsoToggletip")
       .shadow()
       .find("dso-info-button")
-      .as("dsoInfoButton")
       .shadow()
       .find("dso-icon-button")
       .as("dsoIconButton")
@@ -22,14 +21,8 @@ describe("Toggletip", () => {
       .as("dsoButton")
       .get("@dsoToggletip")
       .shadow()
-      .find("dso-tooltip")
+      .find(".tooltip")
       .as("dsoTooltip");
-  }
-
-  it("should focus on button after escape", () => {
-    prepareComponent();
-
-    cy.get("@dsoToggletip").matchImageSnapshot();
 
     cy.get("@dsoButton")
       .click()
@@ -42,4 +35,47 @@ describe("Toggletip", () => {
       .get("@dsoIconButton")
       .should("have.focus");
   });
+
+  const modes = ["toggle", "secondary", "badge", "icon"];
+
+  for (const mode of modes) {
+    it(`should show tooltip in ${mode} mode`, () => {
+      cy.visit(`http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=mode:${mode}`);
+
+      cy.get("dso-toggletip.hydrated").should("be.visible").matchImageSnapshot();
+    });
+  }
+
+  const positions = [
+    "top",
+    "top-start",
+    "top-end",
+    "right",
+    "right-start",
+    "right-end",
+    "bottom",
+    "bottom-start",
+    "bottom-end",
+    "left",
+    "left-start",
+    "left-end",
+  ];
+
+  for (const position of positions) {
+    it(`should show tooltip at ${position} position`, () => {
+      cy.viewport(1400, 400).visit(
+        `http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=position:${position}`,
+      );
+
+      cy.get("dso-toggletip.hydrated")
+        .should("be.visible")
+        .shadow()
+        .find("dso-info-button")
+        .shadow()
+        .find("button")
+        .click();
+
+      cy.matchImageSnapshot();
+    });
+  }
 });

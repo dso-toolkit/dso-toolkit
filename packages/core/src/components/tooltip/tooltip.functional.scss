@@ -1,0 +1,68 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+
+@use "tooltip.variables" as tooltip-variables;
+
+@mixin include() {
+  .tooltip {
+    --link-color: #{colors.$grasgroen};
+    font-family: typography.$font-family-base;
+    font-size: typography.$font-size-small;
+    font-style: normal;
+    font-weight: 400;
+    line-height: typography.$line-height-base;
+    line-break: auto;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    overflow-wrap: anywhere;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: normal;
+    background-color: transparent;
+    overflow: unset;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    position: fixed;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity tooltip-variables.$transition-duration,
+      visibility tooltip-variables.$transition-duration;
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip-inner {
+      position: relative;
+      display: inline-block;
+      background-color: colors.$wit;
+      border-radius: tooltip-variables.$border-radius;
+      color: colors.$grijs-90;
+      font-size: typography.$root-font-size-base;
+      max-inline-size: tooltip-variables.$max-inline-size;
+      padding-block: tooltip-variables.$padding-block;
+      padding-inline: tooltip-variables.$padding-inline;
+
+      &.small {
+        max-inline-size: tooltip-variables.$max-inline-size-small;
+      }
+    }
+
+    .tooltip-arrow {
+      position: absolute;
+      border-start-start-radius: tooltip-variables.$border-radius;
+      block-size: tooltip-variables.$arrow-block-size;
+      inline-size: tooltip-variables.$arrow-inline-size;
+      background: tooltip-variables.$arrow-color;
+      pointer-events: none;
+    }
+  }
+}

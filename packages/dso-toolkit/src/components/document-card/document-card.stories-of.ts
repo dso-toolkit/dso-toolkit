@@ -82,7 +82,6 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
           label: `Toon informatie over type`,
           position: "right",
           small: false,
-          secondary: false,
         },
       },
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>

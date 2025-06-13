@@ -102,7 +102,11 @@ export function richInfoRichContent({ richContentTemplate, toggletipTemplate }: 
     children: html`
       <p>
         Deze variant van de <strong>banner</strong> is wat minder opvallend.
-        ${toggletipTemplate({ position: "right", secondary: true, children: html`<p>Een toggletip bij de banner</p>` })}
+        ${toggletipTemplate({
+          position: "right",
+          mode: "secondary",
+          children: html`<p>Een toggletip bij de banner</p>`,
+        })}
       </p>
       <p>Maar kan ook rich content bevatten, bijvoorbeeld een extra paragraaf om meer uit te kunnen leggen</p>
     `,
