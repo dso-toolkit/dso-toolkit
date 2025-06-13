@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Toggletip: Varianten voor verschijningsvormen ([#2487](https://github.com/dso-toolkit/dso-toolkit/issues/2487))
+
 ### Changed
 * Alert: Icon moet 24x24px zijn ([#3211](https://github.com/dso-toolkit/dso-toolkit/issues/3211))
 
