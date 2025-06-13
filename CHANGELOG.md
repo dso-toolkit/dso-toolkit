@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
+* **BREAKING** Label: Verwijderen Danger variant en toevoegen Filter variant ([#3171](https://github.com/dso-toolkit/dso-toolkit/issues/3171))
 
 ### Task
 * Website: Aanpassing structuur van de opdeling van alle componenten ([#3072](https://github.com/dso-toolkit/dso-toolkit/issues/3072))
