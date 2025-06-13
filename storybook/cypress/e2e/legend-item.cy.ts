@@ -1,7 +1,7 @@
 describe("Legend Item", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--default");
-    cy.get("dso-legend-item").as("dsoLegendItem").shadow().as("dsoLegendItemShadow");
+    cy.get("dso-legend-item.hydrated").as("dsoLegendItem").shadow().as("dsoLegendItemShadow");
   });
 
   it("should be accessible", () => {
