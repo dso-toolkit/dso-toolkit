@@ -60,10 +60,6 @@
     @include set-colors.apply(label-variables.$warning-bg-color, $icons: false, $links: false);
   }
 
-  &.dso-label-danger {
-    @include set-colors.apply(label-variables.$danger-bg-color, $icons: false, $links: false);
-  }
-
   &.dso-label-error {
     @include set-colors.apply(label-variables.$error-bg-color, $icons: false, $links: false);
   }
@@ -71,15 +67,23 @@
   &.dso-label-bright {
     @include set-colors.apply(label-variables.$bright-bg-color, $icons: false, $links: false);
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      outline: 1px solid label-variables.$bright-border-color;
-      outline-offset: -1px;
-    }
+    outline: 1px solid label-variables.$bright-border-color;
+    outline-offset: -1px;
   }
 
   &.dso-label-attention {
     @include set-colors.apply(label-variables.$attention-bg-color, $icons: false, $links: false);
+  }
+
+  &.dso-label-filter {
+    @include set-colors.apply(
+      label-variables.$filter-bg-color,
+      label-variables.$filter-border-color,
+      $icons: false,
+      $links: false
+    );
+
+    border-inline-start: 5px solid;
   }
 
   &.dso-compact {

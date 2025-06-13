@@ -10,6 +10,7 @@ Deze release bevat breaking changes voor de volgende componenten:
 - Modal
 - Legend Item
 - Badge
+- Label
 
 <!-- truncate -->
 
@@ -85,4 +86,16 @@ witte tekst.
 
 ✅ >= 74.0.0
 <dso-badge status="error"></dso-badge>
+```
+
+## Label
+
+In deze release is in het component `Label` de status `danger` verwijderd inclusief de styling die daarbij hoort. Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de `danger` status. Daarnaast is er een `filter` status toegevoegd. Deze heeft nu een donkerblauwe linker border, lichtblauw achtergrond en witte tekst.
+
+```html
+❌ < 74.0.0
+<dso-label status="danger"></dso-label>
+
+✅ >= 74.0.0
+<dso-label status="error"></dso-label>
 ```
