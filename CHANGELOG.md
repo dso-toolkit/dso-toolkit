@@ -5,11 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* List Button: beter zichtbare focusstate ([#3094](https://github.com/dso-toolkit/dso-toolkit/issues/3094))
+* **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
+
 ### Fixed
 * Alert: Icon bij de link heeft de verkeerde kleur in core variant ([#3168](https://github.com/dso-toolkit/dso-toolkit/issues/3168))
-
-### Changed
-* **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
 
 ### Task
 * Website: Aanpassing structuur van de opdeling van alle componenten ([#3072](https://github.com/dso-toolkit/dso-toolkit/issues/3072))
