@@ -1,22 +1,59 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { tooltipPositions } from "../tooltip/tooltip.models.js";
+import { BadgeStatus, badgeArgTypes } from "../badge";
+import { iconArgTypes } from "../icon";
 
 import { Toggletip } from "./toggletip.models.js";
 
 export interface ToggletipArgs {
-  position: "top" | "right" | "bottom" | "left";
+  mode?: "toggle" | "secondary" | "badge" | "icon";
+  position?:
+    | "top"
+    | "top-start"
+    | "top-end"
+    | "right"
+    | "right-start"
+    | "right-end"
+    | "bottom"
+    | "bottom-start"
+    | "bottom-end"
+    | "left"
+    | "left-start"
+    | "left-end";
   small?: boolean;
   label?: string;
-  secondary?: boolean;
+  badgeStatus?: BadgeStatus;
+  icon?: string;
+  iconActive?: string;
 }
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
-  position: {
-    options: tooltipPositions,
+  mode: {
+    options: ["toggle", "secondary", "badge", "icon"],
     control: {
       type: "select",
     },
+    defaultValue: "toggle",
+  },
+  position: {
+    options: [
+      "top",
+      "top-start",
+      "top-end",
+      "right",
+      "right-start",
+      "right-end",
+      "bottom",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-start",
+      "left-end",
+    ],
+    control: {
+      type: "select",
+    },
+    defaultValue: "right",
   },
   small: {
     control: {
@@ -28,9 +65,25 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
       type: "text",
     },
   },
-  secondary: {
-    control: {
-      type: "boolean",
+  badgeStatus: {
+    ...badgeArgTypes.status,
+    if: {
+      arg: "mode",
+      eq: "badge",
+    },
+  },
+  icon: {
+    ...iconArgTypes.icon,
+    if: {
+      arg: "mode",
+      eq: "icon",
+    },
+  },
+  iconActive: {
+    ...iconArgTypes.icon,
+    if: {
+      arg: "mode",
+      eq: "icon",
     },
   },
 };
@@ -41,9 +94,12 @@ export function toggletipArgsMapper<TemplateFnReturnType>(
 ): Toggletip<TemplateFnReturnType> {
   return {
     children,
+    mode: a.mode,
     position: a.position,
     small: a.small,
     label: a.label,
-    secondary: a.secondary,
+    badgeStatus: a.badgeStatus,
+    icon: a.icon,
+    iconActive: a.iconActive,
   };
 }
