@@ -9,7 +9,7 @@ export interface BadgeArgs {
 
 export const badgeArgTypes: ArgTypes<BadgeArgs> = {
   status: {
-    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "outline", "attention"],
+    options: [undefined, "primary", "success", "info", "warning", "error", "outline", "attention"],
     control: {
       type: "select",
     },
