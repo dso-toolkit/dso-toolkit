@@ -6,7 +6,6 @@ import {
   EventEmitter,
   Fragment,
   Prop,
-  State,
   forceUpdate,
   h,
 } from "@stencil/core";
@@ -91,9 +90,6 @@ export class ListButton implements ComponentInterface {
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
-  @State()
-  keyboardFocus = false;
-
   connectedCallback() {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
@@ -166,33 +162,17 @@ export class ListButton implements ComponentInterface {
           class={clsx(["dso-list-button", { "dso-selected": selected, "dso-single-count": this.count === 1 }])}
           onClick={(e) => this.handleSelectClick(e)}
         >
-          <div class={clsx(["dso-selectable", { "dso-keyboard-focus": this.keyboardFocus }])}>
-            <input
-              id="dso-list-button-checkbox"
-              type="checkbox"
-              value="list-button"
-              name="naam"
-              aria-describedby={
-                [this.sublabel && "sublabel", this.subcontentSlot && "description"].filter((s) => !!s).join(" ") || null
-              }
-              checked={selected}
-              disabled={this.disabled}
-              onBlur={() => (this.keyboardFocus = false)}
-              onKeyUp={() => (this.keyboardFocus = true)}
-            />
-            <label htmlFor="dso-list-button-checkbox">{this.label}</label>
+          <dso-selectable type="checkbox" value="list-button" name="naam" checked={selected} disabled={this.disabled}>
+            {this.label}
+            {this.sublabel && <span class="sr-only"> {this.sublabel}</span>}
             {this.subcontentSlot && (
-              <div class="sr-only" id="description">
-                {this.subcontentPrefix && this.subcontentPrefix + ":"}
-                <div innerHTML={this.subcontentSlot.innerHTML}></div>
-              </div>
+              <span class="sr-only">
+                {this.subcontentPrefix && this.subcontentPrefix + ":"}{" "}
+                <span innerHTML={this.subcontentSlot.innerHTML}></span>
+              </span>
             )}
-          </div>
-          {this.sublabel && (
-            <span class="dso-sublabel" id="sublabel">
-              {this.sublabel}
-            </span>
-          )}
+          </dso-selectable>
+          {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
           {this.subcontentSlot && (
             <div class="subcontent">
               <slot name="subcontent" />

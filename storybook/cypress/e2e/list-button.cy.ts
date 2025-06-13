@@ -11,7 +11,7 @@ describe("ListButton", () => {
       .should("be.visible")
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-selectable > label")
+      .find(".dso-selectable-input-wrapper > label")
       .should("contain.text", "Milieubelastende activiteit - Melding")
       .get("@dsoListButtonShadow")
       .find(".dso-input-number")
@@ -19,27 +19,21 @@ describe("ListButton", () => {
       .get("@dsoListButtonShadow")
       .find(".dso-sublabel")
       .should("not.exist")
-      .get("@dsoListButtonShadow")
-      .should("not.exist")
       .get("@dsoListButton")
       .invoke("attr", "sublabel", "Sublabel")
       .get("@dsoListButtonShadow")
       .find(".dso-sublabel")
       .should("contain.text", "Sublabel")
-      .get("@dsoListButtonShadow")
-      .find("#dso-list-button-checkbox")
-      .should("have.attr", "aria-describedby", "sublabel")
       .get("@dsoListButton")
       .then(($listButton) => {
         $listButton.append('<span slot="subcontent">Subcontent</span>');
       })
       .get("@dsoListButtonShadow")
-      .find("#dso-list-button-checkbox")
-      .should("have.attr", "aria-describedby", "sublabel description")
-      .get("@dsoListButtonShadow")
-      .find("#description")
-      .should("have.class", "sr-only")
-      .and("contain", "Subcontent")
+      .find(".dso-selectable-input-wrapper > label")
+      .should(
+        "contain.html",
+        'Milieubelastende activiteit - Melding<span class="sr-only"> Sublabel</span><span class="sr-only"> <span>Subcontent</span></span>',
+      )
       .get("@dsoListButton")
       .find('> [slot="subcontent"]')
       .should("have.attr", "aria-hidden", "true");
@@ -62,12 +56,8 @@ describe("ListButton", () => {
     cy.get("dso-list-button")
       .shadow()
       .as("dsoListButtonShadow")
-      .find("#dso-list-button-checkbox")
-      .should("have.attr", "aria-describedby", "description")
-      .get("@dsoListButtonShadow")
-      .find("#description")
-      .should("have.class", "sr-only")
-      .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
+      .find(".dso-selectable-input-wrapper > label > .sr-only")
+      .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>");
   });
 
   it("should render subcontent in slot with prefix", () => {
@@ -76,10 +66,11 @@ describe("ListButton", () => {
       .get("dso-list-button")
       .invoke("prop", "subcontentPrefix", "subcontentPrefix")
       .shadow()
-      .find("#description")
-      .should("have.class", "sr-only")
-      .and("contain", "subcontentPrefix:")
-      .and("contain.html", "<div>Subcontent met <strong>HTML</strong></div>");
+      .find(".dso-selectable-input-wrapper > label")
+      .should(
+        "contain.html",
+        'Milieubelastende activiteit - Melding<span class="sr-only">subcontentPrefix: <span>Subcontent met <strong>HTML</strong></span></span>',
+      );
   });
 
   it("should be accessible", () => {
