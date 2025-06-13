@@ -132,20 +132,6 @@
   }
 }
 
-.dso-selectable {
-  @include selectable.root($omit-focus-outline: true);
-
-  label {
-    font-weight: 700;
-  }
-
-  &:focus-within.dso-keyboard-focus {
-    @include utilities.focus-outline();
-
-    padding-inline-start: selectable.$symbol-indent;
-  }
-}
-
 .dso-list-button {
   @include button.base($modifiers: false);
   @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
@@ -189,6 +175,14 @@
         opacity: 1;
       }
     }
+  }
+
+  dso-selectable:not(:last-child) {
+    margin-block-end: 0;
+  }
+
+  .dso-selectable-container label {
+    font-weight: 700;
   }
 
   &.dso-selected {
