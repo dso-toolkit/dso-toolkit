@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Toggletip: Varianten voor verschijningsvormen ([#2487](https://github.com/dso-toolkit/dso-toolkit/issues/2487))
+
 ### Task
 * Build: Bundling Warning SOURCEMAP_BROKEN ([#3107](https://github.com/dso-toolkit/dso-toolkit/issues/3107))
 * Accordion Section: Button in Section Handle kleurt grasgroen als Section open is ([#3221](https://github.com/dso-toolkit/dso-toolkit/issues/3221))
