@@ -1,7 +1,6 @@
 import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
 import type { Meta } from "@storybook/web-components";
 import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
-import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
@@ -15,57 +14,18 @@ const meta: Meta<LegendItemArgs> = {
 
 export default meta;
 
-const { Default, WithSelectable, Removable, WithSelectables, WithInputRange } = legendItemStories({
+const { Default } = legendItemStories({
   templateContainer,
-  storyTemplates: ({ legendItemTemplate, selectableTemplate, inputRangeTemplate }) => {
-    function selectableDemo(label: string, disabled: boolean) {
-      return selectableTemplate({
-        type: "checkbox",
-        id: "1",
-        value: "1",
-        label,
-        disabled,
-      });
-    }
-
-    const bodyWithSelectables = html`<fieldset>
-      <legend>Wijzig eigenschap</legend>
-      <div>
-        ${selectableTemplate({
-          type: "radio",
-          id: "waarde1",
-          value: "waarde1",
-          label: "Waarde één",
-          name: "eigenschap",
-        })}
-        ${selectableTemplate({
-          type: "radio",
-          id: "waarde2",
-          value: "waarde2",
-          label: "Waarde twee",
-          name: "eigenschap",
-        })}
-        ${selectableTemplate({
-          type: "radio",
-          id: "waarde3",
-          value: "waarde3",
-          label: "Waarde drie",
-          name: "eigenschap",
-        })}
-      </div>
-    </fieldset>`;
-
+  storyTemplates: ({ legendItemTemplate, inputRangeTemplate }) => {
     const bodyWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
 
     return {
       legendItemTemplate,
-      bodyWithSelectables,
       bodyWithInputRange,
       defaultSymbol,
-      selectableDemo,
     };
   },
   decorator,
 });
 
-export { Default, Removable, WithInputRange, WithSelectable, WithSelectables };
+export { Default };

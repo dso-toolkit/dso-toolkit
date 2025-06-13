@@ -10,15 +10,13 @@ export interface LegendItemArgs {
   disabledMessage: string;
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
-  dsoRemoveClick: HandlerFunction;
+  dsoActiveChange: HandlerFunction;
   label: string;
-  removable: boolean;
 }
 
-export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoRemoveClick" | "label"> = {
+export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange" | "label"> = {
   disabled: false,
   disabledMessage: "",
-  removable: false,
 };
 
 export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
@@ -40,18 +38,13 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
     ...noControl,
     action: "dsoMouseLeave",
   },
-  dsoRemoveClick: {
+  dsoActiveChange: {
     ...noControl,
-    action: "dsoRemoveClick",
+    action: "dsoActiveChange",
   },
   label: {
     control: {
       type: "text",
-    },
-  },
-  removable: {
-    control: {
-      type: "boolean",
     },
   },
 };
