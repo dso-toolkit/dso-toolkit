@@ -19,9 +19,9 @@ Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'acht
 
 ## Events
 
-| Event      | Description                                     | Type                           |
-| ---------- | ----------------------------------------------- | ------------------------------ |
-| `dsoClose` | Emitted when the user wants to close the Modal. | `CustomEvent<ModalCloseEvent>` |
+| Event      | Description                                                                                                                      | Type                           |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `dsoClose` | Emitted when the user: - clicks the close button - dismisses the Modal with the Escape button - clicks or taps outside the Modal | `CustomEvent<ModalCloseEvent>` |
 
 
 ## Dependencies

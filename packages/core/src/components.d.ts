@@ -1219,17 +1219,29 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
+          * The type of badge when `mode`=`badge`
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * The icon when `mode`=`icon`
+         */
+        "icon"?: string;
+        /**
+          * The icon when `mode`=`icon` and the Toggletip is visible
+         */
+        "iconActive"?: string;
+        /**
           * Toggletip label.
          */
         "label": string;
         /**
+          * The type of Toggletip.
+         */
+        "mode": "toggle" | "secondary" | "badge" | "icon";
+        /**
           * Toggletip position.
          */
         "position": Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
         /**
           * Set to true for small Toggletip.
          */
@@ -3878,17 +3890,29 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
+          * The type of badge when `mode`=`badge`
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * The icon when `mode`=`icon`
+         */
+        "icon"?: string;
+        /**
+          * The icon when `mode`=`icon` and the Toggletip is visible
+         */
+        "iconActive"?: string;
+        /**
           * Toggletip label.
          */
         "label"?: string;
         /**
+          * The type of Toggletip.
+         */
+        "mode"?: "toggle" | "secondary" | "badge" | "icon";
+        /**
           * Toggletip position.
          */
         "position"?: Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
         /**
           * Set to true for small Toggletip.
          */

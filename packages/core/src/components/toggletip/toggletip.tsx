@@ -1,5 +1,6 @@
 import { Placement } from "@popperjs/core";
-import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, Element, Fragment, h, Prop, State } from "@stencil/core";
+import { BadgeStatus } from "../badge/badge.interfaces";
 
 @Component({
   tag: "dso-toggletip",
@@ -32,10 +33,28 @@ export class Toggletip {
   small?: boolean;
 
   /**
-   * Set to true for secondary Toggletip.
+   * The type of Toggletip.
    */
   @Prop()
-  secondary?: boolean;
+  mode: "toggle" | "secondary" | "badge" | "icon" = "toggle";
+
+  /**
+   * The type of badge when `mode`=`badge`
+   */
+  @Prop()
+  badgeStatus?: BadgeStatus;
+
+  /**
+   * The icon when `mode`=`icon`
+   */
+  @Prop()
+  icon?: string;
+
+  /**
+   * The icon when `mode`=`icon` and the Toggletip is visible
+   */
+  @Prop()
+  iconActive?: string;
 
   private infoButton?: HTMLDsoInfoButtonElement;
 
@@ -78,14 +97,19 @@ export class Toggletip {
   render() {
     return (
       <>
-        <dso-info-button
-          aria-describedby="toggle"
-          onClick={this.click}
-          label={this.label}
-          active={this.active}
-          secondary={this.secondary}
-          ref={(element) => (this.infoButton = element)}
-        />
+        <div class="toggletip-container" onClick={this.click}>
+          {["toggle", "secondary"].includes(this.mode) && (
+            <dso-info-button
+              aria-describedby="toggle"
+              label={this.label}
+              active={this.active}
+              secondary={this.mode === "secondary"}
+              ref={(element) => (this.infoButton = element)}
+            />
+          )}
+          {this.mode === "badge" && <dso-badge status={this.badgeStatus}>{this.label}</dso-badge>}
+          {this.mode === "icon" && <dso-icon icon={this.active ? this.iconActive : this.icon}></dso-icon>}
+        </div>
         <dso-tooltip
           stateless
           descriptive
