@@ -64,6 +64,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [dso-list-button](../list-button)
  - [dso-map-base-layers](../map-base-layers)
  - [dso-map-overlays](../map-overlays)
 
@@ -79,6 +80,7 @@ graph TD;
   dso-selectable --> dso-info
   dso-info-button --> dso-icon
   dso-info --> dso-icon
+  dso-list-button --> dso-selectable
   dso-map-base-layers --> dso-selectable
   dso-map-overlays --> dso-selectable
   style dso-selectable fill:#f9f,stroke:#333,stroke-width:4px
