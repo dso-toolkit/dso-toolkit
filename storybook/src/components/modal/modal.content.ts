@@ -17,9 +17,12 @@ export function activeFooter({ buttonTemplate }: Templates) {
   `;
 }
 
-export function passiveBody({ listTemplate }: Templates) {
+export function passiveBody({ listTemplate, toggletipTemplate }: Templates) {
   return html`
-    <p>Gebruik de volgende bestandsformaten voor een document:</p>
+    <p>
+      Gebruik de volgende bestandsformaten voor een document
+      ${toggletipTemplate({ children: html`Een Toggletip waarin extra informatie wordt weergegeven.` })}:
+    </p>
     ${listTemplate({
       items: [
         { text: "Foto's en gescande documenten: PNG, TIFF" },
@@ -52,12 +55,13 @@ export function passiveFooter({ buttonTemplate }: Templates) {
   return buttonTemplate({ label: "Sluiten", variant: "tertiary", type: "button" });
 }
 
-export function confirmBody({ linkTemplate }: Templates) {
+export function confirmBody({ linkTemplate, toggletipTemplate }: Templates) {
   return html`
     <p>
       Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog
       niet beschikbaar zijn. En dat u geen rechten kunt ontlenen aan de teksten in de vergunningcheck en regels op de
       kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.
+      ${toggletipTemplate({ children: html`Een Toggletip waarin extra informatie wordt weergegeven.` })}
     </p>
     <p>
       De website ${linkTemplate({ label: "Aan de slag met de omgevingswet", url: "#" })} biedt extra uitleg over het
@@ -66,6 +70,7 @@ export function confirmBody({ linkTemplate }: Templates) {
     </p>
   `;
 }
+
 export function confirmFooter({ buttonTemplate }: Templates) {
   return html`
     ${buttonTemplate({ label: "Secundaire actie", variant: "secondary", type: "button" })}
