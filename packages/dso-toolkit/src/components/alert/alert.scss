@@ -1,10 +1,10 @@
 @use "../alert";
 @use "../../di";
+@use "../../variables/units";
 
 // HTML/CSS
 .alert {
   @include alert.root();
-
   @include alert.children();
 
   .dso-close {
@@ -86,4 +86,50 @@
 // Web Component
 dso-alert {
   @include alert.children();
+
+  &[status="success"] {
+    @include alert.status-success();
+  }
+
+  &[status="error"] {
+    @include alert.status-error();
+  }
+
+  &[status="warning"] {
+    @include alert.status-warning();
+  }
+
+  &[status="info"] {
+    @include alert.status-info();
+  }
+
+  &[compact]:not([compact="false"]) {
+    @include alert.compact();
+
+    position: relative;
+  }
+
+  &[status="success"][compact]:not([compact="false"]) {
+    &::before {
+      background-color: alert.$success-compact-accent-bg;
+    }
+  }
+
+  &[status="error"][compact]:not([compact="false"]) {
+    &::before {
+      background-color: alert.$danger-compact-accent-bg;
+    }
+  }
+
+  &[status="warning"][compact]:not([compact="false"]) {
+    &::before {
+      background-color: alert.$warning-compact-accent-bg;
+    }
+  }
+
+  &[status="info"][compact]:not([compact="false"]) {
+    &::before {
+      background-color: alert.$info-compact-accent-bg;
+    }
+  }
 }
