@@ -131,7 +131,6 @@ const documentCardDefault: DocumentCard<TemplateResult> = {
     label: "Toon informatie over type",
     position: "right",
     small: false,
-    secondary: false,
   },
 };
 
