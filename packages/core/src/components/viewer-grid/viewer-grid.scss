@@ -13,11 +13,17 @@
 
 @include utilities.box-sizing();
 
-:host([mode="vdk"]) {
+:host {
   .overlay {
     block-size: calc(100% - units.$u4);
     margin-block: units.$u2;
     margin-inline: auto units.$u2;
+  }
+
+  .dso-main-panel {
+    transition:
+      min-inline-size core-viewer-grid-variables.$transition-time ease-in,
+      margin-inline-start core-viewer-grid-variables.$transition-time ease-in;
   }
 }
 
@@ -93,12 +99,6 @@ button {
     block-size: 100%;
   }
 
-  .dso-filterblok-address {
-    font-weight: bold;
-    margin-block: units.$u1;
-    margin-inline: 0;
-  }
-
   .sizing-buttons,
   .toggle-button {
     inset-inline-start: calc(100% + 1px);
@@ -110,14 +110,6 @@ button {
       border-end-end-radius: 4px;
       border-start-end-radius: 4px;
     }
-  }
-}
-
-:host[mode="vdk"] {
-  .dso-main-panel {
-    transition:
-      min-inline-size core-viewer-grid-variables.$transition-time ease-in,
-      margin-inline-start core-viewer-grid-variables.$transition-time ease-in;
   }
 }
 
@@ -201,9 +193,15 @@ button {
 }
 
 .filterpanel {
+  display: block;
+  position: absolute;
   padding-block: units.$u1;
   padding-inline: css-grid.$grid-gutter-width * 0.5;
-  inset-inline-start: 0;
+  inset-block-start: 0;
+  block-size: 100%;
+  inset-inline-start: calc(core-viewer-grid-variables.$filterpanel-max-inline-size * -1);
+  inline-size: 100%;
+  transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
 
   @media screen and (max-width: core-viewer-grid-variables.$filterpanel-inline-size) {
     inline-size: 100vw;
@@ -213,30 +211,14 @@ button {
     }
   }
 
-  h1 {
-    @include heading.base();
-    @include heading.margin-large();
-    @include heading.h1();
-  }
-}
-
-.filterpanel-vdk {
-  display: block;
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: calc(core-viewer-grid-variables.$filterpanel-vdk-max-inline-size * -1);
-  block-size: 100%;
-  inline-size: 100%;
-  transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
-
   @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-    max-inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+    max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
   }
 
   &[open] {
     inset-inline-start: 0;
     box-shadow: none;
-    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-vdk-border-color;
+    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-border-color;
   }
 
   h3 {
@@ -274,24 +256,6 @@ button {
 
   @media screen and (max-width: core-viewer-grid-variables.$overlay-inline-size) {
     inline-size: 100vw;
-  }
-}
-
-.filterpanel-buttons {
-  text-align: end;
-
-  .cancel-button {
-    @include button.secondary($modifiers: false);
-    @include button.small();
-  }
-
-  .apply-button {
-    @include button.primary($modifiers: false);
-    @include button.small();
-  }
-
-  .cancel-button + .apply-button {
-    margin-inline-start: units.$u2;
   }
 }
 
@@ -374,33 +338,8 @@ button {
     inline-size: calc(100vw - 40px);
 
     &[open] {
-      box-shadow: 2px 0 5px colors.$grijs-60;
+      border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-border-color;
     }
-
-    &.filterpanel-vrk {
-      max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
-
-      &::before {
-        content: "";
-        display: block;
-        position: fixed;
-        inset-block-start: 0;
-        inset-block-end: 0;
-        inset-inline-end: 0;
-        inset-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
-        background-color: rgba(0, 0, 0, 0.5);
-
-        @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-inline-size + 40px}) {
-          inset-inline-start: auto;
-          inline-size: 40px;
-        }
-      }
-    }
-  }
-
-  .filterpanel-vdk[open] {
-    box-shadow: none;
-    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-vdk-border-color;
   }
 
   .overlay {
@@ -409,16 +348,16 @@ button {
   }
 
   @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
-    :host([filterpanel-open][mode="vdk"]) {
+    :host([filterpanel-open]) {
       .dso-main-panel {
-        margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
-        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filterpanel-vdk-max-inline-size});
+        margin-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
+        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filterpanel-max-inline-size});
       }
     }
 
-    .filterpanel-vdk {
-      inline-size: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
-      inset-inline-start: -(core-viewer-grid-variables.$filterpanel-vdk-max-inline-size);
+    .filterpanel {
+      inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
+      inset-inline-start: -(core-viewer-grid-variables.$filterpanel-max-inline-size);
     }
   }
 }
@@ -456,16 +395,15 @@ button {
     inline-size: 100vw;
   }
 
-  .filterpanel-vdk {
-    inline-size: 100vw;
+  .filterpanel {
     inset-inline-start: -100vw;
   }
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  :host([filterpanel-open][mode="vdk"]) {
+  :host([filterpanel-open]) {
     .dso-main-panel {
-      margin-inline-start: core-viewer-grid-variables.$filterpanel-vdk-max-inline-size;
+      margin-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
     }
   }
 }

@@ -1,64 +1,10 @@
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
 import { type Meta } from "@storybook/web-components";
-import {
-  DocumentList,
-  DocumentListItemStatusDemoContent,
-  Tile,
-  ViewerGridArgs,
-  ViewerGridDocumentHeaderProperties,
-  selectExampleOption,
-  viewerGridMeta,
-  viewerGridStories,
-} from "dso-toolkit";
-import { options } from "dso-toolkit/dist/components/advanced-select/advanced-select.content";
+import { ViewerGridArgs, viewerGridMeta, viewerGridStories } from "dso-toolkit";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
 
 import { templateContainer } from "../../templates";
-import { tiles } from "../tile-grid/tile-grid.content";
-
-// Dit is nodig omdat TypeScript geen modules compileert. Zodra dso-toolkit dat wel doet kan de `const activeFilters` worden vervangen met:
-// import { activeFilters } from "dso-toolkit/src/components/label-group/label-group.content";
-// Zie ook dso-toolkit/dso-toolkit#2206
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const activeFilters: any = [
-  {
-    label: "Bouwwerken, werken en objecten bouwen",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-  {
-    label: "Regels",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-  {
-    label: "Tuin",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-  {
-    label: "Slopen of verwijderen bij een hoofdspoorweg of een bijzondere spoorweg",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-  {
-    label: "Geluidzone",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-  {
-    label: "Thema: milieu algemeen",
-    status: "bright",
-    removable: true,
-    truncate: true,
-  },
-];
 
 const meta: Meta<ViewerGridArgs> = {
   ...viewerGridMeta({ readme }),
@@ -67,141 +13,12 @@ const meta: Meta<ViewerGridArgs> = {
 
 export default meta;
 
-const {
-  ViewerGrid,
-  Filterpanel,
-  FilterpanelVDK,
-  VoorbeeldpaginaTiles,
-  VoorbeeldpaginaFilterblok,
-  VoorbeeldpaginaDocumentHeader,
-  VoorbeeldpaginaDocumentList,
-} = viewerGridStories({
+const { ViewerGrid, Filterpanel, DocumentPanel } = viewerGridStories({
   templateContainer,
   storyTemplates: (templates) => {
-    const {
-      linkTemplate,
-      badgeTemplate,
-      viewerGridTemplate,
-      alertTemplate,
-      bannerTemplate,
-      richContentTemplate,
-      documentHeaderTemplate,
-      documentListTemplate,
-      labelGroupTemplate,
-      contextTemplate,
-      buttonTemplate,
-      tileGridTemplate,
-    } = templates;
+    const { linkTemplate, viewerGridTemplate, alertTemplate, bannerTemplate, richContentTemplate, buttonTemplate } =
+      templates;
 
-    function documentHeaderExampleTemplate({
-      documentHeaderFeaturesOpen,
-      documentHeaderFeatureAction,
-      documentHeaderSticky,
-      documentHeaderAdvancedSelect,
-      documentHeaderAdvancedSelectActiveIndex,
-    }: ViewerGridDocumentHeaderProperties) {
-      return viewerGridTemplate({
-        main: documentHeaderTemplate({
-          title: "Omgevingsplan gemeente Gouda",
-          type: "Een omgevingsplan waar de omgeving mooier van wordt",
-          owner: "Gemeente Gouda",
-          features: {
-            modifier: "dso-document-header-features",
-            definitions: [
-              {
-                term: html`Opschrift:`,
-                descriptions: [
-                  {
-                    content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
-                  },
-                ],
-              },
-              {
-                term: html`Identificatie:`,
-                descriptions: [
-                  {
-                    content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
-                  },
-                ],
-              },
-              {
-                term: html`Besluit:`,
-                descriptions: [
-                  {
-                    content: linkTemplate({
-                      label: "Bekijk besluit",
-                      url: "#",
-                      icon: {
-                        icon: "external-link",
-                      },
-                      iconMode: "after",
-                    }),
-                  },
-                ],
-              },
-            ],
-          },
-          featureAction: documentHeaderFeatureAction,
-          featuresOpen: documentHeaderFeaturesOpen,
-          sticky: documentHeaderSticky,
-          advancedSelect: {
-            ...documentHeaderAdvancedSelect,
-            active: selectExampleOption(documentHeaderAdvancedSelectActiveIndex, options),
-          },
-        }),
-        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
-      });
-    }
-
-    function documentListExampleTemplate(documentList: DocumentList<DocumentListItemStatusDemoContent>) {
-      return viewerGridTemplate({
-        main: documentListTemplate({
-          items: documentList.items.map((item) => ({
-            ...item,
-            status: html`${badgeTemplate(item.status.badge)} ${item.status.date}`,
-          })),
-        }),
-        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
-      });
-    }
-
-    function filterblokExampleTemplate() {
-      return viewerGridTemplate({
-        main: html`
-          <section class="dso-filterblok">
-            <div class="dso-highlight-box">
-              ${contextTemplate({
-                type: "label",
-                label: html`<h3>Uw keuzes</h3>`,
-                content: buttonTemplate({
-                  variant: "tertiary",
-                  label: "Alle opties",
-                  icon: {
-                    icon: "pencil",
-                  },
-                }),
-                children: html`
-                  <p class="dso-filterblok-address">Achterwillenseweg 9a, Gouda</p>
-                  ${labelGroupTemplate({ labels: activeFilters })}
-                `,
-              })}
-            </div>
-          </section>
-        `,
-        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
-      });
-    }
-
-    function tilesExampleTemplate(tiles: Tile[]) {
-      return viewerGridTemplate({
-        main: html`
-          <h2>Thema's</h2>
-          <p>Bekijk regels en beleid rond een bepaald thema.</p>
-          ${tileGridTemplate({ tiles })}
-        `,
-        map: alertTemplate({ message: "Dit is de kaart", status: "info" }),
-      });
-    }
     return {
       viewerGridTemplate,
       example: {
@@ -269,21 +86,8 @@ const {
             </p>`,
         })}`,
       },
-      tilesExampleTemplate,
-      filterblokExampleTemplate,
-      documentHeaderExampleTemplate,
-      documentListExampleTemplate,
-      tiles,
     };
   },
 });
 
-export {
-  Filterpanel,
-  FilterpanelVDK,
-  ViewerGrid,
-  VoorbeeldpaginaDocumentHeader,
-  VoorbeeldpaginaDocumentList,
-  VoorbeeldpaginaFilterblok,
-  VoorbeeldpaginaTiles,
-};
+export { DocumentPanel, Filterpanel, ViewerGrid };

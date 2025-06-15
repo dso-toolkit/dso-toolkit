@@ -9,12 +9,6 @@ dso-viewer-grid {
     margin-inline-start: css-grid-variables.$grid-gutter-width * -0.5;
     margin-inline-end: css-grid-variables.$grid-gutter-width * -0.5;
 
-    .dso-filterblok-address {
-      font-weight: bold;
-      margin-block: units.$u1;
-      margin-inline: 0;
-    }
-
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       .dso-context-wrapper {
         .dso-context-container {
