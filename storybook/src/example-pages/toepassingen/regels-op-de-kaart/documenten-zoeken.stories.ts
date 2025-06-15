@@ -5,15 +5,15 @@ import { examplePageStories } from "../../../example-page-stories";
 import { headerPartial } from "../../partials/header";
 import { dropdownItems } from "../aanvragen/locatie.content";
 
-import { header, tabItems } from "./documenten-VDK.content";
+import { header, tabItems } from "./documenten.content";
 
 const meta: Meta = {
-  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten VDK zoeken",
+  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten zoeken",
 };
 
 export default meta;
 
-const DocumentenVDKZoeken = examplePageStories((templates) => {
+const DocumentenZoeken = examplePageStories((templates) => {
   const {
     buttonTemplate,
     dropdownMenuTemplate,
@@ -44,7 +44,6 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
 
       <main class="demo-main">
         ${viewerGridTemplate({
-          mode: "vdk",
           mainPanelExpanded: true,
           mainSize: "medium",
           main: html` <div style="margin-block-start: 1rem">
@@ -104,4 +103,4 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
   `;
 });
 
-export { DocumentenVDKZoeken };
+export { DocumentenZoeken };
