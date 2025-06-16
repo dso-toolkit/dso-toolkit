@@ -11,10 +11,14 @@ export interface LegendItemArgs {
   dsoMouseEnter: HandlerFunction;
   dsoMouseLeave: HandlerFunction;
   dsoActiveChange: HandlerFunction;
+  active: boolean;
   label: string;
 }
 
-export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange" | "label"> = {
+export const legendItemArgs: Omit<
+  LegendItemArgs,
+  "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange" | "label" | "active"
+> = {
   disabled: false,
   disabledMessage: "",
 };
@@ -45,6 +49,11 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   label: {
     control: {
       type: "text",
+    },
+  },
+  active: {
+    control: {
+      type: "boolean",
     },
   },
 };

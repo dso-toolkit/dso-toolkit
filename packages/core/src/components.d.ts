@@ -27,7 +27,7 @@ import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { LegendActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -71,7 +71,7 @@ export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./co
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { LegendActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -836,7 +836,7 @@ export namespace Components {
     }
     interface DsoLegendItem {
         /**
-          * Shows a slide-toggle, when toggled, emits `dsoActiveToggled`.
+          * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
          */
         "active"?: boolean;
         /**
@@ -1964,7 +1964,7 @@ declare global {
         new (): HTMLDsoLabelElement;
     };
     interface HTMLDsoLegendItemElementEventMap {
-        "dsoActiveChange": LegendActiveChangeEvent;
+        "dsoActiveChange": LegendItemActiveChangeEvent;
         "dsoMouseEnter": any;
         "dsoMouseLeave": any;
     }
@@ -3387,7 +3387,7 @@ declare namespace LocalJSX {
     }
     interface DsoLegendItem {
         /**
-          * Shows a slide-toggle, when toggled, emits `dsoActiveToggled`.
+          * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
          */
         "active"?: boolean;
         /**
@@ -3399,9 +3399,9 @@ declare namespace LocalJSX {
          */
         "disabledMessage"?: string;
         /**
-          * Emitted when the user activates the remove button.
+          * Emitted when user checks or unchecks the Slide Toggle.
          */
-        "onDsoActiveChange"?: (event: DsoLegendItemCustomEvent<LegendActiveChangeEvent>) => void;
+        "onDsoActiveChange"?: (event: DsoLegendItemCustomEvent<LegendItemActiveChangeEvent>) => void;
         /**
           * Emitted when the mouse enters the Legend Item
          */

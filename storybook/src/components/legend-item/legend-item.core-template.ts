@@ -16,6 +16,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
       dsoMouseEnter,
       dsoMouseLeave,
       dsoActiveChange,
+      active,
       symbol,
     }) {
       return html`
@@ -25,6 +26,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
           @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
           @dsoActiveChange=${ifDefined(dsoActiveChange)}
+          .active=${active}
         >
           ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
           ${body ? html`<div slot="body">${body}</div>` : nothing}

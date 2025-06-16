@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
-import { LegendActiveChangeEvent } from "./legend-item.interfaces";
+import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
  * @slot - Either the label for this legend item or a `dso-selectable` holding the label.
@@ -30,16 +30,16 @@ export class LegendItem implements ComponentInterface {
   disabledMessage?: string;
 
   /**
-   * Shows a slide-toggle, when toggled, emits `dsoActiveToggled`.
+   * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
    */
-  @Prop()
+  @Prop({ reflect: true })
   active?: boolean;
 
   /**
-   * Emitted when the user activates the remove button.
+   * Emitted when user checks or unchecks the Slide Toggle.
    */
   @Event()
-  dsoActiveChange!: EventEmitter<LegendActiveChangeEvent>;
+  dsoActiveChange!: EventEmitter<LegendItemActiveChangeEvent>;
 
   /**
    * Emitted when the mouse enters the Legend Item
@@ -91,7 +91,7 @@ export class LegendItem implements ComponentInterface {
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
 
-          <div class="legend-right-content">
+          <div class="legend-item-right-content">
             {hasBody && !this.disabled && (
               <button
                 id="edit-button"

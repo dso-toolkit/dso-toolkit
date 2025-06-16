@@ -8,18 +8,18 @@
 
 | Property          | Attribute          | Description                                                             | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
-| `active`          | `active`           | Shows a slide-toggle, when toggled, emits `dsoActiveToggled`.           | `boolean \| undefined` | `undefined` |
+| `active`          | `active`           | Shows a slide-toggle, when toggled, emits `dsoActiveChange`.            | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
 
 
 ## Events
 
-| Event             | Description                                        | Type                                   |
-| ----------------- | -------------------------------------------------- | -------------------------------------- |
-| `dsoActiveChange` | Emitted when the user activates the remove button. | `CustomEvent<LegendActiveChangeEvent>` |
-| `dsoMouseEnter`   | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`                     |
-| `dsoMouseLeave`   | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`                     |
+| Event             | Description                                            | Type                                       |
+| ----------------- | ------------------------------------------------------ | ------------------------------------------ |
+| `dsoActiveChange` | Emitted when user checks or unchecks the Slide Toggle. | `CustomEvent<LegendItemActiveChangeEvent>` |
+| `dsoMouseEnter`   | Emitted when the mouse enters the Legend Item          | `CustomEvent<any>`                         |
+| `dsoMouseLeave`   | Emitted when the mouse leaves the Legend Item          | `CustomEvent<any>`                         |
 
 
 ## Slots

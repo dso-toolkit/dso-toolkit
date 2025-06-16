@@ -5,12 +5,12 @@ export interface LegendItem<TemplateFnReturnType> {
   disabledMessage?: string;
   dsoMouseEnter?: () => void;
   dsoMouseLeave?: () => void;
-  dsoActiveChange?: (e: CustomEvent<LegendActiveChangeEvent>) => void;
+  dsoActiveChange?: (e: CustomEvent<LegendItemActiveChangeEvent>) => void;
   active?: boolean;
   symbol?: TemplateFnReturnType;
 }
 
-export interface LegendActiveChangeEvent {
+export interface LegendItemActiveChangeEvent {
   /**
    * De huidige status van de legend.
    */

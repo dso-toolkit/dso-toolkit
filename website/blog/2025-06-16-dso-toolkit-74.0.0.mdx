@@ -8,6 +8,7 @@ Deze release bevat breaking changes voor de volgende componenten:
 
 - Banner
 - Modal
+- Legend-item
 
 <!-- truncate -->
 
@@ -56,4 +57,16 @@ De DSO Toolkit maakt gebruik van StencilJS voor het maken van Web Components. Zi
 
 ✅ >= 74.0.0
 <dso-modal></dso-modal>
+```
+
+## Legend-item
+
+In deze release hebben we de HTML structuur, props en emitters in het `Legend item` component aangepast.
+
+```html
+❌ < 74.0.0
+<dso-legend-item removable (dsoRemoveClick)="..." [...]></dso-legend-item>
+
+✅ >= 74.0.0
+<dso-legend-item active (dsoActiveChange)="..." [...]></dso-legend-item>
 ```

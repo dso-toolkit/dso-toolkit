@@ -19,7 +19,7 @@ describe("Legend Item", () => {
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
 
-  it("should hide the more button and show a disabled slide-toggle when disabled is true", () => {
+  it("should hide the edit button and disable the slide-toggle", () => {
     cy.get("@dsoLegendItem")
       .invoke("prop", "disabled", true)
       .shadow()
@@ -28,7 +28,16 @@ describe("Legend Item", () => {
       .get("@dsoLegendItem")
       .shadow()
       .find(".dso-slider")
-      .should("be.disabled");
+      .should("be.disabled")
+      .get("@dsoLegendItem")
+      .invoke("prop", "disabled", false)
+      .shadow()
+      .find("#edit-button")
+      .should("exist")
+      .get("@dsoLegendItem")
+      .shadow()
+      .find(".dso-slider")
+      .should("not.be.disabled");
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
   });
