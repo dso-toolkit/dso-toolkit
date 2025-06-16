@@ -87,7 +87,8 @@ describe("Legend Item", () => {
       .invoke("prop", "active", true)
       .get("@dsoLegendItemShadow")
       .find("dso-slide-toggle button")
-      .should("have.attr", "aria-checked", "false");
+      .should("have.attr", "aria-checked", "false")
+      .wait(400);
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- active Slide Toggle`);
   });
