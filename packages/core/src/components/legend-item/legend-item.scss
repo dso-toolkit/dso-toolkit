@@ -28,7 +28,10 @@
   button {
     @include button.tertiary($icon-only: true, $modifiers: false);
 
-    cursor: pointer;
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      cursor: pointer;
+    }
 
     &.active {
       color: colors.$bosgroen-140;
