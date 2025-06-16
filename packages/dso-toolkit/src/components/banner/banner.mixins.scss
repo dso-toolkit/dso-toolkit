@@ -78,8 +78,8 @@
   }
 }
 
-@mixin danger() {
-  @include set-colors.apply(banner-variables.$danger-bg, banner-variables.$danger-border);
+@mixin success() {
+  @include set-colors.apply(banner-variables.$success-bg, banner-variables.$success-border);
 }
 
 @mixin error() {

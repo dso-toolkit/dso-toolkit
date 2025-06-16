@@ -11,7 +11,7 @@ export class Banner {
    * The status of the banner.
    */
   @Prop({ reflect: true })
-  status!: "danger" | "error" | "info" | "warning";
+  status!: "success" | "error" | "info" | "warning";
 
   /**
    * Compact mode.
