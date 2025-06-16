@@ -22,18 +22,24 @@ describe("Legend Item", () => {
   it("should hide the edit button and disable the slide-toggle", () => {
     cy.get("@dsoLegendItem")
       .invoke("prop", "disabled", true)
+      .invoke("prop", "disabledMessage", "Deze kaartlaag is uitgeschakeld")
       .shadow()
       .find("#edit-button")
       .should("not.exist")
       .get("@dsoLegendItem")
       .shadow()
       .find(".dso-slider")
-      .should("be.disabled");
+      .should("be.disabled")
+      .get("@dsoLegendItem")
+      .shadow()
+      .find("dso-toggletip")
+      .should("exist");
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
 
     cy.get("@dsoLegendItem")
       .invoke("prop", "disabled", false)
+      .invoke("prop", "disabledMessage", "")
       .shadow()
       .find("#edit-button")
       .should("exist")
@@ -80,7 +86,7 @@ describe("Legend Item", () => {
     cy.get("@dsoLegendItem")
       .invoke("prop", "active", true)
       .get("@dsoLegendItemShadow")
-      .find("dso-slide-toggle")
+      .find("dso-slide-toggle button")
       .should("have.attr", "aria-checked", "false");
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- active Slide Toggle`);
