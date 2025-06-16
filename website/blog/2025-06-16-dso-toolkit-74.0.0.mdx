@@ -4,9 +4,34 @@ authors: [cvanderleij]
 
 # DSO Toolkit v74.0.0 🐻
 
-In deze release is er een breaking change doorgevoerd voor Modal.
+Deze release bevat breaking changes voor de volgende componenten:
+
+- Banner
+- Modal
 
 <!-- truncate -->
+
+## Banner
+
+In deze release is in het component `banner` de prop `status` aangepast. De status `danger` is komen te vervallen en hebben de status `success` toegevoegd.
+
+**Danger:**
+
+```html
+❌ < 74.0.0
+<dso-banner status="danger"></dso-banner>
+
+✅ >= 74.0.0
+<dso-banner status="error"></dso-banner>
+```
+
+**Success:**
+
+✅ >= 74.0.0
+
+```html
+<dso-modal status="success"></dso-modal>
+```
 
 ## Modal
 

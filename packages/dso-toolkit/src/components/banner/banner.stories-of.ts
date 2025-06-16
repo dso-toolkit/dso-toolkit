@@ -10,7 +10,6 @@ import { Banner } from "./banner.models.js";
 type BannerStory = StoryObj<BannerArgs, Renderer>;
 
 interface BannerStories {
-  Danger: BannerStory;
   Error: BannerStory;
   Info: BannerStory;
   InfoCompactNonRemovable: BannerStory;
@@ -18,7 +17,7 @@ interface BannerStories {
   InfoNonRemovable: BannerStory;
   RichWarning: BannerStory;
   RichInfo: BannerStory;
-  DangerWithHeadings: BannerStory;
+  Success: BannerStory;
 }
 
 interface BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -26,7 +25,6 @@ interface BannerStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
-  dangerRichContent: TemplateFnReturnType;
   errorRichContent: TemplateFnReturnType;
   infoRichContent: TemplateFnReturnType;
   infoCompactNonRemovableRichContent: TemplateFnReturnType;
@@ -34,7 +32,7 @@ interface BannerTemplates<TemplateFnReturnType> {
   warningNonRemovableRichContent: TemplateFnReturnType;
   richWarningRichContent: TemplateFnReturnType;
   richInfoRichContent: TemplateFnReturnType;
-  dangerWithHeadingsRichContent: TemplateFnReturnType;
+  successRichContent: TemplateFnReturnType;
 }
 
 export function bannerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -61,13 +59,13 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
 }: BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>): BannerStories {
   return {
-    Danger: {
+    Success: {
       ...bannerMeta(),
       args: {
-        status: "danger",
+        status: "success",
       },
-      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerRichContent)),
+      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, successRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, successRichContent)),
       ),
     },
     Error: {
@@ -128,14 +126,6 @@ export function bannerStories<Implementation, Templates, TemplateFnReturnType>({
       },
       render: templateContainer.render(storyTemplates, (args, { bannerTemplate, richInfoRichContent }) =>
         bannerTemplate(bannerArgsMapper(args, richInfoRichContent)),
-      ),
-    },
-    DangerWithHeadings: {
-      args: {
-        status: "danger",
-      },
-      render: templateContainer.render(storyTemplates, (args, { bannerTemplate, dangerWithHeadingsRichContent }) =>
-        bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent)),
       ),
     },
   };
