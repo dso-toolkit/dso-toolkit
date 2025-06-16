@@ -28,8 +28,11 @@ describe("Legend Item", () => {
       .get("@dsoLegendItem")
       .shadow()
       .find(".dso-slider")
-      .should("be.disabled")
-      .get("@dsoLegendItem")
+      .should("be.disabled");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
+
+    cy.get("@dsoLegendItem")
       .invoke("prop", "disabled", false)
       .shadow()
       .find("#edit-button")
@@ -38,8 +41,6 @@ describe("Legend Item", () => {
       .shadow()
       .find(".dso-slider")
       .should("not.be.disabled");
-
-    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
   });
 
   it("should show the body containing an input-range when clicked on edit-button", () => {
@@ -52,16 +53,17 @@ describe("Legend Item", () => {
       .click()
       .get("dso-legend-item")
       .find("div[slot='body'] dso-input-range")
-      .should("be.visible")
-      .get("dso-legend-item")
+      .should("be.visible");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- show body`);
+
+    cy.get("dso-legend-item")
       .shadow()
       .find("#edit-button")
       .click()
       .get("dso-legend-item")
       .find("div[slot='body']")
       .should("be.hidden");
-
-    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- show body`);
   });
 
   it("should emit ActiveChange event", () => {
@@ -72,5 +74,15 @@ describe("Legend Item", () => {
       .click()
       .get("@activeChangeListener")
       .should("have.been.calledOnce");
+  });
+
+  it("should show an active Slide Toggle", () => {
+    cy.get("@dsoLegendItem")
+      .invoke("prop", "active", true)
+      .get("@dsoLegendItemShadow")
+      .find("dso-slide-toggle")
+      .should("have.attr", "aria-checked", "false");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- active Slide Toggle`);
   });
 });
