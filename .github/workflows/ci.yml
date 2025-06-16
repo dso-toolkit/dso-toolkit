@@ -53,11 +53,14 @@ jobs:
           build-args: |
             CI
             DT_REF
+      - name: Get merge-base with master
+        id: merge-base
+        run: echo "MERGE_BASE=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
       - name: "Cache: Cypress snapshots"
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
-          key: cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
+          key: cypress-snapshots-${{ env.MERGE_BASE }}-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
           restore-keys: |
             cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
