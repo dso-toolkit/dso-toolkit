@@ -15,18 +15,18 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
       disabledMessage,
       dsoMouseEnter,
       dsoMouseLeave,
-      dsoRemoveClick,
-      removable,
+      dsoActiveChange,
+      active,
       symbol,
     }) {
       return html`
         <dso-legend-item
-          ?removable=${removable}
           ?disabled=${disabled}
           .disabledMessage=${disabledMessage}
           @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
           @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
-          @dsoRemoveClick=${ifDefined(dsoRemoveClick)}
+          @dsoActiveChange=${ifDefined(dsoActiveChange)}
+          .active=${active}
         >
           ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
           ${body ? html`<div slot="body">${body}</div>` : nothing}

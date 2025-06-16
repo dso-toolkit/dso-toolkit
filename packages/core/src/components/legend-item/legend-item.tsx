@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
-import { LegendItemRemoveClickEvent } from "./legend-item.interfaces";
+import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
  * @slot - Either the label for this legend item or a `dso-selectable` holding the label.
@@ -30,16 +30,16 @@ export class LegendItem implements ComponentInterface {
   disabledMessage?: string;
 
   /**
-   * Shows a trash-can that, when clicked, emits `dsoRemoveClick`.
+   * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
    */
-  @Prop()
-  removable?: boolean;
+  @Prop({ reflect: true })
+  active?: boolean;
 
   /**
-   * Emitted when the user activates the remove button.
+   * Emitted when user checks or unchecks the Slide Toggle.
    */
   @Event()
-  dsoRemoveClick!: EventEmitter<LegendItemRemoveClickEvent>;
+  dsoActiveChange!: EventEmitter<LegendItemActiveChangeEvent>;
 
   /**
    * Emitted when the mouse enters the Legend Item
@@ -90,19 +90,28 @@ export class LegendItem implements ComponentInterface {
           {this.disabled && this.disabledMessage && (
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
-          {this.removable && (
-            <button id="remove-button" type="button" onClick={(e) => this.dsoRemoveClick.emit({ originalEvent: e })}>
-              <span class="sr-only">Legenda item verwijderen</span>
-              <dso-icon icon="trash"></dso-icon>
-            </button>
-          )}
 
-          {hasBody && !this.disabled && (
-            <button id="edit-button" type="button" onClick={() => (this.showBody = !this.showBody)}>
-              <span class="sr-only">Legenda item aanpassen</span>
-              <dso-icon icon={this.showBody ? "times" : "more"} />
-            </button>
-          )}
+          <div class="legend-item-right-content">
+            {hasBody && !this.disabled && (
+              <button
+                id="edit-button"
+                type="button"
+                onClick={() => (this.showBody = !this.showBody)}
+                class={{ active: this.showBody }}
+              >
+                <span class="sr-only">Legenda item aanpassen</span>
+                <dso-icon icon="more" />
+              </button>
+            )}
+            <dso-slide-toggle
+              accessibleLabel="Maak actief"
+              checked={this.active}
+              disabled={this.disabled}
+              onDsoActiveChange={(e) =>
+                this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
+              }
+            />
+          </div>
         </div>
         <div hidden={!hasBody || this.disabled || !this.showBody} class="body">
           <slot name="body" />
