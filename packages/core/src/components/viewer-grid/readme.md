@@ -10,8 +10,8 @@
 | `activeTab`         | `active-tab`          | Set active tab in tab view.                                       | `"document" \| "map" \| "search" \| undefined` | `undefined` |
 | `documentPanelOpen` | `document-panel-open` | Set to true when document panel should show.                      | `boolean`                                      | `false`     |
 | `documentPanelSize` | `document-panel-size` | Size of the panel when component loads.  Default size is `large`. | `"large" \| "medium" \| "small"`               | `"large"`   |
-| `filterpanelOpen`   | `filterpanel-open`    | Set to true when filterpanel should show.                         | `boolean`                                      | `false`     |
-| `filterpanelTitle`  | `filterpanel-title`   | The title of the Filterpanel                                      | `string \| undefined`                          | `undefined` |
+| `filterPanelOpen`   | `filter-panel-open`   | Set to true when filter panel should show.                        | `boolean`                                      | `false`     |
+| `filterPanelTitle`  | `filter-panel-title`  | The title of the filter panel                                     | `string \| undefined`                          | `undefined` |
 | `mainPanelExpanded` | `main-panel-expanded` | Set to show main panel expanded.                                  | `boolean`                                      | `false`     |
 | `mainPanelHidden`   | `main-panel-hidden`   | Set to hide the main panel.                                       | `boolean`                                      | `false`     |
 | `mainSize`          | `main-size`           | Size of the panel when component loads.  Default size is `large`. | `"large" \| "medium" \| "small"`               | `"large"`   |
@@ -22,8 +22,8 @@
 
 | Event                                    | Description                                                                                                                    | Type                                                 |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| `dsoActiveTabSwitch`                     | Emitted when user applies filterpanel options.                                                                                 | `CustomEvent<ViewerGridActiveTabSwitchEvent>`        |
-| `dsoCloseFilterpanel`                    | Emitted when user wants to close the filterpanel.                                                                              | `CustomEvent<ViewerGridCloseFilterpanelEvent>`       |
+| `dsoActiveTabSwitch`                     | Emitted when user applies filter panel options.                                                                                | `CustomEvent<ViewerGridActiveTabSwitchEvent>`        |
+| `dsoCloseFilterPanel`                    | Emitted when user wants to close the filter panel.                                                                             | `CustomEvent<ViewerGridCloseFilterPanelEvent>`       |
 | `dsoCloseOverlay`                        | Emitted when user wants to close the overlay.                                                                                  | `CustomEvent<ViewerGridCloseOverlayEvent>`           |
 | `dsoDocumentPanelSizeChange`             | Emitted on interaction with sizing buttons.                                                                                    | `CustomEvent<ViewerGridChangeSizeEvent>`             |
 | `dsoDocumentPanelSizeChangeAnimationEnd` | Emitted after main size animation.                                                                                             | `CustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
@@ -37,7 +37,7 @@
 | Slot               | Description                                                                                 |
 | ------------------ | ------------------------------------------------------------------------------------------- |
 | `"document-panel"` |                                                                                             |
-| `"filterpanel"`    |                                                                                             |
+| `"filter-panel"`   |                                                                                             |
 | `"main"`           |                                                                                             |
 | `"map"`            |                                                                                             |
 | `"overlay"`        |                                                                                             |

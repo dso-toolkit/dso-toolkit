@@ -59,7 +59,7 @@ const Documenten = examplePageStories((templates) => {
 
       <main class="demo-main">
         ${viewerGridTemplate({
-          filterpanelOpen: false,
+          filterPanelOpen: false,
           mainPanelExpanded: true,
           mainSize: "medium",
           documentPanelOpen: true,

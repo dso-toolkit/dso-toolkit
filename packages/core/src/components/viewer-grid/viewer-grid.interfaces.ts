@@ -11,7 +11,7 @@ export interface ViewerGridCloseOverlayEvent {
   originalEvent: MouseEvent | Event;
 }
 
-export interface ViewerGridCloseFilterpanelEvent {
+export interface ViewerGridCloseFilterPanelEvent {
   originalEvent: MouseEvent | Event;
 }
 

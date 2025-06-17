@@ -9,8 +9,8 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
   implementation: "core",
   template: () =>
     function viewerGridTemplate({
-      filterpanelOpen,
-      filterpanelTitle,
+      filterPanelOpen,
+      filterPanelTitle,
       overlayOpen,
       documentPanelOpen,
       mainSize,
@@ -19,14 +19,14 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       mainPanelHidden,
       activeTab,
       dsoMainSizeChangeAnimationEnd,
-      dsoCloseFilterpanel,
+      dsoCloseFilterPanel,
       dsoCloseOverlay,
       dsoActiveTabSwitch,
       dsoDocumentPanelSizeChange,
       dsoDocumentPanelSizeChangeAnimationEnd,
       dsoMainPanelExpand,
       dsoMainPanelToggle,
-      filterpanel,
+      filterPanel,
       topBar,
       main,
       map,
@@ -38,22 +38,22 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           main-size=${ifDefined(mainSize)}
           document-panel-size=${ifDefined(documentPanelSize)}
           active-tab=${ifDefined(activeTab)}
-          filterpanel-title=${ifDefined(filterpanelTitle)}
-          ?filterpanel-open=${filterpanelOpen}
+          filter-panel-title=${ifDefined(filterPanelTitle)}
+          ?filter-panel-open=${filterPanelOpen}
           ?overlay-open=${overlayOpen}
           ?document-panel-open=${documentPanelOpen}
           ?main-panel-expanded=${mainPanelExpanded}
           ?main-panel-hidden=${mainPanelHidden}
           @dsoMainSizeChangeAnimationEnd=${dsoMainSizeChangeAnimationEnd}
           @dsoCloseOverlay=${dsoCloseOverlay}
-          @dsoCloseFilterpanel=${dsoCloseFilterpanel}
+          @dsoCloseFilterPanel=${dsoCloseFilterPanel}
           @dsoActiveTabSwitch=${dsoActiveTabSwitch}
           @dsoDocumentPanelSizeChange=${dsoDocumentPanelSizeChange}
           @dsoDocumentPanelSizeChangeAnimationEnd=${dsoDocumentPanelSizeChangeAnimationEnd}
           @dsoMainPanelExpand=${dsoMainPanelExpand}
           @dsoMainPanelToggle=${dsoMainPanelToggle}
         >
-          ${filterpanel ? html`<div slot="filterpanel">${filterpanel}</div>` : nothing}
+          ${filterPanel ? html`<div slot="filter-panel">${filterPanel}</div>` : nothing}
           <div slot="top-bar">${topBar}</div>
           <div slot="main">${main}</div>
           <div slot="map">${map}</div>

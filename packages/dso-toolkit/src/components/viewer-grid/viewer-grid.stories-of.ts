@@ -12,7 +12,7 @@ type ViewerGridStory = StoryObj<ViewerGridArgs, Renderer>;
 
 interface ViewerGridStories {
   ViewerGrid: ViewerGridStory;
-  Filterpanel: ViewerGridStory;
+  FilterPanel: ViewerGridStory;
   DocumentPanel: ViewerGridStory;
 }
 
@@ -31,7 +31,7 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
     main: (mainExpanded: boolean) => TemplateFnReturnType;
     map: TemplateFnReturnType;
     documentPanel: TemplateFnReturnType;
-    filterpanel: TemplateFnReturnType;
+    filterPanel: TemplateFnReturnType;
     overlay: TemplateFnReturnType;
   };
 }
@@ -66,7 +66,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         Pick<
           ViewerGridArgs,
           | "mainSize"
-          | "filterpanelOpen"
+          | "filterPanelOpen"
           | "overlayOpen"
           | "documentPanelOpen"
           | "documentPanelSize"
@@ -76,7 +76,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         >
       >({
         mainSize: "large",
-        filterpanelOpen: false,
+        filterPanelOpen: false,
         overlayOpen: false,
         documentPanelOpen: false,
         documentPanelSize: "small",
@@ -88,13 +88,13 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
     },
-    Filterpanel: {
+    FilterPanel: {
       args: componentArgs<
         Pick<
           ViewerGridArgs,
           | "mainSize"
-          | "filterpanelTitle"
-          | "filterpanelOpen"
+          | "filterPanelTitle"
+          | "filterPanelOpen"
           | "overlayOpen"
           | "documentPanelOpen"
           | "documentPanelSize"
@@ -104,8 +104,8 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         >
       >({
         mainSize: "medium",
-        filterpanelTitle: "Titel van het filter paneel",
-        filterpanelOpen: true,
+        filterPanelTitle: "Titel van het filter paneel",
+        filterPanelOpen: true,
         overlayOpen: false,
         documentPanelOpen: false,
         documentPanelSize: "medium",
@@ -122,7 +122,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         Pick<
           ViewerGridArgs,
           | "mainSize"
-          | "filterpanelOpen"
+          | "filterPanelOpen"
           | "overlayOpen"
           | "documentPanelOpen"
           | "documentPanelSize"
@@ -132,7 +132,7 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
         >
       >({
         mainSize: "large",
-        filterpanelOpen: false,
+        filterPanelOpen: false,
         overlayOpen: false,
         documentPanelOpen: true,
         documentPanelSize: "medium",

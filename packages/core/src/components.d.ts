@@ -47,7 +47,7 @@ import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.i
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
+import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
@@ -91,7 +91,7 @@ export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.i
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterpanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
+export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export namespace Components {
     interface DsoAccordion {
@@ -1300,13 +1300,13 @@ export namespace Components {
          */
         "documentPanelSize": ViewerGridPanelSize;
         /**
-          * Set to true when filterpanel should show.
+          * Set to true when filter panel should show.
          */
-        "filterpanelOpen": boolean;
+        "filterPanelOpen": boolean;
         /**
-          * The title of the Filterpanel
+          * The title of the filter panel
          */
-        "filterpanelTitle"?: string;
+        "filterPanelTitle"?: string;
         /**
           * Set to show main panel expanded.
          */
@@ -2393,7 +2393,7 @@ declare global {
     };
     interface HTMLDsoViewerGridElementEventMap {
         "dsoCloseOverlay": ViewerGridCloseOverlayEvent;
-        "dsoCloseFilterpanel": ViewerGridCloseFilterpanelEvent;
+        "dsoCloseFilterPanel": ViewerGridCloseFilterPanelEvent;
         "dsoActiveTabSwitch": ViewerGridActiveTabSwitchEvent;
         "dsoMainSizeChangeAnimationEnd": ViewerGridChangeSizeAnimationEndEvent;
         "dsoDocumentPanelSizeChange": ViewerGridChangeSizeEvent;
@@ -3949,13 +3949,13 @@ declare namespace LocalJSX {
          */
         "documentPanelSize"?: ViewerGridPanelSize;
         /**
-          * Set to true when filterpanel should show.
+          * Set to true when filter panel should show.
          */
-        "filterpanelOpen"?: boolean;
+        "filterPanelOpen"?: boolean;
         /**
-          * The title of the Filterpanel
+          * The title of the filter panel
          */
-        "filterpanelTitle"?: string;
+        "filterPanelTitle"?: string;
         /**
           * Set to show main panel expanded.
          */
@@ -3969,13 +3969,13 @@ declare namespace LocalJSX {
          */
         "mainSize"?: ViewerGridPanelSize;
         /**
-          * Emitted when user applies filterpanel options.
+          * Emitted when user applies filter panel options.
          */
         "onDsoActiveTabSwitch"?: (event: DsoViewerGridCustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
         /**
-          * Emitted when user wants to close the filterpanel.
+          * Emitted when user wants to close the filter panel.
          */
-        "onDsoCloseFilterpanel"?: (event: DsoViewerGridCustomEvent<ViewerGridCloseFilterpanelEvent>) => void;
+        "onDsoCloseFilterPanel"?: (event: DsoViewerGridCustomEvent<ViewerGridCloseFilterPanelEvent>) => void;
         /**
           * Emitted when user wants to close the overlay.
          */

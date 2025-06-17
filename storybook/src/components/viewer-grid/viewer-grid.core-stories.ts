@@ -13,7 +13,7 @@ const meta: Meta<ViewerGridArgs> = {
 
 export default meta;
 
-const { ViewerGrid, Filterpanel, DocumentPanel } = viewerGridStories({
+const { ViewerGrid, FilterPanel, DocumentPanel } = viewerGridStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { linkTemplate, viewerGridTemplate, alertTemplate, bannerTemplate, richContentTemplate, buttonTemplate } =
@@ -50,9 +50,9 @@ const { ViewerGrid, Filterpanel, DocumentPanel } = viewerGridStories({
           status: "info",
           message: html`Dit is <code>slot="document-panel"</code>.`,
         }),
-        filterpanel: alertTemplate({
+        filterPanel: alertTemplate({
           status: "info",
-          message: html`Dit is <code>slot="filterpanel"</code>.`,
+          message: html`Dit is <code>slot="filter-panel"</code>.`,
         }),
         topBar: bannerTemplate({
           status: "warning",
@@ -90,4 +90,4 @@ const { ViewerGrid, Filterpanel, DocumentPanel } = viewerGridStories({
   },
 });
 
-export { DocumentPanel, Filterpanel, ViewerGrid };
+export { DocumentPanel, FilterPanel, ViewerGrid };

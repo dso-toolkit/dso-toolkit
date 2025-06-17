@@ -2,12 +2,12 @@ import { Component, Element, Event, EventEmitter, Fragment, Method, Prop, State,
 import clsx from "clsx";
 import debounce from "debounce";
 
-import { DocumentPanel, Filterpanel, MainPanel, Overlay } from "./components";
+import { DocumentPanel, FilterPanel, MainPanel, Overlay } from "./components";
 import {
   ViewerGridActiveTabSwitchEvent,
   ViewerGridChangeSizeAnimationEndEvent,
   ViewerGridChangeSizeEvent,
-  ViewerGridCloseFilterpanelEvent,
+  ViewerGridCloseFilterPanelEvent,
   ViewerGridCloseOverlayEvent,
   ViewerGridMainExpandEvent,
   ViewerGridMainToggleEvent,
@@ -40,7 +40,7 @@ const minMapElementWidth = 440;
  * @slot top-bar - Een slot die bovenaan de viewer over de hele breedte kan worden gevuld met bijv een banner.
  * @slot main
  * @slot map
- * @slot filterpanel
+ * @slot filter-panel
  * @slot overlay
  * @slot document-panel
  */
@@ -55,16 +55,16 @@ export class ViewerGrid {
   private mapElement?: HTMLDivElement;
 
   /**
-   * The title of the Filterpanel
+   * The title of the filter panel
    */
   @Prop({ reflect: true })
-  filterpanelTitle?: string;
+  filterPanelTitle?: string;
 
   /**
-   * Set to true when filterpanel should show.
+   * Set to true when filter panel should show.
    */
   @Prop({ reflect: true })
-  filterpanelOpen = false;
+  filterPanelOpen = false;
 
   /**
    * Set to true when overlay should show.
@@ -119,13 +119,13 @@ export class ViewerGrid {
   dsoCloseOverlay!: EventEmitter<ViewerGridCloseOverlayEvent>;
 
   /**
-   * Emitted when user wants to close the filterpanel.
+   * Emitted when user wants to close the filter panel.
    */
   @Event()
-  dsoCloseFilterpanel!: EventEmitter<ViewerGridCloseFilterpanelEvent>;
+  dsoCloseFilterPanel!: EventEmitter<ViewerGridCloseFilterPanelEvent>;
 
   /**
-   * Emitted when user applies filterpanel options.
+   * Emitted when user applies filter panel options.
    */
   @Event()
   dsoActiveTabSwitch!: EventEmitter<ViewerGridActiveTabSwitchEvent>;
@@ -168,10 +168,10 @@ export class ViewerGrid {
   @State()
   tabView = window.innerWidth < tabViewBreakpoint;
 
-  private filterpanel: HTMLDialogElement | undefined;
+  private filterPanel: HTMLDialogElement | undefined;
 
-  private get filterpanelSlot() {
-    return this.host.querySelector("[slot='filterpanel']");
+  private get filterPanelSlot() {
+    return this.host.querySelector("[slot='filter-panel']");
   }
 
   private get overlaySlot() {
@@ -187,16 +187,16 @@ export class ViewerGrid {
     }
   }
 
-  @Watch("filterpanelOpen")
-  filterpanelOpenWatcher(open: boolean) {
-    if (!this.filterpanelSlot) {
-      console.warn("slot 'filterpanel' has not been set");
+  @Watch("filterPanelOpen")
+  filterPanelOpenWatcher(open: boolean) {
+    if (!this.filterPanelSlot) {
+      console.warn("slot 'filter-panel' has not been set");
     }
 
     if (open) {
-      this.filterpanel?.show();
+      this.filterPanel?.show();
     } else {
-      this.filterpanel?.close();
+      this.filterPanel?.close();
     }
   }
 
@@ -271,8 +271,8 @@ export class ViewerGrid {
   }
 
   componentDidLoad() {
-    if (this.filterpanelOpen && this.filterpanelSlot) {
-      this.filterpanel?.show();
+    if (this.filterPanelOpen && this.filterPanelSlot) {
+      this.filterPanel?.show();
     }
 
     if (this.overlayOpen && this.overlaySlot) {
@@ -322,11 +322,11 @@ export class ViewerGrid {
             ></MainPanel>
           )}
           {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
-            <Filterpanel
-              title={this.filterpanelTitle}
-              ref={(element) => (this.filterpanel = element)}
-              dsoCloseFilterpanel={(e) => this.dsoCloseFilterpanel.emit({ originalEvent: e })}
-            ></Filterpanel>
+            <FilterPanel
+              title={this.filterPanelTitle}
+              ref={(element) => (this.filterPanel = element)}
+              dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
+            ></FilterPanel>
           )}
           {(!this.tabView || (this.tabView && this.activeTab === "map")) && (
             <div class="map" ref={(element) => (this.mapElement = element)}>

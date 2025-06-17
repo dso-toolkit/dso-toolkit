@@ -1,6 +1,6 @@
 export interface ViewerGrid<TemplateFnReturnType> {
-  filterpanelOpen?: boolean;
-  filterpanelTitle?: string;
+  filterPanelOpen?: boolean;
+  filterPanelTitle?: string;
   overlayOpen?: boolean;
   documentPanelOpen?: boolean;
   mainSize?: ViewerGridPanelSize;
@@ -10,14 +10,14 @@ export interface ViewerGrid<TemplateFnReturnType> {
   mainPanelHidden?: boolean;
   dsoMainSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent | Event) => void;
-  dsoCloseFilterpanel?: (e: MouseEvent | Event) => void;
+  dsoCloseFilterPanel?: (e: MouseEvent | Event) => void;
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
   dsoMainPanelExpand?: (e: CustomEvent<ViewerGridMainExpandEvent>) => void;
   dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
   topBar?: TemplateFnReturnType;
-  filterpanel?: TemplateFnReturnType;
+  filterPanel?: TemplateFnReturnType;
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
   documentPanel?: TemplateFnReturnType;

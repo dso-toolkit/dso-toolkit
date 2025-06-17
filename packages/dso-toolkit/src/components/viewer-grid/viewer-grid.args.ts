@@ -10,8 +10,8 @@ const panelSizes = ["small", "medium", "large"];
 
 export interface ViewerGridArgs {
   overlayOpen: boolean;
-  filterpanelOpen: boolean;
-  filterpanelTitle?: string;
+  filterPanelOpen: boolean;
+  filterPanelTitle?: string;
   documentPanelOpen?: boolean;
   mainSize: ViewerGridPanelSize;
   activeTab?: Tab;
@@ -20,7 +20,7 @@ export interface ViewerGridArgs {
   mainPanelHidden?: boolean;
   dsoMainSizeChangeAnimationEnd: HandlerFunction;
   dsoCloseOverlay: HandlerFunction;
-  dsoCloseFilterpanel: HandlerFunction;
+  dsoCloseFilterPanel: HandlerFunction;
   dsoDocumentPanelSizeChange: HandlerFunction;
   dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
   dsoMainPanelExpand: HandlerFunction;
@@ -28,12 +28,12 @@ export interface ViewerGridArgs {
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
-  filterpanelTitle: {
+  filterPanelTitle: {
     control: {
       type: "text",
     },
   },
-  filterpanelOpen: {
+  filterPanelOpen: {
     type: "boolean",
   },
   overlayOpen: {
@@ -76,9 +76,9 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     ...noControl,
     action: "dsoCloseOverlay",
   },
-  dsoCloseFilterpanel: {
+  dsoCloseFilterPanel: {
     ...noControl,
-    action: "dsoCloseFilterpanel",
+    action: "dsoCloseFilterPanel",
   },
   dsoDocumentPanelSizeChange: {
     ...noControl,

@@ -181,7 +181,7 @@ button {
   position: relative;
 }
 
-.filterpanel,
+.filter-panel,
 .overlay {
   background-color: colors.$wit;
   border: 0;
@@ -192,18 +192,18 @@ button {
   z-index: zindex.$viewer-grid-main-panel + 1;
 }
 
-.filterpanel {
+.filter-panel {
   display: block;
   position: absolute;
   padding-block: units.$u1;
   padding-inline: css-grid.$grid-gutter-width * 0.5;
   inset-block-start: 0;
   block-size: 100%;
-  inset-inline-start: calc(core-viewer-grid-variables.$filterpanel-max-inline-size * -1);
+  inset-inline-start: calc(core-viewer-grid-variables.$filter-panel-max-inline-size * -1);
   inline-size: 100%;
   transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
 
-  @media screen and (max-width: core-viewer-grid-variables.$filterpanel-inline-size) {
+  @media screen and (max-width: core-viewer-grid-variables.$filter-panel-inline-size) {
     inline-size: 100vw;
 
     &::before {
@@ -212,13 +212,13 @@ button {
   }
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-    max-inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
+    max-inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
   }
 
   &[open] {
     inset-inline-start: 0;
     box-shadow: none;
-    border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-border-color;
+    border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
   }
 
   h3 {
@@ -333,12 +333,12 @@ button {
     }
   }
 
-  .filterpanel {
+  .filter-panel {
     margin-inline: 0 auto;
     inline-size: calc(100vw - 40px);
 
     &[open] {
-      border-inline-end: 1px solid core-viewer-grid-variables.$filterpanel-border-color;
+      border-inline-end: 1px solid core-viewer-grid-variables.$filter-panel-border-color;
     }
   }
 
@@ -348,16 +348,16 @@ button {
   }
 
   @media screen and (max-width: #{media-query-breakpoints.$screen-sm-max + units.$u5 + 0.99}) {
-    :host([filterpanel-open]) {
+    :host([filter-panel-open]) {
       .dso-main-panel {
-        margin-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
-        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filterpanel-max-inline-size});
+        margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
+        max-inline-size: calc(100vw - #{core-viewer-grid-variables.$filter-panel-max-inline-size});
       }
     }
 
-    .filterpanel {
-      inline-size: core-viewer-grid-variables.$filterpanel-max-inline-size;
-      inset-inline-start: -(core-viewer-grid-variables.$filterpanel-max-inline-size);
+    .filter-panel {
+      inline-size: core-viewer-grid-variables.$filter-panel-max-inline-size;
+      inset-inline-start: -(core-viewer-grid-variables.$filter-panel-max-inline-size);
     }
   }
 }
@@ -387,7 +387,7 @@ button {
     }
   }
 
-  .filterpanel,
+  .filter-panel,
   .overlay {
     margin-inline: 0;
     max-inline-size: 100vw;
@@ -395,15 +395,15 @@ button {
     inline-size: 100vw;
   }
 
-  .filterpanel {
+  .filter-panel {
     inset-inline-start: -100vw;
   }
 }
 
 @media screen and (min-width: #{media-query-breakpoints.$screen-md-min}) {
-  :host([filterpanel-open]) {
+  :host([filter-panel-open]) {
     .dso-main-panel {
-      margin-inline-start: core-viewer-grid-variables.$filterpanel-max-inline-size;
+      margin-inline-start: core-viewer-grid-variables.$filter-panel-max-inline-size;
     }
   }
 }
