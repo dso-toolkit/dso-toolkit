@@ -8,7 +8,7 @@
   {
     "name": "badge",
     "selector": "dso-badge.hydrated",
-    "stories": ["plain", "primary", "success", "info", "warning", "danger", "outline"],
+    "stories": ["attention", "error", "info", "outline" ,"plain", "primary", "success", "warning"],
     "type": "core"
   },
   {
@@ -94,7 +94,7 @@
   {
     "name": "badge",
     "selector": ".dso-badge",
-    "stories": ["attention", "danger", "error", "info", "outline", "plain", "primary", "success", "warning"],
+    "stories": ["attention", "error", "info", "outline" ,"plain", "primary", "success", "warning"],
     "type": "html-css"
   },
   {
