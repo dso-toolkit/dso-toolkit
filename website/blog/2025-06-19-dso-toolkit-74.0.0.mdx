@@ -1,15 +1,16 @@
 ---
-authors: [cvanderleij]
+authors: [cvanderleij, iterox]
 ---
 
-# DSO Toolkit v74.0.0 🗺️
+# DSO Toolkit v74.0.0 💈
 
 Deze release bevat breaking changes voor de volgende componenten:
 
 - Banner
 - Modal
-- Label
 - Badge
+- Label
+- Viewer Grid
 
 <!-- truncate -->
 
@@ -84,6 +85,33 @@ De DSO Toolkit maakt gebruik van StencilJS voor het maken van Web Components. Zi
 <dso-modal></dso-modal>
 ```
 
+## Badge
+
+In deze release is in het component `badge` de status `danger` verwijderd inclusief de styling die daarbij hoort.
+Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de
+`danger` status. Daarnaast is de kleur aangepast van de `info` status. Deze heeft nu een donkerblauwe achtergrond en
+witte tekst.
+
+**Web component**
+
+```html
+❌ < 74.0.0
+<dso-badge status="danger"></dso-badge>
+
+✅ >= 74.0.0
+<dso-badge status="error"></dso-badge>
+```
+
+**HTML/CSS component**
+
+```html
+❌ < 74.0.0
+<span class="dso-badge badge-danger">Badge text</span>
+
+✅ >= 74.0.0
+<span class="dso-badge badge-error">Badge text</span>
+```
+
 ## Label
 
 In deze release is in het component `Label` de status `danger` verwijderd inclusief de styling die daarbij hoort. Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de `danger` status. Daarnaast is er een `filter` status toegevoegd. Deze heeft nu een donkerblauwe linker border, lichtblauw achtergrond en witte tekst.
@@ -110,31 +138,4 @@ In deze release is in het component `Label` de status `danger` verwijderd inclus
 <span class="dso-label dso-label-error">Label</span>
 
 <span class="dso-label dso-label-filter">Label</span>
-```
-
-## Badge
-
-In deze release is in het component `badge` de status `danger` verwijderd inclusief de styling die daarbij hoort.
-Als alternatief kan de status `error` worden gebruikt. Deze heeft dezelfde achtergrond en tekst kleur als de
-`danger` status. Daarnaast is de kleur aangepast van de `info` status. Deze heeft nu een donkerblauwe achtergrond en
-witte tekst.
-
-**Web component**
-
-```html
-❌ < 74.0.0
-<dso-badge status="danger"></dso-badge>
-
-✅ >= 74.0.0
-<dso-badge status="error"></dso-badge>
-```
-
-**HTML/CSS component**
-
-```html
-❌ < 74.0.0
-<span class="dso-badge badge-danger">Badge text</span>
-
-✅ >= 74.0.0
-<span class="dso-badge badge-error">Badge text</span>
 ```

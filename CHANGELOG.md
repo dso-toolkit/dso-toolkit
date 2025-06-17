@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Banner: Verwijderen Danger variant en toevoegen Succes variant ([#3187](https://github.com/dso-toolkit/dso-toolkit/issues/3187))
 * **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
-* **BREAKING** Label: Verwijderen Danger variant en toevoegen Filter variant ([#3171](https://github.com/dso-toolkit/dso-toolkit/issues/3171))
 * **BREAKING** Badge: Verwijderen danger variant en kleuraanpassing info variant ([#3170](https://github.com/dso-toolkit/dso-toolkit/issues/3170))
+* **BREAKING** Label: Verwijderen Danger variant en toevoegen Filter variant ([#3171](https://github.com/dso-toolkit/dso-toolkit/issues/3171))
 
 ### Removed
 * **BREAKING** Viewer Grid: mode `vrk` verwijderen ([#3139](https://github.com/dso-toolkit/dso-toolkit/issues/3139))
