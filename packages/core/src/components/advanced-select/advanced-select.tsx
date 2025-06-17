@@ -272,9 +272,11 @@ const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, 
       !!optionOrGroup.activeLabel,
   );
 
-  return group && group.label ? (
-    <dso-label compact status={group.variant}>
-      {group.activeLabel}
-    </dso-label>
-  ) : undefined;
+  return (
+    group && (
+      <dso-label compact status={group.variant}>
+        {group.activeLabel}
+      </dso-label>
+    )
+  );
 };
