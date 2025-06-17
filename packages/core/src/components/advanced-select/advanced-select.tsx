@@ -12,7 +12,6 @@ import {
   h,
 } from "@stencil/core";
 import clsx from "clsx";
-import { LabelStatus } from "dso-toolkit";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 
@@ -25,7 +24,6 @@ import {
   AdvancedSelectOption,
   AdvancedSelectOptionOrGroup,
   AdvancedSelectRedirectEvent,
-  AdvancedSelectVariant,
 } from "./advanced-select.interfaces";
 
 @Component({
@@ -275,15 +273,8 @@ const ActiveGroupLabel: FunctionalComponent<ActiveGroupLabelProps> = ({ active, 
   );
 
   return group && group.label ? (
-    <dso-label compact status={mapLabelVariantToStatus(group.variant)}>
+    <dso-label compact status={group.variant}>
       {group.activeLabel}
     </dso-label>
   ) : undefined;
 };
-
-function mapLabelVariantToStatus(variant?: AdvancedSelectVariant): LabelStatus | undefined {
-  if (variant === "danger") {
-    return "error";
-  }
-  return variant;
-}
