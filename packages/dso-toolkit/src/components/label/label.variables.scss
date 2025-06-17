@@ -17,9 +17,6 @@ $success-color: colors.$wit;
 $warning-bg-color: colors.$warning-color;
 $warning-color: colors.$zwart;
 
-$danger-bg-color: colors.$danger-color;
-$danger-color: colors.$wit;
-
 $error-bg-color: colors.$error-color;
 $error-color: colors.$wit;
 
@@ -29,6 +26,9 @@ $bright-border-color: colors.$grijs-20;
 
 $attention-bg-color: colors.$mauve;
 $attention-color: colors.$wit;
+
+$filter-bg-color: colors.$lichtblauw-20;
+$filter-border-color: colors.$donkerblauw;
 
 $symbol-block-size: 20px;
 $symbol-aspect-ratio: math.div(30, 25);

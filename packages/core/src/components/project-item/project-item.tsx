@@ -19,7 +19,7 @@ export class ProjectItem implements ComponentInterface {
           <div class="project-item-title">
             <slot name="title" />
             {this.label && (
-              <dso-label status="danger" compact>
+              <dso-label status="error" compact>
                 {this.label}
               </dso-label>
             )}

@@ -1,7 +1,7 @@
-export type LabelStatus = "primary" | "success" | "info" | "warning" | "danger" | "error" | "bright" | "attention";
+export type LabelStatus = "primary" | "success" | "info" | "warning" | "error" | "bright" | "attention" | "filter";
 
 export interface Label {
-  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+  status?: LabelStatus;
   compact?: boolean;
   truncate?: boolean;
   label: string;
