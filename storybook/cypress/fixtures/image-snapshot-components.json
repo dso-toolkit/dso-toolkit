@@ -390,6 +390,12 @@
     "type": "html-css"
   },
   {
+    "name": "viewer-grid",
+    "selector": "dso-viewer-grid",
+    "stories": ["document-panel", "filter-panel", "viewer-grid"],
+    "type": "core"
+  },
+  {
     "name": "whitebox",
     "selector": ".dso-whitebox",
     "stories": ["default", "with-counter", "with-icon"],
