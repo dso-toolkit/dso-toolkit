@@ -5,13 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
-### Fixed
-* Alert: Icon bij de link heeft de verkeerde kleur in core variant ([#3168](https://github.com/dso-toolkit/dso-toolkit/issues/3168))
-
 ### Changed
 * **BREAKING** Banner: Verwijderen Danger variant en toevoegen Succes variant ([#3187](https://github.com/dso-toolkit/dso-toolkit/issues/3187))
 * **BREAKING** Modal: Closable ([#2743](https://github.com/dso-toolkit/dso-toolkit/issues/2743))
 * **BREAKING** Legend Item: Aanpassingen ([#3185](https://github.com/dso-toolkit/dso-toolkit/issues/3185))
+* **BREAKING** Badge: Verwijderen danger variant en kleuraanpassing info variant ([#3170](https://github.com/dso-toolkit/dso-toolkit/issues/3170))
+
+### Fixed
+* Alert: Icon bij de link heeft de verkeerde kleur in core variant ([#3168](https://github.com/dso-toolkit/dso-toolkit/issues/3168))
+
 
 ### Task
 * Website: Aanpassing structuur van de opdeling van alle componenten ([#3072](https://github.com/dso-toolkit/dso-toolkit/issues/3072))

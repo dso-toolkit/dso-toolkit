@@ -35,10 +35,6 @@
     @include set-colors.apply(badge-variables.$warning-bg-color, $icons: false, $links: false);
   }
 
-  &.badge-danger {
-    @include set-colors.apply(badge-variables.$danger-bg-color, $icons: false, $links: false);
-  }
-
   &.badge-error {
     @include set-colors.apply(badge-variables.$error-bg-color, $icons: false, $links: false);
   }

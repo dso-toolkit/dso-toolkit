@@ -95,7 +95,7 @@ const ZoekenInLijstCards = examplePageStories((templates) => {
                         type: "checkbox",
                         id: "aanhanger-2",
                         name: "aanhanger",
-                        label: html`${badgeTemplate({ message: "Niet geldige oude wetgeving", status: "danger" })}`,
+                        label: html`${badgeTemplate({ message: "Niet geldige oude wetgeving", status: "error" })}`,
                         value: "fietsendrager",
                       },
                     ],
