@@ -154,10 +154,6 @@
   @include set-colors.apply(advanced-select.$warning-variant-color, $icons: false, $links: false);
 }
 
-.group-danger .option-label::before {
-  @include set-colors.apply(advanced-select.$danger-variant-color, $icons: false, $links: false);
-}
-
 .group-error .option-label::before {
   @include set-colors.apply(advanced-select.$error-variant-color, $icons: false, $links: false);
 }
