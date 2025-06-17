@@ -2,12 +2,13 @@
 authors: [cvanderleij]
 ---
 
-# DSO Toolkit v74.0.0 🐻
+# DSO Toolkit v74.0.0 🗺️
 
 Deze release bevat breaking changes voor de volgende componenten:
 
 - Banner
 - Modal
+- Badge
 
 <!-- truncate -->
 
@@ -16,6 +17,7 @@ Deze release bevat breaking changes voor de volgende componenten:
 In deze release is in het component `banner` de prop `status` aangepast. De status `danger` is komen te vervallen. De status `success` is toegevoegd.
 
 **Web component**
+
 ```html
 ❌ < 74.0.0
 <dso-banner status="danger"></dso-banner>
@@ -27,6 +29,7 @@ In deze release is in het component `banner` de prop `status` aangepast. De stat
 ```
 
 **HTML/CSS component**
+
 ```html
 ❌ < 74.0.0
 <section role="alert" class="dso-banner alert-danger dso-icon">
@@ -45,7 +48,7 @@ In deze release is in het component `banner` de prop `status` aangepast. De stat
     </div>
   </div>
 </div>
-  
+
 <section role="alert" class="dso-banner alert-success dso-icon">
   <div class="dso-banner-inner">
     <div class="dso-rich-content">

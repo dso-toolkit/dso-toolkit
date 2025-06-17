@@ -18,7 +18,7 @@ const meta: Meta<BadgeArgs> = {
 
 export default meta;
 
-const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plain } = badgeStories({
+const { Primary, Success, Info, Warning, Error, Outline, Attention, Plain } = badgeStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { badgeTemplate } = templates;
@@ -29,4 +29,4 @@ const { Primary, Success, Info, Warning, Error, Danger, Outline, Attention, Plai
   },
 });
 
-export { Attention, Danger, Error, Info, Outline, Plain, Primary, Success, Warning };
+export { Attention, Error, Info, Outline, Plain, Primary, Success, Warning };

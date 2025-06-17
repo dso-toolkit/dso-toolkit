@@ -15,7 +15,6 @@ interface BadgeStories {
   Success: BadgeStory;
   Info: BadgeStory;
   Warning: BadgeStory;
-  Danger: BadgeStory;
   Error: BadgeStory;
   Outline: BadgeStory;
   Attention: BadgeStory;
@@ -88,15 +87,6 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         status: "warning",
         message: "Warning",
-      },
-      render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
-        badgeTemplate(badgeArgsMapper(args)),
-      ),
-    },
-    Danger: {
-      args: {
-        status: "danger",
-        message: "Danger",
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
         badgeTemplate(badgeArgsMapper(args)),
