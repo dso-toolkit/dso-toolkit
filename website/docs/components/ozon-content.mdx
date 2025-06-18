@@ -1,7 +1,35 @@
+import debug from "@site/static/docs/ozon-content/debug-ozon-content.png";
 import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Ozon Content
 
+Dit component presenteert STOP/TPOD XML van de DSO-LV Ozon Content API's.
+
 <StorybookComponent implementations={["core", "angular", "react"]} variant="opschrift" />
 
-🚧 Documentatie volgt 🚧
+## Vervormde afbeeldingen in Ozon Content
+
+Ozon levert content zoals deze wordt aangeleverd door de LVBB. De aanleveringen zijn conform STOP/TPOD. In het verleden hebben plansoftwareleveranciers de STOP/TPOD-specificaties met betrekking tot afbeeldingen soms onjuist geïnterpreteerd.
+
+Volgens STOP/TPOD moeten de attributen `hoogte` en `breedte` op het `<Illustratie>`-element de **werkelijke** afmetingen van de afbeelding aangeven. In de praktijk zijn deze attributen echter soms gebruikt om de afbeelding te schalen naar een gewenste weergave. De correcte manier om een afbeelding te schalen is via het `dpi`-attribuut op het `<Illustratie>`-element.
+
+Het Ozon Content-component presenteert afbeeldingen conform de STOP/TPOD-specificaties. Wel is er een kleine correctie ingebouwd met betrekking tot de maximale hoogte van afbeeldingen. Sommige documenten bevatten afbeeldingen die volgens de XML extreem hoog zijn (soms wel 500.000 pixels), terwijl de daadwerkelijke afbeelding aanzienlijk kleiner is. Om deze foutieve content op te vangen, wordt een afbeelding in Ozon nooit hoger weergegeven dan 200% van de viewporthoogte.
+
+Het component maakt gebruik van de attributen `hoogte`, `breedte` en `dpi` om vooraf ruimte te reserveren op de pagina. De afbeelding wordt daarna ingeladen zonder dat de hoogte van de content verandert. Dit is nodig om correct te kunnen scrollen naar specifieke punten in het omgevingsdocument. Zonder deze reservering zou de afbeelding content kunnen overschrijven, waardoor gescripte scrollacties op een verkeerde plek terechtkomen.
+
+Melders verwijzen soms naar de presentatie van het omgevingsdocument op [officiëlebekendmakingen.nl](https://officielebekendmakingen.nl), waar afbeeldingen niet vervormd worden weergegeven. Dat komt omdat deze site geen gebruik maakt van de `hoogte`- en `breedte`-attributen uit de XML, maar de werkelijke afmetingen van de afbeelding gebruikt.
+
+### Debuggen
+
+De XML die door Ozon Content wordt gepresenteerd is beschikbaar via de property `content`. Deze kan worden geïnspecteerd in de developer tools van de browser:
+
+<img src={debug} alt="Debug Ozon Content" />
+
+Volg deze stappen om de content te inspecteren:
+
+1. Selecteer het `<dso-ozon-content>`-element in het DOM.
+2. Open de console en voer het commando `$0.content` uit.
+3. Inspecteer de gepresenteerde XML.
+4. Controleer bij het `<Illustratie>`-element de attributen `hoogte` en `breedte`.
+
+Als deze niet overeenkomen met de werkelijke afmetingen van de afbeelding, is er mogelijk sprake van een fout in de aanlevering aan de LVBB. In dat geval kan DSO-LV de fout niet corrigeren. Het is dan aan de plansoftwareleverancier en/of het bevoegd gezag om de afbeelding aan te passen naar de juiste afmetingen.
