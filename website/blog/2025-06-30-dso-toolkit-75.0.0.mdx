@@ -15,6 +15,7 @@ Deze release bevat breaking changes voor het volgende component:
 Er zijn verschillende properties toegevoegd en aangepast voor dit component. De belangrijkste is de property `mode`. Hiermee kun je kiezen tussen verschillende verschijningsvormen. De default is `toggle`, dat gebruikt maakt van Info Button, wat het zelfde doet als voorheen. `secondary`, `badge` en `icon` hebben we daaraan toegevoegd. De property `secondary` is vervangen door `mode`=`secondary`. Verder is het niet meer mogelijk om de optie `auto`, `auto-left` en `auto-right` te gebruiken voor `position`.
 
 **Secondary**
+
 ```html
 ❌ < 75.0.0
 <dso-toggletip secondary="true"></dso-toggletip>
@@ -26,6 +27,7 @@ Er zijn verschillende properties toegevoegd en aangepast voor dit component. De 
 **Badge**
 
 `mode`=`badge` is een nieuwe optie om een Badge te gebruiken als trigger van de Toggletip. Wanneer je voor deze `mode` kiest kun je de property `badge-status` gebruiken om de juiste variant te kiezen.
+
 ```html
 <dso-toggletip mode="badge" badge-status="primary"></dso-toggletip>
 ```
@@ -33,6 +35,7 @@ Er zijn verschillende properties toegevoegd en aangepast voor dit component. De 
 **Icon**
 
 `mode`=`badge` is een nieuwe optie om een Icon te gebruiken als trigger van de Toggletip. Wanneer je voor deze `mode` kiest kun je de properties `icon` en `icon-active` gebruiken om de juiste icons te kiezen. `icon` is zichtbaar wanneer de tooltip niet zichtbaar is, en `icon-active` wanneer de tooltip wel zichtbaar is.
+
 ```html
 <dso-toggletip mode="icon" icon="help" icon-active="help-active"></dso-toggletip>
 ```
