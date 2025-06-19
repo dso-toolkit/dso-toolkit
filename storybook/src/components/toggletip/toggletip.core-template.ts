@@ -13,6 +13,7 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
       mode,
       label,
       position,
+      strategy,
       small,
       badgeStatus,
       icon,
@@ -36,6 +37,7 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
         mode=${ifDefined(mode)}
         label=${ifDefined(label)}
         position=${ifDefined(position)}
+        strategy=${ifDefined(strategy)}
         small=${small}
         badge-status=${badgeStatus}
         icon=${icon}
