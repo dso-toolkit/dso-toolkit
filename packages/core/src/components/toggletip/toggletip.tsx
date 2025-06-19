@@ -30,6 +30,12 @@ export class Toggletip {
   position: Placement = "right";
 
   /**
+   * Positioning strategy
+   */
+  @Prop()
+  strategy: "absolute" | "fixed" = "absolute";
+
+  /**
    * Set to true for small Toggletip.
    */
   @Prop()
@@ -66,7 +72,13 @@ export class Toggletip {
 
   componentDidRender() {
     if (!this.cleanUp && this.containerElement && this.tipElement && this.tipArrowElement) {
-      this.cleanUp = this.positionTip(this.containerElement, this.tipElement, this.tipArrowElement, this.position);
+      this.cleanUp = this.positionTip(
+        this.containerElement,
+        this.tipElement,
+        this.tipArrowElement,
+        this.position,
+        this.strategy,
+      );
     }
   }
 
@@ -111,6 +123,7 @@ export class Toggletip {
     tipRef: HTMLElement,
     tipArrowRef: HTMLElement,
     placement: Placement,
+    strategy: "absolute" | "fixed",
   ) {
     return autoUpdate(referenceElement, tipRef, () => {
       const arrowLength = tipArrowRef.offsetWidth;
@@ -122,7 +135,7 @@ export class Toggletip {
       const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
 
       computePosition(referenceElement, tipRef, {
-        strategy: "fixed",
+        strategy,
         middleware: [
           offset({
             mainAxis: mainAxisOffset,
@@ -139,7 +152,7 @@ export class Toggletip {
           }),
         ],
         placement,
-      }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
+      }).then(({ x, y, middlewareData, placement: computedPlacement, strategy: position }) => {
         if (middlewareData.hide) {
           if (this.active) {
             tipRef.classList.toggle("visible", !middlewareData.hide.referenceHidden);
@@ -150,6 +163,7 @@ export class Toggletip {
         Object.assign(tipRef.style, {
           left: `${x}px`,
           top: `${y}px`,
+          position,
         });
 
         const side = computedPlacement.split("-")[0];
