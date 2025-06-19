@@ -21,7 +21,10 @@ export function passiveBody({ listTemplate, toggletipTemplate }: Templates) {
   return html`
     <p>
       Gebruik de volgende bestandsformaten voor een document
-      ${toggletipTemplate({ children: html`Een Toggletip waarin extra informatie wordt weergegeven.` })}:
+      ${toggletipTemplate({
+        children: html`Een Toggletip waarin extra informatie wordt weergegeven.`,
+        strategy: "fixed",
+      })}:
     </p>
     ${listTemplate({
       items: [
@@ -61,7 +64,10 @@ export function confirmBody({ linkTemplate, toggletipTemplate }: Templates) {
       Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog
       niet beschikbaar zijn. En dat u geen rechten kunt ontlenen aan de teksten in de vergunningcheck en regels op de
       kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.
-      ${toggletipTemplate({ children: html`Een Toggletip waarin extra informatie wordt weergegeven.` })}
+      ${toggletipTemplate({
+        children: html`Een Toggletip waarin extra informatie wordt weergegeven.`,
+        strategy: "fixed",
+      })}
     </p>
     <p>
       De website ${linkTemplate({ label: "Aan de slag met de omgevingswet", url: "#" })} biedt extra uitleg over het

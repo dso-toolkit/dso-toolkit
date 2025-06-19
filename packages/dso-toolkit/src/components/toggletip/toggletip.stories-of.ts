@@ -49,6 +49,7 @@ export function toggletipStories<Implementation, Templates, TemplateFnReturnType
       args: {
         mode: "toggle",
         position: "right",
+        strategy: "absolute",
         small: false,
         label: "Toelichting",
         badgeStatus: "primary",

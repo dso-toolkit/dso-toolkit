@@ -16,6 +16,7 @@ export interface Toggletip<TemplateFnReturnType> {
     | "left"
     | "left-start"
     | "left-end";
+  strategy?: "absolute" | "fixed";
   small?: boolean;
   label?: string;
   badgeStatus?: BadgeStatus;
