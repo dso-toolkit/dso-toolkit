@@ -4,12 +4,12 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 <StorybookComponent implementations={["core", "angular", "react"]} variant="toggletip" />
 
-Toggletips geven aanvullende informatie in de gebruikersinterface. Ze lijken erg op tooltips, behalve dat de tip niet wordt weergegeven bij hover of focus. Een toggletip is gekoppeld aan een trigger (info button) en maakt gebruik van het Rich Content component om tekst te structureren en interactieve elementen te plaatsen.
+Toggletips geven aanvullende informatie in de gebruikersinterface. Ze lijken erg op tooltips, behalve dat de tip niet wordt weergegeven bij hover of focus. Een toggletip is gekoppeld aan een trigger (info button, badge of icon) en maakt gebruik van het Rich Content component om tekst te structureren en interactieve elementen te plaatsen.
 
 ## Technische opmerkingen component
 
-- Het is op dit moment alleen mogelijk een toggletip te gebruiken icm een info button.
-- De positionering van de toggletip is, net als bij tooltips, instelbaar.
+- De positionering en type trigger van de toggletip is instelbaar.
+- De overlay (tooltip) wordt geplaatst in de Top layer van het document.
 
 ## Wanneer het component gebruiken
 
@@ -25,7 +25,7 @@ En beter nog; als je de ruimte hebt gebruik dan géén tooltips of toggletips, m
 
 ## Hoe het component te gebruiken
 
-Een toggletip is een samengesteld patroon met een info button en een overlay (tooltip). De info button schakelt de zichtbaarheid van de overlay in en uit.
+Een toggletip is een samengesteld patroon met een trigger (info button, badge of icon) en een overlay. De trigger schakelt de zichtbaarheid van de overlay in en uit.
 
 ## Gedrag en toegankelijkheid van het component
 
