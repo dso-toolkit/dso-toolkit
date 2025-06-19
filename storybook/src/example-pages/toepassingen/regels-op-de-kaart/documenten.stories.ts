@@ -13,15 +13,15 @@ import {
   mainSubmenu,
   plekinfoCardsListActiviteiten,
   plekinfoCardsListLocaties,
-} from "./documenten-VDK.content";
+} from "./documenten.content";
 
 const meta: Meta = {
-  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten VDK",
+  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten",
 };
 
 export default meta;
 
-const DocumentenVDK = examplePageStories((templates) => {
+const Documenten = examplePageStories((templates) => {
   const {
     accordionTemplate,
     linkTemplate,
@@ -59,8 +59,7 @@ const DocumentenVDK = examplePageStories((templates) => {
 
       <main class="demo-main">
         ${viewerGridTemplate({
-          mode: "vdk",
-          filterpanelOpen: false,
+          filterPanelOpen: false,
           mainPanelExpanded: true,
           mainSize: "medium",
           documentPanelOpen: true,
@@ -162,4 +161,4 @@ const DocumentenVDK = examplePageStories((templates) => {
   `;
 });
 
-export { DocumentenVDK };
+export { Documenten };

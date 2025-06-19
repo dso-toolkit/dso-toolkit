@@ -5,15 +5,15 @@ import { examplePageStories } from "../../../example-page-stories";
 import { headerPartial } from "../../partials/header";
 import { dropdownItems } from "../aanvragen/locatie.content";
 
-import { header, tabItems } from "./documenten-VDK.content";
+import { header, tabItems } from "./documenten.content";
 
 const meta: Meta = {
-  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten VDK zoeken",
+  title: "Voorbeeldpagina's/Toepassingen/Regels op de kaart/Documenten zoeken",
 };
 
 export default meta;
 
-const DocumentenVDKZoeken = examplePageStories((templates) => {
+const DocumentenZoeken = examplePageStories((templates) => {
   const {
     buttonTemplate,
     dropdownMenuTemplate,
@@ -21,6 +21,8 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
     searchBarTemplate,
     viewerGridTemplate,
     tabsTemplate,
+    onboardingTipTemplate,
+    richContentTemplate,
   } = templates;
 
   return html`
@@ -44,7 +46,6 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
 
       <main class="demo-main">
         ${viewerGridTemplate({
-          mode: "vdk",
           mainPanelExpanded: true,
           mainSize: "medium",
           main: html` <div style="margin-block-start: 1rem">
@@ -86,10 +87,17 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
                   icon: { icon: "chevron-right" },
                   iconMode: "after",
                 })}
+
                 <div style="margin-block-start: 1rem">
                   ${buttonTemplate({
                     variant: "primary",
                     label: "Zoeken",
+                    ariaDescribedby: "onboarding-tip",
+                  })}
+                  ${onboardingTipTemplate({
+                    id: "onboarding-tip",
+                    placement: "bottom",
+                    content: richContentTemplate({ children: html`<p>Klik hier om te gaan zoeken.</p>` }),
                   })}
                 </div>
               `,
@@ -104,4 +112,4 @@ const DocumentenVDKZoeken = examplePageStories((templates) => {
   `;
 });
 
-export { DocumentenVDKZoeken };
+export { DocumentenZoeken };
