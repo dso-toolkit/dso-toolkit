@@ -103,7 +103,7 @@ function getNameFromPathname(pathname: string): string {
     throw new Error(`Unable to get name from non-components location: ${location.pathname} (${root})`);
   }
 
-  const component = path.at(-1);
+  const component = path.filter((segment) => !!segment).pop();
   if (!component) {
     throw new Error(`No component found for ${location.pathname}`);
   }
