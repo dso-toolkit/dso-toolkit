@@ -3,23 +3,11 @@ import { ArgTypes } from "storybook/internal/types";
 import { BadgeStatus, badgeArgTypes } from "../badge";
 import { iconArgTypes } from "../icon";
 
-import { Toggletip } from "./toggletip.models.js";
+import { Toggletip, TooltipPosition } from "./toggletip.models.js";
 
 export interface ToggletipArgs {
   mode?: "toggle" | "secondary" | "badge" | "icon";
-  position?:
-    | "top"
-    | "top-start"
-    | "top-end"
-    | "right"
-    | "right-start"
-    | "right-end"
-    | "bottom"
-    | "bottom-start"
-    | "bottom-end"
-    | "left"
-    | "left-start"
-    | "left-end";
+  position?: TooltipPosition;
   strategy?: "absolute" | "fixed";
   small?: boolean;
   label?: string;
@@ -37,20 +25,7 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
     defaultValue: "toggle",
   },
   position: {
-    options: [
-      "top",
-      "top-start",
-      "top-end",
-      "right",
-      "right-start",
-      "right-end",
-      "bottom",
-      "bottom-start",
-      "bottom-end",
-      "left",
-      "left-start",
-      "left-end",
-    ],
+    options: ["top", "right", "bottom", "left"],
     control: {
       type: "select",
     },

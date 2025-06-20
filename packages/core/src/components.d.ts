@@ -46,8 +46,8 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement } from "@floating-ui/utils";
-import { Placement as Placement1 } from "@popperjs/core";
+import { TooltipPosition } from "dso-toolkit";
+import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -92,8 +92,8 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement } from "@floating-ui/utils";
-export { Placement as Placement1 } from "@popperjs/core";
+export { TooltipPosition } from "dso-toolkit";
+export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -1280,7 +1280,7 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
-          * The type of badge when `mode`=`badge`
+          * The badge status when `mode`=`badge`
          */
         "badgeStatus"?: BadgeStatus;
         /**
@@ -1288,7 +1288,7 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the Toggletip is visible
+          * The icon when `mode`=`icon` and the tip is visible
          */
         "iconActive"?: string;
         /**
@@ -1304,11 +1304,11 @@ export namespace Components {
           * Toggletip position.
           * @default "right"
          */
-        "position": Placement;
+        "position": TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
-        "small"?: boolean;
+        "small": boolean;
         /**
           * Positioning strategy
          */
@@ -1342,7 +1342,7 @@ export namespace Components {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position": Placement1;
+        "position": Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -4033,7 +4033,7 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
-          * The type of badge when `mode`=`badge`
+          * The badge status when `mode`=`badge`
          */
         "badgeStatus"?: BadgeStatus;
         /**
@@ -4041,7 +4041,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the Toggletip is visible
+          * The icon when `mode`=`icon` and the tip is visible
          */
         "iconActive"?: string;
         /**
@@ -4057,7 +4057,7 @@ declare namespace LocalJSX {
           * Toggletip position.
           * @default "right"
          */
-        "position"?: Placement;
+        "position"?: TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
@@ -4087,7 +4087,7 @@ declare namespace LocalJSX {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position"?: Placement1;
+        "position"?: Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */
