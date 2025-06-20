@@ -45,7 +45,12 @@ const config: StorybookConfig = {
 
     return {};
   },
-  addons: ["@storybook/addon-essentials", "@whitespace/storybook-addon-html", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-essentials",
+    "@whitespace/storybook-addon-html",
+    "@storybook/addon-a11y",
+    "@storybook/addon-webpack5-compiler-babel",
+  ],
   stories: ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"],
   previewHead: (head) => `
     ${head}
@@ -90,13 +95,7 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  framework: {
-    name: "@storybook/web-components-webpack5",
-    options: {},
-  },
-  docs: {
-    autodocs: true,
-  },
+  framework: "@storybook/web-components-webpack5",
 };
 
 export default config;
