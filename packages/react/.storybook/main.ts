@@ -30,7 +30,7 @@ const config: StorybookConfig = {
       ICONS: icons.join(","),
     };
   },
-  addons: ["@storybook/addon-essentials", "storybook-addon-jsx", "@storybook/addon-a11y"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y", "@storybook/addon-webpack5-compiler-babel"],
   stories: ["../src/**/*.stories.tsx"],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
@@ -49,13 +49,7 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: {},
-  },
-  docs: {
-    autodocs: true,
-  },
+  framework: "@storybook/react-webpack5",
 };
 
 export default config;

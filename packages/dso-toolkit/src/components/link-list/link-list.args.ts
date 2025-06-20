@@ -13,7 +13,7 @@ export interface LinkListArgs {
 export const linkListArgTypes: ArgTypes<LinkListArgs> = {
   navLabel: {
     control: {
-      type: "string",
+      type: "text",
     },
   },
   type: {

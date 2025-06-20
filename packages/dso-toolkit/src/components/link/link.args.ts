@@ -15,7 +15,7 @@ export interface LinkArgs {
 export const linkArgTypes: ArgTypes<LinkArgs> = {
   icon: {
     control: {
-      type: "string",
+      type: "text",
     },
   },
   iconMode: {
