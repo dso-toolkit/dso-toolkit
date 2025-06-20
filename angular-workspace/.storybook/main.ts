@@ -57,15 +57,9 @@ const config: StorybookConfig = {
 
     return config;
   },
-  framework: {
-    name: "@storybook/angular",
-    options: {},
-  },
+  framework: "@storybook/angular",
   core: {
     disableTelemetry: true,
-  },
-  docs: {
-    autodocs: true,
   },
 };
 

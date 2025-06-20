@@ -99,7 +99,7 @@ export const annotationActiviteitArgTypes: ArgTypes<AnnotationActiviteitArgs> = 
   },
   locatieNoemers: {
     control: {
-      type: "array",
+      type: "object",
     },
   },
 };
@@ -173,7 +173,7 @@ export const annotationOmgevingsnormwaardeArgTypes: ArgTypes<AnnotationOmgevings
   },
   waardes: {
     control: {
-      type: "array",
+      type: "object",
     },
   },
   eenheid: {
