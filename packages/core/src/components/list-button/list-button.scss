@@ -132,14 +132,6 @@
   }
 }
 
-.dso-selectable {
-  @include selectable.root("dso-info");
-
-  label {
-    font-weight: 700;
-  }
-}
-
 .dso-list-button {
   @include button.base($modifiers: false);
   @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
@@ -183,6 +175,14 @@
         opacity: 1;
       }
     }
+  }
+
+  dso-selectable:not(:last-child) {
+    margin-block-end: 0;
+  }
+
+  .dso-selectable-container label {
+    font-weight: 700;
   }
 
   &.dso-selected {
