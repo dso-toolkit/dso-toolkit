@@ -1,11 +1,11 @@
 import { arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
-import { Placement } from "@floating-ui/utils";
+import { Side } from "@floating-ui/utils";
 
 export function positionTooltip(
   referenceElement: HTMLElement,
   tipRef: HTMLElement,
   tipArrowRef: HTMLElement,
-  placement: Placement,
+  placement: Side,
   strategy: "absolute" | "fixed",
   active: boolean,
 ) {
