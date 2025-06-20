@@ -5,11 +5,21 @@ export interface LegendItem<TemplateFnReturnType> {
   disabledMessage?: string;
   dsoMouseEnter?: () => void;
   dsoMouseLeave?: () => void;
-  dsoRemoveClick?: (e: CustomEvent<LegendItemRemoveClickEvent>) => void;
-  removable?: boolean;
+  dsoActiveChange?: (e: CustomEvent<LegendItemActiveChangeEvent>) => void;
+  active?: boolean;
   symbol?: TemplateFnReturnType;
 }
 
-export interface LegendItemRemoveClickEvent {
-  originalEvent: MouseEvent;
+export interface LegendItemActiveChangeEvent {
+  /**
+   * De huidige status van de legend.
+   */
+  current: boolean;
+
+  /**
+   * De gewenste status van de legend.
+   */
+  next: boolean;
+
+  originalEvent: Event;
 }
