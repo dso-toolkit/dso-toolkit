@@ -33,6 +33,7 @@
  - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-annotation-locatie](../annotation/annotation-locatie)
  - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
+ - [dso-legend-item](../legend-item)
 
 ### Graph
 ```mermaid
@@ -43,6 +44,7 @@ graph TD;
   dso-annotation-kaart --> dso-slide-toggle
   dso-annotation-locatie --> dso-slide-toggle
   dso-annotation-omgevingsnormwaarde --> dso-slide-toggle
+  dso-legend-item --> dso-slide-toggle
   style dso-slide-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

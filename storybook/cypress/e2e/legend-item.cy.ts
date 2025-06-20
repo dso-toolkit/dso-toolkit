@@ -1,24 +1,8 @@
 describe("Legend Item", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--default");
-    prepareComponent();
+    cy.get("dso-legend-item.hydrated").as("dsoLegendItem").shadow().as("dsoLegendItemShadow");
   });
-
-  const defaultLabelText = "Naam van dit legenda item";
-
-  function prepareComponent() {
-    cy.get("dso-legend-item")
-      .as("dsoLegendItem")
-      .shadow()
-      .as("dsoLegendItemShadow")
-      .get("@dsoLegendItem")
-      .invoke("text", defaultLabelText)
-      .get("@dsoLegendItem")
-      .invoke(
-        "append",
-        `<span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>`,
-      );
-  }
 
   it("should be accessible", () => {
     cy.injectAxe();
@@ -27,50 +11,47 @@ describe("Legend Item", () => {
 
   it("should show label and symbol", () => {
     cy.get("@dsoLegendItem")
-      .should("have.text", defaultLabelText)
+      .should("include.text", "Legenda item label")
       .get("@dsoLegendItemShadow")
       .find(".legend-item")
       .should("have.class", "legend-item-symbol");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
 
-  it("should emit removeClick event", () => {
+  it("should hide the edit button and disable the slide-toggle", () => {
     cy.get("@dsoLegendItem")
-      .then(($element) => $element.on("dsoRemoveClick", cy.stub().as("removeClickListener")))
-      .should("have.text", defaultLabelText)
-      .invoke("prop", "removable", true)
-      .get("@dsoLegendItemShadow")
-      .find("#remove-button")
-      .click()
-      .get("@removeClickListener")
-      .should("have.been.calledOnce");
-  });
-
-  it("should show selectable with label", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectable");
-
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item.hydrated");
-
-    cy.get("dso-legend-item")
-      .find("dso-selectable")
-      .should("be.visible")
-      .get("dso-legend-item")
       .invoke("prop", "disabled", true)
-      .invoke("prop", "disabledMessage", "Doet het niet")
+      .invoke("prop", "disabledMessage", "Deze kaartlaag is uitgeschakeld")
+      .shadow()
+      .find("#edit-button")
+      .should("not.exist")
+      .get("@dsoLegendItem")
+      .shadow()
+      .find(".dso-slider")
+      .should("be.disabled")
+      .get("@dsoLegendItem")
       .shadow()
       .find("dso-toggletip")
-      .should("be.visible")
-      .and("have.text", "Doet het niet");
+      .should("exist");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
+
+    cy.get("@dsoLegendItem")
+      .invoke("prop", "disabled", false)
+      .invoke("prop", "disabledMessage", "")
+      .shadow()
+      .find("#edit-button")
+      .should("exist")
+      .get("@dsoLegendItem")
+      .shadow()
+      .find(".dso-slider")
+      .should("not.be.disabled");
   });
 
-  it("should show edit-button with a body containing input-range", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-input-range");
-
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item.hydrated");
-
-    cy.get("dso-legend-item")
-      .find("div[slot='body']")
+  it("should show the body containing an input-range when clicked on edit-button", () => {
+    cy.get("@dsoLegendItem")
+      .find("div[slot='body'] dso-input-range")
       .should("be.hidden")
       .get("dso-legend-item")
       .shadow()
@@ -78,8 +59,11 @@ describe("Legend Item", () => {
       .click()
       .get("dso-legend-item")
       .find("div[slot='body'] dso-input-range")
-      .should("be.visible")
-      .get("dso-legend-item")
+      .should("be.visible");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- show body`);
+
+    cy.get("dso-legend-item")
       .shadow()
       .find("#edit-button")
       .click()
@@ -88,28 +72,24 @@ describe("Legend Item", () => {
       .should("be.hidden");
   });
 
-  it("should show edit-button with a body containing selectables", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--with-selectables");
-
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-legend-item.hydrated");
-
-    cy.get("dso-legend-item")
-      .find("div[slot='body']")
-      .should("be.hidden")
-      .get("dso-legend-item")
-      .shadow()
-      .find("#edit-button")
+  it("should emit ActiveChange event", () => {
+    cy.get("@dsoLegendItem")
+      .then(($element) => $element.on("dsoActiveChange", cy.stub().as("activeChangeListener")))
+      .get("@dsoLegendItemShadow")
+      .find("dso-slide-toggle")
       .click()
-      .get("dso-legend-item")
-      .find("div[slot='body'] dso-selectable")
-      .should("be.visible")
-      .get("dso-legend-item")
-      .shadow()
-      .find("#edit-button")
-      .click()
-      .get("dso-legend-item")
-      .find("div[slot='body']")
-      .should("be.hidden");
+      .get("@activeChangeListener")
+      .should("have.been.calledOnce");
+  });
+
+  it("should show an active Slide Toggle", () => {
+    cy.get("@dsoLegendItem")
+      .invoke("prop", "active", true)
+      .get("@dsoLegendItemShadow")
+      .find("dso-slide-toggle button")
+      .should("have.attr", "aria-checked", "false")
+      .wait(400);
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- active Slide Toggle`);
   });
 });
