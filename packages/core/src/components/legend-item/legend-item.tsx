@@ -30,7 +30,7 @@ export class LegendItem implements ComponentInterface {
   disabledMessage?: string;
 
   /**
-   * Controls wherter this Legend-item is active or not
+   * Controls whether this Legend-item is active or not
    */
   @Prop({ reflect: true })
   active?: boolean;
