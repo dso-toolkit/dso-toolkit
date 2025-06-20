@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Legend Item: Aanpassingen ([#3185](https://github.com/dso-toolkit/dso-toolkit/issues/3185))
 
 ### Task
-* Website: Deep linking naar component werkt niet ([#3219](https://github.com/dso-toolkit/dso-toolkit/issues/3219))
+* Website: Deep linking naar component werkt niet ([#3215](https://github.com/dso-toolkit/dso-toolkit/issues/3215))
 
 ## 💈 Release 74.0.0 - 2025-06-19
 
