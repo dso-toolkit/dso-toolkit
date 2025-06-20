@@ -8,7 +8,7 @@
 
 | Property          | Attribute          | Description                                                             | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
-| `active`          | `active`           | Shows a slide-toggle, when toggled, emits `dsoActiveChange`.            | `boolean \| undefined` | `undefined` |
+| `active`          | `active`           | Controls whether this Legend Iitem is active or not                     | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
 
@@ -24,11 +24,11 @@
 
 ## Slots
 
-| Slot                               | Description                                                                                                                                                                                                                                          |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"The label for this legend item"` |                                                                                                                                                                                                                                                      |
-| `"body"`                           | The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
-| `"symbol"`                         | A span where the symbol is styled upon                                                                                                                                                                                                               |
+| Slot                               | Description                                                                                                                                                                                                          |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"The label for this Legend Item"` |                                                                                                                                                                                                                      |
+| `"body"`                           | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
+| `"symbol"`                         | A span where the symbol is styled upon                                                                                                                                                                               |
 
 
 ## Dependencies

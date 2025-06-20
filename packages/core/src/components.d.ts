@@ -838,7 +838,7 @@ export namespace Components {
     }
     interface DsoLegendItem {
         /**
-          * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
+          * Controls whether this Legend Iitem is active or not
          */
         "active"?: boolean;
         /**
@@ -3398,7 +3398,7 @@ declare namespace LocalJSX {
     }
     interface DsoLegendItem {
         /**
-          * Shows a slide-toggle, when toggled, emits `dsoActiveChange`.
+          * Controls whether this Legend Iitem is active or not
          */
         "active"?: boolean;
         /**
