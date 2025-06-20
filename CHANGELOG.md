@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * List Button: beter zichtbare focusstate ([#3094](https://github.com/dso-toolkit/dso-toolkit/issues/3094))
 
+### Task
+* Packages: Dependencies updates ([#3157](https://github.com/dso-toolkit/dso-toolkit/issues/3157))
+
 ## 🗺️ Release 75.0.0 - 2025-07-01
 
 ### Changed
