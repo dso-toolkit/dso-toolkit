@@ -46,7 +46,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement as Placement1 } from "@floating-ui/utils";
+import { TooltipPosition } from "dso-toolkit";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -91,7 +91,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement as Placement1 } from "@floating-ui/utils";
+export { TooltipPosition } from "dso-toolkit";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -1221,7 +1221,7 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
-          * The type of badge when `mode`=`badge`
+          * The badge status when `mode`=`badge`
          */
         "badgeStatus"?: BadgeStatus;
         /**
@@ -1229,7 +1229,7 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the Toggletip is visible
+          * The icon when `mode`=`icon` and the tip is visible
          */
         "iconActive"?: string;
         /**
@@ -1243,11 +1243,11 @@ export namespace Components {
         /**
           * Toggletip position.
          */
-        "position": Placement1;
+        "position": TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
-        "small"?: boolean;
+        "small": boolean;
         /**
           * Positioning strategy
          */
@@ -3889,7 +3889,7 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
-          * The type of badge when `mode`=`badge`
+          * The badge status when `mode`=`badge`
          */
         "badgeStatus"?: BadgeStatus;
         /**
@@ -3897,7 +3897,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the Toggletip is visible
+          * The icon when `mode`=`icon` and the tip is visible
          */
         "iconActive"?: string;
         /**
@@ -3911,7 +3911,7 @@ declare namespace LocalJSX {
         /**
           * Toggletip position.
          */
-        "position"?: Placement1;
+        "position"?: TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
