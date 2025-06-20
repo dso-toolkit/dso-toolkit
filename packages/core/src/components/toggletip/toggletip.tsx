@@ -1,9 +1,10 @@
-import { arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { autoUpdate } from "@floating-ui/dom";
 import { Placement } from "@floating-ui/utils";
-import { Component, Element, Fragment, h, Prop, State } from "@stencil/core";
+import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
 
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 import { BadgeStatus } from "../badge/badge.interfaces";
-import { Tooltip } from "../tooltip/tooltip.functional";
 
 @Component({
   tag: "dso-toggletip",
@@ -72,12 +73,13 @@ export class Toggletip {
 
   componentDidRender() {
     if (!this.cleanUp && this.containerElement && this.tipElement && this.tipArrowElement) {
-      this.cleanUp = this.positionTip(
+      this.cleanUp = positionTooltip(
         this.containerElement,
         this.tipElement,
         this.tipArrowElement,
         this.position,
         this.strategy,
+        this.active,
       );
     }
   }
@@ -117,98 +119,6 @@ export class Toggletip {
 
     return;
   };
-
-  private positionTip(
-    referenceElement: HTMLElement,
-    tipRef: HTMLElement,
-    tipArrowRef: HTMLElement,
-    placement: Placement,
-    strategy: "absolute" | "fixed",
-  ) {
-    return autoUpdate(referenceElement, tipRef, () => {
-      const arrowLength = tipArrowRef.offsetWidth;
-
-      // Get half the arrow box's hypotenuse length
-      const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
-
-      // 1.5 times the diagonal of the arrow box
-      const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
-
-      computePosition(referenceElement, tipRef, {
-        strategy,
-        middleware: [
-          offset({
-            mainAxis: mainAxisOffset,
-            alignmentAxis: -arrowPadding,
-          }),
-          flip(),
-          shift(),
-          arrow({
-            padding: arrowPadding,
-            element: tipArrowRef,
-          }),
-          hide({
-            padding: arrowPadding + arrowLength,
-          }),
-        ],
-        placement,
-      }).then(({ x, y, middlewareData, placement: computedPlacement, strategy: position }) => {
-        if (middlewareData.hide) {
-          if (this.active) {
-            tipRef.classList.toggle("visible", !middlewareData.hide.referenceHidden);
-          } else {
-            tipRef.classList.remove("visible");
-          }
-        }
-        Object.assign(tipRef.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-          position,
-        });
-
-        const side = computedPlacement.split("-")[0];
-
-        const staticSide = side
-          ? {
-              top: "bottom",
-              right: "left",
-              bottom: "top",
-              left: "right",
-            }[side]
-          : "top";
-
-        let angle;
-        switch (staticSide) {
-          default:
-          case "top":
-            angle = 45;
-            break;
-          case "right":
-            angle = 135;
-            break;
-          case "bottom":
-            angle = 225;
-            break;
-          case "left":
-            angle = 315;
-            break;
-        }
-
-        if (middlewareData.arrow && staticSide) {
-          const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-          Object.assign(tipArrowRef.style, {
-            right: "",
-            bottom: "",
-            left: arrowX ? `${arrowX}px` : "",
-            top: arrowY ? `${arrowY}px` : "",
-            [staticSide]: `${-arrowLength / 2}px`,
-            transform: `rotate(${angle}deg)`,
-          });
-        }
-      });
-    });
-  }
 
   render() {
     return (
@@ -255,24 +165,24 @@ export class Toggletip {
   }
 
   private get tipElement(): HTMLElement | undefined {
-    const element = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip");
-    if (!element) {
+    const elementRef = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip");
+    if (!elementRef) {
       console.warn("Unable to find tooltip element");
 
       return;
     }
 
-    return element;
+    return elementRef;
   }
 
   private get tipArrowElement(): HTMLElement | undefined {
-    const element = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip-arrow");
-    if (!element) {
+    const elementRef = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip-arrow");
+    if (!elementRef) {
       console.warn("Unable to find arrow element");
 
       return;
     }
 
-    return element;
+    return elementRef;
   }
 }

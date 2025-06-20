@@ -1,7 +1,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
 
-@use "tooltip.variables" as tooltip-variables;
+@use "./tooltip.variables" as tooltip-variables;
 
 @mixin include() {
   .tooltip {

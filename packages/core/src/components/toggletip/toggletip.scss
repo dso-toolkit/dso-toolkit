@@ -1,7 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
-@use "../tooltip/tooltip.functional" as tooltip;
+@use "../../functional-components/tooltip/tooltip.mixin" as tooltip;
 
 @include utilities.box-sizing();
 @include tooltip.include();
