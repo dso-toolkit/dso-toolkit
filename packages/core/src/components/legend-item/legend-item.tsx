@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
- * @slot The label for this legend item
+ * @slot The label for this Legend Item
  * @slot symbol - A span where the symbol is styled upon
  * @slot body - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
@@ -30,7 +30,7 @@ export class LegendItem implements ComponentInterface {
   disabledMessage?: string;
 
   /**
-   * Controls whether this Legend-item is active or not
+   * Controls whether this Legend Iitem is active or not
    */
   @Prop({ reflect: true })
   active?: boolean;
