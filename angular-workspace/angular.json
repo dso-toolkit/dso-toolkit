@@ -40,7 +40,8 @@
             "port": 46006,
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "styles": ["dso-toolkit/dist/dso.css"]
+            "styles": ["dso-toolkit/dist/dso.css"],
+            "experimentalZoneless": true
           }
         },
         "build-storybook": {
@@ -51,7 +52,8 @@
             "outputDir": "www",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "styles": ["dso-toolkit/dist/dso.css"]
+            "styles": ["dso-toolkit/dist/dso.css"],
+            "experimentalZoneless": true
           }
         }
       }
