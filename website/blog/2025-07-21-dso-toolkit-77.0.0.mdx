@@ -1,0 +1,41 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v77.0.0 🍟
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Toggletip
+
+<!-- truncate -->
+
+## Toggletip
+
+Er zijn verschillende properties toegevoegd en gewijzigd. De belangrijkste is de property `mode`. Hiermee kun je kiezen tussen verschillende verschijningsvormen. De default is `toggle`, dat gebruikt maakt van Info Button: dit is de bestaande functionaliteit van Toggletip. `secondary`, `badge` en `icon` zijn nieuw. De property `secondary` is komen te vervallen. Daarvoor in de plaats is gekomen `mode="secondary"`. Verder is het alleen nog mogelijk om de optie `top`, `right` `bottom` en `left` te gebruiken voor `position`.
+
+**Secondary**
+
+```html
+❌ < 75.0.0
+<dso-toggletip secondary="true"></dso-toggletip>
+
+✅ >= 75.0.0
+<dso-toggletip mode="secondary"></dso-toggletip>
+```
+
+**Badge**
+
+`mode="badge"` is een nieuwe optie om een Badge te gebruiken als trigger van de Toggletip. Wanneer je voor deze `mode` kiest kun je de property `badge-status` gebruiken om de juiste variant te kiezen.
+
+```html
+<dso-toggletip mode="badge" badge-status="primary"></dso-toggletip>
+```
+
+**Icon**
+
+`mode="icon"` is een nieuwe optie om een Icon te gebruiken als trigger van de Toggletip. Wanneer je voor deze `mode` kiest kun je de properties `icon` en `icon-active` gebruiken om de juiste icons te kiezen. `icon` is zichtbaar wanneer de tip niet zichtbaar is, en `icon-active` wanneer de tip wel zichtbaar is.
+
+```html
+<dso-toggletip mode="icon" icon="help" icon-active="help-active"></dso-toggletip>
+```

@@ -46,20 +46,7 @@ describe("Toggletip", () => {
     });
   }
 
-  const positions = [
-    "top",
-    "top-start",
-    "top-end",
-    "right",
-    "right-start",
-    "right-end",
-    "bottom",
-    "bottom-start",
-    "bottom-end",
-    "left",
-    "left-start",
-    "left-end",
-  ];
+  const positions = ["top", "right", "bottom", "left"];
 
   for (const position of positions) {
     it(`should show tooltip at ${position} position`, () => {
