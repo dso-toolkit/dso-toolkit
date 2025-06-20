@@ -8,13 +8,53 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
   component: "toggletip",
   implementation: "core",
   template: () =>
-    function toggletipTemplate({ children, label, position, small, secondary }) {
-      return html`<dso-toggletip
+    function toggletipTemplate({
+      children,
+      mode,
+      label,
+      position,
+      strategy,
+      small,
+      badgeStatus,
+      icon,
+      iconActive,
+      withContainer,
+    }) {
+      const side = (position ? position.split("-")[0] : "right") as string;
+      const alignItems: Record<string, string> = {
+        left: "center",
+        right: "center",
+        top: "flex-end",
+        bottom: "flex-start",
+      };
+      const justifyContent: Record<string, string> = {
+        left: "flex-end",
+        right: "flex-start",
+        top: "center",
+        bottom: "center",
+      };
+      const component = html` <dso-toggletip
+        mode=${ifDefined(mode)}
         label=${ifDefined(label)}
         position=${ifDefined(position)}
-        ?small=${small}
-        ?secondary=${secondary}
-        >${children}</dso-toggletip
-      >`;
+        strategy=${ifDefined(strategy)}
+        small=${small}
+        badge-status=${badgeStatus}
+        icon=${icon}
+        icon-active=${iconActive}
+        >${children}
+      </dso-toggletip>`;
+      return withContainer
+        ? html` <style>
+              .toggletip-decorator {
+                display: flex;
+                align-items: ${alignItems[side]};
+                justify-content: ${justifyContent[side]};
+                height: calc(100vh - 40px);
+                width: 100%;
+              }
+            </style>
+            <div class="toggletip-decorator">${component}</div>`
+        : component;
     },
 };

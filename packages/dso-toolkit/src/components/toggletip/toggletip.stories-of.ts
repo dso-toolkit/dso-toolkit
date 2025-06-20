@@ -46,8 +46,21 @@ export function toggletipStories<Implementation, Templates, TemplateFnReturnType
 }: ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ToggletipStories {
   return {
     Toggletip: {
+      args: {
+        mode: "toggle",
+        position: "right",
+        strategy: "absolute",
+        small: false,
+        label: "Toelichting",
+        badgeStatus: "primary",
+        icon: "help",
+        iconActive: "help-active",
+      },
       render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
-        toggletipTemplate(toggletipArgsMapper(args, children)),
+        toggletipTemplate({
+          ...toggletipArgsMapper(args, children),
+          withContainer: true,
+        }),
       ),
     },
   };
