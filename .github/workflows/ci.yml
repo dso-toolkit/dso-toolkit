@@ -60,7 +60,7 @@ jobs:
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
-          key: cypress-snapshots-${{ env.MERGE_BASE }}-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
+          key: cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
           restore-keys: |
             cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
