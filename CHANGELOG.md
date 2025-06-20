@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Deploy: script blijft niet-bestaande branches verwijderen ([#3270](https://github.com/dso-toolkit/dso-toolkit/issues/3270))
 * Card: Afbeelding in Storybook Docs wordt niet getoond ([#3285](https://github.com/dso-toolkit/dso-toolkit/issues/3285))
 * Planning: Issue type van GitHub gebruiken ([#3294](https://github.com/dso-toolkit/dso-toolkit/issues/3294))
+* Packages: Dependencies updates (Storybook 9, Cypress 14) ([#3157](https://github.com/dso-toolkit/dso-toolkit/issues/3157))
 
 ## ⛱️ Release 77.0.0 - 2025-07-28
 
