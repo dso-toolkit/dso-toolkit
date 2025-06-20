@@ -1,21 +1,11 @@
 import { BadgeStatus } from "../badge";
 
+export type TooltipPosition = "top" | "right" | "bottom" | "left";
+
 export interface Toggletip<TemplateFnReturnType> {
   children: TemplateFnReturnType | string;
   mode?: "toggle" | "secondary" | "badge" | "icon";
-  position?:
-    | "top"
-    | "top-start"
-    | "top-end"
-    | "right"
-    | "right-start"
-    | "right-end"
-    | "bottom"
-    | "bottom-start"
-    | "bottom-end"
-    | "left"
-    | "left-start"
-    | "left-end";
+  position?: TooltipPosition;
   strategy?: "absolute" | "fixed";
   small?: boolean;
   label?: string;

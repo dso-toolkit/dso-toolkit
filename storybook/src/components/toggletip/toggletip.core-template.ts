@@ -1,5 +1,5 @@
 import { Toggletip } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
+import { TemplateResult, html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
@@ -46,7 +46,7 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
       </dso-toggletip>`;
       return withContainer
         ? html` <style>
-              .toggletip-container {
+              .toggletip-decorator {
                 display: flex;
                 align-items: ${alignItems[side]};
                 justify-content: ${justifyContent[side]};
@@ -54,7 +54,7 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
                 width: 100%;
               }
             </style>
-            <div class="toggletip-container">${component}</div>`
+            <div class="toggletip-decorator">${component}</div>`
         : component;
     },
 };

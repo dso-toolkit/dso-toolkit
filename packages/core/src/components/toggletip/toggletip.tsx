@@ -1,6 +1,6 @@
 import { autoUpdate } from "@floating-ui/dom";
-import { Placement } from "@floating-ui/utils";
 import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { TooltipPosition } from "dso-toolkit";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -28,7 +28,7 @@ export class Toggletip {
    * Toggletip position.
    */
   @Prop()
-  position: Placement = "right";
+  position: TooltipPosition = "right";
 
   /**
    * Positioning strategy
@@ -40,7 +40,7 @@ export class Toggletip {
    * Set to true for small Toggletip.
    */
   @Prop()
-  small?: boolean;
+  small: boolean = false;
 
   /**
    * The type of Toggletip.
@@ -49,7 +49,7 @@ export class Toggletip {
   mode: "toggle" | "secondary" | "badge" | "icon" = "toggle";
 
   /**
-   * The type of badge when `mode`=`badge`
+   * The badge status when `mode`=`badge`
    */
   @Prop()
   badgeStatus?: BadgeStatus;
@@ -61,7 +61,7 @@ export class Toggletip {
   icon?: string;
 
   /**
-   * The icon when `mode`=`icon` and the Toggletip is visible
+   * The icon when `mode`=`icon` and the tip is visible
    */
   @Prop()
   iconActive?: string;
@@ -82,6 +82,11 @@ export class Toggletip {
         this.active,
       );
     }
+  }
+
+  disconnectedCallback(): void {
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   }
 
   private click = () => {
@@ -147,7 +152,7 @@ export class Toggletip {
         <div class="toggletip-container" onClick={this.click} ref={(element) => (this.containerElement = element)}>
           {["toggle", "secondary"].includes(this.mode) && (
             <dso-info-button
-              aria-describedby="toggle"
+              aria-describedby="tooltip"
               label={this.label}
               active={this.active}
               secondary={this.mode === "secondary"}
@@ -157,7 +162,7 @@ export class Toggletip {
           {this.mode === "badge" && <dso-badge status={this.badgeStatus}>{this.label}</dso-badge>}
           {this.mode === "icon" && <dso-icon icon={this.active ? this.iconActive : this.icon}></dso-icon>}
         </div>
-        <Tooltip small={this.small ?? false} visible={this.active}>
+        <Tooltip small={this.small} visible={this.active}>
           <slot />
         </Tooltip>
       </>
