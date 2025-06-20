@@ -7,7 +7,7 @@ interface TooltipProps {
 }
 
 export const Tooltip: FunctionalComponent<TooltipProps> = ({ small, visible }, children) => (
-  <div popover="manual" class={clsx(["tooltip", { visible }])}>
+  <div popover="manual" id="tooltip" class={clsx(["tooltip", { visible }])}>
     <span class="tooltip-arrow"></span>
     <div class={clsx(["tooltip-inner", { small }])}>{children}</div>
   </div>
