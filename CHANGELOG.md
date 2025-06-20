@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
+
 ## 💈 Release 74.0.0 - 2025-06-19
 
 ### Changed
