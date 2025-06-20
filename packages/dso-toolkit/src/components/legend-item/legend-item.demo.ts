@@ -2,5 +2,6 @@
 export const legendItemDemoCss = `
   .symboolcode[data-symboolcode=regelingsgebied] {
     background-image: url(images/regelingsgebied.png);
+    background-size: contain;
   }
 `;

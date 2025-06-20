@@ -1,0 +1,27 @@
+---
+authors: [cvanderleij, iterox]
+---
+
+# DSO Toolkit v75.0.0 🗺️
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Legend-item
+
+<!-- truncate -->
+
+## Legend-item
+
+Het `Legend Item` component is aangepast. Waar voorheen een checkbox aan de linkerkant werd getoond, die middels een
+door de afnemer in het nameless slot te plaatsen `Selectable` werd gerealiseerd, toont het `Legend Item` nu altijd aan
+de rechterkant een `Slide Toggle`, die middels een nieuwe boolean property `active` bediend kan worden. Het wijzigen
+van de stand van de `Slide Toggle` vuurt nu een nieuw event af: `dsoActiveChange`. Daarnaast is de mogelijkheid om het
+`Legend Item` te verwijderen komen te vervallen: daartoe zijn de property `removable` en het event `dsoRemoveClick` verwijderd.
+
+```html
+❌ < 75.0.0
+<dso-legend-item removable (dsoRemoveClick)="..." [...]></dso-legend-item>
+
+✅ >= 75.0.0
+<dso-legend-item active (dsoActiveChange)="..." [...]></dso-legend-item>
+```

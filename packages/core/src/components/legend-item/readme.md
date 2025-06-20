@@ -8,27 +8,27 @@
 
 | Property          | Attribute          | Description                                                             | Type                   | Default     |
 | ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
+| `active`          | `active`           | Controls whether this Legend Item is active or not                      | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
-| `removable`       | `removable`        | Shows a trash-can that, when clicked, emits `dsoRemoveClick`.           | `boolean \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event            | Description                                        | Type                                      |
-| ---------------- | -------------------------------------------------- | ----------------------------------------- |
-| `dsoMouseEnter`  | Emitted when the mouse enters the Legend Item      | `CustomEvent<any>`                        |
-| `dsoMouseLeave`  | Emitted when the mouse leaves the Legend Item      | `CustomEvent<any>`                        |
-| `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<LegendItemRemoveClickEvent>` |
+| Event             | Description                                            | Type                                       |
+| ----------------- | ------------------------------------------------------ | ------------------------------------------ |
+| `dsoActiveChange` | Emitted when user checks or unchecks the Slide Toggle. | `CustomEvent<LegendItemActiveChangeEvent>` |
+| `dsoMouseEnter`   | Emitted when the mouse enters the Legend Item          | `CustomEvent<any>`                         |
+| `dsoMouseLeave`   | Emitted when the mouse leaves the Legend Item          | `CustomEvent<any>`                         |
 
 
 ## Slots
 
-| Slot       | Description                                                                                                                                                                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            | Either the label for this legend item or a `dso-selectable` holding the label.                                                                                                                                                                       |
-| `"body"`   | The slot to place controls in (i.e. `dso-input-range` or multiple `dso-selectable`\`s). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
-| `"symbol"` | A span where the symbol is styled upon                                                                                                                                                                                                               |
+| Slot                               | Description                                                                                                                                                                                                          |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"The label for this Legend Item"` |                                                                                                                                                                                                                      |
+| `"body"`                           | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
+| `"symbol"`                         | A span where the symbol is styled upon                                                                                                                                                                               |
 
 
 ## Dependencies
@@ -37,12 +37,14 @@
 
 - [dso-toggletip](../toggletip)
 - [dso-icon](../icon)
+- [dso-slide-toggle](../slide-toggle)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-legend-item --> dso-toggletip
   dso-legend-item --> dso-icon
+  dso-legend-item --> dso-slide-toggle
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon
