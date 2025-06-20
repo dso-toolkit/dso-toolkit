@@ -1,5 +1,4 @@
 import { Parameters } from "@storybook/types";
-import { jsxDecorator } from "storybook-addon-jsx";
 
 import "@iframe-resizer/child";
 import "dso-toolkit/dist/dso.css";
@@ -17,10 +16,11 @@ export const parameters: Parameters = {
       );
     },
   },
-  decorators: [jsxDecorator],
   options: {
     storySort: {
       method: "alphabetically",
     },
   },
 };
+
+export const tags = ["autodocs"];
