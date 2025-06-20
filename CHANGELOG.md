@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
+
 ### Fixed
 * Label: Filter variant border toont zwart ipv donkerblauw ([#3231](https://github.com/dso-toolkit/dso-toolkit/issues/3231))
 
