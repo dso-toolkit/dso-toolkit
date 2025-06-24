@@ -49,19 +49,19 @@ export class Toggletip {
   mode: "toggle" | "secondary" | "badge" | "icon" = "toggle";
 
   /**
-   * The badge status when `mode`=`badge`
+   * The badge status when `mode="badge"`
    */
   @Prop()
   badgeStatus?: BadgeStatus;
 
   /**
-   * The icon when `mode`=`icon`
+   * The icon when `mode="icon"`
    */
   @Prop()
   icon?: string;
 
   /**
-   * The icon when `mode`=`icon` and the tip is visible
+   * The icon when `mode="icon"` and the tip is visible
    */
   @Prop()
   iconActive?: string;

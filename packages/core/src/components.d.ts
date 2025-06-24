@@ -1314,15 +1314,15 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
-          * The badge status when `mode`=`badge`
+          * The badge status when `mode="badge"`
          */
         "badgeStatus"?: BadgeStatus;
         /**
-          * The icon when `mode`=`icon`
+          * The icon when `mode="icon"`
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the tip is visible
+          * The icon when `mode="icon"` and the tip is visible
          */
         "iconActive"?: string;
         /**
@@ -4119,15 +4119,15 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
-          * The badge status when `mode`=`badge`
+          * The badge status when `mode="badge"`
          */
         "badgeStatus"?: BadgeStatus;
         /**
-          * The icon when `mode`=`icon`
+          * The icon when `mode="icon"`
          */
         "icon"?: string;
         /**
-          * The icon when `mode`=`icon` and the tip is visible
+          * The icon when `mode="icon"` and the tip is visible
          */
         "iconActive"?: string;
         /**
