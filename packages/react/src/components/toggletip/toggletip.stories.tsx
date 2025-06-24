@@ -5,6 +5,7 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md?raw";
 import { children } from "./toggletip.content";
+import { decorator } from "./toggletip.decorator";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
@@ -23,6 +24,7 @@ const { Toggletip } = toggletipStories({
       children,
     };
   },
+  decorator,
 });
 
 export { Toggletip };

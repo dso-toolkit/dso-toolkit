@@ -5,6 +5,7 @@ import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import { children } from "./toggletip.content";
+import { decorator } from "./toggletip.decorator";
 
 const meta: Meta<ToggletipArgs> = {
   ...toggletipMeta({ readme }),
@@ -23,6 +24,7 @@ const { Toggletip } = toggletipStories({
       children: children(templates),
     };
   },
+  decorator,
 });
 
 export { Toggletip };
