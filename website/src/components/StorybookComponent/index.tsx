@@ -82,7 +82,7 @@ function stringifyStorybookArg(key: string, value: unknown) {
 }
 
 function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
-  if (isComposedStorybook(implementation) || name.startsWith("voorbeeldpagina")) {
+  if (isComposedStorybook(implementation) || name.startsWith("voorbeeldpagina") || name.startsWith("patronen")) {
     return joinNameAndVariant(name, variant);
   }
 

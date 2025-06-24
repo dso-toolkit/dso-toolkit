@@ -43,7 +43,7 @@
     margin-block: -2px 0;
 
     &.dso-animate-ready {
-      transition-property: grid-template-rows, margin-block, border;
+      transition-property: grid-template-rows, margin-block, border, opacity;
     }
 
     .dso-section-body-content {
