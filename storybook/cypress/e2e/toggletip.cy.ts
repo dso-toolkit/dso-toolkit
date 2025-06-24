@@ -39,7 +39,7 @@ describe("Toggletip", () => {
   const modes = ["toggle", "secondary", "badge", "icon"];
 
   for (const mode of modes) {
-    it(`should show tooltip in ${mode} mode`, () => {
+    it(`should show toggletip in ${mode} mode`, () => {
       cy.visit(`http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=mode:${mode}`);
 
       cy.get("dso-toggletip.hydrated").should("be.visible").matchImageSnapshot();
@@ -50,7 +50,7 @@ describe("Toggletip", () => {
 
   for (const position of positions) {
     it(`should show tooltip at ${position} position`, () => {
-      cy.viewport(1400, 400).visit(
+      cy.viewport(750, 500).visit(
         `http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=position:${position}`,
       );
 
@@ -62,7 +62,8 @@ describe("Toggletip", () => {
         .find("button")
         .click();
 
-      cy.matchImageSnapshot();
+      // Even wachten tot de verschijntransistie van 150ms van het functional component tooltip gereed is
+      cy.wait(200).matchImageSnapshot();
     });
   }
 });
