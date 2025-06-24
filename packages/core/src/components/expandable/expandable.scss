@@ -7,12 +7,22 @@
   @include utilities.transition(grid-template-rows);
 }
 
+:host([enable-opacity-animation]) {
+  opacity: 0;
+  @include utilities.transition(grid-template-rows, opacity);
+}
+
 :host([enable-animation]:not([open="true"])) {
   .slot-container {
     min-block-size: 0;
     visibility: hidden;
     @include utilities.transition(visibility);
   }
+}
+
+:host([enable-opacity-animation]:not([open="true"])) {
+  opacity: 0;
+  @include utilities.transition(grid-template-rows, opacity);
 }
 
 :host(:not([enable-animation])),
@@ -26,6 +36,10 @@
   .slot-container {
     visibility: visible;
   }
+}
+
+:host([open][enable-opacity-animation]:not([open="false"])) {
+  opacity: 1;
 }
 
 :host([open]:not([enable-animation]):not([open="false"])),

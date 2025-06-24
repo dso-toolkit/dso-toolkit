@@ -2,6 +2,7 @@ import { FormGroupInputArgs } from "./form-group-input.args";
 
 export const inputContent: Omit<FormGroupInputArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   type: "text",
   label: 'Vul "een waarde" in',
   value: "een waarde",

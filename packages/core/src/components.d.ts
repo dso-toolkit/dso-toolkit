@@ -669,6 +669,10 @@ export namespace Components {
          */
         "enableAnimation": boolean;
         /**
+          * Set to `true` to show the content opacity animated.
+         */
+        "enableOpacityAnimation": boolean;
+        /**
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
         "minimumHeight"?: number;
@@ -3189,6 +3193,10 @@ declare namespace LocalJSX {
           * Set to `true` to show the content animated.
          */
         "enableAnimation"?: boolean;
+        /**
+          * Set to `true` to show the content opacity animated.
+         */
+        "enableOpacityAnimation"?: boolean;
         /**
           * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
          */
