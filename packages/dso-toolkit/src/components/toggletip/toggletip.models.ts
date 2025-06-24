@@ -12,7 +12,6 @@ export interface Toggletip<TemplateFnReturnType> {
   badgeStatus?: BadgeStatus;
   icon?: string;
   iconActive?: string;
-  withContainer?: boolean;
 }
 
 export function isToggletipInterface<TemplateFnReturnType>(object: unknown): object is Toggletip<TemplateFnReturnType> {
