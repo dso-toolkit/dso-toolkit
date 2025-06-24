@@ -7,9 +7,9 @@
 
 | Property      | Attribute      | Description                                        | Type                                                                                                | Default         |
 | ------------- | -------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------- |
-| `badgeStatus` | `badge-status` | The badge status when `mode`=`badge`               | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined`     |
-| `icon`        | `icon`         | The icon when `mode`=`icon`                        | `string \| undefined`                                                                               | `undefined`     |
-| `iconActive`  | `icon-active`  | The icon when `mode`=`icon` and the tip is visible | `string \| undefined`                                                                               | `undefined`     |
+| `badgeStatus` | `badge-status` | The badge status when `mode="badge"`               | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined`     |
+| `icon`        | `icon`         | The icon when `mode="icon"`                        | `string \| undefined`                                                                               | `undefined`     |
+| `iconActive`  | `icon-active`  | The icon when `mode="icon"` and the tip is visible | `string \| undefined`                                                                               | `undefined`     |
 | `label`       | `label`        | Toggletip label.                                   | `string`                                                                                            | `"Toelichting"` |
 | `mode`        | `mode`         | The type of Toggletip.                             | `"badge" \| "icon" \| "secondary" \| "toggle"`                                                      | `"toggle"`      |
 | `position`    | `position`     | Toggletip position.                                | `"bottom" \| "left" \| "right" \| "top"`                                                            | `"right"`       |
