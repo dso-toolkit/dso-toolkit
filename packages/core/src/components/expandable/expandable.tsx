@@ -47,12 +47,6 @@ export class Expandable implements ComponentInterface {
   enableAnimation = false;
 
   /**
-   * Set to `true` to show the content opacity animated.
-   */
-  @Prop({ reflect: true })
-  enableOpacityAnimation = false;
-
-  /**
    * When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to
    */
   @Prop()

@@ -4,10 +4,6 @@
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
-  @include utilities.transition(grid-template-rows);
-}
-
-:host([enable-opacity-animation]) {
   opacity: 0;
   @include utilities.transition(grid-template-rows, opacity);
 }
@@ -16,13 +12,8 @@
   .slot-container {
     min-block-size: 0;
     visibility: hidden;
-    @include utilities.transition(visibility);
+    @include utilities.transition(visibility, opacity);
   }
-}
-
-:host([enable-opacity-animation]:not([open="true"])) {
-  opacity: 0;
-  @include utilities.transition(grid-template-rows, opacity);
 }
 
 :host(:not([enable-animation])),
@@ -32,14 +23,11 @@
 
 :host([open][enable-animation]:not([open="false"])) {
   grid-template-rows: 1fr;
+  opacity: 1;
 
   .slot-container {
     visibility: visible;
   }
-}
-
-:host([open][enable-opacity-animation]:not([open="false"])) {
-  opacity: 1;
 }
 
 :host([open]:not([enable-animation]):not([open="false"])),

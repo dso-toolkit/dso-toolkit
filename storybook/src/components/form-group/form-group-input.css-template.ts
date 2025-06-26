@@ -25,13 +25,13 @@ export const cssFormGroupInput: ComponentImplementation<
 
       return html`
         ${formGroup.animatable
-          ? html`<dso-expandable ?open=${ifDefined(formGroup.open)} enable-animation enable-opacity-animation>
-              ${renderFormGroup()}
+          ? html`<dso-expandable ?open=${ifDefined(formGroup.open)} enable-animation>
+              ${renderFormGroupInput()}
             </dso-expandable>`
-          : renderFormGroup()}
+          : renderFormGroupInput()}
       `;
 
-      function renderFormGroup() {
+      function renderFormGroupInput() {
         return html`
           <div
             class="form-group dso-input ${classMap({
