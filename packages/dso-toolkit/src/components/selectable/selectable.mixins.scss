@@ -17,15 +17,9 @@
   }
 }
 
-@mixin root($set-padding: true) {
+@mixin root() {
   position: relative;
-
   display: var(--dso-selectable-display, block);
-
-  @if ($set-padding) {
-    padding-block: 0;
-    padding-inline: units.$u4 0;
-  }
 
   label {
     font-weight: 400;
@@ -130,15 +124,6 @@
       inset-block-start: selectable-variables.$border-width;
       inline-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
     }
-  }
-
-  &:focus + label::before {
-    box-shadow: 0 0 0 selectable-variables.$focus-border-width
-      var(--dso-selectable-color, selectable-variables.$valid-color);
-    block-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
-    inset-inline-start: selectable-variables.$focus-border-width;
-    inset-block-start: selectable-variables.$focus-border-width;
-    inline-size: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
   }
 
   &:active,
