@@ -5,7 +5,7 @@
 :host {
   padding-inline-start: selectable.$symbol-indent;
 
-  @include selectable.root(false);
+  @include selectable.root();
 
   &[invalid]:not([invalid="false"]) {
     @include selectable.invalid();
@@ -26,17 +26,9 @@
   .dso-selectable-input-wrapper {
     display: inline-block;
     min-block-size: units.$u3;
-
-    &:focus-within.dso-keyboard-focus {
-      @include utilities.focus-outline();
-
-      position: relative;
-      inset-inline-start: -(selectable.$symbol-indent);
-
-      padding-inline-start: selectable.$symbol-indent;
-
-      margin-inline-end: -(selectable.$symbol-indent);
-    }
+    position: relative;
+    margin-inline-start: -(selectable.$symbol-indent);
+    padding-inline-start: selectable.$symbol-indent;
 
     input[type="radio"],
     input[type="checkbox"] {
