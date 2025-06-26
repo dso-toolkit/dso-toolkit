@@ -25,9 +25,7 @@ export const cssFormGroupInput: ComponentImplementation<
 
       return html`
         ${formGroup.animatable
-          ? html`<dso-expandable ?open=${ifDefined(formGroup.open)} enable-animation>
-              ${renderFormGroupInput()}
-            </dso-expandable>`
+          ? html`<dso-expandable open enable-animation>${renderFormGroupInput()}</dso-expandable>`
           : renderFormGroupInput()}
       `;
 

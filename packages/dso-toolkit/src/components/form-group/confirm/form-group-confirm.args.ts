@@ -5,6 +5,7 @@ import { FormGroupConfirm } from "./form-group-confirm.models";
 
 export interface FormGroupConfirmArgs {
   id: string;
+  animatable?: boolean;
   state?: "invalid" | "valid";
   required: boolean;
   disabled: boolean;
@@ -18,6 +19,11 @@ export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
   id: {
     control: {
       type: "text",
+    },
+  },
+  animatable: {
+    control: {
+      type: "boolean",
     },
   },
   state: {
@@ -64,6 +70,7 @@ export function formGroupConfirmArgsMapper<TemplateFnReturnType>(
   return {
     group: "confirm",
     id: a.id,
+    animatable: a.animatable,
     required: a.required,
     disabled: a.disabled,
     state: a.state,

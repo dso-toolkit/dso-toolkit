@@ -4,6 +4,8 @@ import { FormGroupDatePickerLegacy } from "./form-group-date-picker-legacy.model
 
 export interface FormGroupDatePickerLegacyArgs {
   id: string;
+  animatable?: boolean;
+  open?: boolean;
   state?: "invalid" | "valid";
   required: boolean;
   disabled: boolean;
@@ -15,6 +17,11 @@ export const formGroupDatePickerLegacyArgTypes: ArgTypes<FormGroupDatePickerLega
   id: {
     control: {
       type: "text",
+    },
+  },
+  animatable: {
+    control: {
+      type: "boolean",
     },
   },
   state: {
@@ -51,6 +58,7 @@ export function formGroupDatePickerLegacyArgsMapper<TemplateFnReturnType>(
   return {
     group: "date-picker-legacy",
     id: a.id,
+    animatable: a.animatable,
     required: a.required,
     disabled: a.disabled,
     state: a.state,

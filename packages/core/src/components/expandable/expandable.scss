@@ -5,6 +5,7 @@
   grid-template-rows: 0fr;
   overflow: hidden;
   opacity: 0;
+
   @include utilities.transition(grid-template-rows, opacity);
 }
 
@@ -12,7 +13,8 @@
   .slot-container {
     min-block-size: 0;
     visibility: hidden;
-    @include utilities.transition(visibility, opacity);
+
+    @include utilities.transition(visibility);
   }
 }
 

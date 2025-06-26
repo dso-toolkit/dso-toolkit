@@ -2,6 +2,7 @@ import { FormGroupTextareaArgs } from "./form-group-textarea.args";
 
 export const textareaContent: Omit<FormGroupTextareaArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   label: 'Vul "een waarde" in',
   value: "een waarde",
   required: false,

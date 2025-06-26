@@ -2,6 +2,7 @@ import { FormGroupSearchBarArgs } from "./form-group-search-bar.args";
 
 export const searchBarContent: Omit<FormGroupSearchBarArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   label: "Search bar",
   infoButtonLabel: "Toelichting bij veld",
   infoActive: false,

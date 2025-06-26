@@ -18,22 +18,32 @@ export const cssFormGroupConfirm: ComponentImplementation<FormGroupConfirm<Templ
       const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
       return html`
-        <div
-          class="form-group dso-confirm ${classMap({
-            "dso-required": !!formGroup.required,
-            [`dso-${formGroup.state}`]: !!formGroup.state,
-          })}"
-          aria-describedby=${ifDefined(ariaDescribedBy)}
-          aria-errormessage=${ifDefined(ariaErrorMessage)}
-        >
-          <div class="dso-field-container">
-            ${selectableTemplate({ ...formGroup.selectable, disabled: formGroup.disabled })}
-            ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-              : nothing}
-            ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
-          </div>
-        </div>
+        ${formGroup.animatable
+          ? html` <dso-expandable open enable-animation>${renderFormGroupConfirm()}</dso-expandable>`
+          : renderFormGroupConfirm()}
       `;
+
+      function renderFormGroupConfirm() {
+        return html`
+          <div
+            class="form-group dso-confirm ${classMap({
+              "dso-required": !!formGroup.required,
+              [`dso-${formGroup.state}`]: !!formGroup.state,
+            })}"
+            aria-describedby=${ifDefined(ariaDescribedBy)}
+            aria-errormessage=${ifDefined(ariaErrorMessage)}
+          >
+            <div class="dso-field-container">
+              ${selectableTemplate({ ...formGroup.selectable, disabled: formGroup.disabled })}
+              ${formGroup.errorText && formGroup.state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+                : nothing}
+              ${formGroup.helpText
+                ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>`
+                : nothing}
+            </div>
+          </div>
+        `;
+      }
     },
 };

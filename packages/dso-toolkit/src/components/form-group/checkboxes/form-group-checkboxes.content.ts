@@ -2,6 +2,7 @@ import { FormGroupCheckboxesArgs } from "./form-group-checkboxes.args";
 
 export const checkboxesContent: Omit<FormGroupCheckboxesArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   label: "Checkboxes",
   required: false,
   disabled: false,

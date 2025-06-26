@@ -4,6 +4,8 @@ import { FormGroupFiles, FormGroupFilesFile } from "./form-group-files.models";
 
 export interface FormGroupFilesArgs {
   id: string;
+  animatable?: boolean;
+  open?: boolean;
   label: string;
   addFileButtonVariant: "primary" | "secondary";
   state?: "invalid" | "valid";
@@ -17,6 +19,16 @@ export const formGroupFilesArgTypes: ArgTypes<FormGroupFilesArgs> = {
   id: {
     control: {
       type: "text",
+    },
+  },
+  animatable: {
+    control: {
+      type: "boolean",
+    },
+  },
+  open: {
+    control: {
+      type: "boolean",
     },
   },
   label: {

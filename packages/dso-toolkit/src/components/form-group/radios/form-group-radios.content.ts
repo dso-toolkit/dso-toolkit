@@ -2,6 +2,7 @@ import { FormGroupRadiosArgs } from "./form-group-radios.args";
 
 export const radiosContent: Omit<FormGroupRadiosArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   label: "Radios",
   required: false,
   disabled: false,

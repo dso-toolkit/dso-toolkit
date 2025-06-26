@@ -3,6 +3,7 @@ import { FormGroupFilesFile } from "./form-group-files.models";
 
 export const filesContent: Omit<FormGroupFilesArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
+  animatable: false,
   label: "Files",
   required: false,
   disabled: false,

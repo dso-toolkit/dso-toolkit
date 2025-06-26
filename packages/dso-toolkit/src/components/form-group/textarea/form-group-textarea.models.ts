@@ -1,4 +1,4 @@
-import { Icon } from "../../icon/icon.models";
+import { Icon } from "../../icon";
 import { FormGroupBase } from "../form-group.base-model";
 
 export interface FormGroupTextarea<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {

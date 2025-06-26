@@ -3,8 +3,6 @@ import { FormGroupBase } from "../form-group.base-model";
 
 export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
   group: "input";
-  animatable?: boolean;
-  open?: boolean;
   type: "text" | "email" | "password" | "url" | "tel";
   value?: string;
   placeholder?: string;

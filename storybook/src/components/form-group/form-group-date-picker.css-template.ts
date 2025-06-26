@@ -11,6 +11,7 @@ export const cssFormGroupDatePicker: ComponentImplementation<FormGroupDatePicker
   template: ({ datePickerTemplate, infoButtonTemplate, infoTemplate }) =>
     function formGroupDatePickerTemplate({
       id,
+      animatable,
       state,
       required,
       helpText,
@@ -29,27 +30,35 @@ export const cssFormGroupDatePicker: ComponentImplementation<FormGroupDatePicker
       const ariaErrorMessage = errorText ? errorTextId : undefined;
 
       return html`
-        <div
-          class="form-group dso-input dso-input-date ${classMap({
-            "dso-required": !!required,
-            [`dso-${state}`]: !!state,
-          })}"
-          aria-describedby=${ifDefined(ariaDescribedBy)}
-          aria-errormessage=${ifDefined(ariaErrorMessage)}
-        >
-          <div class="dso-label-container">
-            <label for=${id} class="control-label">${label}</label>
-            ${info?.fixed === false && infoButton ? infoButtonTemplate(infoButton) : nothing}
-            ${info?.active ? infoTemplate({ ...info, id: infoTextId }) : nothing}
-          </div>
-          <div class="dso-field-container">
-            ${datePickerTemplate({ ...datePicker, id })}
-            ${errorText && state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${errorText}</p>`
-              : nothing}
-            ${helpText ? html`<p class="dso-help-block" id=${helpTextId}>${helpText}</p>` : nothing}
-          </div>
-        </div>
+        ${animatable
+          ? html`<dso-expandable open enable-animation>${renderFormGroupDatePicker()}</dso-expandable>`
+          : renderFormGroupDatePicker()}
       `;
+
+      function renderFormGroupDatePicker() {
+        return html`
+          <div
+            class="form-group dso-input dso-input-date ${classMap({
+              "dso-required": !!required,
+              [`dso-${state}`]: !!state,
+            })}"
+            aria-describedby=${ifDefined(ariaDescribedBy)}
+            aria-errormessage=${ifDefined(ariaErrorMessage)}
+          >
+            <div class="dso-label-container">
+              <label for=${id} class="control-label">${label}</label>
+              ${info?.fixed === false && infoButton ? infoButtonTemplate(infoButton) : nothing}
+              ${info?.active ? infoTemplate({ ...info, id: infoTextId }) : nothing}
+            </div>
+            <div class="dso-field-container">
+              ${datePickerTemplate({ ...datePicker, id })}
+              ${errorText && state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${errorText}</p>`
+                : nothing}
+              ${helpText ? html`<p class="dso-help-block" id=${helpTextId}>${helpText}</p>` : nothing}
+            </div>
+          </div>
+        `;
+      }
     },
 };

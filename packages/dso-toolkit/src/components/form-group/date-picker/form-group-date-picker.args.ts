@@ -4,6 +4,7 @@ import { FormGroupDatePicker } from "./form-group-date-picker.models";
 
 export interface FormGroupDatePickerArgs {
   id: string;
+  animatable?: boolean;
   label: string;
   state?: "invalid" | "valid";
   required: boolean;
@@ -16,6 +17,11 @@ export const formGroupDatePickerArgTypes: ArgTypes<FormGroupDatePickerArgs> = {
   id: {
     control: {
       type: "text",
+    },
+  },
+  animatable: {
+    control: {
+      type: "boolean",
     },
   },
   label: {
@@ -57,6 +63,7 @@ export function formGroupDatePickerArgsMapper<TemplateFnReturnType>(
   return {
     group: "date-picker",
     id: a.id,
+    animatable: a.animatable,
     label: a.label,
     required: a.required,
     disabled: a.disabled,

@@ -21,29 +21,39 @@ export const cssFormGroupSearchBar: ComponentImplementation<FormGroupSearchBar<T
       const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
       return html`
-        <div
-          class="form-group dso-form-group-search-bar ${classMap({ [`dso-${formGroup.state}`]: !!formGroup.state })}"
-        >
-          <div class="dso-label-container">
-            <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
-            ${formGroup.info?.fixed === false && formGroup.infoButton
-              ? infoButtonTemplate(formGroup.infoButton)
-              : nothing}
-            ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
-          </div>
-          <div class="dso-field-container">
-            ${searchBarTemplate({
-              ...formGroup.searchBar,
-              invalid: formGroup.state === "invalid",
-              ariaDescribedBy,
-              ariaErrorMessage,
-            })}
-            ${formGroup.errorText && formGroup.state === "invalid"
-              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
-              : nothing}
-            ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
-          </div>
-        </div>
+        ${formGroup.animatable
+          ? html`<dso-expandable open enable-animation>${renderFormGroupSearchBar()}</dso-expandable>`
+          : renderFormGroupSearchBar()}
       `;
+
+      function renderFormGroupSearchBar() {
+        return html`
+          <div
+            class="form-group dso-form-group-search-bar ${classMap({ [`dso-${formGroup.state}`]: !!formGroup.state })}"
+          >
+            <div class="dso-label-container">
+              <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
+              ${formGroup.info?.fixed === false && formGroup.infoButton
+                ? infoButtonTemplate(formGroup.infoButton)
+                : nothing}
+              ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
+            </div>
+            <div class="dso-field-container">
+              ${searchBarTemplate({
+                ...formGroup.searchBar,
+                invalid: formGroup.state === "invalid",
+                ariaDescribedBy,
+                ariaErrorMessage,
+              })}
+              ${formGroup.errorText && formGroup.state === "invalid"
+                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
+                : nothing}
+              ${formGroup.helpText
+                ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>`
+                : nothing}
+            </div>
+          </div>
+        `;
+      }
     },
 };

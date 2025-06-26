@@ -4,6 +4,7 @@ import { SelectOption, SelectOptionGroup } from "./form-group-select.models";
 export const selectContent: Omit<FormGroupSelectArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   metOptGroup: false,
   id: "mijn-id",
+  animatable: false,
   label: 'Vul "een waarde" in',
   required: false,
   disabled: false,

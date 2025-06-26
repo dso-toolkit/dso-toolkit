@@ -7,6 +7,7 @@ import { FormGroupTextarea } from "./form-group-textarea.models";
 
 export interface FormGroupTextareaArgs {
   id: string;
+  animatable?: boolean;
   label: string;
   state?: "invalid" | "valid";
   value: string;
@@ -30,6 +31,11 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
   id: {
     control: {
       type: "text",
+    },
+  },
+  animatable: {
+    control: {
+      type: "boolean",
     },
   },
   label: {
@@ -125,6 +131,7 @@ export function formGroupTextareaArgsMapper<TemplateFnReturnType>(
   return {
     group: "textarea",
     id: a.id,
+    animatable: a.animatable,
     label: a.label,
     value: a.value,
     required: a.required,

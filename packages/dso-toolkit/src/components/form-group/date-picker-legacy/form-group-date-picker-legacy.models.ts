@@ -1,4 +1,4 @@
-import { DatePickerLegacy } from "../../date-picker-legacy/date-picker-legacy.models";
+import { DatePickerLegacy } from "../../date-picker-legacy";
 import { FormGroupBase } from "../form-group.base-model";
 
 export interface FormGroupDatePickerLegacy<TemplateFnReturnType>
