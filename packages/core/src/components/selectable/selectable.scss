@@ -1,19 +1,193 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/components/selectable";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/zindex";
+@use "selectable.variables" as selectable-variables;
 
 :host {
-  @include selectable.root();
+  padding-inline-start: selectable-variables.$symbol-indent;
+  position: relative;
+  display: var(--dso-selectable-display, block);
 
-  &[invalid]:not([invalid="false"]) {
-    @include selectable.invalid();
+  label {
+    font-weight: 400;
+    line-height: selectable-variables.$size;
+    margin: 0;
   }
 
-  @include selectable.children("dso-info");
+  input[type="checkbox"][disabled],
+  input[type="radio"][disabled] {
+    &,
+    &:active,
+    &:focus {
+      + label {
+        &::before {
+          background-color: colors.$wit;
+          box-shadow: 0 0 0 selectable-variables.$border-width selectable-variables.$disabled-color;
+        }
+      }
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    block-size: 100%;
+    inset-inline-start: 0;
+    margin: 0;
+    appearance: none;
+    position: absolute;
+    inset-block-start: 0;
+    inline-size: 100%;
+    z-index: zindex.$selectable;
+    zoom: 1;
+
+    @media (prefers-contrast: more) {
+      & {
+        opacity: 1;
+      }
+    }
+
+    &:not([disabled]) {
+      cursor: pointer;
+    }
+
+    + label {
+      display: inline;
+      font-style: normal;
+      padding-inline-start: 0;
+
+      &::before {
+        background: colors.$wit;
+        border: 0;
+        box-shadow: 0 0 0 selectable-variables.$border-width
+          var(--dso-selectable-color, selectable-variables.$valid-color);
+        content: "";
+        block-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
+        inset-inline-start: selectable-variables.$border-width;
+        position: absolute;
+        inset-block-start: selectable-variables.$border-width;
+        inline-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
+      }
+    }
+
+    &:active,
+    &.active {
+      + label::before {
+        background-color: selectable-variables.$active-background-color;
+        box-shadow: 0 0 0 1px selectable-variables.$valid-color;
+        block-size: selectable-variables.$size - 2px;
+        inset-inline-start: 1px;
+        inset-block-start: 1px;
+        inline-size: selectable-variables.$size - 2px;
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    + label {
+      &::before {
+        border-radius: 4px;
+      }
+
+      &::after {
+        background: transparent;
+        content: "";
+        inset-inline-start: 6px;
+        opacity: 0;
+        position: absolute;
+        inset-block-start: 6px;
+        zoom: 1;
+      }
+    }
+
+    &:checked,
+    &:indeterminate {
+      + label {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:checked {
+      + label {
+        &::after {
+          border: solid;
+          border-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          border-block-start-color: transparent;
+          border-width: 0 0 3px 3px;
+          block-size: 8px;
+          transform: rotate(-45deg);
+          inline-size: 13px;
+        }
+      }
+    }
+
+    &:indeterminate {
+      + label {
+        &::after {
+          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          block-size: selectable-variables.$indeterminate-size;
+          inline-size: selectable-variables.$indeterminate-size;
+        }
+      }
+    }
+  }
+
+  input[type="radio"] {
+    + label {
+      &::before {
+        border-radius: 50%;
+      }
+
+      &::after {
+        background-color: transparent;
+        border-radius: 50%;
+        content: "";
+        block-size: 12px;
+        inset-inline-start: 6px;
+        opacity: 0;
+        position: absolute;
+        inset-block-start: 6px;
+        inline-size: 12px;
+        zoom: 1;
+      }
+    }
+
+    &:checked {
+      + label {
+        &::after {
+          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[invalid]:not([invalid="false"]) {
+    --dso-selectable-color: #{selectable-variables.$invalid-color};
+  }
+
+  > dso-info {
+    float: none;
+    margin-block: units.$u1 0;
+    margin-inline: 0 units.$u2;
+    inline-size: 100%;
+  }
+
+  .dso-selectable-options {
+    list-style: none;
+    margin-block-start: units.$u1;
+    padding-inline-start: 0;
+
+    li + li {
+      margin-block-start: units.$u1;
+    }
+  }
 }
 
 :host(:not(:last-child)) {
-  @include selectable.notLastChild();
+  margin-block-end: units.$u1;
 }
 
 @include utilities.box-sizing();
@@ -25,16 +199,18 @@
     display: inline-block;
     min-block-size: units.$u3;
     position: relative;
-    margin-inline-start: -(selectable.$symbol-indent);
-    padding-inline-start: selectable.$symbol-indent;
+    margin-inline-start: -(selectable-variables.$symbol-indent);
+    padding-inline-start: selectable-variables.$symbol-indent;
 
     input[type="radio"],
     input[type="checkbox"] {
       &:focus + label::before {
-        @include selectable.selectableBoxShadow(
-          selectable.$border-width,
-          var(--dso-selectable-color, selectable.$valid-color)
-        );
+        box-shadow: 0 0 0 selectable-variables.$border-width
+          var(--dso-selectable-color, selectable-variables.$valid-color);
+        block-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
+        inset-inline-start: selectable-variables.$border-width;
+        inset-block-start: selectable-variables.$border-width;
+        inline-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
       }
     }
   }
