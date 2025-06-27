@@ -2,7 +2,11 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Pro
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
-import { OzonContentAnchorClickEvent, OzonContentUrlResolver } from "../ozon-content/ozon-content.interfaces";
+import {
+  OzonContentAnchorClickEvent,
+  OzonContentClickEvent,
+  OzonContentUrlResolver,
+} from "../ozon-content/ozon-content.interfaces";
 
 import { Heading } from "./document-component-heading";
 import {
@@ -250,6 +254,14 @@ export class DocumentComponent implements ComponentInterface {
     this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
   };
 
+  private handleOzonContentClick = (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => {
+    const { detail } = event;
+
+    if (detail.type === "Kop") {
+      this.handleHeadingClick(detail.originalEvent);
+    }
+  };
+
   private handleRecursiveToggleClick = (e: MouseEvent) => {
     this.dsoRecursiveToggle.emit({
       originalEvent: e,
@@ -291,19 +303,14 @@ export class DocumentComponent implements ComponentInterface {
           <div class="heading-container" part="_heading-container">
             {this.wijzigactie && <span class="editaction-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
-              <Heading
-                heading={this.heading}
-                class="heading-element"
-                onClick={this.handleHeadingClick}
-                mode={this.mode}
-                href={this.href}
-              >
+              <Heading heading={this.heading} class="heading-element" mode={this.mode} href={this.href}>
                 {collapsible && this.mode === "document" && (
                   <button
                     type="button"
                     class="toggle-button"
                     aria-describedby="heading-title"
                     aria-expanded={this.open.toString()}
+                    onClick={this.handleHeadingClick}
                   >
                     <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
                     <span class="sr-only">{this.open ? "Invouwen" : "Uitvouwen"}</span>
@@ -314,13 +321,14 @@ export class DocumentComponent implements ComponentInterface {
 
                   {this.kop && (
                     <dso-ozon-content
+                      class="kop"
                       content={this.kop}
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                      onDsoClick={this.handleOzonContentClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>
                         this.dsoMarkItemHighlight.emit({ ...e.detail, source: "kop" })
                       }
-                      inline
                       urlResolver={this.ozonContentUrlResolver}
                     />
                   )}
@@ -333,6 +341,7 @@ export class DocumentComponent implements ComponentInterface {
                           <dso-ozon-content
                             content={this.label}
                             onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            onDsoClick={this.handleOzonContentClick}
                             mark={this.mark && ((text) => this.mark?.(text, "label"))}
                             onDsoOzonContentMarkItemHighlight={(e) =>
                               this.dsoMarkItemHighlight.emit({ ...e.detail, source: "label" })
@@ -347,6 +356,7 @@ export class DocumentComponent implements ComponentInterface {
                           <dso-ozon-content
                             content={this.nummer}
                             onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            onDsoClick={this.handleOzonContentClick}
                             mark={this.mark && ((text) => this.mark?.(text, "nummer"))}
                             onDsoOzonContentMarkItemHighlight={(e) =>
                               this.dsoMarkItemHighlight.emit({ ...e.detail, source: "nummer" })
@@ -361,6 +371,7 @@ export class DocumentComponent implements ComponentInterface {
                           <dso-ozon-content
                             content={this.opschrift}
                             onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                            onDsoClick={this.handleOzonContentClick}
                             mark={this.mark && ((text) => this.mark?.(text, "opschrift"))}
                             onDsoOzonContentMarkItemHighlight={(e) =>
                               this.dsoMarkItemHighlight.emit({ ...e.detail, source: "opschrift" })
@@ -444,6 +455,7 @@ export class DocumentComponent implements ComponentInterface {
               <dso-ozon-content
                 content={this.inhoud}
                 onDsoAnchorClick={this.handleOzonContentAnchorClick}
+                onDsoClick={this.handleOzonContentClick}
                 mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
                 onDsoOzonContentMarkItemHighlight={(e) =>
                   this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })

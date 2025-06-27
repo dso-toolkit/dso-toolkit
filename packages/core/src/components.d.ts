@@ -21,7 +21,7 @@ import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
-import { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { Placement } from "@popperjs/core";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -65,7 +65,7 @@ export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DateP
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.models";
-export { OzonContentAnchorClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { Placement } from "@popperjs/core";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -2122,6 +2122,7 @@ declare global {
         new (): HTMLDsoOnboardingTipElement;
     };
     interface HTMLDsoOzonContentElementEventMap {
+        "dsoClick": OzonContentClickEvent;
         "dsoAnchorClick": OzonContentAnchorClickEvent;
         "dsoOzonContentMarkItemHighlight": OzonContentMarkItemHighlightEvent;
     }
@@ -3610,9 +3611,13 @@ declare namespace LocalJSX {
          */
         "mark"?: OzonContentMarkFunction;
         /**
-          * Emitted when `<a>` is clicked.
+          * Emitted when `<a>` that are created through <IntIoRef> and <IntRef> is clicked.
          */
         "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => void;
+        /**
+          * Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>.
+         */
+        "onDsoClick"?: (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => void;
         /**
           * Emitted when a marked item is highlighted.
          */
