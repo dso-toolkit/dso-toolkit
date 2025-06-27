@@ -16,6 +16,7 @@ import { Mapper } from "./ozon-content-mapper";
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import {
   OzonContentAnchorClickEvent,
+  OzonContentClickEvent,
   OzonContentInputType,
   OzonContentMarkFunction,
   OzonContentMarkItemHighlightEvent,
@@ -55,7 +56,13 @@ export class OzonContent implements ComponentInterface {
   urlResolver?: OzonContentUrlResolver;
 
   /**
-   * Emitted when `<a>` is clicked.
+   * Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>.
+   */
+  @Event({ bubbles: false })
+  dsoClick!: EventEmitter<OzonContentClickEvent>;
+
+  /**
+   * Emitted when `<a>` that are created through <IntIoRef> and <IntRef> is clicked.
    */
   @Event({ bubbles: false })
   dsoAnchorClick!: EventEmitter<OzonContentAnchorClickEvent>;
@@ -86,6 +93,7 @@ export class OzonContent implements ComponentInterface {
       setState: (state) => (this.state = state),
       emitMarkItemHighlight: this.handleMarkItemHighlight,
       emitAnchorClick: this.dsoAnchorClick.emit,
+      emitClick: this.dsoClick.emit,
       urlResolver: this.urlResolver,
     };
 

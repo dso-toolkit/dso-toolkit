@@ -19,37 +19,45 @@ export class OzonContentKopNode implements OzonContentNode {
 
   handles = ["Label", "Nummer", "Opschrift", "Subtitel"];
 
-  render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
+  render(node: Element, { mapNodeToJsx, emitClick }: OzonContentNodeContext) {
+    const handleKopClick = (event: MouseEvent) => {
+      emitClick({
+        type: "Kop",
+        node,
+        originalEvent: event,
+      });
+    };
+
     const { label, nummer, opschrift, subtitels } = mapData(node);
 
     const wijzigactieLabel = label ? parseWijzigactieFromNode(label) : undefined;
-
     const wijzigactieNummer = nummer ? parseWijzigactieFromNode(nummer) : undefined;
-
     const wijzigactieOpschrift = opschrift ? parseWijzigactieFromNode(opschrift) : undefined;
 
     return (
       <WrapWijzigactie wijzigactie={parseWijzigactieFromNode(node)}>
-        {label && <WrapWijzigactie wijzigactie={wijzigactieLabel}>{mapNodeToJsx(label.childNodes)}</WrapWijzigactie>}
-        {nummer && (
-          <>
-            {" "}
-            <WrapWijzigactie wijzigactie={wijzigactieNummer}>{mapNodeToJsx(nummer.childNodes)}</WrapWijzigactie>
-          </>
-        )}
-        {opschrift && (
-          <>
-            {" "}
-            <WrapWijzigactie wijzigactie={wijzigactieOpschrift}>{mapNodeToJsx(opschrift.childNodes)}</WrapWijzigactie>
-          </>
-        )}
+        <div onClick={handleKopClick} part="_kop">
+          {label && <WrapWijzigactie wijzigactie={wijzigactieLabel}>{mapNodeToJsx(label.childNodes)}</WrapWijzigactie>}
+          {nummer && (
+            <>
+              {" "}
+              <WrapWijzigactie wijzigactie={wijzigactieNummer}>{mapNodeToJsx(nummer.childNodes)}</WrapWijzigactie>
+            </>
+          )}
+          {opschrift && (
+            <>
+              {" "}
+              <WrapWijzigactie wijzigactie={wijzigactieOpschrift}>{mapNodeToJsx(opschrift.childNodes)}</WrapWijzigactie>
+            </>
+          )}
+        </div>
         {subtitels.length > 0 && (
-          <div class="subtitels-container" part="subtitels" onClick={(e) => e.stopPropagation()}>
+          <div class="subtitels-container" part="_subtitels">
             {subtitels.map((subtitel) => {
               const wijzigactieSubtitel = parseWijzigactieFromNode(subtitel);
 
               return (
-                <div class="subtitel" onClick={(e) => e.stopPropagation()}>
+                <div class="subtitel">
                   <WrapWijzigactie wijzigactie={wijzigactieSubtitel}>
                     {mapNodeToJsx(subtitel.childNodes)}
                   </WrapWijzigactie>

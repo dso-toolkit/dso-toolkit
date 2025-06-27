@@ -72,7 +72,7 @@
 
 :host(:not([open])),
 :host([mode="table-of-contents"]) {
-  dso-ozon-content::part(subtitels) {
+  dso-ozon-content::part(_subtitels) {
     display: none;
   }
 }
@@ -119,22 +119,29 @@
     margin-inline-start: 0;
   }
 
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     color: colors.$zwart;
   }
 }
 
 :host([mode="document"]:not([not-collapsible])) {
-  --link-color: #{document-component.$heading-anchor-color};
-  --link-hover-color: #{document-component.$heading-anchor-hover-color};
-
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     cursor: pointer;
-    @include link.pseudo();
+  }
+
+  dso-ozon-content.kop::part(_kop):hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
   }
 
   .editaction-label {
     margin-inline-start: document-component.$indent;
+  }
+}
+
+:host([mode="document"]:not([not-collapsible]):active) {
+  dso-ozon-content.kop::part(_kop) {
+    text-decoration: none;
   }
 }
 
@@ -153,13 +160,13 @@
 }
 
 :host([mode="table-of-contents"][type="ARTIKEL"]) {
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     color: inherit;
   }
 }
 
 :host([mode="table-of-contents"]:not([type="HOOFDSTUK"])) {
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     font-weight: normal;
   }
 }
@@ -177,7 +184,7 @@
 }
 
 :host([type="ARTIKEL"]) {
-  .heading-element,
+  dso-ozon-content.kop::part(_kop),
   .toggle-button {
     color: colors.$zwart;
   }
