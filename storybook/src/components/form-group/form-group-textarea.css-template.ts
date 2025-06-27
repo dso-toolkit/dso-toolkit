@@ -23,8 +23,8 @@ export const cssFormGroupTextarea: ComponentImplementation<FormGroupTextarea<Tem
 
       return html`
         ${formGroup.animatable
-        ? html`<dso-expandable open enable-animation>${renderFormGroupTextarea()}</dso-expandable>`
-        : renderFormGroupTextarea()}
+          ? html`<dso-expandable open enable-animation>${renderFormGroupTextarea()}</dso-expandable>`
+          : renderFormGroupTextarea()}
       `;
 
       function renderFormGroupTextarea() {
@@ -44,29 +44,30 @@ export const cssFormGroupTextarea: ComponentImplementation<FormGroupTextarea<Tem
               ${formGroup.info?.active ? infoTemplate({ ...formGroup.info, id: infoTextId }) : nothing}
             </div>
             <div class="dso-field-container">
-            <textarea
-              id=${formGroup.id}
-              class="form-control"
-              placeholder=${ifDefined(formGroup.placeholder)}
-              rows=${ifDefined(formGroup.rows)}
-              aria-describedby=${ifDefined(ariaDescribedBy)}
-              aria-errormessage=${ifDefined(ariaErrorMessage)}
-              aria-invalid=${formGroup.state === "invalid"}
-              ?disabled=${formGroup.disabled}
-              ?readonly=${formGroup.readonly}
-              ?required=${formGroup.required}
-              .value=${formGroup.value}
-            ></textarea>
+              <textarea
+                id=${formGroup.id}
+                class="form-control"
+                placeholder=${ifDefined(formGroup.placeholder)}
+                rows=${ifDefined(formGroup.rows)}
+                aria-describedby=${ifDefined(ariaDescribedBy)}
+                aria-errormessage=${ifDefined(ariaErrorMessage)}
+                aria-invalid=${formGroup.state === "invalid"}
+                ?disabled=${formGroup.disabled}
+                ?readonly=${formGroup.readonly}
+                ?required=${formGroup.required}
+                .value=${formGroup.value}
+              ></textarea>
               ${formGroup.feedback
                 ? html`
-                  <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
-                `
+                    <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
+                  `
                 : nothing}
               ${formGroup.errorText && formGroup.state === "invalid"
                 ? html`<p class="dso-message" role="alert" id=${errorTextId}>${formGroup.errorText}</p>`
                 : nothing}
-              ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>
-                ${formGroup.helpText}</p>` : nothing}
+              ${formGroup.helpText
+                ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>`
+                : nothing}
             </div>
           </div>
         `;

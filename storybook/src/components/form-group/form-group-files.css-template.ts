@@ -20,8 +20,8 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
 
       return html`
         ${formGroup.animatable
-        ? html`<dso-expandable open enable-animation>${renderFormGroupFiles()}</dso-expandable>`
-        : renderFormGroupFiles()}
+          ? html`<dso-expandable open enable-animation>${renderFormGroupFiles()}</dso-expandable>`
+          : renderFormGroupFiles()}
       `;
 
       function renderFormGroupFiles() {
@@ -41,21 +41,19 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
             </div>
             <div class="dso-field-container">
               ${formGroup.files.length > 0
-                ? html`
-                  <ul class="dso-filelist">
+                ? html` <ul class="dso-filelist">
                     ${formGroup.files.map(
                       (file, index) =>
-                        html`
-                          <li>
-                            <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}
-                            </div>
-                            ${file.uploading
-                              ? html`
-                                <div class="dso-upload-loading">
-                                  <dso-icon icon="spinner"></dso-icon>
-                                  <span>Uploaden</span>
-                                </div>`
-                              : selectableTemplate({
+                        html` <li>
+                          <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>
+                            ${file.filename}
+                          </div>
+                          ${file.uploading
+                            ? html` <div class="dso-upload-loading">
+                                <dso-icon icon="spinner"></dso-icon>
+                                <span>Uploaden</span>
+                              </div>`
+                            : selectableTemplate({
                                 id: `${formGroup.id}-file-confirm-${index}`,
                                 value: "",
                                 type: "checkbox",
@@ -63,20 +61,20 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
                                 describedById: `${formGroup.id}-file-filename-${index}`,
                                 checked: file.confidential,
                               })}
-                            ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
-                            ${buttonTemplate({
-                              label: "download document",
-                              variant: "tertiary",
-                              modifier: "dso-download",
-                              ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
-                            })}
-                            ${buttonTemplate({
-                              label: "Verwijder document",
-                              variant: "tertiary",
-                              modifier: "dso-remove",
-                              ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
-                            })}
-                          </li>`,
+                          ${file.confidential ? iconTemplate({ icon: "status-warning" }) : nothing}
+                          ${buttonTemplate({
+                            label: "download document",
+                            variant: "tertiary",
+                            modifier: "dso-download",
+                            ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
+                          })}
+                          ${buttonTemplate({
+                            label: "Verwijder document",
+                            variant: "tertiary",
+                            modifier: "dso-remove",
+                            ariaDescribedby: `${formGroup.id}-file-filename-${index}`,
+                          })}
+                        </li>`,
                     )}
                   </ul>`
                 : nothing}
