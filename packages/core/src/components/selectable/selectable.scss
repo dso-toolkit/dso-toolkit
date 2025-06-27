@@ -3,8 +3,6 @@
 @use "~dso-toolkit/src/variables/units";
 
 :host {
-  padding-inline-start: selectable.$symbol-indent;
-
   @include selectable.root();
 
   &[invalid]:not([invalid="false"]) {

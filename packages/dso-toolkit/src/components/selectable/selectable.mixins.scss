@@ -18,6 +18,7 @@
 }
 
 @mixin root() {
+  padding-inline-start: selectable-variables.$symbol-indent;
   position: relative;
   display: var(--dso-selectable-display, block);
 
