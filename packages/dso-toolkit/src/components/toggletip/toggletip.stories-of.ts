@@ -1,4 +1,4 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -7,17 +7,19 @@ import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { ToggletipArgs, toggletipArgTypes, toggletipArgsMapper } from "./toggletip.args.js";
 import { Toggletip } from "./toggletip.models.js";
 
+export type ToggletipDecorator<TemplateFnReturnType> = (
+  story: PartialStoryFn,
+  args: ToggletipArgs,
+) => TemplateFnReturnType;
+
 interface ToggletipStories {
   Toggletip: StoryObj<ToggletipArgs, Renderer>;
 }
 
 interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ToggletipTemplates<TemplateFnReturnType>
-  > {}
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ToggletipTemplates<TemplateFnReturnType>> {
+  decorator: ToggletipDecorator<TemplateFnReturnType>;
+}
 
 export interface ToggletipTemplates<TemplateFnReturnType> {
   toggletipTemplate: (toggletipProperties: Toggletip<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -43,9 +45,21 @@ export function toggletipMeta<TRenderer extends Renderer>({ readme }: MetaOption
 export function toggletipStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
+  decorator,
 }: ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ToggletipStories {
   return {
     Toggletip: {
+      args: {
+        mode: "toggle",
+        position: "right",
+        strategy: "absolute",
+        small: false,
+        label: "Toelichting",
+        badgeStatus: "primary",
+        icon: "help",
+        iconActive: "help-active",
+      },
+      decorators: [(story, { args }) => decorator(story, args)],
       render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
         toggletipTemplate(toggletipArgsMapper(args, children)),
       ),

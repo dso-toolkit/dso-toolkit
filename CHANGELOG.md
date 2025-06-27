@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Toggletip: Mode voor verschijningsvormen ([#2487](https://github.com/dso-toolkit/dso-toolkit/issues/2487))
+
 ### Changed
 * **BREAKING** Legend Item: Aanpassingen ([#3185](https://github.com/dso-toolkit/dso-toolkit/issues/3185))
 

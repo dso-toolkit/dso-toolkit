@@ -130,8 +130,8 @@ const documentCardDefault: DocumentCard<TemplateResult> = {
     children: "Extra informatie",
     label: "Toon informatie over type",
     position: "right",
+    strategy: "fixed",
     small: false,
-    secondary: false,
   },
 };
 
