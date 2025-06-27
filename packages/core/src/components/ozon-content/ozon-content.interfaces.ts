@@ -6,6 +6,16 @@ export interface OzonContentAnchorClickEvent {
   originalEvent: MouseEvent;
 }
 
+export type OzonContentClickEvent = OzonContentClickKopEvent;
+
+interface OzonContentClickBaseEvent<T extends string> {
+  type: T;
+  node: Element;
+  originalEvent: MouseEvent;
+}
+
+export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
+
 export type OzonContentInputType = XMLDocument | string;
 
 export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;

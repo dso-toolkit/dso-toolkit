@@ -99,6 +99,7 @@ export class Mapper {
       mark: context.mark,
       mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
       emitAnchorClick: context.emitAnchorClick,
+      emitClick: context.emitClick,
       setState,
       emitMarkItemHighlight: context.emitMarkItemHighlight,
       state,

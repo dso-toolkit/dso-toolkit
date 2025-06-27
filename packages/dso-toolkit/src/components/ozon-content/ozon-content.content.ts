@@ -2,6 +2,7 @@ import { OzonContentArgs } from "./ozon-content.args.js";
 import { OzonContentStories } from "./ozon-content.stories-of.js";
 
 interface OzonContentStory {
+  element?: "Kop";
   title: keyof OzonContentStories;
   content: string;
   args?: Partial<OzonContentArgs>;
@@ -27,73 +28,35 @@ export const content: OzonContentStory[] = [
     `,
   },
   {
-    // De Noot in deze content is verzonnen. Volgens STOP kan dit voorkomen maar ik heb geen echte content gevonden.
-    title: "Opschrift",
-    content: `
-    <Kop>
-      <Opschrift
-        xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
-        xmlns:ns6='http://www.w3.org/1999/xlink'
-        xmlns:ns5='http://www.opengis.net/se'
-        xmlns:ns8='http://www.opengis.net/gml'
-        xmlns:ns7='http://www.opengis.net/ogc'
-        xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
-        xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
-        xmlns:ns9='http://www.w3.org/2001/SMIL20/'
-        xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
-        xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
-        xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
-      >
-        Programma's met programmatische aanpak <Noot id="Noot5000" type="voet">
-        <NootNummer>5</NootNummer>
-        <Al>
-          Een Testnoot
-        </Al>
-      </Noot></Opschrift>
-      <Opschrift
-        wijzigactie="voegtoe"
-        xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
-        xmlns:ns6='http://www.w3.org/1999/xlink'
-        xmlns:ns5='http://www.opengis.net/se'
-        xmlns:ns8='http://www.opengis.net/gml'
-        xmlns:ns7='http://www.opengis.net/ogc'
-        xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
-        xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
-        xmlns:ns9='http://www.w3.org/2001/SMIL20/'
-        xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
-        xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
-        xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
-      >
-        Programma's met programmatische aanpak <Noot id="Noot5001" type="voet">
-        <NootNummer>5</NootNummer>
-        <Al>
-          Een Testnoot
-        </Al>
-      </Noot>
-    </Opschrift>
-    <Opschrift
-      wijzigactie="verwijder"
-      xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
-      xmlns:ns6='http://www.w3.org/1999/xlink'
-      xmlns:ns5='http://www.opengis.net/se'
-      xmlns:ns8='http://www.opengis.net/gml'
-      xmlns:ns7='http://www.opengis.net/ogc'
-      xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
-      xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
-      xmlns:ns9='http://www.w3.org/2001/SMIL20/'
-      xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
-      xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
-      xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
-    >
-      Programma's met programmatische aanpak <Noot id="Noot5002" type="voet">
-        <NootNummer>5</NootNummer>
-        <Al>
-          Een Testnoot
-        </Al>
-      </Noot>
-    </Opschrift>
-  </Kop>
-    `,
+    title: "Kop",
+    content: `<Kop>
+  <Label>Afdeling</Label>
+  <Nummer>2.1</Nummer>
+  <Opschrift>
+    Programma's met programmatische aanpak <Noot id="Noot5000" type="voet"><NootNummer>5</NootNummer>
+      <Al>Een Testnoot</Al>
+    </Noot>
+  </Opschrift>
+  <Subtitel>Ik ben een subtitel</Subtitel>
+</Kop>`,
+    args: {
+      inline: true,
+    },
+  },
+  {
+    title: "KopMetRenvooi",
+    content: `<Kop>
+  <Label><NieuweTekst>Afdeling</NieuweTekst><VerwijderdeTekst>Avdeling</VerwijderdeTekst></Label>
+  <Nummer><NieuweTekst>2.1</NieuweTekst><VerwijderdeTekst>2.0</VerwijderdeTekst></Nummer>
+  <Opschrift>
+    Programma's met <NieuweTekst>programmatische</NieuweTekst><VerwijderdeTekst>programatissche</VerwijderdeTekst> aanpak <Noot id="Noot5000" type="voet"><NootNummer>5</NootNummer>
+      <Al>Een Testnoot</Al>
+    </Noot>
+  </Opschrift>
+  <Subtitel>Hier lees je hoe deze programmatische aanpak <VerwijderdeTekst>is onststaan</VerwijderdeTekst><NieuweTekst>tot stand is gekomen</NieuweTekst> en wie er aan hebben bijgedragen.</Subtitel>
+  <Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel>
+  <Subtitel>Derde subtitel</Subtitel>
+</Kop>`,
     args: {
       inline: true,
     },
