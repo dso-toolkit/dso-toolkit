@@ -29,11 +29,6 @@ export const FormAnimated = examplePageStories((templates) => {
       }
     },
 
-    toggleInputVisiblity: () => {
-      state.visible = !state.visible;
-      state.update();
-    },
-
     template: (): TemplateResult => html`
       <form class="form-horizontal">
         ${applicationHeadingTemplate({
@@ -55,44 +50,47 @@ export const FormAnimated = examplePageStories((templates) => {
         })}
         ${formGroupRadiosTemplate({
           group: "radios",
-          id: "conceptverzoek-radio",
-          label: "Wilt u uw verzoeken definitief of als conceptverzoek indienen?",
+          id: "eigenaar-verzoek-radio",
+          label: "Voor wie start u dit project?",
           inline: true,
           selectables: [
             {
-              id: "conceptverzoek-radio-1",
-              label: "Conceptverzoek",
-              value: "conceptverzoek",
+              id: "eigenaar-verzoek-radio-1",
+              name: "eigenaar-verzoek",
+              label: "Voor mezelf",
+              value: "mezelf",
               type: "radio",
-              info: {
-                id: "conceptverzoek-radio-1-info",
-                content: html`<div slot="info">Dit is een conceptverzoek</div>`,
-                fixed: false,
-              },
             },
             {
-              id: "conceptverzoek-radio-2",
-              label: "Definitief",
-              value: "definitief",
+              id: "eigenaar-verzoek-radio-2",
+              name: "eigenaar-verzoek",
+              label: "Iemand anders",
+              value: "iemandanders",
               type: "radio",
-              info: {
-                id: "conceptverzoek-radio-2-info",
-                content: html`<div slot="info">Dit is een definitief verzoek</div>`,
-                fixed: false,
-              },
             },
           ],
         })}
         <dso-expandable enable-animation open=${state.visible}>
           ${formGroupInputTemplate({
             group: "input",
-            id: "vraag 3",
+            id: "naam",
             type: "text",
-            label: "Vul hier uw antwoord in",
-            value: "Placeholder ",
-            required: true,
+            label: "Uw naam",
+            value: "",
+          })}
+          ${formGroupInputTemplate({
+            group: "input",
+            id: "adresgegevens",
+            type: "text",
+            label: "Adres",
+            value: "",
           })}
         </dso-expandable>
+        <div class="dso-form-buttons">
+          <button type="button" class="dso-primary">
+            <span>Verzenden</span>
+          </button>
+        </div>
       </form>
     `,
   };
@@ -111,17 +109,21 @@ export const FormAnimated = examplePageStories((templates) => {
     </div>
   `;
 
-  // Laat Lit eerst het DOM opbouwen
+  // DOM build ip
   setTimeout(() => {
-    state.update(); // eerste render van het formulier
+    state.update(); // first render of the form
 
     setTimeout(() => {
-      const checkbox = document.querySelector<HTMLInputElement>("#checkbox_1");
-      if (checkbox) {
-        checkbox.addEventListener("change", () => {
-          state.toggleInputVisiblity();
+      const radios = document.querySelectorAll('input[type="radio"][name="eigenaar-verzoek"]');
+
+      radios.forEach((radio) => {
+        radio.addEventListener("change", (event) => {
+          const chosen = (event.target as HTMLInputElement).value;
+          state.visible = chosen === "mezelf";
+
+          state.update();
         });
-      }
+      });
     });
   });
 
