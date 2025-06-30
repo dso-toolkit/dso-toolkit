@@ -14,7 +14,11 @@ describe("Expandable", () => {
       .should("have.class", "hydrated")
       .invoke("prop", "enableAnimation", true)
       .should("have.class", "dso-animate-ready")
-      .and("have.css", "transition", "grid-template-rows 0.26s cubic-bezier(0.4, 0, 0.2, 1) 0s")
+      .and(
+        "have.css",
+        "transition",
+        "grid-template-rows 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s",
+      )
       .and("have.css", "grid-template-rows", "0px") // equivalent with 0fr
       .invoke("prop", "open", true)
       .get("dso-expandable")
