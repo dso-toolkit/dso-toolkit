@@ -5,7 +5,7 @@
 @use "selectable.variables" as selectable-variables;
 
 :host {
-  padding-inline-start: selectable-variables.$symbol-indent;
+  padding-inline-start: var(--_dt-selectable-padding-inline-start, selectable-variables.$symbol-indent);
   position: relative;
   display: var(--dso-selectable-display, block);
 
@@ -199,8 +199,11 @@
     display: inline-block;
     min-block-size: units.$u3;
     position: relative;
-    margin-inline-start: -(selectable-variables.$symbol-indent);
-    padding-inline-start: selectable-variables.$symbol-indent;
+    margin-inline-start: var(
+      --_dt-selectable-input-wrapper-margin-inline-start,
+      -(selectable-variables.$symbol-indent)
+    );
+    padding-inline-start: var(--_dt-selectable-input-wrapper-padding-inline-start, selectable-variables.$symbol-indent);
 
     input[type="radio"],
     input[type="checkbox"] {
