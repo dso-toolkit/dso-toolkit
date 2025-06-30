@@ -51,13 +51,7 @@
   {
     "name": "list-button",
     "selector": "dso-list-button.hydrated",
-    "stories": ["single-select"],
-    "type": "core"
-  },
-  {
-    "name": "list-button",
-    "selector": "dso-list-button.hydrated",
-    "stories": ["multi-select"],
+    "stories": ["single-select", "multi-select"],
     "type": "core"
   },
   {
@@ -215,6 +209,8 @@
     "stories": [
       "checkboxes",
       "confirm",
+      "date-picker",
+      "date-picker-legacy",
       "files",
       "no-files",
       "input",
@@ -224,16 +220,6 @@
       "static",
       "textarea"
     ],
-    "type": "html-css"
-  },
-  {
-    "name": "form-group",
-    "stories": ["date-picker"],
-    "type": "html-css"
-  },
-  {
-    "name": "form-group",
-    "stories": ["date-picker-legacy"],
     "type": "html-css"
   },
   {

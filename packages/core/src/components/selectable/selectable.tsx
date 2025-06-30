@@ -12,7 +12,6 @@ import {
   forceUpdate,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
 
 import { createIdentifier } from "../../utils/create-identifier";
 
@@ -118,9 +117,6 @@ export class Selectable implements ComponentInterface {
   @State()
   infoActive = false;
 
-  @State()
-  keyboardFocus = false;
-
   /**
    * Method to toggle the Info. Is set to `active` when passed.
    *
@@ -179,7 +175,7 @@ export class Selectable implements ComponentInterface {
     return (
       <Fragment>
         <div class="dso-selectable-container">
-          <div class={clsx("dso-selectable-input-wrapper", { "dso-keyboard-focus": this.keyboardFocus })}>
+          <div class="dso-selectable-input-wrapper">
             <input
               type={this.type}
               id={this.getIdentifier()}
@@ -192,8 +188,6 @@ export class Selectable implements ComponentInterface {
               required={this.required}
               checked={this.checked}
               onChange={this.handleOnChange}
-              onBlur={() => (this.keyboardFocus = false)}
-              onKeyUp={() => (this.keyboardFocus = true)}
               ref={(el) => (this.input = el)}
             />
             {!this.labelledById ? (
