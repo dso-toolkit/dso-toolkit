@@ -3611,7 +3611,7 @@ declare namespace LocalJSX {
          */
         "mark"?: OzonContentMarkFunction;
         /**
-          * Emitted when `<a>` that are created through <IntIoRef> and <IntRef> is clicked.
+          * Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.
          */
         "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => void;
         /**

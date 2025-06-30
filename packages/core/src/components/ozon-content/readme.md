@@ -19,7 +19,7 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
 | Event                             | Description                                                                         | Type                                             |
 | --------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `dsoAnchorClick`                  | Emitted when `<a>` that are created through <IntIoRef> and <IntRef> is clicked.     | `CustomEvent<OzonContentAnchorClickEvent>`       |
+| `dsoAnchorClick`                  | Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.       | `CustomEvent<OzonContentAnchorClickEvent>`       |
 | `dsoClick`                        | Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>. | `CustomEvent<OzonContentClickBaseEvent<"Kop">>`  |
 | `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.                                          | `CustomEvent<OzonContentMarkItemHighlightEvent>` |
 

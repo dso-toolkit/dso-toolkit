@@ -125,13 +125,19 @@
 }
 
 :host([mode="document"]:not([not-collapsible])) {
-  dso-ozon-content.kop::part(_kop) {
-    cursor: pointer;
-  }
+  dso-ozon-content {
+    .kop::part(_kop) {
+      cursor: pointer;
+    }
 
-  dso-ozon-content.kop::part(_kop):hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
+    &:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    &[inline].kop::part(_kop) {
+      display: inline;
+    }
   }
 
   .editaction-label {

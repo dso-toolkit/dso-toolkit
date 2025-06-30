@@ -62,7 +62,7 @@ export class OzonContent implements ComponentInterface {
   dsoClick!: EventEmitter<OzonContentClickEvent>;
 
   /**
-   * Emitted when `<a>` that are created through <IntIoRef> and <IntRef> is clicked.
+   * Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.
    */
   @Event({ bubbles: false })
   dsoAnchorClick!: EventEmitter<OzonContentAnchorClickEvent>;

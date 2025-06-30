@@ -332,8 +332,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render inline paragraphs in Opschrift", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
+  it("should render Kop with inline paragraphs in Opschrift", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop");
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
@@ -350,16 +350,23 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
+  it("should render Kop with multiple Subtitels with renvooi", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop-met-renvooi");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+  });
+
   it("should have correct display", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop");
 
     cy.get("dso-ozon-content.hydrated")
       .should("have.attr", "inline", "")
       .and("have.css", "display", "inline")
       .invoke("attr", "inline", null)
       .should("have.css", "display", "block");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
   it("should render Figuur as dso-image-overlay", () => {
@@ -432,15 +439,6 @@ describe("Ozon Content", () => {
       .should("have.length", 6)
       .get("@dsoOzonLijst")
       .find("> ul");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-  });
-
-  it("should render Subtitel element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--subtitel");
-
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });

@@ -329,6 +329,7 @@ export class DocumentComponent implements ComponentInterface {
                       onDsoOzonContentMarkItemHighlight={(e) =>
                         this.dsoMarkItemHighlight.emit({ ...e.detail, source: "kop" })
                       }
+                      inline
                       urlResolver={this.ozonContentUrlResolver}
                     />
                   )}
