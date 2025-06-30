@@ -15,7 +15,7 @@ const meta: Meta = {
 export default meta;
 
 export const AnimatedForm = examplePageStories((templates) => {
-  const { applicationHeadingTemplate, formGroupRadiosTemplate, formGroupInputTemplate } = templates;
+  const { applicationHeadingTemplate, expandableTemplate, formGroupRadiosTemplate, formGroupInputTemplate } = templates;
 
   const contentRef = createRef<HTMLDivElement>();
 
@@ -69,8 +69,9 @@ export const AnimatedForm = examplePageStories((templates) => {
             },
           ],
         })}
-        <dso-expandable enable-animation open=${state.visible}>
-          ${formGroupInputTemplate({
+        ${expandableTemplate({
+          open: state.visible,
+          content: html`${formGroupInputTemplate({
             group: "input",
             id: "naam",
             type: "text",
@@ -83,8 +84,8 @@ export const AnimatedForm = examplePageStories((templates) => {
             type: "text",
             label: "Adres",
             value: "",
-          })}
-        </dso-expandable>
+          })}`,
+        })}
         <div class="dso-form-buttons">
           <button type="button" class="dso-primary">
             <span>Verzenden</span>
@@ -98,7 +99,7 @@ export const AnimatedForm = examplePageStories((templates) => {
     <div class="container">
       ${headerPartial(templates, {
         ...header,
-        mainMenu: mainMenu("Maatregelen op maat"),
+        mainMenu: mainMenu("Aanvragen"),
       })}
       <main>
         <div ${ref(contentRef)}></div>

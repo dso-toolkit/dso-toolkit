@@ -89,24 +89,22 @@ Als het formulier accordions gebruikt, moet het duidelijk zijn waar de fout inge
 
 Wrap een `form-group` component met het `dso-expandable` component om deze te kunnen animeren.
 
-Door het toggelen van de `open` property kan men de inhoud tonen of verbergen. De `dso-expandable` maakt gebruik van een animatie wanneer je de prop `enable-anitmation` op `true` zet.
+Door het toggelen van de `open` property kan men de inhoud tonen of verbergen. De `dso-expandable` maakt gebruik van een animatie wanneer je de prop `enable-animation` op `true` zet.
 
 ```html
 <dso-expandable open enable-animation>
-    <div class="form-group dso-input dso-input-text">
-      <div class="dso-label-container">
-            <label class="control-label" for="labelnaam">Label naam</label>
-        </div>
-        <div class="dso-field-container">
-          <input class="form-control" type="text" id="labelnaam" value="">
-        </div>
+  <div class="form-group dso-input dso-input-text">
+    <div class="dso-label-container">
+      <label class="control-label" for="labelnaam">Label naam</label>
     </div>
+    <div class="dso-field-container">
+      <input class="form-control" type="text" id="labelnaam" value="" />
+    </div>
+  </div>
 </dso-expandable>
 ```
 
 <StorybookComponent name="patronen-animated-form" isExamplePage={true} variant="animated-form" />
-
-Zie de volgende patronen pagina met werkend voorbeeld: `patronen/animated-forms/form-animated`
 
 ### Bronvermelding
 
