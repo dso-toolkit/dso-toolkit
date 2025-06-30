@@ -7,7 +7,6 @@ import { FormGroupSearchBar } from "./form-group-search-bar.models";
 
 export interface FormGroupSearchBarArgs {
   id: string;
-  animatable?: boolean;
   label: string;
   errorText?: string;
   helpText?: string;
@@ -26,11 +25,6 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -100,7 +94,6 @@ export function formGroupSearchBarArgsMapper<TemplateFnReturnType>(
   return {
     group: "search-bar",
     id: a.id,
-    animatable: a.animatable,
     label: a.label,
     errorText: a.errorText,
     helpText: a.helpText,

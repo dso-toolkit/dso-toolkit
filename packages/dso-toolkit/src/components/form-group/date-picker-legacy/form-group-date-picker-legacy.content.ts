@@ -2,7 +2,6 @@ import { FormGroupDatePickerLegacyArgs } from "./form-group-date-picker-legacy.a
 
 export const datePickerLegacyContent: Omit<FormGroupDatePickerLegacyArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
-  animatable: false,
   required: false,
   disabled: false,
   errorText: "Dit moet u verplicht aanvinken",

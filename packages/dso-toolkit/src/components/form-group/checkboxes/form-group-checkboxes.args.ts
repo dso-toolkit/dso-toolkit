@@ -8,7 +8,6 @@ import { FormGroupCheckboxes } from "./form-group-checkboxes.models";
 
 export interface FormGroupCheckboxesArgs {
   id: string;
-  animatable?: boolean;
   label: string;
   state?: "invalid" | "valid";
   required: boolean;
@@ -27,11 +26,6 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -101,7 +95,6 @@ export function formGroupCheckboxesArgsMapper<TemplateFnReturnType>(
   return {
     group: "checkboxes",
     id: a.id,
-    animatable: a.animatable,
     label: a.label,
     required: a.required,
     disabled: a.disabled,

@@ -2,7 +2,6 @@ import { FormGroupStaticArgs } from "./form-group-static.args";
 
 export const staticContent: Omit<FormGroupStaticArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   id: "mijn-id",
-  animatable: false,
   label: "Kleur van object",
   value: "rood",
   edit: false,

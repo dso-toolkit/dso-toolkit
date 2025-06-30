@@ -7,7 +7,6 @@ import { FormGroupInput, FormGroupInputDate } from "./form-group-input.models";
 
 export interface FormGroupInputArgs {
   id: string;
-  animatable?: boolean;
   type: "text" | "email" | "date" | "password" | "url" | "tel";
   label: string;
   state?: "invalid" | "valid";
@@ -34,11 +33,6 @@ export const formGroupInputArgTypes: ArgTypes<FormGroupInputArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   type: {
@@ -149,7 +143,6 @@ export function formGroupInputArgsMapper<TemplateFnReturnType>(
 ): FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType> {
   return {
     group: "input",
-    animatable: a.animatable,
     type: a.type,
     id: a.id,
     label: a.label,

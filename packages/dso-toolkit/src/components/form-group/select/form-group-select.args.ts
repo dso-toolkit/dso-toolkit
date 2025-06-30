@@ -9,7 +9,6 @@ import { FormGroupSelect } from "./form-group-select.models";
 export interface FormGroupSelectArgs {
   metOptGroup: boolean;
   id: string;
-  animatable?: boolean;
   label: string;
   state?: "invalid" | "valid";
   required: boolean;
@@ -34,11 +33,6 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -113,7 +107,6 @@ export function formGroupSelectArgsMapper<TemplateFnReturnType>(
   return {
     group: "select",
     id: a.id,
-    animatable: a.animatable,
     label: a.label,
     items: a.metOptGroup ? selectOptionGroupContent : selectOptionsContent,
     required: a.required,

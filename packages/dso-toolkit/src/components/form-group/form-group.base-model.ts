@@ -5,7 +5,6 @@ export interface FormGroupBase<TemplateFnReturnType> {
   group: string;
   label: string;
   id: string;
-  animatable?: boolean;
   required?: boolean;
   readonly?: boolean;
   disabled?: boolean;

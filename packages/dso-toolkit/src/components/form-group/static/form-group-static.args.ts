@@ -7,7 +7,6 @@ import { FormGroupStatic } from "./form-group-static.models";
 
 export interface FormGroupStaticArgs {
   id: string;
-  animatable?: boolean;
   label: string;
   value: string;
   edit: boolean;
@@ -23,11 +22,6 @@ export const formGroupStaticArgTypes: ArgTypes<FormGroupStaticArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -81,7 +75,6 @@ export function formGroupStaticArgsMapper<TemplateFnReturnType>(
   return {
     group: "static",
     id: a.id,
-    animatable: a.animatable,
     label: a.label,
     value: a.value,
     edit: a.edit,

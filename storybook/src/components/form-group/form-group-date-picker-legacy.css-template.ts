@@ -9,15 +9,7 @@ export const cssFormGroupDatePickerLegacy: ComponentImplementation<FormGroupDate
   component: "formGroupDatePickerLegacy",
   implementation: "html-css",
   template: ({ datePickerLegacyTemplate }) =>
-    function formGroupDatePickerLegacyTemplate({
-      id,
-      animatable,
-      state,
-      required,
-      helpText,
-      errorText,
-      datePickerLegacy,
-    }) {
+    function formGroupDatePickerLegacyTemplate({ id, state, required, helpText, errorText, datePickerLegacy }) {
       const errorTextId = `${id}-error-text`;
       const helpTextId = `${id}-help-text`;
 
@@ -26,30 +18,22 @@ export const cssFormGroupDatePickerLegacy: ComponentImplementation<FormGroupDate
       const ariaErrorMessage = errorText ? errorTextId : undefined;
 
       return html`
-        ${animatable
-          ? html`<dso-expandable open enable-animation>${renderFormGroupDatePickerLegacy()}</dso-expandable>`
-          : renderFormGroupDatePickerLegacy()}
+        <fieldset
+          class="form-group dso-input dso-input-date ${classMap({
+            "dso-required": !!required,
+            [`dso-${state}`]: !!state,
+          })}"
+          aria-describedby=${ifDefined(ariaDescribedBy)}
+          aria-errormessage=${ifDefined(ariaErrorMessage)}
+        >
+          <div class="dso-field-container">
+            ${datePickerLegacyTemplate(datePickerLegacy)}
+            ${errorText && state === "invalid"
+              ? html`<p class="dso-message" role="alert" id=${errorTextId}>${errorText}</p>`
+              : nothing}
+            ${helpText ? html`<p class="dso-help-block" id=${helpTextId}>${helpText}</p>` : nothing}
+          </div>
+        </fieldset>
       `;
-
-      function renderFormGroupDatePickerLegacy() {
-        return html`
-          <fieldset
-            class="form-group dso-input dso-input-date ${classMap({
-              "dso-required": !!required,
-              [`dso-${state}`]: !!state,
-            })}"
-            aria-describedby=${ifDefined(ariaDescribedBy)}
-            aria-errormessage=${ifDefined(ariaErrorMessage)}
-          >
-            <div class="dso-field-container">
-              ${datePickerLegacyTemplate(datePickerLegacy)}
-              ${errorText && state === "invalid"
-                ? html`<p class="dso-message" role="alert" id=${errorTextId}>${errorText}</p>`
-                : nothing}
-              ${helpText ? html`<p class="dso-help-block" id=${helpTextId}>${helpText}</p>` : nothing}
-            </div>
-          </fieldset>
-        `;
-      }
     },
 };

@@ -8,7 +8,6 @@ import { FormGroupRadios } from "./form-group-radios.models";
 
 export interface FormGroupRadiosArgs {
   id: string;
-  animatable?: boolean;
   label: string;
   state?: "invalid" | "valid";
   required: boolean;
@@ -28,11 +27,6 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
   id: {
     control: {
       type: "text",
-    },
-  },
-  animatable: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -107,7 +101,6 @@ export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
   return {
     group: "radios",
     id: a.id,
-    animatable: a.animatable,
     label: a.label,
     required: a.required,
     disabled: a.disabled,
