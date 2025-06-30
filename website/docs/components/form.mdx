@@ -1,3 +1,5 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
 # Form
 
 ## Technische opmerkingen:
@@ -82,6 +84,27 @@ Als het formulier wordt ingediend en er zijn invoervelden niet of niet juist ing
 Als het formulier accordions gebruikt, moet het duidelijk zijn waar de fout ingevulde invoervelden zich bevinden. Hiervoor tonen we een indicator-icoon op de betreffende accordion heading. Let op: bij geneste accordions moet ook de bovenliggende accordion een icoon krijgen. Zo is het fout ingevulde invoerveld te herleiden als de accordion is dichtgeklapt.
 
 ![Formulier met accordions](/docs/form/form-accordion.jpg)
+
+### Geanimeerde formulieren
+
+Wrap een `form-group` component met het `dso-expandable` component om deze te kunnen animeren.
+
+Door het toggelen van de `open` property kan men de inhoud tonen of verbergen. De `dso-expandable` maakt gebruik van een animatie wanneer je de prop `enable-animation` op `true` zet.
+
+```html
+<dso-expandable open enable-animation>
+  <div class="form-group dso-input dso-input-text">
+    <div class="dso-label-container">
+      <label class="control-label" for="labelnaam">Label naam</label>
+    </div>
+    <div class="dso-field-container">
+      <input class="form-control" type="text" id="labelnaam" value="" />
+    </div>
+  </div>
+</dso-expandable>
+```
+
+<StorybookComponent name="patronen-animated-form" isExamplePage={true} variant="animated-form" />
 
 ### Bronvermelding
 
