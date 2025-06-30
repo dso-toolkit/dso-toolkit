@@ -4,13 +4,16 @@
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
-  @include utilities.transition(grid-template-rows);
+  opacity: 0;
+
+  @include utilities.transition(("grid-template-rows", 150ms), ("opacity", 300ms));
 }
 
 :host([enable-animation]:not([open="true"])) {
   .slot-container {
     min-block-size: 0;
     visibility: hidden;
+
     @include utilities.transition(visibility);
   }
 }
@@ -22,6 +25,7 @@
 
 :host([open][enable-animation]:not([open="false"])) {
   grid-template-rows: 1fr;
+  opacity: 1;
 
   .slot-container {
     visibility: visible;
