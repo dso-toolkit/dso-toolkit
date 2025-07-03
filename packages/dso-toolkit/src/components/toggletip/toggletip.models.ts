@@ -6,7 +6,6 @@ export interface Toggletip<TemplateFnReturnType> {
   children: TemplateFnReturnType | string;
   mode?: "toggle" | "secondary" | "badge" | "icon";
   position?: TooltipPosition;
-  strategy?: "absolute" | "fixed";
   small?: boolean;
   label?: string;
   badgeStatus?: BadgeStatus;
