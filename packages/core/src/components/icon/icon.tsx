@@ -34,6 +34,7 @@ import eyeSlash from "dso-toolkit/src/icons/eye-slash.svg";
 import eye from "dso-toolkit/src/icons/eye.svg";
 import filter from "dso-toolkit/src/icons/filter.svg";
 import forbidden from "dso-toolkit/src/icons/forbidden.svg";
+import hammer from "dso-toolkit/src/icons/hammer.svg";
 import health from "dso-toolkit/src/icons/health.svg";
 import helpActive from "dso-toolkit/src/icons/help-active.svg";
 import help from "dso-toolkit/src/icons/help.svg";
@@ -139,6 +140,7 @@ const icons = [
   { alias: "eye", svg: eye },
   { alias: "filter", svg: filter },
   { alias: "forbidden", svg: forbidden },
+  { alias: "hammer", svg: hammer },
   { alias: "health", svg: health },
   { alias: "help-active", svg: helpActive },
   { alias: "help", svg: help },
