@@ -13,6 +13,8 @@
 @use "~dso-toolkit/src/components/subscript/subscript";
 @use "~dso-toolkit/src/components/table/table";
 
+@use "./ozon-content.variables" as ozon-content-variables;
+
 :host(:not([inline])) {
   display: block;
 }
@@ -220,4 +222,36 @@ del {
 
 .od-abbr {
   text-decoration: underline dotted;
+}
+
+.subtitels-container {
+  cursor: default;
+}
+
+.subtitel {
+  color: ozon-content-variables.$subtitel-color;
+  font-weight: 700;
+  margin-block: 0 units.$u2;
+  margin-inline: 0;
+
+  &:has(del, ins) {
+    display: inline-block;
+    inline-size: 100%;
+    margin-inline: units.$u1 * -0.5;
+    padding-inline: units.$u1 * 0.5;
+  }
+
+  &:has(del:not(.removed-text)) {
+    @include delete.root();
+  }
+
+  &:has(ins:not(.new-text)) {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  ins,
+  del {
+    color: ozon-content-variables.$subtitel-renvooi-color;
+  }
 }

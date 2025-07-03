@@ -13,6 +13,7 @@ export const Heading: FunctionalComponent<
   DocumentComponentHeadingProps & JSXBase.HTMLAttributes<HTMLHeadingElement>
 > = ({ heading, mode, href, onClick, ...props }, children) => {
   let headingElement: VNode;
+
   switch (heading) {
     default:
     case "h2":

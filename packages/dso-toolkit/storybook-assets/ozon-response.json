@@ -47,7 +47,7 @@
                     "expressie": "chp_1__art_1.1",
                     "type": "ARTIKEL",
                     "volgordeNummer": 0,
-                    "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>1.1</Nummer><Opschrift>Begripsbepalingen</Opschrift></Kop>",
+                    "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>1.1</Nummer><Opschrift>Begripsbepalingen</Opschrift><Subtitel>Hier lees je hoe deze begripsbepalingen <VerwijderdeTekst>zijn onststaan</VerwijderdeTekst> <NieuweTekst>tot stand zijn gekomen</NieuweTekst> en wie er aan hebben bijgedragen.</Subtitel><Subtitel wijzigactie='verwijder'>Verwijderde subtitel</Subtitel><Subtitel wijzigactie='voegtoe'>Derde subtitel</Subtitel></Kop>",
                     "_embedded": {
                       "ontwerpDocumentComponenten": [
                         {
