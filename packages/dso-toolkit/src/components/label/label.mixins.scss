@@ -79,16 +79,11 @@
   }
 
   &.dso-label-filter {
-    @include set-colors.apply(
-      label-variables.$filter-bg-color,
-      label-variables.$filter-border-color,
-      $icons: false,
-      $links: false
-    );
+    @include set-colors.apply(label-variables.$filter-bg-color, $icons: false, $links: false);
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
-      border-inline-start: 5px solid;
+      border-inline-start: 5px solid label-variables.$filter-border-color;
     }
   }
 
