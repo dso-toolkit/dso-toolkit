@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Label: Filter variant border toont zwart ipv donkerblauw ([#3231](https://github.com/dso-toolkit/dso-toolkit/issues/3231))
+
 ### Added
 * Icon: Hammer ([#3191](https://github.com/dso-toolkit/dso-toolkit/issues/3191))
 * Ozon Content: Ondersteuning voor Subtitel ([#3027](https://github.com/dso-toolkit/dso-toolkit/issues/3027))
