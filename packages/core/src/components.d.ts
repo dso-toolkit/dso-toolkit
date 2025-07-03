@@ -1343,10 +1343,6 @@ export namespace Components {
           * Set to true for small Toggletip.
          */
         "small": boolean;
-        /**
-          * Positioning strategy
-         */
-        "strategy": "absolute" | "fixed";
     }
     interface DsoTooltip {
         /**
@@ -4148,10 +4144,6 @@ declare namespace LocalJSX {
           * Set to true for small Toggletip.
          */
         "small"?: boolean;
-        /**
-          * Positioning strategy
-         */
-        "strategy"?: "absolute" | "fixed";
     }
     interface DsoTooltip {
         /**

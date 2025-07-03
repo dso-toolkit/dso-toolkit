@@ -31,12 +31,6 @@ export class Toggletip {
   position: TooltipPosition = "right";
 
   /**
-   * Positioning strategy
-   */
-  @Prop()
-  strategy: "absolute" | "fixed" = "absolute";
-
-  /**
    * Set to true for small Toggletip.
    */
   @Prop()
@@ -78,7 +72,6 @@ export class Toggletip {
         this.tipElement,
         this.tipArrowElement,
         this.position,
-        this.strategy,
         this.active,
       );
     }

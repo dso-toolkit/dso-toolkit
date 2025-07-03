@@ -23,7 +23,6 @@ export function passiveBody({ listTemplate, toggletipTemplate }: Templates) {
       Gebruik de volgende bestandsformaten voor een document
       ${toggletipTemplate({
         children: html`Een Toggletip waarin extra informatie wordt weergegeven.`,
-        strategy: "fixed",
       })}:
     </p>
     ${listTemplate({
@@ -66,7 +65,6 @@ export function confirmBody({ linkTemplate, toggletipTemplate }: Templates) {
       kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.
       ${toggletipTemplate({
         children: html`Een Toggletip waarin extra informatie wordt weergegeven.`,
-        strategy: "fixed",
       })}
     </p>
     <p>

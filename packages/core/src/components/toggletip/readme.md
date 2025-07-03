@@ -14,7 +14,6 @@
 | `mode`        | `mode`         | The type of Toggletip.                             | `"badge" \| "icon" \| "secondary" \| "toggle"`                                                      | `"toggle"`      |
 | `position`    | `position`     | Toggletip position.                                | `"bottom" \| "left" \| "right" \| "top"`                                                            | `"right"`       |
 | `small`       | `small`        | Set to true for small Toggletip.                   | `boolean`                                                                                           | `false`         |
-| `strategy`    | `strategy`     | Positioning strategy                               | `"absolute" \| "fixed"`                                                                             | `"absolute"`    |
 
 
 ## Dependencies

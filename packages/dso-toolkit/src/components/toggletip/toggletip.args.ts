@@ -8,7 +8,6 @@ import { Toggletip, TooltipPosition } from "./toggletip.models.js";
 export interface ToggletipArgs {
   mode?: "toggle" | "secondary" | "badge" | "icon";
   position?: TooltipPosition;
-  strategy?: "absolute" | "fixed";
   small?: boolean;
   label?: string;
   badgeStatus?: BadgeStatus;
@@ -30,13 +29,6 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
       type: "select",
     },
     defaultValue: "right",
-  },
-  strategy: {
-    options: ["absolute", "fixed"],
-    control: {
-      type: "select",
-    },
-    defaultValue: "absolute",
   },
   small: {
     control: {
@@ -79,7 +71,6 @@ export function toggletipArgsMapper<TemplateFnReturnType>(
     children,
     mode: a.mode,
     position: a.position,
-    strategy: a.strategy,
     small: a.small,
     label: a.label,
     badgeStatus: a.badgeStatus,
