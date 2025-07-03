@@ -60,11 +60,8 @@ jobs:
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
-          key: cypress-snapshots-${{ env.MERGE_BASE }}-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
+          key: cypress-snapshots-${{ env.MERGE_BASE }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-          restore-keys: |
-            cypress-snapshots-${{ env.MERGE_BASE }}-
-            cypress-snapshots-
       - name: Debug cache result
         run: echo "Cache hit - ${{ steps.cypress-snapshots-cache.outputs.cache-hit }} - Merge Base '${{ env.MERGE_BASE }}'"
       - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' }}
