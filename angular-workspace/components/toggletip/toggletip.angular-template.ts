@@ -12,6 +12,10 @@ export const angularToggletip: ComponentImplementation<Toggletip<StoryFnAngularR
         props,
         template: `
           <dso-toggletip
+            [mode]="mode"
+            [badgeStatus]="badgeStatus"
+            [icon]="icon"
+            [iconActive]="iconActive"
             [label]="label"
             [position]="position"
             [small]="small"
