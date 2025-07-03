@@ -70,6 +70,13 @@
   }
 }
 
+:host(:not([open])),
+:host([mode="table-of-contents"]) {
+  dso-ozon-content::part(_subtitels) {
+    display: none;
+  }
+}
+
 .recursive-toggle,
 .toggle-button {
   border: 0;
@@ -112,22 +119,35 @@
     margin-inline-start: 0;
   }
 
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     color: colors.$zwart;
   }
 }
 
 :host([mode="document"]:not([not-collapsible])) {
-  --link-color: #{document-component.$heading-anchor-color};
-  --link-hover-color: #{document-component.$heading-anchor-hover-color};
+  dso-ozon-content {
+    .kop::part(_kop) {
+      cursor: pointer;
+    }
 
-  .heading-element {
-    cursor: pointer;
-    @include link.pseudo();
+    &:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    &[inline].kop::part(_kop) {
+      display: inline;
+    }
   }
 
   .editaction-label {
     margin-inline-start: document-component.$indent;
+  }
+}
+
+:host([mode="document"]:not([not-collapsible]):active) {
+  dso-ozon-content.kop::part(_kop) {
+    text-decoration: none;
   }
 }
 
@@ -146,13 +166,13 @@
 }
 
 :host([mode="table-of-contents"][type="ARTIKEL"]) {
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     color: inherit;
   }
 }
 
 :host([mode="table-of-contents"]:not([type="HOOFDSTUK"])) {
-  .heading-element {
+  dso-ozon-content.kop::part(_kop) {
     font-weight: normal;
   }
 }
@@ -170,7 +190,7 @@
 }
 
 :host([type="ARTIKEL"]) {
-  .heading-element,
+  dso-ozon-content.kop::part(_kop),
   .toggle-button {
     color: colors.$zwart;
   }

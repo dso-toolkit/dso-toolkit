@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Icon: Hammer ([#3191](https://github.com/dso-toolkit/dso-toolkit/issues/3191))
+* Ozon Content: Ondersteuning voor Subtitel ([#3027](https://github.com/dso-toolkit/dso-toolkit/issues/3027))
 
 ### Changed
 * List Button: beter zichtbare focusstate ([#3094](https://github.com/dso-toolkit/dso-toolkit/issues/3094))
