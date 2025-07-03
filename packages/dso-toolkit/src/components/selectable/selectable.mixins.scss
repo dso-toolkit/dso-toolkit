@@ -17,15 +17,13 @@
   }
 }
 
-@mixin root($set-padding: true) {
+@mixin root() {
   position: relative;
 
   display: var(--dso-selectable-display, block);
 
-  @if ($set-padding) {
-    padding-block: 0;
-    padding-inline: units.$u4 0;
-  }
+  padding-block: 0;
+  padding-inline: units.$u4 0;
 
   label {
     font-weight: 400;

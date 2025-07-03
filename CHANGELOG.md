@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Icon: Hammer ([#3191](https://github.com/dso-toolkit/dso-toolkit/issues/3191))
 
+### Changed
+* List Button: beter zichtbare focusstate ([#3094](https://github.com/dso-toolkit/dso-toolkit/issues/3094))
+
 ## 🗺️ Release 75.0.0 - 2025-07-01
 
 ### Changed

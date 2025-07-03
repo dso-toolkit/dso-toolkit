@@ -31,12 +31,18 @@
 
 ### Depends on
 
+- [dso-selectable](../selectable)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-list-button --> dso-selectable
   dso-list-button --> dso-icon
+  dso-selectable --> dso-info-button
+  dso-selectable --> dso-info
+  dso-info-button --> dso-icon
+  dso-info --> dso-icon
   style dso-list-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

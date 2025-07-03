@@ -23,6 +23,8 @@
 
     .dso-card-selectable {
       grid-row: span 2;
+
+      margin-inline-end: units.$u1;
     }
   }
 }
@@ -84,6 +86,9 @@
 
 ::slotted([slot="selectable"]) {
   font-size: 0 !important;
+  --_dt-selectable-padding-inline-start: #{units.$u3};
+  --_dt-selectable-input-wrapper-margin-inline-start: #{-(units.$u3)};
+  --_dt-selectable-input-wrapper-padding-inline-start: #{units.$u3};
 }
 
 ::slotted([slot="heading"]) {
