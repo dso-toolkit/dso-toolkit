@@ -6,7 +6,6 @@ export function positionTooltip(
   tipRef: HTMLElement,
   tipArrowRef: HTMLElement,
   placement: Side,
-  strategy: "absolute" | "fixed",
   active: boolean,
 ) {
   return autoUpdate(referenceElement, tipRef, () => {
@@ -19,7 +18,7 @@ export function positionTooltip(
     const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
 
     computePosition(referenceElement, tipRef, {
-      strategy,
+      strategy: "fixed",
       middleware: [
         offset({
           mainAxis: mainAxisOffset,
