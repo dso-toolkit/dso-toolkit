@@ -6,7 +6,6 @@ export function positionTooltip(
   tipRef: HTMLElement,
   tipArrowRef: HTMLElement,
   placement: Side,
-  active: boolean,
 ) {
   return autoUpdate(referenceElement, tipRef, () => {
     const arrowLength = tipArrowRef.offsetWidth;
@@ -37,12 +36,9 @@ export function positionTooltip(
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy: position }) => {
       if (middlewareData.hide) {
-        if (active) {
-          tipRef.classList.toggle("visible", !middlewareData.hide.referenceHidden);
-        } else {
-          tipRef.classList.remove("visible");
-        }
+        tipRef.classList.toggle("visible", !middlewareData.hide.referenceHidden);
       }
+
       Object.assign(tipRef.style, {
         left: `${x}px`,
         top: `${y}px`,
