@@ -26,6 +26,7 @@ export const decorator: ToggletipDecorator<TemplateResult> = (story, args) => {
         justify-content: ${justifyContent[side]};
         height: calc(100vh - 40px);
         width: 100%;
+        margin-block-end: 200vh;
       }
     </style>
   `;
