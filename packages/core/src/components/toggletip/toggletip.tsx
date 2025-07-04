@@ -1,9 +1,19 @@
-import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, Element, Fragment, FunctionalComponent, Prop, State, h } from "@stencil/core";
 import { TooltipPosition } from "dso-toolkit";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 import { BadgeStatus } from "../badge/badge.interfaces";
+
+interface ToggleTipButtonProps {
+  onClick: () => void;
+}
+
+const ToggletipButton: FunctionalComponent<ToggleTipButtonProps> = ({ onClick }, children) => (
+  <button class="toggletip-button" type="button" aria-describedby="tooltip" onClick={onClick}>
+    {children}
+  </button>
+);
 
 @Component({
   tag: "dso-toggletip",
@@ -110,9 +120,17 @@ export class Toggletip {
               onDsoToggle={({ detail }) => this.click(detail.active)}
             />
           )}
-          {this.mode === "badge" && <dso-badge status={this.badgeStatus}>{this.label}</dso-badge>}
+          {this.mode === "badge" && (
+            <ToggletipButton onClick={() => this.click(!this.active)}>
+              <dso-badge status={this.badgeStatus}>{this.label}</dso-badge>
+              <span class="sr-only">{this.label}</span>
+            </ToggletipButton>
+          )}
           {this.mode === "icon" && (
-            <dso-icon icon={this.active && this.iconActive ? this.iconActive : this.icon}></dso-icon>
+            <ToggletipButton onClick={() => this.click(!this.active)}>
+              <dso-icon icon={this.active && this.iconActive ? this.iconActive : this.icon}></dso-icon>
+              <span class="sr-only">{this.label}</span>
+            </ToggletipButton>
           )}
         </div>
         <Tooltip
