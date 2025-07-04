@@ -9,12 +9,3 @@
   --_dt-info-button-margin-inline-start: 0;
   display: inline-block;
 }
-
-:host(:focus) {
-  outline: none;
-  z-index: zindex.$tooltip;
-}
-
-.toggletip-container {
-  cursor: pointer;
-}
