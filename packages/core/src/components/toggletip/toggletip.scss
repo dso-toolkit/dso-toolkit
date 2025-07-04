@@ -1,11 +1,24 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/zindex";
 @use "../../functional-components/tooltip/tooltip.mixin" as tooltip;
 
 @include utilities.box-sizing();
 @include tooltip.include();
 
+.sr-only {
+  @include utilities.sr-only();
+}
+
 :host {
   --_dt-info-button-margin-inline-start: 0;
   display: inline-block;
+}
+
+.toggletip-button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
 }
