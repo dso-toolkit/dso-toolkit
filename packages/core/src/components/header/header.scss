@@ -91,15 +91,12 @@
     }
   }
 
-  .profile {
+  .profile + .logout,
+  .logout + .help,
+  .login + .help {
+    border-inline-start: 3px solid colors.$grijs-20;
     margin-inline-start: units.$u1;
-
-    + .logout,
-    ~ .help {
-      border-inline-start: 3px solid colors.$grijs-20;
-      margin-inline-start: units.$u1;
-      padding-inline-start: units.$u1;
-    }
+    padding-inline-start: units.$u1;
   }
 
   .help {
