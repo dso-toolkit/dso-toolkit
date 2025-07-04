@@ -1,8 +1,8 @@
 import { Component, Element, Fragment, FunctionalComponent, Prop, State, h } from "@stencil/core";
-import { TooltipPosition } from "dso-toolkit";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipPosition } from "../../functional-components/tooltip/tooltip.interfaces";
 import { BadgeStatus } from "../badge/badge.interfaces";
 
 interface ToggleTipButtonProps {
@@ -86,11 +86,20 @@ export class Toggletip {
     this.active = next !== undefined ? next : !this.active;
   };
 
+  private handleOnAfterHidden() {
+    this.tipElementRef?.hidePopover();
+
+    if (!this.active && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
+    }
+  }
+
   render() {
     return (
       <>
         <div ref={(element) => (this.containerElement = element)}>
-          {["toggle", "secondary"].includes(this.mode) && (
+          {(this.mode === "toggle" || this.mode === "secondary") && (
             <dso-info-button
               aria-describedby="tooltip"
               label={this.label}
@@ -115,7 +124,7 @@ export class Toggletip {
         <Tooltip
           small={this.small}
           visible={this.visible}
-          onAfterHidden={() => this.tipElementRef?.hidePopover()}
+          onAfterHidden={() => this.handleOnAfterHidden()}
           tipElementRef={(element) => (this.tipElementRef = element)}
           tipArrowElementRef={(element) => (this.tipArrowElementRef = element)}
         >
@@ -139,9 +148,6 @@ export class Toggletip {
 
     if (this.active && !this.cleanUp && this.containerElement && this.tipElementRef && this.tipArrowElementRef) {
       this.cleanUp = positionTooltip(this.containerElement, this.tipElementRef, this.tipArrowElementRef, this.position);
-    } else if (!this.active && this.cleanUp) {
-      this.cleanUp();
-      this.cleanUp = undefined;
     }
   }
 }
