@@ -39,10 +39,19 @@ describe("Toggletip", () => {
   const modes = ["toggle", "secondary", "badge", "icon"];
 
   for (const mode of modes) {
-    it(`should show toggletip in ${mode} mode`, () => {
-      cy.visit(`http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=mode:${mode}`);
+    describe(`mode ${mode}`, () => {
+      beforeEach(() => {
+        cy.visit(`http://localhost:45000/iframe.html?id=core-toggletip--toggletip&args=mode:${mode}`);
+      });
 
-      cy.get("dso-toggletip.hydrated").should("be.visible").matchImageSnapshot();
+      it("should be accessible", () => {
+        cy.injectAxe();
+        cy.dsoCheckA11y("dso-toggletip.hydrated");
+      });
+
+      it(`should show toggletip`, () => {
+        cy.get("dso-toggletip.hydrated").should("be.visible").matchImageSnapshot();
+      });
     });
   }
 
