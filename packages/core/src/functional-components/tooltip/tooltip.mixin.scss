@@ -5,34 +5,15 @@
 
 @mixin include() {
   .tooltip {
-    --link-color: #{colors.$grasgroen};
-    font-family: typography.$font-family-base;
-    font-size: typography.$font-size-small;
-    font-style: normal;
-    font-weight: 400;
-    line-height: typography.$line-height-base;
-    line-break: auto;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    letter-spacing: normal;
-    overflow-wrap: anywhere;
-    word-spacing: normal;
-    word-wrap: normal;
-    white-space: normal;
-    background-color: transparent;
+    background-color: colors.$wit;
     overflow: unset;
     margin: 0;
     border: 0;
     padding: 0;
-    display: block;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
     opacity: 0;
     visibility: hidden;
-    transition:
-      opacity tooltip-variables.$transition-duration,
-      visibility tooltip-variables.$transition-duration;
+    transition: opacity tooltip-variables.$transition-duration;
 
     &.visible {
       opacity: 1;
@@ -40,8 +21,6 @@
     }
 
     .tooltip-inner {
-      position: relative;
-      display: inline-block;
       background-color: colors.$wit;
       border-radius: tooltip-variables.$border-radius;
       color: colors.$grijs-90;

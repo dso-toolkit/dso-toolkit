@@ -1,4 +1,3 @@
-import { autoUpdate } from "@floating-ui/dom";
 import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
 import { TooltipPosition } from "dso-toolkit";
 
@@ -17,6 +16,9 @@ export class Toggletip {
 
   @State()
   active = false;
+
+  @State()
+  visible = false;
 
   /**
    * Toggletip label.
@@ -60,62 +62,18 @@ export class Toggletip {
   @Prop()
   iconActive?: string;
 
-  private infoButton?: HTMLDsoInfoButtonElement;
   private containerElement?: HTMLDivElement;
-
-  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
-
-  componentDidRender() {
-    if (!this.cleanUp && this.containerElement && this.tipElement && this.tipArrowElement) {
-      this.cleanUp = positionTooltip(
-        this.containerElement,
-        this.tipElement,
-        this.tipArrowElement,
-        this.position,
-        this.active,
-      );
-    }
-  }
+  private tipElementRef: HTMLElement | undefined;
+  private tipArrowElementRef: HTMLElement | undefined;
+  private cleanUp: ReturnType<typeof positionTooltip> | undefined;
 
   disconnectedCallback(): void {
     this.cleanUp?.();
     this.cleanUp = undefined;
   }
 
-  private click = () => {
-    if (this.active) {
-      this.close();
-    } else {
-      this.open();
-    }
-  };
-
-  private open = () => {
-    this.active = true;
-    this.host.addEventListener("keydown", this.keyDownListener);
-    this.host.addEventListener("focusout", this.focusOutListener);
-  };
-
-  private close = () => {
-    this.host.removeEventListener("focusout", this.focusOutListener);
-    this.host.removeEventListener("keydown", this.keyDownListener);
-    this.active = false;
-  };
-
-  private focusOutListener = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.close();
-    }
-  };
-
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (!event.defaultPrevented && event.key === "Escape") {
-      this.close();
-      this.infoButton?.setFocus();
-      event.preventDefault();
-    }
-
-    return;
+  private click = (next?: boolean) => {
+    this.active = next !== undefined ? next : !this.active;
   };
 
   render() {
@@ -142,45 +100,51 @@ export class Toggletip {
         </dso-tooltip>
       </Fragment>
       <>
-        <div class="toggletip-container" onClick={this.click} ref={(element) => (this.containerElement = element)}>
+        <div ref={(element) => (this.containerElement = element)}>
           {["toggle", "secondary"].includes(this.mode) && (
             <dso-info-button
               aria-describedby="tooltip"
               label={this.label}
               active={this.active}
               secondary={this.mode === "secondary"}
-              ref={(element) => (this.infoButton = element)}
+              onDsoToggle={({ detail }) => this.click(detail.active)}
             />
           )}
           {this.mode === "badge" && <dso-badge status={this.badgeStatus}>{this.label}</dso-badge>}
-          {this.mode === "icon" && <dso-icon icon={this.active ? this.iconActive : this.icon}></dso-icon>}
+          {this.mode === "icon" && (
+            <dso-icon icon={this.active && this.iconActive ? this.iconActive : this.icon}></dso-icon>
+          )}
         </div>
-        <Tooltip small={this.small} visible={this.active}>
+        <Tooltip
+          small={this.small}
+          visible={this.visible}
+          onAfterHidden={() => this.tipElementRef?.hidePopover()}
+          tipElementRef={(element) => (this.tipElementRef = element)}
+          tipArrowElementRef={(element) => (this.tipArrowElementRef = element)}
+        >
           <slot />
         </Tooltip>
       </>
     );
   }
 
-  private get tipElement(): HTMLElement | undefined {
-    const elementRef = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip");
-    if (!elementRef) {
-      console.warn("Unable to find tooltip element");
+  componentDidRender() {
+    if (this.tipElementRef) {
+      const open = this.tipElementRef.matches(":popover-open");
 
-      return;
+      if (this.active && !open) {
+        this.tipElementRef.showPopover();
+        this.visible = true;
+      } else if (!this.active && open) {
+        this.visible = false;
+      }
     }
 
-    return elementRef;
-  }
-
-  private get tipArrowElement(): HTMLElement | undefined {
-    const elementRef = this.host.shadowRoot?.querySelector<HTMLElement>(".tooltip-arrow");
-    if (!elementRef) {
-      console.warn("Unable to find arrow element");
-
-      return;
+    if (this.active && !this.cleanUp && this.containerElement && this.tipElementRef && this.tipArrowElementRef) {
+      this.cleanUp = positionTooltip(this.containerElement, this.tipElementRef, this.tipArrowElementRef, this.position);
+    } else if (!this.active && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
     }
-
-    return elementRef;
   }
 }
