@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupConfirm } from "./form-group-confirm.models";

@@ -1,10 +1,10 @@
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
-import { IconArgs, iconArgTypes, iconArgsMapper } from "./icon.args.js";
+import { IconArgs, iconArgTypes, iconArgsMapper, icons } from "./icon.args.js";
 import { Icon } from "./icon.models.js";
 
 export type IconOverviewDecorator<TemplateFnReturnType> = (
@@ -48,8 +48,6 @@ export function iconStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
   decorator,
 }: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
-  const icons = process.env.ICONS?.split(",") || [];
-
   return {
     Default: {
       argTypes: iconArgTypes,

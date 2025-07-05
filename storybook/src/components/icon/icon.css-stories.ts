@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/icon/readme.md?raw";
 

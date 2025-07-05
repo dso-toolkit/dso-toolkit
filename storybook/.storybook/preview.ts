@@ -1,8 +1,8 @@
 import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
-import { DecoratorFunction, GlobalTypes, Parameters } from "@storybook/types";
-import "@iframe-resizer/child";
 // @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
 import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
+import { DecoratorFunction, GlobalTypes, Parameters } from "storybook/internal/types";
+import "@iframe-resizer/child";
 
 import "dso-toolkit/dist/dso.css";
 
@@ -35,6 +35,12 @@ export const parameters: Parameters = {
     storySort: {
       method: "alphabetically",
       order: ["HTML|CSS", "Core"],
+    },
+  },
+  docs: {
+    codePanel: true,
+    source: {
+      excludeDecorators: true,
     },
   },
 };

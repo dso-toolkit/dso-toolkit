@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
