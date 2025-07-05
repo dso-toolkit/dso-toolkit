@@ -1,8 +1,8 @@
 import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
-import "@iframe-resizer/child";
-import { DecoratorFunction, GlobalTypes, Parameters } from "@storybook/types";
 // @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
 import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
+import { DecoratorFunction, GlobalTypes, Parameters } from "storybook/internal/types";
+import "@iframe-resizer/child";
 
 import "dso-toolkit/dist/dso.css";
 
@@ -20,6 +20,7 @@ export const globalTypes: GlobalTypes = {
       ],
     },
   },
+  initialGlobals: { locale: "nl" },
 };
 
 export const decorators: DecoratorFunction[] = [(story, context) => i18nDecorator(story, context)];
@@ -36,11 +37,20 @@ export const parameters: Parameters = {
       order: ["HTML|CSS", "Core"],
     },
   },
+  docs: {
+    codePanel: true,
+    source: {
+      excludeDecorators: true,
+    },
+  },
 };
+
+export const tags = ["autodocs"];
 
 const spriteContainer = document.createElement("div");
 spriteContainer.hidden = true;
 spriteContainer.insertAdjacentHTML("afterbegin", sprite);
+
 document.body.insertAdjacentElement("afterbegin", spriteContainer);
 
 defineCustomElements();
