@@ -14,19 +14,8 @@
     "@babel/preset-typescript": "^7.27.1",
     "@dso-toolkit/core": "workspace:^",
     "@iframe-resizer/child": "^5.4.6",
-    "@infoprojects/prettier-config": "^1.0.0",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
-    "@storybook/addon-a11y": "8.6.14",
-    "@storybook/addon-actions": "8.6.14",
-    "@storybook/addon-essentials": "8.6.14",
-    "@storybook/components": "8.6.14",
-    "@storybook/core-events": "8.6.14",
-    "@storybook/manager-api": "8.6.14",
-    "@storybook/theming": "8.6.14",
-    "@storybook/types": "8.6.14",
-    "@storybook/web-components": "8.6.14",
-    "@storybook/web-components-webpack5": "8.6.14",
-    "@whitespace/storybook-addon-html": "^7.0.0",
+    "@storybook/addon-a11y": "9.0.18",
     "axe-core": "^4.10.3",
     "cheerio": "^1.0.0",
     "cypress": "^13.17.0",
@@ -35,20 +24,22 @@
     "dso-toolkit": "workspace:^",
     "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",
-    "lit": "^3.3.0",
     "lit-html": "^3.3.0",
-    "prettier": "^3.5.3",
-    "react-syntax-highlighter": "^15.6.1",
     "start-server-and-test": "^2.0.12",
-    "storybook": "8.6.14",
+    "storybook": "9.0.18",
     "tsx": "^4.20.3",
     "typescript": "~5.8.3"
   },
-  "prettier": "@infoprojects/prettier-config",
   "nx": {
     "includedScripts": []
   },
   "devDependencies": {
-    "@storybook/addon-webpack5-compiler-babel": "^3.0.6"
+    "@storybook/addon-docs": "9.0.18",
+    "@storybook/builder-vite": "^9.0.18",
+    "@storybook/web-components-vite": "^9.0.18",
+    "@types/lodash.startcase": "^4.4.9",
+    "eslint": "^9.27.0",
+    "eslint-plugin-storybook": "9.0.18",
+    "vite": "^7.0.5"
   }
 }
