@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { SearchBarArgs, searchBarMeta, searchBarStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/search-bar/readme.md?raw";
 

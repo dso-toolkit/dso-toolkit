@@ -1,6 +1,6 @@
 import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import {
   DocumentComponentTableOfContentsClickEvent,
   documentComponentMeta,

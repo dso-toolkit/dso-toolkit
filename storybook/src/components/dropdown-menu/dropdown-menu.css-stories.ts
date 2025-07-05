@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { dropdownMenuMeta, dropdownMenuStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/dropdown-menu/readme.md?raw";
 

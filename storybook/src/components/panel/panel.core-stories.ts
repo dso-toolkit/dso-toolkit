@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/panel/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { PanelArgs, panelMeta, panelStories } from "dso-toolkit";
 import { html } from "lit-html";
 

@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

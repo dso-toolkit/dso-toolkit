@@ -1,11 +1,12 @@
 import { readdirSync } from "fs";
 import { dirname, parse, resolve } from "path";
 
-import { StorybookConfig } from "@storybook/react-webpack5";
+import { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   typescript: {
     check: true,
+    reactDocgen: false,
   },
   staticDirs: [
     "../../dso-toolkit/storybook-assets",
@@ -27,10 +28,10 @@ const config: StorybookConfig = {
       .map((p) => p.name);
     return {
       ...config,
-      ICONS: icons.join(","),
+      VITE_ICONS: icons.join(","),
     };
   },
-  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y", "@storybook/addon-webpack5-compiler-babel"],
+  addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   stories: ["../src/**/*.stories.tsx"],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
@@ -40,16 +41,19 @@ const config: StorybookConfig = {
   //     <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
   //   `
   //     : body,
-  webpackFinal: async (config) => {
-    // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
-    config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
+  async viteFinal(config) {
+    // Merge custom configuration into the default config
+    const { mergeConfig } = await import("vite");
 
-    return config;
+    return mergeConfig(config, {
+      // Add dependencies to pre-optimization
+    });
   },
   core: {
+    builder: "@storybook/builder-vite",
     disableTelemetry: true,
   },
-  framework: "@storybook/react-webpack5",
+  framework: "@storybook/react-vite",
 };
 
 export default config;

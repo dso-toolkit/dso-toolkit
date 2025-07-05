@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/image-overlay/readme.md?raw";
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { imageOverlayMeta, imageOverlayStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

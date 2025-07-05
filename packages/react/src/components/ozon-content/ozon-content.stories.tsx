@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

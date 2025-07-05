@@ -4,7 +4,7 @@ import kaartReadme from "@dso-toolkit/core/src/components/annotation/annotation-
 import locatieReadme from "@dso-toolkit/core/src/components/annotation/annotation-locatie/readme.md?raw";
 import omgevingsnormwaardeReadme from "@dso-toolkit/core/src/components/annotation/annotation-omgevingsnormwaarde/readme.md?raw";
 import rootReadme from "@dso-toolkit/core/src/components/annotation/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { annotationMeta, annotationStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { ToggletipArgs, toggletipMeta, toggletipStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

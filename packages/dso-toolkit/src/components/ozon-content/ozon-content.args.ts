@@ -1,6 +1,6 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { isOdd, noControl } from "../../storybook";
 

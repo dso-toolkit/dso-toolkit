@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { FormArgs, formMeta, formStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/form/readme.md?raw";
 

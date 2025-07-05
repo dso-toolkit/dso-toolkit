@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/icon/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
