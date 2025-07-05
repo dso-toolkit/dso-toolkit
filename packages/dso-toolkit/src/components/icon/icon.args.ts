@@ -1,4 +1,5 @@
-import { ArgTypes } from "@storybook/types";
+/// <reference types="vite/types/importMeta.d.ts" />
+import { ArgTypes } from "storybook/internal/types";
 
 import { Icon } from "./icon.models.js";
 
@@ -8,7 +9,7 @@ export interface IconArgs {
 
 export const iconArgTypes: ArgTypes<IconArgs> = {
   icon: {
-    options: process.env.ICONS?.split(","),
+    options: import.meta.env.ICONS?.split(","),
     control: {
       type: "select",
     },

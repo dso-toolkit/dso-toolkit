@@ -1,4 +1,4 @@
-import { Parameters } from "@storybook/types";
+import { Parameters } from "storybook/internal/types";
 
 import "@iframe-resizer/child";
 import "dso-toolkit/dist/dso.css";
@@ -19,6 +19,12 @@ export const parameters: Parameters = {
   options: {
     storySort: {
       method: "alphabetically",
+    },
+  },
+  docs: {
+    codePanel: true,
+    source: {
+      excludeDecorators: true,
     },
   },
 };

@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/highlight-box/readme.md?raw";
 import { html } from "lit-html";

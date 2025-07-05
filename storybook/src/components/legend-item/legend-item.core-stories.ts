@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/legend-item/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

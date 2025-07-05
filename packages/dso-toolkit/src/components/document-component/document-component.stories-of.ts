@@ -1,6 +1,6 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { HandlerFunction } from "storybook/actions";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";

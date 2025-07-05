@@ -39,8 +39,6 @@ const config: StorybookConfig = {
       },
     },
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
@@ -52,6 +50,7 @@ const config: StorybookConfig = {
   //     `
   //     : body,
   webpackFinal: async (config) => {
+    console.log(config);
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== "ProgressPlugin");
 
