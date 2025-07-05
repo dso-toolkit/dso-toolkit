@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
-import { type Meta } from "@storybook/react";
+import { type Meta } from "@storybook/react-vite";
 import {
   DatePickerLegacyArgs,
   DatePickerLegacyDecorator,

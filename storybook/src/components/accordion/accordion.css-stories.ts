@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { AccordionArgs, accordionMeta, accordionStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/accordion/readme.md?raw";
 

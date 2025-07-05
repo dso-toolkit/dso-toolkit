@@ -39,8 +39,6 @@ const config: StorybookConfig = {
       },
     },
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302

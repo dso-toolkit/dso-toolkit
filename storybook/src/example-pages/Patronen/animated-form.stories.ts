@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
 import { createRef, ref } from "lit-html/directives/ref.js";
 
