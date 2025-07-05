@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { LinkListArgs, linkListMeta, linkListStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
 import { TemplateResult, html } from "lit-html";

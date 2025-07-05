@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
-import { type Meta } from "@storybook/web-components";
+import { type Meta } from "@storybook/web-components-vite";
 import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
 import { html } from "lit-html";
 

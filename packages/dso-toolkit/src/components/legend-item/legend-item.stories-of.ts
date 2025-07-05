@@ -1,5 +1,5 @@
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";

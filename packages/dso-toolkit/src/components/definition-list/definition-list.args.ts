@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { Definition, DefinitionList } from "./definition-list.models.js";
 

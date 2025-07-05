@@ -1,5 +1,5 @@
 import { setCompodocJson } from "@storybook/addon-docs/angular";
-import { Parameters } from "@storybook/types";
+import { Parameters } from "storybook/internal/types";
 import "@iframe-resizer/child";
 
 import * as docJson from "../documentation.json";
@@ -13,7 +13,13 @@ export const parameters: Parameters = {
       date: /Date$/,
     },
   },
-  docs: { inlineStories: true, codePanel: true },
+  docs: {
+    inlineStories: true,
+    codePanel: true,
+    source: {
+      excludeDecorators: true,
+    },
+  },
   options: {
     storySort: {
       method: "alphabetically",
