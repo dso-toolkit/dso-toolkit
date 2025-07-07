@@ -12,7 +12,6 @@
 /packages/*/www
 /packages/core/loader
 /packages/core/src/components.d.ts
-
 /packages/core/docs.d.ts
 /packages/core/docs.json
 /packages/core/vscode-data.json
