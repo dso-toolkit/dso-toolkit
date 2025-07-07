@@ -54,7 +54,7 @@
 }
 
 @mixin status-success() {
-  @include set-colors.apply(alert-variables.$success-bg);
+  @include set-colors.apply(red);
 }
 
 @mixin status-error() {
