@@ -15,10 +15,6 @@ interface MappedComponentCompilerReferencedType {
 }
 
 (async () => {
-  if (!process.env.CI) {
-    return;
-  }
-
   const docs = JSON.parse(await readFile("docs.json", { encoding: "utf-8" }));
 
   for (const component of docs.components) {
