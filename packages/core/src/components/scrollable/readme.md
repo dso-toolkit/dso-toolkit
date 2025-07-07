@@ -1,7 +1,20 @@
 # `<dso-scrollable>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### DsoScrollEndEvent
+
+```typescript
+export interface DsoScrollEndEvent {
+  scrollEnd: "top" | "bottom";
+}
+```
+
+<!-- src/components/scrollable/scrollable.interfaces.ts::DsoScrollEndEvent -->
+
+<!-- Auto Generated Below -->
 
 ## Events
 
@@ -9,16 +22,16 @@
 | -------------- | ----------------------------------------------------------- | -------------------------------- |
 | `dsoScrollEnd` | Event emitted when the scrollbar has reached top or bottom. | `CustomEvent<DsoScrollEndEvent>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-autosuggest](../autosuggest)
- - [dso-map-controls](../map-controls)
- - [dso-modal](../modal)
+- [dso-autosuggest](../autosuggest)
+- [dso-map-controls](../map-controls)
+- [dso-modal](../modal)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-scrollable
@@ -27,6 +40,6 @@ graph TD;
   style dso-scrollable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

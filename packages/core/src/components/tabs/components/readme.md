@@ -1,9 +1,21 @@
 # `<dso-tab>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### TabsSwitchEvent
+
+```typescript
+export interface TabsSwitchEvent {
+  originalEvent: MouseEvent | KeyboardEvent;
+  isModifiedEvent: boolean;
+}
+```
+
+<!-- src/components/tabs/tabs.interfaces.ts::TabsSwitchEvent -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,13 +25,11 @@
 | `disabled` | `disabled` | Disables the tab. A disabled tab cannot be activated and it's tabpanel cannot be shown. | `boolean \| undefined` | `undefined` |
 | `href`     | `href`     | The optional href of the tab. Creates an anchor if present. Creates a button if absent. | `string \| undefined`  | `undefined` |
 
-
 ## Events
 
 | Event          | Description                                                                             | Type                           |
 | -------------- | --------------------------------------------------------------------------------------- | ------------------------------ |
 | `dsoTabSwitch` | Emitted when the user activates tab via click or arrow keys followed by space or enter. | `CustomEvent<TabsSwitchEvent>` |
-
 
 ## Slots
 
@@ -27,7 +37,6 @@
 | ---- | ---------------------- |
 |      | The label for this tab |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

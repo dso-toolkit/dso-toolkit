@@ -6,8 +6,19 @@ Scriptend de tooltip tonen/verbergen kan met de instance methods `activate()` en
 
 Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaan.
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### Placement
+
+```typescript
+any;
+```
+
+<!-- ../../node_modules/@popperjs/core/index.d.ts::Placement -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -21,7 +32,6 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
 | `stateless`   | `stateless`   | Deactivates mouseover behaviour                                                                                                                                                  | `boolean \| undefined`                                                                                                                                                                                       | `undefined` |
 | `strategy`    | `strategy`    | Set position strategy of tooltip                                                                                                                                                 | `"absolute" \| "auto" \| "fixed"`                                                                                                                                                                            | `"auto"`    |
 
-
 ## Methods
 
 ### `activate() => Promise<void>`
@@ -32,8 +42,6 @@ Activate the tooltip (Sets the `active` attribute)
 
 Type: `Promise<void>`
 
-
-
 ### `deactivate() => Promise<void>`
 
 Deactivate the tooltip (Removes the `active` attribute)
@@ -42,19 +50,17 @@ Deactivate the tooltip (Removes the `active` attribute)
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [dso-document-component](../document-component)
- - [dso-label](../label)
- - [dso-ozon-content](../ozon-content)
- - [dso-toggletip](../toggletip)
+- [dso-document-component](../document-component)
+- [dso-label](../label)
+- [dso-ozon-content](../ozon-content)
+- [dso-toggletip](../toggletip)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-document-component --> dso-tooltip
@@ -64,6 +70,6 @@ graph TD;
   style dso-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

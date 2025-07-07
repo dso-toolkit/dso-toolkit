@@ -43,8 +43,37 @@ Op schermen minder dan 480px breed zit een eventuele `ribbon` een paar pixels ho
 
 Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het component gezet met een aria-label.
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### LogoClickEvent
+
+```typescript
+export interface LogoClickEvent {
+  originalEvent: MouseEvent;
+  url: string;
+  /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+```
+
+<!-- src/components/logo/logo.interfaces.ts::LogoClickEvent -->
+
+### LogoLabelClickEvent
+
+```typescript
+export interface LogoLabelClickEvent {
+  originalEvent: MouseEvent;
+  url: string;
+  /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+```
+
+<!-- src/components/logo/logo.interfaces.ts::LogoLabelClickEvent -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -56,7 +85,6 @@ Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het comp
 | `name`     | `name`      | An alternative name for the logo wordmark Omgevingsloket. For instance `Environment\| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen. | `string`              | `"Omgevings\|loket"` |
 | `ribbon`   | `ribbon`    | The ribbon contains the text for a possible 'sticker' on top of the logo. Used to clarify the (non-production) server environment ("int", "kta", "pfm", "pre", or "dmo")                                                                                                                                                                                                            | `string \| undefined` | `undefined`          |
 
-
 ## Events
 
 | Event           | Description                                                                | Type                               |
@@ -64,7 +92,6 @@ Als er een `label` en/of een `ribbon` worden toegevoegd, worden deze op het comp
 | `dsoLabelClick` | Emitted when the label in the logo is clicked (only when labelUrl is set). | `CustomEvent<LogoLabelClickEvent>` |
 | `dsoLogoClick`  | Emitted when the logo is clicked (only when logoUrl is set).               | `CustomEvent<LogoClickEvent>`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

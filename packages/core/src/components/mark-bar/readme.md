@@ -1,9 +1,41 @@
 # `<dso-mark-bar>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### MarkBarClearEvent
+
+```typescript
+export interface MarkBarClearEvent {
+  originalEvent: MouseEvent;
+}
+```
+
+<!-- src/components/mark-bar/mark-bar.interfaces.ts::MarkBarClearEvent -->
+
+### MarkBarInputEvent
+
+```typescript
+export interface MarkBarInputEvent {
+  originalEvent: Event;
+  value: string;
+}
+```
+
+<!-- src/components/mark-bar/mark-bar.interfaces.ts::MarkBarInputEvent -->
+
+### MarkBarPaginationEvent
+
+```typescript
+export interface MarkBarPaginationEvent {
+  originalEvent: MouseEvent | KeyboardEvent;
+}
+```
+
+<!-- src/components/mark-bar/mark-bar.interfaces.ts::MarkBarPaginationEvent -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,7 +46,6 @@
 | `totalCount` | `total-count` | Total number of search results.                  | `number \| undefined` | `undefined`            |
 | `value`      | `value`       | The current search value.                        | `string \| undefined` | `undefined`            |
 
-
 ## Events
 
 | Event         | Description                                                  | Type                                  |
@@ -23,7 +54,6 @@
 | `dsoInput`    | Emitted each time the user types in the search field.        | `CustomEvent<MarkBarInputEvent>`      |
 | `dsoNext`     | Emitted when user activates "next search result" button.     | `CustomEvent<MarkBarPaginationEvent>` |
 | `dsoPrevious` | Emitted when user activates "previous search result" button. | `CustomEvent<MarkBarPaginationEvent>` |
-
 
 ## Methods
 
@@ -41,9 +71,6 @@ Focuses the input field.
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Depends on
@@ -51,12 +78,13 @@ Type: `Promise<void>`
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-mark-bar --> dso-icon
   style dso-mark-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

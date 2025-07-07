@@ -1,7 +1,18 @@
 # `<dso-badge>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### BadgeStatus
+
+```typescript
+export type BadgeStatus = "primary" | "success" | "info" | "warning" | "error" | "outline" | "attention";
+```
+
+<!-- src/components/badge/badge.interfaces.ts::BadgeStatus -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -9,15 +20,15 @@
 | -------- | --------- | ------------------------ | --------------------------------------------------------------------------------------------------- | ----------- |
 | `status` | `status`  | The status of the Badge. | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-advanced-select](../advanced-select)
- - [dso-document-component](../document-component)
+- [dso-advanced-select](../advanced-select)
+- [dso-document-component](../document-component)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-advanced-select --> dso-badge
@@ -25,6 +36,6 @@ graph TD;
   style dso-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

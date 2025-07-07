@@ -4,25 +4,24 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property      | Attribute     | Description      | Type                  | Default     |
 | ------------- | ------------- | ---------------- | --------------------- | ----------- |
 | `wijzigactie` | `wijzigactie` | The wijzigactie. | `string \| undefined` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-ozon-content](../ozon-content)
+- [dso-ozon-content](../ozon-content)
 
 ### Depends on
 
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-image-overlay --> dso-icon
@@ -30,6 +29,6 @@ graph TD;
   style dso-image-overlay fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

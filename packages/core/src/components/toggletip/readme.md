@@ -1,7 +1,18 @@
 # `<dso-toggletip>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### Placement
+
+```typescript
+any;
+```
+
+<!-- ../../node_modules/@popperjs/core/index.d.ts::Placement -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -12,12 +23,11 @@
 | `secondary` | `secondary` | Set to true for secondary Toggletip. | `boolean \| undefined`                                                                                                                                                                                       | `undefined`     |
 | `small`     | `small`     | Set to true for small Toggletip.     | `boolean \| undefined`                                                                                                                                                                                       | `undefined`     |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-legend-item](../legend-item)
+- [dso-legend-item](../legend-item)
 
 ### Depends on
 
@@ -25,6 +35,7 @@
 - [dso-tooltip](../tooltip)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-toggletip --> dso-info-button
@@ -34,6 +45,6 @@ graph TD;
   style dso-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

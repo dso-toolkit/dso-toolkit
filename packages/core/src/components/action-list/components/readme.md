@@ -1,9 +1,6 @@
 # `<dso-action-list-item>`
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `step` _(required)_ | `step`       | The step of the Action List Item.               | `number`              | `undefined` |
 | `warning`           | `warning`    | When there is a warning.                        | `boolean`             | `false`     |
 
-
 ## Dependencies
 
 ### Depends on
@@ -23,12 +19,13 @@
 - [dso-icon](../../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-action-list-item --> dso-icon
   style dso-action-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

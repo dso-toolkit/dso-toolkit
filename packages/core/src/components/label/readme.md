@@ -6,8 +6,19 @@ In de content van het label wordt alleen tekst volledig ondersteund.
 
 Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De tekst die in `<dso-tooltip>` toont zal ook verborgen tekst tonen (uit bv. `<span class="sr-only">`). De tekst die bij de `[removable]` knop wordt voorgelezen bevat ook verborgen tekst. In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textContent` op `<dso-label>`.
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### LabelStatus
+
+```typescript
+export type LabelStatus = "primary" | "success" | "info" | "warning" | "error" | "bright" | "attention" | "filter";
+```
+
+<!-- src/components/label/label.interfaces.ts::LabelStatus -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -18,26 +29,24 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 | `status`    | `status`    | The status of this Label.                                                                       | `"attention" \| "bright" \| "error" \| "filter" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 | `truncate`  | `truncate`  | Whether the Label is allowed to truncate the contents if it does not fit the container element. | `boolean \| undefined`                                                                                         | `undefined` |
 
-
 ## Events
 
 | Event            | Description                                        | Type                      |
 | ---------------- | -------------------------------------------------- | ------------------------- |
 | `dsoRemoveClick` | Emitted when the user activates the remove button. | `CustomEvent<MouseEvent>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-accordion-section](../accordion/components)
- - [dso-advanced-select](../advanced-select)
- - [dso-annotation-activiteit](../annotation/annotation-activiteit)
- - [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
- - [dso-annotation-locatie](../annotation/annotation-locatie)
- - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
- - [dso-document-component](../document-component)
- - [dso-project-item](../project-item)
+- [dso-accordion-section](../accordion/components)
+- [dso-advanced-select](../advanced-select)
+- [dso-annotation-activiteit](../annotation/annotation-activiteit)
+- [dso-annotation-gebiedsaanwijzing](../annotation/annotation-gebiedsaanwijzing)
+- [dso-annotation-locatie](../annotation/annotation-locatie)
+- [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
+- [dso-document-component](../document-component)
+- [dso-project-item](../project-item)
 
 ### Depends on
 
@@ -45,6 +54,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 - [dso-tooltip](../tooltip)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-label --> dso-icon
@@ -60,6 +70,6 @@ graph TD;
   style dso-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

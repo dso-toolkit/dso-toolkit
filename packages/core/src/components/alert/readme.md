@@ -1,7 +1,20 @@
 # `<dso-alert>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### AlertCloseEvent
+
+```typescript
+export interface AlertCloseEvent {
+  originalEvent?: MouseEvent | Event;
+}
+```
+
+<!-- src/components/alert/alert.interfaces.ts::AlertCloseEvent -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -12,25 +25,24 @@
 | `roleAlert`           | `role-alert` | Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute. | `boolean \| undefined`                        | `undefined` |
 | `status` _(required)_ | `status`     | Set status of alert                                                                                                  | `"error" \| "info" \| "success" \| "warning"` | `undefined` |
 
-
 ## Events
 
 | Event      | Description                             | Type                           |
 | ---------- | --------------------------------------- | ------------------------------ |
 | `dsoClose` | Emitted when the user closes the Alert. | `CustomEvent<AlertCloseEvent>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-document-component](../document-component)
+- [dso-document-component](../document-component)
 
 ### Depends on
 
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-alert --> dso-icon
@@ -38,6 +50,6 @@ graph TD;
   style dso-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

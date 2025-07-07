@@ -1,7 +1,30 @@
 # `<dso-header>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### HeaderEvent
+
+```typescript
+export type HeaderEvent = HeaderClickEvent | HeaderClickMenuItemEvent;
+```
+
+<!-- src/components/header/header.interfaces.ts::HeaderEvent -->
+
+### HeaderMenuItem
+
+```typescript
+export interface HeaderMenuItem {
+  label: string;
+  url: string;
+  active?: boolean;
+}
+```
+
+<!-- src/components/header/header.interfaces.ts::HeaderMenuItem -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -19,13 +42,11 @@
 | `userProfileName` | `user-profile-name`  | The name to show when the user is logged in.                                                                     | `string \| undefined`                 | `undefined` |
 | `userProfileUrl`  | `user-profile-url`   | The URL to open when the user activates the profile url.                                                         | `string \| undefined`                 | `undefined` |
 
-
 ## Events
 
-| Event            | Description                                                                                                                                        | Type                                                        |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `dsoHeaderClick` | Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
-
+| Event            | Description                                                                                                                                       | Type                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `dsoHeaderClick` | Emitted when something in the header is selected. `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
 
 ## Dependencies
 
@@ -35,6 +56,7 @@
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-header --> dso-dropdown-menu
@@ -42,6 +64,6 @@ graph TD;
   style dso-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

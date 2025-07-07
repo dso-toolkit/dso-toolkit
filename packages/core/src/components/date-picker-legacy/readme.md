@@ -4,8 +4,53 @@ Beware: This component is no part of the public API of the DSO Toolkit. If you'r
 
 Based on the [Duet Date Picker](https://duetds.github.io/date-picker-legacy/).
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### DsoDatePickerLegacyChangeEvent
+
+```typescript
+{
+  component: "dso-date-picker-legacy";
+  valueAsDate: Date | undefined;
+  value: string;
+  error?: "invalid" | "required" | "min-range" | "max-range";
+}
+```
+
+<!-- src/components/date-picker-legacy/date-picker-legacy.interfaces.ts::DsoDatePickerLegacyChangeEvent -->
+
+### DsoDatePickerLegacyDirection
+
+```typescript
+export type DsoDatePickerLegacyDirection = "left" | "right";
+```
+
+<!-- src/components/date-picker-legacy/date-picker-legacy.interfaces.ts::DsoDatePickerLegacyDirection -->
+
+### DsoDatePickerLegacyFocusEvent
+
+```typescript
+{
+  component: "dso-date-picker-legacy";
+}
+```
+
+<!-- src/components/date-picker-legacy/date-picker-legacy.interfaces.ts::DsoDatePickerLegacyFocusEvent -->
+
+### DsoDatePickerLegacyKeyboardEvent
+
+```typescript
+{
+  component: "dso-date-picker-legacy";
+  originalEvent: KeyboardEvent;
+}
+```
+
+<!-- src/components/date-picker-legacy/date-picker-legacy.interfaces.ts::DsoDatePickerLegacyKeyboardEvent -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -24,7 +69,6 @@ Based on the [Duet Date Picker](https://duetds.github.io/date-picker-legacy/).
 | `role`         | `role`          | Defines a specific role attribute for the date picker input.                                                                                                                                                                   | `null \| string`       | `null`      |
 | `value`        | `value`         | Date value. Must be in Dutch date format: DD-MM-YYYY.                                                                                                                                                                          | `string`               | `""`        |
 
-
 ## Events
 
 | Event           | Description                                         | Type                                                                                                                                                                               |
@@ -34,7 +78,6 @@ Based on the [Duet Date Picker](https://duetds.github.io/date-picker-legacy/).
 | `dsoFocus`      | Event emitted the date picker input is focused.     | `CustomEvent<{ component: "dso-date-picker-legacy"; }>`                                                                                                                            |
 | `dsoKeyDown`    | Event emitted on key down in the date picker input. | `CustomEvent<{ component: "dso-date-picker-legacy"; originalEvent: KeyboardEvent; }>`                                                                                              |
 | `dsoKeyUp`      | Event emitted on key up in the date picker input.   | `CustomEvent<{ component: "dso-date-picker-legacy"; originalEvent: KeyboardEvent; }>`                                                                                              |
-
 
 ## Methods
 
@@ -53,8 +96,6 @@ returning to the date picker's button. Default is true.
 
 Type: `Promise<void>`
 
-
-
 ### `setFocus() => Promise<void | undefined>`
 
 Sets focus on the date picker's input. Use this method instead of the global `focus()`.
@@ -62,8 +103,6 @@ Sets focus on the date picker's input. Use this method instead of the global `fo
 #### Returns
 
 Type: `Promise<void | undefined>`
-
-
 
 ### `show() => Promise<void>`
 
@@ -73,9 +112,6 @@ Show the calendar modal, moving focus to the calendar inside.
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Depends on
@@ -83,12 +119,13 @@ Type: `Promise<void>`
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-date-picker-legacy --> dso-icon
   style dso-date-picker-legacy fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
