@@ -15,11 +15,12 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate, slideToggleTemplate }) =>
-    function cardTemplate({ label, selectable, href, mode, content, interactions, dsoCardClick }) {
+    function cardTemplate({ label, selectable, content, interactions, href, active, mode, dsoCardClick }) {
       return (
         <DsoCard
           href={href}
           mode={mode}
+          active={active}
           onDsoCardClick={(e: CustomEvent<CardClickEvent>) => {
             if (!e.detail.isModifiedEvent) {
               e.detail.originalEvent.preventDefault();
