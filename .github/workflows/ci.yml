@@ -57,12 +57,13 @@ jobs:
         id: merge-base
         run: echo "DT_MERGE_BASE=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
       - name: "Cache: Cypress snapshots"
+        if: ${{ env.DT_DIST_TAG != 'latest' }}
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
           key: cypress-snapshots-${{ env.DT_MERGE_BASE }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-      - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' }}
+      - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' && env.DT_DIST_TAG != 'latest' }}
         name: List snapshots
         continue-on-error: true
         run: ls -al ${{ github.workspace }}/storybook/cypress/snapshot-baseline
@@ -70,6 +71,7 @@ jobs:
         name: "Clean Cypress snapshots"
         run: rm -rf ${{ github.workspace }}/storybook/cypress/snapshot-baseline
       - name: e2e tests
+        if: ${{ env.DT_DIST_TAG != 'latest' }}
         id: e2e
         uses: addnab/docker-run-action@v3
         with:
@@ -84,7 +86,7 @@ jobs:
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
           run: yarn e2e
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && env.DT_DIST_TAG != 'latest'}}
         with:
           name: cypress-snapshots-${{ env.DT_REF }}
           path: |
