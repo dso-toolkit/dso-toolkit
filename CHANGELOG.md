@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🔨 Release 75.1.0 - 2025-07-08
+
 ### Fixed
 * Label: Filter variant border toont zwart ipv donkerblauw ([#3231](https://github.com/dso-toolkit/dso-toolkit/issues/3231))
 * Header: Witruimte en grijze lijn tussen Inloggen en Help ontbreekt ([#3235](https://github.com/dso-toolkit/dso-toolkit/issues/3235))

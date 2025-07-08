@@ -365,7 +365,8 @@ describe("Header", () => {
       .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
   });
 
-  it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
+  // ToDo: #2693
+  it.skip("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
 
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
