@@ -53,15 +53,15 @@ jobs:
           build-args: |
             CI
             DT_REF
+      - name: Get merge-base with master
+        id: merge-base
+        run: echo "DT_MERGE_BASE=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
       - name: "Cache: Cypress snapshots"
         id: cypress-snapshots-cache
         uses: actions/cache@v4
         with:
-          key: cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
+          key: cypress-snapshots-${{ env.DT_MERGE_BASE }}
           path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-          restore-keys: |
-            cypress-snapshots-${{ hashFiles('yarn.lock', 'storybook/cypress/**', 'packages/(dso-toolkit|core)/src/**') }}
-            cypress-snapshots-
       - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' }}
         name: List snapshots
         continue-on-error: true
