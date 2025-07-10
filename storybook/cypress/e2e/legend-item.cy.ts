@@ -49,26 +49,26 @@ describe("Legend Item", () => {
       .should("not.be.disabled");
   });
 
-  it("should show the body containing an input-range when clicked on edit-button", () => {
+  it("should show the options containing an input-range when clicked on edit-button", () => {
     cy.get("@dsoLegendItem")
-      .find("div[slot='body'] dso-input-range")
+      .find("div[slot='options'] dso-input-range")
       .should("be.hidden")
       .get("dso-legend-item")
       .shadow()
       .find("#edit-button")
       .click()
       .get("dso-legend-item")
-      .find("div[slot='body'] dso-input-range")
+      .find("div[slot='options'] dso-input-range")
       .should("be.visible");
 
-    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- show body`);
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- show options`);
 
     cy.get("dso-legend-item")
       .shadow()
       .find("#edit-button")
       .click()
       .get("dso-legend-item")
-      .find("div[slot='body']")
+      .find("div[slot='options']")
       .should("be.hidden");
   });
 
@@ -87,9 +87,33 @@ describe("Legend Item", () => {
       .invoke("prop", "active", true)
       .get("@dsoLegendItemShadow")
       .find("dso-slide-toggle button")
-      .should("have.attr", "aria-checked", "false")
+      .should("have.attr", "aria-checked", "true")
       .wait(400);
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- active Slide Toggle`);
+  });
+
+  it("should not show a slide-toggle when activatable is false", () => {
+    cy.get("dso-legend-item").invoke("prop", "activatable", false);
+    cy.get("@dsoLegendItemShadow").find("dso-slide-toggle button").should("not.exist");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without Slide Toggle`);
+  });
+
+  it("should not show a symbol when slot symbol is removed", () => {
+    cy.get("@dsoLegendItem")
+      .get("[slot='symbol']")
+      .invoke("remove")
+      .get("@dsoLegendItemShadow")
+      .find('[name="symbol"]')
+      .should("not.exist");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without symbol`);
+  });
+
+  it("should not show a edit-button when slot options is removed", () => {
+    cy.get("@dsoLegendItem").get("[slot='options']").invoke("remove").get("#edit-button").should("not.exist");
+
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without edit-button`);
   });
 });

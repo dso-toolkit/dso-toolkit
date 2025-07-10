@@ -821,6 +821,10 @@ export namespace Components {
     }
     interface DsoLegendItem {
         /**
+          * Controls whether this Legend Item can be active or not
+         */
+        "activatable"?: boolean;
+        /**
           * Controls whether this Legend Item is active or not
          */
         "active"?: boolean;
@@ -3350,6 +3354,10 @@ declare namespace LocalJSX {
         "truncate"?: boolean;
     }
     interface DsoLegendItem {
+        /**
+          * Controls whether this Legend Item can be active or not
+         */
+        "activatable"?: boolean;
         /**
           * Controls whether this Legend Item is active or not
          */

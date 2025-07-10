@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  State,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 import clsx from "clsx";
 
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
@@ -6,7 +17,7 @@ import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 /**
  * @slot The label for this Legend Item
  * @slot symbol - A span where the symbol is styled upon
- * @slot body - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
+ * @slot options - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
 @Component({
   tag: "dso-legend-item",
@@ -28,6 +39,12 @@ export class LegendItem implements ComponentInterface {
    */
   @Prop()
   disabledMessage?: string;
+
+  /**
+   * Controls whether this Legend Item can be active or not
+   */
+  @Prop({ reflect: true })
+  activatable?: boolean;
 
   /**
    * Controls whether this Legend Item is active or not
@@ -54,26 +71,42 @@ export class LegendItem implements ComponentInterface {
   dsoMouseLeave!: EventEmitter;
 
   @State()
-  showBody = false;
+  showOptions = false;
+
+  private mutationObserver?: MutationObserver;
+
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+
+    this.mutationObserver.observe(this.host, { attributes: true, childList: true });
+  }
+
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+
+    delete this.mutationObserver;
+  }
 
   get symbolSlottedElement() {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get bodySlottedElement() {
-    return this.host.querySelector("[slot='body']");
+  get optionsSlottedElement() {
+    return this.host.querySelector("[slot='options']");
   }
 
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
-    const hasBody = this.bodySlottedElement !== null;
+    const hasOptions = this.optionsSlottedElement !== null;
 
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
         <div class={clsx("legend-item", { "legend-item-symbol": hasSymbol })}>
-          <div hidden={!hasSymbol}>
-            <slot name="symbol" />
-          </div>
+          {hasSymbol && (
+            <div>
+              <slot name="symbol" />
+            </div>
+          )}
           <div>
             <slot />
           </div>
@@ -82,30 +115,34 @@ export class LegendItem implements ComponentInterface {
           )}
 
           <div class="legend-item-right-content">
-            {hasBody && !this.disabled && (
+            {hasOptions && !this.disabled && (
               <button
                 id="edit-button"
                 type="button"
-                onClick={() => (this.showBody = !this.showBody)}
-                class={{ active: this.showBody }}
+                onClick={() => (this.showOptions = !this.showOptions)}
+                class={{ active: this.showOptions }}
               >
                 <span class="sr-only">Legenda item aanpassen</span>
                 <dso-icon icon="more" />
               </button>
             )}
-            <dso-slide-toggle
-              accessibleLabel="Maak actief"
-              checked={this.active}
-              disabled={this.disabled}
-              onDsoActiveChange={(e) =>
-                this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
-              }
-            />
+            {this.activatable && (
+              <dso-slide-toggle
+                accessibleLabel="Maak actief"
+                checked={this.active}
+                disabled={this.disabled}
+                onDsoActiveChange={(e) =>
+                  this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
+                }
+              />
+            )}
           </div>
         </div>
-        <div hidden={!hasBody || this.disabled || !this.showBody} class="body">
-          <slot name="body" />
-        </div>
+        {hasOptions && (
+          <div hidden={this.disabled || !this.showOptions} class="options">
+            <slot name="options" />
+          </div>
+        )}
       </Host>
     );
   }
