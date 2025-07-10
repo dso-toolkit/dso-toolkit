@@ -22,23 +22,37 @@ interface MappedComponentCompilerReferencedType {
     watch("docs.json", { persistent: true, ignoreInitial: true }).on("change", async () => {
       console.info("docs.json changed, updating readme files...");
 
-      await updateReadme(watchMode);
+      const docs = await readDocsJson();
+      if (!docs) {
+        // During Stencil compilation, the docs.json file is sometimes empty. This is only a problem during watch mode,
+        // as the stenciler compiler will create a new docs.json file after the compilation is done.
+        return;
+      }
+
+      await updateReadme(docs);
     });
   } else {
-    console.log("Updating readme files...");
+    console.info("Updating readme files...");
 
-    await updateReadme(watchMode);
+    const docs = await readDocsJson();
+    if (!docs) {
+      throw new Error("docs.json is empty or does not exist. Please run the Stencil compiler first.");
+    }
+
+    await updateReadme(docs);
   }
 })(process.argv.includes("--watch"));
 
-async function updateReadme(watchMode: boolean) {
+async function readDocsJson() {
   const json = (await readFile("docs.json", { encoding: "utf-8" })).trim();
-  if (!json && watchMode) {
-    return;
+  if (!json) {
+    return null;
   }
 
-  const docs = JSON.parse(json);
+  return JSON.parse(json);
+}
 
+async function updateReadme(docs: any) {
   for (const component of docs.components) {
     const readmePath = join(dirname(component.filePath), "readme.md");
 

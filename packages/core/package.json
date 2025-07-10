@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "clear": "rimraf dist && rimraf loader",
-    "watch": "yarn clear && tsx scripts/watch.js"
+    "watch": "yarn clear && tsx scripts/watch.ts"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.0",
