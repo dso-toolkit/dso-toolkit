@@ -46,6 +46,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+import { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -90,6 +91,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+export { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -1219,21 +1221,33 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
+          * The badge status when `mode="badge"`
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * The icon when `mode="icon"`
+         */
+        "icon"?: string;
+        /**
+          * The icon when `mode="icon"` and the tip is visible
+         */
+        "iconActive"?: string;
+        /**
           * Toggletip label.
          */
         "label": string;
         /**
+          * The type of Toggletip.
+         */
+        "mode": "toggle" | "secondary" | "badge" | "icon";
+        /**
           * Toggletip position.
          */
-        "position": Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
+        "position": TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
-        "small"?: boolean;
+        "small": boolean;
     }
     interface DsoTooltip {
         /**
@@ -3876,17 +3890,29 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
+          * The badge status when `mode="badge"`
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * The icon when `mode="icon"`
+         */
+        "icon"?: string;
+        /**
+          * The icon when `mode="icon"` and the tip is visible
+         */
+        "iconActive"?: string;
+        /**
           * Toggletip label.
          */
         "label"?: string;
         /**
+          * The type of Toggletip.
+         */
+        "mode"?: "toggle" | "secondary" | "badge" | "icon";
+        /**
           * Toggletip position.
          */
-        "position"?: Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
+        "position"?: TooltipPosition;
         /**
           * Set to true for small Toggletip.
          */
