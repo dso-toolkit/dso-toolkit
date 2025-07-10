@@ -12,6 +12,9 @@
       "outputs": [
         "{projectRoot}/dist",
         "{projectRoot}/loader",
+        "{projectRoot}/docs.json",
+        "{projectRoot}/docs.d.ts",
+        "{projectRoot}/src/components/*/readme.md",
         "{projectRoot}/../react/src/components.ts",
         "{projectRoot}/../react/src/react-component-lib",
         "{projectRoot}/../../angular-workspace/projects/component-library/src/lib/stencil-generated"
