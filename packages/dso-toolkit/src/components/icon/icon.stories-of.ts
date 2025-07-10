@@ -1,5 +1,6 @@
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
+/// <reference types="vite/types/importMeta.d.ts" />
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -48,7 +49,7 @@ export function iconStories<Implementation, Templates, TemplateFnReturnType>({
   templateContainer,
   decorator,
 }: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
-  const icons = process.env.ICONS?.split(",") || [];
+  const icons = import.meta.env.VITE_ICONS?.split(",") || [];
 
   return {
     Default: {

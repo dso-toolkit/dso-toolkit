@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { Link } from "../link/link.models.js";
 
@@ -13,7 +13,7 @@ export interface LinkListArgs {
 export const linkListArgTypes: ArgTypes<LinkListArgs> = {
   navLabel: {
     control: {
-      type: "string",
+      type: "text",
     },
   },
   type: {

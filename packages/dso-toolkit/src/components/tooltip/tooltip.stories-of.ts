@@ -1,6 +1,6 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { HandlerFunction } from "storybook/actions";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";

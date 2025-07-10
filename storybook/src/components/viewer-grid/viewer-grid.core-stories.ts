@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md?raw";
-import { type Meta } from "@storybook/web-components";
+import { type Meta } from "@storybook/web-components-vite";
 import { ViewerGridArgs, viewerGridMeta, viewerGridStories } from "dso-toolkit";
 import { html } from "lit-html";
 import { when } from "lit-html/directives/when.js";
