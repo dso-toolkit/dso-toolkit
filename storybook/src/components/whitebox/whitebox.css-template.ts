@@ -10,6 +10,7 @@ export const cssWhitebox: ComponentImplementation<Whitebox> = {
   template: ({ linkTemplate, iconTemplate, imageTemplate, richContentTemplate }) =>
     function whiteboxTemplate({ count, icon, iconLabel, image, label, description, title }) {
       return html`
+        <!-- START DEPRECATED -->
         <div class="dso-whitebox ${classMap({ "dso-has-counter": !!(count || (icon && iconLabel)) })}">
           ${icon && iconLabel
             ? html`
@@ -28,6 +29,7 @@ export const cssWhitebox: ComponentImplementation<Whitebox> = {
           <div class="dso-whitebox-icon">${imageTemplate(image)}</div>
           ${richContentTemplate({ children: html`<p>${description}</p>` })}
         </div>
+        <!-- END DEPRECATED -->
       `;
     },
 };
