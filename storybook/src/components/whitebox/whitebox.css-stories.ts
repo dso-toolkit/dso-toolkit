@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<WhiteboxArgs> = {
   ...whiteboxMeta({ readme }),
-  title: "HTML|CSS/Whitebox",
+  title: "HTML|CSS/Whitebox (Deprecated)",
 };
 
 export default meta;

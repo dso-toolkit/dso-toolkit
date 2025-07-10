@@ -382,7 +382,7 @@
     "type": "core"
   },
   {
-    "name": "whitebox",
+    "name": "whitebox-deprecated",
     "selector": ".dso-whitebox",
     "stories": ["default", "with-counter", "with-icon"],
     "type": "html-css"
