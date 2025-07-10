@@ -6,7 +6,7 @@ import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 /**
  * @slot The label for this Legend Item
  * @slot symbol - A span where the symbol is styled upon
- * @slot body - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
+ * @slot options - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
 @Component({
   tag: "dso-legend-item",
@@ -54,19 +54,19 @@ export class LegendItem implements ComponentInterface {
   dsoMouseLeave!: EventEmitter;
 
   @State()
-  showBody = false;
+  showOptions = false;
 
   get symbolSlottedElement() {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get bodySlottedElement() {
-    return this.host.querySelector("[slot='body']");
+  get optionsSlottedElement() {
+    return this.host.querySelector("[slot='options']");
   }
 
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
-    const hasBody = this.bodySlottedElement !== null;
+    const hasOptions = this.optionsSlottedElement !== null;
 
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
@@ -82,12 +82,12 @@ export class LegendItem implements ComponentInterface {
           )}
 
           <div class="legend-item-right-content">
-            {hasBody && !this.disabled && (
+            {hasOptions && !this.disabled && (
               <button
                 id="edit-button"
                 type="button"
-                onClick={() => (this.showBody = !this.showBody)}
-                class={{ active: this.showBody }}
+                onClick={() => (this.showOptions = !this.showOptions)}
+                class={{ active: this.showOptions }}
               >
                 <span class="sr-only">Legenda item aanpassen</span>
                 <dso-icon icon="more" />
@@ -103,8 +103,8 @@ export class LegendItem implements ComponentInterface {
             />
           </div>
         </div>
-        <div hidden={!hasBody || this.disabled || !this.showBody} class="body">
-          <slot name="body" />
+        <div hidden={!hasOptions || this.disabled || !this.showOptions} class="showOptions">
+          <slot name="options" />
         </div>
       </Host>
     );

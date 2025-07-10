@@ -1,5 +1,5 @@
 export interface LegendItem<TemplateFnReturnType> {
-  body?: TemplateFnReturnType;
+  options?: TemplateFnReturnType;
   content: TemplateFnReturnType | string;
   disabled?: boolean;
   disabledMessage?: string;

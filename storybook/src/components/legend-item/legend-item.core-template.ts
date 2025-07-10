@@ -9,7 +9,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
   implementation: "core",
   template: () =>
     function legendItemTemplate({
-      body,
+      options,
       content,
       disabled,
       disabledMessage,
@@ -29,7 +29,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           .active=${active}
         >
           ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
-          ${body ? html`<div slot="body">${body}</div>` : nothing}
+          ${options ? html`<div slot="options">${options}</div>` : nothing}
         </dso-legend-item>
       `;
     },

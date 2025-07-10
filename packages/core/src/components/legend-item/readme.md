@@ -27,7 +27,7 @@
 | Slot                               | Description                                                                                                                                                                                                          |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `"The label for this Legend Item"` |                                                                                                                                                                                                                      |
-| `"body"`                           | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
+| `"options"`                        | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
 | `"symbol"`                         | A span where the symbol is styled upon                                                                                                                                                                               |
 
 

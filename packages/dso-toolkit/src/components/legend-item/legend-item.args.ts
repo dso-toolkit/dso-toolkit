@@ -62,11 +62,11 @@ export function legendItemArgsMapper<TemplateFnReturnType>(
   a: LegendItemArgs,
   content?: TemplateFnReturnType,
   symbol?: TemplateFnReturnType,
-  body?: TemplateFnReturnType,
+  options?: TemplateFnReturnType,
 ): LegendItem<TemplateFnReturnType> {
   return {
     ...a,
-    body,
+    options,
     content: content || a.label || "",
     symbol,
   };
