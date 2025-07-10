@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Dropdown Menu: Popperjs deprecated ([#2457](https://github.com/dso-toolkit/dso-toolkit/issues/2457))
+
 ### Task
 * Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
 
