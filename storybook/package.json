@@ -46,7 +46,7 @@
     "start-server-and-test": "^2.0.12",
     "storybook": "7.6.20",
     "tsx": "^4.19.4",
-    "typescript": "~5.6.3"
+    "typescript": "~5.8.3"
   },
   "prettier": "@infoprojects/prettier-config",
   "nx": {
