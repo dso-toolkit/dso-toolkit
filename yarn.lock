@@ -3712,6 +3712,7 @@ __metadata:
     "@types/lodash.samplesize": "npm:^4.2.9"
     "@types/sass": "npm:^1.45.0"
     "@types/uuid": "npm:^10.0.0"
+    chokidar: "npm:^4.0.3"
     clsx: "npm:^2.1.1"
     concurrently: "npm:^9.1.2"
     debounce: "npm:^2.2.0"
@@ -12415,7 +12416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^4.0.0, chokidar@npm:^4.0.1":
+"chokidar@npm:^4.0.0, chokidar@npm:^4.0.1, chokidar@npm:^4.0.3":
   version: 4.0.3
   resolution: "chokidar@npm:4.0.3"
   dependencies:

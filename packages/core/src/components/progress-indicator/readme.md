@@ -7,28 +7,27 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property | Attribute | Description                                                                            | Type                                          | Default     |
-| -------- | --------- | -------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `block`  | `block`   | Set for bloatier Progress Indicator.                                                   | `boolean \| undefined`                        | `undefined` |
-| `label`  | `label`   | The label of the Progress Indicator.                                                   | `string \| undefined`                         | `undefined` |
-| `size`   | `size`    | The size (width) of the Progress Indicator.  If no size is set, falls back to `small`. | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
-
+| Property | Attribute | Description                                                                           | Type                                          | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `block`  | `block`   | Set for bloatier Progress Indicator.                                                  | `boolean \| undefined`                        | `undefined` |
+| `label`  | `label`   | The label of the Progress Indicator.                                                  | `string \| undefined`                         | `undefined` |
+| `size`   | `size`    | The size (width) of the Progress Indicator. If no size is set, falls back to `small`. | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
 
 ## Dependencies
 
 ### Used by
 
- - [dso-autosuggest](../autosuggest)
- - [dso-tree-view](../tree-view)
+- [dso-autosuggest](../autosuggest)
+- [dso-tree-view](../tree-view)
 
 ### Depends on
 
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-progress-indicator --> dso-icon
@@ -37,6 +36,6 @@ graph TD;
   style dso-progress-indicator fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

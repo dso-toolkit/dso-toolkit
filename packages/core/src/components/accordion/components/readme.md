@@ -1,7 +1,126 @@
 # `<dso-accordion-section>`
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### AccordionHeading
+
+```typescript
+export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionHeading -->
+
+### AccordionSectionActiveChangeEvent
+
+```typescript
+export interface AccordionSectionActiveChangeEvent {
+  /**
+   * De current status van de Accordion Section.
+   */
+  current: boolean;
+
+  /**
+   * De desired status van de Accordion Section.
+   */
+  next: boolean;
+
+  originalEvent: Event;
+}
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionActiveChangeEvent -->
+
+### AccordionSectionAnimationEndEvent
+
+```typescript
+export interface AccordionSectionAnimationEndEvent {
+  /**
+   * Helper function to scroll the Accordion Section into view.
+   */
+  scrollIntoView(behavior?: ScrollBehavior): void;
+
+  /**
+   * The state of the Accordion Section after animation.
+   */
+  open: boolean;
+}
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionAnimationEndEvent -->
+
+### AccordionSectionAnimationStartEvent
+
+```typescript
+export interface AccordionSectionAnimationStartEvent {
+  /**
+   * Helper function to scroll the Accordion Section into view.
+   */
+  scrollIntoView(behavior?: ScrollBehavior): void;
+
+  /**
+   * Whether or not the Accordion opening or closing.
+   */
+  animation: "opening" | "closing";
+}
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionAnimationStartEvent -->
+
+### AccordionSectionState
+
+```typescript
+export type AccordionSectionState = "success" | "info" | "warning" | "danger" | "error";
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionState -->
+
+### AccordionSectionToggleClickEvent
+
+```typescript
+export interface AccordionSectionToggleClickEvent {
+  /**
+   * The original MouseEvent that triggered the click.
+   *
+   * In case the Section Handle is an <a> this event can be used to preventDefault() so the framework router is reponsible for navigating the user.
+   */
+  originalEvent?: MouseEvent;
+
+  /**
+   * The requested state. If the Accordion Section is closed, `open = true`.
+   */
+  open: boolean;
+}
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionToggleClickEvent -->
+
+### AccordionSectionWijzigactie
+
+```typescript
+export type AccordionSectionWijzigactie = "voegtoe" | "verwijder";
+```
+
+<!-- src/components/accordion/components/accordion-section.interfaces.ts::AccordionSectionWijzigactie -->
+
+### LabelStatus
+
+```typescript
+export type LabelStatus = "primary" | "success" | "info" | "warning" | "error" | "bright" | "attention" | "filter";
+```
+
+<!-- src/components/label/label.interfaces.ts::LabelStatus -->
+
+### RenvooiValue
+
+```typescript
+export type RenvooiValue = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string } | string;
+```
+
+<!-- src/components/renvooi/renvooi.interfaces.ts::RenvooiValue -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -22,7 +141,6 @@
 | `statusDescription`        | `status-description`   | The status of the section.                                                                                                                                                                                                          | `string \| undefined`                                                                                                            | `undefined` |
 | `wijzigactie`              | `wijzigactie`          | An optional 'wijzigactie' that signals if the section is added or removed.                                                                                                                                                          | `"verwijder" \| "voegtoe" \| undefined`                                                                                          | `undefined` |
 
-
 ## Events
 
 | Event               | Description                                                               | Type                                               |
@@ -31,7 +149,6 @@
 | `dsoAnimationEnd`   | Event emitted when the Accordion Section completes its toggle animation.  | `CustomEvent<AccordionSectionAnimationEndEvent>`   |
 | `dsoAnimationStart` | Event emitted when the Accordion Section starts its toggle animation.     | `CustomEvent<AccordionSectionAnimationStartEvent>` |
 | `dsoToggleClick`    | Emitted when the user activates the toggle button.                        | `CustomEvent<AccordionSectionToggleClickEvent>`    |
-
 
 ## Methods
 
@@ -42,9 +159,6 @@ Calling this method will set focus to the handle.
 #### Returns
 
 Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 
@@ -58,6 +172,7 @@ Type: `Promise<void>`
 - [dso-attachments-counter](../../attachments-counter)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-renvooi
@@ -72,6 +187,6 @@ graph TD;
   style dso-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

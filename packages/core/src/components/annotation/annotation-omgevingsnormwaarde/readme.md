@@ -1,9 +1,46 @@
 # `<dso-annotation-omgevingsnormwaarde>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### AnnotationActiveChangeEvent
+
+```typescript
+export interface AnnotationActiveChangeEvent {
+  /**
+   * De huidige status van de annotatie.
+   */
+  current: boolean;
+
+  /**
+   * De gewenste status van de annotatie.
+   */
+  next: boolean;
+
+  originalEvent: Event;
+}
+```
+
+<!-- src/components/annotation/annotation.interfaces.ts::AnnotationActiveChangeEvent -->
+
+### AnnotationWijzigactie
+
+```typescript
+export type AnnotationWijzigactie = "voegtoe" | "verwijder";
+```
+
+<!-- src/components/annotation/annotation.interfaces.ts::AnnotationWijzigactie -->
+
+### RenvooiValue
+
+```typescript
+export type RenvooiValue = { toegevoegd: string } | { was: string; wordt: string } | { verwijderd: string } | string;
+```
+
+<!-- src/components/renvooi/renvooi.interfaces.ts::RenvooiValue -->
 
 <!-- Auto Generated Below -->
-
 
 ## Overview
 
@@ -21,20 +58,17 @@ Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
 | `waardes`           | `waardes`            | De waardes van de omgevingsnorm of omgevingswaarde.                                 | `RenvooiValue[] \| undefined`                                                                                  | `undefined` |
 | `wijzigactie`       | `wijzigactie`        | Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is. | `"verwijder" \| "voegtoe" \| undefined`                                                                        | `undefined` |
 
-
 ## Events
 
 | Event             | Description                                                                   | Type                                       |
 | ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------ |
 | `dsoActiveChange` | Een optionele event listener voor wijzigingen aan de status van de annotatie. | `CustomEvent<AnnotationActiveChangeEvent>` |
 
-
 ## Slots
 
 | Slot        | Description                                             |
 | ----------- | ------------------------------------------------------- |
 | `"symbool"` | Een optionele afbeelding die de annotatie symboliseert. |
-
 
 ## Dependencies
 
@@ -45,6 +79,7 @@ Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
 - [dso-label](../../label)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-annotation-omgevingsnormwaarde --> dso-renvooi
@@ -55,6 +90,6 @@ graph TD;
   style dso-annotation-omgevingsnormwaarde fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

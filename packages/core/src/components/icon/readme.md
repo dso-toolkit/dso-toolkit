@@ -2,49 +2,48 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property | Attribute | Description            | Type                  | Default     |
 | -------- | --------- | ---------------------- | --------------------- | ----------- |
 | `icon`   | `icon`    | The alias of the icon. | `string \| undefined` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dso-accordion-section](../accordion/components)
- - [dso-action-list-item](../action-list/components)
- - [dso-advanced-select](../advanced-select)
- - [dso-alert](../alert)
- - [dso-annotation-kaart](../annotation/annotation-kaart)
- - [dso-attachments-counter](../attachments-counter)
- - [dso-card](../card)
- - [dso-date-picker-legacy](../date-picker-legacy)
- - [dso-document-card](../document-card)
- - [dso-document-component](../document-component)
- - [dso-header](../header)
- - [dso-image-overlay](../image-overlay)
- - [dso-info](../info)
- - [dso-info-button](../info-button)
- - [dso-label](../label)
- - [dso-legend-item](../legend-item)
- - [dso-list-button](../list-button)
- - [dso-map-controls](../map-controls)
- - [dso-mark-bar](../mark-bar)
- - [dso-modal](../modal)
- - [dso-onboarding-tip](../onboarding-tip)
- - [dso-ozon-content](../ozon-content)
- - [dso-pagination](../pagination)
- - [dso-panel](../panel)
- - [dso-plekinfo-card](../plekinfo-card)
- - [dso-progress-indicator](../progress-indicator)
- - [dso-skiplink](../skiplink)
- - [dso-table](../table)
- - [dso-tree-view](../tree-view)
+- [dso-accordion-section](../accordion/components)
+- [dso-action-list-item](../action-list/components)
+- [dso-advanced-select](../advanced-select)
+- [dso-alert](../alert)
+- [dso-annotation-kaart](../annotation/annotation-kaart)
+- [dso-attachments-counter](../attachments-counter)
+- [dso-card](../card)
+- [dso-date-picker-legacy](../date-picker-legacy)
+- [dso-document-card](../document-card)
+- [dso-document-component](../document-component)
+- [dso-header](../header)
+- [dso-image-overlay](../image-overlay)
+- [dso-info](../info)
+- [dso-info-button](../info-button)
+- [dso-label](../label)
+- [dso-legend-item](../legend-item)
+- [dso-list-button](../list-button)
+- [dso-map-controls](../map-controls)
+- [dso-mark-bar](../mark-bar)
+- [dso-modal](../modal)
+- [dso-onboarding-tip](../onboarding-tip)
+- [dso-ozon-content](../ozon-content)
+- [dso-pagination](../pagination)
+- [dso-panel](../panel)
+- [dso-plekinfo-card](../plekinfo-card)
+- [dso-progress-indicator](../progress-indicator)
+- [dso-skiplink](../skiplink)
+- [dso-table](../table)
+- [dso-tree-view](../tree-view)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-accordion-section --> dso-icon
@@ -79,6 +78,6 @@ graph TD;
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

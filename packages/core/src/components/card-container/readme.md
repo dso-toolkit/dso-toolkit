@@ -1,9 +1,18 @@
 # `<dso-card-container>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### CardContainerMode
+
+```typescript
+export type CardContainerMode = "list" | "grid";
+```
+
+<!-- src/components/card-container/card-container.interfaces.ts::CardContainerMode -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,7 +20,6 @@
 | -------- | --------- | ------------------------------- | ------------------ | -------- |
 | `mode`   | `mode`    | The mode of the Card Container. | `"grid" \| "list"` | `"list"` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

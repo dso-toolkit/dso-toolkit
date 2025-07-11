@@ -18,21 +18,82 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 
 De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeerfunctie te gebruiken. Als deze functie door de afnemer wordt meegegeven, roept het Autosuggest component deze functie voor elke suggestie aan. De afnemer krijgt de tekst (`value: string`) en de type (`type: string`) mee. Een type kan bv. de primaire suggestie zijn, of de type aanduiding, of een van de extra's. De markeerfunctie wordt per suggestie voor alle onderdelen aangeroepen. Label, het optionele type, en voor elke extra.
 
-<!-- Auto Generated Below -->
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### AutosuggestMarkFunction
+
+```typescript
+(
+  suggestion: Suggestion,
+  text: string,
+  type: "value" | "type" | "extra",
+  extraIndex?: number,
+) => AutosuggestMarkItem[]
+```
+
+<!-- src/components/autosuggest/autosuggest.interfaces.ts::AutosuggestMarkFunction -->
+
+### Suggestion
+
+```typescript
+export interface Suggestion {
+  /**
+   * The text that will be displayed as the suggestion.
+   */
+  value: string;
+
+  /**
+   * The type of suggestion.
+   */
+  type?: string;
+
+  /**
+   * A reference to the original object that was used to create the suggestion.
+   */
+  item?: unknown;
+
+  /**
+   * An array of additional strings
+   */
+  extras?: string[];
+}
+```
+
+<!-- src/components/autosuggest/autosuggest.interfaces.ts::Suggestion -->
+
+### SuggestionGroup
+
+```typescript
+export interface SuggestionGroup {
+  /**
+   * The label of the group of suggestions
+   */
+  groupLabel: string;
+
+  /**
+   * The suggestions of this group for the value of the slotted input element.
+   */
+  suggestions: Suggestion[];
+}
+```
+
+<!-- src/components/autosuggest/autosuggest.interfaces.ts::SuggestionGroup -->
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Type                                                                                                                                                   | Default                |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
-| `loading`        | `loading`          | Shows progress indicator when fetching results.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `boolean`                                                                                                                                              | `false`                |
-| `loadingDelayed` | `loading-delayed`  | To delay progress indicator showing (in ms).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `number \| undefined`                                                                                                                                  | `undefined`            |
-| `loadingLabel`   | `loading-label`    | To override progress indicator's default loading label.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `string \| undefined`                                                                                                                                  | `"Een moment geduld."` |
-| `mark`           | `mark`             | A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `((suggestion: Suggestion, text: string, type: "value" \| "type" \| "extra", extraIndex?: number \| undefined) => AutosuggestMarkItem[]) \| undefined` | `undefined`            |
-| `notFoundLabel`  | `not-found-label`  | To show text when no results are found.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `string \| undefined`                                                                                                                                  | `undefined`            |
-| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `boolean`                                                                                                                                              | `false`                |
-| `suggestions`    | `suggestions`      | The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched. | `SuggestionGroup[] \| Suggestion[] \| null`                                                                                                            | `null`                 |
-
+| Property         | Attribute          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Type                                                                                                                                                   | Default                |
+| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `loading`        | `loading`          | Shows progress indicator when fetching results.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `boolean`                                                                                                                                              | `false`                |
+| `loadingDelayed` | `loading-delayed`  | To delay progress indicator showing (in ms).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `number \| undefined`                                                                                                                                  | `undefined`            |
+| `loadingLabel`   | `loading-label`    | To override progress indicator's default loading label.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `string \| undefined`                                                                                                                                  | `"Een moment geduld."` |
+| `mark`           | `mark`             | A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `((suggestion: Suggestion, text: string, type: "value" \| "type" \| "extra", extraIndex?: number \| undefined) => AutosuggestMarkItem[]) \| undefined` | `undefined`            |
+| `notFoundLabel`  | `not-found-label`  | To show text when no results are found.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `string \| undefined`                                                                                                                                  | `undefined`            |
+| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `boolean`                                                                                                                                              | `false`                |
+| `suggestions`    | `suggestions`      | The suggestions for the value of the slotted input element. This can be an array of type Suggestion or an Array of type SuggestionGroup. A suggestionGroup must have a `groupLabel` and `suggestions`. A suggestion must have a `value` and can have a `type`, an `item` or `extras`. The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion. The value should be null when no suggestions have been fetched. | `SuggestionGroup[] \| Suggestion[] \| null`                                                                                                            | `null`                 |
 
 ## Events
 
@@ -42,7 +103,6 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 | `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
 | `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
 
-
 ## Dependencies
 
 ### Depends on
@@ -51,6 +111,7 @@ De optionele property `mark` biedt een afnemer de mogelijkheid een eigen markeer
 - [dso-scrollable](../scrollable)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-progress-indicator
@@ -59,6 +120,6 @@ graph TD;
   style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

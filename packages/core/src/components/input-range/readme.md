@@ -1,9 +1,24 @@
 # `<dso-input-range>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### InputRangeChangeEvent
+
+```typescript
+export interface InputRangeChangeEvent {
+  originalEvent: Event;
+  value: number | undefined;
+  min: number;
+  max: number;
+  step: number;
+}
+```
+
+<!-- src/components/input-range/input-range.interfaces.ts::InputRangeChangeEvent -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,14 +32,12 @@
 | `unit`        | `unit`        | The unit of the range.              | `string`              | `""`        |
 | `value`       | `value`       | The value of the range.             | `number \| undefined` | `undefined` |
 
-
 ## Events
 
 | Event       | Description                         | Type                                 |
 | ----------- | ----------------------------------- | ------------------------------------ |
 | `dsoChange` | Emitted when the value has changed. | `CustomEvent<InputRangeChangeEvent>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

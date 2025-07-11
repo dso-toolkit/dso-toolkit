@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property     | Attribute     | Description                              | Type                   | Default     |
@@ -13,7 +12,6 @@
 | `white`      | `white`       | For a while Highlight Box.               | `boolean \| undefined` | `undefined` |
 | `yellow`     | `yellow`      | For yellow Highlight Box.                | `boolean \| undefined` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

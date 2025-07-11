@@ -1,9 +1,137 @@
 # `<dso-document-component>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### DocumentComponentAnnotationsWijzigactie
+
+```typescript
+export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentAnnotationsWijzigactie -->
+
+### DocumentComponentInputType
+
+```typescript
+export type DocumentComponentInputType = XMLDocument | string;
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentInputType -->
+
+### DocumentComponentMarkFunction
+
+```typescript
+(text: string, source: DocumentComponentSource) => OzonContentText[]
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentMarkFunction -->
+
+### DocumentComponentMarkItemHighlightEvent
+
+```typescript
+export interface DocumentComponentMarkItemHighlightEvent {
+  source: DocumentComponentSource;
+  text: string;
+  elementRef: HTMLElement;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentMarkItemHighlightEvent -->
+
+### DocumentComponentMode
+
+```typescript
+export type DocumentComponentMode = "document" | "table-of-contents";
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentMode -->
+
+### DocumentComponentOpenToggleEvent
+
+```typescript
+export interface DocumentComponentOpenToggleEvent {
+  originalEvent: Event;
+  open: boolean;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentOpenToggleEvent -->
+
+### DocumentComponentOzonContentAnchorClickEvent
+
+```typescript
+export interface DocumentComponentOzonContentAnchorClickEvent {
+  originalEvent: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>;
+  ozonContentAnchorClick: OzonContentAnchorClickEvent;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentOzonContentAnchorClickEvent -->
+
+### DocumentComponentRecursiveToggleEvent
+
+```typescript
+export interface DocumentComponentRecursiveToggleEvent {
+  originalEvent: MouseEvent;
+  current: DocumentComponentRecursiveToggleState;
+  next: boolean;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentRecursiveToggleEvent -->
+
+### DocumentComponentRecursiveToggleState
+
+```typescript
+export type DocumentComponentRecursiveToggleState = undefined | boolean | "indeterminate";
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentRecursiveToggleState -->
+
+### DocumentComponentTableOfContentsClickEvent
+
+```typescript
+export interface DocumentComponentTableOfContentsClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user clicked the document component heading while holding Ctrl, Alt or other modifiers, or when the document component heading is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentTableOfContentsClickEvent -->
+
+### DocumentComponentToggleAnnotationEvent
+
+```typescript
+export interface DocumentComponentToggleAnnotationEvent {
+  originalEvent: Event;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentToggleAnnotationEvent -->
+
+### DocumentComponentWijzigactie
+
+```typescript
+export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentWijzigactie -->
+
+### OzonContentUrlResolver
+
+```typescript
+export interface OzonContentUrlResolver {
+  (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
+  (name: "ExtIoRef" | "ExtRef", attribute: "ref", value: string | null, element: Element): string;
+}
+```
+
+<!-- src/components/ozon-content/ozon-content.interfaces.ts::OzonContentUrlResolver -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -34,7 +162,6 @@
 | `vervallen`                | `vervallen`                  | Marks the Document Component as expired.                                                                          | `boolean`                                                                             | `false`      |
 | `wijzigactie`              | `wijzigactie`                | The wijzigactie as in STOP.                                                                                       | `"nieuweContainer" \| "verwijder" \| "verwijderContainer" \| "voegtoe" \| undefined`  | `undefined`  |
 
-
 ## Events
 
 | Event                       | Description                                                              | Type                                                        |
@@ -46,7 +173,6 @@
 | `dsoRecursiveToggle`        | Emitted when the user activates the recursive toggle.                    | `CustomEvent<DocumentComponentRecursiveToggleEvent>`        |
 | `dsoTableOfContentsClick`   | Emitted when the user clicks the heading in mode="table-of-contents".    | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
 
-
 ## Shadow Parts
 
 | Part                      | Description                 |
@@ -56,12 +182,11 @@
 | `"_content"`              | private part, do not touch. |
 | `"_heading-container"`    | private part, do not touch. |
 
-
 ## Dependencies
 
 ### Used by
 
- - [dsot-document-component-demo](../document-component-demo)
+- [dsot-document-component-demo](../document-component-demo)
 
 ### Depends on
 
@@ -74,6 +199,7 @@
 - [dso-alert](../alert)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-document-component --> dso-icon
@@ -97,6 +223,6 @@ graph TD;
   style dso-document-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

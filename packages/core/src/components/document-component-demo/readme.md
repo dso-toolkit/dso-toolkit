@@ -1,9 +1,49 @@
 # `<dsot-document-component-demo>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### DocumentComponentMode
+
+```typescript
+export type DocumentComponentMode = "document" | "table-of-contents";
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentMode -->
+
+### DocumentComponentOzonContentAnchorClickEvent
+
+```typescript
+export interface DocumentComponentOzonContentAnchorClickEvent {
+  originalEvent: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>;
+  ozonContentAnchorClick: OzonContentAnchorClickEvent;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentOzonContentAnchorClickEvent -->
+
+### DocumentComponentTableOfContentsClickEvent
+
+```typescript
+export interface DocumentComponentTableOfContentsClickEvent {
+  originalEvent: MouseEvent;
+  /** True when user clicked the document component heading while holding Ctrl, Alt or other modifiers, or when the document component heading is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+}
+```
+
+<!-- src/components/document-component/document-component.models.ts::DocumentComponentTableOfContentsClickEvent -->
+
+### OzonContentUrlResolver
+
+```typescript
+any;
+```
+
+<!-- src/components.d.ts::OzonContentUrlResolver -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,14 +55,12 @@
 | `ozonContentUrlResolver` | `ozon-content-url-resolver` | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined` | `undefined`  |
 | `showCanvas`             | `show-canvas`               | Show canvas to where Document Component extends.                                                                | `boolean`                             | `false`      |
 
-
 ## Events
 
 | Event                        | Description                                                       | Type                                                        |
 | ---------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------- |
 | `dsotOzonContentAnchorClick` | To demo user interacting with IntRef or IntIoRef elements.        | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
 | `dsotTableOfContentsClick`   | To demo user interacting the heading in mode="table-of-contents". | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
-
 
 ## Dependencies
 
@@ -34,6 +72,7 @@
 - [dso-responsive-element](../responsive-element)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dsot-document-component-demo --> dso-document-component
@@ -63,6 +102,6 @@ graph TD;
   style dsot-document-component-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

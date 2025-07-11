@@ -1,9 +1,21 @@
 # `<dso-info-button>`
 
+<!-- Auto Generated dso-toolkit -->
 
+## Types
+
+### InfoButtonToggleEvent
+
+```typescript
+export interface InfoButtonToggleEvent {
+  originalEvent: MouseEvent;
+  active: boolean;
+}
+```
+
+<!-- src/components/info-button/info-button.interfaces.ts::InfoButtonToggleEvent -->
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,13 +25,11 @@
 | `label`     | `label`     | The label.                        | `string`               | `"Toelichting bij optie"` |
 | `secondary` | `secondary` | For secondary Info Button.        | `boolean \| undefined` | `undefined`               |
 
-
 ## Events
 
 | Event       | Description                                      | Type                                 |
 | ----------- | ------------------------------------------------ | ------------------------------------ |
 | `dsoToggle` | Emitted when the user activates the Info Button. | `CustomEvent<InfoButtonToggleEvent>` |
-
 
 ## Methods
 
@@ -31,21 +41,19 @@ To set focus to the toggle button.
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [dso-selectable](../selectable)
- - [dso-toggletip](../toggletip)
+- [dso-selectable](../selectable)
+- [dso-toggletip](../toggletip)
 
 ### Depends on
 
 - [dso-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   dso-info-button --> dso-icon
@@ -54,6 +62,6 @@ graph TD;
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
