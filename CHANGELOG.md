@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Whitebox: Deprecate ([#3172](https://github.com/dso-toolkit/dso-toolkit/issues/3172))
 
+### Removed
+* **BREAKING** Document Component: Verwijder deprecated properties `label`, `nummer` en `opschrift` ([#3006](https://github.com/dso-toolkit/dso-toolkit/issues/3006))
+
 ### Task
 * Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
 * Build: skip e2e test na zetten van release tag ([#3239](https://github.com/dso-toolkit/dso-toolkit/issues/3239))

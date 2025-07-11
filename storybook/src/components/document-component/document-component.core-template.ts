@@ -21,12 +21,9 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       heading,
       inhoud,
       kop,
-      label,
       notApplicable,
-      nummer,
       open,
       openAnnotation,
-      opschrift,
       type,
       vervallen,
       wijzigactie,
@@ -53,9 +50,6 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .heading=${heading}
           .inhoud=${ifDefined(inhoud)}
           .kop=${ifDefined(kop)}
-          .nummer=${ifDefined(nummer)}
-          .opschrift=${ifDefined(opschrift)}
-          .label=${ifDefined(label)}
           .type=${type}
           .wijzigactie=${ifDefined(wijzigactie)}
           .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
