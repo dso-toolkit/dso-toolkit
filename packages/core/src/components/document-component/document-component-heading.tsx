@@ -1,7 +1,7 @@
 import { FunctionalComponent, VNode, h } from "@stencil/core";
 import { JSXBase } from "@stencil/core/internal";
 
-import { DocumentComponentMode } from "./document-component.models";
+import { DocumentComponentMode } from "./document-component.interfaces";
 
 interface DocumentComponentHeadingProps {
   heading: "h2" | "h3" | "h4" | "h5" | "h6";

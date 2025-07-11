@@ -6,7 +6,7 @@ describe("Document Component", () => {
     const marker: DocumentComponentMarkFunction = (text, source) =>
       text
         .split(new RegExp(`(k)`, "gi"))
-        .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "label" && index === 1 } : item));
+        .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "kop" && index === 1 } : item));
 
     cy.visit("http://localhost:45000/iframe.html?id=core-document-component--default")
       .get("dso-document-component")

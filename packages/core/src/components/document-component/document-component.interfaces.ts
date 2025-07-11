@@ -21,7 +21,7 @@ export interface DocumentComponentOzonContentAnchorClickEvent {
 
 export type DocumentComponentInputType = XMLDocument | string;
 
-export type DocumentComponentSource = "kop" | "label" | "nummer" | "opschrift" | "inhoud";
+type DocumentComponentSource = "kop" | "inhoud";
 
 export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
 
