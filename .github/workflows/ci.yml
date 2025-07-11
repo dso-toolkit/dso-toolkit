@@ -94,7 +94,7 @@ jobs:
             ${{ github.workspace }}/storybook/cypress/snapshot-baseline
             ${{ github.workspace }}/storybook/cypress/snapshot-diff
       - uses: addnab/docker-run-action@v3
-        if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success') }}
+        if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success')  || (env.DT_DIST_TAG == 'latest' && steps.e2e.conclusion == 'skipped' ) }}
         name: Deploy
         with:
           registry: ghcr.io
