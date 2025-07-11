@@ -126,13 +126,13 @@
 
 :host([mode="document"]:not([not-collapsible])) {
   dso-ozon-content {
-    .kop::part(_kop) {
+    &.kop::part(_kop) {
       cursor: pointer;
-    }
 
-    &:hover {
-      color: var(--link-hover-color);
-      text-decoration: underline;
+      &:hover {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
     }
 
     &[inline].kop::part(_kop) {

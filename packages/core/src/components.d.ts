@@ -578,11 +578,6 @@ export namespace Components {
          */
         "kop"?: DocumentComponentInputType;
         /**
-          * The Label XML.
-          * @deprecated Use `kop` instead.
-         */
-        "label"?: DocumentComponentInputType;
-        /**
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
@@ -595,11 +590,6 @@ export namespace Components {
          */
         "notApplicable": boolean;
         /**
-          * The Nummer XML.
-          * @deprecated Use `kop` instead.
-         */
-        "nummer"?: DocumentComponentInputType;
-        /**
           * This boolean attribute indicates whether the children are visible.
          */
         "open": boolean;
@@ -607,11 +597,6 @@ export namespace Components {
           * When the Annotation is opened, set this to true.
          */
         "openAnnotation": boolean;
-        /**
-          * The Opschrift XML.
-          * @deprecated Use `kop` instead.
-         */
-        "opschrift"?: DocumentComponentInputType;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
@@ -3076,11 +3061,6 @@ declare namespace LocalJSX {
          */
         "kop"?: DocumentComponentInputType;
         /**
-          * The Label XML.
-          * @deprecated Use `kop` instead.
-         */
-        "label"?: DocumentComponentInputType;
-        /**
           * To mark text.
          */
         "mark"?: DocumentComponentMarkFunction;
@@ -3092,11 +3072,6 @@ declare namespace LocalJSX {
           * Marks this Document Component as not-applicable.
          */
         "notApplicable"?: boolean;
-        /**
-          * The Nummer XML.
-          * @deprecated Use `kop` instead.
-         */
-        "nummer"?: DocumentComponentInputType;
         /**
           * Emitted when the user activates the annotation button.
          */
@@ -3129,11 +3104,6 @@ declare namespace LocalJSX {
           * When the Annotation is opened, set this to true.
          */
         "openAnnotation"?: boolean;
-        /**
-          * The Opschrift XML.
-          * @deprecated Use `kop` instead.
-         */
-        "opschrift"?: DocumentComponentInputType;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */

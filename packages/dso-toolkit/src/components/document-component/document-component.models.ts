@@ -12,12 +12,9 @@ export interface DocumentComponent<TemplateFnReturnType> {
   gereserveerd?: boolean;
   heading: DocumentComponentHeading;
   inhoud?: string;
-  label?: string;
   notApplicable?: boolean;
-  nummer?: string;
   open?: boolean;
   openAnnotation?: boolean;
-  opschrift?: string;
   kop?: string;
   type: DocumentComponentType;
   vervallen?: boolean;
@@ -56,7 +53,7 @@ export interface DocumentComponentToggleEvent {
 
 export interface DocumentComponentAnnotationToggleEvent {}
 
-export type DocumentComponentSource = "label" | "nummer" | "opschrift" | "inhoud";
+export type DocumentComponentSource = "inhoud";
 
 export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
 
