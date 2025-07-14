@@ -14,9 +14,9 @@ type LegendItemStory = StoryObj<LegendItemArgs, Renderer>;
 
 interface LegendItemStories {
   Default: LegendItemStory;
-  WithOptions: LegendItemStory;
-  WithToggleSlider: LegendItemStory;
-  WithoutSymbol: LegendItemStory;
+  NotActivatable: LegendItemStory;
+  NoOptions: LegendItemStory;
+  NoSymbol: LegendItemStory;
 }
 
 interface LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -59,9 +59,6 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
 }: LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LegendItemStories {
   return {
     Default: {
-      args: {
-        label: "Legenda item label",
-      },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,
@@ -69,10 +66,10 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
           legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, optionsWithInputRange)),
       ),
     },
-    WithOptions: {
+    NotActivatable: {
       args: {
-        label: "Legenda item label",
         activatable: false,
+        label: "Legenda item niet activeerbaar",
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
@@ -81,22 +78,21 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
           legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, optionsWithInputRange)),
       ),
     },
-    WithToggleSlider: {
+    NoOptions: {
       args: {
-        label: "Legenda item label",
+        label: "Legenda item zonder opties",
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
         legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol)),
       ),
     },
-    WithoutSymbol: {
+    NoSymbol: {
       args: {
-        label: "Legenda item label",
+        label: "Legenda item zonder symbool",
       },
-      decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate }) =>
-        legendItemTemplate(legendItemArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, optionsWithInputRange }) =>
+        legendItemTemplate(legendItemArgsMapper(args, undefined, undefined, optionsWithInputRange)),
       ),
     },
   };

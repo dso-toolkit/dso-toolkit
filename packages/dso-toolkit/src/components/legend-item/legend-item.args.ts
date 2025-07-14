@@ -16,11 +16,12 @@ export interface LegendItemArgs {
   label: string;
 }
 
-export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange" | "label"> = {
+export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange"> = {
   disabled: false,
   disabledMessage: "",
   active: true,
   activatable: true,
+  label: "Legenda item label",
 };
 
 export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
