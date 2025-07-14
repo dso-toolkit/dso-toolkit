@@ -29,7 +29,6 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 ### Used by
 
  - [dso-document-component](../document-component)
- - [dsot-document-component-demo](../document-component-demo)
 
 ### Depends on
 
@@ -48,7 +47,6 @@ graph TD;
   dso-image-overlay --> dso-icon
   dso-table --> dso-icon
   dso-document-component --> dso-ozon-content
-  dsot-document-component-demo --> dso-ozon-content
   style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

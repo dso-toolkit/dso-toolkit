@@ -22,7 +22,7 @@ import {
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentToggleAnnotationEvent,
   DocumentComponentWijzigactie,
-} from "./document-component.models";
+} from "./document-component.interfaces";
 
 const wijzigactieLabels: { [wijzigactie in DocumentComponentWijzigactie]: string } = {
   nieuweContainer: "Toegevoegd",
@@ -48,27 +48,6 @@ export class DocumentComponent implements ComponentInterface {
    */
   @Prop()
   heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
-
-  /**
-   * The Label XML.
-   * @deprecated Use `kop` instead.
-   */
-  @Prop()
-  label?: DocumentComponentInputType;
-
-  /**
-   * The Nummer XML.
-   * @deprecated Use `kop` instead.
-   */
-  @Prop()
-  nummer?: DocumentComponentInputType;
-
-  /**
-   * The Opschrift XML.
-   * @deprecated Use `kop` instead.
-   */
-  @Prop()
-  opschrift?: DocumentComponentInputType;
 
   /**
    * The Kop XML.
@@ -280,17 +259,11 @@ export class DocumentComponent implements ComponentInterface {
 
   render() {
     const suffix = this.suffix();
-    const collapsible = !!(
-      (this.label || this.nummer || this.opschrift || this.kop || this.alternativeTitle) &&
-      this.type !== "LID"
-    );
+    const collapsible = !!((this.kop || this.alternativeTitle) && this.type !== "LID");
 
     const showHeading = !!(
       this.wijzigactie ||
       collapsible ||
-      this.label ||
-      this.nummer ||
-      this.opschrift ||
       this.kop ||
       this.alternativeTitle ||
       this.bevatOntwerpInformatie ||
@@ -319,7 +292,7 @@ export class DocumentComponent implements ComponentInterface {
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
 
-                  {this.kop && (
+                  {this.kop ? (
                     <dso-ozon-content
                       class="kop"
                       content={this.kop}
@@ -332,56 +305,6 @@ export class DocumentComponent implements ComponentInterface {
                       inline
                       urlResolver={this.ozonContentUrlResolver}
                     />
-                  )}
-
-                  {(this.label || this.nummer || this.opschrift) && !this.kop ? (
-                    <>
-                      {this.label && (
-                        <>
-                          {" "}
-                          <dso-ozon-content
-                            content={this.label}
-                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                            onDsoClick={this.handleOzonContentClick}
-                            mark={this.mark && ((text) => this.mark?.(text, "label"))}
-                            onDsoOzonContentMarkItemHighlight={(e) =>
-                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "label" })
-                            }
-                            inline
-                          ></dso-ozon-content>
-                        </>
-                      )}
-                      {this.nummer && (
-                        <>
-                          {" "}
-                          <dso-ozon-content
-                            content={this.nummer}
-                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                            onDsoClick={this.handleOzonContentClick}
-                            mark={this.mark && ((text) => this.mark?.(text, "nummer"))}
-                            onDsoOzonContentMarkItemHighlight={(e) =>
-                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "nummer" })
-                            }
-                            inline
-                          ></dso-ozon-content>
-                        </>
-                      )}
-                      {this.opschrift && (
-                        <>
-                          {" "}
-                          <dso-ozon-content
-                            content={this.opschrift}
-                            onDsoAnchorClick={this.handleOzonContentAnchorClick}
-                            onDsoClick={this.handleOzonContentClick}
-                            mark={this.mark && ((text) => this.mark?.(text, "opschrift"))}
-                            onDsoOzonContentMarkItemHighlight={(e) =>
-                              this.dsoMarkItemHighlight.emit({ ...e.detail, source: "opschrift" })
-                            }
-                            inline
-                          ></dso-ozon-content>
-                        </>
-                      )}
-                    </>
                   ) : (
                     this.alternativeTitle
                   )}

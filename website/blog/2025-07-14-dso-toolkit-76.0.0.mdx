@@ -1,0 +1,23 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v76.0.0 💷
+
+Deze release bevat **Breaking** changes voor het volgende component:
+
+- Document Component
+
+<!-- truncate -->
+
+## Document Component
+
+De deprecated properties `label`, `nummer` en `opschrift` zijn verwijderd. In versie 🪗 68.5.0 is de property `kop` geïntroduceerd. `kop` bevat `label`, `nummer` en `opschrift`.
+
+```html
+❌ < 76.0.0
+<dso-document-component label="..." nummer="..." opschrift="..." [...]></dso-document-component>
+
+✅ >= 76.0.0
+<dso-document-component kop="..." [...]></dso-document-component>
+```

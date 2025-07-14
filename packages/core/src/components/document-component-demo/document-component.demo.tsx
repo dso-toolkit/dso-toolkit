@@ -9,7 +9,7 @@ import {
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
-} from "../document-component/document-component.models";
+} from "../document-component/document-component.interfaces";
 
 interface DocumentEmbedded {
   _embedded?: {
@@ -21,10 +21,7 @@ interface DocumentEmbedded {
 interface DocumentComponent extends DocumentEmbedded {
   documentTechnischId: string;
   type?: string;
-  labelXml?: string;
-  nummerXml?: string;
   volgordeNummer: number;
-  opschrift?: string;
   inhoud?: string;
   kop?: string;
   gereserveerd?: boolean;
@@ -386,29 +383,15 @@ export class DocumentComponentDemo implements ComponentInterface {
   }
 
   private MenuButton = ({ documentComponent }: MenuItemProps) => {
-    const { labelXml, nummerXml, type } = documentComponent;
+    const { type } = documentComponent;
 
     return (
       <button type="button" onClick={() => (this.document = documentComponent)}>
-        {!labelXml && !nummerXml ? (
+        {
           <span>
             <i>{type}</i>
           </span>
-        ) : (
-          <>
-            {labelXml && (
-              <>
-                <dso-ozon-content content={labelXml} inline></dso-ozon-content>
-              </>
-            )}
-            {nummerXml && (
-              <>
-                {" "}
-                <dso-ozon-content content={nummerXml} inline></dso-ozon-content>
-              </>
-            )}
-          </>
-        )}
+        }
       </button>
     );
   };
