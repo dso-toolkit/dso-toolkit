@@ -190,7 +190,7 @@ export class Label implements ComponentInterface {
     return (
       <Fragment>
         <span
-          aria-describedby="toggle-anchor"
+          aria-describedby={this.isTruncated ? "toggle-anchor" : null}
           class={clsx("dso-label", {
             [`dso-label-${this.status}`]: this.status,
             "dso-compact": this.compact && !this.removable,

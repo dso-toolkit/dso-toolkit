@@ -9,8 +9,8 @@
     "e2e:test": "cypress run"
   },
   "dependencies": {
-    "@babel/core": "^7.27.1",
-    "@babel/preset-env": "^7.27.2",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
     "@dso-toolkit/core": "workspace:^",
     "@iframe-resizer/child": "^5.4.6",
@@ -45,8 +45,8 @@
     "react-syntax-highlighter": "^15.6.1",
     "start-server-and-test": "^2.0.12",
     "storybook": "7.6.20",
-    "tsx": "^4.19.4",
-    "typescript": "~5.6.3"
+    "tsx": "^4.20.3",
+    "typescript": "~5.8.3"
   },
   "prettier": "@infoprojects/prettier-config",
   "nx": {

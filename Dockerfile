@@ -32,7 +32,7 @@ RUN mkdir -p /etc/apt/keyrings \
   && apt-get install azure-cli=2.71.0-1~${AZ_DIST}
 
 # https://github.com/Azure/azure-cli/issues/30635#issuecomment-2581362583
-RUN curl -L https://azcopyvnext-awgzd8g7aagqhzhe.b02.azurefd.net/releases/release-10.28.0-20250127/azcopy_linux_amd64_10.28.0.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
+RUN curl -L https://azcopyvnext-awgzd8g7aagqhzhe.b02.azurefd.net/releases/release-10.29.1-20250515/azcopy_linux_amd64_10.29.1.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 
