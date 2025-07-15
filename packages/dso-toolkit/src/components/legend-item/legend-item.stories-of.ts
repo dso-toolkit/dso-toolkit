@@ -17,6 +17,7 @@ interface LegendItemStories {
   NotActivatable: LegendItemStory;
   NoOptions: LegendItemStory;
   NoSymbol: LegendItemStory;
+  OnlySymbol: LegendItemStory;
 }
 
 interface LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -93,6 +94,16 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       },
       render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, optionsWithInputRange }) =>
         legendItemTemplate(legendItemArgsMapper(args, undefined, undefined, optionsWithInputRange)),
+      ),
+    },
+    OnlySymbol: {
+      args: {
+        label: "Legenda item met alleen symbool",
+        activatable: false,
+      },
+      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
+        legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, undefined)),
       ),
     },
   };
