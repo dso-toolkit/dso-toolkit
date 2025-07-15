@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Document Component: Verwijder deprecated properties `label`, `nummer` en `opschrift` ([#3006](https://github.com/dso-toolkit/dso-toolkit/issues/3006))
+* **BREAKING** Pagination: Verwijderen HTML/CSS component ([#2868](https://github.com/dso-toolkit/dso-toolkit/issues/2868))
 
 ### Task
 * Build: Key aanpassen voor cache cypress baseline ([#3108](https://github.com/dso-toolkit/dso-toolkit/issues/3108))
