@@ -2,7 +2,7 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "75.1.0",
+  "version": "76.0.0",
   "scripts": {
     "watch": "gulp"
   },

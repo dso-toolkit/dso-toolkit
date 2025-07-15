@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 💷 Release 76.0.0 - 2025-07-15
+
 ### Changed
 * List Button: Beter zichtbare hover state ([#3175](https://github.com/dso-toolkit/dso-toolkit/issues/3175))
 * Legend Item: Uitbreiden met opties ([#3233](https://github.com/dso-toolkit/dso-toolkit/issues/3233))
