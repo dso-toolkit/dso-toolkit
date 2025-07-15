@@ -9,7 +9,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
   implementation: "core",
   template: () =>
     function legendItemTemplate({
-      body,
+      options,
       content,
       disabled,
       disabledMessage,
@@ -17,6 +17,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
       dsoMouseLeave,
       dsoActiveChange,
       active,
+      activatable,
       symbol,
     }) {
       return html`
@@ -27,9 +28,10 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
           @dsoActiveChange=${ifDefined(dsoActiveChange)}
           .active=${active}
+          .activatable=${activatable}
         >
           ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
-          ${body ? html`<div slot="body">${body}</div>` : nothing}
+          ${options ? html`<div slot="options">${options}</div>` : nothing}
         </dso-legend-item>
       `;
     },

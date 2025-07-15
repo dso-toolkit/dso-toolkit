@@ -17,7 +17,7 @@
   display: flex;
   position: relative;
 
-  &.legend-item-symbol + .body {
+  &.legend-item-symbol + .options {
     margin-block-start: units.$u1;
   }
 }
