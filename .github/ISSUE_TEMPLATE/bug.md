@@ -3,7 +3,6 @@ name: Bug
 about: Meld onverwacht gedrag
 title: "COMPONENT: SAMENVATTING"
 labels: 🐛 Bug
-projects: PI-34
 ---
 
 ## Geobserveerd gedrag

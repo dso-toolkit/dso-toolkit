@@ -3,7 +3,6 @@ name: Feature
 about: Nieuwe functionaliteit
 title: "COMPONENT: SAMENVATTING"
 labels: "✨ Feature"
-projects: PI-34
 ---
 
 ## Omschrijving van de functionaliteit

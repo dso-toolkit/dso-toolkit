@@ -3,7 +3,6 @@ name: Task
 about: Toevoegen van een taak
 title: "Taak: SAMENVATTING"
 labels: ✅ Task
-projects: PI-34
 ---
 
 ## Omschrijving van de taak
