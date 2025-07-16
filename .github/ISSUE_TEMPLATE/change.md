@@ -3,7 +3,6 @@ name: Change
 about: Wijzigingen aan bestaande functionaliteit
 title: "COMPONENT: SAMENVATTING"
 labels: "⤵️ Change"
-projects: PI-34
 ---
 
 ## Omschrijving van de wijziging

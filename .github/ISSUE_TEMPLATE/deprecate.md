@@ -3,7 +3,6 @@ name: Deprecate
 about: Aankondiging voor functionaliteit die gaat vervallen
 title: "COMPONENT: Deprecate"
 labels: 🪦 Deprecate
-projects: PI-34
 ---
 
 ## Onderbouwing en omschrijving
