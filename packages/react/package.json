@@ -17,7 +17,8 @@
     "dist/"
   ],
   "dependencies": {
-    "@stencil/react-output-target": "^1.0.2"
+    "@stencil/react-output-target": "^1.0.2",
+    "lodash.startcase": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

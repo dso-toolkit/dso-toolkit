@@ -25,6 +25,7 @@
     "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",
     "lit-html": "^3.3.0",
+    "lodash.startcase": "^4.4.0",
     "start-server-and-test": "^2.0.12",
     "storybook": "9.0.18",
     "tsx": "^4.20.3",
