@@ -3727,6 +3727,7 @@ __metadata:
     eslint: "npm:^9.27.0"
     eslint-plugin-storybook: "npm:9.0.18"
     http-proxy-middleware: "npm:^3.0.5"
+    lodash.startcase: "npm:^4.4.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
@@ -8940,6 +8941,7 @@ __metadata:
     karma-coverage: "npm:~2.2.1"
     karma-jasmine: "npm:~5.1.0"
     karma-jasmine-html-reporter: "npm:~2.1.0"
+    lodash.startcase: "npm:^4.4.0"
     mkdirp: "npm:^3.0.1"
     ng-packagr: "npm:^20.1.0"
     rimraf: "npm:^6.0.1"
@@ -12566,6 +12568,7 @@ __metadata:
     http-proxy-middleware: "npm:^3.0.5"
     http-server: "npm:^14.1.1"
     lit-html: "npm:^3.3.0"
+    lodash.startcase: "npm:^4.4.0"
     start-server-and-test: "npm:^2.0.12"
     storybook: "npm:9.0.18"
     tsx: "npm:^4.20.3"
@@ -18465,6 +18468,13 @@ __metadata:
   version: 4.6.0
   resolution: "lodash.some@npm:4.6.0"
   checksum: 10/4e686a2f736fc66aa022b235f773372e251ab5d96b06f8ab4dbbb7a2be923ddb5d16c4d35d23ad1e63a5629c5ac9ca45006e3aab020404880d1b0172ffa29bac
+  languageName: node
+  linkType: hard
+
+"lodash.startcase@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.startcase@npm:4.4.0"
+  checksum: 10/3091048a54a2f92bcf2c6441d2bd9a706fb133d5f461ae7c310d6dca1530338a06c91e9e42a5b14b12e875ddae1814d448050dc02afe2cec09b3995d8e836837
   languageName: node
   linkType: hard
 
