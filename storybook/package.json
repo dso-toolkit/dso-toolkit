@@ -18,7 +18,7 @@
     "@storybook/addon-a11y": "9.0.18",
     "axe-core": "^4.10.3",
     "cheerio": "^1.0.0",
-    "cypress": "^13.17.0",
+    "cypress": "^14.5.3",
     "cypress-axe": "^1.6.0",
     "cypress-real-events": "^1.14.0",
     "dso-toolkit": "workspace:^",

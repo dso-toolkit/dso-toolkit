@@ -94,5 +94,16 @@ function terminalLog(violations: axe.Result[]) {
 }
 
 Cypress.Commands.add("dsoCheckA11y", (context, options) => {
-  return cy.get(context).should("exist", { log: false }).checkA11y(context, options, terminalLog);
+  // https://stackoverflow.com/questions/79530199/testing-storybook-with-cypress-gets-axe-is-already-running-error
+  cy.window().then(async (win) => {
+    if (!win.axe) {
+      throw new Error("Axe is not loaded");
+    }
+
+    while (win.axe._running) {
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+
+    return cy.get(context).should("exist", { log: false }).checkA11y(context, options, terminalLog);
+  });
 });
