@@ -37,8 +37,8 @@ describe("Autosuggest", () => {
       .focus()
       .type("rotterdam");
     cy.wait(200);
-    cy.dsoCheckA11y("dso-autosuggest.hydrated");
     cy.get("input").should("have.attr", "aria-expanded", "true");
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
 
     cy.get("dso-autosuggest.hydrated")
       .find("div[role='listbox']")
@@ -46,8 +46,11 @@ describe("Autosuggest", () => {
 
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
+    cy.get("dso-autosuggest.hydrated")
+      .get("input")
+      .should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
+
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
-    cy.get("input").should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
   });
 
   it("escape should hide suggestions", { browser: "!firefox" }, () => {

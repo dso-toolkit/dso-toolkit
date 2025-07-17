@@ -301,7 +301,14 @@ describe("Accordion", () => {
     it("shows a nested accordion", () => {
       cy.visit("http://localhost:45000/iframe.html?id=core-accordion--nested");
 
-      cy.get("dso-accordion.hydrated:has(dso-accordion.hydrated)").should("exist").matchImageSnapshot();
+      cy.get("dso-accordion.hydrated:has(dso-accordion.hydrated) > dso-accordion-section:nth-child(2)")
+        .shadow()
+        .find("h2")
+        .should("exist")
+        .and("be.visible")
+        .and("have.css", "background-color", "rgb(139, 74, 106)")
+        .get("dso-accordion.hydrated:has(dso-accordion.hydrated)")
+        .matchImageSnapshot();
     });
   });
 
@@ -318,9 +325,9 @@ describe("Accordion", () => {
     });
 
     it("shows a Slide Toggle", () => {
-      cy.get("dso-accordion.hydrated").should("exist").matchImageSnapshot();
-
       cy.get("@accordionSection").shadow().find("dso-slide-toggle").should("exist");
+
+      cy.get("dso-accordion.hydrated").should("exist").and("be.visible").matchImageSnapshot();
     });
 
     it("does not show a Slide Toggle", () => {

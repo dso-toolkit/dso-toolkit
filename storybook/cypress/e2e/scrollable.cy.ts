@@ -53,14 +53,15 @@ describe("Scrollable", () => {
 
   it("should update scroll state with dynamic content", () => {
     cy.visit("http://localhost:45000/iframe.html?args=&id=core-scrollable--dynamic-content")
-      .get("dso-scrollable")
+      .get("dso-scrollable.hydrated")
       .get("@scrollContainer")
       .should("not.have.class", "dso-scroll-top")
       .and("not.have.class", "dso-scroll-middle")
       .and("not.have.class", "dso-scroll-bottom")
-      .get("dso-scrollable")
+      .get("dso-scrollable.hydrated")
       .find("> dso-accordion > dso-accordion-section")
       .invoke("attr", "open", true)
+      .get("dso-scrollable.hydrated")
       .get("@scrollContainer")
       .should("have.class", "dso-scroll-top");
   });

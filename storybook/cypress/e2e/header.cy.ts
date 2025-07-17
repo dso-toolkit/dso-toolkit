@@ -74,12 +74,17 @@ describe("Header", () => {
   it("matches snapshot", () => {
     cy.viewport(1225, 660)
       .get("dso-header.hydrated")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu.hydrated")
+      .should("not.exist");
+
+    cy.get("dso-header.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);
 
     cy.viewport(1000, 660)
       .get("@dsoHeaderShadow")
       .find("dso-dropdown-menu.hydrated")
-      .should("be.visible")
+      .should("exist")
+      .and("be.visible")
       .get("@dsoHeaderShadow")
       .find(".dso-dropdown-options ul li")
       .should("have.length", 2);
