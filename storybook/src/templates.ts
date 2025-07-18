@@ -14,6 +14,7 @@ import {
   Breadcrumbs,
   Button,
   ButtonAnchor,
+  ButtonGroup,
   ButtonRow,
   Card,
   CardContainer,
@@ -123,6 +124,7 @@ import { coreBanner } from "./components/banner/banner.core-template";
 import { cssBanner } from "./components/banner/banner.css-template";
 import { cssBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.css-template";
 import { cssButton } from "./components/button/button.css-template";
+import { coreButtonGroup } from "./components/button-group/button-group.core-template";
 import { cssButtonRow } from "./components/button-row/button-row.css-template";
 import { coreCard } from "./components/card/card.core-template";
 import { cssCard } from "./components/card/card.css-template";
@@ -235,6 +237,7 @@ export interface Components {
   banner: Banner<TemplateResult>;
   breadcrumbs: Breadcrumbs;
   button: Button | ButtonAnchor;
+  buttonGroup: ButtonGroup;
   buttonRow: ButtonRow;
   card: Card<TemplateResult>;
   cardContainer: CardContainer<TemplateResult>;
@@ -360,6 +363,7 @@ templateContainer.add(coreAttachmentsCounter);
 templateContainer.add(coreAutosuggest);
 templateContainer.add(coreBadge);
 templateContainer.add(coreBanner);
+templateContainer.add(coreButtonGroup);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreContactInformation);

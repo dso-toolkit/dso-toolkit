@@ -43,6 +43,8 @@ export * from "./components/breadcrumbs";
 
 export * from "./components/button";
 
+export * from "./components/button-group";
+
 export * from "./components/button-row";
 
 export * from "./components/card";
