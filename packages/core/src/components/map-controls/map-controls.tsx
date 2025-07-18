@@ -1,11 +1,23 @@
-import { Component, Element, Event, EventEmitter, Fragment, Method, Prop, State, Watch, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 
 import { i18n } from "../../utils/i18n";
 
 import { translations } from "./map-controls.i18n";
 import { MapControlsToggleEvent } from "./map-controls.interfaces";
 
-// Sync with $transition-duration in ./map-controls.scss
+// Sync with $transition-duration in ./map-controls.scss and map-controls.cy.ts
 const transitionDuration = 300;
 
 @Component({
@@ -13,7 +25,7 @@ const transitionDuration = 300;
   styleUrl: "./map-controls.scss",
   shadow: true,
 })
-export class MapControls {
+export class MapControls implements ComponentInterface {
   @Element()
   host!: HTMLDsoMapControlsElement;
 
@@ -99,41 +111,43 @@ export class MapControls {
         <button
           type="button"
           id="toggle-visibility-button"
-          class="toggle-visibility-button"
+          class="dso-map toggle-visibility-button"
           onClick={(e) => this.toggleVisibility(e)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
           <span>{this.text("layersButton")}</span>
         </button>
-        <div class="zoom-buttons">
+        <dso-button-group class="zoom-buttons" direction="column">
           <button
             type="button"
+            class="dso-map"
             onClick={(e) => this.dsoZoomIn.emit(e)}
             disabled={this.disableZoom === "in" || this.disableZoom === "both"}
           >
-            <span>{this.text("zoomIn")}</span>
+            <span class="sr-only">{this.text("zoomIn")}</span>
             <dso-icon icon="plus"></dso-icon>
           </button>
           <button
             type="button"
+            class="dso-map"
             onClick={(e) => this.dsoZoomOut.emit(e)}
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           >
-            <span>{this.text("zoomOut")}</span>
+            <span class="sr-only">{this.text("zoomOut")}</span>
             <dso-icon icon="minus"></dso-icon>
           </button>
-        </div>
+        </dso-button-group>
         <section hidden={this.hideContent}>
           <header>
             <h2>{this.text("title")}</h2>
             <button
               type="button"
-              class="close-button"
+              class="dso-tertiary close-button"
               onClick={(e) => this.toggleVisibility(e)}
               ref={(element) => (this.#closeButtonElement = element)}
             >
-              <span>{this.text("hidePanel", { title: this.text("title") })}</span>
+              <span class="sr-only">{this.text("hidePanel", { title: this.text("title") })}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>

@@ -1,4 +1,4 @@
-import { Button, ButtonAnchor } from "dso-toolkit";
+import { Button, ButtonAnchor, ButtonMode } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -7,8 +7,8 @@ import { ComponentImplementation } from "../../templates";
 export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
   implementation: "html-css",
-  template: ({ iconTemplate, tooltipTemplate }) => {
-    function getClassNames(variant: "primary" | "secondary" | "tertiary" | null, modifier?: string, mode?: string) {
+  template: ({ iconTemplate }) => {
+    function getClassNames<Variant extends string | null>(variant: Variant, modifier?: string, mode?: ButtonMode) {
       const classNames = [];
 
       if (variant) {
@@ -63,7 +63,6 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       screenreaderPrefix,
       screenreaderSuffix,
       slot,
-      tooltip,
       compact,
       truncate,
       onClick,
@@ -102,7 +101,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
               : nothing}${label}${screenreaderSuffix
               ? html`<span class="sr-only">${screenreaderSuffix}</span>`
               : nothing}</span
-          >${icon && iconMode ? iconTemplate(icon) : nothing} ${tooltip ? tooltipTemplate(tooltip) : nothing}
+          >${icon && iconMode ? iconTemplate(icon) : nothing}
         </button>
       `;
     }

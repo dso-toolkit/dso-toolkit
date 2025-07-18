@@ -7,7 +7,7 @@ export interface ButtonArgs {
   element: "button" | "anchor";
   compact?: boolean;
   align?: boolean;
-  variant: "primary" | "secondary" | "tertiary";
+  variant: "primary" | "secondary" | "tertiary" | "map";
   truncate?: boolean;
   click: HandlerFunction;
   type?: "button" | "submit";
@@ -108,7 +108,6 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         iconMode: a.iconMode,
         id: a.id,
         align: a.align,
-        compact: a.compact,
       };
 
       return anchor;

@@ -25,6 +25,8 @@ $tertiary-color: colors.$grasgroen;
 $tertiary-hover-color: colors.$bosgroen;
 $tertiary-active-color: colors.$bosgroen-140;
 
+$map-size: units.$u5;
+
 $buttons: ".dso-primary, .dso-secondary, .dso-tertiary";
 $not-dso-buttons: ":not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
 
