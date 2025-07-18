@@ -1,14 +1,13 @@
-// import { Instance as PopperInstance, Placement, createPopper } from "@popperjs/core";
-import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
+import { autoUpdate, computePosition, offset } from "@floating-ui/dom";
+import { Component, Element, Host, Listen, Prop, h } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
-import { autoUpdate, computePosition, offset } from "@floating-ui/dom";
 
 @Component({
   tag: "dso-dropdown-menu",
-  styleUrl: "dropdown-menu.scss", // TODO: Alle CSS kopieeren & refactoren naar dit bestand
+  styleUrl: "dropdown-menu.scss",
   shadow: true,
 })
 export class DropdownMenu {
@@ -53,7 +52,7 @@ export class DropdownMenu {
   }
 
   get container(): HTMLDivElement {
-    const container = this.host.shadowRoot?.querySelector('.dropdown-menu-container');
+    const container = this.host.shadowRoot?.querySelector(".dropdown-menu-container");
 
     if (!(container instanceof HTMLDivElement)) {
       throw new ReferenceError("Mandatory dropdown container not found");
@@ -215,7 +214,6 @@ export class DropdownMenu {
     this.open = false;
   };
 
-  // TODO: popover werkend maken.
   render() {
     return (
       <Host onFocusout={this.focusOutListener}>
