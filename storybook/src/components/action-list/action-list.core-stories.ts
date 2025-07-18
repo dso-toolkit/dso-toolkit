@@ -1,6 +1,6 @@
 import componentsReadme from "@dso-toolkit/core/src/components/action-list/components/readme.md?raw";
 import readme from "@dso-toolkit/core/src/components/action-list/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { ActionListArgs, actionListMeta, actionListStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
