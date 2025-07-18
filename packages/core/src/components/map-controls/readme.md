@@ -46,12 +46,14 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-button-group](../button-group)
 - [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-map-controls --> dso-icon
+  dso-map-controls --> dso-button-group
   dso-map-controls --> dso-scrollable
   style dso-map-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```

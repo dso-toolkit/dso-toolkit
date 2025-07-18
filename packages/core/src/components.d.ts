@@ -15,6 +15,7 @@ import { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components
 import { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 import { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 import { BadgeStatus } from "./components/badge/badge.interfaces";
+import { ButtonGroupDirection } from "./components/button-group/button-group.interfaces";
 import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -59,6 +60,7 @@ export { AnnotationActiveChangeEvent, AnnotationWijzigactie } from "./components
 export { AnnotationKaartClickEvent } from "./components/annotation/annotation-kaart/annotation-kaart.interfaces";
 export { AutosuggestMarkFunction, Suggestion, SuggestionGroup } from "./components/autosuggest/autosuggest.interfaces";
 export { BadgeStatus } from "./components/badge/badge.interfaces";
+export { ButtonGroupDirection } from "./components/button-group/button-group.interfaces";
 export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
@@ -395,6 +397,12 @@ export namespace Components {
           * The status of the banner.
          */
         "status": "success" | "error" | "info" | "warning";
+    }
+    interface DsoButtonGroup {
+        /**
+          * The direction in which the buttons are displayed.  Defaults to `row`.
+         */
+        "direction": ButtonGroupDirection;
     }
     interface DsoCard {
         /**
@@ -1711,6 +1719,12 @@ declare global {
         prototype: HTMLDsoBannerElement;
         new (): HTMLDsoBannerElement;
     };
+    interface HTMLDsoButtonGroupElement extends Components.DsoButtonGroup, HTMLStencilElement {
+    }
+    var HTMLDsoButtonGroupElement: {
+        prototype: HTMLDsoButtonGroupElement;
+        new (): HTMLDsoButtonGroupElement;
+    };
     interface HTMLDsoCardElementEventMap {
         "dsoCardClick": CardClickEvent;
     }
@@ -2439,6 +2453,7 @@ declare global {
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
+        "dso-button-group": HTMLDsoButtonGroupElement;
         "dso-card": HTMLDsoCardElement;
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-contact-information": HTMLDsoContactInformationElement;
@@ -2846,6 +2861,12 @@ declare namespace LocalJSX {
           * The status of the banner.
          */
         "status": "success" | "error" | "info" | "warning";
+    }
+    interface DsoButtonGroup {
+        /**
+          * The direction in which the buttons are displayed.  Defaults to `row`.
+         */
+        "direction"?: ButtonGroupDirection;
     }
     interface DsoCard {
         /**
@@ -4034,6 +4055,7 @@ declare namespace LocalJSX {
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
+        "dso-button-group": DsoButtonGroup;
         "dso-card": DsoCard;
         "dso-card-container": DsoCardContainer;
         "dso-contact-information": DsoContactInformation;
@@ -4106,6 +4128,7 @@ declare module "@stencil/core" {
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
+            "dso-button-group": LocalJSX.DsoButtonGroup & JSXBase.HTMLAttributes<HTMLDsoButtonGroupElement>;
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-contact-information": LocalJSX.DsoContactInformation & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
