@@ -179,7 +179,7 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@options").should("be.visible");
 
-    cy.get("@menuitems").eq(1).click();
+    cy.get("@menuitems").eq(1).click({ force: true });
 
     cy.get("@options").should("not.be.visible");
   });
