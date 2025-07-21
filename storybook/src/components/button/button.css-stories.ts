@@ -22,4 +22,5 @@ const { Map, Primary, PrimaryCompact, Secondary, Tertiary } = buttonStories({
   },
 });
 
-export { Map, Primary, PrimaryCompact, Secondary, Tertiary };
+// eslint-disable-next-line import/order -- Configured export order in eslint does not match order of importance.
+export { Primary, PrimaryCompact, Secondary, Tertiary, Map };
