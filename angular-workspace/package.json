@@ -28,7 +28,10 @@
     "@storybook/addon-docs": "9.0.18",
     "@storybook/angular": "9.0.18",
     "@types/jasmine": "^5.1.8",
+    "@types/lodash.startcase": "^4.4.9",
     "dso-toolkit": "workspace:^",
+    "eslint": "^9.27.0",
+    "eslint-plugin-storybook": "9.0.18",
     "http-proxy-middleware": "^3.0.5",
     "jasmine-core": "~5.7.1",
     "karma": "~6.4.4",
@@ -49,11 +52,5 @@
   },
   "nx": {
     "includedScripts": []
-  },
-  "devDependencies": {
-    "@storybook/addon-docs": "9.0.18",
-    "@types/lodash.startcase": "^4.4.9",
-    "eslint": "^9.27.0",
-    "eslint-plugin-storybook": "9.0.18"
   }
 }
