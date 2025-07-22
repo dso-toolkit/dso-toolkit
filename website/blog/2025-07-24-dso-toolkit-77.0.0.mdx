@@ -1,0 +1,41 @@
+---
+authors: [cvanderleij, iterox]
+---
+
+# DSO Toolkit v77.0.0 ⛱️
+
+Deze release bevat **Breaking** changes voor de volgende componenten:
+
+- Pagination Component (HTML/CSS implementatie)
+- Dropdown Menu (Core implementatie)
+
+<!-- truncate -->
+
+## Pagination HTML/CSS Component
+
+De Pagination (HTML/CSS implementatie) wordt niet gebruikt. Daarom hebben we het in deze release verwijderd.
+
+❌
+
+```html
+<nav class="pagination"></nav>
+```
+
+## Dropdown Menu (Core implementatie)
+
+Het Web component Dropdown Menu maakte gebruik van de deprecated package `popper-max-size-modifier@0.2.0` en
+[`@popperjs/core`](https://popper.js.org/docs/v2/). In deze release zijn beide vervangen door
+[floating-ui](https://floating-ui.com/). Het koppelvlak is daarbij gewijzigd: de properties `boundary`, `placement` en `strategy`
+zijn verwijderd. floating-ui regelt dit nu automatisch.
+
+❌
+
+```html
+<dso-dropdown-menu boundary="..." placement="..." strategy="..." ...></dso-dropdown-menu>
+```
+
+✅
+
+```html
+<dso-dropdown-menu ...></dso-dropdown-menu>
+```
