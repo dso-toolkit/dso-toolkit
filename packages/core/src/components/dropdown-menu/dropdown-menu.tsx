@@ -1,4 +1,4 @@
-import { autoUpdate, computePosition, offset } from "@floating-ui/dom";
+import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
 import { Component, Element, Host, Listen, Prop, h } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
@@ -41,6 +41,8 @@ export class DropdownMenu {
 
   private cleanUp: ReturnType<typeof autoUpdate> | undefined;
 
+  private popoverElement: HTMLDivElement | undefined;
+
   get button(): HTMLButtonElement {
     const button = this.host.querySelector('button[slot="toggle"]');
 
@@ -49,16 +51,6 @@ export class DropdownMenu {
     }
 
     return button;
-  }
-
-  get container(): HTMLDivElement {
-    const container = this.host.shadowRoot?.querySelector(".dropdown-menu-container");
-
-    if (!(container instanceof HTMLDivElement)) {
-      throw new ReferenceError("Mandatory dropdown container not found");
-    }
-
-    return container;
   }
 
   private tabbables(withButton: boolean): FocusableElement[] {
@@ -89,23 +81,6 @@ export class DropdownMenu {
         li.setAttribute("role", "none");
       }
     }
-
-    if (this.cleanUp) {
-      return;
-    }
-
-    this.cleanUp = autoUpdate(this.button, this.container, () => {
-      computePosition(this.button, this.container, {
-        strategy: "fixed",
-        middleware: [offset(this.dropdownOptionsOffset)],
-        placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
-      }).then(({ x, y }) => {
-        Object.assign(this.container.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-        });
-      });
-    });
   }
 
   componentDidRender() {
@@ -120,6 +95,27 @@ export class DropdownMenu {
     }
 
     this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
+
+    if (this.popoverElement) {
+      const element = this.popoverElement;
+      this.cleanUp = autoUpdate(this.button, element, () => {
+        computePosition(this.button, element, {
+          strategy: "fixed",
+          middleware: [
+            offset(this.dropdownOptionsOffset),
+            flip({
+              padding: this.dropdownOptionsOffset,
+            }),
+          ],
+          placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+        }).then(({ x, y }) => {
+          Object.assign(element.style, {
+            left: `${x}px`,
+            top: `${y}px`,
+          });
+        });
+      });
+    }
   }
 
   @Listen("click", { target: "window" })
@@ -128,8 +124,15 @@ export class DropdownMenu {
 
     if (this.isToggleButtonEvent(composedPath)) {
       this.open = !this.open;
+      this.popoverElement?.togglePopover();
     } else if (this.open && this.isMenuItemEvent(composedPath)) {
       this.open = false;
+      this.popoverElement?.hidePopover();
+    }
+
+    if (!this.open && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
     }
   }
 
@@ -152,6 +155,9 @@ export class DropdownMenu {
       (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
     ) {
       this.open = false;
+      this.popoverElement?.hidePopover();
+      this.cleanUp?.();
+      this.cleanUp = undefined;
     }
   };
 
@@ -212,13 +218,16 @@ export class DropdownMenu {
   private escape = () => {
     this.button.focus();
     this.open = false;
+    this.popoverElement?.hidePopover();
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   };
 
   render() {
     return (
       <Host onFocusout={this.focusOutListener}>
         <slot name="toggle" />
-        <div class="dropdown-menu-container" popover="manual" hidden={!this.open}>
+        <div popover="manual" ref={(element) => (this.popoverElement = element)}>
           <slot />
         </div>
       </Host>
