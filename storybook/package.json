@@ -9,9 +9,6 @@
     "e2e:test": "cypress run"
   },
   "dependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
-    "@babel/preset-typescript": "^7.27.1",
     "@dso-toolkit/core": "workspace:^",
     "@iframe-resizer/child": "^5.4.6",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
