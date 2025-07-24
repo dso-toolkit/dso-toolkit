@@ -96,7 +96,7 @@ export class DropdownMenu {
 
     this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
 
-    if (this.popoverElement) {
+    if (this.popoverElement && !this.cleanUp) {
       const element = this.popoverElement;
       this.cleanUp = autoUpdate(this.button, element, () => {
         computePosition(this.button, element, {
@@ -123,16 +123,9 @@ export class DropdownMenu {
     const composedPath = event.composedPath();
 
     if (this.isToggleButtonEvent(composedPath)) {
-      this.open = !this.open;
-      this.popoverElement?.togglePopover();
+      this.toggleOptions(this.open);
     } else if (this.open && this.isMenuItemEvent(composedPath)) {
-      this.open = false;
-      this.popoverElement?.hidePopover();
-    }
-
-    if (!this.open && this.cleanUp) {
-      this.cleanUp();
-      this.cleanUp = undefined;
+      this.toggleOptions(this.open);
     }
   }
 
@@ -142,6 +135,16 @@ export class DropdownMenu {
 
   private isMenuItemEvent(composedPath: EventTarget[]) {
     return composedPath.includes(this.host) && !this.isToggleButtonEvent(composedPath);
+  }
+
+  private toggleOptions(open?: boolean) {
+    this.open = !open;
+    this.popoverElement?.togglePopover(this.open);
+
+    if (!this.open && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
+    }
   }
 
   disconnectedCallback() {
@@ -154,10 +157,7 @@ export class DropdownMenu {
       this.open &&
       (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
     ) {
-      this.open = false;
-      this.popoverElement?.hidePopover();
-      this.cleanUp?.();
-      this.cleanUp = undefined;
+      this.toggleOptions(this.open);
     }
   };
 
@@ -217,10 +217,7 @@ export class DropdownMenu {
 
   private escape = () => {
     this.button.focus();
-    this.open = false;
-    this.popoverElement?.hidePopover();
-    this.cleanUp?.();
-    this.cleanUp = undefined;
+    this.toggleOptions(true);
   };
 
   render() {
