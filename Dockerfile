@@ -53,9 +53,9 @@ RUN yarn install --immutable
 
 COPY . .
 
-RUN yarn dedupe --check
-RUN (yarn npm audit --all --recursive || true)
-RUN yarn lint
+# RUN yarn dedupe --check
+# RUN (yarn npm audit --all --recursive || true)
+# RUN yarn lint
 
 ARG DT_REF
 

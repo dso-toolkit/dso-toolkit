@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Issue templates: Geen project-id ([#3147](https://github.com/dso-toolkit/dso-toolkit/issues/3147))
+* Deploy: script blijft niet-bestaande branches verwijderen ([#3270](https://github.com/dso-toolkit/dso-toolkit/issues/3270))
 
 ## 💷 Release 76.0.0 - 2025-07-15
 
