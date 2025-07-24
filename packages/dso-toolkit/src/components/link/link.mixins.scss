@@ -35,6 +35,10 @@
     margin-inline-start: units.$u1;
   }
 
+  .sr-only + :is(dso-icon, svg.di) {
+    margin-inline-start: 0;
+  }
+
   @if ($is-html-a-element) {
     &:visited {
       color: var(--link-visited-color);
