@@ -5,7 +5,7 @@
  * 3. Updates dso-toolkit.nl/index.html with the latest version.
  */
 
-import { BlobClient, BlobItem, BlobServiceClient } from "@azure/storage-blob";
+import { StorageSharedKeyCredential, DataLakeServiceClient } from "@azure/storage-file-datalake";
 import { render } from "@lit-labs/ssr";
 import { collectResultSync } from "@lit-labs/ssr/lib/render-result.js";
 import minimist from "minimist";
@@ -23,7 +23,13 @@ interface Args {
 
 const args = minimist<Args>(process.argv.slice(2));
 
-main(args.azureStorageHost, args.azureStorageContainer, args.azureSasToken, args.githubToken).catch((error) => {
+main(
+  args.azureStorageAccountName,
+  args.azureStorageAccountKey,
+  args.azureStorageHostDfs,
+  args.azureStorageContainer,
+  args.githubToken,
+).catch((error) => {
   console.error(error);
 
   process.exit(1);
@@ -40,26 +46,35 @@ interface Version {
 }
 
 async function main(
-  azureStorageHost: string | undefined,
+  azureStorageAccountName: string | undefined,
+  azureStorageAccountKey: string | undefined,
+  azureStorageHostDfs: string | undefined,
   azureStorageContainer: string | undefined,
-  azureAccountSas: string | undefined,
   githubToken: string | undefined,
 ) {
-  if (!azureStorageHost || !azureStorageContainer || !azureAccountSas || !githubToken) {
+  if (
+    !azureStorageAccountName ||
+    !azureStorageAccountKey ||
+    !azureStorageHostDfs ||
+    !azureStorageContainer ||
+    !githubToken
+  ) {
     // Redact the values to avoid leaking secrets but still show which ones are missing or empty
     const redacted = {
-      azureStorageHost: !!azureStorageHost,
+      azureStorageAccountName: !!azureStorageAccountName,
+      azureStorageAccountKey: !!azureStorageAccountKey,
+      azureStorageHostDfs: !!azureStorageHostDfs,
       azureStorageContainer: !!azureStorageContainer,
-      azureAccountSas: !!azureAccountSas,
       githubToken: !!githubToken,
     };
 
     throw new Error(`Missing required variables. Started with: ${JSON.stringify(redacted, null, 2)}`);
   }
 
-  const blobServiceClient = new BlobServiceClient(`https://${azureStorageHost}/?${azureAccountSas}`);
-  const containerClient = blobServiceClient.getContainerClient(azureStorageContainer);
-  const blobBatchClient = containerClient.getBlobBatchClient();
+  const sharedKeyCredential = new StorageSharedKeyCredential(azureStorageAccountName, azureStorageAccountKey);
+  const dataLakeServiceClient = new DataLakeServiceClient(`https://${azureStorageHostDfs}/`, sharedKeyCredential);
+
+  const client = dataLakeServiceClient.getFileSystemClient(azureStorageContainer);
 
   console.info("Updating releases");
 
@@ -81,52 +96,22 @@ async function main(
   const tags = [];
 
   for (const siteRoot of siteRoots) {
+    console.info(`Updating ${siteRoot.path}`);
     const sitePrefix = `${siteRoot.path}/`;
-    const siteBlobs = containerClient.listBlobsByHierarchy("/", { prefix: sitePrefix });
+    const paths = client.listPaths({ path: sitePrefix });
 
-    for await (const siteBlob of siteBlobs) {
-      if (siteBlob.kind === "prefix") {
-        // dso-toolkit.nl/www/<NAME>/
-        const name = siteBlob.name.slice(sitePrefix.length, siteBlob.name.length - 1);
+    for await (const path of paths) {
+      console.info(`Processing ${path.name}`);
+      if (path.isDirectory && /* make typing happy */ path.name !== undefined) {
+        // dso-toolkit.nl/www/<NAME>
+        const name = path.name.slice(sitePrefix.length, path.name.length);
 
         // Only directies starting with _ are considered branch deploys. The __bak directory was used for backups.
         if (name[0] === "_" && name[1] !== "_") {
           // if the branch does not exist on github, delete the branch deploy
           if (!gitBranches.find((branch) => branch.name === name)) {
-            console.info(`Deleting branch deploy ${siteBlob.name}`);
-
-            const blobs: Array<{ item: BlobItem; prefixDepth: number }> = [];
-
-            for await (const blob of containerClient.listBlobsFlat({ prefix: siteBlob.name })) {
-              blobs.push({ item: blob, prefixDepth: blob.name.split("/").length });
-            }
-
-            if (blobs.length > 0) {
-              blobs.sort((a, b) => b.prefixDepth - a.prefixDepth);
-
-              console.info(`Deleting ${blobs.length} blobs`);
-
-              const batches = blobs
-                .reduce<BlobClient[][]>((batches, { item }, index) => {
-                  const reducedIndex = Math.floor(index / 256);
-                  if (!batches[reducedIndex]) {
-                    batches[reducedIndex] = [];
-                  }
-
-                  batches[reducedIndex].push(containerClient.getBlobClient(item.name));
-
-                  return batches;
-                }, [])
-                .map((batch, index) => {
-                  console.info(`Marking batch ${index + 1} for deletion`);
-
-                  return blobBatchClient.deleteBlobs(batch);
-                });
-
-              await Promise.all(batches);
-
-              console.info(`Done deleting ${blobs.length} blobs with ${batches.length} batches`);
-            }
+            console.info(`Deleting branch deploy ${path.name}`);
+            await client.getDirectoryClient(path.name).delete(true);
 
             // if the branch does exist on github and if the current siteRoot is used for versions, add it to the list of branches
           } else if (siteRoot.main) {
@@ -166,7 +151,7 @@ async function main(
     throw new Error("No version source found in siteRoots.");
   }
 
-  containerClient.getBlockBlobClient(`${versionPrefix}/versions.json`).upload(versionsJson, versionsJson.length);
+  await client.getFileClient(`${versionPrefix}/versions.json`).upload(Buffer.from(versionsJson));
 
   console.info("Done updating versions");
 
@@ -177,7 +162,7 @@ async function main(
 
   const document = collectResultSync(render(indexHtmlContent));
 
-  containerClient.getBlockBlobClient(`${versionPrefix}/index.html`).upload(document, document.length);
+  await client.getFileClient(`${versionPrefix}/index.html`).upload(Buffer.from(document));
 
   console.info("Done updating index.html");
 }
