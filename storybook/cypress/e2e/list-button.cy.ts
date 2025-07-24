@@ -6,7 +6,6 @@ describe("ListButton", () => {
   it("should render label and sublabel correctly", () => {
     cy.get("dso-list-button.hydrated")
       .as("dsoListButton")
-      .matchImageSnapshot()
       .get("@dsoListButton")
       .should("be.visible")
       .shadow()
@@ -36,13 +35,13 @@ describe("ListButton", () => {
       )
       .get("@dsoListButton")
       .find('> [slot="subcontent"]')
-      .should("have.attr", "aria-hidden", "true");
+      .should("have.attr", "aria-hidden", "true")
+      .get("@dsoListButton")
+      .matchImageSnapshot();
   });
 
   it("should render subcontent in slot without prefix", () => {
     cy.get("dso-list-button").invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
-
-    cy.get("dso-list-button.hydrated").matchImageSnapshot();
 
     cy.get("dso-list-button.hydrated")
       .shadow()
@@ -57,7 +56,9 @@ describe("ListButton", () => {
       .shadow()
       .as("dsoListButtonShadow")
       .find(".dso-selectable-input-wrapper > label > .sr-only")
-      .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>");
+      .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>")
+      .get("dso-list-button.hydrated")
+      .matchImageSnapshot();
   });
 
   it("should render subcontent in slot with prefix", () => {
