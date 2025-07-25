@@ -1,4 +1,5 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper } from "../card/card.args.js";
@@ -30,7 +31,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: true,
       interactions: [],
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Activiteiten",
@@ -47,7 +48,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
         },
       ],
       selectable: false,
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Werkzaamheden",
@@ -55,7 +56,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Waardelijsten",
@@ -63,7 +64,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Bronnen",
@@ -71,7 +72,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Informatieproducten",
@@ -79,7 +80,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
       active: false,
       selectable: false,
       interactions: [],
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
   ],
 };

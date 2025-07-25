@@ -62,7 +62,7 @@
   },
   {
     "name": "link",
-    "selector": "a",
+    "selector": "#dt-i18n-decorator-container a",
     "stories": [
       "default",
       "download-link",

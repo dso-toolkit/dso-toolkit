@@ -1,5 +1,5 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -7,12 +7,12 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import {
   CardArgs,
   cardArgTypes,
+  cardArgs,
   cardArgsMapper,
-  cardContent,
-  cardContentButton,
-  cardContentLabel,
-  cardContentSlideToggle,
-  cardContentToggletip,
+  cardWithButtonArgs,
+  cardWithLabelArgs,
+  cardWithSlideToggleArgs,
+  cardWithToggletipArgs,
 } from "./card.args.js";
 import { Card } from "./card.models.js";
 
@@ -41,9 +41,6 @@ export function cardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
 > {
   return {
     argTypes: cardArgTypes,
-    args: {
-      href: "#",
-    },
     parameters: {
       docs: readme
         ? {
@@ -60,14 +57,14 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
 }: CardStoriesParameters<Implementation, Templates, TemplateFnReturnType>): CardStories {
   return {
     Default: {
-      args: cardContent,
+      args: cardArgs,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
     WithSelectableAndButton: {
       args: {
-        ...cardContentButton,
+        ...cardWithButtonArgs,
         selectable: true,
       },
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
@@ -75,27 +72,25 @@ export function cardStories<Implementation, Templates, TemplateFnReturnType>({
       ),
     },
     WithButton: {
-      args: cardContentButton,
+      args: cardWithButtonArgs,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
     WithLabel: {
-      args: {
-        ...cardContentLabel,
-      },
+      args: cardWithLabelArgs,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
     WithSlideToggle: {
-      args: cardContentSlideToggle,
+      args: cardWithSlideToggleArgs,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),
     },
     WithToggletip: {
-      args: cardContentToggletip,
+      args: cardWithToggletipArgs,
       render: templateContainer.render(storyTemplates, (args, { cardTemplate, content }) =>
         cardTemplate(cardArgsMapper(args, content)),
       ),
