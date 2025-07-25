@@ -69,7 +69,6 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
     dropdownAlign: a.dropdownAlign,
     groups: a.groups,
     isCheckable: a.isCheckable,
-    boundary: a.boundary,
     strategy: a.strategy,
   };
 }
