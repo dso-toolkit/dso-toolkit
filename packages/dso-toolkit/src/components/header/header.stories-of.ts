@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -70,6 +71,7 @@ export function headerMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
       userProfileName: "J.A. Jansen",
       userProfileUrl: "#profiel",
       userHomeUrl: "#myhome",
+      dsoHeaderClick: fn(),
     },
     parameters: {
       docs: readme

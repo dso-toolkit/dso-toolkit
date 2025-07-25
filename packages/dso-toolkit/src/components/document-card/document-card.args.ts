@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook";
 import { Badge } from "../badge";
@@ -22,12 +23,13 @@ export interface DocumentCardArgs {
 
 export const documentCardArgs: Omit<
   DocumentCardArgs,
-  "meta" | "typeToelichting" | "dsoDocumentCardClick" | "statusToelichtingOutline" | "statusToelichtingWarning"
+  "meta" | "typeToelichting" | "statusToelichtingOutline" | "statusToelichtingWarning"
 > = {
   href: "#",
   label: "Omgevingsplan Amsterdam",
   status: "Vastgesteld 07-06-2024 - geheel onherroepelijk in werking",
   active: false,
+  dsoDocumentCardClick: fn(),
 };
 
 export const documentCardArgTypes: ArgTypes<
@@ -55,7 +57,6 @@ export const documentCardArgTypes: ArgTypes<
   },
   dsoDocumentCardClick: {
     ...noControl,
-    action: "dsoDocumentCardClick",
   },
 };
 

@@ -13,16 +13,16 @@ export interface SurveyRatingArgs {
 export const surveyRatingArgTypes: ArgTypes<SurveyRatingArgs> = {
   dsoSubmit: {
     ...noControl,
-    action: "dsoSubmit",
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 
 export function surveyRatingArgsMapper(a: SurveyRatingArgs): SurveyRating {
   return {
     ...a,
+    dsoClose: (e) => a.dsoClose(e.detail),
+    dsoSubmit: (e) => a.dsoSubmit(e.detail),
   };
 }

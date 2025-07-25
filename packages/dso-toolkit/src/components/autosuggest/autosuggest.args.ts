@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 export interface AutosuggestArgs {
   suggestOnFocus: boolean;
   loading: boolean;
@@ -39,12 +41,12 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
     },
   },
   dsoSelect: {
-    action: "dsoSelect",
+    ...noControl,
   },
   dsoChange: {
-    action: "dsoChange",
+    ...noControl,
   },
   dsoSearch: {
-    action: "dsoSearch",
+    ...noControl,
   },
 };

@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook";
 
@@ -12,8 +13,10 @@ export interface AdvancedSelectArgs {
   dsoRedirect: HandlerFunction;
 }
 
-export const advancedSelectArgs: Omit<AdvancedSelectArgs, "dsoChange" | "dsoRedirect"> = {
+export const advancedSelectArgs: AdvancedSelectArgs = {
   activeHint: "Deze bekijkt u nu",
+  dsoChange: fn(),
+  dsoRedirect: fn(),
 };
 
 export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
@@ -31,11 +34,9 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
   },
   dsoChange: {
     ...noControl,
-    action: "dsoChange",
   },
   dsoRedirect: {
     ...noControl,
-    action: "dsoRedirect",
   },
 };
 

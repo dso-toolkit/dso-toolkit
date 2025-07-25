@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -26,6 +27,8 @@ export function listButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     argTypes: listButtonArgTypes,
     args: {
       label: "Milieubelastende activiteit - Melding",
+      dsoCountChange: fn(),
+      dsoSelectedChange: fn(),
     },
     parameters: {
       docs: readme

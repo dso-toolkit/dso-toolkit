@@ -1,4 +1,5 @@
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper } from "../card/card.args.js";
@@ -23,7 +24,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Brouwersmolen",
@@ -31,7 +32,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
     {
       label: "Maximum bouwhoogte",
@@ -39,7 +40,7 @@ export const cardListArgs: CardListArgs = {
       interactions: [],
       href: "#",
       active: false,
-      dsoCardClick() {},
+      dsoCardClick: fn(),
     },
   ],
 };

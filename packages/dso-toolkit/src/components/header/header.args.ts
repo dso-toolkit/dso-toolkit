@@ -95,7 +95,6 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   },
   dsoHeaderClick: {
     ...noControl,
-    action: "dsoHeaderClick",
   },
 };
 
@@ -105,7 +104,9 @@ export function headerArgsMapper(a: HeaderArgs): Required<Header> {
     mainMenu: a.noMainMenu ? [] : a.mainMenu,
     dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoHeaderClick(event);
+      a.dsoHeaderClick(event.detail);
     },
   };
 }
+
+//dsoHeaderClick: (e) => a.dsoHeaderClick(e.detail),

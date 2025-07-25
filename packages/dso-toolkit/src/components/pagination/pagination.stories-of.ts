@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -54,6 +55,7 @@ export function paginationStories<Implementation, Templates, TemplateFnReturnTyp
       args: {
         totalPages: 16,
         currentPage: 8,
+        dsoSelectPage: fn(),
       },
       render,
     },

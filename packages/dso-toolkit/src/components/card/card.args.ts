@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook/index.js";
 import { Button } from "../button/button.models.js";
@@ -50,20 +51,20 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   },
   dsoCardClick: {
     ...noControl,
-    action: "dsoCardClick",
   },
 };
 
-export const cardContent: Omit<CardArgs, "dsoCardClick"> = {
+export const cardArgs: CardArgs = {
   interactions: [],
   label: "Omgevingsplan Nieuwegein",
   href: "#",
   selectable: false,
   active: false,
+  dsoCardClick: fn(),
 };
 
-export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
-  ...cardContent,
+export const cardWithButtonArgs: CardArgs = {
+  ...cardArgs,
   interactions: [
     {
       variant: "tertiary",
@@ -71,17 +72,17 @@ export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
       icon: {
         icon: "info",
       },
-      screenreaderSuffix: `over "${cardContent.label}"`,
+      screenreaderSuffix: `over "${cardArgs.label}"`,
     },
   ],
 };
 
-export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
-  ...cardContent,
+export const cardWithToggletipArgs: CardArgs = {
+  ...cardArgs,
   interactions: [
     {
       children: "Extra informatie",
-      label: `Toon informatie over "${cardContent.label}"`,
+      label: `Toon informatie over "${cardArgs.label}"`,
       position: "left",
       small: false,
       secondary: false,
@@ -89,8 +90,8 @@ export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
   ],
 };
 
-export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
-  ...cardContent,
+export const cardWithLabelArgs: CardArgs = {
+  ...cardArgs,
   interactions: [
     {
       status: "warning",
@@ -100,8 +101,8 @@ export const cardContentLabel: Omit<CardArgs, "dsoCardClick"> = {
   ],
 };
 
-export const cardContentSlideToggle: Omit<CardArgs, "dsoCardClick"> = {
-  ...cardContent,
+export const cardWithSlideToggleArgs: CardArgs = {
+  ...cardArgs,
   interactions: [
     {
       checked: false,

@@ -57,15 +57,12 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   /* Section args */
   dsoToggleClick: {
     ...noControl,
-    action: "dsoToggleClick",
   },
   dsoAnimationStart: {
     ...noControl,
-    action: "dsoAnimationStart",
   },
   dsoAnimationEnd: {
     ...noControl,
-    action: "dsoAnimationEnd",
   },
   open: {
     control: {
@@ -121,7 +118,6 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   },
   dsoActiveChange: {
     ...noControl,
-    action: "dsoActiveChange",
   },
   /** demo args */
   demoScrollIntoView: {
