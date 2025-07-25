@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Removed
 * **BREAKING** Pagination: Verwijderen HTML/CSS component ([#2868](https://github.com/dso-toolkit/dso-toolkit/issues/2868))
 
+### Task
+* Deploy: script blijft niet-bestaande branches verwijderen ([#3270](https://github.com/dso-toolkit/dso-toolkit/issues/3270))
+
 ## 💷 Release 76.0.0 - 2025-07-15
 
 ### Changed
