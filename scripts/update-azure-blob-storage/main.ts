@@ -83,10 +83,12 @@ async function main(
   const tags = [];
 
   for (const siteRoot of siteRoots) {
+    console.info(`Updating ${siteRoot.path}`);
     const sitePrefix = `${siteRoot.path}/`;
     const paths = client.listPaths({ path: sitePrefix });
 
     for await (const path of paths) {
+      console.info(`Processing ${path.name}`);
       if (path.isDirectory && /* make typing happy */ path.name !== undefined) {
         // dso-toolkit.nl/www/<NAME>/
         const name = path.name.slice(sitePrefix.length, path.name.length - 1);
