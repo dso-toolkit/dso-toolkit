@@ -261,8 +261,8 @@
 
   $hover-map: (
     "background-color": button-variables.$secondary-hover-background-color,
-    "border-color": colors.$grasgroen,
-    "color": colors.$grasgroen,
+    "border-color": button-variables.$secondary-hover-color,
+    "color": button-variables.$secondary-hover-color,
   );
 
   $active-map: (
