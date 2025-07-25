@@ -112,7 +112,12 @@ describe("Legend Item", () => {
   });
 
   it("should not show a edit-button when slot options is removed", () => {
-    cy.get("@dsoLegendItem").get("[slot='options']").invoke("remove").get("#edit-button").should("not.exist");
+    cy.get("@dsoLegendItem")
+      .get("[slot='options']")
+      .invoke("remove")
+      .get("@dsoLegendItemShadow")
+      .find("#edit-button")
+      .should("not.exist");
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without edit-button`);
   });

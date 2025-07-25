@@ -14,6 +14,7 @@ interface ButtonStories {
   PrimaryCompact: ButtonStory;
   Secondary: ButtonStory;
   Tertiary: ButtonStory;
+  Map: ButtonStory;
 }
 
 interface ButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -84,6 +85,15 @@ export function buttonStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         variant: "tertiary",
         label: "Tertiary button",
+      },
+      render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
+        buttonTemplate(buttonArgsMapper(args)),
+      ),
+    },
+    Map: {
+      args: {
+        variant: "map",
+        label: "Map button",
       },
       render: templateContainer.render(storyTemplates, (args, { buttonTemplate }) =>
         buttonTemplate(buttonArgsMapper(args)),

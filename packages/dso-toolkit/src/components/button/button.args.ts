@@ -7,7 +7,7 @@ export interface ButtonArgs {
   element: "button" | "anchor";
   compact?: boolean;
   align?: boolean;
-  variant: "primary" | "secondary" | "tertiary";
+  variant: "primary" | "secondary" | "tertiary" | "map";
   truncate?: boolean;
   click: HandlerFunction;
   type?: "button" | "submit";
@@ -37,7 +37,7 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     },
   },
   variant: {
-    options: ["primary", "secondary", "tertiary"],
+    options: ["primary", "secondary", "tertiary", "map"],
     control: {
       type: "select",
     },
@@ -94,8 +94,7 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch (a.element) {
     case "anchor":
-      // eslint-disable-next-line no-case-declarations -- const anchor is immediately returned and only defined for static type
-      const anchor: ButtonAnchor = {
+      return {
         variant: a.variant,
         url: "#",
         label: a.label,
@@ -108,10 +107,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         iconMode: a.iconMode,
         id: a.id,
         align: a.align,
-        compact: a.compact,
       };
-
-      return anchor;
     case "button":
       return {
         variant: a.variant,

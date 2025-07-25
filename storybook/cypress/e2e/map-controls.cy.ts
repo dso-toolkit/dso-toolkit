@@ -1,5 +1,8 @@
 import { BaseLayer, Overlay } from "@dso-toolkit/core";
 
+// Sync with $transition-duration in map-controls.scss and map-controls.tsx
+const transitionDuration = 300;
+
 describe("Map Controls", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls")
@@ -56,6 +59,7 @@ describe("Map Controls", () => {
   it('panel should have Dutch header "Kaartlagen" and close button "Verberg paneel Kaartlagen"', () => {
     cy.get("@toggleVisibilityButton")
       .click()
+      .wait(transitionDuration)
       .get("@dsoMapControlsShadow")
       .find("section header h2")
       .should("have.text", "Kaartlagen")
@@ -76,6 +80,7 @@ describe("Map Controls", () => {
 
     cy.get("@toggleVisibilityButton")
       .click()
+      .wait(transitionDuration)
       .get("@dsoMapControlsShadow")
       .find("section header h2")
       .should("have.text", "Map layers")
