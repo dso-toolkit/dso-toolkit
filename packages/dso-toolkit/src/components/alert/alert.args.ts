@@ -47,7 +47,6 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 
