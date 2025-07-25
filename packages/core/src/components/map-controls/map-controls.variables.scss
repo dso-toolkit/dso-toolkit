@@ -1,5 +1,4 @@
 @use "~dso-toolkit/src/variables/units";
 
-$transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
+$transition-duration: 300ms; // Sync with const transitionDuration in map-controls.tsx and map-controls.cy.ts
 $controls-margin: units.$u2;
-$zoom-button-size: units.$u5;

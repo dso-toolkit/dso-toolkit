@@ -28,7 +28,7 @@
   }
 }
 
-@mixin tertiary-icon($default-di, $disabled-di, $hover-active-di) {
+@mixin _tertiary-icon($default-di, $disabled-di, $hover-active-di) {
   &::after {
     @include di.base($default-di);
   }
@@ -49,7 +49,7 @@
   }
 }
 
-@mixin shared($download-map, $extern-map) {
+@mixin _shared($download-map, $extern-map) {
   &.download {
     @include _shared-icon(
       map.get($download-map, "default"),
@@ -76,7 +76,7 @@ button,
 label {
   &.dso-primary {
     @include button-mixins.primary($base-styling: true);
-    @include shared(
+    @include _shared(
       (
         "default": "download-wit",
       ),
@@ -88,7 +88,7 @@ label {
 
   &.dso-secondary {
     @include button-mixins.secondary($base-styling: true);
-    @include shared(
+    @include _shared(
       (
         "default": "download",
         "hover": "download-wit",
@@ -114,12 +114,16 @@ label {
     }
 
     &.download {
-      @include tertiary-icon("download", "download-grasgroen-40", "download-bosgroen");
+      @include _tertiary-icon("download", "download-grasgroen-40", "download-bosgroen");
     }
 
     &.extern {
-      @include tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-bosgroen");
+      @include _tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-bosgroen");
     }
+  }
+
+  &.dso-map {
+    @include button-mixins.map();
   }
 }
 

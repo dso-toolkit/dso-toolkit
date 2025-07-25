@@ -1,0 +1,73 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/variables/colors";
+
+@include utilities.box-sizing();
+
+:host {
+  display: inline-block;
+}
+
+.container {
+  display: inline-flex;
+  border-radius: button.$border-radius;
+
+  &.has-map-buttons {
+    @include button.map-box-shadow();
+
+    background-color: colors.$grijs-20;
+    gap: 1px;
+  }
+}
+
+::slotted(*) {
+  margin: 0 !important;
+}
+
+:host([direction="row"]) {
+  ::slotted(:not(:first-child)) {
+    border-start-start-radius: 0 !important;
+    border-end-start-radius: 0 !important;
+  }
+
+  ::slotted(:not(:last-child)) {
+    border-start-end-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+  }
+
+  ::slotted(.dso-secondary) {
+    margin-inline-start: -1px !important;
+  }
+}
+
+:host([direction="column"]) {
+  .container {
+    flex-direction: column;
+  }
+
+  ::slotted(*) {
+    text-align: center !important;
+  }
+
+  ::slotted(:not(:first-child)) {
+    border-start-start-radius: 0 !important;
+    border-start-end-radius: 0 !important;
+  }
+
+  ::slotted(:not(:last-child)) {
+    border-end-start-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+  }
+
+  ::slotted(.dso-secondary) {
+    margin-block-start: -1px !important;
+  }
+}
+
+::slotted(:focus-visible) {
+  z-index: 1 !important;
+}
+
+::slotted(.dso-map) {
+  box-shadow: none !important;
+}

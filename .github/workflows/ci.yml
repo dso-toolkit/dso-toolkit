@@ -46,9 +46,7 @@ jobs:
           push: true
           tags: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
           context: .
-          cache-from: |
-            ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
-            ghcr.io/dso-toolkit/dso-toolkit:master
+          cache-from: ghcr.io/dso-toolkit/dso-toolkit:master
           cache-to: type=inline
           build-args: |
             CI

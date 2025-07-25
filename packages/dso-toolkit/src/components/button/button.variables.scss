@@ -16,14 +16,16 @@ $secondary-background-color: colors.$wit;
 $secondary-border-color: colors.$grasgroen;
 $secondary-color: colors.$grasgroen;
 $secondary-hover-background-color: colors.$grasgroen-20;
-$secondary-hover-color: colors.$grasgroen;
-$secondary-active-background-color: colors.$grasgroen;
+$secondary-hover-color: colors.$bosgroen;
+$secondary-active-background-color: colors.$bosgroen;
 $secondary-disabled-color: colors.$grasgroen-40;
 
 $tertiary-padding-inline: $block-padding;
 $tertiary-color: colors.$grasgroen;
 $tertiary-hover-color: colors.$bosgroen;
 $tertiary-active-color: colors.$bosgroen-140;
+
+$map-size: units.$u5;
 
 $buttons: ".dso-primary, .dso-secondary, .dso-tertiary";
 $not-dso-buttons: ":not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
