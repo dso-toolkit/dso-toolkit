@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## ⛱️ Release 77.0.0 - 2025-07-28
+
 ### Added
 * Button: Variant "Map" en nieuw component "Button Group" ([#3258](https://github.com/dso-toolkit/dso-toolkit/issues/3258))
 
