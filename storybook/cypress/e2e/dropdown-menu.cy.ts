@@ -34,7 +34,19 @@ describe("Dropdown menu - anchors", () => {
      * │ 0       │ 'color-contrast' │ 'serious' │ 'Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds' │ 2     │
      * └─────────┴──────────────────┴───────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────┘
      */
-    cy.dsoCheckA11y("dso-dropdown-menu.hydrated", { rules: { "color-contrast": { enabled: false } } });
+    cy.get("dso-dropdown-menu.hydrated")
+      .as("dropdownMenu")
+      .find(".dso-dropdown-options")
+      .should("have.attr", "role", "menu")
+      .find("ul")
+      .should("have.attr", "role", "group")
+      .find("li")
+      .should("have.attr", "role", "none")
+      .find("a")
+      .should("have.attr", "role", "menuitemradio")
+      .dsoCheckA11y("dso-dropdown-menu.hydrated", {
+        rules: { "color-contrast": { enabled: false } },
+      });
 
     cy.get("@button").click().should("have.focus");
 
