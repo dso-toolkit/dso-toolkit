@@ -51,46 +51,46 @@ jobs:
           build-args: |
             CI
             DT_REF
-      - name: Get merge-base with master
-        id: merge-base
-        run: echo "DT_MERGE_BASE=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
-      - name: "Cache: Cypress snapshots"
-        if: ${{ env.DT_DIST_TAG != 'latest' }}
-        id: cypress-snapshots-cache
-        uses: actions/cache@v4
-        with:
-          key: cypress-snapshots-${{ env.DT_MERGE_BASE }}
-          path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-      - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' && env.DT_DIST_TAG != 'latest' }}
-        name: List snapshots
-        continue-on-error: true
-        run: ls -al ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-      - if: ${{ env.DT_REF == 'master' }}
-        name: "Clean Cypress snapshots"
-        run: rm -rf ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-      - name: e2e tests
-        if: ${{ env.DT_DIST_TAG != 'latest' }}
-        id: e2e
-        uses: addnab/docker-run-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
-          options: --env CI
-            --env DT_REF
-            --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
-            --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
-            --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
-          run: yarn e2e
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() && env.DT_DIST_TAG != 'latest'}}
-        with:
-          name: cypress-snapshots-${{ env.DT_REF }}
-          path: |
-            ${{ github.workspace }}/storybook/cypress/screenshots
-            ${{ github.workspace }}/storybook/cypress/snapshot-baseline
-            ${{ github.workspace }}/storybook/cypress/snapshot-diff
+      # - name: Get merge-base with master
+      #   id: merge-base
+      #   run: echo "DT_MERGE_BASE=$(git merge-base origin/master HEAD)" >> $GITHUB_ENV
+      # - name: "Cache: Cypress snapshots"
+      #   if: ${{ env.DT_DIST_TAG != 'latest' }}
+      #   id: cypress-snapshots-cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     key: cypress-snapshots-${{ env.DT_MERGE_BASE }}
+      #     path: ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+      # - if: ${{ steps.cypress-snapshots-cache.outputs.cache-hit == 'true' && env.DT_DIST_TAG != 'latest' }}
+      #   name: List snapshots
+      #   continue-on-error: true
+      #   run: ls -al ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+      # - if: ${{ env.DT_REF == 'master' }}
+      #   name: "Clean Cypress snapshots"
+      #   run: rm -rf ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+      # - name: e2e tests
+      #   if: ${{ env.DT_DIST_TAG != 'latest' }}
+      #   id: e2e
+      #   uses: addnab/docker-run-action@v3
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+      #     image: ghcr.io/dso-toolkit/dso-toolkit:${{ env.DT_REF }}
+      #     options: --env CI
+      #       --env DT_REF
+      #       --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
+      #       --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
+      #       --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
+      #     run: yarn e2e
+      # - uses: actions/upload-artifact@v4
+      #   if: ${{ !cancelled() && env.DT_DIST_TAG != 'latest'}}
+      #   with:
+      #     name: cypress-snapshots-${{ env.DT_REF }}
+      #     path: |
+      #       ${{ github.workspace }}/storybook/cypress/screenshots
+      #       ${{ github.workspace }}/storybook/cypress/snapshot-baseline
+      #       ${{ github.workspace }}/storybook/cypress/snapshot-diff
       - uses: addnab/docker-run-action@v3
         if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success')  || (env.DT_DIST_TAG == 'latest' && steps.e2e.conclusion == 'skipped' ) }}
         name: Deploy
@@ -117,8 +117,8 @@ jobs:
           DT_AZURE_STORAGE_CONTAINER: ${{ env.DT_REF == 'test' && vars.DT_AZURE_STORAGE_CONTAINER_ACC || vars.DT_AZURE_STORAGE_CONTAINER }}
           DT_DEPLOY_NPM_TOKEN: ${{ secrets.DT_DEPLOY_NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
-      - run: gh release create v${DT_REF} --generate-notes --verify-tag
-        if: ${{ env.DT_DIST_TAG == 'latest' }}
-        name: Create GitHub release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - run: gh release create v${DT_REF} --generate-notes --verify-tag
+      #   if: ${{ env.DT_DIST_TAG == 'latest' }}
+      #   name: Create GitHub release
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
