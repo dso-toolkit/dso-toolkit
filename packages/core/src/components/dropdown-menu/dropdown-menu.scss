@@ -7,3 +7,11 @@
 :host {
   @include dropdown-menu.root();
 }
+
+div[popover] {
+  margin: 0 !important;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  overflow: unset;
+}

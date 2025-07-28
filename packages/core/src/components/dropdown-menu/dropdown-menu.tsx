@@ -1,10 +1,9 @@
-import { Instance as PopperInstance, Placement, createPopper } from "@popperjs/core";
-import { Component, Element, Host, Listen, Prop, Watch, h } from "@stencil/core";
+import { autoUpdate, computePosition, flip, offset } from "@floating-ui/dom";
+import { Component, Element, Host, Listen, Prop, h } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 import { getActiveElement } from "../../utils/get-active-element";
-import { hasOverflow } from "../../utils/has-overflow";
 
 @Component({
   tag: "dso-dropdown-menu",
@@ -37,94 +36,12 @@ export class DropdownMenu {
   @Prop()
   checkable = false;
 
-  /**
-   * Selector for the element the dropdown options should not be overflowing.
-   */
-  @Prop()
-  boundary?: string;
-
-  /**
-   * Force placement of dropdown.
-   *
-   * This property overrides `dropdownAlign`.
-   */
-  @Prop()
-  placement?: Placement;
-
-  /**
-   * Set position strategy of dropdown options
-   */
-  @Prop()
-  strategy: "auto" | "absolute" | "fixed" = "auto";
-
-  @Watch("placement")
-  @Watch("dropdownAlign")
-  watchPosition() {
-    if (!this.popper) {
-      return;
-    }
-
-    this.popper.setOptions({
-      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
-    });
-  }
-
-  @Watch("dropdownOptionsOffset")
-  watchOptionsOffset() {
-    this.popper?.setOptions({
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, this.dropdownOptionsOffset],
-          },
-        },
-      ],
-    });
-  }
-
-  @Watch("strategy")
-  watchStrategy() {
-    this.setStrategy();
-  }
-
-  private setStrategy() {
-    if (!this.popper) {
-      return;
-    }
-
-    if (this.strategy === "absolute" || this.strategy === "fixed") {
-      this.popper.setOptions({
-        strategy: this.strategy,
-      });
-
-      return;
-    }
-
-    let element: Element | null = this.host;
-
-    const boundary = this.boundary || document;
-
-    while (element && element.parentNode !== boundary) {
-      element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
-      if (element !== null && hasOverflow(element)) {
-        this.popper.setOptions({
-          strategy: "fixed",
-        });
-
-        return;
-      }
-    }
-
-    this.popper.setOptions({
-      strategy: "absolute",
-    });
-  }
-
   @Element()
   host!: HTMLDsoDropdownMenuElement;
 
-  private popper: PopperInstance | undefined;
+  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
+
+  private popoverElement: HTMLDivElement | undefined;
 
   get button(): HTMLButtonElement {
     const button = this.host.querySelector('button[slot="toggle"]');
@@ -149,13 +66,14 @@ export class DropdownMenu {
       this.button.id = uuidv4();
     }
 
-    const options = this.host.querySelector(".dso-dropdown-options");
-    if (!options) {
-      throw new ReferenceError("Dropdown options not found");
+    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
+
+    if (!(dropdownOptionsElement instanceof HTMLElement)) {
+      throw new Error("dropdown options element is not instanceof HTMLElement");
     }
 
-    options.setAttribute("role", "menu");
-    options.setAttribute("aria-labelledby", this.button.id);
+    dropdownOptionsElement.setAttribute("role", "menu");
+    dropdownOptionsElement.setAttribute("aria-labelledby", this.button.id);
 
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("role", "group");
@@ -163,43 +81,9 @@ export class DropdownMenu {
         li.setAttribute("role", "none");
       }
     }
-
-    if (this.popper) {
-      return;
-    }
-
-    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
-
-    if (!(dropdownOptionsElement instanceof HTMLElement)) {
-      throw new Error("dropdown options element is not instanceof HTMLElement");
-    }
-
-    this.popper = createPopper(this.button, dropdownOptionsElement, {
-      placement: this.placement || (this.dropdownAlign === "right" ? "bottom-end" : "bottom-start"),
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, this.dropdownOptionsOffset],
-          },
-        },
-        {
-          name: "preventOverflow",
-          options: {
-            boundary: this.boundary ? document.querySelector(this.boundary) : null,
-          },
-          enabled: this.boundary !== undefined,
-        },
-      ],
-    });
   }
 
   componentDidRender() {
-    this.setStrategy();
-    if (this.open) {
-      this.popper?.update();
-    }
-
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of this.host.isConnected ? tabbable(li) : []) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
@@ -211,6 +95,27 @@ export class DropdownMenu {
     }
 
     this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
+
+    if (this.popoverElement && !this.cleanUp) {
+      const element = this.popoverElement;
+      this.cleanUp = autoUpdate(this.button, element, () => {
+        computePosition(this.button, element, {
+          strategy: "fixed",
+          middleware: [
+            offset(this.dropdownOptionsOffset),
+            flip({
+              padding: this.dropdownOptionsOffset,
+            }),
+          ],
+          placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+        }).then(({ x, y }) => {
+          Object.assign(element.style, {
+            left: `${x}px`,
+            top: `${y}px`,
+          });
+        });
+      });
+    }
   }
 
   @Listen("click", { target: "window" })
@@ -218,9 +123,9 @@ export class DropdownMenu {
     const composedPath = event.composedPath();
 
     if (this.isToggleButtonEvent(composedPath)) {
-      this.open = !this.open;
+      this.toggleOptions();
     } else if (this.open && this.isMenuItemEvent(composedPath)) {
-      this.open = false;
+      this.toggleOptions(false);
     }
   }
 
@@ -232,8 +137,20 @@ export class DropdownMenu {
     return composedPath.includes(this.host) && !this.isToggleButtonEvent(composedPath);
   }
 
+  private toggleOptions(force?: boolean) {
+    this.open = force ?? !this.open;
+    if (this.popoverElement?.isConnected) {
+      this.popoverElement?.togglePopover(this.open);
+    }
+
+    if (!this.open && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
+    }
+  }
+
   disconnectedCallback() {
-    this.popper?.destroy();
+    this.toggleOptions(false);
   }
 
   private focusOutListener = (event: FocusEvent) => {
@@ -241,7 +158,7 @@ export class DropdownMenu {
       this.open &&
       (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
     ) {
-      this.open = false;
+      this.toggleOptions(false);
     }
   };
 
@@ -301,14 +218,14 @@ export class DropdownMenu {
 
   private escape = () => {
     this.button.focus();
-    this.open = false;
+    this.toggleOptions(false);
   };
 
   render() {
     return (
       <Host onFocusout={this.focusOutListener}>
         <slot name="toggle" />
-        <div hidden={!this.open}>
+        <div popover="manual" ref={(element) => (this.popoverElement = element)}>
           <slot />
         </div>
       </Host>

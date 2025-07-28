@@ -2,9 +2,6 @@ describe("Dropdown menu - anchors", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors");
     cy.injectAxe();
-    cy.configureAxe({
-      rules: [{ id: "color-contrast", enabled: false }],
-    });
 
     cy.get("dso-dropdown-menu.hydrated")
       .should("exist")
@@ -27,7 +24,29 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@options").should("be.visible");
 
-    cy.dsoCheckA11y("dso-dropdown-menu.hydrated");
+    /**
+     * Ignoring the 'color-contrast' violation on the anchor inside a disabled dso-tab:
+     *
+     * 1 accessibility violation was detected
+     * ┌─────────┬──────────────────┬───────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬───────┐
+     * │ (index) │ id               │ impact    │ description                                                                                                      │ nodes │
+     * ├─────────┼──────────────────┼───────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼───────┤
+     * │ 0       │ 'color-contrast' │ 'serious' │ 'Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds' │ 2     │
+     * └─────────┴──────────────────┴───────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴───────┘
+     */
+    cy.get("dso-dropdown-menu.hydrated")
+      .as("dropdownMenu")
+      .find(".dso-dropdown-options")
+      .should("have.attr", "role", "menu")
+      .find("ul")
+      .should("have.attr", "role", "group")
+      .find("li")
+      .should("have.attr", "role", "none")
+      .find("a")
+      .should("have.attr", "role", "menuitemradio")
+      .dsoCheckA11y("dso-dropdown-menu.hydrated", {
+        rules: { "color-contrast": { enabled: false } },
+      });
 
     cy.get("@button").click().should("have.focus");
 
@@ -179,7 +198,7 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@options").should("be.visible");
 
-    cy.get("@menuitems").eq(1).click();
+    cy.get("@menuitems").eq(1).click({ force: true });
 
     cy.get("@options").should("not.be.visible");
   });

@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Button: Variant "Map" en nieuw component "Button Group" ([#3258](https://github.com/dso-toolkit/dso-toolkit/issues/3258))
 
+### Changed
+* **BREAKING** Dropdown Menu: Popperjs deprecated ([#2457](https://github.com/dso-toolkit/dso-toolkit/issues/2457))
+
 ### Removed
 * **BREAKING** Pagination: Verwijderen HTML/CSS component ([#2868](https://github.com/dso-toolkit/dso-toolkit/issues/2868))
 
