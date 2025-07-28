@@ -123,9 +123,9 @@ export class DropdownMenu {
     const composedPath = event.composedPath();
 
     if (this.isToggleButtonEvent(composedPath)) {
-      this.toggleOptions(this.open);
+      this.toggleOptions();
     } else if (this.open && this.isMenuItemEvent(composedPath)) {
-      this.toggleOptions(this.open);
+      this.toggleOptions(false);
     }
   }
 
@@ -137,9 +137,11 @@ export class DropdownMenu {
     return composedPath.includes(this.host) && !this.isToggleButtonEvent(composedPath);
   }
 
-  private toggleOptions(open?: boolean) {
-    this.open = !open;
-    this.popoverElement?.togglePopover(this.open);
+  private toggleOptions(force?: boolean) {
+    this.open = force ?? !this.open;
+    if (this.popoverElement?.isConnected) {
+      this.popoverElement?.togglePopover(this.open);
+    }
 
     if (!this.open && this.cleanUp) {
       this.cleanUp();
@@ -148,8 +150,7 @@ export class DropdownMenu {
   }
 
   disconnectedCallback() {
-    this.cleanUp?.();
-    this.cleanUp = undefined;
+    this.toggleOptions(false);
   }
 
   private focusOutListener = (event: FocusEvent) => {
@@ -157,7 +158,7 @@ export class DropdownMenu {
       this.open &&
       (!(event.relatedTarget instanceof HTMLElement) || !this.tabbables(true).includes(event.relatedTarget))
     ) {
-      this.toggleOptions(this.open);
+      this.toggleOptions(false);
     }
   };
 
@@ -217,7 +218,7 @@ export class DropdownMenu {
 
   private escape = () => {
     this.button.focus();
-    this.toggleOptions(true);
+    this.toggleOptions(false);
   };
 
   render() {
