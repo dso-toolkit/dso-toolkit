@@ -14,6 +14,7 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
       inline,
       mark,
       urlResolver,
+      dsoClick,
       dsoAnchorClick,
       dsoOzonContentMarkItemHighlight,
     }) {
@@ -24,6 +25,7 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
           .mark=${ifDefined(mark)}
           .urlResolver=${ifDefined(urlResolver)}
           ?inline=${inline}
+          @dsoClick=${ifDefined(dsoClick)}
           @dsoAnchorClick=${ifDefined(dsoAnchorClick)}
           @dsoOzonContentMarkItemHighlight=${ifDefined(dsoOzonContentMarkItemHighlight)}
         >

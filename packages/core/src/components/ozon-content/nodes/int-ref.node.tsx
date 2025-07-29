@@ -6,13 +6,18 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentIntRefNode implements OzonContentNode {
   name = "IntRef";
 
-  render(node: Element, { mapNodeToJsx, emitAnchorClick }: OzonContentNodeContext) {
+  render(node: Element, { mapNodeToJsx, emitClick }: OzonContentNodeContext) {
+    const scope = node.getAttribute("scope");
+    if (scope === "Begrip") {
+      return;
+    }
+
     const ref = node.getAttribute("ref");
     if (!ref) {
       return mapNodeToJsx(node.childNodes);
     }
 
-    const intRefOnClick = (event: MouseEvent) => {
+    const handleIntRefClick = (event: MouseEvent) => {
       event.preventDefault();
 
       const target = event.currentTarget;
@@ -20,18 +25,15 @@ export class OzonContentIntRefNode implements OzonContentNode {
         return;
       }
 
-      const { href } = target;
-
-      emitAnchorClick({
-        node: this.name,
-        href,
-        documentComponent: ref,
+      emitClick({
+        type: "IntRef",
+        node,
         originalEvent: event,
       });
     };
 
     return (
-      <a href={`#${ref}`} onClick={intRefOnClick}>
+      <a href={`#${ref}`} onClick={handleIntRefClick}>
         {mapNodeToJsx(node.childNodes)}
       </a>
     );

@@ -11,6 +11,7 @@ export interface OzonContentArgs {
   inline: boolean;
   mark?: string;
   highlight?: boolean;
+  dsoClick: HandlerFunction;
   dsoAnchorClick: HandlerFunction;
   dsoOzonContentMarkItemHighlight: HandlerFunction;
   urlResolver?: OzonContentUrlResolver;
@@ -41,6 +42,10 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     ...noControl,
     action: "dsoAnchorClick",
   },
+  dsoClick: {
+    ...noControl,
+    action: "dsoClick",
+  },
   dsoOzonContentMarkItemHighlight: {
     ...noControl,
     action: "dsoOzonContentMarkItemHighlight",
@@ -51,7 +56,7 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
 };
 
 export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
-  const { mark, content, dsoAnchorClick, dsoOzonContentMarkItemHighlight, inline, highlight } = args;
+  const { mark, content, dsoClick, dsoAnchorClick, dsoOzonContentMarkItemHighlight, inline, highlight } = args;
   let highlighted = false;
 
   return {
@@ -68,6 +73,7 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
             )
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
+    dsoClick: (e) => dsoClick(e.detail),
     dsoAnchorClick: (e) => dsoAnchorClick(e.detail),
     urlResolver: (name, attribute, value, element) => {
       if (!value) {
