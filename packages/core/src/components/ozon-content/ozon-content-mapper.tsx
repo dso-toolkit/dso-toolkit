@@ -59,6 +59,7 @@ export class Mapper {
   private domParser?: DOMParser;
 
   private findMapper(name: string): OzonContentNode | undefined {
+    console.log(this.skip);
     if (this.skip.includes(name)) {
       return undefined;
     }
