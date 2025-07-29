@@ -6,7 +6,7 @@ export interface OzonContentAnchorClickEvent {
   originalEvent: MouseEvent;
 }
 
-export type OzonContentClickEvent = OzonContentClickKopEvent;
+export type OzonContentClickEvent = OzonContentClickKopEvent | OzonContentClickIntRefEvent;
 
 interface OzonContentClickBaseEvent<T extends string> {
   type: T;
@@ -14,6 +14,9 @@ interface OzonContentClickBaseEvent<T extends string> {
   originalEvent: MouseEvent;
 }
 
+export type OzonContentClickExtRefEvent = OzonContentClickBaseEvent<"ExtRef">;
+export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef">;
+export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef">;
 export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
 
 export type OzonContentInputType = XMLDocument | string;
