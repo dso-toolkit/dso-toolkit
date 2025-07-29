@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Build: Bundling Warning SOURCEMAP_BROKEN ([#3107](https://github.com/dso-toolkit/dso-toolkit/issues/3107))
+
 ## ⛱️ Release 77.0.0 - 2025-07-28
 
 ### Added

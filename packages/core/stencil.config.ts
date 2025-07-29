@@ -2,7 +2,8 @@ import { angularOutputTarget } from "@stencil/angular-output-target";
 import { Config } from "@stencil/core";
 import { reactOutputTarget } from "@stencil/react-output-target";
 import { sass } from "@stencil/sass";
-import { inlineSvg } from "stencil-inline-svg";
+
+import { inlineSvg } from "./scripts/inline-svg";
 
 export const config: Config = {
   namespace: "dso-toolkit",
