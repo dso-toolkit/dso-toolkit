@@ -6,7 +6,8 @@ import { fn } from "storybook/test";
 import { argTypeAction, noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-import { OzonContentUrlResolver } from "../ozon-content";
+import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content";
+import { begripResolver } from "../ozon-content/ozon-content.content";
 
 import {
   DocumentComponentArgs,
@@ -25,9 +26,10 @@ type DocumentComponentStoryDemo = StoryObj<
     openDefault: boolean;
     showCanvas: boolean;
     mode: DocumentComponentMode;
-    dsoOzonContentAnchorClick: HandlerFunction;
+    dsoOzonContentClick: HandlerFunction;
     dsoTableOfContentsClick: HandlerFunction;
     ozonContentUrlResolver?: OzonContentUrlResolver;
+    ozonContentBegripResolver?: OzonContentBegripResolver;
   },
   Renderer
 >;
@@ -58,9 +60,10 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     openDefault: boolean,
     showCanvas: boolean,
     mode: DocumentComponentMode,
-    dsoOzonContentAnchorClick: HandlerFunction,
+    dsoOzonContentClick: HandlerFunction,
     dsoTableOfContentsClick: HandlerFunction,
     ozonContentUrlResolver?: OzonContentUrlResolver,
+    ozonContentBegripResolver?: OzonContentBegripResolver,
   ) => TemplateFnReturnType;
 }
 
@@ -101,7 +104,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "document",
-        dsoOzonContentAnchorClick: fn(),
+        dsoOzonContentClick: fn(),
         dsoTableOfContentsClick: fn(),
         ozonContentUrlResolver: (name, attribute, value, element) => {
           if (!value) {
@@ -153,8 +156,13 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             return `https://identifier-eto.overheid.nl/${value}`;
           }
 
+          if (name === "IntIoRef" && attribute === "ref" && element) {
+            return `https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2021/Delfzijlkamerverhuur/nld@2021-08-02;1`;
+          }
+
           return value;
         },
+        ozonContentBegripResolver: begripResolver,
       },
       argTypes: {
         jsonFile: {
@@ -185,9 +193,12 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        dsoOzonContentAnchorClick: argTypeAction(),
+        dsoOzonContentClick: argTypeAction(),
         dsoTableOfContentsClick: argTypeAction(),
         ozonContentUrlResolver: {
+          ...noControl,
+        },
+        ozonContentBegripResolver: {
           ...noControl,
         },
       },
@@ -198,9 +209,10 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.dsoOzonContentAnchorClick,
+          args.dsoOzonContentClick,
           args.dsoTableOfContentsClick,
           args.ozonContentUrlResolver,
+          args.ozonContentBegripResolver,
         ),
       ),
     },
@@ -211,7 +223,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "table-of-contents",
-        dsoOzonContentAnchorClick: fn(),
+        dsoOzonContentClick: fn(),
         dsoTableOfContentsClick: fn(),
       },
       argTypes: {
@@ -243,7 +255,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        dsoOzonContentAnchorClick: argTypeAction(),
+        dsoOzonContentClick: argTypeAction(),
         dsoTableOfContentsClick: argTypeAction(),
       },
       parameters: { layout: "fullscreen" },
@@ -253,7 +265,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.dsoOzonContentAnchorClick,
+          args.dsoOzonContentClick,
           args.dsoTableOfContentsClick,
         ),
       ),

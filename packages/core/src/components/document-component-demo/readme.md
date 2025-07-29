@@ -7,21 +7,22 @@
 
 ## Properties
 
-| Property                 | Attribute                   | Description                                                                                                     | Type                                  | Default      |
-| ------------------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------ |
-| `jsonFile`               | `json-file`                 | Name of the file to load.                                                                                       | `string \| undefined`                 | `undefined`  |
-| `mode`                   | `mode`                      | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"            | `"document" \| "table-of-contents"`   | `"document"` |
-| `openDefault`            | `open-default`              | The default state for all Document Components.                                                                  | `boolean`                             | `false`      |
-| `ozonContentUrlResolver` | `ozon-content-url-resolver` | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined` | `undefined`  |
-| `showCanvas`             | `show-canvas`               | Show canvas to where Document Component extends.                                                                | `boolean`                             | `false`      |
+| Property                    | Attribute                      | Description                                                                                                     | Type                                     | Default      |
+| --------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
+| `jsonFile`                  | `json-file`                    | Name of the file to load.                                                                                       | `string \| undefined`                    | `undefined`  |
+| `mode`                      | `mode`                         | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"            | `"document" \| "table-of-contents"`      | `"document"` |
+| `openDefault`               | `open-default`                 | The default state for all Document Components.                                                                  | `boolean`                                | `false`      |
+| `ozonContentBegripResolver` | `ozon-content-begrip-resolver` | A BegripResolver that will be called for STOP element "IntRef" with                                             | `OzonContentBegripResolver \| undefined` | `undefined`  |
+| `ozonContentUrlResolver`    | `ozon-content-url-resolver`    | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`    | `undefined`  |
+| `showCanvas`                | `show-canvas`                  | Show canvas to where Document Component extends.                                                                | `boolean`                                | `false`      |
 
 
 ## Events
 
-| Event                        | Description                                                       | Type                                                        |
-| ---------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------- |
-| `dsotOzonContentAnchorClick` | To demo user interacting with IntRef or IntIoRef elements.        | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
-| `dsotTableOfContentsClick`   | To demo user interacting the heading in mode="table-of-contents". | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
+| Event                      | Description                                                                                                | Type                                                      |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `dsotOzonContentClick`     | To demo the user interacting with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
+| `dsotTableOfContentsClick` | To demo user interacting the heading in mode="table-of-contents".                                          | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
 ## Dependencies

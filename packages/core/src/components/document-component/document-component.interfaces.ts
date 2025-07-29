@@ -1,5 +1,5 @@
 import { DsoOzonContentCustomEvent } from "../../components";
-import { OzonContentAnchorClickEvent, OzonContentText } from "../ozon-content/ozon-content.interfaces";
+import { OzonContentClickEvent, OzonContentText } from "../ozon-content/ozon-content.interfaces";
 
 export interface DocumentComponentOpenToggleEvent {
   originalEvent: Event;
@@ -14,9 +14,9 @@ export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweCont
 
 export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
 
-export interface DocumentComponentOzonContentAnchorClickEvent {
-  originalEvent: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>;
-  ozonContentAnchorClick: OzonContentAnchorClickEvent;
+export interface DocumentComponentOzonContentClickEvent {
+  originalEvent: DsoOzonContentCustomEvent<OzonContentClickEvent>;
+  ozonContentClick: OzonContentClickEvent;
 }
 
 export type DocumentComponentInputType = XMLDocument | string;
