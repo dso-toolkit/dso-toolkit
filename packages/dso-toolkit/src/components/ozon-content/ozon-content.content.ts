@@ -346,7 +346,15 @@ export const content: OzonContentStory[] = [
     title: "IntRef",
     content: `
       <Al>
-        Dit is een <IntRef ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
+        Dit is een <IntRef scope="Artikel" ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
+      </Al>
+    `,
+  },
+  {
+    title: "IntRefBegrip",
+    content: `
+      <Al>
+        Dit is een <IntRef scope="Begrip" ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
       </Al>
     `,
   },
