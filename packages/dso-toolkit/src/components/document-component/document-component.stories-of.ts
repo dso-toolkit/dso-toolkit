@@ -6,7 +6,8 @@ import { fn } from "storybook/test";
 import { argTypeAction, noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
-import { OzonContentUrlResolver } from "../ozon-content";
+import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content";
+import { begripResolver } from "../ozon-content/ozon-content.content";
 
 import {
   DocumentComponentArgs,
@@ -28,6 +29,7 @@ type DocumentComponentStoryDemo = StoryObj<
     dsoOzonContentAnchorClick: HandlerFunction;
     dsoTableOfContentsClick: HandlerFunction;
     ozonContentUrlResolver?: OzonContentUrlResolver;
+    ozonContentBegripResolver?: OzonContentBegripResolver;
   },
   Renderer
 >;
@@ -61,6 +63,7 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     dsoOzonContentAnchorClick: HandlerFunction,
     dsoTableOfContentsClick: HandlerFunction,
     ozonContentUrlResolver?: OzonContentUrlResolver,
+    ozonContentBegripResolver?: OzonContentBegripResolver,
   ) => TemplateFnReturnType;
 }
 
@@ -155,6 +158,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
 
           return value;
         },
+        ozonContentBegripResolver: begripResolver,
       },
       argTypes: {
         jsonFile: {
@@ -190,6 +194,9 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         ozonContentUrlResolver: {
           ...noControl,
         },
+        ozonContentBegripResolver: {
+          ...noControl,
+        },
       },
       parameters: { layout: "fullscreen" },
       render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>
@@ -201,6 +208,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.dsoOzonContentAnchorClick,
           args.dsoTableOfContentsClick,
           args.ozonContentUrlResolver,
+          args.ozonContentBegripResolver,
         ),
       ),
     },

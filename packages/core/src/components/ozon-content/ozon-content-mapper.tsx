@@ -1,5 +1,6 @@
 import { Fragment, JSX, h } from "@stencil/core";
 
+import { inputToXmlDocument } from "./functions/input-to-xml-document.function";
 import { getNodeName } from "./get-node-name.function";
 import { OzonContentAbbrNode } from "./nodes/abbr.node";
 import { OzonContentAlNode } from "./nodes/al.node";
@@ -98,13 +99,13 @@ export class Mapper {
       inline: context.inline,
       mark: context.mark,
       mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
-      emitAnchorClick: context.emitAnchorClick,
       emitClick: context.emitClick,
       setState,
       emitMarkItemHighlight: context.emitMarkItemHighlight,
       state,
       path,
       urlResolver: context.urlResolver,
+      begripResolver: context.begripResolver,
     });
   }
 
@@ -113,7 +114,8 @@ export class Mapper {
       return <Fragment />;
     }
 
-    const document = this.inputToXmlDocument(input);
+    this.domParser ??= new DOMParser();
+    const document = inputToXmlDocument(input, this.domParser);
     if (document.querySelector("parsererror")) {
       console.error({
         message: "[DSO Toolkit: Ozon Content Mapper] Unable to parse XML",
@@ -126,19 +128,5 @@ export class Mapper {
     }
 
     return this.mapNodeToJsx(document.getRootNode(), context, []);
-  }
-
-  private inputToXmlDocument(input: OzonContentInputType): XMLDocument {
-    if (input instanceof XMLDocument) {
-      return input;
-    }
-
-    if (typeof input === "string") {
-      this.domParser ??= new DOMParser();
-
-      return this.domParser.parseFromString(input, "text/xml");
-    }
-
-    return document.implementation.createDocument(null, null);
   }
 }

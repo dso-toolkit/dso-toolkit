@@ -3,7 +3,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction, isOdd } from "../../storybook";
-import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
+import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 import {
   DocumentComponent,
@@ -39,6 +39,7 @@ export interface DocumentComponentArgs {
   mode: DocumentComponentMode;
   dsoTableOfContentsClick: HandlerFunction;
   ozonContentUrlResolver?: OzonContentUrlResolver;
+  ozonContentBegripResolver?: OzonContentBegripResolver;
 }
 
 export const documentComponentArgs: Omit<

@@ -3,7 +3,7 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Pro
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import {
-  OzonContentAnchorClickEvent,
+  OzonContentBegripResolver,
   OzonContentClickEvent,
   OzonContentUrlResolver,
 } from "../ozon-content/ozon-content.interfaces";
@@ -16,7 +16,7 @@ import {
   DocumentComponentMarkItemHighlightEvent,
   DocumentComponentMode,
   DocumentComponentOpenToggleEvent,
-  DocumentComponentOzonContentAnchorClickEvent,
+  DocumentComponentOzonContentClickEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentRecursiveToggleState,
   DocumentComponentTableOfContentsClickEvent,
@@ -158,6 +158,12 @@ export class DocumentComponent implements ComponentInterface {
   ozonContentUrlResolver?: OzonContentUrlResolver;
 
   /**
+   * A BegripResolver that will be called for STOP element "IntRef" with @scope="Begrip".
+   */
+  @Prop()
+  ozonContentBegripResolver?: OzonContentBegripResolver;
+
+  /**
    * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
    */
   @Prop({ reflect: true })
@@ -191,7 +197,7 @@ export class DocumentComponent implements ComponentInterface {
    * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
    */
   @Event({ bubbles: false })
-  dsoOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+  dsoOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;
 
   /**
    * Emitted when the user activates the annotation button.
@@ -229,15 +235,13 @@ export class DocumentComponent implements ComponentInterface {
     return undefined;
   }
 
-  private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
-    this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
-  };
-
   private handleOzonContentClick = (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => {
     const { detail } = event;
 
     if (detail.type === "Kop") {
       this.handleHeadingClick(detail.originalEvent);
+    } else {
+      this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
     }
   };
 
@@ -293,7 +297,6 @@ export class DocumentComponent implements ComponentInterface {
                     <dso-ozon-content
                       class="kop"
                       content={this.kop}
-                      onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       onDsoClick={this.handleOzonContentClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>
@@ -301,6 +304,7 @@ export class DocumentComponent implements ComponentInterface {
                       }
                       inline
                       urlResolver={this.ozonContentUrlResolver}
+                      begripResolver={this.ozonContentBegripResolver}
                     />
                   ) : (
                     this.alternativeTitle
@@ -369,13 +373,13 @@ export class DocumentComponent implements ComponentInterface {
             {this.inhoud && (
               <dso-ozon-content
                 content={this.inhoud}
-                onDsoAnchorClick={this.handleOzonContentAnchorClick}
                 onDsoClick={this.handleOzonContentClick}
                 mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
                 onDsoOzonContentMarkItemHighlight={(e) =>
                   this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })
                 }
                 urlResolver={this.ozonContentUrlResolver}
+                begripResolver={this.ozonContentBegripResolver}
               />
             )}
           </div>

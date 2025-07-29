@@ -30,6 +30,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       annotationsWijzigactie,
       mark,
       ozonContentUrlResolver,
+      ozonContentBegripResolver,
       mode,
       href,
       dsoMarkItemHighlight,
@@ -55,6 +56,7 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
           .mark=${ifDefined(mark)}
           .ozonContentUrlResolver=${ifDefined(ozonContentUrlResolver)}
+          .ozonContentBegripResolver=${ifDefined(ozonContentBegripResolver)}
           .mode=${ifDefined(mode)}
           .href=${ifDefined(href)}
           @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}

@@ -21,8 +21,8 @@ import { CardContainerMode } from "./components/card-container/card-container.in
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
-import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
+import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -52,7 +52,7 @@ import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
-import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
+import { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
@@ -69,8 +69,8 @@ export { CardContainerMode } from "./components/card-container/card-container.in
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DsoDatePickerLegacyChangeEvent, DsoDatePickerLegacyDirection, DsoDatePickerLegacyFocusEvent, DsoDatePickerLegacyKeyboardEvent } from "./components/date-picker-legacy/date-picker-legacy.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
-export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
+export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -100,7 +100,7 @@ export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
-export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
+export { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export namespace Components {
     interface DsoAccordion {
         "_getState": () => Promise<AccordionInternalState>;
@@ -652,6 +652,11 @@ export namespace Components {
          */
         "openAnnotation": boolean;
         /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "ozonContentBegripResolver"?: OzonContentBegripResolver;
+        /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
         "ozonContentUrlResolver"?: OzonContentUrlResolver;
@@ -1086,6 +1091,11 @@ export namespace Components {
     }
     interface DsoOzonContent {
         /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "begripResolver"?: OzonContentBegripResolver;
+        /**
           * The XML to be rendered.
          */
         "content"?: OzonContentInputType;
@@ -1183,6 +1193,12 @@ export namespace Components {
           * The label of the project item.
          */
         "label"?: string;
+    }
+    interface DsoReferenceToggletip {
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string | undefined;
     }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
@@ -1460,6 +1476,11 @@ export namespace Components {
           * @default false
          */
         "openDefault": boolean;
+        /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "ozonContentBegripResolver"?: OzonContentBegripResolver1;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
@@ -1952,7 +1973,7 @@ declare global {
         "dsoRecursiveToggle": DocumentComponentRecursiveToggleEvent;
         "dsoOpenToggle": DocumentComponentOpenToggleEvent;
         "dsoTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
-        "dsoOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+        "dsoOzonContentClick": DocumentComponentOzonContentClickEvent;
         "dsoAnnotationToggle": DocumentComponentToggleAnnotationEvent;
         "dsoMarkItemHighlight": DocumentComponentMarkItemHighlightEvent;
     }
@@ -2295,7 +2316,6 @@ declare global {
     };
     interface HTMLDsoOzonContentElementEventMap {
         "dsoClick": OzonContentClickEvent;
-        "dsoAnchorClick": OzonContentAnchorClickEvent;
         "dsoOzonContentMarkItemHighlight": OzonContentMarkItemHighlightEvent;
     }
     interface HTMLDsoOzonContentElement extends Components.DsoOzonContent, HTMLStencilElement {
@@ -2380,6 +2400,12 @@ declare global {
     var HTMLDsoProjectItemElement: {
         prototype: HTMLDsoProjectItemElement;
         new (): HTMLDsoProjectItemElement;
+    };
+    interface HTMLDsoReferenceToggletipElement extends Components.DsoReferenceToggletip, HTMLStencilElement {
+    }
+    var HTMLDsoReferenceToggletipElement: {
+        prototype: HTMLDsoReferenceToggletipElement;
+        new (): HTMLDsoReferenceToggletipElement;
     };
     interface HTMLDsoRenvooiElementEventMap {
         "dsoRenvooiMarkItemHighlight": RenvooiMarkItemHighlightEvent;
@@ -2594,7 +2620,7 @@ declare global {
         new (): HTMLDsoViewerGridElement;
     };
     interface HTMLDsotDocumentComponentDemoElementEventMap {
-        "dsotOzonContentAnchorClick": DocumentComponentOzonContentAnchorClickEvent;
+        "dsotOzonContentClick": DocumentComponentOzonContentClickEvent;
         "dsotTableOfContentsClick": DocumentComponentTableOfContentsClickEvent;
     }
     interface HTMLDsotDocumentComponentDemoElement extends Components.DsotDocumentComponentDemo, HTMLStencilElement {
@@ -2663,6 +2689,7 @@ declare global {
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
+        "dso-reference-toggletip": HTMLDsoReferenceToggletipElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
@@ -3327,7 +3354,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
          */
-        "onDsoOzonContentAnchorClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        "onDsoOzonContentClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentClickEvent>) => void;
         /**
           * Emitted when the user activates the recursive toggle.
          */
@@ -3346,6 +3373,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "openAnnotation"?: boolean;
+        /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "ozonContentBegripResolver"?: OzonContentBegripResolver;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
@@ -3871,6 +3903,11 @@ declare namespace LocalJSX {
     }
     interface DsoOzonContent {
         /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "begripResolver"?: OzonContentBegripResolver;
+        /**
           * The XML to be rendered.
          */
         "content"?: OzonContentInputType;
@@ -3884,11 +3921,7 @@ declare namespace LocalJSX {
          */
         "mark"?: OzonContentMarkFunction;
         /**
-          * Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.
-         */
-        "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => void;
-        /**
-          * Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>.
+          * Emitted when an interactive element is clicked.
          */
         "onDsoClick"?: (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => void;
         /**
@@ -3992,6 +4025,12 @@ declare namespace LocalJSX {
           * The label of the project item.
          */
         "label"?: string;
+    }
+    interface DsoReferenceToggletip {
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string | undefined;
     }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
@@ -4317,7 +4356,7 @@ declare namespace LocalJSX {
         /**
           * To demo user interacting with IntRef or IntIoRef elements.
          */
-        "onDsotOzonContentAnchorClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>) => void;
+        "onDsotOzonContentClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentClickEvent>) => void;
         /**
           * To demo user interacting the heading in mode="table-of-contents".
          */
@@ -4327,6 +4366,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "openDefault"?: boolean;
+        /**
+          * A BegripResolver that will be called for STOP element "IntRef" with
+          * @scope ="Begrip".
+         */
+        "ozonContentBegripResolver"?: OzonContentBegripResolver1;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
@@ -4389,6 +4433,7 @@ declare namespace LocalJSX {
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-project-item": DsoProjectItem;
+        "dso-reference-toggletip": DsoReferenceToggletip;
         "dso-renvooi": DsoRenvooi;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
@@ -4465,6 +4510,7 @@ declare module "@stencil/core" {
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
+            "dso-reference-toggletip": LocalJSX.DsoReferenceToggletip & JSXBase.HTMLAttributes<HTMLDsoReferenceToggletipElement>;
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */
