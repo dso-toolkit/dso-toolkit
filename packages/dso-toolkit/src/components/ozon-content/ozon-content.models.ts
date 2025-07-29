@@ -3,6 +3,7 @@ export interface OzonContent {
   inline?: boolean;
   mark?: OzonContentMarkFunction;
   urlResolver?: OzonContentUrlResolver;
+  dsoClick: (e: CustomEvent) => void;
   dsoAnchorClick: (e: CustomEvent) => void;
   dsoOzonContentMarkItemHighlight: (e: CustomEvent) => void;
 }

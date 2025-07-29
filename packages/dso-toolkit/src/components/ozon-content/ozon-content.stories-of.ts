@@ -20,6 +20,7 @@ export interface OzonContentStories {
   KopMetRenvooi: OzonContentStory;
   Lijst: OzonContentStory;
   IntRef: OzonContentStory;
+  IntRefBegrip: OzonContentStory;
   ExtRef: OzonContentStory;
   IntIoRef: OzonContentStory;
   ExtIoRef: OzonContentStory;
