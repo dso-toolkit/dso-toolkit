@@ -2,10 +2,15 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, Sta
 import random from "lodash.random";
 import sampleSize from "lodash.samplesize";
 
-import { DocumentComponentInputType, DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
+import {
+  DocumentComponentInputType,
+  DsoDocumentComponentCustomEvent,
+  OzonContentBegripResolver,
+  OzonContentUrlResolver,
+} from "../../components";
 import {
   DocumentComponentMode,
-  DocumentComponentOzonContentAnchorClickEvent,
+  DocumentComponentOzonContentClickEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentWijzigactie,
@@ -68,10 +73,16 @@ export class DocumentComponentDemo implements ComponentInterface {
   ozonContentUrlResolver?: OzonContentUrlResolver;
 
   /**
-   * To demo user interacting with IntRef or IntIoRef elements.
+   * A BegripResolver that will be called for STOP element "IntRef" with @scope="Begrip".
+   */
+  @Prop()
+  ozonContentBegripResolver?: OzonContentBegripResolver;
+
+  /**
+   * To demo the user interacting with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
    */
   @Event()
-  dsotOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+  dsotOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;
 
   /**
    * To demo user interacting the heading in mode="table-of-contents".
@@ -204,10 +215,8 @@ export class DocumentComponentDemo implements ComponentInterface {
       : [...this.activeAnnotationSelectables, documentComponent];
   }
 
-  private handleOzonContentAnchorClick(
-    e: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
-  ) {
-    this.dsotOzonContentAnchorClick.emit(e.detail);
+  private handleOzonContentClick(e: DsoDocumentComponentCustomEvent<DocumentComponentOzonContentClickEvent>) {
+    this.dsotOzonContentClick.emit(e.detail);
   }
 
   private handleTableOfContentsClick(e: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) {
@@ -326,7 +335,6 @@ export class DocumentComponentDemo implements ComponentInterface {
         notApplicable={this.isNotApplicable(documentComponent) || path.some((p) => this.isNotApplicable(p))}
         onDsoAnnotationToggle={() => this.handleAnnotationToggle(documentComponent)}
         onDsoOpenToggle={() => this.handleOpenToggle(documentComponent)}
-        onDsoOzonContentAnchorClick={(e) => this.handleOzonContentAnchorClick(e)}
         open={this.isOpen(documentComponent)}
         type={documentComponent.type}
         vervallen={documentComponent.vervallen}
@@ -336,7 +344,9 @@ export class DocumentComponentDemo implements ComponentInterface {
         mode={this.mode}
         href={this.mode === "table-of-contents" ? "/document/" + documentComponent.documentTechnischId : undefined}
         onDsoTableOfContentsClick={(e) => this.handleTableOfContentsClick(e)}
+        onDsoOzonContentClick={(e) => this.handleOzonContentClick(e)}
         ozonContentUrlResolver={this.ozonContentUrlResolver}
+        ozonContentBegripResolver={this.ozonContentBegripResolver}
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <div slot="annotations">

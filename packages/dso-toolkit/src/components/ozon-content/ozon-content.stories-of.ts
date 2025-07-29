@@ -20,6 +20,7 @@ export interface OzonContentStories {
   KopMetRenvooi: OzonContentStory;
   Lijst: OzonContentStory;
   IntRef: OzonContentStory;
+  IntRefBegrip: OzonContentStory;
   ExtRef: OzonContentStory;
   IntIoRef: OzonContentStory;
   ExtIoRef: OzonContentStory;
@@ -73,7 +74,7 @@ export function ozonContentStories<Implementation, Templates, TemplateFnReturnTy
   return content.reduce((c, { title, content, args }) => {
     c[title] = {
       args: componentArgs<OzonContentArgs>({
-        dsoAnchorClick: fn(),
+        dsoClick: fn(),
         dsoOzonContentMarkItemHighlight: fn(),
         content,
         inline: false,

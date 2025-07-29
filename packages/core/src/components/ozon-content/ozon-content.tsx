@@ -15,7 +15,7 @@ import { OzonContentContext } from "./ozon-content-context.interface";
 import { Mapper } from "./ozon-content-mapper";
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import {
-  OzonContentAnchorClickEvent,
+  OzonContentBegripResolver,
   OzonContentClickEvent,
   OzonContentInputType,
   OzonContentMarkFunction,
@@ -56,16 +56,16 @@ export class OzonContent implements ComponentInterface {
   urlResolver?: OzonContentUrlResolver;
 
   /**
-   * Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>.
+   * A BegripResolver that will be called for STOP element "IntRef" with scope="Begrip".
+   */
+  @Prop()
+  begripResolver?: OzonContentBegripResolver;
+
+  /**
+   * Emitted when an interactive element is clicked.
    */
   @Event({ bubbles: false })
   dsoClick!: EventEmitter<OzonContentClickEvent>;
-
-  /**
-   * Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.
-   */
-  @Event({ bubbles: false })
-  dsoAnchorClick!: EventEmitter<OzonContentAnchorClickEvent>;
 
   /**
    * Emitted when a marked item is highlighted.
@@ -92,9 +92,9 @@ export class OzonContent implements ComponentInterface {
       mark: this.mark,
       setState: (state) => (this.state = state),
       emitMarkItemHighlight: this.handleMarkItemHighlight,
-      emitAnchorClick: this.dsoAnchorClick.emit,
       emitClick: this.dsoClick.emit,
       urlResolver: this.urlResolver,
+      begripResolver: this.begripResolver,
     };
 
     const transformed = mapper.transform(this.content, context);

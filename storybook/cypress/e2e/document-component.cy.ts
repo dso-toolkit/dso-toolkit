@@ -32,7 +32,10 @@ describe("Document Component", () => {
         .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "kop" && index === 1 } : item));
 
     cy.get("@document-component")
-      .then(($documentComponent) => ($documentComponent[0].mark = cy.spy(marker).as("marker")))
+      .then(
+        ($documentComponent: JQuery<HTMLDsoDocumentComponentElement>) =>
+          ($documentComponent[0].mark = cy.spy(marker).as("marker")),
+      )
       .get("@marker")
       .invoke("getCalls")
       .should("have.length", 5)

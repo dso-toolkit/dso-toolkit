@@ -14,7 +14,7 @@ import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
-  OzonContentAnchorClickEvent,
+  OzonContentBegripResolver,
   OzonContentClickEvent,
   OzonContentUrlResolver,
 } from "../ozon-content/ozon-content.interfaces";
@@ -28,7 +28,7 @@ import {
   DocumentComponentMarkItemHighlightEvent,
   DocumentComponentMode,
   DocumentComponentOpenToggleEvent,
-  DocumentComponentOzonContentAnchorClickEvent,
+  DocumentComponentOzonContentClickEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentRecursiveToggleState,
   DocumentComponentTableOfContentsClickEvent,
@@ -250,6 +250,12 @@ export class DocumentComponent implements ComponentInterface {
   ozonContentUrlResolver?: OzonContentUrlResolver;
 
   /**
+   * A BegripResolver that will be called for STOP element "IntRef" with @scope="Begrip".
+   */
+  @Prop()
+  ozonContentBegripResolver?: OzonContentBegripResolver;
+
+  /**
    * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
    */
   @Prop({ reflect: true })
@@ -280,10 +286,10 @@ export class DocumentComponent implements ComponentInterface {
   dsoTableOfContentsClick!: EventEmitter<DocumentComponentTableOfContentsClickEvent>;
 
   /**
-   * Emitted when the user actives intRef or intIoRef anchors in Ozon Content
+   * Emitted when the user interacts with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content
    */
   @Event({ bubbles: false })
-  dsoOzonContentAnchorClick!: EventEmitter<DocumentComponentOzonContentAnchorClickEvent>;
+  dsoOzonContentClick!: EventEmitter<DocumentComponentOzonContentClickEvent>;
 
   /**
    * Emitted when the user activates the annotation button.
@@ -309,15 +315,13 @@ export class DocumentComponent implements ComponentInterface {
     }
   };
 
-  private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
-    this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
-  };
-
   private handleOzonContentClick = (event: DsoOzonContentCustomEvent<OzonContentClickEvent>) => {
     const { detail } = event;
 
     if (detail.type === "Kop") {
       this.handleHeadingClick(detail.originalEvent);
+    } else {
+      this.dsoOzonContentClick.emit({ originalEvent: event, ozonContentClick: event.detail });
     }
   };
 
@@ -413,7 +417,6 @@ export class DocumentComponent implements ComponentInterface {
                     <dso-ozon-content
                       class="kop"
                       content={this._kop}
-                      onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       onDsoClick={this.handleOzonContentClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
                       onDsoOzonContentMarkItemHighlight={(e) =>
@@ -421,6 +424,7 @@ export class DocumentComponent implements ComponentInterface {
                       }
                       inline
                       urlResolver={this.ozonContentUrlResolver}
+                      begripResolver={this.ozonContentBegripResolver}
                     />
                   ) : (
                     this.alternativeTitle
@@ -492,13 +496,13 @@ export class DocumentComponent implements ComponentInterface {
             {this._inhoud && (
               <dso-ozon-content
                 content={this._inhoud}
-                onDsoAnchorClick={this.handleOzonContentAnchorClick}
                 onDsoClick={this.handleOzonContentClick}
                 mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
                 onDsoOzonContentMarkItemHighlight={(e) =>
                   this.dsoMarkItemHighlight.emit({ ...e.detail, source: "inhoud" })
                 }
                 urlResolver={this.ozonContentUrlResolver}
+                begripResolver={this.ozonContentBegripResolver}
               />
             )}
           </div>

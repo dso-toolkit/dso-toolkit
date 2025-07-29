@@ -7,21 +7,21 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                     | Type                                                              | Default     |
-| ------------- | -------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
-| `content`     | `content`      | The XML to be rendered.                                                                                         | `XMLDocument \| string \| undefined`                              | `undefined` |
-| `inline`      | `inline`       | Setting this property creates dso-ozon-content as inline element instead of a block element.                    | `boolean`                                                         | `false`     |
-| `mark`        | `mark`         | To mark text.                                                                                                   | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
-| `urlResolver` | `url-resolver` | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`                             | `undefined` |
+| Property         | Attribute         | Description                                                                                                     | Type                                                              | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
+| `begripResolver` | `begrip-resolver` | A BegripResolver that will be called for STOP element "IntRef" with scope="Begrip".                             | `OzonContentBegripResolver \| undefined`                          | `undefined` |
+| `content`        | `content`         | The XML to be rendered.                                                                                         | `XMLDocument \| string \| undefined`                              | `undefined` |
+| `inline`         | `inline`          | Setting this property creates dso-ozon-content as inline element instead of a block element.                    | `boolean`                                                         | `false`     |
+| `mark`           | `mark`            | To mark text.                                                                                                   | `((text: string) => OzonContentText[] \| undefined) \| undefined` | `undefined` |
+| `urlResolver`    | `url-resolver`    | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`                             | `undefined` |
 
 
 ## Events
 
-| Event                             | Description                                                                         | Type                                             |
-| --------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `dsoAnchorClick`                  | Emitted when `<a>` that is created through <IntIoRef> or <IntRef> is clicked.       | `CustomEvent<OzonContentAnchorClickEvent>`       |
-| `dsoClick`                        | Emitted when an interactive element is clicked, except for <IntIoRef> and <IntRef>. | `CustomEvent<OzonContentClickBaseEvent<"Kop">>`  |
-| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.                                          | `CustomEvent<OzonContentMarkItemHighlightEvent>` |
+| Event                             | Description                                     | Type                                                                                                                                            |
+| --------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dsoClick`                        | Emitted when an interactive element is clicked. | `CustomEvent<OzonContentClickBaseEvent<"IntIoRefToggleAnnotation"> \| OzonContentClickBaseEvent<"IntRef"> \| OzonContentClickBaseEvent<"Kop">>` |
+| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                |
 
 
 ## Dependencies

@@ -4,9 +4,10 @@ authors: [cvanderleij, iterox]
 
 # DSO Toolkit v80.0.0 🍟
 
-Deze release bevat een **BREAKING** change voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Document Component
+- Ozon Content
 
 Deze release bevat een **deprecation** voor het volgende component:
 
@@ -18,6 +19,8 @@ Deze release bevat een **deprecation** voor het volgende component:
 
 - Property `gereserveerd` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
 - Property `vervallen` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
+- Het Event `dsoOzonContentAnchorClick` is vervangen door `dsoOzonContentClick`. (Zie ook de **BREAKING** change aan
+  het component Ozon Content in deze release).
 
 ### Gereserveerd
 
@@ -55,6 +58,14 @@ Hetzelfde geldt voor vervallen. Ook deze property accepteert nu een XML-string o
 <dso-document-component vervallen="<Vervallen wijzigactie='voegtoe'></Vervallen>"></dso-document-component>
 <dso-document-component vervallen="<Vervallen></Vervallen>"></dso-document-component>
 ```
+
+## Ozon Content
+
+De Ozon Content `dsoAnchorClick` event handler is komen te vervallen. Het gedrag van deze event handler is
+ondergebracht in `dsoClick`. Daarnaast is de event handler `dsoClick` uitgebreid met de nieuwe link types
+`IntIoRefToggleAnnotation` en `IntRef`.
+
+Er is geen uitgestippeld migratiepad. Hoogstwaarschijnlijk wil je als high-level afnemer gebruik maken van Document Component. Ozon Content kan gezien worden als een "Low Level component".
 
 ## Card (HTML/CSS implementatie)
 

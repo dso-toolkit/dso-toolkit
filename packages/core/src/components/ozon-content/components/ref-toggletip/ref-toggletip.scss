@@ -1,0 +1,46 @@
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "../../../../functional-components/tooltip";
+
+@include utilities.box-sizing();
+@include tooltip.include($max-inline-size: 60 * units.$u1);
+
+:host {
+  display: inline-block;
+  --_dt-rich-content-margin-block: #{units.$u1};
+}
+
+::slotted(:not([slot="label"])) {
+  cursor: default !important;
+}
+
+.toggletip-button {
+  @include button.base($modifiers: false);
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border: 0;
+    color: colors.$donkerblauw;
+    line-height: 1;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &,
+  &:hover,
+  &:focus-visible,
+  &:active {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 15%;
+  }
+
+  dso-icon {
+    margin-inline-start: units.$u1 * 0.5;
+    vertical-align: middle;
+  }
+}

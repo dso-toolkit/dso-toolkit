@@ -2,18 +2,20 @@ import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { argTypeAction, isOdd, noControl } from "../../storybook";
+import { argTypeAction, isOdd } from "../../storybook";
 
-import { OzonContent, OzonContentUrlResolver } from "./ozon-content.models.js";
+import { begripResolver } from "./ozon-content.content";
+import { OzonContent, OzonContentBegripResolver, OzonContentUrlResolver } from "./ozon-content.models.js";
 
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
   mark?: string;
   highlight?: boolean;
-  dsoAnchorClick: HandlerFunction;
+  dsoClick: HandlerFunction;
   dsoOzonContentMarkItemHighlight: HandlerFunction;
   urlResolver?: OzonContentUrlResolver;
+  begripResolver?: OzonContentBegripResolver;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -37,15 +39,14 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: "boolean",
     },
   },
-  dsoAnchorClick: argTypeAction(),
+  dsoClick: argTypeAction(),
   dsoOzonContentMarkItemHighlight: argTypeAction(),
-  urlResolver: {
-    ...noControl,
-  },
+  urlResolver: argTypeAction(),
+  begripResolver: argTypeAction(),
 };
 
 export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
-  const { mark, content, dsoAnchorClick, dsoOzonContentMarkItemHighlight, inline, highlight } = args;
+  const { mark, content, dsoClick, dsoOzonContentMarkItemHighlight, inline, highlight } = args;
   let highlighted = false;
 
   return {
@@ -62,7 +63,7 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
             )
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
-    dsoAnchorClick: (e) => dsoAnchorClick(e.detail),
+    dsoClick: (e) => dsoClick(e.detail),
     urlResolver: (name, attribute, value, element) => {
       if (!value) {
         return "";
@@ -80,7 +81,12 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
         return `https://identifier-eto.overheid.nl/${value}`;
       }
 
+      if (name === "IntIoRef" && attribute === "ref" && element) {
+        return `https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2021/Delfzijlkamerverhuur/nld@2021-08-02;1`;
+      }
+
       return value;
     },
+    begripResolver,
   };
 }

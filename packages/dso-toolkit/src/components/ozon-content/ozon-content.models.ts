@@ -3,8 +3,9 @@ export interface OzonContent {
   inline?: boolean;
   mark?: OzonContentMarkFunction;
   urlResolver?: OzonContentUrlResolver;
-  dsoAnchorClick: (e: CustomEvent) => void;
+  dsoClick: (e: CustomEvent) => void;
   dsoOzonContentMarkItemHighlight: (e: CustomEvent) => void;
+  begripResolver?: OzonContentBegripResolver;
 }
 
 export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;
@@ -18,5 +19,9 @@ export interface OzonContentMarkItem {
 
 export interface OzonContentUrlResolver {
   (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
-  (name: "ExtIoRef" | "ExtRef", attribute: "ref", value: string | null, element: Element): string;
+  (name: "ExtIoRef" | "ExtRef" | "IntIoRef", attribute: "ref", value: string | null, element: Element): string;
+}
+
+export interface OzonContentBegripResolver {
+  (name: "IntRef", attribute: "ref", value: string | null, element: Element): XMLDocument | string;
 }
