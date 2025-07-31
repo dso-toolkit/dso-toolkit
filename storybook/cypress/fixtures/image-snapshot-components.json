@@ -315,7 +315,7 @@
   {
     "name": "row-equal-heights",
     "selector": ".row.dso-equal-heights",
-    "stories": ["highlight-boxes", "tiles", "whiteboxes"],
+    "stories": ["highlight-boxes", "tiles"],
     "type": "html-css"
   },
   {
@@ -380,11 +380,5 @@
     "selector": "dso-viewer-grid",
     "stories": ["document-panel", "filter-panel", "viewer-grid"],
     "type": "core"
-  },
-  {
-    "name": "whitebox-deprecated",
-    "selector": ".dso-whitebox",
-    "stories": ["default", "with-counter", "with-icon"],
-    "type": "html-css"
   }
 ]
