@@ -8,7 +8,7 @@ import { infoRichContent } from "./selectable.content";
 
 const meta: Meta<SelectableArgs<unknown>> = {
   ...selectableMeta({ readme }),
-  title: "HTML|CSS/Selectable",
+  title: "HTML|CSS/Selectable (Deprecated)",
 };
 
 export default meta;
