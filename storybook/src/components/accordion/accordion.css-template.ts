@@ -87,8 +87,8 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
       function accordionSectionTemplate(
         accordion: Accordion<TemplateResult>,
         section: AccordionSection<TemplateResult>,
-        index: number,
       ): TemplateResult {
+        const hasNestedAccordion = section.content?.strings.includes("<dso-accordion") ?? false;
         const showSlideToggle = section.activatable && accordion.variant === "compact-black" && !accordion.reverseAlign;
 
         if (!section.heading) {
@@ -100,7 +100,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             class="dso-accordion-section ${classMap({
               [`dso-${section.status}`]: !!section.status && !accordion.reverseAlign,
               "dso-open": !!section.open,
-              "dso-nested-accordion": index === 1,
+              "dso-nested-accordion": hasNestedAccordion,
               [`dso-accordion-wijzigactie-${section.wijzigactie}`]: !!section.wijzigactie,
               "dso-accordion-section-activate": !!showSlideToggle,
             })}"
@@ -118,7 +118,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
             "dso-accordion-reverse-align": !!accordion.reverseAlign,
           })}"
         >
-          ${accordion.sections.map((section, index) => accordionSectionTemplate(accordion, section, index))}
+          ${accordion.sections.map((section) => accordionSectionTemplate(accordion, section))}
         </div>
       `;
     },
