@@ -31,6 +31,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
         [describedById, info?.fixed ? info.id : undefined].filter((id) => !!id).join(" ") || undefined;
 
       return html`
+        <!-- START DEPRECATED -->
         <div class="dso-selectable">
           <input
             type=${type}
@@ -68,6 +69,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
               </ul>`,
           )}
         </div>
+        <!-- END DEPRECATED -->
       `;
     },
 };
