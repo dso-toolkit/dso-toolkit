@@ -13,11 +13,9 @@ export interface SurveyRatingArgs {
 export const surveyRatingArgTypes: ArgTypes<SurveyRatingArgs> = {
   dsoSubmit: {
     ...noControl,
-    action: "dsoSubmit",
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 

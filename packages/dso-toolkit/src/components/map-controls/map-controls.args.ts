@@ -24,29 +24,24 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   },
   dsoZoomIn: {
     ...noControl,
-    action: "dsoZoomIn",
   },
   dsoZoomOut: {
     ...noControl,
-    action: "dsoZoomOut",
   },
   dsoToggle: {
     ...noControl,
-    action: "dsoToggle",
   },
   baseLayers: {
     ...noControl,
   },
   dsoBaseLayerChange: {
     ...noControl,
-    action: "dsoBaseLayerChange",
   },
   overlays: {
     ...noControl,
   },
   dsoToggleOverlay: {
     ...noControl,
-    action: "dsoToggleOverlay",
   },
   disableZoom: {
     options: ["both", "in", "out"],

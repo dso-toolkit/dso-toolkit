@@ -55,7 +55,6 @@ export const documentCardArgTypes: ArgTypes<
   },
   dsoDocumentCardClick: {
     ...noControl,
-    action: "dsoDocumentCardClick",
   },
 };
 

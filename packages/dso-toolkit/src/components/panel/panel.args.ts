@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { Panel } from "./panel.models.js";
 
 export interface PanelArgs {
@@ -14,7 +16,7 @@ export const panelArgs: Omit<PanelArgs, "dsoCloseClick"> = {
 
 export const panelArgTypes: ArgTypes<PanelArgs> = {
   dsoCloseClick: {
-    action: "dsoCloseClick",
+    ...noControl,
   },
   emphasized: {
     control: {

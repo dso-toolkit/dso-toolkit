@@ -35,11 +35,9 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
   },
   dsoLogoClick: {
     ...noControl,
-    action: "dsoLogoClick",
   },
   dsoLabelClick: {
     ...noControl,
-    action: "dsoLogoLabelClick",
   },
 };
 

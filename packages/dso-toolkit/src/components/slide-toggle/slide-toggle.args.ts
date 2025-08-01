@@ -50,7 +50,6 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
   },
   dsoActiveChange: {
     ...noControl,
-    action: "dsoActiveChange",
   },
 };
 

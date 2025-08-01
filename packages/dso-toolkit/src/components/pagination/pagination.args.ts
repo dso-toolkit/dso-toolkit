@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { Pagination } from "./pagination.models.js";
 
 export interface PaginationArgs {
@@ -23,7 +25,7 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
     },
   },
   dsoSelectPage: {
-    action: "dsoSelectPage",
+    ...noControl,
   },
 };
 

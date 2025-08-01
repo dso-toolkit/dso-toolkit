@@ -67,11 +67,9 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
   },
   dsoCountChange: {
     ...noControl,
-    action: "dsoCountChange",
   },
   dsoSelectedChange: {
     ...noControl,
-    action: "dsoSelectedChange",
   },
 };
 

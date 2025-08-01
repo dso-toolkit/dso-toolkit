@@ -1,5 +1,6 @@
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 import {
@@ -52,7 +53,7 @@ const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
     },
   },
   dsoActiveChange: {
-    action: "dsoActiveChange",
+    ...noControl,
   },
 };
 
@@ -248,7 +249,7 @@ export const annotationKaartArgTypes: ArgTypes<AnnotationKaartArgs> = {
     },
   },
   dsoClick: {
-    action: "dsoClick",
+    ...noControl,
   },
 };
 

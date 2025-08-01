@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { Selectable } from "./selectable.models.js";
 
 export interface SelectableArgs<TemplateFnReturnType> {
@@ -82,7 +84,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
     },
   },
   dsoChange: {
-    action: "dsoChange",
+    ...noControl,
   },
   infoFixed: {
     control: {
@@ -100,10 +102,10 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
     },
   },
   infoClosed: {
-    action: "infoClosed",
+    ...noControl,
   },
   infoToggled: {
-    action: "infoToggled",
+    ...noControl,
   },
   options: {
     control: {

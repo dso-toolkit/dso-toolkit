@@ -37,7 +37,6 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
   },
   featureAction: {
     ...noControl,
-    action: "dsoToggleSection",
   },
   featuresOpen: {
     control: {

@@ -39,11 +39,9 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   },
   dsoAnchorClick: {
     ...noControl,
-    action: "dsoAnchorClick",
   },
   dsoOzonContentMarkItemHighlight: {
     ...noControl,
-    action: "dsoOzonContentMarkItemHighlight",
   },
   urlResolver: {
     ...noControl,

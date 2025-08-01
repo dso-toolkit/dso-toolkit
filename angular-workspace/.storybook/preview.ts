@@ -7,6 +7,9 @@ import * as docJson from "../documentation.json";
 setCompodocJson(docJson);
 
 export const parameters: Parameters = {
+  actions: {
+    argTypesRegex: "^dso[A-Z].*|click",
+  },
   controls: {
     disableSaveFromUI: true,
     matchers: {

@@ -50,7 +50,6 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   },
   dsoCardClick: {
     ...noControl,
-    action: "dsoCardClick",
   },
 };
 

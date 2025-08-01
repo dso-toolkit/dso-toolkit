@@ -37,7 +37,6 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 

@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { Button, ButtonAnchor } from "./button.models.js";
 
 export interface ButtonArgs {
@@ -54,6 +56,7 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     },
   },
   click: {
+    ...noControl,
     action: "onClick",
   },
   type: {

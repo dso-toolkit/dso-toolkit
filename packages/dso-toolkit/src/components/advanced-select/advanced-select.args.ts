@@ -31,11 +31,9 @@ export const advancedSelectArgTypes: ArgTypes<AdvancedSelectArgs> = {
   },
   dsoChange: {
     ...noControl,
-    action: "dsoChange",
   },
   dsoRedirect: {
     ...noControl,
-    action: "dsoRedirect",
   },
 };
 

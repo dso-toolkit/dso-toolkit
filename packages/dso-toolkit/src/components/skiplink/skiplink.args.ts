@@ -29,7 +29,6 @@ export const skiplinkArgTypes: ArgTypes<SkiplinkArgs> = {
   },
   dsoSkiplinkClick: {
     ...noControl,
-    action: "dsoSkiplinkClick",
   },
 };
 

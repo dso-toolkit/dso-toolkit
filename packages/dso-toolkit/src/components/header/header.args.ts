@@ -95,7 +95,6 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   },
   dsoHeaderClick: {
     ...noControl,
-    action: "dsoHeaderClick",
   },
 };
 

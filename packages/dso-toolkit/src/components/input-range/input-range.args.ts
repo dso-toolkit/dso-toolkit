@@ -1,5 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { InputRange, InputRangeChangeEvent } from "./input-range.models.js";
 
 export interface InputRangeArgs {
@@ -21,7 +23,7 @@ export const inputRangeArgs: Omit<InputRangeArgs, "value" | "min" | "max" | "ste
 
 export const inputRangeArgTypes: ArgTypes<InputRangeArgs> = {
   dsoChange: {
-    action: "dsoChange",
+    ...noControl,
   },
   description: {
     control: "text",

@@ -43,11 +43,10 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
     },
   },
   click: {
-    action: "closed",
+    ...noControl,
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 
