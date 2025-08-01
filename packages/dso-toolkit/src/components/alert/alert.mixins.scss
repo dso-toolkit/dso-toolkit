@@ -101,9 +101,6 @@
 
   .icon-status {
     @include icon-position();
-
-    block-size: units.$u4;
-    inline-size: units.$u4;
   }
 
   .dso-close {
