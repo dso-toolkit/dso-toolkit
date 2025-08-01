@@ -14,10 +14,10 @@ const meta: Meta = {
 
 export default meta;
 
-const { HighlightBoxes, Tiles, Whiteboxes } = rowEqualHeightsStories({
+const { HighlightBoxes, Tiles } = rowEqualHeightsStories({
   templateContainer,
   storyTemplates: (templates) => {
-    const { highlightBoxTemplate, tileTemplate, whiteboxTemplate, rowEqualHeightsTemplate } = templates;
+    const { highlightBoxTemplate, tileTemplate, rowEqualHeightsTemplate } = templates;
 
     return {
       rowEqualHeightsTemplate,
@@ -33,15 +33,9 @@ const { HighlightBoxes, Tiles, Whiteboxes } = rowEqualHeightsStories({
             (tile) => html`<div class="col-lg-2 col-md-4 col-xs-6">${tileTemplate(tile)}</div>`,
           )}`,
         }),
-      whiteboxExample: (whiteboxes) =>
-        rowEqualHeightsTemplate({
-          children: html`${whiteboxes.map(
-            (whitebox) => html`<div class="col-md-4 col-sm-6">${whiteboxTemplate(whitebox)}</div>`,
-          )}`,
-        }),
     };
   },
   decorator,
 });
 
-export { HighlightBoxes, Tiles, Whiteboxes };
+export { HighlightBoxes, Tiles };
