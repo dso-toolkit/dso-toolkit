@@ -26,6 +26,9 @@ export const globalTypes: GlobalTypes = {
 export const decorators: DecoratorFunction[] = [(story, context) => i18nDecorator(story, context)];
 
 export const parameters: Parameters = {
+  actions: {
+    argTypesRegex: "^dso[A-Z].*|click",
+  },
   controls: {
     disableSaveFromUI: true,
   },

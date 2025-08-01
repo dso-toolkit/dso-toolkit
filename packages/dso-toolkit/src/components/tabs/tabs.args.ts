@@ -20,7 +20,6 @@ export const tabsArgTypes: ArgTypes<TabsArgs<unknown>> = {
   },
   dsoTabSwitch: {
     ...noControl,
-    action: "dsoTabSwitch",
   },
 };
 

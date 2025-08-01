@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { Scrollable } from "./scrollable.models.js";
 
 export interface ScrollableArgs {
@@ -9,7 +11,7 @@ export interface ScrollableArgs {
 
 export const scrollableArgTypes: ArgTypes<ScrollableArgs> = {
   dsoScrollEnd: {
-    action: "dsoScrollEnd",
+    ...noControl,
   },
 };
 

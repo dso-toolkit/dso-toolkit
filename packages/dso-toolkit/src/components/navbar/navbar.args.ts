@@ -1,6 +1,6 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { componentArgs } from "../../storybook";
+import { componentArgs, noControl } from "../../storybook";
 
 import { NavBarToggleExtensionEvent, Navbar, NavbarItem } from "./navbar.models.js";
 
@@ -41,7 +41,7 @@ export const navbarArgTypes: ArgTypes<NavbarArgs> = {
     },
   },
   dsoExtensionToggle: {
-    action: "dsoExtensionToggle",
+    ...noControl,
   },
 };
 

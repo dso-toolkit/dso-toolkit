@@ -30,7 +30,6 @@ export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 

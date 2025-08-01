@@ -1,6 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
 import { HeadingLevel } from "../heading/heading.models.js";
 
 import { ProjectItem } from "./project-item.models.js";
@@ -38,10 +39,10 @@ export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
     },
   },
   dsoEdit: {
-    action: "dsoEdit",
+    ...noControl,
   },
   dsoRemove: {
-    action: "dsoRemove",
+    ...noControl,
   },
 };
 

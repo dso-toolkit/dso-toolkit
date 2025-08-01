@@ -37,15 +37,12 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   },
   dsoMouseEnter: {
     ...noControl,
-    action: "dsoMouseEnter",
   },
   dsoMouseLeave: {
     ...noControl,
-    action: "dsoMouseLeave",
   },
   dsoActiveChange: {
     ...noControl,
-    action: "dsoActiveChange",
   },
   label: {
     control: {

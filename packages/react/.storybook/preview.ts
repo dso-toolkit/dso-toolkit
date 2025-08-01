@@ -4,6 +4,9 @@ import "@iframe-resizer/child";
 import "dso-toolkit/dist/dso.css";
 
 export const parameters: Parameters = {
+  actions: {
+    argTypesRegex: "^dso[A-Z].*|click",
+  },
   controls: {
     disableSaveFromUI: true,
   },

@@ -24,8 +24,8 @@ type DocumentComponentStoryDemo = StoryObj<
     openDefault: boolean;
     showCanvas: boolean;
     mode: DocumentComponentMode;
-    ozonContentAnchorClick: HandlerFunction;
-    tableOfContentsClick: HandlerFunction;
+    dsoOzonContentAnchorClick: HandlerFunction;
+    dsoTableOfContentsClick: HandlerFunction;
     ozonContentUrlResolver?: OzonContentUrlResolver;
   },
   Renderer
@@ -57,8 +57,8 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     openDefault: boolean,
     showCanvas: boolean,
     mode: DocumentComponentMode,
-    ozonContentAnchorClick: HandlerFunction,
-    tableOfContentsClick: HandlerFunction,
+    dsoOzonContentAnchorClick: HandlerFunction,
+    dsoTableOfContentsClick: HandlerFunction,
     ozonContentUrlResolver?: OzonContentUrlResolver,
   ) => TemplateFnReturnType;
 }
@@ -182,11 +182,11 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        ozonContentAnchorClick: {
-          action: "dsoOzonContentAnchorClick",
+        dsoOzonContentAnchorClick: {
+          ...noControl,
         },
-        tableOfContentsClick: {
-          action: "dsoTableOfContentsClick",
+        dsoTableOfContentsClick: {
+          ...noControl,
         },
         ozonContentUrlResolver: {
           ...noControl,
@@ -199,8 +199,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.ozonContentAnchorClick,
-          args.tableOfContentsClick,
+          args.dsoOzonContentAnchorClick,
+          args.dsoTableOfContentsClick,
           args.ozonContentUrlResolver,
         ),
       ),
@@ -242,11 +242,11 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        ozonContentAnchorClick: {
-          action: "dsoOzonContentAnchorClick",
+        dsoOzonContentAnchorClick: {
+          ...noControl,
         },
-        tableOfContentsClick: {
-          action: "dsoTableOfContentsClick",
+        dsoTableOfContentsClick: {
+          ...noControl,
         },
       },
       parameters: { layout: "fullscreen" },
@@ -256,8 +256,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.openDefault,
           args.showCanvas,
           args.mode,
-          args.ozonContentAnchorClick,
-          args.tableOfContentsClick,
+          args.dsoOzonContentAnchorClick,
+          args.dsoTableOfContentsClick,
         ),
       ),
     },

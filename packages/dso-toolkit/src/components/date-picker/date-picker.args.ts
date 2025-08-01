@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { DatePicker } from "./date-picker.models.js";
 
 export interface DatePickerArgs {
@@ -66,19 +68,19 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
     },
   },
   dsoDateChange: {
-    action: "dsoDateChange",
+    ...noControl,
   },
   dsoBlur: {
-    action: "dsoBlur",
+    ...noControl,
   },
   dsoFocus: {
-    action: "dsoFocus",
+    ...noControl,
   },
   dsoKeyDown: {
-    action: "dsoKeyDown",
+    ...noControl,
   },
   dsoKeyUp: {
-    action: "dsoKeyUp",
+    ...noControl,
   },
   required: {
     control: {

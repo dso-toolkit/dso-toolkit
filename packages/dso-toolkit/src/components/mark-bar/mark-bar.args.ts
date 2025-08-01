@@ -1,6 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
+import { noControl } from "../../storybook";
+
 import { MarkBar } from "./mark-bar.models.js";
 
 export interface MarkBarArgs {
@@ -36,19 +38,19 @@ export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
     type: "number",
   },
   dsoInput: {
-    action: "dsoInput",
+    ...noControl,
   },
   dsoNext: {
-    action: "dsoNext",
+    ...noControl,
   },
   dsoPrevious: {
-    action: "dsoPrevious",
+    ...noControl,
   },
   dsoClear: {
-    action: "dsoClear",
+    ...noControl,
   },
   focus: {
-    type: "boolean",
+    ...noControl,
   },
 };
 

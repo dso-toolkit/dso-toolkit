@@ -60,7 +60,6 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
   },
   dsoPlekinfoCardClick: {
     ...noControl,
-    action: "dsoPlekinfoCardClick",
   },
 };
 
