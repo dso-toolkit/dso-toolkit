@@ -1,6 +1,5 @@
 import { HighlightBox } from "../highlight-box/highlight-box.models.js";
 import { Tile } from "../tile/tile.models.js";
-import { Whitebox } from "../whitebox/whitebox.models.js";
 
 export const highlightBoxes: HighlightBox<string>[] = [
   {
@@ -86,37 +85,6 @@ export const tiles: Tile[] = [
     image: {
       alt: "",
       source: "images/icon-tree.png",
-    },
-  },
-];
-
-export const whiteboxes: Whitebox[] = [
-  {
-    label: "Direct naar aanvragen",
-    title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
-    description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
-    image: {
-      alt: "",
-      source: "images/indienen.png",
-    },
-  },
-  {
-    label: "Direct naar aanvragen",
-    title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
-    description:
-      "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.",
-    image: {
-      alt: "",
-      source: "images/indienen.png",
-    },
-  },
-  {
-    label: "Direct naar aanvragen",
-    title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
-    description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
-    image: {
-      alt: "",
-      source: "images/indienen.png",
     },
   },
 ];
