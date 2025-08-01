@@ -1,5 +1,5 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { noControl } from "../../storybook/index.js";
 
@@ -24,29 +24,24 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   },
   dsoZoomIn: {
     ...noControl,
-    action: "dsoZoomIn",
   },
   dsoZoomOut: {
     ...noControl,
-    action: "dsoZoomOut",
   },
   dsoToggle: {
     ...noControl,
-    action: "dsoToggle",
   },
   baseLayers: {
     ...noControl,
   },
   dsoBaseLayerChange: {
     ...noControl,
-    action: "dsoBaseLayerChange",
   },
   overlays: {
     ...noControl,
   },
   dsoToggleOverlay: {
     ...noControl,
-    action: "dsoToggleOverlay",
   },
   disableZoom: {
     options: ["both", "in", "out"],

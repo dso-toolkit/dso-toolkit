@@ -1,8 +1,9 @@
-import { HandlerFunction } from "@storybook/addon-actions/*";
-import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { isOdd } from "../../storybook";
+import { isOdd, noControl } from "../../storybook";
 import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 import {
@@ -41,10 +42,7 @@ export interface DocumentComponentArgs {
   ozonContentUrlResolver?: OzonContentUrlResolver;
 }
 
-export const documentComponentArgs: Omit<
-  DocumentComponentArgs,
-  "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick"
-> = {
+export const documentComponentArgs: DocumentComponentArgs = {
   annotated: true,
   bevatOntwerpInformatie: true,
   filtered: true,
@@ -62,6 +60,10 @@ export const documentComponentArgs: Omit<
   annotationsWijzigactie: "voegtoe",
   mode: "document",
   kop: "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>13.12c</Nummer><Opschrift>NootInKop III <Noot type='voet' id='N8'><NootNummer>8</NootNummer><Al>Thomas en Eric test 3.</Al></Noot>Opschrift</Opschrift></Kop>",
+  dsoAnnotationToggle: fn(),
+  dsoToggle: fn(),
+  dsoMarkItemHighlight: fn(),
+  dsoTableOfContentsClick: fn(),
 };
 
 export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
@@ -82,16 +84,16 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     },
   },
   dsoAnnotationToggle: {
-    action: "dsoAnnotationToggle",
+    ...noControl,
   },
   dsoToggle: {
-    action: "dsoToggle",
+    ...noControl,
   },
   dsoMarkItemHighlight: {
-    action: "dsoMarkItemHighlight",
+    ...noControl,
   },
   dsoTableOfContentsClick: {
-    action: "dsoTableOfContentsClick",
+    ...noControl,
   },
   filtered: {
     control: {
@@ -196,13 +198,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
   return {
     ...a,
     href: a.mode === "table-of-contents" ? "/document/id" : undefined,
-    dsoTableOfContentsClick: (e) => {
-      if (!e.detail.isModifiedEvent) {
-        e.detail.originalEvent.preventDefault();
-      }
-
-      a.dsoTableOfContentsClick(e.detail);
-    },
+    dsoTableOfContentsClick: (e) => a.dsoTableOfContentsClick(e.detail),
     children: a.open || a.openAnnotation ? children : undefined,
     mark: mark
       ? (text) =>

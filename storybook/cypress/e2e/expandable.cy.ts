@@ -17,7 +17,7 @@ describe("Expandable", () => {
       .and(
         "have.css",
         "transition",
-        "grid-template-rows 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s",
+        "grid-template-rows 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       )
       .and("have.css", "grid-template-rows", "0px") // equivalent with 0fr
       .invoke("prop", "open", true)

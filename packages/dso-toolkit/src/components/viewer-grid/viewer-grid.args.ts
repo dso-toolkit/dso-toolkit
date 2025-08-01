@@ -1,5 +1,5 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { noControl } from "../../storybook/index.js";
 
@@ -70,31 +70,24 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   },
   dsoMainSizeChangeAnimationEnd: {
     ...noControl,
-    action: "dsoMainSizeChangeAnimationEnd",
   },
   dsoCloseOverlay: {
     ...noControl,
-    action: "dsoCloseOverlay",
   },
   dsoCloseFilterPanel: {
     ...noControl,
-    action: "dsoCloseFilterPanel",
   },
   dsoDocumentPanelSizeChange: {
     ...noControl,
-    action: "dsoDocumentPanelSizeChange",
   },
   dsoDocumentPanelSizeChangeAnimationEnd: {
     ...noControl,
-    action: "dsoDocumentPanelSizeChangeAnimationEnd",
   },
   dsoMainPanelExpand: {
     ...noControl,
-    action: "dsoMainPanelExpand",
   },
   dsoMainPanelToggle: {
     ...noControl,
-    action: "dsoMainPanelToggle",
   },
 };
 

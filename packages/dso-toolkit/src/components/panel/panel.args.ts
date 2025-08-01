@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { noControl } from "../../storybook";
 
 import { Panel } from "./panel.models.js";
 
@@ -14,7 +16,7 @@ export const panelArgs: Omit<PanelArgs, "dsoCloseClick"> = {
 
 export const panelArgTypes: ArgTypes<PanelArgs> = {
   dsoCloseClick: {
-    action: "dsoCloseClick",
+    ...noControl,
   },
   emphasized: {
     control: {
@@ -32,5 +34,6 @@ export function panelArgsMapper<TemplateFnReturnType>(
     ...a,
     children,
     heading,
+    dsoCloseClick: (e) => a.dsoCloseClick({ ...e }),
   };
 }

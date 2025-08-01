@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { noControl } from "../../storybook";
 
 import { Label } from "./label.models.js";
 
@@ -26,7 +28,7 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
     },
   },
   dsoRemoveClick: {
-    action: "dsoRemoveClick",
+    ...noControl,
   },
   compact: {
     control: {

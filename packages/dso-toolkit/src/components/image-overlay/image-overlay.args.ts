@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { images } from "./image-overlay.content.js";
 import { ImageOverlay } from "./image-overlay.models.js";

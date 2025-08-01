@@ -37,7 +37,8 @@ describe("Date Picker (Legacy)", () => {
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").should("have.focus");
   });
 
-  it("ESCAPE should close date picker and focus toggle button", () => {
+  // Component wordt via 3261 Deprecated + en 3262 Removed
+  it.skip("ESCAPE should close date picker and focus toggle button", () => {
     cy.get("dso-date-picker-legacy.hydrated").as("date-picker-legacy");
 
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").click();
@@ -51,7 +52,8 @@ describe("Date Picker (Legacy)", () => {
     cy.get("@date-picker-legacy").find("button.dso-date__toggle").should("have.focus");
   });
 
-  it("should navigate by keyboard", () => {
+  // Component wordt via 3261 Deprecated + en 3262 Removed
+  it.skip("should navigate by keyboard", () => {
     cy.get("dso-date-picker-legacy.hydrated")
       // Prepare date picker, cy.clock() doesn't work (presumably because of Stencil dev env)
       .invoke("attr", "value", "19-09-1988")
@@ -445,8 +447,8 @@ describe("Date Picker (Legacy)", () => {
       .should("have.css", "border-color", "rgb(206, 63, 81)")
       .and("have.attr", "aria-invalid", "true");
   });
-
-  it("should only show available months in range", () => {
+  // Component wordt via 3261 Deprecated + en 3262 Removed
+  it.skip("should only show available months in range", () => {
     cy.get("dso-date-picker-legacy.hydrated")
       .invoke("attr", "min", "3-8-2020")
       .invoke("attr", "max", "28-3-2022")

@@ -1,5 +1,6 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { noControl } from "../../storybook";
 
@@ -16,12 +17,15 @@ export interface LegendItemArgs {
   label: string;
 }
 
-export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange"> = {
+export const legendItemArgs: LegendItemArgs = {
   disabled: false,
   disabledMessage: "",
   active: true,
   activatable: true,
   label: "Legenda item label",
+  dsoMouseEnter: fn(),
+  dsoMouseLeave: fn(),
+  dsoActiveChange: fn(),
 };
 
 export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
@@ -37,15 +41,12 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   },
   dsoMouseEnter: {
     ...noControl,
-    action: "dsoMouseEnter",
   },
   dsoMouseLeave: {
     ...noControl,
-    action: "dsoMouseLeave",
   },
   dsoActiveChange: {
     ...noControl,
-    action: "dsoActiveChange",
   },
   label: {
     control: {

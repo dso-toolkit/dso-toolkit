@@ -1,5 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions/*";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
+
+import { noControl } from "../../storybook";
 
 import { MarkBar } from "./mark-bar.models.js";
 
@@ -15,11 +18,15 @@ export interface MarkBarArgs {
   dsoClear: HandlerFunction;
 }
 
-export const markBarArgs: Omit<MarkBarArgs, "value" | "dsoInput" | "dsoNext" | "dsoPrevious" | "dsoClear"> = {
+export const markBarArgs: Omit<MarkBarArgs, "value"> = {
   label: "Zoeken binnen gehele document, en verder dan dat.",
   current: 1,
   totalCount: 8,
   focus: false,
+  dsoInput: fn(),
+  dsoNext: fn(),
+  dsoPrevious: fn(),
+  dsoClear: fn(),
 };
 
 export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
@@ -36,19 +43,19 @@ export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
     type: "number",
   },
   dsoInput: {
-    action: "dsoInput",
+    ...noControl,
   },
   dsoNext: {
-    action: "dsoNext",
+    ...noControl,
   },
   dsoPrevious: {
-    action: "dsoPrevious",
+    ...noControl,
   },
   dsoClear: {
-    action: "dsoClear",
+    ...noControl,
   },
   focus: {
-    type: "boolean",
+    ...noControl,
   },
 };
 

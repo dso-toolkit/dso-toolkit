@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { tileGridMeta, tileGridStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/tile-grid/readme.md?raw";
 

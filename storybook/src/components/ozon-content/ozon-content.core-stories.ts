@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/ozon-content/readme.md?raw";
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { OzonContentArgs, ozonContentMeta, ozonContentStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

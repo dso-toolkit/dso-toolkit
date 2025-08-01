@@ -1,5 +1,5 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { noControl } from "../../storybook";
 
@@ -13,16 +13,16 @@ export interface SurveyRatingArgs {
 export const surveyRatingArgTypes: ArgTypes<SurveyRatingArgs> = {
   dsoSubmit: {
     ...noControl,
-    action: "dsoSubmit",
   },
   dsoClose: {
     ...noControl,
-    action: "dsoClose",
   },
 };
 
 export function surveyRatingArgsMapper(a: SurveyRatingArgs): SurveyRating {
   return {
     ...a,
+    dsoClose: (e) => a.dsoClose(e.detail),
+    dsoSubmit: (e) => a.dsoSubmit(e.detail),
   };
 }

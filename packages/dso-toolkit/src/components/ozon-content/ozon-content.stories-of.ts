@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -51,6 +52,10 @@ export function ozonContentMeta<TRenderer extends Renderer>({ readme }: MetaOpti
 > {
   return {
     argTypes: ozonContentArgTypes,
+    args: {
+      dsoAnchorClick: fn(),
+      dsoOzonContentMarkItemHighlight: fn(),
+    },
     parameters: {
       docs: readme
         ? {

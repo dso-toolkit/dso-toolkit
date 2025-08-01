@@ -1,5 +1,5 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { noControl } from "../../storybook";
 
@@ -35,11 +35,9 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
   },
   dsoLogoClick: {
     ...noControl,
-    action: "dsoLogoClick",
   },
   dsoLabelClick: {
     ...noControl,
-    action: "dsoLogoLabelClick",
   },
 };
 

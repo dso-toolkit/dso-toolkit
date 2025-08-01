@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { noControl } from "../../storybook";
 
 import { InfoButton } from "./info-button.models.js";
 
@@ -27,7 +29,7 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
     },
   },
   dsoToggle: {
-    action: "dsoToggle",
+    ...noControl,
   },
 };
 
