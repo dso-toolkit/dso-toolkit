@@ -30,4 +30,4 @@ then
   cd ../../..
 fi
 
-yarn tsx ./scripts/update-azure-blob-storage/main --azureStorageHost "$DT_AZURE_STORAGE_HOST" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER" --azureSasToken "$SAS_TOKEN" --githubToken "$GH_TOKEN"
+yarn tsx ./scripts/update-azure-blob-storage/main --azureStorageAccountName "$DT_AZURE_STORAGE_ACCOUNT_NAME" --azureStorageAccountKey "$DT_AZURE_STORAGE_ACCOUNT_KEY" --azureStorageHostDfs "$DT_AZURE_STORAGE_HOST_DFS" --azureStorageContainer "$DT_AZURE_STORAGE_CONTAINER"  --githubToken "$GH_TOKEN"

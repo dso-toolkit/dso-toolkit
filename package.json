@@ -25,7 +25,7 @@
     "start": "tsx scripts/start.ts"
   },
   "dependencies": {
-    "@azure/storage-blob": "^12.27.0",
+    "@azure/storage-file-datalake": "^12.27.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.27.0",
     "@lit-labs/ssr": "^3.3.1",

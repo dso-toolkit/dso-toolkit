@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Task
 * Build: Bundling Warning SOURCEMAP_BROKEN ([#3107](https://github.com/dso-toolkit/dso-toolkit/issues/3107))
 * Accordion Section: Button in Section Handle kleurt grasgroen als Section open is ([#3221](https://github.com/dso-toolkit/dso-toolkit/issues/3221))
+* Deploy: script blijft niet-bestaande branches verwijderen ([#3270](https://github.com/dso-toolkit/dso-toolkit/issues/3270))
 
 ## ⛱️ Release 77.0.0 - 2025-07-28
 
