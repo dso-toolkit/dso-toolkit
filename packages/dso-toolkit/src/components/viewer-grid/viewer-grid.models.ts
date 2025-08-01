@@ -14,7 +14,6 @@ export interface ViewerGrid<TemplateFnReturnType> {
   dsoActiveTabSwitch?: (e: CustomEvent<ViewerGridActiveTabSwitchEvent>) => void;
   dsoDocumentPanelSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoDocumentPanelSizeChangeAnimationEnd?: (e: CustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
-  dsoMainPanelExpand?: (e: CustomEvent<ViewerGridMainExpandEvent>) => void;
   dsoMainPanelToggle?: (e: CustomEvent<ViewerGridMainToggleEvent>) => void;
   topBar?: TemplateFnReturnType;
   filterPanel?: TemplateFnReturnType;

@@ -53,5 +53,5 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
 };
 
 export function labelArgsMapper(a: LabelArgs): Required<Label> {
-  return { ...a };
+  return { ...a, dsoRemoveClick: () => a.dsoRemoveClick() };
 }

@@ -63,7 +63,11 @@ export function mapControlsArgsMapper(a: MapControlsArgs): Required<MapControls>
         ),
       ];
 
-      a.dsoBaseLayerChange(e);
+      a.dsoBaseLayerChange(e.detail);
     },
+    dsoToggleOverlay: (e) => a.dsoToggleOverlay(e.detail),
+    dsoToggle: (e) => a.dsoToggle(e.detail),
+    dsoZoomIn: () => a.dsoZoomIn(),
+    dsoZoomOut: () => a.dsoZoomOut(),
   };
 }

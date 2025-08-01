@@ -76,6 +76,8 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
 export function listButtonArgsMapper(a: ListButtonArgs): ListButton {
   return {
     ...a,
+    dsoCountChange: (e) => a.dsoCountChange(e.detail),
+    dsoSelectedChange: (e) => a.dsoSelectedChange(e.detail),
   };
 }
 

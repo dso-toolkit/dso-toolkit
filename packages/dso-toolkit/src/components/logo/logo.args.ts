@@ -50,11 +50,11 @@ export function logoArgsMapper(a: LogoArgs): Logo {
     ribbon: a.ribbon,
     dsoLogoClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoLogoClick?.(event);
+      a.dsoLogoClick?.(event.detail);
     },
     dsoLabelClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoLabelClick?.(event);
+      a.dsoLabelClick?.(event.detail);
     },
   };
 }

@@ -34,5 +34,6 @@ export function panelArgsMapper<TemplateFnReturnType>(
     ...a,
     children,
     heading,
+    dsoCloseClick: () => a.dsoCloseClick(),
   };
 }

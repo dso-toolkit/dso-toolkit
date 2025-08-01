@@ -23,8 +23,8 @@ export interface ViewerGridArgs {
   dsoCloseFilterPanel: HandlerFunction;
   dsoDocumentPanelSizeChange: HandlerFunction;
   dsoDocumentPanelSizeChangeAnimationEnd: HandlerFunction;
-  dsoMainPanelExpand: HandlerFunction;
   dsoMainPanelToggle: HandlerFunction;
+  dsoActiveTabSwitch: HandlerFunction;
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
@@ -83,10 +83,10 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   dsoDocumentPanelSizeChangeAnimationEnd: {
     ...noControl,
   },
-  dsoMainPanelExpand: {
+  dsoMainPanelToggle: {
     ...noControl,
   },
-  dsoMainPanelToggle: {
+  dsoActiveTabSwitch: {
     ...noControl,
   },
 };
@@ -99,6 +99,12 @@ export function viewerGridArgsMapper<TemplateFnReturnType>(
     ...a,
     ...example,
     main: example.main(a.mainPanelExpanded!),
-    activeTab: a.activeTab,
+    dsoDocumentPanelSizeChange: (e) => a.dsoDocumentPanelSizeChange(e.detail),
+    dsoMainPanelToggle: (e) => a.dsoMainPanelToggle(e.detail),
+    dsoCloseFilterPanel: () => a.dsoCloseFilterPanel(),
+    dsoCloseOverlay: () => a.dsoCloseOverlay(),
+    dsoActiveTabSwitch: (e) => a.dsoActiveTabSwitch(e.detail),
+    dsoDocumentPanelSizeChangeAnimationEnd: (e) => a.dsoDocumentPanelSizeChange(e.detail),
+    dsoMainSizeChangeAnimationEnd: (e) => a.dsoMainSizeChangeAnimationEnd(e.detail),
   };
 }

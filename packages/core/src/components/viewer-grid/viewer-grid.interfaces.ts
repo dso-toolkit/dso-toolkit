@@ -19,10 +19,6 @@ export interface ViewerGridActiveTabSwitchEvent {
   tab: ViewerGridTab;
 }
 
-export interface ViewerGridMainExpandEvent {
-  expand: boolean;
-}
-
 export interface ViewerGridMainToggleEvent {
   hide: boolean;
 }

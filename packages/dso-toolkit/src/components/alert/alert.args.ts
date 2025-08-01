@@ -61,6 +61,6 @@ export function alertArgsMapper<TemplateFnReturnType>(
     onClick: a.withButton ? () => a.click(a) : undefined,
     withRoleAlert: a.withRoleAlert,
     closable: a.closable,
-    dsoClose: a.dsoClose,
+    dsoClose: (e) => a.dsoClose(e.detail),
   };
 }

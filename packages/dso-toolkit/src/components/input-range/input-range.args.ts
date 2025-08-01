@@ -49,7 +49,5 @@ export const inputRangeArgTypes: ArgTypes<InputRangeArgs> = {
 };
 
 export function inputRangeArgsMapper(a: InputRangeArgs): InputRange {
-  return {
-    ...a,
-  };
+  return { ...a };
 }

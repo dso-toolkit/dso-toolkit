@@ -203,6 +203,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
 
       a.dsoTableOfContentsClick(e.detail);
     },
+    dsoToggle: (e) => a.dsoToggle(e.detail),
     children: a.open || a.openAnnotation ? children : undefined,
     mark: mark
       ? (text) =>

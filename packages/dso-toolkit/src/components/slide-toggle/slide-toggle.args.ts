@@ -56,6 +56,7 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
 export function slideToggleArgsMapper(a: SlideToggleArgs): SlideToggle {
   return {
     ...a,
+    dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
   };
 }
 

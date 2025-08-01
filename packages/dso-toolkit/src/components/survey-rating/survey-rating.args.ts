@@ -22,5 +22,7 @@ export const surveyRatingArgTypes: ArgTypes<SurveyRatingArgs> = {
 export function surveyRatingArgsMapper(a: SurveyRatingArgs): SurveyRating {
   return {
     ...a,
+    dsoClose: (e) => a.dsoClose(e.detail),
+    dsoSubmit: (e) => a.dsoSubmit(e.detail),
   };
 }

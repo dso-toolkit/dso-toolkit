@@ -93,5 +93,9 @@ export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
   return {
     ...a,
     dsoDateChange: (e) => a.dsoDateChange(e.detail),
+    dsoFocus: (e) => a.dsoFocus(e.detail),
+    dsoBlur: (e) => a.dsoBlur(e.detail),
+    dsoKeyDown: (e) => a.dsoKeyDown(e.detail),
+    dsoKeyUp: (e) => a.dsoKeyUp(e.detail),
   };
 }
