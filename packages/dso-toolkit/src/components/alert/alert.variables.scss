@@ -1,9 +1,9 @@
 @use "../../variables/units";
 @use "../../variables/states";
 
-$icon-size: units.$u4;
+$icon-size: units.$u3;
 $inline-padding: units.$u2;
-$block-padding: units.$u1 * 2.5 - 1px;
+$block-padding: units.$u2;
 $inline-start-padding: 2 * $inline-padding + $icon-size - 1px; // 1px border
 $small-padding: units.$u2;
 $small-padding-block-start: 2 * $inline-padding + $icon-size - 1px;
