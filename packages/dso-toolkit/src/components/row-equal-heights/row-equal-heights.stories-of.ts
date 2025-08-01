@@ -5,9 +5,8 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { HighlightBox } from "../highlight-box";
 import { Tile } from "../tile";
-import { Whitebox } from "../whitebox";
 
-import { highlightBoxes, tiles, whiteboxes } from "./row-equal-heights.content.js";
+import { highlightBoxes, tiles } from "./row-equal-heights.content.js";
 
 export type RowEqualHeightsDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
@@ -16,7 +15,6 @@ type RowEqualHeightsStory = StoryObj<{}, Renderer>;
 interface RowEqualHeightsStories {
   HighlightBoxes: RowEqualHeightsStory;
   Tiles: RowEqualHeightsStory;
-  Whiteboxes: RowEqualHeightsStory;
 }
 
 interface RowEqualHeightsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -32,7 +30,6 @@ interface RowEqualHeightsStoriesParameters<Implementation, Templates, TemplateFn
 export interface RowEqualHeightsTemplates<TemplateFnReturnType> {
   highlightBoxExample: (highlightboxes: HighlightBox<string>[]) => TemplateFnReturnType;
   tileExample: (tiles: Tile[]) => TemplateFnReturnType;
-  whiteboxExample: (whiteboxes: Whitebox[]) => TemplateFnReturnType;
 }
 
 export function rowEqualHeightsMeta<TRenderer extends Renderer>({
@@ -64,10 +61,6 @@ export function rowEqualHeightsStories<Implementation, Templates, TemplateFnRetu
     Tiles: {
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (_args, { tileExample }) => tileExample(tiles)),
-    },
-    Whiteboxes: {
-      decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (_args, { whiteboxExample }) => whiteboxExample(whiteboxes)),
     },
   };
 }

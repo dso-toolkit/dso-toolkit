@@ -101,7 +101,6 @@ import {
   Tooltip,
   TreeView,
   ViewerGrid,
-  Whitebox,
   // End: named template model imports
 } from "dso-toolkit";
 import { TemplateResult } from "lit-html";
@@ -220,7 +219,6 @@ import { coreToggletip } from "./components/toggletip/toggletip.core-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreTreeView } from "./components/tree-view/tree-view.core-template";
 import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
-import { cssWhitebox } from "./components/whitebox/whitebox.css-template";
 // End: import templates
 
 export interface Components {
@@ -322,7 +320,6 @@ export interface Components {
   tooltip: Tooltip;
   treeView: TreeView;
   viewerGrid: ViewerGrid<TemplateResult>;
-  whitebox: Whitebox;
   // End: Components interface
 }
 
@@ -467,5 +464,4 @@ templateContainer.add(cssSelectable);
 templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
-templateContainer.add(cssWhitebox);
 // End: add templates to container

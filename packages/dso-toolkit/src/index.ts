@@ -186,5 +186,3 @@ export * from "./components/tooltip";
 export * from "./components/tree-view";
 
 export * from "./components/viewer-grid";
-
-export * from "./components/whitebox";
