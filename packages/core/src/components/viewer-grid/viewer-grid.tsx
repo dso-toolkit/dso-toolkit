@@ -9,7 +9,6 @@ import {
   ViewerGridChangeSizeEvent,
   ViewerGridCloseFilterPanelEvent,
   ViewerGridCloseOverlayEvent,
-  ViewerGridMainExpandEvent,
   ViewerGridMainToggleEvent,
   ViewerGridPanelSize,
   ViewerGridTab,
@@ -147,12 +146,6 @@ export class ViewerGrid {
    */
   @Event()
   dsoDocumentPanelSizeChangeAnimationEnd!: EventEmitter<ViewerGridChangeSizeAnimationEndEvent>;
-
-  /**
-   * Emitted when the user wants to expand the main panel.
-   */
-  @Event()
-  dsoMainPanelExpand!: EventEmitter<ViewerGridMainExpandEvent>;
 
   /**
    * Emitted when the user toggles the visibility of the main panel.

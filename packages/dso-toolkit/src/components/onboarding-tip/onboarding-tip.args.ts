@@ -41,7 +41,7 @@ export function onboardingTipArgsMapper<TemplateFnReturnType>(
   return {
     id: a.id,
     placement: a.placement,
-    dsoClose: a.dsoClose,
+    dsoClose: () => a.dsoClose(),
     content,
     heading,
   };

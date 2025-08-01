@@ -39,7 +39,7 @@ export function paginationArgsMapper(a: PaginationArgs): Pagination {
     currentPage,
     dsoSelectPage: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoSelectPage(event);
+      a.dsoSelectPage(event.detail);
     },
     formatHref: (page) => "#" + page,
   };

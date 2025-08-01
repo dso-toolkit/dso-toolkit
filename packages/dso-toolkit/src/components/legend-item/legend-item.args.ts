@@ -72,5 +72,8 @@ export function legendItemArgsMapper<TemplateFnReturnType>(
     options,
     content: content || a.label || "",
     symbol,
+    dsoMouseLeave: () => a.dsoMouseLeave(),
+    dsoMouseEnter: () => a.dsoMouseEnter(),
+    dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
   };
 }

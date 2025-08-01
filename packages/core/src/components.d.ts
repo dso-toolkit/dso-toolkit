@@ -48,7 +48,7 @@ import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/su
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
+import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
@@ -93,7 +93,7 @@ export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/su
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
 export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainExpandEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
+export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
 export namespace Components {
     interface DsoAccordion {
@@ -2481,7 +2481,6 @@ declare global {
         "dsoMainSizeChangeAnimationEnd": ViewerGridChangeSizeAnimationEndEvent;
         "dsoDocumentPanelSizeChange": ViewerGridChangeSizeEvent;
         "dsoDocumentPanelSizeChangeAnimationEnd": ViewerGridChangeSizeAnimationEndEvent;
-        "dsoMainPanelExpand": ViewerGridMainExpandEvent;
         "dsoMainPanelToggle": ViewerGridMainToggleEvent;
     }
     interface HTMLDsoViewerGridElement extends Components.DsoViewerGrid, HTMLStencilElement {
@@ -4146,10 +4145,6 @@ declare namespace LocalJSX {
           * Emitted after main size animation.
          */
         "onDsoDocumentPanelSizeChangeAnimationEnd"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
-        /**
-          * Emitted when the user wants to expand the main panel.
-         */
-        "onDsoMainPanelExpand"?: (event: DsoViewerGridCustomEvent<ViewerGridMainExpandEvent>) => void;
         /**
           * Emitted when the user toggles the visibility of the main panel.  Also emitted by scripting when the panels do not fit anymore.
          */

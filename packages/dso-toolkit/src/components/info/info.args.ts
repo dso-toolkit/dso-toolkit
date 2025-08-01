@@ -42,6 +42,6 @@ export function infoArgsMapper<TemplateFnReturnType>(
     fixed: a.fixed,
     active: a.active,
     content,
-    dsoClose: a.dsoClose,
+    dsoClose: () => a.dsoClose(),
   };
 }

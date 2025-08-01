@@ -49,5 +49,6 @@ export function modalArgsMapper<TemplateFnReturnType>(
     ...a,
     body,
     footer,
+    dsoClose: () => a.dsoClose(),
   };
 }

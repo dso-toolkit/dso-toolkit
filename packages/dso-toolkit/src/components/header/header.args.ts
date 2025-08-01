@@ -104,7 +104,7 @@ export function headerArgsMapper(a: HeaderArgs): Required<Header> {
     mainMenu: a.noMainMenu ? [] : a.mainMenu,
     dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoHeaderClick(event);
+      a.dsoHeaderClick(event.detail);
     },
   };
 }
