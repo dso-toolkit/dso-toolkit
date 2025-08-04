@@ -8,6 +8,7 @@ setCompodocJson(docJson);
 
 export const parameters: Parameters = {
   controls: {
+    disableSaveFromUI: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
