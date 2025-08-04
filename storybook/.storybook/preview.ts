@@ -26,6 +26,9 @@ export const globalTypes: GlobalTypes = {
 export const decorators: DecoratorFunction[] = [(story, context) => i18nDecorator(story, context)];
 
 export const parameters: Parameters = {
+  controls: {
+    disableSaveFromUI: true,
+  },
   html: {
     root: "#dt-i18n-decorator-container", // default: #root
     removeEmptyComments: true, // default: false
