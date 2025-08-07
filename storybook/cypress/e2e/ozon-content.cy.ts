@@ -1,4 +1,4 @@
-import { isOdd } from "dso-toolkit";
+import { isOdd } from "../support/is-odd";
 
 describe("Ozon Content", () => {
   it("should emit anchorClick on IntRef anchor click", () => {

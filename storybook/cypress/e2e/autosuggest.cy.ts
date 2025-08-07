@@ -34,9 +34,10 @@ describe("Autosuggest", () => {
       .should("have.attr", "aria-autocomplete", "list")
       .should("have.attr", "autocomplete", "off")
       .should("have.attr", "aria-activedescendant", "")
-      .focus()
-      .type("rotterdam");
+      .realClick()
+      .realType("rotterdam");
     cy.wait(200);
+    cy.get("dso-autosuggest.hydrated").find(".listbox-container").should("be.visible");
     cy.get("input").should("have.attr", "aria-expanded", "true");
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
 
@@ -88,23 +89,15 @@ describe("Autosuggest", () => {
     cy.get("@dsoSelect").should("have.been.calledOnce");
   });
 
-  it("mouse enter should select option", () => {
-    cy.get("input").focus().type("rotterdam");
+  it("mouse selects and deselects option", () => {
+    cy.get("input").realClick().realType("rotterdam");
     cy.wait(200);
-    cy.get("dso-autosuggest.hydrated")
-      .find("div[role='option']")
-      .eq(0)
-      .trigger("mouseenter")
-      .should("have.attr", "aria-selected", "true");
-  });
-
-  it("mouse leave should deselect option", () => {
-    cy.get("input").focus().type("rotterdam");
-    cy.wait(200);
-    cy.get("dso-autosuggest.hydrated")
-      .find("div[role='option']")
-      .eq(0)
-      .trigger("mouseleave")
+    cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(0).as("option").realHover();
+    cy.get("@option")
+      .should("have.attr", "aria-selected", "true")
+      .get("body")
+      .realHover({ position: "topLeft" })
+      .get("@option")
       .should("have.attr", "aria-selected", "false");
   });
 

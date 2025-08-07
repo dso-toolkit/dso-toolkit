@@ -16,6 +16,11 @@ export default defineConfig({
 
           return null;
         },
+        info(message) {
+          console.info(message);
+
+          return null;
+        },
       });
     },
   },
