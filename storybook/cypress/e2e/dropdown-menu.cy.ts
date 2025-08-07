@@ -64,7 +64,7 @@ describe("Dropdown menu - anchors", () => {
   });
 
   it("should have role menu with menuitemradio", () => {
-    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click().blur();
+    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click();
 
     cy.get("@button")
       .invoke("attr", "id")
@@ -87,7 +87,7 @@ describe("Dropdown menu - anchors", () => {
   it("uncheckable should have role menuitem", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--anchors&args=isCheckable:false");
 
-    cy.get("@button").click().blur();
+    cy.get("@button").focus().click();
 
     cy.get("dso-dropdown-menu.hydrated").find(".dso-dropdown-options ul li a").should("have.attr", "role", "menuitem");
   });
@@ -245,7 +245,7 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("should have role menu with menuitem", () => {
-    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click().blur();
+    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click();
 
     cy.get("@button")
       .invoke("attr", "id")
