@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { baseLayers, overlays } from "./map-controls.content.js";
 import { MapControls } from "./map-controls.models.js";
@@ -22,27 +22,18 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   open: {
     type: "boolean",
   },
-  dsoZoomIn: {
-    ...noControl,
-  },
-  dsoZoomOut: {
-    ...noControl,
-  },
-  dsoToggle: {
-    ...noControl,
-  },
+  dsoZoomIn: argTypeAction(),
+  dsoZoomOut: argTypeAction(),
+  dsoToggle: argTypeAction(),
   baseLayers: {
     ...noControl,
   },
-  dsoBaseLayerChange: {
-    ...noControl,
-  },
+
+  dsoBaseLayerChange: argTypeAction(),
   overlays: {
     ...noControl,
   },
-  dsoToggleOverlay: {
-    ...noControl,
-  },
+  dsoToggleOverlay: argTypeAction(),
   disableZoom: {
     options: ["both", "in", "out"],
     control: {
@@ -67,7 +58,7 @@ export function mapControlsArgsMapper(a: MapControlsArgs): Required<MapControls>
     },
     dsoToggleOverlay: (e) => a.dsoToggleOverlay(e.detail),
     dsoToggle: (e) => a.dsoToggle(e.detail),
-    dsoZoomIn: () => a.dsoZoomIn(),
-    dsoZoomOut: () => a.dsoZoomOut(),
+    dsoZoomIn: (e) => a.dsoZoomIn(e.detail),
+    dsoZoomOut: (e) => a.dsoZoomOut(e.detail),
   };
 }

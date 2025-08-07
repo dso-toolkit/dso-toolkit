@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -38,6 +39,9 @@ export function scrollableMeta<TRenderer extends Renderer>({ readme }: MetaOptio
 > {
   return {
     argTypes: scrollableArgTypes,
+    args: {
+      dsoScrollEnd: fn(),
+    },
     parameters: {
       html: {
         root: "#scrollable-mock",

@@ -1,6 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 import { RenvooiValue } from "../renvooi/renvooi.models.js";
 
 import {
@@ -22,7 +23,8 @@ interface AnnotationBaseArgs {
   dsoActiveChange(event: AnnotationActiveChangeEvent): void;
 }
 
-const annotationBaseArgs: Omit<AnnotationBaseArgs, "dsoActiveChange"> = {
+const annotationBaseArgs: AnnotationBaseArgs = {
+  dsoActiveChange: fn(),
   symboolCode: "vszt030",
   wijzigactie: undefined,
   active: true,
@@ -52,9 +54,7 @@ const annotationArgTypesBase: ArgTypes<AnnotationBaseArgs> = {
       type: "boolean",
     },
   },
-  dsoActiveChange: {
-    ...noControl,
-  },
+  dsoActiveChange: argTypeAction(),
 };
 
 /**
@@ -230,10 +230,11 @@ export interface AnnotationKaartArgs extends Pick<AnnotationBaseArgs, "wijzigact
   dsoClick(event: AnnotationKaartClickEvent): void;
 }
 
-export const annotationKaartArgs: Omit<AnnotationKaartArgs, "dsoClick"> = {
+export const annotationKaartArgs: AnnotationKaartArgs = {
   wijzigactie: annotationBaseArgs.wijzigactie,
   naam: "Kaartnaam",
   href: "#",
+  dsoClick: fn(),
 };
 
 export const annotationKaartArgTypes: ArgTypes<AnnotationKaartArgs> = {
@@ -248,9 +249,7 @@ export const annotationKaartArgTypes: ArgTypes<AnnotationKaartArgs> = {
       type: "text",
     },
   },
-  dsoClick: {
-    ...noControl,
-  },
+  dsoClick: argTypeAction(),
 };
 
 export function annotationKaartArgsMapper(a: AnnotationKaartArgs): Annotation {

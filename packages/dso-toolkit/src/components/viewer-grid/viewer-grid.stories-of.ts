@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -42,6 +43,15 @@ export function viewerGridMeta<TRenderer extends Renderer>({ readme }: MetaOptio
 > {
   return {
     argTypes: viewerGridArgTypes,
+    args: {
+      dsoActiveTabSwitch: fn(),
+      dsoMainSizeChangeAnimationEnd: fn(),
+      dsoCloseOverlay: fn(),
+      dsoCloseFilterPanel: fn(),
+      dsoDocumentPanelSizeChange: fn(),
+      dsoDocumentPanelSizeChangeAnimationEnd: fn(),
+      dsoMainPanelToggle: fn(),
+    },
     parameters: {
       layout: "fullscreen",
       controls: {

@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { OnboardingTip, onboardingTipPlacements } from "./onboarding-tip.models";
 
@@ -28,9 +28,7 @@ export const onboardingTipArgTypes: ArgTypes<OnboardingTipArgs> = {
       type: "select",
     },
   },
-  dsoClose: {
-    ...noControl,
-  },
+  dsoClose: argTypeAction(),
 };
 
 export function onboardingTipArgsMapper<TemplateFnReturnType>(
@@ -41,7 +39,7 @@ export function onboardingTipArgsMapper<TemplateFnReturnType>(
   return {
     id: a.id,
     placement: a.placement,
-    dsoClose: () => a.dsoClose(),
+    dsoClose: (e) => a.dsoClose(e.detail),
     content,
     heading,
   };

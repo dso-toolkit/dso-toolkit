@@ -1,6 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { InputRange, InputRangeChangeEvent } from "./input-range.models.js";
 
@@ -15,16 +16,15 @@ export interface InputRangeArgs {
   dsoChange: (e: InputRangeChangeEvent) => void;
 }
 
-export const inputRangeArgs: Omit<InputRangeArgs, "value" | "min" | "max" | "step" | "dsoChange"> = {
+export const inputRangeArgs: Omit<InputRangeArgs, "value" | "min" | "max" | "step"> = {
   unit: "%",
   label: "label",
   description: "description",
+  dsoChange: fn(),
 };
 
 export const inputRangeArgTypes: ArgTypes<InputRangeArgs> = {
-  dsoChange: {
-    ...noControl,
-  },
+  dsoChange: argTypeAction(),
   description: {
     control: "text",
   },

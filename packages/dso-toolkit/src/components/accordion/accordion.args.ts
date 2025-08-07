@@ -1,7 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
@@ -36,10 +37,23 @@ export interface AccordionArgs {
   dsoActiveChange: HandlerFunction;
 }
 
-export const accordionArgs: Pick<AccordionArgs, "demoScrollIntoView" | "open" | "handleTitle"> = {
+export const accordionArgs: Pick<
+  AccordionArgs,
+  | "demoScrollIntoView"
+  | "open"
+  | "handleTitle"
+  | "dsoToggleClick"
+  | "dsoAnimationStart"
+  | "dsoAnimationEnd"
+  | "dsoActiveChange"
+> = {
   open: false,
   demoScrollIntoView: undefined,
   handleTitle: "ongewijzigd",
+  dsoToggleClick: fn(),
+  dsoAnimationStart: fn(),
+  dsoAnimationEnd: fn(),
+  dsoActiveChange: fn(),
 };
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -55,15 +69,9 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   /* Section args */
-  dsoToggleClick: {
-    ...noControl,
-  },
-  dsoAnimationStart: {
-    ...noControl,
-  },
-  dsoAnimationEnd: {
-    ...noControl,
-  },
+  dsoToggleClick: argTypeAction(),
+  dsoAnimationStart: argTypeAction(),
+  dsoAnimationEnd: argTypeAction(),
   open: {
     control: {
       type: "boolean",
@@ -116,9 +124,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   activatable: {
     ...noControl,
   },
-  dsoActiveChange: {
-    ...noControl,
-  },
+  dsoActiveChange: argTypeAction(),
   /** demo args */
   demoScrollIntoView: {
     options: [undefined, "start", "end"],

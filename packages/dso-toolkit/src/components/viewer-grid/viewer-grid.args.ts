@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 
 import { Tab, ViewerGrid, ViewerGridPanelSize } from "./viewer-grid.models.js";
 import { ViewerGridTemplates } from "./viewer-grid.stories-of.js";
@@ -68,27 +68,13 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   mainPanelHidden: {
     type: "boolean",
   },
-  dsoMainSizeChangeAnimationEnd: {
-    ...noControl,
-  },
-  dsoCloseOverlay: {
-    ...noControl,
-  },
-  dsoCloseFilterPanel: {
-    ...noControl,
-  },
-  dsoDocumentPanelSizeChange: {
-    ...noControl,
-  },
-  dsoDocumentPanelSizeChangeAnimationEnd: {
-    ...noControl,
-  },
-  dsoMainPanelToggle: {
-    ...noControl,
-  },
-  dsoActiveTabSwitch: {
-    ...noControl,
-  },
+  dsoMainSizeChangeAnimationEnd: argTypeAction(),
+  dsoCloseOverlay: argTypeAction(),
+  dsoCloseFilterPanel: argTypeAction(),
+  dsoDocumentPanelSizeChange: argTypeAction(),
+  dsoDocumentPanelSizeChangeAnimationEnd: argTypeAction(),
+  dsoMainPanelToggle: argTypeAction(),
+  dsoActiveTabSwitch: argTypeAction(),
 };
 
 export function viewerGridArgsMapper<TemplateFnReturnType>(

@@ -1,4 +1,5 @@
 export { ArgsError } from "./args-error.error.js";
+export { argTypeAction } from "./arg-type-action.js";
 export { componentArgs } from "./component-args.function.js";
 export { isOdd } from "./is-odd.js";
 export { noControl } from "./no-control.js";

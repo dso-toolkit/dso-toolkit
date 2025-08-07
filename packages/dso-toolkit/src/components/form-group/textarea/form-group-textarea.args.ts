@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupTextarea } from "./form-group-textarea.models";
 
@@ -95,7 +95,7 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -109,7 +109,7 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

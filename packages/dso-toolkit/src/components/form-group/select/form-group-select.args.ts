@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { selectOptionGroupContent, selectOptionsContent } from "./form-group-select.content";
 import { FormGroupSelect } from "./form-group-select.models";
@@ -77,7 +77,7 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -91,7 +91,7 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { Label } from "./label.models.js";
 
@@ -27,9 +27,7 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
       type: "boolean",
     },
   },
-  dsoRemoveClick: {
-    ...noControl,
-  },
+  dsoRemoveClick: argTypeAction(),
   compact: {
     control: {
       type: "boolean",
@@ -53,5 +51,5 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
 };
 
 export function labelArgsMapper(a: LabelArgs): Required<Label> {
-  return { ...a, dsoRemoveClick: () => a.dsoRemoveClick() };
+  return { ...a };
 }

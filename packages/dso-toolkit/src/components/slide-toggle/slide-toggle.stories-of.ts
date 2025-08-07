@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
@@ -40,6 +41,9 @@ export function slideToggleMeta<TRenderer extends Renderer>({ readme }: MetaOpti
 > {
   return {
     argTypes: slideToggleArgTypes,
+    args: {
+      dsoActiveChange: fn(),
+    },
     parameters: {
       docs: readme
         ? {

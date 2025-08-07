@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { Info } from "./info.models.js";
 
@@ -28,9 +28,7 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
       type: "boolean",
     },
   },
-  dsoClose: {
-    ...noControl,
-  },
+  dsoClose: argTypeAction(),
 };
 
 export function infoArgsMapper<TemplateFnReturnType>(

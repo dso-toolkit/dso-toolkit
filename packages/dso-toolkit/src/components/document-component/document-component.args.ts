@@ -2,7 +2,7 @@ import escapeStringRegexp from "escape-string-regexp";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { isOdd, noControl } from "../../storybook";
+import { argTypeAction, isOdd } from "../../storybook";
 import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 import {
@@ -81,18 +81,10 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "boolean",
     },
   },
-  dsoAnnotationToggle: {
-    ...noControl,
-  },
-  dsoToggle: {
-    ...noControl,
-  },
-  dsoMarkItemHighlight: {
-    ...noControl,
-  },
-  dsoTableOfContentsClick: {
-    ...noControl,
-  },
+  dsoAnnotationToggle: argTypeAction(),
+  dsoToggle: argTypeAction(),
+  dsoMarkItemHighlight: argTypeAction(),
+  dsoTableOfContentsClick: argTypeAction(),
   filtered: {
     control: {
       type: "boolean",

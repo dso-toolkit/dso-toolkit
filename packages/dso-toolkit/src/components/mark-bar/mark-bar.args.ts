@@ -1,7 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { MarkBar } from "./mark-bar.models.js";
 
@@ -17,11 +18,15 @@ export interface MarkBarArgs {
   dsoClear: HandlerFunction;
 }
 
-export const markBarArgs: Omit<MarkBarArgs, "value" | "dsoInput" | "dsoNext" | "dsoPrevious" | "dsoClear"> = {
+export const markBarArgs: Omit<MarkBarArgs, "value"> = {
   label: "Zoeken binnen gehele document, en verder dan dat.",
   current: 1,
   totalCount: 8,
   focus: false,
+  dsoClear: fn(),
+  dsoInput: fn(),
+  dsoNext: fn(),
+  dsoPrevious: fn(),
 };
 
 export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
@@ -37,18 +42,10 @@ export const markBarArgTypes: ArgTypes<MarkBarArgs> = {
   totalCount: {
     type: "number",
   },
-  dsoInput: {
-    ...noControl,
-  },
-  dsoNext: {
-    ...noControl,
-  },
-  dsoPrevious: {
-    ...noControl,
-  },
-  dsoClear: {
-    ...noControl,
-  },
+  dsoInput: argTypeAction(),
+  dsoNext: argTypeAction(),
+  dsoPrevious: argTypeAction(),
+  dsoClear: argTypeAction(),
   focus: {
     ...noControl,
   },
@@ -67,5 +64,6 @@ export function markBarArgsMapper(a: MarkBarArgs): MarkBar {
 
   return {
     ...a,
+    dsoInput: (e) => a.dsoInput(e),
   };
 }

@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupStatic } from "./form-group-static.models";
 
@@ -45,7 +45,7 @@ export const formGroupStaticArgTypes: ArgTypes<FormGroupStaticArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -59,7 +59,7 @@ export const formGroupStaticArgTypes: ArgTypes<FormGroupStaticArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -32,6 +33,7 @@ export function buttonMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
     argTypes: buttonArgTypes,
     args: {
       element: "button",
+      click: fn(),
     },
     parameters: {
       docs: readme

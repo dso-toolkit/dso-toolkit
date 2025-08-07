@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { componentArgs } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -71,7 +72,9 @@ export function ozonContentStories<Implementation, Templates, TemplateFnReturnTy
 
   return content.reduce((c, { title, content, args }) => {
     c[title] = {
-      args: componentArgs<Omit<OzonContentArgs, "dsoAnchorClick" | "dsoClick" | "dsoOzonContentMarkItemHighlight">>({
+      args: componentArgs<OzonContentArgs>({
+        dsoAnchorClick: fn(),
+        dsoOzonContentMarkItemHighlight: fn(),
         content,
         inline: false,
         ...args,

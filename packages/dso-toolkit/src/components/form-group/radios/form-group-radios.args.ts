@@ -2,7 +2,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupRadios } from "./form-group-radios.models";
 
@@ -66,7 +66,7 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -80,7 +80,7 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

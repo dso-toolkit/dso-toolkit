@@ -1,6 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { componentArgs, noControl } from "../../storybook";
+import { argTypeAction, componentArgs } from "../../storybook";
 
 import { NavBarToggleExtensionEvent, Navbar, NavbarItem } from "./navbar.models.js";
 
@@ -40,15 +41,14 @@ export const navbarArgTypes: ArgTypes<NavbarArgs> = {
       type: "boolean",
     },
   },
-  dsoExtensionToggle: {
-    ...noControl,
-  },
+  dsoExtensionToggle: argTypeAction(),
 };
 
-export const navbarArgs = componentArgs<Omit<NavbarArgs, "extension" | "extensionOpen" | "dsoExtensionToggle">>({
+export const navbarArgs = componentArgs<Omit<NavbarArgs, "extension" | "extensionOpen">>({
   open: false,
   modifier: "",
   items: [],
+  dsoExtensionToggle: fn(),
 });
 
 export function navbarArgsMapper<TemplateFnReturnType>(

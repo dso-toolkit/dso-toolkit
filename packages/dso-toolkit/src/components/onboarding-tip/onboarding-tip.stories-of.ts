@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
@@ -60,6 +61,7 @@ export function onboardingTipStories<Implementation, Templates, TemplateFnReturn
         id: uuidv4(),
         placement: "right",
         box: 2,
+        dsoClose: fn(),
       },
       decorators: [(story, context) => decorator(story, context.args)],
       render: templateContainer.render(storyTemplates, (args, { onboardingTipTemplate, headingContent, richContent }) =>

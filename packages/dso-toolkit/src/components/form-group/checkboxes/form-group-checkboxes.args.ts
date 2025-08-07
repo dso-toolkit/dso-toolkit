@@ -2,7 +2,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupCheckboxes } from "./form-group-checkboxes.models";
 
@@ -65,7 +65,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -79,7 +79,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

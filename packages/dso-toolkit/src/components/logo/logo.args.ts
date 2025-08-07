@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { Logo } from "./logo.models.js";
 
@@ -33,12 +33,8 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
       type: "text",
     },
   },
-  dsoLogoClick: {
-    ...noControl,
-  },
-  dsoLabelClick: {
-    ...noControl,
-  },
+  dsoLogoClick: argTypeAction(),
+  dsoLabelClick: argTypeAction(),
 };
 
 export function logoArgsMapper(a: LogoArgs): Logo {
