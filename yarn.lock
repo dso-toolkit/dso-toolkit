@@ -6736,21 +6736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:9.0.18":
-  version: 9.0.18
-  resolution: "@storybook/addon-links@npm:9.0.18"
-  dependencies:
-    "@storybook/global": "npm:^5.0.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-    storybook: ^9.0.18
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: 10/6a3975eb4281e934ee0bb85489022d1f4c4be6e1ec744e89f08ccf321ee8091716d4cd6195a6cf4aecea4b798fe5e3e9da5d12f1a60a9b015f72220ffbc8becc
-  languageName: node
-  linkType: hard
-
 "@storybook/angular@npm:9.0.18":
   version: 9.0.18
   resolution: "@storybook/angular@npm:9.0.18"
@@ -8891,7 +8876,6 @@ __metadata:
     "@iframe-resizer/child": "npm:^5.4.6"
     "@storybook/addon-a11y": "npm:9.0.18"
     "@storybook/addon-docs": "npm:9.0.18"
-    "@storybook/addon-links": "npm:9.0.18"
     "@storybook/angular": "npm:9.0.18"
     "@types/jasmine": "npm:^5.1.8"
     "@types/lodash.startcase": "npm:^4.4.9"
