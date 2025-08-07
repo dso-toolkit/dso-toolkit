@@ -17,8 +17,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@stencil/react-output-target": "^1.2.0",
-    "lodash.startcase": "^4.4.0"
+    "@stencil/react-output-target": "^1.2.0"
   },
   "devDependencies": {
     "@iframe-resizer/child": "^5.4.6",
@@ -34,6 +33,7 @@
     "eslint": "^9.27.0",
     "eslint-plugin-storybook": "9.0.18",
     "http-proxy-middleware": "^3.0.5",
+    "lodash.startcase": "^4.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rimraf": "^6.0.1",
