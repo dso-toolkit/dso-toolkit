@@ -6,6 +6,8 @@ import { templateContainer } from "../../templates";
 
 import { decorator } from "./icon-overview.decorator";
 
+const icons: string[] = import.meta.env?.VITE_ICONS?.split(",") || [];
+
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
   title: "HTML|CSS/Icon",
@@ -23,6 +25,7 @@ const { Default, Overview } = iconStories({
     };
   },
   decorator,
+  icons,
 });
 
 export { Default, Overview };

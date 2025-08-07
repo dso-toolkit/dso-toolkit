@@ -4,7 +4,7 @@ import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/intern
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
-import { IconArgs, iconArgTypes, iconArgsMapper, icons } from "./icon.args.js";
+import { IconArgs, iconArgTypes, iconArgsMapper } from "./icon.args.js";
 import { Icon } from "./icon.models.js";
 
 export type IconOverviewDecorator<TemplateFnReturnType> = (
@@ -25,6 +25,7 @@ export interface IconTemplates<TemplateFnReturnType> {
 
 interface IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>
   extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, IconTemplates<TemplateFnReturnType>> {
+  icons: string[];
   decorator?: IconOverviewDecorator<TemplateFnReturnType>;
 }
 
@@ -46,11 +47,12 @@ export function iconMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
 export function iconStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
+  icons,
   decorator,
 }: IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconStories {
   return {
     Default: {
-      argTypes: iconArgTypes,
+      argTypes: iconArgTypes(icons),
       args: {
         icon: "user",
       },

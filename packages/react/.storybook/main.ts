@@ -26,6 +26,7 @@ const config: StorybookConfig = {
       .map((f) => parse(f))
       .filter((p) => p.ext === ".svg")
       .map((p) => p.name);
+
     return {
       ...config,
       VITE_ICONS: icons.join(","),
