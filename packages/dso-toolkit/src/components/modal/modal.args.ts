@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 
 import { Modal, ModalRole } from "./modal.models.js";
 
@@ -35,9 +35,7 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
       type: "boolean",
     },
   },
-  dsoClose: {
-    ...noControl,
-  },
+  dsoClose: argTypeAction(),
 };
 
 export function modalArgsMapper<TemplateFnReturnType>(
@@ -49,6 +47,6 @@ export function modalArgsMapper<TemplateFnReturnType>(
     ...a,
     body,
     footer,
-    dsoClose: () => a.dsoClose(),
+    dsoClose: (e) => a.dsoClose(e.detail),
   };
 }

@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -36,6 +37,7 @@ export function infoButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     argTypes: infoButtonArgTypes,
     args: {
       label: "Toelichting bij vraag",
+      dsoToggle: fn(),
     },
     parameters: {
       docs: readme

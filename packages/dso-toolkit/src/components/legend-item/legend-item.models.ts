@@ -3,8 +3,8 @@ export interface LegendItem<TemplateFnReturnType> {
   content: TemplateFnReturnType | string;
   disabled?: boolean;
   disabledMessage?: string;
-  dsoMouseEnter?: () => void;
-  dsoMouseLeave?: () => void;
+  dsoMouseEnter?: (e: CustomEvent<MouseEvent>) => void;
+  dsoMouseLeave?: (e: CustomEvent<MouseEvent>) => void;
   dsoActiveChange?: (e: CustomEvent<LegendItemActiveChangeEvent>) => void;
   active?: boolean;
   activatable?: boolean;

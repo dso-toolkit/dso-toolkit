@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -47,6 +48,11 @@ export function datePickerMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     args: {
       label: "Datum",
       disabled: false,
+      dsoDateChange: fn(),
+      dsoBlur: fn(),
+      dsoFocus: fn(),
+      dsoKeyDown: fn(),
+      dsoKeyUp: fn(),
     },
     parameters: {
       docs: readme

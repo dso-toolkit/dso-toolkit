@@ -1,7 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { LegendItem } from "./legend-item.models.js";
 
@@ -16,12 +17,15 @@ export interface LegendItemArgs {
   label: string;
 }
 
-export const legendItemArgs: Omit<LegendItemArgs, "dsoMouseEnter" | "dsoMouseLeave" | "dsoActiveChange"> = {
+export const legendItemArgs: LegendItemArgs = {
   disabled: false,
   disabledMessage: "",
   active: true,
   activatable: true,
   label: "Legenda item label",
+  dsoActiveChange: fn(),
+  dsoMouseEnter: fn(),
+  dsoMouseLeave: fn(),
 };
 
 export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
@@ -35,15 +39,9 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
       type: "text",
     },
   },
-  dsoMouseEnter: {
-    ...noControl,
-  },
-  dsoMouseLeave: {
-    ...noControl,
-  },
-  dsoActiveChange: {
-    ...noControl,
-  },
+  dsoMouseEnter: argTypeAction(),
+  dsoMouseLeave: argTypeAction(),
+  dsoActiveChange: argTypeAction(),
   label: {
     control: {
       type: "text",
@@ -72,8 +70,6 @@ export function legendItemArgsMapper<TemplateFnReturnType>(
     options,
     content: content || a.label || "",
     symbol,
-    dsoMouseLeave: () => a.dsoMouseLeave(),
-    dsoMouseEnter: () => a.dsoMouseEnter(),
     dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
   };
 }

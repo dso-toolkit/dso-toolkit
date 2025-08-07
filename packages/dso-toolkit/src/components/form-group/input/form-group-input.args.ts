@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupInput, FormGroupInputDate } from "./form-group-input.models";
 
@@ -104,7 +104,7 @@ export const formGroupInputArgTypes: ArgTypes<FormGroupInputArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -118,7 +118,7 @@ export const formGroupInputArgTypes: ArgTypes<FormGroupInputArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

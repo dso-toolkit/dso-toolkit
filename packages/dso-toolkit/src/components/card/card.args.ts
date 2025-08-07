@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { LinkArgs } from "../link/link.args.js";
@@ -42,15 +42,9 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
       type: "select",
     },
   },
-  selectable: {
-    ...noControl,
-  },
-  interactions: {
-    ...noControl,
-  },
-  dsoCardClick: {
-    ...noControl,
-  },
+  selectable: argTypeAction(),
+  interactions: argTypeAction(),
+  dsoCardClick: argTypeAction(),
 };
 
 export const cardContent: Omit<CardArgs, "dsoCardClick"> = {

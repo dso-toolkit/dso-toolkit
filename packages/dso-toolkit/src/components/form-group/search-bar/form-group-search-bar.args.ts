@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupSearchBar } from "./form-group-search-bar.models";
 
@@ -48,7 +48,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
     },
   },
   infoButtonHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "infoButton click",
   },
   infoButtonLabel: {
@@ -62,7 +62,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
     },
   },
   infoCloseHandler: {
-    ...noControl,
+    ...argTypeAction,
     action: "info close click",
   },
   infoFixed: {

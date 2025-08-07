@@ -7,7 +7,7 @@ export {
   TemplateContainer,
 } from "./template-container.js";
 
-export { ArgsError, StoryRoot, componentArgs, isOdd, noControl } from "./storybook/index.js";
+export { ArgsError, StoryRoot, argTypeAction, componentArgs, isOdd, noControl } from "./storybook/index.js";
 
 export * from "./components/accordion";
 

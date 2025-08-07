@@ -1,5 +1,6 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -39,6 +40,11 @@ export function mapControlsMeta<TRenderer extends Renderer>({ readme }: MetaOpti
       open: false,
       baseLayers,
       overlays,
+      dsoToggleOverlay: fn(),
+      dsoToggle: fn(),
+      dsoZoomOut: fn(),
+      dsoZoomIn: fn(),
+      dsoBaseLayerChange: fn(),
     },
     parameters: {
       html: {

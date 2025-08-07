@@ -1,8 +1,9 @@
 import { compiler } from "markdown-to-jsx";
 import { HandlerFunction } from "storybook/actions";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { OzonContentUrlResolver } from "../ozon-content";
@@ -100,6 +101,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "document",
+        dsoOzonContentAnchorClick: fn(),
+        dsoTableOfContentsClick: fn(),
         ozonContentUrlResolver: (name, attribute, value, element) => {
           if (!value) {
             return "";
@@ -182,12 +185,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        dsoOzonContentAnchorClick: {
-          ...noControl,
-        },
-        dsoTableOfContentsClick: {
-          ...noControl,
-        },
+        dsoOzonContentAnchorClick: argTypeAction(),
+        dsoTableOfContentsClick: argTypeAction(),
         ozonContentUrlResolver: {
           ...noControl,
         },
@@ -212,6 +211,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         openDefault: true,
         showCanvas: false,
         mode: "table-of-contents",
+        dsoOzonContentAnchorClick: fn(),
+        dsoTableOfContentsClick: fn(),
       },
       argTypes: {
         jsonFile: {
@@ -242,12 +243,8 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "select",
           },
         },
-        dsoOzonContentAnchorClick: {
-          ...noControl,
-        },
-        dsoTableOfContentsClick: {
-          ...noControl,
-        },
+        dsoOzonContentAnchorClick: argTypeAction(),
+        dsoTableOfContentsClick: argTypeAction(),
       },
       parameters: { layout: "fullscreen" },
       render: templateContainer.render(storyTemplates, (args, { demoTemplate }) =>

@@ -1,7 +1,8 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 import { HeadingLevel } from "../heading/heading.models.js";
 
 import { ProjectItem } from "./project-item.models.js";
@@ -15,11 +16,13 @@ export interface ProjectItemArgs {
   dsoRemove: HandlerFunction;
 }
 
-export const projectItemArgs: Omit<ProjectItemArgs, "dsoEdit" | "dsoRemove"> = {
+export const projectItemArgs: ProjectItemArgs = {
   title: "Bomen kappen",
   href: "#",
   label: "Wordt verwijderd op 12-09-2024",
   headingLevel: 2,
+  dsoEdit: fn(),
+  dsoRemove: fn(),
 };
 
 export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
@@ -38,12 +41,8 @@ export const projectItemArgTypes: ArgTypes<ProjectItemArgs> = {
       type: "select",
     },
   },
-  dsoEdit: {
-    ...noControl,
-  },
-  dsoRemove: {
-    ...noControl,
-  },
+  dsoEdit: argTypeAction(),
+  dsoRemove: argTypeAction(),
 };
 
 export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<string> {

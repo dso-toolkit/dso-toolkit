@@ -1,7 +1,7 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { DatePicker } from "./date-picker.models.js";
 
@@ -67,26 +67,16 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
       type: "text",
     },
   },
-  dsoDateChange: {
-    ...noControl,
-  },
-  dsoBlur: {
-    ...noControl,
-  },
-  dsoFocus: {
-    ...noControl,
-  },
-  dsoKeyDown: {
-    ...noControl,
-  },
-  dsoKeyUp: {
-    ...noControl,
-  },
   required: {
     control: {
       type: "boolean",
     },
   },
+  dsoDateChange: argTypeAction(),
+  dsoBlur: argTypeAction(),
+  dsoFocus: argTypeAction(),
+  dsoKeyDown: argTypeAction(),
+  dsoKeyUp: argTypeAction(),
 };
 
 export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
