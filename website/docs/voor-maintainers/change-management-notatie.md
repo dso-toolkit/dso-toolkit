@@ -80,15 +80,15 @@ SCOPE: SAMENVATTING
 
 De resolution in een commit message is afhankelijk van het type change. In onderstaande tabel staat welke resolution bij welke type change horen:
 
-| Type change (GitHub issue label) | Resolution (Commit message, CHANGELOG) |
-| -------------------------------- | -------------------------------------- |
-| **Feature**                      | Added                                  |
-| **Change**                       | Changed                                |
-| **Deprecate**                    | Deprecated                             |
-| **Docs**                         | Docs                                   |
-| **Bug**                          | Fixed                                  |
-| **Remove**                       | Removed                                |
-| **Task**                         | Task                                   |
+| Type change (GitHub issue type) | Resolution (Commit message, CHANGELOG) |
+| ------------------------------- | -------------------------------------- |
+| **Feature**                     | Added                                  |
+| **Change**                      | Changed                                |
+| **Deprecate**                   | Deprecated                             |
+| **Docs**                        | Docs                                   |
+| **Bug**                         | Fixed                                  |
+| **Remove**                      | Removed                                |
+| **Task**                        | Task                                   |
 
 ## CHANGELOG.md
 
