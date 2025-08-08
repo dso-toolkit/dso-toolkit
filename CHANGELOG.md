@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Selectable: Deprecate HTML/CSS implementatie ([#3203](https://github.com/dso-toolkit/dso-toolkit/issues/3203))
+* Progress Bar: Deprecate ([#3264](https://github.com/dso-toolkit/dso-toolkit/issues/3264))
 
 ### Removed
 * **BREAKING** Whitebox: Remove ([#3242](https://github.com/dso-toolkit/dso-toolkit/issues/3242))

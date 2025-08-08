@@ -13,7 +13,7 @@ const meta: Meta<ProgressBarArgs> = {
       imports: [DsoProgressBar],
     }),
   ],
-  title: "Progress Bar",
+  title: "Progress Bar (Deprecated)",
 };
 
 export default meta;

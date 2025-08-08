@@ -10,9 +10,11 @@ export const coreProgressBar: ComponentImplementation<ProgressBar> = {
   template: () =>
     function progressBarTemplate({ progress, label, min, max }) {
       return html`
+        <!-- START DEPRECATED -->
         <dso-progress-bar progress=${progress} min=${ifDefined(min)} max=${ifDefined(max)}
           >${label ?? nothing}</dso-progress-bar
         >
+        <!-- END DEPRECATED -->
       `;
     },
 };

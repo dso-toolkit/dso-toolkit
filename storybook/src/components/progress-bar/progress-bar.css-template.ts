@@ -9,6 +9,7 @@ export const cssProgressBar: ComponentImplementation<ProgressBar> = {
   template: () =>
     function progressBarTemplate({ progress, label, min, max }) {
       return html`
+        <!-- START DEPRECATED -->
         <div class="progress">
           <span
             class="progress-bar"
@@ -22,6 +23,7 @@ export const cssProgressBar: ComponentImplementation<ProgressBar> = {
           </span>
           <span id="progress-bar-label">${label}</span>
         </div>
+        <!-- END DEPRECATED -->
       `;
     },
 };
