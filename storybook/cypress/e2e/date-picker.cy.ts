@@ -65,7 +65,7 @@ describe("Date Picker", () => {
       });
   });
 
-  it.only("should emit errors for invalid inputs", () => {
+  it("should emit errors for invalid inputs", () => {
     cy.get("dso-date-picker.hydrated")
       .invoke("attr", "min", "01-01-2024")
       .invoke("attr", "max", "31-12-2025")
