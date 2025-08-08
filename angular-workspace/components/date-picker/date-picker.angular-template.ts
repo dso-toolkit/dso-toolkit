@@ -20,6 +20,10 @@ export const angularDatePicker: ComponentImplementation<DatePicker> = {
             [invalid]="invalid"
             [describedBy]="describedBy"
             (dsoDateChange)="dsoDateChange?.($event)"
+            (dsoFocus)="dsoFocus($event)"
+            (dsoBlur)="dsoBlur($event)"
+            (dsoKeyDown)="dsoKeyDown($event)"
+            (dsoKeyUp)="dsoKeyUp($event)"
           ></dso-date-picker>`,
       };
     },

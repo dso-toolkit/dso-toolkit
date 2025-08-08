@@ -1,5 +1,6 @@
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { componentArgs } from "../../storybook/index.js";
 import { MetaOptions } from "../../storybook/meta-options.interface";
@@ -46,6 +47,7 @@ export function modalMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
     argTypes: modalArgTypes,
     args: {
       closable: true,
+      dsoClose: fn(),
     },
     parameters: {
       docs: readme

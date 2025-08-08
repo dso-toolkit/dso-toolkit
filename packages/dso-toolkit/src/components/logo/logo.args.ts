@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { Logo } from "./logo.models.js";
 
@@ -33,14 +33,8 @@ export const logoArgTypes: ArgTypes<LogoArgs> = {
       type: "text",
     },
   },
-  dsoLogoClick: {
-    ...noControl,
-    action: "dsoLogoClick",
-  },
-  dsoLabelClick: {
-    ...noControl,
-    action: "dsoLogoLabelClick",
-  },
+  dsoLogoClick: argTypeAction(),
+  dsoLabelClick: argTypeAction(),
 };
 
 export function logoArgsMapper(a: LogoArgs): Logo {
@@ -52,11 +46,11 @@ export function logoArgsMapper(a: LogoArgs): Logo {
     ribbon: a.ribbon,
     dsoLogoClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoLogoClick?.(event);
+      a.dsoLogoClick?.(event.detail);
     },
     dsoLabelClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoLabelClick?.(event);
+      a.dsoLabelClick?.(event.detail);
     },
   };
 }

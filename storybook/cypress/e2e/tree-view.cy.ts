@@ -257,13 +257,15 @@ describe("Tree View", () => {
   });
 
   it('should set selected class and "Resultaat: " on result item', () => {
-    cy.get("#treeViewSearchInput").click().realPress(["b", "o", "u", "Enter"]);
+    cy.get("#treeViewSearchInput").realClick();
+    cy.realPress(["b", "o", "u", "Enter"]);
 
     cy.realPress(["Shift", "Tab"]);
 
     cy.realPress("r");
 
-    cy.get("@first-tree-item")
+    cy.get("dso-tree-view.hydrated")
+      .get("@first-tree-item")
       .then((subject) => firstChildItem(subject, "Resultaat: bouwelementen"))
       .then(shouldHaveFocusAndTabIndex)
       .find("span.sr-only")
@@ -271,7 +273,8 @@ describe("Tree View", () => {
 
     cy.realPress("r");
 
-    cy.get("@first-tree-item")
+    cy.get("dso-tree-view.hydrated")
+      .get("@first-tree-item")
       .then((subject) => firstChildItem(subject, "Resultaat: bouwelementen"))
       .then((subject) => nextSiblingItem(subject, "Resultaat: bouwonderdelen"))
       .then(shouldHaveFocusAndTabIndex)
@@ -284,11 +287,14 @@ describe("Tree View", () => {
       .find('[data-item-id="item.1.2"]')
       .prev()
       .click()
-      .get("dso-tree-view")
-      .then(($treeView) =>
-        $treeView.get(0)?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[]),
+      .get("dso-tree-view.hydrated")
+      .then(($treeView: JQuery<HTMLDsoTreeViewElement>) =>
+        $treeView
+          .get(0)
+          ?.focusItem([{ id: "item.1" }, { id: "item.1.2" }, { id: "item.1.2.10" }] as TreeViewItem[])
+          .then((result) => expect(result).to.be.true),
       )
-      .then((result) => expect(result).to.be.true)
+      .get("dso-tree-view.hydrated")
       .get("@tree-view")
       .find('[data-item-id="item.1.2.10"]')
       .isWithinViewport()

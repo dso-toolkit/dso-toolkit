@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -43,6 +44,7 @@ export function cardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
     argTypes: cardArgTypes,
     args: {
       href: "#",
+      dsoCardClick: fn(),
     },
     parameters: {
       docs: readme

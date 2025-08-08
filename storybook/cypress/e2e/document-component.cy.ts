@@ -1,5 +1,6 @@
 import { DocumentComponentMarkFunction } from "@dso-toolkit/core/src/components";
-import { isOdd } from "dso-toolkit";
+
+import { isOdd } from "../support/is-odd";
 
 describe("Document Component", () => {
   it("should mark and highlight", () => {

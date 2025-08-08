@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { Tabs, TabsItem } from "./tabs.models.js";
 
@@ -18,10 +18,7 @@ export const tabsArgTypes: ArgTypes<TabsArgs<unknown>> = {
   content: {
     ...noControl,
   },
-  dsoTabSwitch: {
-    ...noControl,
-    action: "dsoTabSwitch",
-  },
+  dsoTabSwitch: argTypeAction(),
 };
 
 export function tabsArgsMapper<TemplateFnReturnType>(a: TabsArgs<TemplateFnReturnType>): Tabs<TemplateFnReturnType> {

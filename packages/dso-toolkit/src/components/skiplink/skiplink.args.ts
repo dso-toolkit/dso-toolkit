@@ -1,7 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 
 import { Skiplink } from "./skiplink.models.js";
 
@@ -11,9 +12,10 @@ export interface SkiplinkArgs {
   dsoSkiplinkClick: HandlerFunction;
 }
 
-export const skiplinkArgs: Omit<SkiplinkArgs, "dsoSkiplinkClick"> = {
+export const skiplinkArgs: SkiplinkArgs = {
   to: "123-456-abc-def",
   label: "Ga naar inhoud",
+  dsoSkiplinkClick: fn(),
 };
 
 export const skiplinkArgTypes: ArgTypes<SkiplinkArgs> = {
@@ -27,10 +29,7 @@ export const skiplinkArgTypes: ArgTypes<SkiplinkArgs> = {
       type: "text",
     },
   },
-  dsoSkiplinkClick: {
-    ...noControl,
-    action: "dsoSkiplinkClick",
-  },
+  dsoSkiplinkClick: argTypeAction(),
 };
 
 export function skiplinkArgsMapper(a: SkiplinkArgs): Skiplink {

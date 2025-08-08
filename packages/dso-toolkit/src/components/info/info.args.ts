@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { Info } from "./info.models.js";
 
@@ -26,9 +28,7 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
       type: "boolean",
     },
   },
-  dsoClose: {
-    action: "dsoClose",
-  },
+  dsoClose: argTypeAction(),
 };
 
 export function infoArgsMapper<TemplateFnReturnType>(
@@ -40,6 +40,6 @@ export function infoArgsMapper<TemplateFnReturnType>(
     fixed: a.fixed,
     active: a.active,
     content,
-    dsoClose: a.dsoClose,
+    dsoClose: () => a.dsoClose(),
   };
 }

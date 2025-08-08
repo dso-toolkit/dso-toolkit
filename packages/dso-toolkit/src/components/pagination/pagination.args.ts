@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { Pagination } from "./pagination.models.js";
 
@@ -22,9 +24,7 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
       min: 1,
     },
   },
-  dsoSelectPage: {
-    action: "dsoSelectPage",
-  },
+  dsoSelectPage: argTypeAction(),
 };
 
 export function paginationArgsMapper(a: PaginationArgs): Pagination {
@@ -37,7 +37,7 @@ export function paginationArgsMapper(a: PaginationArgs): Pagination {
     currentPage,
     dsoSelectPage: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoSelectPage(event);
+      a.dsoSelectPage(event.detail);
     },
     formatHref: (page) => "#" + page,
   };

@@ -1,8 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions/*";
-import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { isOdd } from "../../storybook";
+import { argTypeAction, isOdd } from "../../storybook";
 import { OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 import {
@@ -81,18 +81,10 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "boolean",
     },
   },
-  dsoAnnotationToggle: {
-    action: "dsoAnnotationToggle",
-  },
-  dsoToggle: {
-    action: "dsoToggle",
-  },
-  dsoMarkItemHighlight: {
-    action: "dsoMarkItemHighlight",
-  },
-  dsoTableOfContentsClick: {
-    action: "dsoTableOfContentsClick",
-  },
+  dsoAnnotationToggle: argTypeAction(),
+  dsoToggle: argTypeAction(),
+  dsoMarkItemHighlight: argTypeAction(),
+  dsoTableOfContentsClick: argTypeAction(),
   filtered: {
     control: {
       type: "boolean",
@@ -203,6 +195,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
 
       a.dsoTableOfContentsClick(e.detail);
     },
+    dsoToggle: (e) => a.dsoToggle(e.detail),
     children: a.open || a.openAnnotation ? children : undefined,
     mark: mark
       ? (text) =>

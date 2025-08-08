@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { DatePicker } from "./date-picker.models.js";
 
@@ -65,31 +67,25 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
       type: "text",
     },
   },
-  dsoDateChange: {
-    action: "dsoDateChange",
-  },
-  dsoBlur: {
-    action: "dsoBlur",
-  },
-  dsoFocus: {
-    action: "dsoFocus",
-  },
-  dsoKeyDown: {
-    action: "dsoKeyDown",
-  },
-  dsoKeyUp: {
-    action: "dsoKeyUp",
-  },
   required: {
     control: {
       type: "boolean",
     },
   },
+  dsoDateChange: argTypeAction(),
+  dsoBlur: argTypeAction(),
+  dsoFocus: argTypeAction(),
+  dsoKeyDown: argTypeAction(),
+  dsoKeyUp: argTypeAction(),
 };
 
 export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
   return {
     ...a,
     dsoDateChange: (e) => a.dsoDateChange(e.detail),
+    dsoFocus: (e) => a.dsoFocus(e.detail),
+    dsoBlur: (e) => a.dsoBlur(e.detail),
+    dsoKeyDown: (e) => a.dsoKeyDown(e.detail),
+    dsoKeyUp: (e) => a.dsoKeyUp(e.detail),
   };
 }

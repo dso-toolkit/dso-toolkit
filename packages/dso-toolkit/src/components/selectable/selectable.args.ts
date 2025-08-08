@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { Selectable } from "./selectable.models.js";
 
@@ -81,9 +83,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: "boolean",
     },
   },
-  dsoChange: {
-    action: "dsoChange",
-  },
+  dsoChange: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",
@@ -99,12 +99,8 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: "boolean",
     },
   },
-  infoClosed: {
-    action: "infoClosed",
-  },
-  infoToggled: {
-    action: "infoToggled",
-  },
+  infoClosed: argTypeAction(),
+  infoToggled: argTypeAction(),
   options: {
     control: {
       type: "object",

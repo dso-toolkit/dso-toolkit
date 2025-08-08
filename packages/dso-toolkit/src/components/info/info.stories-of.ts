@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -46,6 +47,7 @@ export function infoStories<Implementation, Templates, TemplateFnReturnType>({
     Default: {
       args: {
         active: true,
+        dsoClose: fn(),
       },
       render: templateContainer.render(storyTemplates, (args, { infoTemplate, richContent }) =>
         infoTemplate(infoArgsMapper(args, richContent)),

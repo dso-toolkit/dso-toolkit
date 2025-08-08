@@ -1,8 +1,9 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { isOdd, noControl } from "../../storybook";
+import { argTypeAction, isOdd } from "../../storybook";
 
 import { Renvooi, RenvooiValue } from "./renvooi.models.js";
 
@@ -12,7 +13,8 @@ export interface RenvooiArgs {
   dsoRenvooiMarkItemHighlight: HandlerFunction;
 }
 
-export const renvooiArgs: Pick<RenvooiArgs, "voorbeeld"> = {
+export const renvooiArgs: Omit<RenvooiArgs, "mark"> = {
+  dsoRenvooiMarkItemHighlight: fn(),
   voorbeeld: "was-wordt",
 };
 
@@ -28,10 +30,7 @@ export const renvooiArgTypes: ArgTypes<RenvooiArgs> = {
       type: "text",
     },
   },
-  dsoRenvooiMarkItemHighlight: {
-    ...noControl,
-    action: "dsoRenvooiMarkItemHighlight",
-  },
+  dsoRenvooiMarkItemHighlight: argTypeAction(),
 };
 
 export function renvooiArgsMapper(a: RenvooiArgs): Renvooi {

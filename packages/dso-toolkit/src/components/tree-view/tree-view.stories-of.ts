@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -35,6 +36,9 @@ export function treeViewMeta<TRenderer extends Renderer>({ readme }: MetaOptions
 > {
   return {
     argTypes: treeViewArgTypes,
+    args: {
+      dsoClickItem: fn(),
+    },
     parameters: {
       options: {
         // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
