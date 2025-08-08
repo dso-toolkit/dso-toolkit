@@ -24,7 +24,7 @@
     "@stencil/core": "4.36.1",
     "@storybook/addon-a11y": "9.0.18",
     "@storybook/addon-docs": "9.0.18",
-    "@storybook/builder-vite": "^9.0.18",
+    "@storybook/builder-vite": "9.0.18",
     "@storybook/react-vite": "9.0.18",
     "@types/lodash.startcase": "^4.4.9",
     "@types/react": "^18.3.23",
