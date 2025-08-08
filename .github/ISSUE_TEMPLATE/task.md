@@ -2,7 +2,6 @@
 name: Task
 about: Toevoegen van een taak
 title: "Taak: SAMENVATTING"
-labels: ✅ Task
 ---
 
 ## Omschrijving van de taak

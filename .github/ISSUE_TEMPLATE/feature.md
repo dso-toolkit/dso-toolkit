@@ -2,7 +2,6 @@
 name: Feature
 about: Nieuwe functionaliteit
 title: "COMPONENT: SAMENVATTING"
-labels: "✨ Feature"
 ---
 
 ## Omschrijving van de functionaliteit
