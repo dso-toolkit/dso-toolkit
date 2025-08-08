@@ -14,7 +14,7 @@ export const angularPagination: ComponentImplementation<Pagination> = {
             [totalPages]="totalPages"
             [currentPage]="currentPage"
             [formatHref]="formatHref"
-            (dsoSelectPage)="dsoSelectPage()"
+            (dsoSelectPage)="dsoSelectPage($event)"
           ></dso-pagination>
         `,
       };
