@@ -46,9 +46,8 @@ describe("Autosuggest", () => {
 
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
-    cy.get("dso-autosuggest.hydrated")
-      .get("input")
-      .should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
+
+    cy.get("input").should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
 
     cy.dsoCheckA11y("dso-autosuggest.hydrated");
   });
