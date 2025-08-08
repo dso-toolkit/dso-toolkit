@@ -66,11 +66,9 @@ import { danger, fail } from "danger";
         );
       }
 
-      const githubLabel = resolutionMap[firstCommitMessage.resolution];
-      if (!githubIssue.labels.some((l) => l.includes(githubLabel))) {
-        fail(
-          `Het gerelateerde GitHub-issue mist het juiste label. Ik denk dat dat '${githubLabel}' moet zijn. Kun je deze alsjeblieft toevoegen?`,
-        );
+      const type = resolutionMap[firstCommitMessage.resolution];
+      if (!githubIssue.type.includes(type)) {
+        fail(`Het gerelateerde GitHub-issue is niet van het juiste type. Ik denk dat dat '${type}' moet zijn.`);
       }
     }
   }
@@ -210,31 +208,75 @@ import { danger, fail } from "danger";
     };
   }
 
-  async function getGithubIssue(issueId: number) {
-    function isLabel(label: unknown): label is { name: string } {
-      return typeof label === "object" && label !== null && "name" in label && typeof label.name === "string";
+  interface GithubIssue {
+    issueId: number;
+    title: string;
+    labels: string[];
+    type: string;
+  }
+
+  async function getGithubIssue(issueId: number): Promise<GithubIssue | null> {
+    const query = `
+      query($owner: String!, $repo: String!, $issueId: Int!) {
+        repository(owner: $owner, name: $repo) {
+          issue(number: $issueId) {
+            title
+            issueType {
+              name
+            }
+            labels(first: 20) {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const variables = {
+      owner: "dso-toolkit",
+      repo: "dso-toolkit",
+      issueId,
+    };
+
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+
+    if (typeof process.env.DANGER_GITHUB_API_TOKEN === "string") {
+      headers.Authorization = `Bearer ${process.env.DANGER_GITHUB_API_TOKEN}`;
     }
 
-    const results = await fetch(`https://api.github.com/repos/dso-toolkit/dso-toolkit/issues/${issueId}`, {
-      headers:
-        typeof process.env.DANGER_GITHUB_API_TOKEN === "string"
-          ? {
-              Authorization: `Bearer ${process.env.DANGER_GITHUB_API_TOKEN}`,
-            }
-          : {},
+    const response = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ query, variables }),
     });
 
-    const data = await results.json();
-    if (!data || typeof data.title !== "string" || !Array.isArray(data.labels)) {
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.info(JSON.stringify(result, null, 2));
+
+    const issue = result.data.repository.issue;
+    if (!issue) {
+      console.info("Issue not found.");
+
       return null;
     }
 
-    const { title, labels } = data;
+    const title = issue.title;
+    const type = issue.issueType.name;
+    const labels = Array.isArray(issue.labels.nodes) ? issue.labels.nodes.map(({ name }) => name) : [];
 
     return {
       issueId,
       title,
-      labels: Array.isArray(labels) ? labels.filter(isLabel).map((l) => l.name) : [],
+      type,
+      labels,
     };
   }
 })();
