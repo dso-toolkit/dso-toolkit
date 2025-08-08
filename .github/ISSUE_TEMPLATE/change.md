@@ -2,7 +2,6 @@
 name: Change
 about: Wijzigingen aan bestaande functionaliteit
 title: "COMPONENT: SAMENVATTING"
-labels: "⤵️ Change"
 ---
 
 ## Omschrijving van de wijziging

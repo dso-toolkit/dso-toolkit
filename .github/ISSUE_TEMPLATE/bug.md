@@ -2,7 +2,6 @@
 name: Bug
 about: Meld onverwacht gedrag
 title: "COMPONENT: SAMENVATTING"
-labels: 🐛 Bug
 ---
 
 ## Geobserveerd gedrag
