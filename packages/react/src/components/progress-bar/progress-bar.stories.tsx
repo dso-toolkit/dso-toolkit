@@ -7,7 +7,7 @@ import readme from "./readme.md?raw";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
-  title: "Progress Bar",
+  title: "Progress Bar (Deprecated)",
 };
 
 export default meta;

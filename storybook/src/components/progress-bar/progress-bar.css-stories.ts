@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<ProgressBarArgs> = {
   ...progressBarMeta({ readme }),
-  title: "HTML|CSS/Progress Bar",
+  title: "HTML|CSS/Progress Bar (Deprecated)",
 };
 
 export default meta;
