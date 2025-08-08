@@ -18,7 +18,7 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
           [disabled]="disabled"
           [accessibleLabel]=accessibleLabel
           [labelledbyId]="labelledbyId"
-          (dsoActiveChange)="dsoActiveChange()"
+          (dsoActiveChange)="dsoActiveChange?.($event)"
         >
           <span *ngIf="label">{{ label }}</span>
         </dso-slide-toggle>
