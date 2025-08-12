@@ -55,7 +55,7 @@
     "type": "core"
   },
   {
-    "name": "progress-bar",
+    "name": "progress-bar-deprecated",
     "selector": "dso-progress-bar.hydrated",
     "stories": ["default", "arbitrary-values"],
     "type": "core"
@@ -301,7 +301,7 @@
     "type": "html-css"
   },
   {
-    "name": "progress-bar",
+    "name": "progress-bar-deprecated",
     "selector": ".progress",
     "stories": ["default", "arbitrary-values"],
     "type": "html-css"

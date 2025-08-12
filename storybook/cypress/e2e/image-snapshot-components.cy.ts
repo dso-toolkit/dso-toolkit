@@ -11,7 +11,7 @@ interface Component {
 function checkA11y(component: Component) {
   if (component.type === "core") {
     cy.injectAxe();
-    cy.dsoCheckA11y(`dso-${component.name}.hydrated`);
+    cy.dsoCheckA11y(component.selector);
   }
 }
 
