@@ -110,12 +110,10 @@ export namespace Components {
     interface DsoAccordionSection {
         /**
           * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
-          * @default false
          */
         "activatable": boolean;
         /**
           * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is `activatable`.
-          * @default false
          */
         "active": boolean;
         /**
@@ -136,12 +134,10 @@ export namespace Components {
         "handleUrl"?: string;
         /**
           * Set when this Accordion Section contains or will contain an Accordion.
-          * @default false
          */
         "hasNestedAccordion": boolean;
         /**
           * Which heading element to use.
-          * @default "h2"
          */
         "heading": AccordionHeading;
         /**
@@ -158,7 +154,6 @@ export namespace Components {
         "labelStatus"?: LabelStatus;
         /**
           * Set the Accordion Section open.
-          * @default false
          */
         "open": boolean;
         /**
@@ -183,12 +178,10 @@ export namespace Components {
     interface DsoActionListItem {
         /**
           * Places a dashed line at the bottom of the item.
-          * @default false
          */
         "divider": boolean;
         /**
           * Show flow line to next step
-          * @default false
          */
         "flowLine": boolean;
         /**
@@ -201,7 +194,6 @@ export namespace Components {
         "step": number;
         /**
           * When there is a warning.
-          * @default false
          */
         "warning": boolean;
     }
@@ -216,14 +208,12 @@ export namespace Components {
         "activeHint"?: string;
         /**
           * The options to display in the select.
-          * @default []
          */
         "options": AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
           * When `false` the close button in the alert will not be rendered.
-          * @default false
          */
         "closable": boolean;
         /**
@@ -361,7 +351,6 @@ export namespace Components {
     interface DsoAutosuggest {
         /**
           * Shows progress indicator when fetching results.
-          * @default false
          */
         "loading": boolean;
         /**
@@ -370,7 +359,6 @@ export namespace Components {
         "loadingDelayed"?: number;
         /**
           * To override progress indicator's default loading label.
-          * @default "Een moment geduld."
          */
         "loadingLabel"?: string;
         /**
@@ -383,12 +371,10 @@ export namespace Components {
         "notFoundLabel"?: string;
         /**
           * Whether the previous suggestions will be presented when the input gets focus again.
-          * @default false
          */
         "suggestOnFocus": boolean;
         /**
           * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
-          * @default null
          */
         "suggestions": Suggestion[] | SuggestionGroup[] | null;
     }
@@ -401,12 +387,10 @@ export namespace Components {
     interface DsoBanner {
         /**
           * Compact mode.
-          * @default false
          */
         "compact": boolean;
         /**
           * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
-          * @default false
          */
         "icon": boolean;
         /**
@@ -417,7 +401,6 @@ export namespace Components {
     interface DsoButtonGroup {
         /**
           * The direction in which the buttons are displayed.  Defaults to `row`.
-          * @default "row"
          */
         "direction": ButtonGroupDirection;
     }
@@ -438,7 +421,6 @@ export namespace Components {
     interface DsoCardContainer {
         /**
           * The mode of the Card Container.
-          * @default "list"
          */
         "mode": CardContainerMode;
     }
@@ -451,12 +433,10 @@ export namespace Components {
         "describedBy"?: string;
         /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-          * @default false
          */
         "disabled": boolean;
         /**
           * Should the input be focused on load?
-          * @default false
          */
         "dsoAutofocus": boolean;
         /**
@@ -477,17 +457,14 @@ export namespace Components {
         "min": string | undefined;
         /**
           * Name of the date picker input.
-          * @default "dso-date"
          */
         "name": string;
         /**
           * Should the input be marked as required?
-          * @default false
          */
         "required": boolean;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
-          * @default ""
          */
         "value": string;
     }
@@ -498,17 +475,14 @@ export namespace Components {
         "describedBy"?: string;
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-          * @default "right"
          */
         "direction": DsoDatePickerLegacyDirection;
         /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-          * @default false
          */
         "disabled": boolean;
         /**
           * Should the input be focused on load?
-          * @default false
          */
         "dsoAutofocus": boolean;
         /**
@@ -533,17 +507,14 @@ export namespace Components {
         "min": string | undefined;
         /**
           * Name of the date picker input.
-          * @default "date"
          */
         "name": string;
         /**
           * Should the input be marked as required?
-          * @default false
          */
         "required": boolean;
         /**
           * Defines a specific role attribute for the date picker input.
-          * @default null
          */
         "role": string | null;
         /**
@@ -556,7 +527,6 @@ export namespace Components {
         "show": () => Promise<void>;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
-          * @default ""
          */
         "value": string;
     }
@@ -577,7 +547,6 @@ export namespace Components {
         "alternativeTitle"?: string;
         /**
           * Enables annotations.
-          * @default false
          */
         "annotated": boolean;
         /**
@@ -586,27 +555,22 @@ export namespace Components {
         "annotationsWijzigactie"?: DocumentComponentAnnotationsWijzigactie;
         /**
           * Marks as draft.
-          * @default false
          */
         "bevatOntwerpInformatie": boolean;
         /**
           * Marks this Document Component as belonging to an active filter.
-          * @default false
          */
         "filtered": boolean;
         /**
           * When a child Document Component has a status "Draft".
-          * @default false
          */
         "genesteOntwerpInformatie": boolean;
         /**
           * Marks Document Component as reserved.
-          * @default false
          */
         "gereserveerd": boolean;
         /**
           * The heading element to use.
-          * @default "h2"
          */
         "heading": "h2" | "h3" | "h4" | "h5" | "h6";
         /**
@@ -627,22 +591,18 @@ export namespace Components {
         "mark"?: DocumentComponentMarkFunction;
         /**
           * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
-          * @default "document"
          */
         "mode": DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
-          * @default false
          */
         "notApplicable": boolean;
         /**
           * This boolean attribute indicates whether the children are visible.
-          * @default false
          */
         "open": boolean;
         /**
           * When the Annotation is opened, set this to true.
-          * @default false
          */
         "openAnnotation": boolean;
         /**
@@ -659,7 +619,6 @@ export namespace Components {
         "type"?: string;
         /**
           * Marks the Document Component as expired.
-          * @default false
          */
         "vervallen": boolean;
         /**
@@ -670,29 +629,24 @@ export namespace Components {
     interface DsoDropdownMenu {
         /**
           * Whether the menu is checkable.
-          * @default false
          */
         "checkable": boolean;
         /**
           * Alignment of the dropdown
-          * @default "left"
          */
         "dropdownAlign": "left" | "right";
         /**
           * Space between button and dropdown options
-          * @default 2
          */
         "dropdownOptionsOffset": number;
         /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
-          * @default false
          */
         "open": boolean;
     }
     interface DsoExpandable {
         /**
           * Set to `true` to show the content animated.
-          * @default false
          */
         "enableAnimation": boolean;
         /**
@@ -707,7 +661,6 @@ export namespace Components {
     interface DsoHeader {
         /**
           * Used to show the login/logout option. 'none' renders nothing.
-          * @default "none"
          */
         "authStatus": "none" | "loggedIn" | "loggedOut";
         /**
@@ -724,17 +677,14 @@ export namespace Components {
         "logoutUrl"?: string;
         /**
           * The main menu items.
-          * @default []
          */
         "mainMenu"?: HeaderMenuItem[];
         /**
           * Show a help-button or link in the header
-          * @default false
          */
         "showHelp"?: boolean | undefined;
         /**
           * Either have the dropdown menu appear automatically or always.
-          * @default "auto"
          */
         "useDropDownMenu": "always" | "auto";
         /**
@@ -805,7 +755,6 @@ export namespace Components {
         "active"?: boolean;
         /**
           * The label.
-          * @default "Toelichting bij optie"
          */
         "label": string;
         /**
@@ -840,7 +789,6 @@ export namespace Components {
         "step"?: number;
         /**
           * The unit of the range.
-          * @default ""
          */
         "unit": string;
         /**
@@ -878,7 +826,6 @@ export namespace Components {
         "active"?: boolean;
         /**
           * To disable the Legend Item
-          * @default false
          */
         "disabled": boolean;
         /**
@@ -889,7 +836,6 @@ export namespace Components {
     interface DsoListButton {
         /**
           * Whether the List Button is checked.
-          * @default false
          */
         "checked": boolean;
         /**
@@ -898,7 +844,6 @@ export namespace Components {
         "count"?: number;
         /**
           * Whether the List Button is disabled.
-          * @default false
          */
         "disabled": boolean;
         /**
@@ -924,6 +869,10 @@ export namespace Components {
     }
     interface DsoLogo {
         /**
+          * Sets a compact class on the host element.
+         */
+        "compact": boolean;
+        /**
           * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
@@ -937,7 +886,6 @@ export namespace Components {
         "logoUrl"?: string;
         /**
           * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen.
-          * @default "Omgevings|loket"
          */
         "name": string;
         /**
@@ -952,7 +900,6 @@ export namespace Components {
         "baseLayers": BaseLayer[];
         /**
           * To group the overlays together. Generally the default value suffices.
-          * @default uuidv4()
          */
         "group": string;
     }
@@ -963,7 +910,6 @@ export namespace Components {
         "disableZoom"?: "in" | "out" | "both";
         /**
           * To show and hide the Map Controls.
-          * @default false
          */
         "open": boolean;
         /**
@@ -975,7 +921,6 @@ export namespace Components {
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
-          * @default uuidv4()
          */
         "group": string;
         /**
@@ -994,7 +939,6 @@ export namespace Components {
         "dsoFocus": (options?: MarkBarFocusOptions) => Promise<void>;
         /**
           * The label for the input field.
-          * @default "Zoeken in document"
          */
         "label": string;
         /**
@@ -1009,12 +953,10 @@ export namespace Components {
     interface DsoModal {
         /**
           * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
-          * @default false
          */
         "closable": boolean;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
-          * @default "dialog"
          */
         "dialogRole": string | null;
         /**
@@ -1027,14 +969,12 @@ export namespace Components {
         "modalTitle"?: string;
         /**
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
-          * @default undefined
          */
         "returnFocus": false | HTMLElement | undefined;
     }
     interface DsoOnboardingTip {
         /**
           * Where to place the Onboarding Tip relative to its reference element.
-          * @default "right"
          */
         "placement": OnboardingTipPlacement;
     }
@@ -1045,7 +985,6 @@ export namespace Components {
         "content"?: OzonContentInputType;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
-          * @default false
          */
         "inline": boolean;
         /**
@@ -1064,7 +1003,6 @@ export namespace Components {
         "currentPage"?: number;
         /**
           * This function is called to format the href
-          * @default (page) => "#" + page
          */
         "formatHref": (page: number) => string;
         /**
@@ -1079,7 +1017,6 @@ export namespace Components {
         "closeButtonLabel"?: string;
         /**
           * To display the panel as an emphasized panel.
-          * @default false
          */
         "emphasized": boolean;
     }
@@ -1094,7 +1031,6 @@ export namespace Components {
         "href": string | undefined;
         /**
           * Opens the urls in a new window or tab
-          * @default false
          */
         "targetBlank": boolean;
         /**
@@ -1105,12 +1041,10 @@ export namespace Components {
     interface DsoProgressBar {
         /**
           * When the operation completes.
-          * @default 100
          */
         "max": number;
         /**
           * From where progress is made.
-          * @default 0
          */
         "min": number;
         /**
@@ -1232,17 +1166,14 @@ export namespace Components {
         "accessibleLabel"?: string;
         /**
           * Set to true if Slide Toggle is checked.
-          * @default false
          */
         "checked": boolean;
         /**
           * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
-          * @default false
          */
         "disabled": boolean;
         /**
           * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`.
-          * @default v4()
          */
         "identifier": string;
         /**
@@ -1270,7 +1201,6 @@ export namespace Components {
     interface DsoTable {
         /**
           * Prevents the table being opened in a modal.
-          * @default false
          */
         "noModal": boolean;
     }
@@ -1279,12 +1209,10 @@ export namespace Components {
     interface DsoToggletip {
         /**
           * Toggletip label.
-          * @default "Toelichting"
          */
         "label": string;
         /**
           * Toggletip position.
-          * @default "right"
          */
         "position": Placement;
         /**
@@ -1303,7 +1231,6 @@ export namespace Components {
         "activate": () => Promise<void>;
         /**
           * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
-          * @default false
          */
         "active": boolean;
         /**
@@ -1312,17 +1239,14 @@ export namespace Components {
         "deactivate": () => Promise<void>;
         /**
           * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
-          * @default false
          */
         "descriptive": boolean;
         /**
           * Set attribute `no-arrow` to hide the arrow
-          * @default false
          */
         "noArrow": boolean;
         /**
           * Set position of tooltip relative to target
-          * @default "top"
          */
         "position": Placement;
         /**
@@ -1335,7 +1259,6 @@ export namespace Components {
         "stateless"?: boolean;
         /**
           * Set position strategy of tooltip
-          * @default "auto"
          */
         "strategy": "auto" | "absolute" | "fixed";
     }
@@ -1359,17 +1282,14 @@ export namespace Components {
         "activeTab"?: ViewerGridTab;
         /**
           * Set to true when document panel should show.
-          * @default false
          */
         "documentPanelOpen": boolean;
         /**
           * Size of the panel when component loads.  Default size is `large`.
-          * @default "large"
          */
         "documentPanelSize": ViewerGridPanelSize;
         /**
           * Set to true when filter panel should show.
-          * @default false
          */
         "filterPanelOpen": boolean;
         /**
@@ -1378,22 +1298,18 @@ export namespace Components {
         "filterPanelTitle"?: string;
         /**
           * Set to show main panel expanded.
-          * @default false
          */
         "mainPanelExpanded": boolean;
         /**
           * Set to hide the main panel.
-          * @default false
          */
         "mainPanelHidden": boolean;
         /**
           * Size of the panel when component loads.  Default size is `large`.
-          * @default "large"
          */
         "mainSize": ViewerGridPanelSize;
         /**
           * Set to true when overlay should show.
-          * @default false
          */
         "overlayOpen": boolean;
     }
@@ -1404,12 +1320,10 @@ export namespace Components {
         "jsonFile"?: string;
         /**
           * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
-          * @default "document"
          */
         "mode": DocumentComponentMode;
         /**
           * The default state for all Document Components.
-          * @default false
          */
         "openDefault": boolean;
         /**
@@ -1418,7 +1332,6 @@ export namespace Components {
         "ozonContentUrlResolver"?: OzonContentUrlResolver1;
         /**
           * Show canvas to where Document Component extends.
-          * @default false
          */
         "showCanvas": boolean;
     }
@@ -2596,12 +2509,10 @@ declare namespace LocalJSX {
     interface DsoAccordionSection {
         /**
           * A boolean to indicate if the Accordion Section is capable of being activated. When `true` a Slide Toggle displays on the right in the heading handle (optional). Works only for `variant` `compact-black` and `reverseAlign` false.
-          * @default false
          */
         "activatable"?: boolean;
         /**
           * A boolean to indicate if the Accordion Section is `active`. Only applicable when the Accordion Section is `activatable`.
-          * @default false
          */
         "active"?: boolean;
         /**
@@ -2618,12 +2529,10 @@ declare namespace LocalJSX {
         "handleUrl"?: string;
         /**
           * Set when this Accordion Section contains or will contain an Accordion.
-          * @default false
          */
         "hasNestedAccordion"?: boolean;
         /**
           * Which heading element to use.
-          * @default "h2"
          */
         "heading"?: AccordionHeading;
         /**
@@ -2656,7 +2565,6 @@ declare namespace LocalJSX {
         "onDsoToggleClick"?: (event: DsoAccordionSectionCustomEvent<AccordionSectionToggleClickEvent>) => void;
         /**
           * Set the Accordion Section open.
-          * @default false
          */
         "open"?: boolean;
         /**
@@ -2681,12 +2589,10 @@ declare namespace LocalJSX {
     interface DsoActionListItem {
         /**
           * Places a dashed line at the bottom of the item.
-          * @default false
          */
         "divider"?: boolean;
         /**
           * Show flow line to next step
-          * @default false
          */
         "flowLine"?: boolean;
         /**
@@ -2699,7 +2605,6 @@ declare namespace LocalJSX {
         "step": number;
         /**
           * When there is a warning.
-          * @default false
          */
         "warning"?: boolean;
     }
@@ -2722,14 +2627,12 @@ declare namespace LocalJSX {
         "onDsoRedirect"?: (event: DsoAdvancedSelectCustomEvent<AdvancedSelectRedirectEvent>) => void;
         /**
           * The options to display in the select.
-          * @default []
          */
         "options"?: AdvancedSelectOptionOrGroup<never>[];
     }
     interface DsoAlert {
         /**
           * When `false` the close button in the alert will not be rendered.
-          * @default false
          */
         "closable"?: boolean;
         /**
@@ -2891,7 +2794,6 @@ declare namespace LocalJSX {
     interface DsoAutosuggest {
         /**
           * Shows progress indicator when fetching results.
-          * @default false
          */
         "loading"?: boolean;
         /**
@@ -2900,7 +2802,6 @@ declare namespace LocalJSX {
         "loadingDelayed"?: number;
         /**
           * To override progress indicator's default loading label.
-          * @default "Een moment geduld."
          */
         "loadingLabel"?: string;
         /**
@@ -2925,12 +2826,10 @@ declare namespace LocalJSX {
         "onDsoSelect"?: (event: DsoAutosuggestCustomEvent<Suggestion>) => void;
         /**
           * Whether the previous suggestions will be presented when the input gets focus again.
-          * @default false
          */
         "suggestOnFocus"?: boolean;
         /**
           * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
-          * @default null
          */
         "suggestions"?: Suggestion[] | SuggestionGroup[] | null;
     }
@@ -2943,12 +2842,10 @@ declare namespace LocalJSX {
     interface DsoBanner {
         /**
           * Compact mode.
-          * @default false
          */
         "compact"?: boolean;
         /**
           * *Icon can only be hidden when the 'compact' property is set to true.  Option to show banner icon.
-          * @default false
          */
         "icon"?: boolean;
         /**
@@ -2959,7 +2856,6 @@ declare namespace LocalJSX {
     interface DsoButtonGroup {
         /**
           * The direction in which the buttons are displayed.  Defaults to `row`.
-          * @default "row"
          */
         "direction"?: ButtonGroupDirection;
     }
@@ -2984,7 +2880,6 @@ declare namespace LocalJSX {
     interface DsoCardContainer {
         /**
           * The mode of the Card Container.
-          * @default "list"
          */
         "mode"?: CardContainerMode;
     }
@@ -2997,12 +2892,10 @@ declare namespace LocalJSX {
         "describedBy"?: string;
         /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * Should the input be focused on load?
-          * @default false
          */
         "dsoAutofocus"?: boolean;
         /**
@@ -3023,7 +2916,6 @@ declare namespace LocalJSX {
         "min"?: string | undefined;
         /**
           * Name of the date picker input.
-          * @default "dso-date"
          */
         "name"?: string;
         /**
@@ -3048,12 +2940,10 @@ declare namespace LocalJSX {
         "onDsoKeyUp"?: (event: DsoDatePickerCustomEvent<DatePickerKeyboardEvent>) => void;
         /**
           * Should the input be marked as required?
-          * @default false
          */
         "required"?: boolean;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
-          * @default ""
          */
         "value"?: string;
     }
@@ -3064,17 +2954,14 @@ declare namespace LocalJSX {
         "describedBy"?: string;
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-          * @default "right"
          */
         "direction"?: DsoDatePickerLegacyDirection;
         /**
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * Should the input be focused on load?
-          * @default false
          */
         "dsoAutofocus"?: boolean;
         /**
@@ -3095,7 +2982,6 @@ declare namespace LocalJSX {
         "min"?: string | undefined;
         /**
           * Name of the date picker input.
-          * @default "date"
          */
         "name"?: string;
         /**
@@ -3120,17 +3006,14 @@ declare namespace LocalJSX {
         "onDsoKeyUp"?: (event: DsoDatePickerLegacyCustomEvent<DsoDatePickerLegacyKeyboardEvent>) => void;
         /**
           * Should the input be marked as required?
-          * @default false
          */
         "required"?: boolean;
         /**
           * Defines a specific role attribute for the date picker input.
-          * @default null
          */
         "role"?: string | null;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
-          * @default ""
          */
         "value"?: string;
     }
@@ -3155,7 +3038,6 @@ declare namespace LocalJSX {
         "alternativeTitle"?: string;
         /**
           * Enables annotations.
-          * @default false
          */
         "annotated"?: boolean;
         /**
@@ -3164,27 +3046,22 @@ declare namespace LocalJSX {
         "annotationsWijzigactie"?: DocumentComponentAnnotationsWijzigactie;
         /**
           * Marks as draft.
-          * @default false
          */
         "bevatOntwerpInformatie"?: boolean;
         /**
           * Marks this Document Component as belonging to an active filter.
-          * @default false
          */
         "filtered"?: boolean;
         /**
           * When a child Document Component has a status "Draft".
-          * @default false
          */
         "genesteOntwerpInformatie"?: boolean;
         /**
           * Marks Document Component as reserved.
-          * @default false
          */
         "gereserveerd"?: boolean;
         /**
           * The heading element to use.
-          * @default "h2"
          */
         "heading"?: "h2" | "h3" | "h4" | "h5" | "h6";
         /**
@@ -3205,12 +3082,10 @@ declare namespace LocalJSX {
         "mark"?: DocumentComponentMarkFunction;
         /**
           * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
-          * @default "document"
          */
         "mode"?: DocumentComponentMode;
         /**
           * Marks this Document Component as not-applicable.
-          * @default false
          */
         "notApplicable"?: boolean;
         /**
@@ -3239,12 +3114,10 @@ declare namespace LocalJSX {
         "onDsoTableOfContentsClick"?: (event: DsoDocumentComponentCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * This boolean attribute indicates whether the children are visible.
-          * @default false
          */
         "open"?: boolean;
         /**
           * When the Annotation is opened, set this to true.
-          * @default false
          */
         "openAnnotation"?: boolean;
         /**
@@ -3261,7 +3134,6 @@ declare namespace LocalJSX {
         "type"?: string;
         /**
           * Marks the Document Component as expired.
-          * @default false
          */
         "vervallen"?: boolean;
         /**
@@ -3272,29 +3144,24 @@ declare namespace LocalJSX {
     interface DsoDropdownMenu {
         /**
           * Whether the menu is checkable.
-          * @default false
          */
         "checkable"?: boolean;
         /**
           * Alignment of the dropdown
-          * @default "left"
          */
         "dropdownAlign"?: "left" | "right";
         /**
           * Space between button and dropdown options
-          * @default 2
          */
         "dropdownOptionsOffset"?: number;
         /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
-          * @default false
          */
         "open"?: boolean;
     }
     interface DsoExpandable {
         /**
           * Set to `true` to show the content animated.
-          * @default false
          */
         "enableAnimation"?: boolean;
         /**
@@ -3317,7 +3184,6 @@ declare namespace LocalJSX {
     interface DsoHeader {
         /**
           * Used to show the login/logout option. 'none' renders nothing.
-          * @default "none"
          */
         "authStatus"?: "none" | "loggedIn" | "loggedOut";
         /**
@@ -3334,7 +3200,6 @@ declare namespace LocalJSX {
         "logoutUrl"?: string;
         /**
           * The main menu items.
-          * @default []
          */
         "mainMenu"?: HeaderMenuItem[];
         /**
@@ -3343,12 +3208,10 @@ declare namespace LocalJSX {
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
         /**
           * Show a help-button or link in the header
-          * @default false
          */
         "showHelp"?: boolean | undefined;
         /**
           * Either have the dropdown menu appear automatically or always.
-          * @default "auto"
          */
         "useDropDownMenu"?: "always" | "auto";
         /**
@@ -3423,7 +3286,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * The label.
-          * @default "Toelichting bij optie"
          */
         "label"?: string;
         /**
@@ -3462,7 +3324,6 @@ declare namespace LocalJSX {
         "step"?: number;
         /**
           * The unit of the range.
-          * @default ""
          */
         "unit"?: string;
         /**
@@ -3503,7 +3364,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * To disable the Legend Item
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3526,7 +3386,6 @@ declare namespace LocalJSX {
     interface DsoListButton {
         /**
           * Whether the List Button is checked.
-          * @default false
          */
         "checked"?: boolean;
         /**
@@ -3535,7 +3394,6 @@ declare namespace LocalJSX {
         "count"?: number;
         /**
           * Whether the List Button is disabled.
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3569,6 +3427,10 @@ declare namespace LocalJSX {
     }
     interface DsoLogo {
         /**
+          * Sets a compact class on the host element.
+         */
+        "compact"?: boolean;
+        /**
           * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
@@ -3582,7 +3444,6 @@ declare namespace LocalJSX {
         "logoUrl"?: string;
         /**
           * An alternative name for the logo wordmark Omgevingsloket. For instance `Environment| Desk`. It should contains a pipe-character: the left-hand side of the pipe will be shown in grasgroen, the right-hand side of the pipe will be shown in bosgroen. When omitted the logo wordmark will default to Omgevingsloket, with 'Omgevings' shown in grasgroen and 'loket' in bosgroen.
-          * @default "Omgevings|loket"
          */
         "name"?: string;
         /**
@@ -3605,7 +3466,6 @@ declare namespace LocalJSX {
         "baseLayers": BaseLayer[];
         /**
           * To group the overlays together. Generally the default value suffices.
-          * @default uuidv4()
          */
         "group"?: string;
         /**
@@ -3632,14 +3492,12 @@ declare namespace LocalJSX {
         "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         /**
           * To show and hide the Map Controls.
-          * @default false
          */
         "open"?: boolean;
     }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
-          * @default uuidv4()
          */
         "group"?: string;
         /**
@@ -3658,7 +3516,6 @@ declare namespace LocalJSX {
         "current"?: number;
         /**
           * The label for the input field.
-          * @default "Zoeken in document"
          */
         "label"?: string;
         /**
@@ -3689,12 +3546,10 @@ declare namespace LocalJSX {
     interface DsoModal {
         /**
           * when `false` the close button in the header will not be rendered.  Needs `modalTitle` to be set.
-          * @default false
          */
         "closable"?: boolean;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog`.
-          * @default "dialog"
          */
         "dialogRole"?: string | null;
         /**
@@ -3711,7 +3566,6 @@ declare namespace LocalJSX {
         "onDsoClose"?: (event: DsoModalCustomEvent<ModalCloseEvent>) => void;
         /**
           * The element to return focus to after the modal is closed.  * `undefined` will return focus to the previously focused element (default). * `false` will not return focus to any element. * or, provide your own `HTMLElement` that will receive focus upon closing.
-          * @default undefined
          */
         "returnFocus"?: false | HTMLElement | undefined;
     }
@@ -3722,7 +3576,6 @@ declare namespace LocalJSX {
         "onDsoClose"?: (event: DsoOnboardingTipCustomEvent<OnboardingTipCloseEvent>) => void;
         /**
           * Where to place the Onboarding Tip relative to its reference element.
-          * @default "right"
          */
         "placement"?: OnboardingTipPlacement;
     }
@@ -3733,7 +3586,6 @@ declare namespace LocalJSX {
         "content"?: OzonContentInputType;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
-          * @default false
          */
         "inline"?: boolean;
         /**
@@ -3764,7 +3616,6 @@ declare namespace LocalJSX {
         "currentPage"?: number;
         /**
           * This function is called to format the href
-          * @default (page) => "#" + page
          */
         "formatHref"?: (page: number) => string;
         /**
@@ -3783,7 +3634,6 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         /**
           * To display the panel as an emphasized panel.
-          * @default false
          */
         "emphasized"?: boolean;
         /**
@@ -3806,7 +3656,6 @@ declare namespace LocalJSX {
         "onDsoPlekinfoCardClick"?: (event: DsoPlekinfoCardCustomEvent<PlekinfoCardClickEvent>) => void;
         /**
           * Opens the urls in a new window or tab
-          * @default false
          */
         "targetBlank"?: boolean;
         /**
@@ -3817,12 +3666,10 @@ declare namespace LocalJSX {
     interface DsoProgressBar {
         /**
           * When the operation completes.
-          * @default 100
          */
         "max"?: number;
         /**
           * From where progress is made.
-          * @default 0
          */
         "min"?: number;
         /**
@@ -3954,17 +3801,14 @@ declare namespace LocalJSX {
         "accessibleLabel"?: string;
         /**
           * Set to true if Slide Toggle is checked.
-          * @default false
          */
         "checked"?: boolean;
         /**
           * Disables the Slide Toggle, preventing it from checking/unchecking and therefor not emitting any events.
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`.
-          * @default v4()
          */
         "identifier"?: string;
         /**
@@ -4007,7 +3851,6 @@ declare namespace LocalJSX {
     interface DsoTable {
         /**
           * Prevents the table being opened in a modal.
-          * @default false
          */
         "noModal"?: boolean;
     }
@@ -4016,12 +3859,10 @@ declare namespace LocalJSX {
     interface DsoToggletip {
         /**
           * Toggletip label.
-          * @default "Toelichting"
          */
         "label"?: string;
         /**
           * Toggletip position.
-          * @default "right"
          */
         "position"?: Placement;
         /**
@@ -4036,22 +3877,18 @@ declare namespace LocalJSX {
     interface DsoTooltip {
         /**
           * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
-          * @default false
          */
         "active"?: boolean;
         /**
           * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
-          * @default false
          */
         "descriptive"?: boolean;
         /**
           * Set attribute `no-arrow` to hide the arrow
-          * @default false
          */
         "noArrow"?: boolean;
         /**
           * Set position of tooltip relative to target
-          * @default "top"
          */
         "position"?: Placement;
         /**
@@ -4064,7 +3901,6 @@ declare namespace LocalJSX {
         "stateless"?: boolean;
         /**
           * Set position strategy of tooltip
-          * @default "auto"
          */
         "strategy"?: "auto" | "absolute" | "fixed";
     }
@@ -4093,17 +3929,14 @@ declare namespace LocalJSX {
         "activeTab"?: ViewerGridTab;
         /**
           * Set to true when document panel should show.
-          * @default false
          */
         "documentPanelOpen"?: boolean;
         /**
           * Size of the panel when component loads.  Default size is `large`.
-          * @default "large"
          */
         "documentPanelSize"?: ViewerGridPanelSize;
         /**
           * Set to true when filter panel should show.
-          * @default false
          */
         "filterPanelOpen"?: boolean;
         /**
@@ -4112,17 +3945,14 @@ declare namespace LocalJSX {
         "filterPanelTitle"?: string;
         /**
           * Set to show main panel expanded.
-          * @default false
          */
         "mainPanelExpanded"?: boolean;
         /**
           * Set to hide the main panel.
-          * @default false
          */
         "mainPanelHidden"?: boolean;
         /**
           * Size of the panel when component loads.  Default size is `large`.
-          * @default "large"
          */
         "mainSize"?: ViewerGridPanelSize;
         /**
@@ -4155,7 +3985,6 @@ declare namespace LocalJSX {
         "onDsoMainSizeChangeAnimationEnd"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeAnimationEndEvent>) => void;
         /**
           * Set to true when overlay should show.
-          * @default false
          */
         "overlayOpen"?: boolean;
     }
@@ -4166,7 +3995,6 @@ declare namespace LocalJSX {
         "jsonFile"?: string;
         /**
           * The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"
-          * @default "document"
          */
         "mode"?: DocumentComponentMode;
         /**
@@ -4179,7 +4007,6 @@ declare namespace LocalJSX {
         "onDsotTableOfContentsClick"?: (event: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
         /**
           * The default state for all Document Components.
-          * @default false
          */
         "openDefault"?: boolean;
         /**
@@ -4188,7 +4015,6 @@ declare namespace LocalJSX {
         "ozonContentUrlResolver"?: OzonContentUrlResolver1;
         /**
           * Show canvas to where Document Component extends.
-          * @default false
          */
         "showCanvas"?: boolean;
     }

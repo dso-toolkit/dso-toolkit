@@ -66,6 +66,7 @@ export function logoStories<Implementation, Templates, TemplateFnReturnType>({
     WithLabel: {
       args: {
         label: "Regels op de kaart",
+        compact: true,
       },
       render,
     },
@@ -73,6 +74,7 @@ export function logoStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         label: "Regels op de kaart",
         labelUrl: "regels-op-de-kaart",
+        compact: true,
       },
       render,
     },
@@ -87,6 +89,7 @@ export function logoStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Regels op de kaart",
         labelUrl: "regels-op-de-kaart",
         logoUrl: "/",
+        compact: true,
       },
       render,
     },
@@ -100,6 +103,7 @@ export function logoStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         ribbon: "beta",
         label: "Regels op de kaart",
+        compact: true,
       },
       render,
     },
