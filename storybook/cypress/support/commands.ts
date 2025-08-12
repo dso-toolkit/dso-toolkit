@@ -95,7 +95,7 @@ function terminalLog(violations: axe.Result[]) {
 
 Cypress.Commands.add("dsoCheckA11y", (context, options) => {
   // https://stackoverflow.com/questions/79530199/testing-storybook-with-cypress-gets-axe-is-already-running-error
-  cy.window().then(async (win) => {
+  return cy.window().then(async (win) => {
     if (!win.axe) {
       throw new Error("Axe is not loaded");
     }
