@@ -13,6 +13,17 @@ export interface FormGroupFilesArgs {
   warning: string;
 }
 
+export const formGroupFilesArgs: FormGroupFilesArgs = {
+  id: "mijn-id",
+  label: "Files",
+  required: false,
+  disabled: false,
+  errorText: "Voeg een document toe.",
+  warning:
+    "U vraagt of wij een document vertrouwelijk willen behandelen. Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.",
+  addFileButtonVariant: "primary",
+};
+
 export const formGroupFilesArgTypes: ArgTypes<FormGroupFilesArgs> = {
   id: {
     control: {

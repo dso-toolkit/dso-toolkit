@@ -14,6 +14,15 @@ export interface FormGroupConfirmArgs {
   selectableValue: string;
 }
 
+export const formGroupConfirmContent: FormGroupConfirmArgs = {
+  id: "mijn-id",
+  required: false,
+  disabled: false,
+  errorText: "Dit moet u verplicht aanvinken",
+  selectableLabel: "Ik ga akkoord met de voorwaarden",
+  selectableValue: "Akkoord",
+};
+
 export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
   id: {
     control: {

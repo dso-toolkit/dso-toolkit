@@ -7,23 +7,23 @@ import { StoriesParameters, StoryObj } from "../../template-container";
 import {
   FormGroupCheckboxesArgs,
   formGroupCheckboxesArgTypes,
+  formGroupCheckboxesArgs,
   formGroupCheckboxesArgsMapper,
 } from "./checkboxes/form-group-checkboxes.args";
-import { checkboxesContent } from "./checkboxes/form-group-checkboxes.content";
 import { FormGroupCheckboxes } from "./checkboxes/form-group-checkboxes.models";
 import {
   FormGroupConfirmArgs,
   formGroupConfirmArgTypes,
   formGroupConfirmArgsMapper,
+  formGroupConfirmContent,
 } from "./confirm/form-group-confirm.args";
-import { formGroupConfirmContent } from "./confirm/form-group-confirm.content";
 import { FormGroupConfirm } from "./confirm/form-group-confirm.models";
 import {
   FormGroupDatePickerArgs,
   formGroupDatePickerArgTypes,
+  formGroupDatePickerArgs,
   formGroupDatePickerArgsMapper,
 } from "./date-picker/form-group-date-picker.args";
-import { datePickerContent } from "./date-picker/form-group-date-picker.content";
 import { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
 import {
   FormGroupDatePickerLegacyArgs,
@@ -32,46 +32,55 @@ import {
 } from "./date-picker-legacy/form-group-date-picker-legacy.args";
 import { datePickerLegacyContent } from "./date-picker-legacy/form-group-date-picker-legacy.content";
 import { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
-import { FormGroupFilesArgs, formGroupFilesArgTypes, formGroupFilesArgsMapper } from "./files/form-group-files.args";
-import { files, filesContent } from "./files/form-group-files.content";
+import {
+  FormGroupFilesArgs,
+  formGroupFilesArgTypes,
+  formGroupFilesArgs,
+  formGroupFilesArgsMapper,
+} from "./files/form-group-files.args";
+import { files } from "./files/form-group-files.content";
 import { FormGroupFiles } from "./files/form-group-files.models";
-import { FormGroupInputArgs, formGroupInputArgTypes, formGroupInputArgsMapper } from "./input/form-group-input.args";
-import { inputContent } from "./input/form-group-input.content";
+import {
+  FormGroupInputArgs,
+  formGroupInputArgTypes,
+  formGroupInputArgs,
+  formGroupInputArgsMapper,
+} from "./input/form-group-input.args";
 import { FormGroupInput, FormGroupInputDate } from "./input/form-group-input.models";
 import {
   FormGroupRadiosArgs,
   formGroupRadiosArgTypes,
+  formGroupRadiosArgs,
   formGroupRadiosArgsMapper,
 } from "./radios/form-group-radios.args";
-import { radiosContent } from "./radios/form-group-radios.content";
 import { FormGroupRadios } from "./radios/form-group-radios.models";
 import {
   FormGroupSearchBarArgs,
   formGroupSearchBarArgTypes,
+  formGroupSearchBarArgs,
   formGroupSearchBarArgsMapper,
 } from "./search-bar/form-group-search-bar.args";
-import { searchBarContent } from "./search-bar/form-group-search-bar.content";
 import { FormGroupSearchBar } from "./search-bar/form-group-search-bar.models";
 import {
   FormGroupSelectArgs,
   formGroupSelectArgTypes,
+  formGroupSelectArgs,
   formGroupSelectArgsMapper,
 } from "./select/form-group-select.args";
-import { selectContent } from "./select/form-group-select.content";
 import { FormGroupSelect } from "./select/form-group-select.models";
 import {
   FormGroupStaticArgs,
   formGroupStaticArgTypes,
+  formGroupStaticArgs,
   formGroupStaticArgsMapper,
 } from "./static/form-group-static.args";
-import { staticContent } from "./static/form-group-static.content";
 import { FormGroupStatic } from "./static/form-group-static.models";
 import {
   FormGroupTextareaArgs,
   formGroupTextareaArgTypes,
+  formGroupTextareaArgs,
   formGroupTextareaArgsMapper,
 } from "./textarea/form-group-textarea.args";
-import { textareaContent } from "./textarea/form-group-textarea.content";
 import { FormGroupTextarea } from "./textarea/form-group-textarea.models";
 
 export type FormGroupDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
@@ -148,7 +157,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
 }: FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>): FormGroupStories {
   return {
     Checkboxes: {
-      args: checkboxesContent,
+      args: formGroupCheckboxesArgs,
       argTypes: formGroupCheckboxesArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupCheckboxesTemplate }) =>
@@ -164,7 +173,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     DatePicker: {
-      args: datePickerContent,
+      args: formGroupDatePickerArgs,
       argTypes: formGroupDatePickerArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerTemplate }) =>
@@ -180,7 +189,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Files: {
-      args: filesContent,
+      args: formGroupFilesArgs,
       argTypes: formGroupFilesArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
@@ -189,7 +198,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       storyName: "Files (files uploaded)",
     },
     NoFiles: {
-      args: filesContent,
+      args: formGroupFilesArgs,
       argTypes: formGroupFilesArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupFilesTemplate }) =>
@@ -198,7 +207,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       storyName: "Files (no files uploaded)",
     },
     Input: {
-      args: inputContent,
+      args: formGroupInputArgs,
       argTypes: formGroupInputArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupInputTemplate }) =>
@@ -206,7 +215,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Radios: {
-      args: radiosContent,
+      args: formGroupRadiosArgs,
       argTypes: formGroupRadiosArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupRadiosTemplate }) =>
@@ -214,7 +223,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     SearchBar: {
-      args: searchBarContent,
+      args: formGroupSearchBarArgs,
       argTypes: formGroupSearchBarArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupSearchBarTemplate }) =>
@@ -222,7 +231,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Select: {
-      args: selectContent,
+      args: formGroupSelectArgs,
       argTypes: formGroupSelectArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupSelectTemplate }) =>
@@ -230,7 +239,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Static: {
-      args: staticContent,
+      args: formGroupStaticArgs,
       argTypes: formGroupStaticArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupStaticTemplate }) =>
@@ -238,7 +247,7 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       ),
     },
     Textarea: {
-      args: textareaContent,
+      args: formGroupTextareaArgs,
       argTypes: formGroupTextareaArgTypes,
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupTextareaTemplate }) =>

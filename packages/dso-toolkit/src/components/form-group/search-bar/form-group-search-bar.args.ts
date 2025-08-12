@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../../storybook";
 
@@ -20,6 +21,19 @@ export interface FormGroupSearchBarArgs {
   searchBarValue: string;
   searchBarButtonLabel: string;
 }
+
+export const formGroupSearchBarArgs: FormGroupSearchBarArgs = {
+  id: "mijn-id",
+  label: "Search bar",
+  infoButtonLabel: "Toelichting bij veld",
+  infoActive: false,
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
+  infoFixed: false,
+  searchBarValue: "een waarde",
+  searchBarButtonLabel: "Zoeken",
+  infoButtonHandler: fn(),
+  infoCloseHandler: fn(),
+};
 
 export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
   id: {
@@ -47,10 +61,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
       type: "boolean",
     },
   },
-  infoButtonHandler: {
-    ...argTypeAction,
-    action: "infoButton click",
-  },
+  infoButtonHandler: argTypeAction(),
   infoButtonLabel: {
     control: {
       type: "text",
@@ -61,10 +72,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
       type: "text",
     },
   },
-  infoCloseHandler: {
-    ...argTypeAction,
-    action: "info close click",
-  },
+  infoCloseHandler: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",

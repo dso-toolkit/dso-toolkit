@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../../storybook";
 
@@ -23,6 +24,21 @@ export interface FormGroupSelectArgs {
   infoCloseHandler: HandlerFunction;
   infoFixed: boolean;
 }
+
+export const formGroupSelectArgs: FormGroupSelectArgs = {
+  metOptGroup: false,
+  id: "mijn-id",
+  label: 'Vul "een waarde" in',
+  required: false,
+  disabled: false,
+  multiple: false,
+  infoButtonLabel: "Toelichting bij veld",
+  infoActive: false,
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
+  infoFixed: false,
+  infoButtonHandler: fn(),
+  infoCloseHandler: fn(),
+};
 
 export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
   metOptGroup: {
@@ -76,10 +92,7 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
       type: "boolean",
     },
   },
-  infoButtonHandler: {
-    ...argTypeAction,
-    action: "infoButton click",
-  },
+  infoButtonHandler: argTypeAction(),
   infoButtonLabel: {
     control: {
       type: "text",
@@ -90,10 +103,7 @@ export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
       type: "text",
     },
   },
-  infoCloseHandler: {
-    ...argTypeAction,
-    action: "info close click",
-  },
+  infoCloseHandler: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",

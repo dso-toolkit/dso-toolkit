@@ -1,16 +1,4 @@
-import { FormGroupFilesArgs } from "./form-group-files.args";
 import { FormGroupFilesFile } from "./form-group-files.models";
-
-export const filesContent: Omit<FormGroupFilesArgs, "infoButtonHandler" | "infoCloseHandler"> = {
-  id: "mijn-id",
-  label: "Files",
-  required: false,
-  disabled: false,
-  errorText: "Voeg een document toe.",
-  warning:
-    "U vraagt of wij een document vertrouwelijk willen behandelen. Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.",
-  addFileButtonVariant: "primary",
-};
 
 export const files: FormGroupFilesFile[] = [
   {
