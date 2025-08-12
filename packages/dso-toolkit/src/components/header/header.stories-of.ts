@@ -96,6 +96,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
     WithLabel: {
       args: {
         label: "Maatregelen op maat",
+        compact: true,
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),
@@ -105,6 +106,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         label: "Maatregelen op maat",
         labelUrl: "maatregelen-op-maat",
+        compact: true,
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),
@@ -115,6 +117,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
         label: "Maatregelen op maat",
         labelUrl: "maatregelen-op-maat",
         logoUrl: "/",
+        compact: true,
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),
@@ -132,6 +135,7 @@ export function headerStories<Implementation, Templates, TemplateFnReturnType>({
       args: {
         label: "Maatregelen op maat",
         ribbon: "beta",
+        compact: true,
       },
       render: templateContainer.render(storyTemplates, (args, { headerTemplate }) =>
         headerTemplate(headerArgsMapper(args)),

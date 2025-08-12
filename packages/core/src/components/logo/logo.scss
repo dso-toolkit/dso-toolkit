@@ -44,6 +44,10 @@
   }
 }
 
+:host(.compact) {
+  max-block-size: 40px;
+}
+
 .logo-label-url {
   grid-area: label;
 }
