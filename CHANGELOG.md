@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍇 Release 78.0.0 - 2025-08-14
+
 ### Changed
 * Alert: Icon moet 24x24px zijn ([#3211](https://github.com/dso-toolkit/dso-toolkit/issues/3211))
 
