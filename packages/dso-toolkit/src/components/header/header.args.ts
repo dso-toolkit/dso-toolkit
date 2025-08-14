@@ -10,7 +10,6 @@ export interface HeaderArgs {
   labelUrl: string;
   logoUrl: string;
   ribbon: string;
-  compact: boolean;
   mainMenu: {
     label: string;
     url: string;
@@ -35,7 +34,6 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   labelUrl: noControl,
   logoUrl: noControl,
   ribbon: noControl,
-  compact: noControl,
   mainMenu: noControl,
   noMainMenu: {
     name: "Geen menu",

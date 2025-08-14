@@ -4,7 +4,6 @@ export interface Logo {
   labelUrl?: string;
   logoUrl?: string;
   ribbon?: string;
-  compact?: boolean;
   dsoLogoClick?: (e: CustomEvent<LogoClickEvent>) => void;
   dsoLabelClick?: (e: CustomEvent<LogoLabelClickEvent>) => void;
 }

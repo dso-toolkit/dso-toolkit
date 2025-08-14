@@ -27,11 +27,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Selectable: Deprecate HTML/CSS implementatie ([#3203](https://github.com/dso-toolkit/dso-toolkit/issues/3203))
 * Progress Bar: Deprecate ([#3264](https://github.com/dso-toolkit/dso-toolkit/issues/3264))
 
-### Removed
-* **BREAKING** Whitebox: Remove ([#3242](https://github.com/dso-toolkit/dso-toolkit/issues/3242))
-
 ### Fixed
 * Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
+
+### Removed
+* **BREAKING** Whitebox: Remove ([#3242](https://github.com/dso-toolkit/dso-toolkit/issues/3242))
 
 ### Task
 * Build: Bundling Warning SOURCEMAP_BROKEN ([#3107](https://github.com/dso-toolkit/dso-toolkit/issues/3107))

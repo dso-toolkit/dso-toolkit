@@ -869,10 +869,6 @@ export namespace Components {
     }
     interface DsoLogo {
         /**
-          * Sets a compact class on the host element.
-         */
-        "compact": boolean;
-        /**
           * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
         "label"?: string;
@@ -3426,10 +3422,6 @@ declare namespace LocalJSX {
         "sublabel"?: string;
     }
     interface DsoLogo {
-        /**
-          * Sets a compact class on the host element.
-         */
-        "compact"?: boolean;
         /**
           * The label clarifies the service within the Omgevingsloket, shown as a subtitle (and on smaller screens as the main wordmark itself).
          */
