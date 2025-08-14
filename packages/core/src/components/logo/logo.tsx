@@ -5,7 +5,6 @@ import {
   EventEmitter,
   Fragment,
   FunctionalComponent,
-  Host,
   Prop,
   h,
 } from "@stencil/core";
@@ -73,12 +72,6 @@ export class Logo implements ComponentInterface {
   ribbon?: string;
 
   /**
-   * Sets a compact class on the host element.
-   */
-  @Prop({ reflect: true })
-  compact: boolean = false;
-
-  /**
    * Emitted when the logo is clicked (only when logoUrl is set).
    */
   @Event()
@@ -100,7 +93,7 @@ export class Logo implements ComponentInterface {
 
   render() {
     return (
-      <Host class={{ compact: this.compact }}>
+      <>
         {this.logoUrl ? (
           <a class="logo-url" href={this.logoUrl} onClick={this.handleLogoClick}>
             <DsoLogo name={this.name} />
@@ -118,7 +111,7 @@ export class Logo implements ComponentInterface {
             </a>
           ))}
         {this.ribbon && <div class="logo-ribbon">{this.ribbon}</div>}
-      </Host>
+      </>
     );
   }
 }

@@ -44,7 +44,7 @@
   }
 }
 
-:host(.compact) {
+:host([label]:not([label=""])) {
   max-block-size: 40px;
 }
 

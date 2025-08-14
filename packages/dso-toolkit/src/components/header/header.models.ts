@@ -3,7 +3,6 @@ export interface Header {
   labelUrl?: string;
   logoUrl?: string;
   ribbon?: string;
-  compact?: boolean;
   mainMenu?: HeaderMenuItem[];
   useDropDownMenu?: "always" | "auto";
   authStatus?: "none" | "loggedOut" | "loggedIn";
