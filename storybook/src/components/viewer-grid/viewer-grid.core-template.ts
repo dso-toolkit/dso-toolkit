@@ -24,7 +24,6 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
       dsoActiveTabSwitch,
       dsoDocumentPanelSizeChange,
       dsoDocumentPanelSizeChangeAnimationEnd,
-      dsoMainPanelExpand,
       dsoMainPanelToggle,
       filterPanel,
       topBar,
@@ -50,7 +49,6 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           @dsoActiveTabSwitch=${dsoActiveTabSwitch}
           @dsoDocumentPanelSizeChange=${dsoDocumentPanelSizeChange}
           @dsoDocumentPanelSizeChangeAnimationEnd=${dsoDocumentPanelSizeChangeAnimationEnd}
-          @dsoMainPanelExpand=${dsoMainPanelExpand}
           @dsoMainPanelToggle=${dsoMainPanelToggle}
         >
           ${filterPanel ? html`<div slot="filter-panel">${filterPanel}</div>` : nothing}

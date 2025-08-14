@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { List, ListItem, Type } from "./list.models.js";
 

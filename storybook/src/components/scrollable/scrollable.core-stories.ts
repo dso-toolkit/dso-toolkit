@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/scrollable/readme.md?raw";
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { ScrollableArgs, scrollableMeta, scrollableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

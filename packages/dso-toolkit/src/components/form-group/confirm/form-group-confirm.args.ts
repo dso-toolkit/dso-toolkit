@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { FormGroupConfirm } from "./form-group-confirm.models";
@@ -13,6 +13,15 @@ export interface FormGroupConfirmArgs {
   selectableLabel: string;
   selectableValue: string;
 }
+
+export const formGroupConfirmContent: FormGroupConfirmArgs = {
+  id: "mijn-id",
+  required: false,
+  disabled: false,
+  errorText: "Dit moet u verplicht aanvinken",
+  selectableLabel: "Ik ga akkoord met de voorwaarden",
+  selectableValue: "Akkoord",
+};
 
 export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
   id: {

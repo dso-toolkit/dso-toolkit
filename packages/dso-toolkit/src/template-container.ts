@@ -1,4 +1,4 @@
-import { Args, ArgsStoryFn, Renderer, StoryAnnotations } from "@storybook/types";
+import { Args, ArgsStoryFn, Renderer, StoryAnnotations } from "storybook/internal/types";
 
 export type StoryObj<TArgs, TRenderer extends Renderer> = StoryAnnotations<TRenderer, TArgs>;
 

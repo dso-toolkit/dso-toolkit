@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { InfoButton } from "./info-button.models.js";
 
@@ -26,9 +28,7 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
       type: "boolean",
     },
   },
-  dsoToggle: {
-    action: "dsoToggle",
-  },
+  dsoToggle: argTypeAction(),
 };
 
 export function infoButtonArgsMapper(a: InfoButtonArgs): Required<InfoButton> {

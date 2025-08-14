@@ -14,7 +14,7 @@
     "build-www": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["yarn clear", "yarn storybook:build-extract"],
+        "commands": ["yarn clear", "yarn storybook:build"],
         "cwd": "angular-workspace"
       },
       "dependsOn": ["build"],

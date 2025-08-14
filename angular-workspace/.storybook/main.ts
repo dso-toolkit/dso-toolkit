@@ -25,6 +25,7 @@ const config: StorybookConfig = {
       .map((f) => parse(f))
       .filter((p) => p.ext === ".svg")
       .map((p) => p.name);
+
     return {
       ...config,
       ICONS: icons.join(","),
@@ -38,9 +39,6 @@ const config: StorybookConfig = {
         transcludeMarkdown: true,
       },
     },
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
@@ -57,15 +55,9 @@ const config: StorybookConfig = {
 
     return config;
   },
-  framework: {
-    name: "@storybook/angular",
-    options: {},
-  },
+  framework: "@storybook/angular",
   core: {
     disableTelemetry: true,
-  },
-  docs: {
-    autodocs: true,
   },
 };
 

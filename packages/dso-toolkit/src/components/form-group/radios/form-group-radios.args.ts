@@ -1,8 +1,9 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupRadios } from "./form-group-radios.models";
 
@@ -22,6 +23,20 @@ export interface FormGroupRadiosArgs {
   infoFixed: boolean;
   inline?: boolean;
 }
+
+export const formGroupRadiosArgs: FormGroupRadiosArgs = {
+  id: "mijn-id",
+  label: "Radios",
+  required: false,
+  disabled: false,
+  infoButtonLabel: "Toelichting bij veld",
+  infoActive: false,
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
+  infoFixed: false,
+  errorText: "Maak een keuze",
+  infoButtonHandler: fn(),
+  infoCloseHandler: fn(),
+};
 
 export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
   id: {
@@ -65,10 +80,7 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
       type: "boolean",
     },
   },
-  infoButtonHandler: {
-    ...noControl,
-    action: "infoButton click",
-  },
+  infoButtonHandler: argTypeAction(),
   infoButtonLabel: {
     control: {
       type: "text",
@@ -79,10 +91,7 @@ export const formGroupRadiosArgTypes: ArgTypes<FormGroupRadiosArgs> = {
       type: "text",
     },
   },
-  infoCloseHandler: {
-    ...noControl,
-    action: "info close click",
-  },
+  infoCloseHandler: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",
@@ -131,7 +140,10 @@ export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
     infoButton:
       a.infoButtonLabel && a.infoText
         ? {
-            dsoToggle: a.infoButtonHandler,
+            dsoToggle: (e) => {
+              console.log(a);
+              return a.infoButtonHandler(e.detail);
+            },
             active: a.infoActive,
             label: a.infoButtonLabel,
           }

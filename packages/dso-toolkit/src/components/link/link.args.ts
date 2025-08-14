@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { Link } from "./link.models.js";
 
@@ -15,7 +15,7 @@ export interface LinkArgs {
 export const linkArgTypes: ArgTypes<LinkArgs> = {
   icon: {
     control: {
-      type: "string",
+      type: "text",
     },
   },
   iconMode: {

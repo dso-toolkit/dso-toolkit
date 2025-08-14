@@ -1,5 +1,5 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
 import { noControl } from "../../storybook/index.js";
 import { AdvancedSelect, selectExampleOption } from "../advanced-select";
@@ -37,7 +37,6 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
   },
   featureAction: {
     ...noControl,
-    action: "dsoToggleSection",
   },
   featuresOpen: {
     control: {

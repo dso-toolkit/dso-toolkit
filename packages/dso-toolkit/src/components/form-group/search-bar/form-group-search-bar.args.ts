@@ -1,7 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupSearchBar } from "./form-group-search-bar.models";
 
@@ -20,6 +21,19 @@ export interface FormGroupSearchBarArgs {
   searchBarValue: string;
   searchBarButtonLabel: string;
 }
+
+export const formGroupSearchBarArgs: FormGroupSearchBarArgs = {
+  id: "mijn-id",
+  label: "Search bar",
+  infoButtonLabel: "Toelichting bij veld",
+  infoActive: false,
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
+  infoFixed: false,
+  searchBarValue: "een waarde",
+  searchBarButtonLabel: "Zoeken",
+  infoButtonHandler: fn(),
+  infoCloseHandler: fn(),
+};
 
 export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
   id: {
@@ -47,10 +61,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
       type: "boolean",
     },
   },
-  infoButtonHandler: {
-    ...noControl,
-    action: "infoButton click",
-  },
+  infoButtonHandler: argTypeAction(),
   infoButtonLabel: {
     control: {
       type: "text",
@@ -61,10 +72,7 @@ export const formGroupSearchBarArgTypes: ArgTypes<FormGroupSearchBarArgs> = {
       type: "text",
     },
   },
-  infoCloseHandler: {
-    ...noControl,
-    action: "info close click",
-  },
+  infoCloseHandler: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",

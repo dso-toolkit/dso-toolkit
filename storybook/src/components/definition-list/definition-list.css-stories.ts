@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { DefinitionListArgs, definitionListMeta, definitionListStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/definition-list/readme.md?raw";
 

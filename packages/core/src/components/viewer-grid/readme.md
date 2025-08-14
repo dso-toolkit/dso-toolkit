@@ -27,7 +27,6 @@
 | `dsoCloseOverlay`                        | Emitted when user wants to close the overlay.                                                                                  | `CustomEvent<ViewerGridCloseOverlayEvent>`           |
 | `dsoDocumentPanelSizeChange`             | Emitted on interaction with sizing buttons.                                                                                    | `CustomEvent<ViewerGridChangeSizeEvent>`             |
 | `dsoDocumentPanelSizeChangeAnimationEnd` | Emitted after main size animation.                                                                                             | `CustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
-| `dsoMainPanelExpand`                     | Emitted when the user wants to expand the main panel.                                                                          | `CustomEvent<ViewerGridMainExpandEvent>`             |
 | `dsoMainPanelToggle`                     | Emitted when the user toggles the visibility of the main panel.  Also emitted by scripting when the panels do not fit anymore. | `CustomEvent<ViewerGridMainToggleEvent>`             |
 | `dsoMainSizeChangeAnimationEnd`          | Emitted after main size animation.                                                                                             | `CustomEvent<ViewerGridChangeSizeAnimationEndEvent>` |
 

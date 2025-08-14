@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { footnotesMeta, footnotesStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/footnotes/readme.md?raw";
 import { html } from "lit-html";

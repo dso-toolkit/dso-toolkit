@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { SlideToggle } from "./slide-toggle.models.js";
 
@@ -48,15 +48,13 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
   label: {
     ...noControl,
   },
-  dsoActiveChange: {
-    ...noControl,
-    action: "dsoActiveChange",
-  },
+  dsoActiveChange: argTypeAction(),
 };
 
 export function slideToggleArgsMapper(a: SlideToggleArgs): SlideToggle {
   return {
     ...a,
+    dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
   };
 }
 

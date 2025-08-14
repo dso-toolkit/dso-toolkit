@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md?raw";
-import { type Meta } from "@storybook/web-components";
+import { type Meta } from "@storybook/web-components-vite";
 import {
   AutosuggestArgs,
   AutosuggestSuggestion,

@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook";
+import { argTypeAction } from "../../storybook";
 
 import { Alert, AlertStatus } from "./alert.models.js";
 
@@ -42,13 +42,8 @@ export const alertArgTypes: ArgTypes<AlertArgs> = {
       type: "boolean",
     },
   },
-  click: {
-    action: "closed",
-  },
-  dsoClose: {
-    ...noControl,
-    action: "dsoClose",
-  },
+  click: argTypeAction(),
+  dsoClose: argTypeAction(),
 };
 
 export function alertArgsMapper<TemplateFnReturnType>(
@@ -62,6 +57,6 @@ export function alertArgsMapper<TemplateFnReturnType>(
     onClick: a.withButton ? () => a.click(a) : undefined,
     withRoleAlert: a.withRoleAlert,
     closable: a.closable,
-    dsoClose: a.dsoClose,
+    dsoClose: (e) => a.dsoClose(e.detail),
   };
 }

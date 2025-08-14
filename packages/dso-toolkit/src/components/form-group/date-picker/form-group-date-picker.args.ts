@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { FormGroupDatePicker } from "./form-group-date-picker.models";
 
@@ -11,6 +11,14 @@ export interface FormGroupDatePickerArgs {
   errorText?: string;
   helpText?: string;
 }
+
+export const formGroupDatePickerArgs: Omit<FormGroupDatePickerArgs, "infoButtonHandler" | "infoCloseHandler"> = {
+  id: "mijn-id",
+  label: "Datum",
+  required: false,
+  disabled: false,
+  errorText: "Dit moet u verplicht aanvinken",
+};
 
 export const formGroupDatePickerArgTypes: ArgTypes<FormGroupDatePickerArgs> = {
   id: {

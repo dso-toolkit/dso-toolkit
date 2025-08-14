@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 export interface AutosuggestArgs {
   suggestOnFocus: boolean;
@@ -38,13 +40,7 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
       type: "text",
     },
   },
-  dsoSelect: {
-    action: "dsoSelect",
-  },
-  dsoChange: {
-    action: "dsoChange",
-  },
-  dsoSearch: {
-    action: "dsoSearch",
-  },
+  dsoSelect: argTypeAction(),
+  dsoChange: argTypeAction(),
+  dsoSearch: argTypeAction(),
 };

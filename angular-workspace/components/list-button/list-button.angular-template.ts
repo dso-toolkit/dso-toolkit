@@ -19,8 +19,8 @@ export const angularListButton: ComponentImplementation<ListButton> = {
             [disabled]="disabled"
             [checked]="checked"
             [subcontentPrefix]="subcontentPrefix"
-            (dsoCountChange)="dsoCountChange()"
-            (dsoSelectedChange)="dsoSelectedChange()"
+            (dsoCountChange)="dsoCountChange($event)"
+            (dsoSelectedChange)="dsoSelectedChange($event)"
           >
             <span slot="subcontent" *ngIf="subcontent" [innerHTML]="$any(subcontent) | trustHtml"></span>
           </dso-list-button>

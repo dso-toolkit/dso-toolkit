@@ -1,5 +1,5 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { v4 as uuidv4 } from "uuid";
 
 import { componentArgs } from "../../storybook";

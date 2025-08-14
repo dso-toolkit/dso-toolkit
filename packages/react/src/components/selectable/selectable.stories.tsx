@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { SelectableArgs, selectableMeta, selectableStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

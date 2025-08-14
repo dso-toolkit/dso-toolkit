@@ -1,8 +1,9 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 import { v4 as uuidv4 } from "uuid";
 
-import { noControl } from "../../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { FormGroupCheckboxes } from "./form-group-checkboxes.models";
 
@@ -21,6 +22,20 @@ export interface FormGroupCheckboxesArgs {
   infoCloseHandler: HandlerFunction;
   infoFixed: boolean;
 }
+
+export const formGroupCheckboxesArgs: FormGroupCheckboxesArgs = {
+  id: "mijn-id",
+  label: "Checkboxes",
+  required: false,
+  disabled: false,
+  infoButtonLabel: "Toelichting bij veld",
+  infoActive: false,
+  infoText: '<div class="dso-rich-content"><h5>Heading</h5><p>Rich text</p></div>',
+  infoFixed: false,
+  errorText: "Maak een keuze",
+  infoButtonHandler: fn(),
+  infoCloseHandler: fn(),
+};
 
 export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
   id: {
@@ -64,10 +79,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
       type: "boolean",
     },
   },
-  infoButtonHandler: {
-    ...noControl,
-    action: "infoButton click",
-  },
+  infoButtonHandler: argTypeAction(),
   infoButtonLabel: {
     control: {
       type: "text",
@@ -78,10 +90,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
       type: "text",
     },
   },
-  infoCloseHandler: {
-    ...noControl,
-    action: "info close click",
-  },
+  infoCloseHandler: argTypeAction(),
   infoFixed: {
     control: {
       type: "boolean",

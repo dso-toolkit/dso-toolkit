@@ -21,10 +21,10 @@ export const angularHeader: ComponentImplementation<Header> = {
             [userProfileName]="userProfileName"
             [userHomeUrl]="userHomeUrl"
             [userHomeActive]="userHomeActive"
-            (dsoHeaderClick)="dsoHeaderClick()"
+            (dsoHeaderClick)="dsoHeaderClick($event)"
           >
             <div slot="logo">
-              <dso-logo [label]="label" [ribbon]="ribbon"></dso-logo>
+              <dso-logo [label]="label" [ribbon]="ribbon" [logoUrl]="logoUrl" [labelUrl]="labelUrl"></dso-logo>
             </div>
           </dso-header>
         `,

@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

@@ -6,7 +6,7 @@ const transitionDuration = 300;
 describe("Map Controls", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls")
-      .get("dso-map-controls")
+      .get("dso-map-controls.hydrated")
       .then(($mapControls) => {
         $mapControls.on("dsoZoomIn", cy.stub().as("dsoZoomIn"));
         $mapControls.on("dsoZoomOut", cy.stub().as("dsoZoomOut"));
@@ -67,12 +67,14 @@ describe("Map Controls", () => {
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
 
-    cy.get("dso-map-controls.hydrated").matchImageSnapshot({ padding: [0, 16, 0, 100] });
+    cy.get("dso-map-controls.hydrated")
+      .wait(300) // transitionDuration
+      .matchImageSnapshot({ padding: [0, 16, 0, 100] });
   });
 
   it('panel should have English header "Map layers" and close button "Hide panel Map layers"', () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
-      .get("dso-map-controls")
+      .get("dso-map-controls.hydrated")
       .shadow()
       .as("dsoMapControlsShadow")
       .find("#toggle-visibility-button")
@@ -88,7 +90,9 @@ describe("Map Controls", () => {
       .find("button span")
       .should("have.text", "Hide panel Map layers");
 
-    cy.get("dso-map-controls.hydrated").matchImageSnapshot({ padding: [0, 16, 0, 100] });
+    cy.get("dso-map-controls[open].hydrated")
+      .wait(300) // transitionDuration
+      .matchImageSnapshot({ padding: [0, 16, 0, 100] });
   });
 
   it("should emit zoom events", () => {

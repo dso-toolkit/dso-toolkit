@@ -1,4 +1,4 @@
-import { ArgTypes } from "@storybook/types";
+import { ArgTypes } from "storybook/internal/types";
 
 import { buttons } from "./form.content.js";
 import { Form, FormAsteriskExplanationPosition, FormContent } from "./form.models.js";

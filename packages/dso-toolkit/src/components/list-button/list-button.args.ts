@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction } from "../../storybook";
 
 import { ListButton } from "./list-button.models.js";
 
@@ -65,19 +65,15 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
       type: "number",
     },
   },
-  dsoCountChange: {
-    ...noControl,
-    action: "dsoCountChange",
-  },
-  dsoSelectedChange: {
-    ...noControl,
-    action: "dsoSelectedChange",
-  },
+  dsoCountChange: argTypeAction(),
+  dsoSelectedChange: argTypeAction(),
 };
 
 export function listButtonArgsMapper(a: ListButtonArgs): ListButton {
   return {
     ...a,
+    dsoCountChange: (e) => a.dsoCountChange(e.detail),
+    dsoSelectedChange: (e) => a.dsoSelectedChange(e.detail),
   };
 }
 

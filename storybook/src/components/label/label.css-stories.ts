@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { LabelArgs, labelMeta, labelStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/label/readme.md?raw";
 

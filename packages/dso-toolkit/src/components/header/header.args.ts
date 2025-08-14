@@ -1,7 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { argTypeAction, noControl } from "../../storybook";
 
 import { Header } from "./header.models.js";
 
@@ -93,10 +93,7 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
       type: "text",
     },
   },
-  dsoHeaderClick: {
-    ...noControl,
-    action: "dsoHeaderClick",
-  },
+  dsoHeaderClick: argTypeAction(),
 };
 
 export function headerArgsMapper(a: HeaderArgs): Required<Header> {
@@ -105,7 +102,7 @@ export function headerArgsMapper(a: HeaderArgs): Required<Header> {
     mainMenu: a.noMainMenu ? [] : a.mainMenu,
     dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.dsoHeaderClick(event);
+      a.dsoHeaderClick(event.detail);
     },
   };
 }

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/web-components";
+import { Meta } from "@storybook/web-components-vite";
 import { rowEqualHeightsMeta, rowEqualHeightsStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/row-equal-heights/readme.md?raw";
 import { html } from "lit-html";

@@ -1,7 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
-import { noControl } from "../../storybook";
+import { argTypeAction, noControl } from "../../storybook";
 import { Label } from "../label/label.models.js";
 import { Renvooi } from "../renvooi/renvooi.models.js";
 import { SlideToggle } from "../slide-toggle";
@@ -19,12 +20,13 @@ export interface PlekinfoCardArgs {
   dsoPlekinfoCardClick: HandlerFunction;
 }
 
-export const plekinfoCardArgs: Pick<PlekinfoCardArgs, "href" | "targetBlank" | "label" | "active" | "interaction"> = {
+export const plekinfoCardArgs: Omit<PlekinfoCardArgs, "meta" | "wijzigactie"> = {
   href: "#",
   targetBlank: false,
   interaction: undefined,
   label: "Radarverstorende bouwwerken",
   active: false,
+  dsoPlekinfoCardClick: fn(),
 };
 
 export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
@@ -58,10 +60,7 @@ export const plekinfoCardArgTypes: ArgTypes<Omit<PlekinfoCardArgs, "meta">> = {
   interaction: {
     ...noControl,
   },
-  dsoPlekinfoCardClick: {
-    ...noControl,
-    action: "dsoPlekinfoCardClick",
-  },
+  dsoPlekinfoCardClick: argTypeAction(),
 };
 
 export function plekinfoCardArgsMapper<TemplateFnReturnType>(

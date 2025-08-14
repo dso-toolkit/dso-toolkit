@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -40,6 +41,9 @@ export function responsiveElementMeta<TRenderer extends Renderer>({ readme }: Me
 > {
   return {
     argTypes: responsiveElementArgTypes,
+    args: {
+      dsoSizeChange: fn(),
+    },
     parameters: {
       docs: readme
         ? {

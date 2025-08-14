@@ -1,5 +1,5 @@
 import readme from "@dso-toolkit/react/src/components/alert/readme.md?raw";
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { AlertArgs, alertMeta, alertStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";

@@ -18,16 +18,35 @@ const meta: Meta<HeaderArgs> = {
 
 export default meta;
 
-const { Default, WithLabel, WithRibbon, WithLabelAndRibbon, UserHomeActive, WithLinkToHelp, WithButtonToHelp } =
-  headerStories({
-    templateContainer,
-    storyTemplates: (templates) => {
-      const { headerTemplate } = templates;
+const {
+  Default,
+  WithLabel,
+  WithRibbon,
+  WithLabelAndRibbon,
+  UserHomeActive,
+  WithLinkToHelp,
+  WithButtonToHelp,
+  WithLabelAndLabelUrl,
+  WithLogoUrlAndLabelAndLabelUrl,
+} = headerStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { headerTemplate } = templates;
 
-      return {
-        headerTemplate,
-      };
-    },
-  });
+    return {
+      headerTemplate,
+    };
+  },
+});
 
-export { Default, UserHomeActive, WithButtonToHelp, WithLabel, WithLabelAndRibbon, WithLinkToHelp, WithRibbon };
+export {
+  Default,
+  UserHomeActive,
+  WithButtonToHelp,
+  WithLabel,
+  WithLabelAndLabelUrl,
+  WithLabelAndRibbon,
+  WithLinkToHelp,
+  WithLogoUrlAndLabelAndLabelUrl,
+  WithRibbon,
+};

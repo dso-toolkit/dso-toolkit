@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
@@ -33,6 +34,10 @@ export function logoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {
 > {
   return {
     argTypes: logoArgTypes,
+    args: {
+      dsoLabelClick: fn(),
+      dsoLogoClick: fn(),
+    },
     parameters: {
       docs: readme
         ? {

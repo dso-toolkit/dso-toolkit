@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { Scrollable } from "./scrollable.models.js";
 
@@ -8,14 +10,16 @@ export interface ScrollableArgs {
 }
 
 export const scrollableArgTypes: ArgTypes<ScrollableArgs> = {
-  dsoScrollEnd: {
-    action: "dsoScrollEnd",
-  },
+  dsoScrollEnd: argTypeAction(),
 };
 
 export function scrollableArgsMapper<TemplateFnReturnType>(
   a: ScrollableArgs,
   children: TemplateFnReturnType,
 ): Scrollable<TemplateFnReturnType> {
-  return { ...a, children };
+  return {
+    ...a,
+    dsoScrollEnd: (e) => a.dsoScrollEnd(e.detail),
+    children,
+  };
 }

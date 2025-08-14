@@ -1,10 +1,12 @@
-import type { Meta } from "@storybook/web-components";
+import type { Meta } from "@storybook/web-components-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/icon/readme.md?raw";
 
 import { templateContainer } from "../../templates";
 
 import { decorator } from "./icon-overview.decorator";
+
+const icons: string[] = import.meta.env?.VITE_ICONS?.split(",") || [];
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
@@ -23,6 +25,7 @@ const { Default, Overview } = iconStories({
     };
   },
   decorator,
+  icons,
 });
 
 export { Default, Overview };

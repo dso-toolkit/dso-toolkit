@@ -1,5 +1,7 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
+
+import { argTypeAction } from "../../storybook";
 
 import { Button, ButtonAnchor } from "./button.models.js";
 
@@ -53,9 +55,7 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
       type: "boolean",
     },
   },
-  click: {
-    action: "onClick",
-  },
+  click: argTypeAction(),
   type: {
     options: ["button", "submit"],
     control: {

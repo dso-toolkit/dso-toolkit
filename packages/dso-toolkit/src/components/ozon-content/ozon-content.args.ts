@@ -1,8 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes } from "@storybook/types";
 import escapeStringRegexp from "escape-string-regexp";
+import { HandlerFunction } from "storybook/actions";
+import { ArgTypes } from "storybook/internal/types";
 
-import { isOdd, noControl } from "../../storybook";
+import { argTypeAction, isOdd, noControl } from "../../storybook";
 
 import { OzonContent, OzonContentUrlResolver } from "./ozon-content.models.js";
 
@@ -37,14 +37,8 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: "boolean",
     },
   },
-  dsoAnchorClick: {
-    ...noControl,
-    action: "dsoAnchorClick",
-  },
-  dsoOzonContentMarkItemHighlight: {
-    ...noControl,
-    action: "dsoOzonContentMarkItemHighlight",
-  },
+  dsoAnchorClick: argTypeAction(),
+  dsoOzonContentMarkItemHighlight: argTypeAction(),
   urlResolver: {
     ...noControl,
   },

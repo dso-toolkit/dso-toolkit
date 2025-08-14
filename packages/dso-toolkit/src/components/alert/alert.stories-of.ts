@@ -1,5 +1,6 @@
-import { ComponentAnnotations, Renderer } from "@storybook/types";
 import { compiler } from "markdown-to-jsx";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
@@ -38,6 +39,8 @@ export function alertMeta<TRenderer extends Renderer>({ readme }: MetaOptions = 
     args: {
       withButton: true,
       closable: false,
+      click: fn(),
+      dsoClose: fn(),
     },
     parameters: {
       docs: readme
