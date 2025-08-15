@@ -10,7 +10,7 @@ const icons: string[] = import.meta.env?.VITE_ICONS?.split(",") || [];
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),
-  title: "HTML|CSS/Icon",
+  title: "HTML|CSS/Icon (Deprecated)",
 };
 
 export default meta;
