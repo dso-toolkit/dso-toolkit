@@ -1,8 +1,10 @@
 @use "../../variables/units";
+@use "../../variables/colors";
 @use "../../variables/media-query-breakpoints";
 @use "../rich-content";
 @use "../list";
 @use "../../di";
+@use "../step-counter";
 
 @use "list.variables" as css-list-variables;
 
@@ -138,5 +140,47 @@ ul {
 ul:has(dso-project-item) {
   li + li {
     margin-block-start: units.$block-spacing-small;
+  }
+}
+
+ol.dso-list-ordered-action {
+  @include list.unstyled();
+  counter-reset: item;
+
+  li {
+    position: relative;
+    counter-increment: step-count-item;
+    padding-block: 0.75rem 1.25rem;
+    padding-inline: 4.5rem 1rem;
+    min-block-size: calc(step-counter.$size + step-counter.$border-size * 2);
+
+    > *:first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  li:last-child {
+    padding-block-end: 0;
+  }
+
+  li::before {
+    @include step-counter.step-counter-styling(0, 0);
+
+    content: counter(step-count-item);
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  li:not(:last-child)::after {
+    content: "";
+    background-color: colors.$bosgroen;
+    block-size: 100%;
+    position: absolute;
+    inset-block-start: 1.25rem;
+    inset-inline-start: 1.375rem;
+    inline-size: units.$u1 * 0.5;
   }
 }

@@ -15,6 +15,7 @@ function listClassMap(
     "dso-img-list": modifier === "img-list",
     "dso-list-unstyled": modifier === "unstyled",
     "dso-img-list-spaced": modifier === "img-list" && !!spaced,
+    "dso-list-ordered-action": modifier === "ordered-action",
   });
 }
 
@@ -74,7 +75,7 @@ export const cssList: ComponentImplementation<List> = {
               ${"status" in item && item.statusDescription
                 ? html`<span class="dso-status">${item.statusDescription}:</span>`
                 : nothing}
-              ${item.text}
+              ${"titleLabel" in item && item.titleLabel ? html`<h3>${item.titleLabel}</h3>` : nothing} ${item.text}
             </li>
           `,
         )}
