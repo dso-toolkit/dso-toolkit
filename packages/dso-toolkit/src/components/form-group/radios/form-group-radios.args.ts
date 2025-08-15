@@ -141,7 +141,6 @@ export function formGroupRadiosArgsMapper<TemplateFnReturnType>(
       a.infoButtonLabel && a.infoText
         ? {
             dsoToggle: (e) => {
-              console.log(a);
               return a.infoButtonHandler(e.detail);
             },
             active: a.infoActive,
