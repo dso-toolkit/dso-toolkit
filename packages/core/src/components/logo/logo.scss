@@ -45,7 +45,7 @@
 }
 
 :host([label]:not([label=""])) {
-  max-block-size: 40px;
+  block-size: 2.5rem;
 }
 
 .logo-label-url {

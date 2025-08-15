@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
+* Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
 
 ## 🦕 Release 78.1.0 - 2025-08-19
 
@@ -26,9 +27,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Selectable: Deprecate HTML/CSS implementatie ([#3203](https://github.com/dso-toolkit/dso-toolkit/issues/3203))
 * Progress Bar: Deprecate ([#3264](https://github.com/dso-toolkit/dso-toolkit/issues/3264))
-
-### Fixed
-* Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
 
 ### Removed
 * **BREAKING** Whitebox: Remove ([#3242](https://github.com/dso-toolkit/dso-toolkit/issues/3242))
