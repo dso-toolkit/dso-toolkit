@@ -9,8 +9,8 @@ export const cssIcon: ComponentImplementation<Icon> = {
   implementation: "html-css",
   template: () =>
     function iconTemplate({ icon, slot }) {
-      return html`<svg class="di di-${icon}" slot=${ifDefined(slot)}>
-        <use href="#${icon}" />
-      </svg>`;
+      return html`<!-- START DEPRECATED --><svg class="di di-${icon}" slot=${ifDefined(slot)}>
+          <use href="#${icon}" /></svg
+        ><!-- END DEPRECATED -->`;
     },
 };
