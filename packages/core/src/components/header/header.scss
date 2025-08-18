@@ -27,6 +27,12 @@
   display: block;
 }
 
+@media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+  ::slotted([slot="logo"]) {
+    --_dso-logo-block-size-overwrite: #{units.$ru6};
+  }
+}
+
 .dso-header {
   border-block-end: 1px solid colors.$grijs-20;
   display: flex;

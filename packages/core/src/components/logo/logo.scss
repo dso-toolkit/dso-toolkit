@@ -5,8 +5,7 @@
 @use "~dso-toolkit/src/components/link";
 
 :host {
-  max-block-size: units.$ru6;
-  block-size: units.$ru6;
+  block-size: var(--_dso-logo-block-size, #{units.$ru6});
   display: grid;
   grid-template-areas: "target wordmark label";
   grid-template-columns: repeat(3, max-content);
@@ -45,7 +44,10 @@
 }
 
 :host([label]:not([label=""])) {
-  block-size: 2.5rem;
+  --_dso-logo-block-size: var(
+    --_dso-logo-block-size-overwrite,
+    #{units.$ru5}
+  ); // --_dso-logo-block-size-overwrite can be set anywhere in the DOM to overwrite the default block size
 }
 
 .logo-label-url {
