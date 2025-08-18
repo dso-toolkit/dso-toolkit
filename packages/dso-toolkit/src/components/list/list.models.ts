@@ -18,12 +18,16 @@ export interface List {
   spaced?: boolean;
 }
 
-export type ListItem = ListItemDefault | ListItemWithStatus;
+export type ListItem = ListItemDefault | ListItemWithStatus | ListItemOrderedAction;
 
 export interface ListItemDefault {
   text: string;
   imgSrc?: string;
   icon?: Icon;
+}
+
+export interface ListItemOrderedAction extends ListItemDefault {
+  titleLabel: string;
 }
 
 export interface ListItemWithStatus extends ListItemDefault {

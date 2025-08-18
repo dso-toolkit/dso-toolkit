@@ -8,22 +8,29 @@
   position: relative;
 }
 
+@mixin step-counter-styling(
+  $inset-inline-start: units.$u2,
+  $inset-block-start: step-counter-variables.$icon-size * -1
+) {
+  background-color: colors.$bosgroen;
+  border: step-counter-variables.$border-size solid colors.$lime;
+  border-radius: 50%;
+  box-sizing: content-box;
+  color: colors.$wit;
+  font-size: 1.25rem;
+  font-weight: 500;
+  block-size: step-counter-variables.$size;
+  inset-inline-start: $inset-inline-start;
+  line-height: step-counter-variables.$size;
+  position: absolute;
+  text-align: center;
+  inset-block-start: $inset-block-start;
+  inline-size: step-counter-variables.$size;
+}
+
 @mixin step-counter() {
   .dso-step-counter {
-    background-color: colors.$bosgroen;
-    border: step-counter-variables.$border-size solid colors.$lime;
-    border-radius: 50%;
-    box-sizing: content-box;
-    color: colors.$wit;
-    font-size: 1.25rem;
-    font-weight: 500;
-    block-size: step-counter-variables.$size;
-    inset-inline-start: units.$u2;
-    line-height: step-counter-variables.$size;
-    position: absolute;
-    text-align: center;
-    inset-block-start: step-counter-variables.$icon-size * -1;
-    inline-size: step-counter-variables.$size;
+    @include step-counter-styling();
   }
 }
 

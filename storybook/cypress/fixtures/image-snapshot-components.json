@@ -279,7 +279,7 @@
   {
     "name": "list",
 
-    "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons"],
+    "stories": ["unordered", "ordered", "group", "columns", "image-list", "unstyled", "icons", "ordered-action"],
     "type": "html-css"
   },
   {
