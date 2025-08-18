@@ -4,10 +4,11 @@ authors: [iterox]
 
 # DSO Toolkit v78.1.0 🦕
 
-Deze release bevat twee **deprecations** voor de volgende componenten:
+Deze release bevat drie **deprecations** voor de volgende componenten:
 
 - Icon (HTML/CSS implementatie)
 - Date Picker (Legacy)
+- Accordion (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -53,4 +54,64 @@ Gebruik het Date Picker component.
 
 ```html
 <dso-date-picker></dso-date-picker>
+```
+
+## Accordion
+
+Het HTML/CSS component `Accordion` is deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd
+worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Accordion.
+
+❌
+
+```html
+<div class="dso-accordion">
+  <div class="dso-accordion-section dso-open">
+    <h2 class="dso-section-handle">
+      <button type="button" aria-expanded="true">
+        Is het verplicht om de Vergunningcheck te doen?
+
+        <div class="dso-section-handle-addons">
+          <span class="dso-label dso-label-attention dso-compact"> Attentie </span>
+        </div>
+      </button>
+    </h2>
+    <div class="dso-section-body">
+      <p>
+        Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig
+        heeft of melding moet doen.
+      </p>
+      <p>
+        Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt
+        dan meegenomen in de aanvraag of melding.
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+✅
+
+```html
+<dso-accordion>
+  <dso-accordion-section
+    heading="h2"
+    handle-title="Is het verplicht om de Vergunningcheck te doen?"
+    label="Attentie"
+    label-status="attention"
+    open
+  >
+    <p>
+      Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig
+      heeft of melding moet doen.
+    </p>
+    <p>
+      Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt
+      dan meegenomen in de aanvraag of melding.
+    </p>
+  </dso-accordion-section>
+</dso-accordion>
 ```
