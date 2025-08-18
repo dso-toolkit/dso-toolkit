@@ -4,9 +4,10 @@ authors: [iterox]
 
 # DSO Toolkit v78.1.0 🦕
 
-Deze release bevat een **deprecation** voor het volgende component:
+Deze release bevat twee **deprecations** voor de volgende componenten:
 
 - Icon (HTML/CSS implementatie)
+- Date Picker (Legacy)
 
 <!-- truncate -->
 
@@ -31,4 +32,25 @@ Gebruik de Core implementatie van Icon.
 
 ```html
 <dso-icon icon="user"></dso-icon>
+```
+
+## Date Picker (Legacy)
+
+Het Date Picker (Legacy) component is deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd
+worden.
+
+### Migratiepad
+
+Gebruik het Date Picker component.
+
+❌
+
+```html
+<dso-date-picker-legacy></dso-date-picker-legacy>
+```
+
+✅
+
+```html
+<dso-date-picker></dso-date-picker>
 ```
