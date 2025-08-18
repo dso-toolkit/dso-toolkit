@@ -16,7 +16,7 @@ import {
 
 const meta: Meta<AccordionArgs> = {
   ...accordionMeta({ readme }),
-  title: "HTML|CSS/Accordion",
+  title: "HTML|CSS/Accordion (Deprecated)",
 };
 
 export default meta;

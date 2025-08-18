@@ -111,7 +111,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         `;
       }
 
-      return html`
+      return html`<!-- START DEPRECATED -->
         <div
           class="dso-accordion ${classMap({
             [`dso-accordion-${accordion.variant}`]: !!accordion.variant,
@@ -120,6 +120,6 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         >
           ${accordion.sections.map((section) => accordionSectionTemplate(accordion, section))}
         </div>
-      `;
+        <!-- END DEPRECATED --> `;
     },
 };
