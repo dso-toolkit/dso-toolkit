@@ -1,0 +1,34 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v78.1.0 🦕
+
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Icon (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Icon
+
+Het HTML/CSS component `Icon` is deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd
+worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Icon.
+
+❌
+
+```html
+<svg class="di di-user">
+  <use href="#user"></use>
+</svg>
+```
+
+✅
+
+```html
+<dso-icon icon="user"></dso-icon>
+```

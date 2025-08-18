@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * List: Ordered Action variant ([#3209](https://github.com/dso-toolkit/dso-toolkit/issues/3209))
 
+### Deprecated
+* Icon: Deprecate HTML/CSS Implementatie ([#3259](https://github.com/dso-toolkit/dso-toolkit/issues/3259))
+
 ## 🍇 Release 78.0.0 - 2025-08-14
 
 ### Changed
