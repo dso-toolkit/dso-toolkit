@@ -22,7 +22,7 @@ export const listArgTypes: ArgTypes<ListArgs> = {
     },
   },
   modifier: {
-    options: [undefined, "group", "columns", "img-list"],
+    options: [undefined, "group", "columns", "img-list", "ordered-action"],
     control: {
       type: "select",
     },
