@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Icon: Deprecate HTML/CSS Implementatie ([#3259](https://github.com/dso-toolkit/dso-toolkit/issues/3259))
+* Date Picker (Legacy): Deprecate ([#3261](https://github.com/dso-toolkit/dso-toolkit/issues/3261))
 
 ## 🍇 Release 78.0.0 - 2025-08-14
 

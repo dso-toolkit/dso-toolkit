@@ -21,7 +21,7 @@ export const coreDatePickerLegacy: ComponentImplementation<DatePickerLegacy> = {
       direction,
       describedBy,
     }) {
-      return html`
+      return html`<!-- START DEPRECATED -->
         <dso-date-picker-legacy
           @dsoDateChange=${(e: CustomEvent<DsoDatePickerLegacyChangeEvent>) => dsoDateChange?.(e)}
           direction=${ifDefined(direction)}
@@ -33,7 +33,7 @@ export const coreDatePickerLegacy: ComponentImplementation<DatePickerLegacy> = {
           ?disabled=${disabled}
           ?invalid=${invalid}
           described-by=${ifDefined(describedBy)}
-        ></dso-date-picker-legacy>
-      `;
+        ></dso-date-picker-legacy
+        ><!-- END DEPRECATED -->`;
     },
 };

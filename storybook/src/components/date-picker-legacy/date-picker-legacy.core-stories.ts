@@ -12,7 +12,7 @@ import {
 
 const meta: Meta<DatePickerLegacyArgs> = {
   ...datePickerLegacyMeta({ readme }),
-  title: "Core/Date Picker (Legacy)",
+  title: "Core/Date Picker (Legacy) (Deprecated)",
 };
 
 export default meta;

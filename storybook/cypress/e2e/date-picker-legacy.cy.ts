@@ -2,7 +2,7 @@ describe("Date Picker (Legacy)", () => {
   const ANIMATION_TIME = 400; // Keep in sync with date-picker-legacy.scss $date-picker-legacy-transition-duration
 
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy--with-label");
+    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy-deprecated--with-label");
     cy.injectAxe();
   });
 
@@ -367,14 +367,18 @@ describe("Date Picker (Legacy)", () => {
   });
 
   it("should padStart days and months with 0", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy--with-label&args=value:1-1-2000");
+    cy.visit(
+      "http://localhost:45000/iframe.html?id=core-date-picker-legacy-deprecated--with-label&args=value:1-1-2000",
+    );
     cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("have.value", "01-01-2000");
   });
 
   it("should autofocus", () => {
     cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("not.have.focus");
 
-    cy.visit("http://localhost:45000/iframe.html?id=core-date-picker-legacy--with-label&args=autofocus:true");
+    cy.visit(
+      "http://localhost:45000/iframe.html?id=core-date-picker-legacy-deprecated--with-label&args=autofocus:true",
+    );
 
     cy.get("dso-date-picker-legacy.hydrated").find("input.dso-date__input").should("have.focus");
   });
