@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🦕 Release 78.1.0 - 2025-08-19
+
 ### Added
 * List: Ordered Action variant ([#3209](https://github.com/dso-toolkit/dso-toolkit/issues/3209))
 
