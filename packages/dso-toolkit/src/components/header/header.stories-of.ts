@@ -62,9 +62,17 @@ export function headerMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
           label: "Hulpcentrum",
           url: "#hulpcentrum",
         },
+        {
+          label: "Omgevingswet ondersteuning",
+          url: "#omgevingswet-ondersteuning",
+        },
+        {
+          label: "Een willekeurig menu item",
+          url: "#een-willekeurig-menu-item",
+        },
       ],
       noMainMenu: false,
-      useDropDownMenu: "auto",
+      compact: "auto",
       authStatus: "loggedIn",
       loginUrl: "#login",
       logoutUrl: "#logout",

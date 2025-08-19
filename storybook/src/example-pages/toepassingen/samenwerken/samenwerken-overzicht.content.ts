@@ -9,7 +9,7 @@ export const header: Header = {
       url: "#",
     },
   ],
-  useDropDownMenu: "auto",
+  compact: "auto",
   authStatus: "loggedIn",
   loginUrl: "#login",
   logoutUrl: "#logout",

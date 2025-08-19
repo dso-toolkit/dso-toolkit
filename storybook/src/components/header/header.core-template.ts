@@ -14,7 +14,7 @@ export const coreHeader: ComponentImplementation<Header> = {
       logoUrl,
       ribbon,
       mainMenu,
-      useDropDownMenu,
+      compact,
       authStatus,
       loginUrl,
       logoutUrl,
@@ -28,7 +28,7 @@ export const coreHeader: ComponentImplementation<Header> = {
     }) {
       return html`<dso-header
         .mainMenu=${mainMenu}
-        use-drop-down-menu=${ifDefined(useDropDownMenu)}
+        compact=${ifDefined(compact)}
         auth-status=${ifDefined(authStatus)}
         login-url=${ifDefined(loginUrl)}
         logout-url=${ifDefined(logoutUrl)}
