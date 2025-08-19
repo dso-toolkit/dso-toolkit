@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: flex;
@@ -35,6 +36,12 @@
   background-color: transparent;
 
   cursor: pointer;
+
+  &:focus,
+  &:focus-visible {
+    outline-offset: units.$focus-outline-offset;
+    outline-color: colors.$focus-outline-color;
+  }
 
   &::-webkit-slider-runnable-track {
     block-size: 0.5rem;
