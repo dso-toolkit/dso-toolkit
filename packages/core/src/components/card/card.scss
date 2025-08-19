@@ -5,6 +5,7 @@
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @include utilities.box-sizing();
+@include utilities.focus();
 
 :host {
   display: block;

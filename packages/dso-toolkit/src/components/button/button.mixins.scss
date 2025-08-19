@@ -179,11 +179,6 @@
   user-select: none;
   vertical-align: middle;
 
-  &:focus,
-  &:focus-visible {
-    outline-offset: 2px; // Normalize between a and button
-  }
-
   &:active {
     outline: 0;
   }

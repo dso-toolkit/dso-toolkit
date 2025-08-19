@@ -52,12 +52,25 @@
   clip-path: rect(0 0 0 0);
 }
 
-@mixin focus-outline($offset: units.$focus-outline-offset) {
-  border-radius: units.$focus-border-radius;
-  @if $offset != 0 {
-    outline-offset: $offset;
+@mixin focus() {
+  :focus,
+  :focus-visible {
+    outline-color: colors.$focus-outline-color;
+    outline-offset: units.$focus-outline-offset;
   }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+/*
+ Tbv:
+   - selectable.mixins __selectableFunctionalStyling()
+   - form-group-files
+ */
+@mixin outline() {
   outline: units.$focus-outline-width solid colors.$focus-outline-color;
+  outline-offset: units.$focus-outline-offset;
 }
 
 /// Genereert een `transition` met vaste easing en optionele duur en delay per property.

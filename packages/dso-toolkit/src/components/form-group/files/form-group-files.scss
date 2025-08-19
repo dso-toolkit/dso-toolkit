@@ -60,7 +60,7 @@
 
     &:focus-within {
       label {
-        @include utilities.focus-outline();
+        @include utilities.outline();
       }
     }
   }
