@@ -162,7 +162,7 @@ export class DropdownMenu {
     }
   };
 
-  @Listen("keydown", { target: "window" })
+  @Listen("keydown", { target: "window", passive: false })
   keyDownListener(event: KeyboardEvent) {
     if (event.defaultPrevented || !this.open) {
       return;
