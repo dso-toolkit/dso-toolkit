@@ -175,7 +175,7 @@ dso-dropdown-menu {
             text-decoration: underline;
           }
 
-          &:visited {
+          &:visited:not(:hover):not(:focus-visible) {
             color: colors.$bosgroen;
           }
         }

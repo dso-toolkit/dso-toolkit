@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Alert: binnen Gereserveerd en Vervallen Document Component mist blauwe achtergrond ([#3257](https://github.com/dso-toolkit/dso-toolkit/issues/3257))
 * CSS Warning: "@charset" must be the first rule in the file [invalid-@charset] ([#3275](https://github.com/dso-toolkit/dso-toolkit/issues/3275))
+* Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
+* **BREAKING** Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
 
 ## 🦕 Release 78.1.0 - 2025-08-19
 
