@@ -89,3 +89,5 @@
 @use "utilities" as utilities-mixins;
 
 @include utilities-mixins.box-sizing();
+
+@include utilities-mixins.focus();

@@ -176,11 +176,6 @@
   user-select: none;
   vertical-align: middle;
 
-  &:focus,
-  &:focus-visible {
-    outline-offset: 2px; // Normalize between a and button
-  }
-
   &:active {
     outline: 0;
   }
@@ -476,11 +471,6 @@
     padding-block: units.$u1;
     padding-inline: units.$u2;
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
-
-    &:focus,
-    &:focus-visible {
-      outline-offset: -1px;
-    }
 
     &:has(span.sr-only):has(dso-icon, svg.di) {
       padding: units.$u1;

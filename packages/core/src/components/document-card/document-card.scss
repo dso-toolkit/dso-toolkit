@@ -5,6 +5,7 @@
 @use "~dso-toolkit/src/components/document-card";
 
 @include utilities.box-sizing();
+@include utilities.focus();
 
 :host {
   display: block;
