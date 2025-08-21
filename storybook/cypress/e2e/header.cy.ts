@@ -54,42 +54,65 @@ describe("Header", () => {
     const element = $header.get(0);
 
     if (element) {
-      element.mainMenu = items;
+      if (items) {
+        element.mainMenu = items;
+      } else {
+        delete element.mainMenu;
+      }
     }
   }
 
   it("should be accessible", () => {
     cy.dsoCheckA11y("dso-header.hydrated");
 
-    cy.get("dso-header.hydrated").invoke("attr", "useDropDownMenu", "always").dsoCheckA11y("dso-header.hydrated");
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
 
     cy.get("dso-header.hydrated")
-      // .matchImageSnapshot(`${Cypress.currentTest.title} -- dropdown menu`) // will be restored through #3032
       .viewport(400, 600)
       .get("dso-header")
-      .invoke("attr", "useDropDownMenu", "auto")
+      .invoke("attr", "compact", "auto")
       .dsoCheckA11y("dso-header.hydrated");
   });
 
-  it("matches snapshot", () => {
+  it("matches snapshot (all menuitems visible)", () => {
     cy.viewport(1225, 660)
       .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get("@dsoHeaderShadow")
+      .find(".dso-nav-main")
+      .should("have.class", "ready")
       .get("@dsoHeaderShadow")
       .find("dso-dropdown-menu.hydrated")
-      .should("not.exist");
+      .should("not.exist")
+      .get("dso-header.hydrated")
+      .matchImageSnapshot();
+  });
 
-    cy.get("dso-header.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- all menuitems visible`);
-
+  it("matches snapshot (2 menuitems in dropdown menu)", () => {
     cy.viewport(1000, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get("@dsoHeaderShadow")
+      .find(".dso-nav-main")
+      .should("have.class", "ready")
       .get("@dsoHeaderShadow")
       .find("dso-dropdown-menu.hydrated")
       .should("exist")
       .and("be.visible")
       .get("@dsoHeaderShadow")
       .find(".dso-dropdown-options ul li")
-      .should("have.length", 2);
+      .should("have.length", 2)
+      .get("dso-header.hydrated")
+      .matchImageSnapshot();
+  });
 
-    cy.get("dso-header.hydrated").matchImageSnapshot(`${Cypress.currentTest.title} -- 2 menuitems in dropdown menu`);
+  it("matches snapshot (compact)", () => {
+    cy.viewport(1000, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .invoke("prop", "compact", "always")
+      .get("dso-header[is-compact]")
+      .matchImageSnapshot();
   });
 
   it("should show and remove dropdownmenu", () => {
@@ -117,6 +140,8 @@ describe("Header", () => {
 
   it("should show/remove overflowmenu", () => {
     cy.viewport(1280, 600)
+      .get("dso-header")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
       .get("@dsoHeaderShadow")
       .find("nav")
       .should("exist")
@@ -370,14 +395,15 @@ describe("Header", () => {
       .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
   });
 
-  // ToDo: #2693
-  it.skip("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
+  it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
 
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
       .then(($header) => setMenuItems($header, []))
-      .matchImageSnapshot("Profile, Uitloggen and Help");
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
 
-    cy.get("dso-header.hydrated").invoke("attr", "auth-status", "loggedOut").matchImageSnapshot("Inloggen and Help");
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "auth-status", "loggedOut")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
   });
 });

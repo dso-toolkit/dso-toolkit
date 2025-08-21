@@ -7,7 +7,7 @@ export const header: Header = {
   label: "Regels op de kaart",
   ribbon: "beta",
   mainMenu: mainMenu("Regels op de kaart"),
-  useDropDownMenu: "always",
+  compact: "always",
   authStatus: "loggedIn",
   loginUrl: "#login",
   logoutUrl: "#logout",
