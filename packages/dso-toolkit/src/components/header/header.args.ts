@@ -16,7 +16,7 @@ export interface HeaderArgs {
     active?: boolean;
   }[];
   noMainMenu: boolean;
-  useDropDownMenu: "always" | "auto";
+  compact: "always" | "auto";
   authStatus: "none" | "loggedOut" | "loggedIn";
   loginUrl: string;
   logoutUrl: string;
@@ -41,7 +41,7 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
       type: "boolean",
     },
   },
-  useDropDownMenu: {
+  compact: {
     name: "Compacte header",
     options: ["always", "auto"],
     control: {

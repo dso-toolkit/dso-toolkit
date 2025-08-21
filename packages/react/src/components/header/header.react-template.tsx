@@ -12,7 +12,7 @@ export const reactHeader: ComponentImplementation<Header> = {
       label,
       ribbon,
       mainMenu,
-      useDropDownMenu,
+      compact,
       authStatus,
       loginUrl,
       logoutUrl,
@@ -27,7 +27,7 @@ export const reactHeader: ComponentImplementation<Header> = {
       return (
         <DsoHeader
           mainMenu={mainMenu}
-          useDropDownMenu={useDropDownMenu}
+          compact={compact}
           authStatus={authStatus}
           loginUrl={loginUrl}
           logoutUrl={logoutUrl}

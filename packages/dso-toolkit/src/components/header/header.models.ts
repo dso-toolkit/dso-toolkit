@@ -4,7 +4,7 @@ export interface Header {
   logoUrl?: string;
   ribbon?: string;
   mainMenu?: HeaderMenuItem[];
-  useDropDownMenu?: "always" | "auto";
+  compact?: "always" | "auto";
   authStatus?: "none" | "loggedOut" | "loggedIn";
   loginUrl?: string;
   logoutUrl?: string;
