@@ -11,7 +11,7 @@ const meta: Meta<BreadcrumbsArgs> = {
 
 export default meta;
 
-const { Breadcrumb } = breadcrumbsStories({
+const { Breadcrumbs } = breadcrumbsStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { breadcrumbsTemplate } = templates;
@@ -22,4 +22,4 @@ const { Breadcrumb } = breadcrumbsStories({
   },
 });
 
-export { Breadcrumb };
+export { Breadcrumbs };

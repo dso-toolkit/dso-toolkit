@@ -1,5 +1,5 @@
 @use "../breadcrumbs";
 
-ol.breadcrumb {
+ol.dso-breadcrumbs {
   @include breadcrumbs.root();
 }

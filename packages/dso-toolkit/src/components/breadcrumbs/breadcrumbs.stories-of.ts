@@ -10,7 +10,7 @@ import { Breadcrumbs } from "./breadcrumbs.models.js";
 type BreadcrumbsStory = StoryObj<BreadcrumbsArgs, Renderer>;
 
 interface BreadcrumbsStories {
-  Breadcrumb: BreadcrumbsStory;
+  Breadcrumbs: BreadcrumbsStory;
 }
 
 interface BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -46,7 +46,7 @@ export function breadcrumbsStories<Implementation, Templates, TemplateFnReturnTy
   templateContainer,
 }: BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType>): BreadcrumbsStories {
   return {
-    Breadcrumb: {
+    Breadcrumbs: {
       args: {
         breadcrumbs: [
           {

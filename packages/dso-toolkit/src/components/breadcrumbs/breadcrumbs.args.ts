@@ -1,5 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
 
+import { argTypeAction } from "../../storybook";
+
 import { Breadcrumb, Breadcrumbs } from "./breadcrumbs.models.js";
 
 export interface BreadcrumbsArgs {
@@ -7,11 +9,7 @@ export interface BreadcrumbsArgs {
 }
 
 export const breadcrumbsArgTypes: ArgTypes<BreadcrumbsArgs> = {
-  breadcrumbs: {
-    control: {
-      disable: true,
-    },
-  },
+  breadcrumbs: argTypeAction(),
 };
 
 export function breadcrumbsArgsMapper(a: BreadcrumbsArgs): Breadcrumbs {

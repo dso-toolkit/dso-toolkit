@@ -1,0 +1,37 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit next
+
+Deze release bevat een **Breaking** change voor het volgende component:
+
+- Breadcrumbs
+
+<!-- truncate -->
+
+## Breadcrumbs
+
+Het HTML/CSS component `Breadcrumbs` maakte nog ten onrechte gebruik van de class name in enkelvoud: `breadcrumb`.
+Daarnaast ontbrak de prefix `dso-` in de class naame. Dat hebben we in deze release gecorrigeerd. De class name is
+geworden `dso-breadcrumbs`
+
+### Migratiepad
+
+Vervang de class name `breadcrumb` door `dso-breadcrumbs`.
+
+❌
+
+```html
+<ol class="breadcrumb">
+  [..]
+</ol>
+```
+
+✅
+
+```html
+<ol class="dso-breadcrumbs">
+  [..]
+</ol>
+```

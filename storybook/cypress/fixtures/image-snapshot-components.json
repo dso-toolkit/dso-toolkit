@@ -106,7 +106,7 @@
     ],
     "type": "html-css"
   },
-  { "name": "breadcrumbs", "selector": ".breadcrumb", "stories": ["breadcrumb"], "type": "html-css" },
+  { "name": "breadcrumbs", "selector": "ol.dso-breadcrumbs", "stories": ["breadcrumbs"], "type": "html-css" },
   {
     "name": "button",
     "selector": ".dso-primary",

@@ -11,7 +11,7 @@ export const cssBreadcrumbs: ComponentImplementation<Breadcrumbs> = {
     function breadcrumbsTemplate({ breadcrumbs }) {
       return html`
         <nav aria-label="U bevindt zich hier:">
-          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <ol class="dso-breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
             ${breadcrumbs.map((breadcrumb, index) => {
               const last = index === breadcrumbs.length - 1;
 
