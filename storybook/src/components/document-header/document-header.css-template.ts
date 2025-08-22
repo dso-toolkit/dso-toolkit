@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
   implementation: "html-css",
-  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate }) =>
+  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate, headingTemplate }) =>
     function documentHeaderTemplate({
       title,
       type,
@@ -24,10 +24,10 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
         <dso-responsive-element
           class="dso-document-header ${classMap({
             "dso-document-header-sticky": !!sticky,
-            [`dso-variant-${variant}`]: !!variant && variant !== "vastgesteld",
+            [`dso-variant-${variant}`]: !!variant,
           })}"
         >
-          ${statusMessage && !!variant && variant !== "vastgesteld"
+          ${statusMessage && !!variant
             ? html`<div class="dso-document-header-status">
                 ${variant === "ontwerp" ? html`<dso-icon icon="pencil"></dso-icon>` : nothing}
                 ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
@@ -67,7 +67,14 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
                 },
                 iconMode: "after",
               })}
-              ${featuresOpen ? definitionListTemplate(features) : nothing}
+              ${featuresOpen
+                ? html` ${definitionListTemplate(features)}
+                  ${headingTemplate({
+                    level: 3,
+                    children: "Besluitinformatie",
+                  })}
+                  ${definitionListTemplate(features)}`
+                : nothing}
             </div>
 
             ${advancedSelectTemplate(advancedSelect)}

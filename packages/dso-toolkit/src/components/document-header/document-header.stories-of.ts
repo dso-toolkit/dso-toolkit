@@ -13,7 +13,11 @@ type DocumentHeaderStory = StoryObj<DocumentHeaderArgs, Renderer>;
 
 interface DocumentHeaderStories {
   Default: DocumentHeaderStory;
+  DefaultOntwerp: DocumentHeaderStory;
+  DefaultBesluitversie: DocumentHeaderStory;
   Sticky: DocumentHeaderStory;
+  StickyOntwerp: DocumentHeaderStory;
+  StickyBesluitversie: DocumentHeaderStory;
 }
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
@@ -36,6 +40,9 @@ export function documentHeaderMeta<TRenderer extends Renderer>({ readme }: MetaO
   return {
     argTypes: documentHeaderArgTypes,
     args: {
+      title: "Omgevingsplan gemeente Gouda",
+      type: "Een omgevingsplan waar de omgeving mooier van wordt",
+      owner: "Gemeente Gouda",
       featuresOpen: false,
       sticky: false,
     },
@@ -56,9 +63,30 @@ export function documentHeaderStories<Implementation, Templates, TemplateFnRetur
   return {
     Default: {
       args: {
-        title: "Omgevingsplan gemeente Gouda",
-        type: "Een omgevingsplan waar de omgeving mooier van wordt",
-        owner: "Gemeente Gouda",
+        advancedSelect: {
+          options,
+        },
+      },
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+    DefaultOntwerp: {
+      args: {
+        statusMessage: "Wijzigingen door ontwerpbesluit",
+        variant: "ontwerp",
+        advancedSelect: {
+          options,
+        },
+      },
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+    DefaultBesluitversie: {
+      args: {
+        statusMessage: "Wijzigingen in regeling door wijzigingbesluit",
+        variant: "besluitversie",
         advancedSelect: {
           options,
         },
@@ -69,10 +97,31 @@ export function documentHeaderStories<Implementation, Templates, TemplateFnRetur
     },
     Sticky: {
       args: {
-        title: "Omgevingsplan gemeente Gouda",
-        type: "Een omgevingsplan waar de omgeving mooier van wordt",
-        owner: "Gemeente Gouda",
         sticky: true,
+        advancedSelect: {
+          options,
+        },
+      },
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+    StickyOntwerp: {
+      args: {
+        sticky: true,
+        variant: "ontwerp",
+        advancedSelect: {
+          options,
+        },
+      },
+      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
+        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+      ),
+    },
+    StickyBesluitversie: {
+      args: {
+        sticky: true,
+        variant: "besluitversie",
         advancedSelect: {
           options,
         },

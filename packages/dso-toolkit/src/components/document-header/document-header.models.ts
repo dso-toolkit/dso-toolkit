@@ -11,5 +11,5 @@ export interface DocumentHeader<TemplateFnReturnType> {
   advancedSelect: AdvancedSelect<unknown>;
   sticky?: boolean;
   statusMessage?: string;
-  variant?: "vastgesteld" | "ontwerp" | "besluitversie";
+  variant?: "ontwerp" | "besluitversie";
 }

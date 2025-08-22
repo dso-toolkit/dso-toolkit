@@ -18,7 +18,7 @@ export interface DocumentHeaderArgs {
   advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
   statusMessage?: string;
-  variant?: "vastgesteld" | "ontwerp" | "besluitversie";
+  variant?: "ontwerp" | "besluitversie";
 }
 
 export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
@@ -65,7 +65,7 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
     },
   },
   variant: {
-    options: ["vastgesteld", "ontwerp", "besluitversie"],
+    options: [undefined, "ontwerp", "besluitversie"],
     control: {
       type: "select",
     },

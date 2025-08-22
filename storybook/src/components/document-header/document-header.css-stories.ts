@@ -12,53 +12,54 @@ const meta: Meta<DocumentHeaderArgs> = {
 
 export default meta;
 
-const { Default, Sticky } = documentHeaderStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const { documentHeaderTemplate, linkTemplate } = templates;
+const { Default, DefaultOntwerp, DefaultBesluitversie, Sticky, StickyOntwerp, StickyBesluitversie } =
+  documentHeaderStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const { documentHeaderTemplate, linkTemplate } = templates;
 
-    const features: DefinitionList<TemplateResult> = {
-      modifier: "dso-document-header-features",
-      definitions: [
-        {
-          term: html`Opschrift:`,
-          descriptions: [
-            {
-              content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
-            },
-          ],
-        },
-        {
-          term: html`Identificatie:`,
-          descriptions: [
-            {
-              content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
-            },
-          ],
-        },
-        {
-          term: html`Besluit:`,
-          descriptions: [
-            {
-              content: linkTemplate({
-                label: "Bekijk besluit",
-                url: "#",
-                icon: {
-                  icon: "external-link",
-                },
-                iconMode: "after",
-              }),
-            },
-          ],
-        },
-      ],
-    };
+      const features: DefinitionList<TemplateResult> = {
+        modifier: "dso-document-header-features",
+        definitions: [
+          {
+            term: html`Opschrift:`,
+            descriptions: [
+              {
+                content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
+              },
+            ],
+          },
+          {
+            term: html`Identificatie:`,
+            descriptions: [
+              {
+                content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+              },
+            ],
+          },
+          {
+            term: html`Besluit:`,
+            descriptions: [
+              {
+                content: linkTemplate({
+                  label: "Bekijk besluit",
+                  url: "#",
+                  icon: {
+                    icon: "external-link",
+                  },
+                  iconMode: "after",
+                }),
+              },
+            ],
+          },
+        ],
+      };
 
-    return {
-      documentHeaderTemplate,
-      features,
-    };
-  },
-});
+      return {
+        documentHeaderTemplate,
+        features,
+      };
+    },
+  });
 
-export { Default, Sticky };
+export { Default, DefaultBesluitversie, DefaultOntwerp, Sticky, StickyBesluitversie, StickyOntwerp };

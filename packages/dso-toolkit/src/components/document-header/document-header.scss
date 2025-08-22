@@ -9,13 +9,17 @@
 
 @use "../grid/grid.variables.scss" as grid-variables;
 @use "../../global/mixins/set-colors.mixin" as set-colors;
+@use "document-header.variables" as document-header-variables;
 
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5);
 
-  padding-block: #{units.$u1 / 2} grid-variables.$grid-gutter-width * 0.5;
-  padding-inline: units.$u3;
-  margin-inline: -#{units.$u2} -#{units.$u2};
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    padding-block: calc(units.$u1 / 2) calc(grid-variables.$grid-gutter-width * 0.5);
+    padding-inline: units.$u3;
+    margin-inline: -#{units.$u2} -#{units.$u2};
+  }
 
   #{typography.$headings} {
     font-size: 1.5rem;
@@ -33,41 +37,43 @@
   }
 
   &.dso-variant-ontwerp {
+    padding-block-start: 0;
+
     .dso-document-header-status {
       @include set-colors.apply(colors.$geel);
 
       dso-icon[icon="pencil"] {
-        block-size: 0.875em;
-        inline-size: 0.875em;
+        padding: 5px;
       }
     }
   }
 
   &.dso-variant-besluitversie {
+    padding-block-start: 0;
+
     .dso-document-header-status {
       @include set-colors.apply(colors.$bosgroen);
 
       dso-icon[icon="hammer"] {
-        block-size: 1.25em;
-        inline-size: 1.09em;
+        padding-block: 3px;
+        padding-inline: 2px;
       }
     }
   }
 
   &.dso-document-header-sticky {
-    --_dso-border-width-dso-document-header-sticky: #{units.$u1 / 2} solid;
     position: sticky;
     inset-inline-start: 0;
     inset-block-start: 0;
     padding-block: 0 units.$u1 / 2;
-    border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$grijs-5;
+    border-block-start: document-header-variables.$sticky-border-width-style colors.$grijs-5;
 
     &.dso-variant-ontwerp {
-      border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$geel;
+      border-block-start: document-header-variables.$sticky-border-width-style colors.$geel;
     }
 
     &.dso-variant-besluitversie {
-      border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$bosgroen;
+      border-block-start: document-header-variables.$sticky-border-width-style colors.$bosgroen;
     }
 
     #{typography.$headings} {
@@ -117,12 +123,12 @@
     gap: units.$u1;
     padding-block: units.$ru1;
     padding-inline: units.$u3;
-    margin-block: -1rem units.$u1 / 2;
+    margin-block-end: units.$u1 / 2;
     margin-inline: -#{units.$u3} -#{units.$u3};
 
     > dso-label,
     > .dso-label {
-      margin-inline-end: calc(#{units.$u1 * -1});
+      margin-inline-end: calc(units.$u1 * -1);
     }
 
     .dso-document-header-badges {
@@ -167,60 +173,12 @@
   .dso-document-header-features-wrapper {
     margin-block-end: units.$u1;
   }
-}
 
-dso-responsive-element.dso-document-header {
   dl.dso-document-header-features {
     margin-block-start: units.$u2;
-  }
+    padding-block: 0 units.$u1;
 
-  &[small] {
-    .dso-document-header-container {
-      @include utilities.clearfix();
-    }
-
-    .dso-document-header-type,
-    .dso-document-header-owner {
-      display: block;
-    }
-
-    .dso-document-header-type {
-      margin-inline-end: units.$u4;
-    }
-
-    dl.dso-document-header-features {
-      dt {
-        clear: initial;
-        float: none;
-        inline-size: auto;
-        word-wrap: initial;
-      }
-
-      dd {
-        margin-inline-start: 0;
-        margin-block-start: 0;
-        padding-inline-start: 0;
-      }
-    }
-  }
-
-  &:not([small]) {
-    .dso-document-header-type {
-      margin-inline-end: units.$u1;
-    }
-
-    dl.dso-document-header-features {
-      dt {
-        inline-size: 20%;
-      }
-
-      dd {
-        margin-inline-start: 20%;
-      }
-    }
-
-    .dso-document-header-features {
-      margin-block-end: 0;
+    &:last-child {
       border-block-end: 1px solid colors.$grijs-20;
     }
   }
