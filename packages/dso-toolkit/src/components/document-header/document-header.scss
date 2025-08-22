@@ -13,15 +13,16 @@
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    padding: #{grid-variables.$grid-gutter-width * 0.5};
-    margin-inline-start: grid-variables.$grid-gutter-width * -0.5;
-    margin-inline-end: grid-variables.$grid-gutter-width * -0.5;
-  }
+  padding-block: #{units.$u1 / 2} grid-variables.$grid-gutter-width * 0.5;
+  padding-inline: units.$u3;
+  margin-inline: -#{units.$u2} -#{units.$u2};
 
   #{typography.$headings} {
+    font-size: 1.5rem;
+    line-height: 1.5; // 36px
+
     button {
+      text-align: start;
       border: 0;
       padding: 0;
 
@@ -31,22 +32,52 @@
     }
   }
 
+  &.dso-variant-ontwerp {
+    .dso-document-header-status {
+      @include set-colors.apply(colors.$geel);
+
+      dso-icon[icon="pencil"] {
+        block-size: 0.875em;
+        inline-size: 0.875em;
+      }
+    }
+  }
+
+  &.dso-variant-besluitversie {
+    .dso-document-header-status {
+      @include set-colors.apply(colors.$bosgroen);
+
+      dso-icon[icon="hammer"] {
+        block-size: 1.25em;
+        inline-size: 1.09em;
+      }
+    }
+  }
+
   &.dso-document-header-sticky {
-    inset-inline-start: 0;
-    padding: 0;
+    --_dso-border-width-dso-document-header-sticky: #{units.$u1 / 2} solid;
     position: sticky;
+    inset-inline-start: 0;
     inset-block-start: 0;
+    padding-block: 0 units.$u1 / 2;
+    border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$grijs-5;
+
+    &.dso-variant-ontwerp {
+      border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$geel;
+    }
+
+    &.dso-variant-besluitversie {
+      border-block-start: var(--_dso-border-width-dso-document-header-sticky) colors.$bosgroen;
+    }
 
     #{typography.$headings} {
-      font-size: 1.25rem;
       margin-block-end: 0;
 
       button {
         align-items: center;
+        justify-content: space-between;
         background-color: transparent;
         display: flex;
-        padding-block: units.$u1 - 1 units.$u1;
-        padding-inline: units.$u2;
         text-align: start;
         inline-size: 100%;
 
@@ -70,28 +101,28 @@
       }
     }
 
-    .dso-document-header-container {
+    .dso-document-header-container,
+    .dso-document-header-status {
       display: none;
     }
   }
 
-  > :first-child {
-    margin-block-start: 0;
-  }
-
   h1 {
-    margin-block-end: units.$u1;
+    margin-block: 0 units.$u1;
   }
 
   .dso-document-header-status {
-    align-items: center;
     display: flex;
-    flex-wrap: wrap;
-    gap: units.$u1 units.$u2;
+    align-items: center;
+    gap: units.$u1;
+    padding-block: units.$ru1;
+    padding-inline: units.$u3;
+    margin-block: -1rem units.$u1 / 2;
+    margin-inline: -#{units.$u3} -#{units.$u3};
 
     > dso-label,
     > .dso-label {
-      margin-inline-end: calc(units.$u1 * -1);
+      margin-inline-end: calc(#{units.$u1 * -1});
     }
 
     .dso-document-header-badges {
@@ -132,6 +163,10 @@
     inset-block-start: 0;
     inset-inline-end: 0;
   }
+
+  .dso-document-header-features-wrapper {
+    margin-block-end: units.$u1;
+  }
 }
 
 dso-responsive-element.dso-document-header {
@@ -140,10 +175,6 @@ dso-responsive-element.dso-document-header {
   }
 
   &[small] {
-    .dso-document-header-features-wrapper {
-      margin-block-end: units.$u1;
-    }
-
     .dso-document-header-container {
       @include utilities.clearfix();
     }
@@ -155,11 +186,6 @@ dso-responsive-element.dso-document-header {
 
     .dso-document-header-type {
       margin-inline-end: units.$u4;
-    }
-
-    .dso-document-header-status {
-      margin-block: 0 units.$u1;
-      margin-inline: 1;
     }
 
     dl.dso-document-header-features {
@@ -179,11 +205,6 @@ dso-responsive-element.dso-document-header {
   }
 
   &:not([small]) {
-    .dso-document-header-status {
-      margin-block: units.$u1 0;
-      margin-inline: 0;
-    }
-
     .dso-document-header-type {
       margin-inline-end: units.$u1;
     }

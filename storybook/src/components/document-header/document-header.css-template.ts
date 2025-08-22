@@ -17,9 +17,22 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       featuresOpen,
       advancedSelect,
       sticky,
+      statusMessage,
+      variant,
     }) {
       return html`
-        <dso-responsive-element class="dso-document-header ${classMap({ "dso-document-header-sticky": !!sticky })}">
+        <dso-responsive-element
+          class="dso-document-header ${classMap({
+            "dso-document-header-sticky": !!sticky,
+            [`dso-variant-${variant}`]: !!variant && variant !== "vastgesteld",
+          })}"
+        >
+          ${statusMessage && !!variant && variant !== "vastgesteld"
+            ? html`<div class="dso-document-header-status">
+                ${variant === "ontwerp" ? html`<dso-icon icon="pencil"></dso-icon>` : nothing}
+                ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
+              </div>`
+            : nothing}
           <h1>
             <button type="button">
               <span>${title}</span>

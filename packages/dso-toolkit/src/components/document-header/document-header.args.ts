@@ -17,6 +17,8 @@ export interface DocumentHeaderArgs {
   activeIndex: number;
   advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
+  statusMessage?: string;
+  variant?: "vastgesteld" | "ontwerp" | "besluitversie";
 }
 
 export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
@@ -57,6 +59,17 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
       type: "boolean",
     },
   },
+  statusMessage: {
+    control: {
+      type: "text",
+    },
+  },
+  variant: {
+    options: ["vastgesteld", "ontwerp", "besluitversie"],
+    control: {
+      type: "select",
+    },
+  },
 };
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
@@ -75,5 +88,7 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
       active: selectExampleOption(a.activeIndex, options),
     },
     sticky: a.sticky,
+    variant: a.variant,
+    statusMessage: a.statusMessage,
   };
 }
