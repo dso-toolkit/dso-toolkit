@@ -11,7 +11,11 @@
 
 @use "onboarding-tip.variables" as onboarding-tip-variables;
 
+@use "../../functional-components/tooltip/tooltip.mixins" as tooltip;
+
 @include utilities.box-sizing();
+
+@include tooltip.include(onboarding-tip-variables.$background-color);
 
 .sr-only {
   @include utilities.sr-only();
