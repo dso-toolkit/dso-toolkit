@@ -37,18 +37,19 @@
 ### Depends on
 
 - [dso-toggletip](../toggletip)
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 - [dso-slide-toggle](../slide-toggle)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-legend-item --> dso-toggletip
-  dso-legend-item --> dso-icon
+  dso-legend-item --> dso-icon-button
   dso-legend-item --> dso-slide-toggle
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon
+  dso-icon-button --> dso-icon
   style dso-legend-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
