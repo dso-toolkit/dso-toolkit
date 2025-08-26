@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * List: Ordered Action variant ([#3209](https://github.com/dso-toolkit/dso-toolkit/issues/3209))
+* Icon Button: Nieuw component ([#2315](https://github.com/dso-toolkit/dso-toolkit/issues/2315))
 
 ### Deprecated
 * Icon: Deprecate HTML/CSS Implementatie ([#3259](https://github.com/dso-toolkit/dso-toolkit/issues/3259))

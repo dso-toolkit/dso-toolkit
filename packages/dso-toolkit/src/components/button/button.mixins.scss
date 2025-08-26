@@ -125,14 +125,11 @@
 }
 
 @mixin icon-only() {
-  dso-icon,
-  svg.di {
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-  }
-
-  > span {
-    @include utilities.sr-only();
+  & {
+    padding-inline: calc(#{units.$u1} - 1px);
+    padding-block: calc(#{units.$u1} - 1px);
+    min-inline-size: auto;
+    cursor: pointer;
   }
 }
 
