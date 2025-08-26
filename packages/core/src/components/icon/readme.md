@@ -25,11 +25,10 @@
  - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
- - [dso-image-overlay](../image-overlay)
+ - [dso-icon-button](../icon-button)
  - [dso-info](../info)
  - [dso-info-button](../info-button)
  - [dso-label](../label)
- - [dso-legend-item](../legend-item)
  - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
@@ -58,11 +57,10 @@ graph TD;
   dso-document-card --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
-  dso-image-overlay --> dso-icon
+  dso-icon-button --> dso-icon
   dso-info --> dso-icon
   dso-info-button --> dso-icon
   dso-label --> dso-icon
-  dso-legend-item --> dso-icon
   dso-list-button --> dso-icon
   dso-map-controls --> dso-icon
   dso-mark-bar --> dso-icon

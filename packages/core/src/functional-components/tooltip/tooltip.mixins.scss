@@ -1,0 +1,68 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "./tooltip.variables" as tooltip-variables;
+
+@mixin include(
+  $background-color: colors.$wit,
+  $radius-inner: tooltip-variables.$border-radius,
+  $arrow-size: tooltip-variables.$arrow-size,
+  $padding-block-inner: tooltip-variables.$padding-block,
+  $padding-inline-inner: tooltip-variables.$padding-inline
+) {
+  .dso-tooltip {
+    @include set-colors.apply($background-color);
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border-radius: $radius-inner;
+      overflow: unset;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity tooltip-variables.$transition-duration;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip-inner {
+      @include set-colors.apply($background-color);
+
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        border-radius: $radius-inner;
+        font-size: typography.$root-font-size-base;
+        max-inline-size: tooltip-variables.$max-inline-size;
+        font-weight: normal;
+        padding-block: $padding-block-inner;
+        padding-inline: $padding-inline-inner;
+      }
+
+      &.small {
+        line-height: 1.5;
+        max-inline-size: tooltip-variables.$max-inline-size-small;
+      }
+    }
+
+    .tooltip-arrow {
+      @include set-colors.apply($background-color);
+
+      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+      & {
+        position: absolute;
+        border-start-start-radius: tooltip-variables.$border-radius;
+        block-size: $arrow-size;
+        inline-size: $arrow-size;
+        pointer-events: none;
+        z-index: -1;
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+import { Placement } from "@floating-ui/dom";
+import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
+import clsx from "clsx";
+
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+
+import { IconButtonClickEvent } from "./icon-button.interfaces";
+
+@Component({
+  tag: "dso-icon-button",
+  styleUrl: "icon-button.scss",
+  shadow: { delegatesFocus: true },
+})
+export class IconButton implements ComponentInterface {
+  /**
+   * The name of the icon displayed in the button.
+   */
+  @Prop()
+  icon!: string;
+
+  /**
+   * The accessible label of the button, also shown on hover in a tooltip.
+   */
+  @Prop()
+  accessibleLabel!: string;
+
+  /**
+   * The variants of the icon button.
+   */
+  @Prop()
+  variant?: "secondary" | "tertiary" = "secondary";
+
+  /**
+   * The placement of the tooltip on hover of the icon button.
+   */
+  @Prop()
+  tooltipPlacement: Placement = "top";
+
+  /**
+   * Emitted when the user click the IconBtton.
+   */
+  @Event()
+  dsoIconButtonClick!: EventEmitter<IconButtonClickEvent>;
+
+  @State()
+  showTooltip = false;
+
+  /**
+   * Focuses the button.
+   */
+  @Method()
+  async setFocus() {
+    this.buttonElRef?.focus();
+  }
+
+  private buttonElRef?: HTMLButtonElement;
+  private tooltipElRef?: HTMLDivElement;
+  private tipArrowElRef?: HTMLSpanElement;
+  private tooltipTimeout?: number;
+  private cleanupAutoUpdate?: () => void;
+
+  private handleShow = () => {
+    this.tooltipTimeout = window.setTimeout(() => {
+      this.showTooltip = true;
+      this.tooltipElRef?.showPopover();
+
+      if (this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
+        this.cleanupAutoUpdate = positionTooltip(
+          this.buttonElRef,
+          this.tooltipElRef,
+          this.tipArrowElRef,
+          this.tooltipPlacement,
+        );
+      }
+    }, 500);
+  };
+
+  private handleHide = () => {
+    clearTimeout(this.tooltipTimeout);
+
+    this.showTooltip = false;
+    this.tooltipElRef?.hidePopover();
+
+    if (!this.showTooltip && this.cleanupAutoUpdate) {
+      this.cleanupAutoUpdate();
+      this.cleanupAutoUpdate = undefined;
+    }
+  };
+
+  render() {
+    return (
+      <button
+        ref={(el) => (this.buttonElRef = el)}
+        type="button"
+        aria-label={this.accessibleLabel}
+        class={clsx(`dso-${this.variant}`)}
+        onMouseEnter={this.handleShow}
+        onMouseLeave={this.handleHide}
+        onFocus={this.handleShow}
+        onBlur={this.handleHide}
+        onClick={(e) => this.dsoIconButtonClick.emit({ originalEvent: e })}
+      >
+        <dso-icon icon={this.icon} />
+        <Tooltip
+          small
+          visible={this.showTooltip}
+          onAfterHidden={this.handleHide}
+          tipElementRef={(element) => (this.tooltipElRef = element)}
+          tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
+        >
+          {this.accessibleLabel}
+        </Tooltip>
+      </button>
+    );
+  }
+}

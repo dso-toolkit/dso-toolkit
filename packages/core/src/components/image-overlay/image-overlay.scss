@@ -25,14 +25,8 @@ button {
 }
 
 .open {
-  @include button.secondary($modifiers: false, $icon-only: true);
-
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    border: 0;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-    min-inline-size: auto;
-    padding: units.$u1;
     opacity: 0;
     position: absolute;
     inset-inline-end: units.$u2;
@@ -70,7 +64,7 @@ button {
     inline-size: auto;
     block-size: auto;
     max-inline-size: 100%;
-    max-block-size: calc(100vh - units.$u8);
+    max-block-size: calc(100vh - #{units.$u8});
   }
 
   .figuur-bijschrift:not([hidden]) {
@@ -83,14 +77,8 @@ button {
 }
 
 .close {
-  @include button.secondary($modifiers: false, $icon-only: true);
-
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    border: 0;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-    min-inline-size: auto;
-    padding: units.$u1;
     position: absolute;
     inset-block-start: units.$u2;
     inset-inline-end: units.$u2;

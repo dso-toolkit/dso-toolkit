@@ -1,4 +1,5 @@
 /* Since Storybook 7 we have support for export * from ''; */
+export * from "./components/icon-button";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -88,6 +89,8 @@ export * from "./components/heading";
 export * from "./components/highlight-box";
 
 export * from "./components/icon";
+
+export * from "./components/icon-button";
 
 export * from "./components/image";
 

@@ -148,7 +148,7 @@ button {
   z-index: zindex.$viewer-grid-sizing-buttons;
 
   button {
-    @include button.secondary($modifiers: false, $icon-only: true);
+    @include button.secondary($modifiers: false);
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
