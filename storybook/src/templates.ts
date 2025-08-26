@@ -54,6 +54,7 @@ import {
   Heading,
   HighlightBox,
   Icon,
+  IconButton,
   Image,
   ImageOverlay,
   Info,
@@ -166,6 +167,7 @@ import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
 import { coreIcon } from "./components/icon/icon.core-template";
 import { cssIcon } from "./components/icon/icon.css-template";
+import { coreIconButton } from "./components/icon-button/icon-button.core-template";
 import { cssImage } from "./components/image/image.css-template";
 import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-template";
 import { coreInfo } from "./components/info/info.core-template";
@@ -274,6 +276,7 @@ export interface Components {
   heading: Heading<TemplateResult>;
   highlightBox: HighlightBox<TemplateResult | string>;
   icon: Icon;
+  iconButton: IconButton;
   image: Image;
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
@@ -373,6 +376,7 @@ templateContainer.add(coreExpandable);
 templateContainer.add(coreHeader);
 templateContainer.add(coreHighlightBox);
 templateContainer.add(coreIcon);
+templateContainer.add(coreIconButton);
 templateContainer.add(coreImageOverlay);
 templateContainer.add(coreInfo);
 templateContainer.add(coreInfoButton);
@@ -384,6 +388,7 @@ templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
 templateContainer.add(coreMarkBar);
 templateContainer.add(coreModal);
+templateContainer.add(coreOnboardingTip);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(corePanel);
@@ -397,7 +402,6 @@ templateContainer.add(coreScrollable);
 templateContainer.add(coreSelectable);
 templateContainer.add(coreSkiplink);
 templateContainer.add(coreSlideToggle);
-templateContainer.add(coreOnboardingTip);
 templateContainer.add(coreSurveyRating);
 templateContainer.add(coreTable);
 templateContainer.add(coreTabs);

@@ -84,7 +84,7 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
     },
   },
   iconMode: {
-    options: [undefined, "only", "after"],
+    options: [undefined, "after"],
     control: {
       type: "select",
     },

@@ -1,0 +1,52 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
+@use "../../functional-components/tooltip/tooltip.mixins" as tooltip;
+
+@include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
+
+:host {
+  display: inline-block;
+}
+
+@include utilities.box-sizing();
+
+.dso-secondary {
+  @include button-mixins.secondary();
+  @include button-mixins.icon-only();
+}
+
+.dso-tertiary {
+  @include button-mixins.tertiary();
+  @include button-mixins.icon-only();
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border: 1px solid transparent;
+  }
+}
+
+.dso-tertiary-on-color {
+  @include button-mixins.tertiary-on-color();
+  @include button-mixins.icon-only();
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    border: 1px solid transparent;
+  }
+}
+
+.dso-map {
+  @include button-mixins.map();
+  @include button-mixins.icon-only();
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    margin-inline-end: 0;
+    border: 0;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+  }
+}
