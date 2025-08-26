@@ -34,10 +34,13 @@ const Dimmer: FunctionalComponent<{
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
-        <button type="button" class="close" onClick={click}>
-          <dso-icon icon="times"></dso-icon>
-          <span>Sluiten</span>
-        </button>
+        <dso-icon-button
+          tabindex="0"
+          icon="times"
+          class="close"
+          accessibleLabel="Sluiten"
+          onDsoIconButtonClick={click}
+        />
         {children[1]}
       </div>
     </div>
@@ -64,7 +67,7 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   zoomable = false;
 
-  private buttonElement: HTMLButtonElement | undefined;
+  private buttonElement: HTMLDsoIconButtonElement | undefined;
 
   private wrapperElement: HTMLDivElement | undefined;
 
@@ -160,15 +163,14 @@ export class ImageOverlay implements ComponentInterface {
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
     const button = this.zoomable && (
-      <button
-        type="button"
+      <dso-icon-button
+        tabindex="0"
+        icon="external-link"
         class="open"
+        accessibleLabel="Sluiten"
         ref={(element) => (this.buttonElement = element)}
-        onClick={() => (this.active = true)}
-      >
-        <dso-icon icon="external-link"></dso-icon>
-        <span>Afbeelding vergroot weergeven</span>
-      </button>
+        onDsoIconButtonClick={() => (this.active = true)}
+      />
     );
 
     if (this.wijzigactie === "verwijder") {

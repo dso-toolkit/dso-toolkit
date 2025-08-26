@@ -3,7 +3,7 @@ describe("Image Overlay", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-image-overlay--image-overlay");
     cy.injectAxe();
 
-    cy.get("dso-image-overlay").shadow().find("button.open").as("open-button");
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.open.hydrated").as("open-button");
 
     cy.dsoCheckA11y("dso-image-overlay.hydrated");
   });
@@ -13,15 +13,10 @@ describe("Image Overlay", () => {
   });
 
   it("should forward focus to button", () => {
-    cy.get("dso-image-overlay")
-      .shadow()
-      .find("button.open")
-      .should("not.have.focus")
-      .get("dso-image-overlay")
-      .click()
-      .shadow()
-      .find("button.open")
-      .should("have.focus");
+    cy.get("@open-button").shadow().find("button").should("not.have.focus");
+
+    cy.get("dso-image-overlay").click();
+    cy.get("@open-button").shadow().find("button").should("have.focus");
   });
 
   it("should show open button on hover", () => {
@@ -42,7 +37,7 @@ describe("Image Overlay", () => {
     // Take the entire page, otherwise the enlargement of the image will not be snapshotted
     cy.matchImageSnapshot();
 
-    cy.get("dso-image-overlay").shadow().find("button.close").click();
+    cy.get("dso-image-overlay").shadow().find("dso-icon-button.close.hydrated").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
   });
 
