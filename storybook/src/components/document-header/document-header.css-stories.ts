@@ -6,7 +6,6 @@ import { templateContainer } from "../../templates";
 
 import { featuresContent } from "./document-header.content";
 
-1;
 const meta: Meta<DocumentHeaderArgs> = {
   ...documentHeaderMeta({ readme }),
   title: "HTML|CSS/Document Header",
