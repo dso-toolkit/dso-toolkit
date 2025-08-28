@@ -20,6 +20,8 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       statusMessage,
       variant,
     }) {
+      const variantFeatures = features.filter((f) => f.key === variant);
+
       return html`
         <dso-responsive-element
           class="dso-document-header ${classMap({
@@ -68,12 +70,18 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
                 iconMode: "after",
               })}
               ${featuresOpen
-                ? html` ${definitionListTemplate(features)}
-                  ${headingTemplate({
-                    level: 3,
-                    children: "Besluitinformatie",
-                  })}
-                  ${definitionListTemplate(features)}`
+                ? html`
+                    ${variantFeatures[0] ? definitionListTemplate(variantFeatures[0].content) : nothing}
+                    ${variantFeatures[1]
+                      ? html`
+                          ${headingTemplate({
+                            level: 3,
+                            children: "Besluitinformatie",
+                          })}
+                          ${definitionListTemplate(variantFeatures[1].content)}
+                        `
+                      : nothing}
+                  `
                 : nothing}
             </div>
 

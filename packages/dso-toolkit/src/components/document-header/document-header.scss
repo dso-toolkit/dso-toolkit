@@ -65,7 +65,7 @@
     position: sticky;
     inset-inline-start: 0;
     inset-block-start: 0;
-    padding-block: 0 units.$u1 / 2;
+    padding-block: 0 calc(#{units.$u1} * 0.5);
     border-block-start: document-header-variables.$sticky-border-width-style colors.$grijs-5;
 
     &.dso-variant-ontwerp {
@@ -113,7 +113,7 @@
     }
   }
 
-  h1 {
+  h1, h3 {
     margin-block: 0 units.$u1;
   }
 
@@ -123,7 +123,7 @@
     gap: units.$u1;
     padding-block: units.$ru1;
     padding-inline: units.$u3;
-    margin-block-end: units.$u1 / 2;
+    margin-block-end: calc(units.$u1 / 2);
     margin-inline: -#{units.$u3} -#{units.$u3};
 
     > dso-label,
@@ -176,10 +176,12 @@
 
   dl.dso-document-header-features {
     margin-block-start: units.$u2;
-    padding-block: 0 units.$u1;
 
     &:last-child {
       border-block-end: 1px solid colors.$grijs-20;
+      margin-block-end: calc(#{units.$u1} * 0.5);
     }
   }
 }
+
+
