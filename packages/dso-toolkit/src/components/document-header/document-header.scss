@@ -42,6 +42,7 @@
     .dso-document-header-status {
       @include set-colors.apply(colors.$geel);
 
+      // To do: remove in #2542
       dso-icon[icon="pencil"] {
         padding: 5px;
       }
@@ -113,7 +114,8 @@
     }
   }
 
-  h1, h3 {
+  h1,
+  h3 {
     margin-block: 0 units.$u1;
   }
 
@@ -183,5 +185,3 @@
     }
   }
 }
-
-

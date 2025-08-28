@@ -1,8 +1,10 @@
 import { AdvancedSelect } from "../advanced-select";
 import { DefinitionList } from "../definition-list";
 
+export type variant = "ontwerp" | "besluitversie";
+
 export type Features<TemplateFnReturnType> = {
-  key: "ontwerp" | "besluitversie" | undefined;
+  variant?: variant;
   content: DefinitionList<TemplateFnReturnType>;
 };
 
@@ -16,5 +18,5 @@ export interface DocumentHeader<TemplateFnReturnType> {
   advancedSelect: AdvancedSelect<unknown>;
   sticky?: boolean;
   statusMessage?: string;
-  variant?: "ontwerp" | "besluitversie";
+  variant?: variant;
 }

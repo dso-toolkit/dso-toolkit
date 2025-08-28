@@ -6,7 +6,7 @@ import { Templates } from "../../templates";
 export function featuresContent({ linkTemplate }: Templates): Features<TemplateResult>[] {
   return [
     {
-      key: undefined,
+      variant: undefined,
       content: {
         modifier: "dso-document-header-features",
         definitions: [
@@ -38,7 +38,7 @@ export function featuresContent({ linkTemplate }: Templates): Features<TemplateR
       },
     },
     {
-      key: undefined,
+      variant: undefined,
       content: {
         modifier: "dso-document-header-features",
         definitions: [
@@ -70,7 +70,7 @@ export function featuresContent({ linkTemplate }: Templates): Features<TemplateR
       },
     },
     {
-      key: "ontwerp",
+      variant: "ontwerp",
       content: {
         modifier: "dso-document-header-features",
         definitions: [
@@ -102,7 +102,7 @@ export function featuresContent({ linkTemplate }: Templates): Features<TemplateR
       },
     },
     {
-      key: "ontwerp",
+      variant: "ontwerp",
       content: {
         modifier: "dso-document-header-features",
         definitions: [
@@ -142,7 +142,7 @@ export function featuresContent({ linkTemplate }: Templates): Features<TemplateR
       },
     },
     {
-      key: "besluitversie",
+      variant: "besluitversie",
       content: {
         modifier: "dso-document-header-features",
         definitions: [
@@ -166,7 +166,7 @@ export function featuresContent({ linkTemplate }: Templates): Features<TemplateR
       },
     },
     {
-      key: "besluitversie",
+      variant: "besluitversie",
       content: {
         modifier: "dso-document-header-features",
         definitions: [

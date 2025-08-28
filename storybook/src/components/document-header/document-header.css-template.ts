@@ -20,7 +20,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       statusMessage,
       variant,
     }) {
-      const variantFeatures = features.filter((f) => f.key === variant);
+      const variantFeatures = features.filter((f) => f.variant === variant);
 
       return html`
         <dso-responsive-element

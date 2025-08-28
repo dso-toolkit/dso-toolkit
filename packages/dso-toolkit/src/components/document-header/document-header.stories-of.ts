@@ -39,6 +39,9 @@ export function documentHeaderMeta<TRenderer extends Renderer>({ readme }: MetaO
   return {
     argTypes: documentHeaderArgTypes,
     args: {
+      advancedSelect: {
+        options,
+      },
       title: "Omgevingsplan gemeente Gouda",
       type: "Een omgevingsplan waar de omgeving mooier van wordt",
       owner: "Gemeente Gouda",
@@ -59,75 +62,49 @@ export function documentHeaderStories<Implementation, Templates, TemplateFnRetur
   storyTemplates,
   templateContainer,
 }: DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentHeaderStories {
+  const render = templateContainer.render(
+    storyTemplates,
+    (args: DocumentHeaderArgs, { documentHeaderTemplate, features }) =>
+      documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+  );
+
   return {
     Default: {
-      args: {
-        advancedSelect: {
-          options,
-        },
-      },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
     DefaultOntwerp: {
       args: {
         statusMessage: "Wijzigingen door ontwerpbesluit",
         variant: "ontwerp",
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
     DefaultBesluitversie: {
       args: {
         statusMessage: "Wijzigingen in regeling door wijzigingbesluit",
         variant: "besluitversie",
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
     Sticky: {
       args: {
         sticky: true,
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
     StickyOntwerp: {
       args: {
         sticky: true,
         variant: "ontwerp",
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
     StickyBesluitversie: {
       args: {
         sticky: true,
         variant: "besluitversie",
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
     },
   };
 }
