@@ -1,0 +1,37 @@
+@use "~dso-toolkit/src/components/list";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.history-items {
+  @include list.unstyled();
+
+  margin-block: 0;
+}
+
+.headings {
+  border-block-end: 1px solid colors.$grijs-30;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: units.$u1;
+  inline-size: 100%;
+  padding-inline: units.$u1;
+  padding-block: units.$u2 units.$u1;
+}
+
+::slotted([slot="headings"]) {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+::slotted([slot="headings"]:first-child) {
+  flex-basis: 90px;
+}
