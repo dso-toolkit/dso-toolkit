@@ -24,6 +24,7 @@
  - [dso-date-picker-legacy](../date-picker-legacy)
  - [dso-document-card](../document-card)
  - [dso-header](../header)
+ - [dso-history-item](../history-items/components/history-item)
  - [dso-icon-button](../icon-button)
  - [dso-info-button](../info-button)
  - [dso-map-controls](../map-controls)
@@ -51,6 +52,7 @@ graph TD;
   dso-date-picker-legacy --> dso-icon
   dso-document-card --> dso-icon
   dso-header --> dso-icon
+  dso-history-item --> dso-icon
   dso-icon-button --> dso-icon
   dso-info-button --> dso-icon
   dso-map-controls --> dso-icon
