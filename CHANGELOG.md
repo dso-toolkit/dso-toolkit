@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* History Items: Nieuw component ([#3192](https://github.com/dso-toolkit/dso-toolkit/issues/3192))
+
 ## 🧚‍♀️ Release 79.0.1 - 2025-09-22
 
 ### Fixed
