@@ -25,6 +25,7 @@
  - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
+ - [dso-history-item](../history-item-list/components/history-item)
  - [dso-image-overlay](../image-overlay)
  - [dso-info](../info)
  - [dso-info-button](../info-button)
@@ -58,6 +59,7 @@ graph TD;
   dso-document-card --> dso-icon
   dso-document-component --> dso-icon
   dso-header --> dso-icon
+  dso-history-item --> dso-icon
   dso-image-overlay --> dso-icon
   dso-info --> dso-icon
   dso-info-button --> dso-icon
