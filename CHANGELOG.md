@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* **BREAKING** Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
+
 ## 🧽 Release 79.0.0-pre.0 - 2025-08-21
 
 ### Fixed
