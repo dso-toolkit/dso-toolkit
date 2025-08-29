@@ -25,7 +25,7 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item-list/components/history-item/history-item.interfaces";
+import { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -71,7 +71,7 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item-list/components/history-item/history-item.interfaces";
+export { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -780,15 +780,17 @@ export namespace Components {
     }
     interface DsoHistoryItem {
         /**
-          * The URL to which the History Item title links.
+          * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
          */
-        "href": string | undefined;
+        "href"?: string;
         /**
           * The type of History Item
          */
         "type": HistoryItemType;
     }
     interface DsoHistoryItemList {
+    }
+    interface DsoHistoryItems {
     }
     interface DsoIcon {
         /**
@@ -2002,6 +2004,12 @@ declare global {
         prototype: HTMLDsoHistoryItemListElement;
         new (): HTMLDsoHistoryItemListElement;
     };
+    interface HTMLDsoHistoryItemsElement extends Components.DsoHistoryItems, HTMLStencilElement {
+    }
+    var HTMLDsoHistoryItemsElement: {
+        prototype: HTMLDsoHistoryItemsElement;
+        new (): HTMLDsoHistoryItemsElement;
+    };
     interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
     }
     var HTMLDsoIconElement: {
@@ -2586,6 +2594,7 @@ declare global {
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-history-item": HTMLDsoHistoryItemElement;
         "dso-history-item-list": HTMLDsoHistoryItemListElement;
+        "dso-history-items": HTMLDsoHistoryItemsElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
@@ -3435,9 +3444,9 @@ declare namespace LocalJSX {
     }
     interface DsoHistoryItem {
         /**
-          * The URL to which the History Item title links.
+          * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
          */
-        "href": string | undefined;
+        "href"?: string;
         /**
           * Emitted when the History Item title is clicked.
          */
@@ -3448,6 +3457,8 @@ declare namespace LocalJSX {
         "type": HistoryItemType;
     }
     interface DsoHistoryItemList {
+    }
+    interface DsoHistoryItems {
     }
     interface DsoIcon {
         /**
@@ -4281,6 +4292,7 @@ declare namespace LocalJSX {
         "dso-highlight-box": DsoHighlightBox;
         "dso-history-item": DsoHistoryItem;
         "dso-history-item-list": DsoHistoryItemList;
+        "dso-history-items": DsoHistoryItems;
         "dso-icon": DsoIcon;
         "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
@@ -4356,6 +4368,7 @@ declare module "@stencil/core" {
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-history-item": LocalJSX.DsoHistoryItem & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
             "dso-history-item-list": LocalJSX.DsoHistoryItemList & JSXBase.HTMLAttributes<HTMLDsoHistoryItemListElement>;
+            "dso-history-items": LocalJSX.DsoHistoryItems & JSXBase.HTMLAttributes<HTMLDsoHistoryItemsElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;

@@ -1,4 +1,4 @@
-export type HistoryItemType = "In Werking" | "Besluit" | "Tijdelijk Regelingdeel" | "Waarschuwing" | "Ontwerp";
+export type HistoryItemType = "in-werking" | "besluit" | "tijdelijk-regelingdeel" | "waarschuwing" | "ontwerp";
 
 export interface HistoryItemClickEvent {
   originalEvent: MouseEvent;

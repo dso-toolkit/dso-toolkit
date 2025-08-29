@@ -4,25 +4,25 @@ import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
-import { HistoryItem, HistoryItemList } from "./history-item-list.models.js";
+import { HistoryItem, HistoryItems } from "./history-items.models.js";
 
-export interface HistoryItemListArgs {
+export interface HistoryItemsArgs {
   dsoHistoryItemClick: HandlerFunction;
 }
 
-export const historyItemListArgs: HistoryItemListArgs = {
+export const historyItemsArgs: HistoryItemsArgs = {
   dsoHistoryItemClick: fn(),
 };
 
-export const historyItemListArgTypes: ArgTypes<HistoryItemListArgs> = {
+export const historyItemsArgTypes: ArgTypes<HistoryItemsArgs> = {
   dsoHistoryItemClick: argTypeAction(),
 };
 
-export function historyItemListArgsMapper(
-  a: HistoryItemListArgs,
+export function historyItemsArgsMapper(
+  a: HistoryItemsArgs,
   headings: string[],
   historyItems: HistoryItem[],
-): HistoryItemList {
+): HistoryItems {
   return {
     headings,
     historyItems: historyItems.map((hi) => {

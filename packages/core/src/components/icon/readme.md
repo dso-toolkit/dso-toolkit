@@ -25,7 +25,7 @@
  - [dso-document-card](../document-card)
  - [dso-document-component](../document-component)
  - [dso-header](../header)
- - [dso-history-item](../history-item-list/components/history-item)
+ - [dso-history-item](../history-items/components/history-item)
  - [dso-image-overlay](../image-overlay)
  - [dso-info](../info)
  - [dso-info-button](../info-button)

@@ -53,7 +53,7 @@ import {
   Header,
   Heading,
   HighlightBox,
-  HistoryItemList,
+  HistoryItems,
   Icon,
   Image,
   ImageOverlay,
@@ -165,7 +165,7 @@ import { coreHeader } from "./components/header/header.core-template";
 import { cssHeading } from "./components/heading/heading.css-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
-import { coreHistoryItemList } from "./components/history-item-list/history-item-list.core-template";
+import { coreHistoryItems } from "./components/history-items/history-items.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
 import { cssIcon } from "./components/icon/icon.css-template";
 import { cssImage } from "./components/image/image.css-template";
@@ -275,7 +275,7 @@ export interface Components {
   header: Header;
   heading: Heading<TemplateResult>;
   highlightBox: HighlightBox<TemplateResult | string>;
-  historyItemList: HistoryItemList;
+  historyItems: HistoryItems;
   icon: Icon;
   image: Image;
   imageOverlay: ImageOverlay;
@@ -375,7 +375,7 @@ templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreExpandable);
 templateContainer.add(coreHeader);
 templateContainer.add(coreHighlightBox);
-templateContainer.add(coreHistoryItemList);
+templateContainer.add(coreHistoryItems);
 templateContainer.add(coreIcon);
 templateContainer.add(coreImageOverlay);
 templateContainer.add(coreInfo);

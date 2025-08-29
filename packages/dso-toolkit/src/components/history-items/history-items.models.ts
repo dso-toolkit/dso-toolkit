@@ -1,9 +1,9 @@
-export interface HistoryItemList {
+export interface HistoryItems {
   headings: string[];
   historyItems: HistoryItem[];
 }
 
-export type HistoryItemType = "In Werking" | "Besluit" | "Tijdelijk Regelingdeel" | "Waarschuwing" | "Ontwerp";
+export type HistoryItemType = "in-werking" | "besluit" | "tijdelijk-regelingdeel" | "waarschuwing" | "ontwerp";
 
 export interface HistoryItem {
   date: string;
