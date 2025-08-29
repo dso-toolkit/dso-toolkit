@@ -36,6 +36,14 @@
     }
   }
 
+  &:not(.dso-document-header-sticky) {
+    #{typography.$headings} {
+      button {
+        cursor: default;
+      }
+    }
+  }
+
   &.dso-variant-ontwerp {
     padding-block-start: 0;
 
@@ -126,7 +134,7 @@
     gap: units.$u1;
     padding-block: units.$ru1;
     padding-inline: units.$u3;
-    margin-block-end: calc(units.$u1 / 2);
+    margin-block-end: units.$u1;
     margin-inline: -#{units.$u3} -#{units.$u3};
 
     > dso-label,
@@ -182,6 +190,7 @@
 
     &:last-child {
       border-block-end: 1px solid colors.$grijs-20;
+      padding-block-end: units.$u1;
       margin-block-end: calc(#{units.$u1} * 0.5);
     }
   }

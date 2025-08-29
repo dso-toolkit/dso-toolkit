@@ -46,7 +46,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
           <div class="dso-document-header-container">
             <div class="dso-document-header-owner-wrapper">
               <p class="dso-document-header-type">${type}</p>
-              ${owner ? html`<p class="dso-document-header-owner">${owner}</p>` : nothing}
+              - ${owner ? html`<p class="dso-document-header-owner">${owner}</p>` : nothing}
             </div>
 
             ${buttonTemplate({
