@@ -55,6 +55,7 @@
     .dso-document-header-status {
       @include set-colors.apply(colors.$bosgroen);
 
+      // To do: remove in #2542
       dso-icon[icon="hammer"] {
         padding-block: 3px;
         padding-inline: 2px;
