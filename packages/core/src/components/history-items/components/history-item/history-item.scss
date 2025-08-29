@@ -1,0 +1,61 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  border-bottom: 1px solid colors.$grijs-10;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: units.$u1;
+  width: 100%;
+  padding-inline: units.$u1;
+  padding-block: units.$u2;
+}
+
+@include utilities.box-sizing();
+
+.history-item-date,
+.history-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-item-date {
+  flex-basis: 90px;
+}
+
+.history-item-status-message,
+.history-item-warning {
+  dso-icon {
+    margin-inline-end: units.$u1;
+  }
+}
+
+.history-item-status-message {
+  &.tijdelijk {
+    color: colors.$mauve;
+  }
+}
+
+.history-item-title,
+.history-item-explanation,
+.history-item-warning {
+  margin-block-start: units.$u1;
+  margin-inline-start: units.$u4;
+}
+
+.title-anchor {
+  color: colors.$grasgroen;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: colors.$grasgroen;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: colors.$grasgroen;
+  }
+}
