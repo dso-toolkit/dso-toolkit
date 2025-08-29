@@ -5,10 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
+
 ## 🧽 Release 79.0.0-pre.0 - 2025-08-21
 
 ### Fixed
-* Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
 * **BREAKING** Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
 
 ## 🦕 Release 78.1.0 - 2025-08-19

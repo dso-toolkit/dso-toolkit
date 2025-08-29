@@ -149,7 +149,13 @@ export class DropdownMenu {
     }
   }
 
+  connectedCallback() {
+    this.host.addEventListener("keydown", this.keyDownListener);
+  }
+
   disconnectedCallback() {
+    this.host.removeEventListener("keydown", this.keyDownListener);
+
     this.toggleOptions(false);
   }
 
@@ -162,8 +168,7 @@ export class DropdownMenu {
     }
   };
 
-  @Listen("keydown", { target: "window" })
-  keyDownListener(event: KeyboardEvent) {
+  private keyDownListener(event: KeyboardEvent) {
     if (event.defaultPrevented || !this.open) {
       return;
     }
