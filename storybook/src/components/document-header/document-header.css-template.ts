@@ -12,7 +12,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       title,
       type,
       owner,
-      features,
+      featuresContent,
       featureAction,
       featuresOpen,
       advancedSelect,
@@ -20,7 +20,9 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       statusMessage,
       variant,
     }) {
-      const variantFeatures = features.filter((f) => f.variant === variant);
+      const variantFeaturesContent = featuresContent.get(variant ? variant : "vastgesteld");
+      const features = variantFeaturesContent?.get("features");
+      const besluitInformatie = variantFeaturesContent?.get("besluitinformatie");
 
       return html`
         <dso-responsive-element
@@ -71,14 +73,14 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
               })}
               ${featuresOpen
                 ? html`
-                    ${variantFeatures[0] ? definitionListTemplate(variantFeatures[0].content) : nothing}
-                    ${variantFeatures[1]
+                    ${features ? definitionListTemplate(features) : nothing}
+                    ${besluitInformatie
                       ? html`
                           ${headingTemplate({
                             level: 3,
                             children: "Besluitinformatie",
                           })}
-                          ${definitionListTemplate(variantFeatures[1].content)}
+                          ${definitionListTemplate(besluitInformatie)}
                         `
                       : nothing}
                   `

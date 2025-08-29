@@ -3,16 +3,11 @@ import { DefinitionList } from "../definition-list";
 
 export type variant = "ontwerp" | "besluitversie";
 
-export type Features<TemplateFnReturnType> = {
-  variant?: variant;
-  content: DefinitionList<TemplateFnReturnType>;
-};
-
 export interface DocumentHeader<TemplateFnReturnType> {
   title: string;
   type: string;
   owner?: string;
-  features: Features<TemplateFnReturnType>[];
+  featuresContent: Map<string, Map<string, DefinitionList<TemplateFnReturnType>>>;
   featuresOpen?: boolean;
   featureAction?: (e: MouseEvent) => void;
   advancedSelect: AdvancedSelect<unknown>;

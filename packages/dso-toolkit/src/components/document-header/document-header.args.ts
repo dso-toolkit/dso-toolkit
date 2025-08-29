@@ -4,8 +4,9 @@ import { ArgTypes } from "storybook/internal/types";
 import { noControl } from "../../storybook";
 import { AdvancedSelect, selectExampleOption } from "../advanced-select";
 import { options } from "../advanced-select/advanced-select.content";
+import { DefinitionList } from "../definition-list";
 
-import { DocumentHeader, Features } from "./document-header.models.js";
+import { DocumentHeader } from "./document-header.models.js";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -73,13 +74,13 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
-  features: Features<TemplateFnReturnType>[],
+  featuresContent: Map<string, Map<string, DefinitionList<TemplateFnReturnType>>>,
 ): DocumentHeader<TemplateFnReturnType> {
   return {
     title: a.title,
     owner: a.owner,
     type: a.type,
-    features,
+    featuresContent,
     featureAction: a.featureAction,
     featuresOpen: a.featuresOpen,
     advancedSelect: {

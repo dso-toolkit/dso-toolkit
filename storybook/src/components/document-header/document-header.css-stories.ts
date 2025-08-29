@@ -21,7 +21,7 @@ const { Default, DefaultOntwerp, DefaultBesluitversie, Sticky, StickyOntwerp, St
 
       return {
         documentHeaderTemplate,
-        features: featuresContent(templates),
+        featuresContent: featuresContent(templates),
       };
     },
   });

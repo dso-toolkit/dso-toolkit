@@ -4,9 +4,10 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { options } from "../advanced-select/advanced-select.content";
+import { DefinitionList } from "../definition-list";
 
 import { DocumentHeaderArgs, documentHeaderArgTypes, documentHeaderArgsMapper } from "./document-header.args.js";
-import { DocumentHeader, Features } from "./document-header.models.js";
+import { DocumentHeader } from "./document-header.models.js";
 
 type DocumentHeaderStory = StoryObj<DocumentHeaderArgs, Renderer>;
 
@@ -21,7 +22,7 @@ interface DocumentHeaderStories {
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   documentHeaderTemplate: (documentHeaderProperties: DocumentHeader<TemplateFnReturnType>) => TemplateFnReturnType;
-  features: Features<TemplateFnReturnType>[];
+  featuresContent: Map<string, Map<string, DefinitionList<TemplateFnReturnType>>>;
 }
 
 interface DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -64,8 +65,8 @@ export function documentHeaderStories<Implementation, Templates, TemplateFnRetur
 }: DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentHeaderStories {
   const render = templateContainer.render(
     storyTemplates,
-    (args: DocumentHeaderArgs, { documentHeaderTemplate, features }) =>
-      documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
+    (args: DocumentHeaderArgs, { documentHeaderTemplate, featuresContent }) =>
+      documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent)),
   );
 
   return {
