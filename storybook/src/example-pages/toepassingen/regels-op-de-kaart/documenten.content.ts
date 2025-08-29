@@ -1,13 +1,4 @@
-import {
-  AdvancedSelect,
-  Breadcrumbs,
-  DefinitionList,
-  DocumentCard,
-  Header,
-  Navbar,
-  PlekinfoCard,
-  TabsItem,
-} from "dso-toolkit";
+import { AdvancedSelect, Breadcrumbs, DocumentCard, Header, Navbar, PlekinfoCard, TabsItem } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
 import { mainMenu } from "../../content/main-menu.content";
@@ -31,28 +22,6 @@ export const breadcrumbs: Breadcrumbs = {
     {
       label: "Test",
       url: "#",
-    },
-  ],
-};
-
-export const features: DefinitionList<TemplateResult> = {
-  modifier: "dso-document-header-features",
-  definitions: [
-    {
-      term: html`Opschrift:`,
-      descriptions: [
-        {
-          content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
-        },
-      ],
-    },
-    {
-      term: html`Identificatie:`,
-      descriptions: [
-        {
-          content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
-        },
-      ],
     },
   ],
 };

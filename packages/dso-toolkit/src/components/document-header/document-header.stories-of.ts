@@ -4,21 +4,24 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 import { options } from "../advanced-select/advanced-select.content";
-import { DefinitionList } from "../definition-list";
 
 import { DocumentHeaderArgs, documentHeaderArgTypes, documentHeaderArgsMapper } from "./document-header.args.js";
-import { DocumentHeader } from "./document-header.models.js";
+import { DocumentHeader, featuresContentType } from "./document-header.models.js";
 
 type DocumentHeaderStory = StoryObj<DocumentHeaderArgs, Renderer>;
 
 interface DocumentHeaderStories {
   Default: DocumentHeaderStory;
+  DefaultOntwerp: DocumentHeaderStory;
+  DefaultBesluitversie: DocumentHeaderStory;
   Sticky: DocumentHeaderStory;
+  StickyOntwerp: DocumentHeaderStory;
+  StickyBesluitversie: DocumentHeaderStory;
 }
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   documentHeaderTemplate: (documentHeaderProperties: DocumentHeader<TemplateFnReturnType>) => TemplateFnReturnType;
-  features: DefinitionList<TemplateFnReturnType>;
+  featuresContent: featuresContentType<TemplateFnReturnType>;
 }
 
 interface DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -36,6 +39,12 @@ export function documentHeaderMeta<TRenderer extends Renderer>({ readme }: MetaO
   return {
     argTypes: documentHeaderArgTypes,
     args: {
+      advancedSelect: {
+        options,
+      },
+      title: "Omgevingsplan gemeente Gouda",
+      type: "Een omgevingsplan waar de omgeving mooier van wordt",
+      owner: "Gemeente Gouda",
       featuresOpen: false,
       sticky: false,
     },
@@ -53,33 +62,49 @@ export function documentHeaderStories<Implementation, Templates, TemplateFnRetur
   storyTemplates,
   templateContainer,
 }: DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>): DocumentHeaderStories {
+  const render = templateContainer.render(
+    storyTemplates,
+    (args: DocumentHeaderArgs, { documentHeaderTemplate, featuresContent }) =>
+      documentHeaderTemplate(documentHeaderArgsMapper(args, featuresContent)),
+  );
+
   return {
     Default: {
+      render,
+    },
+    DefaultOntwerp: {
       args: {
-        title: "Omgevingsplan gemeente Gouda",
-        type: "Een omgevingsplan waar de omgeving mooier van wordt",
-        owner: "Gemeente Gouda",
-        advancedSelect: {
-          options,
-        },
+        statusMessage: "Wijzigingen door ontwerpbesluit",
+        variant: "ontwerp",
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
+    },
+    DefaultBesluitversie: {
+      args: {
+        statusMessage: "Wijzigingen in regeling door wijzigingbesluit",
+        variant: "besluitversie",
+      },
+      render,
     },
     Sticky: {
       args: {
-        title: "Omgevingsplan gemeente Gouda",
-        type: "Een omgevingsplan waar de omgeving mooier van wordt",
-        owner: "Gemeente Gouda",
         sticky: true,
-        advancedSelect: {
-          options,
-        },
       },
-      render: templateContainer.render(storyTemplates, (args, { documentHeaderTemplate, features }) =>
-        documentHeaderTemplate(documentHeaderArgsMapper(args, features)),
-      ),
+      render,
+    },
+    StickyOntwerp: {
+      args: {
+        sticky: true,
+        variant: "ontwerp",
+      },
+      render,
+    },
+    StickyBesluitversie: {
+      args: {
+        sticky: true,
+        variant: "besluitversie",
+      },
+      render,
     },
   };
 }

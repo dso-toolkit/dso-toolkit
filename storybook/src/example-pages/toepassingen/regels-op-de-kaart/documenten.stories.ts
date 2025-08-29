@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { html } from "lit-html";
 
+import { featuresContent } from "../../../components/document-header/document-header.content";
 import { examplePageStories } from "../../../example-page-stories";
 import { headerPartial } from "../../partials/header";
 
@@ -8,7 +9,6 @@ import {
   advancedSelect,
   documentCardList,
   documentPanelSubmenu,
-  features,
   header,
   mainSubmenu,
   plekinfoCardsListActiviteiten,
@@ -106,7 +106,7 @@ const Documenten = examplePageStories((templates) => {
               title: "Omgevingsplan gemeente Gouda",
               type: "Omgevingsplan - Gemeente Gouda",
               owner: "",
-              features,
+              featuresContent: featuresContent(templates),
               advancedSelect,
             })}
             ${navbarTemplate(documentPanelSubmenu)}

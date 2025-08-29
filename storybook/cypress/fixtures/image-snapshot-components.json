@@ -173,6 +173,19 @@
     "type": "html-css"
   },
   {
+    "name": "document-header",
+    "selector": ".dso-document-header",
+    "stories": [
+      "default",
+      "default-besluitversie",
+      "default-ontwerp",
+      "sticky",
+      "sticky-besluitversie",
+      "sticky-ontwerp"
+    ],
+    "type": "html-css"
+  },
+  {
     "name": "document-list",
     "selector": ".dso-document-list",
     "stories": ["default", "sticky"],

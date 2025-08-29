@@ -1,12 +1,11 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { noControl } from "../../storybook/index.js";
+import { noControl } from "../../storybook";
 import { AdvancedSelect, selectExampleOption } from "../advanced-select";
 import { options } from "../advanced-select/advanced-select.content";
-import { DefinitionList } from "../definition-list/definition-list.models.js";
 
-import { DocumentHeader } from "./document-header.models.js";
+import { DocumentHeader, featuresContentType } from "./document-header.models.js";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -17,6 +16,8 @@ export interface DocumentHeaderArgs {
   activeIndex: number;
   advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
+  statusMessage?: string;
+  variant?: "ontwerp" | "besluitversie";
 }
 
 export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
@@ -57,17 +58,28 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
       type: "boolean",
     },
   },
+  statusMessage: {
+    control: {
+      type: "text",
+    },
+  },
+  variant: {
+    options: [undefined, "ontwerp", "besluitversie"],
+    control: {
+      type: "select",
+    },
+  },
 };
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
-  features: DefinitionList<TemplateFnReturnType>,
+  featuresContent: featuresContentType<TemplateFnReturnType>,
 ): DocumentHeader<TemplateFnReturnType> {
   return {
     title: a.title,
     owner: a.owner,
     type: a.type,
-    features,
+    featuresContent,
     featureAction: a.featureAction,
     featuresOpen: a.featuresOpen,
     advancedSelect: {
@@ -75,5 +87,7 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
       active: selectExampleOption(a.activeIndex, options),
     },
     sticky: a.sticky,
+    variant: a.variant,
+    statusMessage: a.statusMessage,
   };
 }
