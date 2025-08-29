@@ -16,9 +16,13 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    padding-block: calc(units.$u1 / 2) calc(grid-variables.$grid-gutter-width * 0.5);
+    padding-block: units.$u1 calc(grid-variables.$grid-gutter-width * 0.5);
     padding-inline: units.$u3;
     margin-inline: -#{units.$u2} -#{units.$u2};
+  }
+
+  &:has(.dso-document-header-status) {
+    padding-block-start: 0;
   }
 
   #{typography.$headings} {
@@ -36,9 +40,15 @@
     }
   }
 
-  &.dso-variant-ontwerp {
-    padding-block-start: 0;
+  &:not(.dso-document-header-sticky) {
+    #{typography.$headings} {
+      button {
+        cursor: default;
+      }
+    }
+  }
 
+  &.dso-variant-ontwerp {
     .dso-document-header-status {
       @include set-colors.apply(colors.$geel);
 
@@ -50,8 +60,6 @@
   }
 
   &.dso-variant-besluitversie {
-    padding-block-start: 0;
-
     .dso-document-header-status {
       @include set-colors.apply(colors.$bosgroen);
 
@@ -126,7 +134,7 @@
     gap: units.$u1;
     padding-block: units.$ru1;
     padding-inline: units.$u3;
-    margin-block-end: calc(units.$u1 / 2);
+    margin-block-end: units.$u1;
     margin-inline: -#{units.$u3} -#{units.$u3};
 
     > dso-label,
@@ -182,6 +190,7 @@
 
     &:last-child {
       border-block-end: 1px solid colors.$grijs-20;
+      padding-block-end: units.$u1;
       margin-block-end: calc(#{units.$u1} * 0.5);
     }
   }

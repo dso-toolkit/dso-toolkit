@@ -5,7 +5,7 @@ import { noControl } from "../../storybook";
 import { AdvancedSelect, selectExampleOption } from "../advanced-select";
 import { options } from "../advanced-select/advanced-select.content";
 
-import { DocumentHeader, featuresContentType } from "./document-header.models.js";
+import { DocumentHeader, featuresContentType, variant } from "./document-header.models.js";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -17,7 +17,7 @@ export interface DocumentHeaderArgs {
   advancedSelect: AdvancedSelect<unknown>;
   sticky: boolean;
   statusMessage?: string;
-  variant?: "ontwerp" | "besluitversie";
+  variant?: variant;
 }
 
 export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
@@ -62,6 +62,7 @@ export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
     control: {
       type: "text",
     },
+    if: { arg: "variant", neq: undefined },
   },
   variant: {
     options: [undefined, "ontwerp", "besluitversie"],
@@ -88,6 +89,16 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     },
     sticky: a.sticky,
     variant: a.variant,
-    statusMessage: a.statusMessage,
+    statusMessage: selectStatusMessage(a.statusMessage, a.variant),
   };
+}
+
+function selectStatusMessage(statusMessage?: string, variant?: variant) {
+  if (statusMessage) {
+    return statusMessage;
+  }
+  if (variant === "ontwerp") {
+    return "Wijzigingen in regeling door ontwerpbesluit";
+  }
+  return "Wijzigingen in regeling door wijzigingbesluit";
 }
