@@ -7,19 +7,36 @@ import { ComponentImplementation } from "../../templates";
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
   implementation: "html-css",
-  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate }) =>
+  template: ({ buttonTemplate, definitionListTemplate, advancedSelectTemplate, headingTemplate }) =>
     function documentHeaderTemplate({
       title,
       type,
       owner,
-      features,
+      featuresContent,
       featureAction,
       featuresOpen,
       advancedSelect,
       sticky,
+      statusMessage,
+      variant,
     }) {
+      const variantFeaturesContent = featuresContent.get(variant ? variant : "vastgesteld");
+      const features = variantFeaturesContent?.get("features");
+      const besluitInformatie = variantFeaturesContent?.get("besluitinformatie");
+
       return html`
-        <dso-responsive-element class="dso-document-header ${classMap({ "dso-document-header-sticky": !!sticky })}">
+        <dso-responsive-element
+          class="dso-document-header ${classMap({
+            "dso-document-header-sticky": !!sticky,
+            [`dso-variant-${variant}`]: !!variant,
+          })}"
+        >
+          ${statusMessage && !!variant
+            ? html`<div class="dso-document-header-status">
+                ${variant === "ontwerp" ? html`<dso-icon icon="pencil"></dso-icon>` : nothing}
+                ${variant === "besluitversie" ? html`<dso-icon icon="hammer"></dso-icon>` : nothing} ${statusMessage}
+              </div>`
+            : nothing}
           <h1>
             <button type="button">
               <span>${title}</span>
@@ -29,7 +46,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
           <div class="dso-document-header-container">
             <div class="dso-document-header-owner-wrapper">
               <p class="dso-document-header-type">${type}</p>
-              ${owner ? html`<p class="dso-document-header-owner">${owner}</p>` : nothing}
+              - ${owner ? html`<p class="dso-document-header-owner">${owner}</p>` : nothing}
             </div>
 
             ${buttonTemplate({
@@ -54,7 +71,20 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
                 },
                 iconMode: "after",
               })}
-              ${featuresOpen ? definitionListTemplate(features) : nothing}
+              ${featuresOpen
+                ? html`
+                    ${features ? definitionListTemplate(features) : nothing}
+                    ${besluitInformatie
+                      ? html`
+                          ${headingTemplate({
+                            level: 3,
+                            children: "Besluitinformatie",
+                          })}
+                          ${definitionListTemplate(besluitInformatie)}
+                        `
+                      : nothing}
+                  `
+                : nothing}
             </div>
 
             ${advancedSelectTemplate(advancedSelect)}
