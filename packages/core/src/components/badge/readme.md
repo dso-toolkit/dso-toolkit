@@ -16,12 +16,14 @@
 
  - [dso-advanced-select](../advanced-select)
  - [dso-document-component](../document-component)
+ - [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-advanced-select --> dso-badge
   dso-document-component --> dso-badge
+  dso-toggletip --> dso-badge
   style dso-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
