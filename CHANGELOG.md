@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Label: Deprecate HTML/CSS implementatie ([#3317](https://github.com/dso-toolkit/dso-toolkit/issues/3317))
 
+### Fixed
+* Alert: binnen Gereserveerd en Vervallen Document Component mist blauwe achtergrond ([#3257](https://github.com/dso-toolkit/dso-toolkit/issues/3257))
+
 ## 🦕 Release 78.1.0 - 2025-08-19
 
 ### Added
