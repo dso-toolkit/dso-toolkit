@@ -10,6 +10,51 @@
   margin-block-start: units.$u3;
 }
 
+:host([compact]:not([compact="false"])) {
+  position: relative;
+  @include alert.compact();
+}
+
+:host([status="success"]) {
+  @include alert.status-success();
+}
+
+:host([status="success"][compact]:not([compact="false"])) {
+  &::before {
+    background-color: alert.$success-compact-accent-bg;
+  }
+}
+
+:host([status="error"]) {
+  @include alert.status-error();
+}
+
+:host([status="error"][compact]:not([compact="false"])) {
+  &::before {
+    background-color: alert.$danger-compact-accent-bg;
+  }
+}
+
+:host([status="warning"]) {
+  @include alert.status-warning();
+}
+
+:host([status="warning"][compact]:not([compact="false"])) {
+  &::before {
+    background-color: alert.$warning-compact-accent-bg;
+  }
+}
+
+:host([status="info"]) {
+  @include alert.status-info();
+}
+
+:host([status="info"][compact]:not([compact="false"])) {
+  &::before {
+    background-color: alert.$info-compact-accent-bg;
+  }
+}
+
 @include utilities.box-sizing();
 
 .sr-only {
