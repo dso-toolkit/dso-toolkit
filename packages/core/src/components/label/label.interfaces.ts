@@ -1,1 +1,11 @@
-export type LabelStatus = "primary" | "success" | "info" | "warning" | "error" | "bright" | "attention" | "filter";
+export type LabelStatus =
+  | "primary"
+  | "success"
+  | "info"
+  | "warning"
+  | "error"
+  | "bright"
+  | "attention"
+  | "filter"
+  | "toegevoegd"
+  | "verwijderd";
