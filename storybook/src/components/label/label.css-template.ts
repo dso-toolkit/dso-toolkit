@@ -11,7 +11,7 @@ export const cssLabel: ComponentImplementation<Label> = {
   implementation: "html-css",
   template: ({ iconTemplate }) =>
     function labelTemplate({ slotName, status, label, removable, dsoRemoveClick, compact, symbol }) {
-      return html`
+      return html`<!-- START DEPRECATED -->
         <span
           slot=${ifDefined(slotName)}
           class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}"
@@ -24,8 +24,7 @@ export const cssLabel: ComponentImplementation<Label> = {
                   ${iconTemplate({ icon: "times" })}
                 </button>
               `
-            : nothing}
-        </span>
-      `;
+            : nothing} </span
+        ><!-- END DEPRECATED --> `;
     },
 };
