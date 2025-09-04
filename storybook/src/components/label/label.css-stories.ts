@@ -8,7 +8,7 @@ import { decorator } from "./label.decorator";
 
 const meta: Meta<LabelArgs> = {
   ...labelMeta({ readme }),
-  title: "HTML|CSS/Label",
+  title: "HTML|CSS/Label (Deprecated)",
 };
 
 export default meta;
