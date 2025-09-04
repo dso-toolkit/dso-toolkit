@@ -3,6 +3,8 @@
 @use "../../variables/typography";
 @use "label.variables" as label-variables;
 @use "../../global/mixins/set-colors.mixin" as set-colors;
+@use "../delete";
+@use "../insert";
 
 @mixin root() {
   border-radius: 4px;
@@ -85,6 +87,14 @@
     & {
       border-inline-start: 5px solid label-variables.$filter-border-color;
     }
+  }
+
+  &.dso-label-toegevoegd {
+    @include insert.root();
+  }
+
+  &.dso-label-verwijderd {
+    @include delete.root();
   }
 
   &.dso-compact {
