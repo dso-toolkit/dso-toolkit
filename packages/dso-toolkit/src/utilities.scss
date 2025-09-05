@@ -60,20 +60,17 @@
   outline: units.$focus-outline-width solid colors.$focus-outline-color;
 }
 
-/* Genereert een `transition` met vaste easing en optionele duur en delay per property.
-**
-** @param {ArgList} $transitions...
-**   - "property": gebruikt standaard duur (260ms) en delay (0ms)
-**   - ("property", duur): eigen duur, geen delay
-**   - ("property", duur, delay): eigen duur én delay
-**
-** @example
-**   @include transition(opacity, ("transform", 300ms), ("color", 500ms, 200ms));
-**
-** @output
-**   transition: [property] [duration] cubic-bezier(0.4, 0, 0.2, 1) [delay];
-**
-*/
+/// Genereert een `transition` met vaste easing en optionele duur en delay per property.
+///  @param {ArgList} $transitions...
+///   - "property": gebruikt standaard duur (260ms) en delay (0ms)
+///   - ("property", duur): eigen duur, geen delay
+///   - ("property", duur, delay): eigen duur én delay
+///
+/// @example
+///   @include transition(opacity, ("transform", 300ms), ("color", 500ms, 200ms));
+///
+/// @output
+///   transition: [property] [duration] cubic-bezier(0.4, 0, 0.2, 1) [delay];
 @mixin transition($transitions...) {
   $result: ();
 
