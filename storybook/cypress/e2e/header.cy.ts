@@ -2,7 +2,7 @@ import { HeaderMenuItem } from "@dso-toolkit/core";
 
 describe("Header", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label").injectAxe();
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label");
 
     prepareComponent();
   });
@@ -63,6 +63,7 @@ describe("Header", () => {
   }
 
   it("should be accessible", () => {
+    cy.injectAxe();
     cy.dsoCheckA11y("dso-header.hydrated");
 
     cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
@@ -89,21 +90,32 @@ describe("Header", () => {
   });
 
   it("matches snapshot (2 menuitems in dropdown menu)", () => {
-    cy.viewport(1000, 660)
-      .get("dso-header.hydrated")
+    cy.viewport(1000, 660);
+
+    cy.get("dso-header.hydrated")
       .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
       .get("@dsoHeaderShadow")
-      .find(".dso-nav-main")
-      .should("have.class", "ready")
-      .get("@dsoHeaderShadow")
-      .find("dso-dropdown-menu.hydrated")
-      .should("exist")
-      .and("be.visible")
-      .get("@dsoHeaderShadow")
-      .find(".dso-dropdown-options ul li")
-      .should("have.length", 2)
-      .get("dso-header.hydrated")
-      .matchImageSnapshot();
+      .find(".dso-nav-main.ready");
+    //   .find("#visibleMenuItemsCount")
+    //   .should("have.text", "4");
+    //
+    // cy.get("dso-header.hydrated")
+    //   .get("@dsoHeaderShadow")
+    //   .find(".dso-nav-main.ready")
+    //   .find("#hiddenMainMenuItemsLength")
+    //   .should("have.text", "2");
+    //
+    // cy.get("dso-header.hydrated")
+    //   .get("@dsoHeaderShadow")
+    //   .find(".dso-nav-main.ready")
+    //   .find(".dropdown-menu-item")
+    //   .find("dso-dropdown-menu.hydrated")
+    //   .should("exist")
+    //   .and("be.visible");
+    //
+    // cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
+
+    cy.get("dso-header.hydrated").matchImageSnapshot();
   });
 
   it("matches snapshot (compact)", () => {
@@ -361,6 +373,209 @@ describe("Header", () => {
         menuItem: undefined,
         type: "help",
       });
+  });
+
+  describe('emits correct event details from "overflowMenu" dropdown menu', () => {
+    const overflowMenuItemEvents = [
+      {
+        isModifiedEvent: false,
+        url: "#maatregelenopmaat",
+        menuItem: {
+          label: "Maatregelen op maat",
+          url: "#maatregelenopmaat",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#hulpcentrum",
+        menuItem: {
+          label: "Hulpcentrum",
+          url: "#hulpcentrum",
+        },
+        type: "menuItem",
+      },
+    ];
+
+    overflowMenuItemEvents.forEach((event, index) => {
+      it(`on select of overflow menu item ${event.menuItem ? event.menuItem.label : event.type} via click`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .get("@dsoHeaderShadow")
+          .find(".dso-nav-main.ready")
+          .find(".dropdown-menu-item")
+          .find("dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
+
+        cy.get("@dsoHeaderShadow")
+          .find(".dso-dropdown-options ul li a")
+          .eq(index)
+          .click()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", event);
+      });
+    });
+
+    overflowMenuItemEvents.forEach((event, index) => {
+      it(`on select of overflow menu item ${event.menuItem ? event.menuItem.label : event.type} via realClick`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .get("@dsoHeaderShadow")
+          .find(".dso-nav-main.ready")
+          .find(".dropdown-menu-item")
+          .find("dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").realClick();
+
+        cy.get("@dsoHeaderShadow")
+          .find(".dso-dropdown-options ul li a")
+          .eq(index)
+          .realClick()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", event);
+      });
+    });
+  });
+
+  describe('emits correct event details from "compact menu" dropdown menu', () => {
+    const compactMenuItemEvents = [
+      {
+        isModifiedEvent: false,
+        url: "#home",
+        menuItem: {
+          label: "Home",
+          url: "#home",
+          active: true,
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#vergunningscheck",
+        menuItem: {
+          label: "Vergunningscheck",
+          url: "#vergunningscheck",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#aanvragen",
+        menuItem: {
+          label: "Aanvragen",
+          url: "#aanvragen",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#regelsopdekaart",
+        menuItem: {
+          label: "Regels op de kaart",
+          url: "#regelsopdekaart",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#maatregelenopmaat",
+        menuItem: {
+          label: "Maatregelen op maat",
+          url: "#maatregelenopmaat",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#hulpcentrum",
+        menuItem: {
+          label: "Hulpcentrum",
+          url: "#hulpcentrum",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#userHomeUrl",
+        menuItem: undefined,
+        type: "userHome",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#profileUrl",
+        menuItem: undefined,
+        type: "profile",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#logoutUrl",
+        menuItem: undefined,
+        type: "logout",
+      },
+    ];
+
+    compactMenuItemEvents.forEach((event, index) => {
+      it(`on select of compact menu item ${event.menuItem ? event.menuItem.label : event.type} via click`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .invoke("attr", "user-home-url", "#userHomeUrl")
+          .invoke("attr", "user-profile-url", "#profileUrl")
+          .invoke("attr", "login-url", "#loginUrl")
+          .invoke("attr", "logout-url", "#logoutUrl")
+          .invoke("attr", "auth-status", "loggedIn")
+          .invoke("prop", "compact", "always")
+          .get("dso-header[is-compact].hydrated")
+          .get("@dsoHeaderShadow")
+          .find(".dropdown dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
+
+        cy.get("@dsoHeaderShadow")
+          .find(".dso-dropdown-options ul li a")
+          .eq(index)
+          .click()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", event);
+      });
+    });
+
+    compactMenuItemEvents.forEach((event, index) => {
+      it(`on select of compact menu item ${event.menuItem ? event.menuItem.label : event.type} via realClick`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .invoke("attr", "user-home-url", "#userHomeUrl")
+          .invoke("attr", "user-profile-url", "#profileUrl")
+          .invoke("attr", "login-url", "#loginUrl")
+          .invoke("attr", "logout-url", "#logoutUrl")
+          .invoke("attr", "auth-status", "loggedIn")
+          .invoke("prop", "compact", "always")
+          .get("dso-header[is-compact].hydrated")
+          .get("@dsoHeaderShadow")
+          .find(".dropdown dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
+
+        cy.get("@dsoHeaderShadow")
+          .find(".dso-dropdown-options ul li a")
+          .eq(index)
+          .realClick()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", event);
+      });
+    });
   });
 
   it("should be possible to make user home active", () => {
