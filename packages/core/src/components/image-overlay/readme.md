@@ -20,12 +20,13 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 
 ### Depends on
 
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-image-overlay --> dso-icon
+  dso-image-overlay --> dso-icon-button
+  dso-icon-button --> dso-icon
   dso-ozon-content --> dso-image-overlay
   style dso-image-overlay fill:#f9f,stroke:#333,stroke-width:4px
 ```

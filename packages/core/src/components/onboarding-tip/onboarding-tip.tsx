@@ -1,7 +1,7 @@
-import { arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
-import { Side } from "@floating-ui/utils";
-import { Placement } from "@popperjs/core";
+import { Placement, autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
+
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 
 import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
 
@@ -35,7 +35,13 @@ export class OnboardingTip implements ComponentInterface {
     }
 
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
-      this.cleanUp = OnboardingTip.positionTip(this.referenceElement, this.host, this.tipArrowRef, this.placement);
+      this.cleanUp = positionTooltip(
+        this.referenceElement,
+        this.host,
+        this.tipArrowRef,
+        this.normalizedPlacement,
+        true,
+      );
     }
   }
 
@@ -46,114 +52,6 @@ export class OnboardingTip implements ComponentInterface {
 
     this.cleanUp?.();
     this.cleanUp = undefined;
-  }
-
-  /**
-   * This function positions the Onboarding Tip relative to its reference element. It is static so the position is calculated
-   * only using the passed arguments.
-   */
-  private static positionTip(
-    referenceElement: HTMLElement,
-    tipRef: HTMLDsoOnboardingTipElement,
-    tipArrowRef: HTMLDivElement,
-    position: Side,
-  ) {
-    const padding = 5;
-    return autoUpdate(referenceElement, tipRef, () => {
-      const arrowLength = tipArrowRef.offsetWidth;
-
-      // Get half the arrow box's hypotenuse length
-      const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
-
-      // 1.5 times the diagonal of the arrow box
-      const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
-
-      // Same as media-query-breakpoints.$screen-md-min
-      const smallViewport = document.body.clientWidth < 992;
-
-      // Only use top and bottom placement when the viewport is small
-      const placement: Placement = smallViewport ? "top" : `${position}-start`;
-
-      computePosition(referenceElement, tipRef, {
-        strategy: "fixed",
-        middleware: [
-          offset({
-            mainAxis: mainAxisOffset,
-            alignmentAxis: -arrowPadding,
-          }),
-          flip({
-            padding,
-          }),
-          shift({
-            padding,
-          }),
-          arrow({
-            padding: arrowPadding,
-            element: tipArrowRef,
-          }),
-          hide({
-            padding: arrowPadding + arrowLength + padding,
-          }),
-        ],
-        placement,
-      }).then(({ x, y, middlewareData, placement: computedPlacement }) => {
-        if (middlewareData.hide) {
-          // Tooltip needs to be visible at all times on small viewports
-          const disappear = !smallViewport && middlewareData.hide.referenceHidden;
-          Object.assign(tipRef.style, {
-            // Both of these properties have a CSS transition
-            visibility: disappear ? "hidden" : "visible",
-            opacity: disappear ? 0 : 1,
-          });
-        }
-
-        Object.assign(tipRef.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-        });
-
-        const side = computedPlacement.split("-")[0];
-
-        const staticSide = side
-          ? {
-              top: "bottom",
-              right: "left",
-              bottom: "top",
-              left: "right",
-            }[side]
-          : "top";
-
-        let angle;
-        switch (staticSide) {
-          default:
-          case "top":
-            angle = 45;
-            break;
-          case "right":
-            angle = 135;
-            break;
-          case "bottom":
-            angle = 225;
-            break;
-          case "left":
-            angle = 315;
-            break;
-        }
-
-        if (middlewareData.arrow && staticSide) {
-          const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-          Object.assign(tipArrowRef.style, {
-            right: "",
-            bottom: "",
-            left: arrowX ? `${arrowX}px` : "",
-            top: arrowY ? `${arrowY}px` : "",
-            [staticSide]: `${-arrowLength / 2}px`,
-            transform: `rotate(${angle}deg)`,
-          });
-        }
-      });
-    });
   }
 
   render() {
@@ -213,5 +111,13 @@ export class OnboardingTip implements ComponentInterface {
     }
 
     return reference;
+  }
+
+  private get normalizedPlacement(): Placement {
+    if (this.placement.endsWith("-start") || this.placement.endsWith("-end")) {
+      return this.placement as Placement;
+    }
+
+    return `${this.placement}-start`;
   }
 }
