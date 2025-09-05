@@ -1,8 +1,8 @@
 import gulp from "gulp";
 import filter from "gulp-filter";
+import header from "gulp-header";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
-import replace from "gulp-replace";
 import stylelint from "gulp-stylelint-esm";
 
 import { plugins } from "../postcss.config.js";
@@ -28,16 +28,8 @@ export function buildStyling() {
     .src("src/dso.scss", { sourcemaps: true })
     .pipe(sassTransformer())
     .pipe(
-      replace(
-        '@charset "UTF-8";',
-        [
-          '@charset "UTF-8";',
-          "",
-          `/* DSO Toolkit version: "${version}" */`,
-          `:root { --dso-toolkit-version: "${version}" }`,
-          "",
-          "",
-        ].join("\n"),
+      header(
+        [`/* DSO Toolkit version: "${version}" */`, `:root { --dso-toolkit-version: "${version}" }`, "", ""].join("\n"),
       ),
     )
     .pipe(gulp.dest("dist", { sourcemaps: "." }))
