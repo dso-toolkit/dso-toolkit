@@ -25,10 +25,12 @@ interface Illustratie {
 }
 
 const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx }) => {
+  const bronText = bron && bron.textContent?.trim();
+
   return (
     <span class="figuur-bijschrift">
       {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud)}
-      {bron && (
+      {bronText && (
         <Fragment>
           {`${bijschrift ? " " : ""}(bron: `}
           {mapNodeToJsx(bron)})
