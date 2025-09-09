@@ -5,10 +5,10 @@ import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
-import { IconButton } from "./icon-button.models";
+import { IconButtonVariant } from "./icon-button.models";
 
 export interface IconButtonArgs {
-  variant?: "secondary" | "tertiary" | "tertiary-on-color" | "map";
+  variant: IconButtonVariant;
   icon: string;
   accessibleLabel: string;
   tooltipPlacement: Placement;
@@ -49,16 +49,5 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
       },
     },
     dsoIconButtonClick: argTypeAction(),
-  };
-}
-
-export function iconButtonArgsMapper(a: IconButtonArgs): IconButton {
-  return {
-    ...a,
-    variant: a.variant,
-    icon: a.icon,
-    tooltipPlacement: a.tooltipPlacement,
-    accessibleLabel: a.accessibleLabel,
-    dsoClickIconButton: a.dsoIconButtonClick,
   };
 }

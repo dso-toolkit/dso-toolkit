@@ -1,6 +1,7 @@
 import { Placement } from "@floating-ui/dom";
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
+import { IconButtonVariant } from "dso-toolkit";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -10,11 +11,11 @@ import { IconButtonClickEvent } from "./icon-button.interfaces";
 @Component({
   tag: "dso-icon-button",
   styleUrl: "icon-button.scss",
-  shadow: { delegatesFocus: true },
+  shadow: true,
 })
 export class IconButton implements ComponentInterface {
   /**
-   * The name of the icon displayed in the button.
+   * The alias of the icon in the button.
    */
   @Prop()
   icon!: string;
@@ -26,10 +27,10 @@ export class IconButton implements ComponentInterface {
   accessibleLabel!: string;
 
   /**
-   * The variants of the icon button.
+   * The variant of the icon button.
    */
   @Prop()
-  variant?: "secondary" | "tertiary" = "secondary";
+  variant: IconButtonVariant = "secondary";
 
   /**
    * The placement of the tooltip on hover of the icon button.
