@@ -2,7 +2,11 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Label
 
-<StorybookComponent variant="default" />
+<StorybookComponent implementations={["core", "angular", "react"]} variant="default" />
+
+De Html/Css implementatie is **Deprecated**
+
+<StorybookComponent name="label-deprecated" implementations={["html-css"]} variant="default" />
 
 Het label component kent een normale en een een smalle variant.
 
@@ -17,6 +21,10 @@ Op een pagina met de uitslag van een quiz wordt gemeld dat de gebruiker 4 antwoo
 
 Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) zijn afbrekingen met ellipsis acceptabel als de volledige content beschikbaar is op focus of na activatie van de gebruiker. Dit gepaard met een indicatie dat deze informatie toegankelijk is voor de gebruiker, naast het feit dat het afgebroken is.
 
+<StorybookComponent implementations={["core", "angular", "react"]} variant="truncate" />
+
 ### Variant met verwijder kruisje
 
-Het tekstalternatief voor een verwijder knopje in een label is: verwijder [tekst label]. De tekst van het label wordt in het verwijder knopje herhaald om te zorgen dat voor screenreader gebruikers altijd duidelijk is welk verwijder knopje bij welk label hoort. Dit stelt hen in staat sneller te werken en voorkomt het per ongeluk verwijderen van het verkeerde item.
+Het tekstalternatief voor een verwijder knopje in een label is: `Verwijder [tekst label]`. De tekst van het label wordt in het verwijder knopje herhaald om te zorgen dat voor screenreader gebruikers altijd duidelijk is welk verwijder knopje bij welk label hoort. Dit stelt hen in staat sneller te werken en voorkomt het per ongeluk verwijderen van het verkeerde item.
+
+<StorybookComponent implementations={["core", "angular", "react"]} variant="with-action" />

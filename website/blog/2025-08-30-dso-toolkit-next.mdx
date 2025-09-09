@@ -8,12 +8,16 @@ Deze release bevat een **Breaking** change voor het volgende component:
 
 - Breadcrumbs
 
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Label (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Breadcrumbs
 
 Het HTML/CSS component `Breadcrumbs` maakte nog ten onrechte gebruik van de class name in enkelvoud: `breadcrumb`.
-Daarnaast ontbrak de prefix `dso-` in de class naame. Dat hebben we in deze release gecorrigeerd. De class name is
+Daarnaast ontbrak de prefix `dso-` in de class name. Dat hebben we in deze release gecorrigeerd. De class name is
 geworden `dso-breadcrumbs`
 
 ### Migratiepad
@@ -34,4 +38,32 @@ Vervang de class name `breadcrumb` door `dso-breadcrumbs`.
 <ol class="dso-breadcrumbs">
   [..]
 </ol>
+```
+
+## Label
+
+Het HTML/CSS component `Label` is deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd
+worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Label.
+
+```html
+❌
+<span class="dso-label dso-label-primary dso-compact">
+  <span class="dso-label-symbol">[...]</span>
+  LABEL
+  <button type="button">
+    <span class="sr-only">Verwijder</span>
+    <dso-icon icon="times"></dso-icon>
+  </button>
+</span>
+
+✅
+<dso-label status="primary" compact removable>
+  <!-- event listener onDsoRemoveClick -->
+  <span slot="symbol">[...]</span>
+  LABEL
+</dso-label>
 ```
