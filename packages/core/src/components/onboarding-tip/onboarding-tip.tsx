@@ -115,10 +115,6 @@ export class OnboardingTip implements ComponentInterface {
   }
 
   private get normalizedPlacement(): Placement {
-    if (this.placement.endsWith("-start") || this.placement.endsWith("-end")) {
-      return this.placement;
-    }
-
     return `${this.placement}-start`;
   }
 }
