@@ -12,9 +12,7 @@ describe("Icon Button", () => {
 
   variants.forEach((variant) => {
     it(`should show the ${variant} variant`, () => {
-      if (variant !== "secondary") {
-        cy.get("dso-icon-button.hydrated").invoke("prop", "variant", variant);
-      }
+      cy.get("dso-icon-button.hydrated").invoke("prop", "variant", variant);
 
       cy.get("dso-icon-button.hydrated").realHover().shadow().find(".dso-tooltip").should("exist");
 
@@ -33,10 +31,10 @@ describe("Icon Button", () => {
   });
 
   const placements: Record<"top" | "right" | "bottom" | "left", [number, number]> = {
-    top: [280, 454],
-    right: [318, 526],
-    bottom: [356, 454],
-    left: [318, 383],
+    top: [275, 454],
+    right: [318, 531],
+    bottom: [361, 454],
+    left: [318, 377],
   };
 
   Object.entries(placements).forEach(([placement, [expectedTop, expectedLeft]]) => {
