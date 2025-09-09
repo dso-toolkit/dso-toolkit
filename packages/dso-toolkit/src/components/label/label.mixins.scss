@@ -90,7 +90,7 @@
   }
 
   &.dso-label-toegevoegd {
-    @include insert.root(1px 1px 3px 0 rgb(0 0 0 / 50%));
+    @include insert.root();
   }
 
   &.dso-label-verwijderd {
