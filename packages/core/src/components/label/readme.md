@@ -11,12 +11,12 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                                     | Type                                                                                                           | Default     |
-| ----------- | ----------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
-| `compact`   | `compact`   | For compact Label                                                                               | `boolean \| undefined`                                                                                         | `undefined` |
-| `removable` | `removable` | Shows a button that can be used to remove the Label.                                            | `boolean \| undefined`                                                                                         | `undefined` |
-| `status`    | `status`    | The status of this Label.                                                                       | `"attention" \| "bright" \| "error" \| "filter" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `truncate`  | `truncate`  | Whether the Label is allowed to truncate the contents if it does not fit the container element. | `boolean \| undefined`                                                                                         | `undefined` |
+| Property    | Attribute   | Description                                                                                     | Type                                                                                                                                           | Default     |
+| ----------- | ----------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `compact`   | `compact`   | For compact Label                                                                               | `boolean \| undefined`                                                                                                                         | `undefined` |
+| `removable` | `removable` | Shows a button that can be used to remove the Label.                                            | `boolean \| undefined`                                                                                                                         | `undefined` |
+| `status`    | `status`    | The status of this Label.                                                                       | `"attention" \| "bright" \| "error" \| "filter" \| "info" \| "primary" \| "success" \| "toegevoegd" \| "verwijderd" \| "warning" \| undefined` | `undefined` |
+| `truncate`  | `truncate`  | Whether the Label is allowed to truncate the contents if it does not fit the container element. | `boolean \| undefined`                                                                                                                         | `undefined` |
 
 
 ## Events

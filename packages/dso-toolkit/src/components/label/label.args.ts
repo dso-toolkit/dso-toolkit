@@ -6,7 +6,17 @@ import { argTypeAction } from "../../storybook";
 import { Label } from "./label.models.js";
 
 export interface LabelArgs {
-  status: "primary" | "info" | "success" | "warning" | "error" | "bright" | "attention" | "filter";
+  status:
+    | "primary"
+    | "success"
+    | "info"
+    | "warning"
+    | "error"
+    | "bright"
+    | "attention"
+    | "filter"
+    | "toegevoegd"
+    | "verwijderd";
   compact: boolean;
   truncate: boolean;
   label: string;
@@ -17,7 +27,18 @@ export interface LabelArgs {
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
   status: {
-    options: ["primary", "success", "info", "warning", "error", "bright", "attention", "filter"],
+    options: [
+      "primary",
+      "success",
+      "info",
+      "warning",
+      "error",
+      "bright",
+      "attention",
+      "filter",
+      "toegevoegd",
+      "verwijderd",
+    ],
     control: {
       type: "select",
     },

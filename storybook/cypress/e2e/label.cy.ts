@@ -17,26 +17,26 @@ describe("Label", () => {
       .invoke("text", defaultLabelText);
   }
 
-  it("should be accessible", () => {
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-label.hydrated");
-  });
-
-  it("should be able to truncate label", () => {
-    cy.get("@dsoLabel").matchImageSnapshot();
+  it("must truncate label", () => {
+    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
 
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
       .invoke("prop", "truncate", true)
-      .get("dso-label")
-      .should("not.have.attr", "aria-roledescription")
-      .get("dso-label")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .get("@dsoLabelShadow")
-      .find(".dso-label-content")
+      .find(".dso-label")
+      .should("not.have.attr", "aria-describedby")
+      .get("@dsoLabel")
+      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
+      .get("@dsoLabel")
+      .shadow()
+      .find(".dso-label")
+      .should("have.attr", "aria-describedby", "toggle-anchor")
+      .get("@dsoLabelShadow")
+      .find(".dso-label-content.dso-truncate")
       .should("exist");
 
-    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- truncated`);
+    cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- after truncation`);
   });
 
   it("should show tooltip on focus", () => {
@@ -105,5 +105,32 @@ describe("Label", () => {
       .get("@dsoLabelShadow")
       .find("button span.sr-only")
       .should("have.text", `Verwijder: ${updatedText}`);
+  });
+
+  const statusses = [
+    undefined,
+    "primary",
+    "success",
+    "info",
+    "warning",
+    "error",
+    "bright",
+    "attention",
+    "filter",
+    "toegevoegd",
+    "verwijderd",
+  ];
+
+  statusses.map((status) => {
+    it(`Label with status "${status}" is accessible`, () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-label.hydrated");
+    });
+
+    it(`matches snapshots for status "${status}"`, () => {
+      cy.get("@dsoLabel").invoke("prop", "status", status);
+
+      cy.get("@dsoLabel").matchImageSnapshot();
+    });
   });
 });
