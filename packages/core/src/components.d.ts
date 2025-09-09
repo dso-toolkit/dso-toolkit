@@ -38,7 +38,7 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
+import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
@@ -87,7 +87,7 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
+export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
@@ -1068,7 +1068,7 @@ export namespace Components {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement": TooltipPosition;
+        "placement": TooltipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -3802,7 +3802,7 @@ declare namespace LocalJSX {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement"?: TooltipPosition;
+        "placement"?: TooltipPlacement;
     }
     interface DsoOzonContent {
         /**

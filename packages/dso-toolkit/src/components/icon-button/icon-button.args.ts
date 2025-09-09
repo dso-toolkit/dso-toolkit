@@ -1,4 +1,4 @@
-import { Placement } from "@floating-ui/dom";
+import { TooltipPlacement } from "@dso-toolkit/core/src";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -11,7 +11,7 @@ export interface IconButtonArgs {
   variant: IconButtonVariant;
   icon: string;
   accessibleLabel: string;
-  tooltipPlacement: Placement;
+  tooltipPlacement: TooltipPlacement;
   dsoIconButtonClick: HandlerFunction;
 }
 
