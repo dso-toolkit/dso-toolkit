@@ -7,10 +7,10 @@
   text-decoration: none;
 }
 
-@mixin root() {
+@mixin root($box-shadow: insert-variables.$box-shadow) {
   @include set-colors.apply(colors.$lime-20);
 
   & {
-    box-shadow: insert-variables.$box-shadow;
+    box-shadow: $box-shadow;
   }
 }
