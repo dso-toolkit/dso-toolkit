@@ -27,7 +27,6 @@
  - [dso-header](../header)
  - [dso-icon-button](../icon-button)
  - [dso-info](../info)
- - [dso-info-button](../info-button)
  - [dso-label](../label)
  - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
@@ -59,7 +58,6 @@ graph TD;
   dso-header --> dso-icon
   dso-icon-button --> dso-icon
   dso-info --> dso-icon
-  dso-info-button --> dso-icon
   dso-label --> dso-icon
   dso-list-button --> dso-icon
   dso-map-controls --> dso-icon
