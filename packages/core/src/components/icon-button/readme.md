@@ -40,6 +40,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [dso-image-overlay](../image-overlay)
+ - [dso-info-button](../info-button)
  - [dso-legend-item](../legend-item)
 
 ### Depends on
@@ -51,6 +52,7 @@ Type: `Promise<void>`
 graph TD;
   dso-icon-button --> dso-icon
   dso-image-overlay --> dso-icon-button
+  dso-info-button --> dso-icon-button
   dso-legend-item --> dso-icon-button
   style dso-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
