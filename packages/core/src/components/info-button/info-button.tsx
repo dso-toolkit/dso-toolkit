@@ -9,7 +9,7 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
   styleUrl: "info-button.scss",
 })
 export class InfoButton {
-  private button?: HTMLButtonElement;
+  private button?: HTMLDsoIconButtonElement;
 
   /**
    * Whether the InfoButton is active.
@@ -54,16 +54,14 @@ export class InfoButton {
   render() {
     return (
       <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
-        <button
-          type="button"
-          class={clsx({ "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })}
-          aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
+        <dso-icon-button
+          variant="tertiary"
+          class={clsx({ "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })} // ToDO fix the secondary class/variant
+          accessibleLabel={this.label}
           onClick={(e) => this.handleToggle(e)}
+          icon={this.active || this.hover ? "info-active" : "info"}
           ref={(element) => (this.button = element)}
-        >
-          <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
-          <span class="sr-only">{this.label}</span>
-        </button>
+        />
       </Host>
     );
   }

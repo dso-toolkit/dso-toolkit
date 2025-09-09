@@ -25,7 +25,7 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    border: 1px solid transparent;
+    border: var(--dso-icon-tertiary-border, 1px solid transparent);
   }
 }
 

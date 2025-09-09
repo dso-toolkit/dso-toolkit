@@ -32,7 +32,8 @@ graph TD;
   dso-map-base-layers --> dso-selectable
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
-  dso-info-button --> dso-icon
+  dso-info-button --> dso-icon-button
+  dso-icon-button --> dso-icon
   dso-info --> dso-icon
   style dso-map-base-layers fill:#f9f,stroke:#333,stroke-width:4px
 ```
