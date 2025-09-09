@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Breadcrumbs: Breadcrumb met "s" ([#3210](https://github.com/dso-toolkit/dso-toolkit/issues/3210))
 * Document Header: Varianten voor besluitversies ([#3193](https://github.com/dso-toolkit/dso-toolkit/issues/3193))
 * Ozon Content: Lege bron zorgt voor lege bronvermelding bij Figuur ([#3253](https://github.com/dso-toolkit/dso-toolkit/issues/3253))
+* Label: Border kleur van variant filter aanpassen ([#3290](https://github.com/dso-toolkit/dso-toolkit/issues/3290))
 
 ### Deprecated
 * Label: Deprecate HTML/CSS implementatie ([#3317](https://github.com/dso-toolkit/dso-toolkit/issues/3317))
