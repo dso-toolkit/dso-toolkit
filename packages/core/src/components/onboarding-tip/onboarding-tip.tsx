@@ -2,8 +2,9 @@ import { Placement, autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { TooltipPosition } from "../../functional-components/tooltip/tooltip.interfaces";
 
-import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./onboarding-tip.interfaces";
+import { OnboardingTipCloseEvent } from "./onboarding-tip.interfaces";
 
 @Component({
   tag: "dso-onboarding-tip",
@@ -18,7 +19,7 @@ export class OnboardingTip implements ComponentInterface {
    * Where to place the Onboarding Tip relative to its reference element.
    */
   @Prop()
-  placement: OnboardingTipPlacement = "right";
+  placement: TooltipPosition = "right";
 
   /**
    * Emitted when the user closes the Onboarding Tip.
@@ -115,7 +116,7 @@ export class OnboardingTip implements ComponentInterface {
 
   private get normalizedPlacement(): Placement {
     if (this.placement.endsWith("-start") || this.placement.endsWith("-end")) {
-      return this.placement as Placement;
+      return this.placement;
     }
 
     return `${this.placement}-start`;

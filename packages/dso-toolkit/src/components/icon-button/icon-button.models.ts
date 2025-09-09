@@ -1,10 +1,12 @@
 import { Placement } from "@floating-ui/dom";
 import { HandlerFunction } from "storybook/actions";
 
+export type IconButtonVariant = "secondary" | "tertiary" | "map";
+
 export interface IconButton {
-  variant?: "secondary" | "tertiary" | "tertiary-on-color" | "map";
+  variant: IconButtonVariant;
   icon: string;
   accessibleLabel: string;
   tooltipPlacement: Placement;
-  dsoClickIconButton: HandlerFunction;
+  dsoIconButtonClick: HandlerFunction;
 }

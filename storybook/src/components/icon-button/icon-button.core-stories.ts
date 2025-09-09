@@ -4,8 +4,6 @@ import { IconButtonArgs, iconButtonMeta, iconButtonStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { decorator } from "./icon-button.decorator";
-
 const icons: string[] = import.meta.env?.VITE_ICONS?.split(",") || [];
 
 const meta: Meta<IconButtonArgs> = {
@@ -15,19 +13,16 @@ const meta: Meta<IconButtonArgs> = {
 
 export default meta;
 
-const { Secondary, Tertiary, TertiaryOnColor, Map } = iconButtonStories(
-  {
-    templateContainer,
-    storyTemplates: (templates) => {
-      const { iconButtonTemplate } = templates;
+const { Secondary, Tertiary, Map } = iconButtonStories({
+  templateContainer,
+  storyTemplates: (templates) => {
+    const { iconButtonTemplate } = templates;
 
-      return {
-        iconButtonTemplate,
-      };
-    },
-    icons,
+    return {
+      iconButtonTemplate,
+    };
   },
-  decorator,
-);
+  icons,
+});
 
-export { Map, Secondary, Tertiary, TertiaryOnColor };
+export { Map, Secondary, Tertiary };

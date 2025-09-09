@@ -7,13 +7,13 @@ export const coreIconButton: ComponentImplementation<IconButton> = {
   component: "iconButton",
   implementation: "core",
   template: () =>
-    function iconButtonTemplate({ accessibleLabel, dsoClickIconButton, icon, tooltipPlacement, variant }) {
+    function iconButtonTemplate({ accessibleLabel, dsoIconButtonClick, icon, tooltipPlacement, variant }) {
       return html`<dso-icon-button
         variant=${variant}
         icon=${icon}
         accessible-label=${accessibleLabel}
         tooltip-placement=${tooltipPlacement}
-        @dsoIconButtonClick=${(e: CustomEvent) => dsoClickIconButton(e.detail)}
+        @dsoIconButtonClick=${(e: CustomEvent) => dsoIconButtonClick(e.detail)}
       ></dso-icon-button>`;
     },
 };

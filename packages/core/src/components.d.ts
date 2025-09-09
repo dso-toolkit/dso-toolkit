@@ -25,6 +25,7 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { IconButtonVariant } from "dso-toolkit";
 import { Placement } from "@floating-ui/dom";
 import { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -37,7 +38,8 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+import { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
+import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -72,6 +74,7 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { IconButtonVariant } from "dso-toolkit";
 export { Placement } from "@floating-ui/dom";
 export { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -84,7 +87,8 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+export { TooltipPosition } from "./functional-components/tooltip/tooltip.interfaces";
+export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -792,7 +796,7 @@ export namespace Components {
          */
         "accessibleLabel": string;
         /**
-          * The name of the icon displayed in the button.
+          * The alias of the icon in the button.
          */
         "icon": string;
         /**
@@ -805,10 +809,10 @@ export namespace Components {
          */
         "tooltipPlacement": Placement;
         /**
-          * The variants of the icon button.
+          * The variant of the icon button.
           * @default "secondary"
          */
-        "variant"?: "secondary" | "tertiary";
+        "variant": IconButtonVariant;
     }
     interface DsoImageOverlay {
         /**
@@ -1064,7 +1068,7 @@ export namespace Components {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement": OnboardingTipPlacement;
+        "placement": TooltipPosition;
     }
     interface DsoOzonContent {
         /**
@@ -3452,7 +3456,7 @@ declare namespace LocalJSX {
          */
         "accessibleLabel": string;
         /**
-          * The name of the icon displayed in the button.
+          * The alias of the icon in the button.
          */
         "icon": string;
         /**
@@ -3465,10 +3469,10 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: Placement;
         /**
-          * The variants of the icon button.
+          * The variant of the icon button.
           * @default "secondary"
          */
-        "variant"?: "secondary" | "tertiary";
+        "variant"?: IconButtonVariant;
     }
     interface DsoImageOverlay {
         /**
@@ -3798,7 +3802,7 @@ declare namespace LocalJSX {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement"?: OnboardingTipPlacement;
+        "placement"?: TooltipPosition;
     }
     interface DsoOzonContent {
         /**
