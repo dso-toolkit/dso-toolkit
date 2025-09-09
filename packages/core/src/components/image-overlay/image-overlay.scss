@@ -20,10 +20,6 @@
   opacity: 1;
 }
 
-button {
-  @include button.element();
-}
-
 .open {
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {

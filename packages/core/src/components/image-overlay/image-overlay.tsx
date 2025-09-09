@@ -37,6 +37,7 @@ const Dimmer: FunctionalComponent<{
         <dso-icon-button
           tabindex="0"
           icon="times"
+          variant="map"
           class="close"
           accessibleLabel="Sluiten"
           onDsoIconButtonClick={click}
@@ -67,7 +68,7 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   zoomable = false;
 
-  private buttonElement: HTMLDsoIconButtonElement | undefined;
+  private iconButtonElement: HTMLDsoIconButtonElement | undefined;
 
   private wrapperElement: HTMLDivElement | undefined;
 
@@ -167,15 +168,16 @@ export class ImageOverlay implements ComponentInterface {
         tabindex="0"
         icon="external-link"
         class="open"
+        variant="map"
         accessibleLabel="Sluiten"
-        ref={(element) => (this.buttonElement = element)}
+        ref={(element) => (this.iconButtonElement = element)}
         onDsoIconButtonClick={() => (this.active = true)}
       />
     );
 
     if (this.wijzigactie === "verwijder") {
       return (
-        <Host onClick={() => this.buttonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.focus()}>
           <del class="editaction-remove">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -204,7 +206,7 @@ export class ImageOverlay implements ComponentInterface {
 
     if (this.wijzigactie === "voegtoe") {
       return (
-        <Host onClick={() => this.buttonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.focus()}>
           <ins class="editaction-add">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -232,7 +234,7 @@ export class ImageOverlay implements ComponentInterface {
     }
 
     return (
-      <Host onClick={() => this.buttonElement?.focus()}>
+      <Host onClick={() => this.iconButtonElement?.focus()}>
         <Dimmer
           active={this.active}
           src={src}
@@ -268,7 +270,7 @@ export class ImageOverlay implements ComponentInterface {
 
           return true;
         },
-        setReturnFocus: this.buttonElement ?? false,
+        setReturnFocus: this.iconButtonElement ?? false,
         onDeactivate: () => (this.active = false),
       }).activate();
     } else if (!this.active && this.trap) {

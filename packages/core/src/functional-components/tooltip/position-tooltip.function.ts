@@ -10,13 +10,8 @@ export function positionTooltip(
   return autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
     const arrowLength = tipArrowRef.offsetWidth;
-
-    // Get half the arrow box's hypotenuse length
-    const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2) / 2;
-
-    // 1.5 times the diagonal of the arrow box
+    const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2);
     const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
-
     const smallViewport = topPositionSmallViewPort && document.body.clientWidth < 992;
 
     // Set placement to bottom if viewport is small and topPositionSmallViewPort is set to true

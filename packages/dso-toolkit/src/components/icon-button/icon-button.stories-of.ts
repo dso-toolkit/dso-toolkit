@@ -1,20 +1,17 @@
 import { compiler } from "markdown-to-jsx";
-import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
+import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
-import { IconButtonArgs, iconButtonArgTypes, iconButtonArgs, iconButtonArgsMapper } from "./icon-button.args.js";
+import { IconButtonArgs, iconButtonArgTypes, iconButtonArgs } from "./icon-button.args.js";
 import { IconButton } from "./icon-button.models.js";
-
-export type IconButtonDecorator<TemplateFnReturnType> = (story: PartialStoryFn) => TemplateFnReturnType;
 
 type IconButtonStory = StoryObj<IconButtonArgs, Renderer>;
 
 interface IconButtonStories {
   Secondary: IconButtonStory;
   Tertiary: IconButtonStory;
-  TertiaryOnColor: IconButtonStory;
   Map: IconButtonStory;
 }
 
@@ -49,42 +46,28 @@ export function iconButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-export function iconButtonStories<Implementation, Templates, TemplateFnReturnType>(
-  {
-    storyTemplates,
-    templateContainer,
-    icons,
-  }: IconButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>,
-  decorator: IconButtonDecorator<TemplateFnReturnType>,
-): IconButtonStories {
+export function iconButtonStories<Implementation, Templates, TemplateFnReturnType>({
+  storyTemplates,
+  templateContainer,
+  icons,
+}: IconButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): IconButtonStories {
   const render = templateContainer.render(storyTemplates, (args: IconButtonArgs, { iconButtonTemplate }) =>
-    iconButtonTemplate(iconButtonArgsMapper(args)),
+    iconButtonTemplate(args),
   );
 
   return {
     Secondary: {
-      decorators: [(story) => decorator(story)],
       argTypes: iconButtonArgTypes(icons),
       render,
     },
     Tertiary: {
-      decorators: [(story) => decorator(story)],
       argTypes: iconButtonArgTypes(icons),
       args: {
         variant: "tertiary",
       },
       render,
     },
-    TertiaryOnColor: {
-      decorators: [(story) => decorator(story)],
-      argTypes: iconButtonArgTypes(icons),
-      args: {
-        variant: "tertiary-on-color",
-      },
-      render,
-    },
     Map: {
-      decorators: [(story) => decorator(story)],
       argTypes: iconButtonArgTypes(icons),
       args: {
         variant: "map",

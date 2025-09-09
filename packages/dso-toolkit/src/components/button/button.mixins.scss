@@ -116,15 +116,6 @@
   }
 }
 
-@mixin icon-only() {
-  & {
-    padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
-    padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
-    min-inline-size: auto;
-    cursor: pointer;
-  }
-}
-
 @mixin small() {
   & {
     line-height: typography.$root-font-size-base;
@@ -422,34 +413,6 @@
   svg.di,
   span {
     vertical-align: middle;
-  }
-}
-
-@mixin tertiary-on-color($base-styling: true, $modifiers: true) {
-  @if ($base-styling) {
-    @include base($modifiers);
-  }
-
-  & {
-    border: 0;
-    color: button-variables.$tertiary-on-color-color;
-    line-height: 1;
-    padding: 0;
-    background-color: transparent;
-  }
-
-  &[disabled] {
-    color: button-variables.$tertiary-on-color-disabled-color;
-  }
-
-  &:not([disabled]) {
-    &:hover {
-      color: button-variables.$tertiary-on-color-hover-color;
-    }
-
-    &:active {
-      color: button-variables.$tertiary-on-color-active-color;
-    }
   }
 }
 
