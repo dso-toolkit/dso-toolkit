@@ -8,6 +8,7 @@
 @use "~dso-toolkit/src/components/delete/delete";
 
 @include utilities.box-sizing();
+@include utilities.focus();
 
 :host {
   display: block;
