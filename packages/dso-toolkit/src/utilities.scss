@@ -61,7 +61,8 @@
 }
 
 /// Genereert een `transition` met vaste easing en optionele duur en delay per property.
-///  @param {ArgList} $transitions...
+///
+/// @param {ArgList} $transitions...
 ///   - "property": gebruikt standaard duur (260ms) en delay (0ms)
 ///   - ("property", duur): eigen duur, geen delay
 ///   - ("property", duur, delay): eigen duur én delay
