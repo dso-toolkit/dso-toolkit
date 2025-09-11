@@ -1,0 +1,10 @@
+@use "~dso-toolkit/src/variables/units";
+
+@mixin icon-only() {
+  & {
+    padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
+    padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
+    min-inline-size: auto;
+    cursor: pointer;
+  }
+}

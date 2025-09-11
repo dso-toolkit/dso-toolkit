@@ -8,7 +8,7 @@ describe("Icon Button", () => {
     cy.dsoCheckA11y("dso-icon-button.hydrated");
   });
 
-  const variants = ["secondary", "tertiary", "tertiary-on-color", "map"];
+  const variants = ["secondary", "tertiary", "map"];
 
   variants.forEach((variant) => {
     it(`should show the ${variant} variant`, () => {
