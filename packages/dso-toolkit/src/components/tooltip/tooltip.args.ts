@@ -1,12 +1,12 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
-import { Tooltip, tooltipPlacement, tooltipStrategy } from "./tooltip.models.js";
+import { Tooltip, tooltipPositions, tooltipStrategy } from "./tooltip.models.js";
 
 export interface TooltipArgs {
   active: boolean;
   descriptive?: boolean;
-  position: (typeof tooltipPlacement)[number];
+  position: (typeof tooltipPositions)[number];
   strategy: (typeof tooltipStrategy)[number];
   label: string;
   id: string;
@@ -25,7 +25,7 @@ export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
     },
   },
   position: {
-    options: tooltipPlacement,
+    options: tooltipPositions,
     control: {
       type: "select",
     },

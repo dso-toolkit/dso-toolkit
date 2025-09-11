@@ -1,6 +1,6 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { tooltipPlacement } from "../tooltip/tooltip.models.js";
+import { tooltipPositions } from "../tooltip/tooltip.models.js";
 
 import { Toggletip } from "./toggletip.models.js";
 
@@ -13,7 +13,7 @@ export interface ToggletipArgs {
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
   position: {
-    options: tooltipPlacement,
+    options: tooltipPositions,
     control: {
       type: "select",
     },

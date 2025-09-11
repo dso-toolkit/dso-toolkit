@@ -1,11 +1,11 @@
-export const tooltipPlacement = ["top", "right", "bottom", "left"] as const;
+export const tooltipPositions = ["top", "right", "bottom", "left"] as const;
 
 export const tooltipStrategy = ["auto", "absolute", "fixed"] as const;
 
 export interface Tooltip {
   active?: boolean;
   descriptive?: boolean;
-  position: (typeof tooltipPlacement)[number];
+  position: (typeof tooltipPositions)[number];
   strategy?: (typeof tooltipStrategy)[number];
   label: string;
   id?: string;
