@@ -1,20 +1,26 @@
 import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
 
+/**
+ * This function positions the Tooltip relative to its reference element. It is static so the position is
+ * calculated by only using the passed arguments.
+ */
 export function positionTooltip(
   referenceElement: HTMLElement,
   tipRef: HTMLElement,
   tipArrowRef: HTMLElement,
   placementTip: Placement,
   topPositionSmallViewPort = false,
+  halfMainAxisOffset = false,
 ) {
   return autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
     const arrowLength = tipArrowRef.offsetWidth;
-    const mainAxisOffset = Math.sqrt(2 * arrowLength ** 2);
+    const AxisOffsetCalc = Math.sqrt(2 * arrowLength ** 2);
+    const mainAxisOffset = halfMainAxisOffset ? AxisOffsetCalc / 2 : AxisOffsetCalc;
     const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
     const smallViewport = topPositionSmallViewPort && document.body.clientWidth < 992;
 
-    // Set placement to bottom if viewport is small and topPositionSmallViewPort is set to true
+    // Set placement to top if viewport is small and topPositionSmallViewPort is set to true
     const placement: Placement = smallViewport ? "top" : placementTip;
 
     computePosition(referenceElement, tipRef, {
@@ -39,7 +45,7 @@ export function positionTooltip(
         }),
       ],
       placement,
-    }).then(({ x, y, middlewareData, placement: computedPlacement, strategy: position }) => {
+    }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {
       if (middlewareData.hide) {
         // Tooltip needs to be visible at all times on small viewports
         const disappear = !smallViewport && middlewareData.hide.referenceHidden;
@@ -53,7 +59,7 @@ export function positionTooltip(
       Object.assign(tipRef.style, {
         left: `${x}px`,
         top: `${y}px`,
-        position,
+        strategy,
       });
 
       const side = computedPlacement.split("-")[0];

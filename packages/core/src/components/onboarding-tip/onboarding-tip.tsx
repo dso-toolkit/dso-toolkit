@@ -42,6 +42,7 @@ export class OnboardingTip implements ComponentInterface {
         this.tipArrowRef,
         this.normalizedPlacement,
         true,
+        true,
       );
     }
   }
