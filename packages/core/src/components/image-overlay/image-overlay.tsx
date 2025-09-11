@@ -35,11 +35,10 @@ const Dimmer: FunctionalComponent<{
         {children[0]}
         <img src={src} alt={alt} />
         <dso-icon-button
-          tabindex="0"
           icon="times"
           variant="map"
           class="close"
-          accessibleLabel="Sluiten"
+          accessibleLabel="Afbeelding vergroot weergeven"
           onDsoIconButtonClick={click}
         />
         {children[1]}
