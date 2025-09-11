@@ -2,11 +2,11 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 
-@use "~dso-toolkit/src/components/button/button.mixins" as button-mixins;
-@use "~dso-toolkit/src/components/icon-button/icon-button.mixins" as icon-button-mixins;
-@use "../../functional-components/tooltip/tooltip.mixins" as tooltip-mixins;
+@use "~dso-toolkit/src/components/button";
+@use "icon-button.mixins";
+@use "../../functional-components/tooltip";
 
-@include tooltip-mixins.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
+@include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
 
 :host {
   display: inline-block;
@@ -15,13 +15,13 @@
 @include utilities.box-sizing();
 
 .dso-secondary {
-  @include button-mixins.secondary();
-  @include icon-button-mixins.icon-only();
+  @include button.secondary();
+  @include icon-button.icon-only();
 }
 
 .dso-tertiary {
-  @include button-mixins.tertiary();
-  @include icon-button-mixins.icon-only();
+  @include button.tertiary();
+  @include icon-button.icon-only();
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
@@ -29,19 +29,9 @@
   }
 }
 
-.dso-tertiary-on-color {
-  @include icon-button-mixins.tertiary-on-color();
-  @include icon-button-mixins.icon-only();
-
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    border: 1px solid transparent;
-  }
-}
-
 .dso-map {
-  @include button-mixins.map();
-  @include icon-button-mixins.icon-only();
+  @include button.map();
+  @include icon-button.icon-only();
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
