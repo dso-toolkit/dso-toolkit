@@ -1,4 +1,8 @@
 import { HeaderMenuItem } from "@dso-toolkit/core";
+import { HeaderClickEvent, HeaderClickMenuItemEvent } from "@dso-toolkit/core/src/components/header/header.interfaces";
+
+type TestHeaderClickMenuItemEvent = Omit<HeaderClickMenuItemEvent, "originalEvent">;
+type TestHeaderClickEvent = Omit<HeaderClickEvent, "originalEvent">;
 
 describe("Header", () => {
   beforeEach(() => {
@@ -44,6 +48,7 @@ describe("Header", () => {
             $event.originalEvent.detail.originalEvent.preventDefault();
           }
         });
+
         $header.on("dsoHeaderClick", cy.stub().as("headerListener"));
       })
       .shadow()
@@ -94,26 +99,18 @@ describe("Header", () => {
 
     cy.get("dso-header.hydrated")
       .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .get("@dsoHeaderShadow")
+      .shadow()
       .find(".dso-nav-main.ready");
-    //   .find("#visibleMenuItemsCount")
-    //   .should("have.text", "4");
-    //
-    // cy.get("dso-header.hydrated")
-    //   .get("@dsoHeaderShadow")
-    //   .find(".dso-nav-main.ready")
-    //   .find("#hiddenMainMenuItemsLength")
-    //   .should("have.text", "2");
-    //
-    // cy.get("dso-header.hydrated")
-    //   .get("@dsoHeaderShadow")
-    //   .find(".dso-nav-main.ready")
-    //   .find(".dropdown-menu-item")
-    //   .find("dso-dropdown-menu.hydrated")
-    //   .should("exist")
-    //   .and("be.visible");
-    //
-    // cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
+
+    cy.get("dso-header.hydrated")
+      .shadow()
+      .find(".dso-nav-main.ready")
+      .find(".dropdown-menu-item")
+      .find("dso-dropdown-menu.hydrated")
+      .should("exist")
+      .and("be.visible");
+
+    cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
 
     cy.get("dso-header.hydrated").matchImageSnapshot();
   });
@@ -375,209 +372,6 @@ describe("Header", () => {
       });
   });
 
-  describe('emits correct event details from "overflowMenu" dropdown menu', () => {
-    const overflowMenuItemEvents = [
-      {
-        isModifiedEvent: false,
-        url: "#maatregelenopmaat",
-        menuItem: {
-          label: "Maatregelen op maat",
-          url: "#maatregelenopmaat",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#hulpcentrum",
-        menuItem: {
-          label: "Hulpcentrum",
-          url: "#hulpcentrum",
-        },
-        type: "menuItem",
-      },
-    ];
-
-    overflowMenuItemEvents.forEach((event, index) => {
-      it(`on select of overflow menu item ${event.menuItem ? event.menuItem.label : event.type} via click`, () => {
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-          .get("@dsoHeaderShadow")
-          .find(".dso-nav-main.ready")
-          .find(".dropdown-menu-item")
-          .find("dso-dropdown-menu.hydrated")
-          .should("exist")
-          .and("be.visible");
-
-        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
-
-        cy.get("@dsoHeaderShadow")
-          .find(".dso-dropdown-options ul li a")
-          .eq(index)
-          .click()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", event);
-      });
-    });
-
-    overflowMenuItemEvents.forEach((event, index) => {
-      it(`on select of overflow menu item ${event.menuItem ? event.menuItem.label : event.type} via realClick`, () => {
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-          .get("@dsoHeaderShadow")
-          .find(".dso-nav-main.ready")
-          .find(".dropdown-menu-item")
-          .find("dso-dropdown-menu.hydrated")
-          .should("exist")
-          .and("be.visible");
-
-        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").realClick();
-
-        cy.get("@dsoHeaderShadow")
-          .find(".dso-dropdown-options ul li a")
-          .eq(index)
-          .realClick()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", event);
-      });
-    });
-  });
-
-  describe('emits correct event details from "compact menu" dropdown menu', () => {
-    const compactMenuItemEvents = [
-      {
-        isModifiedEvent: false,
-        url: "#home",
-        menuItem: {
-          label: "Home",
-          url: "#home",
-          active: true,
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#vergunningscheck",
-        menuItem: {
-          label: "Vergunningscheck",
-          url: "#vergunningscheck",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#aanvragen",
-        menuItem: {
-          label: "Aanvragen",
-          url: "#aanvragen",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#regelsopdekaart",
-        menuItem: {
-          label: "Regels op de kaart",
-          url: "#regelsopdekaart",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#maatregelenopmaat",
-        menuItem: {
-          label: "Maatregelen op maat",
-          url: "#maatregelenopmaat",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#hulpcentrum",
-        menuItem: {
-          label: "Hulpcentrum",
-          url: "#hulpcentrum",
-        },
-        type: "menuItem",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#userHomeUrl",
-        menuItem: undefined,
-        type: "userHome",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#profileUrl",
-        menuItem: undefined,
-        type: "profile",
-      },
-      {
-        isModifiedEvent: false,
-        url: "#logoutUrl",
-        menuItem: undefined,
-        type: "logout",
-      },
-    ];
-
-    compactMenuItemEvents.forEach((event, index) => {
-      it(`on select of compact menu item ${event.menuItem ? event.menuItem.label : event.type} via click`, () => {
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-          .invoke("attr", "user-home-url", "#userHomeUrl")
-          .invoke("attr", "user-profile-url", "#profileUrl")
-          .invoke("attr", "login-url", "#loginUrl")
-          .invoke("attr", "logout-url", "#logoutUrl")
-          .invoke("attr", "auth-status", "loggedIn")
-          .invoke("prop", "compact", "always")
-          .get("dso-header[is-compact].hydrated")
-          .get("@dsoHeaderShadow")
-          .find(".dropdown dso-dropdown-menu.hydrated")
-          .should("exist")
-          .and("be.visible");
-
-        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
-
-        cy.get("@dsoHeaderShadow")
-          .find(".dso-dropdown-options ul li a")
-          .eq(index)
-          .click()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", event);
-      });
-    });
-
-    compactMenuItemEvents.forEach((event, index) => {
-      it(`on select of compact menu item ${event.menuItem ? event.menuItem.label : event.type} via realClick`, () => {
-        cy.get("dso-header.hydrated")
-          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-          .invoke("attr", "user-home-url", "#userHomeUrl")
-          .invoke("attr", "user-profile-url", "#profileUrl")
-          .invoke("attr", "login-url", "#loginUrl")
-          .invoke("attr", "logout-url", "#logoutUrl")
-          .invoke("attr", "auth-status", "loggedIn")
-          .invoke("prop", "compact", "always")
-          .get("dso-header[is-compact].hydrated")
-          .get("@dsoHeaderShadow")
-          .find(".dropdown dso-dropdown-menu.hydrated")
-          .should("exist")
-          .and("be.visible");
-
-        cy.get("@dsoHeaderShadow").find("button[slot='toggle']").click();
-
-        cy.get("@dsoHeaderShadow")
-          .find(".dso-dropdown-options ul li a")
-          .eq(index)
-          .realClick()
-          .get("@headerListener")
-          .its("lastCall.args.0.detail")
-          .should("deep.contain", event);
-      });
-    });
-  });
-
   it("should be possible to make user home active", () => {
     cy.get("@dsoHeaderShadow")
       .find("nav li:first")
@@ -589,12 +383,10 @@ describe("Header", () => {
       .invoke("attr", "user-home-active", "true")
       .get("dso-header")
       .then(($header) => {
-        defaultMenuItems[0] = {
-          label: "Home",
-          url: "#home",
-        };
-
-        setMenuItems($header, defaultMenuItems);
+        setMenuItems(
+          $header,
+          defaultMenuItems.map((menuItem) => ({ ...menuItem, active: false })),
+        );
       })
       .get("@dsoHeaderShadow")
       .find("nav li:first")
@@ -620,5 +412,201 @@ describe("Header", () => {
     cy.get("dso-header.hydrated")
       .invoke("attr", "auth-status", "loggedOut")
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
+  });
+
+  describe('emits correct event details from "overflowMenu" dropdown menu', () => {
+    const overflowMenuItemEvents: TestHeaderClickMenuItemEvent[] = [
+      {
+        isModifiedEvent: false,
+        url: "#maatregelenopmaat",
+        menuItem: {
+          label: "Maatregelen op maat",
+          url: "#maatregelenopmaat",
+        },
+        type: "menuItem",
+      },
+      {
+        isModifiedEvent: false,
+        url: "#hulpcentrum",
+        menuItem: {
+          label: "Hulpcentrum",
+          url: "#hulpcentrum",
+        },
+        type: "menuItem",
+      },
+    ];
+
+    function overflowMenuItemTest(
+      label: string,
+      trigger: "click" | "realClick",
+      menuItemEvent: TestHeaderClickMenuItemEvent | TestHeaderClickEvent,
+    ) {
+      it(`on select of overflow menu item ${label} via ${trigger}`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .shadow()
+          .as("headerShadow")
+          .find(".dso-nav-main.ready")
+          .find(".dropdown-menu-item")
+          .find("dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("@headerShadow").find("dso-dropdown-menu > button[slot='toggle']")[trigger]();
+
+        cy.get("@headerShadow")
+          .find(".dso-dropdown-options ul li")
+          .contains(label)
+          [trigger]()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", menuItemEvent);
+      });
+    }
+
+    for (const menuItemEvent of overflowMenuItemEvents) {
+      overflowMenuItemTest(menuItemEvent.menuItem.label, "click", menuItemEvent);
+      overflowMenuItemTest(menuItemEvent.menuItem.label, "realClick", menuItemEvent);
+    }
+  });
+
+  describe('emits correct event details from "compact menu" dropdown menu', () => {
+    const compactMenuItemEvents: [label: string, TestHeaderClickMenuItemEvent | TestHeaderClickEvent][] = [
+      [
+        "Home",
+        {
+          type: "menuItem",
+          isModifiedEvent: false,
+          url: "#home",
+          menuItem: {
+            label: "Home",
+            url: "#home",
+            active: true,
+          },
+        },
+      ],
+      [
+        "Vergunningscheck",
+        {
+          isModifiedEvent: false,
+          url: "#vergunningscheck",
+          menuItem: {
+            label: "Vergunningscheck",
+            url: "#vergunningscheck",
+          },
+          type: "menuItem",
+        },
+      ],
+      [
+        "Aanvragen",
+        {
+          isModifiedEvent: false,
+          url: "#aanvragen",
+          menuItem: {
+            label: "Aanvragen",
+            url: "#aanvragen",
+          },
+          type: "menuItem",
+        },
+      ],
+      [
+        "Regels op de kaart",
+        {
+          isModifiedEvent: false,
+          url: "#regelsopdekaart",
+          menuItem: {
+            label: "Regels op de kaart",
+            url: "#regelsopdekaart",
+          },
+          type: "menuItem",
+        },
+      ],
+      [
+        "Maatregelen op maat",
+        {
+          isModifiedEvent: false,
+          url: "#maatregelenopmaat",
+          menuItem: {
+            label: "Maatregelen op maat",
+            url: "#maatregelenopmaat",
+          },
+          type: "menuItem",
+        },
+      ],
+      [
+        "Hulpcentrum",
+        {
+          isModifiedEvent: false,
+          url: "#hulpcentrum",
+          menuItem: {
+            label: "Hulpcentrum",
+            url: "#hulpcentrum",
+          },
+          type: "menuItem",
+        },
+      ],
+      [
+        "Mijn Omgevingsloket",
+        {
+          isModifiedEvent: false,
+          url: "#userHomeUrl",
+          type: "userHome",
+        },
+      ],
+      [
+        "J.A. Jansen - Mijn profiel",
+        {
+          isModifiedEvent: false,
+          url: "#profileUrl",
+          type: "profile",
+        },
+      ],
+      [
+        "Uitloggen",
+        {
+          isModifiedEvent: false,
+          url: "#logoutUrl",
+          type: "logout",
+        },
+      ],
+    ];
+
+    function compactMenuItemTest(
+      label: string,
+      trigger: "click" | "realClick",
+      menuItemEvent: Omit<HeaderClickMenuItemEvent | HeaderClickEvent, "originalEvent">,
+    ) {
+      it(`on select of compact menu item ${label} via ${trigger}`, () => {
+        cy.get("dso-header.hydrated")
+          .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+          .invoke("attr", "user-home-url", "#userHomeUrl")
+          .invoke("attr", "user-profile-url", "#profileUrl")
+          .invoke("attr", "login-url", "#loginUrl")
+          .invoke("attr", "logout-url", "#logoutUrl")
+          .invoke("attr", "auth-status", "loggedIn")
+          .invoke("prop", "compact", "always")
+          .get("dso-header[is-compact].hydrated")
+          .shadow()
+          .find(".dropdown dso-dropdown-menu.hydrated")
+          .should("exist")
+          .and("be.visible");
+
+        cy.get("dso-header[is-compact].hydrated").shadow().find("button[slot='toggle']")[trigger]();
+
+        cy.get("dso-header[is-compact]")
+          .shadow()
+          .find(".dso-dropdown-options ul li")
+          .contains(label)
+          [trigger]()
+          .get("@headerListener")
+          .its("lastCall.args.0.detail")
+          .should("deep.contain", menuItemEvent);
+      });
+    }
+
+    for (const [label, menuItemEvent] of compactMenuItemEvents) {
+      compactMenuItemTest(label, "click", menuItemEvent);
+      compactMenuItemTest(label, "realClick", menuItemEvent);
+    }
   });
 });

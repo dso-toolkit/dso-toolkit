@@ -50,10 +50,6 @@ declare global {
   }
 }
 
-Cypress.Screenshot.defaults({
-  screenshotOnRunFailure: true,
-});
-
 Cypress.Commands.add("isWithinViewport", { prevSubject: true }, (subject) => {
   const windowInnerWidth = Cypress.config(`viewportWidth`);
   const windowInnerHeight = Cypress.config(`viewportHeight`);

@@ -442,16 +442,6 @@ export class Header implements ComponentInterface {
                   ref={(el) => (this.menuItemElementRefs[i] = el)}
                 />
               ))}
-              {
-                <li id="visibleMenuItemsCount" hidden>
-                  {this.visibleMenuItemsCount}
-                </li>
-              }
-              {
-                <li id="hiddenMainMenuItemsLength" hidden>
-                  {this.hiddenMainMenuItems.length}
-                </li>
-              }
               {(this.visibleMenuItemsCount === undefined || this.hiddenMainMenuItems.length > 0) && (
                 <li
                   aria-hidden={this.visibleMenuItemsCount === undefined}
