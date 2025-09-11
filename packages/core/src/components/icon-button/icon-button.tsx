@@ -1,4 +1,4 @@
-import { Placement } from "@floating-ui/dom";
+import { Placement, autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 import { IconButtonVariant } from "dso-toolkit";
@@ -59,33 +59,28 @@ export class IconButton implements ComponentInterface {
   private tooltipElRef?: HTMLDivElement;
   private tipArrowElRef?: HTMLSpanElement;
   private tooltipTimeout?: number;
-  private cleanupAutoUpdate?: () => void;
+  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
 
-  private handleShow = () => {
+  private handleShowTooltip = () => {
     this.tooltipTimeout = window.setTimeout(() => {
       this.showTooltip = true;
       this.tooltipElRef?.showPopover();
 
-      if (this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
-        this.cleanupAutoUpdate = positionTooltip(
-          this.buttonElRef,
-          this.tooltipElRef,
-          this.tipArrowElRef,
-          this.tooltipPlacement,
-        );
+      if (!this.cleanUp && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
+        this.cleanUp = positionTooltip(this.buttonElRef, this.tooltipElRef, this.tipArrowElRef, this.tooltipPlacement);
       }
     }, 500);
   };
 
-  private handleHide = () => {
+  private handleHideTooltip = () => {
     clearTimeout(this.tooltipTimeout);
 
     this.showTooltip = false;
     this.tooltipElRef?.hidePopover();
 
-    if (!this.showTooltip && this.cleanupAutoUpdate) {
-      this.cleanupAutoUpdate();
-      this.cleanupAutoUpdate = undefined;
+    if (!this.showTooltip && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
     }
   };
 
@@ -96,17 +91,17 @@ export class IconButton implements ComponentInterface {
         type="button"
         aria-label={this.accessibleLabel}
         class={clsx(`dso-${this.variant}`)}
-        onMouseEnter={this.handleShow}
-        onMouseLeave={this.handleHide}
-        onFocus={this.handleShow}
-        onBlur={this.handleHide}
+        onMouseEnter={this.handleShowTooltip}
+        onMouseLeave={this.handleHideTooltip}
+        onFocus={this.handleShowTooltip}
+        onBlur={this.handleHideTooltip}
         onClick={(e) => this.dsoIconButtonClick.emit({ originalEvent: e })}
       >
         <dso-icon icon={this.icon} />
         <Tooltip
           small
           visible={this.showTooltip}
-          onAfterHidden={this.handleHide}
+          onAfterHidden={this.handleHideTooltip}
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
         >
