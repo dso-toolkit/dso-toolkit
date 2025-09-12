@@ -80,28 +80,28 @@ describe("Header", () => {
       .dsoCheckA11y("dso-header.hydrated");
   });
 
-  // it("matches snapshot (all menuitems visible)", () => {
-  //   cy.viewport(1225, 660)
-  //     .get("dso-header.hydrated")
-  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dso-nav-main")
-  //     .should("have.class", "ready")
-  //     .get("@dsoHeaderShadow")
-  //     .find("dso-dropdown-menu.hydrated")
-  //     .should("not.exist")
-  //     .get("dso-header.hydrated")
-  //     .matchImageSnapshot();
-  // });
+  it("matches snapshot (all menuitems visible)", () => {
+    cy.viewport(1225, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get("@dsoHeaderShadow")
+      .find(".dso-nav-main")
+      .should("have.class", "ready")
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu.hydrated")
+      .should("not.exist")
+      .get("dso-header.hydrated")
+      .matchImageSnapshot();
+  });
 
-  // it("matches snapshot (compact)", () => {
-  //   cy.viewport(1000, 660)
-  //     .get("dso-header.hydrated")
-  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-  //     .invoke("prop", "compact", "always")
-  //     .get("dso-header[is-compact]")
-  //     .matchImageSnapshot();
-  // });
+  it("matches snapshot (compact)", () => {
+    cy.viewport(1000, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .invoke("prop", "compact", "always")
+      .get("dso-header[is-compact]")
+      .matchImageSnapshot();
+  });
 
   it("should show and remove dropdownmenu", () => {
     cy.get("@dsoHeaderShadow")
@@ -126,28 +126,28 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  // it("should show/remove overflowmenu", () => {
-  //   cy.viewport(1280, 600)
-  //     .get("dso-header")
-  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav")
-  //     .should("exist")
-  //     .and("be.visible")
-  //     .find("ul li dso-dropdown-menu")
-  //     .should("not.exist")
-  //     .and("be.null")
-  //     .viewport(992, 600)
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("exist")
-  //     .and("be.visible")
-  //     .viewport(568, 600)
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("not.exist")
-  //     .and("be.null");
-  // });
+  it("should show/remove overflowmenu", () => {
+    cy.viewport(1280, 600)
+      .get("dso-header")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get("@dsoHeaderShadow")
+      .find("nav")
+      .should("exist")
+      .and("be.visible")
+      .find("ul li dso-dropdown-menu")
+      .should("not.exist")
+      .and("be.null")
+      .viewport(992, 600)
+      .get("@dsoHeaderShadow")
+      .find("nav ul li dso-dropdown-menu")
+      .should("exist")
+      .and("be.visible")
+      .viewport(568, 600)
+      .get("@dsoHeaderShadow")
+      .find("nav ul li dso-dropdown-menu")
+      .should("not.exist")
+      .and("be.null");
+  });
 
   it("should act on user-profile attributes", () => {
     cy.get("dso-header.hydrated")
@@ -193,20 +193,20 @@ describe("Header", () => {
       .should("be.visible");
   });
 
-  // it("should not show menu", () => {
-  //   cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true");
-  //
-  //   prepareComponent();
-  //
-  //   cy.get("dso-header.hydrated")
-  //     .invoke("removeAttr", "user-home-url")
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav")
-  //     .should("not.exist")
-  //     .get("@dsoHeaderShadow")
-  //     .find("dso-dropdown-menu")
-  //     .should("not.exist");
-  // });
+  it("should not show menu", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true");
+
+    prepareComponent();
+
+    cy.get("dso-header.hydrated")
+      .invoke("removeAttr", "user-home-url")
+      .get("@dsoHeaderShadow")
+      .find("nav")
+      .should("not.exist")
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu")
+      .should("not.exist");
+  });
 
   it("should show login or logout when no menuItems are provided", () => {
     cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
