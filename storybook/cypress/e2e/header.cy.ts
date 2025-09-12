@@ -262,94 +262,94 @@ describe("Header", () => {
   //     .should("be.visible");
   // });
 
-  // it("should emit correct event details on select", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-  //     .invoke("attr", "user-home-url", "#userHomeUrl")
-  //     .invoke("attr", "user-profile-url", "#profileUrl")
-  //     .invoke("attr", "login-url", "#loginUrl")
-  //     .invoke("attr", "logout-url", "#logoutUrl")
-  //     .invoke("attr", "auth-status", "loggedOut")
-  //     .invoke("attr", "show-help", true)
-  //     .invoke("attr", "help-url", "#help")
-  //     // MenuItem
-  //     .get("@dsoHeaderShadow")
-  //     .find('.dso-nav-main > li > a[href="#vergunningscheck"]')
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#vergunningscheck",
-  //       menuItem: {
-  //         label: "Vergunningscheck",
-  //         url: "#vergunningscheck",
-  //       },
-  //       type: "menuItem",
-  //     })
-  //     // User Home
-  //     .get("@dsoHeaderShadow")
-  //     .find(".menu-user-home > a")
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#userHomeUrl",
-  //       menuItem: undefined,
-  //       type: "userHome",
-  //     })
-  //     // Login
-  //     .get("@dsoHeaderShadow")
-  //     .find(".login > a")
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#loginUrl",
-  //       menuItem: undefined,
-  //       type: "login",
-  //     })
-  //     // Logout
-  //     .get("dso-header")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".logout > a")
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#logoutUrl",
-  //       menuItem: undefined,
-  //       type: "logout",
-  //     })
-  //     // Profile
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dso-header-session .profile > a")
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#profileUrl",
-  //       menuItem: undefined,
-  //       type: "profile",
-  //     })
-  //     // Help
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dso-header-session .help > a")
-  //     .click()
-  //     .get("@headerListener")
-  //     .its("lastCall.args.0.detail")
-  //     .should("deep.contain", {
-  //       isModifiedEvent: false,
-  //       url: "#help",
-  //       menuItem: undefined,
-  //       type: "help",
-  //     });
-  // });
+  it("should emit correct event details on select", () => {
+    cy.get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .invoke("attr", "user-home-url", "#userHomeUrl")
+      .invoke("attr", "user-profile-url", "#profileUrl")
+      .invoke("attr", "login-url", "#loginUrl")
+      .invoke("attr", "logout-url", "#logoutUrl")
+      .invoke("attr", "auth-status", "loggedOut")
+      .invoke("attr", "show-help", true)
+      .invoke("attr", "help-url", "#help")
+      // MenuItem
+      .get("@dsoHeaderShadow")
+      .find('.dso-nav-main > li > a[href="#vergunningscheck"]')
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#vergunningscheck",
+        menuItem: {
+          label: "Vergunningscheck",
+          url: "#vergunningscheck",
+        },
+        type: "menuItem",
+      })
+      // User Home
+      .get("@dsoHeaderShadow")
+      .find(".menu-user-home > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#userHomeUrl",
+        menuItem: undefined,
+        type: "userHome",
+      })
+      // Login
+      .get("@dsoHeaderShadow")
+      .find(".login > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#loginUrl",
+        menuItem: undefined,
+        type: "login",
+      })
+      // Logout
+      .get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find(".logout > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#logoutUrl",
+        menuItem: undefined,
+        type: "logout",
+      })
+      // Profile
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .profile > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#profileUrl",
+        menuItem: undefined,
+        type: "profile",
+      })
+      // Help
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help > a")
+      .click()
+      .get("@headerListener")
+      .its("lastCall.args.0.detail")
+      .should("deep.contain", {
+        isModifiedEvent: false,
+        url: "#help",
+        menuItem: undefined,
+        type: "help",
+      });
+  });
 
   it("should be possible to make user home active", () => {
     cy.get("@dsoHeaderShadow")
