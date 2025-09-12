@@ -94,37 +94,37 @@ describe("Header", () => {
   //     .matchImageSnapshot();
   // });
 
-  it("matches snapshot (compact)", () => {
-    cy.viewport(1000, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .invoke("prop", "compact", "always")
-      .get("dso-header[is-compact]")
-      .matchImageSnapshot();
-  });
-
-  // it("should show and remove dropdownmenu", () => {
-  //   cy.get("@dsoHeaderShadow")
-  //     .find("nav")
-  //     .should("be.visible")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist")
-  //     .viewport(991, 600)
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav")
-  //     .should("not.exist")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("be.visible")
-  //     .viewport(992, 600)
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav")
-  //     .should("be.visible")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist");
+  // it("matches snapshot (compact)", () => {
+  //   cy.viewport(1000, 660)
+  //     .get("dso-header.hydrated")
+  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+  //     .invoke("prop", "compact", "always")
+  //     .get("dso-header[is-compact]")
+  //     .matchImageSnapshot();
   // });
+
+  it("should show and remove dropdownmenu", () => {
+    cy.get("@dsoHeaderShadow")
+      .find("nav")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown dso-dropdown-menu")
+      .should("not.exist")
+      .viewport(991, 600)
+      .get("@dsoHeaderShadow")
+      .find("nav")
+      .should("not.exist")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown dso-dropdown-menu")
+      .should("be.visible")
+      .viewport(992, 600)
+      .get("@dsoHeaderShadow")
+      .find("nav")
+      .should("be.visible")
+      .get("@dsoHeaderShadow")
+      .find(".dropdown dso-dropdown-menu")
+      .should("not.exist");
+  });
 
   // it("should show/remove overflowmenu", () => {
   //   cy.viewport(1280, 600)
