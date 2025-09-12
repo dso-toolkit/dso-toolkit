@@ -446,8 +446,7 @@ describe("Header", () => {
           .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
           .shadow()
           .as("headerShadow")
-          .find(".dso-nav-main.ready")
-          .find(".dropdown-menu-item")
+          .find(".dso-nav-main.ready .dropdown-menu-item")
           .find("dso-dropdown-menu.hydrated")
           .should("exist")
           .and("be.visible");
@@ -455,8 +454,9 @@ describe("Header", () => {
         cy.get("@headerShadow").find("dso-dropdown-menu > button[slot='toggle']")[trigger]();
 
         cy.get("@headerShadow")
-          .find(".dso-dropdown-options ul li")
+          .find("dso-dropdown-menu[open] button[aria-expanded='true'] + .dso-dropdown-options ul li")
           .contains(label)
+          .should("be.visible")
           [trigger]()
           .get("@headerListener")
           .its("lastCall.args.0.detail")
@@ -595,8 +595,9 @@ describe("Header", () => {
 
         cy.get("dso-header[is-compact]")
           .shadow()
-          .find(".dso-dropdown-options ul li")
+          .find("dso-dropdown-menu[open] button[aria-expanded='true'] + .dso-dropdown-options ul li")
           .contains(label)
+          .should("be.visible")
           [trigger]()
           .get("@headerListener")
           .its("lastCall.args.0.detail")
