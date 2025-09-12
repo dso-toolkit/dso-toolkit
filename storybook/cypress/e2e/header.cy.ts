@@ -94,27 +94,6 @@ describe("Header", () => {
       .matchImageSnapshot();
   });
 
-  it("matches snapshot (2 menuitems in dropdown menu)", () => {
-    cy.viewport(1000, 660);
-
-    cy.get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .shadow()
-      .find(".dso-nav-main.ready");
-
-    cy.get("dso-header.hydrated")
-      .shadow()
-      .find(".dso-nav-main.ready")
-      .find(".dropdown-menu-item")
-      .find("dso-dropdown-menu.hydrated")
-      .should("exist")
-      .and("be.visible");
-
-    cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
-
-    cy.get("dso-header.hydrated").matchImageSnapshot();
-  });
-
   it.skip("matches snapshot (compact)", () => {
     cy.viewport(1000, 660)
       .get("dso-header.hydrated")
@@ -414,7 +393,7 @@ describe("Header", () => {
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
   });
 
-  describe('emits correct event details from "overflowMenu" dropdown menu', () => {
+  describe('"overflowMenu" dropdown menu', () => {
     const overflowMenuItemEvents: TestHeaderClickMenuItemEvent[] = [
       {
         isModifiedEvent: false,
@@ -441,7 +420,7 @@ describe("Header", () => {
       trigger: "click" | "realClick",
       menuItemEvent: TestHeaderClickMenuItemEvent | TestHeaderClickEvent,
     ) {
-      it(`on select of overflow menu item ${label} via ${trigger}`, () => {
+      it(`emits correct event details on select of overflow menu item ${label} via ${trigger}`, () => {
         cy.get("dso-header.hydrated")
           .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
           .shadow()
@@ -468,6 +447,27 @@ describe("Header", () => {
       overflowMenuItemTest(menuItemEvent.menuItem.label, "click", menuItemEvent);
       overflowMenuItemTest(menuItemEvent.menuItem.label, "realClick", menuItemEvent);
     }
+
+    it("matches snapshot (2 menuitems in dropdown menu)", () => {
+      cy.viewport(1000, 660);
+
+      cy.get("dso-header.hydrated")
+        .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+        .shadow()
+        .find(".dso-nav-main.ready");
+
+      cy.get("dso-header.hydrated")
+        .shadow()
+        .find(".dso-nav-main.ready")
+        .find(".dropdown-menu-item")
+        .find("dso-dropdown-menu.hydrated")
+        .should("exist")
+        .and("be.visible");
+
+      cy.get("@dsoHeaderShadow").find(".dso-dropdown-options ul li a").should("have.length", 2);
+
+      cy.get("dso-header.hydrated").matchImageSnapshot();
+    });
   });
 
   describe('emits correct event details from "compact menu" dropdown menu', () => {
