@@ -13,6 +13,7 @@ export interface IconButtonArgs {
   accessibleLabel: string;
   tooltipPlacement: Placement;
   dsoIconButtonClick: HandlerFunction;
+  disabled: boolean;
 }
 
 export const iconButtonArgs: IconButtonArgs = {
@@ -21,6 +22,7 @@ export const iconButtonArgs: IconButtonArgs = {
   accessibleLabel: "Navigation",
   tooltipPlacement: "top",
   dsoIconButtonClick: fn(),
+  disabled: false,
 };
 
 export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
@@ -46,6 +48,11 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
     accessibleLabel: {
       control: {
         type: "text",
+      },
+    },
+    disabled: {
+      control: {
+        type: "boolean",
       },
     },
     dsoIconButtonClick: argTypeAction(),

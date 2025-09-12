@@ -39,6 +39,13 @@ export class IconButton implements ComponentInterface {
   tooltipPlacement: Placement = "top";
 
   /**
+   * Makes the Icon Button button disabled. This prevents users from being able to
+   * interact with the component.
+   */
+  @Prop()
+  disabled = false;
+
+  /**
    * Emitted when the user click the IconBtton.
    */
   @Event()
@@ -62,12 +69,24 @@ export class IconButton implements ComponentInterface {
   private cleanUp: ReturnType<typeof autoUpdate> | undefined;
 
   private handleShowTooltip = () => {
+    if (this.disabled) {
+      return;
+    }
+
     this.tooltipTimeout = window.setTimeout(() => {
       this.showTooltip = true;
       this.tooltipElRef?.showPopover();
 
       if (!this.cleanUp && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
-        this.cleanUp = positionTooltip(this.buttonElRef, this.tooltipElRef, this.tipArrowElRef, this.tooltipPlacement);
+        const halfMainAxisOffset = this.variant === "tertiary";
+        this.cleanUp = positionTooltip(
+          this.buttonElRef,
+          this.tooltipElRef,
+          this.tipArrowElRef,
+          this.tooltipPlacement,
+          false,
+          halfMainAxisOffset,
+        );
       }
     }, 500);
   };
@@ -89,6 +108,7 @@ export class IconButton implements ComponentInterface {
       <button
         ref={(el) => (this.buttonElRef = el)}
         type="button"
+        disabled={this.disabled}
         aria-label={this.accessibleLabel}
         class={clsx(`dso-${this.variant}`)}
         onMouseEnter={this.handleShowTooltip}
