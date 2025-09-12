@@ -25,6 +25,9 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { IconButtonVariant } from "dso-toolkit";
+import { Placement } from "@floating-ui/dom";
+import { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -35,7 +38,8 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
+import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -46,7 +50,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement } from "@popperjs/core";
+import { Placement as Placement1 } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -70,6 +74,9 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { IconButtonVariant } from "dso-toolkit";
+export { Placement } from "@floating-ui/dom";
+export { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -80,7 +87,8 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
+export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -91,7 +99,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement } from "@popperjs/core";
+export { Placement as Placement1 } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -782,6 +790,35 @@ export namespace Components {
          */
         "icon"?: string;
     }
+    interface DsoIconButton {
+        /**
+          * The accessible label of the button, also shown on hover in a tooltip.
+         */
+        "accessibleLabel": string;
+        /**
+          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string;
+        /**
+          * Focuses the button.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The placement of the tooltip on hover of the icon button.
+          * @default "top"
+         */
+        "tooltipPlacement": Placement;
+        /**
+          * The variant of the icon button.
+          * @default "secondary"
+         */
+        "variant": IconButtonVariant;
+    }
     interface DsoImageOverlay {
         /**
           * The wijzigactie.
@@ -1036,7 +1073,7 @@ export namespace Components {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement": OnboardingTipPlacement;
+        "placement": TooltipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -1286,7 +1323,7 @@ export namespace Components {
           * Toggletip position.
           * @default "right"
          */
-        "position": Placement;
+        "position": Placement1;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -1324,7 +1361,7 @@ export namespace Components {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position": Placement;
+        "position": Placement1;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -1486,6 +1523,10 @@ export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoHeaderElement;
+}
+export interface DsoIconButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoIconButtonElement;
 }
 export interface DsoInfoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1966,6 +2007,23 @@ declare global {
     var HTMLDsoIconElement: {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
+    };
+    interface HTMLDsoIconButtonElementEventMap {
+        "dsoIconButtonClick": IconButtonClickEvent;
+    }
+    interface HTMLDsoIconButtonElement extends Components.DsoIconButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoIconButtonElementEventMap>(type: K, listener: (this: HTMLDsoIconButtonElement, ev: DsoIconButtonCustomEvent<HTMLDsoIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoIconButtonElementEventMap>(type: K, listener: (this: HTMLDsoIconButtonElement, ev: DsoIconButtonCustomEvent<HTMLDsoIconButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoIconButtonElement: {
+        prototype: HTMLDsoIconButtonElement;
+        new (): HTMLDsoIconButtonElement;
     };
     interface HTMLDsoImageOverlayElement extends Components.DsoImageOverlay, HTMLStencilElement {
     }
@@ -2544,6 +2602,7 @@ declare global {
         "dso-header": HTMLDsoHeaderElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-icon-button": HTMLDsoIconButtonElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
@@ -3396,6 +3455,35 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
     }
+    interface DsoIconButton {
+        /**
+          * The accessible label of the button, also shown on hover in a tooltip.
+         */
+        "accessibleLabel": string;
+        /**
+          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string;
+        /**
+          * Emitted when the user click the IconBtton.
+         */
+        "onDsoIconButtonClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
+        /**
+          * The placement of the tooltip on hover of the icon button.
+          * @default "top"
+         */
+        "tooltipPlacement"?: Placement;
+        /**
+          * The variant of the icon button.
+          * @default "secondary"
+         */
+        "variant"?: IconButtonVariant;
+    }
     interface DsoImageOverlay {
         /**
           * The wijzigactie.
@@ -3724,7 +3812,7 @@ declare namespace LocalJSX {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement"?: OnboardingTipPlacement;
+        "placement"?: TooltipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -4023,7 +4111,7 @@ declare namespace LocalJSX {
           * Toggletip position.
           * @default "right"
          */
-        "position"?: Placement;
+        "position"?: Placement1;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -4053,7 +4141,7 @@ declare namespace LocalJSX {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position"?: Placement;
+        "position"?: Placement1;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -4221,6 +4309,7 @@ declare namespace LocalJSX {
         "dso-header": DsoHeader;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-icon-button": DsoIconButton;
         "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
@@ -4294,6 +4383,7 @@ declare module "@stencil/core" {
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-icon-button": LocalJSX.DsoIconButton & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;

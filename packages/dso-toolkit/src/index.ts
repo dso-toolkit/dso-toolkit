@@ -89,6 +89,8 @@ export * from "./components/highlight-box";
 
 export * from "./components/icon";
 
+export * from "./components/icon-button";
+
 export * from "./components/image";
 
 export * from "./components/image-overlay";

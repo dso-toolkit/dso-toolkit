@@ -43,12 +43,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-info-button --> dso-icon
+  dso-info-button --> dso-icon-button
+  dso-icon-button --> dso-icon
   dso-selectable --> dso-info-button
   dso-toggletip --> dso-info-button
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px
