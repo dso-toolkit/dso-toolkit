@@ -80,28 +80,28 @@ describe("Header", () => {
       .dsoCheckA11y("dso-header.hydrated");
   });
 
-  it("matches snapshot (all menuitems visible)", () => {
-    cy.viewport(1225, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .get("@dsoHeaderShadow")
-      .find(".dso-nav-main")
-      .should("have.class", "ready")
-      .get("@dsoHeaderShadow")
-      .find("dso-dropdown-menu.hydrated")
-      .should("not.exist")
-      .get("dso-header.hydrated")
-      .matchImageSnapshot();
-  });
-
-  // it("matches snapshot (compact)", () => {
-  //   cy.viewport(1000, 660)
+  // it("matches snapshot (all menuitems visible)", () => {
+  //   cy.viewport(1225, 660)
   //     .get("dso-header.hydrated")
   //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-  //     .invoke("prop", "compact", "always")
-  //     .get("dso-header[is-compact]")
+  //     .get("@dsoHeaderShadow")
+  //     .find(".dso-nav-main")
+  //     .should("have.class", "ready")
+  //     .get("@dsoHeaderShadow")
+  //     .find("dso-dropdown-menu.hydrated")
+  //     .should("not.exist")
+  //     .get("dso-header.hydrated")
   //     .matchImageSnapshot();
   // });
+
+  it("matches snapshot (compact)", () => {
+    cy.viewport(1000, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .invoke("prop", "compact", "always")
+      .get("dso-header[is-compact]")
+      .matchImageSnapshot();
+  });
 
   // it("should show and remove dropdownmenu", () => {
   //   cy.get("@dsoHeaderShadow")
