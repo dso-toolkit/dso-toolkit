@@ -67,18 +67,18 @@ describe("Header", () => {
     }
   }
 
-  // it("should be accessible", () => {
-  //   cy.injectAxe();
-  //   cy.dsoCheckA11y("dso-header.hydrated");
-  //
-  //   cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
-  //
-  //   cy.get("dso-header.hydrated")
-  //     .viewport(400, 600)
-  //     .get("dso-header")
-  //     .invoke("attr", "compact", "auto")
-  //     .dsoCheckA11y("dso-header.hydrated");
-  // });
+  it("should be accessible", () => {
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-header.hydrated");
+
+    cy.get("dso-header.hydrated").invoke("attr", "compact", "always").dsoCheckA11y("dso-header.hydrated");
+
+    cy.get("dso-header.hydrated")
+      .viewport(400, 600)
+      .get("dso-header")
+      .invoke("attr", "compact", "auto")
+      .dsoCheckA11y("dso-header.hydrated");
+  });
 
   // it("matches snapshot (all menuitems visible)", () => {
   //   cy.viewport(1225, 660)
