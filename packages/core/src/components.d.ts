@@ -796,6 +796,11 @@ export namespace Components {
          */
         "accessibleLabel": string;
         /**
+          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
           * The alias of the icon in the button.
          */
         "icon": string;
@@ -3455,6 +3460,11 @@ declare namespace LocalJSX {
           * The accessible label of the button, also shown on hover in a tooltip.
          */
         "accessibleLabel": string;
+        /**
+          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * @default false
+         */
+        "disabled"?: boolean;
         /**
           * The alias of the icon in the button.
          */

@@ -8,5 +8,6 @@ export interface IconButton {
   icon: string;
   accessibleLabel: string;
   tooltipPlacement: Placement;
+  disabled?: boolean;
   dsoIconButtonClick: HandlerFunction;
 }
