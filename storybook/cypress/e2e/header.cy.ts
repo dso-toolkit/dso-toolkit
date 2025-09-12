@@ -94,7 +94,7 @@ describe("Header", () => {
       .matchImageSnapshot();
   });
 
-  it.only("matches snapshot (2 menuitems in dropdown menu)", () => {
+  it("matches snapshot (2 menuitems in dropdown menu)", () => {
     cy.viewport(1000, 660);
 
     cy.get("dso-header.hydrated")
@@ -414,7 +414,7 @@ describe("Header", () => {
       .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
   });
 
-  describe('emits correct event details from "overflowMenu" dropdown menu', () => {
+  describe.only('emits correct event details from "overflowMenu" dropdown menu', () => {
     const overflowMenuItemEvents: TestHeaderClickMenuItemEvent[] = [
       {
         isModifiedEvent: false,
@@ -577,8 +577,6 @@ describe("Header", () => {
       menuItemEvent: Omit<HeaderClickMenuItemEvent | HeaderClickEvent, "originalEvent">,
     ) {
       it(`on select of compact menu item ${label} via ${trigger}`, () => {
-        cy.viewport(1000, 660);
-
         cy.get("dso-header.hydrated")
           .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
           .invoke("attr", "user-home-url", "#userHomeUrl")

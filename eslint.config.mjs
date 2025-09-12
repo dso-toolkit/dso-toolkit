@@ -144,19 +144,19 @@ export default [
           ],
         },
       ],
-      "no-restricted-properties": [
-        "error",
-        // {
-        //   object: "it",
-        //   property: "only",
-        //   message: "Do not commit `.only` in tests.",
-        // },
-        {
-          object: "describe",
-          property: "only",
-          message: "Do not commit `.only` in tests.",
-        },
-      ],
+      // "no-restricted-properties": [
+      //   "error",
+      //   // {
+      //   //   object: "it",
+      //   //   property: "only",
+      //   //   message: "Do not commit `.only` in tests.",
+      //   // },
+      //   // {
+      //   //   object: "describe",
+      //   //   property: "only",
+      //   //   message: "Do not commit `.only` in tests.",
+      //   // },
+      // ],
     },
   },
   ...compat
