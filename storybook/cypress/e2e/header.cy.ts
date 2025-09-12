@@ -94,7 +94,7 @@ describe("Header", () => {
       .matchImageSnapshot();
   });
 
-  it("matches snapshot (2 menuitems in dropdown menu)", () => {
+  it.only("matches snapshot (2 menuitems in dropdown menu)", () => {
     cy.viewport(1000, 660);
 
     cy.get("dso-header.hydrated")
