@@ -421,6 +421,8 @@ describe("Header", () => {
       menuItemEvent: TestHeaderClickMenuItemEvent | TestHeaderClickEvent,
     ) {
       it(`emits correct event details on select of overflow menu item ${label} via ${trigger}`, () => {
+        cy.viewport(1000, 660);
+
         cy.get("dso-header.hydrated")
           .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
           .shadow()
