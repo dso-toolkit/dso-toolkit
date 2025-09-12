@@ -208,21 +208,21 @@ describe("Header", () => {
   //     .should("not.exist");
   // });
 
-  // it("should show login or logout when no menuItems are provided", () => {
-  //   cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
-  //     .then(($header) => setMenuItems($header, []))
-  //     .invoke("attr", "login-url", "#login")
-  //     .invoke("attr", "logout-url", "#logout")
-  //     .invoke("attr", "auth-status", "loggedOut")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".login > a")
-  //     .should("be.visible")
-  //     .get("dso-header")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".logout > a")
-  //     .should("be.visible");
-  // });
+  it("should show login or logout when no menuItems are provided", () => {
+    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, []))
+      .invoke("attr", "login-url", "#login")
+      .invoke("attr", "logout-url", "#logout")
+      .invoke("attr", "auth-status", "loggedOut")
+      .get("@dsoHeaderShadow")
+      .find(".login > a")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find(".logout > a")
+      .should("be.visible");
+  });
 
   it("should show correct login and logout when appropriate (and as anchors when url is provided)", () => {
     cy.get("dso-header.hydrated")
