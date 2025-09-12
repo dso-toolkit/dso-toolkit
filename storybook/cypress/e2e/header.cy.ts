@@ -577,6 +577,8 @@ describe("Header", () => {
       menuItemEvent: Omit<HeaderClickMenuItemEvent | HeaderClickEvent, "originalEvent">,
     ) {
       it(`on select of compact menu item ${label} via ${trigger}`, () => {
+        cy.viewport(1000, 660);
+
         cy.get("dso-header.hydrated")
           .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
           .invoke("attr", "user-home-url", "#userHomeUrl")
