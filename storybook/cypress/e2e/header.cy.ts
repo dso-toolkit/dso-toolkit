@@ -351,47 +351,47 @@ describe("Header", () => {
   //     });
   // });
 
-  // it("should be possible to make user home active", () => {
-  //   cy.get("@dsoHeaderShadow")
-  //     .find("nav li:first")
-  //     .should("have.class", "dso-active")
-  //     .find("a")
-  //     .should("have.attr", "aria-current", "page")
-  //     .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-  //     .get("dso-header")
-  //     .invoke("attr", "user-home-active", "true")
-  //     .get("dso-header")
-  //     .then(($header) => {
-  //       setMenuItems(
-  //         $header,
-  //         defaultMenuItems.map((menuItem) => ({ ...menuItem, active: false })),
-  //       );
-  //     })
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav li:first")
-  //     .should("not.have.class", "dso-active")
-  //     .find("a")
-  //     .should("not.have.attr", "aria-current", "page")
-  //     .and("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav li.menu-user-home")
-  //     .should("have.class", "dso-active")
-  //     .find("a")
-  //     .should("have.attr", "aria-current", "page")
-  //     .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
-  // });
-
-  it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
-
-    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
-      .then(($header) => setMenuItems($header, []))
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
-
-    cy.get("dso-header.hydrated")
-      .invoke("attr", "auth-status", "loggedOut")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
+  it("should be possible to make user home active", () => {
+    cy.get("@dsoHeaderShadow")
+      .find("nav li:first")
+      .should("have.class", "dso-active")
+      .find("a")
+      .should("have.attr", "aria-current", "page")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
+      .get("dso-header")
+      .invoke("attr", "user-home-active", "true")
+      .get("dso-header")
+      .then(($header) => {
+        setMenuItems(
+          $header,
+          defaultMenuItems.map((menuItem) => ({ ...menuItem, active: false })),
+        );
+      })
+      .get("@dsoHeaderShadow")
+      .find("nav li:first")
+      .should("not.have.class", "dso-active")
+      .find("a")
+      .should("not.have.attr", "aria-current", "page")
+      .and("not.have.css", "border-bottom", "4px solid rgb(139, 74, 106)")
+      .get("@dsoHeaderShadow")
+      .find("nav li.menu-user-home")
+      .should("have.class", "dso-active")
+      .find("a")
+      .should("have.attr", "aria-current", "page")
+      .and("have.css", "border-bottom", "4px solid rgb(139, 74, 106)");
   });
+
+  // it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
+  //   cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
+  //
+  //   cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+  //     .then(($header) => setMenuItems($header, []))
+  //     .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
+  //
+  //   cy.get("dso-header.hydrated")
+  //     .invoke("attr", "auth-status", "loggedOut")
+  //     .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
+  // });
 
   describe('"overflowMenu" dropdown menu', () => {
     const overflowMenuItemEvents: TestHeaderClickMenuItemEvent[] = [
