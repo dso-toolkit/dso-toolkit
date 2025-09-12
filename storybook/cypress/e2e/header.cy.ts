@@ -253,14 +253,14 @@ describe("Header", () => {
       .should("be.visible");
   });
 
-  // it("should show user home when url is provided", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, undefined))
-  //     .invoke("attr", "user-home-url", "#userHomeUrl")
-  //     .get("@dsoHeaderShadow")
-  //     .find('li.menu-user-home a[href="#userHomeUrl"]')
-  //     .should("be.visible");
-  // });
+  it("should show user home when url is provided", () => {
+    cy.get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, undefined))
+      .invoke("attr", "user-home-url", "#userHomeUrl")
+      .get("@dsoHeaderShadow")
+      .find('li.menu-user-home a[href="#userHomeUrl"]')
+      .should("be.visible");
+  });
 
   it("should emit correct event details on select", () => {
     cy.get("dso-header.hydrated")
