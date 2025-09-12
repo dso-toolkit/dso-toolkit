@@ -149,49 +149,49 @@ describe("Header", () => {
   //     .and("be.null");
   // });
 
-  // it("should act on user-profile attributes", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".profile")
-  //     .should("be.visible")
-  //     .get("dso-header")
-  //     .invoke("removeAttr", "user-profile-url")
-  //     .invoke("removeAttr", "user-profile-name")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".profile")
-  //     .should("not.exist");
-  // });
+  it("should act on user-profile attributes", () => {
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find(".profile")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("removeAttr", "user-profile-url")
+      .invoke("removeAttr", "user-profile-name")
+      .get("@dsoHeaderShadow")
+      .find(".profile")
+      .should("not.exist");
+  });
 
-  // it("should act on user-home-url attribute", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav li.menu-user-home")
-  //     .should("be.visible")
-  //     .get("dso-header")
-  //     .invoke("removeAttr", "user-home-url")
-  //     .get("@dsoHeaderShadow")
-  //     .find("nav li.menu-user-home")
-  //     .should("not.exist");
-  // });
+  it("should act on user-home-url attribute", () => {
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find("nav li.menu-user-home")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("removeAttr", "user-home-url")
+      .get("@dsoHeaderShadow")
+      .find("nav li.menu-user-home")
+      .should("not.exist");
+  });
 
-  // it("should act on show-help attribute", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .invoke("attr", "show-help", true)
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dso-header-session .help button")
-  //     .should("be.visible");
-  // });
+  it("should act on show-help attribute", () => {
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", true)
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help button")
+      .should("be.visible");
+  });
 
-  // it("should use an anchor if help-url is passed", () => {
-  //   cy.get("dso-header.hydrated")
-  //     .invoke("attr", "show-help", true)
-  //     .invoke("attr", "help-url", "#help")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".dso-header-session .help a")
-  //     .should("be.visible");
-  // });
+  it("should use an anchor if help-url is passed", () => {
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "show-help", true)
+      .invoke("attr", "help-url", "#help")
+      .get("@dsoHeaderShadow")
+      .find(".dso-header-session .help a")
+      .should("be.visible");
+  });
 
   // it("should not show menu", () => {
   //   cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label&args=noMainMenu:true");
@@ -224,34 +224,34 @@ describe("Header", () => {
   //     .should("be.visible");
   // });
 
-  // it("should show correct login and logout when appropriate (and as anchors when url is provided)", () => {
-  //   cy.get("dso-header.hydrated")
-  //     // Show as <button>
-  //     .invoke("removeAttr", "login-url")
-  //     .invoke("removeAttr", "logout-url")
-  //     .invoke("attr", "auth-status", "loggedOut")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".login > button")
-  //     .should("be.visible")
-  //     .get("dso-header")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".logout > button")
-  //     .should("be.visible")
-  //     // Show as <a>
-  //     .get("dso-header")
-  //     .invoke("attr", "login-url", "#login")
-  //     .invoke("attr", "logout-url", "#logout")
-  //     .invoke("attr", "auth-status", "loggedOut")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".login > a")
-  //     .should("be.visible")
-  //     .get("dso-header")
-  //     .invoke("attr", "auth-status", "loggedIn")
-  //     .get("@dsoHeaderShadow")
-  //     .find(".logout > a")
-  //     .should("be.visible");
-  // });
+  it("should show correct login and logout when appropriate (and as anchors when url is provided)", () => {
+    cy.get("dso-header.hydrated")
+      // Show as <button>
+      .invoke("removeAttr", "login-url")
+      .invoke("removeAttr", "logout-url")
+      .invoke("attr", "auth-status", "loggedOut")
+      .get("@dsoHeaderShadow")
+      .find(".login > button")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find(".logout > button")
+      .should("be.visible")
+      // Show as <a>
+      .get("dso-header")
+      .invoke("attr", "login-url", "#login")
+      .invoke("attr", "logout-url", "#logout")
+      .invoke("attr", "auth-status", "loggedOut")
+      .get("@dsoHeaderShadow")
+      .find(".login > a")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .get("@dsoHeaderShadow")
+      .find(".logout > a")
+      .should("be.visible");
+  });
 
   // it("should show user home when url is provided", () => {
   //   cy.get("dso-header.hydrated")
