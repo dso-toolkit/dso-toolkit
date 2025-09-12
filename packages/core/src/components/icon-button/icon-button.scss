@@ -1,8 +1,8 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-
 @use "~dso-toolkit/src/components/button";
+
 @use "icon-button.mixins";
 @use "../../functional-components/tooltip";
 
@@ -20,12 +20,31 @@
 }
 
 .dso-tertiary {
-  @include button.tertiary();
+  @include button.base();
   @include icon-button.icon-only();
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
+    color: var(--icon-contrast-tertiary-color, button.$tertiary-color);
     border: var(--dso-icon-tertiary-border, 1px solid transparent);
+    line-height: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  &:not([disabled]) {
+    &:hover {
+      color: var(--icon-contrast-tertiary-hover-color, button.$tertiary-hover-color);
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+
+    &:active {
+      color: var(--icon-contrast-tertiary-active-color, button.$tertiary-active-color);
+    }
+  }
+  &[disabled] {
+    color: var(--icon-contrast-tertiary-disabled-color, button.$tertiary-disabled-color);
   }
 }
 
