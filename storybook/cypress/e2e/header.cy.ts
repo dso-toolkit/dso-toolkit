@@ -68,7 +68,7 @@ describe("Header", () => {
   }
 
   it("matches snapshot (all menuitems visible)", () => {
-    cy.viewport(1225, 660)
+    cy.viewport(1400, 660)
       .get("dso-header.hydrated")
       .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
       .get("@dsoHeaderShadow")
