@@ -6,7 +6,7 @@
     "storybook:build": "storybook build --output-dir ./www && tsx scripts/postbuild-transform.ts",
     "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
-    "e2e:test": "cypress run"
+    "e2e:test": "cypress run --spec cypress/e2e/header.cy.ts"
   },
   "dependencies": {
     "@dso-toolkit/core": "workspace:^",

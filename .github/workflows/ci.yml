@@ -80,8 +80,10 @@ jobs:
           options: --env CI
             --env DT_REF
             --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
+            --volume ${{ github.workspace }}/storybook/cypress/screenshots:/usr/src/app/storybook/cypress/screenshots
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
+            --volume ${{ github.workspace }}/storybook/cypress/videos:/usr/src/app/storybook/cypress/videos
           run: yarn e2e
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() && env.DT_DIST_TAG != 'latest'}}
@@ -91,6 +93,7 @@ jobs:
             ${{ github.workspace }}/storybook/cypress/screenshots
             ${{ github.workspace }}/storybook/cypress/snapshot-baseline
             ${{ github.workspace }}/storybook/cypress/snapshot-diff
+            ${{ github.workspace }}/storybook/cypress/videos
       - uses: addnab/docker-run-action@v3
         if: ${{ !cancelled() && (env.DT_DIST_TAG != 'latest' || steps.e2e.conclusion == 'success')  || (env.DT_DIST_TAG == 'latest' && steps.e2e.conclusion == 'skipped' ) }}
         name: Deploy

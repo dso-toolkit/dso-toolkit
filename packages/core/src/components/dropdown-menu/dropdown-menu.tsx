@@ -98,6 +98,7 @@ export class DropdownMenu {
 
     if (this.popoverElement && !this.cleanUp) {
       const element = this.popoverElement;
+
       this.cleanUp = autoUpdate(this.button, element, () => {
         computePosition(this.button, element, {
           strategy: "fixed",

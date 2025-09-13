@@ -14,7 +14,6 @@ import {
   h,
 } from "@stencil/core";
 import clsx from "clsx";
-import debounce from "debounce";
 
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -137,14 +136,14 @@ export class Header implements ComponentInterface {
   @Listen("resize", { target: "window" })
   resizeListener() {
     this.onWindowResize();
+
+    forceUpdate(this.host);
   }
 
-  private onWindowResize = debounce(() => this.resetVisibleMenuItems(), 20);
+  private onWindowResize = () => this.resetVisibleMenuItems();
 
   private resetVisibleMenuItems = () => {
     this.visibleMenuItemsCount = undefined;
-
-    forceUpdate(this.host);
   };
 
   private get isCompact() {

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Header: e2e-test herschrijven en uitbreiden t.b.v visueel regressie testen ([#2693](https://github.com/dso-toolkit/dso-toolkit/issues/2693))
+
 ## 🧽 Release 79.0.0-pre.1 - 2025-09-01
 
 ### Fixed
