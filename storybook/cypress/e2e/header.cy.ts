@@ -17,7 +17,7 @@ function setMenuItems($header: JQuery<HTMLDsoHeaderElement>, items?: HeaderMenuI
 }
 
 describe("Header", () => {
-  describe.skip("Suspected tests (5)", () => {
+  describe("Suspected tests (5)", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label");
 
