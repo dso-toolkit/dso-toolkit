@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Header: Available inline size ([#3351](https://github.com/dso-toolkit/dso-toolkit/issues/3351))
+
 ### Task
 * Header: e2e-test herschrijven en uitbreiden t.b.v visueel regressie testen ([#2693](https://github.com/dso-toolkit/dso-toolkit/issues/2693))
 

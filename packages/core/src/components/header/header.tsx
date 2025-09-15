@@ -129,6 +129,8 @@ export class Header implements ComponentInterface {
   @State()
   dropdownOptionsOffset = 0;
 
+  private innerWidthWindow?: number;
+
   @Watch("mainMenu")
   mainMenuChanged() {
     this.resetVisibleMenuItems();
@@ -148,6 +150,7 @@ export class Header implements ComponentInterface {
   };
 
   private get isCompact() {
+    this.innerWidthWindow = window.innerWidth;
     return this.compact === "always" || window.innerWidth < minDesktopViewportWidth;
   }
 
@@ -370,7 +373,7 @@ export class Header implements ComponentInterface {
                 class="dso-tertiary"
                 onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
               >
-                {this.userProfileName}
+                {this.userProfileName} - {this.innerWidthWindow} - {this.host.clientWidth}
               </a>
             </div>
           )}
