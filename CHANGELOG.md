@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
 * **BREAKING** Header: Verkeerde hoogte bij compacte weergave ([#3268](https://github.com/dso-toolkit/dso-toolkit/issues/3268))
 
+### Task
+* Header: e2e-test herschrijven en uitbreiden t.b.v visueel regressie testen ([#2693](https://github.com/dso-toolkit/dso-toolkit/issues/2693))
+
 ## 🦕 Release 78.1.0 - 2025-08-19
 
 ### Added
