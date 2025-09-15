@@ -16,40 +16,40 @@ function setMenuItems($header: JQuery<HTMLDsoHeaderElement>, items?: HeaderMenuI
   }
 }
 
-const defaultMenuItems = [
-  {
-    label: "Home",
-    url: "#home",
-    active: true,
-  },
-  {
-    label: "Vergunningscheck",
-    url: "#vergunningscheck",
-  },
-  {
-    label: "Aanvragen",
-    url: "#aanvragen",
-  },
-  {
-    label: "Regels op de kaart",
-    url: "#regelsopdekaart",
-  },
-  {
-    label: "Maatregelen op maat",
-    url: "#maatregelenopmaat",
-  },
-  {
-    label: "Hulpcentrum",
-    url: "#hulpcentrum",
-  },
-];
-
 describe("Header", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label");
 
     prepareComponent();
   });
+
+  const defaultMenuItems = [
+    {
+      label: "Home",
+      url: "#home",
+      active: true,
+    },
+    {
+      label: "Vergunningscheck",
+      url: "#vergunningscheck",
+    },
+    {
+      label: "Aanvragen",
+      url: "#aanvragen",
+    },
+    {
+      label: "Regels op de kaart",
+      url: "#regelsopdekaart",
+    },
+    {
+      label: "Maatregelen op maat",
+      url: "#maatregelenopmaat",
+    },
+    {
+      label: "Hulpcentrum",
+      url: "#hulpcentrum",
+    },
+  ];
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
@@ -66,6 +66,29 @@ describe("Header", () => {
       .shadow()
       .as("dsoHeaderShadow");
   }
+
+  it("matches snapshot (all menuitems visible)", () => {
+    cy.viewport(1400, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .get("@dsoHeaderShadow")
+      .find(".dso-nav-main")
+      .should("have.class", "ready")
+      .get("@dsoHeaderShadow")
+      .find("dso-dropdown-menu.hydrated")
+      .should("not.exist")
+      .get("dso-header.hydrated")
+      .matchImageSnapshot();
+  });
+
+  it("matches snapshot (compact)", () => {
+    cy.viewport(1000, 660)
+      .get("dso-header.hydrated")
+      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
+      .invoke("prop", "compact", "always")
+      .get("dso-header[is-compact]")
+      .matchImageSnapshot();
+  });
 
   it("should show and remove dropdownmenu", () => {
     cy.get("@dsoHeaderShadow")
@@ -103,6 +126,18 @@ describe("Header", () => {
       .get("@dsoHeaderShadow")
       .find("dso-dropdown-menu")
       .should("not.exist");
+  });
+
+  it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
+
+    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
+      .then(($header) => setMenuItems($header, []))
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
+
+    cy.get("dso-header.hydrated")
+      .invoke("attr", "auth-status", "loggedOut")
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
   });
 
   it("should be accessible", () => {
@@ -553,40 +588,5 @@ describe("Header", () => {
       compactMenuItemTest(label, "click", menuItemEvent);
       compactMenuItemTest(label, "realClick", menuItemEvent);
     }
-  });
-
-  it("shows Inloggen and Help or Profile, Uitloggen and Help", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--with-button-to-help");
-
-    cy.get<HTMLDsoHeaderElement>("dso-header.hydrated")
-      .then(($header) => setMenuItems($header, []))
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Profile, Uitloggen and Help`);
-
-    cy.get("dso-header.hydrated")
-      .invoke("attr", "auth-status", "loggedOut")
-      .matchImageSnapshot(`${Cypress.currentTest.title} -- Inloggen and Help`);
-  });
-
-  it("matches snapshot (all menuitems visible)", () => {
-    cy.viewport(1400, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .get("@dsoHeaderShadow")
-      .find(".dso-nav-main")
-      .should("have.class", "ready")
-      .get("@dsoHeaderShadow")
-      .find("dso-dropdown-menu.hydrated")
-      .should("not.exist")
-      .get("dso-header.hydrated")
-      .matchImageSnapshot();
-  });
-
-  it("matches snapshot (compact)", () => {
-    cy.viewport(1000, 660)
-      .get("dso-header.hydrated")
-      .then(($header: JQuery<HTMLDsoHeaderElement>) => setMenuItems($header, defaultMenuItems))
-      .invoke("prop", "compact", "always")
-      .get("dso-header[is-compact]")
-      .matchImageSnapshot();
   });
 });

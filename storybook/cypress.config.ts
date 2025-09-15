@@ -3,6 +3,8 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
+    video: true,
+    videoCompression: true,
     setupNodeEvents(on, _config) {
       addMatchImageSnapshotPlugin(on);
       on("task", {
