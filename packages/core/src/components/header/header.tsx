@@ -6,7 +6,6 @@ import {
   EventEmitter,
   Fragment,
   Host,
-  Listen,
   Prop,
   State,
   Watch,
@@ -14,6 +13,7 @@ import {
   h,
 } from "@stencil/core";
 import clsx from "clsx";
+import debounce from "debounce";
 
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -133,15 +133,6 @@ export class Header implements ComponentInterface {
     this.resetVisibleMenuItems();
   }
 
-  @Listen("resize", { target: "window" })
-  resizeListener() {
-    this.onWindowResize();
-
-    forceUpdate(this.host);
-  }
-
-  private onWindowResize = () => this.resetVisibleMenuItems();
-
   private resetVisibleMenuItems = () => {
     this.visibleMenuItemsCount = undefined;
   };
@@ -235,6 +226,22 @@ export class Header implements ComponentInterface {
 
   private get hiddenMainMenuItems(): HeaderMenuItem[] {
     return typeof this.visibleMenuItemsCount === "number" ? this.mainMenu.slice(this.visibleMenuItemsCount) : [];
+  }
+
+  private resizeObserver = new ResizeObserver(
+    debounce(() => {
+      this.resetVisibleMenuItems();
+
+      forceUpdate(this.host);
+    }, 200),
+  );
+
+  disconnectedCallback() {
+    this.resizeObserver.disconnect();
+  }
+
+  componentDidLoad(): void {
+    this.resizeObserver.observe(this.host);
   }
 
   componentDidRender() {
