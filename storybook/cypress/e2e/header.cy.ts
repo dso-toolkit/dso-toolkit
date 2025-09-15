@@ -439,6 +439,13 @@ describe("Header", () => {
         .shadow()
         .find(".dso-nav-main.ready")
         .find(".dropdown-menu-item")
+        .should("exist")
+        .and("be.visible");
+
+      cy.get("dso-header.hydrated")
+        .shadow()
+        .find(".dso-nav-main.ready")
+        .find(".dropdown-menu-item")
         .find("dso-dropdown-menu.hydrated")
         .should("exist")
         .and("be.visible");
