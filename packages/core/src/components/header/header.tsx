@@ -369,7 +369,7 @@ export class Header implements ComponentInterface {
                 class="dso-tertiary"
                 onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
               >
-                {this.userProfileName} - {window.innerWidth} - {this.host.clientWidth}
+                {this.userProfileName}
               </a>
             </div>
           )}

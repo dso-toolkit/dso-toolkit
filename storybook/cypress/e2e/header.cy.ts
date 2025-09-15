@@ -16,40 +16,40 @@ function setMenuItems($header: JQuery<HTMLDsoHeaderElement>, items?: HeaderMenuI
   }
 }
 
+const defaultMenuItems = [
+  {
+    label: "Home",
+    url: "#home",
+    active: true,
+  },
+  {
+    label: "Vergunningscheck",
+    url: "#vergunningscheck",
+  },
+  {
+    label: "Aanvragen",
+    url: "#aanvragen",
+  },
+  {
+    label: "Regels op de kaart",
+    url: "#regelsopdekaart",
+  },
+  {
+    label: "Maatregelen op maat",
+    url: "#maatregelenopmaat",
+  },
+  {
+    label: "Hulpcentrum",
+    url: "#hulpcentrum",
+  },
+];
+
 describe("Header", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--with-label");
 
     prepareComponent();
   });
-
-  const defaultMenuItems = [
-    {
-      label: "Home",
-      url: "#home",
-      active: true,
-    },
-    {
-      label: "Vergunningscheck",
-      url: "#vergunningscheck",
-    },
-    {
-      label: "Aanvragen",
-      url: "#aanvragen",
-    },
-    {
-      label: "Regels op de kaart",
-      url: "#regelsopdekaart",
-    },
-    {
-      label: "Maatregelen op maat",
-      url: "#maatregelenopmaat",
-    },
-    {
-      label: "Hulpcentrum",
-      url: "#hulpcentrum",
-    },
-  ];
 
   /** Configure the component and set an eventListener as @headerListener the `dso-header` is set as @dsoHeader and the `dso-header` shadow dom as @dsoHeaderShadow */
   function prepareComponent() {
