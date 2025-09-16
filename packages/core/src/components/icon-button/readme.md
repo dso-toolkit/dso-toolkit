@@ -40,9 +40,17 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [dso-alert](../alert)
  - [dso-image-overlay](../image-overlay)
+ - [dso-info](../info)
  - [dso-info-button](../info-button)
+ - [dso-label](../label)
  - [dso-legend-item](../legend-item)
+ - [dso-list-button](../list-button)
+ - [dso-mark-bar](../mark-bar)
+ - [dso-modal](../modal)
+ - [dso-onboarding-tip](../onboarding-tip)
+ - [dso-panel](../panel)
 
 ### Depends on
 
@@ -52,9 +60,17 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   dso-icon-button --> dso-icon
+  dso-alert --> dso-icon-button
   dso-image-overlay --> dso-icon-button
+  dso-info --> dso-icon-button
   dso-info-button --> dso-icon-button
+  dso-label --> dso-icon-button
   dso-legend-item --> dso-icon-button
+  dso-list-button --> dso-icon-button
+  dso-mark-bar --> dso-icon-button
+  dso-modal --> dso-icon-button
+  dso-onboarding-tip --> dso-icon-button
+  dso-panel --> dso-icon-button
   style dso-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

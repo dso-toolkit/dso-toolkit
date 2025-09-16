@@ -52,10 +52,11 @@ graph TD;
   dso-image-overlay --> dso-icon-button
   dso-icon-button --> dso-icon
   dso-table --> dso-icon
-  dso-label --> dso-icon
+  dso-label --> dso-icon-button
   dso-label --> dso-tooltip
-  dso-panel --> dso-icon
+  dso-panel --> dso-icon-button
   dso-alert --> dso-icon
+  dso-alert --> dso-icon-button
   dso-annotation-locatie --> dso-renvooi
   dso-annotation-locatie --> dso-slide-toggle
   dso-annotation-locatie --> dso-label

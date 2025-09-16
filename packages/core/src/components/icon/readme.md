@@ -26,17 +26,12 @@
  - [dso-document-component](../document-component)
  - [dso-header](../header)
  - [dso-icon-button](../icon-button)
- - [dso-info](../info)
  - [dso-info-button](../info-button)
- - [dso-label](../label)
- - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
- - [dso-modal](../modal)
  - [dso-onboarding-tip](../onboarding-tip)
  - [dso-ozon-content](../ozon-content)
  - [dso-pagination](../pagination)
- - [dso-panel](../panel)
  - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
  - [dso-skiplink](../skiplink)
@@ -58,17 +53,12 @@ graph TD;
   dso-document-component --> dso-icon
   dso-header --> dso-icon
   dso-icon-button --> dso-icon
-  dso-info --> dso-icon
   dso-info-button --> dso-icon
-  dso-label --> dso-icon
-  dso-list-button --> dso-icon
   dso-map-controls --> dso-icon
   dso-mark-bar --> dso-icon
-  dso-modal --> dso-icon
   dso-onboarding-tip --> dso-icon
   dso-ozon-content --> dso-icon
   dso-pagination --> dso-icon
-  dso-panel --> dso-icon
   dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon
   dso-skiplink --> dso-icon

@@ -11,8 +11,8 @@ export interface IconButtonArgs {
   variant: IconButtonVariant;
   icon: string;
   accessibleLabel: string;
-  tooltipPlacement: Placement;
-  dsoIconButtonClick: HandlerFunction;
+  tooltipPlacement?: Placement;
+  dsoIconButtonClick?: HandlerFunction;
   disabled: boolean;
 }
 

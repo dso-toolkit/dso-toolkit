@@ -32,17 +32,15 @@
         --link-visited-color: currentColor;
       }
 
-      @debug $contrast-color == colors.$contrast-light;
-
       @if $contrast-color == colors.$contrast-dark {
-        --icon-contrast-tertiary-color: #{colors.$grijs-90};
-        --icon-contrast-tertiary-hover-color: #{colors.$grijs-70};
-        --icon-contrast-tertiary-active-color: #{colors.$bosgroen-140};
-        --icon-contrast-tertiary-disabled-color: #{colors.$grijs-40};
+        --dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
+        --dso-icon-contrast-tertiary-hover-color: #{colors.$grijs-70};
+        --dso-icon-contrast-tertiary-active-color: #{colors.$bosgroen-140};
+        --dso-icon-contrast-tertiary-disabled-color: #{colors.$grijs-40};
       } @else if $contrast-color == colors.$contrast-light {
-        --icon-contrast-tertiary-color: #{colors.$wit};
+        --dso-icon-button-contrast-tertiary-color: #{colors.$wit};
       } @else {
-        --icon-contrast-tertiary-color: #{$contrast-icon-color};
+        --dso-icon-button-contrast-tertiary-color: #{$contrast-icon-color};
       }
 
       // set according to contrast color determined by contrast-color function

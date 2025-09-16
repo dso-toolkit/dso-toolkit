@@ -15,10 +15,13 @@ export const Overlay: FunctionalComponent<ViewerGridOverlayProps> = ({ ref, dsoC
       dsoCloseOverlay(e);
     }}
   >
-    <button type="button" class="overlay-close-button" onClick={dsoCloseOverlay}>
-      <dso-icon icon="times"></dso-icon>
-      <span class="sr-only">sluiten</span>
-    </button>
+    <dso-icon-button
+      class="overlay-close-button"
+      icon="times"
+      variant="tertiary"
+      accessibleLabel="Sluiten"
+      onClick={dsoCloseOverlay}
+    />
     <slot name="overlay" />
   </dialog>
 );

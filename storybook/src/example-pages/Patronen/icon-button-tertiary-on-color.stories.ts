@@ -10,7 +10,7 @@ const meta: Meta = {
 export default meta;
 
 export const IconButtonTertiaryOnColor = examplePageStories((templates) => {
-  const { iconButtonTemplate, highlightBoxTemplate, infoButtonTemplate } = templates;
+  const { iconButtonTemplate, highlightBoxTemplate } = templates;
 
   return html`
     ${highlightBoxTemplate({

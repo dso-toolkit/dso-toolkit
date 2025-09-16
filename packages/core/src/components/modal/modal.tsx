@@ -131,10 +131,12 @@ export class Modal implements ComponentInterface {
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>
               {this.closable && (
-                <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-                  <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">{this.text("close")}</span>
-                </button>
+                <dso-icon-button
+                  icon="times"
+                  variant="tertiary"
+                  accessibleLabel={this.text("close")}
+                  onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+                />
               )}
             </div>
           ) : (
