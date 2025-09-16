@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧽 Release 79.0.0-pre.3 - 2025-09-16
+
 ### Fixed
 * Header: Dropdown Menu met overflow menu items verschijnt niet ([#3351](https://github.com/dso-toolkit/dso-toolkit/issues/3351))
 
