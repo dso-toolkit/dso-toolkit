@@ -42,6 +42,7 @@ graph TD;
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
   dso-info-button --> dso-icon-button
+  dso-info-button --> dso-icon
   dso-icon-button --> dso-icon
   dso-info --> dso-icon
   style dso-list-button fill:#f9f,stroke:#333,stroke-width:4px

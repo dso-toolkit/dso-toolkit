@@ -10,9 +10,21 @@ const meta: Meta = {
 export default meta;
 
 export const IconButtonTertiaryOnColor = examplePageStories((templates) => {
-  const { iconButtonTemplate, highlightBoxTemplate } = templates;
+  const { iconButtonTemplate, highlightBoxTemplate, infoButtonTemplate } = templates;
 
   return html`
+    ${highlightBoxTemplate({
+      white: true,
+      content: html`<div style="display: flex; justify-content: center">
+        ${iconButtonTemplate({
+          accessibleLabel: "Navigatie",
+          variant: "tertiary",
+          icon: "bars",
+          tooltipPlacement: "top",
+          dsoIconButtonClick: () => {},
+        })}
+      </div>`,
+    })}
     ${highlightBoxTemplate({
       white: true,
       content: html`<div style="display: flex; justify-content: center">

@@ -34,17 +34,17 @@
 
   &:not([disabled]) {
     &:hover {
-      color: var(--icon-contrast-tertiary-hover-color, button.$tertiary-hover-color);
+      color: var(--icon-contrast-tertiary-color, button.$tertiary-hover-color);
       text-decoration: underline;
       text-underline-position: under;
     }
 
     &:active {
-      color: var(--icon-contrast-tertiary-active-color, button.$tertiary-active-color);
+      color: var(--icon-contrast-tertiary-color, button.$tertiary-active-color);
     }
   }
   &[disabled] {
-    color: var(--icon-contrast-tertiary-disabled-color, button.$tertiary-disabled-color);
+    color: var(--icon-contrast-tertiary-color, button.$tertiary-disabled-color);
   }
 }
 
