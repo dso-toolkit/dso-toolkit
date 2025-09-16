@@ -35,7 +35,7 @@ graph TD;
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
   dso-icon-button --> dso-icon
-  dso-info --> dso-icon
+  dso-info --> dso-icon-button
   style dso-map-overlays fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

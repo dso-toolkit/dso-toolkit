@@ -68,10 +68,13 @@ export class OnboardingTip implements ComponentInterface {
                   <slot name="heading" />
                 </div>
               )}
-              <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-                <dso-icon icon="times"></dso-icon>
-                <span class="sr-only">Sluiten</span>
-              </button>
+              <dso-icon-button
+                class="dso-close"
+                accessibleLabel="Sluiten"
+                variant="tertiary"
+                icon="times"
+                onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+              />
               <slot></slot>
             </div>
           </div>

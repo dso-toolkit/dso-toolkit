@@ -40,11 +40,14 @@ De onboarding tip wordt in de top layer geplaatst. Dit betekent dat hij altijd b
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-onboarding-tip --> dso-icon
+  dso-onboarding-tip --> dso-icon-button
+  dso-icon-button --> dso-icon
   style dso-onboarding-tip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

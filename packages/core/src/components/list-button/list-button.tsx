@@ -183,31 +183,27 @@ export class ListButton implements ComponentInterface {
         {this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
             {this.count > 1 && (
-              <>
-                <button
-                  type="button"
-                  class="dso-tertiary"
+              <Fragment>
+                <dso-icon-button
+                  accessibleLabel="Aantal verlagen"
+                  variant="tertiary"
+                  icon="minus-circle"
                   disabled={this.count === Number(this.min) || this.disabled}
                   onClick={(e) => this.stepValue(e, "decrement")}
-                >
-                  <dso-icon icon="minus-circle"></dso-icon>
-                  <span class="sr-only">Aantal verlagen</span>
-                </button>
+                />
                 <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
                   {this.count}
                 </span>
-              </>
+              </Fragment>
             )}
 
-            <button
-              type="button"
-              class="dso-tertiary"
+            <dso-icon-button
+              accessibleLabel="Aantal verhogen"
+              variant="tertiary"
+              icon="plus-circle"
               disabled={this.count === Number(this.max) || this.disabled}
               onClick={(e) => this.stepValue(e, "increment")}
-            >
-              <dso-icon icon="plus-circle"></dso-icon>
-              <span class="sr-only">Aantal verhogen</span>
-            </button>
+            />
           </div>
         )}
       </div>

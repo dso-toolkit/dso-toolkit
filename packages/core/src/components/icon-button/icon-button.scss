@@ -25,26 +25,34 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    color: var(--icon-contrast-tertiary-color, button.$tertiary-color);
-    border: var(--dso-icon-tertiary-border, 1px solid transparent);
+    color: var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-color);
+    border: var(--dso-icon-button-tertiary-border, 1px solid transparent);
     line-height: 1;
-    padding: 0;
     background-color: transparent;
   }
 
   &:not([disabled]) {
     &:hover {
-      color: var(--icon-contrast-tertiary-color, button.$tertiary-hover-color);
+      color: var(
+        --dso-icon-contrast-tertiary-hover-color,
+        var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+      );
       text-decoration: underline;
       text-underline-position: under;
     }
 
     &:active {
-      color: var(--icon-contrast-tertiary-color, button.$tertiary-active-color);
+      color: var(
+        --dso-icon-contrast-tertiary-active-color,
+        var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+      );
     }
   }
   &[disabled] {
-    color: var(--icon-contrast-tertiary-color, button.$tertiary-disabled-color);
+    color: var(
+      --dso-icon-contrast-tertiary-disabled-color,
+      var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+    );
   }
 }
 

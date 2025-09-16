@@ -32,19 +32,19 @@
 ### Depends on
 
 - [dso-selectable](../selectable)
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-list-button --> dso-selectable
-  dso-list-button --> dso-icon
+  dso-list-button --> dso-icon-button
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
   dso-icon-button --> dso-icon
-  dso-info --> dso-icon
+  dso-info --> dso-icon-button
   style dso-list-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

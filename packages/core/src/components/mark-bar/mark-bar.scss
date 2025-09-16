@@ -34,7 +34,6 @@ $focus-border-width: 1px;
       background-image: none;
       border: 1px solid form-control.$focus-border-color;
       border-radius: 4px;
-      border-width: 1px;
       box-shadow: none;
       display: block;
       font-size: typography.$root-font-size-base;
@@ -101,19 +100,12 @@ $focus-border-width: 1px;
       }
     }
 
-    button {
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      color: colors.$grasgroen;
-      font-size: 0;
-      block-size: $block-size;
-      padding: units.$u1;
+    dso-icon-button {
+      --dso-icon-button-tertiary-border: 0;
+      padding: 7px;
       position: absolute;
       inset-inline-end: 0;
-      text-align: center;
       inset-block-start: 0;
-      inline-size: $block-size;
       cursor: pointer;
     }
   }
@@ -134,12 +126,8 @@ $focus-border-width: 1px;
   border-start-end-radius: scaffolding.$border-radius-base;
   border-end-end-radius: scaffolding.$border-radius-base;
 
-  button {
-    appearance: none;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    color: colors.$grasgroen;
+  dso-icon-button {
+    --dso-icon-button-tertiary-border: 0;
     cursor: pointer;
 
     &:disabled {

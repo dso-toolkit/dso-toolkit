@@ -1,8 +1,8 @@
 import { IconButton } from "dso-toolkit";
 import { html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
-import { ifDefined } from "lit-html/directives/if-defined.js";
 
 export const coreIconButton: ComponentImplementation<IconButton> = {
   component: "iconButton",
@@ -16,7 +16,7 @@ export const coreIconButton: ComponentImplementation<IconButton> = {
           accessible-label=${accessibleLabel}
           tooltip-placement=${tooltipPlacement}
           disabled=${ifDefined(disabled)}
-          @dsoIconButtonClick=${(e: CustomEvent) => dsoIconButtonClick(e.detail)}
+          @dsoIconButtonClick=${ifDefined(dsoIconButtonClick)}
         ></dso-icon-button>
       `;
     },

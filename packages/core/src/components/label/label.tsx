@@ -212,17 +212,17 @@ export class Label implements ComponentInterface {
             <slot></slot>
           </span>
           {this.removable && (
-            <button
-              type="button"
+            <dso-icon-button
+              variant="tertiary"
+              icon="times"
+              accessibleLabel={`Verwijder: ${this.labelText}`}
+              class="dso-label-remove"
               onClick={(e) => this.dsoRemoveClick.emit(e)}
               onMouseEnter={() => (this.removeHover = true)}
               onMouseLeave={() => (this.removeHover = false)}
               onFocus={() => (this.removeFocus = true)}
               onBlur={() => (this.removeFocus = false)}
-            >
-              <span class="sr-only">Verwijder: {this.labelText}</span>
-              <dso-icon icon="times"></dso-icon>
-            </button>
+            />
           )}
         </span>
         {this.isTruncated && (

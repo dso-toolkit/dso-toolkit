@@ -74,6 +74,12 @@
 
       text-align: center;
     }
+
+    dso-icon-button {
+      position: absolute;
+      inset-block-start: 12px;
+      inset-inline-end: 9px;
+    }
   }
 
   > .dso-dialog > .dso-body {

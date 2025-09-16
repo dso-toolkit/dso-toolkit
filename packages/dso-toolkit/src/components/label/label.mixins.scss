@@ -19,12 +19,16 @@
     text-decoration: line-through;
   }
 
-  button {
+  button,
+  dso-icon-button {
+    --dso-icon-button-tertiary-border: 0;
+    line-height: 0;
     background: none;
     border: 0;
     border-radius: 0 #{units.$u1 * 0.5} #{units.$u1 * 0.5} 0;
     color: inherit;
     float: inline-end;
+
     font-size: typography.$root-font-size-base;
     margin-block-end: units.$u1 * -0.5;
     margin-inline-start: units.$u1;
