@@ -6,7 +6,6 @@ import {
   EventEmitter,
   Fragment,
   Host,
-  Listen,
   Prop,
   State,
   Watch,
@@ -133,15 +132,6 @@ export class Header implements ComponentInterface {
     this.resetVisibleMenuItems();
   }
 
-  @Listen("resize", { target: "window" })
-  resizeListener() {
-    this.onWindowResize();
-
-    forceUpdate(this.host);
-  }
-
-  private onWindowResize = () => this.resetVisibleMenuItems();
-
   private resetVisibleMenuItems = () => {
     this.visibleMenuItemsCount = undefined;
   };
@@ -235,6 +225,20 @@ export class Header implements ComponentInterface {
 
   private get hiddenMainMenuItems(): HeaderMenuItem[] {
     return typeof this.visibleMenuItemsCount === "number" ? this.mainMenu.slice(this.visibleMenuItemsCount) : [];
+  }
+
+  private resizeObserver = new ResizeObserver(() => {
+    this.resetVisibleMenuItems();
+
+    forceUpdate(this.host);
+  });
+
+  disconnectedCallback() {
+    this.resizeObserver.disconnect();
+  }
+
+  componentDidLoad(): void {
+    this.resizeObserver.observe(this.host);
   }
 
   componentDidRender() {
