@@ -41,9 +41,6 @@
         --icon-contrast-tertiary-disabled-color: #{colors.$grijs-40};
       } @else if $contrast-color == colors.$contrast-light {
         --icon-contrast-tertiary-color: #{colors.$wit};
-        --icon-contrast-tertiary-hover-color: #{colors.$wit};
-        --icon-contrast-tertiary-active-color: #{colors.$wit};
-        --icon-contrast-tertiary-disabled-color: #{colors.$wit};
       } @else {
         --icon-contrast-tertiary-color: #{$contrast-icon-color};
       }

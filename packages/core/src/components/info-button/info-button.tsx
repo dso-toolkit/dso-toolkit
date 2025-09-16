@@ -10,6 +10,7 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
 })
 export class InfoButton {
   private button?: HTMLDsoIconButtonElement;
+  private buttonSecondary?: HTMLButtonElement;
 
   /**
    * Whether the InfoButton is active.
@@ -44,6 +45,7 @@ export class InfoButton {
   @Method()
   async setFocus() {
     this.button?.focus();
+    this.buttonSecondary?.focus();
   }
 
   private handleToggle(e: MouseEvent) {
@@ -54,14 +56,30 @@ export class InfoButton {
   render() {
     return (
       <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
-        <dso-icon-button
-          variant="tertiary"
-          class={clsx({ "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })} // ToDO fix the secondary class/variant
-          accessibleLabel={this.label}
-          onClick={(e) => this.handleToggle(e)}
-          icon={this.active || this.hover ? "info-active" : "info"}
-          ref={(element) => (this.button = element)}
-        />
+        {!this.secondary ? (
+          <dso-icon-button
+            variant="tertiary"
+            class={clsx({
+              "dso-open": !!this.active,
+            })}
+            accessibleLabel={this.label}
+            onClick={(e) => this.handleToggle(e)}
+            icon={this.active || this.hover ? "info-active" : "info"}
+            ref={(element) => (this.button = element)}
+          />
+        ) : (
+          // ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
+          <button
+            type="button"
+            class={clsx("dso-info-secondary", { "dso-open": !!this.active })}
+            aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
+            onClick={(e) => this.handleToggle(e)}
+            ref={(element) => (this.buttonSecondary = element)}
+          >
+            <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
+            <span class="sr-only">{this.label}</span>
+          </button>
+        )}
       </Host>
     );
   }

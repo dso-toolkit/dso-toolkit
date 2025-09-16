@@ -11,6 +11,7 @@
   @include utilities.sr-only();
 }
 
+button,
 dso-icon-button {
   @include info-button.root();
 
