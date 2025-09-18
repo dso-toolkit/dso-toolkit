@@ -25,6 +25,7 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -70,6 +71,7 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -776,6 +778,18 @@ export namespace Components {
           * For yellow Highlight Box.
          */
         "yellow"?: boolean;
+    }
+    interface DsoHistoryItem {
+        /**
+          * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
+         */
+        "href"?: string;
+        /**
+          * The type of History Item
+         */
+        "type": HistoryItemType;
+    }
+    interface DsoHistoryItems {
     }
     interface DsoIcon {
         /**
@@ -1488,6 +1502,10 @@ export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoHeaderElement;
 }
+export interface DsoHistoryItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoHistoryItemElement;
+}
 export interface DsoInfoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoInfoElement;
@@ -1961,6 +1979,29 @@ declare global {
     var HTMLDsoHighlightBoxElement: {
         prototype: HTMLDsoHighlightBoxElement;
         new (): HTMLDsoHighlightBoxElement;
+    };
+    interface HTMLDsoHistoryItemElementEventMap {
+        "dsoHistoryItemClick": HistoryItemClickEvent;
+    }
+    interface HTMLDsoHistoryItemElement extends Components.DsoHistoryItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoHistoryItemElementEventMap>(type: K, listener: (this: HTMLDsoHistoryItemElement, ev: DsoHistoryItemCustomEvent<HTMLDsoHistoryItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoHistoryItemElementEventMap>(type: K, listener: (this: HTMLDsoHistoryItemElement, ev: DsoHistoryItemCustomEvent<HTMLDsoHistoryItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoHistoryItemElement: {
+        prototype: HTMLDsoHistoryItemElement;
+        new (): HTMLDsoHistoryItemElement;
+    };
+    interface HTMLDsoHistoryItemsElement extends Components.DsoHistoryItems, HTMLStencilElement {
+    }
+    var HTMLDsoHistoryItemsElement: {
+        prototype: HTMLDsoHistoryItemsElement;
+        new (): HTMLDsoHistoryItemsElement;
     };
     interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
     }
@@ -2544,6 +2585,8 @@ declare global {
         "dso-expandable": HTMLDsoExpandableElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
+        "dso-history-item": HTMLDsoHistoryItemElement;
+        "dso-history-items": HTMLDsoHistoryItemsElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
@@ -3392,6 +3435,22 @@ declare namespace LocalJSX {
          */
         "yellow"?: boolean;
     }
+    interface DsoHistoryItem {
+        /**
+          * The optional URL to which the History Item title links. Needs to be provided when slot `title` is used.
+         */
+        "href"?: string;
+        /**
+          * Emitted when the History Item title is clicked.
+         */
+        "onDsoHistoryItemClick"?: (event: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => void;
+        /**
+          * The type of History Item
+         */
+        "type": HistoryItemType;
+    }
+    interface DsoHistoryItems {
+    }
     interface DsoIcon {
         /**
           * The alias of the icon.
@@ -4222,6 +4281,8 @@ declare namespace LocalJSX {
         "dso-expandable": DsoExpandable;
         "dso-header": DsoHeader;
         "dso-highlight-box": DsoHighlightBox;
+        "dso-history-item": DsoHistoryItem;
+        "dso-history-items": DsoHistoryItems;
         "dso-icon": DsoIcon;
         "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
@@ -4295,6 +4356,8 @@ declare module "@stencil/core" {
             "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
+            "dso-history-item": LocalJSX.DsoHistoryItem & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
+            "dso-history-items": LocalJSX.DsoHistoryItems & JSXBase.HTMLAttributes<HTMLDsoHistoryItemsElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
