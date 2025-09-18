@@ -150,13 +150,7 @@ export class DropdownMenu {
     }
   }
 
-  connectedCallback() {
-    this.host.addEventListener("keydown", this.keyDownListener);
-  }
-
   disconnectedCallback() {
-    this.host.removeEventListener("keydown", this.keyDownListener);
-
     this.toggleOptions(false);
   }
 
@@ -229,7 +223,7 @@ export class DropdownMenu {
 
   render() {
     return (
-      <Host onFocusout={this.focusOutListener}>
+      <Host onKeydown={this.keyDownListener} onFocusout={this.focusOutListener}>
         <slot name="toggle" />
         <div popover="manual" ref={(element) => (this.popoverElement = element)}>
           <slot />
