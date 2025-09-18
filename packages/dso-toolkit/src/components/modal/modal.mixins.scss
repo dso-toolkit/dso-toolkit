@@ -59,6 +59,10 @@
     }
 
     .dso-close {
+      --dso-icon-button-tertiary-border: 0;
+      --dso-icon-button-padding-inline: 4px;
+      --dso-icon-button-padding-block: 4px;
+
       position: absolute;
       inset-block-start: units.$u2;
       inset-inline-end: 13px;

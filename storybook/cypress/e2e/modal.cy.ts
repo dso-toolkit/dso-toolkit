@@ -20,9 +20,9 @@ describe("Modal", () => {
       .get("@dsoModal")
       .find(".dso-dialog")
       .should("have.attr", "role", "document")
-      .find(".dso-close span")
-      .should("have.class", "sr-only")
-      .and("have.text", "Sluiten");
+      .find("dso-icon-button")
+      .shadow()
+      .find("button[aria-label='Sluiten']");
 
     // The wait equals the modal animation-duration of 200ms
     cy.wait(200).matchImageSnapshot();
@@ -38,7 +38,7 @@ describe("Modal", () => {
 
   it("should have English sr-only text", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&globals=locale:en");
-    cy.get("dso-modal").shadow().find(".dso-close span").should("have.text", "Close");
+    cy.get("dso-modal").shadow().find("dso-icon-button").shadow().find("button[aria-label='Close']");
   });
 
   it("should have sr-only Dutch text 'Dialoog' when modalTitle is not set", () => {

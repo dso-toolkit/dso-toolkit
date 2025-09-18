@@ -32,9 +32,3 @@ button {
 .dso-modal {
   @include modal.root();
 }
-
-.dso-close {
-  dso-icon {
-    color: modal.$close-icon-color;
-  }
-}
