@@ -233,12 +233,12 @@ export class Header implements ComponentInterface {
     forceUpdate(this.host);
   });
 
-  disconnectedCallback() {
-    this.resizeObserver.disconnect();
+  connectedCallback(): void {
+    this.resizeObserver.observe(this.host);
   }
 
-  componentDidLoad(): void {
-    this.resizeObserver.observe(this.host);
+  disconnectedCallback() {
+    this.resizeObserver.disconnect();
   }
 
   componentDidRender() {
@@ -284,7 +284,11 @@ export class Header implements ComponentInterface {
             <div class="dso-dropdown-options">
               <ul>
                 {this.mainMenu.map((menuItem) => (
-                  <MenuItem item={menuItem} onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })} />
+                  <MenuItem
+                    item={menuItem}
+                    onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
+                    key={menuItem.label}
+                  />
                 ))}
                 {this.userHomeUrl && (
                   <li>
@@ -459,7 +463,11 @@ export class Header implements ComponentInterface {
                     <div class="dso-dropdown-options">
                       <ul>
                         {this.hiddenMainMenuItems.map((menuItem) => (
-                          <MenuItem item={menuItem} onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })} />
+                          <MenuItem
+                            item={menuItem}
+                            onClick={(e) => this.clickHandler(e, "menuItem", { menuItem })}
+                            key={menuItem.label}
+                          />
                         ))}
                       </ul>
                     </div>

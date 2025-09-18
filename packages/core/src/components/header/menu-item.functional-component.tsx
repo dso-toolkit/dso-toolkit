@@ -6,7 +6,7 @@ import { HeaderMenuItem } from "./header.interfaces";
 export interface MenuItemProps {
   item: HeaderMenuItem;
   onClick: (event: MouseEvent) => void;
-  key?: string;
+  key: string;
   ref?: (el: HTMLLIElement | undefined) => void;
 }
 
