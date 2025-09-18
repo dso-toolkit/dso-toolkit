@@ -15,6 +15,9 @@ describe("Toggletip", () => {
       .find("dso-info-button")
       .as("dsoInfoButton")
       .shadow()
+      .find("dso-icon-button")
+      .as("dsoIconButton")
+      .shadow()
       .find("button")
       .as("dsoButton")
       .get("@dsoToggletip")
@@ -36,7 +39,7 @@ describe("Toggletip", () => {
       .get("@dsoButton")
       .should("not.have.focus")
       .realPress("Escape")
-      .get("@dsoButton")
+      .get("@dsoIconButton")
       .should("have.focus");
   });
 });

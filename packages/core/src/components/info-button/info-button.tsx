@@ -44,7 +44,7 @@ export class InfoButton {
    */
   @Method()
   async setFocus() {
-    this.button?.focus();
+    this.button?.setFocus();
     this.buttonSecondary?.focus();
   }
 

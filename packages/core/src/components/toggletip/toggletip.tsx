@@ -77,7 +77,7 @@ export class Toggletip {
 
   render() {
     return (
-      <>
+      <Fragment>
         <dso-info-button
           aria-describedby="toggle"
           onClick={this.click}
@@ -97,7 +97,7 @@ export class Toggletip {
         >
           <slot />
         </dso-tooltip>
-      </>
+      </Fragment>
     );
   }
 }
