@@ -25,7 +25,6 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-import { IconButtonVariant } from "dso-toolkit";
 import { Placement } from "@floating-ui/dom";
 import { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -74,7 +73,6 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-export { IconButtonVariant } from "dso-toolkit";
 export { Placement } from "@floating-ui/dom";
 export { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -817,7 +815,7 @@ export namespace Components {
           * The variant of the icon button.
           * @default "secondary"
          */
-        "variant": IconButtonVariant;
+        "variant": "secondary" | "tertiary" | "map";
     }
     interface DsoImageOverlay {
         /**
@@ -3482,7 +3480,7 @@ declare namespace LocalJSX {
           * The variant of the icon button.
           * @default "secondary"
          */
-        "variant"?: IconButtonVariant;
+        "variant"?: "secondary" | "tertiary" | "map";
     }
     interface DsoImageOverlay {
         /**

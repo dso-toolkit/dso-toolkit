@@ -35,10 +35,11 @@ const Dimmer: FunctionalComponent<{
         {children[0]}
         <img src={src} alt={alt} />
         <dso-icon-button
+          tabindex="0"
           icon="times"
           variant="map"
           class="close"
-          accessibleLabel="Afbeelding vergroot weergeven"
+          accessibleLabel="Sluiten"
           onDsoIconButtonClick={click}
         />
         {children[1]}
@@ -164,11 +165,10 @@ export class ImageOverlay implements ComponentInterface {
 
     const button = this.zoomable && (
       <dso-icon-button
-        tabindex="0"
         icon="external-link"
         class="open"
         variant="map"
-        accessibleLabel="Sluiten"
+        accessibleLabel="Afbeelding vergroot weergeven"
         ref={(element) => (this.iconButtonElement = element)}
         onDsoIconButtonClick={() => (this.active = true)}
       />
@@ -176,7 +176,7 @@ export class ImageOverlay implements ComponentInterface {
 
     if (this.wijzigactie === "verwijder") {
       return (
-        <Host onClick={() => this.iconButtonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.setFocus()}>
           <del class="editaction-remove">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -205,7 +205,7 @@ export class ImageOverlay implements ComponentInterface {
 
     if (this.wijzigactie === "voegtoe") {
       return (
-        <Host onClick={() => this.iconButtonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.setFocus()}>
           <ins class="editaction-add">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -233,7 +233,7 @@ export class ImageOverlay implements ComponentInterface {
     }
 
     return (
-      <Host onClick={() => this.iconButtonElement?.focus()}>
+      <Host onClick={() => this.iconButtonElement?.setFocus()}>
         <Dimmer
           active={this.active}
           src={src}
