@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧽 Release 79.0.0-pre.4 - 2025-09-18
+
 ### Fixed
 * Header: Hamburger menu toegankelijkheid kapot voor Loket ([#3287](https://github.com/dso-toolkit/dso-toolkit/issues/3287))
 
