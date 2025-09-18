@@ -51,7 +51,7 @@
   &[disabled] {
     color: var(
       --dso-icon-contrast-tertiary-disabled-color,
-      var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+      var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-disabled-color)
     );
   }
 }
