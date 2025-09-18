@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧽 Release 79.0.0 - 2025-09-18
+
 ### Changed
 * **BREAKING** Breadcrumbs: Breadcrumb met "s" ([#3210](https://github.com/dso-toolkit/dso-toolkit/issues/3210))
 * Document Header: Varianten voor besluitversies ([#3193](https://github.com/dso-toolkit/dso-toolkit/issues/3193))

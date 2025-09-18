@@ -2,11 +2,12 @@
 authors: [iterox]
 ---
 
-# DSO Toolkit next
+# DSO Toolkit v79.0.0 🧽
 
-Deze release bevat een **Breaking** change voor het volgende component:
+Deze release bevat **Breaking** changes voor de volgende componenten:
 
 - Breadcrumbs
+- Header
 
 Deze release bevat een **deprecation** voor het volgende component:
 
@@ -40,6 +41,20 @@ Vervang de class name `breadcrumb` door `dso-breadcrumbs`.
 </ol>
 ```
 
+## Header
+
+De property `useDropDownMenu` is hernoemd, de mogelijke waarden zijn gelijk gebleven.
+
+### Migratiepad
+
+```html
+❌
+<dso-header useDropDownMenu="always|auto"></dso-header>
+
+✅
+<dso-header compact="always|auto"></dso-header>
+```
+
 ## Label
 
 Het HTML/CSS component `Label` is deprecated. In een toekomstige **BREAKING** release zal dit component verwijderd
@@ -49,8 +64,9 @@ worden.
 
 Gebruik de Core implementatie van Label.
 
-```html
 ❌
+
+```html
 <span class="dso-label dso-label-primary dso-compact">
   <span class="dso-label-symbol">[...]</span>
   LABEL
@@ -59,8 +75,11 @@ Gebruik de Core implementatie van Label.
     <dso-icon icon="times"></dso-icon>
   </button>
 </span>
+```
 
 ✅
+
+```
 <dso-label status="primary" compact removable>
   <!-- event listener onDsoRemoveClick -->
   <span slot="symbol">[...]</span>
