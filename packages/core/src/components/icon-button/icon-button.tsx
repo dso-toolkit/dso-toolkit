@@ -30,7 +30,7 @@ export class IconButton implements ComponentInterface {
    * The variant of the icon button.
    */
   @Prop()
-  variant: IconButtonVariant = "secondary";
+  variant: "secondary" | "tertiary" | "map" = "secondary";
 
   /**
    * The placement of the tooltip on hover of the icon button.
