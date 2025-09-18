@@ -13,11 +13,8 @@ describe("Icon Button", () => {
   variants.forEach((variant) => {
     it(`should show the ${variant} variant`, () => {
       cy.get("dso-icon-button.hydrated").invoke("prop", "variant", variant);
-
       cy.get("dso-icon-button.hydrated").realHover().shadow().find(".dso-tooltip").should("exist");
-
       cy.get("dso-icon-button.hydrated").trigger("mouseleave");
-
       cy.get("dso-icon-button.hydrated").matchImageSnapshot(`${Cypress.currentTest.title}`);
     });
   });
