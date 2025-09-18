@@ -18,7 +18,6 @@
 @mixin nav-item-main {
   font-size: 1.25em;
   line-height: 1;
-  margin-block-start: units.$u1;
   padding-block: units.$u2;
   padding-inline: 0;
 }
@@ -27,21 +26,39 @@
   display: block;
 }
 
+:host([is-compact]) {
+  ::slotted([slot="logo"]) {
+    --_dso-logo-block-size: #{units.$ru5} !important;
+  }
+
+  .dso-header {
+    flex-wrap: nowrap;
+  }
+
+  dso-dropdown-menu {
+    .dso-dropdown-options {
+      inline-size: 100%;
+    }
+  }
+}
+
+:host(:not([is-compact])) {
+  .dso-header {
+    align-items: center;
+  }
+
+  dso-dropdown-menu {
+    .dso-dropdown-options {
+      inline-size: 375px;
+    }
+  }
+}
+
 .dso-header {
   border-block-end: 1px solid colors.$grijs-20;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-
-  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-    align-items: center;
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
-    &.use-drop-down {
-      flex-wrap: nowrap;
-    }
-  }
 
   .dso-nav {
     border: 0;
@@ -109,6 +126,8 @@
 
 .dso-navbar {
   flex-basis: 100%;
+  max-inline-size: 100%;
+  position: relative; // Needed for menu item calculations
 }
 
 dso-dropdown-menu {
@@ -141,14 +160,6 @@ dso-dropdown-menu {
     border-radius: 0;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
 
-    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
-      inline-size: 375px;
-    }
-
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-      inline-size: 100%;
-    }
-
     ul {
       margin: 0;
       padding: 0;
@@ -175,7 +186,7 @@ dso-dropdown-menu {
             text-decoration: underline;
           }
 
-          &:visited {
+          &:visited:not(:hover):not(:focus-visible) {
             color: colors.$bosgroen;
           }
         }
@@ -242,6 +253,12 @@ dso-dropdown-menu {
 }
 
 .dso-nav {
+  &.ready {
+    .menu-user-home {
+      margin-inline-start: auto;
+    }
+  }
+
   align-items: end;
   column-gap: units.$u4;
   display: flex;
@@ -318,15 +335,15 @@ dso-dropdown-menu {
     }
   }
 
-  .menu-user-home {
-    margin-inline-start: auto;
+  .main-menu-item-icon {
+    block-size: 1em;
+    margin-inline-end: units.$u1;
+    position: relative;
+    inset-block-start: -2px;
+    inline-size: 1.2em;
+  }
 
-    dso-icon {
-      block-size: 1em;
-      margin-inline-end: units.$u1;
-      position: relative;
-      inset-block-start: -2px;
-      inline-size: 1.2em;
-    }
+  .dropdown-menu-item .main-menu-item-icon {
+    margin-inline-end: 0;
   }
 }

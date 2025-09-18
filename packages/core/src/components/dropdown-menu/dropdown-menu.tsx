@@ -98,6 +98,7 @@ export class DropdownMenu {
 
     if (this.popoverElement && !this.cleanUp) {
       const element = this.popoverElement;
+
       this.cleanUp = autoUpdate(this.button, element, () => {
         computePosition(this.button, element, {
           strategy: "fixed",
@@ -149,7 +150,13 @@ export class DropdownMenu {
     }
   }
 
+  connectedCallback() {
+    this.host.addEventListener("keydown", this.keyDownListener);
+  }
+
   disconnectedCallback() {
+    this.host.removeEventListener("keydown", this.keyDownListener);
+
     this.toggleOptions(false);
   }
 
@@ -162,8 +169,7 @@ export class DropdownMenu {
     }
   };
 
-  @Listen("keydown", { target: "window" })
-  keyDownListener(event: KeyboardEvent) {
+  private keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented || !this.open) {
       return;
     }
@@ -201,7 +207,7 @@ export class DropdownMenu {
     }
 
     event.preventDefault();
-  }
+  };
 
   private tabInPopup(tabbables: FocusableElement[], direction: number) {
     const currentIndex = tabbables.findIndex((e) => e === getActiveElement());

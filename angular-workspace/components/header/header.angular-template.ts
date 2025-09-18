@@ -12,7 +12,7 @@ export const angularHeader: ComponentImplementation<Header> = {
         template: `
           <dso-header
             [mainMenu]="mainMenu"
-            [useDropDownMenu]="useDropDownMenu"
+            [compact]="compact"
             [authStatus]="authStatus"
             [loginUrl]="loginUrl"
             [logoutUrl]="logoutUrl"

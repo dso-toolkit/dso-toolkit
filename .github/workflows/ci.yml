@@ -80,6 +80,7 @@ jobs:
           options: --env CI
             --env DT_REF
             --env ${{ env.DT_CYPRESS_SNAPSHOT_MODE }}
+            --volume ${{ github.workspace }}/storybook/cypress/screenshots:/usr/src/app/storybook/cypress/screenshots
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-baseline:/usr/src/app/storybook/cypress/snapshot-baseline
             --volume ${{ github.workspace }}/storybook/cypress/snapshot-diff:/usr/src/app/storybook/cypress/snapshot-diff
           run: yarn e2e

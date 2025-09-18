@@ -1,7 +1,7 @@
 import { Breadcrumbs, Header } from "dso-toolkit";
 
 export const header: Header = {
-  useDropDownMenu: "auto",
+  compact: "auto",
   authStatus: "none",
   loginUrl: "#login",
   logoutUrl: "#logout",

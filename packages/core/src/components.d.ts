@@ -24,7 +24,7 @@ import { DocumentCardClickEvent } from "./components/document-card/document-card
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
-import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -69,7 +69,7 @@ export { DocumentCardClickEvent } from "./components/document-card/document-card
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentAnchorClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
-export { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -709,7 +709,12 @@ export namespace Components {
           * Used to show the login/logout option. 'none' renders nothing.
           * @default "none"
          */
-        "authStatus": "none" | "loggedIn" | "loggedOut";
+        "authStatus": HeaderAuthStatus;
+        /**
+          * Set to "always" to force the header to be compact. Otherwise it will be compact when the viewport is smaller than 992px.
+          * @default "auto"
+         */
+        "compact": HeaderCompactMode;
         /**
           * The URL to open when the user activates "help". If no URL is specified, a button element is used instead.
          */
@@ -726,21 +731,17 @@ export namespace Components {
           * The main menu items.
           * @default []
          */
-        "mainMenu"?: HeaderMenuItem[];
+        "mainMenu": HeaderMenuItem[];
         /**
           * Show a help-button or link in the header
           * @default false
          */
-        "showHelp"?: boolean | undefined;
-        /**
-          * Either have the dropdown menu appear automatically or always.
-          * @default "auto"
-         */
-        "useDropDownMenu": "always" | "auto";
+        "showHelp": boolean;
         /**
           * Set this to true when the user is at "Mijn Omgevingsloket".
+          * @default false
          */
-        "userHomeActive"?: boolean;
+        "userHomeActive": boolean;
         /**
           * The URL to open when the user activates "Mijn Omgevingsloket".
          */
@@ -3319,7 +3320,12 @@ declare namespace LocalJSX {
           * Used to show the login/logout option. 'none' renders nothing.
           * @default "none"
          */
-        "authStatus"?: "none" | "loggedIn" | "loggedOut";
+        "authStatus"?: HeaderAuthStatus;
+        /**
+          * Set to "always" to force the header to be compact. Otherwise it will be compact when the viewport is smaller than 992px.
+          * @default "auto"
+         */
+        "compact"?: HeaderCompactMode;
         /**
           * The URL to open when the user activates "help". If no URL is specified, a button element is used instead.
          */
@@ -3345,14 +3351,10 @@ declare namespace LocalJSX {
           * Show a help-button or link in the header
           * @default false
          */
-        "showHelp"?: boolean | undefined;
-        /**
-          * Either have the dropdown menu appear automatically or always.
-          * @default "auto"
-         */
-        "useDropDownMenu"?: "always" | "auto";
+        "showHelp"?: boolean;
         /**
           * Set this to true when the user is at "Mijn Omgevingsloket".
+          * @default false
          */
         "userHomeActive"?: boolean;
         /**

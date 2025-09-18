@@ -1,8 +1,13 @@
 import { WaitForAccordion } from "./wait-for-accordion";
 import { WaitForComponent } from "./wait-for-component.interface";
+import { WaitForHeader } from "./wait-for-header";
 import { WaitForTable } from "./wait-for-table";
 
-const waitableComponents: WaitForComponent<HTMLElement>[] = [new WaitForAccordion(), new WaitForTable()];
+const waitableComponents: WaitForComponent<HTMLElement>[] = [
+  new WaitForAccordion(),
+  new WaitForHeader(),
+  new WaitForTable(),
+];
 
 export function waitForComponents() {
   cy.get("body")

@@ -4,6 +4,10 @@ export interface HeaderMenuItem {
   active?: boolean;
 }
 
+export type HeaderAuthStatus = "none" | "loggedOut" | "loggedIn";
+
+export type HeaderCompactMode = "always" | "auto";
+
 export type HeaderNavigationType = "menuItem" | "profile" | "logout" | "login" | "userHome" | "help";
 
 export interface HeaderClickEvent {
