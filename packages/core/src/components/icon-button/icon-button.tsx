@@ -1,7 +1,6 @@
 import { Placement, autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
-import { IconButtonVariant } from "dso-toolkit";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
