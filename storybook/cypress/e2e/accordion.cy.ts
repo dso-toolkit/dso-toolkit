@@ -312,6 +312,30 @@ describe("Accordion", () => {
     });
   });
 
+  describe("Animated From Group Section", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-accordion--animated-form-group-sections");
+
+      cy.get("dso-accordion.hydrated")
+        .find("dso-accordion-section:nth-child(2)")
+        .as("accordionSection")
+        .then(($accordionSection) => {
+          $accordionSection.on("dsoAnimationStart", cy.stub().as("dsoAnimationStart"));
+          $accordionSection.on("dsoAnimationEnd", cy.stub().as("dsoAnimationEnd"));
+        });
+    });
+
+    it("should not trigger 'dsoAnimationStart' and 'dsoAnimationEnd' on accordion section", () => {
+      cy.get("@accordionSection").find("#eigenaar-verzoek-radio-1").click();
+
+      cy.get("@dsoAnimationStart").should("not.be.calledOnce");
+
+      cy.get("@accordionSection").find("#eigenaar-verzoek-radio-2").click();
+
+      cy.get("@dsoAnimationEnd").should("not.be.calledOnce");
+    });
+  });
+
   describe("Activatable", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-accordion--activatable");

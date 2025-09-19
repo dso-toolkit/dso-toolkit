@@ -10,6 +10,7 @@ import {
   addonsSections,
   alignmentSections,
   anchorSections,
+  animatedFormGroupSections,
   basicSections,
   nestedSections,
   renvooiSections,
@@ -34,6 +35,7 @@ const {
   AlignmentSections,
   RenvooiSections,
   Activatable,
+  AnimatedFormGroupSections,
 } = accordionStories({
   templateContainer,
   storyTemplates: (templates) => {
@@ -52,6 +54,7 @@ const {
       nestedSections: nestedSections(templates),
       renvooiSections,
       activatableSections,
+      animatedFormGroupSections: animatedFormGroupSections(templates),
     };
   },
 });
@@ -60,6 +63,7 @@ export {
   Activatable,
   AddonsSections,
   AlignmentSections,
+  AnimatedFormGroupSections,
   Compact,
   CompactBlack,
   Conclusion,

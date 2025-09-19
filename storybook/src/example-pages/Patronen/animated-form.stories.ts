@@ -1,12 +1,13 @@
 import type { Meta } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit-html";
-import { createRef, ref } from "lit-html/directives/ref.js";
 
 import { examplePageStories } from "../../example-page-stories";
 import { header } from "../content/header.content";
 import { mainMenu } from "../content/main-menu.content";
 import { footerPartial } from "../partials/footer";
 import { headerPartial } from "../partials/header";
+
+import { getAnimatedFormContent } from "./animated-form.content";
 
 const meta: Meta = {
   title: "Patronen/Animated Form",
@@ -15,9 +16,9 @@ const meta: Meta = {
 export default meta;
 
 export const AnimatedForm = examplePageStories((templates) => {
-  const { applicationHeadingTemplate, expandableTemplate, formGroupRadiosTemplate, formGroupInputTemplate } = templates;
+  const { applicationHeadingTemplate, formGroupInputTemplate } = templates;
 
-  const radioWrapperRef = createRef<HTMLDivElement>();
+  const content = getAnimatedFormContent(templates);
 
   const template = (): TemplateResult => html`
     <form class="form-horizontal">
@@ -38,48 +39,7 @@ export const AnimatedForm = examplePageStories((templates) => {
         type: "text",
         label: "Projectomschrijving",
       })}
-      <span ${ref(radioWrapperRef)}>
-        ${formGroupRadiosTemplate({
-          group: "radios",
-          id: "eigenaar-verzoek-radio",
-          label: "Voor wie start u dit project?",
-          inline: true,
-          selectables: [
-            {
-              id: "eigenaar-verzoek-radio-1",
-              name: "eigenaar-verzoek",
-              label: "Voor mezelf",
-              value: "mezelf",
-              type: "radio",
-            },
-            {
-              id: "eigenaar-verzoek-radio-2",
-              name: "eigenaar-verzoek",
-              label: "Iemand anders",
-              value: "iemandanders",
-              type: "radio",
-            },
-          ],
-        })}
-      </span>
-      ${expandableTemplate({
-        open: false,
-        enableAnimation: true,
-        content: html`${formGroupInputTemplate({
-          group: "input",
-          id: "naam",
-          type: "text",
-          label: "Uw naam",
-          value: "",
-        })}
-        ${formGroupInputTemplate({
-          group: "input",
-          id: "adresgegevens",
-          type: "text",
-          label: "Adres",
-          value: "",
-        })}`,
-      })}
+      ${content}
       <div class="dso-form-buttons">
         <button type="button" class="dso-primary">
           <span>Verzenden</span>
@@ -88,7 +48,7 @@ export const AnimatedForm = examplePageStories((templates) => {
     </form>
   `;
 
-  const fullTemplate = html`
+  return html`
     <div class="container">
       ${headerPartial(templates, {
         ...header,
@@ -98,27 +58,4 @@ export const AnimatedForm = examplePageStories((templates) => {
       ${footerPartial(templates)}
     </div>
   `;
-
-  function addEventListenersToRadios() {
-    const radios = radioWrapperRef.value?.querySelectorAll('input[type="radio"][name="eigenaar-verzoek"]');
-
-    radios?.forEach((radio) => {
-      radio.addEventListener("change", (event) => {
-        const target = event.target;
-        if (target instanceof HTMLInputElement) {
-          const expandable = document.querySelector("dso-expandable");
-          if (expandable) {
-            expandable.open = target.value === "mezelf";
-          }
-        }
-      });
-    });
-  }
-
-  // DOM build up
-  setTimeout(() => {
-    addEventListenersToRadios();
-  });
-
-  return fullTemplate;
 });
