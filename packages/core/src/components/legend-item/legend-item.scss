@@ -3,7 +3,8 @@
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/legend-item/legend-item.variables" as legend-item-variables;
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "legend-item.variables" as legend-item-variables;
 
 :host {
   display: block;
@@ -12,6 +13,13 @@
 }
 
 @include utilities.box-sizing();
+
+::slotted(span[slot="symbol"]) {
+  @include symbol-mixins.symbolContainer(
+    legend-item-variables.$symbol-block-size,
+    legend-item-variables.$symbol-inline-size
+  );
+}
 
 .legend-item {
   display: flex;
