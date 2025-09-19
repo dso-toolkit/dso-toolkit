@@ -1,11 +1,12 @@
-import { Placement, autoUpdate } from "@floating-ui/dom";
+import { autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
-import { IconButtonClickEvent } from "./icon-button.interfaces";
+import { IconButtonClickEvent, IconButtonVariant } from "./icon-button.interfaces";
 
 @Component({
   tag: "dso-icon-button",
@@ -20,32 +21,31 @@ export class IconButton implements ComponentInterface {
   icon!: string;
 
   /**
-   * The accessible label of the button, also shown on hover in a tooltip.
+   * The accessible label of the Icon Button which is shown on hover in a tooltip.
    */
   @Prop()
   accessibleLabel!: string;
 
   /**
-   * The variant of the icon button.
+   * The variant of the Icon Button.
    */
   @Prop()
-  variant: "secondary" | "tertiary" | "map" = "secondary";
+  variant: IconButtonVariant = "secondary";
 
   /**
-   * The placement of the tooltip on hover of the icon button.
+   * The placement of the tooltip on hover of the Icon Button.
    */
   @Prop()
-  tooltipPlacement: Placement = "top";
+  tooltipPlacement: TooltipPlacement = "top";
 
   /**
-   * Makes the Icon Button button disabled. This prevents users from being able to
-   * interact with the component.
+   * To disable the Icon Button
    */
   @Prop()
   disabled = false;
 
   /**
-   * Emitted when the user click the IconBtton.
+   * Emitted when the user clicks the IconBtton.
    */
   @Event()
   dsoIconButtonClick!: EventEmitter<IconButtonClickEvent>;

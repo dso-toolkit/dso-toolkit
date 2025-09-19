@@ -35,15 +35,6 @@ button {
   @include utilities.sr-only();
 }
 
-.shrink,
-.expand {
-  @include button.tertiary($modifiers: false);
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .overlay-close-button {
   --dso-icon-button-padding-block: 0;
   --dso-icon-button-padding-inline: 0;
@@ -136,9 +127,10 @@ button {
     padding-block: 0 units.$u1;
     padding-inline: units.$u1 * 0.5 0;
 
-    button {
-      border-end-start-radius: 4px;
-      border-start-start-radius: 4px;
+    .shrink,
+    .expand {
+      --dso-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
+      --dso-icon-button-map-border-radius: 4px 0 0 4px;
     }
   }
 }

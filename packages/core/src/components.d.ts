@@ -25,8 +25,8 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-import { Placement } from "@floating-ui/dom";
-import { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
+import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -35,9 +35,8 @@ import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.inte
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+import { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
@@ -49,7 +48,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement as Placement1 } from "@popperjs/core";
+import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -73,8 +72,8 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-export { Placement } from "@floating-ui/dom";
-export { IconButtonClickEvent } from "./components/icon-button/icon-button.interfaces";
+export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -83,9 +82,8 @@ export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.inte
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+export { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
@@ -97,7 +95,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement as Placement1 } from "@popperjs/core";
+export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -791,11 +789,11 @@ export namespace Components {
     }
     interface DsoIconButton {
         /**
-          * The accessible label of the button, also shown on hover in a tooltip.
+          * The accessible label of the Icon Button which is shown on hover in a tooltip.
          */
         "accessibleLabel": string;
         /**
-          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * To disable the Icon Button
           * @default false
          */
         "disabled": boolean;
@@ -808,15 +806,15 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * The placement of the tooltip on hover of the icon button.
+          * The placement of the tooltip on hover of the Icon Button.
           * @default "top"
          */
-        "tooltipPlacement": Placement;
+        "tooltipPlacement": TooltipPlacement;
         /**
-          * The variant of the icon button.
+          * The variant of the Icon Button.
           * @default "secondary"
          */
-        "variant": "secondary" | "tertiary" | "map";
+        "variant": IconButtonVariant;
     }
     interface DsoImageOverlay {
         /**
@@ -1322,7 +1320,7 @@ export namespace Components {
           * Toggletip position.
           * @default "right"
          */
-        "position": Placement1;
+        "position": Placement;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -1360,7 +1358,7 @@ export namespace Components {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position": Placement1;
+        "position": Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -2210,7 +2208,7 @@ declare global {
         "dsoInput": MarkBarInputEvent;
         "dsoNext": MarkBarPaginationEvent;
         "dsoPrevious": MarkBarPaginationEvent;
-        "dsoClear": MarkBarClearEvent;
+        "dsoClear": IconButtonClickEvent;
     }
     interface HTMLDsoMarkBarElement extends Components.DsoMarkBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoMarkBarElementEventMap>(type: K, listener: (this: HTMLDsoMarkBarElement, ev: DsoMarkBarCustomEvent<HTMLDsoMarkBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3457,11 +3455,11 @@ declare namespace LocalJSX {
     }
     interface DsoIconButton {
         /**
-          * The accessible label of the button, also shown on hover in a tooltip.
+          * The accessible label of the Icon Button which is shown on hover in a tooltip.
          */
         "accessibleLabel": string;
         /**
-          * Makes the Icon Button button disabled. This prevents users from being able to interact with the component.
+          * To disable the Icon Button
           * @default false
          */
         "disabled"?: boolean;
@@ -3470,19 +3468,19 @@ declare namespace LocalJSX {
          */
         "icon": string;
         /**
-          * Emitted when the user click the IconBtton.
+          * Emitted when the user clicks the IconBtton.
          */
         "onDsoIconButtonClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
         /**
-          * The placement of the tooltip on hover of the icon button.
+          * The placement of the tooltip on hover of the Icon Button.
           * @default "top"
          */
-        "tooltipPlacement"?: Placement;
+        "tooltipPlacement"?: TooltipPlacement;
         /**
-          * The variant of the icon button.
+          * The variant of the Icon Button.
           * @default "secondary"
          */
-        "variant"?: "secondary" | "tertiary" | "map";
+        "variant"?: IconButtonVariant;
     }
     interface DsoImageOverlay {
         /**
@@ -3752,7 +3750,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when user activates "clear search result" button.
          */
-        "onDsoClear"?: (event: DsoMarkBarCustomEvent<MarkBarClearEvent>) => void;
+        "onDsoClear"?: (event: DsoMarkBarCustomEvent<IconButtonClickEvent>) => void;
         /**
           * Emitted each time the user types in the search field.
          */
@@ -4111,7 +4109,7 @@ declare namespace LocalJSX {
           * Toggletip position.
           * @default "right"
          */
-        "position"?: Placement1;
+        "position"?: Placement;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -4141,7 +4139,7 @@ declare namespace LocalJSX {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position"?: Placement1;
+        "position"?: Placement;
         /**
           * Defines if the tooltip has a smaller max-width
          */

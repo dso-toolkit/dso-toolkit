@@ -26,18 +26,6 @@ export const IconButtonTertiaryOnColor = examplePageStories((templates) => {
       </div>`,
     })}
     ${highlightBoxTemplate({
-      white: true,
-      content: html`<div style="display: flex; justify-content: center">
-        ${iconButtonTemplate({
-          accessibleLabel: "Navigatie",
-          variant: "tertiary",
-          icon: "bars",
-          tooltipPlacement: "top",
-          dsoIconButtonClick: () => {},
-        })}
-      </div>`,
-    })}
-    ${highlightBoxTemplate({
       yellow: true,
       content: html`<div style="display: flex; justify-content: center">
         ${iconButtonTemplate({

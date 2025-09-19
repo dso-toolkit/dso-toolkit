@@ -6,5 +6,9 @@
     padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
     min-inline-size: auto;
     cursor: pointer;
+
+    &[disabled] {
+      cursor: default;
+    }
   }
 }

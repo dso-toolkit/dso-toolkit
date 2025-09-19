@@ -7,20 +7,20 @@
 
 ## Properties
 
-| Property                       | Attribute           | Description                                                                                                | Type                                                                                                                                                                 | Default       |
-| ------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `accessibleLabel` _(required)_ | `accessible-label`  | The accessible label of the button, also shown on hover in a tooltip.                                      | `string`                                                                                                                                                             | `undefined`   |
-| `disabled`                     | `disabled`          | Makes the Icon Button button disabled. This prevents users from being able to interact with the component. | `boolean`                                                                                                                                                            | `false`       |
-| `icon` _(required)_            | `icon`              | The alias of the icon in the button.                                                                       | `string`                                                                                                                                                             | `undefined`   |
-| `tooltipPlacement`             | `tooltip-placement` | The placement of the tooltip on hover of the icon button.                                                  | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"top"`       |
-| `variant`                      | `variant`           | The variant of the icon button.                                                                            | `"map" \| "secondary" \| "tertiary"`                                                                                                                                 | `"secondary"` |
+| Property                       | Attribute           | Description                                                                   | Type                                     | Default       |
+| ------------------------------ | ------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- | ------------- |
+| `accessibleLabel` _(required)_ | `accessible-label`  | The accessible label of the Icon Button which is shown on hover in a tooltip. | `string`                                 | `undefined`   |
+| `disabled`                     | `disabled`          | To disable the Icon Button                                                    | `boolean`                                | `false`       |
+| `icon` _(required)_            | `icon`              | The alias of the icon in the button.                                          | `string`                                 | `undefined`   |
+| `tooltipPlacement`             | `tooltip-placement` | The placement of the tooltip on hover of the Icon Button.                     | `"bottom" \| "left" \| "right" \| "top"` | `"top"`       |
+| `variant`                      | `variant`           | The variant of the Icon Button.                                               | `"map" \| "secondary" \| "tertiary"`     | `"secondary"` |
 
 
 ## Events
 
-| Event                | Description                                | Type                                |
-| -------------------- | ------------------------------------------ | ----------------------------------- |
-| `dsoIconButtonClick` | Emitted when the user click the IconBtton. | `CustomEvent<IconButtonClickEvent>` |
+| Event                | Description                                 | Type                                |
+| -------------------- | ------------------------------------------- | ----------------------------------- |
+| `dsoIconButtonClick` | Emitted when the user clicks the IconBtton. | `CustomEvent<IconButtonClickEvent>` |
 
 
 ## Methods

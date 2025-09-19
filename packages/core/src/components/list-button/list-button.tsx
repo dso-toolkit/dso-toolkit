@@ -189,7 +189,7 @@ export class ListButton implements ComponentInterface {
                   variant="tertiary"
                   icon="minus-circle"
                   disabled={this.count === Number(this.min) || this.disabled}
-                  onClick={(e) => this.stepValue(e, "decrement")}
+                  onDsoIconButtonClick={(e) => this.stepValue(e, "decrement")}
                 />
                 <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
                   {this.count}
@@ -202,7 +202,7 @@ export class ListButton implements ComponentInterface {
               variant="tertiary"
               icon="plus-circle"
               disabled={this.count === Number(this.max) || this.disabled}
-              onClick={(e) => this.stepValue(e, "increment")}
+              onDsoIconButtonClick={(e) => this.stepValue(e, "increment")}
             />
           </div>
         )}

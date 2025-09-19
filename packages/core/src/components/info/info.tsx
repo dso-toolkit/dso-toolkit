@@ -33,7 +33,7 @@ export class Info {
             accessibleLabel="Sluiten"
             variant="tertiary"
             icon="times"
-            onClick={(e) => this.dsoClose.emit(e)}
+            onDsoIconButtonClick={(e) => this.dsoClose.emit(e.detail.originalEvent)}
           />
         )}
       </Fragment>

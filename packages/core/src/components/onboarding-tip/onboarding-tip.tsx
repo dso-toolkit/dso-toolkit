@@ -1,4 +1,4 @@
-import { Placement, autoUpdate } from "@floating-ui/dom";
+import { autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
@@ -40,7 +40,7 @@ export class OnboardingTip implements ComponentInterface {
         this.referenceElement,
         this.host,
         this.tipArrowRef,
-        this.normalizedPlacement,
+        `${this.placement}-start`,
         true,
         true,
       );
@@ -73,7 +73,7 @@ export class OnboardingTip implements ComponentInterface {
                 accessibleLabel="Sluiten"
                 variant="tertiary"
                 icon="times"
-                onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+                onDsoIconButtonClick={(e) => this.dsoClose.emit({ originalEvent: e })}
               />
               <slot></slot>
             </div>
@@ -116,9 +116,5 @@ export class OnboardingTip implements ComponentInterface {
     }
 
     return reference;
-  }
-
-  private get normalizedPlacement(): Placement {
-    return `${this.placement}-start`;
   }
 }

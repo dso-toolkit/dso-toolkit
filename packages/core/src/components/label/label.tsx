@@ -217,7 +217,7 @@ export class Label implements ComponentInterface {
               icon="times"
               accessibleLabel={`Verwijder: ${this.labelText}`}
               class="dso-label-remove"
-              onClick={(e) => this.dsoRemoveClick.emit(e)}
+              onDsoIconButtonClick={(e) => this.dsoRemoveClick.emit(e.detail.originalEvent)}
               onMouseEnter={() => (this.removeHover = true)}
               onMouseLeave={() => (this.removeHover = false)}
               onFocus={() => (this.removeFocus = true)}
