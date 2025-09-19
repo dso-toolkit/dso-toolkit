@@ -68,7 +68,7 @@ export class Alert {
             accessibleLabel={this.text("close")}
             variant="tertiary"
             icon="times"
-            onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+            onDsoIconButtonClick={(e) => this.dsoClose.emit({ originalEvent: e })}
           />
         )}
       </div>

@@ -14,6 +14,13 @@
 
 @include utilities.box-sizing();
 
+.dso-icon-button {
+  padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
+  padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
+  min-inline-size: auto;
+  cursor: pointer;
+}
+
 .dso-secondary {
   @include button.secondary();
   @include icon-button.icon-only();
@@ -63,7 +70,12 @@
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     margin-inline-end: 0;
-    border: 0;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid transparent;
+    box-shadow: var(--dso-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
+    border-radius: var(--dso-icon-button-map-border-radius, button.$border-radius);
+
+    &:hover {
+      border: 1px solid transparent;
+    }
   }
 }

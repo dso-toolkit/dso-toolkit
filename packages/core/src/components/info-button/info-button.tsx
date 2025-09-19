@@ -1,6 +1,8 @@
 import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 import clsx from "clsx";
 
+import { DsoIconButtonCustomEvent, IconButtonClickEvent } from "../../components";
+
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
 @Component({
@@ -48,9 +50,9 @@ export class InfoButton {
     this.buttonSecondary?.focus();
   }
 
-  private handleToggle(e: MouseEvent) {
+  private handleToggle(originalEvent: MouseEvent) {
     this.active = !this.active;
-    this.dsoToggle.emit({ originalEvent: e, active: this.active });
+    this.dsoToggle.emit({ originalEvent, active: this.active });
   }
 
   render() {
@@ -63,7 +65,9 @@ export class InfoButton {
               "dso-open": !!this.active,
             })}
             accessibleLabel={this.label}
-            onClick={(e) => this.handleToggle(e)}
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handleToggle(e.detail.originalEvent)
+            }
             icon={this.active || this.hover ? "info-active" : "info"}
             ref={(element) => (this.button = element)}
           />

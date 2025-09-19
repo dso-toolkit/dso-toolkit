@@ -1,11 +1,9 @@
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
-import {
-  MarkBarClearEvent,
-  MarkBarFocusOptions,
-  MarkBarInputEvent,
-  MarkBarPaginationEvent,
-} from "./mark-bar.interfaces";
+import { DsoIconButtonCustomEvent } from "../../components";
+import { IconButtonClickEvent } from "../icon-button/icon-button.interfaces";
+
+import { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./mark-bar.interfaces";
 
 @Component({
   tag: "dso-mark-bar",
@@ -71,7 +69,7 @@ export class MarkBar implements ComponentInterface {
    * Emitted when user activates "clear search result" button.
    */
   @Event({ bubbles: false })
-  dsoClear!: EventEmitter<MarkBarClearEvent>;
+  dsoClear!: EventEmitter<IconButtonClickEvent>;
 
   private inputElement?: HTMLInputElement;
 
@@ -86,16 +84,16 @@ export class MarkBar implements ComponentInterface {
     });
   };
 
-  private handleNext = (e: MouseEvent | KeyboardEvent) => {
-    this.dsoNext.emit({ originalEvent: e });
+  private handleNext = (originalEvent: MouseEvent | KeyboardEvent) => {
+    this.dsoNext.emit({ originalEvent });
   };
 
-  private handlePrevious = (e: MouseEvent) => {
-    this.dsoPrevious.emit({ originalEvent: e });
+  private handlePrevious = (originalEvent: MouseEvent) => {
+    this.dsoPrevious.emit({ originalEvent });
   };
 
-  private handleClear = (e: MouseEvent) => {
-    this.dsoClear.emit({ originalEvent: e });
+  private handleClear = (originalEvent: MouseEvent) => {
+    this.dsoClear.emit({ originalEvent });
   };
 
   private handleKeyDown = (e: KeyboardEvent) => {
@@ -128,7 +126,9 @@ export class MarkBar implements ComponentInterface {
             icon="times"
             variant="tertiary"
             accessibleLabel="Zoekopdracht legen"
-            onClick={this.handleClear}
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handleClear(e.detail.originalEvent)
+            }
           />
         </div>
         <div class="dso-button-container">
@@ -137,7 +137,9 @@ export class MarkBar implements ComponentInterface {
             icon="chevron-up"
             variant="tertiary"
             accessibleLabel="Vorig zoekresultaat"
-            onClick={this.handlePrevious}
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handlePrevious(e.detail.originalEvent)
+            }
             disabled={current <= 1}
           />
           <span>
@@ -147,7 +149,9 @@ export class MarkBar implements ComponentInterface {
             icon="chevron-down"
             variant="tertiary"
             accessibleLabel="Volgend zoekresultaat"
-            onClick={this.handleNext}
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handleNext(e.detail.originalEvent)
+            }
             disabled={current >= totalCount}
           />
         </div>
