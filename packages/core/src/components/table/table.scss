@@ -15,6 +15,10 @@
 @use "~dso-toolkit/src/components/table";
 
 :host {
+  --dso-icon-button-tertiary-border: 0;
+  --dso-icon-button-padding-inline: 0;
+  --dso-icon-button-padding-block: 0;
+
   display: block;
   margin-block-end: units.$u3;
 }

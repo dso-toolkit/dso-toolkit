@@ -42,7 +42,7 @@ describe("Map Controls", () => {
         .as("selectable")
         .find("dso-info-button")
         .shadow()
-        .find("button")
+        .find("dso-icon-button")
         .click();
 
       cy.get("@selectable").find("dso-info").should("be.visible");

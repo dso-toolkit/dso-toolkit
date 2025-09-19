@@ -19,7 +19,7 @@
 
 | Event         | Description                                                  | Type                                  |
 | ------------- | ------------------------------------------------------------ | ------------------------------------- |
-| `dsoClear`    | Emitted when user activates "clear search result" button.    | `CustomEvent<MarkBarClearEvent>`      |
+| `dsoClear`    | Emitted when user activates "clear search result" button.    | `CustomEvent<IconButtonClickEvent>`   |
 | `dsoInput`    | Emitted each time the user types in the search field.        | `CustomEvent<MarkBarInputEvent>`      |
 | `dsoNext`     | Emitted when user activates "next search result" button.     | `CustomEvent<MarkBarPaginationEvent>` |
 | `dsoPrevious` | Emitted when user activates "previous search result" button. | `CustomEvent<MarkBarPaginationEvent>` |
@@ -49,11 +49,14 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-mark-bar --> dso-icon
+  dso-mark-bar --> dso-icon-button
+  dso-icon-button --> dso-icon
   style dso-mark-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

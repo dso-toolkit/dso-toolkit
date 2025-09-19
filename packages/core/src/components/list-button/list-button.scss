@@ -44,6 +44,13 @@
     inline-size: units.$ru3;
     font-size: list-button-variables.$font-size-count;
   }
+
+  dso-icon-button {
+    --dso-icon-button-padding-block: 0;
+    --dso-icon-button-padding-inline: 0;
+    --dso-icon-button-tertiary-border: 0;
+    line-height: 0;
+  }
 }
 
 .dso-button-group {

@@ -20,9 +20,9 @@ describe("Modal", () => {
       .get("@dsoModal")
       .find(".dso-dialog")
       .should("have.attr", "role", "document")
-      .find(".dso-close span")
-      .should("have.class", "sr-only")
-      .and("have.text", "Sluiten");
+      .find("#close-modal")
+      .shadow()
+      .find("button[aria-label='Sluiten']");
 
     // The wait equals the modal animation-duration of 200ms
     cy.wait(200).matchImageSnapshot();
@@ -38,7 +38,7 @@ describe("Modal", () => {
 
   it("should have English sr-only text", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&globals=locale:en");
-    cy.get("dso-modal").shadow().find(".dso-close span").should("have.text", "Close");
+    cy.get("dso-modal").shadow().find("#close-modal").shadow().find("button[aria-label='Close']");
   });
 
   it("should have sr-only Dutch text 'Dialoog' when modalTitle is not set", () => {
@@ -53,7 +53,7 @@ describe("Modal", () => {
 
   it("should have focus trap", () => {
     cy.get("@dsoModal")
-      .find(".dso-close")
+      .find("#close-modal")
       .should("have.focus")
       .realPress("Tab")
       .get("@dsoModal")
@@ -73,12 +73,12 @@ describe("Modal", () => {
       .should("have.focus")
       .realPress("Tab")
       .get("@dsoModal")
-      .find(".dso-close")
+      .find("#close-modal")
       .should("not.have.focus");
   });
 
   it("should emit dsoClose event when user closes modal", () => {
-    cy.get("@dsoModal").find(".dso-close").click().get("@dsoCloseListener").should("have.been.calledOnce");
+    cy.get("@dsoModal").find("#close-modal").click().get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
   it("should emit dsoClose event on escape press", () => {
@@ -107,7 +107,7 @@ describe("Modal", () => {
     cy.get("dso-modal").shadow().find(".dso-body").as("modalBody");
     cy.get("dso-modal").shadow().find("dso-scrollable").shadow().find(".dso-scroll-container").as("scrollable");
 
-    cy.get("dso-modal").shadow().find(".dso-close").should("have.focus");
+    cy.get("dso-modal").shadow().find("#close-modal").should("have.focus");
     cy.get("@modalBody").should("have.attr", "tabindex", 0);
     cy.get("@scrollable").invoke("scrollTop").should("eq", 0);
 

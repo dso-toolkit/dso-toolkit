@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Icon Button: Nieuw component ([#2315](https://github.com/dso-toolkit/dso-toolkit/issues/2315))
+
 ## 🧽 Release 79.0.0 - 2025-09-18
 
 ### Changed

@@ -1,0 +1,29 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Icon Button
+
+Icon Buttons zijn knoppen die uitsluitend bestaan uit een icoon. Ze worden ingezet wanneer er onvoldoende ruimte is voor een button met tekst, bijvoorbeeld in een tabel met veel acties of op een kaart. Omdat een Icon Button geen zichtbaar label heeft, is toegankelijkheid extra belangrijk. Elke Icon Button moet daarom een duidelijke accessible name hebben. Deze naam wordt:
+
+- Voorgelezen door screenreaders.
+- Zichtbaar gemaakt in een tooltip bij hover, focus of longpress.
+
+Het advies blijft om zoveel mogelijk het component Button ("reguliere" button met label) te gebruiken, omdat deze voor alle gebruikers duidelijker is. De Icon Button is bedoeld voor uitzonderingssituaties waar een label niet past, maar een compacte actieknop nodig is.
+
+**Belangrijke aandachtspunten:**
+
+- Icon Buttons hebben altijd een accessible name.
+- De tooltip toont automatisch deze accessible name (en kan geen andere tekst tonen).
+- Er zijn drie varianten beschikbaar: Secondary, Tertiary en Map.
+- De Icon Button lijkt visueel sterk op de standaard Button en is WCAG-compliant.
+
+## Secondary
+
+<StorybookComponent implementations={["core"]} variant="secondary" />
+
+## Tertiary
+
+<StorybookComponent implementations={["core"]} variant="tertiary" />
+
+## Map
+
+<StorybookComponent implementations={["core"]} variant="map" />

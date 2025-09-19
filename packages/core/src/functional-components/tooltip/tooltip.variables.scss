@@ -1,0 +1,10 @@
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+
+$arrow-size: 10px;
+$padding-block: units.$u1;
+$padding-inline: units.$u2;
+$border-radius: units.$u1 * 0.5;
+$max-inline-size: 80 * units.$u1;
+$max-inline-size-small: 40 * units.$u1;
+$transition-duration: 0.15s;
