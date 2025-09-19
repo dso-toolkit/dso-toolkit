@@ -21,6 +21,7 @@ interface AccordionStories {
   AddonsSections: AccordionStory;
   AlignmentSections: AccordionStory;
   RenvooiSections: AccordionStory;
+  AnimatedFormGroupSections: AccordionStory;
 }
 
 interface AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -44,6 +45,7 @@ interface AccordionTemplates<TemplateFnReturnType> {
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
   renvooiSections: AccordionSection<TemplateFnReturnType>[];
   activatableSections: AccordionSection<TemplateFnReturnType>[];
+  animatedFormGroupSections?: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function accordionMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -148,6 +150,14 @@ export function accordionStories<Implementation, Templates, TemplateFnReturnType
       },
       render: templateContainer.render(storyTemplates, (args, { accordionTemplate, renvooiSections }) =>
         accordionTemplate(accordionArgsMapper(args, renvooiSections)),
+      ),
+    },
+    AnimatedFormGroupSections: {
+      args: {
+        open: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { accordionTemplate, animatedFormGroupSections }) =>
+        accordionTemplate(accordionArgsMapper(args, animatedFormGroupSections ?? [])),
       ),
     },
   };

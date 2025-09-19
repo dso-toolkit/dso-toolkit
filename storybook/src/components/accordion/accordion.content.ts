@@ -1,6 +1,7 @@
 import { AccordionSection } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
+import { getAnimatedFormContent } from "../../example-pages/Patronen/animated-form.content";
 import { Templates } from "../../templates";
 
 const section1: AccordionSection<TemplateResult> = {
@@ -259,3 +260,18 @@ export const activatableSections: AccordionSection<TemplateResult>[] = [
     activatable: true,
   },
 ];
+
+export function animatedFormGroupSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  const content = getAnimatedFormContent(templates);
+
+  return [
+    section1,
+    {
+      handleTitle: "Wie zijn er bij dit project betrokken?",
+      heading: "h2",
+      content,
+    },
+    section3,
+    section4(templates),
+  ];
+}

@@ -79,6 +79,8 @@ export class Expandable implements ComponentInterface {
    */
   @Listen("transitionstart")
   transitionstartHandler(e: TransitionEvent) {
+    e.stopPropagation();
+
     if (e.propertyName === "grid-template-rows") {
       this.dsoExpandableAnimationStart.emit({
         currentOpen: !!this.open,
@@ -92,6 +94,8 @@ export class Expandable implements ComponentInterface {
    */
   @Listen("transitionend")
   transitionendHandler(e: TransitionEvent) {
+    e.stopPropagation();
+
     if (e.propertyName === "grid-template-rows") {
       this.isClosed = !this.open;
       this.dsoExpandableAnimationEnd.emit({ bodyHeight: this.bodyHeight, open: !!this.open });

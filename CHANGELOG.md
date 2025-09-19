@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Expandable: Genest in Accordion Section zorgt voor bubbling event ([#3358](https://github.com/dso-toolkit/dso-toolkit/issues/3358))
+
 ## 🧽 Release 79.0.0 - 2025-09-18
 
 ### Changed
