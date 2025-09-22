@@ -32,6 +32,6 @@ export const coreHistoryItems: ComponentImplementation<HistoryItems> = {
               </dso-history-item>
             </li>`,
         )}
-      </dso-history-items></li>`;
+      </dso-history-items>`;
     },
 };

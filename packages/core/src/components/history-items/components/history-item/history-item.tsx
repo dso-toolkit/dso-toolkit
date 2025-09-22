@@ -28,7 +28,7 @@ import { HistoryItemClickEvent, HistoryItemType } from "./history-item.interface
   shadow: true,
 })
 export class HistoryItem implements ComponentInterface {
-  private typeIcons: Record<string, string> = {
+  private typeIcons: Record<HistoryItemType, string> = {
     ontwerp: "pencil",
     "in-werking": "document",
     "tijdelijk-regelingdeel": "document",
@@ -101,7 +101,7 @@ export class HistoryItem implements ComponentInterface {
             <dso-icon icon={this.typeIcons[this.type]}></dso-icon>
             <slot name="status"></slot>
           </div>
-          {this.titleSlottedElement !== null && (
+          {this.titleSlottedElement !== null && this.href && (
             <div class="history-item-title">
               <a href={this.href} class="title-anchor" onClick={(e) => this.clickEventHandler(e)}>
                 <slot name="title"></slot>
