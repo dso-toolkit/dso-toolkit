@@ -23,7 +23,6 @@
  - [dso-card](../card)
  - [dso-date-picker-legacy](../date-picker-legacy)
  - [dso-document-card](../document-card)
- - [dso-document-component](../document-component)
  - [dso-header](../header)
  - [dso-icon-button](../icon-button)
  - [dso-info-button](../info-button)
@@ -50,7 +49,6 @@ graph TD;
   dso-card --> dso-icon
   dso-date-picker-legacy --> dso-icon
   dso-document-card --> dso-icon
-  dso-document-component --> dso-icon
   dso-header --> dso-icon
   dso-icon-button --> dso-icon
   dso-info-button --> dso-icon

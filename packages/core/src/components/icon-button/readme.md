@@ -41,6 +41,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [dso-alert](../alert)
+ - [dso-document-component](../document-component)
  - [dso-image-overlay](../image-overlay)
  - [dso-info](../info)
  - [dso-info-button](../info-button)
@@ -61,6 +62,7 @@ Type: `Promise<void>`
 graph TD;
   dso-icon-button --> dso-icon
   dso-alert --> dso-icon-button
+  dso-document-component --> dso-icon-button
   dso-image-overlay --> dso-icon-button
   dso-info --> dso-icon-button
   dso-info-button --> dso-icon-button

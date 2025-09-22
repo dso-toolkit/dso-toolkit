@@ -62,7 +62,7 @@
 
 ### Depends on
 
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 - [dso-ozon-content](../ozon-content)
 - [dso-badge](../badge)
 - [dso-tooltip](../tooltip)
@@ -73,19 +73,19 @@
 ### Graph
 ```mermaid
 graph TD;
-  dso-document-component --> dso-icon
+  dso-document-component --> dso-icon-button
   dso-document-component --> dso-ozon-content
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
   dso-document-component --> dso-label
   dso-document-component --> dso-panel
   dso-document-component --> dso-alert
+  dso-icon-button --> dso-icon
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
   dso-ozon-content --> dso-tooltip
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
-  dso-icon-button --> dso-icon
   dso-table --> dso-icon
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
