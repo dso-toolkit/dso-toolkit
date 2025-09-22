@@ -33,7 +33,7 @@ export class IconButton implements ComponentInterface {
   variant: IconButtonVariant = "secondary";
 
   /**
-   * The placement of the tooltip on hover of the Icon Button.
+   * The placement of the tooltip on hover and focus of the Icon Button.
    */
   @Prop()
   tooltipPlacement: TooltipPlacement = "top";
@@ -45,7 +45,7 @@ export class IconButton implements ComponentInterface {
   disabled = false;
 
   /**
-   * Emitted when the user clicks the IconBtton.
+   * Emitted when the user clicks the Icon Button.
    */
   @Event()
   dsoIconButtonClick!: EventEmitter<IconButtonClickEvent>;

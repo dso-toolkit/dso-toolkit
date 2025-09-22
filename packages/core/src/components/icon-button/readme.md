@@ -1,4 +1,4 @@
-# dso-icon-button
+# `<dso-icon-button>`
 
 
 
@@ -12,15 +12,15 @@
 | `accessibleLabel` _(required)_ | `accessible-label`  | The accessible label of the Icon Button which is shown on hover in a tooltip. | `string`                                 | `undefined`   |
 | `disabled`                     | `disabled`          | To disable the Icon Button                                                    | `boolean`                                | `false`       |
 | `icon` _(required)_            | `icon`              | The alias of the icon in the button.                                          | `string`                                 | `undefined`   |
-| `tooltipPlacement`             | `tooltip-placement` | The placement of the tooltip on hover of the Icon Button.                     | `"bottom" \| "left" \| "right" \| "top"` | `"top"`       |
+| `tooltipPlacement`             | `tooltip-placement` | The placement of the tooltip on hover and focus of the Icon Button.           | `"bottom" \| "left" \| "right" \| "top"` | `"top"`       |
 | `variant`                      | `variant`           | The variant of the Icon Button.                                               | `"map" \| "secondary" \| "tertiary"`     | `"secondary"` |
 
 
 ## Events
 
-| Event                | Description                                 | Type                                |
-| -------------------- | ------------------------------------------- | ----------------------------------- |
-| `dsoIconButtonClick` | Emitted when the user clicks the IconBtton. | `CustomEvent<IconButtonClickEvent>` |
+| Event                | Description                                   | Type                                |
+| -------------------- | --------------------------------------------- | ----------------------------------- |
+| `dsoIconButtonClick` | Emitted when the user clicks the Icon Button. | `CustomEvent<IconButtonClickEvent>` |
 
 
 ## Methods

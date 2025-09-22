@@ -806,7 +806,7 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * The placement of the tooltip on hover of the Icon Button.
+          * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
          */
         "tooltipPlacement": TooltipPlacement;
@@ -3468,11 +3468,11 @@ declare namespace LocalJSX {
          */
         "icon": string;
         /**
-          * Emitted when the user clicks the IconBtton.
+          * Emitted when the user clicks the Icon Button.
          */
         "onDsoIconButtonClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
         /**
-          * The placement of the tooltip on hover of the Icon Button.
+          * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
          */
         "tooltipPlacement"?: TooltipPlacement;

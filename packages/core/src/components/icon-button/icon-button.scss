@@ -13,13 +13,6 @@
 
 @include utilities.box-sizing();
 
-.dso-icon-button {
-  padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
-  padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
-  min-inline-size: auto;
-  cursor: pointer;
-}
-
 .dso-secondary {
   @include button.secondary();
 }
