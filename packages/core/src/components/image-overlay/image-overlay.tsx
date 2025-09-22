@@ -35,7 +35,6 @@ const Dimmer: FunctionalComponent<{
         {children[0]}
         <img src={src} alt={alt} />
         <dso-icon-button
-          tabindex="0"
           icon="times"
           variant="map"
           class="close"
@@ -271,6 +270,9 @@ export class ImageOverlay implements ComponentInterface {
         },
         setReturnFocus: this.iconButtonElement ?? false,
         onDeactivate: () => (this.active = false),
+        tabbableOptions: {
+          getShadowRoot: (node) => node.shadowRoot ?? undefined,
+        },
       }).activate();
     } else if (!this.active && this.trap) {
       this.trap?.deactivate();

@@ -66,10 +66,20 @@ export class IconButton implements ComponentInterface {
   private tipArrowElRef?: HTMLSpanElement;
   private tooltipTimeout?: number;
   private cleanUp: ReturnType<typeof autoUpdate> | undefined;
+  private lastClickTime = 0;
 
   private handleShowTooltip = () => {
     if (this.disabled) {
       return;
+    }
+
+    // Don't show the tooltip if the button is clicked within 500ms of the last click
+    if (Date.now() - this.lastClickTime < 500) {
+      return;
+    }
+
+    if (this.tooltipTimeout) {
+      clearTimeout(this.tooltipTimeout);
     }
 
     this.tooltipTimeout = window.setTimeout(() => {
@@ -91,7 +101,9 @@ export class IconButton implements ComponentInterface {
   };
 
   private handleHideTooltip = () => {
-    clearTimeout(this.tooltipTimeout);
+    if (this.tooltipTimeout) {
+      clearTimeout(this.tooltipTimeout);
+    }
 
     this.showTooltip = false;
     this.tooltipElRef?.hidePopover();
@@ -100,6 +112,12 @@ export class IconButton implements ComponentInterface {
       this.cleanUp();
       this.cleanUp = undefined;
     }
+  };
+
+  private handleClick = (e: MouseEvent) => {
+    this.lastClickTime = Date.now();
+    this.handleHideTooltip();
+    this.dsoIconButtonClick.emit({ originalEvent: e });
   };
 
   render() {
@@ -114,7 +132,7 @@ export class IconButton implements ComponentInterface {
         onMouseLeave={this.handleHideTooltip}
         onFocus={this.handleShowTooltip}
         onBlur={this.handleHideTooltip}
-        onClick={(e) => this.dsoIconButtonClick.emit({ originalEvent: e })}
+        onClick={this.handleClick}
       >
         <dso-icon icon={this.icon} />
         <Tooltip
