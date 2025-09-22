@@ -3,7 +3,6 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/button";
 
-@use "icon-button.mixins";
 @use "../../functional-components/tooltip";
 
 @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
@@ -23,12 +22,10 @@
 
 .dso-secondary {
   @include button.secondary();
-  @include icon-button.icon-only();
 }
 
 .dso-tertiary {
   @include button.base();
-  @include icon-button.icon-only();
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
@@ -65,7 +62,6 @@
 
 .dso-map {
   @include button.map();
-  @include icon-button.icon-only();
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
@@ -77,5 +73,16 @@
     &:hover {
       border: 1px solid transparent;
     }
+  }
+}
+
+.icon-button {
+  padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
+  padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
+  min-inline-size: auto;
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
   }
 }

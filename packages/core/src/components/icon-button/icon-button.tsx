@@ -109,7 +109,7 @@ export class IconButton implements ComponentInterface {
         type="button"
         disabled={this.disabled}
         aria-label={this.accessibleLabel}
-        class={clsx(`dso-${this.variant}`)}
+        class={clsx("icon-button", `dso-${this.variant}`)}
         onMouseEnter={this.handleShowTooltip}
         onMouseLeave={this.handleHideTooltip}
         onFocus={this.handleShowTooltip}
