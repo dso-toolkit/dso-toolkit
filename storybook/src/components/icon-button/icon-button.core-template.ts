@@ -14,7 +14,7 @@ export const coreIconButton: ComponentImplementation<IconButton> = {
           variant=${variant}
           icon=${icon}
           accessible-label=${accessibleLabel}
-          tooltip-placement=${tooltipPlacement}
+          tooltip-placement=${ifDefined(tooltipPlacement)}
           disabled=${ifDefined(disabled)}
           @dsoIconButtonClick=${ifDefined(dsoIconButtonClick)}
         ></dso-icon-button>
