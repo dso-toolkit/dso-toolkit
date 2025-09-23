@@ -67,6 +67,7 @@ export class IconButton implements ComponentInterface {
   private tooltipTimeout?: number;
   private cleanUp: ReturnType<typeof autoUpdate> | undefined;
   private lastClickTime = 0;
+  private tooltipShowDelay = 500;
 
   private handleShowTooltip = () => {
     if (this.disabled) {
@@ -74,7 +75,7 @@ export class IconButton implements ComponentInterface {
     }
 
     // Don't show the tooltip if the button is clicked within 500ms of the last click
-    if (Date.now() - this.lastClickTime < 500) {
+    if (Date.now() - this.lastClickTime < this.tooltipShowDelay) {
       return;
     }
 
@@ -97,7 +98,7 @@ export class IconButton implements ComponentInterface {
           halfMainAxisOffset,
         );
       }
-    }, 500);
+    }, this.tooltipShowDelay);
   };
 
   private handleHideTooltip = () => {
