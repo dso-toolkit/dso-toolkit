@@ -88,14 +88,12 @@ export class IconButton implements ComponentInterface {
       this.tooltipElRef?.showPopover();
 
       if (!this.cleanUp && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
-        const halfMainAxisOffset = this.variant === "tertiary";
         this.cleanUp = positionTooltip(
           this.buttonElRef,
           this.tooltipElRef,
           this.tipArrowElRef,
           this.tooltipPlacement,
           false,
-          halfMainAxisOffset,
         );
       }
     }, this.tooltipShowDelay);
