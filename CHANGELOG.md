@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Legend: Nieuw component ([#3186](https://github.com/dso-toolkit/dso-toolkit/issues/3186))
+
 ## 🏝️ Release 83.0.0 - 2025-11-27
 
 ### Deprecated
