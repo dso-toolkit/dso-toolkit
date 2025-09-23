@@ -1,8 +1,7 @@
-import { Component, ComponentInterface, Fragment, h } from "@stencil/core";
+import { Component, ComponentInterface, Fragment, Prop, h } from "@stencil/core";
 
 /**
  * @slot - The slot to place one or more History Items in.
- * @slot headings - The slot to place the headings in. Must be an array of 2 strings.
  */
 @Component({
   tag: "dso-history-items",
@@ -10,12 +9,16 @@ import { Component, ComponentInterface, Fragment, h } from "@stencil/core";
   shadow: true,
 })
 export class HistoryItems implements ComponentInterface {
+  /**
+   * The label of the list of History Items
+   */
+  @Prop()
+  label: string | undefined;
+
   render() {
     return (
       <Fragment>
-        <div class="headings">
-          <slot name="headings"></slot>
-        </div>
+        <div class="label">{this.label}</div>
         <ul class="history-items">
           <slot></slot>
         </ul>

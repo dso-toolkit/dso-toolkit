@@ -1,5 +1,5 @@
 export interface HistoryItems {
-  headings: string[];
+  label: string;
   historyItems: HistoryItem[];
 }
 
