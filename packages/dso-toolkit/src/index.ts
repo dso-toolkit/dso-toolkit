@@ -105,6 +105,8 @@ export * from "./components/label";
 
 export * from "./components/label-group";
 
+export * from "./components/legend";
+
 export * from "./components/legend-item";
 
 export * from "./components/link-list";

@@ -1,0 +1,64 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/navbar";
+
+@include utilities.box-sizing();
+
+:host {
+  position: relative;
+  display: block;
+  inline-size: 344px;
+  background-color: colors.$wit;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+
+  .topbar {
+    padding-block: units.$u1;
+    padding-inline: units.$u2;
+
+    .tabs {
+      inline-size: 100%;
+      padding: 0;
+      list-style: none;
+      display: inline-flex;
+      border-block-end: 1px solid colors.$grijs-20;
+
+      .tab {
+        font-size: inherit;
+        font-family: inherit;
+        line-height: inherit;
+        background-color: transparent;
+        cursor: pointer;
+        display: block;
+        border: 0;
+        color: colors.$bosgroen;
+        padding-block: 6px;
+        padding-inline: units.$u1;
+        border-block-end: 4px solid transparent;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.dso-active {
+          font-weight: bold;
+          border-color: colors.$mauve;
+        }
+      }
+    }
+
+    .dso-close-button {
+      position: absolute;
+      inset-block-start: units.$u1;
+      inset-inline-end: units.$u1;
+    }
+  }
+
+  .content {
+    --_dso-form-grou-margin-block-end: 0;
+    --_dso-scrollable-container-padding-inline: #{units.$u2};
+
+    max-block-size: 600px;
+  }
+}
