@@ -219,12 +219,10 @@ button {
 
   .dso-close {
     --dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
-    --dso-icon-button-padding-block: 4px;
-    --dso-icon-button-padding-inline: 4px;
 
     position: absolute;
-    inset-block-start: units.$u2;
-    inset-inline-end: units.$u2;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
   }
 }
 

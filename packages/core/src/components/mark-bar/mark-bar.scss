@@ -101,11 +101,9 @@ $focus-border-width: 1px;
     }
 
     dso-icon-button {
-      --dso-icon-button-padding-block: #{units.$u1} !important;
-      --dso-icon-button-padding-inline: #{units.$u1} !important;
       position: absolute;
-      inset-inline-end: 0;
-      inset-block-start: 0;
+      inset-inline-end: units.$u1;
+      inset-block-start: units.$u1;
     }
   }
 }
