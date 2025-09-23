@@ -790,6 +790,10 @@ export namespace Components {
         "type": HistoryItemType;
     }
     interface DsoHistoryItems {
+        /**
+          * The label of the list of History Items
+         */
+        "label": string | undefined;
     }
     interface DsoIcon {
         /**
@@ -3450,6 +3454,10 @@ declare namespace LocalJSX {
         "type": HistoryItemType;
     }
     interface DsoHistoryItems {
+        /**
+          * The label of the list of History Items
+         */
+        "label"?: string | undefined;
     }
     interface DsoIcon {
         /**

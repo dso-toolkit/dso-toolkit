@@ -15,22 +15,9 @@
   margin-block: 0;
 }
 
-.headings {
-  border-block-end: 1px solid colors.$grijs-30;
-  display: flex;
-  flex-wrap: wrap;
-  gap: units.$u1;
-  inline-size: 100%;
+.label {
+  border-block-end: 1px solid colors.$grijs-10;
+  font-weight: 600;
   padding-inline: units.$u1;
   padding-block: units.$u2 units.$u1;
-}
-
-::slotted([slot="headings"]) {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-}
-
-::slotted([slot="headings"]:first-child) {
-  flex-basis: 90px;
 }

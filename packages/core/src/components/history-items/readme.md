@@ -5,12 +5,18 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description                            | Type                  | Default     |
+| -------- | --------- | -------------------------------------- | --------------------- | ----------- |
+| `label`  | `label`   | The label of the list of History Items | `string \| undefined` | `undefined` |
+
+
 ## Slots
 
-| Slot         | Description                                                       |
-| ------------ | ----------------------------------------------------------------- |
-|              | The slot to place one or more History Items in.                   |
-| `"headings"` | The slot to place the headings in. Must be an array of 2 strings. |
+| Slot | Description                                     |
+| ---- | ----------------------------------------------- |
+|      | The slot to place one or more History Items in. |
 
 
 ----------------------------------------------

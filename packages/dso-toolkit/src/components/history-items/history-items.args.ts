@@ -7,16 +7,23 @@ import { argTypeAction } from "../../storybook";
 import { HistoryItem, HistoryItems } from "./history-items.models.js";
 
 export interface HistoryItemsArgs {
+  label: string;
   listPattern: "in-werking" | "ontwerp";
   dsoHistoryItemClick: HandlerFunction;
 }
 
 export const historyItemsArgs: HistoryItemsArgs = {
+  label: "Gebeurtenis",
   listPattern: "in-werking",
   dsoHistoryItemClick: fn(),
 };
 
 export const historyItemsArgTypes: ArgTypes<HistoryItemsArgs> = {
+  label: {
+    control: {
+      type: "text",
+    },
+  },
   listPattern: {
     control: {
       type: "select",
@@ -31,13 +38,9 @@ export const historyItemsArgTypes: ArgTypes<HistoryItemsArgs> = {
   dsoHistoryItemClick: argTypeAction(),
 };
 
-export function historyItemsArgsMapper(
-  a: HistoryItemsArgs,
-  headings: string[],
-  historyItems: HistoryItem[],
-): HistoryItems {
+export function historyItemsArgsMapper(a: HistoryItemsArgs, historyItems: HistoryItem[]): HistoryItems {
   return {
-    headings,
+    label: a.label,
     historyItems: historyItems.map((hi) => {
       return {
         ...hi,
