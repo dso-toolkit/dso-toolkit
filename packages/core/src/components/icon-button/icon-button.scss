@@ -9,12 +9,19 @@
 
 :host {
   display: inline-block;
+  line-height: 1;
 }
 
 @include utilities.box-sizing();
 
 .dso-secondary {
   @include button.secondary();
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
+    padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
+  }
 }
 
 .dso-tertiary {
@@ -22,10 +29,12 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
+    padding-inline: var(--dso-icon-button-padding-inline, 0);
+    padding-block: var(--dso-icon-button-padding-block, 0);
+
     color: var(--dso-icon-button-contrast-tertiary-color, button.$tertiary-color);
-    border: var(--dso-icon-button-tertiary-border, 1px solid transparent);
-    line-height: 1;
     background-color: transparent;
+    border: 0;
   }
 
   &:not([disabled]) {
@@ -58,20 +67,16 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
+    padding-inline: var(--dso-icon-button-padding-inline, units.$u1);
+    padding-block: var(--dso-icon-button-padding-block, units.$u1);
+    border: 0;
     margin-inline-end: 0;
-    border: 1px solid transparent;
     box-shadow: var(--dso-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
     border-radius: var(--dso-icon-button-map-border-radius, button.$border-radius);
-
-    &:hover {
-      border: 1px solid transparent;
-    }
   }
 }
 
 .icon-button {
-  padding-inline: var(--dso-icon-button-padding-inline, calc(#{units.$u1} - 1px));
-  padding-block: var(--dso-icon-button-padding-block, calc(#{units.$u1} - 1px));
   min-inline-size: auto;
   cursor: pointer;
 

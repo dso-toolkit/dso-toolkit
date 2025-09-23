@@ -14,15 +14,13 @@
     background-color: transparent;
     border-style: none;
     padding: 0;
+  }
+
+  > button,
+  > dso-icon-button {
     position: absolute;
     inset-inline-end: units.$u1;
     inset-block-start: units.$u1;
-  }
-
-  > dso-icon-button {
-    position: absolute;
-    inset-inline-end: 0;
-    inset-block-start: 0;
   }
 }
 

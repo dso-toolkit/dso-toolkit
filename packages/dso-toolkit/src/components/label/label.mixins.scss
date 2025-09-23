@@ -20,13 +20,12 @@
   }
 
   dso-icon-button {
-    --dso-icon-button-tertiary-border: 0;
-    --dso-icon-button-padding-block: 0;
-    --dso-icon-button-padding-inline: 0;
+    float: inline-end;
+    margin-inline-start: units.$u1;
+    margin-inline-end: units.$u1 * -0.5;
   }
 
-  button,
-  dso-icon-button {
+  button {
     line-height: 0;
     background: none;
     border: 0;

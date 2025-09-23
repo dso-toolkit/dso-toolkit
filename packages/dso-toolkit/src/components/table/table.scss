@@ -41,7 +41,8 @@ table.table,
   max-inline-size: 100%;
   inline-size: 100%;
 
-  .dso-tertiary {
+  .dso-tertiary,
+  dso-icon-button {
     position: relative;
     inset-block-start: -2px;
     white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- These actions are always accomponied by icons, we always want the icon next to the text

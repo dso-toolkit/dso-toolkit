@@ -64,7 +64,6 @@ export class Alert {
 
         {this.closable && (
           <dso-icon-button
-            class="dso-close"
             accessibleLabel={this.text("close")}
             variant="tertiary"
             icon="times"

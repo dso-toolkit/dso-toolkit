@@ -101,12 +101,11 @@ $focus-border-width: 1px;
     }
 
     dso-icon-button {
-      --dso-icon-button-tertiary-border: 0;
-
+      --dso-icon-button-padding-block: #{units.$u1} !important;
+      --dso-icon-button-padding-inline: #{units.$u1} !important;
       position: absolute;
       inset-inline-end: 0;
-      inset-block-start: 1px;
-      cursor: pointer;
+      inset-block-start: 0;
     }
   }
 }

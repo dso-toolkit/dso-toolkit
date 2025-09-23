@@ -64,11 +64,10 @@
 .alert {
   @include alert.root();
 
-  .dso-close {
-    --dso-icon-button-padding-block: 3px;
-    --dso-icon-button-padding-inline: 3px;
-    inline-size: inherit;
-    block-size: inherit;
+  dso-icon-button {
+    position: absolute;
+    inset-block-start: units.$u1;
+    inset-inline-end: units.$u1;
   }
 
   &.dso-compact {
