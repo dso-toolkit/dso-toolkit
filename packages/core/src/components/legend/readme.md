@@ -1,3 +1,3 @@
-# `<dso-{{ kebabCase name }}>`
+# `<dso-legend>`
 
   <!-- Auto Generated Below -->
