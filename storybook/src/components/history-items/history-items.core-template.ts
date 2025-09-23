@@ -8,9 +8,8 @@ export const coreHistoryItems: ComponentImplementation<HistoryItems> = {
   component: "historyItems",
   implementation: "core",
   template: () =>
-    function historyItemsTemplate({ headings, historyItems }) {
-      return html`<dso-history-items>
-        ${headings.map((heading) => html`<span slot="headings">${heading}</span>`)}
+    function historyItemsTemplate({ label, historyItems }) {
+      return html`<dso-history-items label=${label}>
         ${historyItems.map(
           ({ date, explanation, statusMessage, title, href, type, warning, dsoHistoryItemClick }) =>
             html`<li>

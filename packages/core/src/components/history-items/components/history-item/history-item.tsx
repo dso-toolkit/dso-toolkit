@@ -98,7 +98,7 @@ export class HistoryItem implements ComponentInterface {
         </div>
         <div class="history-item-content">
           <div class={clsx(["history-item-status-message", { tijdelijk: this.type === "tijdelijk-regelingdeel" }])}>
-            <dso-icon icon={this.typeIcons[this.type]}></dso-icon>
+            <dso-icon icon={this.typeIcons[this.type]} aria-hidden="true"></dso-icon>
             <slot name="status"></slot>
           </div>
           {this.titleSlottedElement !== null && this.href && (
@@ -115,7 +115,7 @@ export class HistoryItem implements ComponentInterface {
           )}
           {this.warningSlottedElement !== null && (
             <div class="history-item-warning">
-              <dso-icon icon="status-warning-inline"></dso-icon>
+              <dso-icon icon="status-warning-inline" role="img" aria-label="Waarschuwing"></dso-icon>
               <slot name="warning"></slot>
             </div>
           )}

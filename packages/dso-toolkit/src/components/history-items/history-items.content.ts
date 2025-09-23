@@ -1,12 +1,5 @@
 import { HistoryItem } from "./history-items.models";
 
-export function headings(type: "in-werking" | "ontwerp") {
-  if (type === "ontwerp") {
-    return ["Publicatie", "Gebeurtenis"];
-  }
-  return ["Datum", "Gebeurtenis"];
-}
-
 export function historyItems(type: "in-werking" | "ontwerp"): HistoryItem[] {
   if (type === "ontwerp") {
     return [
@@ -42,7 +35,7 @@ export function historyItems(type: "in-werking" | "ontwerp"): HistoryItem[] {
         date: "05-09-2022",
         statusMessage: "Inzage tot 05-11-2022",
         type: "ontwerp",
-        title: "OWijzinging bouwregels",
+        title: "Wijzinging bouwregels",
         href: "#",
       },
       {

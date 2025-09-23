@@ -5,7 +5,7 @@ import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
 import { HistoryItemsArgs, historyItemsArgTypes, historyItemsArgs, historyItemsArgsMapper } from "./history-items.args";
-import { headings, historyItems } from "./history-items.content";
+import { historyItems } from "./history-items.content";
 import { HistoryItems } from "./history-items.models.js";
 
 type HistoryItemsStory = StoryObj<HistoryItemsArgs, Renderer>;
@@ -50,7 +50,7 @@ export function historyItemsStories<Implementation, Templates, TemplateFnReturnT
   return {
     Default: {
       render: templateContainer.render(storyTemplates, (args, { historyItemsTemplate }) =>
-        historyItemsTemplate(historyItemsArgsMapper(args, headings(args.listPattern), historyItems(args.listPattern))),
+        historyItemsTemplate(historyItemsArgsMapper(args, historyItems(args.listPattern))),
       ),
     },
   };
