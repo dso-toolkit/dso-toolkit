@@ -96,6 +96,7 @@ import {
   Table,
   Tabs,
   TemplateContainer,
+  TijdreisBanner,
   Tile,
   TileGrid,
   Toggletip,
@@ -215,12 +216,14 @@ import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-tem
 import { coreSurveyRating } from "./components/survey-rating/survey-rating.core-template";
 import { coreTable } from "./components/table/table.core-template";
 import { coreTabs } from "./components/tabs/tabs.core-template";
+import { coreTijdreisBanner } from "./components/tijdreis-banner/tijdreis-banner.core-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
 import { coreToggletip } from "./components/toggletip/toggletip.core-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreTreeView } from "./components/tree-view/tree-view.core-template";
 import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
+
 // End: import templates
 
 export interface Components {
@@ -317,6 +320,7 @@ export interface Components {
   surveyRating: SurveyRating;
   table: Table<TemplateResult>;
   tabs: Tabs<TemplateResult>;
+  tijdreisBanner: TijdreisBanner;
   tile: Tile;
   tileGrid: TileGrid;
   toggletip: Toggletip<TemplateResult>;
@@ -405,6 +409,7 @@ templateContainer.add(coreSlideToggle);
 templateContainer.add(coreSurveyRating);
 templateContainer.add(coreTable);
 templateContainer.add(coreTabs);
+templateContainer.add(coreTijdreisBanner);
 templateContainer.add(coreToggletip);
 templateContainer.add(coreTooltip);
 templateContainer.add(coreTreeView);

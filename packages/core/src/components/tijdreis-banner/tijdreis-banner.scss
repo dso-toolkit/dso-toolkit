@@ -1,0 +1,60 @@
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+
+@include utilities.box-sizing();
+
+:host {
+  @include set-colors.apply(colors.$mauve);
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    grid-template-areas: "icon slot button-slot";
+    align-items: center;
+    justify-content: center;
+    min-block-size: 56px;
+    padding-block: units.$u1;
+    padding-inline: units.$u3;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+    align-items: start;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "icon slot"
+      ". button-slot";
+    padding-block: units.$u2;
+  }
+
+  dso-icon {
+    grid-area: icon;
+  }
+
+  ::slotted([slot]:not([slot="button"])) {
+    grid-area: slot;
+  }
+
+  ::slotted([slot="button"]) {
+    --_dso-button-secondary-background-color: transparent;
+    --_dso-button-secondary-color: #{colors.$wit};
+    --_dso-button-secondary-border-color: #{colors.$wit};
+    --_dso-button-secondary-hover-background-color: rgba(235, 225, 235, 0.2);
+    --_dso-button-secondary-hover-color: #{colors.$wit};
+    --_dso-button-secondary-hover-border-color: #{colors.$wit};
+    --_dso-button-secondary-active-background-color: rgba(235, 225, 235, 0.4);
+    --_dso-button-secondary-active-border-color: rgba(235, 225, 235, 0.3);
+    --_dso-button-secondary-disabled-background-color: transparent;
+    --_dso-button-secondary-disabled-color: rgba(235, 225, 235, 0.7);
+    --_dso-button-secondary-disabled-border-color: rgba(235, 225, 235, 0.7);
+
+    @media screen and (max-width: media-query-breakpoints.$screen-sm-min) {
+      justify-self: start;
+    }
+  }
+}
