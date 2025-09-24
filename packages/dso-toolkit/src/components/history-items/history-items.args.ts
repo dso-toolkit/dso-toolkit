@@ -6,9 +6,11 @@ import { argTypeAction } from "../../storybook";
 
 import { HistoryItem, HistoryItems } from "./history-items.models.js";
 
+export type HistoryItemListPattern = "in-werking" | "ontwerp";
+
 export interface HistoryItemsArgs {
   label: string;
-  listPattern: "in-werking" | "ontwerp";
+  listPattern: HistoryItemListPattern;
   dsoHistoryItemClick: HandlerFunction;
 }
 
