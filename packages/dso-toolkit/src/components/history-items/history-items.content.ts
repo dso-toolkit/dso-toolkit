@@ -1,6 +1,7 @@
+import { HistoryItemListPattern, ListPattern } from "./history-items.args";
 import { HistoryItem } from "./history-items.models";
 
-export function historyItems(type: "in-werking" | "ontwerp"): HistoryItem[] {
+export function historyItems(type: HistoryItemListPattern): HistoryItem[] {
   if (type === "ontwerp") {
     return [
       {
