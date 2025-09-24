@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 @use "~dso-toolkit/src/di";
 
 @use "panel.variables" as panel-variables;
@@ -31,7 +32,7 @@
   border-start-start-radius: units.$u1 * 0.5;
   border-start-end-radius: units.$u1 * 0.5;
 
-  background-color: colors.$grijs-10;
+  @include set-colors.apply(colors.$grijs-10, colors.$grijs-30);
 
   .sr-only {
     @include utilities.sr-only();
@@ -48,23 +49,6 @@
   font-weight: 600 !important;
   line-height: 1.5 !important;
   color: colors.$zwart !important;
-}
-
-.panel-close {
-  display: inline-block;
-
-  inline-size: units.$u3;
-  aspect-ratio: 1 / 1;
-
-  padding: 0;
-
-  border: 0;
-
-  background-color: transparent;
-
-  color: colors.$zwart;
-
-  cursor: pointer;
 }
 
 .panel-body {

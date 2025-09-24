@@ -26,12 +26,13 @@
 
 ### Depends on
 
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-info --> dso-icon
+  dso-info --> dso-icon-button
+  dso-icon-button --> dso-icon
   dso-selectable --> dso-info
   style dso-info fill:#f9f,stroke:#333,stroke-width:4px
 ```

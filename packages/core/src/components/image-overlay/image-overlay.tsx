@@ -34,10 +34,13 @@ const Dimmer: FunctionalComponent<{
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
-        <button type="button" class="close" onClick={click}>
-          <dso-icon icon="times"></dso-icon>
-          <span>Sluiten</span>
-        </button>
+        <dso-icon-button
+          icon="times"
+          variant="map"
+          class="close"
+          accessibleLabel="Sluiten"
+          onDsoIconButtonClick={click}
+        />
         {children[1]}
       </div>
     </div>
@@ -64,7 +67,7 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   zoomable = false;
 
-  private buttonElement: HTMLButtonElement | undefined;
+  private iconButtonElement: HTMLDsoIconButtonElement | undefined;
 
   private wrapperElement: HTMLDivElement | undefined;
 
@@ -160,20 +163,19 @@ export class ImageOverlay implements ComponentInterface {
       (this.wijzigactie && this.isWijzigactie(this.wijzigactie) && wijzigactieLabels[this.wijzigactie]) || undefined;
 
     const button = this.zoomable && (
-      <button
-        type="button"
+      <dso-icon-button
+        icon="external-link"
         class="open"
-        ref={(element) => (this.buttonElement = element)}
-        onClick={() => (this.active = true)}
-      >
-        <dso-icon icon="external-link"></dso-icon>
-        <span>Afbeelding vergroot weergeven</span>
-      </button>
+        variant="map"
+        accessibleLabel="Afbeelding vergroot weergeven"
+        ref={(element) => (this.iconButtonElement = element)}
+        onDsoIconButtonClick={() => (this.active = true)}
+      />
     );
 
     if (this.wijzigactie === "verwijder") {
       return (
-        <Host onClick={() => this.buttonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.setFocus()}>
           <del class="editaction-remove">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -202,7 +204,7 @@ export class ImageOverlay implements ComponentInterface {
 
     if (this.wijzigactie === "voegtoe") {
       return (
-        <Host onClick={() => this.buttonElement?.focus()}>
+        <Host onClick={() => this.iconButtonElement?.setFocus()}>
           <ins class="editaction-add">
             <div class="editaction-label">{editActionLabel}:</div>
             <Dimmer
@@ -230,7 +232,7 @@ export class ImageOverlay implements ComponentInterface {
     }
 
     return (
-      <Host onClick={() => this.buttonElement?.focus()}>
+      <Host onClick={() => this.iconButtonElement?.setFocus()}>
         <Dimmer
           active={this.active}
           src={src}
@@ -266,8 +268,11 @@ export class ImageOverlay implements ComponentInterface {
 
           return true;
         },
-        setReturnFocus: this.buttonElement ?? false,
+        setReturnFocus: this.iconButtonElement ?? false,
         onDeactivate: () => (this.active = false),
+        tabbableOptions: {
+          getShadowRoot: (node) => node.shadowRoot ?? undefined,
+        },
       }).activate();
     } else if (!this.active && this.trap) {
       this.trap?.deactivate();

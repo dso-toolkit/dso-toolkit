@@ -278,16 +278,16 @@ export class DocumentComponent implements ComponentInterface {
             <div class="heading">
               <Heading heading={this.heading} class="heading-element" mode={this.mode} href={this.href}>
                 {collapsible && this.mode === "document" && (
-                  <button
-                    type="button"
-                    class="toggle-button"
+                  <dso-icon-button
+                    accessibleLabel={this.open ? "Invouwen" : "Uitvouwen"}
                     aria-describedby="heading-title"
                     aria-expanded={this.open.toString()}
-                    onClick={this.handleHeadingClick}
-                  >
-                    <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
-                    <span class="sr-only">{this.open ? "Invouwen" : "Uitvouwen"}</span>
-                  </button>
+                    class="toggle-button"
+                    icon={this.open ? "chevron-down" : "chevron-right"}
+                    role="button"
+                    variant="tertiary"
+                    onDsoIconButtonClick={(e) => this.handleHeadingClick(e.detail.originalEvent)}
+                  />
                 )}
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
@@ -312,24 +312,24 @@ export class DocumentComponent implements ComponentInterface {
                 </span>
               </Heading>
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
-                <button
-                  type="button"
+                <dso-icon-button
+                  accessibleLabel={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
                   class="recursive-toggle"
-                  title={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
-                  onClick={this.handleRecursiveToggleClick}
-                >
-                  <dso-icon icon={this.recursiveToggle === true ? "eye" : "eye-slash"} />
-                </button>
+                  icon={this.recursiveToggle === true ? "eye" : "eye-slash"}
+                  variant="tertiary"
+                  onDsoIconButtonClick={(e) => this.handleRecursiveToggleClick(e.detail.originalEvent)}
+                />
               )}
+
               {this.showOntwerpBadge() && (
-                <>
+                <Fragment>
                   <dso-badge status="warning" aria-describedby="nested-draft-description">
                     !
                   </dso-badge>
                   <dso-tooltip id="nested-draft-description">
                     Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.
                   </dso-tooltip>
-                </>
+                </Fragment>
               )}
               {(this.bevatOntwerpInformatie || this.annotated) && (
                 <div class="addons">
@@ -339,18 +339,17 @@ export class DocumentComponent implements ComponentInterface {
                     </dso-label>
                   )}
                   {this.annotated && this.mode === "document" && (
-                    <button
-                      type="button"
-                      class="dso-tertiary"
+                    <dso-icon-button
+                      accessibleLabel={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
                       aria-controls={this.openAnnotation ? "annotations" : undefined}
                       aria-expanded={this.openAnnotation.toString()}
-                      onClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e })}
-                    >
-                      <dso-icon icon="label"></dso-icon>
-                      <span class="sr-only">
-                        Kenmerken en kaartgegevens {this.openAnnotation ? "verbergen" : "tonen"}
-                      </span>
-                    </button>
+                      icon="label"
+                      role="button"
+                      variant="tertiary"
+                      onDsoIconButtonClick={(e) =>
+                        this.dsoAnnotationToggle.emit({ originalEvent: e.detail.originalEvent })
+                      }
+                    />
                   )}
                 </div>
               )}

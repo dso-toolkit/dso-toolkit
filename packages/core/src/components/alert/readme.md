@@ -29,11 +29,14 @@
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-alert --> dso-icon
+  dso-alert --> dso-icon-button
+  dso-icon-button --> dso-icon
   dso-document-component --> dso-alert
   style dso-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```

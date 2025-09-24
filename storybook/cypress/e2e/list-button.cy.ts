@@ -89,7 +89,7 @@ describe("ListButton", () => {
       .should("be.visible")
       .should("have.text", 8)
       .get("@dsoListButtonShadow")
-      .find(".dso-input-number button.dso-tertiary")
+      .find(".dso-input-number dso-icon-button")
       .should("have.length", 2);
   });
 
@@ -100,7 +100,7 @@ describe("ListButton", () => {
       .shadow()
       .as("dsoListButtonShadow")
       .get("@dsoListButtonShadow")
-      .find(".dso-input-number button.dso-tertiary")
+      .find(".dso-input-number dso-icon-button")
       .should("have.length", 1);
   });
 
@@ -114,7 +114,7 @@ describe("ListButton", () => {
       })
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-tertiary")
+      .find("dso-icon-button")
       .first()
       .click()
       .get("@dsoCountChangeListener")
@@ -123,7 +123,7 @@ describe("ListButton", () => {
       .its("args.0.detail.count")
       .should("equal", 7)
       .get("@dsoListButtonShadow")
-      .find(".dso-tertiary")
+      .find("dso-icon-button")
       .last()
       .click()
       .get("@dsoCountChangeListener")
@@ -144,16 +144,18 @@ describe("ListButton", () => {
       })
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-tertiary")
+      .find("dso-icon-button")
       .first()
       .click()
       .get("@dsoCountChangeListener")
       .should("have.been.calledOnce")
       .get("@dsoListButtonShadow")
-      .find(".dso-tertiary")
+      .find("dso-icon-button")
       .last()
       .click()
       .click()
+      .shadow()
+      .find("button")
       .should("be.disabled");
   });
 

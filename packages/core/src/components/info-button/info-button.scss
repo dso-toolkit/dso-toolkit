@@ -11,13 +11,10 @@
   @include utilities.sr-only();
 }
 
-button {
+button,
+dso-icon-button {
   @include info-button.root();
 
-  cursor: pointer;
   vertical-align: top;
-}
-
-dso-icon {
-  display: block;
+  line-height: 1;
 }

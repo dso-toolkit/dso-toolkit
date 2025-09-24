@@ -47,10 +47,13 @@ export class Panel implements ComponentInterface {
       <div class={clsx(["dso-panel", { emphasized: this.emphasized }])}>
         <div class="panel-heading">
           <slot name="heading" />
-          <button type="button" class="panel-close" onClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}>
-            <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">{this.closeButtonLabel || this.text("close")}</span>
-          </button>
+          <dso-icon-button
+            class="panel-close"
+            icon="times"
+            variant="tertiary"
+            onDsoIconButtonClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}
+            accessibleLabel={this.closeButtonLabel || this.text("close")}
+          />
         </div>
         <div class="panel-body">
           <slot></slot>

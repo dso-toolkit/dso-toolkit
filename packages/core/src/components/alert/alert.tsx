@@ -63,10 +63,12 @@ export class Alert {
         <slot></slot>
 
         {this.closable && (
-          <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-            <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">{this.text("close")}</span>
-          </button>
+          <dso-icon-button
+            accessibleLabel={this.text("close")}
+            variant="tertiary"
+            icon="times"
+            onDsoIconButtonClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+          />
         )}
       </div>
     );

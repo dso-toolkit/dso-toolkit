@@ -21,7 +21,7 @@ describe("Alert", () => {
     cy.get("dso-alert.hydrated")
       .invoke("attr", "closable", "true")
       .shadow()
-      .find(".dso-close")
+      .find("dso-icon-button")
       .click()
       .get("@dsoCloseListener")
       .should("have.been.calledOnce")

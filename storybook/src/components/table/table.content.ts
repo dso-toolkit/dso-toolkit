@@ -181,20 +181,16 @@ export function sortedDescendingTable({ linkTemplate }: Templates) {
   };
 }
 
-function actionsTemplate({ buttonTemplate }: Templates) {
-  return html`${buttonTemplate({
-    type: "button",
+function actionsTemplate({ iconButtonTemplate }: Templates) {
+  return html`${iconButtonTemplate({
     variant: "tertiary",
-    label: "Bewerk",
-    icon: { icon: "pencil" },
-    iconMode: "only",
+    accessibleLabel: "Bewerk",
+    icon: "pencil",
   })}
-  ${buttonTemplate({
-    type: "button",
+  ${iconButtonTemplate({
     variant: "tertiary",
-    label: "Verwijder",
-    icon: { icon: "trash" },
-    iconMode: "only",
+    accessibleLabel: "Verwijder",
+    icon: "trash",
   })}`;
 }
 

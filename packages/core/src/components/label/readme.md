@@ -41,14 +41,15 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
 
 ### Depends on
 
-- [dso-icon](../icon)
+- [dso-icon-button](../icon-button)
 - [dso-tooltip](../tooltip)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-label --> dso-icon
+  dso-label --> dso-icon-button
   dso-label --> dso-tooltip
+  dso-icon-button --> dso-icon
   dso-accordion-section --> dso-label
   dso-advanced-select --> dso-label
   dso-annotation-activiteit --> dso-label
