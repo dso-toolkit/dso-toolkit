@@ -107,7 +107,7 @@ export class MapControls implements ComponentInterface {
 
   render() {
     return (
-      <>
+      <Fragment>
         <button
           type="button"
           id="toggle-visibility-button"
@@ -157,7 +157,7 @@ export class MapControls implements ComponentInterface {
             </div>
           </dso-scrollable>
         </section>
-      </>
+      </Fragment>
     );
   }
 }

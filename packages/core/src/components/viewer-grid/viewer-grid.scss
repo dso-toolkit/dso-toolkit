@@ -35,18 +35,9 @@ button {
   @include utilities.sr-only();
 }
 
-.shrink,
-.expand,
-.overlay-close-button {
-  @include button.tertiary($modifiers: false);
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .overlay-close-button {
   position: absolute;
+  line-height: 1;
   inset-block-start: units.$u1;
   inset-inline-end: css-grid.$grid-gutter-width * 0.5;
 }
@@ -132,9 +123,10 @@ button {
     padding-block: 0 units.$u1;
     padding-inline: units.$u1 * 0.5 0;
 
-    button {
-      border-end-start-radius: 4px;
-      border-start-start-radius: 4px;
+    .shrink,
+    .expand {
+      --dso-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
+      --dso-icon-button-map-border-radius: 4px 0 0 4px;
     }
   }
 }
@@ -148,7 +140,7 @@ button {
   z-index: zindex.$viewer-grid-sizing-buttons;
 
   button {
-    @include button.secondary($modifiers: false, $icon-only: true);
+    @include button.secondary($modifiers: false);
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
@@ -226,21 +218,11 @@ button {
   }
 
   .dso-close {
-    @include button.element();
+    --dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
 
     position: absolute;
-    inset-block-start: units.$u2;
-    inset-inline-end: units.$u2;
-
-    block-size: units.$u4;
-    inline-size: units.$u4;
-
-    padding: 0;
-
-    background-color: transparent;
-
-    border: 0;
-    text-align: center;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
   }
 }
 

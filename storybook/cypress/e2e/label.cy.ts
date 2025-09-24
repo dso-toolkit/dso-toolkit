@@ -83,7 +83,7 @@ describe("Label", () => {
       .should("have.text", defaultLabelText)
       .invoke("prop", "removable", true)
       .get("@dsoLabelShadow")
-      .find("button")
+      .find("dso-icon-button")
       .click()
       .get("@removeClickListener")
       .should("have.been.calledOnce");
@@ -96,15 +96,17 @@ describe("Label", () => {
       .should("have.text", defaultLabelText)
       .invoke("prop", "removable", true)
       .get("@dsoLabelShadow")
-      .find("button span.sr-only")
-      .should("have.text", `Verwijder: ${defaultLabelText}`)
+      .find("dso-icon-button")
+      .shadow()
+      .find(`button[aria-label='Verwijder: ${defaultLabelText}']`)
       .get("@dsoLabel")
       .invoke("text", updatedText)
       .get("@dsoLabel")
       .should("have.text", updatedText)
       .get("@dsoLabelShadow")
-      .find("button span.sr-only")
-      .should("have.text", `Verwijder: ${updatedText}`);
+      .find("dso-icon-button")
+      .shadow()
+      .find(`button[aria-label='Verwijder: ${updatedText}']`);
   });
 
   const statusses = [

@@ -1,11 +1,9 @@
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
-import {
-  MarkBarClearEvent,
-  MarkBarFocusOptions,
-  MarkBarInputEvent,
-  MarkBarPaginationEvent,
-} from "./mark-bar.interfaces";
+import { DsoIconButtonCustomEvent } from "../../components";
+import { IconButtonClickEvent } from "../icon-button/icon-button.interfaces";
+
+import { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./mark-bar.interfaces";
 
 @Component({
   tag: "dso-mark-bar",
@@ -71,7 +69,7 @@ export class MarkBar implements ComponentInterface {
    * Emitted when user activates "clear search result" button.
    */
   @Event({ bubbles: false })
-  dsoClear!: EventEmitter<MarkBarClearEvent>;
+  dsoClear!: EventEmitter<IconButtonClickEvent>;
 
   private inputElement?: HTMLInputElement;
 
@@ -86,16 +84,16 @@ export class MarkBar implements ComponentInterface {
     });
   };
 
-  private handleNext = (e: MouseEvent | KeyboardEvent) => {
-    this.dsoNext.emit({ originalEvent: e });
+  private handleNext = (originalEvent: MouseEvent | KeyboardEvent) => {
+    this.dsoNext.emit({ originalEvent });
   };
 
-  private handlePrevious = (e: MouseEvent) => {
-    this.dsoPrevious.emit({ originalEvent: e });
+  private handlePrevious = (originalEvent: MouseEvent) => {
+    this.dsoPrevious.emit({ originalEvent });
   };
 
-  private handleClear = (e: MouseEvent) => {
-    this.dsoClear.emit({ originalEvent: e });
+  private handleClear = (originalEvent: MouseEvent) => {
+    this.dsoClear.emit({ originalEvent });
   };
 
   private handleKeyDown = (e: KeyboardEvent) => {
@@ -124,24 +122,38 @@ export class MarkBar implements ComponentInterface {
             <dso-icon class="dso-search-icon" icon="search"></dso-icon>
             <span class="label-text">{this.label}</span>
           </label>
-          <button type="button" onClick={this.handleClear}>
-            <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">Zoekopdracht legen</span>
-          </button>
+          <dso-icon-button
+            icon="times"
+            variant="tertiary"
+            accessibleLabel="Zoekopdracht legen"
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handleClear(e.detail.originalEvent)
+            }
+          />
         </div>
         <div class="dso-button-container">
           <span class="divider" />
-          <button type="button" onClick={this.handlePrevious} disabled={current <= 1}>
-            <dso-icon icon="chevron-up" class="hydrated"></dso-icon>
-            <span class="sr-only">Vorig zoekresultaat</span>
-          </button>
+          <dso-icon-button
+            icon="chevron-up"
+            variant="tertiary"
+            accessibleLabel="Vorig zoekresultaat"
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handlePrevious(e.detail.originalEvent)
+            }
+            disabled={current <= 1}
+          />
           <span>
             {current}/{totalCount}
           </span>
-          <button type="button" onClick={this.handleNext} disabled={current >= totalCount}>
-            <dso-icon icon="chevron-down" class="hydrated"></dso-icon>
-            <span class="sr-only">Volgend zoekresultaat</span>
-          </button>
+          <dso-icon-button
+            icon="chevron-down"
+            variant="tertiary"
+            accessibleLabel="Volgend zoekresultaat"
+            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+              this.handleNext(e.detail.originalEvent)
+            }
+            disabled={current >= totalCount}
+          />
         </div>
       </div>
     );

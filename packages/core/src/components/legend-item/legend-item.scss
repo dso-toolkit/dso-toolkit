@@ -24,22 +24,15 @@
 
 .legend-item-right-content {
   margin-inline-start: auto;
-
-  button {
-    @include button.tertiary($icon-only: true, $modifiers: false);
-
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      cursor: pointer;
-    }
-
-    &.active {
-      color: colors.$bosgroen-140;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 
   dso-slide-toggle {
+    display: flex;
     align-self: center;
+    line-height: 1;
     margin-inline-start: 8px;
     padding-block-start: 0 !important;
   }
