@@ -34,11 +34,11 @@ const content = function (templates: Templates) {
 
   return html`<div style="display: flex; justify-content: center">
     ${iconButtonTemplate({
-      accessibleLabel: "Navigatie",
+      label: "Navigatie",
       variant: "tertiary",
       icon: "bars",
       tooltipPlacement: "top",
-      dsoIconButtonClick: () => {},
+      dsoClick: () => {},
     })}
   </div>`;
 };

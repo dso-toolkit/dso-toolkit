@@ -1,8 +1,7 @@
-import { autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
-import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { OnboardingTipCloseEvent } from "./onboarding-tip.interfaces";
 
@@ -36,14 +35,14 @@ export class OnboardingTip implements ComponentInterface {
     }
 
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
-      this.cleanUp = positionTooltip(
-        this.referenceElement,
-        this.host,
-        this.tipArrowRef,
-        `${this.placement}-start`,
-        true,
-        true,
-      );
+      this.cleanUp = positionTooltip({
+        referenceElement: this.referenceElement,
+        tipRef: this.host,
+        tipArrowRef: this.tipArrowRef,
+        placementTip: `${this.placement}-start`,
+        topPositionSmallViewPort: true,
+        halfMainAxisOffset: true,
+      });
     }
   }
 
@@ -70,10 +69,10 @@ export class OnboardingTip implements ComponentInterface {
               )}
               <dso-icon-button
                 class="dso-close"
-                accessibleLabel="Sluiten"
+                label="Sluiten"
                 variant="tertiary"
                 icon="times"
-                onDsoIconButtonClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+                onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
               />
               <slot></slot>
             </div>
@@ -90,7 +89,7 @@ export class OnboardingTip implements ComponentInterface {
     return this.host.querySelector("[slot='heading']");
   }
 
-  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
+  private cleanUp: TooltipClean | undefined;
 
   private get referenceElement(): HTMLElement | undefined {
     const id = this.host.id;
@@ -108,7 +107,7 @@ export class OnboardingTip implements ComponentInterface {
       return;
     }
 
-    const reference = rootNode.querySelector<HTMLElement>(`[aria-describedby="${id}`);
+    const reference = rootNode.querySelector<HTMLElement>(`[aria-describedby="${id}"]`);
     if (!reference) {
       console.warn(`Unable to find reference element with aria-describedby ${id}`);
 

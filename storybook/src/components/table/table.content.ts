@@ -184,12 +184,12 @@ export function sortedDescendingTable({ linkTemplate }: Templates) {
 function actionsTemplate({ iconButtonTemplate }: Templates) {
   return html`${iconButtonTemplate({
     variant: "tertiary",
-    accessibleLabel: "Bewerk",
+    label: "Bewerk",
     icon: "pencil",
   })}
   ${iconButtonTemplate({
     variant: "tertiary",
-    accessibleLabel: "Verwijder",
+    label: "Verwijder",
     icon: "trash",
   })}`;
 }

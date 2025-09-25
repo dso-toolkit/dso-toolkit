@@ -1,22 +1,29 @@
 import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
 
+import { TooltipOptions } from "./tooltip.interfaces";
+
 /**
- * This function positions the Tooltip relative to its reference element. It is static so the position is
- * calculated by only using the passed arguments.
+ * Positions the Tooltip relative to its reference element.
+ * The position is recalculated automatically on scroll, resize, or
+ * element changes via `autoUpdate`, but is otherwise based only on the
+ * provided arguments 'placementTip', 'topPositionSmallViewPort' and 'halfMainAxisOffset'.
  */
-export function positionTooltip(
-  referenceElement: HTMLElement,
-  tipRef: HTMLElement,
-  tipArrowRef: HTMLElement,
-  placementTip: Placement,
-  topPositionSmallViewPort = false,
-  halfMainAxisOffset = false,
-) {
+export function positionTooltip(options: TooltipOptions) {
+  const {
+    referenceElement,
+    tipRef,
+    tipArrowRef,
+    placementTip,
+    topPositionSmallViewPort,
+    halfMainAxisOffset,
+    forceVisible = false,
+  } = options;
+
   return autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
     const arrowLength = tipArrowRef.offsetWidth;
-    const AxisOffsetCalc = Math.sqrt(2 * arrowLength ** 2);
-    const mainAxisOffset = halfMainAxisOffset ? AxisOffsetCalc / 2 : AxisOffsetCalc;
+    const axisOffsetCalc = Math.sqrt(2 * arrowLength ** 2);
+    const mainAxisOffset = halfMainAxisOffset ? axisOffsetCalc / 2 : axisOffsetCalc;
     const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
     const smallViewport = topPositionSmallViewPort && document.body.clientWidth < 992;
 
@@ -47,8 +54,9 @@ export function positionTooltip(
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {
       if (middlewareData.hide) {
-        // Tooltip needs to be visible at all times on small viewports
-        const disappear = !smallViewport && middlewareData.hide.referenceHidden;
+        // Tooltip needs to be visible at all times on small viewports or when alwaysVisibleWhenReferenceOverlapped is true
+        const disappear = !smallViewport && !forceVisible && middlewareData.hide.referenceHidden;
+
         Object.assign(tipRef.style, {
           // Both of these properties have a CSS transition
           visibility: disappear ? "hidden" : "visible",

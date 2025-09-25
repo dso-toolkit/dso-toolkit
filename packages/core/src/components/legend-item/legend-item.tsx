@@ -117,12 +117,12 @@ export class LegendItem implements ComponentInterface {
           <div class="legend-item-right-content">
             {hasOptions && !this.disabled && (
               <dso-icon-button
-                accessibleLabel="meer opties"
+                label="Opties"
                 icon="more"
                 variant="tertiary"
                 class={{ active: this.showOptions }}
                 id="edit-button"
-                onDsoIconButtonClick={() => (this.showOptions = !this.showOptions)}
+                onDsoClick={() => (this.showOptions = !this.showOptions)}
               />
             )}
             {this.activatable && (

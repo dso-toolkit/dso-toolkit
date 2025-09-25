@@ -1,4 +1,4 @@
-import { Placement } from "@floating-ui/dom";
+import { TooltipPlacement } from "@dso-toolkit/core/src";
 import { HandlerFunction } from "storybook/actions";
 
 export type IconButtonVariant = "secondary" | "tertiary" | "map";
@@ -6,8 +6,8 @@ export type IconButtonVariant = "secondary" | "tertiary" | "map";
 export interface IconButton {
   variant: IconButtonVariant;
   icon: string;
-  accessibleLabel: string;
-  tooltipPlacement?: Placement;
+  label: string;
+  tooltipPlacement?: TooltipPlacement;
   disabled?: boolean;
-  dsoIconButtonClick?: HandlerFunction;
+  dsoClick?: HandlerFunction;
 }

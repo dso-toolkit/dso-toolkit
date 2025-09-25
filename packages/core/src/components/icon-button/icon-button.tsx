@@ -1,10 +1,8 @@
-import { autoUpdate } from "@floating-ui/dom";
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State, h } from "@stencil/core";
-import clsx from "clsx";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { IconButtonClickEvent, IconButtonVariant } from "./icon-button.interfaces";
 
@@ -17,38 +15,38 @@ export class IconButton implements ComponentInterface {
   /**
    * The alias of the icon in the button.
    */
-  @Prop()
-  icon!: string;
+  @Prop({ reflect: true })
+  icon!: string | undefined;
 
   /**
-   * The accessible label of the Icon Button which is shown on hover in a tooltip.
+   * The label of the Icon Button which is shown on hover in a tooltip.
    */
-  @Prop()
-  accessibleLabel!: string;
+  @Prop({ reflect: true })
+  label!: string | undefined;
 
   /**
    * The variant of the Icon Button.
    */
-  @Prop()
-  variant: IconButtonVariant = "secondary";
+  @Prop({ reflect: true })
+  variant?: IconButtonVariant = "secondary";
 
   /**
    * The placement of the tooltip on hover and focus of the Icon Button.
    */
-  @Prop()
+  @Prop({ reflect: true })
   tooltipPlacement: TooltipPlacement = "top";
 
   /**
    * To disable the Icon Button
    */
-  @Prop()
+  @Prop({ reflect: true })
   disabled = false;
 
   /**
    * Emitted when the user clicks the Icon Button.
    */
-  @Event()
-  dsoIconButtonClick!: EventEmitter<IconButtonClickEvent>;
+  @Event({ bubbles: false })
+  dsoClick!: EventEmitter<IconButtonClickEvent>;
 
   @State()
   showTooltip = false;
@@ -65,7 +63,7 @@ export class IconButton implements ComponentInterface {
   private tooltipElRef?: HTMLDivElement;
   private tipArrowElRef?: HTMLSpanElement;
   private tooltipTimeout?: number;
-  private cleanUp: ReturnType<typeof autoUpdate> | undefined;
+  private cleanUp: TooltipClean | undefined;
   private lastClickTime = 0;
   private tooltipShowDelay = 500;
 
@@ -88,13 +86,14 @@ export class IconButton implements ComponentInterface {
       this.tooltipElRef?.showPopover();
 
       if (!this.cleanUp && this.buttonElRef && this.tooltipElRef && this.tipArrowElRef) {
-        this.cleanUp = positionTooltip(
-          this.buttonElRef,
-          this.tooltipElRef,
-          this.tipArrowElRef,
-          this.tooltipPlacement,
-          false,
-        );
+        this.cleanUp = positionTooltip({
+          referenceElement: this.buttonElRef,
+          tipRef: this.tooltipElRef,
+          tipArrowRef: this.tipArrowElRef,
+          placementTip: this.tooltipPlacement,
+          topPositionSmallViewPort: false,
+          halfMainAxisOffset: false,
+        });
       }
     }, this.tooltipShowDelay);
   };
@@ -116,7 +115,7 @@ export class IconButton implements ComponentInterface {
   private handleClick = (e: MouseEvent) => {
     this.lastClickTime = Date.now();
     this.handleHideTooltip();
-    this.dsoIconButtonClick.emit({ originalEvent: e });
+    this.dsoClick.emit({ originalEvent: e });
   };
 
   render() {
@@ -125,8 +124,8 @@ export class IconButton implements ComponentInterface {
         ref={(el) => (this.buttonElRef = el)}
         type="button"
         disabled={this.disabled}
-        aria-label={this.accessibleLabel}
-        class={clsx("icon-button", `dso-${this.variant}`)}
+        aria-label={this.label}
+        class={`icon-button dso-${this.variant}`}
         onMouseEnter={this.handleShowTooltip}
         onMouseLeave={this.handleHideTooltip}
         onFocus={this.handleShowTooltip}
@@ -135,13 +134,12 @@ export class IconButton implements ComponentInterface {
       >
         <dso-icon icon={this.icon} />
         <Tooltip
-          small
           visible={this.showTooltip}
           onAfterHidden={this.handleHideTooltip}
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
         >
-          {this.accessibleLabel}
+          {this.label}
         </Tooltip>
       </button>
     );

@@ -279,14 +279,11 @@ export class DocumentComponent implements ComponentInterface {
               <Heading heading={this.heading} class="heading-element" mode={this.mode} href={this.href}>
                 {collapsible && this.mode === "document" && (
                   <dso-icon-button
-                    accessibleLabel={this.open ? "Invouwen" : "Uitvouwen"}
-                    aria-describedby="heading-title"
-                    aria-expanded={this.open.toString()}
+                    label={this.open ? "Invouwen" : "Uitvouwen"}
                     class="toggle-button"
                     icon={this.open ? "chevron-down" : "chevron-right"}
-                    role="button"
                     variant="tertiary"
-                    onDsoIconButtonClick={(e) => this.handleHeadingClick(e.detail.originalEvent)}
+                    onDsoClick={(e) => this.handleHeadingClick(e.detail.originalEvent)}
                   />
                 )}
                 <span id="heading-title">
@@ -313,11 +310,11 @@ export class DocumentComponent implements ComponentInterface {
               </Heading>
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
                 <dso-icon-button
-                  accessibleLabel={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
+                  label={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
                   class="recursive-toggle"
                   icon={this.recursiveToggle === true ? "eye" : "eye-slash"}
                   variant="tertiary"
-                  onDsoIconButtonClick={(e) => this.handleRecursiveToggleClick(e.detail.originalEvent)}
+                  onDsoClick={(e) => this.handleRecursiveToggleClick(e.detail.originalEvent)}
                 />
               )}
 
@@ -340,15 +337,13 @@ export class DocumentComponent implements ComponentInterface {
                   )}
                   {this.annotated && this.mode === "document" && (
                     <dso-icon-button
-                      accessibleLabel={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
+                      label={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
                       aria-controls={this.openAnnotation ? "annotations" : undefined}
                       aria-expanded={this.openAnnotation.toString()}
                       icon="label"
                       role="button"
                       variant="tertiary"
-                      onDsoIconButtonClick={(e) =>
-                        this.dsoAnnotationToggle.emit({ originalEvent: e.detail.originalEvent })
-                      }
+                      onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e.detail.originalEvent })}
                     />
                   )}
                 </div>

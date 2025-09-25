@@ -30,10 +30,10 @@ export class Info {
         <slot></slot>
         {!this.fixed && (
           <dso-icon-button
-            accessibleLabel="Sluiten"
+            label="Sluiten"
             variant="tertiary"
             icon="times"
-            onDsoIconButtonClick={(e) => this.dsoClose.emit(e.detail.originalEvent)}
+            onDsoClick={(e) => this.dsoClose.emit(e.detail.originalEvent)}
           />
         )}
       </Fragment>
