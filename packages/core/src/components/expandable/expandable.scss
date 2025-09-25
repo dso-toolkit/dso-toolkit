@@ -6,7 +6,9 @@
   overflow: hidden;
   opacity: 0;
 
-  @include utilities.transition(("grid-template-rows", 150ms), ("opacity", 300ms));
+  transition:
+    grid-template-rows var(--_dso-expandable-height-animation-time, 150ms) ease,
+    opacity var(--_dso-expandable-opacity-animation-time, 300ms) ease;
 }
 
 :host([enable-animation]:not([open="true"])) {
