@@ -38,3 +38,9 @@
     max-inline-size: calc(100% - (units.$u3 + 4px));
   }
 }
+
+dso-icon-button {
+  float: inline-end;
+  margin-inline-start: units.$u1;
+  margin-inline-end: units.$u1 * -0.5;
+}

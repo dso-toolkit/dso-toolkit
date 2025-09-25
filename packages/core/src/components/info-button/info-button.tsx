@@ -61,11 +61,8 @@ export class InfoButton {
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
-            class={clsx({
-              "dso-open": !!this.active,
-            })}
-            accessibleLabel={this.label}
-            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+            label={this.label}
+            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
               this.handleToggle(e.detail.originalEvent)
             }
             icon={this.active || this.hover ? "info-active" : "info"}
@@ -75,7 +72,7 @@ export class InfoButton {
           // ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
           <button
             type="button"
-            class={clsx("dso-info-secondary", { "dso-open": !!this.active })}
+            class="dso-info-secondary"
             aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}

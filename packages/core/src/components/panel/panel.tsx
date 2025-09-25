@@ -51,8 +51,8 @@ export class Panel implements ComponentInterface {
             class="panel-close"
             icon="times"
             variant="tertiary"
-            onDsoIconButtonClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}
-            accessibleLabel={this.closeButtonLabel || this.text("close")}
+            onDsoClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}
+            label={this.closeButtonLabel || this.text("close")}
           />
         </div>
         <div class="panel-body">

@@ -125,8 +125,8 @@ button {
 
     .shrink,
     .expand {
-      --dso-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
-      --dso-icon-button-map-border-radius: 4px 0 0 4px;
+      --_dso-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
+      --_dso-icon-button-map-border-radius: 4px 0 0 4px;
     }
   }
 }
@@ -218,7 +218,7 @@ button {
   }
 
   .dso-close {
-    --dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
+    --_dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
 
     position: absolute;
     inset-block-start: 20px;
