@@ -1,3 +1,5 @@
+import { TooltipPlacement } from "@dso-toolkit/core";
+
 describe("Icon Button", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-icon-button--secondary");
@@ -27,7 +29,7 @@ describe("Icon Button", () => {
       .should("have.text", "Hamburger menu");
   });
 
-  const placements: Record<"top" | "right" | "bottom" | "left", [number, number]> = {
+  const placements: Record<TooltipPlacement, [number, number]> = {
     top: [275, 454],
     right: [318, 531],
     bottom: [361, 454],
@@ -42,11 +44,7 @@ describe("Icon Button", () => {
 });
 
 // Helperfunctie voor tooltip position check
-function checkTooltipPosition(
-  placement: "top" | "right" | "bottom" | "left",
-  expectedTop: number,
-  expectedLeft: number,
-) {
+function checkTooltipPosition(placement: TooltipPlacement, expectedTop: number, expectedLeft: number) {
   cy.get("dso-icon-button.hydrated").invoke("attr", "tooltip-placement", placement);
 
   cy.get("dso-icon-button.hydrated")

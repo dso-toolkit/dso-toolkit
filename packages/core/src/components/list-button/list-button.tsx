@@ -185,11 +185,11 @@ export class ListButton implements ComponentInterface {
             {this.count > 1 && (
               <Fragment>
                 <dso-icon-button
-                  accessibleLabel="Aantal verlagen"
+                  label="Aantal verlagen"
                   variant="tertiary"
                   icon="minus-circle"
                   disabled={this.count === Number(this.min) || this.disabled}
-                  onDsoIconButtonClick={(e) => this.stepValue(e, "decrement")}
+                  onDsoClick={(e) => this.stepValue(e, "decrement")}
                 />
                 <span class="dso-input-step-counter" aria-label="Aantal" aria-live="polite">
                   {this.count}
@@ -198,11 +198,11 @@ export class ListButton implements ComponentInterface {
             )}
 
             <dso-icon-button
-              accessibleLabel="Aantal verhogen"
+              label="Aantal verhogen"
               variant="tertiary"
               icon="plus-circle"
               disabled={this.count === Number(this.max) || this.disabled}
-              onDsoIconButtonClick={(e) => this.stepValue(e, "increment")}
+              onDsoClick={(e) => this.stepValue(e, "increment")}
             />
           </div>
         )}

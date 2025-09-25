@@ -79,6 +79,7 @@
 
 .recursive-toggle,
 .toggle-button {
+  --_dso-icon-button-contrast-tertiary-color: #{colors.$bosgroen};
   border: 0;
   padding: 0;
   background: 0;
@@ -167,7 +168,7 @@
 
 :host([mode="table-of-contents"][type="ARTIKEL"]) {
   dso-ozon-content.kop::part(_kop) {
-    color: inherit;
+    --_dso-icon-button-contrast-tertiary-color: inherit color: inherit;
   }
 }
 
@@ -192,6 +193,7 @@
 :host([type="ARTIKEL"]) {
   dso-ozon-content.kop::part(_kop),
   .toggle-button {
+    --_dso-icon-button-contrast-tertiary-color: colors.$zwart;
     color: colors.$zwart;
   }
 }

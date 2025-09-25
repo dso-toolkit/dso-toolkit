@@ -35,7 +35,7 @@ import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.inte
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -82,7 +82,7 @@ export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.inte
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-export { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
+export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
@@ -789,10 +789,6 @@ export namespace Components {
     }
     interface DsoIconButton {
         /**
-          * The accessible label of the Icon Button which is shown on hover in a tooltip.
-         */
-        "accessibleLabel": string;
-        /**
           * To disable the Icon Button
           * @default false
          */
@@ -800,7 +796,11 @@ export namespace Components {
         /**
           * The alias of the icon in the button.
          */
-        "icon": string;
+        "icon": string | undefined;
+        /**
+          * The label of the Icon Button which is shown on hover in a tooltip.
+         */
+        "label": string | undefined;
         /**
           * Focuses the button.
          */
@@ -814,7 +814,7 @@ export namespace Components {
           * The variant of the Icon Button.
           * @default "secondary"
          */
-        "variant": IconButtonVariant;
+        "variant"?: IconButtonVariant;
     }
     interface DsoImageOverlay {
         /**
@@ -2006,7 +2006,7 @@ declare global {
         new (): HTMLDsoIconElement;
     };
     interface HTMLDsoIconButtonElementEventMap {
-        "dsoIconButtonClick": IconButtonClickEvent;
+        "dsoClick": IconButtonClickEvent;
     }
     interface HTMLDsoIconButtonElement extends Components.DsoIconButton, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoIconButtonElementEventMap>(type: K, listener: (this: HTMLDsoIconButtonElement, ev: DsoIconButtonCustomEvent<HTMLDsoIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2208,7 +2208,7 @@ declare global {
         "dsoInput": MarkBarInputEvent;
         "dsoNext": MarkBarPaginationEvent;
         "dsoPrevious": MarkBarPaginationEvent;
-        "dsoClear": IconButtonClickEvent;
+        "dsoClear": MarkBarClearEvent;
     }
     interface HTMLDsoMarkBarElement extends Components.DsoMarkBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoMarkBarElementEventMap>(type: K, listener: (this: HTMLDsoMarkBarElement, ev: DsoMarkBarCustomEvent<HTMLDsoMarkBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3455,10 +3455,6 @@ declare namespace LocalJSX {
     }
     interface DsoIconButton {
         /**
-          * The accessible label of the Icon Button which is shown on hover in a tooltip.
-         */
-        "accessibleLabel": string;
-        /**
           * To disable the Icon Button
           * @default false
          */
@@ -3466,11 +3462,15 @@ declare namespace LocalJSX {
         /**
           * The alias of the icon in the button.
          */
-        "icon": string;
+        "icon": string | undefined;
+        /**
+          * The label of the Icon Button which is shown on hover in a tooltip.
+         */
+        "label": string | undefined;
         /**
           * Emitted when the user clicks the Icon Button.
          */
-        "onDsoIconButtonClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
+        "onDsoClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
         /**
           * The placement of the tooltip on hover and focus of the Icon Button.
           * @default "top"
@@ -3750,7 +3750,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when user activates "clear search result" button.
          */
-        "onDsoClear"?: (event: DsoMarkBarCustomEvent<IconButtonClickEvent>) => void;
+        "onDsoClear"?: (event: DsoMarkBarCustomEvent<MarkBarClearEvent>) => void;
         /**
           * Emitted each time the user types in the search field.
          */

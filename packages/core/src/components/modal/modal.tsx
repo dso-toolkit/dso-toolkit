@@ -135,8 +135,8 @@ export class Modal implements ComponentInterface {
                   id="close-modal"
                   icon="times"
                   variant="tertiary"
-                  accessibleLabel={this.text("close")}
-                  onDsoIconButtonClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+                  label={this.text("close")}
+                  onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
                 />
               )}
             </div>
