@@ -39,13 +39,9 @@
       & {
         border-radius: $radius-inner;
         font-size: typography.$root-font-size-base;
-        max-inline-size: tooltip-variables.$max-inline-size;
         font-weight: normal;
         padding-block: $padding-block-inner;
         padding-inline: $padding-inline-inner;
-      }
-
-      &.small {
         line-height: 1.5;
         max-inline-size: tooltip-variables.$max-inline-size-small;
       }

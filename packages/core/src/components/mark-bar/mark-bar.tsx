@@ -3,7 +3,12 @@ import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } f
 import { DsoIconButtonCustomEvent } from "../../components";
 import { IconButtonClickEvent } from "../icon-button/icon-button.interfaces";
 
-import { MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./mark-bar.interfaces";
+import {
+  MarkBarClearEvent,
+  MarkBarFocusOptions,
+  MarkBarInputEvent,
+  MarkBarPaginationEvent,
+} from "./mark-bar.interfaces";
 
 @Component({
   tag: "dso-mark-bar",
@@ -69,7 +74,7 @@ export class MarkBar implements ComponentInterface {
    * Emitted when user activates "clear search result" button.
    */
   @Event({ bubbles: false })
-  dsoClear!: EventEmitter<IconButtonClickEvent>;
+  dsoClear!: EventEmitter<MarkBarClearEvent>;
 
   private inputElement?: HTMLInputElement;
 
@@ -125,10 +130,8 @@ export class MarkBar implements ComponentInterface {
           <dso-icon-button
             icon="times"
             variant="tertiary"
-            accessibleLabel="Zoekopdracht legen"
-            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
-              this.handleClear(e.detail.originalEvent)
-            }
+            label="Zoekopdracht legen"
+            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) => this.handleClear(e.detail.originalEvent)}
           />
         </div>
         <div class="dso-button-container">
@@ -136,8 +139,8 @@ export class MarkBar implements ComponentInterface {
           <dso-icon-button
             icon="chevron-up"
             variant="tertiary"
-            accessibleLabel="Vorig zoekresultaat"
-            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
+            label="Vorig zoekresultaat"
+            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
               this.handlePrevious(e.detail.originalEvent)
             }
             disabled={current <= 1}
@@ -148,10 +151,8 @@ export class MarkBar implements ComponentInterface {
           <dso-icon-button
             icon="chevron-down"
             variant="tertiary"
-            accessibleLabel="Volgend zoekresultaat"
-            onDsoIconButtonClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
-              this.handleNext(e.detail.originalEvent)
-            }
+            label="Volgend zoekresultaat"
+            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) => this.handleNext(e.detail.originalEvent)}
             disabled={current >= totalCount}
           />
         </div>

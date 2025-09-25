@@ -22,7 +22,7 @@
   & {
     // run contrast-color function to determine WCAG-compliant text color
     $contrast-color: contrast-color.apply($background-color);
-    $contrast-icon-color: #{contrast-color.apply($background-color, $icon: true)};
+    $contrast-icon-color: contrast-color.apply($background-color, $icon: true);
 
     // set link and icon color according to text color
     @if color.channel($background-color, "lightness", $space: hsl) < 100% {
@@ -33,14 +33,14 @@
       }
 
       @if $contrast-color == colors.$contrast-dark {
-        --dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
-        --dso-icon-contrast-tertiary-hover-color: #{colors.$grijs-70};
-        --dso-icon-contrast-tertiary-active-color: #{colors.$bosgroen-140};
-        --dso-icon-contrast-tertiary-disabled-color: #{colors.$grijs-40};
+        --_dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
+        --_dso-icon-button-contrast-tertiary-hover-color: #{colors.$grijs-70};
+        --_dso-icon-button-contrast-tertiary-active-color: #{colors.$bosgroen-140};
+        --_dso-icon-button-contrast-tertiary-disabled-color: #{colors.$grijs-40};
       } @else if $contrast-color == colors.$contrast-light {
-        --dso-icon-button-contrast-tertiary-color: #{colors.$wit};
+        --_dso-icon-button-contrast-tertiary-color: #{colors.$wit};
       } @else {
-        --dso-icon-button-contrast-tertiary-color: #{$contrast-icon-color};
+        --_dso-icon-button-contrast-tertiary-color: #{$contrast-icon-color};
       }
 
       // set according to contrast color determined by contrast-color function

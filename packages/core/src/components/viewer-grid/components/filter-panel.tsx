@@ -13,8 +13,8 @@ export const FilterPanel: FunctionalComponent<ViewerGridFilterPanelProps> = ({ t
       class="dso-close"
       icon="times"
       variant="tertiary"
-      accessibleLabel="Sluiten"
-      onDsoIconButtonClick={dsoCloseFilterPanel}
+      label="Sluiten"
+      onDsoClick={dsoCloseFilterPanel}
     />
     <slot name="filter-panel" />
   </dialog>

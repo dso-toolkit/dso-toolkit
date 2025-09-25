@@ -34,13 +34,7 @@ const Dimmer: FunctionalComponent<{
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
-        <dso-icon-button
-          icon="times"
-          variant="map"
-          class="close"
-          accessibleLabel="Sluiten"
-          onDsoIconButtonClick={click}
-        />
+        <dso-icon-button icon="times" variant="map" class="close" label="Sluiten" onDsoClick={click} />
         {children[1]}
       </div>
     </div>
@@ -167,9 +161,9 @@ export class ImageOverlay implements ComponentInterface {
         icon="external-link"
         class="open"
         variant="map"
-        accessibleLabel="Afbeelding vergroot weergeven"
+        label="Afbeelding vergroot weergeven"
         ref={(element) => (this.iconButtonElement = element)}
-        onDsoIconButtonClick={() => (this.active = true)}
+        onDsoClick={() => (this.active = true)}
       />
     );
 

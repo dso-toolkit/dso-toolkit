@@ -1,4 +1,4 @@
-import { Placement } from "@floating-ui/dom";
+import { TooltipPlacement } from "@dso-toolkit/core/src";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
@@ -10,8 +10,8 @@ import { IconButtonVariant } from "./icon-button.models";
 export interface IconButtonArgs {
   variant: IconButtonVariant;
   icon: string;
-  accessibleLabel: string;
-  tooltipPlacement?: Placement;
+  label: string;
+  tooltipPlacement?: TooltipPlacement;
   dsoIconButtonClick?: HandlerFunction;
   disabled: boolean;
 }
@@ -19,7 +19,7 @@ export interface IconButtonArgs {
 export const iconButtonArgs: IconButtonArgs = {
   variant: "secondary",
   icon: "bars",
-  accessibleLabel: "Navigation",
+  label: "Navigation",
   tooltipPlacement: "top",
   dsoIconButtonClick: fn(),
   disabled: false,
@@ -45,7 +45,7 @@ export function iconButtonArgTypes(icons: string[]): ArgTypes<IconButtonArgs> {
         type: "select",
       },
     },
-    accessibleLabel: {
+    label: {
       control: {
         type: "text",
       },
