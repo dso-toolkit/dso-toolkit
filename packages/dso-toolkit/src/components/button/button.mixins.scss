@@ -59,6 +59,10 @@
     @include small();
   }
 
+  &.dso-extra-small {
+    @include extra-small();
+  }
+
   dso-icon:has(+ span:not(.sr-only)),
   svg.di:has(+ span:not(.sr-only)) {
     margin-inline-start: units.$u1 * -1;
@@ -142,6 +146,14 @@
       block-size: units.$u2;
       inline-size: units.$u2;
     }
+  }
+}
+
+@mixin extra-small() {
+  @include small();
+
+  & {
+    padding-block: 9px;
   }
 }
 
