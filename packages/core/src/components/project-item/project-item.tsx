@@ -14,7 +14,7 @@ export class ProjectItem implements ComponentInterface {
 
   render() {
     return (
-      <>
+      <Fragment>
         <div class="project-item-header">
           <div class="project-item-title">
             <slot name="title" />
@@ -36,7 +36,7 @@ export class ProjectItem implements ComponentInterface {
             <slot name="status" />
           </div>
         </div>
-      </>
+      </Fragment>
     );
   }
 }
