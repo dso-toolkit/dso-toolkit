@@ -1,8 +1,5 @@
 import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
-import { DsoIconButtonCustomEvent } from "../../components";
-import { IconButtonClickEvent } from "../icon-button/icon-button.interfaces";
-
 import {
   MarkBarClearEvent,
   MarkBarFocusOptions,
@@ -131,7 +128,7 @@ export class MarkBar implements ComponentInterface {
             icon="times"
             variant="tertiary"
             label="Zoekopdracht legen"
-            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) => this.handleClear(e.detail.originalEvent)}
+            onDsoClick={(e) => this.handleClear(e.detail.originalEvent)}
           />
         </div>
         <div class="dso-button-container">
@@ -140,9 +137,7 @@ export class MarkBar implements ComponentInterface {
             icon="chevron-up"
             variant="tertiary"
             label="Vorig zoekresultaat"
-            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
-              this.handlePrevious(e.detail.originalEvent)
-            }
+            onDsoClick={(e) => this.handlePrevious(e.detail.originalEvent)}
             disabled={current <= 1}
           />
           <span>
@@ -152,7 +147,7 @@ export class MarkBar implements ComponentInterface {
             icon="chevron-down"
             variant="tertiary"
             label="Volgend zoekresultaat"
-            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) => this.handleNext(e.detail.originalEvent)}
+            onDsoClick={(e) => this.handleNext(e.detail.originalEvent)}
             disabled={current >= totalCount}
           />
         </div>

@@ -50,7 +50,7 @@ export class Panel implements ComponentInterface {
           <dso-icon-button
             icon="times"
             variant="tertiary"
-            onDsoClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}
+            onDsoClick={(e) => this.dsoCloseClick.emit({ originalEvent: e.detail.originalEvent })}
             label={this.closeButtonLabel || this.text("close")}
           />
         </div>

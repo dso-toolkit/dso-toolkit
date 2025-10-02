@@ -1,7 +1,5 @@
 import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 
-import { DsoIconButtonCustomEvent, IconButtonClickEvent } from "../../components";
-
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
 @Component({
@@ -61,9 +59,7 @@ export class InfoButton {
           <dso-icon-button
             variant="tertiary"
             label={this.label}
-            onDsoClick={(e: DsoIconButtonCustomEvent<IconButtonClickEvent>) =>
-              this.handleToggle(e.detail.originalEvent)
-            }
+            onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
             icon={this.active || this.hover ? "info-active" : "info"}
             ref={(element) => (this.button = element)}
           />
