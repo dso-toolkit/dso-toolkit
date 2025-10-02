@@ -18,7 +18,7 @@ describe("Panel", () => {
         $panel.on("dsoCloseClick", cy.stub().as("dsoCloseClickListener"));
       })
       .shadow()
-      .find(".panel-close")
+      .find("dso-icon-button")
       .click()
       .get("@dsoCloseClickListener")
       .should("have.been.calledOnce");

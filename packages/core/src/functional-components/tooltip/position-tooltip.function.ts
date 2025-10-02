@@ -54,7 +54,7 @@ export function positionTooltip(options: TooltipOptions) {
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {
       if (middlewareData.hide) {
-        // Tooltip needs to be visible at all times on small viewports or when alwaysVisibleWhenReferenceOverlapped is true
+        // Tooltip needs to be visible at all times on small viewports or when forceVisible is true
         const disappear = !smallViewport && !forceVisible && middlewareData.hide.referenceHidden;
 
         Object.assign(tipRef.style, {

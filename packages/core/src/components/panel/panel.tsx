@@ -48,7 +48,6 @@ export class Panel implements ComponentInterface {
         <div class="panel-heading">
           <slot name="heading" />
           <dso-icon-button
-            class="panel-close"
             icon="times"
             variant="tertiary"
             onDsoClick={(e) => this.dsoCloseClick.emit({ originalEvent: e })}

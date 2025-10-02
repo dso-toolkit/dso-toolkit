@@ -20,6 +20,10 @@
   &.legend-item-symbol + .options {
     margin-block-start: units.$u1;
   }
+
+  dso-icon-button.active {
+    --_dso-icon-button-tertiary-color: #{colors.$bosgroen-140};
+  }
 }
 
 .legend-item-right-content {

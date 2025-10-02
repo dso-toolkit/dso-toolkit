@@ -31,27 +31,18 @@
   @return re-gamma(0.2126 * $rlin + 0.7152 * $glin + 0.0722 * $blin) * 100;
 }
 
-// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
-@function apply($color, $dark: colors.$contrast-dark, $light: colors.$contrast-light, $icon: false) {
-  @if not $color {
-    @return null;
+@function apply($color, $dark: colors.$contrast-dark, $light: colors.$contrast-light) {
+  @if $color {
+    $color-brightness: brightness($color);
+    $light-text-brightness: brightness($light);
+    $dark-text-brightness: brightness($dark);
+
+    @return if(
+      math.abs($color-brightness - $light-text-brightness) > math.abs($color-brightness - $dark-text-brightness),
+      $light,
+      $dark
+    );
   }
 
-  // standaard contrastkleur
-  $color-brightness: brightness($color);
-  $light-text-brightness: brightness($light);
-  $dark-text-brightness: brightness($dark);
-
-  // Determines which color ($light or $dark) provides the highest contrast against a given background color.
-  $contrast-color: if(
-    math.abs($color-brightness - $light-text-brightness) > math.abs($color-brightness - $dark-text-brightness),
-    $light,
-    $dark
-  );
-
-  @if $icon == true and $color == colors.$wit {
-    @return colors.$grasgroen;
-  }
-
-  @return $contrast-color;
+  @return null;
 }

@@ -96,11 +96,10 @@ button {
     transition: inset-inline-start core-viewer-grid-variables.$transition-time ease-in;
     padding-block: 0 units.$u1;
     padding-inline: 0 units.$u1 * 0.5;
+  }
 
-    button {
-      border-end-end-radius: 4px;
-      border-start-end-radius: 4px;
-    }
+  .toggle-button {
+    --_dso-icon-button-map-border-radius: 0 4px 4px 0;
   }
 }
 
@@ -138,32 +137,6 @@ button {
   inset-block-start: core-viewer-grid-variables.$sizing-buttons-block-start;
   inline-size: core-viewer-grid-variables.$resize-button-size + units.$u1 * 0.5;
   z-index: zindex.$viewer-grid-sizing-buttons;
-
-  button {
-    @include button.secondary($modifiers: false);
-
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      border: 0;
-      padding: 8px;
-      border-radius: 0;
-      box-shadow: 0 1px units.$u1 * 0.5 0 rgba(0, 0, 0, 0.4);
-      flex: 0 0 100%;
-      block-size: core-viewer-grid-variables.$resize-button-size;
-      min-inline-size: auto;
-      inline-size: core-viewer-grid-variables.$resize-button-size;
-    }
-
-    &:hover {
-      dso-icon {
-        color: colors.$wit;
-      }
-    }
-
-    &:focus-visible {
-      outline-offset: -1px;
-    }
-  }
 }
 
 .map {
@@ -218,7 +191,7 @@ button {
   }
 
   .dso-close {
-    --_dso-icon-button-contrast-tertiary-color: #{colors.$grijs-90};
+    --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
 
     position: absolute;
     inset-block-start: 20px;

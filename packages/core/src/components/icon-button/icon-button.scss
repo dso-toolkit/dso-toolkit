@@ -32,7 +32,7 @@
     padding-inline: 0;
     padding-block: 0;
 
-    color: var(--_dso-icon-button-contrast-tertiary-color, button.$tertiary-color);
+    color: var(--_dso-icon-button-tertiary-color, button.$tertiary-color);
     background-color: transparent;
     border: 0;
   }
@@ -40,23 +40,23 @@
   &:not([disabled]) {
     &:hover {
       color: var(
-        --_dso-icon-button-contrast-tertiary-hover-color,
-        var(--_dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+        --_dso-icon-button-tertiary-hover-color,
+        var(--_dso-icon-button-tertiary-color, button.$tertiary-hover-color)
       );
     }
 
     &:active {
       color: var(
-        --_dso-icon-button-contrast-tertiary-active-color,
-        var(--_dso-icon-button-contrast-tertiary-color, button.$tertiary-hover-color)
+        --_dso-icon-button-tertiary-active-color,
+        var(--_dso-icon-button-tertiary-color, button.$tertiary-hover-color)
       );
     }
   }
 
   &[disabled] {
     color: var(
-      --_dso-icon-button-contrast-tertiary-disabled-color,
-      var(--_dso-icon-button-contrast-tertiary-color, button.$tertiary-disabled-color)
+      --_dso-icon-button-tertiary-disabled-color,
+      var(--_dso-icon-button-tertiary-color, button.$tertiary-disabled-color)
     );
   }
 }

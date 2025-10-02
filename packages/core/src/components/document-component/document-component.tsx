@@ -338,10 +338,7 @@ export class DocumentComponent implements ComponentInterface {
                   {this.annotated && this.mode === "document" && (
                     <dso-icon-button
                       label={`Kenmerken en kaartgegevens ${this.openAnnotation ? "verbergen" : "tonen"}`}
-                      aria-controls={this.openAnnotation ? "annotations" : undefined}
-                      aria-expanded={this.openAnnotation.toString()}
                       icon="label"
-                      role="button"
                       variant="tertiary"
                       onDsoClick={(e) => this.dsoAnnotationToggle.emit({ originalEvent: e.detail.originalEvent })}
                     />

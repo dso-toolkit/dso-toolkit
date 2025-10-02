@@ -287,7 +287,7 @@ export class ViewerGrid {
 
   render() {
     return (
-      <>
+      <Fragment>
         <slot name="top-bar" />
         <div class="viewer-grid-columns">
           {this.tabView && (
@@ -340,7 +340,7 @@ export class ViewerGrid {
             dsoCloseOverlay={(e) => this.dsoCloseOverlay.emit({ originalEvent: e })}
           ></Overlay>
         </div>
-      </>
+      </Fragment>
     );
   }
 }

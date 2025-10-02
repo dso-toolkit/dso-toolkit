@@ -93,6 +93,7 @@ export class IconButton implements ComponentInterface {
           placementTip: this.tooltipPlacement,
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
+          forceVisible: true,
         });
       }
     }, this.tooltipShowDelay);
