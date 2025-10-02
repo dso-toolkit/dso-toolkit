@@ -54,7 +54,7 @@ describe("Survey Rating", () => {
       .shadow()
       .find("dso-panel")
       .shadow()
-      .find("dso-icon-button.panel-close")
+      .find("dso-icon-button")
       .click()
       .get("@dsoCloseListener");
   });

@@ -68,7 +68,7 @@ describe("Viewer Grid", () => {
       .get("dso-viewer-grid.hydrated")
       .invoke("attr", "main-panel-expanded", "")
       .get("@viewerGrid")
-      .find(".dso-main-panel .toggle-button > button")
+      .find(".dso-main-panel .toggle-button > dso-icon-button")
       .should("exist")
       .click()
       .get("@dsoMainPanelToggle")

@@ -21,19 +21,19 @@ describe("Icon Button", () => {
     });
   });
 
-  it("should set the accessible label", () => {
+  it("should set the label", () => {
     cy.get("dso-icon-button.hydrated")
-      .invoke("attr", "accessible-label", "Hamburger menu")
+      .invoke("attr", "label", "Hamburger menu")
       .shadow()
       .find(".dso-tooltip .tooltip-inner")
       .should("have.text", "Hamburger menu");
   });
 
   const placements: Record<TooltipPlacement, [number, number]> = {
-    top: [275, 454],
+    top: [275, 453],
     right: [318, 531],
-    bottom: [361, 454],
-    left: [318, 377],
+    bottom: [361, 453],
+    left: [318, 376],
   };
 
   Object.entries(placements).forEach(([placement, [expectedTop, expectedLeft]]) => {
