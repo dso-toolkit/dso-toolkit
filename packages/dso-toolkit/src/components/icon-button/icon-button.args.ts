@@ -1,17 +1,16 @@
-import { TooltipPlacement } from "@dso-toolkit/core/src";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
-import { IconButtonVariant } from "./icon-button.models";
+import { IconButtonTooltipPlacement, IconButtonVariant } from "./icon-button.models";
 
 export interface IconButtonArgs {
   variant: IconButtonVariant;
   icon: string;
   label: string;
-  tooltipPlacement?: TooltipPlacement;
+  tooltipPlacement?: IconButtonTooltipPlacement;
   dsoClick?: HandlerFunction;
   disabled: boolean;
 }
