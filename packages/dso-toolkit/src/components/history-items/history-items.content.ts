@@ -1,4 +1,4 @@
-import { HistoryItemListPattern, ListPattern } from "./history-items.args";
+import { HistoryItemListPattern } from "./history-items.args";
 import { HistoryItem } from "./history-items.models";
 
 export function historyItems(type: HistoryItemListPattern): HistoryItem[] {
