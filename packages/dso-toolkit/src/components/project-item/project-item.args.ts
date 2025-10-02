@@ -82,23 +82,15 @@ export function projectItemArgsMapper(a: ProjectItemArgs): ProjectItem<string> {
     actions: [
       {
         label: "Bewerk",
-        type: "button",
         variant: "tertiary",
-        icon: {
-          icon: "pencil",
-        },
-        iconMode: "only",
-        onClick: a.dsoEdit,
+        icon: "pencil",
+        dsoClick: a.dsoEdit,
       },
       {
         label: "Verwijder",
-        type: "button",
         variant: "tertiary",
-        icon: {
-          icon: "trash",
-        },
-        iconMode: "only",
-        onClick: a.dsoRemove,
+        icon: "trash",
+        dsoClick: a.dsoRemove,
       },
     ],
   };

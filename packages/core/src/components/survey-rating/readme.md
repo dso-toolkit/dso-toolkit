@@ -23,7 +23,8 @@
 ```mermaid
 graph TD;
   dso-survey-rating --> dso-panel
-  dso-panel --> dso-icon
+  dso-panel --> dso-icon-button
+  dso-icon-button --> dso-icon
   style dso-survey-rating fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

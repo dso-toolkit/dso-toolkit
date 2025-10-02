@@ -1,3 +1,5 @@
+@use "../../variables/units";
+
 @use "../info";
 
 @use "../../di";
@@ -8,6 +10,13 @@
   @include info.children();
 
   > button {
+    background-color: transparent;
+    border-style: none;
+    padding: 0;
+    position: absolute;
+    inset-inline-end: units.$u1;
+    inset-block-start: units.$u1;
+
     &::before {
       @include di.base("times-zwart");
 

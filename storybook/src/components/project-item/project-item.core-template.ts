@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreProjectItem: ComponentImplementation<ProjectItem<TemplateResult>> = {
   component: "projectItem",
   implementation: "core",
-  template: ({ linkTemplate, buttonTemplate, headingTemplate, definitionListTemplate }) =>
+  template: ({ linkTemplate, iconButtonTemplate, headingTemplate, definitionListTemplate }) =>
     function projectItemTemplate({ href, title, headingLevel, label, actions, progress, status }) {
       return html`<dso-project-item label=${label}>
         ${headingTemplate({
@@ -14,7 +14,7 @@ export const coreProjectItem: ComponentImplementation<ProjectItem<TemplateResult
           children: linkTemplate({ label: title, url: href }),
           slotName: "title",
         })}
-        ${actions?.length ? html`<div slot="actions">${actions.map((a) => buttonTemplate(a))}</div>` : nothing}
+        ${actions?.length ? html`<div slot="actions">${actions.map((a) => iconButtonTemplate(a))}</div>` : nothing}
         ${progress ? definitionListTemplate({ ...progress, modifier: "dso-grouped", slotName: "progress" }) : nothing}
         ${definitionListTemplate({ ...status, modifier: "dso-grouped", slotName: "status" })}
       </dso-project-item>`;

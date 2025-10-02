@@ -1,4 +1,5 @@
 @use "../alert";
+@use "../button";
 @use "../../di";
 @use "../../variables/units";
 
@@ -8,6 +9,24 @@
   @include alert.children();
 
   .dso-close {
+    @include button.element();
+
+    $inset-unit: calc(units.$u1 / 2);
+
+    position: absolute;
+    inset-block-start: $inset-unit;
+    inset-inline-end: $inset-unit;
+
+    block-size: units.$u4;
+    inline-size: units.$u4;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    text-align: center;
+
     &::before {
       @include di.base("times-zwart");
 

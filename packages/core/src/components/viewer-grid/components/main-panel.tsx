@@ -37,10 +37,12 @@ export const MainPanel: FunctionalComponent<ViewerGridMainPanelProps> = ({
   >
     {!tabView && documentPanelOpen && (
       <div class="toggle-button">
-        <button type="button" onClick={toggleMainPanel}>
-          <span class="sr-only">Zoeken paneel {mainPanelHidden ? "tonen" : "verbergen"}</span>
-          <dso-icon icon={mainPanelHidden ? "chevron-right" : "chevron-left"}></dso-icon>
-        </button>
+        <dso-icon-button
+          variant="map"
+          label={`Zoeken paneel ${mainPanelHidden ? "tonen" : "verbergen"}`}
+          icon={mainPanelHidden ? "chevron-right" : "chevron-left"}
+          onDsoClick={toggleMainPanel}
+        ></dso-icon-button>
       </div>
     )}
     <div class={clsx("content", { invisible: mainPanelHidden })}>

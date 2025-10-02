@@ -1,6 +1,8 @@
 @use "../label";
 @use "label.variables" as label-variables;
 @use "../../global/mixins/symbol.mixins" as symbol-mixins;
+@use "../../variables/units";
+@use "../../variables/typography";
 
 // HTML/CSS
 .dso-label {
@@ -15,6 +17,31 @@
 
     > span {
       @include symbol-mixins.symbol();
+    }
+  }
+
+  button {
+    line-height: 0;
+    background: none;
+    border: 0;
+    border-radius: 0 #{units.$u1 * 0.5} #{units.$u1 * 0.5} 0;
+    color: inherit;
+    float: inline-end;
+
+    font-size: typography.$root-font-size-base;
+    margin-block-end: units.$u1 * -0.5;
+    margin-inline-start: units.$u1;
+    margin-inline-end: units.$u1 * -0.5;
+    margin-block-start: 0;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    > dso-icon,
+    > svg.di {
+      display: block;
     }
   }
 }

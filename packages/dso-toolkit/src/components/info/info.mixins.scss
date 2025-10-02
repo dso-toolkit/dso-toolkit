@@ -9,15 +9,6 @@
   position: relative;
 
   @include set-colors.apply(colors.$grijs-5);
-
-  > button {
-    background-color: transparent;
-    border-style: none;
-    padding: 0;
-    position: absolute;
-    inset-inline-end: units.$u1;
-    inset-block-start: units.$u1;
-  }
 }
 
 @mixin richContent() {

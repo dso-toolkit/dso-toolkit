@@ -1,5 +1,4 @@
 import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
-import clsx from "clsx";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
@@ -9,7 +8,8 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
   styleUrl: "info-button.scss",
 })
 export class InfoButton {
-  private button?: HTMLButtonElement;
+  private button?: HTMLDsoIconButtonElement;
+  private buttonSecondary?: HTMLButtonElement;
 
   /**
    * Whether the InfoButton is active.
@@ -43,27 +43,39 @@ export class InfoButton {
    */
   @Method()
   async setFocus() {
-    this.button?.focus();
+    this.button?.setFocus();
+    this.buttonSecondary?.focus();
   }
 
-  private handleToggle(e: MouseEvent) {
+  private handleToggle(originalEvent: MouseEvent) {
     this.active = !this.active;
-    this.dsoToggle.emit({ originalEvent: e, active: this.active });
+    this.dsoToggle.emit({ originalEvent, active: this.active });
   }
 
   render() {
     return (
       <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
-        <button
-          type="button"
-          class={clsx({ "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })}
-          aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
-          onClick={(e) => this.handleToggle(e)}
-          ref={(element) => (this.button = element)}
-        >
-          <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
-          <span class="sr-only">{this.label}</span>
-        </button>
+        {!this.secondary ? (
+          <dso-icon-button
+            variant="tertiary"
+            label={this.label}
+            onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
+            icon={this.active || this.hover ? "info-active" : "info"}
+            ref={(element) => (this.button = element)}
+          />
+        ) : (
+          // ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
+          <button
+            type="button"
+            class="dso-info-secondary"
+            aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
+            onClick={(e) => this.handleToggle(e)}
+            ref={(element) => (this.buttonSecondary = element)}
+          >
+            <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
+            <span class="sr-only">{this.label}</span>
+          </button>
+        )}
       </Host>
     );
   }

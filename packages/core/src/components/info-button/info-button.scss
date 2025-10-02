@@ -1,4 +1,5 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/info-button";
 
 :host {
@@ -11,13 +12,15 @@
   @include utilities.sr-only();
 }
 
+// ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
 button {
   @include info-button.root();
 
-  cursor: pointer;
   vertical-align: top;
+  line-height: 1;
 }
 
-dso-icon {
-  display: block;
+dso-icon-button {
+  margin-inline-start: var(--_dt-info-button-margin-inline-start, units.$u1);
+  vertical-align: top;
 }

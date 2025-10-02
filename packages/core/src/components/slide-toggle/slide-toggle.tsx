@@ -65,7 +65,7 @@ export class SlideToggle implements ComponentInterface {
 
   render() {
     return (
-      <>
+      <Fragment>
         <button
           id={this.identifier}
           role="switch"
@@ -88,7 +88,7 @@ export class SlideToggle implements ComponentInterface {
             <slot />
           </label>
         )}
-      </>
+      </Fragment>
     );
   }
 }

@@ -36,8 +36,9 @@ graph TD;
   dso-advanced-select --> dso-badge
   dso-advanced-select --> dso-icon
   dso-advanced-select --> dso-label
-  dso-label --> dso-icon
+  dso-label --> dso-icon-button
   dso-label --> dso-tooltip
+  dso-icon-button --> dso-icon
   style dso-advanced-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

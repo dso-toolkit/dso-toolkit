@@ -10,10 +10,7 @@ interface SizingButtonProp {
 }
 
 const SizingButton: FunctionalComponent<SizingButtonProp> = ({ className, onClick, label, icon }) => (
-  <button type="button" class={className} onClick={onClick}>
-    <span class="sr-only">{label}</span>
-    <dso-icon icon={icon}></dso-icon>
-  </button>
+  <dso-icon-button variant="map" class={className} onDsoClick={onClick} icon={icon} label={label} />
 );
 
 interface SizingButtonProps {

@@ -1,6 +1,6 @@
 import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
-# Button
+# Buttons
 
 Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in een enkele klik. Buttons communiceren acties die gebruikers kunnen nemen. Ze moeten makkelijk te identificeren en makkelijk te vinden zijn. Tegelijkertijd moet een button duidelijk de actie aantonen die de gebruiker moet volbrengen. Gebruik vorm en kleur om een button visueel als button herkenbaar te maken voor de gebruiker.
 
@@ -13,7 +13,7 @@ Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in
 
 ## Primaire buttons
 
-<StorybookComponent implementations={["html-css"]} variant="primary" />
+<StorybookComponent implementations={["html-css"]} variant="primary" name="button" />
 
 De primaire actie is die button waarmee de gebruiker de taak volbrengt.
 
@@ -31,21 +31,36 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 
 #### Disabled
 
-<StorybookComponent implementations={["html-css"]} variant="primary" args={{ disabled: true, label: "Disabled" }} />
+<StorybookComponent
+  implementations={["html-css"]}
+  variant="primary"
+  args={{ disabled: true, label: "Disabled" }}
+  name="button"
+/>
 
 #### Link
 
-<StorybookComponent implementations={["html-css"]} variant="primary" args={{ label: "Link", element: "anchor" }} />
+<StorybookComponent
+  implementations={["html-css"]}
+  variant="primary"
+  args={{ label: "Link", element: "anchor" }}
+  name="button"
+/>
 
 #### Small
 
-<StorybookComponent implementations={["html-css"]} variant="primary" args={{ label: "Small", compact: true }} />
+<StorybookComponent
+  implementations={["html-css"]}
+  variant="primary"
+  args={{ label: "Small", compact: true }}
+  name="button"
+/>
 
 ✨ Zie voor meer voorbeelden en het gebruik van de primaire button de [button-row](button-row) pagina.
 
 ## Secundaire buttons
 
-<StorybookComponent implementations={["html-css"]} variant="secondary" />
+<StorybookComponent implementations={["html-css"]} variant="secondary" name="button" />
 
 - Tekst grasgroen, Asap semibold 16
 - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
@@ -55,7 +70,7 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 
 ## Tertiaire buttons
 
-<StorybookComponent implementations={["html-css"]} variant="tertiary" />
+<StorybookComponent implementations={["html-css"]} variant="tertiary" name="button" />
 
 Tertiaire buttons worden gebruikt voor overige diverse acties: de actie is belangrijk maar hoeft niet datgene te zijn waarnaar de gebruiker op dat moment op zoek is.
 
@@ -74,7 +89,7 @@ Gelet op [WCAG succescriterium 1.4.4](https://www.w3.org/WAI/WCAG21/Understandin
 
 ## Hoe te gebruiken: Kleine buttons
 
-<StorybookComponent implementations={["html-css"]} variant="primary" args={{ compact: true }} />
+<StorybookComponent implementations={["html-css"]} variant="primary" args={{ compact: true }} name="button" />
 
 Door de toevoeging van de class `.dso-small` worden buttons kleiner getoond.
 
@@ -93,7 +108,7 @@ Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pi
 
 # Button Row
 
-<StorybookComponent implementations={["html-css"]} variant="default" />
+<StorybookComponent implementations={["html-css"]} variant="default" name="button-row" />
 
 Button rows geven de gebruiker de mogelijkheid om meerdere buttons achter elkaar te plaatsen. Dit kan dienen om bijvoorbeeld een 'toolbar' na te bootsen of om te laten zien welke opties er mogelijk zijn voor het desbetreffende onderdeel of sector op de pagina. Er gaan maximaal 6 buttons in een `button-row`. Anders wordt het te onoverzichtelijk en verliest het zijn functie.
 
@@ -101,24 +116,24 @@ De buttons die achter elkaar geplaatst worden dienen dezelfde `variant` te hebbe
 
 ## Emphasized
 
-<StorybookComponent implementations={["html-css"]} variant="emphasized" />
+<StorybookComponent implementations={["html-css"]} variant="emphasized" name="button-row" />
 
 Een variant van de button-row is de `emphasized` variant. Hierin worden `tertiaire` buttons geplaatst die zwart zijn en de row heeft een grijze achtergrond.
 
 ## Primaire buttons in een `button-row`
 
-<StorybookComponent implementations={["html-css"]} variant="primaire-button-varianten" />
+<StorybookComponent implementations={["html-css"]} variant="primaire-button-varianten" name="button-row" />
 
 Hierboven staan enkele voorbeelden van het gebruik van de primaire button en zijn varianten. Deze zijn hier in de `button-row` gepresenteerd zodat men ook het gebruik van de `row` ziet.
 
 ## Secundaire buttons in een `button-row`
 
-<StorybookComponent implementations={["html-css"]} variant="secundaire-button-varianten" />
+<StorybookComponent implementations={["html-css"]} variant="secundaire-button-varianten" name="button-row" />
 
 Hierboven staan enkele voorbeelden van het gebruik van de secundaire button.
 
 ## Tertiaire buttons in een `button-row`
 
-<StorybookComponent implementations={["html-css"]} variant="tertiare-button-varianten" />
+<StorybookComponent implementations={["html-css"]} variant="tertiaire-button-varianten" name="button-row" />
 
 Hierboven staan enkele voorbeelden van het gebruik van de tertiare button.

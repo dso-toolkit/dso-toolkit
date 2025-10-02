@@ -31,7 +31,6 @@
   @return re-gamma(0.2126 * $rlin + 0.7152 * $glin + 0.0722 * $blin) * 100;
 }
 
-// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
 @function apply($color, $dark: colors.$contrast-dark, $light: colors.$contrast-light) {
   @if $color {
     $color-brightness: brightness($color);

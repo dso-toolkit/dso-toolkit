@@ -25,6 +25,8 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -35,7 +37,7 @@ import { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
-import { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -70,6 +72,8 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
+export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
@@ -80,7 +84,7 @@ export { MapControlsToggleEvent } from "./components/map-controls/map-controls.i
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
-export { OnboardingTipCloseEvent, OnboardingTipPlacement } from "./components/onboarding-tip/onboarding-tip.interfaces";
+export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -783,6 +787,35 @@ export namespace Components {
          */
         "icon"?: string;
     }
+    interface DsoIconButton {
+        /**
+          * To disable the Icon Button
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string | undefined;
+        /**
+          * The label of the Icon Button which is shown on hover in a tooltip.
+         */
+        "label": string | undefined;
+        /**
+          * Focuses the button.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The placement of the tooltip on hover and focus of the Icon Button.
+          * @default "top"
+         */
+        "tooltipPlacement": TooltipPlacement;
+        /**
+          * The variant of the Icon Button.
+          * @default "secondary"
+         */
+        "variant"?: IconButtonVariant;
+    }
     interface DsoImageOverlay {
         /**
           * The wijzigactie.
@@ -1037,7 +1070,7 @@ export namespace Components {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement": OnboardingTipPlacement;
+        "placement": TooltipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -1487,6 +1520,10 @@ export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoHeaderElement;
+}
+export interface DsoIconButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoIconButtonElement;
 }
 export interface DsoInfoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1967,6 +2004,23 @@ declare global {
     var HTMLDsoIconElement: {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
+    };
+    interface HTMLDsoIconButtonElementEventMap {
+        "dsoClick": IconButtonClickEvent;
+    }
+    interface HTMLDsoIconButtonElement extends Components.DsoIconButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoIconButtonElementEventMap>(type: K, listener: (this: HTMLDsoIconButtonElement, ev: DsoIconButtonCustomEvent<HTMLDsoIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoIconButtonElementEventMap>(type: K, listener: (this: HTMLDsoIconButtonElement, ev: DsoIconButtonCustomEvent<HTMLDsoIconButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoIconButtonElement: {
+        prototype: HTMLDsoIconButtonElement;
+        new (): HTMLDsoIconButtonElement;
     };
     interface HTMLDsoImageOverlayElement extends Components.DsoImageOverlay, HTMLStencilElement {
     }
@@ -2545,6 +2599,7 @@ declare global {
         "dso-header": HTMLDsoHeaderElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-icon-button": HTMLDsoIconButtonElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
@@ -3398,6 +3453,35 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
     }
+    interface DsoIconButton {
+        /**
+          * To disable the Icon Button
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon": string | undefined;
+        /**
+          * The label of the Icon Button which is shown on hover in a tooltip.
+         */
+        "label": string | undefined;
+        /**
+          * Emitted when the user clicks the Icon Button.
+         */
+        "onDsoClick"?: (event: DsoIconButtonCustomEvent<IconButtonClickEvent>) => void;
+        /**
+          * The placement of the tooltip on hover and focus of the Icon Button.
+          * @default "top"
+         */
+        "tooltipPlacement"?: TooltipPlacement;
+        /**
+          * The variant of the Icon Button.
+          * @default "secondary"
+         */
+        "variant"?: IconButtonVariant;
+    }
     interface DsoImageOverlay {
         /**
           * The wijzigactie.
@@ -3726,7 +3810,7 @@ declare namespace LocalJSX {
           * Where to place the Onboarding Tip relative to its reference element.
           * @default "right"
          */
-        "placement"?: OnboardingTipPlacement;
+        "placement"?: TooltipPlacement;
     }
     interface DsoOzonContent {
         /**
@@ -4223,6 +4307,7 @@ declare namespace LocalJSX {
         "dso-header": DsoHeader;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-icon-button": DsoIconButton;
         "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
@@ -4296,6 +4381,7 @@ declare module "@stencil/core" {
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-icon-button": LocalJSX.DsoIconButton & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;

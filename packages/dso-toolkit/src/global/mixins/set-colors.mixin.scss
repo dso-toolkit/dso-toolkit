@@ -31,6 +31,15 @@
         --link-visited-color: currentColor;
       }
 
+      @if $contrast-color == colors.$contrast-dark {
+        --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
+        --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
+        --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
+        --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
+      } @else if $contrast-color == colors.$contrast-light {
+        --_dso-icon-button-tertiary-color: #{colors.$wit};
+      }
+
       // set according to contrast color determined by contrast-color function
       @if $contrast-color == colors.$contrast-dark {
         $icon-color: "zwart";

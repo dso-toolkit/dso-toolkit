@@ -18,7 +18,7 @@ describe("Panel", () => {
         $panel.on("dsoCloseClick", cy.stub().as("dsoCloseClickListener"));
       })
       .shadow()
-      .find(".panel-close")
+      .find("dso-icon-button")
       .click()
       .get("@dsoCloseClickListener")
       .should("have.been.calledOnce");
@@ -28,8 +28,9 @@ describe("Panel", () => {
     cy.get("dso-panel.hydrated")
       .invoke("prop", "closeButtonLabel", "Labeltest")
       .shadow()
-      .contains("button", "Labeltest")
-      .should("exist");
+      .find("dso-icon-button")
+      .shadow()
+      .find("button[aria-label='Labeltest']");
   });
 
   it("is emphasized", () => {

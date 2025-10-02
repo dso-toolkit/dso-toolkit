@@ -31,10 +31,12 @@ button {
 
 .dso-modal {
   @include modal.root();
-}
 
-.dso-close {
-  dso-icon {
-    color: modal.$close-icon-color;
+  .dso-header {
+    dso-icon-button {
+      position: absolute;
+      inset-block-start: 22px;
+      inset-inline-end: 17px;
+    }
   }
 }
