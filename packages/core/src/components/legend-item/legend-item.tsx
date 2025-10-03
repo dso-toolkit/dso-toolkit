@@ -111,7 +111,7 @@ export class LegendItem implements ComponentInterface {
             <slot />
           </div>
           {this.disabled && this.disabledMessage && (
-            <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
+            <dso-toggletip placement="bottom">{this.disabledMessage}</dso-toggletip>
           )}
 
           <div class="legend-item-right-content">

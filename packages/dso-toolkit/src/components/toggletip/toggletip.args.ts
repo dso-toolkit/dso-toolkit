@@ -1,26 +1,23 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { tooltipPositions } from "../tooltip/tooltip.models.js";
+import { BadgeStatus } from "../badge";
+import { tooltipPositions } from "../tooltip";
 
-import { Toggletip } from "./toggletip.models.js";
+import { Toggletip, ToggletipVariant } from "./toggletip.models.js";
 
 export interface ToggletipArgs {
-  position: "top" | "right" | "bottom" | "left";
-  small?: boolean;
+  variant?: ToggletipVariant;
   label?: string;
-  secondary?: boolean;
+  placement: "top" | "right" | "bottom" | "left";
+  status: BadgeStatus;
+  message: string;
 }
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
-  position: {
-    options: tooltipPositions,
+  variant: {
+    options: ["information", "badge"],
     control: {
       type: "select",
-    },
-  },
-  small: {
-    control: {
-      type: "boolean",
     },
   },
   label: {
@@ -28,10 +25,24 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
       type: "text",
     },
   },
-  secondary: {
+  placement: {
+    options: tooltipPositions,
     control: {
-      type: "boolean",
+      type: "select",
     },
+  },
+  status: {
+    options: [undefined, "attention", "error", "info", "outline", "primary", "success", "warning"],
+    control: {
+      type: "select",
+    },
+    if: { arg: "variant", eq: "badge" },
+  },
+  message: {
+    control: {
+      type: "text",
+    },
+    if: { arg: "variant", eq: "badge" },
   },
 };
 
@@ -41,9 +52,10 @@ export function toggletipArgsMapper<TemplateFnReturnType>(
 ): Toggletip<TemplateFnReturnType> {
   return {
     children,
-    position: a.position,
-    small: a.small,
+    variant: a.variant,
     label: a.label,
-    secondary: a.secondary,
+    placement: a.placement,
+    status: a.status,
+    message: a.message,
   };
 }
