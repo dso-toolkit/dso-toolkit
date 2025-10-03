@@ -9,14 +9,6 @@
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
-    --_dso-button-secondary-background-color: transparent;
-    --_dso-button-secondary-color: #{colors.$wit};
-    --_dso-button-secondary-border-color: #{colors.$wit};
-    --_dso-button-secondary-hover-background-color: #{colors.$wit};
-    --_dso-button-secondary-hover-color: #{colors.$mauve};
-    --_dso-button-secondary-hover-border-color: transparent;
-    --_dso-button-secondary-active-background-color: #{colors.$wit};
-    --_dso-button-secondary-active-border-color: #{colors.$mauve}; // ToDO kleur aanpassen na vaststellen design UX
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,17 +18,20 @@
     padding-inline: units.$u3;
   }
 
-  dso-icon,
-  button {
+  ::slotted([slot="button"]) {
     flex-shrink: 0;
+    --_dso-button-secondary-background-color: transparent;
+    --_dso-button-secondary-color: #{colors.$wit};
+    --_dso-button-secondary-border-color: #{colors.$wit};
+    --_dso-button-secondary-hover-background-color: #{colors.$wit};
+    --_dso-button-secondary-hover-color: #{colors.$mauve};
+    --_dso-button-secondary-hover-border-color: transparent;
+    --_dso-button-secondary-active-background-color: #{colors.$wit};
+    --_dso-button-secondary-active-border-color: #{colors.$mauve}; // ToDO kleur aanpassen na vaststellen design UX
   }
 
-  .dso-secondary {
-    @include button.secondary();
-
-    &:hover {
-      cursor: pointer;
-    }
+  dso-icon {
+    flex-shrink: 0;
   }
 }
 

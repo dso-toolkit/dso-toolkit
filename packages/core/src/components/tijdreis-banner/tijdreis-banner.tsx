@@ -11,10 +11,7 @@ export class TijdreisBanner implements ComponentInterface {
       <Fragment>
         <dso-icon icon="clock" />
         <slot></slot>
-        <button type="button" class="dso-secondary dso-extra-small">
-          <span>Terug naar vandaag</span>
-          <dso-icon icon="undo" />
-        </button>
+        <slot name="button"></slot>
       </Fragment>
     );
   }

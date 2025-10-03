@@ -1,1 +1,2 @@
-export * from "./tijdreis-banner.stories-of.js";
+export * from "./tijdreis-banner.stories-of";
+export * from "./tijdreis-banner.models";
