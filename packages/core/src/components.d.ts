@@ -25,7 +25,7 @@ import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 import { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-import { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
+import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -73,7 +73,7 @@ export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, Do
 export { OzonContentAnchorClickEvent, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-export { HistoryItemClickEvent, HistoryItemType } from "./components/history-items/components/history-item/history-item.interfaces";
+export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
@@ -792,12 +792,6 @@ export namespace Components {
           * The type of History Item
          */
         "type": HistoryItemType;
-    }
-    interface DsoHistoryItems {
-        /**
-          * The label of the list of History Items
-         */
-        "label": string | undefined;
     }
     interface DsoIcon {
         /**
@@ -2040,12 +2034,6 @@ declare global {
         prototype: HTMLDsoHistoryItemElement;
         new (): HTMLDsoHistoryItemElement;
     };
-    interface HTMLDsoHistoryItemsElement extends Components.DsoHistoryItems, HTMLStencilElement {
-    }
-    var HTMLDsoHistoryItemsElement: {
-        prototype: HTMLDsoHistoryItemsElement;
-        new (): HTMLDsoHistoryItemsElement;
-    };
     interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
     }
     var HTMLDsoIconElement: {
@@ -2652,7 +2640,6 @@ declare global {
         "dso-header": HTMLDsoHeaderElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-history-item": HTMLDsoHistoryItemElement;
-        "dso-history-items": HTMLDsoHistoryItemsElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-icon-button": HTMLDsoIconButtonElement;
         "dso-image-overlay": HTMLDsoImageOverlayElement;
@@ -3517,12 +3504,6 @@ declare namespace LocalJSX {
          */
         "type": HistoryItemType;
     }
-    interface DsoHistoryItems {
-        /**
-          * The label of the list of History Items
-         */
-        "label"?: string | undefined;
-    }
     interface DsoIcon {
         /**
           * The alias of the icon.
@@ -4385,7 +4366,6 @@ declare namespace LocalJSX {
         "dso-header": DsoHeader;
         "dso-highlight-box": DsoHighlightBox;
         "dso-history-item": DsoHistoryItem;
-        "dso-history-items": DsoHistoryItems;
         "dso-icon": DsoIcon;
         "dso-icon-button": DsoIconButton;
         "dso-image-overlay": DsoImageOverlay;
@@ -4462,7 +4442,6 @@ declare module "@stencil/core" {
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-history-item": LocalJSX.DsoHistoryItem & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
-            "dso-history-items": LocalJSX.DsoHistoryItems & JSXBase.HTMLAttributes<HTMLDsoHistoryItemsElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-icon-button": LocalJSX.DsoIconButton & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
             "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
