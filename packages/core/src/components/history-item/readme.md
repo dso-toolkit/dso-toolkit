@@ -35,7 +35,7 @@
 
 ### Depends on
 
-- [dso-icon](../../../icon)
+- [dso-icon](../icon)
 
 ### Graph
 ```mermaid

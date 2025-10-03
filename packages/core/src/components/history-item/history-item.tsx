@@ -11,7 +11,7 @@ import {
 } from "@stencil/core";
 import clsx from "clsx";
 
-import { isModifiedEvent } from "../../../../utils/is-modified-event";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { HistoryItemClickEvent, HistoryItemType } from "./history-item.interfaces";
 

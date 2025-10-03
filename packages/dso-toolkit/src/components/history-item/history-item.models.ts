@@ -1,8 +1,3 @@
-export interface HistoryItems {
-  label: string;
-  historyItems: HistoryItem[];
-}
-
 export type HistoryItemType = "in-werking" | "besluit" | "tijdelijk-regelingdeel" | "waarschuwing" | "ontwerp";
 
 export interface HistoryItem {
