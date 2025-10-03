@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Icon Button: Nieuw component ([#2315](https://github.com/dso-toolkit/dso-toolkit/issues/2315))
 
+### Changed
+* Focus State: Uniforme focus styling ([#3228](https://github.com/dso-toolkit/dso-toolkit/issues/3228))
+
 ## 🧚‍♀️ Release 79.0.1 - 2025-09-22
 
 ### Fixed

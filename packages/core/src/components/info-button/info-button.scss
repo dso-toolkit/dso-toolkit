@@ -4,9 +4,11 @@
 
 :host {
   display: inline-block;
+  outline: none;
 }
 
 @include utilities.box-sizing();
+@include utilities.focus();
 
 .sr-only {
   @include utilities.sr-only();
