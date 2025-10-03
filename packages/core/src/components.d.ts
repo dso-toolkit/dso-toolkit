@@ -49,6 +49,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+import { ToggletipVariant } from "./components/toggletip/toggletip.interfaces";
 import { Placement } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
@@ -97,6 +98,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
+export { ToggletipVariant } from "./components/toggletip/toggletip.interfaces";
 export { Placement } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
@@ -1326,23 +1328,28 @@ export namespace Components {
     }
     interface DsoToggletip {
         /**
-          * Toggletip label.
-          * @default "Toelichting"
+          * The label of the Toggletip which is shown on hover in a tooltip.
+          * @default "Toon toelichting"
          */
         "label": string;
         /**
-          * Toggletip position.
+          * The label of the Badge when the variant is "badge".
+         */
+        "message"?: string;
+        /**
+          * The placement of the Tooltip when the Toggletip is active.
           * @default "right"
          */
-        "position": Placement;
+        "placement": TooltipPlacement;
         /**
-          * Set to true for secondary Toggletip.
+          * The status of the Badge when variant is "badge".
          */
-        "secondary"?: boolean;
+        "status"?: BadgeStatus;
         /**
-          * Set to true for small Toggletip.
+          * The variant of the Toggletip: "information" or "badge".
+          * @default "information"
          */
-        "small"?: boolean;
+        "variant": ToggletipVariant;
     }
     interface DsoTooltip {
         /**
@@ -4160,23 +4167,28 @@ declare namespace LocalJSX {
     }
     interface DsoToggletip {
         /**
-          * Toggletip label.
-          * @default "Toelichting"
+          * The label of the Toggletip which is shown on hover in a tooltip.
+          * @default "Toon toelichting"
          */
         "label"?: string;
         /**
-          * Toggletip position.
+          * The label of the Badge when the variant is "badge".
+         */
+        "message"?: string;
+        /**
+          * The placement of the Tooltip when the Toggletip is active.
           * @default "right"
          */
-        "position"?: Placement;
+        "placement"?: TooltipPlacement;
         /**
-          * Set to true for secondary Toggletip.
+          * The status of the Badge when variant is "badge".
          */
-        "secondary"?: boolean;
+        "status"?: BadgeStatus;
         /**
-          * Set to true for small Toggletip.
+          * The variant of the Toggletip: "information" or "badge".
+          * @default "information"
          */
-        "small"?: boolean;
+        "variant"?: ToggletipVariant;
     }
     interface DsoTooltip {
         /**

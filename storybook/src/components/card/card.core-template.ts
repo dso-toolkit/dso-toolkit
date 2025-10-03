@@ -46,7 +46,9 @@ export const coreCard: ComponentImplementation<Card<never>> = {
                 ${interactions.map(
                   (interaction) => html`
                     <div class="dso-card-interaction">
-                      ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
+                      ${isButtonInterface(interaction) && !isToggletipInterface(interaction)
+                        ? buttonTemplate(interaction)
+                        : nothing}
                       ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                       ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
                       ${isSlideToggleInterface(interaction) ? slideToggleTemplate(interaction) : nothing}

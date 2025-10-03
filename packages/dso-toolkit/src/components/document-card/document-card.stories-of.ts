@@ -80,9 +80,7 @@ export function documentCardStories<Implementation, Templates, TemplateFnReturnT
         typeToelichting: {
           children: "Extra informatie",
           label: `Toon informatie over type`,
-          position: "right",
-          small: false,
-          secondary: false,
+          placement: "right",
         },
       },
       render: templateContainer.render(storyTemplates, (args, { documentCardTemplate, typeItems }) =>

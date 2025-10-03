@@ -37,7 +37,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
             <div slot="interactions">
               {interactions.map((interaction, index) => (
                 <div key={index} className="dso-card-interaction">
-                  {isButtonInterface(interaction) && (
+                  {isButtonInterface(interaction) && !isToggletipInterface(interaction) && (
                     <button
                       type={interaction.type}
                       id={interaction.id}

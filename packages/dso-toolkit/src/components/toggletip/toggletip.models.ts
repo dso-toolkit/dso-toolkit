@@ -1,11 +1,16 @@
+import { BadgeStatus } from "../badge";
+
+export type ToggletipVariant = "information" | "badge";
+
 export interface Toggletip<TemplateFnReturnType> {
   children: TemplateFnReturnType | string;
-  position?: "top" | "right" | "bottom" | "left";
-  small?: boolean;
+  variant?: ToggletipVariant;
   label?: string;
-  secondary?: boolean;
+  placement?: "top" | "right" | "bottom" | "left";
+  status?: BadgeStatus;
+  message?: string;
 }
 
 export function isToggletipInterface<TemplateFnReturnType>(object: unknown): object is Toggletip<TemplateFnReturnType> {
-  return "position" in (object as Toggletip<TemplateFnReturnType>);
+  return "placement" in (object as Toggletip<TemplateFnReturnType>);
 }

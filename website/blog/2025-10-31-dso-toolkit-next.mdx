@@ -1,0 +1,59 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit next 🍟
+
+Deze release bevat breaking changes voor het volgende component:
+
+- Toggletip
+
+<!-- truncate -->
+
+## Toggletip
+
+We hebben het component Toggletip flink onder handen genomen:
+
+- de properties `small` en `secondary` zijn verwijderd,
+- de property `position` is gewijzigd in `placement`,
+- de properties `variant`, `status` en `message` zijn toegevoegd.
+
+### Verwijderd
+
+❌
+
+```html
+<dso-toggletip secondary="true" small="true"></dso-toggletip>
+```
+
+### Gewijzigd
+
+De property `position` is vervangen door `placement`. Het is alleen nog mogelijk om de optie `top`, `right`, `bottom` en
+`left` te gebruiken voor `placement`.
+
+❌
+
+```html
+<dso-toggletip
+  position="auto|auto-start|auto-end|top|right|bottom|left|top-start|top-end|bottom-start|bottom-end|right-start|right-end|left-start|left-end"
+></dso-toggletip>
+```
+
+✅
+
+```html
+<dso-toggletip placement="top|right|bottom|left"></dso-toggletip>
+```
+
+### Toegevoegd
+
+Er zijn nu 2 varianten van Toggletip: `information` en `badge`.
+De default variant is `information`, dat gebruikt maakt van Info Button: dit is de bestaande functionaliteit van
+Toggletip. `badge` is een nieuwe variant, waarmee het toegankelijk tonen van extra toelichting op een Badge mogelijk is
+geworden. Bij `badge` moeten de properties `status` en `message` worden meegegeven.
+
+✅
+
+```html
+<dso-toggletip variant="badge" status="primary" message="5"></dso-toggletip>
+```

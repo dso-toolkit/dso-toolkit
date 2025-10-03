@@ -8,9 +8,9 @@ export const reactToggletip: ComponentImplementation<Toggletip<JSX.Element>> = {
   component: "toggletip",
   implementation: "react",
   template: () =>
-    function toggletipTemplate({ children, label, position, small }) {
+    function toggletipTemplate({ children, variant, label, placement, status, message }) {
       return (
-        <DsoToggletip label={label} position={position} small={small}>
+        <DsoToggletip variant={variant} label={label} placement={placement} status={status} message={message}>
           {children}
         </DsoToggletip>
       );
