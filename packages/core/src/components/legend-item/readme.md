@@ -47,7 +47,7 @@ graph TD;
   dso-legend-item --> dso-icon-button
   dso-legend-item --> dso-slide-toggle
   dso-toggletip --> dso-info-button
-  dso-toggletip --> dso-tooltip
+  dso-toggletip --> dso-badge
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
   dso-icon-button --> dso-icon

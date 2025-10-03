@@ -12,9 +12,11 @@ export const angularToggletip: ComponentImplementation<Toggletip<StoryFnAngularR
         props,
         template: `
           <dso-toggletip
+            [variant]="variant"
             [label]="label"
-            [position]="position"
-            [small]="small"
+            [placement]="position"
+            [badgeStatus]="badgeStatus"
+            [badgeMessage]="badgeMessage"
             [innerHTML]="children.template"
           ></dso-toggletip>
         `,
