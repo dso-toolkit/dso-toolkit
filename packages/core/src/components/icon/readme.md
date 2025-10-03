@@ -35,6 +35,7 @@
  - [dso-progress-indicator](../progress-indicator)
  - [dso-skiplink](../skiplink)
  - [dso-table](../table)
+ - [dso-toggletip](../toggletip)
  - [dso-tree-view](../tree-view)
 
 ### Graph
@@ -61,6 +62,7 @@ graph TD;
   dso-progress-indicator --> dso-icon
   dso-skiplink --> dso-icon
   dso-table --> dso-icon
+  dso-toggletip --> dso-icon
   dso-tree-view --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -9,7 +9,7 @@ import { defaultSymbol } from "../legend-item/legend-item.content";
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
   implementation: "core",
-  template: ({ richContentTemplate, legendItemTemplate, selectableTemplate }) =>
+  template: ({ richContentTemplate, legendItemTemplate }) =>
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
@@ -42,7 +42,8 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           })}
           ${legendItemTemplate({
             disabled: true,
-            content: selectableTemplate({ id: "1", type: "checkbox", value: "1", label: "Legenda item label" }),
+            disabledMessage: "Ik sta uit.",
+            content: "Het zoomniveau is te laag om deze informatie te kunnen tonen.",
             symbol: defaultSymbol,
           })}
         </dso-map-controls>
