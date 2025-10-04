@@ -87,6 +87,8 @@ export * from "./components/heading";
 
 export * from "./components/highlight-box";
 
+export * from "./components/history-item";
+
 export * from "./components/icon";
 
 export * from "./components/icon-button";
