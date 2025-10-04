@@ -1,0 +1,38 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/components/button";
+
+:host {
+  @include set-colors.apply(colors.$mauve);
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-block-size: 56px;
+    padding-block: units.$u1;
+    padding-inline: units.$u3;
+  }
+
+  ::slotted([slot="button"]) {
+    flex-shrink: 0;
+    --_dso-button-secondary-background-color: transparent;
+    --_dso-button-secondary-color: #{colors.$wit};
+    --_dso-button-secondary-border-color: #{colors.$wit};
+    --_dso-button-secondary-hover-background-color: #{colors.$wit};
+    --_dso-button-secondary-hover-color: #{colors.$mauve};
+    --_dso-button-secondary-hover-border-color: transparent;
+    --_dso-button-secondary-active-background-color: #{colors.$wit};
+    --_dso-button-secondary-active-border-color: #{colors.$mauve}; // ToDO kleur aanpassen na vaststellen design UX
+  }
+
+  dso-icon {
+    flex-shrink: 0;
+  }
+}
+
+@include utilities.box-sizing();
