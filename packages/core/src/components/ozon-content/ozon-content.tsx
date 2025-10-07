@@ -107,11 +107,12 @@ const dependencies = () => {
   dependencies();
 
   return (
-    <>
+    <Fragment>
       <dso-icon />
       <dso-image-overlay />
       <dso-tooltip />
+      <dso-label />
       <dso-table />
-    </>
+    </Fragment>
   );
 };

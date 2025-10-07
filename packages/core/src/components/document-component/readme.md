@@ -15,7 +15,7 @@
 | `bevatOntwerpInformatie`   | `bevat-ontwerp-informatie`   | Marks as draft.                                                                                                   | `boolean`                                                                             | `false`      |
 | `filtered`                 | `filtered`                   | Marks this Document Component as belonging to an active filter.                                                   | `boolean`                                                                             | `false`      |
 | `genesteOntwerpInformatie` | `geneste-ontwerp-informatie` | When a child Document Component has a status "Draft".                                                             | `boolean`                                                                             | `false`      |
-| `gereserveerd`             | `gereserveerd`               | Marks Document Component as reserved.                                                                             | `boolean`                                                                             | `false`      |
+| `gereserveerd`             | `gereserveerd`               | Marks Document Component as reserved.                                                                             | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
 | `heading`                  | `heading`                    | The heading element to use.                                                                                       | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"`                                                | `"h2"`       |
 | `href`                     | `href`                       | The URL to which the Heading links (only in mode="table-of-contents").                                            | `string \| undefined`                                                                 | `undefined`  |
 | `inhoud`                   | `inhoud`                     | The Inhoud XML.                                                                                                   | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
@@ -28,7 +28,7 @@
 | `ozonContentUrlResolver`   | `ozon-content-url-resolver`  | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.   | `OzonContentUrlResolver \| undefined`                                                 | `undefined`  |
 | `recursiveToggle`          | `recursive-toggle`           | Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted. | `"indeterminate" \| boolean \| undefined`                                             | `undefined`  |
 | `type`                     | `type`                       | Type of Document Component.                                                                                       | `string \| undefined`                                                                 | `undefined`  |
-| `vervallen`                | `vervallen`                  | Marks the Document Component as expired.                                                                          | `boolean`                                                                             | `false`      |
+| `vervallen`                | `vervallen`                  | Marks the Document Component as expired.                                                                          | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
 | `wijzigactie`              | `wijzigactie`                | The wijzigactie as in STOP.                                                                                       | `"nieuweContainer" \| "verwijder" \| "verwijderContainer" \| "voegtoe" \| undefined`  | `undefined`  |
 
 
@@ -62,33 +62,34 @@
 
 ### Depends on
 
+- [dso-label](../label)
 - [dso-icon-button](../icon-button)
 - [dso-ozon-content](../ozon-content)
 - [dso-badge](../badge)
 - [dso-tooltip](../tooltip)
-- [dso-label](../label)
 - [dso-panel](../panel)
 - [dso-alert](../alert)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-document-component --> dso-label
   dso-document-component --> dso-icon-button
   dso-document-component --> dso-ozon-content
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
-  dso-document-component --> dso-label
   dso-document-component --> dso-panel
   dso-document-component --> dso-alert
+  dso-label --> dso-icon-button
+  dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
   dso-ozon-content --> dso-tooltip
+  dso-ozon-content --> dso-label
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
   dso-table --> dso-icon
-  dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-panel --> dso-icon-button
   dso-alert --> dso-icon
   dso-alert --> dso-icon-button

@@ -13545,6 +13545,138 @@
                   }
                 ]
               }
+            },
+            {
+              "_links": {
+                "annotaties": {
+                  "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_1__chp_23&beschikbaarOp=2025-04-16T22:05:58Z"
+                }
+              },
+              "identificatie": "gm1979_1__chp_23",
+              "expressie": "chp_24",
+              "type": "HOOFDSTUK",
+              "volgordeNummer": 16,
+              "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Hoofdstuk</Label><Nummer>5</Nummer></Kop>",
+              "_embedded": {
+                "ontwerpDocumentComponenten": [
+                  {
+                    "_links": {
+                      "annotaties": {
+                        "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_24__subsec_1&beschikbaarOp=2025-04-16T22:05:58Z"
+                      }
+                    },
+                    "identificatie": "gm1979_2__chp_24__subsec_1",
+                    "expressie": "chp_24__subsec_1",
+                    "type": "PARAGRAAF",
+                    "volgordeNummer": 0,
+                    "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>§</Label><Nummer>1</Nummer></Kop>",
+                    "bevatOntwerpInformatie": false,
+                    "_embedded": {
+                      "ontwerpDocumentComponenten": [
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>1</Nummer><Opschrift>(Dit wordt in ontwerp als gereserveerd toegevoegd)</Opschrift></Kop>",
+                          "bevatOntwerpInformatie": true,
+                          "wijzigactie": "voegtoe",
+                          "gereserveerd": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Gereserveerd xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'/>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>2</Nummer><Opschrift>(Dit is een gereserveerd artikel)</Opschrift></Kop>",
+                          "gereserveerd": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Gereserveerd xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'/>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>3</Nummer><Opschrift>(Dit was een gereserveerd artikel dat in ontwerp is gevuld)</Opschrift></Kop>",
+                          "bevatOntwerpInformatie": true,
+                          "inhoud": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='voegtoe'><Al>Nieuwe inhoud.</Al></Inhoud>",
+                          "gereserveerd": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Gereserveerd xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='verwijder'/>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>4</Nummer><Opschrift>(Dit was een gereserveerd artikel dat in ontwerp is vervallen</Opschrift></Kop>",
+                          "bevatOntwerpInformatie": true,
+                          "gereserveerd": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Gereserveerd xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='verwijder'/>",
+                          "vervallen": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Vervallen xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='voegtoe'/>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>5</Nummer><Opschrift>(Dit is het artikel in werking)</Opschrift></Kop>",
+                          "inhoud": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Al>Bestaande inhoud.</Al></Inhoud>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>6</Nummer><Opschrift>(Dit artikel gaat in ontwerp vervallen)</Opschrift></Kop>",
+                          "bevatOntwerpInformatie": true,
+                          "inhoud": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='verwijder'><Al>Nieuwe inhoud.</Al></Inhoud>",
+                          "vervallen": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Vervallen xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='voegtoe'/>"
+                        },
+                        {
+                          "_links": {
+                            "annotaties": {
+                              "href": "https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpregelingen/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/regeltekstannotaties/renvooi?documentComponent=gm1979_2__chp_23__subsec_1__art_6&beschikbaarOp=2025-04-16T22:05:58Z"
+                            }
+                          },
+                          "identificatie": "gm1979_2__chp_23__subsec_1__art_6",
+                          "expressie": "chp_23__subsec_1__art_6",
+                          "type": "ARTIKEL",
+                          "volgordeNummer": 0,
+                          "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Artikel</Label><Nummer>7</Nummer><Opschrift>(Dit artikel is vervallen)</Opschrift></Kop>",
+                          "vervallen": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Vervallen xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' />"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

@@ -51,7 +51,7 @@ export class Label implements ComponentInterface {
   /**
    * For compact Label
    */
-  @Prop()
+  @Prop({ reflect: true })
   compact?: boolean;
 
   /**
@@ -63,7 +63,7 @@ export class Label implements ComponentInterface {
   /**
    * The status of this Label.
    */
-  @Prop()
+  @Prop({ reflect: true })
   status?: LabelStatus;
 
   /**
@@ -81,7 +81,7 @@ export class Label implements ComponentInterface {
   /**
    * Whether the Label is allowed to truncate the contents if it does not fit the container element.
    */
-  @Prop()
+  @Prop({ reflect: true })
   truncate?: boolean;
 
   @State()
