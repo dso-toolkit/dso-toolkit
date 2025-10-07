@@ -37,6 +37,7 @@ Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De 
  - [dso-annotation-locatie](../annotation/annotation-locatie)
  - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
  - [dso-document-component](../document-component)
+ - [dso-ozon-content](../ozon-content)
  - [dso-project-item](../project-item)
 
 ### Depends on
@@ -57,6 +58,7 @@ graph TD;
   dso-annotation-locatie --> dso-label
   dso-annotation-omgevingsnormwaarde --> dso-label
   dso-document-component --> dso-label
+  dso-ozon-content --> dso-label
   dso-project-item --> dso-label
   style dso-label fill:#f9f,stroke:#333,stroke-width:4px
 ```

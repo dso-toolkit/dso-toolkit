@@ -41,11 +41,11 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           ?bevat-ontwerp-informatie=${bevatOntwerpInformatie}
           ?filtered=${filtered}
           ?geneste-ontwerp-informatie=${genesteOntwerpInformatie}
-          ?gereserveerd=${gereserveerd}
+          .gereserveerd=${gereserveerd}
           ?not-applicable=${notApplicable}
           ?open=${open}
           ?open-annotation=${openAnnotation}
-          ?vervallen=${vervallen}
+          .vervallen=${vervallen}
           .alternativeTitle=${ifDefined(alternativeTitle)}
           .heading=${heading}
           .inhoud=${ifDefined(inhoud)}

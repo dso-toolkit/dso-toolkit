@@ -1,3 +1,5 @@
+import { DocumentComponentInputType } from "./document-component.models";
+
 export interface OzonDocumentComponent {
   ontwerpbesluitIdentificatie: string;
   documentTechnischId: string;
@@ -6,8 +8,8 @@ export interface OzonDocumentComponent {
   type: string;
   volgordeNummer: number;
   inhoud: string;
-  gereserveerd: boolean;
-  vervallen: boolean;
+  gereserveerd: DocumentComponentInputType;
+  vervallen: DocumentComponentInputType;
   bevatOntwerpInformatie: boolean;
 }
 

@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Prop, h } from "@stencil/core";
+import { LabelStatus } from "dso-toolkit";
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -101,13 +102,13 @@ export class DocumentComponent implements ComponentInterface {
    * Marks Document Component as reserved.
    */
   @Prop()
-  gereserveerd = false;
+  gereserveerd?: DocumentComponentInputType;
 
   /**
    * Marks the Document Component as expired.
    */
   @Prop()
-  vervallen = false;
+  vervallen?: DocumentComponentInputType;
 
   /**
    * When the Annotation is opened, set this to true.
@@ -217,16 +218,41 @@ export class DocumentComponent implements ComponentInterface {
     }
   };
 
-  private suffix(): string | undefined {
-    if (this.vervallen) {
-      return "vervallen";
-    }
+  private statusLabels(): Element | undefined {
+    const statusses = [this.gereserveerd, this.vervallen]
+      .map((waarde) => this.parseWijzigactie(waarde))
+      .filter(
+        (status): status is { tagName: string; wijzigactie: DocumentComponentWijzigactie } => status !== undefined,
+      );
 
-    if (this.gereserveerd) {
-      return "gereserveerd";
-    }
+    if (statusses.length === 0) return undefined;
 
-    return undefined;
+    const getStatus = (wijzigactie: DocumentComponentWijzigactie): LabelStatus | undefined => {
+      switch (wijzigactie) {
+        case "voegtoe":
+          return "toegevoegd";
+        case "verwijder":
+          return "verwijderd";
+        default:
+          return undefined;
+      }
+    };
+
+    return (
+      <span>
+        {statusses.map(({ tagName, wijzigactie }) => {
+          const statusLabel = getStatus(wijzigactie);
+          return (
+            <Fragment>
+              {" "}
+              <dso-label compact {...(statusLabel ? { status: statusLabel } : {})}>
+                {tagName}
+              </dso-label>
+            </Fragment>
+          );
+        })}
+      </span>
+    );
   }
 
   private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
@@ -257,8 +283,34 @@ export class DocumentComponent implements ComponentInterface {
     );
   }
 
+  private parseWijzigactie(
+    input?: DocumentComponentInputType,
+  ): { tagName: string; wijzigactie: DocumentComponentWijzigactie | null } | undefined {
+    if (!input) {
+      return undefined;
+    }
+
+    let element: Element | null = null;
+
+    if (typeof input === "string") {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(input, "application/xml");
+      element = doc.documentElement;
+    } else if (input instanceof XMLDocument) {
+      element = input.documentElement;
+    }
+
+    if (!element) {
+      return undefined;
+    }
+
+    const wijzigactie = element.getAttribute("wijzigactie") as DocumentComponentWijzigactie | null;
+    const tagName = element.tagName.toLowerCase();
+
+    return { tagName, wijzigactie };
+  }
+
   render() {
-    const suffix = this.suffix();
     const collapsible = !!((this.kop || this.alternativeTitle) && this.type !== "LID");
 
     const showHeading = !!(
@@ -311,7 +363,8 @@ export class DocumentComponent implements ComponentInterface {
                   ) : (
                     this.alternativeTitle
                   )}
-                  {suffix && <span> - [{suffix}]</span>}
+
+                  {this.statusLabels()}
                 </span>
               </Heading>
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
@@ -368,10 +421,14 @@ export class DocumentComponent implements ComponentInterface {
         )}
         {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && this.mode === "document" && (
           <div class="content" part="_content">
-            {this.gereserveerd && (
-              <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>
+            {this.gereserveerd &&
+              this.parseWijzigactie(this.gereserveerd)?.wijzigactie !== "verwijder" &&
+              !this.vervallen && (
+                <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>
+              )}
+            {this.vervallen && this.parseWijzigactie(this.vervallen)?.wijzigactie !== "voegtoe" && (
+              <dso-alert status="info">Dit onderdeel is vervallen.</dso-alert>
             )}
-            {this.vervallen && <dso-alert status="info">Dit onderdeel is vervallen.</dso-alert>}
             {this.inhoud && (
               <dso-ozon-content
                 content={this.inhoud}

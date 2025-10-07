@@ -9,7 +9,7 @@ export interface DocumentComponent<TemplateFnReturnType> {
   dsoToggle?: (e: CustomEvent<DocumentComponentToggleEvent>) => void;
   filtered?: boolean;
   genesteOntwerpInformatie?: boolean;
-  gereserveerd?: boolean;
+  gereserveerd?: DocumentComponentInputType;
   heading: DocumentComponentHeading;
   inhoud?: string;
   notApplicable?: boolean;
@@ -17,7 +17,7 @@ export interface DocumentComponent<TemplateFnReturnType> {
   openAnnotation?: boolean;
   kop?: string;
   type: DocumentComponentType;
-  vervallen?: boolean;
+  vervallen?: DocumentComponentInputType;
   wijzigactie?: DocumentComponentWijzigactie;
   annotationsWijzigactie?: DocumentComponentWijzigactie;
   enableRecursiveToggle?: boolean;
@@ -30,6 +30,8 @@ export interface DocumentComponent<TemplateFnReturnType> {
 }
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
+
+export type DocumentComponentInputType = XMLDocument | string;
 
 export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweContainer" | "verwijderContainer";
 
