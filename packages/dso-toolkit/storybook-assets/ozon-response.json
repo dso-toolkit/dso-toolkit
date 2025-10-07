@@ -13556,7 +13556,7 @@
               "expressie": "chp_24",
               "type": "HOOFDSTUK",
               "volgordeNummer": 16,
-              "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Hoofdstuk</Label><Nummer>5</Nummer></Kop>",
+              "kop": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label>Hoofdstuk</Label><Nummer>5</Nummer><Opschrift>Gereserveerd en vervallen</Opschrift></Kop>",
               "_embedded": {
                 "ontwerpDocumentComponenten": [
                   {
