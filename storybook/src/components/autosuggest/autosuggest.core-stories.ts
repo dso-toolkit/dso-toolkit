@@ -123,7 +123,7 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
         minimalCharacters,
         mark,
       ) => html`
-        <div class="dso-search-bar">
+        <div class="dso-search-bar dso-invalid">
           <div class="dso-search-bar-input">
             <label for="search-bar--with-value">Label</label>
             <span class="dso-search-icon" aria-hidden="true"></span>
