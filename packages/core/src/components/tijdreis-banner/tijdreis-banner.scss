@@ -1,0 +1,70 @@
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+
+@include utilities.box-sizing();
+
+:host {
+  @include set-colors.apply(colors.$mauve);
+
+  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+  & {
+    display: grid;
+    block-size: 100%;
+    padding-block: units.$u1;
+    padding-inline: units.$u3;
+  }
+
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    align-items: center;
+    justify-content: center;
+    gap: units.$u1;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: "icon slot button";
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    align-items: start;
+    grid-template-columns: max-content auto;
+    grid-template-areas:
+      "icon slot"
+      ". button";
+    padding-block: units.$u2;
+    gap: units.$u2 units.$u1;
+  }
+
+  dso-icon {
+    grid-area: icon;
+  }
+
+  slot:not([name]) {
+    grid-area: slot;
+    margin-inline-end: 10px;
+  }
+
+  ::slotted([slot="button"]) {
+    --_dso-button-secondary-background-color: transparent;
+    --_dso-button-secondary-color: #{colors.$wit};
+    --_dso-button-secondary-border-color: #{colors.$wit};
+    --_dso-button-secondary-hover-background-color: rgba(235, 225, 235, 0.2);
+    --_dso-button-secondary-hover-color: #{colors.$wit};
+    --_dso-button-secondary-hover-border-color: #{colors.$wit};
+    --_dso-button-secondary-active-background-color: rgba(235, 225, 235, 0.4);
+    --_dso-button-secondary-active-border-color: rgba(235, 225, 235, 0.3);
+    --_dso-button-secondary-disabled-background-color: transparent;
+    --_dso-button-secondary-disabled-color: rgba(235, 225, 235, 0.7);
+    --_dso-button-secondary-disabled-border-color: rgba(235, 225, 235, 0.7);
+
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      margin-inline-start: units.$u4 !important; /* extra ruimte zodat totaal 40px tussen 2e en 3e */
+    }
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      grid-area: button;
+      justify-self: start;
+    }
+  }
+}
