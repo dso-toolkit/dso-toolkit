@@ -2,6 +2,7 @@ import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
+import { argTypeAction } from "../../storybook";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 
@@ -29,6 +30,9 @@ export function tijdreisBannerMeta<TRenderer extends Renderer>({
   return {
     args: {
       click: fn(),
+    },
+    argTypes: {
+      click: argTypeAction(),
     },
     parameters: {
       docs: readme
