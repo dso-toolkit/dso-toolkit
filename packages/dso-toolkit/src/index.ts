@@ -169,6 +169,8 @@ export * from "./components/table";
 
 export * from "./components/tabs";
 
+export * from "./components/tijdreis-banner";
+
 export * from "./components/tile";
 
 export * from "./components/tile-grid";

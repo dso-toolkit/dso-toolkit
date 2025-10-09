@@ -59,6 +59,14 @@
     @include small();
   }
 
+  &.dso-extra-small {
+    @include small();
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      padding-block: 9px;
+    }
+  }
+
   @if ($icon-only) {
     > span {
       @include utilities.sr-only();
