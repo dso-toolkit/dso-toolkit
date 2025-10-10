@@ -97,7 +97,12 @@ export class HistoryItem implements ComponentInterface {
           <slot name="date"></slot>
         </div>
         <div class="history-item-content">
-          <div class={clsx(["history-item-status-message", { tijdelijk: this.type === "tijdelijk-regelingdeel" }])}>
+          <div
+            class={clsx([
+              "history-item-status-message",
+              { tijdelijk: this.type === "tijdelijk-regelingdeel", waarschuwing: this.type === "waarschuwing" },
+            ])}
+          >
             <dso-icon icon={this.typeIcons[this.type]} aria-hidden="true"></dso-icon>
             <slot name="status"></slot>
           </div>

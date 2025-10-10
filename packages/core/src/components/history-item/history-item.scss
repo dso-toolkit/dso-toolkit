@@ -42,6 +42,13 @@
   &.tijdelijk {
     color: history-item-variables.$tijdelijke-regeldingdeel-color;
   }
+  &.waarschuwing {
+    color: history-item-variables.$waarschuwing-color;
+  }
+}
+
+.history-item-warning {
+  color: history-item-variables.$waarschuwing-color;
 }
 
 .history-item-title,
