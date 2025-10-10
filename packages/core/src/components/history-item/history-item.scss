@@ -1,0 +1,77 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "history-item.variables" as history-item-variables;
+
+:host {
+  border-block-end: 1px solid colors.$grijs-10;
+  display: flex;
+  gap: units.$u1;
+  inline-size: 100%;
+  padding-block: units.$u2;
+
+  &:has(.history-item-title a:is(:hover, :focus-visible)) {
+    background-color: history-item-variables.$background-color-hover;
+  }
+}
+
+@include utilities.box-sizing();
+
+:host([type="tijdelijk-regelingdeel"]) {
+  .history-item-status-message {
+    color: history-item-variables.$tijdelijke-regeldingdeel-color;
+  }
+}
+
+:host([type="waarschuwing"]) {
+  .history-item-status-message {
+    color: history-item-variables.$waarschuwing-color;
+  }
+}
+
+.history-item-date,
+.history-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-item-date {
+  flex: 0 0 90px;
+}
+
+.history-item-status-message,
+.history-item-warning {
+  display: flex;
+
+  dso-icon {
+    flex-shrink: 0;
+    margin-inline-end: units.$u1;
+  }
+}
+
+.history-item-warning {
+  color: history-item-variables.$waarschuwing-color;
+}
+
+.history-item-title,
+.history-item-explanation,
+.history-item-warning {
+  margin-block-start: units.$u1;
+  margin-inline-start: units.$u4;
+}
+
+.title-anchor {
+  color: history-item-variables.$title-anchor-color;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: history-item-variables.$title-anchor-color;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: history-item-variables.$title-anchor-color;
+  }
+}
