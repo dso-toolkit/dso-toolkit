@@ -1,6 +1,7 @@
 import { DsoHistoryItemCustomEvent } from "@dso-toolkit/core";
 import { HistoryItem, HistoryItemClickEvent } from "dso-toolkit";
 import { html, nothing } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -11,7 +12,7 @@ export const coreHistoryItem: ComponentImplementation<HistoryItem> = {
     function historyItemTemplate({ date, explanation, statusMessage, title, href, type, warning, dsoClick }) {
       return html`<dso-history-item
         .type=${type}
-        href=${href}
+        href=${ifDefined(href)}
         @dsoClick=${(e: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
             e.detail.originalEvent.preventDefault();

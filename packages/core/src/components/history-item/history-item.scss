@@ -18,6 +18,18 @@
 
 @include utilities.box-sizing();
 
+:host([type="tijdelijk-regelingdeel"]) {
+  .history-item-status-message {
+    color: history-item-variables.$tijdelijke-regeldingdeel-color;
+  }
+}
+
+:host([type="waarschuwing"]) {
+  .history-item-status-message {
+    color: history-item-variables.$waarschuwing-color;
+  }
+}
+
 .history-item-date,
 .history-item-content {
   display: flex;
@@ -35,15 +47,6 @@
   dso-icon {
     flex-shrink: 0;
     margin-inline-end: units.$u1;
-  }
-}
-
-.history-item-status-message {
-  &.tijdelijk {
-    color: history-item-variables.$tijdelijke-regeldingdeel-color;
-  }
-  &.waarschuwing {
-    color: history-item-variables.$waarschuwing-color;
   }
 }
 
