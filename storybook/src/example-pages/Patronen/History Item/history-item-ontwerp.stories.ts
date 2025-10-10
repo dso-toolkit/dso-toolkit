@@ -12,9 +12,10 @@ const meta: Meta = {
 export default meta;
 
 const HistoryItemOntwerp = examplePageStories((templates) => {
-  const { historyItemTemplate } = templates;
+  const { headingTemplate, historyItemTemplate } = templates;
 
-  return html`<div class="dso-history-item-list-heading">Gebeurtenis</div>
+  return html`${headingTemplate({ level: 5, children: "Gebeurtenis" })}
+    <hr />
     <ul class="dso-list-unstyled">
       ${historyItemsOntwerp.map((historyItem) => html`<li>${historyItemTemplate(historyItem)}</li>`)}
     </ul>`;

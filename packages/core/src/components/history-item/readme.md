@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event                 | Description                                     | Type                                 |
-| --------------------- | ----------------------------------------------- | ------------------------------------ |
-| `dsoHistoryItemClick` | Emitted when the History Item title is clicked. | `CustomEvent<HistoryItemClickEvent>` |
+| Event      | Description                                     | Type                                 |
+| ---------- | ----------------------------------------------- | ------------------------------------ |
+| `dsoClick` | Emitted when the History Item title is clicked. | `CustomEvent<HistoryItemClickEvent>` |
 
 
 ## Slots

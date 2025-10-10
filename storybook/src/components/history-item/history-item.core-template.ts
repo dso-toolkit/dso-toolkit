@@ -8,25 +8,16 @@ export const coreHistoryItem: ComponentImplementation<HistoryItem> = {
   component: "historyItem",
   implementation: "core",
   template: () =>
-    function historyItemTemplate({
-      date,
-      explanation,
-      statusMessage,
-      title,
-      href,
-      type,
-      warning,
-      dsoHistoryItemClick,
-    }) {
+    function historyItemTemplate({ date, explanation, statusMessage, title, href, type, warning, dsoClick }) {
       return html`<dso-history-item
         .type=${type}
         href=${href}
-        @dsoHistoryItemClick=${(e: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => {
+        @dsoClick=${(e: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => {
           if (!e.detail.isModifiedEvent) {
             e.detail.originalEvent.preventDefault();
           }
 
-          dsoHistoryItemClick?.(e);
+          dsoClick?.(e);
         }}
       >
         <span slot="date">${date}</span> <span slot="status">${statusMessage}</span>

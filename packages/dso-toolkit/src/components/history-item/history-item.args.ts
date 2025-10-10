@@ -14,7 +14,7 @@ export interface HistoryItemArgs {
   href?: string;
   type: HistoryItemType;
   warning?: string;
-  dsoHistoryItemClick: HandlerFunction;
+  dsoClick: HandlerFunction;
 }
 
 export const historyItemArgs: Omit<HistoryItemArgs, "href"> = {
@@ -24,7 +24,7 @@ export const historyItemArgs: Omit<HistoryItemArgs, "href"> = {
   title: '"Voorbeschermingsregels hyperscale datacentra" opgenomen in plan',
   explanation: undefined,
   warning: undefined,
-  dsoHistoryItemClick: fn(),
+  dsoClick: fn(),
 };
 
 export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
@@ -59,13 +59,13 @@ export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
       type: "text",
     },
   },
-  dsoHistoryItemClick: argTypeAction(),
+  dsoClick: argTypeAction(),
 };
 
 export function historyItemArgsMapper(a: HistoryItemArgs): HistoryItem {
   return {
     ...a,
     href: "#",
-    dsoHistoryItemClick: (e) => a.dsoHistoryItemClick(e.detail),
+    dsoClick: (e) => a.dsoClick(e.detail),
   };
 }

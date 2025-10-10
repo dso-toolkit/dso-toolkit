@@ -15,12 +15,12 @@ describe("History Items", () => {
   it("emits dsoHistoryItemClick event when user clicks the title of a History Item", () => {
     cy.get("dso-history-item.hydrated")
       .then(($historyItem) => {
-        $historyItem.on("dsoHistoryItemClick", cy.stub().as("dsoHistoryItemClickListener"));
+        $historyItem.on("dsoClick", cy.stub().as("dsoClickListener"));
       })
       .shadow()
       .find(".title-anchor")
       .realClick()
-      .get("@dsoHistoryItemClickListener")
+      .get("@dsoClickListener")
       .should("be.calledOnce")
       .invoke("getCalls")
       .invoke("at", -1)

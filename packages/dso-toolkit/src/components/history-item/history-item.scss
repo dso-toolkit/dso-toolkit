@@ -1,9 +1,0 @@
-@use "../../variables/colors";
-@use "../../variables/units";
-
-.dso-history-item-list-heading {
-  border-block-end: 1px solid colors.$grijs-30;
-  font-weight: 600;
-  padding-inline: units.$u1;
-  padding-block: units.$u2 units.$u1;
-}

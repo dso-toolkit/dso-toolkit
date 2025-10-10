@@ -8,7 +8,7 @@ export interface HistoryItem {
   href?: string;
   type: HistoryItemType;
   warning?: string;
-  dsoHistoryItemClick?: (e: CustomEvent<HistoryItemClickEvent>) => void;
+  dsoClick?: (e: CustomEvent<HistoryItemClickEvent>) => void;
 }
 
 export interface HistoryItemClickEvent {

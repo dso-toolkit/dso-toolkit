@@ -9,7 +9,6 @@
   display: flex;
   gap: units.$u1;
   inline-size: 100%;
-  padding-inline: units.$u1;
   padding-block: units.$u2;
 
   &:has(.history-item-title a:is(:hover, :focus-visible)) {

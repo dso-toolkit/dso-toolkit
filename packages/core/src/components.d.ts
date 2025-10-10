@@ -2018,7 +2018,7 @@ declare global {
         new (): HTMLDsoHighlightBoxElement;
     };
     interface HTMLDsoHistoryItemElementEventMap {
-        "dsoHistoryItemClick": HistoryItemClickEvent;
+        "dsoClick": HistoryItemClickEvent;
     }
     interface HTMLDsoHistoryItemElement extends Components.DsoHistoryItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoHistoryItemElementEventMap>(type: K, listener: (this: HTMLDsoHistoryItemElement, ev: DsoHistoryItemCustomEvent<HTMLDsoHistoryItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3498,7 +3498,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the History Item title is clicked.
          */
-        "onDsoHistoryItemClick"?: (event: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => void;
+        "onDsoClick"?: (event: DsoHistoryItemCustomEvent<HistoryItemClickEvent>) => void;
         /**
           * The type of History Item
          */

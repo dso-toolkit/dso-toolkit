@@ -42,7 +42,7 @@ export class HistoryItem implements ComponentInterface {
   /**
    * The type of History Item
    */
-  @Prop()
+  @Prop({ reflect: true })
   type!: HistoryItemType;
 
   /**
@@ -54,8 +54,8 @@ export class HistoryItem implements ComponentInterface {
   /**
    * Emitted when the History Item title is clicked.
    */
-  @Event()
-  dsoHistoryItemClick!: EventEmitter<HistoryItemClickEvent>;
+  @Event({ bubbles: false })
+  dsoClick!: EventEmitter<HistoryItemClickEvent>;
 
   private mutationObserver?: MutationObserver;
 
@@ -75,7 +75,7 @@ export class HistoryItem implements ComponentInterface {
       return;
     }
 
-    return this.dsoHistoryItemClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
+    return this.dsoClick.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   get titleSlottedElement() {
