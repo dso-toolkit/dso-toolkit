@@ -16,31 +16,66 @@
   text-align: center;
 
   & {
-    @include set-colors.apply(badge-variables.$default-bg-color, "badge");
+    @include states(
+      badge-variables.$default-bg-color,
+      badge-variables.$default-hover-bg-color,
+      badge-variables.$default-active-bg-color,
+      badge-variables.$default-toggled-bg-color
+    );
   }
 
   &.badge-info {
-    @include set-colors.apply(badge-variables.$info-bg-color, "badge");
+    @include states(
+      badge-variables.$info-bg-color,
+      badge-variables.$info-hover-bg-color,
+      badge-variables.$info-active-bg-color,
+      badge-variables.$info-toggled-bg-color
+    );
   }
 
   &.badge-primary {
-    @include set-colors.apply(badge-variables.$primary-bg-color, "badge");
+    @include states(
+      badge-variables.$primary-bg-color,
+      badge-variables.$primary-hover-bg-color,
+      badge-variables.$primary-active-bg-color,
+      badge-variables.$primary-toggled-bg-color
+    );
   }
 
   &.badge-success {
-    @include set-colors.apply(badge-variables.$success-bg-color, "badge");
+    @include states(
+      badge-variables.$success-bg-color,
+      badge-variables.$success-hover-bg-color,
+      badge-variables.$success-active-bg-color,
+      badge-variables.$success-toggled-bg-color
+    );
   }
 
   &.badge-warning {
-    @include set-colors.apply(badge-variables.$warning-bg-color, "badge");
+    @include states(
+      badge-variables.$warning-bg-color,
+      badge-variables.$warning-hover-bg-color,
+      badge-variables.$warning-active-bg-color,
+      badge-variables.$warning-toggled-bg-color
+    );
   }
 
   &.badge-error {
-    @include set-colors.apply(badge-variables.$error-bg-color, "badge");
+    @include states(
+      badge-variables.$error-bg-color,
+      badge-variables.$error-hover-bg-color,
+      badge-variables.$error-active-bg-color,
+      badge-variables.$error-toggled-bg-color
+    );
   }
 
   &.badge-outline {
-    @include set-colors.apply(colors.$wit, "badge");
+    @include states(
+      badge-variables.$outline-bg-color,
+      badge-variables.$outline-hover-bg-color,
+      badge-variables.$outline-active-bg-color,
+      badge-variables.$outline-toggled-bg-color
+    );
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
@@ -49,6 +84,27 @@
   }
 
   &.badge-attention {
-    @include set-colors.apply(badge-variables.$attention-bg-color, "badge");
+    @include states(
+      badge-variables.$attention-bg-color,
+      badge-variables.$attention-hover-bg-color,
+      badge-variables.$attention-active-bg-color,
+      badge-variables.$attention-toggled-bg-color
+    );
+  }
+}
+
+@mixin states($bg-color, $hover-bg-color, $active-bg-color, $toggled-bg-color) {
+  @include set-colors.apply($bg-color, "badge");
+
+  &.toggled {
+    @include set-colors.apply($toggled-bg-color, "badge");
+  }
+
+  &.hovered {
+    @include set-colors.apply($hover-bg-color, "badge");
+  }
+
+  &.active {
+    @include set-colors.apply($active-bg-color, "badge");
   }
 }

@@ -402,9 +402,21 @@ export namespace Components {
     }
     interface DsoBadge {
         /**
+          * Show Badge in active state
+         */
+        "active"?: boolean;
+        /**
+          * Show Badge in hovered state
+         */
+        "hovered"?: boolean;
+        /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
+        /**
+          * Show Badge in hovered state
+         */
+        "toggled"?: boolean;
     }
     interface DsoBanner {
         /**
@@ -3042,9 +3054,21 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         /**
+          * Show Badge in active state
+         */
+        "active"?: boolean;
+        /**
+          * Show Badge in hovered state
+         */
+        "hovered"?: boolean;
+        /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
+        /**
+          * Show Badge in hovered state
+         */
+        "toggled"?: boolean;
     }
     interface DsoBanner {
         /**
