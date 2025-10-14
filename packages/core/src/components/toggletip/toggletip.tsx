@@ -55,6 +55,12 @@ export class Toggletip {
   @State()
   showBadgeButtonTooltip = false;
 
+  @State()
+  badgeActive = false;
+
+  @State()
+  badgeHovered = false;
+
   private containerElement?: HTMLDivElement;
   private toggletipTooltipElement: HTMLElement | undefined;
   private toggletipTooltipArrowElement: HTMLElement | undefined;
@@ -106,6 +112,15 @@ export class Toggletip {
     }
 
     return;
+  };
+
+  private onBadgeButtonMouseEnter = () => {
+    this.badgeHovered = true;
+    this.handleBadgeButtonShowTooltip();
+  };
+  private onBadgeButtonMouseLeave = () => {
+    this.badgeHovered = false;
+    this.handleBadgeButtonHideTooltip();
   };
 
   private handleBadgeButtonShowTooltip = () => {
@@ -213,13 +228,22 @@ export class Toggletip {
               type="button"
               aria-label={this.label}
               class="badge-button"
-              onMouseEnter={this.handleBadgeButtonShowTooltip}
-              onMouseLeave={this.handleBadgeButtonHideTooltip}
-              onFocus={this.handleBadgeButtonShowTooltip}
-              onBlur={this.handleBadgeButtonHideTooltip}
+              onMouseDown={() => (this.badgeActive = true)}
+              onMouseUp={() => (this.badgeActive = false)}
+              onMouseEnter={this.onBadgeButtonMouseEnter}
+              onMouseLeave={this.onBadgeButtonMouseLeave}
+              onFocus={this.onBadgeButtonMouseEnter}
+              onBlur={this.onBadgeButtonMouseLeave}
               onClick={this.handleBadgeButtonClick}
             >
-              <dso-badge status={this.status}>{this.message}</dso-badge>
+              <dso-badge
+                status={this.status}
+                active={this.badgeActive}
+                hovered={this.badgeHovered}
+                toggled={this.showToggletip}
+              >
+                {this.message}
+              </dso-badge>
               <Tooltip
                 visible={this.showBadgeButtonTooltip}
                 tipElementRef={(element) => (this.badgeButtonTooltipElement = element)}

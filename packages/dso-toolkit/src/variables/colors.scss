@@ -3,13 +3,16 @@
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
 $grasgroen: #39870c; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grasgroen-120: #2e6c0a;
 $grasgroen-80: #609f3c; //  80% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
+$grasgroen-60: #88b76d;
 $grasgroen-40: #afcf9d; //  40% tint       - niet te gebruiken als leestekst
 $grasgroen-20: #d7e7ce; //  20% tint       - niet te gebruiken als leestekst
 $grasgroen-10: #ebf3e6; //  10% tint       - niet te gebruiken als leestekst
 
 $bosgroen: #275937; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-140: #173521; // 140% tint
+$bosgroen-120: #1f472c; // 120% tint
 $bosgroen-80: #527a5e; //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-60: #7d9886; //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
 $bosgroen-40: #a8bcaf; //  40% tint       - niet te gebruiken als leestekst
@@ -17,6 +20,8 @@ $bosgroen-10: #e9eeeb; //  10% tint       - niet te gebruiken als leestekst
 
 $mauve: #8b4a6a; // 100% tint
 $mauve-40: #d1b7c4; // 40% tint
+$mauve-60: #b992a6;
+$mauve-120: #6f3b55;
 
 $zwart: #000; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $grijs-90: #191919; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
@@ -36,18 +41,28 @@ $lime-10: #f2f8ea; // 10% tint
 $lime-20: #e4f1d4; // 20% tint
 $lime-20-5: #d8e5c9; // 20% tint 5% zwart
 $lime-20-10: #ced9bf; // 20% tint 10% zwart
+
 $rood: #ce3f51; // 100% tint
 $rood-110: #b62f41; // 110% tint
 $rood-10: #faecee; // 10% tint
 $rood-20: #f5d8dc; // 20% tint
 $rood-20-5: #e9cdd1; // 20% tint 5% zwart
 $rood-20-10: #ddc3c6; // 20% tint 10% zwart
+$rood-60: #e28c97;
+$rood-120: #a53241;
+
 $geel: #dcd400; // 100% tint
 $geel-20: #f8f6cc; // 20% tint
+$geel-60: #eae566;
+$geel-120: #b0aa00;
+
 $lichtblauw: #6ca4d9; // 100% tint
 $lichtblauw-20: #e1ecf7; // 20% tint
 
 $donkerblauw: #2b5780;
+$donkerblauw-60: #809ab3;
+$donkerblauw-120: #224666;
+
 $mintgroen: #3fb498;
 $bruin: #644f49;
 $oranje: #e17000;
