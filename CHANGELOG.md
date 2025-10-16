@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Header: marges rond Uitloggen ongelijk ([#3357](https://github.com/dso-toolkit/dso-toolkit/issues/3357))
+
 ## 🌯 Release 79.1.0 - 2025-10-13
 
 ### Added
