@@ -2,14 +2,33 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Toggletip
 
-<StorybookComponent implementations={["core", "angular", "react"]} variant="default" />
+Een Toggletip is een button die aanvullende informatie weergeeft in een tooltip. De Toggletip heeft geen andere
+functie. Voor een button die iets anders moet doen, kan de Button of Icon Button worden gebruikt. Een toggletip
+maakt gebruik van het Rich Content component om tekst te structureren en interactieve elementen te plaatsen.
 
-Toggletips geven aanvullende informatie in de gebruikersinterface. Ze lijken erg op tooltips, behalve dat de tip niet wordt weergegeven bij hover of focus. Een toggletip is gekoppeld aan een trigger (info button) en maakt gebruik van het Rich Content component om tekst te structureren en interactieve elementen te plaatsen.
+Een toggletip kent 2 varianten.
 
-## Technische opmerkingen component
+## Information variant (default)
 
-- Het is op dit moment alleen mogelijk een toggletip te gebruiken icm een info button.
-- De positionering van de toggletip is, net als bij tooltips, instelbaar.
+<StorybookComponent implementations={["core", "angular", "react"]} variant="information" />
+
+### Information on color
+
+<StorybookComponent
+  name="patronen-toggletip-information-on-color"
+  isExamplePage={true}
+  variant="toggletip-information-on-color"
+/>
+
+## Badge variant
+
+Bij deze variant is de verschijningsvorm een Badge binnen een Button, die op hover en focus een tooltip toont met de
+accesible label. Deze variant kent 2 optionele properties:
+
+- "status", waarmee alle statussen van de Badge kunnen worden ingesteld
+- "message", die de message in de Badge zet.
+
+<StorybookComponent implementations={["core", "angular", "react"]} variant="badge" />
 
 ## Wanneer het component gebruiken
 
