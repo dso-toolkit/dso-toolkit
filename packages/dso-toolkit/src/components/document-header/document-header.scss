@@ -12,7 +12,7 @@
 @use "document-header.variables" as document-header-variables;
 
 .dso-document-header {
-  @include set-colors.apply(colors.$grijs-5);
+  @include set-colors.apply(colors.$grijs-5, "document-header");
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
@@ -50,7 +50,7 @@
 
   &.dso-variant-ontwerp {
     .dso-document-header-status {
-      @include set-colors.apply(colors.$geel);
+      @include set-colors.apply(colors.$geel, "document-header");
 
       // To do: remove in #2542
       dso-icon[icon="pencil"] {
@@ -61,7 +61,7 @@
 
   &.dso-variant-besluitversie {
     .dso-document-header-status {
-      @include set-colors.apply(colors.$bosgroen);
+      @include set-colors.apply(colors.$bosgroen, "document-header");
 
       // To do: remove in #2542
       dso-icon[icon="hammer"] {

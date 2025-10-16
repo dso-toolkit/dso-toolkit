@@ -17,7 +17,7 @@
     padding-inline-end: units.$u12;
   }
 
-  @include set-colors.apply(colors.$lichtblauw-20);
+  @include set-colors.apply(colors.$lichtblauw-20, "action-list");
 }
 
 @include utilities.box-sizing();

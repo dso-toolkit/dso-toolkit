@@ -79,19 +79,35 @@
 }
 
 @mixin success() {
-  @include set-colors.apply(banner-variables.$success-bg, banner-variables.$success-border);
+  @include set-colors.apply(banner-variables.$success-bg, "banner");
+
+  & {
+    border-color: banner-variables.$success-border;
+  }
 }
 
 @mixin error() {
-  @include set-colors.apply(banner-variables.$error-bg, banner-variables.$error-border);
+  @include set-colors.apply(banner-variables.$error-bg, "banner");
+
+  & {
+    border-color: banner-variables.$error-border;
+  }
 }
 
 @mixin info() {
-  @include set-colors.apply(banner-variables.$info-bg, banner-variables.$info-border);
+  @include set-colors.apply(banner-variables.$info-bg, "banner");
+
+  & {
+    border-color: banner-variables.$info-border;
+  }
 }
 
 @mixin warning() {
-  @include set-colors.apply(banner-variables.$warning-bg, banner-variables.$warning-border);
+  @include set-colors.apply(banner-variables.$warning-bg, "banner");
+
+  & {
+    border-color: banner-variables.$warning-border;
+  }
 }
 
 @mixin root() {

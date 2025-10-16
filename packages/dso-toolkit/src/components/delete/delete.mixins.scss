@@ -4,7 +4,7 @@
 /// The root mixin to apply the correct color and strikethrough for a delete visualisation.
 /// @param {Boolean} $strikethrough - Whether to apply a strikethrough or not. Default is true. If false, only background color will be applied. Consumers are responsible for setting strikethrough styles. For example with the `delete.strikethrough()` mixin.
 @mixin root($strikethrough: true) {
-  @include set-colors.apply(colors.$rood-20);
+  @include set-colors.apply(colors.$rood-20, "delete");
 
   @if ($strikethrough) {
     & {

@@ -8,7 +8,7 @@
 }
 
 @mixin root() {
-  @include set-colors.apply(colors.$lime-20);
+  @include set-colors.apply(colors.$lime-20, "insert");
 
   & {
     box-shadow: insert-variables.$box-shadow;

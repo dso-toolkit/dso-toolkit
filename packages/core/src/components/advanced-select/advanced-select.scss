@@ -107,7 +107,8 @@
     inset-block: advanced-select.$block-padding auto;
     inset-inline: -#{advanced-select.$option-dot-size * 2} auto;
     border-radius: 50%;
-    @include set-colors.apply(advanced-select.$default-variant-color, $icons: false, $links: false);
+
+    @include set-colors.apply(advanced-select.$default-variant-color, "advanced-select");
   }
 }
 
@@ -139,27 +140,27 @@
 }
 
 .group-info .option-label::before {
-  @include set-colors.apply(advanced-select.$info-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$info-variant-color, "advanced-select");
 }
 
 .group-primary .option-label::before {
-  @include set-colors.apply(advanced-select.$primary-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$primary-variant-color, "advanced-select");
 }
 
 .group-success .option-label::before {
-  @include set-colors.apply(advanced-select.$success-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$success-variant-color, "advanced-select");
 }
 
 .group-warning .option-label::before {
-  @include set-colors.apply(advanced-select.$warning-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$warning-variant-color, "advanced-select");
 }
 
 .group-error .option-label::before {
-  @include set-colors.apply(advanced-select.$error-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$error-variant-color, "advanced-select");
 }
 
 .group-attention .option-label::before {
-  @include set-colors.apply(advanced-select.$attention-variant-color, $icons: false, $links: false);
+  @include set-colors.apply(advanced-select.$attention-variant-color, "advanced-select");
 }
 
 .options {

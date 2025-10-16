@@ -12,7 +12,7 @@
 footer {
   @include css-grid.full-width-row();
 
-  @include set-colors.apply(colors.$grijs-5);
+  @include set-colors.apply(colors.$grijs-5, "footer");
 
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {

@@ -118,7 +118,11 @@ label {
     &.survey-rating-#{$i} {
       &::before,
       &:has(input:checked) {
-        @include set-colors.apply($color, survey-rating-variables.$survey-rating-border-color);
+        @include set-colors.apply($color, "survey-rating");
+
+        & {
+          border-color: survey-rating-variables.$survey-rating-border-color;
+        }
       }
     }
   }

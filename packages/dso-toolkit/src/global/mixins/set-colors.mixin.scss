@@ -2,76 +2,63 @@
 @use "sass:color";
 
 @use "../../variables/colors";
+@use "../../variables/states";
 @use "../../components/link/link.variables" as link-variables;
 @use "../../components/button/button.variables" as button-variables;
 @use "../../di";
 
 @use "../functions/contrast-color.functions" as contrast-color;
 
-// SET COLORS
-// ==========
-// USAGE: @include setColors($bgcolor, $bordercolor: transparent, $links: true);
-// $background-color: background color of the element (required)
-// $border-color: border color of the element (optional)
-// $icons: boolean to set link icon colors according to background color (optional). set to false if you don't want to change the link icon colors.
-// $links: boolean to set link colors according to background color (optional). set to false if you don't want to change the link colors.
-// $reverse: in case the combination chosen by this mixin & contrast-color function still does not meet WCAG requirements, set $reverse to true. If this combination does not comply either, find another background-color.
-
-@mixin apply($background-color, $border-color: null, $icons: true, $links: true, $reverse: false) {
-  $icon-color: null;
+// Todo
+// - $self verplicht parameter maken (null weghalen)
+// - Alle aanroepen van apply() voorzien van naam van component
+// - Cosmetische wijzigingen uit branch van Chris overzetten. Let op prefixen van css custom properties met --_dso-
+@mixin apply($background-color, $self) {
   & {
     // run contrast-color function to determine WCAG-compliant text color
     $contrast-color: contrast-color.apply($background-color);
 
     // set link and icon color according to text color
     @if color.channel($background-color, "lightness", $space: hsl) < 100% {
-      @if $links == true {
+      @if $self != "alert" {
+        --_dso-alert-success-border-on-dark-color: #{states.$success-compact-accent-color};
+        --_dso-alert-error-border-on-dark-color: #{states.$danger-compact-accent-color};
+        --_dso-alert-info-border-on-dark-color: #{states.$info-compact-accent-color};
+        --_dso-alert-warning-border-on-dark-color: #{states.$warning-compact-accent-color};
+      }
+
+      @if $self != "link" {
         --link-color: currentColor;
         --link-hover-color: currentColor;
         --link-visited-color: currentColor;
+
+        // set according to contrast color determined by contrast-color function
+        $icon-color: if($contrast-color == colors.$contrast-dark, "zwart", "wit");
+
+        @include _linkIconColors($icon-color);
       }
 
-      @if $contrast-color == colors.$contrast-dark {
-        --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
-        --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
-        --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
-        --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
-      } @else if $contrast-color == colors.$contrast-light {
-        --_dso-icon-button-tertiary-color: #{colors.$wit};
-      }
-
-      // set according to contrast color determined by contrast-color function
-      @if $contrast-color == colors.$contrast-dark {
-        $icon-color: "zwart";
-      } @else if $contrast-color == colors.$contrast-light {
-        $icon-color: "wit";
-      }
-
-      // if contrast-color function gets it wrong, and therefore $reverse is set to true
-      @if $contrast-color == colors.$contrast-dark and $reverse == true {
-        $icon-color: "wit";
-        $contrast-color: colors.$contrast-light;
-      } @else if $contrast-color == colors.$contrast-light and $reverse == true {
-        $icon-color: "zwart";
-        $contrast-color: colors.$contrast-dark;
+      @if $self != "button" {
+        @if $contrast-color == colors.$contrast-dark {
+          --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
+          --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
+          --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
+          --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
+        } @else if $contrast-color == colors.$contrast-light {
+          --_dso-icon-button-tertiary-color: #{colors.$wit};
+        }
       }
     }
 
     // set css properties
     background-color: $background-color;
-    border-color: if($border-color, $border-color, $background-color);
     color: $contrast-color;
-
-    // implement icon color according to background color
-    @if $icon-color and $icons == true {
-      @include _anchorIconColors($icon-color);
-    }
   }
 }
 
 // ANCHOR ICON COLORS
 // ==================
-@mixin _anchorIconColors($icon-color) {
+@mixin _linkIconColors($icon-color) {
   // loop through map to set icon mode
   @each $mode, $value in link-variables.$linkIcons {
     $selector: map.get($value, "selector");
