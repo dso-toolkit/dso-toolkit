@@ -18,7 +18,7 @@ describe("Toggletip - Information", () => {
   }
 
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-toggletip--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-toggletip--information");
   });
 
   it("should be accessible", () => {
@@ -62,9 +62,7 @@ describe("Toggletip - Badge", () => {
   }
 
   beforeEach(() => {
-    cy.visit(
-      "http://localhost:45000/iframe.html?id=core-toggletip--default&args=variant:badge;message:5;status:warning",
-    );
+    cy.visit("http://localhost:45000/iframe.html?id=core-toggletip--badge");
 
     cy.injectAxe();
   });
