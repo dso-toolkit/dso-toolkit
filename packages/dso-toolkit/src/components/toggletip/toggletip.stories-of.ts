@@ -8,7 +8,8 @@ import { ToggletipArgs, toggletipArgTypes, toggletipArgsMapper } from "./togglet
 import { Toggletip } from "./toggletip.models.js";
 
 interface ToggletipStories {
-  Default: StoryObj<ToggletipArgs, Renderer>;
+  Information: StoryObj<ToggletipArgs, Renderer>;
+  Badge: StoryObj<ToggletipArgs, Renderer>;
 }
 
 interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -53,7 +54,17 @@ export function toggletipStories<Implementation, Templates, TemplateFnReturnType
   templateContainer,
 }: ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ToggletipStories {
   return {
-    Default: {
+    Information: {
+      render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
+        toggletipTemplate(toggletipArgsMapper(args, children)),
+      ),
+    },
+    Badge: {
+      args: {
+        variant: "badge",
+        status: "warning",
+        message: "5",
+      },
       render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
         toggletipTemplate(toggletipArgsMapper(args, children)),
       ),
