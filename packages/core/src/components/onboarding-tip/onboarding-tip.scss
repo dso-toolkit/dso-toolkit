@@ -125,7 +125,7 @@
   position: relative;
   z-index: 2; // z-index higher than the arrow
 
-  @include set-colors.apply(onboarding-tip-variables.$background-color, $icons: false, $links: false);
+  @include set-colors.apply(onboarding-tip-variables.$background-color, "onboarding-tip-inner");
 
   @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
     max-block-size: unset;

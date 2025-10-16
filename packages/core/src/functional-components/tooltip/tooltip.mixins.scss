@@ -12,7 +12,7 @@
   $padding-inline-inner: tooltip-variables.$padding-inline
 ) {
   .dso-tooltip {
-    @include set-colors.apply($background-color);
+    @include set-colors.apply($background-color, "tooltip");
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
@@ -33,7 +33,7 @@
     }
 
     .tooltip-inner {
-      @include set-colors.apply($background-color);
+      @include set-colors.apply($background-color, "tooltip-inner");
 
       // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
       & {
@@ -49,7 +49,7 @@
     }
 
     .tooltip-arrow {
-      @include set-colors.apply($background-color);
+      @include set-colors.apply($background-color, "tooltip-arrow");
 
       // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
       & {

@@ -11,7 +11,7 @@
   .dso-close {
     @include button.element();
 
-    $inset-unit: calc(units.$u1 / 2);
+    $inset-unit: (units.$u1 / 2) - alert.$border-size;
 
     position: absolute;
     inset-block-start: $inset-unit;
@@ -45,57 +45,25 @@
     content: "";
   }
 
-  &.dso-compact {
-    @include alert.compact();
-
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      min-block-size: alert.$inline-padding;
-    }
-  }
-
   &.alert-success {
-    @include alert.status-success();
-
-    &.dso-compact::before {
-      background-color: alert.$success-compact-accent-bg;
-    }
-
     &:not(.dso-compact)::before {
       @include di.base("status-success", alert.$icon-size);
     }
   }
 
   &.alert-error {
-    @include alert.status-error();
-
-    &.dso-compact::before {
-      background-color: alert.$danger-compact-accent-bg;
-    }
-
     &:not(.dso-compact)::before {
       @include di.base("status-error", alert.$icon-size);
     }
   }
 
   &.alert-warning {
-    @include alert.status-warning();
-
-    &.dso-compact::before {
-      background-color: alert.$warning-compact-accent-bg;
-    }
-
     &:not(.dso-compact)::before {
       @include di.base("status-warning", alert.$icon-size);
     }
   }
 
   &.alert-info {
-    @include alert.status-info();
-
-    &.dso-compact::before {
-      background-color: alert.$info-compact-accent-bg;
-    }
     &:not(.dso-compact)::before {
       @include di.base("status-info", alert.$icon-size);
     }
@@ -105,50 +73,4 @@
 // Web Component
 dso-alert {
   @include alert.children();
-
-  &[status="success"] {
-    @include alert.status-success();
-  }
-
-  &[status="error"] {
-    @include alert.status-error();
-  }
-
-  &[status="warning"] {
-    @include alert.status-warning();
-  }
-
-  &[status="info"] {
-    @include alert.status-info();
-  }
-
-  &[compact]:not([compact="false"]) {
-    @include alert.compact();
-
-    position: relative;
-  }
-
-  &[status="success"][compact]:not([compact="false"]) {
-    &::before {
-      background-color: alert.$success-compact-accent-bg;
-    }
-  }
-
-  &[status="error"][compact]:not([compact="false"]) {
-    &::before {
-      background-color: alert.$danger-compact-accent-bg;
-    }
-  }
-
-  &[status="warning"][compact]:not([compact="false"]) {
-    &::before {
-      background-color: alert.$warning-compact-accent-bg;
-    }
-  }
-
-  &[status="info"][compact]:not([compact="false"]) {
-    &::before {
-      background-color: alert.$info-compact-accent-bg;
-    }
-  }
 }
