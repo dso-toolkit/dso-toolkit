@@ -11,7 +11,7 @@
   .dso-close {
     @include button.element();
 
-    $inset-unit: (units.$u1 / 2) - alert.$border-size;
+    $inset-unit: calc(units.$u1 / 2) - alert.$border-size;
 
     position: absolute;
     inset-block-start: $inset-unit;

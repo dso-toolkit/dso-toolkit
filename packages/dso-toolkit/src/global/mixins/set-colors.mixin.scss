@@ -9,10 +9,30 @@
 
 @use "../functions/contrast-color.functions" as contrast-color;
 
-// Todo
-// - $self verplicht parameter maken (null weghalen)
-// - Alle aanroepen van apply() voorzien van naam van component
-// - Cosmetische wijzigingen uit branch van Chris overzetten. Let op prefixen van css custom properties met --_dso-
+/// Automatically applies accessible (WCAG-compliant) text and UI colors based on a given background color.
+///
+/// This mixin determines an appropriate contrast color for text (`light` or `dark`)
+/// and dynamically adjusts related colors for links, icons, alerts, and buttons
+/// to ensure consistent readability and sufficient contrast across different backgrounds.
+///
+/// @mixin apply
+/// @access public
+///
+/// @param {Color} $background-color - The background color used to determine text and accent contrast colors.
+/// @param {String} $self - The context of the component using the mixin (e.g. `"alert"`, `"link"`, `"button"`).
+///   This determines which color rules are skipped to avoid overriding component-specific styles.
+///
+/// @details
+/// **Core behavior:**
+/// - Uses `contrast-color.apply($background-color)` to compute a WCAG-compliant text color.
+/// - For dark backgrounds, sets adjusted border, link, and icon colors.
+/// - Applies context-specific variables depending on `$self`.
+
+/// It sets the computed background and text color:
+/// ```scss
+/// background-color: $background-color;
+/// color: $contrast-color;
+/// ```
 @mixin apply($background-color, $self) {
   & {
     // run contrast-color function to determine WCAG-compliant text color
