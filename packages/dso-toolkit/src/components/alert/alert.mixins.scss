@@ -8,8 +8,8 @@
 @use "../../global/mixins/set-colors.mixin" as set-colors;
 
 @mixin icon-position() {
-  inset-block-start: alert-variables.$inline-padding;
-  inset-inline-start: alert-variables.$inline-padding;
+  inset-block-start: alert-variables.$inline-padding - alert-variables.$border-size;
+  inset-inline-start: alert-variables.$inline-padding - alert-variables.$border-size;
   position: absolute;
 }
 
@@ -54,19 +54,35 @@
 }
 
 @mixin status-success() {
-  @include set-colors.apply(alert-variables.$success-bg);
+  @include set-colors.apply(alert-variables.$success-bg, "alert");
+
+  & {
+    border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
+  }
 }
 
 @mixin status-error() {
-  @include set-colors.apply(alert-variables.$danger-bg);
+  @include set-colors.apply(alert-variables.$danger-bg, "alert");
+
+  & {
+    border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
+  }
 }
 
 @mixin status-warning() {
-  @include set-colors.apply(alert-variables.$warning-bg);
+  @include set-colors.apply(alert-variables.$warning-bg, "alert");
+
+  & {
+    border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
+  }
 }
 
 @mixin status-info() {
-  @include set-colors.apply(alert-variables.$info-bg);
+  @include set-colors.apply(alert-variables.$info-bg, "alert");
+
+  & {
+    border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
+  }
 }
 
 @mixin root() {
@@ -74,24 +90,28 @@
   margin-block-end: typography.$line-height-computed;
   min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
   position: relative;
+  border: 1px solid transparent;
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
-    padding-block: alert-variables.$block-padding;
-    padding-inline: alert-variables.$inline-start-padding units.$u5;
+    padding-block: (alert-variables.$block-padding - alert-variables.$border-size);
+    padding-inline: (alert-variables.$inline-start-padding - alert-variables.$border-size)
+      (units.$u5 - alert-variables.$border-size);
 
     &.dso-compact {
-      padding-block: alert-variables.$block-padding * 0.5;
-      padding-inline: alert-variables.$inline-padding units.$u5;
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: (alert-variables.$inline-padding - alert-variables.$border-size)
+        (units.$u5 - alert-variables.$border-size);
     }
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    padding-block: alert-variables.$small-padding-block-start alert-variables.$small-padding;
-    padding-inline: alert-variables.$small-padding;
+    padding-block: (alert-variables.$small-padding-block-start - alert-variables.$border-size)
+      (alert-variables.$small-padding - alert-variables.$border-size);
+    padding-inline: alert-variables.$small-padding - alert-variables.$border-size;
 
     &.dso-compact {
-      padding-block: alert-variables.$block-padding * 0.5;
-      padding-inline: alert-variables.$inline-padding;
+      padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
+      padding-inline: alert-variables.$inline-padding - alert-variables.$border-size;
     }
   }
 
@@ -102,6 +122,47 @@
   .icon-status {
     @include icon-position();
   }
+
+  &.dso-compact {
+    @include compact();
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      min-block-size: alert-variables.$inline-padding;
+    }
+  }
+
+  &.alert-success {
+    @include status-success();
+
+    &.dso-compact::before {
+      background-color: alert-variables.$success-compact-accent-bg;
+    }
+  }
+
+  &.alert-error {
+    @include status-error();
+
+    &.dso-compact::before {
+      background-color: alert-variables.$danger-compact-accent-bg;
+    }
+  }
+
+  &.alert-warning {
+    @include status-warning();
+
+    &.dso-compact::before {
+      background-color: alert-variables.$warning-compact-accent-bg;
+    }
+  }
+
+  &.alert-info {
+    @include status-info();
+
+    &.dso-compact::before {
+      background-color: alert-variables.$info-compact-accent-bg;
+    }
+  }
 }
 
 @mixin compact() {
@@ -110,13 +171,13 @@
   margin-inline-start: units.$u1;
 
   &::before {
-    border-end-start-radius: units.$u1;
-    border-start-start-radius: units.$u1;
-    inset-block-end: 0;
     content: "";
-    inset-inline-start: units.$u1 * -1;
     position: absolute;
-    inset-block-start: 0;
+    inset-block-start: alert-variables.$border-size * -1;
+    inset-block-end: alert-variables.$border-size * -1;
+    inset-inline-start: (units.$u1 + alert-variables.$border-size) * -1;
+    border-start-start-radius: units.$u1;
+    border-end-start-radius: units.$u1;
     inline-size: units.$u1;
   }
 }

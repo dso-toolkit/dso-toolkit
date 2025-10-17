@@ -2,76 +2,81 @@
 @use "sass:color";
 
 @use "../../variables/colors";
+@use "../../variables/states";
 @use "../../components/link/link.variables" as link-variables;
 @use "../../components/button/button.variables" as button-variables;
 @use "../../di";
 
-@use "../functions/contrast-color.functions" as contrast-color;
+@use "../functions/contrast-color.functions" as contrast-color-functions;
 
-// SET COLORS
-// ==========
-// USAGE: @include setColors($bgcolor, $bordercolor: transparent, $links: true);
-// $background-color: background color of the element (required)
-// $border-color: border color of the element (optional)
-// $icons: boolean to set link icon colors according to background color (optional). set to false if you don't want to change the link icon colors.
-// $links: boolean to set link colors according to background color (optional). set to false if you don't want to change the link colors.
-// $reverse: in case the combination chosen by this mixin & contrast-color function still does not meet WCAG requirements, set $reverse to true. If this combination does not comply either, find another background-color.
+// Automatically applies accessible (WCAG-compliant) text and UI colors based on a given background color.
 
-@mixin apply($background-color, $border-color: null, $icons: true, $links: true, $reverse: false) {
-  $icon-color: null;
+// This mixin determines an appropriate contrast color for text (`light` or `dark`)
+// and dynamically adjusts related colors for links, icons, alerts, and buttons
+// to ensure consistent readability and sufficient contrast across different backgrounds.
+// Automatically applies accessible (WCAG-compliant) text and UI colors
+// based on a provided background color. Adjusts related UI elements via custom css props to ensure consistent
+// readability.
+
+// @param {Color} $background-color
+//   The background color used to compute contrast colors.
+
+// @param {String} $self
+//   The context of the component using this mixin (e.g., "alert", "link", "button").
+//   Determines which sections of styles should be skipped to avoid overriding component-specific rules.
+
+@mixin apply($background-color, $self) {
   & {
     // run contrast-color function to determine WCAG-compliant text color
-    $contrast-color: contrast-color.apply($background-color);
+    $contrast-color: contrast-color-functions.apply($background-color);
 
-    // set link and icon color according to text color
-    @if color.channel($background-color, "lightness", $space: hsl) < 100% {
-      @if $links == true {
+    @if $self != "alert" {
+      @if contrast-color-functions.is-white($background-color) {
+        --_dso-alert-success-border-color: initial;
+        --_dso-alert-error-border-color: initial;
+        --_dso-alert-info-border-color: initial;
+        --_dso-alert-warning-border-color: initial;
+      } @else {
+        --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
+        --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
+        --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
+        --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
+      }
+    }
+
+    @if $self != "link" {
+      @if not contrast-color-functions.is-white($background-color) {
         --link-color: currentColor;
         --link-hover-color: currentColor;
         --link-visited-color: currentColor;
-      }
 
-      @if $contrast-color == colors.$contrast-dark {
-        --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
-        --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
-        --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
-        --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
-      } @else if $contrast-color == colors.$contrast-light {
-        --_dso-icon-button-tertiary-color: #{colors.$wit};
-      }
+        // set according to contrast color determined by contrast-color function
+        $icon-color: if($contrast-color == colors.$contrast-dark, "zwart", "wit");
 
-      // set according to contrast color determined by contrast-color function
-      @if $contrast-color == colors.$contrast-dark {
-        $icon-color: "zwart";
-      } @else if $contrast-color == colors.$contrast-light {
-        $icon-color: "wit";
+        @include _linkIconColors($icon-color);
       }
+    }
 
-      // if contrast-color function gets it wrong, and therefore $reverse is set to true
-      @if $contrast-color == colors.$contrast-dark and $reverse == true {
-        $icon-color: "wit";
-        $contrast-color: colors.$contrast-light;
-      } @else if $contrast-color == colors.$contrast-light and $reverse == true {
-        $icon-color: "zwart";
-        $contrast-color: colors.$contrast-dark;
+    @if $self != "icon-button" {
+      @if not contrast-color-functions.is-white($background-color) {
+        @if $contrast-color == colors.$contrast-dark {
+          --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
+          --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
+          --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
+          --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
+        } @else if $contrast-color == colors.$contrast-light {
+          --_dso-icon-button-tertiary-color: #{colors.$wit};
+        }
       }
     }
 
     // set css properties
     background-color: $background-color;
-    border-color: if($border-color, $border-color, $background-color);
     color: $contrast-color;
-
-    // implement icon color according to background color
-    @if $icon-color and $icons == true {
-      @include _anchorIconColors($icon-color);
-    }
   }
 }
 
-// ANCHOR ICON COLORS
-// ==================
-@mixin _anchorIconColors($icon-color) {
+@mixin _linkIconColors($icon-color) {
   // loop through map to set icon mode
   @each $mode, $value in link-variables.$linkIcons {
     $selector: map.get($value, "selector");
