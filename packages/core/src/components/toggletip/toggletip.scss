@@ -1,19 +1,22 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/variables/zindex";
+
+@use "../../functional-components/tooltip";
 
 @include utilities.box-sizing();
+@include tooltip.include();
 
 :host {
   display: inline-block;
-
-  // tooltip arrow placement exceptions
-  --tooltip-margin-block-start: 0;
-  --tooltip-margin-inline-start: 3px;
-  --tooltip-margin-inline-end: units.$u1 * -1 !important;
 }
 
-:host(:focus) {
-  outline: none;
-  z-index: zindex.$tooltip;
+.badge-button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+
+  @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
 }

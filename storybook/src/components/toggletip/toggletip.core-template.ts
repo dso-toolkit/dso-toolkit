@@ -8,12 +8,13 @@ export const coreToggletip: ComponentImplementation<Toggletip<TemplateResult>> =
   component: "toggletip",
   implementation: "core",
   template: () =>
-    function toggletipTemplate({ children, label, position, small, secondary }) {
+    function toggletipTemplate({ children, variant, label, placement, status, message }) {
       return html`<dso-toggletip
-        label=${ifDefined(label)}
-        position=${ifDefined(position)}
-        ?small=${small}
-        ?secondary=${secondary}
+        .variant=${ifDefined(variant)}
+        .label=${ifDefined(label)}
+        .placement=${ifDefined(placement)}
+        .status=${ifDefined(status)}
+        .message=${ifDefined(message)}
         >${children}</dso-toggletip
       >`;
     },

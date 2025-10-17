@@ -75,9 +75,8 @@ export const cardContentToggletip: Omit<CardArgs, "dsoCardClick"> = {
     {
       children: "Extra informatie",
       label: `Toon informatie over "${cardContent.label}"`,
-      position: "left",
-      small: false,
-      secondary: false,
+      placement: "left",
+      variant: "information",
     },
   ],
 };
