@@ -67,11 +67,13 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
       }
 
       return html`
+        <!-- START DEPRECATED -->
         <dso-responsive-element>
           <ul class="dso-document-list">
             ${items.map((item) => html`<li>${documentListItemTemplate(item)}</li>`)}
           </ul>
         </dso-responsive-element>
+        <!-- END DEPRECATED -->
       `;
     },
 };

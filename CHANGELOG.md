@@ -8,8 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Alert: On Color varianten ([#3273](https://github.com/dso-toolkit/dso-toolkit/issues/3273))
 
+### Deprecated
+* Document List: Deprecate ([#3341](https://github.com/dso-toolkit/dso-toolkit/issues/3341))
+
 ### Fixed
 * Header: marges rond Uitloggen ongelijk ([#3357](https://github.com/dso-toolkit/dso-toolkit/issues/3357))
+
 
 ## 🌯 Release 79.1.0 - 2025-10-13
 
