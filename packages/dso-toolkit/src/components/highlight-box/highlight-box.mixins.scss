@@ -35,19 +35,19 @@
   $step-counter-selector
 ) {
   &:not(#{$white-selector}, #{$yellow-selector}, #{$border-selector}) {
-    @include set-colors.apply(colors.$grijs-5);
+    @include set-colors.apply(colors.$grijs-5, "highlight-box");
   }
 
   &#{$grey-selector} {
-    @include set-colors.apply(colors.$grijs-5);
+    @include set-colors.apply(colors.$grijs-5, "highlight-box");
   }
 
   &#{$white-selector} {
-    @include set-colors.apply(colors.$wit);
+    @include set-colors.apply(colors.$wit, "highlight-box");
   }
 
   &#{$yellow-selector} {
-    @include set-colors.apply(colors.$geel-20);
+    @include set-colors.apply(colors.$geel-20, "highlight-box");
   }
 
   &#{$drop-shadow-selector} {
@@ -60,7 +60,11 @@
   }
 
   &#{$border-selector}:not(#{$grey-selector}, #{$yellow-selector}) {
-    @include set-colors.apply(colors.$wit, $border-color: colors.$grijs-20);
+    @include set-colors.apply(colors.$wit, "highlight-box");
+
+    & {
+      border-color: colors.$grijs-20;
+    }
   }
 
   &#{$has-counter-selector} {

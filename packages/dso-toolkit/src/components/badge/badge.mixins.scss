@@ -16,34 +16,39 @@
   text-align: center;
 
   & {
-    @include set-colors.apply(badge-variables.$default-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$default-bg-color, "badge");
   }
 
   &.badge-info {
-    @include set-colors.apply(badge-variables.$info-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$info-bg-color, "badge");
   }
 
   &.badge-primary {
-    @include set-colors.apply(badge-variables.$primary-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$primary-bg-color, "badge");
   }
 
   &.badge-success {
-    @include set-colors.apply(badge-variables.$success-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$success-bg-color, "badge");
   }
 
   &.badge-warning {
-    @include set-colors.apply(badge-variables.$warning-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$warning-bg-color, "badge");
   }
 
   &.badge-error {
-    @include set-colors.apply(badge-variables.$error-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$error-bg-color, "badge");
   }
 
   &.badge-outline {
-    @include set-colors.apply(colors.$wit, colors.$grijs-90, $icons: false, $links: false);
+    @include set-colors.apply(colors.$wit, "badge");
+
+    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
+    & {
+      border-color: colors.$grijs-90;
+    }
   }
 
   &.badge-attention {
-    @include set-colors.apply(badge-variables.$attention-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(badge-variables.$attention-bg-color, "badge");
   }
 }
