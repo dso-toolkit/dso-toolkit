@@ -7,7 +7,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...documentListMeta({ readme }),
-  title: "HTML|CSS/Document List",
+  title: "HTML|CSS/Document List (Deprecated)",
 };
 
 export default meta;
