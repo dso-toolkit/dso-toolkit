@@ -7,7 +7,7 @@
 @use "../../components/button/button.variables" as button-variables;
 @use "../../di";
 
-@use "../functions/contrast-color.functions" as contrast-color;
+@use "../functions/contrast-color.functions" as contrast-color-functions;
 
 // Automatically applies accessible (WCAG-compliant) text and UI colors based on a given background color.
 
@@ -28,24 +28,24 @@
 @mixin apply($background-color, $self) {
   & {
     // run contrast-color function to determine WCAG-compliant text color
-    $contrast-color: contrast-color.apply($background-color);
+    $contrast-color: contrast-color-functions.apply($background-color);
 
     @if $self != "alert" {
-      @if contrast-color.is-not-white($background-color) {
-        --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
-        --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
-        --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
-        --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
-      } @else {
+      @if contrast-color-functions.is-white($background-color) {
         --_dso-alert-success-border-color: initial;
         --_dso-alert-error-border-color: initial;
         --_dso-alert-info-border-color: initial;
         --_dso-alert-warning-border-color: initial;
+      } @else {
+        --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
+        --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
+        --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
+        --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
       }
     }
 
     @if $self != "link" {
-      @if contrast-color.is-not-white($background-color) {
+      @if not contrast-color-functions.is-white($background-color) {
         --link-color: currentColor;
         --link-hover-color: currentColor;
         --link-visited-color: currentColor;
@@ -57,8 +57,8 @@
       }
     }
 
-    @if $self != "button" {
-      @if contrast-color.is-not-white($background-color) {
+    @if $self != "icon-button" {
+      @if not contrast-color-functions.is-white($background-color) {
         @if $contrast-color == colors.$contrast-dark {
           --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
           --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
