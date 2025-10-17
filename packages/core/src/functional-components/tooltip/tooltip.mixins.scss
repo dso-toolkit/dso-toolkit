@@ -33,7 +33,7 @@
     }
 
     .tooltip-inner {
-      @include set-colors.apply($background-color, "tooltip-inner");
+      @include set-colors.apply($background-color, "tooltip");
 
       // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
       & {
@@ -49,7 +49,7 @@
     }
 
     .tooltip-arrow {
-      @include set-colors.apply($background-color, "tooltip-arrow");
+      @include set-colors.apply($background-color, "tooltip");
 
       // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
       & {

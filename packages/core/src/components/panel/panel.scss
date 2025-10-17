@@ -33,7 +33,7 @@
   border-start-end-radius: units.$u1 * 0.5;
   border-color: colors.$grijs-30;
 
-  @include set-colors.apply(colors.$grijs-10, "panel-heading");
+  @include set-colors.apply(colors.$grijs-10, "panel");
 
   .sr-only {
     @include utilities.sr-only();

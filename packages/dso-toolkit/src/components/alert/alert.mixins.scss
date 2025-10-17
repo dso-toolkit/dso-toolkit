@@ -57,7 +57,7 @@
   @include set-colors.apply(alert-variables.$success-bg, "alert");
 
   & {
-    border-color: var(--_dso-alert-success-border-on-dark-color, alert-variables.$success-bg);
+    border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
   }
 }
 
@@ -65,7 +65,7 @@
   @include set-colors.apply(alert-variables.$danger-bg, "alert");
 
   & {
-    border-color: var(--_dso-alert-error-border-on-dark-color, alert-variables.$danger-bg);
+    border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
   }
 }
 
@@ -73,7 +73,7 @@
   @include set-colors.apply(alert-variables.$warning-bg, "alert");
 
   & {
-    border-color: var(--_dso-alert-warning-border-on-dark-color, alert-variables.$warning-bg);
+    border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
   }
 }
 
@@ -81,7 +81,7 @@
   @include set-colors.apply(alert-variables.$info-bg, "alert");
 
   & {
-    border-color: var(--_dso-alert-info-border-on-dark-color, alert-variables.$info-bg);
+    border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
   }
 }
 
@@ -94,7 +94,8 @@
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
     padding-block: (alert-variables.$block-padding - alert-variables.$border-size);
-    padding-inline: (alert-variables.$inline-start-padding - alert-variables.$border-size) (units.$u5 - 1px);
+    padding-inline: (alert-variables.$inline-start-padding - alert-variables.$border-size)
+      (units.$u5 - alert-variables.$border-size);
 
     &.dso-compact {
       padding-block: alert-variables.$block-padding * 0.5 - alert-variables.$border-size;
@@ -170,13 +171,13 @@
   margin-inline-start: units.$u1;
 
   &::before {
-    border-end-start-radius: units.$u1;
-    border-start-start-radius: units.$u1;
+    content: "";
+    position: absolute;
     inset-block-start: alert-variables.$border-size * -1;
     inset-block-end: alert-variables.$border-size * -1;
-    content: "";
     inset-inline-start: (units.$u1 + alert-variables.$border-size) * -1;
-    position: absolute;
+    border-start-start-radius: units.$u1;
+    border-end-start-radius: units.$u1;
     inline-size: units.$u1;
   }
 }

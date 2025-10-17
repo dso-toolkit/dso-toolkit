@@ -46,3 +46,12 @@
 
   @return null;
 }
+
+// Returns `true` if the given color is not pure white.
+// Checks the lightness channel in HSL color space.
+
+// @param {Color} $color - The color to evaluate.
+// @return {Boolean} Whether the color is not white.
+@function is-not-white($color) {
+  @return color.channel($color, "lightness", $space: hsl) < 100%;
+}

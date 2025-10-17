@@ -9,45 +9,43 @@
 
 @use "../functions/contrast-color.functions" as contrast-color;
 
-/// Automatically applies accessible (WCAG-compliant) text and UI colors based on a given background color.
-///
-/// This mixin determines an appropriate contrast color for text (`light` or `dark`)
-/// and dynamically adjusts related colors for links, icons, alerts, and buttons
-/// to ensure consistent readability and sufficient contrast across different backgrounds.
-///
-/// @mixin apply
-/// @access public
-///
-/// @param {Color} $background-color - The background color used to determine text and accent contrast colors.
-/// @param {String} $self - The context of the component using the mixin (e.g. `"alert"`, `"link"`, `"button"`).
-///   This determines which color rules are skipped to avoid overriding component-specific styles.
-///
-/// @details
-/// **Core behavior:**
-/// - Uses `contrast-color.apply($background-color)` to compute a WCAG-compliant text color.
-/// - For dark backgrounds, sets adjusted border, link, and icon colors.
-/// - Applies context-specific variables depending on `$self`.
+// Automatically applies accessible (WCAG-compliant) text and UI colors based on a given background color.
 
-/// It sets the computed background and text color:
-/// ```scss
-/// background-color: $background-color;
-/// color: $contrast-color;
-/// ```
+// This mixin determines an appropriate contrast color for text (`light` or `dark`)
+// and dynamically adjusts related colors for links, icons, alerts, and buttons
+// to ensure consistent readability and sufficient contrast across different backgrounds.
+// Automatically applies accessible (WCAG-compliant) text and UI colors
+// based on a provided background color. Adjusts related UI elements via custom css props to ensure consistent
+// readability.
+
+// @param {Color} $background-color
+//   The background color used to compute contrast colors.
+
+// @param {String} $self
+//   The context of the component using this mixin (e.g., "alert", "link", "button").
+//   Determines which sections of styles should be skipped to avoid overriding component-specific rules.
+
 @mixin apply($background-color, $self) {
   & {
     // run contrast-color function to determine WCAG-compliant text color
     $contrast-color: contrast-color.apply($background-color);
 
-    // set link and icon color according to text color
-    @if color.channel($background-color, "lightness", $space: hsl) < 100% {
-      @if $self != "alert" {
-        --_dso-alert-success-border-on-dark-color: #{states.$success-compact-accent-color};
-        --_dso-alert-error-border-on-dark-color: #{states.$danger-compact-accent-color};
-        --_dso-alert-info-border-on-dark-color: #{states.$info-compact-accent-color};
-        --_dso-alert-warning-border-on-dark-color: #{states.$warning-compact-accent-color};
+    @if $self != "alert" {
+      @if contrast-color.is-not-white($background-color) {
+        --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
+        --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
+        --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
+        --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
+      } @else {
+        --_dso-alert-success-border-color: initial;
+        --_dso-alert-error-border-color: initial;
+        --_dso-alert-info-border-color: initial;
+        --_dso-alert-warning-border-color: initial;
       }
+    }
 
-      @if $self != "link" {
+    @if $self != "link" {
+      @if contrast-color.is-not-white($background-color) {
         --link-color: currentColor;
         --link-hover-color: currentColor;
         --link-visited-color: currentColor;
@@ -57,8 +55,10 @@
 
         @include _linkIconColors($icon-color);
       }
+    }
 
-      @if $self != "button" {
+    @if $self != "button" {
+      @if contrast-color.is-not-white($background-color) {
         @if $contrast-color == colors.$contrast-dark {
           --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
           --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
@@ -76,8 +76,6 @@
   }
 }
 
-// ANCHOR ICON COLORS
-// ==================
 @mixin _linkIconColors($icon-color) {
   // loop through map to set icon mode
   @each $mode, $value in link-variables.$linkIcons {
