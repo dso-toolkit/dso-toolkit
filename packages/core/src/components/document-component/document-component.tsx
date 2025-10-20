@@ -118,7 +118,7 @@ export class DocumentComponent implements ComponentInterface {
   /**
    * An alternative title to show when there is nothing to create a title.
    */
-  @Prop()
+  @Prop({ reflect: true })
   alternativeTitle?: string;
 
   /**
