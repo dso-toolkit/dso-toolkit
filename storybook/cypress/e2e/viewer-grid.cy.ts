@@ -130,25 +130,31 @@ describe("Viewer Grid", () => {
     cy.visit(url);
 
     cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel").should("be.not.visible");
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
 
     cy.get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filter-panel-title", "Titel van filterpaneel")
       .invoke("attr", "filter-panel-open", "")
       .shadow()
       .find(".filter-panel")
       .should("be.visible");
+
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("exist").and("be.visible");
 
     cy.get("dso-viewer-grid.hydrated")
       .invoke("attr", "filter-panel-open", null)
       .shadow()
       .find(".filter-panel")
       .should("be.not.visible");
+
+    cy.get("dso-viewer-grid.hydrated").shadow().find(".filter-panel h3").should("not.exist");
   });
 
   it("shows the correct title for the filter panel", () => {
     cy.visit(url)
       .get("dso-viewer-grid.hydrated")
       .invoke("attr", "filter-panel-title", "Laten we gaan filteren")
-      .get("dso-viewer-grid.hydrated")
+      .invoke("attr", "filter-panel-open", "")
       .shadow()
       .find(".filter-panel h3")
       .should("have.text", "Laten we gaan filteren");
