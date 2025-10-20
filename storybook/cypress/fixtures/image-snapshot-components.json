@@ -186,7 +186,7 @@
     "type": "html-css"
   },
   {
-    "name": "document-list",
+    "name": "document-list-deprecated",
     "selector": ".dso-document-list",
     "stories": ["default", "sticky"],
     "type": "html-css"

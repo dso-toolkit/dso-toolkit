@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Deprecated
+* Document List: Deprecate ([#3341](https://github.com/dso-toolkit/dso-toolkit/issues/3341))
+
 ### Fixed
 * Header: marges rond Uitloggen ongelijk ([#3357](https://github.com/dso-toolkit/dso-toolkit/issues/3357))
 * Viewer Grid: Filter Panel blijft in DOM aanwezig ([#3345](https://github.com/dso-toolkit/dso-toolkit/issues/3345))
