@@ -1,8 +1,8 @@
 import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Prop, h } from "@stencil/core";
-import { LabelStatus } from "dso-toolkit";
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
+import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
   OzonContentAnchorClickEvent,
   OzonContentClickEvent,
@@ -227,25 +227,16 @@ export class DocumentComponent implements ComponentInterface {
 
     if (statusses.length === 0) return undefined;
 
-    const getStatus = (wijzigactie: DocumentComponentWijzigactie): LabelStatus | undefined => {
-      switch (wijzigactie) {
-        case "voegtoe":
-          return "toegevoegd";
-        case "verwijder":
-          return "verwijderd";
-        default:
-          return undefined;
-      }
-    };
-
     return (
       <span>
         {statusses.map(({ tagName, wijzigactie }) => {
-          const statusLabel = getStatus(wijzigactie);
           return (
             <Fragment>
               {" "}
-              <dso-label compact {...(statusLabel ? { status: statusLabel } : {})}>
+              <dso-label
+                compact
+                {...(wijzigactie ? { status: wijzigactie === "voegtoe" ? "toegevoegd" : "verwijderd" } : {})}
+              >
                 {tagName}
               </dso-label>
             </Fragment>
@@ -304,10 +295,12 @@ export class DocumentComponent implements ComponentInterface {
       return undefined;
     }
 
-    const wijzigactie = element.getAttribute("wijzigactie") as DocumentComponentWijzigactie | null;
-    const tagName = element.tagName.toLowerCase();
+    const wijzigactie = parseWijzigactieFromNode(element);
 
-    return { tagName, wijzigactie };
+    return {
+      tagName: element.tagName.toLowerCase(),
+      wijzigactie: wijzigactie ?? null,
+    };
   }
 
   render() {
