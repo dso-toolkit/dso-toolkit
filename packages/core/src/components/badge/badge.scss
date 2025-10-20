@@ -1,5 +1,9 @@
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/components/badge";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "badge.variables" as badge-variables;
 
 :host {
   display: inline-block;
@@ -13,4 +17,106 @@
 
 .dso-badge {
   @include badge.root();
+}
+
+:host([_toggled]:not([_toggled="false"])) {
+  .dso-badge {
+    @include badge.variant(badge-variables.$default-toggled-bg-color);
+
+    &.badge-info {
+      @include badge.variant(badge-variables.$info-toggled-bg-color);
+    }
+
+    &.badge-primary {
+      @include badge.variant(badge-variables.$primary-toggled-bg-color);
+    }
+
+    &.badge-success {
+      @include badge.variant(badge-variables.$success-toggled-bg-color);
+    }
+
+    &.badge-warning {
+      @include badge.variant(badge-variables.$warning-toggled-bg-color);
+    }
+
+    &.badge-error {
+      @include badge.variant(badge-variables.$error-toggled-bg-color);
+    }
+
+    &.badge-outline {
+      @include badge.variant(badge-variables.$outline-toggled-bg-color, colors.$grijs-90);
+    }
+
+    &.badge-attention {
+      @include badge.variant(badge-variables.$attention-toggled-bg-color);
+    }
+  }
+}
+
+:host([_hover]:not([_hover="false"])) {
+  .dso-badge {
+    @include badge.variant(badge-variables.$default-hover-bg-color);
+
+    &.badge-info {
+      @include badge.variant(badge-variables.$info-hover-bg-color);
+    }
+
+    &.badge-primary {
+      @include badge.variant(badge-variables.$primary-hover-bg-color);
+    }
+
+    &.badge-success {
+      @include badge.variant(badge-variables.$success-hover-bg-color);
+    }
+
+    &.badge-warning {
+      @include badge.variant(badge-variables.$warning-hover-bg-color);
+    }
+
+    &.badge-error {
+      @include badge.variant(badge-variables.$error-hover-bg-color);
+    }
+
+    &.badge-outline {
+      @include badge.variant(badge-variables.$outline-hover-bg-color, colors.$grijs-90);
+    }
+
+    &.badge-attention {
+      @include badge.variant(badge-variables.$attention-hover-bg-color);
+    }
+  }
+}
+
+:host([_active]:not([_active="false"])) {
+  .dso-badge {
+    @include badge.variant(badge-variables.$default-active-bg-color);
+
+    &.badge-info {
+      @include badge.variant(badge-variables.$info-active-bg-color);
+    }
+
+    &.badge-primary {
+      @include badge.variant(badge-variables.$primary-active-bg-color);
+    }
+
+    &.badge-success {
+      @include badge.variant(badge-variables.$success-active-bg-color);
+    }
+
+    &.badge-warning {
+      @include badge.variant(badge-variables.$warning-active-bg-color);
+    }
+
+    &.badge-error {
+      @include badge.variant(badge-variables.$error-active-bg-color);
+    }
+
+    &.badge-outline {
+      @include badge.variant(badge-variables.$outline-active-bg-color, colors.$grijs-90);
+    }
+
+    &.badge-attention {
+      @include badge.variant(badge-variables.$attention-active-bg-color);
+    }
+  }
 }

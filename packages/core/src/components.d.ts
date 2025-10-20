@@ -401,22 +401,13 @@ export namespace Components {
         "suggestions": Suggestion[] | SuggestionGroup[] | null;
     }
     interface DsoBadge {
-        /**
-          * Show Badge in active state
-         */
-        "active"?: boolean;
-        /**
-          * Show Badge in hovered state
-         */
-        "hovered"?: boolean;
+        "_active"?: boolean;
+        "_hover"?: boolean;
+        "_toggled"?: boolean;
         /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
-        /**
-          * Show Badge in hovered state
-         */
-        "toggled"?: boolean;
     }
     interface DsoBanner {
         /**
@@ -3053,22 +3044,13 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[] | SuggestionGroup[] | null;
     }
     interface DsoBadge {
-        /**
-          * Show Badge in active state
-         */
-        "active"?: boolean;
-        /**
-          * Show Badge in hovered state
-         */
-        "hovered"?: boolean;
+        "_active"?: boolean;
+        "_hover"?: boolean;
+        "_toggled"?: boolean;
         /**
           * The status of the Badge.
          */
         "status"?: BadgeStatus;
-        /**
-          * Show Badge in hovered state
-         */
-        "toggled"?: boolean;
     }
     interface DsoBanner {
         /**

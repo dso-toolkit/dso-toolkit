@@ -238,9 +238,9 @@ export class Toggletip {
             >
               <dso-badge
                 status={this.status}
-                active={this.badgeActive}
-                hovered={this.badgeHovered}
-                toggled={this.showToggletip}
+                _active={this.badgeActive}
+                _hover={this.badgeHovered}
+                _toggled={this.showToggletip}
               >
                 {this.message}
               </dso-badge>

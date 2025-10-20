@@ -5,12 +5,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description                 | Type                                                                                                | Default     |
-| --------- | --------- | --------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
-| `active`  | `active`  | Show Badge in active state  | `boolean \| undefined`                                                                              | `undefined` |
-| `hovered` | `hovered` | Show Badge in hovered state | `boolean \| undefined`                                                                              | `undefined` |
-| `status`  | `status`  | The status of the Badge.    | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `toggled` | `toggled` | Show Badge in hovered state | `boolean \| undefined`                                                                              | `undefined` |
+| Property | Attribute | Description              | Type                                                                                                | Default     |
+| -------- | --------- | ------------------------ | --------------------------------------------------------------------------------------------------- | ----------- |
+| `status` | `status`  | The status of the Badge. | `"attention" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ## Dependencies

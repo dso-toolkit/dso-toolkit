@@ -16,32 +16,32 @@ export class Badge {
   status?: BadgeStatus;
 
   /**
+   * @internal
+   *
    * Show Badge in active state
    */
-  @Prop()
-  active?: boolean;
+  @Prop({ reflect: true })
+  _active?: boolean;
 
   /**
+   * @internal
+   *
    * Show Badge in hovered state
    */
-  @Prop()
-  hovered?: boolean;
+  @Prop({ reflect: true })
+  _hover?: boolean;
 
   /**
+   * @internal
+   *
    * Show Badge in hovered state
    */
-  @Prop()
-  toggled?: boolean;
+  @Prop({ reflect: true })
+  _toggled?: boolean;
 
   render() {
     return (
-      <span
-        class={clsx(
-          "dso-badge",
-          { [`badge-${this.status}`]: this.status },
-          { active: this.active, hovered: this.hovered, toggled: this.toggled },
-        )}
-      >
+      <span class={clsx("dso-badge", { [`badge-${this.status}`]: this.status })}>
         <slot></slot>
       </span>
     );
