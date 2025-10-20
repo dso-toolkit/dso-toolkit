@@ -316,6 +316,7 @@ export class ViewerGrid {
           )}
           {(!this.tabView || (this.tabView && this.activeTab === "search")) && (
             <FilterPanel
+              open={this.filterPanelOpen}
               title={this.filterPanelTitle}
               ref={(element) => (this.filterPanel = element)}
               dsoCloseFilterPanel={(e) => this.dsoCloseFilterPanel.emit({ originalEvent: e })}
