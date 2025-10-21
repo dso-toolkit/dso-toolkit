@@ -218,31 +218,23 @@ export class DocumentComponent implements ComponentInterface {
     }
   };
 
-  private statusLabels(): Element | undefined {
-    const statusses = [this.gereserveerd, this.vervallen]
-      .map((waarde) => this.parseWijzigactie(waarde))
-      .filter(
-        (status): status is { tagName: string; wijzigactie: DocumentComponentWijzigactie } => status !== undefined,
-      );
+  private statusLabel(input: DocumentComponentInputType | undefined): Element | undefined {
+    const status = this.parseWijzigactie(input);
 
-    if (statusses.length === 0) return undefined;
+    if (!status) {
+      return undefined;
+    }
 
     return (
-      <span>
-        {statusses.map(({ tagName, wijzigactie }) => {
-          return (
-            <Fragment>
-              {" "}
-              <dso-label
-                compact
-                {...(wijzigactie ? { status: wijzigactie === "voegtoe" ? "toegevoegd" : "verwijderd" } : {})}
-              >
-                {tagName}
-              </dso-label>
-            </Fragment>
-          );
-        })}
-      </span>
+      <Fragment>
+        {" "}
+        <dso-label
+          compact
+          {...(status.wijzigactie ? { status: status.wijzigactie === "voegtoe" ? "toegevoegd" : "verwijderd" } : {})}
+        >
+          {status.tagName}
+        </dso-label>
+      </Fragment>
     );
   }
 
@@ -357,7 +349,8 @@ export class DocumentComponent implements ComponentInterface {
                     this.alternativeTitle
                   )}
 
-                  {this.statusLabels()}
+                  {this.statusLabel(this.gereserveerd)}
+                  {this.statusLabel(this.vervallen)}
                 </span>
               </Heading>
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (

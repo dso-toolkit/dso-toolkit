@@ -97,13 +97,25 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     },
   },
   gereserveerd: {
+    options: [
+      undefined,
+      "<Gereserveerd></Gereserveerd>",
+      "<Gereserveerd wijzigactie='verwijder'></Gereserveerd>",
+      "<Gereserveerd wijzigactie='voegtoe'></Gereserveerd>",
+    ],
     control: {
-      type: "text",
+      type: "select",
     },
   },
   vervallen: {
+    options: [
+      undefined,
+      "<Vervallen></Vervallen>",
+      "<Vervallen wijzigactie='verwijder'></Vervallen>",
+      "<Vervallen wijzigactie='voegtoe'></Vervallen>",
+    ],
     control: {
-      type: "text",
+      type: "select",
     },
   },
   heading: {

@@ -111,7 +111,6 @@ const dependencies = () => {
       <dso-icon />
       <dso-image-overlay />
       <dso-tooltip />
-      <dso-label />
       <dso-table />
     </Fragment>
   );

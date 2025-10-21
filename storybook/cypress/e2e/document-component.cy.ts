@@ -112,15 +112,16 @@ describe("Document Component", () => {
     });
   }
 
-  it("shows reserved alert when gereserveerd prop is set with XML", () => {
-    setProps({ open: true, gereserveerd: `<Gereserveerd wijzigactie=''></Gereserveerd>`, vervallen: "" });
+  it("shows a gereserveerd alert when gereserveerd prop is set with XML", () => {
+    setProps({ open: true, gereserveerd: `<Gereserveerd></Gereserveerd>`, vervallen: "" });
 
     cy.get("@document-component").shadow().find(".heading-element dso-label").should("have.text", "gereserveerd");
 
     expectAlert("Dit onderdeel is gereserveerd voor toekomstige toevoeging.");
+    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
   });
 
-  it("shows label with status verwijder when gereserveerd prop is set with verwijder XML", () => {
+  it("shows a gereserveerd label with status verwijder when gereserveerd prop is set with verwijder XML", () => {
     setProps({ open: true, gereserveerd: `<Gereserveerd wijzigactie='verwijder'></Gereserveerd>`, vervallen: "" });
 
     cy.get("@document-component")
@@ -130,9 +131,10 @@ describe("Document Component", () => {
       .should("have.attr", "status", "verwijderd");
 
     expectAlert();
+    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd verwijderd`);
   });
 
-  it("shows label with a verwijderd status and vervallen label with toegevoegd status when gereserveerd and vervallen props are set", () => {
+  it("shows a gereserveerd label with a verwijderd status and a vervallen label with toegevoegd status when gereserveerd and vervallen props are set", () => {
     setProps({
       open: true,
       gereserveerd: `<Gereserveerd wijzigactie='verwijder'></Gereserveerd>`,
@@ -147,10 +149,13 @@ describe("Document Component", () => {
         cy.get("dso-label[status='toegevoegd']").should("exist");
       });
 
-    cy.get("@document-component").shadow().find("dso-alert.hydrated").should("not.exist");
+    expectAlert();
+    cy.get("@document-component").matchImageSnapshot(
+      `${Cypress.currentTest.title} -- gereserveerd verwijderd & vervallen voegtoe`,
+    );
   });
 
-  it("shows vervallen label with status toegevoegd when vervallen prop is set with XML", () => {
+  it("shows a vervallen label with status toegevoegd when vervallen prop is set with XML", () => {
     setProps({
       open: true,
       gereserveerd: "",
@@ -163,9 +168,10 @@ describe("Document Component", () => {
       .should("have.attr", "status", "toegevoegd");
 
     expectAlert();
+    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen voegtoe`);
   });
 
-  it("shows vervallen label with when vervallen prop is set with XML", () => {
+  it("shows a vervallen label with when vervallen prop is set with XML", () => {
     setProps({
       open: true,
       gereserveerd: "",
@@ -175,5 +181,6 @@ describe("Document Component", () => {
     cy.get("@document-component").shadow().find(".heading-element dso-label").should("have.text", "vervallen");
 
     expectAlert("Dit onderdeel is vervallen.");
+    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen`);
   });
 });
