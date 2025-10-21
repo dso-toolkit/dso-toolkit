@@ -26,7 +26,7 @@ export class Badge {
   /**
    * @internal
    *
-   * Show Badge in hovered state
+   * Show Badge in hover state
    */
   @Prop({ reflect: true })
   _hover?: boolean;
@@ -34,7 +34,7 @@ export class Badge {
   /**
    * @internal
    *
-   * Show Badge in hovered state
+   * Show Badge in toggled state
    */
   @Prop({ reflect: true })
   _toggled?: boolean;

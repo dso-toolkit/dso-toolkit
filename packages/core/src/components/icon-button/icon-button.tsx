@@ -135,7 +135,6 @@ export class IconButton implements ComponentInterface {
       >
         <dso-icon icon={this.icon} />
         <Tooltip
-          visible={this.showTooltip}
           tipElementRef={(element) => (this.tooltipElRef = element)}
           tipArrowElementRef={(element) => (this.tipArrowElRef = element)}
         >

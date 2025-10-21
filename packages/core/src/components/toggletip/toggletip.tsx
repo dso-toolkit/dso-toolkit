@@ -243,7 +243,6 @@ export class Toggletip {
                 {this.message}
               </dso-badge>
               <Tooltip
-                visible={this.showBadgeButtonTooltip}
                 tipElementRef={(element) => (this.badgeButtonTooltipElement = element)}
                 tipArrowElementRef={(element) => (this.badgeButtonTooltipArrowElement = element)}
               >
@@ -253,7 +252,6 @@ export class Toggletip {
           )}
         </div>
         <Tooltip
-          visible={this.showToggletip}
           tipElementRef={(element) => (this.toggletipTooltipElement = element)}
           tipArrowElementRef={(element) => (this.toggletipTooltipArrowElement = element)}
         >
