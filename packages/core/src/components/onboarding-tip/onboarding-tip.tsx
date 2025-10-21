@@ -29,9 +29,17 @@ export class OnboardingTip implements ComponentInterface {
   @State()
   ready = false;
 
+  @State()
+  popoverOpen = false;
+
   componentDidRender() {
-    if (!this.host.matches(":popover-open")) {
+    if (!this.host.isConnected) {
+      return;
+    }
+
+    if (!this.popoverOpen) {
       this.host.showPopover();
+      this.popoverOpen = true;
     }
 
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
@@ -47,10 +55,10 @@ export class OnboardingTip implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    if (this.host.matches(":popover-open")) {
+    if (this.popoverOpen) {
       this.host.hidePopover();
+      this.popoverOpen = false;
     }
-
     this.cleanUp?.();
     this.cleanUp = undefined;
   }
