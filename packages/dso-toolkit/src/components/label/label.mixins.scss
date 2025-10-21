@@ -20,31 +20,31 @@
   }
 
   & {
-    @include set-colors.apply(label-variables.$default-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$default-bg-color, "label");
   }
 
   &.dso-label-info {
-    @include set-colors.apply(label-variables.$info-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$info-bg-color, "label");
   }
 
   &.dso-label-primary {
-    @include set-colors.apply(label-variables.$primary-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$primary-bg-color, "label");
   }
 
   &.dso-label-success {
-    @include set-colors.apply(label-variables.$success-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$success-bg-color, "label");
   }
 
   &.dso-label-warning {
-    @include set-colors.apply(label-variables.$warning-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$warning-bg-color, "label");
   }
 
   &.dso-label-error {
-    @include set-colors.apply(label-variables.$error-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$error-bg-color, "label");
   }
 
   &.dso-label-bright {
-    @include set-colors.apply(label-variables.$bright-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$bright-bg-color, "label");
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
@@ -54,11 +54,11 @@
   }
 
   &.dso-label-attention {
-    @include set-colors.apply(label-variables.$attention-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$attention-bg-color, "label");
   }
 
   &.dso-label-filter {
-    @include set-colors.apply(label-variables.$filter-bg-color, $icons: false, $links: false);
+    @include set-colors.apply(label-variables.$filter-bg-color, "label");
 
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {

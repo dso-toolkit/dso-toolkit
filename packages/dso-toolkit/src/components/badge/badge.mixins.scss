@@ -5,7 +5,8 @@
 @use "badge.variables" as badge-variables;
 
 @mixin root() {
-  border: 1px solid;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 1em;
   display: inline-block;
   font-size: 0.875em;
@@ -16,34 +17,42 @@
   text-align: center;
 
   & {
-    @include set-colors.apply(badge-variables.$default-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$default-bg-color);
   }
 
   &.badge-info {
-    @include set-colors.apply(badge-variables.$info-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$info-bg-color);
   }
 
   &.badge-primary {
-    @include set-colors.apply(badge-variables.$primary-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$primary-bg-color);
   }
 
   &.badge-success {
-    @include set-colors.apply(badge-variables.$success-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$success-bg-color);
   }
 
   &.badge-warning {
-    @include set-colors.apply(badge-variables.$warning-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$warning-bg-color);
   }
 
   &.badge-error {
-    @include set-colors.apply(badge-variables.$error-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$error-bg-color);
   }
 
   &.badge-outline {
-    @include set-colors.apply(colors.$wit, colors.$grijs-90, $icons: false, $links: false);
+    @include _variant(colors.$wit, colors.$grijs-90);
   }
 
   &.badge-attention {
-    @include set-colors.apply(badge-variables.$attention-bg-color, $icons: false, $links: false);
+    @include _variant(badge-variables.$attention-bg-color);
+  }
+}
+
+@mixin _variant($background-color, $border-color: $background-color) {
+  @include set-colors.apply($background-color, "badge");
+
+  & {
+    border-color: $border-color;
   }
 }

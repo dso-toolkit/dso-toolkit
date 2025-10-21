@@ -4,7 +4,6 @@
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/components/link";
-@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 :host {
   @include link.hideIcons();
