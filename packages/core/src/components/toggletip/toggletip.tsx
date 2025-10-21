@@ -178,12 +178,10 @@ export class Toggletip {
 
   componentDidRender() {
     if (this.toggletipTooltipElement) {
-      const open = this.toggletipTooltipElement.matches(":popover-open");
-
-      if (this.active && !open) {
+      if (this.active && !this.showToggletip) {
         this.toggletipTooltipElement.showPopover();
         this.showToggletip = true;
-      } else if (!this.active && open) {
+      } else if (!this.active && this.showToggletip) {
         this.toggletipTooltipElement?.hidePopover();
         this.showToggletip = false;
       }
