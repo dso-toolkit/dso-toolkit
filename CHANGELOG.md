@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Header: marges rond Uitloggen ongelijk ([#3357](https://github.com/dso-toolkit/dso-toolkit/issues/3357))
 * Viewer Grid: Filter Panel blijft in DOM aanwezig ([#3345](https://github.com/dso-toolkit/dso-toolkit/issues/3345))
 * Onboarding Tip: `:popover-open` selector wordt in oude browsers niet ondersteund ([#3375](https://github.com/dso-toolkit/dso-toolkit/issues/3375))
+* Document Component: IMRO titels niet aanklikbaar en chevron van subparagrafen zijn zwart ([#3303](https://github.com/dso-toolkit/dso-toolkit/issues/3303))
 
 ## 🌯 Release 79.1.0 - 2025-10-13
 
