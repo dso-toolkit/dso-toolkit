@@ -8,7 +8,8 @@ import { ToggletipArgs, toggletipArgTypes, toggletipArgsMapper } from "./togglet
 import { Toggletip } from "./toggletip.models.js";
 
 interface ToggletipStories {
-  Toggletip: StoryObj<ToggletipArgs, Renderer>;
+  Information: StoryObj<ToggletipArgs, Renderer>;
+  Badge: StoryObj<ToggletipArgs, Renderer>;
 }
 
 interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -30,7 +31,15 @@ export function toggletipMeta<TRenderer extends Renderer>({ readme }: MetaOption
 > {
   return {
     argTypes: toggletipArgTypes,
+    args: {
+      variant: "information",
+      placement: "right",
+      message: "5",
+      status: "outline",
+      label: "Toon toelichting",
+    },
     parameters: {
+      layout: "centered",
       docs: readme
         ? {
             page: () => compiler(readme),
@@ -45,7 +54,17 @@ export function toggletipStories<Implementation, Templates, TemplateFnReturnType
   templateContainer,
 }: ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>): ToggletipStories {
   return {
-    Toggletip: {
+    Information: {
+      render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
+        toggletipTemplate(toggletipArgsMapper(args, children)),
+      ),
+    },
+    Badge: {
+      args: {
+        variant: "badge",
+        status: "warning",
+        message: "5",
+      },
       render: templateContainer.render(storyTemplates, (args, { toggletipTemplate, children }) =>
         toggletipTemplate(toggletipArgsMapper(args, children)),
       ),

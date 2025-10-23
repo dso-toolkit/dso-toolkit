@@ -12,8 +12,32 @@ export class Badge {
   /**
    * The status of the Badge.
    */
-  @Prop()
+  @Prop({ reflect: true })
   status?: BadgeStatus;
+
+  /**
+   * @internal
+   *
+   * Show Badge in active state
+   */
+  @Prop({ reflect: true })
+  _active?: boolean;
+
+  /**
+   * @internal
+   *
+   * Show Badge in hover state
+   */
+  @Prop({ reflect: true })
+  _hover?: boolean;
+
+  /**
+   * @internal
+   *
+   * Show Badge in toggled state
+   */
+  @Prop({ reflect: true })
+  _toggled?: boolean;
 
   render() {
     return (

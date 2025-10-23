@@ -27,11 +27,6 @@
       transition: opacity tooltip-variables.$transition-duration;
     }
 
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .tooltip-inner {
       @include set-colors.apply($background-color, "tooltip");
 

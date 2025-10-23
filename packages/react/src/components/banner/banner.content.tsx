@@ -81,8 +81,8 @@ export const richInfoRichContent = ({ toggletipTemplate }: Templates) => (
     <p>
       Deze variant van de <strong>banner</strong> is wat minder opvallend.
       {toggletipTemplate({
-        position: "right",
-        secondary: true,
+        variant: "information",
+        placement: "right",
         children: <p>Een toggletip bij de banner</p>,
       })}
     </p>

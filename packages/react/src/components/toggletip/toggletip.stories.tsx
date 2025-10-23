@@ -13,7 +13,7 @@ const meta: Meta<ToggletipArgs> = {
 
 export default meta;
 
-const { Toggletip } = toggletipStories({
+const { Information, Badge } = toggletipStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { toggletipTemplate } = templates;
@@ -25,4 +25,4 @@ const { Toggletip } = toggletipStories({
   },
 });
 
-export { Toggletip };
+export { Badge, Information };

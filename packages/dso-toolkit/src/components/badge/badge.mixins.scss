@@ -17,39 +17,39 @@
   text-align: center;
 
   & {
-    @include _variant(badge-variables.$default-bg-color);
+    @include variant(badge-variables.$default-bg-color);
   }
 
   &.badge-info {
-    @include _variant(badge-variables.$info-bg-color);
+    @include variant(badge-variables.$info-bg-color);
   }
 
   &.badge-primary {
-    @include _variant(badge-variables.$primary-bg-color);
+    @include variant(badge-variables.$primary-bg-color);
   }
 
   &.badge-success {
-    @include _variant(badge-variables.$success-bg-color);
+    @include variant(badge-variables.$success-bg-color);
   }
 
   &.badge-warning {
-    @include _variant(badge-variables.$warning-bg-color);
+    @include variant(badge-variables.$warning-bg-color);
   }
 
   &.badge-error {
-    @include _variant(badge-variables.$error-bg-color);
+    @include variant(badge-variables.$error-bg-color);
   }
 
   &.badge-outline {
-    @include _variant(colors.$wit, colors.$grijs-90);
+    @include variant(colors.$wit, colors.$grijs-90);
   }
 
   &.badge-attention {
-    @include _variant(badge-variables.$attention-bg-color);
+    @include variant(badge-variables.$attention-bg-color);
   }
 }
 
-@mixin _variant($background-color, $border-color: $background-color) {
+@mixin variant($background-color, $border-color: $background-color) {
   @include set-colors.apply($background-color, "badge");
 
   & {

@@ -1,43 +1,82 @@
-import { Placement } from "@popperjs/core";
-import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
+
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { BadgeStatus } from "../badge/badge.interfaces";
+
+import { ToggletipVariant } from "./toggletip.interfaces";
 
 @Component({
   tag: "dso-toggletip",
   styleUrl: "toggletip.scss",
   shadow: true,
 })
-export class Toggletip {
+export class Toggletip implements ComponentInterface {
   @Element()
   host!: HTMLDsoToggletipElement;
+
+  /**
+   * The variant of the Toggletip: "information" or "badge".
+   */
+  @Prop({ reflect: true })
+  variant: ToggletipVariant = "information";
+
+  /**
+   * The placement of the Tooltip when the Toggletip is active.
+   */
+  @Prop({ reflect: true })
+  placement: TooltipPlacement = "right";
+
+  /**
+   * The label of the Toggletip which is shown on hover in a tooltip.
+   */
+  @Prop({ reflect: true })
+  label = "Toon toelichting";
+
+  /**
+   * The status of the Badge when variant is "badge".
+   */
+  @Prop({ reflect: true })
+  status?: BadgeStatus;
+
+  /**
+   * The label of the Badge when the variant is "badge".
+   */
+  @Prop({ reflect: true })
+  message?: string;
 
   @State()
   active = false;
 
-  /**
-   * Toggletip label.
-   */
-  @Prop()
-  label = "Toelichting";
+  @State()
+  showToggletip = false;
 
-  /**
-   * Toggletip position.
-   */
-  @Prop()
-  position: Placement = "right";
+  @State()
+  showBadgeButtonTooltip = false;
 
-  /**
-   * Set to true for small Toggletip.
-   */
-  @Prop()
-  small?: boolean;
+  @State()
+  badgeActive = false;
 
-  /**
-   * Set to true for secondary Toggletip.
-   */
-  @Prop()
-  secondary?: boolean;
+  @State()
+  badgeHovered = false;
 
+  private containerElement?: HTMLDivElement;
+  private toggletipTooltipElement: HTMLElement | undefined;
+  private toggletipTooltipArrowElement: HTMLElement | undefined;
+  private cleanUp: TooltipClean | undefined;
+
+  // variant="information"
   private infoButton?: HTMLDsoInfoButtonElement;
+
+  // variant="badge"
+  private badgeButton?: HTMLButtonElement;
+  private badgeButtonTooltipElement?: HTMLDivElement;
+  private badgeButtonTooltipArrowElement?: HTMLSpanElement;
+  private badgeButtonTooltipTimeout?: number;
+  private badgeButtonTooltipCleanUp: TooltipClean | undefined;
+  private badgeButtonTooltipLastClickTime = 0;
+  private badgeButtonTooltipShowDelay = 500;
 
   private click = () => {
     if (this.active) {
@@ -75,28 +114,149 @@ export class Toggletip {
     return;
   };
 
+  private onBadgeButtonMouseEnter = () => {
+    this.badgeHovered = true;
+    this.handleBadgeButtonShowTooltip();
+  };
+  private onBadgeButtonMouseLeave = () => {
+    this.badgeHovered = false;
+    this.handleBadgeButtonHideTooltip();
+  };
+
+  private handleBadgeButtonShowTooltip = () => {
+    // Don't show the tooltip if the button is clicked within 500ms of the last click
+    if (Date.now() - this.badgeButtonTooltipLastClickTime < this.badgeButtonTooltipShowDelay) {
+      return;
+    }
+
+    if (this.badgeButtonTooltipTimeout) {
+      clearTimeout(this.badgeButtonTooltipTimeout);
+    }
+
+    this.badgeButtonTooltipTimeout = window.setTimeout(() => {
+      this.showBadgeButtonTooltip = true;
+      this.badgeButtonTooltipElement?.showPopover();
+
+      if (
+        !this.badgeButtonTooltipCleanUp &&
+        this.badgeButton &&
+        this.badgeButtonTooltipElement &&
+        this.badgeButtonTooltipArrowElement
+      ) {
+        this.badgeButtonTooltipCleanUp = positionTooltip({
+          referenceElement: this.badgeButton,
+          tipRef: this.badgeButtonTooltipElement,
+          tipArrowRef: this.badgeButtonTooltipArrowElement,
+          placementTip: "top",
+          topPositionSmallViewPort: false,
+          halfMainAxisOffset: false,
+          forceVisible: true,
+        });
+      }
+    }, this.badgeButtonTooltipShowDelay);
+  };
+
+  private handleBadgeButtonHideTooltip = () => {
+    if (this.badgeButtonTooltipTimeout) {
+      clearTimeout(this.badgeButtonTooltipTimeout);
+    }
+
+    this.showBadgeButtonTooltip = false;
+    this.badgeButtonTooltipElement?.hidePopover();
+
+    if (!this.showBadgeButtonTooltip && this.badgeButtonTooltipCleanUp) {
+      this.badgeButtonTooltipCleanUp();
+      this.badgeButtonTooltipCleanUp = undefined;
+    }
+  };
+
+  private handleBadgeButtonClick = () => {
+    this.badgeButtonTooltipLastClickTime = Date.now();
+    this.handleBadgeButtonHideTooltip();
+    this.click();
+  };
+
+  componentDidRender() {
+    if (this.toggletipTooltipElement) {
+      if (this.active && !this.showToggletip) {
+        this.toggletipTooltipElement.showPopover();
+        this.showToggletip = true;
+      } else if (!this.active && this.showToggletip) {
+        this.toggletipTooltipElement?.hidePopover();
+        this.showToggletip = false;
+      }
+    }
+
+    if (
+      this.active &&
+      !this.cleanUp &&
+      this.containerElement &&
+      this.toggletipTooltipElement &&
+      this.toggletipTooltipArrowElement
+    ) {
+      this.cleanUp = positionTooltip({
+        referenceElement: this.containerElement,
+        tipRef: this.toggletipTooltipElement,
+        tipArrowRef: this.toggletipTooltipArrowElement,
+        placementTip: this.placement,
+      });
+    }
+
+    if (!this.active && this.cleanUp) {
+      this.cleanUp();
+      this.cleanUp = undefined;
+    }
+  }
+
   render() {
     return (
       <Fragment>
-        <dso-info-button
-          aria-describedby="toggle"
-          onClick={this.click}
-          label={this.label}
-          active={this.active}
-          secondary={this.secondary}
-          ref={(element) => (this.infoButton = element)}
-        />
-        <dso-tooltip
-          stateless
-          descriptive
-          id="toggle"
-          strategy="absolute"
-          active={this.active}
-          position={this.position}
-          small={this.small}
+        <div ref={(element) => (this.containerElement = element)}>
+          {this.variant === "information" && (
+            <dso-info-button
+              onClick={this.click}
+              label={this.label}
+              active={this.active}
+              ref={(element) => (this.infoButton = element)}
+            />
+          )}
+          {this.variant === "badge" && (
+            <button
+              ref={(element) => (this.badgeButton = element)}
+              type="button"
+              aria-label={this.label}
+              class="badge-button"
+              onMouseDown={() => (this.badgeActive = true)}
+              onMouseUp={() => (this.badgeActive = false)}
+              onMouseEnter={this.onBadgeButtonMouseEnter}
+              onMouseLeave={this.onBadgeButtonMouseLeave}
+              onFocus={this.onBadgeButtonMouseEnter}
+              onBlur={this.onBadgeButtonMouseLeave}
+              onClick={this.handleBadgeButtonClick}
+            >
+              <dso-badge
+                status={this.status}
+                _active={this.badgeActive}
+                _hover={this.badgeHovered}
+                _toggled={this.showToggletip}
+              >
+                {this.message}
+              </dso-badge>
+              <Tooltip
+                tipElementRef={(element) => (this.badgeButtonTooltipElement = element)}
+                tipArrowElementRef={(element) => (this.badgeButtonTooltipArrowElement = element)}
+              >
+                {this.label}
+              </Tooltip>
+            </button>
+          )}
+        </div>
+        <Tooltip
+          tipElementRef={(element) => (this.toggletipTooltipElement = element)}
+          tipArrowElementRef={(element) => (this.toggletipTooltipArrowElement = element)}
         >
           <slot />
-        </dso-tooltip>
+        </Tooltip>
       </Fragment>
     );
   }
