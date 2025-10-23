@@ -112,17 +112,44 @@ describe("Document Component", () => {
     });
   }
 
-  it("shows a gereserveerd alert when gereserveerd prop is set with XML", () => {
-    setProps({ open: true, gereserveerd: `<Gereserveerd></Gereserveerd>`, vervallen: "" });
+  it("shows a gereserveerd alert when gereserveerd prop is set and the wijzigactie is 'voegtoe'", () => {
+    setProps({ open: true, gereserveerd: `<Gereserveerd></Gereserveerd>`, vervallen: "", inhoud: "" });
 
     cy.get("@document-component").shadow().find(".heading-element dso-label").should("have.text", "gereserveerd");
 
     expectAlert("Dit onderdeel is gereserveerd voor toekomstige toevoeging.");
+
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
   });
 
-  it("shows a gereserveerd label with status verwijder when gereserveerd prop is set with verwijder XML", () => {
-    setProps({ open: true, gereserveerd: `<Gereserveerd wijzigactie='verwijder'></Gereserveerd>`, vervallen: "" });
+  it("shows a gereserveerd alert when gereserveerd prop is set", () => {
+    setProps({
+      wijzigactie: null,
+      open: true,
+      gereserveerd: `<Gereserveerd></Gereserveerd>`,
+      vervallen: "",
+      inhoud: "",
+      bevatOntwerpInformatie: false,
+      filtered: false,
+    });
+
+    cy.get("@document-component").shadow().find(".heading-element dso-label").should("have.text", "gereserveerd");
+
+    expectAlert("Dit onderdeel is gereserveerd voor toekomstige toevoeging.");
+
+    cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd`);
+  });
+
+  it("shows a gereserveerd label with status verwijder when gereserveerd prop is set with wijzigactie='verwijder'", () => {
+    setProps({
+      wijzigactie: null,
+      open: true,
+      filtered: false,
+      gereserveerd: `<Gereserveerd wijzigactie='verwijder'></Gereserveerd>`,
+      vervallen: "",
+      inhoud:
+        "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='voegtoe'><Al>Deze afdeling is van toepassing op gasverbrandingsinstallaties als bedoeld in artikel 6.45 van het Besluit bouwwerken leefomgeving</Al></Inhoud>",
+    });
 
     cy.get("@document-component")
       .shadow()
@@ -131,14 +158,18 @@ describe("Document Component", () => {
       .should("have.attr", "status", "verwijderd");
 
     expectAlert();
+
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- gereserveerd verwijderd`);
   });
 
-  it("shows a gereserveerd label with a verwijderd status and a vervallen label with toegevoegd status when gereserveerd and vervallen props are set", () => {
+  it("shows a gereserveerd label with a verwijderd status (set with wijzigactie='verwijder') and a vervallen label with toegevoegd status (set with wijzigactie='voegtoe')", () => {
     setProps({
+      wijzigactie: null,
       open: true,
+      filtered: false,
       gereserveerd: `<Gereserveerd wijzigactie='verwijder'></Gereserveerd>`,
       vervallen: `<Vervallen wijzigactie='voegtoe'></Vervallen>`,
+      inhoud: "",
     });
 
     cy.get("@document-component")
@@ -150,16 +181,21 @@ describe("Document Component", () => {
       });
 
     expectAlert();
+
     cy.get("@document-component").matchImageSnapshot(
       `${Cypress.currentTest.title} -- gereserveerd verwijderd & vervallen voegtoe`,
     );
   });
 
-  it("shows a vervallen label with status toegevoegd when vervallen prop is set with XML", () => {
+  it("shows a vervallen label with status toegevoegd when vervallen prop is set with wijzigactie='voegtoe'", () => {
     setProps({
+      wijzigactie: null,
       open: true,
+      filtered: false,
       gereserveerd: "",
       vervallen: `<Vervallen wijzigactie='voegtoe'></Vervallen>`,
+      inhoud:
+        "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' wijzigactie='verwijder'><Al>Deze afdeling is van toepassing op gasverbrandingsinstallaties als bedoeld in artikel 6.45 van het Besluit bouwwerken leefomgeving</Al></Inhoud>",
     });
 
     cy.get("@document-component")
@@ -168,19 +204,24 @@ describe("Document Component", () => {
       .should("have.attr", "status", "toegevoegd");
 
     expectAlert();
+
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen voegtoe`);
   });
 
-  it("shows a vervallen label with when vervallen prop is set with XML", () => {
+  it("shows a vervallen label with when vervallen prop is set", () => {
     setProps({
+      wijzigactie: null,
+      filtered: false,
       open: true,
       gereserveerd: "",
       vervallen: `<Vervallen></Vervallen>`,
+      inhoud: "",
     });
 
     cy.get("@document-component").shadow().find(".heading-element dso-label").should("have.text", "vervallen");
 
     expectAlert("Dit onderdeel is vervallen.");
+
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen`);
   });
 });
