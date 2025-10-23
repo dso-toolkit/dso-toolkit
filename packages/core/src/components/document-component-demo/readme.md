@@ -38,15 +38,13 @@ graph TD;
   dsot-document-component-demo --> dso-document-component
   dsot-document-component-demo --> dso-annotation-locatie
   dsot-document-component-demo --> dso-responsive-element
-  dso-document-component --> dso-label
   dso-document-component --> dso-icon-button
   dso-document-component --> dso-ozon-content
   dso-document-component --> dso-badge
   dso-document-component --> dso-tooltip
+  dso-document-component --> dso-label
   dso-document-component --> dso-panel
   dso-document-component --> dso-alert
-  dso-label --> dso-icon-button
-  dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
@@ -54,6 +52,8 @@ graph TD;
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
   dso-table --> dso-icon
+  dso-label --> dso-icon-button
+  dso-label --> dso-tooltip
   dso-panel --> dso-icon-button
   dso-alert --> dso-icon
   dso-alert --> dso-icon-button
