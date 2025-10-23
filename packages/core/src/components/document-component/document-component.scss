@@ -215,6 +215,10 @@
   padding-inline-end: units.$u1;
 }
 
+.content {
+  --_dso-alert-margin-block-end: #{units.$u1};
+}
+
 .annotation-container {
   padding-inline-end: units.$u1;
 
