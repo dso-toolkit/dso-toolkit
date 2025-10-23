@@ -1,4 +1,4 @@
-import { Component, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -12,7 +12,7 @@ import { ToggletipVariant } from "./toggletip.interfaces";
   styleUrl: "toggletip.scss",
   shadow: true,
 })
-export class Toggletip {
+export class Toggletip implements ComponentInterface {
   @Element()
   host!: HTMLDsoToggletipElement;
 
