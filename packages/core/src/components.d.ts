@@ -605,10 +605,7 @@ export namespace Components {
           * @default false
          */
         "genesteOntwerpInformatie": boolean;
-        /**
-          * Marks Document Component as reserved.
-         */
-        "gereserveerd"?: DocumentComponentInputType;
+        "gereserveerd": DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
           * @default "h2"
@@ -662,10 +659,7 @@ export namespace Components {
           * Type of Document Component.
          */
         "type"?: string;
-        /**
-          * Marks the Document Component as expired.
-         */
-        "vervallen"?: DocumentComponentInputType;
+        "vervallen": DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.
          */
@@ -3274,10 +3268,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "genesteOntwerpInformatie"?: boolean;
-        /**
-          * Marks Document Component as reserved.
-         */
-        "gereserveerd"?: DocumentComponentInputType;
+        "gereserveerd"?: DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
           * @default "h2"
@@ -3355,10 +3346,7 @@ declare namespace LocalJSX {
           * Type of Document Component.
          */
         "type"?: string;
-        /**
-          * Marks the Document Component as expired.
-         */
-        "vervallen"?: DocumentComponentInputType;
+        "vervallen"?: DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.
          */

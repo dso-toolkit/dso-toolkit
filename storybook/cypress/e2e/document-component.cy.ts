@@ -98,7 +98,9 @@ describe("Document Component", () => {
       cy.get("@document-component")
         .invoke("prop", "wijzigactie", wijzigactie)
         .invoke("prop", "filtered", false)
-        .invoke("prop", "mode", "table-of-contents");
+        .invoke("prop", "mode", "table-of-contents")
+        .invoke("prop", "gereserveerd", "")
+        .invoke("prop", "vervallen", "");
 
       if (wijzigactie) {
         cy.get("@document-component").should("have.attr", "wijzigactie", wijzigactie);

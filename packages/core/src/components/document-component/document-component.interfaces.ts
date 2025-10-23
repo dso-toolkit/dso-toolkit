@@ -46,3 +46,8 @@ export interface DocumentComponentTableOfContentsClickEvent {
   /** True when user clicked the document component heading while holding Ctrl, Alt or other modifiers, or when the document component heading is right-clicked. Can be used to determine navigation. */
   isModifiedEvent: boolean;
 }
+
+export interface DocumentComponentAantekenElement {
+  type: "vervallen" | "gereserveerd";
+  wijzigactie?: DocumentComponentWijzigactie;
+}
