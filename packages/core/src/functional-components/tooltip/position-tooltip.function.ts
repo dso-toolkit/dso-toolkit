@@ -1,4 +1,4 @@
-import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift, size } from "@floating-ui/dom";
 
 import { TooltipOptions } from "./tooltip.interfaces";
 
@@ -17,14 +17,15 @@ export function positionTooltip(options: TooltipOptions) {
     topPositionSmallViewPort,
     halfMainAxisOffset,
     forceVisible = false,
+    enableInnerScroll = true,
   } = options;
 
   return autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
-    const arrowLength = tipArrowRef.offsetWidth;
-    const axisOffsetCalc = Math.sqrt(2 * arrowLength ** 2);
+    const arrowOffsetWidth = tipArrowRef.offsetWidth;
+    const axisOffsetCalc = Math.sqrt(2 * arrowOffsetWidth ** 2);
     const mainAxisOffset = halfMainAxisOffset ? axisOffsetCalc / 2 : axisOffsetCalc;
-    const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
+    const arrowPadding = arrowOffsetWidth * Math.sqrt(2) * 1.5;
     const smallViewport = topPositionSmallViewPort && document.body.clientWidth < 992;
 
     // Set placement to top if viewport is small and topPositionSmallViewPort is set to true
@@ -44,11 +45,23 @@ export function positionTooltip(options: TooltipOptions) {
           padding,
         }),
         arrow({
-          padding: arrowPadding,
+          padding: arrowOffsetWidth,
           element: tipArrowRef,
         }),
         hide({
-          padding: arrowPadding + arrowLength + padding,
+          padding: arrowOffsetWidth + padding,
+        }),
+        size({
+          apply({ availableHeight }) {
+            const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
+
+            if (!inner) return;
+
+            Object.assign(inner.style, {
+              maxHeight: enableInnerScroll ? `${availableHeight}px` : "",
+              overflowY: enableInnerScroll ? "auto" : "",
+            });
+          },
         }),
       ],
       placement,
@@ -106,7 +119,7 @@ export function positionTooltip(options: TooltipOptions) {
           bottom: "",
           left: arrowX ? `${arrowX}px` : "",
           top: arrowY ? `${arrowY}px` : "",
-          [staticSide]: `${-arrowLength / 2}px`,
+          [staticSide]: `${-arrowOffsetWidth / 2}px`,
           transform: `rotate(${angle}deg)`,
         });
       }

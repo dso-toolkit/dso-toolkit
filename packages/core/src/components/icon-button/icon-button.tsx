@@ -96,6 +96,7 @@ export class IconButton implements ComponentInterface {
           topPositionSmallViewPort: false,
           halfMainAxisOffset: false,
           forceVisible: true,
+          enableInnerScroll: false,
         });
       }
     }, this.tooltipShowDelay);
