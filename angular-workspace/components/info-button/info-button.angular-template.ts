@@ -1,8 +1,9 @@
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import { InfoButton } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
 
-export const angularInfoButton: ComponentImplementation<InfoButton> = {
+export const angularInfoButton: ComponentImplementation<InfoButton<StoryFnAngularReturnType>> = {
   component: "infoButton",
   implementation: "angular",
   template: () =>
@@ -14,8 +15,9 @@ export const angularInfoButton: ComponentImplementation<InfoButton> = {
             [label]="label"
             [active]="active"
             [secondary]="secondary"
-            (dsoToggle)="dsoToggle?.($event)"
-          ></dso-info-button>
+            (dsoToggle)="dsoToggle?.($event)">
+            ${props.children ? `<div slot="toggletip">${props.children.template}</div>` : ""}
+          </dso-info-button>
         `,
       };
     },

@@ -70,7 +70,7 @@ export interface Components {
   icon: Icon;
   imageOverlay: ImageOverlay;
   info: Info<StoryFnAngularReturnType>;
-  infoButton: InfoButton;
+  infoButton: InfoButton<StoryFnAngularReturnType>;
   // label: Label;
   listButton: ListButton;
   modal: Modal<StoryFnAngularReturnType>;

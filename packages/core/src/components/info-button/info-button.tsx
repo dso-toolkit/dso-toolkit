@@ -1,4 +1,7 @@
-import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+
+import { toggletip } from "../../functional-components/tooltip/toggletip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
@@ -8,8 +11,13 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
   styleUrl: "info-button.scss",
 })
 export class InfoButton {
-  private button?: HTMLDsoIconButtonElement;
+  private button: HTMLDsoIconButtonElement | undefined;
   private buttonSecondary?: HTMLButtonElement;
+  private toggletip: HTMLElement | undefined;
+  private toggletipArrow: HTMLElement | undefined;
+
+  @Element()
+  host!: HTMLDsoInfoButtonElement;
 
   /**
    * Whether the InfoButton is active.
@@ -47,9 +55,66 @@ export class InfoButton {
     this.buttonSecondary?.focus();
   }
 
+  @State()
+  showToggletip = false;
+
   private handleToggle(originalEvent: MouseEvent) {
-    this.active = !this.active;
-    this.dsoToggle.emit({ originalEvent, active: this.active });
+    if (this.toggletipSlottedElement) {
+      this.click();
+    } else {
+      this.active = !this.active;
+      this.dsoToggle.emit({ originalEvent, active: this.active });
+    }
+  }
+
+  private click = () => {
+    if (this.active) {
+      this.close();
+    } else {
+      this.open();
+    }
+  };
+
+  private open = () => {
+    this.active = true;
+    this.host.addEventListener("keydown", this.keyDownListener);
+    this.host.addEventListener("focusout", this.focusOutListener);
+  };
+
+  private close = () => {
+    this.host.removeEventListener("focusout", this.focusOutListener);
+    this.host.removeEventListener("keydown", this.keyDownListener);
+    this.active = false;
+  };
+
+  private focusOutListener = (event: FocusEvent) => {
+    if (!this.host.contains(event.relatedTarget as Node)) {
+      this.close();
+    }
+  };
+
+  private keyDownListener = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      this.close();
+    }
+
+    return;
+  };
+
+  get toggletipSlottedElement() {
+    return this.host.querySelector("[slot='toggletip']");
+  }
+
+  componentDidRender() {
+    if (this.toggletipSlottedElement) {
+      this.showToggletip = toggletip(
+        this.button,
+        this.toggletip,
+        this.toggletipArrow,
+        !!this.active,
+        this.showToggletip,
+      );
+    }
   }
 
   render() {
@@ -75,6 +140,16 @@ export class InfoButton {
             <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
             <span class="sr-only">{this.label}</span>
           </button>
+        )}
+        {this.toggletipSlottedElement !== null && (
+          <Tooltip
+            tipElementRef={(element) => (this.toggletip = element)}
+            tipArrowElementRef={(element) => (this.toggletipArrow = element)}
+            visible
+            onAfterHidden={() => {}}
+          >
+            <slot name="toggletip" />
+          </Tooltip>
         )}
       </Host>
     );
