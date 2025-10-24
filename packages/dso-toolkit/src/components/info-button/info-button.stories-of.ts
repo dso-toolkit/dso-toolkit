@@ -15,10 +15,12 @@ interface InfoButtonStories {
   Inactive: InfoButtonStory;
   SecondaryActive: InfoButtonStory;
   SecondaryInactive: InfoButtonStory;
+  WithTooltip: InfoButtonStory;
 }
 
 export interface InfoButtonTemplates<TemplateFnReturnType> {
-  infoButtonTemplate: (infoButtonProperties: InfoButton) => TemplateFnReturnType;
+  infoButtonTemplate: (infoButtonProperties: InfoButton<TemplateFnReturnType>) => TemplateFnReturnType;
+  children?: TemplateFnReturnType;
 }
 
 interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
@@ -59,7 +61,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         active: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     Inactive: {
@@ -67,7 +69,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         active: false,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     SecondaryActive: {
@@ -76,7 +78,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     SecondaryInactive: {
@@ -85,7 +87,15 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+      ),
+    },
+    WithTooltip: {
+      args: {
+        active: false,
+      },
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args, children)),
       ),
     },
   };

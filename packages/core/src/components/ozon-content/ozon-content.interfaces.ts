@@ -6,7 +6,12 @@ export interface OzonContentAnchorClickEvent {
   originalEvent: MouseEvent;
 }
 
-export type OzonContentClickEvent = OzonContentClickKopEvent;
+export type OzonContentClickEvent =
+  | OzonContentClickKopEvent
+  | OzonContentClickIntRefEvent
+  | OzonContentClickIntIoRefEvent
+  | OzonContentClickIntIoRefAnnotationEvent
+  | OzonContentClickExtRefEvent;
 
 interface OzonContentClickBaseEvent<T extends string> {
   type: T;
@@ -15,6 +20,10 @@ interface OzonContentClickBaseEvent<T extends string> {
 }
 
 export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
+export type OzonContentClickExtRefEvent = OzonContentClickBaseEvent<"ExtRef">;
+export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef">;
+export type OzonContentClickIntIoRefAnnotationEvent = OzonContentClickBaseEvent<"IntIoRefAnnotation">;
+export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef">;
 
 export type OzonContentInputType = XMLDocument | string;
 
@@ -36,5 +45,9 @@ export type OzonContentWijzigActie = "voegtoe" | "verwijder";
 
 export interface OzonContentUrlResolver {
   (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
-  (name: "ExtIoRef" | "ExtRef", attribute: "ref", value: string | null, element: Element): string;
+  (name: "ExtIoRef" | "ExtRef" | "IntIoRef", attribute: "ref", value: string | null, element: Element): string;
+}
+
+export interface OzonContentBegripResolver {
+  (name: "IntRef", attribute: "ref", value: string | null, element: Element): XMLDocument | string;
 }

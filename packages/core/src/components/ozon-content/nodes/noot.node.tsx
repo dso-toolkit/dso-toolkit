@@ -27,7 +27,7 @@ export class OzonContentNootNode implements OzonContentNode {
     const nootNummer = childNodes.find((n) => getNodeName(n) === "NootNummer")?.textContent ?? noteId;
 
     return (
-      <>
+      <Fragment>
         <sup>
           <button
             type="button"
@@ -43,7 +43,7 @@ export class OzonContentNootNode implements OzonContentNode {
         <dso-tooltip active={openNoteId === noteId} id={noteControlsId} stateless descriptive>
           <span role="section">{mapNodeToJsx(Array.from(node.querySelectorAll(":scope > Al")))}</span>
         </dso-tooltip>
-      </>
+      </Fragment>
     );
   }
 }

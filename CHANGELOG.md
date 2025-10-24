@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Ozon Content: Ondersteuning voor IntIoRef, IntRef, ExtRef ([#3150](https://github.com/dso-toolkit/dso-toolkit/issues/3150))
+
 ### Changed
 * Alert: On Color varianten ([#3273](https://github.com/dso-toolkit/dso-toolkit/issues/3273))
 

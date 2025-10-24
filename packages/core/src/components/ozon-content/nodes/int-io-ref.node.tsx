@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { Fragment, h } from "@stencil/core";
 
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -6,34 +6,51 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentIntIoRefNode implements OzonContentNode {
   name = "IntIoRef";
 
-  render(node: Element, { mapNodeToJsx, emitAnchorClick }: OzonContentNodeContext) {
-    const ref = node.getAttribute("ref");
-    if (!ref) {
+  render(node: Element, { mapNodeToJsx, emitClick, urlResolver }: OzonContentNodeContext) {
+    const value = node.getAttribute("ref");
+    const href = urlResolver ? urlResolver("IntIoRef", "ref", value, node) : value;
+
+    if (!value) {
       return mapNodeToJsx(node.childNodes);
     }
 
-    const intRefOnClick = (event: MouseEvent) => {
+    const intRefOnClick = (event: MouseEvent, openAnnotation = false) => {
       event.preventDefault();
 
       const target = event.currentTarget;
-      if (!(target instanceof HTMLAnchorElement)) {
+      if (!(target instanceof HTMLAnchorElement || target instanceof HTMLButtonElement)) {
         return;
       }
 
-      const { href } = target;
-
-      emitAnchorClick({
-        node: this.name,
-        href,
-        documentComponent: ref,
+      emitClick({
+        type: openAnnotation ? "IntIoRefAnnotation" : "IntIoRef",
+        node,
         originalEvent: event,
       });
     };
 
     return (
-      <a href={`#${ref}`} onClick={intRefOnClick}>
-        {mapNodeToJsx(node.childNodes)}
-      </a>
+      <Fragment>
+        <dso-reference-toggletip icon="map-location">
+          <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
+          <Fragment>
+            <p>
+              Gebieden op de kaart tonen:{" "}
+              <button class="dso-tertiary" onClick={(e) => intRefOnClick(e, true)}>
+                <span>Kenmerken en kaart</span>
+                <dso-icon icon="label" />
+              </button>
+            </p>
+            <p>
+              Officiële publicaties:{" "}
+              <a href={href ?? undefined} onClick={intRefOnClick}>
+                <span>{mapNodeToJsx(node.childNodes)}</span>
+                <dso-icon icon="external-link" />
+              </a>
+            </p>
+          </Fragment>
+        </dso-reference-toggletip>
+      </Fragment>
     );
   }
 }

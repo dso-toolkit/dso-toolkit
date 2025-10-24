@@ -34,6 +34,7 @@
  - [dso-pagination](../pagination)
  - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
+ - [dso-reference-toggletip](../ozon-content/components)
  - [dso-skiplink](../skiplink)
  - [dso-table](../table)
  - [dso-tijdreis-banner](../tijdreis-banner)
@@ -62,6 +63,7 @@ graph TD;
   dso-pagination --> dso-icon
   dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon
+  dso-reference-toggletip --> dso-icon
   dso-skiplink --> dso-icon
   dso-table --> dso-icon
   dso-tijdreis-banner --> dso-icon
