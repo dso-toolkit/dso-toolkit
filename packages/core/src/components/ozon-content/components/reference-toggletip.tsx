@@ -1,8 +1,7 @@
 import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
 
-import { positionTooltip } from "../../../functional-components/tooltip/position-tooltip.function";
+import { toggletip } from "../../../functional-components/tooltip/toggletip.function";
 import { Tooltip } from "../../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipClean } from "../../../functional-components/tooltip/tooltip.interfaces";
 
 @Component({
   tag: "dso-reference-toggletip",
@@ -25,10 +24,9 @@ export class ReferenceToggletip implements ComponentInterface {
   @State()
   showToggletip = false;
 
-  private containerElement: HTMLButtonElement | undefined;
-  private toggletipTooltipElement: HTMLElement | undefined;
-  private toggletipTooltipArrowElement: HTMLElement | undefined;
-  private cleanUp: TooltipClean | undefined;
+  private container: HTMLButtonElement | undefined;
+  private tooltip: HTMLElement | undefined;
+  private tooltipArrow: HTMLElement | undefined;
 
   private click = () => {
     if (this.active) {
@@ -65,48 +63,20 @@ export class ReferenceToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (this.toggletipTooltipElement) {
-      if (this.active && !this.showToggletip) {
-        this.toggletipTooltipElement.showPopover();
-        this.showToggletip = true;
-      } else if (!this.active && this.showToggletip) {
-        this.toggletipTooltipElement?.hidePopover();
-        this.showToggletip = false;
-      }
-    }
-
-    if (
-      this.active &&
-      !this.cleanUp &&
-      this.containerElement &&
-      this.toggletipTooltipElement &&
-      this.toggletipTooltipArrowElement
-    ) {
-      this.cleanUp = positionTooltip({
-        referenceElement: this.containerElement,
-        tipRef: this.toggletipTooltipElement,
-        tipArrowRef: this.toggletipTooltipArrowElement,
-        placementTip: "top",
-      });
-    }
-
-    if (!this.active && this.cleanUp) {
-      this.cleanUp();
-      this.cleanUp = undefined;
-    }
+    this.showToggletip = toggletip(this.container, this.tooltip, this.tooltipArrow, this.active, this.showToggletip);
   }
 
   render() {
     return (
       <Fragment>
-        <button class="toggletip-button" ref={(element) => (this.containerElement = element)} onClick={this.click}>
+        <button class="toggletip-button" ref={(element) => (this.container = element)} onClick={this.click}>
           <slot name="label" />
           <dso-icon icon={this.icon} />
           <Tooltip
             visible
             onAfterHidden={() => {}}
-            tipElementRef={(element) => (this.toggletipTooltipElement = element)}
-            tipArrowElementRef={(element) => (this.toggletipTooltipArrowElement = element)}
+            tipElementRef={(element) => (this.tooltip = element)}
+            tipArrowElementRef={(element) => (this.tooltipArrow = element)}
           >
             <slot />
           </Tooltip>
