@@ -15,10 +15,12 @@ interface InfoButtonStories {
   Inactive: InfoButtonStory;
   SecondaryActive: InfoButtonStory;
   SecondaryInactive: InfoButtonStory;
+  WithToggletip: InfoButtonStory;
 }
 
 export interface InfoButtonTemplates<TemplateFnReturnType> {
-  infoButtonTemplate: (infoButtonProperties: InfoButton) => TemplateFnReturnType;
+  infoButtonTemplate: (infoButtonProperties: InfoButton<TemplateFnReturnType>) => TemplateFnReturnType;
+  children?: TemplateFnReturnType;
 }
 
 interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -48,43 +50,60 @@ export function infoButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
+const baseStoryParameters = {
+  parameters: { layout: "centered" },
+};
+
 export function infoButtonStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
 }: InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoButtonStories {
   return {
     Active: {
+      ...baseStoryParameters,
       args: {
         active: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     Inactive: {
+      ...baseStoryParameters,
       args: {
         active: false,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     SecondaryActive: {
+      ...baseStoryParameters,
       args: {
         active: true,
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
       ),
     },
     SecondaryInactive: {
+      ...baseStoryParameters,
       args: {
         active: false,
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+      ),
+    },
+    WithToggletip: {
+      ...baseStoryParameters,
+      args: {
+        active: false,
+      },
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args, children)),
       ),
     },
   };
