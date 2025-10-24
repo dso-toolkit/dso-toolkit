@@ -27,6 +27,7 @@ import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
+import { Placement } from "@floating-ui/dom";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -52,7 +53,7 @@ import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 import { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-import { Placement } from "@popperjs/core";
+import { Placement as Placement1 } from "@popperjs/core";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 import { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -78,6 +79,7 @@ export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
 export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-button/icon-button.interfaces";
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
+export { Placement } from "@floating-ui/dom";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
@@ -103,7 +105,7 @@ export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 export { SurveyRatingCloseEvent, SurveyRatingSubmitEvent } from "./components/survey-rating/survey-rating.interfaces";
 export { TabsSwitchEvent } from "./components/tabs/tabs.interfaces";
-export { Placement } from "@popperjs/core";
+export { Placement as Placement1 } from "@popperjs/core";
 export { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export { ViewerGridActiveTabSwitchEvent, ViewerGridChangeSizeAnimationEndEvent, ViewerGridChangeSizeEvent, ViewerGridCloseFilterPanelEvent, ViewerGridCloseOverlayEvent, ViewerGridMainToggleEvent, ViewerGridPanelSize, ViewerGridTab } from "./components/viewer-grid/viewer-grid.interfaces";
 export { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrlResolver as OzonContentUrlResolver1 } from "./components";
@@ -802,6 +804,11 @@ export namespace Components {
           * To set focus to the toggle button.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * The placement of the Toggle tip on click.
+          * @default "top-start"
+         */
+        "toggletipPlacement": Placement;
     }
     interface DsoInputRange {
         /**
@@ -1301,7 +1308,7 @@ export namespace Components {
           * Toggletip position.
           * @default "right"
          */
-        "position": Placement;
+        "position": Placement1;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -1339,7 +1346,7 @@ export namespace Components {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position": Placement;
+        "position": Placement1;
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -3524,6 +3531,11 @@ declare namespace LocalJSX {
           * For secondary Info Button.
          */
         "secondary"?: boolean;
+        /**
+          * The placement of the Toggle tip on click.
+          * @default "top-start"
+         */
+        "toggletipPlacement"?: Placement;
     }
     interface DsoInputRange {
         /**
@@ -4162,7 +4174,7 @@ declare namespace LocalJSX {
           * Toggletip position.
           * @default "right"
          */
-        "position"?: Placement;
+        "position"?: Placement1;
         /**
           * Set to true for secondary Toggletip.
          */
@@ -4192,7 +4204,7 @@ declare namespace LocalJSX {
           * Set position of tooltip relative to target
           * @default "top"
          */
-        "position"?: Placement;
+        "position"?: Placement1;
         /**
           * Defines if the tooltip has a smaller max-width
          */

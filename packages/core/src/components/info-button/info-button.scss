@@ -2,11 +2,15 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/info-button";
 
+@use "../../functional-components/tooltip";
+
 :host {
   display: inline-block;
+  --_dso-tooltip-max-inline-size: 640px;
 }
 
 @include utilities.box-sizing();
+@include tooltip.include();
 
 .sr-only {
   @include utilities.sr-only();

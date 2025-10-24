@@ -1,4 +1,8 @@
-import { Component, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+import { Placement } from "@floating-ui/dom";
+import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+
+import { toggletip } from "../../functional-components/tooltip/toggletip.function";
+import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
@@ -10,15 +14,17 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
 export class InfoButton {
   private button?: HTMLDsoIconButtonElement;
   private buttonSecondary?: HTMLButtonElement;
+  private toggletipElRef?: HTMLDivElement;
+  private toggletipArrowElRef?: HTMLSpanElement;
+
+  @Element()
+  host!: HTMLDsoInfoButtonElement;
 
   /**
    * Whether the InfoButton is active.
    */
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
-
-  @State()
-  hover = false;
 
   /**
    * For secondary Info Button.
@@ -33,23 +39,94 @@ export class InfoButton {
   label = "Toelichting bij optie";
 
   /**
+   * The placement of the Toggle tip on click.
+   */
+  @Prop()
+  toggletipPlacement: Placement = "top-start";
+
+  /**
    * Emitted when the user activates the Info Button.
    */
   @Event()
   dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
+
+  @State()
+  hover = false;
+
+  @State()
+  showToggletip = false;
+
+  private listenersAttached = false;
 
   /**
    * To set focus to the toggle button.
    */
   @Method()
   async setFocus() {
-    this.button?.setFocus();
-    this.buttonSecondary?.focus();
+    if (this.secondary) {
+      this.buttonSecondary?.focus();
+    } else {
+      this.button?.setFocus?.();
+    }
   }
 
   private handleToggle(originalEvent: MouseEvent) {
-    this.active = !this.active;
-    this.dsoToggle.emit({ originalEvent, active: this.active });
+    if (this.toggletipSlottedElement) {
+      this.active = !this.active;
+    } else {
+      this.active = !this.active;
+      this.dsoToggle.emit({ originalEvent, active: this.active });
+    }
+  }
+
+  private focusOutListener = (event: FocusEvent) => {
+    if (!this.host.contains(event.relatedTarget as Node)) {
+      this.active = !this.active;
+    }
+  };
+
+  private keyDownListener = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      this.active = !this.active;
+    }
+
+    return;
+  };
+
+  get toggletipSlottedElement() {
+    return this.host.querySelector("[slot='toggletip']");
+  }
+
+  componentDidRender() {
+    if (this.toggletipSlottedElement) {
+      this.showToggletip = toggletip(
+        this.button,
+        this.toggletipElRef,
+        this.toggletipArrowElRef,
+        !!this.active,
+        this.showToggletip,
+        this.toggletipPlacement,
+      );
+
+      // Eventlisteners alleen toevoegen als toggletip actief is
+      if (this.active && !this.listenersAttached) {
+        this.host.addEventListener("keydown", this.keyDownListener);
+        this.host.addEventListener("focusout", this.focusOutListener);
+        this.listenersAttached = true;
+      }
+
+      // Eventlisteners verwijderen als toggletip niet actief
+      if (!this.active && this.listenersAttached) {
+        this.host.removeEventListener("keydown", this.keyDownListener);
+        this.host.removeEventListener("focusout", this.focusOutListener);
+        this.listenersAttached = false;
+      }
+    } else if (this.listenersAttached) {
+      // Als het slot leeg is, verwijder altijd de listeners
+      this.host.removeEventListener("keydown", this.keyDownListener);
+      this.host.removeEventListener("focusout", this.focusOutListener);
+      this.listenersAttached = false;
+    }
   }
 
   render() {
@@ -75,6 +152,16 @@ export class InfoButton {
             <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
             <span class="sr-only">{this.label}</span>
           </button>
+        )}
+        {this.toggletipSlottedElement !== null && (
+          <Tooltip
+            tipElementRef={(element) => (this.toggletipElRef = element)}
+            tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
+            visible={this.showToggletip}
+            onAfterHidden={() => {}}
+          >
+            <slot name="toggletip" />
+          </Tooltip>
         )}
       </Host>
     );
