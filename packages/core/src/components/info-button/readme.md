@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                       | Type                   | Default                   |
-| ----------- | ----------- | --------------------------------- | ---------------------- | ------------------------- |
-| `active`    | `active`    | Whether the InfoButton is active. | `boolean \| undefined` | `undefined`               |
-| `label`     | `label`     | The label.                        | `string`               | `"Toelichting bij optie"` |
-| `secondary` | `secondary` | For secondary Info Button.        | `boolean \| undefined` | `undefined`               |
+| Property             | Attribute             | Description                               | Type                                                                                                                                                                 | Default                   |
+| -------------------- | --------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `active`             | `active`              | Whether the InfoButton is active.         | `boolean \| undefined`                                                                                                                                               | `undefined`               |
+| `label`              | `label`               | The label.                                | `string`                                                                                                                                                             | `"Toelichting bij optie"` |
+| `secondary`          | `secondary`           | For secondary Info Button.                | `boolean \| undefined`                                                                                                                                               | `undefined`               |
+| `toggletipPlacement` | `toggletip-placement` | The placement of the Toggle tip on click. | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"top-start"`             |
 
 
 ## Events

@@ -31,6 +31,9 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
   dsoToggle: argTypeAction(),
 };
 
-export function infoButtonArgsMapper(a: InfoButtonArgs): Required<InfoButton> {
-  return { ...a };
+export function infoButtonArgsMapper<TemplateFnReturnType>(
+  a: InfoButtonArgs,
+  children: TemplateFnReturnType,
+): Required<InfoButton<TemplateFnReturnType>> {
+  return { ...a, children };
 }
