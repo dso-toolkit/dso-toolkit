@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Legend Item: Styling symbols ([#3283](https://github.com/dso-toolkit/dso-toolkit/issues/3283))
+* Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 
 ## 🧚‍♀️ Release 79.0.1 - 2025-09-22
 
