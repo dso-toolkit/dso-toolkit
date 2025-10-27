@@ -118,7 +118,7 @@ export class DocumentComponent implements ComponentInterface {
   /**
    * An alternative title to show when there is nothing to create a title.
    */
-  @Prop()
+  @Prop({ reflect: true })
   alternativeTitle?: string;
 
   /**
@@ -276,7 +276,13 @@ export class DocumentComponent implements ComponentInterface {
           <div class="heading-container" part="_heading-container">
             {this.wijzigactie && <span class="editaction-label">{this.wijzigactieLabel}:</span>}
             <div class="heading">
-              <Heading heading={this.heading} class="heading-element" mode={this.mode} href={this.href}>
+              <Heading
+                heading={this.heading}
+                class="heading-element"
+                onClick={this.alternativeTitle ? this.handleHeadingClick : undefined}
+                mode={this.mode}
+                href={this.href}
+              >
                 {collapsible && this.mode === "document" && (
                   <dso-icon-button
                     label={this.open ? "Invouwen" : "Uitvouwen"}

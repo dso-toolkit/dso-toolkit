@@ -126,6 +126,14 @@
 }
 
 :host([mode="document"]:not([not-collapsible])) {
+  --link-color: #{document-component.$heading-anchor-color};
+  --link-hover-color: #{document-component.$heading-anchor-hover-color};
+
+  .heading-element {
+    cursor: pointer;
+    @include link.pseudo();
+  }
+
   dso-ozon-content {
     &.kop::part(_kop) {
       cursor: pointer;
@@ -191,10 +199,10 @@
   gap: units.$u1;
 }
 
-:host([type="ARTIKEL"]) {
+:host([type="ARTIKEL"]:not([alternative-title])) {
   dso-ozon-content.kop::part(_kop),
   .toggle-button {
-    --_dso-icon-button-tertiary-color: colors.$zwart;
+    --_dso-icon-button-tertiary-color: #{colors.$zwart};
     color: colors.$zwart;
   }
 }
