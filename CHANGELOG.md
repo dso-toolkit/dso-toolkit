@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Document List: Deprecate ([#3341](https://github.com/dso-toolkit/dso-toolkit/issues/3341))
+* Card: Deprecate HTML/CSS implementatie ([#3307](https://github.com/dso-toolkit/dso-toolkit/issues/3307))
 
 ### Fixed
 * Header: marges rond Uitloggen ongelijk ([#3357](https://github.com/dso-toolkit/dso-toolkit/issues/3357))

@@ -8,7 +8,7 @@ import { content } from "./card.content";
 
 const meta: Meta<CardArgs> = {
   ...cardMeta({ readme }),
-  title: "HTML|CSS/Card",
+  title: "HTML|CSS/Card (Deprecated)",
 };
 
 export default meta;

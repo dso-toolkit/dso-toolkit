@@ -18,7 +18,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     slideToggleTemplate,
   }) =>
     function cardTemplate({ label, selectable, content, interactions, href, mode, active, dsoCardClick }) {
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-card> -->
         <div
           class="dso-card ${classMap({
             "dso-is-selectable": !!selectable,
@@ -60,6 +60,6 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             ${content && richContentTemplate({ children: content })}
           </div>
         </div>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };
