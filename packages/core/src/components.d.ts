@@ -605,6 +605,9 @@ export namespace Components {
           * @default false
          */
         "genesteOntwerpInformatie": boolean;
+        /**
+          * Marks Document Component as reserved.
+         */
         "gereserveerd": DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
@@ -618,11 +621,11 @@ export namespace Components {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: DocumentComponentInputType;
+        "inhoud": DocumentComponentInputType | undefined;
         /**
           * The Kop XML.
          */
-        "kop"?: DocumentComponentInputType;
+        "kop": DocumentComponentInputType | undefined;
         /**
           * To mark text.
          */
@@ -659,6 +662,9 @@ export namespace Components {
           * Type of Document Component.
          */
         "type"?: string;
+        /**
+          * Marks the Document Component as expired.
+         */
         "vervallen": DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.
@@ -3268,6 +3274,9 @@ declare namespace LocalJSX {
           * @default false
          */
         "genesteOntwerpInformatie"?: boolean;
+        /**
+          * Marks Document Component as reserved.
+         */
         "gereserveerd"?: DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
@@ -3281,11 +3290,11 @@ declare namespace LocalJSX {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: DocumentComponentInputType;
+        "inhoud"?: DocumentComponentInputType | undefined;
         /**
           * The Kop XML.
          */
-        "kop"?: DocumentComponentInputType;
+        "kop"?: DocumentComponentInputType | undefined;
         /**
           * To mark text.
          */
@@ -3346,6 +3355,9 @@ declare namespace LocalJSX {
           * Type of Document Component.
          */
         "type"?: string;
+        /**
+          * Marks the Document Component as expired.
+         */
         "vervallen"?: DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.

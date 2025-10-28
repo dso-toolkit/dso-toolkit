@@ -74,7 +74,7 @@ const AantekenStatus: FunctionalComponent<{
   );
 };
 
-const AantekenAlerts: FunctionalComponent<{
+const AantekenAlert: FunctionalComponent<{
   gereserveerd?: DocumentComponentAantekenElement;
   vervallen?: DocumentComponentAantekenElement;
 }> = ({ gereserveerd, vervallen }) => {
@@ -109,17 +109,45 @@ export class DocumentComponent implements ComponentInterface {
   @Prop()
   heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
 
+  private _kopInput?: DocumentComponentInputType;
+  private _kop?: XMLDocument;
   /**
    * The Kop XML.
    */
   @Prop()
-  kop?: DocumentComponentInputType;
+  get kop(): DocumentComponentInputType | undefined {
+    return this._kopInput;
+  }
+  set kop(value: DocumentComponentInputType | undefined) {
+    this._kopInput = value;
 
+    if (!value) {
+      this._kop = undefined;
+    } else if (value instanceof XMLDocument) {
+      this._kop = value;
+    } else {
+      this._kop = parser.parseFromString(value, "application/xml");
+    }
+  }
+
+  private _inhoudInput?: DocumentComponentInputType;
+  private _inhoud?: XMLDocument;
   /**
    * The Inhoud XML.
    */
   @Prop()
-  inhoud?: DocumentComponentInputType;
+  get inhoud(): DocumentComponentInputType | undefined {
+    return this._inhoudInput;
+  }
+  set inhoud(value: DocumentComponentInputType | undefined) {
+    if (!value) {
+      this._inhoud = undefined;
+    } else if (value instanceof XMLDocument) {
+      this._inhoud = value;
+    } else {
+      this._inhoud = parser.parseFromString(value, "application/xml");
+    }
+  }
 
   /**
    * This boolean attribute indicates whether the children are visible.
@@ -157,11 +185,11 @@ export class DocumentComponent implements ComponentInterface {
   @Prop({ reflect: true })
   annotated = false;
 
+  private _gereserveerdInput?: DocumentComponentInputType;
+  private _gereserveerd?: DocumentComponentAantekenElement;
   /**
    * Marks Document Component as reserved.
    */
-  private _gereserveerdInput?: DocumentComponentInputType;
-  private _gereserveerd?: DocumentComponentAantekenElement;
   @Prop()
   get gereserveerd(): DocumentComponentInputType | undefined {
     return this._gereserveerdInput;
@@ -171,11 +199,11 @@ export class DocumentComponent implements ComponentInterface {
     this._gereserveerd = this.parseAantekenElement(value);
   }
 
+  private _vervallenInput?: DocumentComponentInputType;
+  private _vervallen?: DocumentComponentAantekenElement;
   /**
    * Marks the Document Component as expired.
    */
-  private _vervallenInput?: DocumentComponentInputType;
-  private _vervallen?: DocumentComponentAantekenElement;
   @Prop()
   get vervallen(): DocumentComponentInputType | undefined {
     return this._vervallenInput;
@@ -357,12 +385,12 @@ export class DocumentComponent implements ComponentInterface {
   }
 
   render() {
-    const collapsible = !!((this.kop || this.alternativeTitle) && this.type !== "LID");
+    const collapsible = !!((this._kop || this.alternativeTitle) && this.type !== "LID");
 
     const showHeading = !!(
       this.wijzigactie ||
       collapsible ||
-      this.kop ||
+      this._kop ||
       this.alternativeTitle ||
       this.bevatOntwerpInformatie ||
       this.annotated
@@ -393,10 +421,10 @@ export class DocumentComponent implements ComponentInterface {
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
 
-                  {this.kop ? (
+                  {this._kop ? (
                     <dso-ozon-content
                       class="kop"
-                      content={this.kop}
+                      content={this._kop}
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       onDsoClick={this.handleOzonContentClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
@@ -469,13 +497,13 @@ export class DocumentComponent implements ComponentInterface {
           </div>
         )}
 
-        {this.open && (this.inhoud || this._gereserveerd || this._vervallen) && this.mode === "document" && (
+        {this.open && (this._inhoud || this._gereserveerd || this._vervallen) && this.mode === "document" && (
           <div class="content" part="_content">
-            <AantekenAlerts gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
+            <AantekenAlert gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
 
-            {this.inhoud && (
+            {this._inhoud && (
               <dso-ozon-content
-                content={this.inhoud}
+                content={this._inhoud}
                 onDsoAnchorClick={this.handleOzonContentAnchorClick}
                 onDsoClick={this.handleOzonContentClick}
                 mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
