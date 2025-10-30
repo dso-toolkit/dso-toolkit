@@ -607,9 +607,8 @@ export namespace Components {
         "genesteOntwerpInformatie": boolean;
         /**
           * Marks Document Component as reserved.
-          * @default false
          */
-        "gereserveerd": boolean;
+        "gereserveerd": DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
           * @default "h2"
@@ -622,11 +621,11 @@ export namespace Components {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: DocumentComponentInputType;
+        "inhoud": DocumentComponentInputType | undefined;
         /**
           * The Kop XML.
          */
-        "kop"?: DocumentComponentInputType;
+        "kop": DocumentComponentInputType | undefined;
         /**
           * To mark text.
          */
@@ -665,9 +664,8 @@ export namespace Components {
         "type"?: string;
         /**
           * Marks the Document Component as expired.
-          * @default false
          */
-        "vervallen": boolean;
+        "vervallen": DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.
          */
@@ -3278,9 +3276,8 @@ declare namespace LocalJSX {
         "genesteOntwerpInformatie"?: boolean;
         /**
           * Marks Document Component as reserved.
-          * @default false
          */
-        "gereserveerd"?: boolean;
+        "gereserveerd"?: DocumentComponentInputType | undefined;
         /**
           * The heading element to use.
           * @default "h2"
@@ -3293,11 +3290,11 @@ declare namespace LocalJSX {
         /**
           * The Inhoud XML.
          */
-        "inhoud"?: DocumentComponentInputType;
+        "inhoud"?: DocumentComponentInputType | undefined;
         /**
           * The Kop XML.
          */
-        "kop"?: DocumentComponentInputType;
+        "kop"?: DocumentComponentInputType | undefined;
         /**
           * To mark text.
          */
@@ -3360,9 +3357,8 @@ declare namespace LocalJSX {
         "type"?: string;
         /**
           * Marks the Document Component as expired.
-          * @default false
          */
-        "vervallen"?: boolean;
+        "vervallen"?: DocumentComponentInputType | undefined;
         /**
           * The wijzigactie as in STOP.
          */

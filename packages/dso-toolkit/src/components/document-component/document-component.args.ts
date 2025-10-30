@@ -9,6 +9,7 @@ import {
   DocumentComponent,
   DocumentComponentAnnotationsWijzigactie,
   DocumentComponentHeading,
+  DocumentComponentInputType,
   DocumentComponentMode,
   DocumentComponentType,
   DocumentComponentWijzigactie,
@@ -23,7 +24,7 @@ export interface DocumentComponentArgs {
   dsoMarkItemHighlight: HandlerFunction;
   filtered: boolean;
   genesteOntwerpInformatie: boolean;
-  gereserveerd: boolean;
+  gereserveerd: DocumentComponentInputType;
   heading: DocumentComponentHeading;
   inhoud?: string;
   kop: string;
@@ -31,7 +32,7 @@ export interface DocumentComponentArgs {
   open: boolean;
   openAnnotation: boolean;
   type: DocumentComponentType;
-  vervallen: boolean;
+  vervallen: DocumentComponentInputType;
   wijzigactie: DocumentComponentWijzigactie | undefined;
   annotationsWijzigactie: DocumentComponentAnnotationsWijzigactie | undefined;
   mark?: string;
@@ -49,7 +50,7 @@ export const documentComponentArgs: Omit<
   bevatOntwerpInformatie: true,
   filtered: true,
   genesteOntwerpInformatie: false,
-  gereserveerd: false,
+  gereserveerd: "",
   heading: "h2",
   inhoud:
     "<Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Al>De artikelen 3.28, derde lid, en 3.38, aanhef en onder b, zijn van overeenkomstige toepassing op een activiteit als bedoeld in die artikelonderdelen die wordt verricht op een locatie waarvoor een op grond van artikel 4.35, eerste lid, van de Invoeringswet Omgevingswet als instructie geldende aanwijzing als beschermd stads- of dorpsgezicht als bedoeld in artikel 35, eerste lid, van de Monumentenwet 1988 zoals die wet luidde voor de inwerkingtreding van de Erfgoedwet van kracht is, zolang in dit omgevingsplan aan die locatie nog niet de functie-aanduiding rijksbeschermd stads- of dorpsgezicht is gegeven.</Al></Inhoud>",
@@ -57,7 +58,7 @@ export const documentComponentArgs: Omit<
   open: false,
   openAnnotation: false,
   type: "ARTIKEL",
-  vervallen: false,
+  vervallen: "",
   wijzigactie: "voegtoe",
   annotationsWijzigactie: "voegtoe",
   mode: "document",
@@ -96,8 +97,25 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     },
   },
   gereserveerd: {
+    options: [
+      undefined,
+      "<Gereserveerd></Gereserveerd>",
+      "<Gereserveerd wijzigactie='verwijder'></Gereserveerd>",
+      "<Gereserveerd wijzigactie='voegtoe'></Gereserveerd>",
+    ],
     control: {
-      type: "boolean",
+      type: "select",
+    },
+  },
+  vervallen: {
+    options: [
+      undefined,
+      "<Vervallen></Vervallen>",
+      "<Vervallen wijzigactie='verwijder'></Vervallen>",
+      "<Vervallen wijzigactie='voegtoe'></Vervallen>",
+    ],
+    control: {
+      type: "select",
     },
   },
   heading: {
@@ -138,11 +156,6 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     options: ["LICHAAM", "HOOFDSTUK", "AFDELING", "ARTIKEL", "LID", "PARAGRAAF", "SUBPARAGRAAF", "SUBSUBPARAGRAAF"],
     control: {
       type: "select",
-    },
-  },
-  vervallen: {
-    control: {
-      type: "boolean",
     },
   },
   wijzigactie: {

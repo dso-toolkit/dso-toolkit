@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Document Component: `gereserveerd` en `vervallen` als XML ([#3254](https://github.com/dso-toolkit/dso-toolkit/issues/3254))
+
 ### Changed
 * Alert: On Color varianten ([#3273](https://github.com/dso-toolkit/dso-toolkit/issues/3273))
 * Icon: wijziging location-outline ([#3234](https://github.com/dso-toolkit/dso-toolkit/issues/3234))

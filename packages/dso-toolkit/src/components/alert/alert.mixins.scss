@@ -87,7 +87,7 @@
 
 @mixin root() {
   line-height: typography.$line-height-base;
-  margin-block-end: typography.$line-height-computed;
+  margin-block-end: var(--_dso-alert-margin-block-end, typography.$line-height-computed);
   min-block-size: 2 * alert-variables.$inline-padding + alert-variables.$icon-size;
   position: relative;
   border: 1px solid transparent;

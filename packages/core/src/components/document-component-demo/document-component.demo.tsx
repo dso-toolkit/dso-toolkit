@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Event, EventEmitter, Fragment, Prop, Sta
 import random from "lodash.random";
 import sampleSize from "lodash.samplesize";
 
-import { DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
+import { DocumentComponentInputType, DsoDocumentComponentCustomEvent, OzonContentUrlResolver } from "../../components";
 import {
   DocumentComponentMode,
   DocumentComponentOzonContentAnchorClickEvent,
@@ -24,8 +24,8 @@ interface DocumentComponent extends DocumentEmbedded {
   volgordeNummer: number;
   inhoud?: string;
   kop?: string;
-  gereserveerd?: boolean;
-  vervallen?: boolean;
+  gereserveerd?: DocumentComponentInputType;
+  vervallen?: DocumentComponentInputType;
   bevatOntwerpInformatie?: boolean;
   wijzigactie?: DocumentComponentWijzigactie;
   mode: DocumentComponentMode;

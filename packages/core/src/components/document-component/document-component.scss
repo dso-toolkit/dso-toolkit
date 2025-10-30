@@ -129,7 +129,7 @@
   --link-color: #{document-component.$heading-anchor-color};
   --link-hover-color: #{document-component.$heading-anchor-hover-color};
 
-  .heading-element {
+  .heading-title > dso-ozon-content {
     cursor: pointer;
     @include link.pseudo();
   }
@@ -221,6 +221,10 @@
 .content,
 .heading-container {
   padding-inline-end: units.$u1;
+}
+
+.content {
+  --_dso-alert-margin-block-end: #{units.$u1};
 }
 
 .annotation-container {

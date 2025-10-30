@@ -1,7 +1,18 @@
-import { Component, ComponentInterface, Event, EventEmitter, Fragment, Host, Prop, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  Fragment,
+  FunctionalComponent,
+  Host,
+  Prop,
+  h,
+} from "@stencil/core";
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
+import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
   OzonContentAnchorClickEvent,
   OzonContentClickEvent,
@@ -10,6 +21,7 @@ import {
 
 import { Heading } from "./document-component-heading";
 import {
+  DocumentComponentAantekenElement,
   DocumentComponentAnnotationsWijzigactie,
   DocumentComponentInputType,
   DocumentComponentMarkFunction,
@@ -31,6 +43,54 @@ const wijzigactieLabels: { [wijzigactie in DocumentComponentWijzigactie]: string
   voegtoe: "Toegevoegd",
 };
 
+const AantekenStatus: FunctionalComponent<{
+  gereserveerd?: DocumentComponentAantekenElement;
+  vervallen?: DocumentComponentAantekenElement;
+}> = ({ gereserveerd, vervallen }) => {
+  return (
+    <Fragment>
+      {" "}
+      {gereserveerd && (
+        <dso-label
+          compact
+          {...(gereserveerd.wijzigactie
+            ? { status: gereserveerd.wijzigactie === "voegtoe" ? "toegevoegd" : "verwijderd" }
+            : {})}
+        >
+          {gereserveerd.type}
+        </dso-label>
+      )}{" "}
+      {vervallen && (
+        <dso-label
+          compact
+          {...(vervallen.wijzigactie
+            ? { status: vervallen.wijzigactie === "voegtoe" ? "toegevoegd" : "verwijderd" }
+            : {})}
+        >
+          {vervallen.type}
+        </dso-label>
+      )}
+    </Fragment>
+  );
+};
+
+const AantekenAlert: FunctionalComponent<{
+  gereserveerd?: DocumentComponentAantekenElement;
+  vervallen?: DocumentComponentAantekenElement;
+}> = ({ gereserveerd, vervallen }) => {
+  if (gereserveerd && gereserveerd.wijzigactie !== "verwijder" && !vervallen) {
+    return <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>;
+  }
+
+  if (vervallen && vervallen.wijzigactie !== "voegtoe" && !gereserveerd) {
+    return <dso-alert status="info">Dit onderdeel is vervallen.</dso-alert>;
+  }
+
+  return null;
+};
+
+const parser = new DOMParser();
+
 /**
  * @part _annotation-container - private part, do not touch.
  * @part _children-container - private part, do not touch.
@@ -49,17 +109,33 @@ export class DocumentComponent implements ComponentInterface {
   @Prop()
   heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
 
+  private _kopInput?: DocumentComponentInputType;
+  private _kop?: XMLDocument;
   /**
    * The Kop XML.
    */
   @Prop()
-  kop?: DocumentComponentInputType;
+  get kop(): DocumentComponentInputType | undefined {
+    return this._kopInput;
+  }
+  set kop(value: DocumentComponentInputType | undefined) {
+    this._kopInput = value;
+    this._kop = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
+  }
 
+  private _inhoudInput?: DocumentComponentInputType;
+  private _inhoud?: XMLDocument;
   /**
    * The Inhoud XML.
    */
   @Prop()
-  inhoud?: DocumentComponentInputType;
+  get inhoud(): DocumentComponentInputType | undefined {
+    return this._inhoudInput;
+  }
+  set inhoud(value: DocumentComponentInputType | undefined) {
+    this._inhoudInput = value;
+    this._inhoud = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
+  }
 
   /**
    * This boolean attribute indicates whether the children are visible.
@@ -97,17 +173,33 @@ export class DocumentComponent implements ComponentInterface {
   @Prop({ reflect: true })
   annotated = false;
 
+  private _gereserveerdInput?: DocumentComponentInputType;
+  private _gereserveerd?: DocumentComponentAantekenElement;
   /**
    * Marks Document Component as reserved.
    */
   @Prop()
-  gereserveerd = false;
+  get gereserveerd(): DocumentComponentInputType | undefined {
+    return this._gereserveerdInput;
+  }
+  set gereserveerd(value: DocumentComponentInputType | undefined) {
+    this._gereserveerdInput = value;
+    this._gereserveerd = this.parseAantekenElement(value);
+  }
 
+  private _vervallenInput?: DocumentComponentInputType;
+  private _vervallen?: DocumentComponentAantekenElement;
   /**
    * Marks the Document Component as expired.
    */
   @Prop()
-  vervallen = false;
+  get vervallen(): DocumentComponentInputType | undefined {
+    return this._vervallenInput;
+  }
+  set vervallen(value: DocumentComponentInputType | undefined) {
+    this._vervallenInput = value;
+    this._vervallen = this.parseAantekenElement(value);
+  }
 
   /**
    * When the Annotation is opened, set this to true.
@@ -217,18 +309,6 @@ export class DocumentComponent implements ComponentInterface {
     }
   };
 
-  private suffix(): string | undefined {
-    if (this.vervallen) {
-      return "vervallen";
-    }
-
-    if (this.gereserveerd) {
-      return "gereserveerd";
-    }
-
-    return undefined;
-  }
-
   private handleOzonContentAnchorClick = (e: DsoOzonContentCustomEvent<OzonContentAnchorClickEvent>) => {
     this.dsoOzonContentAnchorClick.emit({ originalEvent: e, ozonContentAnchorClick: e.detail });
   };
@@ -257,14 +337,48 @@ export class DocumentComponent implements ComponentInterface {
     );
   }
 
+  private parseAantekenElement(input?: DocumentComponentInputType): DocumentComponentAantekenElement | undefined {
+    if (!input) {
+      return undefined;
+    }
+
+    let element: Element | null = null;
+
+    if (typeof input === "string") {
+      const doc = parser.parseFromString(input, "application/xml");
+      element = doc.documentElement;
+    } else if (input instanceof XMLDocument) {
+      element = input.documentElement;
+    }
+
+    if (!element) {
+      return undefined;
+    }
+
+    const wijzigactie = parseWijzigactieFromNode(element);
+    const tag = element.tagName.toLowerCase();
+
+    let type: DocumentComponentAantekenElement["type"] | undefined;
+    if (tag === "vervallen") {
+      type = "Vervallen";
+    } else if (tag === "gereserveerd") {
+      type = "Gereserveerd";
+    }
+
+    if (!type) {
+      return undefined;
+    }
+
+    return { type, wijzigactie };
+  }
+
   render() {
-    const suffix = this.suffix();
-    const collapsible = !!((this.kop || this.alternativeTitle) && this.type !== "LID");
+    const collapsible = !!((this._kop || this.alternativeTitle) && this.type !== "LID");
 
     const showHeading = !!(
       this.wijzigactie ||
       collapsible ||
-      this.kop ||
+      this._kop ||
       this.alternativeTitle ||
       this.bevatOntwerpInformatie ||
       this.annotated
@@ -295,10 +409,10 @@ export class DocumentComponent implements ComponentInterface {
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
 
-                  {this.kop ? (
+                  {this._kop ? (
                     <dso-ozon-content
                       class="kop"
-                      content={this.kop}
+                      content={this._kop}
                       onDsoAnchorClick={this.handleOzonContentAnchorClick}
                       onDsoClick={this.handleOzonContentClick}
                       mark={this.mark && ((text) => this.mark?.(text, "kop"))}
@@ -311,9 +425,11 @@ export class DocumentComponent implements ComponentInterface {
                   ) : (
                     this.alternativeTitle
                   )}
-                  {suffix && <span> - [{suffix}]</span>}
+
+                  <AantekenStatus gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
                 </span>
               </Heading>
+
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
                 <dso-icon-button
                   label={this.recursiveToggle === true ? "Verberg alles" : "Toon alles"}
@@ -334,6 +450,7 @@ export class DocumentComponent implements ComponentInterface {
                   </dso-tooltip>
                 </Fragment>
               )}
+
               {(this.bevatOntwerpInformatie || this.annotated) && (
                 <div class="addons">
                   {this.bevatOntwerpInformatie && (
@@ -354,6 +471,7 @@ export class DocumentComponent implements ComponentInterface {
             </div>
           </div>
         )}
+
         {this.openAnnotation && (
           <div class="annotation-container" part="_annotation-container">
             <dso-panel
@@ -366,15 +484,14 @@ export class DocumentComponent implements ComponentInterface {
             </dso-panel>
           </div>
         )}
-        {this.open && (this.inhoud || this.gereserveerd || this.vervallen) && this.mode === "document" && (
+
+        {this.open && (this._inhoud || this._gereserveerd || this._vervallen) && this.mode === "document" && (
           <div class="content" part="_content">
-            {this.gereserveerd && (
-              <dso-alert status="info">Dit onderdeel is gereserveerd voor toekomstige toevoeging.</dso-alert>
-            )}
-            {this.vervallen && <dso-alert status="info">Dit onderdeel is vervallen.</dso-alert>}
-            {this.inhoud && (
+            <AantekenAlert gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
+
+            {this._inhoud && (
               <dso-ozon-content
-                content={this.inhoud}
+                content={this._inhoud}
                 onDsoAnchorClick={this.handleOzonContentAnchorClick}
                 onDsoClick={this.handleOzonContentClick}
                 mark={this.mark && ((text) => this.mark?.(text, "inhoud"))}
@@ -386,6 +503,7 @@ export class DocumentComponent implements ComponentInterface {
             )}
           </div>
         )}
+
         <div class="children-container" part="_children-container">
           <slot />
         </div>
