@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍟 Release 80.0.0 - 2025-10-30
+
 ### Added
 * **BREAKING** Document Component: `gereserveerd` en `vervallen` als XML ([#3254](https://github.com/dso-toolkit/dso-toolkit/issues/3254))
 
