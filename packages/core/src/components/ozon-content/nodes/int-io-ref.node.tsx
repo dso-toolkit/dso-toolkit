@@ -15,8 +15,6 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
     }
 
     const intRefOnClick = (event: MouseEvent) => {
-      event.preventDefault();
-
       emitClick({
         type: "IntIoRefToggleAnnotation",
         node,
@@ -30,7 +28,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           <p>
             Gebieden op de kaart tonen:{" "}
-            <button class="dso-tertiary" onClick={intRefOnClick}>
+            <button type="button" class="dso-tertiary" onClick={intRefOnClick}>
               <span>Kenmerken en kaart</span>
               <dso-icon icon="label" />
             </button>

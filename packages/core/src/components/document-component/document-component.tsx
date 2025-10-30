@@ -12,6 +12,7 @@ import {
 
 import { DsoOzonContentCustomEvent } from "../../components";
 import { isModifiedEvent } from "../../utils/is-modified-event";
+import { parseXml } from "../../utils/parse-xml";
 import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
   OzonContentBegripResolver,
@@ -120,7 +121,7 @@ export class DocumentComponent implements ComponentInterface {
   }
   set kop(value: DocumentComponentInputType | undefined) {
     this._kopInput = value;
-    this._kop = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
+    this._kop = typeof value === "string" ? parseXml(value) : value;
   }
 
   private _inhoudInput?: DocumentComponentInputType;
@@ -134,7 +135,7 @@ export class DocumentComponent implements ComponentInterface {
   }
   set inhoud(value: DocumentComponentInputType | undefined) {
     this._inhoudInput = value;
-    this._inhoud = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
+    this._inhoud = typeof value === "string" ? parseXml(value) : value;
   }
 
   /**
@@ -349,7 +350,7 @@ export class DocumentComponent implements ComponentInterface {
     let element: Element | null = null;
 
     if (typeof input === "string") {
-      const doc = parser.parseFromString(input, "application/xml");
+      const doc = parseXml(input);
       element = doc.documentElement;
     } else if (input instanceof XMLDocument) {
       element = input.documentElement;
