@@ -26,13 +26,6 @@ import {
 } from "./date-picker/form-group-date-picker.args";
 import { FormGroupDatePicker } from "./date-picker/form-group-date-picker.models";
 import {
-  FormGroupDatePickerLegacyArgs,
-  formGroupDatePickerLegacyArgTypes,
-  formGroupDatePickerLegacyArgsMapper,
-} from "./date-picker-legacy/form-group-date-picker-legacy.args";
-import { datePickerLegacyContent } from "./date-picker-legacy/form-group-date-picker-legacy.content";
-import { FormGroupDatePickerLegacy } from "./date-picker-legacy/form-group-date-picker-legacy.models";
-import {
   FormGroupFilesArgs,
   formGroupFilesArgTypes,
   formGroupFilesArgs,
@@ -89,7 +82,6 @@ interface FormGroupStories {
   Checkboxes: StoryObj<FormGroupCheckboxesArgs, Renderer>;
   Confirm: StoryObj<FormGroupConfirmArgs, Renderer>;
   DatePicker: StoryObj<FormGroupDatePickerArgs, Renderer>;
-  DatePickerLegacy: StoryObj<FormGroupDatePickerLegacyArgs, Renderer>;
   Files: StoryObj<FormGroupFilesArgs, Renderer>;
   NoFiles: StoryObj<FormGroupFilesArgs, Renderer>;
   Input: StoryObj<FormGroupInputArgs, Renderer>;
@@ -104,9 +96,6 @@ export interface FormGroupTemplates<TemplateFnReturnType> {
   formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupDatePickerTemplate: (formGroupDatePicker: FormGroupDatePicker<TemplateFnReturnType>) => TemplateFnReturnType;
-  formGroupDatePickerLegacyTemplate: (
-    formGroupDatePickerLegacy: FormGroupDatePickerLegacy<TemplateFnReturnType>,
-  ) => TemplateFnReturnType;
   formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (
     formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>,
@@ -127,7 +116,6 @@ export type FormGroupArgs =
   | FormGroupCheckboxesArgs
   | FormGroupConfirmArgs
   | FormGroupDatePickerArgs
-  | FormGroupDatePickerLegacyArgs
   | FormGroupFilesArgs
   | FormGroupInputArgs
   | FormGroupRadiosArgs
@@ -178,14 +166,6 @@ export function formGroupStories<Implementation, Templates, TemplateFnReturnType
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerTemplate }) =>
         formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args)),
-      ),
-    },
-    DatePickerLegacy: {
-      args: datePickerLegacyContent,
-      argTypes: formGroupDatePickerLegacyArgTypes,
-      decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { formGroupDatePickerLegacyTemplate }) =>
-        formGroupDatePickerLegacyTemplate(formGroupDatePickerLegacyArgsMapper(args)),
       ),
     },
     Files: {

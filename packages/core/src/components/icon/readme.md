@@ -21,7 +21,6 @@
  - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-attachments-counter](../attachments-counter)
  - [dso-card](../card)
- - [dso-date-picker-legacy](../date-picker-legacy)
  - [dso-document-card](../document-card)
  - [dso-header](../header)
  - [dso-history-item](../history-item)
@@ -49,7 +48,6 @@ graph TD;
   dso-annotation-kaart --> dso-icon
   dso-attachments-counter --> dso-icon
   dso-card --> dso-icon
-  dso-date-picker-legacy --> dso-icon
   dso-document-card --> dso-icon
   dso-header --> dso-icon
   dso-history-item --> dso-icon

@@ -24,7 +24,6 @@ import {
   ContactInformation,
   Context,
   DatePicker,
-  DatePickerLegacy,
   DefinitionList,
   Description,
   DocumentCard,
@@ -136,7 +135,6 @@ import { cssCardList } from "./components/card-list/card-list.css-template";
 import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 import { cssContext } from "./components/context/context.css-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
-import { coreDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.core-template";
 import { cssDefinitionList } from "./components/definition-list/definition-list.css-template";
 import { cssDescription } from "./components/description/description.css-template";
 import { coreDocumentCard } from "./components/document-card/document-card.core-template";
@@ -153,7 +151,6 @@ import { cssForm } from "./components/form/form.css-template";
 import { cssFormButtons } from "./components/form-buttons/form-buttons.css-template";
 import { cssFormGroupCheckboxes } from "./components/form-group/form-group-checkboxes.css-template";
 import { cssFormGroupConfirm } from "./components/form-group/form-group-confirm.css-template";
-import { cssFormGroupDatePickerLegacy } from "./components/form-group/form-group-date-picker-legacy.css-template";
 import { cssFormGroupDatePicker } from "./components/form-group/form-group-date-picker.css-template";
 import { cssFormGroupFiles } from "./components/form-group/form-group-files.css-template";
 import { cssFormGroupInput } from "./components/form-group/form-group-input.css-template";
@@ -251,7 +248,6 @@ export interface Components {
   contactInformation: ContactInformation<TemplateResult | string>;
   context: Context<TemplateResult>;
   datePicker: DatePicker;
-  datePickerLegacy: DatePickerLegacy;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
   documentCard: DocumentCard<TemplateResult>;
@@ -375,7 +371,6 @@ templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreContactInformation);
 templateContainer.add(coreDatePicker);
-templateContainer.add(coreDatePickerLegacy);
 templateContainer.add(coreDocumentCard);
 templateContainer.add(coreDocumentComponent);
 templateContainer.add(coreDropdownMenu);
@@ -445,7 +440,6 @@ templateContainer.add(cssFormGroup);
 templateContainer.add(cssFormGroupCheckboxes);
 templateContainer.add(cssFormGroupConfirm);
 templateContainer.add(cssFormGroupDatePicker);
-templateContainer.add(cssFormGroupDatePickerLegacy);
 templateContainer.add(cssFormGroupFiles);
 templateContainer.add(cssFormGroupInput);
 templateContainer.add(cssFormGroupRadios);

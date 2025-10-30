@@ -53,8 +53,6 @@ export * from "./components/context";
 
 export * from "./components/date-picker";
 
-export * from "./components/date-picker-legacy";
-
 export * from "./components/definition-list";
 
 export * from "./components/description";

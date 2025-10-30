@@ -6,7 +6,6 @@ import {
   Badge,
   BaseComponentImplementation,
   DatePicker,
-  DatePickerLegacy,
   DropdownMenu,
   Expandable,
   Header,
@@ -33,7 +32,6 @@ import { angularAlert } from "./components/alert/alert.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
-import { angularDatePickerLegacy } from "./components/date-picker-legacy/date-picker-legacy.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
@@ -62,7 +60,6 @@ export interface Components {
   // card: Card<StoryFnAngularReturnType>;
   // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
-  datePickerLegacy: DatePickerLegacy;
   dropdownMenu: DropdownMenu;
   expandable: Expandable<StoryFnAngularReturnType>;
   header: Header;
@@ -122,7 +119,6 @@ templateContainer.add(angularAlert);
 templateContainer.add(angularAttachmentsCounter);
 templateContainer.add(angularBadge);
 templateContainer.add(angularDatePicker);
-templateContainer.add(angularDatePickerLegacy);
 templateContainer.add(angularDropdownMenu);
 templateContainer.add(angularExpandable);
 templateContainer.add(angularHeader);

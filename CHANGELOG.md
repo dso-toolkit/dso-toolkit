@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* **BREAKING** Date Picker (Legacy): Remove ([#3262](https://github.com/dso-toolkit/dso-toolkit/issues/3262))
+
 ## 🍟 Release 80.0.0 - 2025-10-30
 
 ### Added
