@@ -12,11 +12,8 @@ Deze release bevat breaking changes voor het volgende component:
 
 ## Document Component
 
-- Property `gereserveerd` is vervangen met XML i.p.v. een boolean.
-- Property `vervallen` is vervangen met XML i.p.v. een boolean.
-- De status van `gereserveerd` en `vervallen` worden niet langer in blokhaken weergegeven, maar als een `<dso-label>`.
-- De alert met status `info` in de content wordt alleen getoond als gereserveerd aanwezig is en vervallen niet aanwezig is.
-- De alert met status `info`in de content wordt alleen getoond als vervallen aanwezig is en gereserveerd niet aanwezig is.
+- Property `gereserveerd` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
+- Property `vervallen` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
 
 ### Gereserveerd
 

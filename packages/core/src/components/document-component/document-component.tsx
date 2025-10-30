@@ -120,14 +120,7 @@ export class DocumentComponent implements ComponentInterface {
   }
   set kop(value: DocumentComponentInputType | undefined) {
     this._kopInput = value;
-
-    if (!value) {
-      this._kop = undefined;
-    } else if (value instanceof XMLDocument) {
-      this._kop = value;
-    } else {
-      this._kop = parser.parseFromString(value, "application/xml");
-    }
+    this._kop = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
   }
 
   private _inhoudInput?: DocumentComponentInputType;
@@ -140,13 +133,8 @@ export class DocumentComponent implements ComponentInterface {
     return this._inhoudInput;
   }
   set inhoud(value: DocumentComponentInputType | undefined) {
-    if (!value) {
-      this._inhoud = undefined;
-    } else if (value instanceof XMLDocument) {
-      this._inhoud = value;
-    } else {
-      this._inhoud = parser.parseFromString(value, "application/xml");
-    }
+    this._inhoudInput = value;
+    this._inhoud = typeof value === "string" ? parser.parseFromString(value, "application/xml") : value;
   }
 
   /**
