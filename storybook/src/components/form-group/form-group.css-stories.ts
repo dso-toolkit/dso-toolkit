@@ -12,64 +12,37 @@ const meta: Meta<FormGroupArgs> = {
 
 export default meta;
 
-const {
-  Checkboxes,
-  Confirm,
-  DatePicker,
-  DatePickerLegacy,
-  Files,
-  NoFiles,
-  Input,
-  Radios,
-  SearchBar,
-  Select,
-  Static,
-  Textarea,
-} = formGroupStories({
-  templateContainer,
-  storyTemplates: (templates) => {
-    const {
-      formGroupCheckboxesTemplate,
-      formGroupConfirmTemplate,
-      formGroupDatePickerTemplate,
-      formGroupDatePickerLegacyTemplate,
-      formGroupFilesTemplate,
-      formGroupInputTemplate,
-      formGroupRadiosTemplate,
-      formGroupSearchBarTemplate,
-      formGroupSelectTemplate,
-      formGroupStaticTemplate,
-      formGroupTextareaTemplate,
-    } = templates;
+const { Checkboxes, Confirm, DatePicker, Files, NoFiles, Input, Radios, SearchBar, Select, Static, Textarea } =
+  formGroupStories({
+    templateContainer,
+    storyTemplates: (templates) => {
+      const {
+        formGroupCheckboxesTemplate,
+        formGroupConfirmTemplate,
+        formGroupDatePickerTemplate,
+        formGroupFilesTemplate,
+        formGroupInputTemplate,
+        formGroupRadiosTemplate,
+        formGroupSearchBarTemplate,
+        formGroupSelectTemplate,
+        formGroupStaticTemplate,
+        formGroupTextareaTemplate,
+      } = templates;
 
-    return {
-      formGroupCheckboxesTemplate,
-      formGroupConfirmTemplate,
-      formGroupDatePickerTemplate,
-      formGroupDatePickerLegacyTemplate,
-      formGroupFilesTemplate,
-      formGroupInputTemplate,
-      formGroupRadiosTemplate,
-      formGroupSearchBarTemplate,
-      formGroupSelectTemplate,
-      formGroupStaticTemplate,
-      formGroupTextareaTemplate,
-    };
-  },
-  decorator: (story) => html`<formGroup>${story()}</formGroup>`,
-});
+      return {
+        formGroupCheckboxesTemplate,
+        formGroupConfirmTemplate,
+        formGroupDatePickerTemplate,
+        formGroupFilesTemplate,
+        formGroupInputTemplate,
+        formGroupRadiosTemplate,
+        formGroupSearchBarTemplate,
+        formGroupSelectTemplate,
+        formGroupStaticTemplate,
+        formGroupTextareaTemplate,
+      };
+    },
+    decorator: (story) => html`<formGroup>${story()}</formGroup>`,
+  });
 
-export {
-  Checkboxes,
-  Confirm,
-  DatePicker,
-  DatePickerLegacy,
-  Files,
-  Input,
-  NoFiles,
-  Radios,
-  SearchBar,
-  Select,
-  Static,
-  Textarea,
-};
+export { Checkboxes, Confirm, DatePicker, Files, Input, NoFiles, Radios, SearchBar, Select, Static, Textarea };
