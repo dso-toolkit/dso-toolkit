@@ -7,20 +7,20 @@ describe("Ozon Content", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
-    cy.get("dso-ozon-content.hydrated").then(($el) => {
-      const el = $el.get(0);
-      const clickStub = cy.stub().as("click");
-      el.addEventListener("dsoClick", clickStub);
-
-      cy.wrap(el)
-        .shadow()
-        .find("a[href='#longTitle_inst2']")
-        .realClick()
-        .then(() => {
-          expect(clickStub.callCount).to.equal(1);
-          expect(clickStub.getCall(0).args[0].detail.node.nodeName).to.equal("IntRef");
-        });
+    cy.get("dso-ozon-content.hydrated").then((c) => {
+      c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
     });
+
+    cy.get("dso-ozon-content.hydrated").shadow().find("a[href='#longTitle_inst2']").realClick();
+
+    cy.get("@click").should("have.been.calledOnce");
+
+    cy.get("@click")
+      .invoke("getCall", 0)
+      .then((call) => {
+        expect(call.args[0].detail.type).to.equal("IntRef");
+        expect(call.args[0].detail.node.nodeName).to.equal("IntRef");
+      });
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
