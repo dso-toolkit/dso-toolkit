@@ -360,9 +360,9 @@ export class DocumentComponent implements ComponentInterface {
 
     let type: DocumentComponentAantekenElement["type"] | undefined;
     if (tag === "vervallen") {
-      type = "vervallen";
+      type = "Vervallen";
     } else if (tag === "gereserveerd") {
-      type = "gereserveerd";
+      type = "Gereserveerd";
     }
 
     if (!type) {

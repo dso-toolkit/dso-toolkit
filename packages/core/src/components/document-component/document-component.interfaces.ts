@@ -48,6 +48,6 @@ export interface DocumentComponentTableOfContentsClickEvent {
 }
 
 export interface DocumentComponentAantekenElement {
-  type: "vervallen" | "gereserveerd";
+  type: "Vervallen" | "Gereserveerd";
   wijzigactie?: DocumentComponentWijzigactie;
 }
