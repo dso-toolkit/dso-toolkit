@@ -1,17 +1,13 @@
 ---
-authors: [cvanderleij, iterox]
+authors: [iterox, tfrijsewijk]
 ---
 
-# DSO Toolkit v80.0.0 🍟
+# DSO Toolkit NEXT 🍔
 
 Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Document Component
 - Ozon Content
-
-Deze release bevat een **deprecation** voor het volgende component:
-
-- Card (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -19,23 +15,18 @@ Deze release bevat een **deprecation** voor het volgende component:
 
 - Property `gereserveerd` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
 - Property `vervallen` is vervangen met een `XMLDocument` of `string` i.p.v. een `boolean`.
-- Het Event `dsoOzonContentAnchorClick` is vervangen door `dsoOzonContentClick`. (Zie ook de **BREAKING** change aan
-  het component Ozon Content in deze release).
+- Het Event `dsoOzonContentAnchorClick` is vervangen door `dsoOzonContentClick`. (Zie ook de **BREAKING** change aan het component Ozon Content in deze release).
 
 ### Gereserveerd
 
 De property gereserveerd accepteert nu een XML-string of een XMLDocument. Dit maakt het mogelijk om een optionele
 wijzigactie (voegtoe of verwijder) mee te geven, zoals voorgeschreven door STOP:
 
-❌
-
 ```html
+❌
 <dso-document-component gereserveerd></dso-document-component>
-```
 
 ✅
-
-```html
 <dso-document-component gereserveerd="<Gereserveerd wijzigactie='verwijder'></Gereserveerd>"></dso-document-component>
 <dso-document-component gereserveerd="<Gereserveerd wijzigactie='voegtoe'></Gereserveerd>"></dso-document-component>
 <dso-document-component gereserveerd="<Gereserveerd></Gereserveerd>"></dso-document-component>
@@ -45,15 +36,11 @@ wijzigactie (voegtoe of verwijder) mee te geven, zoals voorgeschreven door STOP:
 
 Hetzelfde geldt voor vervallen. Ook deze property accepteert nu een XML-string of een XMLDocument, met een optionele wijzigactie:
 
-❌
-
 ```html
+❌
 <dso-document-component vervallen></dso-document-component>
-```
 
 ✅
-
-```html
 <dso-document-component vervallen="<Vervallen wijzigactie='verwijder'></Vervallen>"></dso-document-component>
 <dso-document-component vervallen="<Vervallen wijzigactie='voegtoe'></Vervallen>"></dso-document-component>
 <dso-document-component vervallen="<Vervallen></Vervallen>"></dso-document-component>
@@ -67,42 +54,21 @@ ondergebracht in `dsoClick`. Daarnaast is de event handler `dsoClick` uitgebreid
 
 Er is geen uitgestippeld migratiepad. Hoogstwaarschijnlijk wil je als high-level afnemer gebruik maken van Document Component. Ozon Content kan gezien worden als een "Low Level component".
 
-## Card (HTML/CSS implementatie)
+STOP elementen `IntRef` werden voorheen geparsed tot `<a href="#<waarde-van-ref-attribuut>">`. De waarde in het `href` attribuut wordt nu gegenereerd via de `urlResolver`. Dit maakt het mogelijk om de gegenereerde URL aan te passen.
 
-De HTML/CSS implementatie van het component `Card` is deprecated. In een toekomstige **BREAKING** release zal dit
-component verwijderd worden.
+Onderstaande voorbeeld implementatie geeft het oude gedrag. Dit wordt niet aangeraden en staat er slechts ter verduidelijking. Het is de bedoeling dat de `urlResolver` dezelfde functie teruggeeft als die de click handler in de router zet.
 
-### Migratiepad
+```tsx
+function urlResolver(
+  name: "ExtIoRef" | "ExtRef" | "IntIoRef" | "IntRef",
+  attribute: "ref",
+  value: string | null,
+  element: Element,
+): string {
+  if (name === "IntRef" && value) {
+    return `#${value}`;
+  }
 
-Gebruik de Core implementatie van Card.
-
-❌
-
-```html
-<div class="dso-card">
-  <div class="dso-card-container">
-    <div class="dso-card-heading">
-      <a href="#">
-        <h2>
-          <span id="card-title">Omgevingsplan Nieuwegein</span>
-          <!-- START DEPRECATED --><svg class="di di-chevron-right">
-            <use href="#chevron-right"></use></svg
-          ><!-- END DEPRECATED -->
-        </h2>
-      </a>
-    </div>
-    <div class="dso-rich-content"><p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p></div>
-  </div>
-</div>
-```
-
-✅
-
-```html
-<dso-card href="#">
-  <h2 slot="heading" id="card-title">Omgevingsplan Nieuwegein</h2>
-  <div class="dso-rich-content" slot="content">
-    <p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p>
-  </div>
-</dso-card>
+  // [..]
+}
 ```
