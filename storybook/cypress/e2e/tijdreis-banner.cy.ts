@@ -1,4 +1,4 @@
-describe("Contact information", () => {
+describe("Tijdreis Banner", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-tijdreis-banner--default");
   });
