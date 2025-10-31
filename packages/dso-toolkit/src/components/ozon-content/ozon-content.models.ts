@@ -19,7 +19,12 @@ export interface OzonContentMarkItem {
 
 export interface OzonContentUrlResolver {
   (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
-  (name: "ExtIoRef" | "ExtRef" | "IntIoRef", attribute: "ref", value: string | null, element: Element): string;
+  (
+    name: "ExtIoRef" | "ExtRef" | "IntIoRef" | "IntRef",
+    attribute: "ref",
+    value: string | null,
+    element: Element,
+  ): string;
 }
 
 export interface OzonContentBegripResolver {
