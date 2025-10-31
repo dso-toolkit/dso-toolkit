@@ -4,9 +4,13 @@ authors: [cvanderleij, iterox]
 
 # DSO Toolkit next 💃
 
-Deze release bevat een **BREAKING** changes voor het volgende component:
+Deze release bevat een **BREAKING** change voor het volgende component:
 
 - Date Picker (Legacy)
+
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Badge (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -18,4 +22,25 @@ Het component `Date Picker (Legacy)` is in 🦕 Release 78.1.0 deprecated. In de
 
 ```html
 <dso-date-picker-legacy></dso-date-picker-legacy>
+```
+
+## Badge (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Badge` is deprecated. In een toekomstige **BREAKING** release zal dit
+component verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Badge.
+
+❌
+
+```html
+<span class="dso-badge badge-attention"> Attention </span>
+```
+
+✅
+
+```html
+<dso-badge status="attention">Attention</dso-badge>
 ```

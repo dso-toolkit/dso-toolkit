@@ -2,7 +2,11 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Badge
 
-<StorybookComponent variant="plain" />
+<StorybookComponent variant="plain" implementations={["core", "react", "angular"]} />
+
+De HTML/CSS implementatie is **Deprecated**.
+
+<StorybookComponent variant="plain" implementations={["html-css"]} name="badge-deprecated" />
 
 Een badge geeft de status aan van een systeem. Ook vestigt de badge aandacht op een numerieke waarde of markeert het een element. De badge valt onder de statusmeldingen.
 

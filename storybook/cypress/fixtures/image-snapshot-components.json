@@ -86,7 +86,7 @@
     "type": "html-css"
   },
   {
-    "name": "badge",
+    "name": "badge-deprecated",
     "selector": ".dso-badge",
     "stories": ["attention", "error", "info", "outline", "plain", "primary", "success", "warning"],
     "type": "html-css"
