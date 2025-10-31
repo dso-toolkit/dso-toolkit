@@ -43,5 +43,5 @@ export interface OzonContentUrlResolver {
 }
 
 export interface OzonContentBegripResolver {
-  (attribute: "ref", element: Element): XMLDocument | string | undefined;
+  (ref: string | null, element: Element): XMLDocument | string | undefined;
 }

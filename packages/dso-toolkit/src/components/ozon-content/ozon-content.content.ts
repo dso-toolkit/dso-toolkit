@@ -8,8 +8,8 @@ interface OzonContentStory {
   args?: Partial<OzonContentArgs>;
 }
 
-export function begripResolver(attribute: "ref", element: Element): XMLDocument | string | undefined {
-  if (attribute === "ref" && element) {
+export function begripResolver(ref: string | null, element: Element): XMLDocument | string | undefined {
+  if (ref && element) {
     return (
       "<Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een veelbelovende" +
       " dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>) te" +

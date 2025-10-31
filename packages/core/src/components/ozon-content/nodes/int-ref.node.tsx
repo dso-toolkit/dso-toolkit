@@ -13,7 +13,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
     const value = node.getAttribute("ref");
 
     if (scope === "Begrip") {
-      const definitie = begripResolver?.("ref", node) ?? value;
+      const definitie = begripResolver?.(value, node) ?? value;
       const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
 
       return (
