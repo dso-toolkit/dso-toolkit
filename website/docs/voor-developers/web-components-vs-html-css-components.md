@@ -28,9 +28,11 @@ Een Accordion bestaat uit één of meerdere Accordion Sections:
       <span class="sr-only">succes:</span>
       Hoe lang duurt de Vergunningcheck?
       <span class="dso-icon">
-        <svg class="di di-plus">
-          <use href="dso-toolkit/dist/dso-icons.svg#plus" />
-        </svg>
+        <!-- START DEPRECATED -->
+          <svg class="di di-plus">
+            <use href="#plus"></use>
+          </svg>
+        <!-- END DEPRECATED -->
       </span>
       <span class="dso-status-description">Controlevraag</span>
       <span class="dso-attachments">2 <span class="sr-only">bijlagen</span></span>

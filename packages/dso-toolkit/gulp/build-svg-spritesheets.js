@@ -14,7 +14,6 @@ import { sassTransformer } from "./transformers/sass.transformer.js";
 
 const iconsPath = "src/icons";
 const distPath = "dist";
-const iconsSpritesheetFilename = "dso-icons.svg";
 const diSpritesheetFilename = "di.svg";
 const canvasSize = 32;
 const gutterSize = 10;
@@ -83,7 +82,7 @@ async function parseStylesheets() {
   });
 }
 
-async function buildDiSpritesheet() {
+export async function buildDiSvgSpritesheet() {
   const iconStylesheets = await parseStylesheets(); // Parse stylesheets within the function
 
   if (!iconStylesheets || iconStylesheets.length === 0) {
@@ -112,7 +111,6 @@ async function buildDiSpritesheet() {
 
             if (!stylesheet) {
               $symbol.remove();
-
               continue;
             }
 
@@ -164,30 +162,4 @@ async function buildDiSpritesheet() {
     .pipe(prettier())
     .pipe(rename(diSpritesheetFilename))
     .pipe(gulp.dest(distPath));
-}
-
-async function buildSvgSpritesheet() {
-  return gulp
-    .src(`${iconsPath}/*.svg`)
-    .pipe(
-      svgstore({
-        inlineSvg: true,
-      }),
-    )
-    .pipe(
-      cheerio({
-        run($) {
-          $(":root").removeAttr("xmlns:xlink");
-        },
-        parserOptions: { xmlMode: true },
-      }),
-    )
-    .pipe(prettier())
-    .pipe(rename(iconsSpritesheetFilename))
-    .pipe(gulp.dest(distPath));
-}
-
-export async function buildSvgSpritesheets() {
-  // Generate both styled and unstyled spritesheets
-  return Promise.all([buildDiSpritesheet(), buildSvgSpritesheet()]);
 }
