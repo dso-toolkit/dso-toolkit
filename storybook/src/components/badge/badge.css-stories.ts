@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<BadgeArgs> = {
   ...badgeMeta({ readme }),
-  title: "HTML|CSS/Badge",
+  title: "HTML|CSS/Badge (Deprecated)",
 };
 
 export default meta;
