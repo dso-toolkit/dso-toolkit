@@ -1,6 +1,4 @@
 import { defineCustomElements } from "@dso-toolkit/core/dist/bundle/index.js";
-// @ts-expect-error: This import is used to load the DSO icons sprite into the document, but it is not a module.
-import sprite from "dso-toolkit/dist/dso-icons.svg?raw";
 import { DecoratorFunction, GlobalTypes, Parameters } from "storybook/internal/types";
 import "@iframe-resizer/child";
 
@@ -49,11 +47,5 @@ export const parameters: Parameters = {
 };
 
 export const tags = ["autodocs"];
-
-const spriteContainer = document.createElement("div");
-spriteContainer.hidden = true;
-spriteContainer.insertAdjacentHTML("afterbegin", sprite);
-
-document.body.insertAdjacentElement("afterbegin", spriteContainer);
 
 defineCustomElements();
