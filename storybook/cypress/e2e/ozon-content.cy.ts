@@ -11,7 +11,7 @@ describe("Ozon Content", () => {
       c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
     });
 
-    cy.get("dso-ozon-content.hydrated").shadow().find("a[href='#longTitle_inst2']").realClick();
+    cy.get("dso-ozon-content.hydrated").shadow().find("a[href='longTitle_inst2']").realClick();
 
     cy.get("@click").should("have.been.calledOnce");
 
@@ -181,24 +181,6 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render IntRef element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
-
-    cy.get("dso-ozon-content.hydrated").then((c) => {
-      c.prop("content", "<c><IntRef ref='doc'><e>document</e></IntRef></c>");
-    });
-
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find("span.fallback.od-c")
-      .children("a[href = '#doc']")
-      .should("exist")
-      .children("span.fallback.od-e")
-      .contains("document");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-  });
-
   describe("IntIoRef", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
@@ -243,7 +225,7 @@ describe("Ozon Content", () => {
         .and("have.text", "Bedrijf categorie 2");
     });
 
-    it("emits click with node='IntIoRefToggleAnnotation' on clicking the 'Gebieden op de kaart tonen' Button ", () => {
+    it("emits click with node='IntIoRef' on clicking the 'Gebieden op de kaart tonen' Button ", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()
         .find("dso-ref-toggletip")
@@ -258,7 +240,7 @@ describe("Ozon Content", () => {
       cy.get("@click")
         .invoke("getCall", 0)
         .then((call) => {
-          expect(call.args[0].detail.type).to.equal("IntIoRefToggleAnnotation");
+          expect(call.args[0].detail.type).to.equal("IntIoRef");
           expect(call.args[0].detail.node.nodeName).to.equal("IntIoRef");
         });
     });

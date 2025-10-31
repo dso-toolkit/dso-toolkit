@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
 
+import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { parseXml } from "../../../utils/parse-xml";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -8,19 +9,18 @@ export class OzonContentIntRefNode implements OzonContentNode {
   name = "IntRef";
 
   render(node: Element, { mapNodeToJsx, emitClick, begripResolver, urlResolver }: OzonContentNodeContext) {
-    const name = "IntRef" as const;
     const scope = node.getAttribute("scope");
     const value = node.getAttribute("ref");
 
     if (scope === "Begrip") {
-      const definitie = begripResolver?.(name, "ref", value, node) ?? value;
+      const definitie = begripResolver?.("ref", node) ?? value;
       const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
 
       return (
-        <dso-ref-toggletip icon="info">
+        <dso-ozon-content-toggletip icon="info">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           {definitieNode ? mapNodeToJsx(definitieNode) : null}
-        </dso-ref-toggletip>
+        </dso-ozon-content-toggletip>
       );
     }
 
@@ -29,6 +29,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
         type: "IntRef",
         node,
         originalEvent: event,
+        isModifiedEvent: isModifiedEvent(event),
       });
     };
 

@@ -63,7 +63,13 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
             )
       : undefined,
     dsoOzonContentMarkItemHighlight: (e) => dsoOzonContentMarkItemHighlight(e.detail),
-    dsoClick: (e) => dsoClick(e.detail),
+    dsoClick: (e) => {
+      if (e.detail.type === "IntRef" && !e.detail.isModifiedEvent) {
+        e.detail.originalEvent.preventDefault();
+      }
+
+      dsoClick(e.detail);
+    },
     urlResolver: (name, attribute, value, element) => {
       if (!value) {
         return "";
@@ -82,7 +88,7 @@ export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
       }
 
       if (name === "IntIoRef" && attribute === "ref" && element) {
-        return `https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2021/Delfzijlkamerverhuur/nld@2021-08-02;1`;
+        return `#${value}`;
       }
 
       return value;

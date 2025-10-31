@@ -18,10 +18,10 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
 ## Events
 
-| Event                             | Description                                     | Type                                                                                                                                            |
-| --------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dsoClick`                        | Emitted when an interactive element is clicked. | `CustomEvent<OzonContentClickBaseEvent<"IntIoRefToggleAnnotation"> \| OzonContentClickBaseEvent<"IntRef"> \| OzonContentClickBaseEvent<"Kop">>` |
-| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                |
+| Event                             | Description                                     | Type                                                                                                                                                            |
+| --------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dsoClick`                        | Emitted when an interactive element is clicked. | `CustomEvent<OzonContentClickBaseEvent<"IntIoRef"> \| OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean; } \| OzonContentClickBaseEvent<"Kop">>` |
+| `dsoOzonContentMarkItemHighlight` | Emitted when a marked item is highlighted.      | `CustomEvent<OzonContentMarkItemHighlightEvent>`                                                                                                                |
 
 
 ## Dependencies
@@ -34,6 +34,7 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 
 - [dso-icon](../icon)
 - [dso-image-overlay](../image-overlay)
+- [dso-ozon-content-toggletip](./components/ozon-content-toggletip)
 - [dso-tooltip](../tooltip)
 - [dso-table](../table)
 
@@ -42,10 +43,12 @@ Het Ozon Content component verwerkt XML die uit de Ozon API komt.
 graph TD;
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
+  dso-ozon-content --> dso-ozon-content-toggletip
   dso-ozon-content --> dso-tooltip
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
   dso-icon-button --> dso-icon
+  dso-ozon-content-toggletip --> dso-icon
   dso-table --> dso-icon
   dso-document-component --> dso-ozon-content
   style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px

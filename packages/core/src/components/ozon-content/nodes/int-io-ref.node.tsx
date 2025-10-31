@@ -14,9 +14,9 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
       return mapNodeToJsx(node.childNodes);
     }
 
-    const intRefOnClick = (event: MouseEvent) => {
+    const intIoRefOnClick = (event: MouseEvent) => {
       emitClick({
-        type: "IntIoRefToggleAnnotation",
+        type: "IntIoRef",
         node,
         originalEvent: event,
       });
@@ -24,11 +24,11 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
 
     return (
       <Fragment>
-        <dso-ref-toggletip icon="map-location">
+        <dso-ozon-content-toggletip icon="map-location">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           <p>
             Gebieden op de kaart tonen:{" "}
-            <button type="button" class="dso-tertiary" onClick={intRefOnClick}>
+            <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
               <span>Kenmerken en kaart</span>
               <dso-icon icon="label" />
             </button>
@@ -45,7 +45,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
               <dso-icon icon="external-link" />
             </a>
           </p>
-        </dso-ref-toggletip>
+        </dso-ozon-content-toggletip>
       </Fragment>
     );
   }
