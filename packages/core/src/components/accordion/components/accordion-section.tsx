@@ -46,26 +46,26 @@ const HandleElement: FunctionalComponent<{
 }> = ({ handleUrl, onClick, open, showSlideToggle, active, onActiveChange, handleElementRef }, children) => {
   if (handleUrl) {
     return (
-      <>
+      <Fragment>
         <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
           {children}
         </a>
         {showSlideToggle && (
           <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
         )}
-      </>
+      </Fragment>
     );
   }
 
   return (
-    <>
+    <Fragment>
       <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"} ref={handleElementRef}>
         {children}
       </button>
       {showSlideToggle && (
         <dso-slide-toggle accessibleLabel="Toon op kaart" checked={active} onDsoActiveChange={onActiveChange} />
       )}
-    </>
+    </Fragment>
   );
 };
 

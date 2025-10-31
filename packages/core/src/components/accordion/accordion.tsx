@@ -57,7 +57,7 @@ export class Accordion implements ComponentInterface {
 
   render() {
     return (
-      <Host class="dso-accordion">
+      <Host>
         <slot></slot>
       </Host>
     );

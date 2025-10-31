@@ -1,28 +1,29 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/accordion";
+
+@use "../accordion.variables" as accordion-variables;
 
 @mixin dso-web-component-accordion-compact() {
   .dso-section-handle {
     border-block-end: 1px solid transparent;
-    border-block-start: 1px solid accordion.$compact-border-color;
+    border-block-start: 1px solid accordion-variables.$compact-border-color;
 
     a,
     button {
-      color: accordion.$compact-color;
-      padding-block-end: accordion.$block-padding - accordion.$compact-border-width;
+      color: accordion-variables.$compact-color;
+      padding-block-end: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
       padding-inline-start: 0;
-      padding-block-start: accordion.$block-padding - accordion.$compact-border-width;
+      padding-block-start: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$compact-color;
+        color: accordion-variables.$compact-color;
       }
     }
 
     .dso-status {
-      color: accordion.$compact-black-color;
+      color: accordion-variables.$compact-black-color;
     }
   }
 
@@ -57,12 +58,12 @@
 
     a,
     button {
-      color: accordion.$compact-color;
+      color: accordion-variables.$compact-color;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$compact-color;
+        color: accordion-variables.$compact-color;
       }
 
       dso-attachments-counter {
