@@ -33,7 +33,7 @@ describe("Ozon Content", () => {
 
     cy.get("dso-ozon-content.hydrated")
       .shadow()
-      .find("dso-ref-toggletip")
+      .find("dso-ozon-content-toggletip")
       .shadow()
       .find(".toggletip-button")
       .realClick();
@@ -196,7 +196,7 @@ describe("Ozon Content", () => {
 
       cy.get("dso-ozon-content.hydrated")
         .shadow()
-        .find("dso-ref-toggletip")
+        .find("dso-ozon-content-toggletip")
         .shadow()
         .find(".toggletip-button")
         .realClick();
@@ -207,33 +207,29 @@ describe("Ozon Content", () => {
     it("renders the 'Officiële publicaties' Link as ExtIoRef", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()
-        .find("dso-ref-toggletip")
+        .find("dso-ozon-content-toggletip")
         .shadow()
         .find(".toggletip-button")
         .realClick();
 
       cy.get("dso-ozon-content.hydrated")
         .shadow()
-        .find("dso-ref-toggletip")
+        .find("dso-ozon-content-toggletip")
         .find("a")
         .should("have.attr", "target", "_blank")
-        .and(
-          "have.attr",
-          "href",
-          "https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2021/Delfzijlkamerverhuur/nld@2021-08-02;1",
-        )
+        .and("have.attr", "href", "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1")
         .and("have.text", "Bedrijf categorie 2");
     });
 
     it("emits click with node='IntIoRef' on clicking the 'Gebieden op de kaart tonen' Button ", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()
-        .find("dso-ref-toggletip")
+        .find("dso-ozon-content-toggletip")
         .shadow()
         .find(".toggletip-button")
         .realClick();
 
-      cy.get("dso-ozon-content.hydrated").shadow().find("dso-ref-toggletip").find("button").click();
+      cy.get("dso-ozon-content.hydrated").shadow().find("dso-ozon-content-toggletip").find("button").click();
 
       cy.get("@click").should("have.been.calledOnce");
 
