@@ -51,9 +51,9 @@ describe("Progress Indicator", () => {
 
   for (const { size } of sizes) {
     it(`should show ${size} spinner (HTML/CSS)`, () => {
-      cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator--${size}`);
+      cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator-deprecated--${size}`);
 
-      cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator--${size}`);
+      cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator-deprecated--${size}`);
     });
   }
 

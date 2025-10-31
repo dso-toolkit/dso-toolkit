@@ -8,6 +8,10 @@ Deze release bevat een **BREAKING** changes voor het volgende component:
 
 - Date Picker (Legacy)
 
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Progress Indicator (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Date Picker (Legacy)
@@ -18,4 +22,30 @@ Het component `Date Picker (Legacy)` is in 🦕 Release 78.1.0 deprecated. In de
 
 ```html
 <dso-date-picker-legacy></dso-date-picker-legacy>
+```
+
+## Progress Indicator (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Progress Indicator` is deprecated. In een toekomstige **BREAKING** release zal dit
+component verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Progress Indicator`.
+
+❌
+
+```html
+<div class="dso-progress-indicator dso-medium">
+  <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label"></span>
+  <span id="progress-indicator-label" class="dso-progress-indicator-label">
+    Resultaten laden: een moment geduld alstublieft.
+  </span>
+</div>
+```
+
+✅
+
+```html
+<dso-progress-indicator size="medium"></dso-progress-indicator>
 ```
