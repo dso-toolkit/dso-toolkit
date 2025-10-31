@@ -165,7 +165,6 @@ import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
 import { coreHistoryItem } from "./components/history-item/history-item.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
-import { cssIcon } from "./components/icon/icon.css-template";
 import { coreIconButton } from "./components/icon-button/icon-button.core-template";
 import { cssImage } from "./components/image/image.css-template";
 import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-template";
@@ -447,7 +446,6 @@ templateContainer.add(cssFormGroupStatic);
 templateContainer.add(cssFormGroupTextarea);
 templateContainer.add(cssHeading);
 templateContainer.add(cssHighlightBox);
-templateContainer.add(cssIcon);
 templateContainer.add(cssImage);
 templateContainer.add(cssInfo);
 templateContainer.add(cssInfoButton);
