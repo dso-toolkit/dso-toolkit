@@ -3,10 +3,25 @@ export interface OzonContent {
   inline?: boolean;
   mark?: OzonContentMarkFunction;
   urlResolver?: OzonContentUrlResolver;
-  dsoClick: (e: CustomEvent) => void;
+  dsoClick: (e: CustomEvent<OzonContentClickEvent>) => void;
   dsoOzonContentMarkItemHighlight: (e: CustomEvent) => void;
   begripResolver?: OzonContentBegripResolver;
 }
+
+interface OzonContentClickBaseEvent<T extends string> {
+  type: T;
+  node: Element;
+  originalEvent: MouseEvent;
+}
+
+export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
+export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef">;
+export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean };
+
+export type OzonContentClickEvent =
+  | OzonContentClickKopEvent
+  | OzonContentClickIntRefEvent
+  | OzonContentClickIntIoRefEvent;
 
 export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;
 
@@ -28,5 +43,5 @@ export interface OzonContentUrlResolver {
 }
 
 export interface OzonContentBegripResolver {
-  (name: "IntRef", attribute: "ref", value: string | null, element: Element): XMLDocument | string;
+  (attribute: "ref", element: Element): XMLDocument | string | undefined;
 }

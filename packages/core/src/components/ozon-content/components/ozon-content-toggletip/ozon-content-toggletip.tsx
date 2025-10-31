@@ -1,22 +1,23 @@
 import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
 
-import { toggletip } from "../../../../functional-components/tooltip/toggletip.function";
+import { positionTooltip } from "../../../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.interfaces";
 
 @Component({
-  tag: "dso-ref-toggletip",
-  styleUrl: "./ref-toggletip.scss",
+  tag: "dso-ozon-content-toggletip",
+  styleUrl: "./ozon-content-toggletip.scss",
   shadow: true,
 })
-export class RefToggletip implements ComponentInterface {
+export class ozonContentToggletip implements ComponentInterface {
   @Element()
-  host!: HTMLDsoRefToggletipElement;
+  host!: HTMLDsoOzonContentToggletipElement;
 
   /**
    * The alias of the icon in the button.
    */
   @Prop({ reflect: true })
-  icon!: string | undefined;
+  icon?: string;
 
   @State()
   active = false;
@@ -63,7 +64,30 @@ export class RefToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    this.showToggletip = toggletip(this.container, this.tooltip, this.tooltipArrow, this.active, this.showToggletip);
+    if (this.tooltip) {
+      if (this.active && !this.showToggletip) {
+        this.tooltip.showPopover();
+        this.showToggletip = true;
+      } else if (!this.active && this.showToggletip) {
+        this.tooltip?.hidePopover();
+        this.showToggletip = false;
+      }
+    }
+
+    let cleanUp: TooltipClean | undefined;
+
+    if (this.active && !cleanUp && this.container && this.tooltip && this.tooltipArrow) {
+      cleanUp = positionTooltip({
+        referenceElement: this.container,
+        tipRef: this.tooltip,
+        tipArrowRef: this.tooltipArrow,
+        placementTip: "top",
+      });
+    }
+
+    if (!this.active && cleanUp) {
+      cleanUp();
+    }
   }
 
   render() {

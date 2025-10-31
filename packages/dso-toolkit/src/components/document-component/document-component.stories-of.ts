@@ -157,7 +157,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           }
 
           if (name === "IntIoRef" && attribute === "ref" && element) {
-            return `https://identifier-eto.overheid.nl//join/id/regdata/gm1979/2021/Delfzijlkamerverhuur/nld@2021-08-02;1`;
+            return `#${value}`;
           }
 
           return value;

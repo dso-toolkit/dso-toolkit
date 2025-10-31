@@ -8,17 +8,8 @@ interface OzonContentStory {
   args?: Partial<OzonContentArgs>;
 }
 
-export function begripResolver(
-  name: "IntRef",
-  attribute: "ref",
-  value: string | null,
-  element: Element,
-): XMLDocument | string {
-  if (!value) {
-    return "";
-  }
-
-  if (name === "IntRef" && attribute === "ref" && element) {
+export function begripResolver(attribute: "ref", element: Element): XMLDocument | string | undefined {
+  if (attribute === "ref" && element) {
     return (
       "<Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een veelbelovende" +
       " dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>) te" +
@@ -26,7 +17,7 @@ export function begripResolver(
     );
   }
 
-  return value;
+  return undefined;
 }
 
 export const content: OzonContentStory[] = [

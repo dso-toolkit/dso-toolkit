@@ -1,5 +1,6 @@
 import {
   OzonContentBegripResolver,
+  OzonContentClickEvent,
   OzonContentText,
   OzonContentUrlResolver,
 } from "../ozon-content/ozon-content.models.js";
@@ -70,23 +71,6 @@ export interface DocumentComponentMarkItemHighlightEvent {
   text: string;
   elementRef: HTMLElement;
 }
-
-interface OzonContentClickBaseEvent<T extends string> {
-  type: T;
-  node: Element;
-  originalEvent: MouseEvent;
-}
-
-export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
-export type OzonContentClickExtRefEvent = OzonContentClickBaseEvent<"ExtRef">;
-export type OzonContentClickIntIoRefToggleAnnotationEvent = OzonContentClickBaseEvent<"IntIoRefToggleAnnotation">;
-export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef">;
-
-export type OzonContentClickEvent =
-  | OzonContentClickKopEvent
-  | OzonContentClickIntRefEvent
-  | OzonContentClickIntIoRefToggleAnnotationEvent
-  | OzonContentClickExtRefEvent;
 
 export interface DocumentComponentOzonContentClickEvent {
   originalEvent: MouseEvent;

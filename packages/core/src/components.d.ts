@@ -1039,6 +1039,12 @@ export namespace Components {
          */
         "urlResolver"?: OzonContentUrlResolver;
     }
+    interface DsoOzonContentToggletip {
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon"?: string;
+    }
     interface DsoPagination {
         /**
           * Current page
@@ -1119,12 +1125,6 @@ export namespace Components {
           * The label of the project item.
          */
         "label"?: string;
-    }
-    interface DsoRefToggletip {
-        /**
-          * The alias of the icon in the button.
-         */
-        "icon": string | undefined;
     }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
@@ -2233,6 +2233,12 @@ declare global {
         prototype: HTMLDsoOzonContentElement;
         new (): HTMLDsoOzonContentElement;
     };
+    interface HTMLDsoOzonContentToggletipElement extends Components.DsoOzonContentToggletip, HTMLStencilElement {
+    }
+    var HTMLDsoOzonContentToggletipElement: {
+        prototype: HTMLDsoOzonContentToggletipElement;
+        new (): HTMLDsoOzonContentToggletipElement;
+    };
     interface HTMLDsoPaginationElementEventMap {
         "dsoSelectPage": PaginationSelectPageEvent;
     }
@@ -2301,12 +2307,6 @@ declare global {
     var HTMLDsoProjectItemElement: {
         prototype: HTMLDsoProjectItemElement;
         new (): HTMLDsoProjectItemElement;
-    };
-    interface HTMLDsoRefToggletipElement extends Components.DsoRefToggletip, HTMLStencilElement {
-    }
-    var HTMLDsoRefToggletipElement: {
-        prototype: HTMLDsoRefToggletipElement;
-        new (): HTMLDsoRefToggletipElement;
     };
     interface HTMLDsoRenvooiElementEventMap {
         "dsoRenvooiMarkItemHighlight": RenvooiMarkItemHighlightEvent;
@@ -2583,13 +2583,13 @@ declare global {
         "dso-modal": HTMLDsoModalElement;
         "dso-onboarding-tip": HTMLDsoOnboardingTipElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
+        "dso-ozon-content-toggletip": HTMLDsoOzonContentToggletipElement;
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
         "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
-        "dso-ref-toggletip": HTMLDsoRefToggletipElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
@@ -3753,6 +3753,12 @@ declare namespace LocalJSX {
          */
         "urlResolver"?: OzonContentUrlResolver;
     }
+    interface DsoOzonContentToggletip {
+        /**
+          * The alias of the icon in the button.
+         */
+        "icon"?: string;
+    }
     interface DsoPagination {
         /**
           * Current page
@@ -3845,12 +3851,6 @@ declare namespace LocalJSX {
           * The label of the project item.
          */
         "label"?: string;
-    }
-    interface DsoRefToggletip {
-        /**
-          * The alias of the icon in the button.
-         */
-        "icon": string | undefined;
     }
     /**
      * Met dit component kan een `RenvooiValue` worden gepresenteerd.
@@ -4246,13 +4246,13 @@ declare namespace LocalJSX {
         "dso-modal": DsoModal;
         "dso-onboarding-tip": DsoOnboardingTip;
         "dso-ozon-content": DsoOzonContent;
+        "dso-ozon-content-toggletip": DsoOzonContentToggletip;
         "dso-pagination": DsoPagination;
         "dso-panel": DsoPanel;
         "dso-plekinfo-card": DsoPlekinfoCard;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-project-item": DsoProjectItem;
-        "dso-ref-toggletip": DsoRefToggletip;
         "dso-renvooi": DsoRenvooi;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
@@ -4322,13 +4322,13 @@ declare module "@stencil/core" {
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-onboarding-tip": LocalJSX.DsoOnboardingTip & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
+            "dso-ozon-content-toggletip": LocalJSX.DsoOzonContentToggletip & JSXBase.HTMLAttributes<HTMLDsoOzonContentToggletipElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
-            "dso-ref-toggletip": LocalJSX.DsoRefToggletip & JSXBase.HTMLAttributes<HTMLDsoRefToggletipElement>;
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */

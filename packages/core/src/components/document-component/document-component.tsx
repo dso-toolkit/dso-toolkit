@@ -90,8 +90,6 @@ const AantekenAlert: FunctionalComponent<{
   return null;
 };
 
-const parser = new DOMParser();
-
 /**
  * @part _annotation-container - private part, do not touch.
  * @part _children-container - private part, do not touch.

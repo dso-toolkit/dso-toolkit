@@ -5,13 +5,13 @@ interface OzonContentClickBaseEvent<T extends string> {
 }
 
 export type OzonContentClickKopEvent = OzonContentClickBaseEvent<"Kop">;
-export type OzonContentClickIntIoRefToggleAnnotationEvent = OzonContentClickBaseEvent<"IntIoRefToggleAnnotation">;
-export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef">;
+export type OzonContentClickIntIoRefEvent = OzonContentClickBaseEvent<"IntIoRef">;
+export type OzonContentClickIntRefEvent = OzonContentClickBaseEvent<"IntRef"> & { isModifiedEvent: boolean };
 
 export type OzonContentClickEvent =
   | OzonContentClickKopEvent
   | OzonContentClickIntRefEvent
-  | OzonContentClickIntIoRefToggleAnnotationEvent;
+  | OzonContentClickIntIoRefEvent;
 
 export type OzonContentInputType = XMLDocument | string;
 
@@ -42,5 +42,5 @@ export interface OzonContentUrlResolver {
 }
 
 export interface OzonContentBegripResolver {
-  (name: "IntRef", attribute: "ref", value: string | null, element: Element): XMLDocument | string;
+  (attribute: "ref", element: Element): XMLDocument | string | undefined;
 }
