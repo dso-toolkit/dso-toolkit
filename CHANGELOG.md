@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Selectable: Remove HTML/CSS implementatie ([#3204](https://github.com/dso-toolkit/dso-toolkit/issues/3204))
+* **BREAKING** Accordion: Remove HTML/CSS implementatie ([#3267](https://github.com/dso-toolkit/dso-toolkit/issues/3267))
 
 ## 🕶️ Release 81.1.0 - 2025-11-10
 

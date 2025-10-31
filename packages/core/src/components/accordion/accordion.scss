@@ -1,7 +1,9 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: block;
+  margin-block-end: var(--_dso-accordion-margin-block-end, units.$block-spacing-xlarge);
 }
 
 @include utilities.box-sizing();
