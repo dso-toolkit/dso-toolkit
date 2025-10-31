@@ -8,9 +8,10 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 - Date Picker (Legacy)
 
-Deze release bevat een **deprecation** voor het volgende component:
+Deze release bevat een **deprecation** voor de volgende componenten:
 
 - Badge (HTML/CSS implementatie)
+- Progress Indicator (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -43,4 +44,30 @@ Gebruik de Core implementatie van Badge.
 
 ```html
 <dso-badge status="attention">Attention</dso-badge>
+```
+
+## Progress Indicator (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Progress Indicator` is deprecated. In een toekomstige **BREAKING** release zal dit
+component verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Progress Indicator`.
+
+❌
+
+```html
+<div class="dso-progress-indicator dso-medium">
+  <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label"></span>
+  <span id="progress-indicator-label" class="dso-progress-indicator-label">
+    Resultaten laden: een moment geduld alstublieft.
+  </span>
+</div>
+```
+
+✅
+
+```html
+<dso-progress-indicator size="medium"></dso-progress-indicator>
 ```

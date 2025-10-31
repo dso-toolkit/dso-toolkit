@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<ProgressIndicatorArgs> = {
   ...progressIndicatorMeta({ readme }),
-  title: "HTML|CSS/Progress Indicator",
+  title: "HTML|CSS/Progress Indicator (Deprecated)",
 };
 
 export default meta;

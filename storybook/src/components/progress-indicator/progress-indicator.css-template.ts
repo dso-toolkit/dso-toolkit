@@ -11,7 +11,7 @@ export const cssProgressIndicator: ComponentImplementation<ProgressIndicator> = 
     function progressIndicatorTemplate({ label, size, block }) {
       label ??= "Resultaten laden: een moment geduld alstublieft.";
 
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-progress-indicator> -->
         <div
           class="dso-progress-indicator ${classMap({
             [`dso-${size}`]: !!size,
@@ -25,6 +25,6 @@ export const cssProgressIndicator: ComponentImplementation<ProgressIndicator> = 
           ></span>
           <span id="progress-indicator-label" class="dso-progress-indicator-label">${label}</span>
         </div>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };
