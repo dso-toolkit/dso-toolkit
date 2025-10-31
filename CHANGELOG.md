@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Badge: Deprecate HTML/CSS implementatie ([#3313](https://github.com/dso-toolkit/dso-toolkit/issues/3313))
+* Progress Indicator: Deprecate HTML/CSS implementatie ([#3321](https://github.com/dso-toolkit/dso-toolkit/issues/3321))
 
 ### Removed
 * **BREAKING** Date Picker (Legacy): Remove ([#3262](https://github.com/dso-toolkit/dso-toolkit/issues/3262))
