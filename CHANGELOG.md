@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Form Group (Search Bar): Component uitvullen ([#3296](https://github.com/dso-toolkit/dso-toolkit/issues/3296))
+
 ### Removed
 * **BREAKING** Date Picker (Legacy): Remove ([#3262](https://github.com/dso-toolkit/dso-toolkit/issues/3262))
 
