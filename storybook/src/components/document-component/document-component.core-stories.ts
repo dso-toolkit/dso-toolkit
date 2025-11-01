@@ -1,4 +1,4 @@
-import { DocumentComponentOzonContentAnchorClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
+import { DocumentComponentOzonContentClickEvent, DsotDocumentComponentDemoCustomEvent } from "@dso-toolkit/core";
 import readme from "@dso-toolkit/core/src/components/document-component/readme.md?raw";
 import { Meta } from "@storybook/web-components-vite";
 import {
@@ -62,19 +62,20 @@ const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
           openDefault,
           showCanvas,
           mode,
-          ozonContentAnchorClick,
+          ozonContentClick,
           tableOfContentsClick,
           ozonContentUrlResolver,
+          ozonContentBegripResolver,
         ) =>
           html`<dsot-document-component-demo
-            @dsotOzonContentAnchorClick=${(
-              e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentAnchorClickEvent>,
-            ) => ozonContentAnchorClick(e.detail)}
+            @dsotOzonContentClick=${(e: DsotDocumentComponentDemoCustomEvent<DocumentComponentOzonContentClickEvent>) =>
+              ozonContentClick(e.detail)}
             .jsonFile=${jsonFile}
             ?open-default=${openDefault}
             ?show-canvas=${showCanvas}
             .mode=${mode}
             .ozonContentUrlResolver=${ozonContentUrlResolver}
+            .ozonContentBegripResolver=${ozonContentBegripResolver}
             @dsotTableOfContentsClick=${(
               e: DsotDocumentComponentDemoCustomEvent<DocumentComponentTableOfContentsClickEvent>,
             ) => {

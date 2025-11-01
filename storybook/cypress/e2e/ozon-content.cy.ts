@@ -1,19 +1,42 @@
 import { isOdd } from "../support/is-odd";
 
 describe("Ozon Content", () => {
-  it("should emit anchorClick on IntRef anchor click", () => {
+  it("emits click with node='IntRef' on click of IntRef Link", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref");
 
     cy.injectAxe();
     cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
     cy.get("dso-ozon-content.hydrated").then((c) => {
-      c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
+      c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
     });
 
-    cy.get("dso-ozon-content.hydrated").shadow().find("a[href = '#longTitle_inst2']").click();
+    cy.get("dso-ozon-content.hydrated").shadow().find("a[href='longTitle_inst2']").realClick();
 
-    cy.get("@anchorClick").should("have.been.calledOnce");
+    cy.get("@click").should("have.been.calledOnce");
+
+    cy.get("@click")
+      .invoke("getCall", 0)
+      .then((call) => {
+        expect(call.args[0].detail.type).to.equal("IntRef");
+        expect(call.args[0].detail.node.nodeName).to.equal("IntRef");
+      });
+
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+  });
+
+  it('shows a toggletip on IntRef[@scope="begrip"]', () => {
+    cy.viewport(650, 650).visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-ref-begrip");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip")
+      .shadow()
+      .find(".toggletip-button")
+      .realClick();
 
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
@@ -158,57 +181,65 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
-  it("should render IntRef element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
+  describe("IntIoRef", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
 
-    cy.get("dso-ozon-content.hydrated").then((c) => {
-      c.prop("content", "<c><IntRef ref='doc'><e>document</e></IntRef></c>");
+      cy.get("dso-ozon-content.hydrated").then((c) => {
+        c.get(0).addEventListener("dsoClick", cy.stub().as("click"));
+      });
     });
 
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find("span.fallback.od-c")
-      .children("a[href = '#doc']")
-      .should("exist")
-      .children("span.fallback.od-e")
-      .contains("document");
+    it("shows a toggletip", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-ozon-content.hydrated");
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-  });
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .shadow()
+        .find(".toggletip-button")
+        .realClick();
 
-  it("should render IntIoRef element", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
-
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content.hydrated");
-
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
-      .should("exist");
-
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
-  });
-
-  it("should emit anchorClick on IntIoRef anchor click", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--int-io-ref");
-
-    cy.get("dso-ozon-content.hydrated").then((c) => {
-      c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
+      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
     });
 
-    cy.get("dso-ozon-content.hydrated")
-      .shadow()
-      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
-      .click();
+    it("renders the 'Officiële publicaties' Link as ExtIoRef", () => {
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .shadow()
+        .find(".toggletip-button")
+        .realClick();
 
-    cy.get("@anchorClick")
-      .should("have.been.calledOnce")
-      .invoke("getCall", 0)
-      .its("args.0.detail.node")
-      .should("equal", "IntIoRef");
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .find("a")
+        .should("have.attr", "target", "_blank")
+        .and("have.attr", "href", "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1")
+        .and("have.text", "Bedrijf categorie 2");
+    });
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    it("emits click with node='IntIoRef' on clicking the 'Gebieden op de kaart tonen' Button ", () => {
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .shadow()
+        .find(".toggletip-button")
+        .realClick();
+
+      cy.get("dso-ozon-content.hydrated").shadow().find("dso-ozon-content-toggletip").find("button").click();
+
+      cy.get("@click").should("have.been.calledOnce");
+
+      cy.get("@click")
+        .invoke("getCall", 0)
+        .then((call) => {
+          expect(call.args[0].detail.type).to.equal("IntIoRef");
+          expect(call.args[0].detail.node.nodeName).to.equal("IntIoRef");
+        });
+    });
   });
 
   it("should render ExtRef element", () => {

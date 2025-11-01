@@ -7,9 +7,10 @@ const defaultPropValues = {
   content: "content",
   inline: "inline",
   mark: "mark",
-  dsoAnchorClick: "dsoAnchorClick($event.detail)",
+  dsoClick: "dsoClick($event.detail)",
   dsoOzonContentMarkItemHighlight: "dsoOzonContentMarkItemHighlight($event.detail)",
   urlResolver: "urlResolver",
+  begripResolver: "begripResolver",
 };
 
 export const angularOzonContent: ComponentImplementation<OzonContent> = {
@@ -17,7 +18,16 @@ export const angularOzonContent: ComponentImplementation<OzonContent> = {
   implementation: "angular",
   template: () =>
     function ozonContentTemplate(props, propValues) {
-      const { slotName, content, dsoAnchorClick, inline, mark, dsoOzonContentMarkItemHighlight, urlResolver } = {
+      const {
+        slotName,
+        content,
+        dsoClick,
+        inline,
+        mark,
+        dsoOzonContentMarkItemHighlight,
+        urlResolver,
+        begripResolver,
+      } = {
         ...defaultPropValues,
         ...propValues,
       };
@@ -31,7 +41,8 @@ export const angularOzonContent: ComponentImplementation<OzonContent> = {
             [inline]="${inline}"
             [mark]="${mark}"
             [urlResolver]="${urlResolver}"
-            (dsoAnchorClick)="${dsoAnchorClick}"
+            [begripResolver]="${begripResolver}"
+            (dsoClick)="${dsoClick}"
             (dsoOzonContentMarkItemHighlight)="${dsoOzonContentMarkItemHighlight}"
           ></dso-ozon-content>
         `,

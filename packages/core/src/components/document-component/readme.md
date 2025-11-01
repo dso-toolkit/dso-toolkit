@@ -7,41 +7,42 @@
 
 ## Properties
 
-| Property                   | Attribute                    | Description                                                                                                       | Type                                                                                  | Default      |
-| -------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------ |
-| `alternativeTitle`         | `alternative-title`          | An alternative title to show when there is nothing to create a title.                                             | `string \| undefined`                                                                 | `undefined`  |
-| `annotated`                | `annotated`                  | Enables annotations.                                                                                              | `boolean`                                                                             | `false`      |
-| `annotationsWijzigactie`   | `annotations-wijzigactie`    | The wijzigactie for all annotations.                                                                              | `"verwijder" \| "voegtoe" \| undefined`                                               | `undefined`  |
-| `bevatOntwerpInformatie`   | `bevat-ontwerp-informatie`   | Marks as draft.                                                                                                   | `boolean`                                                                             | `false`      |
-| `filtered`                 | `filtered`                   | Marks this Document Component as belonging to an active filter.                                                   | `boolean`                                                                             | `false`      |
-| `genesteOntwerpInformatie` | `geneste-ontwerp-informatie` | When a child Document Component has a status "Draft".                                                             | `boolean`                                                                             | `false`      |
-| `gereserveerd`             | `gereserveerd`               | Marks Document Component as reserved.                                                                             | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
-| `heading`                  | `heading`                    | The heading element to use.                                                                                       | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"`                                                | `"h2"`       |
-| `href`                     | `href`                       | The URL to which the Heading links (only in mode="table-of-contents").                                            | `string \| undefined`                                                                 | `undefined`  |
-| `inhoud`                   | `inhoud`                     | The Inhoud XML.                                                                                                   | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
-| `kop`                      | `kop`                        | The Kop XML.                                                                                                      | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
-| `mark`                     | `mark`                       | To mark text.                                                                                                     | `((text: string, source: DocumentComponentSource) => OzonContentText[]) \| undefined` | `undefined`  |
-| `mode`                     | `mode`                       | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"              | `"document" \| "table-of-contents"`                                                   | `"document"` |
-| `notApplicable`            | `not-applicable`             | Marks this Document Component as not-applicable.                                                                  | `boolean`                                                                             | `false`      |
-| `open`                     | `open`                       | This boolean attribute indicates whether the children are visible.                                                | `boolean`                                                                             | `false`      |
-| `openAnnotation`           | `open-annotation`            | When the Annotation is opened, set this to true.                                                                  | `boolean`                                                                             | `false`      |
-| `ozonContentUrlResolver`   | `ozon-content-url-resolver`  | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.   | `OzonContentUrlResolver \| undefined`                                                 | `undefined`  |
-| `recursiveToggle`          | `recursive-toggle`           | Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted. | `"indeterminate" \| boolean \| undefined`                                             | `undefined`  |
-| `type`                     | `type`                       | Type of Document Component.                                                                                       | `string \| undefined`                                                                 | `undefined`  |
-| `vervallen`                | `vervallen`                  | Marks the Document Component as expired.                                                                          | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
-| `wijzigactie`              | `wijzigactie`                | The wijzigactie as in STOP.                                                                                       | `"nieuweContainer" \| "verwijder" \| "verwijderContainer" \| "voegtoe" \| undefined`  | `undefined`  |
+| Property                    | Attribute                      | Description                                                                                                       | Type                                                                                  | Default      |
+| --------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------ |
+| `alternativeTitle`          | `alternative-title`            | An alternative title to show when there is nothing to create a title.                                             | `string \| undefined`                                                                 | `undefined`  |
+| `annotated`                 | `annotated`                    | Enables annotations.                                                                                              | `boolean`                                                                             | `false`      |
+| `annotationsWijzigactie`    | `annotations-wijzigactie`      | The wijzigactie for all annotations.                                                                              | `"verwijder" \| "voegtoe" \| undefined`                                               | `undefined`  |
+| `bevatOntwerpInformatie`    | `bevat-ontwerp-informatie`     | Marks as draft.                                                                                                   | `boolean`                                                                             | `false`      |
+| `filtered`                  | `filtered`                     | Marks this Document Component as belonging to an active filter.                                                   | `boolean`                                                                             | `false`      |
+| `genesteOntwerpInformatie`  | `geneste-ontwerp-informatie`   | When a child Document Component has a status "Draft".                                                             | `boolean`                                                                             | `false`      |
+| `gereserveerd`              | `gereserveerd`                 | Marks Document Component as reserved.                                                                             | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
+| `heading`                   | `heading`                      | The heading element to use.                                                                                       | `"h2" \| "h3" \| "h4" \| "h5" \| "h6"`                                                | `"h2"`       |
+| `href`                      | `href`                         | The URL to which the Heading links (only in mode="table-of-contents").                                            | `string \| undefined`                                                                 | `undefined`  |
+| `inhoud`                    | `inhoud`                       | The Inhoud XML.                                                                                                   | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
+| `kop`                       | `kop`                          | The Kop XML.                                                                                                      | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
+| `mark`                      | `mark`                         | To mark text.                                                                                                     | `((text: string, source: DocumentComponentSource) => OzonContentText[]) \| undefined` | `undefined`  |
+| `mode`                      | `mode`                         | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"              | `"document" \| "table-of-contents"`                                                   | `"document"` |
+| `notApplicable`             | `not-applicable`               | Marks this Document Component as not-applicable.                                                                  | `boolean`                                                                             | `false`      |
+| `open`                      | `open`                         | This boolean attribute indicates whether the children are visible.                                                | `boolean`                                                                             | `false`      |
+| `openAnnotation`            | `open-annotation`              | When the Annotation is opened, set this to true.                                                                  | `boolean`                                                                             | `false`      |
+| `ozonContentBegripResolver` | `ozon-content-begrip-resolver` | A BegripResolver that will be called for STOP element "IntRef" with                                               | `OzonContentBegripResolver \| undefined`                                              | `undefined`  |
+| `ozonContentUrlResolver`    | `ozon-content-url-resolver`    | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.   | `OzonContentUrlResolver \| undefined`                                                 | `undefined`  |
+| `recursiveToggle`           | `recursive-toggle`             | Shows the recursive toggle button. When the user activates this button the event `dsoRecursiveToggle` is emitted. | `"indeterminate" \| boolean \| undefined`                                             | `undefined`  |
+| `type`                      | `type`                         | Type of Document Component.                                                                                       | `string \| undefined`                                                                 | `undefined`  |
+| `vervallen`                 | `vervallen`                    | Marks the Document Component as expired.                                                                          | `XMLDocument \| string \| undefined`                                                  | `undefined`  |
+| `wijzigactie`               | `wijzigactie`                  | The wijzigactie as in STOP.                                                                                       | `"nieuweContainer" \| "verwijder" \| "verwijderContainer" \| "voegtoe" \| undefined`  | `undefined`  |
 
 
 ## Events
 
-| Event                       | Description                                                              | Type                                                        |
-| --------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| `dsoAnnotationToggle`       | Emitted when the user activates the annotation button.                   | `CustomEvent<DocumentComponentToggleAnnotationEvent>`       |
-| `dsoMarkItemHighlight`      | Emitted each time a marked item gets highlighted.                        | `CustomEvent<DocumentComponentMarkItemHighlightEvent>`      |
-| `dsoOpenToggle`             | Emitted when the user activates the toggle.                              | `CustomEvent<DocumentComponentOpenToggleEvent>`             |
-| `dsoOzonContentAnchorClick` | Emitted when the user actives intRef or intIoRef anchors in Ozon Content | `CustomEvent<DocumentComponentOzonContentAnchorClickEvent>` |
-| `dsoRecursiveToggle`        | Emitted when the user activates the recursive toggle.                    | `CustomEvent<DocumentComponentRecursiveToggleEvent>`        |
-| `dsoTableOfContentsClick`   | Emitted when the user clicks the heading in mode="table-of-contents".    | `CustomEvent<DocumentComponentTableOfContentsClickEvent>`   |
+| Event                     | Description                                                                                                   | Type                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `dsoAnnotationToggle`     | Emitted when the user activates the annotation button.                                                        | `CustomEvent<DocumentComponentToggleAnnotationEvent>`     |
+| `dsoMarkItemHighlight`    | Emitted each time a marked item gets highlighted.                                                             | `CustomEvent<DocumentComponentMarkItemHighlightEvent>`    |
+| `dsoOpenToggle`           | Emitted when the user activates the toggle.                                                                   | `CustomEvent<DocumentComponentOpenToggleEvent>`           |
+| `dsoOzonContentClick`     | Emitted when the user interacts with Kop, IntRef or the Kenmerken en kaart button of IntIoRef in Ozon Content | `CustomEvent<DocumentComponentOzonContentClickEvent>`     |
+| `dsoRecursiveToggle`      | Emitted when the user activates the recursive toggle.                                                         | `CustomEvent<DocumentComponentRecursiveToggleEvent>`      |
+| `dsoTableOfContentsClick` | Emitted when the user clicks the heading in mode="table-of-contents".                                         | `CustomEvent<DocumentComponentTableOfContentsClickEvent>` |
 
 
 ## Shadow Parts
@@ -83,9 +84,11 @@ graph TD;
   dso-icon-button --> dso-icon
   dso-ozon-content --> dso-icon
   dso-ozon-content --> dso-image-overlay
+  dso-ozon-content --> dso-ozon-content-toggletip
   dso-ozon-content --> dso-tooltip
   dso-ozon-content --> dso-table
   dso-image-overlay --> dso-icon-button
+  dso-ozon-content-toggletip --> dso-icon
   dso-table --> dso-icon
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip

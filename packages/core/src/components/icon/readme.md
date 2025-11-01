@@ -30,6 +30,7 @@
  - [dso-mark-bar](../mark-bar)
  - [dso-onboarding-tip](../onboarding-tip)
  - [dso-ozon-content](../ozon-content)
+ - [dso-ozon-content-toggletip](../ozon-content/components/ozon-content-toggletip)
  - [dso-pagination](../pagination)
  - [dso-plekinfo-card](../plekinfo-card)
  - [dso-progress-indicator](../progress-indicator)
@@ -57,6 +58,7 @@ graph TD;
   dso-mark-bar --> dso-icon
   dso-onboarding-tip --> dso-icon
   dso-ozon-content --> dso-icon
+  dso-ozon-content-toggletip --> dso-icon
   dso-pagination --> dso-icon
   dso-plekinfo-card --> dso-icon
   dso-progress-indicator --> dso-icon

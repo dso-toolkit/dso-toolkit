@@ -1,37 +1,40 @@
 import { h } from "@stencil/core";
 
+import { isModifiedEvent } from "../../../utils/is-modified-event";
+import { parseXml } from "../../../utils/parse-xml";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
 export class OzonContentIntRefNode implements OzonContentNode {
   name = "IntRef";
 
-  render(node: Element, { mapNodeToJsx, emitAnchorClick }: OzonContentNodeContext) {
-    const ref = node.getAttribute("ref");
-    if (!ref) {
-      return mapNodeToJsx(node.childNodes);
+  render(node: Element, { mapNodeToJsx, emitClick, begripResolver, urlResolver }: OzonContentNodeContext) {
+    const scope = node.getAttribute("scope");
+    const value = node.getAttribute("ref");
+
+    if (scope === "Begrip") {
+      const definitie = begripResolver?.(value, node) ?? value;
+      const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
+
+      return (
+        <dso-ozon-content-toggletip icon="info">
+          <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
+          {definitieNode ? mapNodeToJsx(definitieNode) : null}
+        </dso-ozon-content-toggletip>
+      );
     }
 
-    const intRefOnClick = (event: MouseEvent) => {
-      event.preventDefault();
-
-      const target = event.currentTarget;
-      if (!(target instanceof HTMLAnchorElement)) {
-        return;
-      }
-
-      const { href } = target;
-
-      emitAnchorClick({
-        node: this.name,
-        href,
-        documentComponent: ref,
+    const handleIntRefClick = (event: MouseEvent) => {
+      emitClick({
+        type: "IntRef",
+        node,
         originalEvent: event,
+        isModifiedEvent: isModifiedEvent(event),
       });
     };
 
     return (
-      <a href={`#${ref}`} onClick={intRefOnClick}>
+      <a href={urlResolver?.("IntRef", "ref", value, node)} onClick={handleIntRefClick}>
         {mapNodeToJsx(node.childNodes)}
       </a>
     );

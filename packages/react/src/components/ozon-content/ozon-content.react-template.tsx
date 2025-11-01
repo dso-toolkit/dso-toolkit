@@ -14,7 +14,8 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
       inline,
       mark,
       urlResolver,
-      dsoAnchorClick,
+      begripResolver,
+      dsoClick,
       dsoOzonContentMarkItemHighlight,
     }) {
       const slotProp = slotName && { slot: slotName };
@@ -25,7 +26,8 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
           inline={inline}
           mark={mark}
           urlResolver={urlResolver}
-          onDsoAnchorClick={dsoAnchorClick}
+          begripResolver={begripResolver}
+          onDsoClick={dsoClick}
           onDsoOzonContentMarkItemHighlight={dsoOzonContentMarkItemHighlight}
           {...slotProp}
         />
