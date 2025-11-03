@@ -23,7 +23,7 @@
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     border: 0;
-    color: colors.$donkerblauw;
+    color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
     line-height: 1;
     padding: 0;
     background-color: transparent;
@@ -34,7 +34,7 @@
   &:hover,
   &:focus-visible,
   &:active {
-    text-decoration-line: underline;
+    text-decoration-line: var(--_dso-ozon-content-toggletip-text-decoration, underline);
     text-decoration-style: dotted;
     text-underline-offset: 15%;
   }
