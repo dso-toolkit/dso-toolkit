@@ -109,7 +109,7 @@ export class DocumentComponent implements ComponentInterface {
   heading: "h2" | "h3" | "h4" | "h5" | "h6" = "h2";
 
   private _kopInput?: DocumentComponentInputType;
-  private _kop?: XMLDocument;
+  private _kop?: XMLDocument | null;
   /**
    * The Kop XML.
    */
@@ -123,7 +123,7 @@ export class DocumentComponent implements ComponentInterface {
   }
 
   private _inhoudInput?: DocumentComponentInputType;
-  private _inhoud?: XMLDocument;
+  private _inhoud?: XMLDocument | null;
   /**
    * The Inhoud XML.
    */
@@ -349,7 +349,7 @@ export class DocumentComponent implements ComponentInterface {
 
     if (typeof input === "string") {
       const doc = parseXml(input);
-      element = doc.documentElement;
+      element = doc ? doc.documentElement : null;
     } else if (input instanceof XMLDocument) {
       element = input.documentElement;
     }

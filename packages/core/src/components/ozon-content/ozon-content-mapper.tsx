@@ -115,6 +115,10 @@ export class Mapper {
 
     const doc = typeof input === "string" ? parseXml(input) : input;
 
+    if (!doc) {
+      return <Fragment />;
+    }
+
     return this.mapNodeToJsx(doc.getRootNode(), context, []);
   }
 }

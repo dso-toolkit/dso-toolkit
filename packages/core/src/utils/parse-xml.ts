@@ -1,6 +1,10 @@
 const parser = new DOMParser();
 
-export function parseXml(input: string): XMLDocument {
+export function parseXml(input: string): XMLDocument | null {
+  if (input === "") {
+    return null;
+  }
+
   const doc = parser.parseFromString(input, "application/xml");
 
   if (doc.querySelector("parsererror")) {
