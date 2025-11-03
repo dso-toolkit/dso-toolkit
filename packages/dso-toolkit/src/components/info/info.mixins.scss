@@ -44,8 +44,7 @@
     &:hover,
     &:focus {
       &,
-      dso-icon,
-      svg.di {
+      dso-icon {
         color: colors.$grijs-60;
         text-decoration: underline;
       }

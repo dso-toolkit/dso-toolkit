@@ -109,8 +109,7 @@
   .dso-tertiary:not([disabled]) {
     &:hover {
       &,
-      dso-icon,
-      svg.di {
+      dso-icon {
         text-decoration: underline;
       }
     }

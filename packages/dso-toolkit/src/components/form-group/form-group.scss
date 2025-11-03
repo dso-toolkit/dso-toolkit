@@ -114,8 +114,7 @@
       inline-size: units.$u6;
       z-index: zindex.$form-control-feedback; // Ensure icon is above input groups
 
-      dso-icon,
-      svg.di {
+      dso-icon {
         margin-block-start: #{units.$u1 - 1};
       }
     }

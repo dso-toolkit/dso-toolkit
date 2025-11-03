@@ -45,20 +45,14 @@ Elke pseudo selector in de stylesheet wordt een variant. Styling zonder pseudo s
 
 ## Icon component
 
-Er zijn twee implementaties van het Icon component:
-
-- HTML/CSS: `<svg class="di">`.
-- Web Component: `<dso-icon>`.
-
-Zie de betreffende documentatie in Storybook voor meer informatie over het gebruik van deze twee implementaties. Een
-overzicht van alle beschikbare iconen is terug te vinden onder het Icon component onder Overview (HTML/CSS en Core).
+Zie de betreffende documentatie in Storybook voor meer informatie over het gebruik van deze implementatie. Een
+overzicht van alle beschikbare iconen is terug te vinden onder het Icon component onder Overview.
 
 Als maintainer kunnen wij ook gebruik maken van Icon:
 
-- Voor een HTML/CSS implementatie geldt voor werkvormen zonder vrije icoon keuze dat de `di` mixins wordt gebruikt.
-- In een Web Component maken we altijd gebruik van `<dso-icon>`.
+- Voor het icon maken we altijd gebruik van `<dso-icon>`.
 - In de markup voorschriften maken we altijd gebruik van `iconTemplate()` uit de Template Container.
-- De varianten in de spritesheet zijn niet in de HTML/CSS of Web Component implementatie beschikbaar.
+- De varianten in de spritesheet zijn niet in de Web Component implementatie beschikbaar.
 
 ## `di` mixins.
 

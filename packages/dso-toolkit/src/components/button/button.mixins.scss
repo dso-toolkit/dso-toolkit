@@ -20,7 +20,7 @@
   color: var(--_dso-button-#{$variant}#{$state}-color, #{map.get($map, "color")});
 }
 
-@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only, $variant) {
+@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $variant) {
   @if ($base-styling) {
     @include base($modifiers);
   }
@@ -67,26 +67,17 @@
     }
   }
 
-  @if ($icon-only) {
-    > span {
-      @include utilities.sr-only();
-    }
-  } @else {
-    dso-icon:has(+ span:not(.sr-only)),
-    svg.di:has(+ span:not(.sr-only)) {
-      margin-inline-start: units.$u1 * -1;
-    }
+  dso-icon:has(+ span:not(.sr-only)) {
+    margin-inline-start: units.$u1 * -1;
+  }
 
-    span:not(.sr-only) + dso-icon,
-    span:not(.sr-only) + svg.di {
-      margin-inline-start: units.$u1;
-      margin-inline-end: units.$u1 * -1;
-    }
+  span:not(.sr-only) + dso-icon {
+    margin-inline-start: units.$u1;
+    margin-inline-end: units.$u1 * -1;
+  }
 
-    dso-icon + span:not(.sr-only),
-    svg.di + span:not(.sr-only) {
-      margin-inline-start: units.$u1;
-    }
+  dso-icon + span:not(.sr-only) {
+    margin-inline-start: units.$u1;
   }
 }
 
@@ -132,25 +123,12 @@
   }
 }
 
-@mixin icon-only() {
-  dso-icon,
-  svg.di {
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-  }
-
-  > span {
-    @include utilities.sr-only();
-  }
-}
-
 @mixin small() {
   & {
     line-height: typography.$root-font-size-base;
   }
 
   dso-icon,
-  svg.di,
   &.extern::after,
   &.download::after,
   &.dso-spinner::before {
@@ -227,7 +205,7 @@
     "border-color": button-variables.$primary-disabled-background-color,
   );
 
-  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false, "primary");
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, "primary");
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -260,7 +238,7 @@
   }
 }
 
-@mixin secondary($base-styling: true, $modifiers: true, $icon-only: false) {
+@mixin secondary($base-styling: true, $modifiers: true) {
   $defaults-map: (
     "background-color": button-variables.$secondary-background-color,
     "border-color": button-variables.$secondary-border-color,
@@ -285,16 +263,7 @@
     "color": button-variables.$secondary-disabled-color,
   );
 
-  @include _shared(
-    $base-styling,
-    $modifiers,
-    $defaults-map,
-    $hover-map,
-    $active-map,
-    $disabled-map,
-    $icon-only,
-    "secondary"
-  );
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, "secondary");
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -361,7 +330,7 @@
   }
 }
 
-@mixin tertiary($base-styling: true, $icon-only: false, $modifiers: true) {
+@mixin tertiary($base-styling: true, $modifiers: true) {
   @if ($base-styling) {
     @include base($modifiers);
   }
@@ -421,41 +390,21 @@
     }
   }
 
-  @if ($icon-only) {
-    > span {
-      @include utilities.sr-only();
-    }
-  } @else {
-    dso-icon + span:not(.sr-only),
-    svg.di + span:not(.sr-only),
-    span:not(.sr-only) + dso-icon,
-    span:not(.sr-only) + svg.di {
-      margin-inline-start: units.$u1;
-    }
+  dso-icon + span:not(.sr-only),
+  span:not(.sr-only) + dso-icon {
+    margin-inline-start: units.$u1;
+  }
 
-    svg.di.di-chevron-down + span:not(.sr-only),
-    svg.di.di-chevron-up + span:not(.sr-only),
-    span:not(.sr-only) + svg.di.di-chevron-down,
-    span:not(.sr-only) + svg.di.di-chevron-up {
-      margin-inline-start: units.$u1 * 0.5;
-    }
+  dso-icon[icon="chevron-left"] + span:not(.sr-only),
+  dso-icon[icon="chevron-right"] + span:not(.sr-only),
+  span:not(.sr-only) + dso-icon[icon="chevron-left"],
+  span:not(.sr-only) + dso-icon[icon="chevron-right"] {
+    margin-inline-start: 0;
+  }
 
-    dso-icon[icon="chevron-left"] + span:not(.sr-only),
-    dso-icon[icon="chevron-right"] + span:not(.sr-only),
-    svg.di.di-angle-down + span:not(.sr-only),
-    svg.di.di-angle-up + span:not(.sr-only),
-    span:not(.sr-only) + svg.di.di-angle-down,
-    span:not(.sr-only) + svg.di.di-angle-up,
-    span:not(.sr-only) + dso-icon[icon="chevron-left"],
-    span:not(.sr-only) + dso-icon[icon="chevron-right"] {
-      margin-inline-start: 0;
-    }
-
-    dso-icon,
-    svg.di,
-    span {
-      vertical-align: middle;
-    }
+  dso-icon,
+  span {
+    vertical-align: middle;
   }
 }
 
@@ -490,7 +439,7 @@
       outline-offset: -1px;
     }
 
-    &:has(span.sr-only):has(dso-icon, svg.di) {
+    &:has(span.sr-only):has(dso-icon) {
       padding: units.$u1;
       min-inline-size: auto;
       block-size: button-variables.$map-size;

@@ -239,8 +239,7 @@ table.table,
         color: colors.$grijs-90;
         font-weight: 600;
 
-        dso-icon,
-        svg.di {
+        dso-icon {
           color: colors.$grijs-60;
 
           &.dso-sort-active {

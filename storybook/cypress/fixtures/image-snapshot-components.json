@@ -255,8 +255,6 @@
     ],
     "type": "html-css"
   },
-  { "name": "icon-deprecated", "selector": "svg.di", "stories": ["default"], "type": "html-css" },
-  { "name": "icon-deprecated", "selector": "#icon-overview-list", "stories": ["overview"], "type": "html-css" },
   {
     "name": "image",
     "selector": "img",
