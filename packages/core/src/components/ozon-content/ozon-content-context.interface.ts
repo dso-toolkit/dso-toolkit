@@ -1,5 +1,6 @@
 import { EventEmitter } from "@stencil/core";
-import { OzonContentBegripResolver } from "dso-toolkit";
+
+import { OzonContentBegripResolver } from "../ozon-content/ozon-content.interfaces";
 
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 import { OzonContentClickEvent, OzonContentMarkFunction, OzonContentUrlResolver } from "./ozon-content.interfaces";
