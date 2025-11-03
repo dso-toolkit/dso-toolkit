@@ -41,18 +41,11 @@ times:bosgroen {
 }
 ```
 
-Elke pseudo selector in de stylesheet wordt een variant. Styling zonder pseudo selector wordt als default styling toegepast. Dit geldt dan ook voor de HTML/CSS implementatie.
+Elke pseudo selector in de stylesheet wordt een variant. Styling zonder pseudo selector wordt als default styling toegepast.
 
 ## Icon component
 
-Zie de betreffende documentatie in Storybook voor meer informatie over het gebruik van deze implementatie. Een
-overzicht van alle beschikbare iconen is terug te vinden onder het Icon component onder Overview.
-
-Als maintainer kunnen wij ook gebruik maken van Icon:
-
-- Voor het icon maken we altijd gebruik van `<dso-icon>`.
-- In de markup voorschriften maken we altijd gebruik van `iconTemplate()` uit de Template Container.
-- De varianten in de spritesheet zijn niet in de Web Component implementatie beschikbaar.
+Voor het gebruik van een icon maken we altijd gebruik van `<dso-icon>`. In de markup voorschriften maken we altijd gebruik van `iconTemplate()` uit de Template Container.
 
 ## `di` mixins.
 
