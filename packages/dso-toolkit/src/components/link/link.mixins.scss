@@ -30,12 +30,12 @@
 
   @include pseudo();
 
-  :is(dso-icon) + span,
-  span + :is(dso-icon) {
+  dso-icon + span,
+  span + dso-icon {
     margin-inline-start: units.$u1;
   }
 
-  .sr-only + :is(dso-icon) {
+  .sr-only + dso-icon {
     margin-inline-start: 0;
   }
 

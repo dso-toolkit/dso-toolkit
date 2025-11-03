@@ -20,7 +20,7 @@
   color: var(--_dso-button-#{$variant}#{$state}-color, #{map.get($map, "color")});
 }
 
-@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $variant) {
+@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only, $variant) {
   @if ($base-styling) {
     @include base($modifiers);
   }
@@ -64,6 +64,25 @@
     // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
     & {
       padding-block: 9px;
+    }
+  }
+
+  @if ($icon-only) {
+    > span {
+      @include utilities.sr-only();
+    }
+  } @else {
+    dso-icon:has(+ span:not(.sr-only)) {
+      margin-inline-start: units.$u1 * -1;
+    }
+
+    span:not(.sr-only) + dso-icon {
+      margin-inline-start: units.$u1;
+      margin-inline-end: units.$u1 * -1;
+    }
+
+    dso-icon + span:not(.sr-only) {
+      margin-inline-start: units.$u1;
     }
   }
 
@@ -120,6 +139,17 @@
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+}
+
+@mixin icon-only() {
+  dso-icon {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  > span {
+    @include utilities.sr-only();
   }
 }
 
@@ -205,7 +235,7 @@
     "border-color": button-variables.$primary-disabled-background-color,
   );
 
-  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, "primary");
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false, "primary");
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -238,7 +268,7 @@
   }
 }
 
-@mixin secondary($base-styling: true, $modifiers: true) {
+@mixin secondary($base-styling: true, $modifiers: true, $icon-only: false) {
   $defaults-map: (
     "background-color": button-variables.$secondary-background-color,
     "border-color": button-variables.$secondary-border-color,
@@ -263,7 +293,16 @@
     "color": button-variables.$secondary-disabled-color,
   );
 
-  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, "secondary");
+  @include _shared(
+    $base-styling,
+    $modifiers,
+    $defaults-map,
+    $hover-map,
+    $active-map,
+    $disabled-map,
+    $icon-only,
+    "secondary"
+  );
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -330,7 +369,7 @@
   }
 }
 
-@mixin tertiary($base-styling: true, $modifiers: true) {
+@mixin tertiary($base-styling: true, $icon-only: false, $modifiers: true) {
   @if ($base-styling) {
     @include base($modifiers);
   }
@@ -390,21 +429,27 @@
     }
   }
 
-  dso-icon + span:not(.sr-only),
-  span:not(.sr-only) + dso-icon {
-    margin-inline-start: units.$u1;
-  }
+  @if ($icon-only) {
+    > span {
+      @include utilities.sr-only();
+    }
+  } @else {
+    dso-icon + span:not(.sr-only),
+    span:not(.sr-only) + dso-icon {
+      margin-inline-start: units.$u1;
+    }
 
-  dso-icon[icon="chevron-left"] + span:not(.sr-only),
-  dso-icon[icon="chevron-right"] + span:not(.sr-only),
-  span:not(.sr-only) + dso-icon[icon="chevron-left"],
-  span:not(.sr-only) + dso-icon[icon="chevron-right"] {
-    margin-inline-start: 0;
-  }
+    dso-icon[icon="chevron-left"] + span:not(.sr-only),
+    dso-icon[icon="chevron-right"] + span:not(.sr-only),
+    span:not(.sr-only) + dso-icon[icon="chevron-left"],
+    span:not(.sr-only) + dso-icon[icon="chevron-right"] {
+      margin-inline-start: 0;
+    }
 
-  dso-icon,
-  span {
-    vertical-align: middle;
+    dso-icon,
+    span {
+      vertical-align: middle;
+    }
   }
 }
 
