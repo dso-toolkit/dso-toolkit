@@ -30,12 +30,18 @@ Het component `Date Picker (Legacy)` is in 🦕 Release 78.1.0 deprecated. In de
 
 De HTML/CSS implementatie van het component `Icon` is in 🦕 Release 78.1.0 deprecated. In deze release is dit component verwijderd.
 
-❌
+### Migratiepad
+
+Gebruik de Core implementatie van Icon.
 
 ```html
+❌
 <svg class="di di-user">
   <use href="#user"></use>
 </svg>
+
+✅
+<dso-icon icon="user"></dso-icon>
 ```
 
 ## Badge (HTML/CSS implementatie)
@@ -47,15 +53,11 @@ component verwijderd worden.
 
 Gebruik de Core implementatie van Badge.
 
-❌
-
 ```html
-<span class="dso-badge badge-attention"> Attention </span>
-```
+❌
+<span class="dso-badge badge-attention">Attention</span>
 
 ✅
-
-```html
 <dso-badge status="attention">Attention</dso-badge>
 ```
 
@@ -68,19 +70,15 @@ component verwijderd worden.
 
 Gebruik de Core implementatie van `Progress Indicator`.
 
-❌
-
 ```html
+❌
 <div class="dso-progress-indicator dso-medium">
   <span class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label"></span>
   <span id="progress-indicator-label" class="dso-progress-indicator-label">
     Resultaten laden: een moment geduld alstublieft.
   </span>
 </div>
-```
 
 ✅
-
-```html
 <dso-progress-indicator size="medium"></dso-progress-indicator>
 ```
