@@ -85,19 +85,6 @@
       margin-inline-start: units.$u1;
     }
   }
-
-  dso-icon:has(+ span:not(.sr-only)) {
-    margin-inline-start: units.$u1 * -1;
-  }
-
-  span:not(.sr-only) + dso-icon {
-    margin-inline-start: units.$u1;
-    margin-inline-end: units.$u1 * -1;
-  }
-
-  dso-icon + span:not(.sr-only) {
-    margin-inline-start: units.$u1;
-  }
 }
 
 @mixin _spinner-icon($color, $valign, $position) {
