@@ -25,8 +25,7 @@
       text-align: start;
     }
 
-    dso-icon,
-    svg.di {
+    dso-icon {
       @include utilities.transition(transform);
 
       inset-inline-start: units.$u2;
@@ -36,8 +35,7 @@
     }
 
     &[aria-expanded="true"] {
-      dso-icon,
-      svg.di {
+      dso-icon {
         transform: rotate(90deg);
       }
     }
@@ -113,8 +111,7 @@
     padding-block-start: units.$u2;
     position: relative;
 
-    > dso-icon,
-    > svg.di {
+    > dso-icon {
       float: inline-start;
       block-size: units.$u3;
       margin-inline-end: units.$u1;

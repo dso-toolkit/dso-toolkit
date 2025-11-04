@@ -146,8 +146,7 @@
         margin-inline: 0;
       }
 
-      > dso-icon,
-      > svg.di {
+      > dso-icon {
         flex: 0 0 24px;
         block-size: 24px;
         margin-block: #{units.$u1 * 0.5};
@@ -171,8 +170,7 @@
         }
       }
 
-      dso-icon,
-      svg.di {
+      dso-icon {
         + .dso-remove {
           margin-inline-start: units.$u4 + units.$u1;
         }
@@ -183,8 +181,7 @@
           .dso-selectable,
           dso-selectable,
           .dso-upload-loading,
-          dso-icon,
-          svg.di {
+          dso-icon {
             + .dso-download {
               margin-inline-start: auto;
             }
@@ -195,8 +192,7 @@
           .dso-selectable,
           dso-selectable,
           .dso-upload-loading,
-          dso-icon,
-          svg.di {
+          dso-icon {
             + .dso-remove {
               margin-inline-start: auto;
             }
@@ -208,8 +204,7 @@
       @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
         .dso-selectable,
         dso-selectable,
-        dso-icon,
-        svg.di {
+        dso-icon {
           + .dso-remove {
             margin-inline-start: auto;
           }

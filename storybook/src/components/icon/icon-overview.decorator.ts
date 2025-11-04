@@ -27,8 +27,7 @@ export const decorator: IconOverviewDecorator<TemplateResult> = (story, icons) =
       background-color: #efefef;
     }
 
-    dso-icon,
-    svg.di {
+    dso-icon {
       margin-block-end: 16px;
     }
   </style>

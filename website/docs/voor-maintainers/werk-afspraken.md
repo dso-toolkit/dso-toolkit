@@ -41,3 +41,17 @@ We introduceren geen nieuwe HTML/CSS componenten meer omdat deze een groot koppe
 - De event interface is altijd de genamespaced met de naam van het componen (en niet met Dso)
 - Native events die door onze custom elements worden gemaakt laten we niet uit het custom element "ontsnappen", dmv.
   stopPropagation.
+
+## Deprecated/removed blog migratiepad
+
+In de blogpost van de deprecation én in de blogpost van de removed van één van de twee implementaties (HTML/CSS of Core) van dubbel geïmplementeerde componenten tonen we altijd het volledige migratiepad. Dit betekent dat binnen één HTML markup codeblock de deprecated/removed code én de voorgeschreven code worden getoond. Boven de deprecated/removed code staat binnen het codeblock een ❌ en boven de voorgeschreven code een ✅.
+
+Voorbeeld:
+
+```html
+❌
+<span class="dso-badge badge-attention">Attention</span>
+
+✅
+<dso-badge status="attention">Attention</dso-badge>
+```

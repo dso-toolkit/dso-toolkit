@@ -19,8 +19,7 @@
       padding-block: #{units.$padding-base-block - 1};
       padding-inline: 0;
 
-      dso-icon,
-      svg.di {
+      dso-icon {
         margin-inline-start: units.$u1;
         margin-inline-end: units.$u1;
       }

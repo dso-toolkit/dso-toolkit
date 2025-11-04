@@ -31,7 +31,6 @@
     @include highlight-box.exoticChildren();
   }
 
-  .dso-step-counter > svg.di,
   .dso-step-counter > dso-icon {
     @include step-counter.icon();
   }
@@ -74,7 +73,6 @@ dso-highlight-box {
     $step-counter-selector: '[slot="icon"]:first-child'
   );
 
-  svg.di[slot="icon"],
   dso-icon[slot="icon"] {
     @include step-counter.icon();
   }

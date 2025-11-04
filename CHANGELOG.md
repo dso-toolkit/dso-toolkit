@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **BREAKING** Date Picker (Legacy): Remove ([#3262](https://github.com/dso-toolkit/dso-toolkit/issues/3262))
+* **BREAKING** Icon: Remove HTML/CSS Implementatie ([#3260](https://github.com/dso-toolkit/dso-toolkit/issues/3260))
 
 ## 🍟 Release 80.0.0 - 2025-10-30
 

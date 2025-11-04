@@ -76,8 +76,7 @@
       span {
         margin-inline-end: units.$u1 * 0.5;
 
-        + dso-icon,
-        + svg.di {
+        + dso-icon {
           flex-shrink: 0;
           position: relative;
         }
