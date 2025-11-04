@@ -1,4 +1,9 @@
-import { OzonContentText, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
+import {
+  OzonContentBegripResolver,
+  OzonContentClickEvent,
+  OzonContentText,
+  OzonContentUrlResolver,
+} from "../ozon-content/ozon-content.models.js";
 
 export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;
@@ -26,7 +31,9 @@ export interface DocumentComponent<TemplateFnReturnType> {
   href?: string;
   dsoMarkItemHighlight?: (e: CustomEvent<DocumentComponentMarkItemHighlightEvent>) => void;
   dsoTableOfContentsClick?: (e: CustomEvent<DocumentComponentTableOfContentsClickEvent>) => void;
+  dsoOzonContentClick?: (e: CustomEvent<DocumentComponentOzonContentClickEvent>) => void;
   ozonContentUrlResolver?: OzonContentUrlResolver;
+  ozonContentBegripResolver?: OzonContentBegripResolver;
 }
 
 export type DocumentComponentHeading = "h2" | "h3" | "h4" | "h5" | "h6";
@@ -63,6 +70,13 @@ export interface DocumentComponentMarkItemHighlightEvent {
   source: DocumentComponentSource;
   text: string;
   elementRef: HTMLElement;
+}
+
+export interface DocumentComponentOzonContentClickEvent {
+  originalEvent: MouseEvent;
+  ozonContentClick: OzonContentClickEvent;
+  /** True when user clicked the card while holding Ctrl, Alt or other modifiers, or when the card is right-clicked. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
 }
 
 export interface DocumentComponentTableOfContentsClickEvent {

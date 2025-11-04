@@ -8,6 +8,18 @@ interface OzonContentStory {
   args?: Partial<OzonContentArgs>;
 }
 
+export function begripResolver(ref: string | null, element: Element): XMLDocument | string | undefined {
+  if (ref && element) {
+    return (
+      "<Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een veelbelovende" +
+      " dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>) te" +
+      " verkennen.</Al>"
+    );
+  }
+
+  return undefined;
+}
+
 export const content: OzonContentStory[] = [
   {
     title: "Abbr",
@@ -346,8 +358,20 @@ export const content: OzonContentStory[] = [
     title: "IntRef",
     content: `
       <Al>
-        Dit is een <IntRef ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
+        Dit is een <IntRef scope="Artikel" ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
       </Al>
+    `,
+  },
+  {
+    title: "IntRefBegrip",
+    content: `<Inhoud>
+  <Al>
+    Het volgende besluit is een <IntRef scope="Begrip" ref="longTitle_inst2">aanwijzingsbesluit Natura 2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021. 
+  </Al>
+  <Al>
+    In een aanwijzingsbesluit staan de doelen die gelden voor de habitattypen en (vogel)soorten waarvoor het gebied is aangewezen. Mogelijke doelen zijn bijvoorbeeld het in stand houden of verbeteren van kwaliteit van natuur. Of het uitbreiden van habitattypen en leefgebieden van soorten. Ook de grenzen van het gebied staan in het aanwijzingsbesluit.
+  </Al>
+</Inhoud>
     `,
   },
   {
@@ -364,6 +388,16 @@ export const content: OzonContentStory[] = [
           wId="gm0037_1__subchp_2.2__art_2.4__ref_o_1">Bedrijf categorie 2</IntIoRef>'
           mogen de locatie en de daarop voorkomende bouwwerken in ieder geval worden
           gebruikt voor het verrichten van de volgende gebruiksactiviteiten: </Al>
+          <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" type="expliciet">
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a">
+                <LiNummer>1.</LiNummer>
+                <Al>activiteit 1</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b">
+                <LiNummer>2.</LiNummer>
+                <Al>activiteit 2</Al>
+              </Li>
+            </Lijst>
       </Inhoud>
     `,
   },

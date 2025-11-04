@@ -41,7 +41,7 @@ table.table,
   max-inline-size: 100%;
   inline-size: 100%;
 
-  .dso-tertiary,
+  .dso-tertiary:not(dso-ozon-content-toggletip *),
   dso-icon-button {
     position: relative;
     inset-block-start: -2px;

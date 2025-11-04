@@ -30,10 +30,12 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       annotationsWijzigactie,
       mark,
       ozonContentUrlResolver,
+      ozonContentBegripResolver,
       mode,
       href,
       dsoMarkItemHighlight,
       dsoTableOfContentsClick,
+      dsoOzonContentClick,
     }) {
       return html`<dso-responsive-element class="dso-document-components">
         <dso-document-component
@@ -55,8 +57,10 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
           .annotationsWijzigactie=${ifDefined(annotationsWijzigactie)}
           .mark=${ifDefined(mark)}
           .ozonContentUrlResolver=${ifDefined(ozonContentUrlResolver)}
+          .ozonContentBegripResolver=${ifDefined(ozonContentBegripResolver)}
           .mode=${ifDefined(mode)}
           .href=${ifDefined(href)}
+          @dsoOzonContentClick=${ifDefined(dsoOzonContentClick)}
           @dsoMarkItemHighlight=${ifDefined(dsoMarkItemHighlight)}
           @dsoAnnotationToggle=${ifDefined(dsoAnnotationToggle)}
           @dsoToggle=${ifDefined(dsoToggle)}

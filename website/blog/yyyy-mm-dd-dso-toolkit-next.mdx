@@ -1,13 +1,15 @@
 ---
-authors: [cvanderleij, iterox]
+authors: [cvanderleij, iterox, tfrijsewijk]
 ---
 
 # DSO Toolkit next 💃
 
-Deze release bevat een **BREAKING** change voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Date Picker (Legacy)
 - Icon (HTML/CSS implementatie)
+- Document Component
+- Ozon Content
 
 Deze release bevat een **deprecation** voor de volgende componenten:
 
@@ -42,6 +44,37 @@ Gebruik de Core implementatie van Icon.
 
 ✅
 <dso-icon icon="user"></dso-icon>
+```
+
+## Document Component
+
+Het Event `dsoOzonContentAnchorClick` is vervangen door `dsoOzonContentClick`. (Zie ook de **BREAKING** change aan het component Ozon Content in deze release).
+
+## Ozon Content
+
+De Ozon Content `dsoAnchorClick` event handler is komen te vervallen. Het gedrag van deze event handler is
+ondergebracht in `dsoClick`. Daarnaast is de event handler `dsoClick` uitgebreid met de nieuwe link types
+`IntIoRef` en `IntRef`.
+
+Er is geen uitgestippeld migratiepad. Hoogstwaarschijnlijk wil je als high-level afnemer gebruik maken van Document Component. Ozon Content kan gezien worden als een "Low Level component".
+
+STOP elementen `IntRef` werden voorheen geparsed tot `<a href="#<waarde-van-ref-attribuut>">`. De waarde in het `href` attribuut wordt nu gegenereerd via de `urlResolver`. Dit maakt het mogelijk om de gegenereerde URL aan te passen.
+
+Onderstaande voorbeeld implementatie geeft het oude gedrag. Dit wordt niet aangeraden en staat er slechts ter verduidelijking. Het is de bedoeling dat de `urlResolver` dezelfde functie teruggeeft als die de click handler in de router zet.
+
+```tsx
+function urlResolver(
+  name: "ExtIoRef" | "ExtRef" | "IntIoRef" | "IntRef",
+  attribute: "ref",
+  value: string | null,
+  element: Element,
+): string {
+  if (name === "IntRef" && value) {
+    return `#${value}`;
+  }
+
+  // [..]
+}
 ```
 
 ## Badge (HTML/CSS implementatie)
