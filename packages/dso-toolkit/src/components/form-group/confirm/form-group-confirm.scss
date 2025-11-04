@@ -1,5 +1,6 @@
 @use "sass:math";
 
+@use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
 @use "../../selectable";
 
@@ -10,7 +11,7 @@
 .form-group.dso-confirm {
   &.dso-invalid {
     .dso-selectable {
-      @include selectable.invalid();
+      --dso-selectable-color: #{colors.$danger-color};
     }
   }
 

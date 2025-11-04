@@ -1,5 +1,7 @@
-@use "../../../variables/units";
+@use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
+@use "../../../variables/units";
+
 @use "../../selectable";
 
 @use "../form-group.mixins" as form-group-mixins;
@@ -7,7 +9,7 @@
 .form-group.dso-checkboxes {
   &.dso-invalid {
     .dso-selectable {
-      @include selectable.invalid();
+      --dso-selectable-color: #{colors.$danger-color};
     }
   }
 

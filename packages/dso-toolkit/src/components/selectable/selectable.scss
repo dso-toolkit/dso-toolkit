@@ -1,23 +1,24 @@
-@use "../selectable";
+@use "../../variables/units";
 @use "../info";
-
-// HTML/CSS
-.dso-selectable {
-  @include selectable.root();
-  @include selectable.children(".dso-info");
-
-  &:not(:last-child) {
-    @include selectable.notLastChild();
-  }
-
-  input[aria-invalid="true"] + label {
-    @include selectable.invalid();
-  }
-}
 
 // Web Component
 dso-selectable {
-  @include selectable.children("dso-info");
+  > dso-info {
+    float: none;
+    margin-block: units.$u1 0;
+    margin-inline: 0 units.$u2;
+    inline-size: 100%;
+  }
+
+  .dso-selectable-options {
+    list-style: none;
+    margin-block-start: units.$u1;
+    padding-inline-start: 0;
+
+    li + li {
+      margin-block-start: units.$u1;
+    }
+  }
 
   .dso-rich-content[slot="info"] {
     @include info.richContent();
