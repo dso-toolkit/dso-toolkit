@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/core",
-  "version": "80.0.0",
+  "version": "81.0.0",
   "description": "DSO Toolkit Web Components",
   "main": "dist/index.cjs.js",
   "module": "dist/components/index.js",
@@ -57,7 +57,7 @@
     "typescript": "~5.8.3"
   },
   "peerDependencies": {
-    "dso-toolkit": "80.0.0"
+    "dso-toolkit": "81.0.0"
   },
   "nx": {
     "includedScripts": []

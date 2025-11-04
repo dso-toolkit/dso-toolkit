@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 💃 Release 81.0.0 - 2025-11-04
+
 ### Added
 * **BREAKING** Ozon Content: Ondersteuning voor IntIoRef, IntRef, ExtRef ([#3150](https://github.com/dso-toolkit/dso-toolkit/issues/3150))
 
