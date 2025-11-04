@@ -1,7 +1,8 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/accordion";
 @use "~dso-toolkit/src/components/delete";
+
+@use "../accordion.variables" as accordion-variables;
 
 @mixin dso-web-component-accordion-compact-black-activate() {
   .dso-section-handle {
@@ -9,7 +10,7 @@
   }
 
   dso-slide-toggle {
-    margin-block-start: accordion.$block-padding - accordion.$compact-border-width;
+    margin-block-start: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
     margin-inline: units.$u1;
   }
 }
@@ -17,19 +18,19 @@
 @mixin dso-web-component-accordion-compact-black() {
   .dso-section-handle {
     border-block-end: 1px solid transparent;
-    border-block-start: 1px solid accordion.$compact-border-color;
+    border-block-start: 1px solid accordion-variables.$compact-border-color;
 
     a,
     button:not(.dso-slider) {
-      color: accordion.$compact-black-color;
-      padding-block-end: accordion.$block-padding - accordion.$compact-border-width;
+      color: accordion-variables.$compact-black-color;
+      padding-block-end: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
       padding-inline-start: 0;
-      padding-block-start: accordion.$block-padding - accordion.$compact-border-width;
+      padding-block-start: accordion-variables.$block-padding - accordion-variables.$compact-border-width;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$compact-black-color;
+        color: accordion-variables.$compact-black-color;
       }
     }
   }
@@ -65,12 +66,12 @@
 
     a,
     button {
-      color: accordion.$compact-black-color;
+      color: accordion-variables.$compact-black-color;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$compact-black-color;
+        color: accordion-variables.$compact-black-color;
       }
 
       dso-attachments-counter {

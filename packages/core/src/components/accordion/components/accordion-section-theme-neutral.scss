@@ -2,25 +2,26 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/accordion";
+
+@use "../accordion.variables" as accordion-variables;
 
 @mixin dso-web-component-accordion-neutral {
   .dso-section-handle {
     background-color: transparent;
     border: none;
-    border-radius: accordion.$border-radius;
+    border-radius: accordion-variables.$border-radius;
     margin-block-end: 2px;
 
     a,
     button {
-      color: accordion.$neutral-color;
+      color: accordion-variables.$neutral-color;
       padding-block: 5px;
       padding-inline: 0;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$neutral-color;
+        color: accordion-variables.$neutral-color;
       }
 
       .info-icon {
@@ -37,7 +38,7 @@
   .dso-section-body[open],
   .dso-section-body:not(.dso-hide) {
     background-color: transparent;
-    border: 1px solid accordion.$neutral-border-color;
+    border: 1px solid accordion-variables.$neutral-border-color;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
     margin-block: -2px 0;
 
@@ -61,12 +62,12 @@
   > .dso-section-handle {
     background-color: transparant;
     border-radius: 0;
-    border-start-start-radius: accordion.$border-radius;
-    border-start-end-radius: accordion.$border-radius;
+    border-start-start-radius: accordion-variables.$border-radius;
+    border-start-end-radius: accordion-variables.$border-radius;
 
     a,
     button {
-      color: accordion.$neutral-color;
+      color: accordion-variables.$neutral-color;
 
       dso-attachments-counter {
         --dso-attachments-counter-color: #{colors.$wit};
@@ -83,6 +84,6 @@
 
 @mixin dso-web-component-accordion-neutral-open-nested {
   .dso-section-body {
-    background-color: accordion.$default-nested-body-bgcolor;
+    background-color: accordion-variables.$default-nested-body-bgcolor;
   }
 }

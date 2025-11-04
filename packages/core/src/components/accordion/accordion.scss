@@ -1,9 +1,20 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 
+@use "accordion.variables" as accordion-variables;
+
 :host {
   display: block;
   margin-block-end: var(--_dso-accordion-margin-block-end, units.$block-spacing-xlarge);
 }
 
 @include utilities.box-sizing();
+
+::slotted(dso-accordion-section:not(:first-child, .dso-accordion-compact, .dso-accordion-compact-black)) {
+  margin-block-start: units.$u1 * 0.5;
+}
+
+::slotted(dso-accordion-section.dso-accordion-compact:last-child),
+::slotted(dso-accordion-section.dso-accordion-compact-black:last-child) {
+  border-block-end: 1px solid accordion-variables.$compact-border-color;
+}
