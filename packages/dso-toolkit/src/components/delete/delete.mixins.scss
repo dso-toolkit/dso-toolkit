@@ -19,7 +19,7 @@
 @mixin strikethrough($_value: line-through) {
   text-decoration: $_value;
 
-  --_dso-ozon-content-toggletip-text-decoration: underline #{$-value};
+  --_dso-ozon-content-toggletip-text-decoration: underline #{$_value};
 
   // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
   // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd
