@@ -60,7 +60,7 @@
     "typescript": "~5.8.3",
     "wait-on": "^8.0.3"
   },
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "yarn@4.10.3",
   "resolutions": {
     "@types/react@^16.14.23": "18.0.25",
     "puppeteer-core@^2.1.1": "13.5.2"
