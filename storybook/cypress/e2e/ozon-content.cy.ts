@@ -363,6 +363,14 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
   });
 
+  it("should render table with a removed and added row", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--table");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+  });
+
   it("should render Kop with inline paragraphs in Opschrift", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop");
 

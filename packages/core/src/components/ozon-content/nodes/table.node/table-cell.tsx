@@ -2,7 +2,10 @@ import { FunctionalComponent } from "@stencil/core";
 import { h } from "@stencil/core/internal";
 import clsx from "clsx";
 
+import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie.functional-component";
+import { wijzigactieToClassName } from "../../functions/wijzigactie-to-class-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
+import { OzonContentWijzigActie } from "../../ozon-content.interfaces";
 
 import { Colspecs } from "./colspec/colspec.interface";
 
@@ -60,16 +63,21 @@ export const Cell: FunctionalComponent<{
   context: OzonContentNodeContext;
   colspecs: Colspecs | undefined;
   cell: Element;
-}> = ({ context: { mapNodeToJsx }, colspecs, cell }) => {
+  wijzigactie: OzonContentWijzigActie | undefined;
+}> = ({ context: { mapNodeToJsx }, colspecs, cell, wijzigactie }) => {
   const { moreRows, nameStart, nameEnd, colsep, rowsep } = getData(cell, colspecs);
 
   return (
     <td
-      class={clsx({ "dso-horizontal-line": rowsep !== "0" }, { "dso-vertical-line": colsep !== "0" })}
+      class={clsx(
+        { "dso-horizontal-line": rowsep !== "0" },
+        { "dso-vertical-line": colsep !== "0" },
+        wijzigactieToClassName(wijzigactie),
+      )}
       rowSpan={moreRows ? parseInt(moreRows, 10) + 1 : undefined}
       colSpan={colspecs && nameStart && nameEnd ? getColspan(colspecs, nameStart, nameEnd) : undefined}
     >
-      {mapNodeToJsx(cell.childNodes)}
+      <WrapWijzigactie wijzigactie={wijzigactie}>{mapNodeToJsx(cell.childNodes)}</WrapWijzigactie>
     </td>
   );
 };

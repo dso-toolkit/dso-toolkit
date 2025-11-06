@@ -586,6 +586,40 @@ export const content: OzonContentStory[] = [
                 <Al>Tabelcel met <b>vet</b>, <i>cursief</i>. </Al>
               </entry>
             </row>
+            <row wijzigactie="verwijder">
+              <entry align="left" nameend="col1" namest="col1">
+                <Al>Verwijderde rij</Al>
+              </entry>
+              <entry align="left" nameend="col2" namest="col2">
+                <Al>Verwijderde rij</Al>
+              </entry>
+              <entry align="left" nameend="col3" namest="col3">
+                <Al>Verwijderde rij</Al>
+              </entry>
+              <entry align="left" nameend="col4" namest="col4">
+                <Al>Verwijderde rij</Al>
+              </entry>
+              <entry align="left" nameend="col5" namest="col5">
+                <Al>Verwijderde rij</Al>
+              </entry>
+            </row>
+            <row wijzigactie="voegtoe">
+              <entry align="left" nameend="col1" namest="col1">
+                <Al>Toegevoegde rij</Al>
+              </entry>
+              <entry align="left" nameend="col2" namest="col2">
+                <Al>Toegevoegde rij</Al>
+              </entry>
+              <entry align="left" nameend="col3" namest="col3">
+                <Al>Toegevoegde rij</Al>
+              </entry>
+              <entry align="left" nameend="col4" namest="col4">
+                <Al>Toegevoegde rij</Al>
+              </entry>
+              <entry align="left" nameend="col5" namest="col5">
+                <Al>Toegevoegde rij</Al>
+              </entry>
+            </row>
             <row>
               <entry align="left" nameend="col5" namest="col1">
                 <Al>Tabelcel met afbeelding</Al>
