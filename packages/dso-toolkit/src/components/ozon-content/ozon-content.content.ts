@@ -419,6 +419,60 @@ export const content: OzonContentStory[] = [
     `,
   },
   {
+    title: "Begrippenlijst",
+    content: `
+    <Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12' xmlns:data='https://standaarden.overheid.nl/stop/imop/data/' xmlns:ns10='http://www.w3.org/2001/SMIL20/Language' xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/' xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/' xmlns:ns5='http://www.opengis.net/se' xmlns:ns6='http://www.w3.org/1999/xlink' xmlns:ns7='http://www.opengis.net/ogc' xmlns:ns8='http://www.opengis.net/gml' xmlns:ns9='http://www.w3.org/2001/SMIL20/'>
+      <Al>Begrippenlijst met gerenvooieerde Begrippen, Termen en Definities</Al>
+      <Begrippenlijst wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1' eId='chp_21__art_1__list_o_1'>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_1' eId='chp_21__art_1__list_o_1__item_o_1'>
+          <Term>vuurwerk</Term>
+          <Definitie><Al>vuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_2' eId='chp_21__art_1__list_o_1__item_o_2_inst2' wijzigactie='verwijder'>
+          <Term>fop- en schertsvuurwerk (Verwijderd begrip)</Term>
+          <Definitie><Al>fop- en schertsvuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+        <Begrip wId='gm1979_2__chp_21__art_1__list_o_1__item_o_2' eId='chp_21__art_1__list_o_1__item_o_2' wijzigactie='voegtoe'>
+          <Term>siervuurwerk (Toegevoegd begrip)</Term>
+          <Definitie><Al>siervuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+        <Begrip wId='gm1979_1__cmp_I__content_o_1__list_o_1__item_o_1' eId='cmp_I__content_o_1__list_o_1__item_o_1'>
+          <Term wijzigactie='verwijder'>aansluitafstant:</Term>
+          <Term wijzigactie='voegtoe'>aansluitafstand:</Term>
+          <Definitie><Al>afstand tussen een leiding van het distributienet en het deel van het bouwwerk dat zich het dichtst bij die leiding bevindt, gemeten langs de kortste lijn waarlangs een aansluiting zonder bezwaren kan worden gemaakt;</Al></Definitie>
+        </Begrip>  
+        <Begrip wId='gm1979_1__cmp_I__content_o_1__list_o_1__item_o_4' eId='cmp_I__content_o_1__list_o_1__item_o_4'>
+          <Term>bebouwingsgebied:</Term>
+          <Definitie wijzigactie='verwijder'><Al>achtererfgebied en de grond onder het hoofdgebouw, uitgezonderd de grond onder het oorspronkelijk hoofdgebouw;</Al></Definitie>
+          <Definitie wijzigactie='voegtoe'><Al>achtererfgebied plus de grond onder het hoofdgebouw en toegevoegde aan- en uitbouwen, met aftrek van de grond onder het oorspronkelijk hoofdgebouw;</Al></Definitie>
+        </Begrip>
+      </Begrippenlijst>
+      <Al>Begrippenlijst (Verwijderd)</Al>
+      <Begrippenlijst wijzigactie='verwijder' wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1' eId='chp_21__art_1__list_o_1'>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_1' eId='chp_21__art_1__list_o_1__item_o_1'>
+          <Term>vuurwerk</Term>
+          <Definitie><Al>vuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_2' eId='chp_21__art_1__list_o_1__item_o_2_inst2'>
+          <Term>fop- en schertsvuurwerk</Term>
+          <Definitie><Al>fop- en schertsvuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+      </Begrippenlijst>
+      <Al>Begrippenlijst (Toegevoegd)</Al>
+      <Begrippenlijst wijzigactie='voegtoe' wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1' eId='chp_21__art_1__list_o_1'>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_1' eId='chp_21__art_1__list_o_1__item_o_1'>
+          <Term>vuurwerk</Term>
+          <Definitie><Al>vuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+        <Begrip wId='gm1979_1__chp_21__subsec_1__art_1__list_o_1__item_o_2' eId='chp_21__art_1__list_o_1__item_o_2_inst2'>
+          <Term>fop- en schertsvuurwerk</Term>
+          <Definitie><Al>fop- en schertsvuurwerk in de zin van het <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef></Al></Definitie>
+        </Begrip>
+      </Begrippenlijst>
+    </Inhoud>
+    `,
+  },
+  {
     title: "InhoudAlNoot",
     content: `
       <Inhoud>
