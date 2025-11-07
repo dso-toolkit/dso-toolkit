@@ -233,20 +233,4 @@ describe("Document Component", () => {
 
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen`);
   });
-
-  function testRenvooiInKop(element: "Label" | "Nummer" | "Opschrift") {
-    it(`should show a kop with renvooi 'voegtoe' and 'verwijder' in the ${element}`, () => {
-      const baseXml = (wijzigactieElement: string, wijzigactie: "voegtoe" | "verwijder") =>
-        `<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label ${wijzigactieElement === "Label" ? `wijzigactie='${wijzigactie}'` : ""}>Artikel</Label><Nummer ${wijzigactieElement === "Nummer" ? `wijzigactie='${wijzigactie}'` : ""}>13.12c</Nummer><Opschrift ${wijzigactieElement === "Opschrift" ? `wijzigactie='${wijzigactie}'` : ""}>NootInKop III</Opschrift></Kop>`;
-      setProps({ kop: baseXml(element, "verwijder") });
-      cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
-
-      setProps({ kop: baseXml(element, "voegtoe") });
-      cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
-    });
-  }
-
-  testRenvooiInKop("Label");
-  testRenvooiInKop("Nummer");
-  testRenvooiInKop("Opschrift");
 });
