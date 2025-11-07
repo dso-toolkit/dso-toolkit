@@ -8,7 +8,6 @@ import { OzonContentAlNode } from "./nodes/al.node";
 import { OzonContentBegripNode } from "./nodes/begrip.node";
 import { OzonContentBegrippenlijstNode } from "./nodes/begrippenlijst.node";
 import { OzonContentBronNode } from "./nodes/bron.node";
-import { OzonContentDefinitieNode } from "./nodes/definitie.node";
 import { OzonContentDocumentNode } from "./nodes/document.node";
 import { OzonContentExtRefNode } from "./nodes/ext-ref.node";
 import { OzonContentFallbackNode } from "./nodes/fallback.node";
@@ -23,7 +22,6 @@ import { OzonContentLijstNode } from "./nodes/lijst.node";
 import { OzonContentNieuweTekstNode } from "./nodes/nieuwe-tekst.node";
 import { OzonContentNootNode } from "./nodes/noot.node";
 import { OzonContentTableNode } from "./nodes/table.node";
-import { OzonContentTermNode } from "./nodes/term.node";
 import { OzonContentTextNode } from "./nodes/text.node";
 import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";
 import { OzonContentContext } from "./ozon-content-context.interface";
@@ -35,8 +33,6 @@ export class Mapper {
     new OzonContentAbbrNode(),
     new OzonContentBegrippenlijstNode(),
     new OzonContentBegripNode(),
-    new OzonContentTermNode(),
-    new OzonContentDefinitieNode(),
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
     new OzonContentInhoudNode(),

@@ -258,8 +258,9 @@ td {
   &.editaction-add {
     @include insert.root();
   }
+}
 
-.od-begrippenlijst {
+.begrippenlijst {
   .editaction-add {
     @include insert.root();
   }

@@ -15,7 +15,7 @@ export class OzonContentBegrippenlijstNode implements OzonContentNode {
     const className = wijzigactieToClassName(wijzigactie);
 
     return (
-      <div class="od-begrippenlijst">
+      <div class="begrippenlijst">
         <WrapWijzigactie wijzigactie={wijzigactie}>
           <dl class={className}>{content}</dl>
         </WrapWijzigactie>
