@@ -634,26 +634,32 @@ describe("Ozon Content", () => {
   });
 
   function testRenvooiInKop(element: "Label" | "Nummer" | "Opschrift") {
-    it(`should show a kop with renvooi 'voegtoe' and 'verwijder' in the ${element}`, () => {
-      cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--kop");
 
-      const baseXml = (wijzigactieElement: string, wijzigactie: "voegtoe" | "verwijder") =>
-        `<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label ${wijzigactieElement === "Label" ? `wijzigactie='${wijzigactie}'` : ""}>Artikel</Label><Nummer ${wijzigactieElement === "Nummer" ? `wijzigactie='${wijzigactie}'` : ""}>13.12c</Nummer><Opschrift ${wijzigactieElement === "Opschrift" ? `wijzigactie='${wijzigactie}'` : ""}>NootInKop III</Opschrift></Kop>`;
-      cy.get("dso-ozon-content.hydrated")
-        .then((c) => {
-          c.prop("content", baseXml(element, "verwijder"));
-        })
-        .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
+    const baseXml = (wijzigactieElement: string, wijzigactie: "voegtoe" | "verwijder") =>
+      `<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Kop xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Label ${wijzigactieElement === "Label" ? `wijzigactie='${wijzigactie}'` : ""}>Artikel</Label><Nummer ${wijzigactieElement === "Nummer" ? `wijzigactie='${wijzigactie}'` : ""}>13.12c</Nummer><Opschrift ${wijzigactieElement === "Opschrift" ? `wijzigactie='${wijzigactie}'` : ""}>NootInKop III</Opschrift></Kop>`;
+    cy.get("dso-ozon-content.hydrated")
+      .then((c) => {
+        c.prop("content", baseXml(element, "verwijder"));
+      })
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- verwijder`);
 
-      cy.get("dso-ozon-content.hydrated")
-        .then((c) => {
-          c.prop("content", baseXml(element, "voegtoe"));
-        })
-        .matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
-    });
+    cy.get("dso-ozon-content.hydrated")
+      .then((c) => {
+        c.prop("content", baseXml(element, "voegtoe"));
+      })
+      .matchImageSnapshot(`${Cypress.currentTest.title} -- voegtoe`);
   }
 
-  testRenvooiInKop("Label");
-  testRenvooiInKop("Nummer");
-  testRenvooiInKop("Opschrift");
+  it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Label`, () => {
+    testRenvooiInKop("Label");
+  });
+
+  it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Nummer`, () => {
+    testRenvooiInKop("Nummer");
+  });
+
+  it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Opschrift`, () => {
+    testRenvooiInKop("Opschrift");
+  });
 });
