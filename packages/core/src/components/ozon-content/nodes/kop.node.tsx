@@ -36,19 +36,19 @@ export class OzonContentKopNode implements OzonContentNode {
 
     return (
       <WrapWijzigactie wijzigactie={parseWijzigactieFromNode(node)}>
-        <div onClick={handleKopClick} part="_kop">
+        <div onClick={handleKopClick} part="_kop" class="kop">
           {label && <WrapWijzigactie wijzigactie={wijzigactieLabel}>{mapNodeToJsx(label.childNodes)}</WrapWijzigactie>}
           {nummer && (
-            <>
+            <Fragment>
               {" "}
               <WrapWijzigactie wijzigactie={wijzigactieNummer}>{mapNodeToJsx(nummer.childNodes)}</WrapWijzigactie>
-            </>
+            </Fragment>
           )}
           {opschrift && (
-            <>
+            <Fragment>
               {" "}
               <WrapWijzigactie wijzigactie={wijzigactieOpschrift}>{mapNodeToJsx(opschrift.childNodes)}</WrapWijzigactie>
-            </>
+            </Fragment>
           )}
         </div>
         {subtitels.length > 0 && (

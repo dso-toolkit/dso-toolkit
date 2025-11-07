@@ -259,3 +259,14 @@ td {
     @include insert.root();
   }
 }
+
+.kop {
+  ins {
+    @include insert.element();
+    @include insert.root();
+  }
+
+  del {
+    @include delete.root();
+  }
+}
