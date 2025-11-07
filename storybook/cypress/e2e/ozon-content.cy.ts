@@ -662,4 +662,12 @@ describe("Ozon Content", () => {
   it(`should show a kop with renvooi 'wijzigactie="voegtoe | verwijder"' in the Opschrift`, () => {
     testRenvooiInKop("Opschrift");
   });
+
+  it("renders Begrippenlijst with renvooi", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--begrippenlijst");
+
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-ozon-content.hydrated");
+    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+  });
 });

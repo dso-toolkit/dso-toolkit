@@ -15,6 +15,7 @@ export type OzonContentStory = StoryObj<OzonContentArgs, Renderer>;
 export interface OzonContentStories {
   Abbr: OzonContentStory;
   Al: OzonContentStory;
+  Begrippenlijst: OzonContentStory;
   Inhoud: OzonContentStory;
   Kop: OzonContentStory;
   KopMetRenvooi: OzonContentStory;

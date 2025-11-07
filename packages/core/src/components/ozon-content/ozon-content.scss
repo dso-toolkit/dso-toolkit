@@ -260,6 +260,25 @@ td {
   }
 }
 
+.begrippenlijst {
+  .editaction-add {
+    @include insert.root();
+  }
+
+  .editaction-remove {
+    @include delete.root();
+
+    dt,
+    dd {
+      @include delete.strikethrough();
+    }
+  }
+
+  dt {
+    display: inline-block;
+  }
+}
+
 .kop {
   ins {
     @include insert.element();

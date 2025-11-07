@@ -14,6 +14,7 @@ export default meta;
 const {
   Abbr,
   Al,
+  Begrippenlijst,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
   ExtRef,
@@ -46,6 +47,7 @@ const {
 export {
   Abbr,
   Al,
+  Begrippenlijst,
   ComplexeTableZonderColsepEnMetRowsep,
   ExtIoRef,
   ExtRef,

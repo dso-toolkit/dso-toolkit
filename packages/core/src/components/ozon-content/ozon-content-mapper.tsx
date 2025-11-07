@@ -5,6 +5,8 @@ import { parseXml } from "../../utils/parse-xml";
 import { getNodeName } from "./get-node-name.function";
 import { OzonContentAbbrNode } from "./nodes/abbr.node";
 import { OzonContentAlNode } from "./nodes/al.node";
+import { OzonContentBegripNode } from "./nodes/begrip.node";
+import { OzonContentBegrippenlijstNode } from "./nodes/begrippenlijst.node";
 import { OzonContentBronNode } from "./nodes/bron.node";
 import { OzonContentDocumentNode } from "./nodes/document.node";
 import { OzonContentExtRefNode } from "./nodes/ext-ref.node";
@@ -29,6 +31,8 @@ import { OzonContentInputType } from "./ozon-content.interfaces";
 export class Mapper {
   private mappers: OzonContentNode[] = [
     new OzonContentAbbrNode(),
+    new OzonContentBegrippenlijstNode(),
+    new OzonContentBegripNode(),
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
     new OzonContentInhoudNode(),
