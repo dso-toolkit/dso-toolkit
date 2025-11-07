@@ -250,3 +250,12 @@ del {
     color: ozon-content-variables.$subtitel-renvooi-color;
   }
 }
+
+td {
+  &.editaction-remove {
+    @include delete.root();
+  }
+  &.editaction-add {
+    @include insert.root();
+  }
+}

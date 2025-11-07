@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Ozon Content: Renvooi op `tekst:row` ([#3382](https://github.com/dso-toolkit/dso-toolkit/issues/3382))
+
 ## 💃 Release 81.0.0 - 2025-11-04
 
 ### Added
