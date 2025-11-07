@@ -8,18 +8,18 @@ export class OzonContentTextNode implements OzonContentNode {
 
   render({ textContent }: Node, { mark, emitMarkItemHighlight }: OzonContentNodeContext) {
     if (!mark || !textContent) {
-      return <>{textContent}</>;
+      return <Fragment>{textContent}</Fragment>;
     }
 
     const result = mark(textContent);
 
     return !result || result.length === 0 ? (
-      <>{textContent}</>
+      <Fragment>{textContent}</Fragment>
     ) : (
-      <>
+      <Fragment>
         {result.map((value) => {
           if (typeof value === "string") {
-            return <>{value}</>;
+            return <Fragment>{value}</Fragment>;
           }
 
           return (
@@ -31,7 +31,7 @@ export class OzonContentTextNode implements OzonContentNode {
             </mark>
           );
         })}
-      </>
+      </Fragment>
     );
   }
 }

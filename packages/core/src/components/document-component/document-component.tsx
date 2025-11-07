@@ -90,6 +90,39 @@ const AantekenAlert: FunctionalComponent<{
   return null;
 };
 
+const AlternativeTitle: FunctionalComponent<{
+  mark?: DocumentComponentMarkFunction;
+  text?: string;
+  emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
+}> = ({ mark, text, emitMarkItemHighlight }) => {
+  if (!mark || !text) {
+    return <Fragment>{text}</Fragment>;
+  }
+
+  const result = mark(text, "alternativeTitle");
+
+  return !result || result.length === 0 ? (
+    <Fragment>{text}</Fragment>
+  ) : (
+    <Fragment>
+      {result.map((value) => {
+        if (typeof value === "string") {
+          return <Fragment>{value}</Fragment>;
+        }
+
+        return (
+          <mark
+            class={value.highlight ? "dso-highlight" : undefined}
+            ref={(ref) => value.highlight && ref && emitMarkItemHighlight(value.text, ref)}
+          >
+            {value.text}
+          </mark>
+        );
+      })}
+    </Fragment>
+  );
+};
+
 /**
  * @part _annotation-container - private part, do not touch.
  * @part _children-container - private part, do not touch.
@@ -426,7 +459,13 @@ export class DocumentComponent implements ComponentInterface {
                       begripResolver={this.ozonContentBegripResolver}
                     />
                   ) : (
-                    this.alternativeTitle
+                    <AlternativeTitle
+                      mark={this.mark}
+                      text={this.alternativeTitle}
+                      emitMarkItemHighlight={(text, elementRef) =>
+                        this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })
+                      }
+                    />
                   )}
 
                   <AantekenStatus gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
