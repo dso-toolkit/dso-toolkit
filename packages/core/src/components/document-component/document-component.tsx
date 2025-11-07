@@ -412,7 +412,6 @@ export class DocumentComponent implements ComponentInterface {
                 )}
                 <span id="heading-title">
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
-
                   {this._kop ? (
                     <dso-ozon-content
                       class="kop"
@@ -438,7 +437,6 @@ export class DocumentComponent implements ComponentInterface {
                       />
                     ))
                   )}
-
                   <AantekenStatus gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
                 </span>
               </Heading>

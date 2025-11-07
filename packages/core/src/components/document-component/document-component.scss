@@ -110,6 +110,12 @@
 
 #heading-title {
   display: block;
+
+  .heading-alternative-titel {
+    cursor: pointer;
+
+    @include link.pseudo();
+  }
 }
 
 :host([not-collapsible]) {
