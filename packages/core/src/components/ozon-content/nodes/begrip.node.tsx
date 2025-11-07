@@ -9,31 +9,31 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 import { OzonContentWijzigActie } from "../ozon-content.interfaces";
 
 interface BegripProps {
-  wijzigactieBegrip: OzonContentWijzigActie | undefined;
+  begripWijzigactie: OzonContentWijzigActie | undefined;
   node: ChildNode;
   mapNodeToJsx: (node: Node | NodeList | Node[]) => JSX.Element;
 }
 
-const Term: FunctionalComponent<BegripProps> = ({ wijzigactieBegrip, node, mapNodeToJsx }) => {
+const Term: FunctionalComponent<BegripProps> = ({ begripWijzigactie, node, mapNodeToJsx }) => {
   const content = mapNodeToJsx(node.childNodes);
   const wijzigactie = parseWijzigactieFromNode(node);
   const className = wijzigactieToClassName(wijzigactie);
 
   return (
     <dt class={className}>
-      <WrapWijzigactie wijzigactie={wijzigactieBegrip || wijzigactie}>{content}</WrapWijzigactie>
+      <WrapWijzigactie wijzigactie={begripWijzigactie || wijzigactie}>{content}</WrapWijzigactie>
     </dt>
   );
 };
 
-const Definitie: FunctionalComponent<BegripProps> = ({ wijzigactieBegrip, node, mapNodeToJsx }) => {
+const Definitie: FunctionalComponent<BegripProps> = ({ begripWijzigactie, node, mapNodeToJsx }) => {
   const content = mapNodeToJsx(node.childNodes);
   const wijzigactie = parseWijzigactieFromNode(node);
   const className = wijzigactieToClassName(wijzigactie);
 
   return (
     <dd class={className}>
-      <WrapWijzigactie wijzigactie={wijzigactieBegrip || wijzigactie}>{content}</WrapWijzigactie>
+      <WrapWijzigactie wijzigactie={begripWijzigactie || wijzigactie}>{content}</WrapWijzigactie>
     </dd>
   );
 };
@@ -52,10 +52,10 @@ export class OzonContentBegripNode implements OzonContentNode {
     return (
       <div class={className}>
         {terms.map((term) => (
-          <Term node={term} wijzigactieBegrip={wijzigactie} mapNodeToJsx={mapNodeToJsx} />
+          <Term node={term} begripWijzigactie={wijzigactie} mapNodeToJsx={mapNodeToJsx} />
         ))}
         {definitions.map((definition) => (
-          <Definitie node={definition} wijzigactieBegrip={wijzigactie} mapNodeToJsx={mapNodeToJsx} />
+          <Definitie node={definition} begripWijzigactie={wijzigactie} mapNodeToJsx={mapNodeToJsx} />
         ))}
       </div>
     );
