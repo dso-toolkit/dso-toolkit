@@ -19,11 +19,6 @@ function expectAlert(text: string | undefined = undefined) {
     .should(text ? "have.text" : "not.exist", text);
 }
 
-const marker: DocumentComponentMarkFunction = (text, source) =>
-  text
-    .split(new RegExp(`(k)`, "gi"))
-    .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "kop" && index === 1 } : item));
-
 describe("Document Component", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-component--default");
@@ -31,6 +26,11 @@ describe("Document Component", () => {
   });
 
   it("should mark and highlight", () => {
+    const marker: DocumentComponentMarkFunction = (text, source) =>
+      text
+        .split(new RegExp(`(k)`, "gi"))
+        .map((item, index) => (isOdd(index) ? { text: item, highlight: source === "kop" && index === 1 } : item));
+
     cy.get("@document-component")
       .then(
         ($documentComponent: JQuery<HTMLDsoDocumentComponentElement>) =>
