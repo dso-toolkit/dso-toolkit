@@ -427,14 +427,16 @@ export class DocumentComponent implements ComponentInterface {
                       begripResolver={this.ozonContentBegripResolver}
                     />
                   ) : (
-                    <MarkText
-                      mark={this.mark}
-                      source="alternativeTitle"
-                      text={this.alternativeTitle}
-                      emitMarkItemHighlight={(text, elementRef) =>
-                        this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })
-                      }
-                    />
+                    this.mark &&
+                    this.alternativeTitle && (
+                      <MarkText
+                        mark={this.mark && ((text) => this.mark?.(text, "alternativeTitle"))}
+                        text={this.alternativeTitle}
+                        emitMarkItemHighlight={(text, elementRef) =>
+                          this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })
+                        }
+                      />
+                    )
                   )}
 
                   <AantekenStatus gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
