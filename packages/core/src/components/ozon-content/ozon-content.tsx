@@ -11,6 +11,8 @@ import {
   h,
 } from "@stencil/core";
 
+import { MarkTextMarkFunction } from "../../functional-components/mark-text/mark-text.interfaces";
+
 import { OzonContentContext } from "./ozon-content-context.interface";
 import { Mapper } from "./ozon-content-mapper";
 import { OzonContentNodeState } from "./ozon-content-node-state.interface";
@@ -18,7 +20,6 @@ import {
   OzonContentBegripResolver,
   OzonContentClickEvent,
   OzonContentInputType,
-  OzonContentMarkFunction,
   OzonContentMarkItemHighlightEvent,
   OzonContentUrlResolver,
 } from "./ozon-content.interfaces";
@@ -47,7 +48,7 @@ export class OzonContent implements ComponentInterface {
    * To mark text.
    */
   @Prop()
-  mark?: OzonContentMarkFunction;
+  mark?: MarkTextMarkFunction;
 
   /**
    * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.

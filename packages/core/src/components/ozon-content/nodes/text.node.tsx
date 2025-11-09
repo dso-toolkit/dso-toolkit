@@ -1,6 +1,6 @@
 import { Fragment, h } from "@stencil/core";
 
-import { MarkText } from "../functional-components/mark-text.functional-component";
+import { MarkText } from "../../../functional-components/mark-text/mark-text.functional-component";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 

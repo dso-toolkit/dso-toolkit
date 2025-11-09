@@ -1,9 +1,9 @@
 import { Fragment, FunctionalComponent, h } from "@stencil/core";
 
-import { OzonContentMarkFunction } from "../ozon-content.interfaces";
+import { MarkTextMarkFunction } from "./mark-text.interfaces";
 
 export interface MarkTextProps {
-  mark: OzonContentMarkFunction;
+  mark: MarkTextMarkFunction;
   text: string;
   emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
 }

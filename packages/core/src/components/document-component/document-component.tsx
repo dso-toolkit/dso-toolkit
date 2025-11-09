@@ -11,9 +11,9 @@ import {
 } from "@stencil/core";
 
 import { DsoOzonContentCustomEvent } from "../../components";
+import { MarkText } from "../../functional-components/mark-text/mark-text.functional-component";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { parseXml } from "../../utils/parse-xml";
-import { MarkText } from "../ozon-content/functional-components/mark-text.functional-component";
 import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
   OzonContentBegripResolver,
@@ -430,7 +430,7 @@ export class DocumentComponent implements ComponentInterface {
                     this.mark &&
                     this.alternativeTitle && (
                       <MarkText
-                        mark={this.mark && ((text) => this.mark?.(text, "alternativeTitle"))}
+                        mark={this.mark && ((text: string) => this.mark?.(text, "alternativeTitle"))}
                         text={this.alternativeTitle}
                         emitMarkItemHighlight={(text, elementRef) =>
                           this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })

@@ -1,16 +1,13 @@
 import { JSX } from "@stencil/core";
 
-import {
-  OzonContentBegripResolver,
-  OzonContentClickEvent,
-  OzonContentMarkFunction,
-  OzonContentUrlResolver,
-} from "./ozon-content.interfaces";
+import { MarkTextMarkFunction } from "../../functional-components/mark-text/mark-text.interfaces";
+
+import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentUrlResolver } from "./ozon-content.interfaces";
 
 export interface OzonContentNodeContext<T = unknown> {
   inline: boolean;
   path: Node[];
-  mark: OzonContentMarkFunction | undefined;
+  mark: MarkTextMarkFunction | undefined;
   mapNodeToJsx(node: Node | Node[] | NodeList): JSX.Element;
   emitClick(event: OzonContentClickEvent): void;
   state?: T;
