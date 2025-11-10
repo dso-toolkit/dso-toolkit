@@ -410,7 +410,7 @@ export class DocumentComponent implements ComponentInterface {
                     onDsoClick={(e) => this.handleHeadingClick(e.detail.originalEvent)}
                   />
                 )}
-                <span id="heading-title">
+                <div>
                   {this.notApplicable && <span class="sr-only">Niet van toepassing:</span>}
                   {this._kop ? (
                     <dso-ozon-content
@@ -426,19 +426,21 @@ export class DocumentComponent implements ComponentInterface {
                       begripResolver={this.ozonContentBegripResolver}
                     />
                   ) : (
-                    (!this.mark && this.alternativeTitle) ||
-                    (this.mark && this.alternativeTitle && (
-                      <MarkText
-                        mark={this.mark && ((text: string) => this.mark?.(text, "alternativeTitle"))}
-                        text={this.alternativeTitle}
-                        emitMarkItemHighlight={(text, elementRef) =>
-                          this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })
-                        }
-                      />
-                    ))
+                    <span class="alternative-title">
+                      {(!this.mark && this.alternativeTitle) ||
+                        (this.mark && this.alternativeTitle && (
+                          <MarkText
+                            mark={this.mark && ((text: string) => this.mark?.(text, "alternativeTitle"))}
+                            text={this.alternativeTitle}
+                            emitMarkItemHighlight={(text, elementRef) =>
+                              this.dsoMarkItemHighlight.emit({ text, elementRef, source: "alternativeTitle" })
+                            }
+                          />
+                        ))}
+                    </span>
                   )}
                   <AantekenStatus gereserveerd={this._gereserveerd} vervallen={this._vervallen} />
-                </span>
+                </div>
               </Heading>
 
               {this.recursiveToggle !== undefined && this.open && this.mode === "document" && (
