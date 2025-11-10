@@ -246,7 +246,7 @@ describe("Document Component", () => {
       )
       .get("dso-document-component.hydrated")
       .shadow()
-      .find("#heading-title")
+      .find(".alternative-title")
       .should(
         "contain.html",
         'Adequ<mark class="dso-highlight">aa</mark>t <mark>aa</mark>nbod openb<mark>aa</mark>r vervoer',
