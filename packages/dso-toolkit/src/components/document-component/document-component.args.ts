@@ -35,7 +35,7 @@ export interface DocumentComponentArgs {
   vervallen: DocumentComponentInputType;
   wijzigactie: DocumentComponentWijzigactie | undefined;
   annotationsWijzigactie: DocumentComponentAnnotationsWijzigactie | undefined;
-  mark?: string;
+  searchTerm?: string;
   enableRecursiveToggle?: boolean;
   mode: DocumentComponentMode;
   dsoOzonContentClick: HandlerFunction;
@@ -173,7 +173,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "select",
     },
   },
-  mark: {
+  searchTerm: {
     control: {
       type: "text",
     },
@@ -197,8 +197,7 @@ export function documentComponentMapper<TemplateFnReturnType>(
   a: DocumentComponentArgs,
   children?: TemplateFnReturnType,
 ): DocumentComponent<TemplateFnReturnType> {
-  const { mark } = a;
-
+  const { searchTerm } = a;
   let highlighted = false;
 
   return {
@@ -220,10 +219,10 @@ export function documentComponentMapper<TemplateFnReturnType>(
     },
     dsoToggle: (e) => a.dsoToggle(e.detail),
     children: a.open || a.openAnnotation ? children : undefined,
-    mark: mark
+    mark: searchTerm
       ? (text) =>
           text
-            .split(new RegExp(`(${escapeStringRegexp(mark)})`, "gi"))
+            .split(new RegExp(`(${escapeStringRegexp(searchTerm)})`, "gi"))
             .map((item, index) =>
               isOdd(index) ? { text: item, highlight: !highlighted && (highlighted = true) } : item,
             )

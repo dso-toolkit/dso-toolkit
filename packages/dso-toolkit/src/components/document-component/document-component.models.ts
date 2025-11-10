@@ -62,7 +62,7 @@ export interface DocumentComponentToggleEvent {
 
 export interface DocumentComponentAnnotationToggleEvent {}
 
-type DocumentComponentSource = "kop" | "inhoud";
+type DocumentComponentSource = "kop" | "inhoud" | "alternativeTitle";
 
 export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
 

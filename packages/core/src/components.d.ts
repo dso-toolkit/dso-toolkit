@@ -21,7 +21,7 @@ import { CardContainerMode } from "./components/card-container/card-container.in
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
-import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -38,6 +38,7 @@ import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overl
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
+import { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { PanelCloseEvent } from "./components/panel/panel";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -68,7 +69,7 @@ export { CardContainerMode } from "./components/card-container/card-container.in
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
 export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
-export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkFunction, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
+export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 export { HistoryItemClickEvent, HistoryItemType } from "./components/history-item/history-item.interfaces";
@@ -85,6 +86,7 @@ export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overl
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
 export { OnboardingTipCloseEvent } from "./components/onboarding-tip/onboarding-tip.interfaces";
+export { MarkTextMarkFunction } from "./functional-components/mark-text/mark-text.interfaces";
 export { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 export { PanelCloseEvent } from "./components/panel/panel";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
@@ -1033,7 +1035,7 @@ export namespace Components {
         /**
           * To mark text.
          */
-        "mark"?: OzonContentMarkFunction;
+        "mark"?: MarkTextMarkFunction;
         /**
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
@@ -3739,7 +3741,7 @@ declare namespace LocalJSX {
         /**
           * To mark text.
          */
-        "mark"?: OzonContentMarkFunction;
+        "mark"?: MarkTextMarkFunction;
         /**
           * Emitted when an interactive element is clicked.
          */

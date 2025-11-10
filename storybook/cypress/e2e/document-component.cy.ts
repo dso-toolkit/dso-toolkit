@@ -233,4 +233,23 @@ describe("Document Component", () => {
 
     cy.get("@document-component").matchImageSnapshot(`${Cypress.currentTest.title} -- vervallen`);
   });
+
+  it("marks and highlights alternativeTitle", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-document-component--imro")
+      .get("dso-document-component.hydrated")
+      .then(
+        ($documentComponent: JQuery<HTMLDsoDocumentComponentElement>) =>
+          ($documentComponent[0].mark = (text) =>
+            text
+              .split(new RegExp(`(aa)`, "gi"))
+              .map((item, index) => (isOdd(index) ? { text: item, highlight: index === 1 } : item))),
+      )
+      .get("dso-document-component.hydrated")
+      .shadow()
+      .find("#heading-title")
+      .should(
+        "contain.html",
+        'Adequ<mark class="dso-highlight">aa</mark>t <mark>aa</mark>nbod openb<mark>aa</mark>r vervoer',
+      );
+  });
 });

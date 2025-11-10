@@ -1,18 +1,3 @@
-import { DocumentComponentInputType } from "./document-component.models";
-
-export interface OzonDocumentComponent {
-  ontwerpbesluitIdentificatie: string;
-  documentTechnischId: string;
-  identificatie: string;
-  expressie: string;
-  type: string;
-  volgordeNummer: number;
-  inhoud: string;
-  gereserveerd: DocumentComponentInputType;
-  vervallen: DocumentComponentInputType;
-  bevatOntwerpInformatie: boolean;
-}
-
 export const imroContent = `<p
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:imropt="http://www.geonovum.nl/imro/pt/2012/1.0"

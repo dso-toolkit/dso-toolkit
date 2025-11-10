@@ -1,5 +1,6 @@
 import { DsoOzonContentCustomEvent } from "../../components";
-import { OzonContentClickEvent, OzonContentText } from "../ozon-content/ozon-content.interfaces";
+import { MarkTextText } from "../../functional-components/mark-text/mark-text.interfaces";
+import { OzonContentClickEvent } from "../ozon-content/ozon-content.interfaces";
 
 export interface DocumentComponentOpenToggleEvent {
   originalEvent: Event;
@@ -21,9 +22,9 @@ export interface DocumentComponentOzonContentClickEvent {
 
 export type DocumentComponentInputType = XMLDocument | string;
 
-type DocumentComponentSource = "kop" | "inhoud";
+export type DocumentComponentSource = "kop" | "inhoud" | "alternativeTitle";
 
-export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => OzonContentText[];
+export type DocumentComponentMarkFunction = (text: string, source: DocumentComponentSource) => MarkTextText[];
 
 export interface DocumentComponentMarkItemHighlightEvent {
   source: DocumentComponentSource;

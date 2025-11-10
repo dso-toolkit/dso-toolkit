@@ -15,15 +15,6 @@ export type OzonContentClickEvent =
 
 export type OzonContentInputType = XMLDocument | string;
 
-export type OzonContentMarkFunction = (text: string) => OzonContentText[] | undefined;
-
-export type OzonContentText = OzonContentMarkItem | string;
-
-export interface OzonContentMarkItem {
-  text: string;
-  highlight?: boolean;
-}
-
 export interface OzonContentMarkItemHighlightEvent {
   text: string;
   elementRef: HTMLElement;

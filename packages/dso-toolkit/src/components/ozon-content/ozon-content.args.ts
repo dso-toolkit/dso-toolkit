@@ -10,7 +10,7 @@ import { OzonContent, OzonContentBegripResolver, OzonContentUrlResolver } from "
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
-  mark?: string;
+  searchTerm?: string;
   highlight?: boolean;
   dsoClick: HandlerFunction;
   dsoOzonContentMarkItemHighlight: HandlerFunction;
@@ -29,7 +29,7 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: "boolean",
     },
   },
-  mark: {
+  searchTerm: {
     control: {
       type: "text",
     },
@@ -45,17 +45,17 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   begripResolver: argTypeAction(),
 };
 
-export function ozonContentArgsMapper(args: OzonContentArgs): OzonContent {
-  const { mark, content, dsoClick, dsoOzonContentMarkItemHighlight, inline, highlight } = args;
+export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
+  const { searchTerm, content, dsoClick, dsoOzonContentMarkItemHighlight, inline, highlight } = a;
   let highlighted = false;
 
   return {
     content,
     inline,
-    mark: mark
+    mark: searchTerm
       ? (text: string) =>
           text
-            .split(new RegExp(`(${escapeStringRegexp(mark)})`, "gi"))
+            .split(new RegExp(`(${escapeStringRegexp(searchTerm)})`, "gi"))
             .map((item, index) =>
               isOdd(index)
                 ? { text: item, highlight: !!highlight && index === 1 && !highlighted && (highlighted = true) }
