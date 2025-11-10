@@ -108,8 +108,9 @@
   }
 }
 
-#heading-title {
-  display: block;
+.alternative-title {
+  cursor: pointer;
+  @include link.pseudo();
 }
 
 :host([not-collapsible]) {
@@ -129,11 +130,6 @@
 :host([mode="document"]:not([not-collapsible])) {
   --link-color: #{document-component.$heading-anchor-color};
   --link-hover-color: #{document-component.$heading-anchor-hover-color};
-
-  .heading-title > dso-ozon-content {
-    cursor: pointer;
-    @include link.pseudo();
-  }
 
   dso-ozon-content {
     &.kop::part(_kop) {
