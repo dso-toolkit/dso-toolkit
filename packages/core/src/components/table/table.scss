@@ -28,7 +28,7 @@
     font-weight: 700;
   }
 
-  .dso-close {
+  .dialog-close-button {
     color: colors.$bosgroen;
   }
 }
@@ -42,7 +42,7 @@
   @include modal.root();
 }
 
-.dso-modal .dso-dialog.dso-table-dialog {
+.dso-dialog.dso-table-dialog {
   margin-block-start: 1rem;
   max-inline-size: calc(100% - 2rem);
   margin-inline-start: auto;
@@ -106,7 +106,7 @@
   @include utilities.sr-only();
 }
 
-.dso-modal-overlay {
+::backdrop {
   background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
   display: block;
   position: fixed;
