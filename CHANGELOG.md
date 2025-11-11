@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Document Component: Bij `not-applicable` worden ingezoomde onderdelen ook transparant getoond ([#3402](https://github.com/dso-toolkit/dso-toolkit/issues/3402))
+
 ## 🏝️ Release 83.0.0 - 2025-11-27
 
 ### Deprecated

@@ -26,6 +26,10 @@ Bij het instantieren van een `dso-modal` wordt op de body het scrollgedrag 'acht
 
 ## Dependencies
 
+### Used by
+
+ - [dso-table](../table)
+
 ### Depends on
 
 - [dso-icon-button](../icon-button)
@@ -37,6 +41,7 @@ graph TD;
   dso-modal --> dso-icon-button
   dso-modal --> dso-scrollable
   dso-icon-button --> dso-icon
+  dso-table --> dso-modal
   style dso-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
