@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* **BREAKING** Selectable: Remove HTML/CSS implementatie ([#3204](https://github.com/dso-toolkit/dso-toolkit/issues/3204))
+
 ## 🕶️ Release 81.1.0 - 2025-11-10
 
 ### Added
@@ -15,9 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Ozon Content: `wijzigactie` van `opschrift` in `kop` toont geen renvooi ([#3413](https://github.com/dso-toolkit/dso-toolkit/issues/3413))
 * Document Component: alternativeTitle met `href` niet zichtbaar interactief ([#3417](https://github.com/dso-toolkit/dso-toolkit/issues/3417))
-
-### Removed
-* **BREAKING** Selectable: Remove HTML/CSS implementatie ([#3204](https://github.com/dso-toolkit/dso-toolkit/issues/3204))
 
 ## 💃 Release 81.0.0 - 2025-11-04
 

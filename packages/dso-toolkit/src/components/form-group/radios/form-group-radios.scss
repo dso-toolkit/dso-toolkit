@@ -1,14 +1,13 @@
 @use "../../../variables/units";
 @use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
-@use "../../selectable/selectable";
 
 @use "../form-group.mixins" as form-group-mixins;
 
 .form-group.dso-radios {
   &.dso-invalid {
     .dso-selectable {
-      --dso-selectable-color: #{colors.$danger-color};
+      --_dso-selectable-color: #{colors.$danger-color};
     }
   }
 

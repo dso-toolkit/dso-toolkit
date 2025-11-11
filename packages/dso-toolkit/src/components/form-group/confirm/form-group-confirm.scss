@@ -2,7 +2,6 @@
 
 @use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
-@use "../../selectable";
 
 @use "../../grid";
 @use "../form-group.variables" as form-group-variables;
@@ -11,7 +10,7 @@
 .form-group.dso-confirm {
   &.dso-invalid {
     .dso-selectable {
-      --dso-selectable-color: #{colors.$danger-color};
+      --_dso-selectable-color: #{colors.$danger-color};
     }
   }
 
