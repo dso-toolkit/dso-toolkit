@@ -37,7 +37,6 @@ export function imageOverlayMeta<TRenderer extends Renderer>({
             page: () => compiler(readme),
           }
         : {},
-      layout: "fullscreen",
     },
   };
 }
@@ -51,6 +50,9 @@ export function imageOverlayStories<Implementation, Templates, TemplateFnReturnT
       render: templateContainer.render(storyTemplates, (args, { imageOverlayTemplate }) =>
         imageOverlayTemplate(imageOverlayArgsMapper(args)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }

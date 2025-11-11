@@ -1,4 +1,5 @@
 import { readdirSync } from "fs";
+import { fileURLToPath } from "node:url";
 import { dirname, parse, resolve } from "path";
 
 import { StorybookConfig } from "@storybook/web-components-vite";
@@ -7,17 +8,14 @@ function getVersion() {
   if (process.env.CI && process.env.DT_REF) {
     return process.env.DT_REF;
   }
-
   return undefined;
 }
 
 const config: StorybookConfig = {
-  typescript: {
-    check: true,
-  },
+  typescript: { check: true },
   staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
   env: (config) => {
-    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const corePath = dirname(fileURLToPath(new URL("../../node_modules/dso-toolkit/package.json", import.meta.url)));
     const iconsPath = resolve(corePath, "src/icons");
     const icons = readdirSync(iconsPath)
       .map((f) => parse(f))
@@ -42,61 +40,15 @@ const config: StorybookConfig = {
         },
       };
     }
-
     return {};
   },
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   stories: ["../src/components/**/*.{core-,css-}stories.ts", "../src/example-pages/**/*.stories.ts"],
-  previewHead: (head) =>
-    process.env.CI
-      ? `
-      ${head}
-      <link
-        rel="preload"
-        href="/assets/fonts/Asap/Asap-Italic-VariableFont_wdth,wght.ttf"
-        as="font"
-        type="font/ttf"
-        crossorigin
-        data-dt-postbuild-href
-      >
-      <link
-        rel="preload"
-        href="/assets/fonts/Asap/Asap-VariableFont_wdth,wght.ttf"
-        as="font"
-        type="font/ttf"
-        crossorigin
-        data-dt-postbuild-href
-      >
-      <link
-        rel="preload"
-        href="/assets/di.svg"
-        as="image"
-        type="image/svg+xml"
-        data-dt-postbuild-href
-      >
-    `
-      : head,
-  // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
-  // previewBody: (body) =>
-  //   !process.env.CI
-  //     ? `
-  //     ${body}
-  //     <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
-  //   `
-  //     : body,
-  async viteFinal(config) {
-    // Merge custom configuration into the default config
-    const { mergeConfig } = await import("vite");
-
-    return mergeConfig(config, {
-      // Add dependencies to pre-optimization
-    });
-  },
   core: {
-    builder: "@storybook/builder-vite",
+    builder: "@storybook/builder-vite", // ✅ geen pad
     disableTelemetry: true,
   },
-  framework: "@storybook/web-components-vite",
+  framework: "@storybook/web-components-vite", // ✅ geen pad
 };
 
 export default config;

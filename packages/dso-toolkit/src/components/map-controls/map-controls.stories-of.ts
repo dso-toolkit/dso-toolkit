@@ -50,7 +50,6 @@ export function mapControlsMeta<TRenderer extends Renderer>({ readme }: MetaOpti
       html: {
         root: "#map-container-mock",
       },
-      layout: "fullscreen",
       docs: readme
         ? {
             page: () => compiler(readme),
@@ -71,6 +70,9 @@ export function mapControlsStories<Implementation, Templates, TemplateFnReturnTy
       render: templateContainer.render(storyTemplates, (args, { mapControlsTemplate }) =>
         mapControlsTemplate(mapControlsArgsMapper(args)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }

@@ -9,7 +9,7 @@
     "lib": ["dom", "ESNext"],
     "importHelpers": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "esModuleInterop": true,
     "noEmitOnError": true,

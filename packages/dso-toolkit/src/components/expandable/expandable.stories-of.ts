@@ -46,7 +46,6 @@ export function expandableMeta<TRenderer extends Renderer>({ readme }: MetaOptio
       html: {
         root: "#expandable-mock",
       },
-      layout: "fullscreen",
     },
   };
 }
@@ -66,6 +65,9 @@ export function expandableStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
         expandableTemplate(expandableArgsMapper(args, expandableContent)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     WithAnimation: {
       args: {
@@ -76,6 +78,9 @@ export function expandableStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { expandableTemplate, expandableContent }) =>
         expandableTemplate(expandableArgsMapper(args, expandableContent)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }
