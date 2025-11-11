@@ -46,7 +46,6 @@ export function scrollableMeta<TRenderer extends Renderer>({ readme }: MetaOptio
       html: {
         root: "#scrollable-mock",
       },
-      layout: "fullscreen",
       docs: readme
         ? {
             page: () => compiler(readme),
@@ -67,12 +66,18 @@ export function scrollableStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, defaultContent }) =>
         scrollableTemplate(scrollableArgsMapper(args, defaultContent)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     DynamicContent: {
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { scrollableTemplate, dynamicContent }) =>
         scrollableTemplate(scrollableArgsMapper(args, dynamicContent)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }

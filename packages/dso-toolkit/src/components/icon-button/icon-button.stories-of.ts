@@ -36,7 +36,6 @@ export function iconButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   return {
     args: iconButtonArgs,
     parameters: {
-      layout: "centered",
       docs: readme
         ? {
             page: () => compiler(readme),
@@ -59,6 +58,9 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
     Secondary: {
       argTypes: iconButtonArgTypes(icons),
       render,
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     Tertiary: {
       argTypes: iconButtonArgTypes(icons),
@@ -66,6 +68,9 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
         variant: "tertiary",
       },
       render,
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     Map: {
       argTypes: iconButtonArgTypes(icons),
@@ -73,6 +78,9 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
         variant: "map",
       },
       render,
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }

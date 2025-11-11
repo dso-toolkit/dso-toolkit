@@ -53,7 +53,6 @@ export function viewerGridMeta<TRenderer extends Renderer>({ readme }: MetaOptio
       dsoMainPanelToggle: fn(),
     },
     parameters: {
-      layout: "fullscreen",
       controls: {
         hideNoControlsWarning: true,
       },
@@ -153,6 +152,9 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
   };
 }
