@@ -1,5 +1,5 @@
-@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 $valid-marker-color: colors.$grasgroen; // dot for radio and checkmark for checkbox
 $valid-color: colors.$bosgroen;
@@ -8,6 +8,5 @@ $active-background-color: colors.$grasgroen-10;
 $disabled-color: colors.$input-disabled-border-color;
 $size: units.$u3;
 $border-width: 2px;
-$focus-border-width: 3px;
 $indeterminate-size: 12px;
 $symbol-indent: units.$u4;

@@ -206,7 +206,6 @@ import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-hei
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
-import { cssSelectable } from "./components/selectable/selectable.css-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
 import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
@@ -463,7 +462,6 @@ templateContainer.add(cssProgressIndicator);
 templateContainer.add(cssRichContent);
 templateContainer.add(cssRowEqualHeights);
 templateContainer.add(cssSearchBar);
-templateContainer.add(cssSelectable);
 templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);

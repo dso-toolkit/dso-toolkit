@@ -1,0 +1,54 @@
+---
+authors: [cvanderleij, iterox]
+---
+
+# DSO Toolkit v82.0.0 🍔
+
+Deze release bevat **BREAKING** changes voor de volgende componenten:
+
+- Selectable (HTML/CSS implementatie)
+
+<!-- truncate -->
+
+## Selectable (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `selectable` is in 🍇 Release 78.0.0 deprecated. In deze
+release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Selectable.
+
+```html
+❌
+<div class="dso-selectable">
+  <input type="checkbox" id="1234" value="the-value" aria-invalid="false" />
+  <script>
+    document.getElementById("1234").indeterminate = false;
+  </script>
+  <label for="1234">Label</label>
+  <div class="dso-info">
+    <div class="dso-rich-content" slot="info">
+      <p>Rijke inhoud</p>
+      <p>Ziet er zo uit</p>
+      <ul>
+        <li>Lijstjes</li>
+      </ul>
+      <p>Kan allemaal</p>
+    </div>
+  </div>
+</div>
+
+✅
+<dso-selectable type="checkbox" identifier="1234" value="the-value">
+  Label
+  <div class="dso-rich-content" slot="info">
+    <p>Rijke inhoud</p>
+    <p>Ziet er zo uit</p>
+    <ul>
+      <li>Lijstjes</li>
+    </ul>
+    <p>Kan allemaal</p>
+  </div>
+</dso-selectable>
+```

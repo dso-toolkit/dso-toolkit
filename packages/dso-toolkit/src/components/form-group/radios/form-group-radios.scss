@@ -1,13 +1,13 @@
 @use "../../../variables/units";
+@use "../../../variables/colors";
 @use "../../../variables/media-query-breakpoints";
-@use "../../selectable";
 
 @use "../form-group.mixins" as form-group-mixins;
 
 .form-group.dso-radios {
   &.dso-invalid {
     .dso-selectable {
-      @include selectable.invalid();
+      --_dso-selectable-color: #{colors.$danger-color};
     }
   }
 
@@ -20,12 +20,10 @@
   &.dso-inline {
     --dso-selectable-display: inline-block;
 
-    .dso-selectable {
-      @include selectable.inline(".dso-selectable");
-    }
-
     dso-selectable {
-      @include selectable.inline("dso-selectable");
+      + dso-selectable {
+        margin-inline-start: units.$u3;
+      }
     }
   }
 

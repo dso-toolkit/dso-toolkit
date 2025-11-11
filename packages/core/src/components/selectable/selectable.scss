@@ -60,7 +60,7 @@
         background: colors.$wit;
         border: 0;
         box-shadow: 0 0 0 selectable-variables.$border-width
-          var(--dso-selectable-color, selectable-variables.$valid-color);
+          var(--_dso-selectable-color, selectable-variables.$valid-color);
         content: "";
         block-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
         inset-inline-start: selectable-variables.$border-width;
@@ -113,7 +113,7 @@
       + label {
         &::after {
           border: solid;
-          border-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          border-color: var(--_dso-selectable-color, selectable-variables.$valid-marker-color);
           border-block-start-color: transparent;
           border-width: 0 0 3px 3px;
           block-size: 8px;
@@ -126,7 +126,7 @@
     &:indeterminate {
       + label {
         &::after {
-          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          background-color: var(--_dso-selectable-color, selectable-variables.$valid-marker-color);
           block-size: selectable-variables.$indeterminate-size;
           inline-size: selectable-variables.$indeterminate-size;
         }
@@ -157,7 +157,7 @@
     &:checked {
       + label {
         &::after {
-          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+          background-color: var(--_dso-selectable-color, selectable-variables.$valid-marker-color);
           opacity: 1;
         }
       }
@@ -165,7 +165,7 @@
   }
 
   &[invalid]:not([invalid="false"]) {
-    --dso-selectable-color: #{selectable-variables.$invalid-color};
+    --_dso-selectable-color: #{selectable-variables.$invalid-color};
   }
 
   > dso-info {
@@ -209,12 +209,29 @@
     input[type="checkbox"] {
       &:focus + label::before {
         box-shadow: 0 0 0 selectable-variables.$border-width
-          var(--dso-selectable-color, selectable-variables.$valid-color);
+          var(--_dso-selectable-color, selectable-variables.$valid-color);
         block-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
         inset-inline-start: selectable-variables.$border-width;
         inset-block-start: selectable-variables.$border-width;
         inline-size: selectable-variables.$size - 2 * selectable-variables.$border-width;
       }
     }
+  }
+}
+
+::slotted([slot="info"]) {
+  float: none;
+  margin-block: units.$u1 0;
+  margin-inline: 0 units.$u2;
+  inline-size: 100%;
+}
+
+::slotted([slot="options"]) {
+  list-style: none;
+  margin-block-start: units.$u1;
+  padding-inline-start: 0;
+
+  li + li {
+    margin-block-start: units.$u1;
   }
 }
