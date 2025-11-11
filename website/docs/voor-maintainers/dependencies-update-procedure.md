@@ -15,10 +15,6 @@ kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de do
 `@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
 intellisense/code-completion is in de IDE.
 
-### `@whitespace-storybook-addon-html-npm-5.1.6.patch`
-
-🚧 Documentatie volgt 🚧
-
 ## TypeScript-versiebeleid
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
