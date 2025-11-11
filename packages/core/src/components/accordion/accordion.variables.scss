@@ -1,5 +1,5 @@
-@use "../../variables/colors";
-@use "../../variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
 
 $default-border-color: colors.$mauve;
 $default-color: colors.$mauve;

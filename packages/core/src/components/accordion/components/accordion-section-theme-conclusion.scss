@@ -1,19 +1,20 @@
 @use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/components/accordion";
+
+@use "../accordion.variables" as accordion-variables;
 
 @mixin dso-web-component-accordion-conclusion() {
   .dso-section-handle {
-    background-color: accordion.$conclusion-bgcolor;
-    border: 1px solid accordion.$conclusion-border-color;
+    background-color: accordion-variables.$conclusion-bgcolor;
+    border: 1px solid accordion-variables.$conclusion-border-color;
 
     a,
     button {
-      color: accordion.$conclusion-color;
+      color: accordion-variables.$conclusion-color;
 
       &:hover,
       &:active,
       &.active {
-        background-color: accordion.$conclusion-hover-bgcolor;
+        background-color: accordion-variables.$conclusion-hover-bgcolor;
       }
 
       dso-attachments-counter {
@@ -24,16 +25,16 @@
   }
 
   .dso-section-body {
-    border: 2px solid accordion.$conclusion-border-color;
+    border: 2px solid accordion-variables.$conclusion-border-color;
   }
 }
 
 @mixin dso-web-component-accordion-conclusion-open() {
   > .dso-section-handle {
-    background-color: accordion.$conclusion-nested-handle-bgcolor;
+    background-color: accordion-variables.$conclusion-nested-handle-bgcolor;
   }
 }
 
 @mixin dso-web-component-accordion-conclusion-open-nested() {
-  background-color: accordion.$conclusion-nested-body-bgcolor;
+  background-color: accordion-variables.$conclusion-nested-body-bgcolor;
 }

@@ -27,6 +27,13 @@
   }
 }
 
+dso-accordion {
+  .dso-rich-content + dso-accordion,
+  dso-accordion + .dso-rich-content {
+    margin-block-start: units.$u2;
+  }
+}
+
 // TEMP fix for excessive whitespace within the accordion rich content
 // To do: a more permanent solution for vertical rhythm!
 .dso-accordion-section {
@@ -47,6 +54,16 @@
         margin-block-end: 0;
       }
     }
+  }
+}
+
+dso-accordion-section {
+  *:first-child:not(.dso-info) {
+    margin-block-start: 0;
+  }
+
+  > *:last-child:not(.dso-info) {
+    margin-block-end: 0;
   }
 }
 

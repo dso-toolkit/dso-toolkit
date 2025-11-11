@@ -1,22 +1,23 @@
 @use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/components/accordion";
+
+@use "../accordion.variables" as accordion-variables;
 
 @mixin dso-web-component-accordion-default {
-  border: 1px solid accordion.$default-border-color;
-  border-radius: accordion.$border-radius;
+  border: 1px solid accordion-variables.$default-border-color;
+  border-radius: accordion-variables.$border-radius;
 
   .dso-section-handle {
     background-color: colors.$wit;
-    border-radius: accordion.$border-radius;
+    border-radius: accordion-variables.$border-radius;
 
     a,
     button {
-      color: accordion.$default-color;
+      color: accordion-variables.$default-color;
 
       &:hover,
       &:active,
       &.active {
-        color: accordion.$default-color;
+        color: accordion-variables.$default-color;
       }
     }
 
@@ -26,13 +27,13 @@
   }
 
   .dso-section-body {
-    border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
+    border-radius: 0 0 accordion-variables.$border-radius accordion-variables.$border-radius;
   }
 }
 
 @mixin dso-web-component-accordion-default-open {
   > .dso-section-handle {
-    background-color: accordion.$default-nested-handle-bgcolor;
+    background-color: accordion-variables.$default-nested-handle-bgcolor;
     border-radius: 0;
 
     a,
@@ -49,6 +50,6 @@
 
 @mixin dso-web-component-accordion-default-open-nested {
   .dso-section-body {
-    background-color: accordion.$default-nested-body-bgcolor;
+    background-color: accordion-variables.$default-nested-body-bgcolor;
   }
 }
