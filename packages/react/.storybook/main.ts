@@ -1,7 +1,7 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
+import { readdirSync } from "fs";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
-import { readdirSync } from "fs";
 import { dirname, parse, resolve } from "path";
 
 import { StorybookConfig } from "@storybook/react-vite";
@@ -37,7 +37,7 @@ const config: StorybookConfig = {
       VITE_ICONS: icons.join(","),
     };
   },
-  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
+  addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   stories: ["../src/**/*.stories.tsx"],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
@@ -56,14 +56,10 @@ const config: StorybookConfig = {
     });
   },
   core: {
-    builder: getAbsolutePath("@storybook/builder-vite"),
+    builder: "@storybook/builder-vite",
     disableTelemetry: true,
   },
-  framework: getAbsolutePath("@storybook/react-vite"),
+  framework: "@storybook/react-vite",
 };
 
 export default config;
-
-function getAbsolutePath(value: string): any {
-  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
-}
