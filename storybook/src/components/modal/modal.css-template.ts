@@ -17,7 +17,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
         closable = true;
       }
 
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-modal> -->
         <dialog
           class="dso-modal ${classMap({ "dso-fullscreen": !!fullscreen })}"
           role=${role}
@@ -43,6 +43,6 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
         </dialog>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };
