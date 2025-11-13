@@ -18,7 +18,7 @@ import { decorator } from "./modal.decorator";
 
 const meta: Meta<ModalArgs> = {
   ...modalMeta({ readme }),
-  title: "HTML|CSS/Modal",
+  title: "HTML|CSS/Modal (Deprecated)",
 };
 
 export default meta;

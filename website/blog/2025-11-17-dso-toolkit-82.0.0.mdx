@@ -9,6 +9,10 @@ Deze release bevat **BREAKING** changes voor de volgende componenten:
 - Selectable (HTML/CSS implementatie)
 - Accordion (HTML/CSS implementatie)
 
+Deze release bevat een **deprecation** voor het volgende component:
+
+- Modal (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Selectable (HTML/CSS implementatie)
@@ -108,4 +112,67 @@ Gebruik de Core implementatie van Accordion.
     </p>
   </dso-accordion-section>
 </dso-accordion>
+```
+
+## Modal (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Modal` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Modal.
+
+```html
+❌
+<dialog aria-modal="true" class="dso-modal" role="alertdialog" aria-labelledby="c7934734-e6aa-4d9c-a76c-32dde50fe078">
+  <div class="dso-dialog" role="document">
+    <div class="dso-header">
+      <h2 id="c7934734-e6aa-4d9c-a76c-32dde50fe078">Verwijderen werkzaamheid</h2>
+      <button type="button" class="dso-close">
+        <span class="sr-only">Sluiten</span>
+      </button>
+    </div>
+    <dso-scrollable>
+      <div class="dso-body" tabindex="0">
+        <p>
+          U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden
+          op de vragen worden dan ook verwijderd. Wilt u doorgaan?
+        </p>
+      </div>
+    </dso-scrollable>
+    <div class="dso-footer">
+      <button type="button" class="dso-tertiary">
+        <span>Annuleren</span>
+      </button>
+      <button type="button" class="dso-secondary">
+        <span>Secundaire actie</span>
+      </button>
+      <button type="button" class="dso-primary">
+        <span>Bevestigen</span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+✅
+<dso-modal dialog-role="alertdialog" modal-title="Verwijderen werkzaamheid" closable="">
+  <div slot="body">
+    <p>
+      U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op
+      de vragen worden dan ook verwijderd. Wilt u doorgaan?
+    </p>
+  </div>
+  <div slot="footer">
+    <button type="button" class="dso-tertiary">
+      <span>Annuleren</span>
+    </button>
+    <button type="button" class="dso-secondary">
+      <span>Secundaire actie</span>
+    </button>
+    <button type="button" class="dso-primary">
+      <span>Bevestigen</span>
+    </button>
+  </div>
+</dso-modal>
 ```

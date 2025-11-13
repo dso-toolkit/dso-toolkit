@@ -2,7 +2,11 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Modal
 
-<StorybookComponent variant="confirm" />
+<StorybookComponent variant="confirm" implementations={["core", "react", "angular"]} />
+
+De HTML/CSS implementatie is **Deprecated**.
+
+<StorybookComponent variant="confirm" name="modal-deprecated" implementations={["html-css"]} />
 
 Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt wanneer de gebruiker zijn aandacht moet richten op belangrijke informatie. Bijvoorbeeld een modal met een waarschuwing om te voorkomen dat gebruikers per ongeluk een destructieve actie uitvoeren zonder dat ze het resultaat begrijpen.
 
