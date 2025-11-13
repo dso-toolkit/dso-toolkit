@@ -1,10 +1,9 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { createRequire } from "node:module";
-import { fileURLToPath } from "node:url";
 import { readdirSync } from "fs";
+import { createRequire } from "node:module";
 import { dirname, parse, resolve } from "path";
 
-import { StorybookConfig } from "@storybook/angular";
+import type { StorybookConfig } from "@storybook/angular";
 
 const require = createRequire(import.meta.url);
 
@@ -39,12 +38,12 @@ const config: StorybookConfig = {
   stories: ["../components/*/*.stories.ts"],
   addons: [
     {
-      name: getAbsolutePath("@storybook/addon-docs"),
+      name: "@storybook/addon-docs",
       options: {
         transcludeMarkdown: true,
       },
     },
-    getAbsolutePath("@storybook/addon-a11y"),
+    "@storybook/addon-a11y",
   ],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
@@ -60,14 +59,10 @@ const config: StorybookConfig = {
 
     return config;
   },
-  framework: getAbsolutePath("@storybook/angular"),
+  framework: "@storybook/angular",
   core: {
     disableTelemetry: true,
   },
 };
 
 export default config;
-
-function getAbsolutePath(value: string): any {
-  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
-}
