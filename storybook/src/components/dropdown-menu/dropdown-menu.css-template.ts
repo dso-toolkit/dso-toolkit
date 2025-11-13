@@ -10,7 +10,7 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
   implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function dropdownMenuTemplate({ id, button, dropdownAlign, groups, isCheckable }) {
-      return html`
+      return html`<!-- START DEPRECATED: use <dso-dropdown-menu> -->
         <div
           class="dso-dropdown-menu dso-open ${classMap({
             [`dso-dropdown-align-${dropdownAlign}`]: dropdownAlign === "right",
@@ -54,6 +54,6 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
             )}
           </div>
         </div>
-      `;
+        <!-- END DEPRECATED -->`;
     },
 };

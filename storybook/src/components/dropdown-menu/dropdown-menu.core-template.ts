@@ -12,10 +12,10 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
       return html`
         <dso-dropdown-menu dropdown-align=${ifDefined(dropdownAlign)} ?checkable=${isCheckable}>
           ${buttonTemplate({ label: button.label, type: "button", variant: button.variant, id, slot: "toggle" })}
-          <div class="dso-dropdown-options">
+          <div class="dso-dropdown-options" aria-labelledby=${id}>
             ${groups.map(
               (group) => html`
-                <ul aria-labelledby=${group.id}>
+                <ul aria-labelledby=${ifDefined(group.id)}>
                   ${group.header ? html`<li id=${group.id} class="dso-group-label">${group.header}</li>` : nothing}
                   ${group.items.map(
                     (item) => html`
