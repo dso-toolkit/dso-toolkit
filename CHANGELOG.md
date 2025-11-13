@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Modal: Deprecate HTML/CSS implementatie ([#3319](https://github.com/dso-toolkit/dso-toolkit/issues/3319))
 
+### Docs
+* DSO Toolkit Documentatie: Design Principes toevoegen aan documentatie Design System ([#3251](https://github.com/dso-toolkit/dso-toolkit/issues/3251))
+
 ### Removed
 * **BREAKING** Selectable: Remove HTML/CSS implementatie ([#3204](https://github.com/dso-toolkit/dso-toolkit/issues/3204))
 * **BREAKING** Accordion: Remove HTML/CSS implementatie ([#3267](https://github.com/dso-toolkit/dso-toolkit/issues/3267))
