@@ -3,7 +3,6 @@ import { DatePickerArgs, datePickerMeta, datePickerStories } from "dso-toolkit";
 
 import { DsoDatePicker } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
-import { isStoryFnAngularReturnTypeTemplate } from "../helpers";
 
 import { datePickerWithLabelTemplate } from "./date-picker.content";
 import readme from "./readme.md?raw";
@@ -32,11 +31,10 @@ const { Default, MonthRange, WithLabel, WithValue, WithMinAndMax, NarrowInput, D
   },
   decorator: (story) => {
     const s = story();
-    if (!isStoryFnAngularReturnTypeTemplate(s)) {
-      throw new Error("Expected a valid Angular template");
-    }
-
-    return { template: `<div style="width: 175px;">${s.template}</div>` };
+    return {
+      template: `<div style="width: 175px;">${s.template}</div>`,
+      props: s.props,
+    };
   },
 });
 

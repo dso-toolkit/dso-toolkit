@@ -1,7 +1,7 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import { Selectable } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
+import { AngularStoryReturn } from "../helpers";
 
 const defaultPropValues = {
   type: "type",
@@ -21,7 +21,7 @@ const defaultPropValues = {
   dsoChange: "dsoChange?.($event.detail)",
 };
 
-export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngularReturnType>> = {
+export const angularSelectable: ComponentImplementation<Selectable<AngularStoryReturn>> = {
   component: "selectable",
   implementation: "angular",
   template: () =>

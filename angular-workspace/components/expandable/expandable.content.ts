@@ -1,6 +1,6 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import { AngularStoryReturn } from "../helpers";
 
-export const expandableContent: StoryFnAngularReturnType = {
+export const expandableContent: AngularStoryReturn = {
   template: `
     <div class="dso-rich-content">
       <h3>Expandable</h3>
