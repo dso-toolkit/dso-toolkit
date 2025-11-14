@@ -52,6 +52,7 @@ Type: `Promise<void>`
  - [dso-modal](../modal)
  - [dso-onboarding-tip](../onboarding-tip)
  - [dso-panel](../panel)
+ - [dso-table](../table)
 
 ### Depends on
 
@@ -73,6 +74,7 @@ graph TD;
   dso-modal --> dso-icon-button
   dso-onboarding-tip --> dso-icon-button
   dso-panel --> dso-icon-button
+  dso-table --> dso-icon-button
   style dso-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
