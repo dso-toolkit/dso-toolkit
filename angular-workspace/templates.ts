@@ -1,4 +1,3 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import {
   ActionList,
   Alert,
@@ -34,6 +33,7 @@ import { angularDatePicker } from "./components/date-picker/date-picker.angular-
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
+import { AngularStoryReturn } from "./components/helpers";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
 import { angularIcon } from "./components/icon/icon.angular-template";
 import { angularImageOverlay } from "./components/image-overlay/image-overlay.angular-template";
@@ -50,67 +50,59 @@ import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angul
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
-  actionList: ActionList<StoryFnAngularReturnType>;
-  alert: Alert<StoryFnAngularReturnType>;
-  // autosuggest: Autosuggest<StoryFnAngularReturnType>;
+  actionList: ActionList<AngularStoryReturn>;
+  alert: Alert<AngularStoryReturn>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
-  // card: Card<StoryFnAngularReturnType>;
-  // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
-  expandable: Expandable<StoryFnAngularReturnType>;
+  expandable: Expandable<AngularStoryReturn>;
   header: Header;
-  highlightBox: HighlightBox<StoryFnAngularReturnType>;
+  highlightBox: HighlightBox<AngularStoryReturn>;
   icon: Icon;
   imageOverlay: ImageOverlay;
-  info: Info<StoryFnAngularReturnType>;
+  info: Info<AngularStoryReturn>;
   infoButton: InfoButton;
-  // label: Label;
   listButton: ListButton;
-  modal: Modal<StoryFnAngularReturnType>;
+  modal: Modal<AngularStoryReturn>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressIndicator: ProgressIndicator;
-  // responsiveElement: ResponsiveElement<StoryFnAngularReturnType>;
-  scrollable: Scrollable<StoryFnAngularReturnType>;
-  selectable: Selectable<StoryFnAngularReturnType>;
+  scrollable: Scrollable<AngularStoryReturn>;
+  selectable: Selectable<AngularStoryReturn>;
   slideToggle: SlideToggle;
-  // table: Table<StoryFnAngularReturnType>;
-  toggletip: Toggletip<StoryFnAngularReturnType>;
-  // tooltip: Tooltip;
-  // treeView: TreeView;
-  // viewerGrid: ViewerGrid<StoryFnAngularReturnType>;
+  toggletip: Toggletip<AngularStoryReturn>;
 }
 
 export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
 export type PropValues<Model> = { [P in keyof Partial<Model>]: string };
 
-export interface AngularTemplateFunction<Model, TemplateFnReturnType> {
-  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): TemplateFnReturnType;
-}
-
-export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
-  [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P], TemplateFnReturnType>;
-};
-
 export type SlottableTemplate = {
   slotName?: string;
 };
 
-export type Templates = ComponentsToTemplates<Components, StoryFnAngularReturnType>;
+export interface AngularTemplateFunction<Model> {
+  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): AngularStoryReturn<Model>;
+}
+export type ComponentsToTemplates<Components> = {
+  [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P]>;
+};
+
+export type Templates = ComponentsToTemplates<Components>;
+
 export type ComponentImplementation<Model> = BaseComponentImplementation<
   Model & SlottableTemplate,
   Implementation,
   Templates,
-  StoryFnAngularReturnType,
-  AngularTemplateFunction<Model, StoryFnAngularReturnType>
+  AngularStoryReturn<Model>,
+  AngularTemplateFunction<Model>
 >;
 
 type Implementation = "angular";
 
-export const templateContainer = new TemplateContainer<Implementation, Templates, StoryFnAngularReturnType>();
+export const templateContainer = new TemplateContainer<Implementation, Templates, AngularStoryReturn>();
 
+// Voeg component implementaties toe
 templateContainer.add(angularActionList);
 templateContainer.add(angularAlert);
 templateContainer.add(angularAttachmentsCounter);

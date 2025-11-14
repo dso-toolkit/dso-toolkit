@@ -1,7 +1,12 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+export interface NgModuleLikeMetadata {
+  imports?: ReadonlyArray<unknown>;
+  declarations?: ReadonlyArray<unknown>;
+  providers?: ReadonlyArray<unknown>;
+  schemas?: ReadonlyArray<unknown>;
+}
 
-export function isStoryFnAngularReturnTypeTemplate(
-  story: unknown,
-): story is Pick<StoryFnAngularReturnType, "props" | "template"> {
-  return !!story && typeof story === "object" && ("template" in story || "props" in story);
+export interface AngularStoryReturn<Props = unknown> {
+  template: string;
+  props?: Props;
+  moduleMetadata?: NgModuleLikeMetadata;
 }

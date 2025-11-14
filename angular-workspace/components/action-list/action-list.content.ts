@@ -1,7 +1,10 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
 import { ActionListItem } from "dso-toolkit";
 
-const item1: ActionListItem<StoryFnAngularReturnType> = {
+import { AngularStoryReturn } from "../helpers";
+
+type StorybookActionListItem = ActionListItem<AngularStoryReturn>;
+
+const item1: StorybookActionListItem = {
   flowLine: true,
   content: {
     template: `
@@ -12,7 +15,7 @@ const item1: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-const item2: ActionListItem<StoryFnAngularReturnType> = {
+const item2: StorybookActionListItem = {
   title: "Neem contact op met het waterschap en de gemeente",
   flowLine: true,
   content: {
@@ -59,7 +62,7 @@ const item2: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-const item3: ActionListItem<StoryFnAngularReturnType> = {
+const item3: ActionListItem<AngularStoryReturn> = {
   title: "Vergunningen aanvragen",
   flowLine: true,
   content: {
@@ -81,7 +84,7 @@ const item3: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-const item4: ActionListItem<StoryFnAngularReturnType> = {
+const item4: ActionListItem<AngularStoryReturn> = {
   title: "Meldingen en informatie voorbereiden",
   flowLine: true,
   content: {
@@ -123,7 +126,7 @@ const item4: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
+function item5(flowLine = true): ActionListItem<AngularStoryReturn> {
   return {
     title: "Om rekening mee te houden",
     flowLine,
@@ -153,11 +156,11 @@ function item5(flowLine = true): ActionListItem<StoryFnAngularReturnType> {
   };
 }
 
-const item6: ActionListItem<StoryFnAngularReturnType> = {
+const item6: ActionListItem<AngularStoryReturn> = {
   title: "Start de werkzaamheden",
 };
 
-const warning: ActionListItem<StoryFnAngularReturnType> = {
+const warning: ActionListItem<AngularStoryReturn> = {
   title: "Let op",
   warning: true,
   content: {
@@ -172,9 +175,9 @@ const warning: ActionListItem<StoryFnAngularReturnType> = {
   },
 };
 
-export const actionListItems: ActionListItem<StoryFnAngularReturnType>[] = [item1, item2, item3, item4, item5(), item6];
+export const actionListItems: ActionListItem<AngularStoryReturn>[] = [item1, item2, item3, item4, item5(), item6];
 
-export const actionListWithWarningItems: ActionListItem<StoryFnAngularReturnType>[] = [
+export const actionListWithWarningItems: ActionListItem<AngularStoryReturn>[] = [
   item1,
   item2,
   item3,

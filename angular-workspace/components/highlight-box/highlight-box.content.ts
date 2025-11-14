@@ -1,6 +1,6 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import { AngularStoryReturn } from "../helpers";
 
-export function content(): StoryFnAngularReturnType {
+export function content(): AngularStoryReturn {
   return {
     template: `
       <div class="dso-rich-content">
