@@ -180,12 +180,6 @@
     "type": "html-css"
   },
   {
-    "name": "document-list-deprecated",
-    "selector": ".dso-document-list",
-    "stories": ["default", "sticky"],
-    "type": "html-css"
-  },
-  {
     "name": "footer",
     "type": "html-css",
     "stories": ["footer"],
