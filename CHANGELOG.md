@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* History Item: Nieuwe variant 'Tijdelijk Regelingdeel Besluit' ([#3378](https://github.com/dso-toolkit/dso-toolkit/issues/3378))
+
 ### Deprecated
 * Modal: Deprecate HTML/CSS implementatie ([#3319](https://github.com/dso-toolkit/dso-toolkit/issues/3319))
 

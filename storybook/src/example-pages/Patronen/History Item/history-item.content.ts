@@ -66,6 +66,13 @@ export const historyItemsInWerking: HistoryItem[] = [
     href: "#",
   },
   {
+    date: "12-07-2025",
+    statusMessage: "Tijdelijk regelingdeel besluit gepubliceerd:",
+    type: "tijdelijk-regelingdeel-besluit",
+    title: 'Besluit "Voorbeschermingsregels hyperscale datacentra"',
+    href: "#",
+  },
+  {
     date: "10-07-2025",
     statusMessage: "Nieuwe versie in werking:",
     type: "in-werking",

@@ -39,7 +39,14 @@ export const historyItemArgTypes: ArgTypes<HistoryItemArgs> = {
     },
   },
   type: {
-    options: ["in-werking", "besluit", "tijdelijk-regelingdeel", "waarschuwing", "ontwerp"],
+    options: [
+      "in-werking",
+      "besluit",
+      "tijdelijk-regelingdeel",
+      "tijdelijk-regelingdeel-besluit",
+      "waarschuwing",
+      "ontwerp",
+    ],
     control: {
       type: "select",
     },

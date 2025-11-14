@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property            | Attribute | Description                                                                                             | Type                                                                                   | Default     |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------- |
-| `href`              | `href`    | The optional URL to which the History Item title links. Needs to be provided when slot `title` is used. | `string \| undefined`                                                                  | `undefined` |
-| `type` _(required)_ | `type`    | The type of History Item                                                                                | `"besluit" \| "in-werking" \| "ontwerp" \| "tijdelijk-regelingdeel" \| "waarschuwing"` | `undefined` |
+| Property            | Attribute | Description                                                                                             | Type                                                                                                                       | Default     |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `href`              | `href`    | The optional URL to which the History Item title links. Needs to be provided when slot `title` is used. | `string \| undefined`                                                                                                      | `undefined` |
+| `type` _(required)_ | `type`    | The type of History Item                                                                                | `"besluit" \| "in-werking" \| "ontwerp" \| "tijdelijk-regelingdeel" \| "tijdelijk-regelingdeel-besluit" \| "waarschuwing"` | `undefined` |
 
 
 ## Events
