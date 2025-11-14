@@ -81,7 +81,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
   render(node: Element, { mapNodeToJsx, urlResolver }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
-    const titel = childNodes.find((n) => getNodeName(n) === "Titel")?.textContent;
+    const titel = childNodes.find((n) => getNodeName(n) === "Titel");
     const bron = childNodes.find((n) => getNodeName(n) === "Bron");
 
     const illustratieNode = childNodes.find((n) => getNodeName(n) === "Illustratie");
@@ -107,17 +107,17 @@ export class OzonContentFiguurNode implements OzonContentNode {
           class={`dso-ozon-figuur ${bijschrift ? `bijschrift-${bijschrift.locatie}` : "onder"}`}
           style={this.getStyle(illustratie)}
         >
-          {titel && <span class="figuur-titel">{titel}</span>}
+          {titel && <span class="figuur-titel">{mapNodeToJsx(titel)}</span>}
           {bijschrift?.locatie === "boven" && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
           <dso-image-overlay wijzigactie={wijzigactie}>
             {titel && (
               <div slot="titel">
-                <span>{titel}</span>
+                <span>{mapNodeToJsx(titel)}</span>
               </div>
             )}
-            <img src={src ?? undefined} alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined} />
+            <img src={src ?? undefined} alt={illustratie.alt ?? titel?.textContent ?? illustratie.naam ?? undefined} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
                 <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
