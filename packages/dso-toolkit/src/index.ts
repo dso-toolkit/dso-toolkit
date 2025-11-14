@@ -63,8 +63,6 @@ export * from "./components/document-component";
 
 export * from "./components/document-header";
 
-export * from "./components/document-list";
-
 export * from "./components/dropdown-menu";
 
 export * from "./components/expandable";
