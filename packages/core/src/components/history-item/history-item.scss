@@ -24,6 +24,12 @@
   }
 }
 
+:host([type="tijdelijk-regelingdeel-besluit"]) {
+  .history-item-status-message {
+    color: history-item-variables.$tijdelijke-regeldingdeel-besluit-color;
+  }
+}
+
 :host([type="waarschuwing"]) {
   .history-item-status-message {
     color: history-item-variables.$waarschuwing-color;
