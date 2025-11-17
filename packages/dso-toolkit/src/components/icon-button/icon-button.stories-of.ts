@@ -59,7 +59,7 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
       argTypes: iconButtonArgTypes(icons),
       render,
       parameters: {
-        layout: "fullscreen",
+        layout: "centered",
       },
     },
     Tertiary: {
@@ -69,7 +69,7 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
       },
       render,
       parameters: {
-        layout: "fullscreen",
+        layout: "centered",
       },
     },
     Map: {
@@ -79,7 +79,7 @@ export function iconButtonStories<Implementation, Templates, TemplateFnReturnTyp
       },
       render,
       parameters: {
-        layout: "fullscreen",
+        layout: "centered",
       },
     },
   };
