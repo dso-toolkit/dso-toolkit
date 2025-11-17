@@ -27,7 +27,7 @@
     "@storybook/addon-a11y": "10.0.6",
     "@storybook/addon-docs": "10.0.6",
     "@storybook/angular": "10.0.6",
-    "@types/jasmine": "^5.1.8",
+    "@types/jasmine": "^5.1.13",
     "@types/lodash.startcase": "^4.4.9",
     "dso-toolkit": "workspace:^",
     "eslint": "^9.27.0",
