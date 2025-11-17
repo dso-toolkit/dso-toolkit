@@ -31,6 +31,7 @@ export class HistoryItem implements ComponentInterface {
     ontwerp: "pencil",
     "in-werking": "document",
     "tijdelijk-regelingdeel": "document",
+    "tijdelijk-regelingdeel-besluit": "hammer",
     waarschuwing: "status-warning-inline",
     besluit: "hammer",
   };
