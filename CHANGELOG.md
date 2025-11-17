@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🍔 Release 82.0.0 - 2025-11-17
+
 ### Added
 * History Item: Nieuwe variant 'Tijdelijk Regelingdeel Besluit' ([#3378](https://github.com/dso-toolkit/dso-toolkit/issues/3378))
 * Ozon Content: `figuur-titel` markeerbaar maken ([#3418](https://github.com/dso-toolkit/dso-toolkit/issues/3418))
