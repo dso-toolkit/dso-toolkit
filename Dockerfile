@@ -22,17 +22,12 @@ RUN apt-get update && apt-get install --yes \
   libxtst6 \
   lsb-release
 
-# https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions
-RUN mkdir -p /etc/apt/keyrings \
-  && curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg \
-  && chmod go+r /etc/apt/keyrings/microsoft.gpg \
-  && AZ_DIST=$(lsb_release -cs) \
-  && echo "Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg" | tee /etc/apt/sources.list.d/azure-cli.sources \
-  && apt-get update \
-  && apt-get install azure-cli=2.75.0-1~${AZ_DIST}
+# Azure CLI install
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-# https://github.com/Azure/azure-cli/issues/30635#issuecomment-2581362583
-RUN curl -L https://azcopyvnext-awgzd8g7aagqhzhe.b02.azurefd.net/releases/release-10.29.1-20250515/azcopy_linux_amd64_10.29.1.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
+# AzCopy install
+RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.31.0/azcopy_linux_amd64_10.31.0.tar.gz \
+  | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 
