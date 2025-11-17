@@ -63,7 +63,7 @@
     "storybook": "10.0.7",
     "stylelint": "^16.19.1",
     "through2": "^4.0.2",
-    "typescript": "~5.8.3",
+    "typescript": "~5.9.3",
     "uuid": "^11.1.0",
     "vinyl-sourcemaps-apply": "^0.2.1"
   },
