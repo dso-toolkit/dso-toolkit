@@ -33,7 +33,7 @@
   }
 }
 
-:host .dso-modal {
+:host .dso-dialog {
   inset: 0px;
   block-size: 100%;
   position: fixed;
@@ -104,14 +104,6 @@
 
 .sr-only {
   @include utilities.sr-only();
-}
-
-::backdrop {
-  background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
-  display: block;
-  position: fixed;
-  inset: 0;
-  z-index: zindex.$modal-background-overlay;
 }
 
 .dso-table-placeholder {

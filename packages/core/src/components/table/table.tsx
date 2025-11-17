@@ -1,54 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Fragment,
-  FunctionalComponent,
-  Host,
-  Prop,
-  State,
-  Watch,
-  h,
-} from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, Watch, h } from "@stencil/core";
 import debounce from "debounce";
-import { v4 } from "uuid";
-
-interface TableDialogProps {
-  caption: string | undefined;
-  dsoCloseDialog: () => void;
-  ref: ((element: HTMLDialogElement | undefined) => void) | undefined;
-}
-
-const TableDialog: FunctionalComponent<TableDialogProps> = ({ caption, dsoCloseDialog, ref }) => {
-  const labelledbyId = v4();
-
-  return (
-    <dialog
-      class="dso-dialog dso-table-dialog"
-      ref={ref}
-      aria-labelledby={labelledbyId}
-      onCancel={(e) => {
-        e.preventDefault();
-
-        dsoCloseDialog();
-      }}
-    >
-      <div class="dso-header">
-        <h2 id={labelledbyId} class={{ "sr-only": !caption }}>
-          {caption || "Uitvergrote tabel dialoog"}
-        </h2>
-        <dso-icon-button
-          class="dialog-close-button"
-          icon="times"
-          variant="tertiary"
-          label="Sluiten"
-          onDsoClick={dsoCloseDialog}
-        />
-      </div>
-      <div class="dso-body dso-table-body"></div>
-    </dialog>
-  );
-};
 
 @Component({
   tag: "dso-table",
@@ -57,8 +8,6 @@ const TableDialog: FunctionalComponent<TableDialogProps> = ({ caption, dsoCloseD
 })
 export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
-
-  private dialogElement?: HTMLDialogElement;
 
   @Element()
   host!: HTMLDsoTableElement;
@@ -78,15 +27,6 @@ export class Table implements ComponentInterface {
   @State()
   placeholderHeight?: number;
 
-  @Watch("modalActive")
-  modalActiveWatcher(active: boolean) {
-    if (active) {
-      this.dialogElement?.showModal();
-    } else {
-      this.dialogElement?.close();
-    }
-  }
-
   private startResponsiveBehavior(): void {
     this.resizeObserver?.observe(this.host);
   }
@@ -97,13 +37,7 @@ export class Table implements ComponentInterface {
 
   componentDidLoad(): void {
     this.startResponsiveBehavior();
-
-    if (this.modalActive) {
-      this.dialogElement?.showModal();
-    }
   }
-
-  componentDidRender() {}
 
   disconnectedCallback() {
     this.resizeObserver?.disconnect();
@@ -114,7 +48,7 @@ export class Table implements ComponentInterface {
     const table: HTMLTableElement | null = this.host.querySelector(":scope > table");
 
     if (table && this.modalActive) {
-      this.dialogElement?.querySelector(".dso-table-body")?.appendChild(table);
+      this.host.querySelector("dso-modal *[slot='body']")?.appendChild(table);
     }
 
     return (
@@ -123,11 +57,17 @@ export class Table implements ComponentInterface {
           <div class="dso-table-placeholder" style={{ height: `${this.placeholderHeight}px` }} />
         )}
 
-        <TableDialog
-          caption={caption}
-          dsoCloseDialog={() => this.closeModal()}
-          ref={(element) => (this.dialogElement = element)}
-        />
+        {this.modalActive && (
+          <dso-modal
+            closable
+            dialog-role="dialog"
+            fullscreen
+            modal-title={caption || "Uitvergrote tabel dialoog"}
+            onDsoClose={() => this.closeModal()}
+          >
+            <div slot="body" innerHTML={table?.outerHTML}></div>
+          </dso-modal>
+        )}
 
         {!this.modalActive && (
           <Fragment>
