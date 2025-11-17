@@ -31,7 +31,7 @@ a {
 
   border-radius: units.$focus-border-radius;
 
-  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
 
   color: var(--link-color);
   // stylelint-disable-next-line declaration-property-value-disallowed-list -- prevent wrapping
@@ -47,7 +47,7 @@ a {
 
     padding: units.$u1;
 
-    clip: auto;
+    clip-path: none;
 
     white-space: normal;
 

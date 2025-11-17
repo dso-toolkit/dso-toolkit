@@ -29,7 +29,11 @@ export const reactContactInformation: ComponentImplementation<ContactInformation
             </ul>
           )}
           {infoItems && infoItems.length > 0 && (
-            <ul slot="info-items">{infoItems?.map((infoItem, i) => <li key={i}>{infoItem}</li>)}</ul>
+            <ul slot="info-items">
+              {infoItems?.map((infoItem, i) => (
+                <li key={i}>{infoItem}</li>
+              ))}
+            </ul>
           )}
         </DsoContactInformation>
       );

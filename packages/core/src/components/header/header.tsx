@@ -12,7 +12,7 @@ import {
   forceUpdate,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";

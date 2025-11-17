@@ -17,5 +17,5 @@ pre {
   margin-inline: 0;
   padding: ((typography.$line-height-computed - 1) * 0.5);
   word-break: break-all;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }

@@ -9,7 +9,7 @@ import {
   forceUpdate,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 

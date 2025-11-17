@@ -11,7 +11,7 @@ import {
   State,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { tabbable } from "tabbable";
 
@@ -143,7 +143,7 @@ export class AdvancedSelect implements ComponentInterface {
 
   render() {
     return (
-      <>
+      <Fragment>
         <button
           aria-expanded={this.open.toString()}
           class={clsx(["active-option", { open: this.open }])}
@@ -224,7 +224,7 @@ export class AdvancedSelect implements ComponentInterface {
             </ul>
           </div>
         )}
-      </>
+      </Fragment>
     );
   }
 }

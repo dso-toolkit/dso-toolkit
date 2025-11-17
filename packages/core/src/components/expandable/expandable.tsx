@@ -11,7 +11,7 @@ import {
   Watch,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 export interface ExpandableAnimationStartEvent {
   currentOpen: boolean;

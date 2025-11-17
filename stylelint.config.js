@@ -16,6 +16,7 @@ module.exports = {
       "white-space": ["nowrap"],
     },
     "liberty/use-logical-spec": "always",
+    "no-invalid-position-declaration": null,
   },
   overrides: [
     {

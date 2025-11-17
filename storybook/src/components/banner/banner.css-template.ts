@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { Banner } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 

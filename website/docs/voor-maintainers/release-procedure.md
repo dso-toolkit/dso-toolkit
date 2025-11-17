@@ -17,7 +17,6 @@ Dit is de release procedure:
 3.  Voer het commando `yarn release --version 67.0.0 --emoji 😍` uit:
 
     Toelichting:
-
     - In `CHANGELOG.md` voegt dit script bovenin onder `## Next` een kop toe met daarin de emoji van de release, het
       versienummer en de datum van de release:
 

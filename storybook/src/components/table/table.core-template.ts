@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { Table, TableSorting } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";

@@ -1,6 +1,6 @@
 import { FunctionalComponent } from "@stencil/core";
 import { h } from "@stencil/core/internal";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { WrapWijzigactie } from "../../functional-components/wrap-wijzigactie.functional-component";
 import { wijzigactieToClassName } from "../../functions/wijzigactie-to-class-name.function";

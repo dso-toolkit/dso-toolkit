@@ -10,7 +10,7 @@ import {
   forceUpdate,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
