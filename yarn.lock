@@ -3881,8 +3881,8 @@ __metadata:
     "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch"
     "@stencil/core": "npm:4.36.1"
     "@stencil/react-output-target": "npm:^1.2.0"
-    "@stencil/sass": "npm:^3.2.2"
-    "@stencil/store": "npm:^2.2.0"
+    "@stencil/sass": "npm:^3.2.3"
+    "@stencil/store": "npm:^2.2.1"
     "@types/debounce": "npm:^1.2.4"
     "@types/lodash.kebabcase": "npm:^4.1.9"
     "@types/lodash.random": "npm:^3.2.9"
@@ -6816,23 +6816,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/sass@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "@stencil/sass@npm:3.2.2"
+"@stencil/sass@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "@stencil/sass@npm:3.2.3"
   dependencies:
     sass-embedded: "npm:^1.89.2"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0"
-  checksum: 10/5ecb92a98388a118f20f5cc5196a19f45fa4f5087d0009a21faaf687dc6224f686acdd37e36a829cb85b76c9854f645b7339a3a624f0cac1696b5007a96532f5
+  checksum: 10/8656c532c056a043e3ef033ef1e8439675c95544634e0057b44c0e204685197edfb822289cc589ba37bf165bd370c11d996c482b32039b6add27152eb3090009
   languageName: node
   linkType: hard
 
-"@stencil/store@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@stencil/store@npm:2.2.0"
+"@stencil/store@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@stencil/store@npm:2.2.1"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3.0.0 || >= 4.0.0-beta.0 || >= 4.0.0"
-  checksum: 10/dbd7d9ee489e0732987da841e414a2f8d3b69928d3e2548a32426513ac213f8adb9970aced538e4c7eef6d2620133d51b531ed448d69494c5d46249e1a289794
+  checksum: 10/7fc1dcd34dbfc9305a4ae7761326c8d4484e4ae6a965a434d2c4fcb57e5d9eaf516920d2e02b9ab26f77b3d9d5ddfc084b8c888e38f6a7e0be93e1974a1aa926
   languageName: node
   linkType: hard
 
