@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@dso-toolkit/core": "workspace:^",
-    "@iframe-resizer/child": "^5.4.6",
+    "@iframe-resizer/child": "^5.5.7",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@storybook/addon-a11y": "10.0.8",
     "@storybook/addon-docs": "10.0.8",
@@ -32,7 +32,7 @@
     "lodash.startcase": "^4.4.0",
     "start-server-and-test": "^2.1.2",
     "storybook": "10.0.8",
-    "tsx": "^4.20.3",
+    "tsx": "^4.20.6",
     "typescript": "~5.9.3",
     "vite": "^7.2.2"
   },

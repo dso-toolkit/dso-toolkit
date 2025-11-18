@@ -20,10 +20,10 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/theme-common": "3.9.2",
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
-    "@iframe-resizer/react": "^5.4.6",
-    "@mdx-js/react": "^3.1.0",
-    "@tsconfig/docusaurus": "^2.0.3",
-    "@types/react": "^18.3.26",
+    "@iframe-resizer/react": "^5.5.7",
+    "@mdx-js/react": "^3.1.1",
+    "@tsconfig/docusaurus": "^2.0.7",
+    "@types/react": "^18.3.27",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "dso-toolkit": "workspace:^",
@@ -31,7 +31,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "1.89.0",
+    "sass": "1.94.1",
     "typescript": "~5.9.3"
   },
   "browserslist": {
