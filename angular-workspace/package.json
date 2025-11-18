@@ -33,7 +33,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-storybook": "10.0.8",
     "http-proxy-middleware": "^3.0.5",
-    "jasmine-core": "~5.7.1",
+    "jasmine-core": "~5.12.1",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
@@ -47,7 +47,7 @@
     "storybook": "10.0.8",
     "tslib": "^2.8.1",
     "typescript": "~5.9.3",
-    "wait-on": "^8.0.5",
+    "wait-on": "^9.0.3",
     "zone.js": "~0.15.1"
   },
   "nx": {
