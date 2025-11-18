@@ -4,9 +4,10 @@ authors: [iterox]
 
 # DSO Toolkit v83.0.0 🏝️
 
-Deze release bevat **BREAKING** changes voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Document List (HTML/CSS component)
+- Progress Bar
 
 In deze release is het volgende component **deprecated**:
 
@@ -17,6 +18,35 @@ In deze release is het volgende component **deprecated**:
 ## Document List
 
 Het HTML/CSS component Document List werd niet meer gebruikt. Daarom hebben we het in deze release verwijderd.
+
+## Progress Bar
+
+In 🍇 Release 78.0.0 is het component `Progress Bar` deprecated. Dit component bleek niet meer in gebruik te zijn. In deze release is dit component verwijderd.
+
+### HTML/CSS implemenatie
+
+```html
+❌
+<div class="progress">
+  <span
+    class="progress-bar"
+    role="progressbar"
+    aria-labelledby="progress-bar-label"
+    aria-valuenow="60"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  >
+    <span style="width: 60%"></span>
+  </span>
+  <span id="progress-bar-label">Genereren export: nog ongeveer 4 minuten.</span>
+</div>
+```
+
+### Core implementatie
+
+```html
+❌ <dso-progress-bar progress="60">Genereren export: nog ongeveer 4 minuten.</dso-progress-bar>
+```
 
 ## Dropdown Menu (HTML/CSS implementatie)
 

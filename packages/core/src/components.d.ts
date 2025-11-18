@@ -1092,22 +1092,6 @@ export namespace Components {
          */
         "wijzigactie"?: PlekinfoWijzigactie;
     }
-    interface DsoProgressBar {
-        /**
-          * When the operation completes.
-          * @default 100
-         */
-        "max": number;
-        /**
-          * From where progress is made.
-          * @default 0
-         */
-        "min": number;
-        /**
-          * The current progress. Should be between `min` and `max`.
-         */
-        "progress": number;
-    }
     interface DsoProgressIndicator {
         /**
           * Set for bloatier Progress Indicator.
@@ -2292,12 +2276,6 @@ declare global {
         prototype: HTMLDsoPlekinfoCardElement;
         new (): HTMLDsoPlekinfoCardElement;
     };
-    interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
-    }
-    var HTMLDsoProgressBarElement: {
-        prototype: HTMLDsoProgressBarElement;
-        new (): HTMLDsoProgressBarElement;
-    };
     interface HTMLDsoProgressIndicatorElement extends Components.DsoProgressIndicator, HTMLStencilElement {
     }
     var HTMLDsoProgressIndicatorElement: {
@@ -2589,7 +2567,6 @@ declare global {
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-panel": HTMLDsoPanelElement;
         "dso-plekinfo-card": HTMLDsoPlekinfoCardElement;
-        "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-project-item": HTMLDsoProjectItemElement;
         "dso-renvooi": HTMLDsoRenvooiElement;
@@ -3818,22 +3795,6 @@ declare namespace LocalJSX {
          */
         "wijzigactie"?: PlekinfoWijzigactie;
     }
-    interface DsoProgressBar {
-        /**
-          * When the operation completes.
-          * @default 100
-         */
-        "max"?: number;
-        /**
-          * From where progress is made.
-          * @default 0
-         */
-        "min"?: number;
-        /**
-          * The current progress. Should be between `min` and `max`.
-         */
-        "progress": number;
-    }
     interface DsoProgressIndicator {
         /**
           * Set for bloatier Progress Indicator.
@@ -4252,7 +4213,6 @@ declare namespace LocalJSX {
         "dso-pagination": DsoPagination;
         "dso-panel": DsoPanel;
         "dso-plekinfo-card": DsoPlekinfoCard;
-        "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-project-item": DsoProjectItem;
         "dso-renvooi": DsoRenvooi;
@@ -4328,7 +4288,6 @@ declare module "@stencil/core" {
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
             "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
-            "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
             /**

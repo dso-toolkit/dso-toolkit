@@ -26,7 +26,6 @@ import {
   Modal,
   OzonContent,
   Pagination,
-  ProgressBar,
   ProgressIndicator,
   ResponsiveElement,
   Scrollable,
@@ -64,7 +63,6 @@ import { reactListButton } from "./components/list-button/list-button.react-temp
 import { reactModal } from "./components/modal/modal.react-template";
 import { reactOzonContent } from "./components/ozon-content/ozon-content.react-template";
 import { reactPagination } from "./components/pagination/pagination.react-template";
-import { reactProgressBar } from "./components/progress-bar/progress-bar.react-template";
 import { reactProgressIndicator } from "./components/progress-indicator/progress-indicator.react-template";
 import { reactResponsiveElement } from "./components/responsive-element/responsive-element.react-template";
 import { reactScrollable } from "./components/scrollable/scrollable.react-template";
@@ -102,7 +100,6 @@ export interface Components {
   modal: Modal<JSX.Element>;
   ozonContent: OzonContent;
   pagination: Pagination;
-  progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   responsiveElement: ResponsiveElement<JSX.Element>;
   scrollable: Scrollable<JSX.Element>;
@@ -145,7 +142,6 @@ templateContainer.add(reactListButton);
 templateContainer.add(reactModal);
 templateContainer.add(reactOzonContent);
 templateContainer.add(reactPagination);
-templateContainer.add(reactProgressBar);
 templateContainer.add(reactProgressIndicator);
 templateContainer.add(reactResponsiveElement);
 templateContainer.add(reactScrollable);
