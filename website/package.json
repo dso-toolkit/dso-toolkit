@@ -31,7 +31,7 @@
     "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sass": "1.94.1",
+    "sass": "1.89.0",
     "typescript": "~5.9.3"
   },
   "browserslist": {
