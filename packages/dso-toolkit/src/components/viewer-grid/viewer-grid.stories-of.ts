@@ -96,6 +96,9 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     FilterPanel: {
       args: componentArgs<
@@ -125,6 +128,9 @@ export function viewerGridStories<Implementation, Templates, TemplateFnReturnTyp
       render: templateContainer.render(storyTemplates, (args, { viewerGridTemplate, example }) =>
         viewerGridTemplate(viewerGridArgsMapper(args, example)),
       ),
+      parameters: {
+        layout: "fullscreen",
+      },
     },
     DocumentPanel: {
       args: componentArgs<
