@@ -19,7 +19,7 @@
     "@storybook/web-components-vite": "10.0.8",
     "@types/lodash.startcase": "^4.4.9",
     "axe-core": "^4.11.0",
-    "cheerio": "^1.0.0",
+    "cheerio": "^1.1.2",
     "cypress": "^15.6.0",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
@@ -28,13 +28,13 @@
     "eslint-plugin-storybook": "10.0.8",
     "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",
-    "lit-html": "^3.3.0",
+    "lit-html": "^3.3.1",
     "lodash.startcase": "^4.4.0",
-    "start-server-and-test": "^2.0.12",
+    "start-server-and-test": "^2.1.2",
     "storybook": "10.0.8",
     "tsx": "^4.20.3",
     "typescript": "~5.9.3",
-    "vite": "^7.0.5"
+    "vite": "^7.2.2"
   },
   "nx": {
     "includedScripts": []
