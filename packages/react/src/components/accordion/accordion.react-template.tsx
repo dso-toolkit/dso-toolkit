@@ -5,6 +5,7 @@ import {
   AccordionSectionToggleClickEvent,
 } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoAccordion, DsoAccordionSection } from "../..";
 import { ComponentImplementation } from "../../templates";

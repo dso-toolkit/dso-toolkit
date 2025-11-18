@@ -1,4 +1,5 @@
 import * as React from "react";
+import { JSX } from "react";
 
 export function datePickerWithLabelTemplate(datePicker: JSX.Element, id: string, label: string) {
   return (

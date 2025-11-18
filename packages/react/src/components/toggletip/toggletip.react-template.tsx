@@ -1,5 +1,6 @@
 import { Toggletip } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoToggletip } from "../../components";
 import { ComponentImplementation } from "../../templates";

@@ -1,5 +1,5 @@
 import { ContactInformation } from "dso-toolkit";
-import React from "react";
+import React, { JSX } from "react";
 
 import { DsoContactInformation } from "../../components";
 import { ComponentImplementation } from "../../templates";

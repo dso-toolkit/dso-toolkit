@@ -1,5 +1,6 @@
 import { Scrollable } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoScrollable } from "../../components";
 import { ComponentImplementation } from "../../templates";

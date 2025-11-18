@@ -1,5 +1,6 @@
 import { ActionList } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoActionList, DsoActionListItem } from "../..";
 import { ComponentImplementation, Templates } from "../../templates";

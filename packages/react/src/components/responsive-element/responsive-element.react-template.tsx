@@ -1,5 +1,6 @@
 import { ResponsiveElement } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoResponsiveElement } from "../../components";
 import { ComponentImplementation } from "../../templates";

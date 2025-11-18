@@ -1,6 +1,7 @@
 import { DsoSelectableCustomEvent, SelectableChangeEvent } from "@dso-toolkit/core";
 import { Selectable } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoSelectable } from "../../components";
 import { ComponentImplementation } from "../../templates";

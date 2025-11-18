@@ -1,5 +1,6 @@
 import { Info } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoInfo } from "../../components";
 import { ComponentImplementation } from "../../templates";

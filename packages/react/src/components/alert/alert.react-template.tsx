@@ -1,6 +1,7 @@
 import { AlertCloseEvent, DsoAlertCustomEvent } from "@dso-toolkit/core";
 import { Alert } from "dso-toolkit";
 import * as React from "react";
+import { JSX } from "react";
 
 import { DsoAlert } from "../../components";
 import { ComponentImplementation } from "../../templates";
