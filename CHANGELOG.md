@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Removed
+* **BREAKING** Document List: Remove ([#3388](https://github.com/dso-toolkit/dso-toolkit/issues/3388))
+
 ## 🍔 Release 82.0.0 - 2025-11-17
 
 ### Added

@@ -138,7 +138,6 @@ import { cssDescription } from "./components/description/description.css-templat
 import { coreDocumentCard } from "./components/document-card/document-card.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 import { cssDocumentHeader } from "./components/document-header/document-header.css-template";
-import { cssDocumentList } from "./components/document-list/document-list.css-template";
 import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-template";
 import { coreExpandable } from "./components/expandable/expandable.core-template";
@@ -423,7 +422,6 @@ templateContainer.add(cssContext);
 templateContainer.add(cssDefinitionList);
 templateContainer.add(cssDescription);
 templateContainer.add(cssDocumentHeader);
-templateContainer.add(cssDocumentList);
 templateContainer.add(cssDropdownMenu);
 templateContainer.add(cssFooter);
 templateContainer.add(cssFootnote);
