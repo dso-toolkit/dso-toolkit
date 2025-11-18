@@ -19,7 +19,7 @@
     "watch": "yarn clear && yarn node scripts/watch.js"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.7.0",
+    "@floating-ui/dom": "^1.7.4",
     "@popperjs/core": "^2.11.8",
     "@stencil/core": "4.36.1",
     "@stencil/store": "^2.2.1",
