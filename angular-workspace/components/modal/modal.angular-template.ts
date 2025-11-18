@@ -1,9 +1,9 @@
 import { Modal } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularModal: ComponentImplementation<Modal<AngularStoryReturn>> = {
+export const angularModal: ComponentImplementation<Modal<AngularTemplateResult>> = {
   component: "modal",
   implementation: "angular",
   template: () =>

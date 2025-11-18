@@ -1,8 +1,8 @@
 import { ActionListItem } from "dso-toolkit";
 
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-type StorybookActionListItem = ActionListItem<AngularStoryReturn>;
+type StorybookActionListItem = ActionListItem<AngularTemplateResult>;
 
 const item1: StorybookActionListItem = {
   flowLine: true,
@@ -62,7 +62,7 @@ const item2: StorybookActionListItem = {
   },
 };
 
-const item3: ActionListItem<AngularStoryReturn> = {
+const item3: ActionListItem<AngularTemplateResult> = {
   title: "Vergunningen aanvragen",
   flowLine: true,
   content: {
@@ -84,7 +84,7 @@ const item3: ActionListItem<AngularStoryReturn> = {
   },
 };
 
-const item4: ActionListItem<AngularStoryReturn> = {
+const item4: ActionListItem<AngularTemplateResult> = {
   title: "Meldingen en informatie voorbereiden",
   flowLine: true,
   content: {
@@ -126,7 +126,7 @@ const item4: ActionListItem<AngularStoryReturn> = {
   },
 };
 
-function item5(flowLine = true): ActionListItem<AngularStoryReturn> {
+function item5(flowLine = true): ActionListItem<AngularTemplateResult> {
   return {
     title: "Om rekening mee te houden",
     flowLine,
@@ -156,11 +156,11 @@ function item5(flowLine = true): ActionListItem<AngularStoryReturn> {
   };
 }
 
-const item6: ActionListItem<AngularStoryReturn> = {
+const item6: ActionListItem<AngularTemplateResult> = {
   title: "Start de werkzaamheden",
 };
 
-const warning: ActionListItem<AngularStoryReturn> = {
+const warning: ActionListItem<AngularTemplateResult> = {
   title: "Let op",
   warning: true,
   content: {
@@ -175,9 +175,9 @@ const warning: ActionListItem<AngularStoryReturn> = {
   },
 };
 
-export const actionListItems: ActionListItem<AngularStoryReturn>[] = [item1, item2, item3, item4, item5(), item6];
+export const actionListItems: ActionListItem<AngularTemplateResult>[] = [item1, item2, item3, item4, item5(), item6];
 
-export const actionListWithWarningItems: ActionListItem<AngularStoryReturn>[] = [
+export const actionListWithWarningItems: ActionListItem<AngularTemplateResult>[] = [
   item1,
   item2,
   item3,

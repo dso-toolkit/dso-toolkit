@@ -27,13 +27,13 @@ import {
 
 import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
+import { AngularTemplateResult } from "./components/angular-story-types";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
-import { AngularStoryReturn } from "./components/helpers";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
 import { angularIcon } from "./components/icon/icon.angular-template";
 import { angularImageOverlay } from "./components/image-overlay/image-overlay.angular-template";
@@ -50,28 +50,28 @@ import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angul
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
-  actionList: ActionList<AngularStoryReturn>;
-  alert: Alert<AngularStoryReturn>;
+  actionList: ActionList<AngularTemplateResult>;
+  alert: Alert<AngularTemplateResult>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
-  expandable: Expandable<AngularStoryReturn>;
+  expandable: Expandable<AngularTemplateResult>;
   header: Header;
-  highlightBox: HighlightBox<AngularStoryReturn>;
+  highlightBox: HighlightBox<AngularTemplateResult>;
   icon: Icon;
   imageOverlay: ImageOverlay;
-  info: Info<AngularStoryReturn>;
+  info: Info<AngularTemplateResult>;
   infoButton: InfoButton;
   listButton: ListButton;
-  modal: Modal<AngularStoryReturn>;
+  modal: Modal<AngularTemplateResult>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressIndicator: ProgressIndicator;
-  scrollable: Scrollable<AngularStoryReturn>;
-  selectable: Selectable<AngularStoryReturn>;
+  scrollable: Scrollable<AngularTemplateResult>;
+  selectable: Selectable<AngularTemplateResult>;
   slideToggle: SlideToggle;
-  toggletip: Toggletip<AngularStoryReturn>;
+  toggletip: Toggletip<AngularTemplateResult>;
 }
 
 export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
@@ -82,7 +82,7 @@ export type SlottableTemplate = {
 };
 
 export interface AngularTemplateFunction<Model> {
-  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): AngularStoryReturn<Model>;
+  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): AngularTemplateResult<Model>;
 }
 export type ComponentsToTemplates<Components> = {
   [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P]>;
@@ -94,13 +94,13 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<
   Model & SlottableTemplate,
   Implementation,
   Templates,
-  AngularStoryReturn<Model>,
+  AngularTemplateResult<Model>,
   AngularTemplateFunction<Model>
 >;
 
 type Implementation = "angular";
 
-export const templateContainer = new TemplateContainer<Implementation, Templates, AngularStoryReturn>();
+export const templateContainer = new TemplateContainer<Implementation, Templates, AngularTemplateResult>();
 
 // Voeg component implementaties toe
 templateContainer.add(angularActionList);

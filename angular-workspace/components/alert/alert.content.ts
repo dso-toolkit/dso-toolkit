@@ -1,10 +1,10 @@
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const successMessage: AngularStoryReturn = {
+export const successMessage: AngularTemplateResult = {
   template: "<p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>",
 };
 
-export const infoMessage: AngularStoryReturn = {
+export const infoMessage: AngularTemplateResult = {
   template: `
     <p>
       Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#" class="extern" target="_blank" rel="noopener noreferrer">aanvullende</a> informatie of tips.
@@ -12,11 +12,11 @@ export const infoMessage: AngularStoryReturn = {
   `,
 };
 
-export const warningMessage: AngularStoryReturn = {
+export const warningMessage: AngularTemplateResult = {
   template: "<p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>",
 };
 
-export const errorMessage: AngularStoryReturn = {
+export const errorMessage: AngularTemplateResult = {
   template: `
     <p>
       Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
@@ -24,7 +24,7 @@ export const errorMessage: AngularStoryReturn = {
   `,
 };
 
-export const alertWithHeadingsContent: AngularStoryReturn = {
+export const alertWithHeadingsContent: AngularTemplateResult = {
   template: `
     <h2>Dit is een H2</h2>
     <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>

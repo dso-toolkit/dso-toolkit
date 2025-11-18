@@ -1,9 +1,9 @@
 import { ActionList } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularActionList: ComponentImplementation<ActionList<AngularStoryReturn>> = {
+export const angularActionList: ComponentImplementation<ActionList<AngularTemplateResult>> = {
   component: "actionList",
   implementation: "angular",
   template: () =>

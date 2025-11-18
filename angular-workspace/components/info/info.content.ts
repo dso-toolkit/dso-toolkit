@@ -1,6 +1,6 @@
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export function richContent(): AngularStoryReturn {
+export function richContent(): AngularTemplateResult {
   return {
     template: `
       <div class="dso-rich-content">

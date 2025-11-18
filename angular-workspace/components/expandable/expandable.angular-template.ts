@@ -1,9 +1,9 @@
 import { Expandable } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularExpandable: ComponentImplementation<Expandable<AngularStoryReturn>> = {
+export const angularExpandable: ComponentImplementation<Expandable<AngularTemplateResult>> = {
   component: "expandable",
   implementation: "angular",
   template: () =>

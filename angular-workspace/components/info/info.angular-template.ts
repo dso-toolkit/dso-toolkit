@@ -1,9 +1,9 @@
 import { Info } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularInfo: ComponentImplementation<Info<AngularStoryReturn>> = {
+export const angularInfo: ComponentImplementation<Info<AngularTemplateResult>> = {
   component: "info",
   implementation: "angular",
   template: () =>

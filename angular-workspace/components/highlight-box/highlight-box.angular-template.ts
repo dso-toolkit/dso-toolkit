@@ -1,9 +1,9 @@
 import { HighlightBox } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularHighlightBox: ComponentImplementation<HighlightBox<AngularStoryReturn>> = {
+export const angularHighlightBox: ComponentImplementation<HighlightBox<AngularTemplateResult>> = {
   component: "highlightBox",
   implementation: "angular",
   template: ({ iconTemplate }) =>

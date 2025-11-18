@@ -1,10 +1,10 @@
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
 export function datePickerWithLabelTemplate(
-  datePicker: AngularStoryReturn,
+  datePicker: AngularTemplateResult,
   id: string,
   label: string,
-): AngularStoryReturn {
+): AngularTemplateResult {
   return {
     template: `
       <label for="${id}">${label}</label>

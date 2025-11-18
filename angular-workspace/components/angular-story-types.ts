@@ -5,7 +5,7 @@ export interface NgModuleLikeMetadata {
   schemas?: ReadonlyArray<unknown>;
 }
 
-export interface AngularStoryReturn<Props = unknown> {
+export interface AngularTemplateResult<Props = unknown> {
   template: string;
   props?: Props;
   moduleMetadata?: NgModuleLikeMetadata;

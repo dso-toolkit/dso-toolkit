@@ -1,9 +1,9 @@
 import { Scrollable } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularStoryReturn } from "../helpers";
+import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularScrollable: ComponentImplementation<Scrollable<AngularStoryReturn>> = {
+export const angularScrollable: ComponentImplementation<Scrollable<AngularTemplateResult>> = {
   component: "scrollable",
   implementation: "angular",
   template: () =>
