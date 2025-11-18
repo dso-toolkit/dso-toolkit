@@ -3,6 +3,7 @@
   "compilerOptions": {
     "types": ["node"],
     "target": "esNext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true

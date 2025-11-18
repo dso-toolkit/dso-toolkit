@@ -5,7 +5,7 @@ import { dirname, parse, resolve } from "path";
 
 import type { StorybookConfig } from "@storybook/angular";
 
-const require = createRequire(import.meta.url);
+const requireFn = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   typescript: {
@@ -23,7 +23,7 @@ const config: StorybookConfig = {
     },
   ],
   env: (config) => {
-    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
     const iconsPath = resolve(corePath, "src/icons");
     const icons = readdirSync(iconsPath)
       .map((f) => parse(f))
