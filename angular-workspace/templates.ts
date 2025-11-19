@@ -18,7 +18,6 @@ import {
   Modal,
   OzonContent,
   Pagination,
-  ProgressBar,
   ProgressIndicator,
   Scrollable,
   Selectable,
@@ -44,7 +43,6 @@ import { angularListButton } from "./components/list-button/list-button.angular-
 import { angularModal } from "./components/modal/modal.angular-template";
 import { angularOzonContent } from "./components/ozon-content/ozon-content.angular-template";
 import { angularPagination } from "./components/pagination/pagination.angular-template";
-import { angularProgressBar } from "./components/progress-bar/progress-bar.angular-template";
 import { angularProgressIndicator } from "./components/progress-indicator/progress-indicator.angular-template";
 import { angularScrollable } from "./components/scrollable/scrollable.angular-template";
 import { angularSelectable } from "./components/selectable/selectable.angular-template";
@@ -73,7 +71,6 @@ export interface Components {
   modal: Modal<StoryFnAngularReturnType>;
   ozonContent: OzonContent;
   pagination: Pagination;
-  progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   // responsiveElement: ResponsiveElement<StoryFnAngularReturnType>;
   scrollable: Scrollable<StoryFnAngularReturnType>;
@@ -131,7 +128,6 @@ templateContainer.add(angularListButton);
 templateContainer.add(angularModal);
 templateContainer.add(angularOzonContent);
 templateContainer.add(angularPagination);
-templateContainer.add(angularProgressBar);
 templateContainer.add(angularProgressIndicator);
 templateContainer.add(angularScrollable);
 templateContainer.add(angularSelectable);

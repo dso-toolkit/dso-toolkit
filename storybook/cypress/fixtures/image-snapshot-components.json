@@ -55,12 +55,6 @@
     "type": "core"
   },
   {
-    "name": "progress-bar-deprecated",
-    "selector": "dso-progress-bar.hydrated",
-    "stories": ["default", "arbitrary-values"],
-    "type": "core"
-  },
-  {
     "name": "link",
     "selector": "#dt-i18n-decorator-container a",
     "stories": [
@@ -308,12 +302,6 @@
     "name": "paragraph",
 
     "stories": ["default", "disclaimer"],
-    "type": "html-css"
-  },
-  {
-    "name": "progress-bar-deprecated",
-    "selector": ".progress",
-    "stories": ["default", "arbitrary-values"],
     "type": "html-css"
   },
   {

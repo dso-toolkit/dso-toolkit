@@ -137,8 +137,6 @@ export * from "./components/paragraph";
 
 export * from "./components/plekinfo-card";
 
-export * from "./components/progress-bar";
-
 export * from "./components/progress-indicator";
 
 export * from "./components/project-item";
