@@ -1,34 +1,57 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/components/progress-indicator";
+@use "~dso-toolkit/src/variables/units";
 
 @include utilities.box-sizing();
-@include progress-indicator.root();
+
+@mixin _looping-size($progress-indicator-size) {
+  .dso-progress-indicator-spinner,
+  dso-icon {
+    block-size: $progress-indicator-size;
+    inline-size: $progress-indicator-size;
+  }
+}
+
+.dso-progress-indicator-spinner {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+span.dso-progress-indicator-label {
+  margin-inline-start: units.$u2;
+  vertical-align: middle;
+}
 
 :host([block]) {
-  @include progress-indicator.block();
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 :host([size="small"]),
 :host(:not([size="medium"]):not([size="large"])) {
-  @include progress-indicator.small();
+  @include _looping-size(24px);
 
   &:host([block]) {
-    @include progress-indicator.small-block();
+    padding-block: units.$u1 * 1.5;
+    padding-inline: units.$u2;
   }
 }
 
 :host([size="medium"]) {
-  @include progress-indicator.medium();
+  @include _looping-size(32px);
 
   &:host([block]) {
-    @include progress-indicator.medium-block();
+    padding: units.$u2;
   }
 }
 
 :host([size="large"]) {
-  @include progress-indicator.large();
+  @include _looping-size(48px);
 
   &:host([block]) {
-    @include progress-indicator.large-block();
+    padding-block: units.$u3;
+    padding-inline: units.$u2;
   }
 }
