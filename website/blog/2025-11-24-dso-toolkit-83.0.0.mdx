@@ -8,8 +8,57 @@ Deze release bevat **BREAKING** changes voor het volgende component:
 
 - Document List (HTML/CSS component)
 
+In deze release is het volgende component **deprecated**:
+
+- Dropdown Menu: (HTML/CSS implementatie)
+
 <!-- truncate -->
 
 ## Document List
 
 Het HTML/CSS component Document List werd niet meer gebruikt. Daarom hebben we het in deze release verwijderd.
+
+## Dropdown Menu (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Dropdown Menu` is deprecated. In een toekomstige **BREAKING** release zal de
+HTML/CSS implementatie verwijderd worden.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Dropdown Menu.
+
+```html
+❌
+<div class="dso-dropdown-menu dso-open">
+  <button type="button" id="0d47f401-0f17-4192-9dc7-10ecb5b1beee" class="dso-secondary">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" role="menu" aria-labelledby="0d47f401-0f17-4192-9dc7-10ecb5b1beee">
+    <ul role="group" aria-labelledby="">
+      <li role="none">
+        <button type="button" role="menuitem">Bewerken</button>
+      </li>
+      <li role="none">
+        <button type="button" role="menuitem">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+✅
+<dso-dropdown-menu dropdown-align="left">
+  <button type="button" id="6120c29d-e6d6-493c-b020-e2f77afe32de" class="dso-secondary" slot="toggle">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" aria-labelledby="6120c29d-e6d6-493c-b020-e2f77afe32de">
+    <ul>
+      <li>
+        <button type="button">Bewerken</button>
+      </li>
+      <li>
+        <button type="button">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</dso-dropdown-menu>
+```

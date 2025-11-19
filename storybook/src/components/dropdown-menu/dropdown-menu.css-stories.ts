@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta = {
   ...dropdownMenuMeta({ readme }),
-  title: "HTML|CSS/Dropdown Menu",
+  title: "HTML|CSS/Dropdown Menu (Deprecated)",
 };
 
 export default meta;
