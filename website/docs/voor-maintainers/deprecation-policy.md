@@ -17,6 +17,5 @@ Wat betekent dit voor DSO Toolkit?
   - Dit doen we op de website in de betrefende mdx-file van het component. Hierbij moet ook het attribuut `name` van het `StorybookComponent` toegevoegd of aangepast worden, bijv.: `name="whitebox-deprecated"`.
   - Pas ook in `storybook/cypress/fixtures/image-snapshot-components.json` de property `name` van het betreffende component aan.
   - Pas ook in de e2e-test de url van `cy.visit` aan, bijv. voor `Tooltip` in `storybook/cypress/e2e/tooltip.cy.ts`: `cy.visit("http://localhost:45000/iframe.html?id=core-tooltip-deprecated--as-child");`.
-- In de lit-html template van het betreffende component in Storybook voegen we 2 HTML comments toe: aan het begin `<!
--- START DEPRECATED: use [hier de verwijzing naar het alternatief] -->` en aan het eind `<!-- END DEPRECATED -->`.
+- In de lit-html template van het betreffende component in Storybook voegen we 2 HTML comments toe: aan het begin `<!-- START DEPRECATED: use [hier de verwijzing naar het alternatief] -->` en aan het eind `<!-- END DEPRECATED -->`.
 - We maken een nieuw issue aan om de functionaliteit (het component) in de toekomst te verwijderen.
