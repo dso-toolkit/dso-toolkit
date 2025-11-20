@@ -1,4 +1,3 @@
-import { clsx } from "clsx";
 import { Table, TableSorting } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
@@ -26,7 +25,12 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
 
       return html`
         <dso-table ?no-modal=${noModal}>
-          <table class=${clsx("table", { ["dso-table-vertical-lines"]: verticalLines })} role=${ifDefined(role)}>
+          <table
+            class="table ${classMap({
+              "dso-table-vertical-lines": !!verticalLines,
+            })}"
+            role=${ifDefined(role)}
+          >
             <caption class="sr-only">
               ${content.caption}
             </caption>
