@@ -1,8 +1,10 @@
 import { readdirSync } from "fs";
-import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 import { dirname, parse, resolve } from "path";
 
 import { StorybookConfig } from "@storybook/web-components-vite";
+
+const requireFn = createRequire(import.meta.url);
 
 function getVersion() {
   if (process.env.CI && process.env.DT_REF) {
@@ -15,7 +17,7 @@ const config: StorybookConfig = {
   typescript: { check: true },
   staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
   env: (config) => {
-    const corePath = dirname(fileURLToPath(new URL("../../node_modules/dso-toolkit/package.json", import.meta.url)));
+    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
     const iconsPath = resolve(corePath, "src/icons");
     const icons = readdirSync(iconsPath)
       .map((f) => parse(f))
