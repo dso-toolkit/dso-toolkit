@@ -9,6 +9,7 @@ Deze release bevat **BREAKING** changes voor de volgende componenten:
 - Progress Bar
 - Document List (HTML/CSS component)
 - Progress Indicator (HTML/CSS implementatie)
+- Card (HTML/CSS implementatie)
 
 In deze release is het volgende component **deprecated**:
 
@@ -69,6 +70,42 @@ Gebruik de Core implementatie van `Progress Indicator`.
 
 ✅
 <dso-progress-indicator size="medium"></dso-progress-indicator>
+```
+
+## Card (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Card` is in 🍟 Release 80.0.0 deprecated. In deze
+release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van Card.
+
+```html
+❌
+<div class="dso-card">
+  <div class="dso-card-container">
+    <div class="dso-card-heading">
+      <a href="#">
+        <h2>
+          <span id="card-title">Omgevingsplan Nieuwegein</span>
+          <!-- START DEPRECATED --><svg class="di di-chevron-right">
+            <use href="#chevron-right"></use></svg
+          ><!-- END DEPRECATED -->
+        </h2>
+      </a>
+    </div>
+    <div class="dso-rich-content"><p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p></div>
+  </div>
+</div>
+
+✅
+<dso-card href="#">
+  <h2 slot="heading" id="card-title">Omgevingsplan Nieuwegein</h2>
+  <div class="dso-rich-content" slot="content">
+    <p>Gemeente Nieuwegein informeert haar burgers graag over de Omgevingswet.</p>
+  </div>
+</dso-card>
 ```
 
 ## Dropdown Menu (HTML/CSS implementatie)

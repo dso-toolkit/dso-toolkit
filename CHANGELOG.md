@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Progress Bar: Remove ([#3265](https://github.com/dso-toolkit/dso-toolkit/issues/3265))
 * **BREAKING** Document List: Remove ([#3388](https://github.com/dso-toolkit/dso-toolkit/issues/3388))
 * **BREAKING** Progress Indicator: Remove HTML/CSS implementatie ([#3322](https://github.com/dso-toolkit/dso-toolkit/issues/3322))
+* **BREAKING** Card: Remove HTML/CSS implementatie ([#3312](https://github.com/dso-toolkit/dso-toolkit/issues/3312))
 
 ### Task
 * Packages: Dependencies updates ([#3306](https://github.com/dso-toolkit/dso-toolkit/issues/3306))

@@ -1,7 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
-@use "~dso-toolkit/src/components/card";
 @use "~dso-toolkit/src/components/link/link";
 @use "~dso-toolkit/src/variables/media-query-breakpoints";
 
@@ -31,7 +30,7 @@
 
 :host([active]:not([active="false"])) {
   .dso-card-container {
-    background-color: card.$background-color-active;
+    background-color: colors.$grijs-10;
   }
 }
 
@@ -42,7 +41,7 @@
   block-size: 100%;
 
   &:has(.dso-card-heading a:is(:hover, :focus-visible)) {
-    background-color: card.$background-color-hover;
+    background-color: colors.$grijs-5;
   }
 
   .dso-card-heading {
@@ -63,16 +62,16 @@
   display: flex;
   gap: units.$u1 * 0.5;
 
-  color: card.$heading-anchor-color;
+  color: colors.$bosgroen;
   text-decoration: none;
 
   &:hover {
-    color: card.$heading-anchor-hover-color;
+    color: colors.$bosgroen;
     text-decoration: underline;
   }
 
   &:visited {
-    color: card.$heading-anchor-color;
+    color: colors.$bosgroen;
   }
 
   dso-icon {
