@@ -1,9 +1,9 @@
+import type { IStory } from "@storybook/angular";
 import { Toggletip } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularToggletip: ComponentImplementation<Toggletip<AngularTemplateResult>> = {
+export const angularToggletip: ComponentImplementation<Toggletip<IStory>> = {
   component: "toggletip",
   implementation: "angular",
   template: () =>

@@ -1,3 +1,4 @@
+import type { IStory } from "@storybook/angular";
 import {
   ActionList,
   Alert,
@@ -27,7 +28,6 @@ import {
 
 import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
-import { AngularTemplateResult } from "./components/angular-story-types";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
@@ -50,57 +50,66 @@ import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angul
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
-  actionList: ActionList<AngularTemplateResult>;
-  alert: Alert<AngularTemplateResult>;
+  actionList: ActionList<IStory>;
+  alert: Alert<IStory>;
+  // autosuggest: Autosuggest<IStory>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
+  // card: Card<IStory>;
+  // cardContainer: CardContainer<IStory>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
-  expandable: Expandable<AngularTemplateResult>;
+  expandable: Expandable<IStory>;
   header: Header;
-  highlightBox: HighlightBox<AngularTemplateResult>;
+  highlightBox: HighlightBox<IStory>;
   icon: Icon;
   imageOverlay: ImageOverlay;
-  info: Info<AngularTemplateResult>;
+  info: Info<IStory>;
   infoButton: InfoButton;
+  // label: Label;
   listButton: ListButton;
-  modal: Modal<AngularTemplateResult>;
+  modal: Modal<IStory>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressIndicator: ProgressIndicator;
-  scrollable: Scrollable<AngularTemplateResult>;
-  selectable: Selectable<AngularTemplateResult>;
+  // responsiveElement: ResponsiveElement<IStory>;
+  scrollable: Scrollable<IStory>;
+  selectable: Selectable<IStory>;
   slideToggle: SlideToggle;
-  toggletip: Toggletip<AngularTemplateResult>;
+  // table: Table<IStory>;
+  toggletip: Toggletip<IStory>;
+  // tooltip: Tooltip;
+  // treeView: TreeView;
+  // viewerGrid: ViewerGrid<IStory>;
 }
 
 export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
 export type PropValues<Model> = { [P in keyof Partial<Model>]: string };
 
+export interface AngularTemplateFunction<Model, TemplateFnReturnType> {
+  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): TemplateFnReturnType;
+}
+
+export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
+  [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P], TemplateFnReturnType>;
+};
+
 export type SlottableTemplate = {
   slotName?: string;
 };
 
-export interface AngularTemplateFunction<Model> {
-  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): AngularTemplateResult<Model>;
-}
-export type ComponentsToTemplates<Components> = {
-  [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P]>;
-};
-
-export type Templates = ComponentsToTemplates<Components>;
-
+export type Templates = ComponentsToTemplates<Components, IStory>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<
   Model & SlottableTemplate,
   Implementation,
   Templates,
-  AngularTemplateResult<Model>,
-  AngularTemplateFunction<Model>
+  IStory,
+  AngularTemplateFunction<Model, IStory>
 >;
 
 type Implementation = "angular";
 
-export const templateContainer = new TemplateContainer<Implementation, Templates, AngularTemplateResult>();
+export const templateContainer = new TemplateContainer<Implementation, Templates, IStory>();
 
 // Voeg component implementaties toe
 templateContainer.add(angularActionList);

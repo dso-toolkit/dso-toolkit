@@ -1,6 +1,5 @@
 {
   "name": "dso-storybook",
-  "type": "module",
   "private": true,
   "scripts": {
     "start": "storybook dev --port 45000",

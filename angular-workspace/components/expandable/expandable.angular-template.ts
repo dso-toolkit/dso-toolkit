@@ -1,9 +1,9 @@
+import type { IStory } from "@storybook/angular";
 import { Expandable } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularExpandable: ComponentImplementation<Expandable<AngularTemplateResult>> = {
+export const angularExpandable: ComponentImplementation<Expandable<IStory>> = {
   component: "expandable",
   implementation: "angular",
   template: () =>

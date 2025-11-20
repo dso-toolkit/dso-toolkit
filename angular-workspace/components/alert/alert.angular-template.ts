@@ -1,9 +1,9 @@
+import type { IStory } from "@storybook/angular";
 import { Alert } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
-import { AngularTemplateResult } from "../angular-story-types";
 
-export const angularAlert: ComponentImplementation<Alert<AngularTemplateResult>> = {
+export const angularAlert: ComponentImplementation<Alert<IStory>> = {
   component: "alert",
   implementation: "angular",
   template: () =>
