@@ -1,6 +1,5 @@
 import { CardContainer } from "dso-toolkit";
-import * as React from "react";
-import { JSX } from "react";
+import React, { JSX } from "react";
 
 import { DsoCardContainer } from "../../components";
 import { ComponentImplementation } from "../../templates";

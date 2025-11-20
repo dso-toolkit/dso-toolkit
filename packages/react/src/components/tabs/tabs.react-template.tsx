@@ -1,6 +1,5 @@
 import { Tabs } from "dso-toolkit";
-import * as React from "react";
-import { JSX } from "react";
+import React, { JSX } from "react";
 
 import { DsoTab, DsoTabs } from "../../components";
 import { ComponentImplementation } from "../../templates";

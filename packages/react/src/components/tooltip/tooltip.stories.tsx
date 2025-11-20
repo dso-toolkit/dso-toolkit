@@ -1,7 +1,6 @@
 import type { Meta } from "@storybook/react-vite";
 import { TooltipArgs, tooltipMeta, tooltipStories } from "dso-toolkit";
-import * as React from "react";
-import { JSX } from "react";
+import React, { JSX } from "react";
 import { HandlerFunction } from "storybook/actions";
 
 import { templateContainer } from "../../templates";
