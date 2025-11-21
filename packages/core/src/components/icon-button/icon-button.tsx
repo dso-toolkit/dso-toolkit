@@ -103,6 +103,9 @@ export class IconButton implements ComponentInterface {
 
   disconnectedCallback() {
     this.clearToolTipTimeout();
+
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   }
 
   private clearToolTipTimeout = () => {
