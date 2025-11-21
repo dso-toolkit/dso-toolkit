@@ -49,14 +49,6 @@ describe("Progress Indicator", () => {
     });
   }
 
-  for (const { size } of sizes) {
-    it(`should show ${size} spinner (HTML/CSS)`, () => {
-      cy.visit(`http://localhost:45000/iframe.html?id=html-css-progress-indicator-deprecated--${size}`);
-
-      cy.get(".dso-progress-indicator").matchImageSnapshot(`html-css-progress-indicator-deprecated--${size}`);
-    });
-  }
-
   it("should show English text when locale is set to 'en'", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-progress-indicator--large&globals=locale:en");
 
