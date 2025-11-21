@@ -31,10 +31,13 @@ const { Default, WithAnimation } = expandableStories({
   },
   decorator: (story) => {
     const s = story();
+    const { props, template } = s;
+
     return {
+      props,
       template: `
       <span>toggle open control in the controls panel to expand/collapse.<span>
-      ${s.template}
+      ${template}
       <style>
         dso-expandable[open],
         dso-expandable:not(.dso-hide) {
