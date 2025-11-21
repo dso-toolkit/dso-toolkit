@@ -3,7 +3,7 @@ import { readdirSync } from "fs";
 import { createRequire } from "node:module";
 import { dirname, parse, resolve } from "path";
 
-import { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const requireFn = createRequire(import.meta.url);
 
