@@ -1,5 +1,6 @@
 {
   "name": "angular-workspace",
+  "type": "module",
   "private": true,
   "scripts": {
     "clear": "rimraf .angular node_modules/.cache/storybook",

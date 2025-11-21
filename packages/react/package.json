@@ -1,5 +1,6 @@
 {
   "name": "@dso-toolkit/react",
+  "type": "module",
   "version": "82.0.0",
   "description": "React specific wrapper for @dso-toolkit/core web components",
   "homepage": "https://www.dso-toolkit.nl/",
