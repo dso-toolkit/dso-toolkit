@@ -7,7 +7,7 @@
     "noEmitOnError": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2019"],
+    "lib": ["dom", "es2022"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
