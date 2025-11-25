@@ -2,7 +2,7 @@
   "extends": "../projects/component-library/tsconfig.lib.json",
   "compilerOptions": {
     "types": ["node"],
-    "target": "esNext",
+    "target": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
