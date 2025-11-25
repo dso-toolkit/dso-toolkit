@@ -1,4 +1,4 @@
-import { EventEmitter, FunctionalComponent, h } from "@stencil/core";
+import { EventEmitter, FunctionalComponent, JSX, h } from "@stencil/core";
 
 import { AnnotationActiveChangeEvent } from "./annotation.interfaces";
 

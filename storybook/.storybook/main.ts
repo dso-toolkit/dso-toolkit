@@ -1,23 +1,23 @@
 import { readdirSync } from "fs";
+import { createRequire } from "node:module";
 import { dirname, parse, resolve } from "path";
 
-import { StorybookConfig } from "@storybook/web-components-vite";
+import type { StorybookConfig } from "@storybook/web-components-vite";
+
+const requireFn = createRequire(import.meta.url);
 
 function getVersion() {
   if (process.env.CI && process.env.DT_REF) {
     return process.env.DT_REF;
   }
-
   return undefined;
 }
 
 const config: StorybookConfig = {
-  typescript: {
-    check: true,
-  },
+  typescript: { check: true },
   staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
   env: (config) => {
-    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
     const iconsPath = resolve(corePath, "src/icons");
     const icons = readdirSync(iconsPath)
       .map((f) => parse(f))
@@ -42,7 +42,6 @@ const config: StorybookConfig = {
         },
       };
     }
-
     return {};
   },
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],

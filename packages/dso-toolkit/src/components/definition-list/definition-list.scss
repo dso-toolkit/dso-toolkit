@@ -141,7 +141,7 @@ dl {
         clear: inline-start;
         float: inline-start;
         inline-size: var(--_dt-dl-dt-inline-size, css-definition-list-variables.$term-inline-size);
-        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       dd {

@@ -1,5 +1,5 @@
 import { Banner } from "dso-toolkit";
-import * as React from "react";
+import React, { JSX } from "react";
 
 import { DsoBanner } from "../../components";
 import { ComponentImplementation } from "../../templates";

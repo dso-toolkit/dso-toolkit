@@ -38,6 +38,7 @@ import {
   Tooltip,
   TreeView,
 } from "dso-toolkit";
+import { JSX } from "react";
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactActionList } from "./components/action-list/action-list.react-template";

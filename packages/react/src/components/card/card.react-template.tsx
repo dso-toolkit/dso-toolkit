@@ -6,7 +6,7 @@ import {
   isSlideToggleInterface,
   isToggletipInterface,
 } from "dso-toolkit";
-import * as React from "react";
+import React, { JSX } from "react";
 
 import { DsoCard } from "../../components";
 import { ComponentImplementation } from "../../templates";

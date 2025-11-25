@@ -1,5 +1,5 @@
 import { Expandable } from "dso-toolkit";
-import React from "react";
+import React, { JSX } from "react";
 
 import { DsoExpandable } from "../../components";
 import { ComponentImplementation } from "../../templates";

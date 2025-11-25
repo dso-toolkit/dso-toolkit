@@ -1,4 +1,4 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import type { IStory } from "@storybook/angular";
 import {
   ActionList,
   Alert,
@@ -50,37 +50,37 @@ import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angul
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
-  actionList: ActionList<StoryFnAngularReturnType>;
-  alert: Alert<StoryFnAngularReturnType>;
-  // autosuggest: Autosuggest<StoryFnAngularReturnType>;
+  actionList: ActionList<IStory>;
+  alert: Alert<IStory>;
+  // autosuggest: Autosuggest<IStory>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
-  // card: Card<StoryFnAngularReturnType>;
-  // cardContainer: CardContainer<StoryFnAngularReturnType>;
+  // card: Card<IStory>;
+  // cardContainer: CardContainer<IStory>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
-  expandable: Expandable<StoryFnAngularReturnType>;
+  expandable: Expandable<IStory>;
   header: Header;
-  highlightBox: HighlightBox<StoryFnAngularReturnType>;
+  highlightBox: HighlightBox<IStory>;
   icon: Icon;
   imageOverlay: ImageOverlay;
-  info: Info<StoryFnAngularReturnType>;
+  info: Info<IStory>;
   infoButton: InfoButton;
   // label: Label;
   listButton: ListButton;
-  modal: Modal<StoryFnAngularReturnType>;
+  modal: Modal<IStory>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressIndicator: ProgressIndicator;
-  // responsiveElement: ResponsiveElement<StoryFnAngularReturnType>;
-  scrollable: Scrollable<StoryFnAngularReturnType>;
-  selectable: Selectable<StoryFnAngularReturnType>;
+  // responsiveElement: ResponsiveElement<IStory>;
+  scrollable: Scrollable<IStory>;
+  selectable: Selectable<IStory>;
   slideToggle: SlideToggle;
-  // table: Table<StoryFnAngularReturnType>;
-  toggletip: Toggletip<StoryFnAngularReturnType>;
+  // table: Table<IStory>;
+  toggletip: Toggletip<IStory>;
   // tooltip: Tooltip;
   // treeView: TreeView;
-  // viewerGrid: ViewerGrid<StoryFnAngularReturnType>;
+  // viewerGrid: ViewerGrid<IStory>;
 }
 
 export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
@@ -98,19 +98,20 @@ export type SlottableTemplate = {
   slotName?: string;
 };
 
-export type Templates = ComponentsToTemplates<Components, StoryFnAngularReturnType>;
+export type Templates = ComponentsToTemplates<Components, IStory>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<
   Model & SlottableTemplate,
   Implementation,
   Templates,
-  StoryFnAngularReturnType,
-  AngularTemplateFunction<Model, StoryFnAngularReturnType>
+  IStory,
+  AngularTemplateFunction<Model, IStory>
 >;
 
 type Implementation = "angular";
 
-export const templateContainer = new TemplateContainer<Implementation, Templates, StoryFnAngularReturnType>();
+export const templateContainer = new TemplateContainer<Implementation, Templates, IStory>();
 
+// Voeg component implementaties toe
 templateContainer.add(angularActionList);
 templateContainer.add(angularAlert);
 templateContainer.add(angularAttachmentsCounter);

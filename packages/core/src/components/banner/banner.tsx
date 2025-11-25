@@ -1,5 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 @Component({
   tag: "dso-banner",

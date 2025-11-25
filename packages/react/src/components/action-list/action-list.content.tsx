@@ -1,5 +1,5 @@
 import { ActionListItem, contactInformationContent } from "dso-toolkit";
-import React from "react";
+import React, { JSX } from "react";
 
 import { Templates } from "../../templates";
 

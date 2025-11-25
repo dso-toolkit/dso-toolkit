@@ -1,4 +1,4 @@
-FROM cypress/included:cypress-14.5.3-node-22.18.0-chrome-138.0.7204.183-1-ff-141.0-edge-138.0.3351.121-1
+FROM cypress/included:cypress-15.6.0-node-24.11.1-chrome-142.0.7444.162-1-ff-145.0-edge-142.0.3595.65-1
 
 RUN apt-get update && apt-get install --yes \
   apt-transport-https \
@@ -22,17 +22,12 @@ RUN apt-get update && apt-get install --yes \
   libxtst6 \
   lsb-release
 
-# https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions
-RUN mkdir -p /etc/apt/keyrings \
-  && curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg \
-  && chmod go+r /etc/apt/keyrings/microsoft.gpg \
-  && AZ_DIST=$(lsb_release -cs) \
-  && echo "Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg" | tee /etc/apt/sources.list.d/azure-cli.sources \
-  && apt-get update \
-  && apt-get install azure-cli=2.75.0-1~${AZ_DIST}
+# Azure CLI install
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-# https://github.com/Azure/azure-cli/issues/30635#issuecomment-2581362583
-RUN curl -L https://azcopyvnext-awgzd8g7aagqhzhe.b02.azurefd.net/releases/release-10.29.1-20250515/azcopy_linux_amd64_10.29.1.tar.gz | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
+# AzCopy install
+RUN curl -L https://github.com/Azure/azure-storage-azcopy/releases/download/v10.31.0/azcopy_linux_amd64_10.31.0.tar.gz \
+  | tar --strip-components=1 -C /usr/local/bin --no-same-owner --exclude=*.txt -xzvf -
 
 WORKDIR /usr/src/app
 

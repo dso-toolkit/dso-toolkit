@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
 import { getNodeName } from "../../get-node-name.function";

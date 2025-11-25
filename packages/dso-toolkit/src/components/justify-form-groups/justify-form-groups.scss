@@ -22,7 +22,7 @@
 
   @media (min-width: media-query-breakpoints.$screen-sm-min) {
     display: grid;
-    grid-gap: units.$u1;
+    gap: units.$u1;
     grid-template-rows: repeat(2, auto);
 
     @for $i from 1 through 3 {

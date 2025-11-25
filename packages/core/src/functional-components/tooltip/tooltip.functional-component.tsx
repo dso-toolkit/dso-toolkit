@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 interface TooltipProps {
   visible: boolean;

@@ -1,7 +1,11 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 import { readdirSync } from "fs";
+import { createRequire } from "node:module";
 import { dirname, parse, resolve } from "path";
 
-import { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/react-vite";
+
+const requireFn = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   typescript: {
@@ -20,7 +24,7 @@ const config: StorybookConfig = {
     },
   ],
   env: (config) => {
-    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
     const iconsPath = resolve(corePath, "src/icons");
     const icons = readdirSync(iconsPath)
       .map((f) => parse(f))

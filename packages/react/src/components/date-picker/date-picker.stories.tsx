@@ -1,7 +1,7 @@
 import readme from "@dso-toolkit/core/src/components/date-picker/readme.md?raw";
 import { type Meta } from "@storybook/react-vite";
 import { DatePickerArgs, DatePickerDecorator, datePickerMeta, datePickerStories } from "dso-toolkit";
-import React from "react";
+import React, { JSX } from "react";
 
 import { templateContainer } from "../../templates";
 

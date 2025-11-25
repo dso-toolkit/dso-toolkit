@@ -1,9 +1,9 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import type { IStory } from "@storybook/angular";
 import { Modal } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
 
-export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnType>> = {
+export const angularModal: ComponentImplementation<Modal<IStory>> = {
   component: "modal",
   implementation: "angular",
   template: () =>

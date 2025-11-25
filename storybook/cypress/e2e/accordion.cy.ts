@@ -65,7 +65,7 @@ describe("Accordion", () => {
     cy.get("dso-accordion.hydrated, dso-accordion-section.hydrated")
       .should("exist")
       .get("dso-accordion.hydrated")
-      .matchImageSnapshot({ failureThreshold: 0.001 });
+      .matchImageSnapshot();
   });
 
   it("should render handle as <a> when handleUrl is set", () => {

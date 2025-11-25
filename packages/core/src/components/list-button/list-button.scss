@@ -223,7 +223,7 @@
     inset-block-start: #{units.$u2 - 1};
     inset-inline-end: #{units.$u2 - 1};
     inline-size: units.$u3;
-    page-break-before: always;
+    break-before: page;
     position: absolute;
   }
 

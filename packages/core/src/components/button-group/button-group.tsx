@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Prop, forceUpdate, h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { ButtonGroupDirection } from "./button-group.interfaces";
 

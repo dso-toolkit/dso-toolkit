@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 import { WrapWijzigactie } from "../functional-components/wrap-wijzigactie.functional-component";
 import { parseWijzigactieFromNode } from "../functions/parse-wijzigactie-from-node.function";

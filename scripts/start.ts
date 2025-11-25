@@ -55,22 +55,22 @@ if (!argv.mode) {
   if (argv.all) {
     // --all
     concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress], {
-      killOthers: ["failure", "success"],
+      killOthersOn: ["failure", "success"],
     });
   } else if (argv.react) {
     // --react
     concurrently([watchToolkit, watchCore, startReact], {
-      killOthers: ["failure", "success"],
+      killOthersOn: ["failure", "success"],
     });
   } else if (argv.angular) {
     // --angular
     concurrently([watchToolkit, watchCore, startAngular], {
-      killOthers: ["failure", "success"],
+      killOthersOn: ["failure", "success"],
     });
   } else {
     // normal
     concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
-      killOthers: ["failure", "success"],
+      killOthersOn: ["failure", "success"],
     });
   }
 } else {

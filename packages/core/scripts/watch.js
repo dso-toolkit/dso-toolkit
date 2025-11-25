@@ -9,6 +9,6 @@ concurrently(
     },
   ],
   {
-    killOthers: ["failure", "success"],
+    killOthersOn: ["failure", "success"],
   },
 );

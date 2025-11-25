@@ -1,6 +1,6 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import type { IStory } from "@storybook/angular";
 
-export function datePickerWithLabelTemplate(datePicker: StoryFnAngularReturnType, id: string, label: string) {
+export function datePickerWithLabelTemplate(datePicker: IStory, id: string, label: string) {
   return {
     template: `
       <label for="${id}">${label}</label>

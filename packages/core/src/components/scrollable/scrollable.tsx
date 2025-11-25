@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, Method, State, h } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import debounce from "debounce";
 
 import { DsoScrollEndEvent, ScrollPosition } from "./scrollable.interfaces";

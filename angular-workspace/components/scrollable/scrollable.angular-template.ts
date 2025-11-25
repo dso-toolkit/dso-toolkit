@@ -1,9 +1,9 @@
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/client/types";
+import type { IStory } from "@storybook/angular";
 import { Scrollable } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
 
-export const angularScrollable: ComponentImplementation<Scrollable<StoryFnAngularReturnType>> = {
+export const angularScrollable: ComponentImplementation<Scrollable<IStory>> = {
   component: "scrollable",
   implementation: "angular",
   template: () =>

@@ -12,7 +12,7 @@ import {
   Watch,
   h,
 } from "@stencil/core";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import debounce from "debounce";
 
 import { LabelStatus } from "./label.interfaces";

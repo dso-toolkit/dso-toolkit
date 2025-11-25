@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Document List: Remove ([#3388](https://github.com/dso-toolkit/dso-toolkit/issues/3388))
 * **BREAKING** Progress Indicator: Remove HTML/CSS implementatie ([#3322](https://github.com/dso-toolkit/dso-toolkit/issues/3322))
 
+### Task
+* Packages: Dependencies updates ([#3306](https://github.com/dso-toolkit/dso-toolkit/issues/3306))
+
 ## 🍔 Release 82.0.0 - 2025-11-17
 
 ### Added

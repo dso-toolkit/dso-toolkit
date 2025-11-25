@@ -1,6 +1,6 @@
 import { DsoModalCustomEvent, ModalCloseEvent } from "@dso-toolkit/core";
 import { Modal } from "dso-toolkit";
-import * as React from "react";
+import React, { JSX } from "react";
 
 import { DsoModal } from "../../components";
 import { ComponentImplementation } from "../../templates";
