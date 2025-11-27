@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * Dropdown Menu: Deprecate HTML/CSS implementatie ([#3315](https://github.com/dso-toolkit/dso-toolkit/issues/3315))
 
+### Fixed
+* Icon Button: Failed to execute 'showPopover' on 'HTMLElement': Invalid on disconnected popover elements ([#3426](https://github.com/dso-toolkit/dso-toolkit/issues/3426))
+
 ### Removed
 * **BREAKING** Progress Bar: Remove ([#3265](https://github.com/dso-toolkit/dso-toolkit/issues/3265))
 * **BREAKING** Document List: Remove ([#3388](https://github.com/dso-toolkit/dso-toolkit/issues/3388))

@@ -77,11 +77,13 @@ export class IconButton implements ComponentInterface {
       return;
     }
 
-    if (this.tooltipTimeout) {
-      clearTimeout(this.tooltipTimeout);
-    }
+    this.clearToolTipTimeout();
 
     this.tooltipTimeout = window.setTimeout(() => {
+      if (!this.tooltipElRef?.isConnected) {
+        return;
+      }
+
       this.showTooltip = true;
       this.tooltipElRef?.showPopover();
 
@@ -99,10 +101,21 @@ export class IconButton implements ComponentInterface {
     }, this.tooltipShowDelay);
   };
 
-  private handleHideTooltip = () => {
+  disconnectedCallback() {
+    this.clearToolTipTimeout();
+
+    this.cleanUp?.();
+    this.cleanUp = undefined;
+  }
+
+  private clearToolTipTimeout = () => {
     if (this.tooltipTimeout) {
       clearTimeout(this.tooltipTimeout);
     }
+  };
+
+  private handleHideTooltip = () => {
+    this.clearToolTipTimeout();
 
     this.showTooltip = false;
     this.tooltipElRef?.hidePopover();
