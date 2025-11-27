@@ -1,5 +1,6 @@
 import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
+import { resolveUrlByNaam } from "../functions/resolve-url";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -100,7 +101,7 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
-      const src = urlResolver ? urlResolver("Illustratie", "naam", illustratie.naam, node) : illustratie.naam;
+      const src = resolveUrlByNaam("Illustratie", illustratie.naam, node, urlResolver);
 
       return (
         <div
