@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Autosuggest: bij herfocus suggesties alleen tonen bij meerdere opties of één optie zonder exacte match ([#3244](https://github.com/dso-toolkit/dso-toolkit/issues/3244))
 
+### Task
+* Packages: Stencil core update naar laatste versie ([#3437](https://github.com/dso-toolkit/dso-toolkit/issues/3437))
+
 ## 🏸 Release 83.1.0 - 2025-12-03
 
 ### Changed
@@ -30,6 +33,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Packages: Dependencies updates ([#3306](https://github.com/dso-toolkit/dso-toolkit/issues/3306))
+* Packages: Stencil core update naar laatste versie ([#3437](https://github.com/dso-toolkit/dso-toolkit/issues/3437))
 
 ## 🍔 Release 82.0.0 - 2025-11-17
 
