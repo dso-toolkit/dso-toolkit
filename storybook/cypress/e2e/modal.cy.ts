@@ -38,17 +38,17 @@ describe("Modal", () => {
 
   it("should have English sr-only text", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&globals=locale:en");
-    cy.get("dso-modal").shadow().find("#close-modal").shadow().find("button[aria-label='Close']");
+    cy.get("dso-modal.hydrated").shadow().find("#close-modal").shadow().find("button[aria-label='Close']");
   });
 
   it("should have sr-only Dutch text 'Dialoog' when modalTitle is not set", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--loading");
-    cy.get("dso-modal").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialoog");
+    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialoog");
   });
 
   it("should have sr-only English text 'Dialog' when modalTitle is not set", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--loading&globals=locale:en");
-    cy.get("dso-modal").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialog");
+    cy.get("dso-modal.hydrated").shadow().find(".dso-dialog .sr-only").should("have.text", "Dialog");
   });
 
   it("should have focus trap", () => {
@@ -92,7 +92,7 @@ describe("Modal", () => {
   });
 
   it("should not emit dsoClose upon disconnecting", () => {
-    cy.get("dso-modal").should("have.class", "hydrated").shadow().find(".dso-body").should("exist");
+    cy.get("dso-modal.hydrated").shadow().find(".dso-body").should("exist");
 
     cy.get("dso-modal").then(($dsoModal) => $dsoModal[0].addEventListener("dsoClose", cy.stub().as("close")));
 
@@ -104,10 +104,15 @@ describe("Modal", () => {
   it("should have keyboard accessible body container", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
 
-    cy.get("dso-modal").shadow().find(".dso-body").as("modalBody");
-    cy.get("dso-modal").shadow().find("dso-scrollable").shadow().find(".dso-scroll-container").as("scrollable");
+    cy.get("dso-modal.hydrated").shadow().find(".dso-body").as("modalBody");
+    cy.get("dso-modal.hydrated")
+      .shadow()
+      .find("dso-scrollable")
+      .shadow()
+      .find(".dso-scroll-container")
+      .as("scrollable");
 
-    cy.get("dso-modal").shadow().find("#close-modal").should("have.focus");
+    cy.get("dso-modal.hydrated").shadow().find("#close-modal").should("have.focus");
     cy.get("@modalBody").should("have.attr", "tabindex", 0);
     cy.get("@scrollable").invoke("scrollTop").should("eq", 0);
 
@@ -125,7 +130,7 @@ describe("Modal", () => {
 
     cy.contains("Open modal").as("activate-button").click().should("not.have.focus");
 
-    cy.get("dso-modal").shadow().find("dialog").invoke("prop", "open").should("be.true");
+    cy.get("dso-modal.hydrated").shadow().find("dialog").invoke("prop", "open").should("be.true");
 
     cy.realPress("Escape");
 

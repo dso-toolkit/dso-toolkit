@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🏝️ Release 83.0.0 - 2025-11-27
+
 ### Deprecated
 * Dropdown Menu: Deprecate HTML/CSS implementatie ([#3315](https://github.com/dso-toolkit/dso-toolkit/issues/3315))
 
