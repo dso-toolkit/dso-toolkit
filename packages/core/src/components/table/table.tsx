@@ -11,6 +11,8 @@ import { v4 } from "uuid";
 export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
 
+  private dialogElement?: HTMLDialogElement;
+
   private focusTrapElement?: HTMLDivElement;
 
   private buttonElement?: HTMLButtonElement;
@@ -50,7 +52,13 @@ export class Table implements ComponentInterface {
   }
 
   componentDidRender() {
-    this.setFocusTrap();
+    // this.setFocusTrap();
+
+    if (this.modalActive) {
+      this.dialogElement?.showModal();
+    } else {
+      this.dialogElement?.close();
+    }
   }
 
   disconnectedCallback() {
@@ -68,52 +76,78 @@ export class Table implements ComponentInterface {
 
         {this.modalActive && <div class="dso-modal-overlay"></div>}
 
-        <div class={{ "dso-modal": this.modalActive }}>
-          <div
-            class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
-            ref={(element) => (this.focusTrapElement = element)}
-            {...(this.modalActive ? { ["aria-labelledby"]: this.labelledbyId, role: "dialog" } : {})}
-          >
-            {(this.isResponsive || !this.noModal) && (
-              <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
-                {this.isResponsive && (
-                  <div class="dso-responsive-message">
-                    <span>beweeg de tabel van links naar rechts</span>
-                  </div>
-                )}
+        {this.modalActive ? (
+          <dialog class={{ "dso-modal": this.modalActive }} ref={(element) => (this.dialogElement = element)}>
+            <div
+              class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
+              ref={(element) => (this.focusTrapElement = element)}
+              {...(this.modalActive ? { ["aria-labelledby"]: this.labelledbyId, role: "dialog" } : {})}
+            >
+              {(this.isResponsive || !this.noModal) && (
+                <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
+                  {this.isResponsive && (
+                    <div class="dso-responsive-message">
+                      <span>beweeg de tabel van links naar rechts</span>
+                    </div>
+                  )}
 
-                {!this.noModal && (
-                  <button
-                    type="button"
-                    class="dso-tertiary open-modal-button"
-                    ref={(element) => (this.buttonElement = element)}
-                    onClick={() => this.openModal()}
-                  >
-                    <span class="sr-only">tabel {caption ?? ""} </span>
-                    <span>vergroten</span>
-                    <dso-icon icon="external-link"></dso-icon>
+                  {!this.noModal && (
+                    <button
+                      type="button"
+                      class="dso-tertiary open-modal-button"
+                      ref={(element) => (this.buttonElement = element)}
+                      onClick={() => this.openModal()}
+                    >
+                      <span class="sr-only">tabel {caption ?? ""} </span>
+                      <span>vergroten</span>
+                      <dso-icon icon="external-link"></dso-icon>
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {this.modalActive && (
+                <div class="dso-header">
+                  <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
+                    {caption || "Uitvergrote tabel dialoog"}
+                  </h2>
+                  <button type="button" class="dso-close" onClick={() => this.closeModal()}>
+                    <dso-icon icon="times"></dso-icon>
+                    <span class="sr-only">Sluiten</span>
                   </button>
-                )}
-              </div>
-            )}
+                </div>
+              )}
 
-            {this.modalActive && (
-              <div class="dso-header">
-                <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
-                  {caption || "Uitvergrote tabel dialoog"}
-                </h2>
-                <button type="button" class="dso-close" onClick={() => this.closeModal()}>
-                  <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">Sluiten</span>
-                </button>
+              <div class={{ "dso-body": this.modalActive, "dso-table-body": true }}>
+                <slot></slot>
               </div>
-            )}
-
-            <div class={{ "dso-body": this.modalActive, "dso-table-body": true }}>
-              <slot></slot>
             </div>
+          </dialog>
+        ) : (
+          <div>
+            <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
+              {this.isResponsive && (
+                <div class="dso-responsive-message">
+                  <span>beweeg de tabel van links naar rechts</span>
+                </div>
+              )}
+
+              {!this.noModal && (
+                <button
+                  type="button"
+                  class="dso-tertiary open-modal-button"
+                  ref={(element) => (this.buttonElement = element)}
+                  onClick={() => this.openModal()}
+                >
+                  <span class="sr-only">tabel {caption ?? ""} </span>
+                  <span>vergroten</span>
+                  <dso-icon icon="external-link"></dso-icon>
+                </button>
+              )}
+            </div>
+            <slot />
           </div>
-        </div>
+        )}
       </Host>
     );
   }
