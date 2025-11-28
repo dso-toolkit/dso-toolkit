@@ -23,7 +23,10 @@ export class OzonContentAlNode implements OzonContentNode {
     const wijzigactie = parseWijzigactieFromNode(node);
     const className = wijzigactieToClassName(wijzigactie);
 
-    if (inline || isNestedAl(path)) {
+    if (
+      (inline || isNestedAl(path)) &&
+      (!node.parentNode || (node.parentNode && getNodeName(node.parentNode) !== "Definitie"))
+    ) {
       content = (
         <span role="paragraph" class={className}>
           {content}
