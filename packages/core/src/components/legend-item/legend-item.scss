@@ -9,7 +9,6 @@
 :host {
   display: block;
   padding-block: units.$u1 * 0.5;
-  padding-inline: units.$u1 * 0.5;
 }
 
 @include utilities.box-sizing();
@@ -19,6 +18,14 @@
     legend-item-variables.$symbol-block-size,
     legend-item-variables.$symbol-inline-size
   );
+}
+
+::slotted(h3) {
+  margin: 0 !important;
+}
+
+::slotted([slot="options"]) {
+  margin-block-start: units.$u1;
 }
 
 .legend-item {

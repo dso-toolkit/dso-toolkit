@@ -1,23 +1,29 @@
+import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
-import { LegendArgs, legendArgs, legendArgTypes, legendArgsMapper } from "./legend.args.js";
-import { Legend } from "./legend.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { LegendItemDecorator, legendItemDemoCss } from "../legend-item";
+
+import { LegendArgs, legendArgTypes, legendArgs, legendArgsMapper } from "./legend.args.js";
+import { Legend } from "./legend.models";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
 
 interface LegendStories {
-  Default: LegendStory;
+  Legenda: LegendStory;
+  Kaartlagen: LegendStory;
 }
 
 interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LegendTemplates<TemplateFnReturnType>> {}
+  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LegendTemplates<TemplateFnReturnType>> {
+  decorator: LegendItemDecorator<TemplateFnReturnType>;
+}
 
 interface LegendTemplates<TemplateFnReturnType> {
-  legendTemplate: (legendProperties: Legend) => TemplateFnReturnType;
+  legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
+  legendaRichContent: TemplateFnReturnType;
+  kaartlagenRichContent: TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -40,11 +46,33 @@ export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions =
 export function legendStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,
   templateContainer,
+  decorator,
 }: LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LegendStories {
   return {
-    Default: {
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate }) =>
-        legendTemplate(legendArgsMapper(args)),
+    Legenda: {
+      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
+        legendTemplate(legendArgsMapper(args, legendaRichContent)),
+      ),
+    },
+    Kaartlagen: {
+      args: {
+        tabItems: [
+          {
+            label: "Legenda",
+            active: false,
+            id: "123",
+          },
+          {
+            label: "Kaartlagen",
+            id: "456",
+            active: true,
+          },
+        ],
+      },
+      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
+        legendTemplate(legendArgsMapper(args, kaartlagenRichContent)),
       ),
     },
   };
