@@ -1,8 +1,16 @@
 import { NavbarItem } from "../navbar";
 
-export interface Legend {
-  children: TemplateFnReturnType;
+export interface Legend<TemplateFnReturnType> {
+  content?: TemplateFnReturnType;
   navbarItems: NavbarItem[];
-  dsoNavbarClick?: (e: CustomEvent<LegendNavbarClickEvent>) => void;
-  dsoClose?: (e: CustomEvent) => void;
+  dsoLegendNavbarItemClick?: (e: CustomEvent<LegendNavbarItemClickEvent>) => void;
+  dsoClose?: (e: CustomEvent<LegendCloseEvent>) => void;
+}
+
+export interface LegendNavbarItemClickEvent {
+  navbarItem: NavbarItem;
+}
+
+export interface LegendCloseEvent {
+  originalEvent?: MouseEvent | Event;
 }

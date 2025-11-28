@@ -26,6 +26,7 @@
  - [dso-history-item](../history-item)
  - [dso-icon-button](../icon-button)
  - [dso-info-button](../info-button)
+ - [dso-legend](../legend)
  - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
  - [dso-onboarding-tip](../onboarding-tip)
@@ -54,6 +55,7 @@ graph TD;
   dso-history-item --> dso-icon
   dso-icon-button --> dso-icon
   dso-info-button --> dso-icon
+  dso-legend --> dso-icon
   dso-map-controls --> dso-icon
   dso-mark-bar --> dso-icon
   dso-onboarding-tip --> dso-icon

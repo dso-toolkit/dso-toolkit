@@ -1,7 +1,50 @@
 @use "~dso-toolkit/src/utilities";
-
-:host {
-  display: block;
-}
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/navbar";
 
 @include utilities.box-sizing();
+
+:host {
+  border: 1px solid black; // ToDo verwijderen (Debug zichtbaarheid van paddings)
+  display: block;
+  inline-size: 344px;
+  background-color: colors.$wit;
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: units.$u2;
+    padding: units.$u1;
+
+    @include navbar.root();
+
+    .dso-navbar {
+      flex-grow: 2;
+
+      ul.dso-nav {
+        @include navbar.nav-border();
+        margin-block-start: 0;
+
+        a {
+          cursor: pointer;
+        }
+      }
+    }
+
+    dso-icon {
+      color: colors.$grasgroen;
+    }
+
+    .dso-close-button {
+      align-self: flex-start;
+    }
+  }
+
+  .content {
+    max-block-size: 600px;
+    overflow: auto;
+    padding: units.$u1;
+  }
+}
