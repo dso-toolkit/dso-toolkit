@@ -34,20 +34,18 @@
 }
 
 :host .dso-modal {
-  inset: 0px;
-  block-size: 100%;
-  position: fixed;
-  z-index: zindex.$modal;
+  margin: 0;
+  background-color: transparent;
+  inline-size: 100dvi;
 
   @include modal.root();
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {
   margin-block-start: 1rem;
-  max-inline-size: calc(100% - 2rem);
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  inline-size: auto;
+  margin-inline-start: 1rem;
+  margin-inline-end: 1rem;
+  inline-size: 100%;
 
   .dso-body {
     $dso-body-unavailable-height: (
@@ -104,14 +102,6 @@
 
 .sr-only {
   @include utilities.sr-only();
-}
-
-.dso-modal-overlay {
-  background-color: color.scale(modal-variables.$backdrop-bg, $alpha: modal-variables.$backdrop-opacity);
-  display: block;
-  position: fixed;
-  inset: 0;
-  z-index: zindex.$modal-background-overlay;
 }
 
 .dso-table-placeholder {
