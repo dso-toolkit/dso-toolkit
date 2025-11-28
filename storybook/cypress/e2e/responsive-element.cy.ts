@@ -12,6 +12,7 @@ describe("Responsive element", () => {
   it("should have size (small, medium, large) attribute depending on the viewport", () => {
     cy.viewport(1312, 660);
     cy.get(responsiveElementSelector).first().should("have.attr", "large");
+    cy.get(responsiveElementSelector).eq(2).should("have.attr", "small");
     cy.matchImageSnapshot(`${Cypress.currentTest.title}: 1312 - large`);
 
     cy.viewport(992, 660);

@@ -33,15 +33,10 @@ export interface OzonContentMarkItem {
 }
 
 export interface OzonContentUrlResolver {
-  (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string | null, element: Element): string;
-  (
-    name: "ExtIoRef" | "ExtRef" | "IntIoRef" | "IntRef",
-    attribute: "ref",
-    value: string | null,
-    element: Element,
-  ): string;
+  (name: "Illustratie" | "InlineTekstAfbeelding", attribute: "naam", value: string, element: Element): string;
+  (name: "ExtIoRef" | "ExtRef" | "IntIoRef" | "IntRef", attribute: "ref", value: string, element: Element): string;
 }
 
 export interface OzonContentBegripResolver {
-  (ref: string | null, element: Element): XMLDocument | string | undefined;
+  (ref: string, element: Element): XMLDocument | string | undefined;
 }
