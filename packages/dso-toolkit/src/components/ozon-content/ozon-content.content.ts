@@ -8,12 +8,13 @@ interface OzonContentStory {
   args?: Partial<OzonContentArgs>;
 }
 
-export function begripResolver(ref: string | null, element: Element): XMLDocument | string | undefined {
-  if (ref && element) {
+export function begripResolver(ref: string, element: Element): XMLDocument | string | undefined {
+  if ((ref === "eId_van_begrip" || ref === "chp_1__art_1.2__list_o_1__item_1") && element) {
     return (
-      "<Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een veelbelovende" +
-      " dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>) te" +
-      " verkennen.</Al>"
+      "<Definitie><Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een" +
+      " veelbelovende dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>)" +
+      " te verkennen.</Al><Al>Ook keken de mensen graag naar het spectaculaire vuurwerk dat de avondhemel verlichtte" +
+      " met felle kleuren.</Al></Definitie>"
     );
   }
 
@@ -366,7 +367,7 @@ export const content: OzonContentStory[] = [
     title: "IntRefBegrip",
     content: `<Inhoud>
   <Al>
-    Het volgende besluit is een <IntRef scope="Begrip" ref="longTitle_inst2">aanwijzingsbesluit Natura 2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021. 
+    Het volgende besluit is een <IntRef scope="Begrip" ref="eId_van_begrip">aanwijzingsbesluit Natura 2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021. 
   </Al>
   <Al>
     In een aanwijzingsbesluit staan de doelen die gelden voor de habitattypen en (vogel)soorten waarvoor het gebied is aangewezen. Mogelijke doelen zijn bijvoorbeeld het in stand houden of verbeteren van kwaliteit van natuur. Of het uitbreiden van habitattypen en leefgebieden van soorten. Ook de grenzen van het gebied staan in het aanwijzingsbesluit.

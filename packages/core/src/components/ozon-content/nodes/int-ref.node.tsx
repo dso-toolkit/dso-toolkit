@@ -9,22 +9,31 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentIntRefNode implements OzonContentNode {
   name = "IntRef";
 
-  render(node: Element, { mapNodeToJsx, emitClick, begripResolver, urlResolver }: OzonContentNodeContext) {
-    const scope = node.getAttribute("scope");
-    const value = node.getAttribute("ref");
+  render(node: Element, nodeContext: OzonContentNodeContext) {
+    const { mapNodeToJsx, emitClick, begripResolver, urlResolver } = nodeContext;
+    const ref = node.getAttribute("ref");
 
-    if (!value) {
+    if (!ref) {
       return mapNodeToJsx(node.childNodes);
     }
 
-    if (scope === "Begrip") {
-      const definitie = begripResolver ? begripResolver(value, node) : value;
-      const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
+    const definitie = begripResolver?.(ref, node);
+
+    if (definitie) {
+      const definitieXMLDocument = typeof definitie === "string" ? parseXml(definitie) : definitie;
+
+      if (
+        !definitieXMLDocument ||
+        definitieXMLDocument.childNodes.length === 0 ||
+        !definitieXMLDocument.childNodes[0]?.childNodes
+      ) {
+        return mapNodeToJsx(node.childNodes);
+      }
 
       return (
         <dso-ozon-content-toggletip icon="info">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
-          {definitieNode ? mapNodeToJsx(definitieNode) : null}
+          {mapNodeToJsx(definitieXMLDocument.childNodes[0].childNodes)}
         </dso-ozon-content-toggletip>
       );
     }
@@ -38,7 +47,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
       });
     };
 
-    const href = resolveUrlByRef("IntRef", value, node, urlResolver);
+    const href = resolveUrlByRef("IntRef", ref, node, urlResolver);
 
     return (
       <a href={href} onClick={handleIntRefClick}>
