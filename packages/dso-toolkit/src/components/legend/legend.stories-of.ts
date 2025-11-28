@@ -1,11 +1,11 @@
+import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
-import { LegendArgs, legendArgs, legendArgTypes, legendArgsMapper } from "./legend.args.js";
-import { Legend } from "./legend.models.js";
-
-import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { compiler } from "markdown-to-jsx";
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../template-container.js";
+
+import { LegendArgs, legendArgTypes, legendArgs, legendArgsMapper } from "./legend.args.js";
+import { Legend } from "./legend.models.js";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
 
@@ -17,7 +17,7 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
   extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LegendTemplates<TemplateFnReturnType>> {}
 
 interface LegendTemplates<TemplateFnReturnType> {
-  legendTemplate: (legendProperties: Legend) => TemplateFnReturnType;
+  legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<

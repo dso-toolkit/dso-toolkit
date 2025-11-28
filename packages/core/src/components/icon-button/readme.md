@@ -46,6 +46,7 @@ Type: `Promise<void>`
  - [dso-info](../info)
  - [dso-info-button](../info-button)
  - [dso-label](../label)
+ - [dso-legend](../legend)
  - [dso-legend-item](../legend-item)
  - [dso-list-button](../list-button)
  - [dso-mark-bar](../mark-bar)
@@ -67,6 +68,7 @@ graph TD;
   dso-info --> dso-icon-button
   dso-info-button --> dso-icon-button
   dso-label --> dso-icon-button
+  dso-legend --> dso-icon-button
   dso-legend-item --> dso-icon-button
   dso-list-button --> dso-icon-button
   dso-mark-bar --> dso-icon-button
