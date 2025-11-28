@@ -30,3 +30,7 @@
 .sr-only {
   @include utilities.sr-only();
 }
+
+#dt-i18n-decorator-container {
+  opacity: 0.5;
+}

@@ -18,12 +18,17 @@
 
 ### Depends on
 
+- [dso-modal](../modal)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-table --> dso-modal
   dso-table --> dso-icon
+  dso-modal --> dso-icon-button
+  dso-modal --> dso-scrollable
+  dso-icon-button --> dso-icon
   dso-ozon-content --> dso-table
   style dso-table fill:#f9f,stroke:#333,stroke-width:4px
 ```

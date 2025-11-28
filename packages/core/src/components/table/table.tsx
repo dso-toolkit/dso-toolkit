@@ -1,7 +1,5 @@
-import { Component, ComponentInterface, Element, Host, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, Watch, h } from "@stencil/core";
 import debounce from "debounce";
-import { FocusTrap, createFocusTrap } from "focus-trap";
-import { v4 } from "uuid";
 
 @Component({
   tag: "dso-table",
@@ -10,14 +8,6 @@ import { v4 } from "uuid";
 })
 export class Table implements ComponentInterface {
   private resizeObserver?: ResizeObserver;
-
-  private focusTrapElement?: HTMLDivElement;
-
-  private buttonElement?: HTMLButtonElement;
-
-  private trap?: FocusTrap;
-
-  private labelledbyId = v4();
 
   @Element()
   host!: HTMLDsoTableElement;
@@ -49,16 +39,17 @@ export class Table implements ComponentInterface {
     this.startResponsiveBehavior();
   }
 
-  componentDidRender() {
-    this.setFocusTrap();
-  }
-
   disconnectedCallback() {
     this.resizeObserver?.disconnect();
   }
 
   render() {
     const caption = this.host.querySelector(":scope > table > caption")?.textContent?.trim();
+    const table: HTMLTableElement | null = this.host.querySelector(":scope > table");
+
+    if (table && this.modalActive) {
+      this.host.querySelector("dso-modal *[slot='body']")?.appendChild(table);
+    }
 
     return (
       <Host is-responsive={this.isResponsive?.toString()}>
@@ -66,16 +57,22 @@ export class Table implements ComponentInterface {
           <div class="dso-table-placeholder" style={{ height: `${this.placeholderHeight}px` }} />
         )}
 
-        {this.modalActive && <div class="dso-modal-overlay"></div>}
-
-        <div class={{ "dso-modal": this.modalActive }}>
-          <div
-            class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
-            ref={(element) => (this.focusTrapElement = element)}
-            {...(this.modalActive ? { ["aria-labelledby"]: this.labelledbyId, role: "dialog" } : {})}
+        {this.modalActive && (
+          <dso-modal
+            closable
+            dialog-role="dialog"
+            fullscreen
+            modal-title={caption || "Uitvergrote tabel dialoog"}
+            onDsoClose={() => this.closeModal()}
           >
+            <div slot="body" innerHTML={table?.outerHTML}></div>
+          </dso-modal>
+        )}
+
+        {!this.modalActive && (
+          <Fragment>
             {(this.isResponsive || !this.noModal) && (
-              <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
+              <div class="dso-table-utilities">
                 {this.isResponsive && (
                   <div class="dso-responsive-message">
                     <span>beweeg de tabel van links naar rechts</span>
@@ -83,12 +80,7 @@ export class Table implements ComponentInterface {
                 )}
 
                 {!this.noModal && (
-                  <button
-                    type="button"
-                    class="dso-tertiary open-modal-button"
-                    ref={(element) => (this.buttonElement = element)}
-                    onClick={() => this.openModal()}
-                  >
+                  <button type="button" class="dso-tertiary open-modal-button" onClick={() => this.openModal()}>
                     <span class="sr-only">tabel {caption ?? ""} </span>
                     <span>vergroten</span>
                     <dso-icon icon="external-link"></dso-icon>
@@ -97,23 +89,11 @@ export class Table implements ComponentInterface {
               </div>
             )}
 
-            {this.modalActive && (
-              <div class="dso-header">
-                <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
-                  {caption || "Uitvergrote tabel dialoog"}
-                </h2>
-                <button type="button" class="dso-close" onClick={() => this.closeModal()}>
-                  <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">Sluiten</span>
-                </button>
-              </div>
-            )}
-
-            <div class={{ "dso-body": this.modalActive, "dso-table-body": true }}>
+            <div class="dso-table-body">
               <slot></slot>
             </div>
-          </div>
-        </div>
+          </Fragment>
+        )}
       </Host>
     );
   }
@@ -126,32 +106,6 @@ export class Table implements ComponentInterface {
   private closeModal() {
     this.placeholderHeight = undefined;
     this.modalActive = false;
-  }
-
-  private setFocusTrap() {
-    if (this.modalActive && this.focusTrapElement && !this.trap) {
-      this.trap = createFocusTrap([this.host, this.focusTrapElement], {
-        escapeDeactivates: true,
-        clickOutsideDeactivates: (e) => {
-          if (e instanceof MouseEvent && e.composedPath()[0] === this.focusTrapElement) {
-            this.closeModal();
-
-            return false;
-          }
-
-          return true;
-        },
-        setReturnFocus: this.buttonElement ?? false,
-        onDeactivate: () => this.closeModal(),
-        tabbableOptions: {
-          getShadowRoot: true,
-        },
-      }).activate();
-    } else if (!this.modalActive && this.trap) {
-      this.trap?.deactivate();
-
-      delete this.trap;
-    }
   }
 
   private setResponsiveTable([dsoTable]: ResizeObserverEntry[]): void {
