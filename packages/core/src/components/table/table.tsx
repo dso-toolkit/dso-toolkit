@@ -123,6 +123,8 @@ export class Table implements ComponentInterface {
 
   private closeModal() {
     this.placeholderHeight = undefined;
+    this.dialogElement?.removeEventListener("close", this.dialogCloseEventListener);
+    this.dialogElement?.close();
     this.modalActive = false;
   }
 
