@@ -15,6 +15,14 @@ function isNestedAl(path: Node[]) {
   });
 }
 
+function lastPathName(path: Node[]): string {
+  const lastPathNode = path.at(-1);
+  if (!lastPathNode) {
+    return "";
+  }
+  return getNodeName(lastPathNode);
+}
+
 export class OzonContentAlNode implements OzonContentNode {
   name = "Al";
 
@@ -23,10 +31,7 @@ export class OzonContentAlNode implements OzonContentNode {
     const wijzigactie = parseWijzigactieFromNode(node);
     const className = wijzigactieToClassName(wijzigactie);
 
-    if (
-      (inline || isNestedAl(path)) &&
-      (!node.parentNode || (node.parentNode && getNodeName(node.parentNode) !== "Definitie"))
-    ) {
+    if ((inline || isNestedAl(path)) && lastPathName(path) !== "IntRef") {
       content = (
         <span role="paragraph" class={className}>
           {content}

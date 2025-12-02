@@ -20,20 +20,18 @@ export class OzonContentIntRefNode implements OzonContentNode {
     if (definitie) {
       const definitieXMLDocument = typeof definitie === "string" ? parseXml(definitie) : definitie;
 
-      if (!definitieXMLDocument?.childNodes[0]?.childNodes) {
-        return mapNodeToJsx(node.childNodes);
-      }
-
-      const definitieChildNodes = Array.from(definitieXMLDocument.childNodes[0].childNodes);
-
-      if (definitieChildNodes.length === 0) {
+      if (
+        !definitieXMLDocument ||
+        definitieXMLDocument.documentElement.tagName !== "Definitie" ||
+        !definitieXMLDocument.documentElement.hasChildNodes()
+      ) {
         return mapNodeToJsx(node.childNodes);
       }
 
       return (
         <dso-ozon-content-toggletip icon="info">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
-          {mapNodeToJsx(definitieChildNodes)}
+          {mapNodeToJsx(Array.from(definitieXMLDocument.documentElement.childNodes))}
         </dso-ozon-content-toggletip>
       );
     }
