@@ -36,6 +36,10 @@ export class Table implements ComponentInterface {
     this.resizeObserver?.observe(this.host);
   }
 
+  private dialogCloseEventListener = () => {
+    this.closeModal();
+  };
+
   componentWillLoad(): void {
     this.resizeObserver = new ResizeObserver(debounce((entries) => this.setResponsiveTable(entries), 200));
   }
@@ -46,9 +50,8 @@ export class Table implements ComponentInterface {
 
   componentDidRender() {
     if (this.modalActive) {
+      this.dialogElement?.addEventListener("close", this.dialogCloseEventListener);
       this.dialogElement?.showModal();
-    } else {
-      this.dialogElement?.close();
     }
   }
 
