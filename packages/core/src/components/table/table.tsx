@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Host, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Host, Prop, State, h } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
 
@@ -71,44 +71,27 @@ export class Table implements ComponentInterface {
               class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
               {...(this.modalActive ? { ["aria-labelledby"]: this.labelledbyId, role: "dialog" } : {})}
             >
-              {(this.isResponsive || !this.noModal) && (
-                <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
-                  {this.isResponsive && (
-                    <div class="dso-responsive-message">
-                      <span>beweeg de tabel van links naar rechts</span>
-                    </div>
-                  )}
+              <div class="dso-header">
+                <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
+                  {caption || "Uitvergrote tabel dialoog"}
+                </h2>
+                <button type="button" class="dso-close" onClick={() => this.closeModal()}>
+                  <dso-icon icon="times"></dso-icon>
+                  <span class="sr-only">Sluiten</span>
+                </button>
+              </div>
 
-                  {!this.noModal && (
-                    <button type="button" class="dso-tertiary open-modal-button" onClick={() => this.openModal()}>
-                      <span class="sr-only">tabel {caption ?? ""} </span>
-                      <span>vergroten</span>
-                      <dso-icon icon="external-link"></dso-icon>
-                    </button>
-                  )}
-                </div>
-              )}
-
-              {this.modalActive && (
-                <div class="dso-header">
-                  <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
-                    {caption || "Uitvergrote tabel dialoog"}
-                  </h2>
-                  <button type="button" class="dso-close" onClick={() => this.closeModal()}>
-                    <dso-icon icon="times"></dso-icon>
-                    <span class="sr-only">Sluiten</span>
-                  </button>
-                </div>
-              )}
-
-              <div class={{ "dso-body": this.modalActive, "dso-table-body": true }}>
+              <div class="dso-body dso-table-body">
                 <slot />
               </div>
             </div>
           </dialog>
         ) : (
-          <div>
-            <div class="dso-table-utilities" style={this.modalActive ? { display: "none" } : undefined}>
+          <Fragment>
+            <div
+              class="dso-table-utilities"
+              style={!this.isResponsive && this.noModal ? { display: "none" } : undefined}
+            >
               {this.isResponsive && (
                 <div class="dso-responsive-message">
                   <span>beweeg de tabel van links naar rechts</span>
@@ -127,7 +110,7 @@ export class Table implements ComponentInterface {
             <div class="dso-table-body">
               <slot />
             </div>
-          </div>
+          </Fragment>
         )}
       </Host>
     );
