@@ -116,9 +116,9 @@ export class ImageOverlay implements ComponentInterface {
 
   componentDidRender() {
     if (this.active) {
+      this.wrapperElement?.addEventListener("close", this.dialogCloseEventListener);
+      this.wrapperElement?.addEventListener("click", this.dialogCloseEventListener);
       this.wrapperElement?.showModal();
-    } else {
-      this.wrapperElement?.close();
     }
   }
 
@@ -152,6 +152,17 @@ export class ImageOverlay implements ComponentInterface {
     return wijzigactie === "voegtoe" || wijzigactie === "verwijder";
   }
 
+  private dialogCloseEventListener = () => {
+    this.closeZoomedImage();
+  };
+
+  private closeZoomedImage() {
+    this.wrapperElement?.removeEventListener("close", this.dialogCloseEventListener);
+    this.wrapperElement?.removeEventListener("click", this.dialogCloseEventListener);
+    this.wrapperElement?.close();
+    this.active = false;
+  }
+
   render() {
     const { src, alt } = this.host.querySelector("img") ?? {};
 
@@ -179,7 +190,7 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
-              click={() => (this.active = false)}
+              click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
                 <div class="title">
@@ -208,7 +219,7 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
-              click={() => (this.active = false)}
+              click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
                 <div class="title">
@@ -234,7 +245,7 @@ export class ImageOverlay implements ComponentInterface {
           src={src}
           alt={alt}
           ref={(element) => (this.wrapperElement = element)}
-          click={() => (this.active = false)}
+          click={() => this.closeZoomedImage()}
         >
           {this.titelSlot && (
             <div class="title">
