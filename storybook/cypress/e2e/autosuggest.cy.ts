@@ -136,22 +136,7 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='option']").eq(1).should("contain", "adres in Rotterdam");
   });
 
-  it("suggestOnFocus should not show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
-    cy.get("dso-autosuggest").should("have.class", "hydrated");
-    cy.get("input").focus().type("rotterdam");
-    cy.get("dso-autosuggest.hydrated")
-      .find(".listbox-container")
-      .should("have.css", "--_dso-autosuggest-max-block-size");
-    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
-    cy.realPress("Tab");
-    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
-    cy.realPress(["Shift", "Tab"]);
-    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
-  });
-
-  it("suggestOnFocus should show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true");
-
+  it("should show suggestions on focus by keyboard with more than one result", { browser: "!firefox" }, () => {
     cy.get("dso-autosuggest").should("have.class", "hydrated");
     cy.get("input").focus().type("rotterdam");
     cy.get("dso-autosuggest.hydrated")
@@ -165,17 +150,20 @@ describe("Autosuggest", () => {
     cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 10);
   });
 
-  it("suggestOnFocus should show suggestions on focus by mouse", () => {
-    cy.get("input").focus().type("rotterdam");
-    cy.wait(200);
+  it("should not show suggestions on focus by keyboard with one result", { browser: "!firefox" }, () => {
+    cy.get("dso-autosuggest").should("have.class", "hydrated");
+    cy.get("input").focus().type("rotterdamse rijweg 15A");
+    cy.get("dso-autosuggest.hydrated")
+      .find(".listbox-container")
+      .should("have.css", "--_dso-autosuggest-max-block-size");
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
-    cy.get("body").click("top");
+    cy.realPress(["Shift", "Tab"]);
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
-    cy.get("input").click("bottomRight", { force: true });
+    cy.realPress("Tab");
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+  });
 
-    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true");
-
+  it("should show suggestions on focus by mouse with more than one result", () => {
     cy.get("input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
@@ -184,6 +172,16 @@ describe("Autosuggest", () => {
     cy.get("input").click();
     cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
     cy.get("dso-autosuggest.hydrated").find("div[role='option']").should("have.length", 10);
+  });
+
+  it("should not show suggestions on focus by mouse with one result", () => {
+    cy.get("input").focus().type("rotterdamse rijweg 15A");
+    cy.wait(200);
+    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("be.visible");
+    cy.get("body").click("bottomRight", { force: true });
+    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
+    cy.get("input").click();
+    cy.get("dso-autosuggest.hydrated").find("div[role='listbox']").should("not.exist");
   });
 
   it("escape should not emit dsoChange event", { browser: "!firefox" }, () => {

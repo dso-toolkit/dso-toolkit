@@ -14,7 +14,6 @@ export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>>
       dsoSearch,
       dsoSelect,
       loading,
-      suggestOnFocus,
       suggestions,
       loadingDelayed,
       loadingLabel,
@@ -27,7 +26,6 @@ export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>>
           onDsoSelect={dsoSelect}
           onDsoChange={dsoChange}
           onDsoSearch={dsoSearch}
-          suggestOnFocus={suggestOnFocus}
           loading={loading}
           loadingLabel={loadingLabel}
           loadingDelayed={loadingDelayed}

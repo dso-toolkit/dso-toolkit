@@ -29,7 +29,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
       dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
       dsoChange: (value: CustomEvent<string>) => void;
       dsoSearch: (value: CustomEvent<string>) => void;
-      suggestOnFocus: boolean;
       loading: boolean;
       loadingLabel: string;
       loadingDelayed: number;
@@ -68,7 +67,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
                   suggestions: this.props.fetchSuggestions(e.detail),
                 }));
               },
-              suggestOnFocus: this.props.suggestOnFocus,
               loading: this.props.loading,
               loadingLabel: this.props.loadingLabel,
               loadingDelayed: this.props.loadingDelayed,
@@ -87,7 +85,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
         dsoSelect,
         dsoChange,
         dsoSearch,
-        suggestOnFocus,
         loading,
         loadingLabel,
         loadingDelay,
@@ -98,7 +95,6 @@ const { Example, Minimal3Characters, InSearchbar, WithProvidedMarkFunction, Sugg
           dsoChange={dsoChange}
           dsoSelect={dsoSelect}
           dsoSearch={dsoSearch}
-          suggestOnFocus={suggestOnFocus}
           loading={loading}
           loadingLabel={loadingLabel}
           loadingDelayed={loadingDelay}

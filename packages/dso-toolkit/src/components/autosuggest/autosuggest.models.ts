@@ -2,7 +2,6 @@ export type AutosuggestMarkItem = { mark: string } | string;
 
 export interface Autosuggest<TemplateFnReturnType> {
   suggestions: AutosuggestSuggestion[] | AutosuggestSuggestionGroup[] | null;
-  suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel?: string;
   loadingDelayed?: number;

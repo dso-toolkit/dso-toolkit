@@ -388,11 +388,6 @@ export namespace Components {
          */
         "notFoundLabel"?: string;
         /**
-          * Whether the previous suggestions will be presented when the input gets focus again.
-          * @default false
-         */
-        "suggestOnFocus": boolean;
-        /**
           * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
           * @default null
          */
@@ -2927,11 +2922,6 @@ declare namespace LocalJSX {
           * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
          */
         "onDsoSelect"?: (event: DsoAutosuggestCustomEvent<Suggestion>) => void;
-        /**
-          * Whether the previous suggestions will be presented when the input gets focus again.
-          * @default false
-         */
-        "suggestOnFocus"?: boolean;
         /**
           * The suggestions for the value of the slotted input element.  This can be an array of type Suggestion or an Array of type SuggestionGroup.  A suggestionGroup must have a `groupLabel` and `suggestions`.  A suggestion must have a `value` and can have a `type`, an `item` or `extras`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. `extras` is an array of additional strings to further specify the suggestion.  The value should be null when no suggestions have been fetched.
           * @default null

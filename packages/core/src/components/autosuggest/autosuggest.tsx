@@ -140,12 +140,6 @@ export class Autosuggest {
   notFoundLabel?: string;
 
   /**
-   * Whether the previous suggestions will be presented when the input gets focus again.
-   */
-  @Prop()
-  suggestOnFocus = false;
-
-  /**
    * A function provided by the consumer of the autosuggest component, that returns an array of `AutosuggestMarkItem`s
    */
   @Prop()
@@ -242,7 +236,7 @@ export class Autosuggest {
   };
 
   private onFocusIn = () => {
-    if (this.suggestOnFocus) {
+    if (this.suggestions && this.suggestions.length > 1) {
       this.openSuggestions();
     }
   };

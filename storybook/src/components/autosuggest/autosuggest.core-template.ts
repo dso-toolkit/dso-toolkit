@@ -13,7 +13,6 @@ export const coreAutosuggest: ComponentImplementation<Autosuggest<TemplateResult
       dsoSelect,
       dsoChange,
       dsoSearch,
-      suggestOnFocus,
       loading,
       loadingLabel,
       loadingDelayed,
@@ -27,7 +26,6 @@ export const coreAutosuggest: ComponentImplementation<Autosuggest<TemplateResult
           @dsoSelect=${dsoSelect}
           @dsoChange=${dsoChange}
           @dsoSearch=${dsoSearch}
-          ?suggest-on-focus=${suggestOnFocus}
           ?loading=${loading}
           loading-label=${ifDefined(loadingLabel)}
           loading-delayed=${ifDefined(loadingDelayed)}
