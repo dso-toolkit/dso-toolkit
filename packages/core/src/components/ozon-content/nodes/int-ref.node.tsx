@@ -2,7 +2,6 @@ import { h } from "@stencil/core";
 
 import { isModifiedEvent } from "../../../utils/is-modified-event";
 import { parseXml } from "../../../utils/parse-xml";
-import { resolveUrlByRef } from "../functions/resolve-url";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
@@ -38,7 +37,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
       });
     };
 
-    const href = resolveUrlByRef("IntRef", value, node, urlResolver);
+    const href = urlResolver ? urlResolver("IntRef", "ref", value, node) : value;
 
     return (
       <a href={href} onClick={handleIntRefClick}>

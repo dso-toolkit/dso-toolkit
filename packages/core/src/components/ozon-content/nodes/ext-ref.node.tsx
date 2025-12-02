@@ -1,7 +1,6 @@
 import { h } from "@stencil/core";
 import kebabCase from "lodash.kebabcase";
 
-import { resolveUrlByRef } from "../functions/resolve-url";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
@@ -17,7 +16,7 @@ export class OzonContentExtRefNode implements OzonContentNode {
       return mapNodeToJsx(node.childNodes);
     }
 
-    const href = resolveUrlByRef(name, value, node, urlResolver);
+    const href = urlResolver ? urlResolver(name, "ref", value, node) : value;
 
     return (
       <a

@@ -1,6 +1,5 @@
 import { Fragment, FunctionalComponent, JSX, h } from "@stencil/core";
 
-import { resolveUrlByNaam } from "../functions/resolve-url";
 import { getNodeName } from "../get-node-name.function";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
@@ -17,12 +16,12 @@ interface IBijschrift {
 }
 
 interface Illustratie {
-  naam: string;
+  naam: string | null;
   breedte: number;
   hoogte: number;
   dpi: number;
   uitlijning: "start" | "center" | "end";
-  alt: string | undefined;
+  alt: string | null;
 }
 
 const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx }) => {
@@ -69,14 +68,14 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
   private mapIllustratieNode(node: Element): Illustratie {
     return {
-      naam: node.getAttribute("naam") ?? "",
+      naam: node.getAttribute("naam"),
       breedte: Number(node.getAttribute("breedte")),
       hoogte: Number(node.getAttribute("hoogte")),
       dpi: Number(node.getAttribute("dpi")),
       uitlijning:
         ["start", "center", "end"].find((u): u is Illustratie["uitlijning"] => node.getAttribute("uitlijning") === u) ??
         "start",
-      alt: node.getAttribute("alt") ?? undefined,
+      alt: node.getAttribute("alt"),
     };
   }
 
@@ -101,7 +100,8 @@ export class OzonContentFiguurNode implements OzonContentNode {
             }
           : undefined;
 
-      const src = resolveUrlByNaam("Illustratie", illustratie.naam, node, urlResolver);
+      const src =
+        urlResolver && illustratie.naam ? urlResolver("Illustratie", "naam", illustratie.naam, node) : illustratie.naam;
 
       return (
         <div

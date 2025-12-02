@@ -1,6 +1,5 @@
 import { Fragment, h } from "@stencil/core";
 
-import { resolveUrlByRef } from "../functions/resolve-url";
 import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
 import { OzonContentNode } from "../ozon-content-node.interface";
 
@@ -14,7 +13,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
       return mapNodeToJsx(node.childNodes);
     }
 
-    const href = resolveUrlByRef("IntIoRef", value, node, urlResolver);
+    const href = urlResolver ? urlResolver("IntIoRef", "ref", value, node) : value;
 
     const intIoRefOnClick = (event: MouseEvent) => {
       emitClick({
