@@ -24,16 +24,19 @@ const Dimmer: FunctionalComponent<{
   src: string | undefined;
   alt: string | undefined;
   ref: (element: HTMLDialogElement | undefined) => void;
+  refInner: (element: HTMLDivElement | undefined) => void;
   click: () => void;
-}> = ({ active, src, alt, ref, click }, children) =>
+}> = ({ active, src, alt, ref, refInner, click }, children) =>
   active &&
   src && (
     <dialog class="wrapper" ref={ref}>
-      {children[2]}
-      {children[0]}
-      <img src={src} alt={alt} />
-      <dso-icon-button icon="times" variant="map" class="close" label="Sluiten" onDsoClick={click} />
-      {children[1]}
+      <div ref={refInner}>
+        {children[2]}
+        {children[0]}
+        <img src={src} alt={alt} />
+        <dso-icon-button icon="times" variant="map" class="close" label="Sluiten" onDsoClick={click} />
+        {children[1]}
+      </div>
     </dialog>
   );
 
@@ -61,6 +64,8 @@ export class ImageOverlay implements ComponentInterface {
   private iconButtonElement: HTMLDsoIconButtonElement | undefined;
 
   private wrapperElement: HTMLDialogElement | undefined;
+
+  private wrapperInnerElement: HTMLDivElement | undefined;
 
   private titelSlot: HTMLElement | null = null;
 
@@ -118,6 +123,7 @@ export class ImageOverlay implements ComponentInterface {
     if (this.active) {
       this.wrapperElement?.addEventListener("close", this.dialogCloseEventListener);
       this.wrapperElement?.addEventListener("click", this.dialogCloseEventListener);
+      this.wrapperInnerElement?.addEventListener("click", this.dialogCloseEventListener);
       this.wrapperElement?.showModal();
     }
   }
@@ -152,13 +158,16 @@ export class ImageOverlay implements ComponentInterface {
     return wijzigactie === "voegtoe" || wijzigactie === "verwijder";
   }
 
-  private dialogCloseEventListener = () => {
-    this.closeZoomedImage();
+  private dialogCloseEventListener = (e: Event) => {
+    if (e.target instanceof HTMLDialogElement) {
+      this.closeZoomedImage();
+    }
   };
 
   private closeZoomedImage() {
     this.wrapperElement?.removeEventListener("close", this.dialogCloseEventListener);
     this.wrapperElement?.removeEventListener("click", this.dialogCloseEventListener);
+    this.wrapperInnerElement?.removeEventListener("click", this.dialogCloseEventListener);
     this.wrapperElement?.close();
     this.active = false;
   }
@@ -190,6 +199,7 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
+              refInner={(element) => (this.wrapperInnerElement = element)}
               click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
@@ -219,6 +229,7 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
+              refInner={(element) => (this.wrapperInnerElement = element)}
               click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
@@ -245,6 +256,7 @@ export class ImageOverlay implements ComponentInterface {
           src={src}
           alt={alt}
           ref={(element) => (this.wrapperElement = element)}
+          refInner={(element) => (this.wrapperInnerElement = element)}
           click={() => this.closeZoomedImage()}
         >
           {this.titelSlot && (

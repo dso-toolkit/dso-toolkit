@@ -92,5 +92,5 @@ describe("Image Overlay", () => {
 
 function openOverlay() {
   cy.get("@open-button").click();
-  cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("be.visible");
+  cy.get("dso-image-overlay").shadow().find(".wrapper > div > img").should("be.visible");
 }
