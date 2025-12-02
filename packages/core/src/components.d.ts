@@ -582,8 +582,7 @@ export namespace Components {
          */
         "openAnnotation": boolean;
         /**
-          * A BegripResolver that will be called for STOP element "IntRef" with
-          * @scope ="Begrip".
+          * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
         "ozonContentBegripResolver"?: OzonContentBegripResolver;
         /**
@@ -1020,7 +1019,7 @@ export namespace Components {
     }
     interface DsoOzonContent {
         /**
-          * A BegripResolver that will be called for STOP element "IntRef" with scope="Begrip".
+          * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
         "begripResolver"?: OzonContentBegripResolver;
         /**
@@ -3175,8 +3174,7 @@ declare namespace LocalJSX {
          */
         "openAnnotation"?: boolean;
         /**
-          * A BegripResolver that will be called for STOP element "IntRef" with
-          * @scope ="Begrip".
+          * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
         "ozonContentBegripResolver"?: OzonContentBegripResolver;
         /**
@@ -3703,7 +3701,7 @@ declare namespace LocalJSX {
     }
     interface DsoOzonContent {
         /**
-          * A BegripResolver that will be called for STOP element "IntRef" with scope="Begrip".
+          * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
         "begripResolver"?: OzonContentBegripResolver;
         /**

@@ -9,21 +9,29 @@ export class OzonContentIntRefNode implements OzonContentNode {
   name = "IntRef";
 
   render(node: Element, { mapNodeToJsx, emitClick, begripResolver, urlResolver }: OzonContentNodeContext) {
-    const scope = node.getAttribute("scope");
-    const value = node.getAttribute("ref");
+    const ref = node.getAttribute("ref");
 
-    if (!value) {
+    if (!ref) {
       return mapNodeToJsx(node.childNodes);
     }
 
-    if (scope === "Begrip") {
-      const definitie = begripResolver ? begripResolver(value, node) : value;
-      const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
+    const definitie = begripResolver?.(ref, node);
+
+    if (definitie) {
+      const definitieXMLDocument = typeof definitie === "string" ? parseXml(definitie) : definitie;
+
+      if (
+        !definitieXMLDocument ||
+        definitieXMLDocument.documentElement.tagName !== "Definitie" ||
+        !definitieXMLDocument.documentElement.hasChildNodes()
+      ) {
+        return mapNodeToJsx(node.childNodes);
+      }
 
       return (
         <dso-ozon-content-toggletip icon="info">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
-          {definitieNode ? mapNodeToJsx(definitieNode) : null}
+          {mapNodeToJsx(Array.from(definitieXMLDocument.documentElement.childNodes))}
         </dso-ozon-content-toggletip>
       );
     }
@@ -37,7 +45,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
       });
     };
 
-    const href = urlResolver ? urlResolver("IntRef", "ref", value, node) : value;
+    const href = urlResolver ? urlResolver("IntRef", "ref", ref, node) : ref;
 
     return (
       <a href={href} onClick={handleIntRefClick}>

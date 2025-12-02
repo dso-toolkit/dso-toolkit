@@ -57,7 +57,8 @@ export class OzonContent implements ComponentInterface {
   urlResolver?: OzonContentUrlResolver;
 
   /**
-   * A BegripResolver that will be called for STOP element "IntRef" with scope="Begrip".
+   * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it
+   * should return the `<Definitie>` of that Begrip otherwise it should return undefined.
    */
   @Prop()
   begripResolver?: OzonContentBegripResolver;
