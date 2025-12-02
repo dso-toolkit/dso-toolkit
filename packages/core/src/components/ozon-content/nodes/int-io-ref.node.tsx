@@ -8,11 +8,12 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
 
   render(node: Element, { mapNodeToJsx, emitClick, urlResolver }: OzonContentNodeContext) {
     const value = node.getAttribute("ref");
-    const href = urlResolver ? urlResolver("IntIoRef", "ref", value, node) : value;
 
     if (!value) {
       return mapNodeToJsx(node.childNodes);
     }
+
+    const href = urlResolver ? urlResolver("IntIoRef", "ref", value, node) : value;
 
     const intIoRefOnClick = (event: MouseEvent) => {
       emitClick({

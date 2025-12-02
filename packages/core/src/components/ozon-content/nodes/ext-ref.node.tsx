@@ -11,6 +11,11 @@ export class OzonContentExtRefNode implements OzonContentNode {
     const className = kebabCase(node.tagName);
     const value = node.getAttribute("ref");
     const name: "ExtRef" | "ExtIoRef" = node.tagName === "ExtRef" ? "ExtRef" : "ExtIoRef";
+
+    if (!value) {
+      return mapNodeToJsx(node.childNodes);
+    }
+
     const href = urlResolver ? urlResolver(name, "ref", value, node) : value;
 
     return (

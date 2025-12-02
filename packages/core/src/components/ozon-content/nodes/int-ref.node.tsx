@@ -12,8 +12,12 @@ export class OzonContentIntRefNode implements OzonContentNode {
     const scope = node.getAttribute("scope");
     const value = node.getAttribute("ref");
 
+    if (!value) {
+      return mapNodeToJsx(node.childNodes);
+    }
+
     if (scope === "Begrip") {
-      const definitie = begripResolver?.(value, node) ?? value;
+      const definitie = begripResolver ? begripResolver(value, node) : value;
       const definitieNode = typeof definitie === "string" ? parseXml(definitie) : definitie;
 
       return (
@@ -33,8 +37,10 @@ export class OzonContentIntRefNode implements OzonContentNode {
       });
     };
 
+    const href = urlResolver ? urlResolver("IntRef", "ref", value, node) : value;
+
     return (
-      <a href={urlResolver?.("IntRef", "ref", value, node)} onClick={handleIntRefClick}>
+      <a href={href} onClick={handleIntRefClick}>
         {mapNodeToJsx(node.childNodes)}
       </a>
     );
