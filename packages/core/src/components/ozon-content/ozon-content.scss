@@ -32,6 +32,10 @@ span[role="paragraph"] {
   display: block;
 }
 
+span[role="paragraph"] + span[role="paragraph"] {
+  margin-block: units.$u2 0;
+}
+
 :host(:not([inline])) .fallback {
   display: block;
 }
