@@ -66,11 +66,8 @@ export class Table implements ComponentInterface {
         )}
 
         {this.modalActive ? (
-          <dialog class={{ "dso-modal": this.modalActive }} ref={(element) => (this.dialogElement = element)}>
-            <div
-              class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
-              {...(this.modalActive ? { ["aria-labelledby"]: this.labelledbyId, role: "dialog" } : {})}
-            >
+          <dialog class="dso-modal" ref={(element) => (this.dialogElement = element)}>
+            <div class="dso-dialog dso-table-dialog" aria-labelledby={this.labelledbyId}>
               <div class="dso-header">
                 <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
                   {caption || "Uitvergrote tabel dialoog"}

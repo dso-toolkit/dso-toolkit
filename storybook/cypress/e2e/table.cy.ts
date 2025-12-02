@@ -37,18 +37,17 @@ describe("Table", () => {
       .find(".open-modal-button")
       .click()
       .get("@dsoTableShadow")
-      .find(".dso-dialog")
-      .should("have.attr", "role", "dialog")
+      .find("dialog .dso-dialog")
       .should("have.attr", "aria-labelledby")
       .get("@dsoTableShadow")
-      .find(".dso-dialog")
+      .find("dialog .dso-dialog")
       .invoke("attr", "aria-labelledby")
       .then((value) => cy.get("@dsoTableShadow").find(".dso-header > h2").should("have.id", value))
       .get("@dsoTableShadow")
       .find(".dso-close")
       .click()
       .get("@dsoTableShadow")
-      .find(".dso-modal")
+      .find("dialog.dso-modal")
       .should("not.exist");
   });
 
