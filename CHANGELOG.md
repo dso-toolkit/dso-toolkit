@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🏸 Release 83.1.0 - 2025-12-03
+
 ### Changed
 * Ozon Content: `ref` van `OzonContentBegripResolver` en `value` van `OzonContentUrlResolver` heeft `null` type ([#3441](https://github.com/dso-toolkit/dso-toolkit/issues/3441))
 * Ozon Content: IntRef begrip via doelelement ([#3456](https://github.com/dso-toolkit/dso-toolkit/issues/3456))
