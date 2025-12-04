@@ -10,12 +10,7 @@ interface OzonContentStory {
 
 export function begripResolver(ref: string, element: Element): XMLDocument | string | undefined {
   if ((ref === "eId_van_begrip" || ref === "chp_1__art_1.2__list_o_1__item_1") && element) {
-    return (
-      "<Definitie><Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een" +
-      " veelbelovende dag om vuurwerk (zie <ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ExtRef>)" +
-      " te verkennen.</Al><Al>Ook keken de mensen graag naar het spectaculaire vuurwerk dat de avondhemel verlichtte" +
-      " met felle kleuren.</Al></Definitie>"
-    );
+    return "<ns4:Definitie xmlns:ns4='https://standaarden.overheid.nl/stop/imop/tekst/'><ns4:Al>De snelle paarse vos eet enthousiast blauwe bananen onder de zingende regenboog, een veelbelovende dag om vuurwerk (zie <ns4:ExtRef soort='JCI' ref='jci1.3:c:BWBR0013360'>Vuurwerkbesluit</ns4:ExtRef>) te verkennen.</ns4:Al> <ns4:Al>Ook keken de mensen graag naar het spectaculaire vuurwerk dat de avondhemel verlichtte met felle kleuren.</ns4:Al> </ns4:Definitie>";
   }
 
   return undefined;

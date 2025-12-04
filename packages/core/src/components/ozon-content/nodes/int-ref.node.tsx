@@ -22,7 +22,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
 
       if (
         !definitieXMLDocument ||
-        definitieXMLDocument.documentElement.tagName !== "Definitie" ||
+        definitieXMLDocument.documentElement.localName !== "Definitie" ||
         !definitieXMLDocument.documentElement.hasChildNodes()
       ) {
         return mapNodeToJsx(node.childNodes);
