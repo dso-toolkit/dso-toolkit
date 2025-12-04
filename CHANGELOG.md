@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Autosuggest: bij herfocus suggesties alleen tonen bij meerdere opties of één optie zonder exacte match ([#3244](https://github.com/dso-toolkit/dso-toolkit/issues/3244))
 
+### Fixed
+* Document Component: `not-applicable` toont ingezoomde onderdelen ook transparant ([#3402](https://github.com/dso-toolkit/dso-toolkit/issues/3402))
+
 ## 🏸 Release 83.1.0 - 2025-12-03
 
 ### Changed

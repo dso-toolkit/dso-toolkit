@@ -115,19 +115,19 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             const figuurWId = element.getAttribute("wId");
             if (figuurWId?.startsWith("gm1979")) {
               // ozon-response.json
-              return `https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/ontwerpafbeeldingen/gm1979/_akn_nl_bill_gm1979_2021_omgevingsplandelfzijl_ZeventiendeOntwerp/${value}`;
+              return `images/${value}`;
             }
             if (figuurWId?.startsWith("mnre1034")) {
               // ozon-response-bal.json
-              return `https://kta.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/mnre1034/_akn_nl_act_mnre1034_2018_OW10146b7397b3f85255ca2exa3acc48_nld_6_0/${value}`;
+              return `https://ketenacceptatie.document-viewer.dso.kadaster.nl/bff/ozon/presenteren/v8/afbeeldingen/mnre1034/_akn_nl_act_mnre1034_2018_OW10146b7397b3f85255ca2exa3acc48_nld_6_0/${value}`;
             }
             if (figuurWId?.startsWith("gm0262")) {
               // ozon-response-omgevingsvisie.json
-              return `https://pro.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/gm0262/_akn_nl_act_gm0262_2024_Regelingafc0c6a68c684c5190bc3924b2c99adc_nld_2024_10_10_14210083/${value}`;
+              return `https://document-viewer.dso.kadaster.nl/bff/ozon/presenteren/v8/afbeeldingen/gm0262/_akn_nl_act_gm0262_2024_Regelingafc0c6a68c684c5190bc3924b2c99adc_nld_2024_10_10_14210083/${value}`;
             }
             if (figuurWId?.startsWith("gm1980")) {
               // ozon-response-strategische-omgevingsvisie-dijk-en-waard.json
-              return `https://pro.document-viewer-api.dso.kadaster.nl/ozon/presenteren/v8/afbeeldingen/gm1980/_akn_nl_act_gm1980_2024_omgevingsvisie_nld_1041/${value}`;
+              return `https://document-viewer.dso.kadaster.nl/bff/ozon/presenteren/v8/afbeeldingen/gm1980/_akn_nl_act_gm1980_2024_omgevingsvisie_nld_1041/${value}`;
             }
             // ozon-response-waterschappen.json bevat geen illustraties
 

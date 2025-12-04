@@ -11,7 +11,6 @@ import {
   h,
 } from "@stencil/core";
 import debounce from "debounce";
-import { FocusTrap, createFocusTrap } from "focus-trap";
 
 type ImageOverlayWijzigactie = "voegtoe" | "verwijder";
 
@@ -24,20 +23,21 @@ const Dimmer: FunctionalComponent<{
   active: boolean;
   src: string | undefined;
   alt: string | undefined;
-  ref: (element: HTMLHeadingElement | undefined) => void;
+  ref: (element: HTMLDialogElement | undefined) => void;
+  refInner: (element: HTMLDivElement | undefined) => void;
   click: () => void;
-}> = ({ active, src, alt, ref, click }, children) =>
+}> = ({ active, src, alt, ref, refInner, click }, children) =>
   active &&
   src && (
-    <div class="dimmer">
-      <div class="wrapper" ref={ref}>
+    <dialog class="wrapper" ref={ref}>
+      <div ref={refInner}>
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
         <dso-icon-button icon="times" variant="map" class="close" label="Sluiten" onDsoClick={click} />
         {children[1]}
       </div>
-    </div>
+    </dialog>
   );
 
 @Component({
@@ -63,9 +63,9 @@ export class ImageOverlay implements ComponentInterface {
 
   private iconButtonElement: HTMLDsoIconButtonElement | undefined;
 
-  private wrapperElement: HTMLDivElement | undefined;
+  private wrapperElement: HTMLDialogElement | undefined;
 
-  private trap: FocusTrap | undefined;
+  private wrapperInnerElement: HTMLDivElement | undefined;
 
   private titelSlot: HTMLElement | null = null;
 
@@ -119,8 +119,16 @@ export class ImageOverlay implements ComponentInterface {
     this.initZoomableImage();
   }
 
+  componentDidRender() {
+    if (this.active) {
+      this.wrapperElement?.addEventListener("close", this.dialogCloseEventListener);
+      this.wrapperElement?.addEventListener("click", this.dialogCloseEventListener);
+      this.wrapperInnerElement?.addEventListener("click", this.dialogCloseEventListener);
+      this.wrapperElement?.showModal();
+    }
+  }
+
   disconnectedCallback() {
-    this.trap?.deactivate();
     this.mutationObserver?.disconnect();
     this.resizeObserver?.disconnect();
   }
@@ -150,6 +158,20 @@ export class ImageOverlay implements ComponentInterface {
     return wijzigactie === "voegtoe" || wijzigactie === "verwijder";
   }
 
+  private dialogCloseEventListener = (e: Event) => {
+    if (e.target instanceof HTMLDialogElement) {
+      this.closeZoomedImage();
+    }
+  };
+
+  private closeZoomedImage() {
+    this.wrapperElement?.removeEventListener("close", this.dialogCloseEventListener);
+    this.wrapperElement?.removeEventListener("click", this.dialogCloseEventListener);
+    this.wrapperInnerElement?.removeEventListener("click", this.dialogCloseEventListener);
+    this.wrapperElement?.close();
+    this.active = false;
+  }
+
   render() {
     const { src, alt } = this.host.querySelector("img") ?? {};
 
@@ -177,7 +199,8 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
-              click={() => (this.active = false)}
+              refInner={(element) => (this.wrapperInnerElement = element)}
+              click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
                 <div class="title">
@@ -206,7 +229,8 @@ export class ImageOverlay implements ComponentInterface {
               src={src}
               alt={alt}
               ref={(element) => (this.wrapperElement = element)}
-              click={() => (this.active = false)}
+              refInner={(element) => (this.wrapperInnerElement = element)}
+              click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
                 <div class="title">
@@ -232,7 +256,8 @@ export class ImageOverlay implements ComponentInterface {
           src={src}
           alt={alt}
           ref={(element) => (this.wrapperElement = element)}
-          click={() => (this.active = false)}
+          refInner={(element) => (this.wrapperInnerElement = element)}
+          click={() => this.closeZoomedImage()}
         >
           {this.titelSlot && (
             <div class="title">
@@ -247,31 +272,5 @@ export class ImageOverlay implements ComponentInterface {
         {button}
       </Host>
     );
-  }
-
-  componentDidRender() {
-    if (this.active && this.wrapperElement && !this.trap) {
-      this.trap = createFocusTrap(this.wrapperElement, {
-        escapeDeactivates: true,
-        clickOutsideDeactivates: (e) => {
-          if (e instanceof MouseEvent && e.composedPath()[0] === this.wrapperElement) {
-            this.active = false;
-
-            return false;
-          }
-
-          return true;
-        },
-        setReturnFocus: this.iconButtonElement ?? false,
-        onDeactivate: () => (this.active = false),
-        tabbableOptions: {
-          getShadowRoot: (node) => node.shadowRoot ?? undefined,
-        },
-      }).activate();
-    } else if (!this.active && this.trap) {
-      this.trap?.deactivate();
-
-      delete this.trap;
-    }
   }
 }

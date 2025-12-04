@@ -1,7 +1,5 @@
 @use "sass:color";
 
-@use "~dso-toolkit/src/utilities";
-
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/zindex";
@@ -13,6 +11,16 @@
 :host {
   display: inline-block;
   position: relative;
+
+  .wrapper {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+
+    &::backdrop {
+      background-color: color.scale(colors.$wit, $alpha: -20%);
+    }
+  }
 }
 
 :host(:hover) .open,
@@ -30,22 +38,11 @@
   }
 }
 
-.dimmer {
-  position: fixed;
-  inset: 0;
-  z-index: zindex.$image-overlay - 1;
-  display: flex;
-  padding: units.$u4;
-  background-color: color.scale(colors.$wit, $alpha: -20%);
-  justify-content: center;
-}
-
 .wrapper {
   align-self: center;
   box-shadow: 0 units.$u1 units.$u3 0 rgba(25, 25, 25, 0.4);
   line-height: 0;
   outline: 4px solid colors.$wit;
-  position: relative;
   z-index: zindex.$image-overlay;
 
   .title {
