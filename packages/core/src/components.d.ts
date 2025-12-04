@@ -34,6 +34,8 @@ import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
+import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -82,6 +84,8 @@ export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/lis
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
+export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
+export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -946,6 +950,27 @@ export namespace Components {
          */
         "toggleVisibility": (e: MouseEvent | KeyboardEvent) => Promise<void>;
     }
+    interface DsoMapLayer {
+        /**
+          * A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays on the right.
+          * @default false
+         */
+        "activatable": boolean;
+        /**
+          * An optional boolean indicating whether the Map Layer is active.
+         */
+        "active"?: boolean;
+        /**
+          * The label of the Map Layer.
+         */
+        "label": string | undefined;
+    }
+    interface DsoMapLayerObject {
+        /**
+          * An optional boolean indicating whether the Map Layer Object is active.
+         */
+        "active"?: boolean;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -1501,6 +1526,14 @@ export interface DsoMapBaseLayersCustomEvent<T> extends CustomEvent<T> {
 export interface DsoMapControlsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapControlsElement;
+}
+export interface DsoMapLayerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapLayerElement;
+}
+export interface DsoMapLayerObjectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapLayerObjectElement;
 }
 export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2124,6 +2157,42 @@ declare global {
         prototype: HTMLDsoMapControlsElement;
         new (): HTMLDsoMapControlsElement;
     };
+    interface HTMLDsoMapLayerElementEventMap {
+        "dsoActiveChange": MapLayerActiveChangeEvent;
+    }
+    interface HTMLDsoMapLayerElement extends Components.DsoMapLayer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapLayerElementEventMap>(type: K, listener: (this: HTMLDsoMapLayerElement, ev: DsoMapLayerCustomEvent<HTMLDsoMapLayerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapLayerElementEventMap>(type: K, listener: (this: HTMLDsoMapLayerElement, ev: DsoMapLayerCustomEvent<HTMLDsoMapLayerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoMapLayerElement: {
+        prototype: HTMLDsoMapLayerElement;
+        new (): HTMLDsoMapLayerElement;
+    };
+    interface HTMLDsoMapLayerObjectElementEventMap {
+        "dsoActiveChange": MapLayerObjectActiveChangeEvent;
+        "dsoMouseEnter": any;
+        "dsoMouseLeave": any;
+    }
+    interface HTMLDsoMapLayerObjectElement extends Components.DsoMapLayerObject, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapLayerObjectElementEventMap>(type: K, listener: (this: HTMLDsoMapLayerObjectElement, ev: DsoMapLayerObjectCustomEvent<HTMLDsoMapLayerObjectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapLayerObjectElementEventMap>(type: K, listener: (this: HTMLDsoMapLayerObjectElement, ev: DsoMapLayerObjectCustomEvent<HTMLDsoMapLayerObjectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoMapLayerObjectElement: {
+        prototype: HTMLDsoMapLayerObjectElement;
+        new (): HTMLDsoMapLayerObjectElement;
+    };
     interface HTMLDsoMapOverlaysElementEventMap {
         "dsoToggleOverlay": OverlayChangeEvent;
     }
@@ -2552,6 +2621,8 @@ declare global {
         "dso-logo": HTMLDsoLogoElement;
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
+        "dso-map-layer": HTMLDsoMapLayerElement;
+        "dso-map-layer-object": HTMLDsoMapLayerObjectElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-mark-bar": HTMLDsoMarkBarElement;
         "dso-modal": HTMLDsoModalElement;
@@ -3599,6 +3670,43 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface DsoMapLayer {
+        /**
+          * A boolean to indicate if the Map Layer is capable of being activated. When `true` a Slide Toggle displays on the right.
+          * @default false
+         */
+        "activatable"?: boolean;
+        /**
+          * An optional boolean indicating whether the Map Layer is active.
+         */
+        "active"?: boolean;
+        /**
+          * The label of the Map Layer.
+         */
+        "label": string | undefined;
+        /**
+          * Emitted when user activates or deactivates the Map Layer.
+         */
+        "onDsoActiveChange"?: (event: DsoMapLayerCustomEvent<MapLayerActiveChangeEvent>) => void;
+    }
+    interface DsoMapLayerObject {
+        /**
+          * An optional boolean indicating whether the Map Layer Object is active.
+         */
+        "active"?: boolean;
+        /**
+          * Emitted when user activates or deactivates the Map Layer Object.
+         */
+        "onDsoActiveChange"?: (event: DsoMapLayerObjectCustomEvent<MapLayerObjectActiveChangeEvent>) => void;
+        /**
+          * Emitted when the mouse enters the Map Layer Object.
+         */
+        "onDsoMouseEnter"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
+        /**
+          * Emitted when the mouse leaves the Map Layer Object.
+         */
+        "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -4192,6 +4300,8 @@ declare namespace LocalJSX {
         "dso-logo": DsoLogo;
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
+        "dso-map-layer": DsoMapLayer;
+        "dso-map-layer-object": DsoMapLayerObject;
         "dso-map-overlays": DsoMapOverlays;
         "dso-mark-bar": DsoMarkBar;
         "dso-modal": DsoModal;
@@ -4267,6 +4377,8 @@ declare module "@stencil/core" {
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
+            "dso-map-layer": LocalJSX.DsoMapLayer & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
+            "dso-map-layer-object": LocalJSX.DsoMapLayerObject & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
