@@ -68,6 +68,7 @@ import {
   ListButton,
   Logo,
   MapControls,
+  MapLayer,
   MarkBar,
   Modal,
   Navbar,
@@ -179,6 +180,7 @@ import { cssList } from "./components/list/list.css-template";
 import { coreListButton } from "./components/list-button/list-button.core-template";
 import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
+import { coreMapLayer } from "./components/map-layer/map-layer.core-template";
 import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 import { coreModal } from "./components/modal/modal.core-template";
 import { cssModal } from "./components/modal/modal.css-template";
@@ -281,6 +283,7 @@ export interface Components {
   listButton: ListButton;
   logo: Logo;
   mapControls: MapControls;
+  mapLayer: MapLayer;
   markBar: MarkBar;
   modal: Modal<TemplateResult>;
   navbar: Navbar<TemplateResult>;
@@ -375,6 +378,7 @@ templateContainer.add(coreLegendItem);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
+templateContainer.add(coreMapLayer);
 templateContainer.add(coreMarkBar);
 templateContainer.add(coreModal);
 templateContainer.add(coreOnboardingTip);

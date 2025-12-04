@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Map Layer: Nieuw component ([#3109](https://github.com/dso-toolkit/dso-toolkit/issues/3109))
+
 ### Changed
 * **BREAKING** Autosuggest: bij herfocus suggesties alleen tonen bij meerdere opties of één optie zonder exacte match ([#3244](https://github.com/dso-toolkit/dso-toolkit/issues/3244))
+
 
 ## 🏸 Release 83.1.0 - 2025-12-03
 
