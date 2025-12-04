@@ -115,7 +115,7 @@ export class LegendItem implements ComponentInterface {
           )}
 
           <div class="legend-item-right-content">
-            {hasOptions && !this.disabled && (
+            {this.active && hasOptions && !this.disabled && (
               <dso-icon-button
                 label="Opties"
                 icon="more"
