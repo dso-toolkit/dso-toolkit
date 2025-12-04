@@ -4,7 +4,6 @@ import { ArgTypes } from "storybook/internal/types";
 import { argTypeAction } from "../../storybook";
 
 export interface AutosuggestArgs {
-  suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel: string;
   loadingDelayed: number;
@@ -15,11 +14,6 @@ export interface AutosuggestArgs {
 }
 
 export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
-  suggestOnFocus: {
-    control: {
-      type: "boolean",
-    },
-  },
   loading: {
     control: {
       type: "boolean",

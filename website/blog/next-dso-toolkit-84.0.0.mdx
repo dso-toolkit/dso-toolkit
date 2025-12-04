@@ -1,0 +1,30 @@
+---
+authors: [cvanderleij]
+---
+
+# DSO Toolkit v84.0.0 🎠️
+
+Deze release bevat **BREAKING** changes voor het volgende component:
+
+- Autosuggest
+
+<!-- truncate -->
+
+## Autosuggest
+
+De property `suggestOnFocus` is verwijderd. Het gedrag dat de voorgaande suggesties opnieuw getoond worden, wanneer de
+invoer weer de focus krijgt, is nu het standaard gedrag bij meer dan 1 suggestie.
+
+### Migratiepad
+
+```html
+❌
+<dso-autosuggest suggest-on-focus>
+  <input id="autosuggestInputId" type="text" class="form-control" />
+</dso-autosuggest>
+
+✅
+<dso-autosuggest>
+  <input id="autosuggestInputId" type="text" class="form-control" />
+</dso-autosuggest>
+```
