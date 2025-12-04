@@ -117,6 +117,8 @@ export * from "./components/logo";
 
 export * from "./components/map-controls";
 
+export * from "./components/map-layer";
+
 export * from "./components/mark-bar";
 
 export * from "./components/modal";
