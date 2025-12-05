@@ -1,0 +1,40 @@
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+@use "map-layer-object.variables" as map-layer-object-variables;
+
+:host {
+  display: block;
+  padding-block: 0.5 * units.$u1;
+}
+
+@include utilities.box-sizing();
+
+::slotted(span[slot="symbol"]) {
+  @include symbol-mixins.symbolContainer(
+    map-layer-object-variables.$symbol-block-size,
+    map-layer-object-variables.$symbol-inline-size
+  );
+}
+
+.map-layer-object {
+  display: flex;
+  gap: units.$u1;
+}
+
+.slide-toggle-container {
+  margin-inline-start: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  dso-slide-toggle {
+    display: flex;
+    align-self: center;
+    line-height: 1;
+    margin-inline-start: 8px;
+    padding-block-start: 0 !important;
+  }
+}
