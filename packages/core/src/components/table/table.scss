@@ -72,7 +72,7 @@
   }
 }
 
-.dso-table-utilities {
+.dso-table-utilities:not([hidden]) {
   align-items: center;
   display: flex;
   justify-content: space-between;

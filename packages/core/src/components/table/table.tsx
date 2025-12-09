@@ -50,7 +50,6 @@ export class Table implements ComponentInterface {
 
   componentDidRender() {
     if (this.modalActive) {
-      this.dialogElement?.addEventListener("close", this.dialogCloseEventListener);
       this.dialogElement?.showModal();
     }
   }
@@ -69,7 +68,11 @@ export class Table implements ComponentInterface {
         )}
 
         {this.modalActive ? (
-          <dialog class="dso-modal" ref={(element) => (this.dialogElement = element)}>
+          <dialog
+            class="dso-modal"
+            ref={(element) => (this.dialogElement = element)}
+            onClose={this.dialogCloseEventListener}
+          >
             <div class="dso-dialog dso-table-dialog" aria-labelledby={this.labelledbyId}>
               <div class="dso-header">
                 <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
@@ -88,10 +91,7 @@ export class Table implements ComponentInterface {
           </dialog>
         ) : (
           <Fragment>
-            <div
-              class="dso-table-utilities"
-              style={!this.isResponsive && this.noModal ? { display: "none" } : undefined}
-            >
+            <div class="dso-table-utilities" hidden={!this.isResponsive && this.noModal}>
               {this.isResponsive && (
                 <div class="dso-responsive-message">
                   <span>beweeg de tabel van links naar rechts</span>
@@ -123,7 +123,6 @@ export class Table implements ComponentInterface {
 
   private closeModal() {
     this.placeholderHeight = undefined;
-    this.dialogElement?.removeEventListener("close", this.dialogCloseEventListener);
     this.dialogElement?.close();
     this.modalActive = false;
   }
