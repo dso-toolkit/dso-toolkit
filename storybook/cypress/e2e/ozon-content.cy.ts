@@ -221,7 +221,7 @@ describe("Ozon Content", () => {
         .and("have.text", "Bedrijf categorie 2");
     });
 
-    it("emits click with node='IntIoRef' on clicking the 'Gebieden op de kaart tonen' Button ", () => {
+    it("emits click with node='IntIoRef' on clicking the 'Kenmerken en kaart' Button ", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()
         .find("dso-ozon-content-toggletip")
@@ -239,6 +239,24 @@ describe("Ozon Content", () => {
           expect(call.args[0].detail.type).to.equal("IntIoRef");
           expect(call.args[0].detail.node.nodeName).to.equal("IntIoRef");
         });
+    });
+
+    it("does not show 'Kenmerken en kaart' Button when not annotated", () => {
+      cy.get("dso-ozon-content.hydrated")
+        .invoke("prop", "annotated", false)
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .shadow()
+        .find(".toggletip-button")
+        .realClick();
+
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip")
+        .find("button")
+        .should("not.exist");
+
+      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
     });
   });
 

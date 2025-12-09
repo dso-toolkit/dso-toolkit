@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Icon: Nieuw icoon - Document Pencil ([#3433](https://github.com/dso-toolkit/dso-toolkit/issues/3433))
 
+### Fixed
+* Document Component: Informatieobject-tooltip toont kenmerken-knop als er geen kenmerken zijn ([#3465](https://github.com/dso-toolkit/dso-toolkit/issues/3465))
+
 ## 🎠 Release 84.0.0 - 2025-12-12
 
 ### Added

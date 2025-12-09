@@ -15,4 +15,5 @@ export interface OzonContentNodeContext<T = unknown> {
   emitMarkItemHighlight(text: string, elementRef: HTMLElement): void;
   urlResolver: OzonContentUrlResolver | undefined;
   begripResolver: OzonContentBegripResolver | undefined;
+  annotated: boolean;
 }
