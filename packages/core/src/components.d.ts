@@ -1039,6 +1039,11 @@ export namespace Components {
     }
     interface DsoOzonContent {
         /**
+          * Boolean indicating that this dso-ozon-content is part of an annotated context. If true the content of the toggletip for "IntIoRef" will show a "Kenmerken en kaart" annotation button.
+          * @default false
+         */
+        "annotated": boolean;
+        /**
           * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
         "begripResolver"?: OzonContentBegripResolver;
@@ -3798,6 +3803,11 @@ declare namespace LocalJSX {
         "placement"?: TooltipPlacement;
     }
     interface DsoOzonContent {
+        /**
+          * Boolean indicating that this dso-ozon-content is part of an annotated context. If true the content of the toggletip for "IntIoRef" will show a "Kenmerken en kaart" annotation button.
+          * @default false
+         */
+        "annotated"?: boolean;
         /**
           * A BegripResolver that will be called for STOP element "IntRef". If the ref-attribute of IntRef points to a Begrip it should return the `<Definitie>` of that Begrip otherwise it should return undefined.
          */
