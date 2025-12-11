@@ -6,6 +6,7 @@ interface Component {
   selector?: string;
   stories?: string[];
   type: string;
+  failureThreshold?: number;
 }
 
 function checkA11y(component: Component) {
@@ -16,10 +17,11 @@ function checkA11y(component: Component) {
 }
 
 function matchImageSnapshot(id: string, component: Component) {
+  const config = component.failureThreshold >= 0 ? { failureThreshold: component.failureThreshold } : undefined;
   if (component.selector) {
-    cy.get(component.selector).matchImageSnapshot(id);
+    cy.get(component.selector).matchImageSnapshot(id, config);
   } else {
-    cy.matchImageSnapshot(id);
+    cy.matchImageSnapshot(id, config);
   }
 }
 

@@ -325,7 +325,8 @@
       "with-results-message",
       "with-hidden-results-message"
     ],
-    "type": "html-css"
+    "type": "html-css",
+    "failureThreshold": 0
   },
   {
     "name": "shopping-cart",
