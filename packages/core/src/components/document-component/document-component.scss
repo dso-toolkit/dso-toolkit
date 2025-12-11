@@ -127,6 +127,12 @@
   }
 }
 
+:host(:not([not-collapsible])) {
+  dso-ozon-content[inline].kop::part(_kop) {
+    display: inline;
+  }
+}
+
 :host([mode="document"]:not([not-collapsible])) {
   --link-color: #{document-component.$heading-anchor-color};
   --link-hover-color: #{document-component.$heading-anchor-hover-color};
@@ -139,10 +145,6 @@
         color: var(--link-hover-color);
         text-decoration: underline;
       }
-    }
-
-    &[inline].kop::part(_kop) {
-      display: inline;
     }
   }
 
