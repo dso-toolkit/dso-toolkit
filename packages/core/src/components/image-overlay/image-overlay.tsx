@@ -23,14 +23,14 @@ const Dimmer: FunctionalComponent<{
   active: boolean;
   src: string | undefined;
   alt: string | undefined;
-  dialogRef: (element: HTMLDialogElement | undefined) => void;
-  dialogClose: (e: Event) => void;
+  ref: (element: HTMLDialogElement | undefined) => void;
+  close: (e: Event) => void;
   click: () => void;
-}> = ({ active, src, alt, dialogRef, dialogClose, click }, children) =>
+}> = ({ active, src, alt, ref, close, click }, children) =>
   active &&
   src && (
-    <dialog class="wrapper" ref={dialogRef} onClose={dialogClose} onClick={dialogClose}>
-      <div onClick={dialogClose}>
+    <dialog class="wrapper" ref={ref} onClose={close} onClick={close}>
+      <div onClick={close}>
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
@@ -190,8 +190,8 @@ export class ImageOverlay implements ComponentInterface {
               active={this.active}
               src={src}
               alt={alt}
-              dialogRef={(element) => (this.wrapperElement = element)}
-              dialogClose={this.dialogCloseEventListener}
+              ref={(element) => (this.wrapperElement = element)}
+              close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
@@ -220,8 +220,8 @@ export class ImageOverlay implements ComponentInterface {
               active={this.active}
               src={src}
               alt={alt}
-              dialogRef={(element) => (this.wrapperElement = element)}
-              dialogClose={this.dialogCloseEventListener}
+              ref={(element) => (this.wrapperElement = element)}
+              close={this.dialogCloseEventListener}
               click={() => this.closeZoomedImage()}
             >
               {this.titelSlot && (
@@ -247,8 +247,8 @@ export class ImageOverlay implements ComponentInterface {
           active={this.active}
           src={src}
           alt={alt}
-          dialogRef={(element) => (this.wrapperElement = element)}
-          dialogClose={this.dialogCloseEventListener}
+          ref={(element) => (this.wrapperElement = element)}
+          close={this.dialogCloseEventListener}
           click={() => this.closeZoomedImage()}
         >
           {this.titelSlot && (
