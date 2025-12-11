@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Ozon Content: Toggletip van Begrip wordt niet getoond ([#3468](https://github.com/dso-toolkit/dso-toolkit/issues/3468))
 * Document Component: `not-applicable` toont ingezoomde onderdelen ook transparant ([#3402](https://github.com/dso-toolkit/dso-toolkit/issues/3402))
 
+### Task
+* Packages: Stencil core update naar laatste versie ([#3437](https://github.com/dso-toolkit/dso-toolkit/issues/3437))
+
 ## 🏸 Release 83.1.0 - 2025-12-03
 
 ### Changed

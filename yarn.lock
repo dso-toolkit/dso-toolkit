@@ -3915,7 +3915,7 @@ __metadata:
     "@floating-ui/dom": "npm:^1.7.4"
     "@popperjs/core": "npm:^2.11.8"
     "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch"
-    "@stencil/core": "npm:4.36.1"
+    "@stencil/core": "npm:4.39.0"
     "@stencil/react-output-target": "npm:^1.2.0"
     "@stencil/sass": "npm:^3.2.3"
     "@stencil/store": "npm:^2.2.1"
@@ -3956,7 +3956,7 @@ __metadata:
   resolution: "@dso-toolkit/react@workspace:packages/react"
   dependencies:
     "@iframe-resizer/child": "npm:^5.5.7"
-    "@stencil/core": "npm:4.36.1"
+    "@stencil/core": "npm:4.39.0"
     "@stencil/react-output-target": "npm:^1.2.0"
     "@storybook/addon-a11y": "npm:10.0.8"
     "@storybook/addon-docs": "npm:10.0.8"
@@ -7159,9 +7159,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:4.36.1":
-  version: 4.36.1
-  resolution: "@stencil/core@npm:4.36.1"
+"@stencil/core@npm:4.39.0":
+  version: 4.39.0
+  resolution: "@stencil/core@npm:4.39.0"
   dependencies:
     "@rollup/rollup-darwin-arm64": "npm:4.34.9"
     "@rollup/rollup-darwin-x64": "npm:4.34.9"
@@ -7190,7 +7190,7 @@ __metadata:
       optional: true
   bin:
     stencil: bin/stencil
-  checksum: 10/f244d58ec1bee80ee593b58956e4cc0e162fea7e65d20caa5eb22dd9539c13d26a103d03305bf1edcd827ed8798908e3fc7120372e826a254f415ed05c434fbd
+  checksum: 10/9f0351cc9c67ad70e974b8fff91f4e9051571bb2989a795a3372c2c4dee2c820fa68b1f59a2e187311da45c2a1d59570efb755d6dae6348d45808fd534c99045
   languageName: node
   linkType: hard
 

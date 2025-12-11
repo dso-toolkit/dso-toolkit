@@ -18,7 +18,7 @@ Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
 | `gewijzigdeLocatie` | `gewijzigde-locatie` | Een optionele boolean die aangeeft of de locatie van de annotatie gewijzigd is.     | `boolean \| undefined`                                                                                         | `undefined` |
 | `naam`              | `naam`               | De naam van de omgevingsnorm of omgevingswaarde.                                    | `string \| undefined \| { toegevoegd: string; } \| { verwijderd: string; } \| { was: string; wordt: string; }` | `undefined` |
 | `toelichting`       | `toelichting`        | De toelichting van de waardes.                                                      | `string \| undefined`                                                                                          | `undefined` |
-| `waardes`           | `waardes`            | De waardes van de omgevingsnorm of omgevingswaarde.                                 | `RenvooiValue[] \| undefined`                                                                                  | `undefined` |
+| `waardes`           | --                   | De waardes van de omgevingsnorm of omgevingswaarde.                                 | `RenvooiValue[] \| undefined`                                                                                  | `undefined` |
 | `wijzigactie`       | `wijzigactie`        | Een optionele wijzigactie die aangeeft of de annotatie toegevoegd of verwijderd is. | `"verwijder" \| "voegtoe" \| undefined`                                                                        | `undefined` |
 
 
