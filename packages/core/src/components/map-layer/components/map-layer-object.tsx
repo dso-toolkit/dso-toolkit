@@ -53,6 +53,8 @@ export class MapLayerObject implements ComponentInterface {
         <div class="map-layer-object">
           <div>
             <slot name="symbol" />
+          </div>
+          <div>
             <slot />
           </div>
           <div class="slide-toggle-container">

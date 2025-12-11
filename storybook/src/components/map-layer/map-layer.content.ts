@@ -8,7 +8,7 @@ const object1: MapLayerObject<TemplateResult> = {
 
 const object2: MapLayerObject<TemplateResult> = {
   active: true,
-  label: html`<span>Map layer object 2</span>`,
+  label: html`<span>Map layer object 2 (Gebiedsoverschrijdingszone)</span>`,
   symboolCode: "vag000",
 };
 

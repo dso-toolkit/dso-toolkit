@@ -20,12 +20,16 @@
 
 .map-layer-object {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  block-size: map-layer-variables.$map-layer-block-size;
+  min-block-size: map-layer-variables.$map-layer-min-block-size;
 }
 
-.slide-toggle-container dso-slide-toggle {
-  display: flex;
-  padding-block-start: 0;
+.slide-toggle-container {
+  margin-inline-start: auto;
+
+  dso-slide-toggle {
+    display: flex;
+
+    padding-block-start: 0;
+  }
 }

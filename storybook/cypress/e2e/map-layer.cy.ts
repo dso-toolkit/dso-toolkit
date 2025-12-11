@@ -18,10 +18,6 @@ describe("Map Layer", () => {
     cy.dsoCheckA11y("dso-map-layer.hydrated");
   });
 
-  it("screenshot", () => {
-    cy.get("@dsoMapLayer").matchImageSnapshot(`${Cypress.currentTest.title}`);
-  });
-
   it("shows a Slide Toggle depending upon value of prop `activatable`", () => {
     cy.get("@dsoMapLayer")
       .invoke("prop", "activatable", false)
@@ -29,11 +25,15 @@ describe("Map Layer", () => {
       .find(".slide-toggle-container dso-slide-toggle")
       .should("not.exist");
 
+    cy.get("@dsoMapLayer").matchImageSnapshot(`${Cypress.currentTest.title} - without Slide Toggle`);
+
     cy.get("@dsoMapLayer")
       .invoke("prop", "activatable", true)
       .shadow()
       .find(".slide-toggle-container dso-slide-toggle")
       .should("exist");
+
+    cy.get("@dsoMapLayer").matchImageSnapshot(`${Cypress.currentTest.title} - with Slide Toggle`);
   });
 
   it("should emit ActiveChange event", () => {

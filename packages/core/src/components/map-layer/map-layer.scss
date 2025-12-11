@@ -11,13 +11,11 @@
 
 .map-layer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  block-size: map-layer-variables.$map-layer-block-size;
+  min-block-size: map-layer-variables.$map-layer-min-block-size;
 }
 
 .map-layer-label {
-  font-size: 1em;
   font-weight: 600;
   line-height: 1.375em;
   margin: 0;
