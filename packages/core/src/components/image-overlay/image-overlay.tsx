@@ -118,7 +118,7 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   componentDidRender() {
-    if (this.active) {
+    if (this.active && !this.wrapperElement?.open) {
       this.wrapperElement?.showModal();
     }
   }
