@@ -12,7 +12,7 @@
 | `helpUrl`         | `help-url`          | The URL to open when the user activates "help". If no URL is specified, a button element is used instead.                | `string \| undefined`                 | `undefined` |
 | `loginUrl`        | `login-url`         | When the `authStatus` is `loggedOut` a loginUrl can be provided. The login button will then render as an anchor.         | `string \| undefined`                 | `undefined` |
 | `logoutUrl`       | `logout-url`        | The URL to open when the user activates "logout". If no URL is specified, a button element is used instead.              | `string \| undefined`                 | `undefined` |
-| `mainMenu`        | `main-menu`         | The main menu items.                                                                                                     | `HeaderMenuItem[]`                    | `[]`        |
+| `mainMenu`        | --                  | The main menu items.                                                                                                     | `HeaderMenuItem[]`                    | `[]`        |
 | `showHelp`        | `show-help`         | Show a help-button or link in the header                                                                                 | `boolean`                             | `false`     |
 | `userHomeActive`  | `user-home-active`  | Set this to true when the user is at "Mijn Omgevingsloket".                                                              | `boolean`                             | `false`     |
 | `userHomeUrl`     | `user-home-url`     | The URL to open when the user activates "Mijn Omgevingsloket".                                                           | `string \| undefined`                 | `undefined` |

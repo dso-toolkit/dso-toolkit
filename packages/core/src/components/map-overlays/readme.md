@@ -7,10 +7,10 @@ Private component, do not use.
 
 ## Properties
 
-| Property                | Attribute  | Description                                                           | Type        | Default     |
-| ----------------------- | ---------- | --------------------------------------------------------------------- | ----------- | ----------- |
-| `group`                 | `group`    | To group the overlays together. Generally the default value suffices. | `string`    | `uuidv4()`  |
-| `overlays` _(required)_ | `overlays` | The overlays.                                                         | `Overlay[]` | `undefined` |
+| Property                | Attribute | Description                                                           | Type        | Default     |
+| ----------------------- | --------- | --------------------------------------------------------------------- | ----------- | ----------- |
+| `group`                 | `group`   | To group the overlays together. Generally the default value suffices. | `string`    | `uuidv4()`  |
+| `overlays` _(required)_ | --        | The overlays.                                                         | `Overlay[]` | `undefined` |
 
 
 ## Events

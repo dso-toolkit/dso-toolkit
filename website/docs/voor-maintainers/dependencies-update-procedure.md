@@ -19,11 +19,9 @@ intellisense/code-completion is in de IDE.
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.5.4 (Stencil v4.27.2).
-- Storybook (v7) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v19.02) ondersteunt TypeScript \>=5.5.0 \<5.9.0.
-
-In github-issue [2987](https://github.com/dso-toolkit/dso-toolkit/pull/2987) is TypeScript geüpdatet van 5.6.3 naar 5.7.x. Hoewel dit geen build errors opleverde, veroorzaakte het wel IDE-errors omdat Stencil nog geen support biedt voor TypeScript 5.7. Om geen nieuwe issues te introduceren is besloten om terug te keren naar versie 5.6.3.
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.39.0). Echter draait versie v4.39.0 ook goed met typescript 5.9.3.
+- Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
+- Angular (v20.3.12) ondersteunt TypeScript \>=5.8.0 \<6.0.0
 
 Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
 
