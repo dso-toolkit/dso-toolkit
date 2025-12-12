@@ -1,0 +1,35 @@
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+@use "map-layer-object.variables" as map-layer-object-variables;
+@use "../map-layer.variables" as map-layer-variables;
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+::slotted(span[slot="symbol"]) {
+  @include symbol-mixins.symbolContainer(
+    map-layer-object-variables.$symbol-block-size,
+    map-layer-object-variables.$symbol-inline-size
+  );
+}
+
+.map-layer-object {
+  display: flex;
+  justify-content: space-between;
+  min-block-size: map-layer-variables.$map-layer-min-block-size;
+}
+
+.slide-toggle-container {
+  margin-inline-start: auto;
+
+  dso-slide-toggle {
+    display: flex;
+
+    padding-block-start: 0;
+  }
+}

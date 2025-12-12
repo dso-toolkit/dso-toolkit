@@ -1,0 +1,28 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+@use "map-layer.variables" as map-layer-variables;
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.map-layer {
+  display: flex;
+  justify-content: space-between;
+  min-block-size: map-layer-variables.$map-layer-min-block-size;
+}
+
+.map-layer-label {
+  font-weight: 600;
+  line-height: 1.375em;
+  margin: 0;
+  position: relative;
+}
+
+.slide-toggle-container dso-slide-toggle {
+  display: flex;
+  padding-block-start: 0;
+}

@@ -1,0 +1,5 @@
+@use "sass:math";
+
+$symbol-block-size: 26px;
+$symbol-aspect-ratio: math.div(30, 26);
+$symbol-inline-size: $symbol-block-size * $symbol-aspect-ratio;
