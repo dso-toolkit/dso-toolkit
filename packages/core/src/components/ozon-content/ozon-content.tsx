@@ -64,6 +64,13 @@ export class OzonContent implements ComponentInterface {
   begripResolver?: OzonContentBegripResolver;
 
   /**
+   * Boolean indicating that this dso-ozon-content is part of an annotated context. If true the content of the
+   * toggletip for "IntIoRef" will show a "Kenmerken en kaart" annotation button.
+   */
+  @Prop({ reflect: true })
+  annotated: boolean = false;
+
+  /**
    * Emitted when an interactive element is clicked.
    */
   @Event({ bubbles: false })
@@ -97,6 +104,7 @@ export class OzonContent implements ComponentInterface {
       emitClick: this.dsoClick.emit,
       urlResolver: this.urlResolver,
       begripResolver: this.begripResolver,
+      annotated: this.annotated,
     };
 
     const transformed = mapper.transform(this.content, context);

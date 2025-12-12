@@ -109,6 +109,7 @@ export class Mapper {
       path,
       urlResolver: context.urlResolver,
       begripResolver: context.begripResolver,
+      annotated: context.annotated,
     });
   }
 

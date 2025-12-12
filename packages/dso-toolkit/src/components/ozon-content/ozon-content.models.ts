@@ -6,6 +6,7 @@ export interface OzonContent {
   dsoClick: (e: CustomEvent<OzonContentClickEvent>) => void;
   dsoOzonContentMarkItemHighlight: (e: CustomEvent) => void;
   begripResolver?: OzonContentBegripResolver;
+  annotated?: boolean;
 }
 
 interface OzonContentClickBaseEvent<T extends string> {

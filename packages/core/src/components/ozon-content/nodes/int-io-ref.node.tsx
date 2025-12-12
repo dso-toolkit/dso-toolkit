@@ -6,7 +6,7 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentIntIoRefNode implements OzonContentNode {
   name = "IntIoRef";
 
-  render(node: Element, { mapNodeToJsx, emitClick, urlResolver }: OzonContentNodeContext) {
+  render(node: Element, { mapNodeToJsx, emitClick, urlResolver, annotated }: OzonContentNodeContext) {
     const ref = node.getAttribute("ref");
 
     if (!ref) {
@@ -27,14 +27,16 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
       <Fragment>
         <dso-ozon-content-toggletip icon="map-location">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
-          <p>
-            Gebieden op de kaart tonen:{" "}
-            <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
-              <span>Kenmerken en kaart</span>
-              <dso-icon icon="label" />
-            </button>
-          </p>
-          <p>
+          {annotated && (
+            <span role="paragraph">
+              Gebieden op de kaart tonen:{" "}
+              <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
+                <span>Kenmerken en kaart</span>
+                <dso-icon icon="label" />
+              </button>
+            </span>
+          )}
+          <span role="paragraph">
             Officiële publicaties:{" "}
             <a
               target="_blank"
@@ -45,7 +47,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
               <span>{mapNodeToJsx(node.childNodes)}</span>
               <dso-icon icon="external-link" />
             </a>
-          </p>
+          </span>
         </dso-ozon-content-toggletip>
       </Fragment>
     );

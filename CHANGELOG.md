@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Search Bar: Zoek knop uitlijning en vormgeving is kapot ([#3462](https://github.com/dso-toolkit/dso-toolkit/issues/3462))
 * Document Component: Label verkeerd gepositioneerd achter titel in table-of-contents mode ([#3457](https://github.com/dso-toolkit/dso-toolkit/issues/3457))
 * Ozon Content: Toggletip van Begrip wordt niet getoond ([#3468](https://github.com/dso-toolkit/dso-toolkit/issues/3468))
+* Document Component: Informatieobject-tooltip toont kenmerken-knop als er geen kenmerken zijn ([#3465](https://github.com/dso-toolkit/dso-toolkit/issues/3465))
 
 ## 🏸 Release 83.1.0 - 2025-12-03
 

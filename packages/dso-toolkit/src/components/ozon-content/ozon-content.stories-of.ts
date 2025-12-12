@@ -24,6 +24,7 @@ export interface OzonContentStories {
   IntRefBegrip: OzonContentStory;
   ExtRef: OzonContentStory;
   IntIoRef: OzonContentStory;
+  IntIoRefNotAnnotated: OzonContentStory;
   ExtIoRef: OzonContentStory;
   InhoudAlNoot: OzonContentStory;
   Figuur: OzonContentStory;
@@ -79,6 +80,7 @@ export function ozonContentStories<Implementation, Templates, TemplateFnReturnTy
         dsoOzonContentMarkItemHighlight: fn(),
         content,
         inline: false,
+        annotated: title === "IntIoRef",
         ...args,
       }),
       render,

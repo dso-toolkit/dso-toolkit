@@ -16,6 +16,27 @@ export function begripResolver(ref: string, element: Element): XMLDocument | str
   return undefined;
 }
 
+export const intIoRefContent = `
+      <Inhoud>
+        <Al>
+          Ter plaatse van het werkingsgebied van de functie '<IntIoRef eId="subchp_2.2__art_2.4__ref_o_1"
+          ref="gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"
+          wId="gm0037_1__subchp_2.2__art_2.4__ref_o_1">Bedrijf categorie 2</IntIoRef>'
+          mogen de locatie en de daarop voorkomende bouwwerken in ieder geval worden
+          gebruikt voor het verrichten van de volgende gebruiksactiviteiten: </Al>
+          <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" type="expliciet">
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a">
+                <LiNummer>1.</LiNummer>
+                <Al>activiteit 1</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b">
+                <LiNummer>2.</LiNummer>
+                <Al>activiteit 2</Al>
+              </Li>
+            </Lijst>
+      </Inhoud>
+    `;
+
 export const content: OzonContentStory[] = [
   {
     title: "Abbr",
@@ -376,26 +397,11 @@ export const content: OzonContentStory[] = [
   },
   {
     title: "IntIoRef",
-    content: `
-      <Inhoud>
-        <Al>
-          Ter plaatse van het werkingsgebied van de functie '<IntIoRef eId="subchp_2.2__art_2.4__ref_o_1"
-          ref="gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"
-          wId="gm0037_1__subchp_2.2__art_2.4__ref_o_1">Bedrijf categorie 2</IntIoRef>'
-          mogen de locatie en de daarop voorkomende bouwwerken in ieder geval worden
-          gebruikt voor het verrichten van de volgende gebruiksactiviteiten: </Al>
-          <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" type="expliciet">
-              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a">
-                <LiNummer>1.</LiNummer>
-                <Al>activiteit 1</Al>
-              </Li>
-              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b">
-                <LiNummer>2.</LiNummer>
-                <Al>activiteit 2</Al>
-              </Li>
-            </Lijst>
-      </Inhoud>
-    `,
+    content: intIoRefContent,
+  },
+  {
+    title: "IntIoRefNotAnnotated",
+    content: intIoRefContent,
   },
   {
     title: "ExtIoRef",
