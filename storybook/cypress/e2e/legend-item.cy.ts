@@ -49,6 +49,16 @@ describe("Legend Item", () => {
       .should("not.be.disabled");
   });
 
+  it("should hide the edit button when the slider is not active", () => {
+    cy.get("@dsoLegendItem").invoke("prop", "active", false).shadow().find("#edit-button").should("not.exist");
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
+  });
+
+  it("should show the edit button when the slider is active", () => {
+    cy.get("@dsoLegendItem").invoke("prop", "active", true).shadow().find("#edit-button").should("be.visible");
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
+  });
+
   it("should show the options containing an input-range when clicked on edit-button", () => {
     cy.get("@dsoLegendItem")
       .find("div[slot='options'] dso-input-range")
