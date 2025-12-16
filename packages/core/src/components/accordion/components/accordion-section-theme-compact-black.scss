@@ -107,9 +107,7 @@
 @mixin dso-web-component-accordion-compact-black-verwijder() {
   @include delete.root($strikethrough: true);
 
-  & {
-    background-color: colors.$rood-20;
-  }
+  background-color: colors.$rood-20;
 
   .dso-section-body {
     background-color: colors.$rood-20;

@@ -30,12 +30,9 @@
     &::before {
       @include di.base("times-zwart");
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-      }
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 

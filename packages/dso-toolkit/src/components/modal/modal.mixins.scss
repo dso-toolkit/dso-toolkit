@@ -83,15 +83,12 @@
 
     @include rich-content.children();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-      max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
-      min-block-size: 1.5rem;
-      overflow-x: auto;
+    block-size: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+    max-block-size: calc(#{modal-variables.$max-block-size} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
+    min-block-size: 1.5rem;
+    overflow-x: auto;
 
-      padding: modal-variables.$body-padding;
-    }
+    padding: modal-variables.$body-padding;
   }
 
   > .dso-dialog > dso-scrollable {
@@ -106,10 +103,7 @@
     .dso-body {
       @include rich-content.children();
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        padding: modal-variables.$body-padding;
-      }
+      padding: modal-variables.$body-padding;
     }
   }
 
@@ -122,15 +116,12 @@
   .dso-footer {
     @include modal-wide-buttons();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
+    min-block-size: modal-variables.$footer-button-block-size + modal-variables.$footer-padding;
 
-      padding-block: calc(modal-variables.$footer-padding / 2);
-      padding-inline: modal-variables.$footer-padding;
+    padding-block: calc(modal-variables.$footer-padding / 2);
+    padding-inline: modal-variables.$footer-padding;
 
-      text-align: end;
-    }
+    text-align: end;
   }
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {

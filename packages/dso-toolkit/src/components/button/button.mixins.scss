@@ -25,20 +25,15 @@
     @include base($modifiers);
   }
 
-  & {
-    @include _shared-variant($defaults-map, $variant);
-  }
+  @include _shared-variant($defaults-map, $variant);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: button-variables.$border-radius;
-    line-height: typography.$line-height-base;
-    min-inline-size: button-variables.$min-inline-size;
-    padding-block: button-variables.$block-padding;
-    padding-inline: button-variables.$inline-padding;
-  }
+  border-width: 1px;
+  border-style: solid;
+  border-radius: button-variables.$border-radius;
+  line-height: typography.$line-height-base;
+  min-inline-size: button-variables.$min-inline-size;
+  padding-block: button-variables.$block-padding;
+  padding-inline: button-variables.$inline-padding;
 
   &:hover {
     @include _shared-variant($defaults-map, $variant, $hover-map, "-hover");
@@ -61,10 +56,8 @@
 
   &.dso-extra-small {
     @include small();
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      padding-block: 9px;
-    }
+
+    padding-block: 9px;
   }
 
   @if ($icon-only) {
@@ -141,9 +134,7 @@
 }
 
 @mixin small() {
-  & {
-    line-height: typography.$root-font-size-base;
-  }
+  line-height: typography.$root-font-size-base;
 
   dso-icon,
   &.extern::after,
@@ -361,13 +352,11 @@
     @include base($modifiers);
   }
 
-  & {
-    border: 0;
-    color: button-variables.$tertiary-color;
-    line-height: 1;
-    padding: 0;
-    background-color: transparent;
-  }
+  border: 0;
+  color: button-variables.$tertiary-color;
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
 
   &[disabled] {
     color: colors.$grasgroen-40;
@@ -456,26 +445,24 @@
 @mixin map() {
   @include secondary($modifiers: false);
 
-  & {
-    @include map-box-shadow();
+  @include map-box-shadow();
 
-    border: 0;
-    font-weight: 600;
-    margin-inline-end: units.$u2;
-    padding-block: units.$u1;
-    padding-inline: units.$u2;
-    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
+  border: 0;
+  font-weight: 600;
+  margin-inline-end: units.$u2;
+  padding-block: units.$u1;
+  padding-inline: units.$u2;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
 
-    &:focus,
-    &:focus-visible {
-      outline-offset: -1px;
-    }
+  &:focus,
+  &:focus-visible {
+    outline-offset: -1px;
+  }
 
-    &:has(span.sr-only):has(dso-icon) {
-      padding: units.$u1;
-      min-inline-size: auto;
-      block-size: button-variables.$map-size;
-      inline-size: button-variables.$map-size;
-    }
+  &:has(span.sr-only):has(dso-icon) {
+    padding: units.$u1;
+    min-inline-size: auto;
+    block-size: button-variables.$map-size;
+    inline-size: button-variables.$map-size;
   }
 }

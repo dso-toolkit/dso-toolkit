@@ -16,9 +16,7 @@
   padding-inline: units.$u1;
   text-align: center;
 
-  & {
-    @include _variant(badge-variables.$default-bg-color);
-  }
+  @include _variant(badge-variables.$default-bg-color);
 
   &.badge-info {
     @include _variant(badge-variables.$info-bg-color);
@@ -52,7 +50,5 @@
 @mixin _variant($background-color, $border-color: $background-color) {
   @include set-colors.apply($background-color, "badge");
 
-  & {
-    border-color: $border-color;
-  }
+  border-color: $border-color;
 }

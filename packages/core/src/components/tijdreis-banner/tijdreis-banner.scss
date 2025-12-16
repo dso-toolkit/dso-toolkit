@@ -10,13 +10,10 @@
 :host {
   @include set-colors.apply(colors.$mauve, "tijdreis-banner");
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    display: grid;
-    block-size: 100%;
-    padding-block: units.$u1;
-    padding-inline: units.$u3;
-  }
+  display: grid;
+  block-size: 100%;
+  padding-block: units.$u1;
+  padding-inline: units.$u3;
 
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     align-items: center;
