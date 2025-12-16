@@ -80,14 +80,11 @@
         > button {
           @include link.reverse();
 
-          // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-          & {
-            font-size: 1.25em;
-            line-height: 1;
-            margin-block-start: units.$u1;
-            padding-block: units.$u1 #{units.$u1 - 1px};
-            padding-inline: units.$u2;
-          }
+          font-size: 1.25em;
+          line-height: 1;
+          margin-block-start: units.$u1;
+          padding-block: units.$u1 #{units.$u1 - 1px};
+          padding-inline: units.$u2;
         }
       }
     }
@@ -100,13 +97,10 @@
         > button {
           @include link.reverse();
 
-          // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-          & {
-            font-size: typography.$root-font-size-base;
-            margin-block-start: (units.$u1 * 0.5);
-            padding-block: (units.$u1 * 0.5) #{units.$u1 * 0.5 - 1px};
-            padding-inline: units.$u1;
-          }
+          font-size: typography.$root-font-size-base;
+          margin-block-start: (units.$u1 * 0.5);
+          padding-block: (units.$u1 * 0.5) #{units.$u1 * 0.5 - 1px};
+          padding-inline: units.$u1;
         }
       }
     }

@@ -100,10 +100,8 @@
   color: colors.$wit;
 
   @container logo (max-height: 47px) {
-    & {
-      block-size: 28cqb;
-      font-size: 25cqb;
-    }
+    block-size: 28cqb;
+    font-size: 25cqb;
   }
 }
 

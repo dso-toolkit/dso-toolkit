@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Task
+* Packages: Sass updaten ([#3421](https://github.com/dso-toolkit/dso-toolkit/issues/3421))
+
 ## 🧑‍🎤 Release 84.1.0 - 2025-12-22
 
 ### Added

@@ -17,25 +17,19 @@
 .dso-secondary {
   @include button.secondary();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    padding-inline: calc(#{units.$u1} - 1px);
-    padding-block: calc(#{units.$u1} - 1px);
-  }
+  padding-inline: calc(#{units.$u1} - 1px);
+  padding-block: calc(#{units.$u1} - 1px);
 }
 
 .dso-tertiary {
   @include button.base();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    padding-inline: 0;
-    padding-block: 0;
+  padding-inline: 0;
+  padding-block: 0;
 
-    color: var(--_dso-icon-button-tertiary-color, button.$tertiary-color);
-    background-color: transparent;
-    border: 0;
-  }
+  color: var(--_dso-icon-button-tertiary-color, button.$tertiary-color);
+  background-color: transparent;
+  border: 0;
 
   &:not([disabled]) {
     &:hover {
@@ -64,15 +58,12 @@
 .dso-map {
   @include button.map();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    padding-inline: units.$u1;
-    padding-block: units.$u1;
-    border: 0;
-    margin-inline-end: 0;
-    box-shadow: var(--_dso-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
-    border-radius: var(--_dso-icon-button-map-border-radius, button.$border-radius);
-  }
+  padding-inline: units.$u1;
+  padding-block: units.$u1;
+  border: 0;
+  margin-inline-end: 0;
+  box-shadow: var(--_dso-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
+  border-radius: var(--_dso-icon-button-map-border-radius, button.$border-radius);
 }
 
 .icon-button {

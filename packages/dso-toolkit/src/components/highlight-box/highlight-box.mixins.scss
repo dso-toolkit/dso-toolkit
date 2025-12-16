@@ -62,9 +62,7 @@
   &#{$border-selector}:not(#{$grey-selector}, #{$yellow-selector}) {
     @include set-colors.apply(colors.$wit, "highlight-box");
 
-    & {
-      border-color: colors.$grijs-20;
-    }
+    border-color: colors.$grijs-20;
   }
 
   &#{$has-counter-selector} {
@@ -83,15 +81,11 @@
     max-inline-size: unset;
 
     @container (min-width: 360px) and (max-width: 470px) {
-      & {
-        aspect-ratio: 3 / 1;
-      }
+      aspect-ratio: 3 / 1;
     }
 
     @container (min-width: 471px) {
-      & {
-        aspect-ratio: 3.5 / 1;
-      }
+      aspect-ratio: 3.5 / 1;
     }
   }
 

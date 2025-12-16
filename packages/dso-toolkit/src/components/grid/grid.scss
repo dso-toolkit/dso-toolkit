@@ -83,11 +83,8 @@ form {
       }
     }
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      display: flex;
-      flex-wrap: wrap;
-    }
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &.dso-banner {
@@ -99,14 +96,10 @@ form {
 
     min-block-size: 352px;
     overflow: hidden;
+    background-size: 0; // background image killed off here, to be shown in the ::before
 
     @media only screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       padding-block-start: units.$u3;
-    }
-
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      background-size: 0; // background image killed off here, to be shown in the ::before
     }
 
     &.no-button-banner {

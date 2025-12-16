@@ -7,13 +7,11 @@
 @mixin root() {
   @include utilities.clearfix();
 
-  & {
-    list-style: none;
-    margin-block-end: units.$u2;
-    margin-block-start: units.$u2;
-    padding-block: 0;
-    padding-inline: units.$u1;
-  }
+  list-style: none;
+  margin-block-end: units.$u2;
+  margin-block-start: units.$u2;
+  padding-block: 0;
+  padding-inline: units.$u1;
 
   > li {
     display: flex;

@@ -15,18 +15,15 @@
   .dso-tooltip {
     @include set-colors.apply($background-color, "tooltip");
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      border-radius: $radius-inner;
-      overflow: unset;
-      margin: 0;
-      border: 0;
-      padding: 0;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity tooltip-variables.$transition-duration;
-    }
+    border-radius: $radius-inner;
+    overflow: unset;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity tooltip-variables.$transition-duration;
 
     &.visible {
       opacity: 1;
@@ -36,31 +33,25 @@
     .tooltip-inner {
       @include set-colors.apply($background-color, "tooltip");
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        font-family: typography.$font-family-base;
-        font-size: typography.$root-font-size-base;
-        font-weight: normal;
-        padding-block: $padding-block-inner;
-        padding-inline: $padding-inline-inner;
-        border-radius: $radius-inner;
-        line-height: 1.5;
-        max-inline-size: $max-inline-size;
-      }
+      font-family: typography.$font-family-base;
+      font-size: typography.$root-font-size-base;
+      font-weight: normal;
+      padding-block: $padding-block-inner;
+      padding-inline: $padding-inline-inner;
+      border-radius: $radius-inner;
+      line-height: 1.5;
+      max-inline-size: $max-inline-size;
     }
 
     .tooltip-arrow {
       @include set-colors.apply($background-color, "tooltip");
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        position: absolute;
-        border-start-start-radius: tooltip-variables.$border-radius;
-        block-size: $arrow-size;
-        inline-size: $arrow-size;
-        pointer-events: none;
-        z-index: -1;
-      }
+      position: absolute;
+      border-start-start-radius: tooltip-variables.$border-radius;
+      block-size: $arrow-size;
+      inline-size: $arrow-size;
+      pointer-events: none;
+      z-index: -1;
     }
   }
 }

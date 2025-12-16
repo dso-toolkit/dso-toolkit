@@ -6,12 +6,10 @@
 @mixin root($strikethrough: true) {
   @include set-colors.apply(colors.$rood-20, "delete");
 
-  & {
-    --_dso-ozon-content-toggletip-color: colors.$zwart;
+  --_dso-ozon-content-toggletip-color: colors.$zwart;
 
-    @if ($strikethrough) {
-      @include strikethrough();
-    }
+  @if ($strikethrough) {
+    @include strikethrough();
   }
 }
 
@@ -24,8 +22,6 @@
   // stylelint-disable media-feature-name-no-unknown -- counter line-through displaying as underline in firefox
   // http://browserhacks.com/#hack-48ca6fc2947b7850c571a2f69bdbffbd
   @media screen and (min--moz-device-pixel-ratio: 0) {
-    & {
-      font-family: sans-serif;
-    }
+    font-family: sans-serif;
   }
 }
