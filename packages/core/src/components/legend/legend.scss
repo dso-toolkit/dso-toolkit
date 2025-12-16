@@ -1,8 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/button";
-@use "~dso-toolkit/src/components/navbar";
 
 @include utilities.box-sizing();
 
@@ -11,7 +9,7 @@
   display: block;
   inline-size: 344px;
   background-color: colors.$wit;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 units.$u1 0 rgba(0, 0, 0, 0.3);
 
   .topbar {
     padding-block: units.$u1;
@@ -35,20 +33,20 @@
         color: colors.$bosgroen;
         padding-block: 6px;
         padding-inline: units.$u1;
-        border-block-end: 4px solid transparent;
+        border-block-end: calc(#{units.$u1} / 2) solid transparent;
 
         &:hover {
           text-decoration: underline;
         }
 
-        &.dso-active {
+        &.active {
           font-weight: bold;
           border-color: colors.$mauve;
         }
       }
     }
 
-    .dso-close-button {
+    .close-button {
       position: absolute;
       inset-block-start: units.$u1;
       inset-inline-end: units.$u1;
@@ -56,9 +54,9 @@
   }
 
   .content {
-    --_dso-form-grou-margin-block-end: 0;
+    --_dso-form-group-margin-block-end: 0;
     --_dso-scrollable-container-padding-inline: #{units.$u2};
 
-    max-block-size: 600px;
+    max-block-size: 52vh;
   }
 }

@@ -40,19 +40,29 @@ describe("Legend", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend--kaartlagen");
     cy.get("dso-legend.hydrated").as("dsoLegend").shadow().as("dsoLegendShadow");
 
-    cy.get("@dsoLegend").contains("dso-legend-item", "Provinciegrenzen").shadow().find("dso-icon-button").realClick();
-    cy.wait(200)
-      .get("@dsoLegend")
+    cy.get("@dsoLegend")
+      .contains("dso-legend-item", "Provinciegrenzen")
+      .shadow()
+      .within(() => {
+        cy.get("dso-icon-button").realClick();
+        cy.get("div.options").should("not.have.attr", "hidden");
+      });
+
+    cy.get("@dsoLegend")
       .contains("dso-legend-item", "Landgrenzen")
       .shadow()
-      .find("dso-icon-button")
-      .realClick();
-    cy.wait(200)
-      .get("@dsoLegend")
+      .within(() => {
+        cy.get("dso-icon-button").realClick();
+        cy.get("div.options").should("not.have.attr", "hidden");
+      });
+
+    cy.get("@dsoLegend")
       .contains("dso-legend-item", "Topgrafie (BRT)")
       .shadow()
-      .find("dso-icon-button")
-      .realClick();
+      .within(() => {
+        cy.get("dso-icon-button").realClick();
+        cy.get("div.options").should("not.have.attr", "hidden");
+      });
 
     cy.get("@dsoLegend").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });

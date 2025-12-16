@@ -4,44 +4,41 @@ import { fn } from "storybook/test";
 
 import { argTypeAction, componentArgs } from "../../storybook";
 
-import { Legend, TabItem } from "./legend.models";
+import { Legend, LegendTabItem } from "./legend.models";
 
 export interface LegendArgs {
-  tabItems: TabItem[];
+  tabItems: LegendTabItem[];
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
-  tabItems: {
-    control: {
-      disable: true,
-    },
-  },
+  tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
 };
 
+export const legendaTabItem: LegendTabItem = {
+  id: "123",
+  label: "Legenda",
+  active: false,
+};
+
+export const kaartlagenTabItem: LegendTabItem = {
+  id: "456",
+  label: "Kaartlagen",
+  active: false,
+};
+
 export const legendArgs = componentArgs<LegendArgs>({
-  tabItems: [
-    {
-      label: "Legenda",
-      active: true,
-      id: "123",
-    },
-    {
-      label: "Kaartlagen",
-      id: "456",
-      active: false,
-    },
-  ],
+  tabItems: [{ ...legendaTabItem, active: true }, kaartlagenTabItem],
   dsoContentSwitch: fn(),
   dsoClose: fn(),
 });
 
 export function legendArgsMapper<TemplateFnReturnType>(
   a: LegendArgs,
-  content?: TemplateFnReturnType,
+  content: TemplateFnReturnType,
 ): Legend<TemplateFnReturnType> {
   return {
     ...a,

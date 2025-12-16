@@ -29,7 +29,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { dsoCloseEvent, dsoContentSwitchEvent, TabItem } from "./components/legend/legend.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -80,7 +80,7 @@ export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { dsoCloseEvent, dsoContentSwitchEvent, TabItem } from "./components/legend/legend.interfaces";
+export { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -852,7 +852,7 @@ export namespace Components {
           * TabItems in the legend topbar
           * @default []
          */
-        "tabItems": TabItem[];
+        "tabItems": LegendTabItem[];
     }
     interface DsoLegendItem {
         /**
@@ -2085,8 +2085,8 @@ declare global {
         new (): HTMLDsoLabelElement;
     };
     interface HTMLDsoLegendElementEventMap {
-        "dsoContentSwitch": dsoContentSwitchEvent;
-        "dsoClose": dsoCloseEvent;
+        "dsoContentSwitch": LegendContentSwitchEvent;
+        "dsoClose": LegendCloseEvent;
     }
     interface HTMLDsoLegendElement extends Components.DsoLegend, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoLegendElementEventMap>(type: K, listener: (this: HTMLDsoLegendElement, ev: DsoLegendCustomEvent<HTMLDsoLegendElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3567,16 +3567,16 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user closes the Legend.
          */
-        "onDsoClose"?: (event: DsoLegendCustomEvent<dsoCloseEvent>) => void;
+        "onDsoClose"?: (event: DsoLegendCustomEvent<LegendCloseEvent>) => void;
         /**
-          * Emitted when a tabItems is pressed. The `tabItem` property contains the information of the tab being pressed.
+          * Emitted when a tabItem is pressed. The `tabItem` property contains the information of the tab being pressed.
          */
-        "onDsoContentSwitch"?: (event: DsoLegendCustomEvent<dsoContentSwitchEvent>) => void;
+        "onDsoContentSwitch"?: (event: DsoLegendCustomEvent<LegendContentSwitchEvent>) => void;
         /**
           * TabItems in the legend topbar
           * @default []
          */
-        "tabItems"?: TabItem[];
+        "tabItems"?: LegendTabItem[];
     }
     interface DsoLegendItem {
         /**

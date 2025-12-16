@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { TabItem, dsoCloseEvent, dsoContentSwitchEvent } from "./legend.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./legend.interfaces";
 
 @Component({
   tag: "dso-legend",
@@ -18,20 +18,20 @@ export class Legend implements ComponentInterface {
    * TabItems in the legend topbar
    */
   @Prop()
-  tabItems: TabItem[] = [];
+  tabItems: LegendTabItem[] = [];
 
   /**
-   * Emitted when a tabItems is pressed.
+   * Emitted when a tabItem is pressed.
    * The `tabItem` property contains the information of the tab being pressed.
    */
   @Event()
-  dsoContentSwitch!: EventEmitter<dsoContentSwitchEvent>;
+  dsoContentSwitch!: EventEmitter<LegendContentSwitchEvent>;
 
   /**
    * Emitted when the user closes the Legend.
    */
   @Event()
-  dsoClose!: EventEmitter<dsoCloseEvent>;
+  dsoClose!: EventEmitter<LegendCloseEvent>;
 
   render() {
     return (
@@ -40,13 +40,14 @@ export class Legend implements ComponentInterface {
           <div class="tabs" role="tablist">
             {this.tabItems.map((tabItem) => (
               <button
-                class={clsx("tab", { "dso-active": tabItem.active })}
+                class={clsx("tab", { active: tabItem.active })}
                 role="tab"
+                aria-selected={tabItem.active ? "true" : "false"}
+                {...(!tabItem.active ? { tabIndex: -1 } : {})}
                 onClick={(e) =>
                   this.dsoContentSwitch.emit({
                     originalEvent: e,
                     isModifiedEvent: e instanceof MouseEvent ? isModifiedEvent(e) : false,
-                    tabItem,
                   })
                 }
               >
@@ -58,7 +59,7 @@ export class Legend implements ComponentInterface {
             icon="times"
             variant="tertiary"
             label="Sluit legenda"
-            class="dso-close-button"
+            class="close-button"
             onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
           />
         </div>

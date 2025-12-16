@@ -25,7 +25,7 @@
 @use "textarea/form-group-textarea";
 
 .form-group {
-  margin-block-end: var(--_dso-form-grou-margin-block-end, form-group-variables.$form-group-margin-bottom);
+  margin-block-end: var(--_dso-form-group-margin-block-end, form-group-variables.$form-group-margin-bottom);
 
   + .form-group:not(.dso-static),
   + .dso-form-buttons {

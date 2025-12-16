@@ -6,17 +6,17 @@
 
 ## Properties
 
-| Property   | Attribute | Description                   | Type        | Default |
-| ---------- | --------- | ----------------------------- | ----------- | ------- |
-| `tabItems` | --        | TabItems in the legend topbar | `TabItem[]` | `[]`    |
+| Property   | Attribute | Description                   | Type              | Default |
+| ---------- | --------- | ----------------------------- | ----------------- | ------- |
+| `tabItems` | --        | TabItems in the legend topbar | `LegendTabItem[]` | `[]`    |
 
 
 ## Events
 
-| Event              | Description                                                                                                   | Type                                 |
-| ------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `dsoClose`         | Emitted when the user closes the Legend.                                                                      | `CustomEvent<dsoCloseEvent>`         |
-| `dsoContentSwitch` | Emitted when a tabItems is pressed. The `tabItem` property contains the information of the tab being pressed. | `CustomEvent<dsoContentSwitchEvent>` |
+| Event              | Description                                                                                                  | Type                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| `dsoClose`         | Emitted when the user closes the Legend.                                                                     | `CustomEvent<LegendCloseEvent>`         |
+| `dsoContentSwitch` | Emitted when a tabItem is pressed. The `tabItem` property contains the information of the tab being pressed. | `CustomEvent<LegendContentSwitchEvent>` |
 
 
 ## Dependencies

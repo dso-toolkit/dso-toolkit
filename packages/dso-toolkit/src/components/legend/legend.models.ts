@@ -1,22 +1,22 @@
 export interface Legend<TemplateFnReturnType> {
-  content?: TemplateFnReturnType;
-  tabItems: TabItem[];
-  dsoContentSwitch?: (e: CustomEvent<dsoContentSwitchEvent>) => void;
-  dsoClose?: (e: CustomEvent<dsoCloseEvent>) => void;
+  content: TemplateFnReturnType;
+  tabItems: LegendTabItem[];
+  dsoContentSwitch?: (e: CustomEvent<LegendContentSwitchEvent>) => void;
+  dsoClose?: (e: CustomEvent<LegendCloseEvent>) => void;
 }
 
-export interface TabItem {
+export interface LegendTabItem {
   label: string;
   id: string;
   active: boolean;
 }
 
-export interface dsoContentSwitchEvent {
+export interface LegendContentSwitchEvent {
   originalEvent: MouseEvent | KeyboardEvent;
   isModifiedEvent: boolean;
-  tabItem: TabItem;
+  tabItem: LegendTabItem;
 }
 
-export interface dsoCloseEvent {
+export interface LegendCloseEvent {
   originalEvent?: MouseEvent | Event;
 }

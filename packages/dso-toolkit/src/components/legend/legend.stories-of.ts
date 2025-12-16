@@ -5,7 +5,14 @@ import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
 import { LegendItemDecorator, legendItemDemoCss } from "../legend-item";
 
-import { LegendArgs, legendArgTypes, legendArgs, legendArgsMapper } from "./legend.args.js";
+import {
+  LegendArgs,
+  kaartlagenTabItem,
+  legendArgTypes,
+  legendArgs,
+  legendArgsMapper,
+  legendaTabItem,
+} from "./legend.args.js";
 import { Legend } from "./legend.models";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
@@ -56,20 +63,7 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
       ),
     },
     Kaartlagen: {
-      args: {
-        tabItems: [
-          {
-            label: "Legenda",
-            active: false,
-            id: "123",
-          },
-          {
-            label: "Kaartlagen",
-            id: "456",
-            active: true,
-          },
-        ],
-      },
+      args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
         legendTemplate(legendArgsMapper(args, kaartlagenRichContent)),
