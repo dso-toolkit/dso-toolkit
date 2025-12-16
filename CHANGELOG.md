@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Task
-* Packages: Dependencies updates ([#3480](https://github.com/dso-toolkit/dso-toolkit/issues/3480))
+* **BREAKING** Packages: Dependencies updates ([#3480](https://github.com/dso-toolkit/dso-toolkit/issues/3480))
 
 ## 🧑‍🎤 Release 84.1.0 - 2025-12-22
 
