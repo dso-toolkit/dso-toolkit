@@ -11,7 +11,6 @@ heeft.
 
 2
 
-- Package updates
 - Simpele aanpassing aan bestaand component
 - Licht nadenkwerk
 - Verwijderen van een component of HTML/CSS
@@ -21,6 +20,7 @@ heeft.
 
 3
 
+- Package updates
 - Aanpassing aan bestaand component (nieuwe variant, nieuwe opties, Storybook configuratie, modellering, templates, e2e tests)
 - Nieuw simpel component
 - Omvangrijke code change (geen diepgaand onderzoek nodig, geen complexe wijziging)
