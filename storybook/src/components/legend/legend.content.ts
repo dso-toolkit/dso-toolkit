@@ -37,7 +37,7 @@ export function legendaRichContent({ legendItemTemplate, richContentTemplate }: 
   });
 }
 
-export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate }: Templates) {
+export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate, toggletipTemplate }: Templates) {
   return richContentTemplate({
     children: html`
       ${legendItemTemplate({
@@ -96,7 +96,13 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate 
         </fieldset>`,
       })}
       ${legendItemTemplate({
-        content: html`<span slot="label">Grootschalige topgrafie (BGT)</span>`,
+        content: html`<span slot="label">
+          Grootschalige topgrafie (BGT)
+          ${toggletipTemplate({
+            label: "Begeleidende tekst met lange content",
+            children: "Een toggletip bij de banner met lange",
+          })}
+        </span>`,
         activatable: true,
         active: true,
       })}
