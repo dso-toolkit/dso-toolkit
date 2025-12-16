@@ -20,7 +20,7 @@
     "@types/lodash.startcase": "^4.4.9",
     "axe-core": "^4.11.0",
     "cheerio": "^1.1.2",
-    "cypress": "^15.6.0",
+    "cypress": "^15.7.1",
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
     "dso-toolkit": "workspace:^",
