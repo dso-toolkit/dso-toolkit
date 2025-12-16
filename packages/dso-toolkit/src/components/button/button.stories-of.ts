@@ -18,8 +18,12 @@ interface ButtonStories {
   Map: ButtonStory;
 }
 
-interface ButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ButtonTemplates<TemplateFnReturnType>> {}
+interface ButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ButtonTemplates<TemplateFnReturnType>
+> {}
 
 export interface ButtonTemplates<TemplateFnReturnType> {
   buttonTemplate: (buttonProperties: Button | ButtonAnchor) => TemplateFnReturnType;

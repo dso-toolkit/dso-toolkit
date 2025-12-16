@@ -29,13 +29,12 @@ export interface DatePickerTemplates<TemplateFnReturnType> {
   datePickerWithLabelTemplate: (datePicker: TemplateFnReturnType, id: string, label: string) => TemplateFnReturnType;
 }
 
-interface DatePickerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DatePickerTemplates<TemplateFnReturnType>
-  > {
+interface DatePickerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DatePickerTemplates<TemplateFnReturnType>
+> {
   decorator: DatePickerDecorator<TemplateFnReturnType>;
 }
 

@@ -16,8 +16,12 @@ interface MapLayerStories {
   Single: MapLayerStory;
 }
 
-interface MapLayerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, MapLayerTemplates<TemplateFnReturnType>> {}
+interface MapLayerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  MapLayerTemplates<TemplateFnReturnType>
+> {}
 
 interface MapLayerTemplates<TemplateFnReturnType> {
   mapLayerTemplate: (mapLayerProperties: MapLayer<TemplateFnReturnType>) => TemplateFnReturnType;

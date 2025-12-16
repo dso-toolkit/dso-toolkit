@@ -13,13 +13,12 @@ interface InputRangeStories {
   Default: InputRangeStory;
 }
 
-interface InputRangeStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    InputRangeTemplates<TemplateFnReturnType>
-  > {}
+interface InputRangeStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  InputRangeTemplates<TemplateFnReturnType>
+> {}
 
 interface InputRangeTemplates<TemplateFnReturnType> {
   inputRangeTemplate: (rangeProperties: InputRange) => TemplateFnReturnType;

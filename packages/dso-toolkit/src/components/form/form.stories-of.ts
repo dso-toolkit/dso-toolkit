@@ -22,8 +22,12 @@ export interface FormTemplates<TemplateFnReturnType> {
   formTemplate: (form: Form<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-interface FormStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, FormTemplates<TemplateFnReturnType>> {}
+interface FormStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  FormTemplates<TemplateFnReturnType>
+> {}
 
 export function formMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

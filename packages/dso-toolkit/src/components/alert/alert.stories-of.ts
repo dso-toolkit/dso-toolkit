@@ -18,8 +18,12 @@ interface AlertStories {
   WithHeadings: AlertStory;
 }
 
-interface AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, AlertTemplates<TemplateFnReturnType>> {}
+interface AlertStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AlertTemplates<TemplateFnReturnType>
+> {}
 
 interface AlertTemplates<TemplateFnReturnType> {
   alertTemplate: (alertProperties: Alert<TemplateFnReturnType>) => TemplateFnReturnType;

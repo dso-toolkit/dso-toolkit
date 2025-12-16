@@ -22,8 +22,12 @@ interface LegendStories {
   Kaartlagen: LegendStory;
 }
 
-interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LegendTemplates<TemplateFnReturnType>> {
+interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LegendTemplates<TemplateFnReturnType>
+> {
   decorator: LegendItemDecorator<TemplateFnReturnType>;
 }
 
