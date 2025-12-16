@@ -24,7 +24,7 @@
     "cypress-axe": "^1.7.0",
     "cypress-real-events": "^1.15.0",
     "dso-toolkit": "workspace:^",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-storybook": "10.1.9",
     "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",

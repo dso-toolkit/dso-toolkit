@@ -30,7 +30,7 @@
     "@storybook/angular": "10.1.9",
     "@types/lodash.startcase": "^4.4.9",
     "dso-toolkit": "workspace:^",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-storybook": "10.1.9",
     "http-proxy-middleware": "^3.0.5",
     "lodash.startcase": "^4.4.0",

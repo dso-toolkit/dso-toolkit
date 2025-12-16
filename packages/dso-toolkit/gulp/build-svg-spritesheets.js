@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 import { basename } from "path";
 
 import { parse } from "css";
