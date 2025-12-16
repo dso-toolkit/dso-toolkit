@@ -18,8 +18,12 @@ interface LinkStories {
   PhoneLinkWithIcon: LinkStory;
 }
 
-interface LinkStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LinkTemplates<TemplateFnReturnType>> {}
+interface LinkStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LinkTemplates<TemplateFnReturnType>
+> {}
 
 interface LinkTemplates<TemplateFnReturnType> {
   linkTemplate: (linkProperties: Link) => TemplateFnReturnType;

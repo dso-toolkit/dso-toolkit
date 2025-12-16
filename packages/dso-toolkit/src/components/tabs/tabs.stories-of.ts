@@ -17,8 +17,12 @@ interface TabsStories<TemplateFnReturnType> {
   AsButtonsDisabled: TabsStory<TemplateFnReturnType>;
 }
 
-interface TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TabsTemplates<TemplateFnReturnType>> {}
+interface TabsStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TabsTemplates<TemplateFnReturnType>
+> {}
 
 interface TabsTemplates<TemplateFnReturnType> {
   tabsTemplate: (tabsProperties: Tabs<TemplateFnReturnType>) => TemplateFnReturnType;

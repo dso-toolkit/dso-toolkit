@@ -15,8 +15,12 @@ export interface FooterTemplates<TemplateFnReturnType> {
   children: TemplateFnReturnType;
 }
 
-interface FooterStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, FooterTemplates<TemplateFnReturnType>> {}
+interface FooterStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  FooterTemplates<TemplateFnReturnType>
+> {}
 
 export function footerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<TRenderer> {
   return {

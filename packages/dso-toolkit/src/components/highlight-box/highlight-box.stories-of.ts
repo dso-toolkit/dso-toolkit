@@ -20,13 +20,12 @@ interface HighlightBoxStories {
   WithBannerImage: HighlightBoxStory;
 }
 
-interface HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    HighlightBoxTemplates<TemplateFnReturnType>
-  > {}
+interface HighlightBoxStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  HighlightBoxTemplates<TemplateFnReturnType>
+> {}
 
 interface HighlightBoxTemplates<TemplateFnReturnType> {
   highlightBoxTemplate: (highlightBoxProperties: HighlightBox<TemplateFnReturnType>) => TemplateFnReturnType;

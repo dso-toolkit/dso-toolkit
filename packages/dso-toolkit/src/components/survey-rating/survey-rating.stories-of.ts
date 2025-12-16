@@ -14,13 +14,12 @@ interface SurveyRatingStories {
   Default: SurveyRatingStory;
 }
 
-interface SurveyRatingStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    SurveyRatingTemplates<TemplateFnReturnType>
-  > {}
+interface SurveyRatingStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SurveyRatingTemplates<TemplateFnReturnType>
+> {}
 
 interface SurveyRatingTemplates<TemplateFnReturnType> {
   surveyRatingTemplate: (surveyRatingProperties: SurveyRating) => TemplateFnReturnType;

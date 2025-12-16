@@ -24,13 +24,12 @@ interface AccordionStories {
   AnimatedFormGroupSections: AccordionStory;
 }
 
-interface AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AccordionTemplates<TemplateFnReturnType>
-  > {}
+interface AccordionStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AccordionTemplates<TemplateFnReturnType>
+> {}
 
 interface AccordionTemplates<TemplateFnReturnType> {
   accordionTemplate: (accordionProperties: Accordion<TemplateFnReturnType>) => TemplateFnReturnType;

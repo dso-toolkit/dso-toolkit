@@ -21,13 +21,16 @@ interface ApplicationHeadingStories {
   SubtitleAndStepsOnly: ApplicationHeadingStory;
 }
 
-interface ApplicationHeadingStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ApplicationHeadingTemplates<TemplateFnReturnType>
-  > {}
+interface ApplicationHeadingStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ApplicationHeadingTemplates<TemplateFnReturnType>
+> {}
 
 interface ApplicationHeadingTemplates<TemplateFnReturnType> {
   applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;

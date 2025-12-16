@@ -17,13 +17,12 @@ interface ViewerGridStories {
   DocumentPanel: ViewerGridStory;
 }
 
-interface ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ViewerGridTemplates<TemplateFnReturnType>
-  > {}
+interface ViewerGridStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ViewerGridTemplates<TemplateFnReturnType>
+> {}
 
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;

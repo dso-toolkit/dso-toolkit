@@ -20,13 +20,12 @@ export interface FormButtonsTemplates<TemplateFnReturnType> {
   formButtonsTemplate: (formButtonsProperties: FormButtons) => TemplateFnReturnType;
 }
 
-interface FormButtonsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    FormButtonsTemplates<TemplateFnReturnType>
-  > {}
+interface FormButtonsStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  FormButtonsTemplates<TemplateFnReturnType>
+> {}
 
 export function formButtonsMeta<TRenderer extends Renderer>({
   readme,

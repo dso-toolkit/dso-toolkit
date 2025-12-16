@@ -37,13 +37,12 @@ interface AnnotationStories {
   Kaart: StoryObj<AnnotationKaartArgs, Renderer>;
 }
 
-interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AnnotationTemplates<TemplateFnReturnType>
-  > {}
+interface AnnotationStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AnnotationTemplates<TemplateFnReturnType>
+> {}
 
 interface AnnotationTemplates<TemplateFnReturnType> {
   annotationTemplate: (annotationProperties: Annotation) => TemplateFnReturnType;

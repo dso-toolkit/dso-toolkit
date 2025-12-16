@@ -20,8 +20,12 @@ export interface InfoTemplates<TemplateFnReturnType> {
   richContent: TemplateFnReturnType;
 }
 
-interface InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, InfoTemplates<TemplateFnReturnType>> {}
+interface InfoStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  InfoTemplates<TemplateFnReturnType>
+> {}
 
 export function infoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

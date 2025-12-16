@@ -25,13 +25,12 @@ interface DefinitionListStories {
   ColumnsList: DefinitionListStory;
 }
 
-interface DefinitionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DefinitionListTemplates<TemplateFnReturnType>
-  > {}
+interface DefinitionListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DefinitionListTemplates<TemplateFnReturnType>
+> {}
 
 interface DefinitionListTemplates<TemplateFnReturnType> {
   definitionListTemplate: (definitionListProperties: DefinitionList<TemplateFnReturnType>) => TemplateFnReturnType;

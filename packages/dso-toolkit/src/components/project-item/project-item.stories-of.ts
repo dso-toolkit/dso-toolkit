@@ -13,13 +13,12 @@ interface ProjectItemStories {
   Default: ProjectItemStory;
 }
 
-interface ProjectItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ProjectItemTemplates<TemplateFnReturnType>
-  > {}
+interface ProjectItemStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ProjectItemTemplates<TemplateFnReturnType>
+> {}
 
 interface ProjectItemTemplates<TemplateFnReturnType> {
   projectItemTemplate: (projectItemProperties: ProjectItem<TemplateFnReturnType | string>) => TemplateFnReturnType;
