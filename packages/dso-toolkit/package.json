@@ -60,7 +60,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "sass": "1.97.0",
-    "storybook": "10.0.8",
+    "storybook": "10.1.9",
     "stylelint": "^16.25.0",
     "through2": "^4.0.2",
     "typescript": "~5.9.3",
