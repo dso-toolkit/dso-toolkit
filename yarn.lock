@@ -3898,7 +3898,7 @@ __metadata:
     "@stencil/core": "npm:4.39.0"
     "@stencil/react-output-target": "npm:^1.2.0"
     "@stencil/sass": "npm:^3.2.3"
-    "@stencil/store": "npm:^2.2.1"
+    "@stencil/store": "npm:^2.2.2"
     "@types/debounce": "npm:^1.2.4"
     "@types/lodash.kebabcase": "npm:^4.1.9"
     "@types/lodash.random": "npm:^3.2.9"
@@ -3912,7 +3912,7 @@ __metadata:
     dso-toolkit: "workspace:^"
     escape-string-regexp: "npm:^5.0.0"
     focus-trap: "npm:^7.6.6"
-    i18next: "npm:^25.6.2"
+    i18next: "npm:^25.7.3"
     lodash.kebabcase: "npm:^4.1.1"
     lodash.random: "npm:^3.2.0"
     lodash.samplesize: "npm:^4.2.0"
@@ -3920,10 +3920,10 @@ __metadata:
     prettier: "npm:^3.7.4"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
-    rimraf: "npm:^6.1.0"
+    rimraf: "npm:^6.1.2"
     stencil-inline-svg: "npm:^1.1.0"
     tabbable: "npm:^6.3.0"
-    tsx: "npm:^4.20.6"
+    tsx: "npm:^4.21.0"
     typescript: "npm:~5.9.3"
     uuid: "npm:^13.0.0"
   peerDependencies:
@@ -3952,7 +3952,7 @@ __metadata:
     lodash.startcase: "npm:^4.4.0"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
-    rimraf: "npm:^6.1.0"
+    rimraf: "npm:^6.1.2"
     storybook: "npm:10.1.9"
     tslib: "npm:^2.8.1"
     typescript: "npm:~5.9.3"
@@ -3982,9 +3982,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@easyops-cn/docusaurus-search-local@npm:^0.52.1":
-  version: 0.52.1
-  resolution: "@easyops-cn/docusaurus-search-local@npm:0.52.1"
+"@easyops-cn/docusaurus-search-local@npm:^0.52.2":
+  version: 0.52.2
+  resolution: "@easyops-cn/docusaurus-search-local@npm:0.52.2"
   dependencies:
     "@docusaurus/plugin-content-docs": "npm:^2 || ^3"
     "@docusaurus/theme-translations": "npm:^2 || ^3"
@@ -4007,7 +4007,7 @@ __metadata:
     "@docusaurus/theme-common": ^2 || ^3
     react: ^16.14.0 || ^17 || ^18 || ^19
     react-dom: ^16.14.0 || 17 || ^18 || ^19
-  checksum: 10/ab86b1def696a463594348c2cc7080cd782528da48cb75c45901a81f9fe5f6fbc44d60c267f3fcfa89e4013d9d5472488569f1d940f89471d4b69cd25a796d0a
+  checksum: 10/5e1bb6ecd87ae672aed21506d803d88e484debe327873577d10a76266c80bd312fddf77d3d0f5036c0cb5faef35afc090c1a390ab92018a56fdf309d2e92218f
   languageName: node
   linkType: hard
 
@@ -7343,12 +7343,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/store@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@stencil/store@npm:2.2.1"
+"@stencil/store@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@stencil/store@npm:2.2.2"
   peerDependencies:
     "@stencil/core": ">=2.0.0 || >=3.0.0 || >= 4.0.0-beta.0 || >= 4.0.0"
-  checksum: 10/7fc1dcd34dbfc9305a4ae7761326c8d4484e4ae6a965a434d2c4fcb57e5d9eaf516920d2e02b9ab26f77b3d9d5ddfc084b8c888e38f6a7e0be93e1974a1aa926
+  checksum: 10/baedd81a8dda4477fb27320390af3859a8fef1016e342a27a0ce6b17628c0a9c2946400e93f984891f5313afab3cb6a10bfc12cc44415021dc6d724d76b21edd
   languageName: node
   linkType: hard
 
@@ -9454,7 +9454,7 @@ __metadata:
     lodash.startcase: "npm:^4.4.0"
     mkdirp: "npm:^3.0.1"
     ng-packagr: "npm:^21.0.1"
-    rimraf: "npm:^6.1.0"
+    rimraf: "npm:^6.1.2"
     rxjs: "npm:~7.8.2"
     storybook: "npm:10.1.9"
     tslib: "npm:^2.8.1"
@@ -12918,9 +12918,9 @@ __metadata:
     http-server: "npm:^14.1.1"
     lit-html: "npm:^3.3.1"
     lodash.startcase: "npm:^4.4.0"
-    start-server-and-test: "npm:^2.1.2"
+    start-server-and-test: "npm:^2.1.3"
     storybook: "npm:10.1.9"
-    tsx: "npm:^4.20.6"
+    tsx: "npm:^4.21.0"
     typescript: "npm:~5.9.3"
     vite: "npm:^7.3.0"
   languageName: unknown
@@ -12956,12 +12956,12 @@ __metadata:
     plop: "npm:^4.0.4"
     postcss: "npm:^8.5.6"
     prettier: "npm:^3.7.4"
-    rimraf: "npm:^6.1.0"
+    rimraf: "npm:^6.1.2"
     semver: "npm:^7.7.3"
     stylelint: "npm:^16.26.1"
     stylelint-config-recommended-scss: "npm:^16.0.2"
     stylelint-use-logical-spec: "npm:^5.0.1"
-    tsx: "npm:^4.20.6"
+    tsx: "npm:^4.21.0"
     typescript: "npm:~5.9.3"
     wait-on: "npm:^9.0.3"
   languageName: unknown
@@ -12997,7 +12997,7 @@ __metadata:
     gulp-svgstore: "npm:^9.0.0"
     gulp-typescript: "npm:^6.0.0-alpha.1"
     list-stream: "npm:^2.1.0"
-    markdown-to-jsx: "npm:^8.0.0"
+    markdown-to-jsx: "npm:^9.3.5"
     plugin-error: "npm:^2.0.1"
     postcss: "npm:^8.5.6"
     prettier: "npm:^3.7.4"
@@ -13559,7 +13559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0, esbuild@npm:^0.27.0":
+"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0, esbuild@npm:^0.27.0, esbuild@npm:~0.27.0":
   version: 0.27.1
   resolution: "esbuild@npm:0.27.1"
   dependencies:
@@ -13648,7 +13648,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.25.0, esbuild@npm:~0.25.0":
+"esbuild@npm:^0.25.0":
   version: 0.25.12
   resolution: "esbuild@npm:0.25.12"
   dependencies:
@@ -16538,9 +16538,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^25.6.2":
-  version: 25.6.3
-  resolution: "i18next@npm:25.6.3"
+"i18next@npm:^25.7.3":
+  version: 25.7.3
+  resolution: "i18next@npm:25.7.3"
   dependencies:
     "@babel/runtime": "npm:^7.28.4"
   peerDependencies:
@@ -16548,7 +16548,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/1fb376aa52ccc5e636068a4aec6876d5288c7ea9dda8ac49a05a48962110fccafd3f276476ca53c248eb04aaa92a92fdd507c6793b32298ae1b2538b84517285
+  checksum: 10/ec6601b22660b2f0d2d3996e7ef6dd2ff24f6f6e4bee121b33ecd3d36fe11018a01af9e66c01a93e8b42669ca9735f6c0888621c46bc1894872db3ba836815d8
   languageName: node
   linkType: hard
 
@@ -18811,15 +18811,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-to-jsx@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "markdown-to-jsx@npm:8.0.0"
+"markdown-to-jsx@npm:^9.3.5":
+  version: 9.3.5
+  resolution: "markdown-to-jsx@npm:9.3.5"
   peerDependencies:
-    react: ">= 0.14.0"
+    react: ">= 16.0.0"
+    solid-js: ">=1.0.0"
+    vue: ">=3.0.0"
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 10/5b9bb1f189be445a645c230f8152f4371d16a6477e937330d50b5b955287fe41328b71dbcf3cecbc34c86549d6cc8d3460fedc54ca64b241b83fcf0d1b5944dd
+    react-native:
+      optional: true
+    solid-js:
+      optional: true
+    vue:
+      optional: true
+  checksum: 10/3f5537c8beb8d8ee4f440b1b1a9160477414f17e40c4ac373898cb04cad934a1fa0cc65865f6704ec706994a4d99787e9fc1bcf9818244e07b5ec82c3bd311e1
   languageName: node
   linkType: hard
 
@@ -24207,7 +24215,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^6.1.0":
+"rimraf@npm:^6.1.2":
   version: 6.1.2
   resolution: "rimraf@npm:6.1.2"
   dependencies:
@@ -25597,7 +25605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"start-server-and-test@npm:^2.1.2":
+"start-server-and-test@npm:^2.1.3":
   version: 2.1.3
   resolution: "start-server-and-test@npm:2.1.3"
   dependencies:
@@ -26853,11 +26861,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.20.6":
-  version: 4.20.6
-  resolution: "tsx@npm:4.20.6"
+"tsx@npm:^4.21.0":
+  version: 4.21.0
+  resolution: "tsx@npm:4.21.0"
   dependencies:
-    esbuild: "npm:~0.25.0"
+    esbuild: "npm:~0.27.0"
     fsevents: "npm:~2.3.3"
     get-tsconfig: "npm:^4.7.5"
   dependenciesMeta:
@@ -26865,7 +26873,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/16396df25c474d7526f7adf9cd0c1f0b71a8c42f70bb93c2399c561eae3998abc015e8fe36a1e149fd289472919fb02816c5b46d72cf9f4335932419ecf2de8b
+  checksum: 10/7afedeff855ba98c47dc28b33d7e8e253c4dc1f791938db402d79c174bdf806b897c1a5f91e5b1259c112520c816f826b4c5d98f0bad7e95b02dec66fedb64d2
   languageName: node
   linkType: hard
 
@@ -28162,7 +28170,7 @@ __metadata:
     "@docusaurus/plugin-content-docs": "npm:3.9.2"
     "@docusaurus/preset-classic": "npm:3.9.2"
     "@docusaurus/theme-common": "npm:3.9.2"
-    "@easyops-cn/docusaurus-search-local": "npm:^0.52.1"
+    "@easyops-cn/docusaurus-search-local": "npm:^0.52.2"
     "@iframe-resizer/react": "npm:^5.5.7"
     "@mdx-js/react": "npm:^3.1.1"
     "@tsconfig/docusaurus": "npm:^2.0.7"
