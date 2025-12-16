@@ -14,13 +14,12 @@ interface ActionListStories {
   WithWarning: ActionListStory;
 }
 
-interface ActionListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ActionListTemplates<TemplateFnReturnType>
-  > {}
+interface ActionListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ActionListTemplates<TemplateFnReturnType>
+> {}
 
 export interface ActionListTemplates<TemplateFnReturnType> {
   actionListTemplate: (actionListProperties: ActionList<TemplateFnReturnType>) => TemplateFnReturnType;

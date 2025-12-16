@@ -40,13 +40,12 @@ export function listButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
   };
 }
 
-interface ListButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ListButtonTemplates<TemplateFnReturnType>
-  > {}
+interface ListButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ListButtonTemplates<TemplateFnReturnType>
+> {}
 
 export function listButtonStories<Implementation, Templates, TemplateFnReturnType>({
   storyTemplates,

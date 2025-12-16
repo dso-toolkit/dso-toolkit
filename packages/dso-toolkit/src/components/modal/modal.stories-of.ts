@@ -22,8 +22,12 @@ interface ModalStories {
   Fullscreen: ModalStory;
 }
 
-interface ModalStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ModalTemplates<TemplateFnReturnType>> {
+interface ModalStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ModalTemplates<TemplateFnReturnType>
+> {
   decorator?: ModalDecorator<TemplateFnReturnType>;
 }
 

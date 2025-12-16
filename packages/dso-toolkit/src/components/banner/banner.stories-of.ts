@@ -20,8 +20,12 @@ interface BannerStories {
   Success: BannerStory;
 }
 
-interface BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, BannerTemplates<TemplateFnReturnType>> {}
+interface BannerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  BannerTemplates<TemplateFnReturnType>
+> {}
 
 interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;

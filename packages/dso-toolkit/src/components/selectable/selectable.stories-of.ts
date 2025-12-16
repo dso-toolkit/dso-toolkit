@@ -17,13 +17,12 @@ interface SelectableStories<TemplateFnReturnType> {
   Nested: SelectableStory<TemplateFnReturnType>;
 }
 
-interface SelectableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    SelectableTemplates<TemplateFnReturnType>
-  > {}
+interface SelectableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SelectableTemplates<TemplateFnReturnType>
+> {}
 
 export interface SelectableTemplates<TemplateFnReturnType> {
   selectableTemplate: (selectableProperties: Selectable<TemplateFnReturnType>) => TemplateFnReturnType;

@@ -17,13 +17,12 @@ interface RowEqualHeightsStories {
   Tiles: RowEqualHeightsStory;
 }
 
-interface RowEqualHeightsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    RowEqualHeightsTemplates<TemplateFnReturnType>
-  > {
+interface RowEqualHeightsStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  RowEqualHeightsTemplates<TemplateFnReturnType>
+> {
   decorator: RowEqualHeightsDecorator<TemplateFnReturnType>;
 }
 

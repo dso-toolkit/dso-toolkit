@@ -16,8 +16,12 @@ interface NavbarStories {
   WithExtension: NavbarStory;
 }
 
-interface NavbarStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, NavbarTemplates<TemplateFnReturnType>> {}
+interface NavbarStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  NavbarTemplates<TemplateFnReturnType>
+> {}
 
 export interface NavbarTemplates<TemplateFnReturnType> {
   navbarTemplate: (navbarProperties: Navbar<TemplateFnReturnType>) => TemplateFnReturnType;

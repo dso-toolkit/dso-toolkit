@@ -24,8 +24,12 @@ export interface ListTemplates<TemplateFnReturnType> {
   listTemplate: (listProperties: List) => TemplateFnReturnType;
 }
 
-interface ListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ListTemplates<TemplateFnReturnType>> {}
+interface ListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ListTemplates<TemplateFnReturnType>
+> {}
 
 export function listMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

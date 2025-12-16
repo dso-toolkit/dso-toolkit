@@ -19,8 +19,12 @@ export interface ImageTemplates<TemplateFnReturnType> {
   imageTemplate: (imageProperties: Image) => TemplateFnReturnType;
 }
 
-interface ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ImageTemplates<TemplateFnReturnType>> {}
+interface ImageStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ImageTemplates<TemplateFnReturnType>
+> {}
 
 export function imageMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

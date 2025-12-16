@@ -17,13 +17,12 @@ interface ScrollableStories {
   DynamicContent: ScrollableStory;
 }
 
-interface ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ScrollableTemplates<TemplateFnReturnType>
-  > {
+interface ScrollableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ScrollableTemplates<TemplateFnReturnType>
+> {
   decorator: ScrollableDecorator<TemplateFnReturnType>;
 }
 

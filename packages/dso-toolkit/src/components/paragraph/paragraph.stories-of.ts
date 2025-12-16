@@ -15,13 +15,12 @@ interface ParagraphStories {
   Disclaimer: ParagraphStory;
 }
 
-interface ParagraphStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ParagraphTemplates<TemplateFnReturnType>
-  > {}
+interface ParagraphStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ParagraphTemplates<TemplateFnReturnType>
+> {}
 
 interface ParagraphTemplates<TemplateFnReturnType> {
   paragraphTemplate: (paragraphProperties: Paragraph) => TemplateFnReturnType;

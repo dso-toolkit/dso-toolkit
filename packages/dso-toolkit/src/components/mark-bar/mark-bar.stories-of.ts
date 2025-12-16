@@ -13,8 +13,12 @@ interface MarkBarStories {
   Default: MarkBarStory;
 }
 
-interface MarkBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, MarkBarTemplates<TemplateFnReturnType>> {}
+interface MarkBarStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  MarkBarTemplates<TemplateFnReturnType>
+> {}
 
 interface MarkBarTemplates<TemplateFnReturnType> {
   markBarTemplate: (markBarProperties: MarkBar) => TemplateFnReturnType;

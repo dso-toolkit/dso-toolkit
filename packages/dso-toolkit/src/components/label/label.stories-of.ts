@@ -21,8 +21,12 @@ interface LabelStories {
   WithSymbolColor: LabelStory;
 }
 
-interface LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LabelTemplates<TemplateFnReturnType>> {
+interface LabelStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LabelTemplates<TemplateFnReturnType>
+> {
   decorator: LabelDecorator<TemplateFnReturnType>;
 }
 

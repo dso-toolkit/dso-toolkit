@@ -15,13 +15,12 @@ interface DropdownMenuStories {
   Buttons: StoryObj<DropdownMenuArgs, Renderer>;
 }
 
-interface DropdownMenuStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DropdownMenuTemplates<TemplateFnReturnType>
-  > {}
+interface DropdownMenuStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DropdownMenuTemplates<TemplateFnReturnType>
+> {}
 
 export interface DropdownMenuTemplates<TemplateFnReturnType> {
   dropdownMenuTemplate: (dropdownMenuProperties: DropdownMenu) => TemplateFnReturnType;

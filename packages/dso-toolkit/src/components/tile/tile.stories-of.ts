@@ -14,8 +14,12 @@ interface TileStories {
   Theme: TileStory;
 }
 
-interface TileStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TileTemplates<TemplateFnReturnType>> {}
+interface TileStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TileTemplates<TemplateFnReturnType>
+> {}
 
 interface TileTemplates<TemplateFnReturnType> {
   tileTemplate: (tileProperties: Tile) => TemplateFnReturnType;

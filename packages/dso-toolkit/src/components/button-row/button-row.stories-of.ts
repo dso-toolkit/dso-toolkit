@@ -18,13 +18,12 @@ interface ButtonRowStories {
   Emphasized: ButtonRowStory;
 }
 
-interface ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ButtonRowTemplates<TemplateFnReturnType>
-  > {}
+interface ButtonRowStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ButtonRowTemplates<TemplateFnReturnType>
+> {}
 
 interface ButtonRowTemplates<TemplateFnReturnType> {
   buttonRowTemplate: (buttonRowProperties: ButtonRow) => TemplateFnReturnType;

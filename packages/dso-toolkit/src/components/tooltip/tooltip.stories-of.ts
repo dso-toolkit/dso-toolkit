@@ -16,8 +16,12 @@ interface TooltipStories {
   AsSibling: TooltipStory;
 }
 
-interface TooltipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TooltipTemplates<TemplateFnReturnType>> {}
+interface TooltipStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TooltipTemplates<TemplateFnReturnType>
+> {}
 
 interface TooltipTemplates<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;

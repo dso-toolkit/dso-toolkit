@@ -41,13 +41,12 @@ interface DocumentComponentStories {
   IMRO: StoryObj<DocumentComponentArgs, Renderer>;
 }
 
-interface DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DocumentComponentTemplates<TemplateFnReturnType>
-  > {}
+interface DocumentComponentStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DocumentComponentTemplates<TemplateFnReturnType>
+> {}
 
 export interface DocumentComponentTemplates<TemplateFnReturnType> {
   documentComponentTemplate: (
