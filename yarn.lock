@@ -12176,9 +12176,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^15.6.0":
-  version: 15.7.0
-  resolution: "cypress@npm:15.7.0"
+"cypress@npm:^15.7.1":
+  version: 15.7.1
+  resolution: "cypress@npm:15.7.1"
   dependencies:
     "@cypress/request": "npm:^3.0.9"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -12224,7 +12224,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10/7cf4a8dabcd1a0736c7c9526853d834c6098f5cf850cc10fecfabca7a2e86dd63bdcd914bd16829e1630d540707de4bfc513cccf0e0ee84fe00ee2f3b786534c
+  checksum: 10/bf78d8e0695a332b9b096b7c1102c7d14acd46da4d183b7599e267cac119967e7a47340cb487e0244b0bacf131b9e1731bc3549678d1b003401d1d38af1e9fbc
   languageName: node
   linkType: hard
 
@@ -12903,7 +12903,7 @@ __metadata:
     "@types/lodash.startcase": "npm:^4.4.9"
     axe-core: "npm:^4.11.0"
     cheerio: "npm:^1.1.2"
-    cypress: "npm:^15.6.0"
+    cypress: "npm:^15.7.1"
     cypress-axe: "npm:^1.7.0"
     cypress-real-events: "npm:^1.15.0"
     dso-toolkit: "workspace:^"
