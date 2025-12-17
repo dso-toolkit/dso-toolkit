@@ -3569,7 +3569,7 @@ declare namespace LocalJSX {
          */
         "onDsoClose"?: (event: DsoLegendCustomEvent<LegendCloseEvent>) => void;
         /**
-          * Emitted when a tabItem is pressed. The `tabItem` property contains the information of the tab being pressed.
+          * Emitted when a tabItem is pressed.
          */
         "onDsoContentSwitch"?: (event: DsoLegendCustomEvent<LegendContentSwitchEvent>) => void;
         /**

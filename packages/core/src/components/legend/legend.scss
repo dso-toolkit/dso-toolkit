@@ -33,7 +33,7 @@
         color: colors.$bosgroen;
         padding-block: 6px;
         padding-inline: units.$u1;
-        border-block-end: calc(#{units.$u1} / 2) solid transparent;
+        border-block-end: units.$u1 * 0.5 solid transparent;
 
         &:hover {
           text-decoration: underline;

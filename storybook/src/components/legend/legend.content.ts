@@ -88,10 +88,10 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate 
             <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur">
               Kleur
             </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="1" value="grijstinten">
+            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
               Grijstinten
             </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="1" value="opties-3">Pastel</dso-selectable>
+            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
           </div>
         </fieldset>`,
       })}

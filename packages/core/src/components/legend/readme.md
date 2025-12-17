@@ -13,10 +13,10 @@
 
 ## Events
 
-| Event              | Description                                                                                                  | Type                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
-| `dsoClose`         | Emitted when the user closes the Legend.                                                                     | `CustomEvent<LegendCloseEvent>`         |
-| `dsoContentSwitch` | Emitted when a tabItem is pressed. The `tabItem` property contains the information of the tab being pressed. | `CustomEvent<LegendContentSwitchEvent>` |
+| Event              | Description                              | Type                                    |
+| ------------------ | ---------------------------------------- | --------------------------------------- |
+| `dsoClose`         | Emitted when the user closes the Legend. | `CustomEvent<LegendCloseEvent>`         |
+| `dsoContentSwitch` | Emitted when a tabItem is pressed.       | `CustomEvent<LegendContentSwitchEvent>` |
 
 
 ## Dependencies
