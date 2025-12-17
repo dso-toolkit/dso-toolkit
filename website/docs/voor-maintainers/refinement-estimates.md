@@ -8,7 +8,6 @@ heeft.
 1
 
 - Typo
-- Deprecation
 
 2
 
@@ -17,6 +16,8 @@ heeft.
 - Licht nadenkwerk
 - Verwijderen van een component of HTML/CSS
 - PeerDependency updates
+- Icoon toevoegen of aanpassen
+- Deprecation
 
 3
 
