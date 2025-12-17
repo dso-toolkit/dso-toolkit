@@ -23,6 +23,7 @@ import clock from "dso-toolkit/src/icons/clock.svg";
 import copy from "dso-toolkit/src/icons/copy.svg";
 import crown from "dso-toolkit/src/icons/crown.svg";
 import cultural from "dso-toolkit/src/icons/cultural.svg";
+import documentPencil from "dso-toolkit/src/icons/document-pencil.svg";
 import document from "dso-toolkit/src/icons/document.svg";
 import download from "dso-toolkit/src/icons/download.svg";
 import email from "dso-toolkit/src/icons/email.svg";
@@ -130,6 +131,7 @@ const icons = [
   { alias: "crown", svg: crown },
   { alias: "cultural", svg: cultural },
   { alias: "document", svg: document },
+  { alias: "document-pencil", svg: documentPencil },
   { alias: "download", svg: download },
   { alias: "email", svg: email },
   { alias: "energy", svg: energy },
