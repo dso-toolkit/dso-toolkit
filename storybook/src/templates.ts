@@ -61,6 +61,7 @@ import {
   JustifyFormGroups,
   Label,
   LabelGroup,
+  Legend,
   LegendItem,
   Link,
   LinkList,
@@ -173,6 +174,7 @@ import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-f
 import { coreLabel } from "./components/label/label.core-template";
 import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
+import { coreLegend } from "./components/legend/legend.core-template";
 import { coreLegendItem } from "./components/legend-item/legend-item.core-template";
 import { cssLink } from "./components/link/link.css-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
@@ -276,6 +278,7 @@ export interface Components {
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
   labelGroup: LabelGroup;
+  legend: Legend<TemplateResult>;
   legendItem: LegendItem<TemplateResult>;
   link: Link;
   linkList: LinkList;
@@ -283,7 +286,7 @@ export interface Components {
   listButton: ListButton;
   logo: Logo;
   mapControls: MapControls;
-  mapLayer: MapLayer;
+  mapLayer: MapLayer<TemplateResult>;
   markBar: MarkBar;
   modal: Modal<TemplateResult>;
   navbar: Navbar<TemplateResult>;
@@ -374,6 +377,7 @@ templateContainer.add(coreInfo);
 templateContainer.add(coreInfoButton);
 templateContainer.add(coreInputRange);
 templateContainer.add(coreLabel);
+templateContainer.add(coreLegend);
 templateContainer.add(coreLegendItem);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);

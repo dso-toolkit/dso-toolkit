@@ -86,6 +86,10 @@ dso-accordion-section {
   margin-block: units.$block-spacing-xlarge;
 }
 
+dso-legend-item + dso-legend-item {
+  margin-block-start: units.$block-spacing-small;
+}
+
 $spacers: (
   (
     space: units.$block-spacing-small,
