@@ -1,5 +1,6 @@
 @use "../alert";
 @use "../button";
+@use "../icon";
 @use "../../di";
 @use "../../variables/units";
 
@@ -28,7 +29,7 @@
     text-align: center;
 
     &::before {
-      @include di.base("times-zwart", 24px, middle);
+      @include di.base("times-zwart", icon.$size, middle);
 
       content: "";
       display: inline-block;
