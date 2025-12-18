@@ -28,11 +28,10 @@
     text-align: center;
 
     &::before {
-      @include di.base("times-zwart");
+      @include di.base("times-zwart", 24px, middle);
 
       content: "";
       display: inline-block;
-      vertical-align: middle;
     }
   }
 
