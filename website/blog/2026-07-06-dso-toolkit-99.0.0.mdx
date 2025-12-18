@@ -4,9 +4,10 @@ authors: [iterox]
 
 # DSO Toolkit v99.0.0 🍑
 
-Deze release bevat **BREAKING** changes voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Highlight Box (HTML/CSS implementatie)
+- Dropdown Menu (HTML/CSS implementatie)
 
 <!-- truncate -->
 
@@ -37,4 +38,94 @@ Gebruik de Core implementatie van Highlight Box.
     <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten</p>
   </div>
 </dso-highlight-box>
+```
+
+## Dropdown Menu (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Dropdown Menu` is in 🏝 Release 83.0.0 deprecated. In deze release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Dropdown Menu`.
+
+```html
+❌
+<div class="dso-dropdown-menu dso-open dso-checkable">
+  <button type="button" id="ad84df3f-8cb2-4229-a3d9-22338c672ca0" class="dso-secondary" slot="toggle">
+    <span>Versies</span>
+  </button>
+  <div class="dso-dropdown-options" aria-labelledby="ad84df3f-8cb2-4229-a3d9-22338c672ca0">
+    <ul aria-labelledby="c3b91dd4-8b5b-486d-97d5-bcba43dd93b8">
+      <li class="dso-group-label" id="c3b91dd4-8b5b-486d-97d5-bcba43dd93b8">Versies</li>
+      <li>
+        <a href="#">10.6.0</a>
+      </li>
+      <li>
+        <a href="#">10.5.0</a>
+      </li>
+      <li>
+        <a href="#">10.4.0</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="#">master</a>
+      </li>
+    </ul>
+    <ul aria-labelledby="b75e487c-8d56-46ef-aed4-c37d1eecac33" id="b75e487c-8d56-46ef-aed4-c37d1eecac33">
+      <li class="dso-group-label">Branch releases</li>
+      <li>
+        <a href="#">#500-Margins-Testbuilds</a>
+      </li>
+      <li class="dso-checked">
+        <a href="#">#611-Pager-component-uitbreiden</a>
+      </li>
+      <li>
+        <a href="#">#663-Dropdown-button-toegankelijk-maken</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+✅
+<dso-dropdown-menu variant="primary | secondary | tertiary" label="Versies" checkable>
+  <dso-dropdown-menu-group label="Versies">
+    <dso-dropdown-menu-item type="link" href="#">10.6.0</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">10.5.0</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">10.4.0</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+  <dso-dropdown-menu-group>
+    <dso-dropdown-menu-item type="link" href="#">master</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+  <dso-dropdown-menu-group label="Branch releases">
+    <dso-dropdown-menu-item type="link" href="#">#500-Margins-Testbuilds</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#" checked="true">#611-Pager-component-uitbreiden</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="link" href="#">#663-Dropdown-button-toegankelijk-maken</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+</dso-dropdown-menu>
+
+❌
+<div class="dso-dropdown-menu dso-open">
+  <button type="button" id="dad5bcad-ac84-4cf8-af34-2357c9c22abe" class="dso-secondary">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" role="menu" aria-labelledby="dad5bcad-ac84-4cf8-af34-2357c9c22abe">
+    <ul role="group">
+      <li role="none">
+        <button type="button" role="menuitem">Bewerken</button>
+      </li>
+      <li role="none">
+        <button type="button" role="menuitem">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+✅
+<dso-dropdown-menu>
+  <dso-dropdown-menu-group>
+    <dso-dropdown-menu-item type="button">Bewerken</dso-dropdown-menu-item>
+    <dso-dropdown-menu-item type="button">Verwijderen</dso-dropdown-menu-item>
+  </dso-dropdown-menu-group>
+</dso-dropdown-menu>
 ```
