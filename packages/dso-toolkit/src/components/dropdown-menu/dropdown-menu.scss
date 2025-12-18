@@ -73,60 +73,6 @@
   }
 }
 
-// HTML/CSS
-.dso-dropdown-menu {
-  @include dropdown-menu.root();
-  @include dropdown-menu.children();
-  @include icons();
-
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    position: relative;
-  }
-
-  &.dso-open {
-    @include icons-open();
-  }
-
-  &.dso-checkable {
-    @include dropdown-menu.checkable();
-
-    li {
-      &.dso-checked {
-        a,
-        button {
-          &::before {
-            @include di.base("check-wit", units.$u3);
-
-            // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-            & {
-              content: "";
-              display: block;
-              float: inline-start;
-              margin-inline-start: units.$u4 * -1;
-              margin-inline-end: units.$u1;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.dso-dropdown-align-right {
-    .dso-dropdown-options {
-      inset-inline-end: 0;
-    }
-  }
-
-  .dso-dropdown-options {
-    margin-block: 2px 0;
-    margin-inline: 0;
-    position: absolute;
-    text-align: start;
-    inset-block-start: 100%;
-  }
-}
-
 // Web Component
 dso-dropdown-menu {
   @include dropdown-menu.children();

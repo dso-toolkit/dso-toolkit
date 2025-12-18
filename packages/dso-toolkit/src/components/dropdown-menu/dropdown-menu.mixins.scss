@@ -10,10 +10,6 @@
 
 @use "dropdown-menu.variables" as dropdown-menu-variables;
 
-@mixin root() {
-  display: inline-block;
-}
-
 @mixin children() {
   > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
   > .dso-primary,
