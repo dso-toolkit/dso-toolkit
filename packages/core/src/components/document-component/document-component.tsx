@@ -425,6 +425,7 @@ export class DocumentComponent implements ComponentInterface {
                       inline
                       urlResolver={this.ozonContentUrlResolver}
                       begripResolver={this.ozonContentBegripResolver}
+                      annotated={this.annotated}
                     />
                   ) : (
                     <span class="alternative-title">
@@ -513,6 +514,7 @@ export class DocumentComponent implements ComponentInterface {
                 }
                 urlResolver={this.ozonContentUrlResolver}
                 begripResolver={this.ozonContentBegripResolver}
+                annotated={this.annotated}
               />
             )}
           </div>

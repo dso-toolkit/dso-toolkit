@@ -16,6 +16,7 @@ export interface OzonContentArgs {
   dsoOzonContentMarkItemHighlight: HandlerFunction;
   urlResolver?: OzonContentUrlResolver;
   begripResolver?: OzonContentBegripResolver;
+  annotated?: boolean;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -39,6 +40,7 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: "boolean",
     },
   },
+  annotated: argTypeAction(),
   dsoClick: argTypeAction(),
   dsoOzonContentMarkItemHighlight: argTypeAction(),
   urlResolver: argTypeAction(),
@@ -46,10 +48,11 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
 };
 
 export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
-  const { searchTerm, content, dsoClick, dsoOzonContentMarkItemHighlight, inline, highlight } = a;
+  const { searchTerm, content, dsoClick, dsoOzonContentMarkItemHighlight, inline, highlight, annotated } = a;
   let highlighted = false;
 
   return {
+    annotated,
     content,
     inline,
     mark: searchTerm

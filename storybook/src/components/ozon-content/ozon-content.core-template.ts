@@ -17,6 +17,7 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
       begripResolver,
       dsoClick,
       dsoOzonContentMarkItemHighlight,
+      annotated,
     }) {
       return html`
         <dso-ozon-content
@@ -26,6 +27,7 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
           .urlResolver=${ifDefined(urlResolver)}
           .begripResolver=${ifDefined(begripResolver)}
           ?inline=${inline}
+          ?annotated=${annotated}
           @dsoClick=${ifDefined(dsoClick)}
           @dsoOzonContentMarkItemHighlight=${ifDefined(dsoOzonContentMarkItemHighlight)}
         >
