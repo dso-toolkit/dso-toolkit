@@ -21,11 +21,10 @@ body:has(dso-modal.hydrated) {
 
   .dso-close {
     &::before {
-      @include di.base("times");
+      @include di.base("times", 24px, middle);
 
       content: "";
       display: inline-block;
-      vertical-align: middle;
     }
   }
 
