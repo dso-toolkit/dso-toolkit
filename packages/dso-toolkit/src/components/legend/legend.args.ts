@@ -2,7 +2,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
-import { argTypeAction, componentArgs, noControl } from "../../storybook";
+import { argTypeAction, componentArgs } from "../../storybook";
 
 import { Legend, LegendTabItem } from "./legend.models";
 
@@ -13,9 +13,7 @@ export interface LegendArgs {
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
-  tabItems: {
-    ...noControl,
-  },
+  tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
 };
@@ -46,10 +44,7 @@ export function legendArgsMapper<TemplateFnReturnType>(
     ...a,
     tabItems: a.tabItems,
     content,
-    dsoContentSwitch: (event) => a.dsoContentSwitch(event.detail),
-    dsoClose: (event) => {
-      event.preventDefault();
-      a.dsoClose(event.detail);
-    },
+    dsoContentSwitch: (e) => a.dsoContentSwitch(e.detail),
+    dsoClose: (e) => a.dsoClose(e.detail),
   };
 }

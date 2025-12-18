@@ -108,7 +108,7 @@ export class Legend implements ComponentInterface {
                 class={clsx("tab", { active: tabItem.active })}
                 role="tab"
                 aria-selected={tabItem.active ? "true" : "false"}
-                tabIndex={tabItem.active ? 0 : -1}
+                {...(!tabItem.active ? { tabIndex: -1 } : {})}
                 onClick={this.clickHandler}
               >
                 {tabItem.label}
@@ -126,7 +126,9 @@ export class Legend implements ComponentInterface {
         </div>
 
         <dso-scrollable class="content">
-          <slot />
+          <div role="tabpanel" tabIndex={0}>
+            <slot />
+          </div>
         </dso-scrollable>
       </Host>
     );
