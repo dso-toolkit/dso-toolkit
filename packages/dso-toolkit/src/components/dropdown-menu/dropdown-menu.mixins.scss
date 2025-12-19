@@ -53,9 +53,9 @@
 
   .dso-dropdown-options {
     background-clip: padding-box;
-    background-color: dropdown-menu-variables.$background-color;
+    background-color: colors.$wit;
     border-radius: scaffolding.$border-radius-base;
-    border: 1px solid dropdown-menu-variables.$border-color;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     font-size: typography.$root-font-size-base;
     min-inline-size: 160px;
