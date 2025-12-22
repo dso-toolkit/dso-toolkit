@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🧑‍🎤 Release 84.1.0 - 2025-12-22
+
 ### Added
 * Icon: Nieuw icoon - Document Pencil ([#3433](https://github.com/dso-toolkit/dso-toolkit/issues/3433))
 * Legend: Nieuw component ([#3186](https://github.com/dso-toolkit/dso-toolkit/issues/3186))
