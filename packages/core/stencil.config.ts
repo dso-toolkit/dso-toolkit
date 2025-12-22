@@ -1,9 +1,18 @@
-import { angularOutputTarget } from "@stencil/angular-output-target";
+import { ValueAccessorConfig, angularOutputTarget } from "@stencil/angular-output-target";
 import { Config } from "@stencil/core";
 import { reactOutputTarget } from "@stencil/react-output-target";
 import { sass } from "@stencil/sass";
 
 import { inlineSvg } from "./scripts/inline-svg";
+
+const angularValueAccessorBindings: ValueAccessorConfig[] = [
+  {
+    elementSelectors: ['dso-selectable[type="checkbox"]'],
+    event: "dsoChange",
+    targetAttr: "checked",
+    type: "boolean",
+  },
+];
 
 export const config: Config = {
   namespace: "dso-toolkit",
@@ -24,6 +33,7 @@ export const config: Config = {
       outputType: "standalone",
       directivesProxyFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
+      valueAccessorConfigs: angularValueAccessorBindings,
     }),
     reactOutputTarget({
       customElementsDir: "dist/components",

@@ -33,7 +33,7 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "patch:@stencil/angular-output-target@0.10.2#~/.yarn/patches/@stencil-angular-output-target-npm-0.10.2.patch",
+    "@stencil/angular-output-target": "^1.1.1",
     "@stencil/react-output-target": "^1.2.0",
     "@stencil/sass": "^3.2.3",
     "@types/debounce": "^1.2.4",
