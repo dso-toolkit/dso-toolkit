@@ -34,6 +34,7 @@ interface LegendItemTemplates<TemplateFnReturnType> {
   legendItemTemplate: (legendItemProperties: LegendItem<TemplateFnReturnType>) => TemplateFnReturnType;
   optionsWithInputRange: TemplateFnReturnType;
   defaultSymbol: TemplateFnReturnType;
+  content: (label: string) => TemplateFnReturnType;
 }
 
 export function legendItemMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -63,8 +64,8 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,
-        (args, { legendItemTemplate, defaultSymbol, optionsWithInputRange }) =>
-          legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, optionsWithInputRange)),
+        (args, { legendItemTemplate, defaultSymbol, optionsWithInputRange, content }) =>
+          legendItemTemplate(legendItemArgsMapper(args, content, defaultSymbol, optionsWithInputRange)),
       ),
     },
     NotActivatable: {
@@ -75,8 +76,8 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,
-        (args, { legendItemTemplate, defaultSymbol, optionsWithInputRange }) =>
-          legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, optionsWithInputRange)),
+        (args, { legendItemTemplate, defaultSymbol, optionsWithInputRange, content }) =>
+          legendItemTemplate(legendItemArgsMapper(args, content, defaultSymbol, optionsWithInputRange)),
       ),
     },
     NoOptions: {
@@ -84,16 +85,16 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
         label: "Legenda item zonder opties",
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
-        legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol, content }) =>
+        legendItemTemplate(legendItemArgsMapper(args, content, defaultSymbol)),
       ),
     },
     NoSymbol: {
       args: {
         label: "Legenda item zonder symbool",
       },
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, optionsWithInputRange }) =>
-        legendItemTemplate(legendItemArgsMapper(args, undefined, undefined, optionsWithInputRange)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, optionsWithInputRange, content }) =>
+        legendItemTemplate(legendItemArgsMapper(args, content, undefined, optionsWithInputRange)),
       ),
     },
     OnlySymbol: {
@@ -102,8 +103,8 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
         activatable: false,
       },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol }) =>
-        legendItemTemplate(legendItemArgsMapper(args, undefined, defaultSymbol, undefined)),
+      render: templateContainer.render(storyTemplates, (args, { legendItemTemplate, defaultSymbol, content }) =>
+        legendItemTemplate(legendItemArgsMapper(args, content, defaultSymbol, undefined)),
       ),
     },
   };

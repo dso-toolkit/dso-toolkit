@@ -61,14 +61,14 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
 
 export function legendItemArgsMapper<TemplateFnReturnType>(
   a: LegendItemArgs,
-  content?: TemplateFnReturnType,
+  content?: (label: string) => TemplateFnReturnType,
   symbol?: TemplateFnReturnType,
   options?: TemplateFnReturnType,
 ): LegendItem<TemplateFnReturnType> {
   return {
     ...a,
     options,
-    content: content || a.label || "",
+    content: content?.(a.label),
     symbol,
     dsoActiveChange: (e) => a.dsoActiveChange(e.detail),
   };
