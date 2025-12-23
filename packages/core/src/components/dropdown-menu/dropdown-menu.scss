@@ -1,11 +1,9 @@
-@use "~dso-toolkit/src/components/dropdown-menu";
-
 :host(:focus) {
   outline: none;
 }
 
 :host {
-  @include dropdown-menu.root();
+  display: inline-block;
 }
 
 div[popover] {
