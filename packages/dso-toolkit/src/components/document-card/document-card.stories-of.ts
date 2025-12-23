@@ -21,13 +21,12 @@ interface DocumentCardStories {
   WithStatusToelichting: DocumentCardStory;
 }
 
-interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DocumentCardTemplates<TemplateFnReturnType>
-  > {}
+interface DocumentCardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DocumentCardTemplates<TemplateFnReturnType>
+> {}
 
 interface DocumentCardTemplates<TemplateFnReturnType> {
   documentCardTemplate: (documentCardProperties: DocumentCard<TemplateFnReturnType>) => TemplateFnReturnType;

@@ -23,8 +23,12 @@ export interface IconTemplates<TemplateFnReturnType> {
   iconTemplate: (iconProperties: Icon) => TemplateFnReturnType;
 }
 
-interface IconStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, IconTemplates<TemplateFnReturnType>> {
+interface IconStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  IconTemplates<TemplateFnReturnType>
+> {
   icons: string[];
   decorator?: IconOverviewDecorator<TemplateFnReturnType>;
 }

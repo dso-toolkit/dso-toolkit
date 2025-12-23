@@ -11,13 +11,12 @@ interface RichContentStories<TemplateFnReturnType> {
   RichContent: StoryObj<RichContentArgs<TemplateFnReturnType>, Renderer>;
 }
 
-interface RichContentStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    RichContentTemplates<TemplateFnReturnType>
-  > {}
+interface RichContentStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  RichContentTemplates<TemplateFnReturnType>
+> {}
 
 export interface RichContentTemplates<TemplateFnReturnType> {
   richContentTemplate: (richContentProperties: RichContent<TemplateFnReturnType>) => TemplateFnReturnType;

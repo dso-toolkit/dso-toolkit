@@ -15,13 +15,12 @@ export interface LabelGroupTemplates<TemplateFnReturnType> {
   labelGroupTemplate: (labelGroupProperties: LabelGroup) => TemplateFnReturnType;
 }
 
-interface LabelGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    LabelGroupTemplates<TemplateFnReturnType>
-  > {}
+interface LabelGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LabelGroupTemplates<TemplateFnReturnType>
+> {}
 
 export function labelGroupMeta<TRenderer extends Renderer>({
   readme,

@@ -19,13 +19,12 @@ interface DescriptionStories {
   Example: StoryObj<DescriptionExampleArgs, Renderer>;
 }
 
-interface DescriptionStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DescriptionTemplates<TemplateFnReturnType>
-  > {}
+interface DescriptionStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DescriptionTemplates<TemplateFnReturnType>
+> {}
 
 export interface DescriptionTemplates<TemplateFnReturnType> {
   descriptionTemplate: (descriptionProperties: Description) => TemplateFnReturnType;

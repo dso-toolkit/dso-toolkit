@@ -22,8 +22,12 @@ interface HeaderStories {
   WithButtonToHelp: HeaderStory;
 }
 
-interface HeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, HeaderTemplates<TemplateFnReturnType>> {}
+interface HeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  HeaderTemplates<TemplateFnReturnType>
+> {}
 
 interface HeaderTemplates<TemplateFnReturnType> {
   headerTemplate: (headerProperties: Header) => TemplateFnReturnType;

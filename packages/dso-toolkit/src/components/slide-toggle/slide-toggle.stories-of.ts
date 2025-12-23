@@ -23,13 +23,12 @@ interface SlideToggleStories {
   LabelledById: SlideToggleStory;
 }
 
-interface SlideToggleStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    SlideToggleTemplates<TemplateFnReturnType>
-  > {}
+interface SlideToggleStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SlideToggleTemplates<TemplateFnReturnType>
+> {}
 
 interface SlideToggleTemplates<TemplateFnReturnType> {
   slideToggleTemplate: (slideToggleProperties: SlideToggle) => TemplateFnReturnType;
