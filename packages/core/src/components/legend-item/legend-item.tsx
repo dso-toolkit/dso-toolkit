@@ -79,7 +79,7 @@ export class LegendItem implements ComponentInterface {
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
-    this.mutationObserver.observe(this.host, { attributes: true, childList: true });
+    this.mutationObserver.observe(this.host, { attributes: true, childList: true, subtree: true });
   }
 
   disconnectedCallback(): void {
