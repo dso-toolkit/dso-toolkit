@@ -19,6 +19,12 @@ describe("Legend Item", () => {
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
 
+  it("shows a Slide Toggle with accessible label", () => {
+    cy.get("@dsoLegendItemShadow")
+      .find("dso-slide-toggle button")
+      .should("have.attr", "aria-label", "Maak legenda item label actief");
+  });
+
   it("should hide the edit button and disable the slide-toggle", () => {
     cy.get("@dsoLegendItem")
       .invoke("prop", "disabled", true)

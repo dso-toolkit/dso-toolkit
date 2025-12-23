@@ -4,7 +4,7 @@ import { LegendItemArgs, legendItemMeta, legendItemStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
-import { defaultSymbol } from "./legend-item.content";
+import { content, defaultSymbol } from "./legend-item.content";
 import { decorator } from "./legend-item.decorator";
 
 const meta: Meta<LegendItemArgs> = {
@@ -23,6 +23,7 @@ const { Default, NotActivatable, NoOptions, NoSymbol, OnlySymbol } = legendItemS
       legendItemTemplate,
       optionsWithInputRange,
       defaultSymbol,
+      content,
     };
   },
   decorator,

@@ -15,7 +15,8 @@ import { clsx } from "clsx";
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
- * @slot The label for this Legend Item
+ * @slot label - The label for this Legend Item. Should be targetted with either `<h3 slot="label">...</h3>` or
+ * `<span slot="label">...</span>`
  * @slot symbol - A span where the symbol is styled upon
  * @slot options - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
@@ -99,6 +100,12 @@ export class LegendItem implements ComponentInterface {
     const hasSymbol = this.symbolSlottedElement !== null;
     const hasOptions = this.optionsSlottedElement !== null;
 
+    const label = this.host.querySelector("span[slot='label']");
+    let accessibleLabel = "Maak actief";
+    if (label?.textContent) {
+      accessibleLabel = `Maak ${label.textContent.toLowerCase()} actief`;
+    }
+
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
         <div class={clsx("legend-item", { "legend-item-symbol": hasSymbol })}>
@@ -108,7 +115,7 @@ export class LegendItem implements ComponentInterface {
             </div>
           )}
           <div>
-            <slot />
+            <slot name="label" />
           </div>
           {this.disabled && this.disabledMessage && (
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
@@ -127,7 +134,7 @@ export class LegendItem implements ComponentInterface {
             )}
             {this.activatable && (
               <dso-slide-toggle
-                accessibleLabel="Maak actief"
+                accessibleLabel={accessibleLabel}
                 checked={this.active}
                 disabled={this.disabled}
                 onDsoActiveChange={(e) =>
