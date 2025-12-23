@@ -56,33 +56,25 @@
 @mixin status-success() {
   @include set-colors.apply(alert-variables.$success-bg, "alert");
 
-  & {
-    border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
-  }
+  border-color: var(--_dso-alert-success-border-color, alert-variables.$success-bg);
 }
 
 @mixin status-error() {
   @include set-colors.apply(alert-variables.$danger-bg, "alert");
 
-  & {
-    border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
-  }
+  border-color: var(--_dso-alert-error-border-color, alert-variables.$danger-bg);
 }
 
 @mixin status-warning() {
   @include set-colors.apply(alert-variables.$warning-bg, "alert");
 
-  & {
-    border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
-  }
+  border-color: var(--_dso-alert-warning-border-color, alert-variables.$warning-bg);
 }
 
 @mixin status-info() {
   @include set-colors.apply(alert-variables.$info-bg, "alert");
 
-  & {
-    border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
-  }
+  border-color: var(--_dso-alert-info-border-color, alert-variables.$info-bg);
 }
 
 @mixin root() {
@@ -126,10 +118,7 @@
   &.dso-compact {
     @include compact();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      min-block-size: alert-variables.$inline-padding;
-    }
+    min-block-size: alert-variables.$inline-padding;
   }
 
   &.alert-success {

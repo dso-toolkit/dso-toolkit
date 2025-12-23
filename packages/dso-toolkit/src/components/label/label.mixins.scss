@@ -19,9 +19,7 @@
     text-decoration: line-through;
   }
 
-  & {
-    @include set-colors.apply(label-variables.$default-bg-color, "label");
-  }
+  @include set-colors.apply(label-variables.$default-bg-color, "label");
 
   &.dso-label-info {
     @include set-colors.apply(label-variables.$info-bg-color, "label");
@@ -46,11 +44,8 @@
   &.dso-label-bright {
     @include set-colors.apply(label-variables.$bright-bg-color, "label");
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      outline: 1px solid label-variables.$bright-border-color;
-      outline-offset: -1px;
-    }
+    outline: 1px solid label-variables.$bright-border-color;
+    outline-offset: -1px;
   }
 
   &.dso-label-attention {
@@ -60,10 +55,7 @@
   &.dso-label-filter {
     @include set-colors.apply(label-variables.$filter-bg-color, "label");
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      border-inline-start: 5px solid label-variables.$filter-border-color;
-    }
+    border-inline-start: 5px solid label-variables.$filter-border-color;
   }
 
   &.dso-label-toegevoegd {

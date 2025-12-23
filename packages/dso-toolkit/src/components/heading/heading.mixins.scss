@@ -36,9 +36,7 @@
   font-weight: 700;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    & {
-      font-size: units.$font-size-h2;
-    }
+    font-size: units.$font-size-h2;
   }
 }
 
@@ -48,9 +46,7 @@
   font-weight: 600;
 
   @media screen and (min-width: media-query-breakpoints.$screen-xs-min) {
-    & {
-      font-size: units.$font-size-h3;
-    }
+    font-size: units.$font-size-h3;
   }
 }
 

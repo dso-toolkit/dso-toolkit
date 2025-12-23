@@ -10,11 +10,9 @@
 @include utilities.box-sizing();
 
 @mixin _state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-  & {
-    background-color: $background-color;
-    border-color: $border-color;
-    color: $color;
-  }
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
 }
 
 :host {
@@ -28,10 +26,7 @@
 .dso-tertiary {
   @include button.tertiary($modifiers: false);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .dso-input-number {
@@ -53,10 +48,7 @@
     > * {
       @include _state-styling(colors.$wit, colors.$grijs-10, colors.$grijs-60);
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        pointer-events: none;
-      }
+      pointer-events: none;
     }
   }
 
@@ -135,20 +127,17 @@
   @include button.base($modifiers: false);
   @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2977
-  & {
-    border-radius: button.$border-radius;
-    border-width: 1px;
-    border-style: solid;
-    font-weight: 600;
-    padding-block: #{units.$u2 - 1};
-    padding-inline: #{units.$u2 - 1} #{units.$u6 - 1};
-    position: relative;
-    text-align: start;
-    white-space: normal;
-    inline-size: 100%;
-    cursor: pointer;
-  }
+  border-radius: button.$border-radius;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  padding-block: #{units.$u2 - 1};
+  padding-inline: #{units.$u2 - 1} #{units.$u6 - 1};
+  position: relative;
+  text-align: start;
+  white-space: normal;
+  inline-size: 100%;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -169,10 +158,7 @@
     &:hover {
       @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        opacity: 1;
-      }
+      opacity: 1;
     }
   }
 

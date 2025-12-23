@@ -36,10 +36,7 @@
   a {
     @include link.reverse();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      color: colors.$zwart;
-    }
+    color: colors.$zwart;
 
     &:active {
       color: colors.$zwart;

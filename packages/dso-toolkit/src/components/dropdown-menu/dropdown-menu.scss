@@ -28,12 +28,9 @@
     &::after {
       @include di.base("chevron-down");
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        margin-inline-start: units.$u1 * 0.5;
-        position: relative;
-        inset-block-start: -2px;
-      }
+      margin-inline-start: units.$u1 * 0.5;
+      position: relative;
+      inset-block-start: -2px;
     }
 
     &:hover {
@@ -79,10 +76,7 @@
   @include dropdown-menu.children();
   @include icons();
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    position: relative;
-  }
+  position: relative;
 
   &.dso-open {
     @include icons-open();
@@ -98,14 +92,11 @@
           &::before {
             @include di.base("check-wit", units.$u3);
 
-            // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-            & {
-              content: "";
-              display: block;
-              float: inline-start;
-              margin-inline-start: units.$u4 * -1;
-              margin-inline-end: units.$u1;
-            }
+            content: "";
+            display: block;
+            float: inline-start;
+            margin-inline-start: units.$u4 * -1;
+            margin-inline-end: units.$u1;
           }
         }
       }
@@ -146,14 +137,11 @@ dso-dropdown-menu {
           &::before {
             @include di.base("check-wit", units.$u3);
 
-            // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-            & {
-              content: "";
-              display: block;
-              float: inline-start;
-              margin-inline-start: units.$u4 * -1;
-              margin-inline-end: units.$u1;
-            }
+            content: "";
+            display: block;
+            float: inline-start;
+            margin-inline-start: units.$u4 * -1;
+            margin-inline-end: units.$u1;
           }
         }
       }

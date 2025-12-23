@@ -3,17 +3,13 @@
 @use "config";
 
 @mixin base($icon, $size: icon.$size, $vertical-align: icon.$vertical-align) {
-  & {
-    background: url("#{config.$icons-path}di.svg##{$icon}") no-repeat center;
-    background-size: cover;
-    block-size: $size;
-    vertical-align: $vertical-align;
-    inline-size: $size;
-  }
+  background: url("#{config.$icons-path}di.svg##{$icon}") no-repeat center;
+  background-size: cover;
+  block-size: $size;
+  vertical-align: $vertical-align;
+  inline-size: $size;
 }
 
 @mixin variant($icon) {
-  & {
-    background-image: var(--_dso-di-background-image, url("#{config.$icons-path}di.svg##{$icon}"));
-  }
+  background-image: var(--_dso-di-background-image, url("#{config.$icons-path}di.svg##{$icon}"));
 }

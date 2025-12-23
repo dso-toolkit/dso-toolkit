@@ -32,19 +32,22 @@
 }
 
 @function apply($color, $dark: colors.$contrast-dark, $light: colors.$contrast-light) {
-  @if $color {
-    $color-brightness: brightness($color);
-    $light-text-brightness: brightness($light);
-    $dark-text-brightness: brightness($dark);
-
-    @return if(
-      math.abs($color-brightness - $light-text-brightness) > math.abs($color-brightness - $dark-text-brightness),
-      $light,
-      $dark
-    );
+  @if not $color {
+    @return null;
   }
 
-  @return null;
+  $color-brightness: brightness($color);
+  $light-text-brightness: brightness($light);
+  $dark-text-brightness: brightness($dark);
+
+  $light-diff: math.abs($color-brightness - $light-text-brightness);
+  $dark-diff: math.abs($color-brightness - $dark-text-brightness);
+
+  @if $light-diff > $dark-diff {
+    @return $light;
+  }
+
+  @return $dark;
 }
 
 // Returns `true` if the given color is pure white.

@@ -29,13 +29,10 @@
 }
 
 .open {
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    opacity: 0;
-    position: absolute;
-    inset-inline-end: units.$u2;
-    inset-block-start: units.$u2;
-  }
+  opacity: 0;
+  position: absolute;
+  inset-inline-end: units.$u2;
+  inset-block-start: units.$u2;
 }
 
 .wrapper {
@@ -70,12 +67,9 @@
 }
 
 .close {
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    position: absolute;
-    inset-block-start: units.$u2;
-    inset-inline-end: units.$u2;
-  }
+  position: absolute;
+  inset-block-start: units.$u2;
+  inset-inline-end: units.$u2;
 }
 
 ins.editaction-add {

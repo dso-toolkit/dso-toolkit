@@ -58,10 +58,7 @@ dl {
     @include rich-content.children();
     @include utilities.clearfix();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      margin-inline-start: 0;
-    }
+    margin-inline-start: 0;
 
     &:last-of-type {
       margin-inline-end: 0;
