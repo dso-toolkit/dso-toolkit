@@ -7,28 +7,28 @@ export function legendaRichContent({ legendItemTemplate, richContentTemplate }: 
   return richContentTemplate({
     children: html`
       ${legendItemTemplate({
-        content: html`<h3>Legenda</h3>`,
+        content: html`<h3 slot="label">Legenda</h3>`,
       })}
       ${legendItemTemplate({
-        content: html` Document`,
+        content: html`<span slot="label">Document</span>`,
         symbol: defaultSymbol,
       })}
       ${legendItemTemplate({
-        content: html` Gekozen locatie`,
+        content: html`<span slot="label">Gekozen locatie</span>`,
         symbol: defaultSymbol,
       })}
       <hr />
       ${legendItemTemplate({
-        content: html`<h3>Geselecteerde kenmerken</h3>`,
+        content: html`<h3 slot="label">Geselecteerde kenmerken</h3>`,
         options: html`<label>Zichtbaarheid</label><dso-input-range label="Transparantie" unit="%"></dso-input-range>`,
       })}
       ${legendItemTemplate({
-        content: html`Acculader in werking`,
+        content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
         symbol: defaultSymbol,
       })}
       ${legendItemTemplate({
-        content: html`Bomen kappen`,
+        content: html`<span slot="label">Bomen kappen</span>`,
         activatable: true,
         active: true,
         symbol: defaultSymbol,
@@ -41,42 +41,42 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate 
   return richContentTemplate({
     children: html`
       ${legendItemTemplate({
-        content: html`<h3>Informatie</h3>`,
+        content: html`<h3 slot="label">Informatie</h3>`,
       })}
       ${legendItemTemplate({
-        content: html`BAG panden`,
+        content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
       })}
       ${legendItemTemplate({
-        content: html`Kadastrale kaart`,
+        content: html`<span slot="label">Kadastrale kaart</span>`,
         activatable: true,
       })}
       ${legendItemTemplate({
-        content: html`Gemeentegrenzen`,
+        content: html`<span slot="label">Gemeentegrenzen</span>`,
         activatable: true,
       })}
       ${legendItemTemplate({
-        content: html`Waterschapsgrenzen`,
+        content: html`<span slot="label">Waterschapsgrenzen</span>`,
         activatable: true,
       })}
       ${legendItemTemplate({
-        content: html`Provinciegrenzen`,
+        content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
         active: true,
         options: html`Content`,
       })}
       ${legendItemTemplate({
-        content: html`Landgrenzen`,
+        content: html`<span slot="label">Landgrenzen</span>`,
         activatable: true,
         active: true,
         options: html`Content`,
       })}
       <hr />
       ${legendItemTemplate({
-        content: html`<h3>Achtergrond</h3>`,
+        content: html`<h3 slot="label">Achtergrond</h3>`,
       })}
       ${legendItemTemplate({
-        content: html`Topgrafie (BRT)`,
+        content: html`<span slot="label">Topgrafie (BRT)</span>`,
         activatable: true,
         active: true,
         options: html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
@@ -96,12 +96,12 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate 
         </fieldset>`,
       })}
       ${legendItemTemplate({
-        content: html`Grootschalige topgrafie (BGT)`,
+        content: html`<span slot="label">Grootschalige topgrafie (BGT)</span>`,
         activatable: true,
         active: true,
       })}
       ${legendItemTemplate({
-        content: html`Luchtfoto`,
+        content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
       })}
     `,
