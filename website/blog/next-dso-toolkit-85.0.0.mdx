@@ -1,0 +1,39 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v85.0.0 🎇
+
+Deze release bevat een **BREAKING** change voor het volgende component:
+
+- Legend Item
+
+<!-- truncate -->
+
+## Legend Item
+
+Er was een probleem met de toegankelijkheid van een `activatable` `Legend Item`: het aria-label van de `Slide Toggle`
+button met `role="switch"` was niet gekoppeld aan het label van het `Legend Item`. Dit hebben we nu verholpen.
+Daardoor is het vanaf nu voorgeschreven dat het label in een `span` met attribuut `slot="label"` wordt geplaatst,
+zodat `Legend Item` via de property `accessibleLabel` van de `Slide Toggle` het `aria-label` van de button op de
+voorgeschreven manier kan vullen.
+
+### Migratiepad
+
+Plaats het label dat voorheen zonder HTML markup in het anonieme slot werd geplaatst voortaan in en `span` met
+attribuut `slot="label"`.
+
+```html
+❌
+<dso-legend-item>
+  <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span> Legenda item label
+  <div slot="options"><dso-input-range label="Transparantie" unit="%"></dso-input-range></div>
+</dso-legend-item>
+
+✅
+<dso-legend-item>
+  <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+  <span slot="label">Legenda item label</span>
+  <div slot="options"><dso-input-range label="Transparantie" unit="%"></dso-input-range></div>
+</dso-legend-item>
+```
