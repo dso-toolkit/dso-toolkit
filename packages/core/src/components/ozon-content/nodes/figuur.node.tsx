@@ -7,7 +7,8 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 type BijschriftProps = {
   bijschrift?: IBijschrift;
   bron?: ChildNode;
-  mapNodeToJsx: (node: Node | NodeList | Node[]) => JSX.Element;
+  mapNodeToJsx: (node: Node | NodeList | Node[], mark?: boolean) => JSX.Element;
+  ignoreMark?: boolean;
 };
 
 interface IBijschrift {
@@ -24,16 +25,16 @@ interface Illustratie {
   alt: string | null;
 }
 
-const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx }) => {
+const Bijschrift: FunctionalComponent<BijschriftProps> = ({ bijschrift, bron, mapNodeToJsx, ignoreMark }) => {
   const bronText = bron && bron.textContent?.trim();
 
   return (
     <span class="figuur-bijschrift">
-      {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud)}
+      {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud, ignoreMark)}
       {bronText && (
         <Fragment>
           {`${bijschrift ? " " : ""}(bron: `}
-          {mapNodeToJsx(bron)})
+          {mapNodeToJsx(bron, ignoreMark)})
         </Fragment>
       )}
     </span>
@@ -115,13 +116,13 @@ export class OzonContentFiguurNode implements OzonContentNode {
           <dso-image-overlay wijzigactie={wijzigactie}>
             {titel && (
               <div slot="titel">
-                <span>{mapNodeToJsx(titel)}</span>
+                <span>{mapNodeToJsx(titel, true)}</span>
               </div>
             )}
             <img src={src ?? undefined} alt={illustratie.alt ?? titel?.textContent ?? illustratie.naam ?? undefined} />
             {(bijschrift || bron) && (
               <div slot="bijschrift">
-                <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
+                <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} ignoreMark />
               </div>
             )}
           </dso-image-overlay>
