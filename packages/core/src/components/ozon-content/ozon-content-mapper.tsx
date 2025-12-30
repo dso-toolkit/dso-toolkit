@@ -78,13 +78,18 @@ export class Mapper {
     );
   }
 
-  mapNodeToJsx(node: Node | Node[] | NodeList, context: OzonContentContext, path: Node[]): JSX.Element {
+  mapNodeToJsx(
+    node: Node | Node[] | NodeList,
+    context: OzonContentContext,
+    path: Node[],
+    ignoreMark?: boolean,
+  ): JSX.Element {
     if (node instanceof NodeList) {
-      return <Fragment>{Array.from(node).map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
+      return <Fragment>{Array.from(node).map((n) => this.mapNodeToJsx(n, context, path, ignoreMark))}</Fragment>;
     }
 
     if (Array.isArray(node)) {
-      return <Fragment>{node.map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
+      return <Fragment>{node.map((n) => this.mapNodeToJsx(n, context, path, ignoreMark))}</Fragment>;
     }
 
     const nodeName = getNodeName(node);
@@ -98,19 +103,23 @@ export class Mapper {
     const state = identity ? context.state[identity] : undefined;
     const setState = identity ? (s: unknown) => context.setState({ ...context.state, [identity]: s }) : undefined;
 
-    return mapper.render(node, {
-      inline: context.inline,
-      mark: context.mark,
-      mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
-      emitClick: context.emitClick,
-      setState,
-      emitMarkItemHighlight: context.emitMarkItemHighlight,
-      state,
-      path,
-      urlResolver: context.urlResolver,
-      begripResolver: context.begripResolver,
-      annotated: context.annotated,
-    });
+    return mapper.render(
+      node,
+      {
+        inline: context.inline,
+        mark: context.mark,
+        mapNodeToJsx: (n, m) => this.mapNodeToJsx(n, context, [...path, node], m),
+        emitClick: context.emitClick,
+        setState,
+        emitMarkItemHighlight: context.emitMarkItemHighlight,
+        state,
+        path,
+        urlResolver: context.urlResolver,
+        begripResolver: context.begripResolver,
+        annotated: context.annotated,
+      },
+      ignoreMark,
+    );
   }
 
   transform(input: OzonContentInputType | undefined, context: OzonContentContext): JSX.Element {
