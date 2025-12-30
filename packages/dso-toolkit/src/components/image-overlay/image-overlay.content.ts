@@ -22,3 +22,10 @@ export const images: [Image, Image, Image, Image] = [
     width: 400,
   },
 ];
+
+export const titles: [string, string, string, string] = [
+  "Brede afbeelding",
+  "Kleine afbeelding",
+  "Hoge afbeelding met deze hele lange titel ter illustratie van de" + " etalering",
+  "",
+];

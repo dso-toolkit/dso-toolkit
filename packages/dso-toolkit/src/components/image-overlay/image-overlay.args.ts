@@ -1,6 +1,6 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { images } from "./image-overlay.content.js";
+import { images, titles } from "./image-overlay.content.js";
 import { ImageOverlay } from "./image-overlay.models.js";
 
 export interface ImageOverlayArgs {
@@ -25,5 +25,6 @@ export const imageOverlayArgTypes: ArgTypes<ImageOverlayArgs> = {
 export function imageOverlayArgsMapper(a: ImageOverlayArgs): ImageOverlay {
   return {
     image: images[a.image],
+    title: titles[a.image],
   };
 }

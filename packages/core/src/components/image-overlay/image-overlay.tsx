@@ -30,11 +30,17 @@ const Dimmer: FunctionalComponent<{
   active &&
   src && (
     <dialog class="wrapper" ref={ref} onClose={close} onClick={close}>
-      <div onClick={close}>
+      <div class="wrapper-inner" onClick={close}>
         {children[2]}
         {children[0]}
         <img src={src} alt={alt} />
-        <dso-icon-button icon="times" variant="map" class="close" label="Sluiten" onDsoClick={click} />
+        <dso-icon-button
+          icon="times"
+          variant={children[0] ? "tertiary" : "map"}
+          class="close"
+          label="Sluiten"
+          onDsoClick={click}
+        />
         {children[1]}
       </div>
     </dialog>

@@ -50,7 +50,7 @@
     font-weight: 700;
     line-height: initial;
     padding: units.$u1;
-    position: absolute;
+    padding-inline-end: units.$u6;
   }
 
   img {
@@ -69,12 +69,22 @@
   }
 }
 
+.wrapper-inner {
+  display: flex;
+  flex-direction: column;
+}
+
 .close {
   // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
   & {
     position: absolute;
     inset-block-start: units.$u2;
     inset-inline-end: units.$u2;
+  }
+
+  &[variant="tertiary"] {
+    inset-block-start: units.$u1 * 0.5;
+    inset-inline-end: units.$u1;
   }
 }
 

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Image Overlay: Titel en sluiten-knop van vergrote afbeelding vallen over afbeelding heen ([#3491](https://github.com/dso-toolkit/dso-toolkit/issues/3491))
+
 ## 🧑‍🎤 Release 84.1.0 - 2025-12-22
 
 ### Added

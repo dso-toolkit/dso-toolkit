@@ -7,11 +7,11 @@ export const coreImageOverlay: ComponentImplementation<ImageOverlay> = {
   component: "imageOverlay",
   implementation: "core",
   template: ({ imageTemplate }) =>
-    function imageOverlayTemplate({ image }) {
+    function imageOverlayTemplate({ image, title }) {
       return html`
         <dso-image-overlay>
           <div slot="titel">
-            <span>Afbeelding 1</span>
+            <span>${title}</span>
           </div>
           ${imageTemplate(image)}
           <div slot="bijschrift">
