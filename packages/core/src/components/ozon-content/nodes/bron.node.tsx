@@ -6,7 +6,7 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentBronNode implements OzonContentNode {
   name = "Bron";
 
-  render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <span class="dso-ozon-bron">{mapNodeToJsx(node.childNodes)}</span>;
+  render(node: Element, { mapNodeToJsx }: OzonContentNodeContext, ignoreMark: boolean) {
+    return <span class="dso-ozon-bron">{mapNodeToJsx(node.childNodes, ignoreMark)}</span>;
   }
 }

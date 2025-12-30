@@ -426,17 +426,15 @@ describe("Ozon Content", () => {
       .should("have.css", "display", "block");
   });
 
-  it("should render Figuur as dso-image-overlay", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--figuur");
+  describe("Figuur", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--figuur");
 
-    cy.injectAxe();
-    cy.dsoCheckA11y("dso-ozon-content.hydrated");
-
-    cy.get("dso-ozon-content.hydrated")
-      .invoke(
-        "prop",
-        "content",
-        `
+      cy.get("dso-ozon-content.hydrated")
+        .invoke(
+          "prop",
+          "content",
+          `
         <Figuur
           eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
           wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
@@ -454,24 +452,64 @@ describe("Ozon Content", () => {
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
         </Figuur>
       `,
-      )
-      .get("dso-ozon-content.hydrated")
-      .shadow()
-      .find("dso-image-overlay.hydrated > img")
-      .should("have.attr", "src", "images/houtkachel-of-open-haard-infographic.jpg")
-      .and("have.attr", "alt", "Afbeelding 1")
-      .get("dso-ozon-content.hydrated")
-      .shadow()
-      .find(".dso-ozon-figuur")
-      .should("have.css", "--_dso-ozon-content-illustratie-aspect-ratio", "0.6405693950177936")
-      .and("have.css", "--_dso-ozon-content-illustratie-width", "29.519999999999996%")
-      .and("have.css", "--_dso-ozon-content-illustratie-uitlijning", "center")
-      .get("dso-ozon-content.hydrated")
-      .shadow()
-      .find(".dso-ozon-figuur > .figuur-bijschrift")
-      .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
+        )
+        .get("dso-ozon-content.hydrated")
+        .as("OzonContent")
+        .shadow()
+        .as("OzonContentShadow");
+    });
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    it("renders Figuur as dso-image-overlay", () => {
+      cy.injectAxe();
+      cy.dsoCheckA11y("dso-ozon-content.hydrated");
+
+      cy.get("@OzonContentShadow")
+        .find("dso-image-overlay.hydrated > img")
+        .should("have.attr", "src", "images/houtkachel-of-open-haard-infographic.jpg")
+        .and("have.attr", "alt", "Afbeelding 1")
+        .get("@OzonContentShadow")
+        .find(".dso-ozon-figuur")
+        .should("have.css", "--_dso-ozon-content-illustratie-aspect-ratio", "0.6405693950177936")
+        .and("have.css", "--_dso-ozon-content-illustratie-width", "29.519999999999996%")
+        .and("have.css", "--_dso-ozon-content-illustratie-uitlijning", "center")
+        .get("@OzonContentShadow")
+        .find(".dso-ozon-figuur > .figuur-bijschrift")
+        .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
+
+      cy.get("@OzonContent").matchImageSnapshot();
+    });
+
+    it("only marks Titel and Bijschirft outside dso-image-overlay", () => {
+      cy.get("@OzonContent")
+        .then(
+          ($ozonContent: JQuery<HTMLDsoOzonContentElement>) =>
+            ($ozonContent[0].mark = (text) =>
+              text
+                .split(new RegExp(`(it)`, "gi"))
+                .map((item, index) => (isOdd(index) ? { text: item, highlight: index === 1 } : item))),
+        )
+        .get("@OzonContentShadow")
+        .find(".figuur-titel")
+        .should(
+          "have.html",
+          '<span class="fallback od-Titel">Afbeelding T<mark class="dso-highlight">it</mark>el</span>',
+        )
+        .get("@OzonContentShadow")
+        .find("dso-image-overlay + .figuur-bijschrift")
+        .should(
+          "have.html",
+          'Bijschrift bij het figuur. (bron: <span class="dso-ozon-bron">Bron waaru<mark class="dso-highlight">it</mark> het figuur is overgenomen</span>)',
+        )
+        .get("@OzonContentShadow")
+        .find("dso-image-overlay.hydrated .od-Titel")
+        .should("have.text", "Afbeelding Titel")
+        .get("@OzonContentShadow")
+        .find("dso-image-overlay.hydrated .figuur-bijschrift")
+        .should(
+          "have.html",
+          'Bijschrift bij het figuur. (bron: <span class="dso-ozon-bron">Bron waaruit het figuur is overgenomen</span>)',
+        );
+    });
   });
 
   it("should render Lijst element", () => {
