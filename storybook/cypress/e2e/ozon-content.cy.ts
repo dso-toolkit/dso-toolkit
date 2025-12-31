@@ -204,6 +204,11 @@ describe("Ozon Content", () => {
       cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
     });
 
+    it("breaks toggletip button over 2 lines", () => {
+      cy.viewport(510, 660);
+      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    });
+
     it("renders the 'Officiële publicaties' Link as ExtIoRef", () => {
       cy.get("dso-ozon-content.hydrated")
         .shadow()

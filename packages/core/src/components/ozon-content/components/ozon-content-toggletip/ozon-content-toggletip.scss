@@ -9,7 +9,7 @@
 @include tooltip.include($max-inline-size: 60 * units.$u1);
 
 :host {
-  display: inline-block;
+  display: inline;
   --_dt-rich-content-margin-block: #{units.$u1};
 }
 
@@ -27,6 +27,8 @@
   background-color: transparent;
   cursor: pointer;
   vertical-align: baseline;
+  display: inline;
+  overflow-wrap: break-word;
 
   &,
   &:hover,

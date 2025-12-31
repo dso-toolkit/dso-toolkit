@@ -25,11 +25,11 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   showToggletip = false;
 
-  private container: HTMLButtonElement | undefined;
+  private container: HTMLSpanElement | undefined;
   private tooltip: HTMLElement | undefined;
   private tooltipArrow: HTMLElement | undefined;
 
-  private click = () => {
+  private toggle = () => {
     if (this.active) {
       this.close();
     } else {
@@ -39,28 +39,30 @@ export class ozonContentToggletip implements ComponentInterface {
 
   private open = () => {
     this.active = true;
-    this.host.addEventListener("keydown", this.keyDownListener);
-    this.host.addEventListener("focusout", this.focusOutListener);
   };
 
   private close = () => {
-    this.host.removeEventListener("focusout", this.focusOutListener);
-    this.host.removeEventListener("keydown", this.keyDownListener);
     this.active = false;
   };
 
-  private focusOutListener = (event: FocusEvent) => {
+  private focusOutHandler = (event: FocusEvent) => {
     if (!this.host.contains(event.relatedTarget as Node)) {
       this.close();
     }
   };
 
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      this.close();
+  private keyUpHandler = (event: KeyboardEvent) => {
+    switch (event.key) {
+      case "Escape":
+        this.close();
+        return;
+      case " ":
+      case "Enter":
+        this.toggle();
+        return;
+      default:
+        return;
     }
-
-    return;
   };
 
   componentDidRender() {
@@ -93,7 +95,15 @@ export class ozonContentToggletip implements ComponentInterface {
   render() {
     return (
       <Fragment>
-        <button class="toggletip-button" ref={(element) => (this.container = element)} onClick={this.click}>
+        <span
+          class="toggletip-button"
+          role="button"
+          tabindex={0}
+          onClick={this.toggle}
+          onKeyDown={this.keyUpHandler}
+          onFocusout={this.focusOutHandler}
+          ref={(element) => (this.container = element)}
+        >
           <slot name="label" />
           <dso-icon icon={this.icon} />
           <Tooltip
@@ -104,7 +114,7 @@ export class ozonContentToggletip implements ComponentInterface {
           >
             <slot />
           </Tooltip>
-        </button>
+        </span>
       </Fragment>
     );
   }
