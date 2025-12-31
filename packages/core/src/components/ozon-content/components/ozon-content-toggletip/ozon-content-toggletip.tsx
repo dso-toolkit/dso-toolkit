@@ -25,7 +25,7 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   showToggletip = false;
 
-  private container: HTMLButtonElement | undefined;
+  private container: HTMLSpanElement | undefined;
   private tooltip: HTMLElement | undefined;
   private tooltipArrow: HTMLElement | undefined;
 
@@ -93,7 +93,7 @@ export class ozonContentToggletip implements ComponentInterface {
   render() {
     return (
       <Fragment>
-        <button class="toggletip-button" ref={(element) => (this.container = element)} onClick={this.click}>
+        <span role="button" class="toggletip-button" onClick={this.click} ref={(element) => (this.container = element)}>
           <slot name="label" />
           <dso-icon icon={this.icon} />
           <Tooltip
@@ -104,7 +104,7 @@ export class ozonContentToggletip implements ComponentInterface {
           >
             <slot />
           </Tooltip>
-        </button>
+        </span>
       </Fragment>
     );
   }
