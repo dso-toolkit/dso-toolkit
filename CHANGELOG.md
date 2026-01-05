@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* **BREAKING** Legend Item: accessible name van Slide Toggle niet gekoppeld met het zichtbare label ([#3487](https://github.com/dso-toolkit/dso-toolkit/issues/3487))
+
 ## 🧑‍🎤 Release 84.1.0 - 2025-12-22
 
 ### Added
