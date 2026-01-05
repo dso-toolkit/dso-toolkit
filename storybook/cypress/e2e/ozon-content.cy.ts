@@ -38,7 +38,12 @@ describe("Ozon Content", () => {
       .find(".toggletip-button")
       .realClick();
 
-    cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+    cy.get("dso-ozon-content.hydrated")
+      .shadow()
+      .find("dso-ozon-content-toggletip span[role=paragraph]")
+      .should("be.visible")
+      .get("dso-ozon-content.hydrated")
+      .matchImageSnapshot();
   });
 
   it("should open and close notes", () => {
@@ -201,7 +206,12 @@ describe("Ozon Content", () => {
         .find(".toggletip-button")
         .realClick();
 
-      cy.get("dso-ozon-content.hydrated").matchImageSnapshot();
+      cy.get("dso-ozon-content.hydrated")
+        .shadow()
+        .find("dso-ozon-content-toggletip span[role=paragraph]")
+        .should("be.visible")
+        .get("dso-ozon-content.hydrated")
+        .matchImageSnapshot();
     });
 
     it("breaks toggletip button over 2 lines", () => {
