@@ -104,8 +104,10 @@ export class ozonContentToggletip implements ComponentInterface {
           onFocusout={this.focusOutHandler}
           ref={(element) => (this.container = element)}
         >
-          <slot name="label" />
-          <dso-icon icon={this.icon} />
+          <span class="icon-container">
+            <slot name="label" />
+            <dso-icon icon={this.icon} />
+          </span>
           <Tooltip
             visible
             onAfterHidden={() => {}}
