@@ -1,12 +1,13 @@
 ---
-authors: [iterox]
+authors: [iterox, cvanderleij]
 ---
 
 # DSO Toolkit v85.0.0 🎇
 
-Deze release bevat een **BREAKING** change voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Legend Item
+- Dropdown Menu
 
 <!-- truncate -->
 
@@ -36,4 +37,48 @@ attribuut `slot="label"`.
   <span slot="label">Legenda item label</span>
   <div slot="options"><dso-input-range label="Transparantie" unit="%"></dso-input-range></div>
 </dso-legend-item>
+```
+
+## Dropdown menu (HTML/CSS implementatie)
+
+De HTML/CSS implementatie van het component `Dropdown Menu` is in 🏝 Release 83.0.0 deprecated. In deze release is deze implementatie verwijderd.
+
+### Migratiepad
+
+Gebruik de Core implementatie van `Dropdown Menu`.
+
+```html
+❌
+<div class="dso-dropdown-menu dso-open">
+  <button type="button" id="dad5bcad-ac84-4cf8-af34-2357c9c22abe" class="dso-secondary">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" role="menu" aria-labelledby="dad5bcad-ac84-4cf8-af34-2357c9c22abe">
+    <ul role="group">
+      <li role="none">
+        <button type="button" role="menuitem">Bewerken</button>
+      </li>
+      <li role="none">
+        <button type="button" role="menuitem">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+✅
+<dso-dropdown-menu dropdown-align="left">
+  <button type="button" id="86d870a0-ba5d-4083-b442-5fe1f934b974" class="dso-secondary" slot="toggle">
+    <span>Opties</span>
+  </button>
+  <div class="dso-dropdown-options" aria-labelledby="86d870a0-ba5d-4083-b442-5fe1f934b974">
+    <ul>
+      <li>
+        <button type="button">Bewerken</button>
+      </li>
+      <li>
+        <button type="button">Verwijderen</button>
+      </li>
+    </ul>
+  </div>
+</dso-dropdown-menu>
 ```
