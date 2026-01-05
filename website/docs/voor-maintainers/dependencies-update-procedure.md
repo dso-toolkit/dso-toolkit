@@ -59,7 +59,7 @@ yarn dedupe --check # zonder --check als nodig
 
 ## Sass
 
-Herstructuring van de output `dso.css` kan voorkomen na het updaten van Sass. Maak een vergelijking met de `dso.css` van master en met de `dso.css` van preview branch om te zien of de wijzigingen kloppen.  
+Herstructuring van de output `dso.css` kan voorkomen na het updaten van Sass. Maak een vergelijking met de `dso.css` van master en met de `dso.css` van topic branch om te zien of de wijzigingen kloppen.
 
 ## Danger.yml
 
