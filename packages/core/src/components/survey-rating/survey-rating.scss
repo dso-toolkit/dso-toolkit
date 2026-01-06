@@ -120,9 +120,7 @@ label {
       &:has(input:checked) {
         @include set-colors.apply($color, "survey-rating");
 
-        & {
-          border-color: survey-rating-variables.$survey-rating-border-color;
-        }
+        border-color: survey-rating-variables.$survey-rating-border-color;
       }
     }
   }

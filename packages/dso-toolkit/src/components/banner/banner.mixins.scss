@@ -80,33 +80,25 @@
 @mixin success() {
   @include set-colors.apply(banner-variables.$success-bg, "banner");
 
-  & {
-    border-color: banner-variables.$success-border;
-  }
+  border-color: banner-variables.$success-border;
 }
 
 @mixin error() {
   @include set-colors.apply(banner-variables.$error-bg, "banner");
 
-  & {
-    border-color: banner-variables.$error-border;
-  }
+  border-color: banner-variables.$error-border;
 }
 
 @mixin info() {
   @include set-colors.apply(banner-variables.$info-bg, "banner");
 
-  & {
-    border-color: banner-variables.$info-border;
-  }
+  border-color: banner-variables.$info-border;
 }
 
 @mixin warning() {
   @include set-colors.apply(banner-variables.$warning-bg, "banner");
 
-  & {
-    border-color: banner-variables.$warning-border;
-  }
+  border-color: banner-variables.$warning-border;
 }
 
 @mixin root() {

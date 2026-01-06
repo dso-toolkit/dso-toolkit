@@ -12,10 +12,8 @@ $content-selector: ".dso-description-content";
       &::before {
         @include di.base("times-zwart");
 
-        & {
-          content: "";
-          display: block;
-        }
+        content: "";
+        display: block;
       }
     }
   }

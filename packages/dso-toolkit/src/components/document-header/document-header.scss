@@ -14,12 +14,9 @@
 .dso-document-header {
   @include set-colors.apply(colors.$grijs-5, "document-header");
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    padding-block: units.$u1 calc(grid-variables.$grid-gutter-width * 0.5);
-    padding-inline: units.$u3;
-    margin-inline: -#{units.$u2} -#{units.$u2};
-  }
+  padding-block: units.$u1 calc(grid-variables.$grid-gutter-width * 0.5);
+  padding-inline: units.$u3;
+  margin-inline: -#{units.$u2} -#{units.$u2};
 
   &:has(.dso-document-header-status) {
     padding-block-start: 0;
@@ -96,10 +93,8 @@
         &::after {
           @include di.base("chevron-up-bosgroen");
 
-          & {
-            content: "";
-            display: inline-block;
-          }
+          content: "";
+          display: inline-block;
         }
 
         span {
@@ -164,11 +159,8 @@
   .dso-document-header-toggle-status {
     @include button.tertiary();
 
-    // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-    & {
-      color: colors.$zwart;
-      font-weight: normal;
-    }
+    color: colors.$zwart;
+    font-weight: normal;
   }
 
   .dso-document-header-map-action {

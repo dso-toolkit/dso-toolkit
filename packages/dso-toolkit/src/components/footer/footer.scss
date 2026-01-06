@@ -14,14 +14,11 @@ footer {
 
   @include set-colors.apply(colors.$grijs-5, "footer");
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    border-block-start: 1px solid css-footer-variables.$border-color;
-    display: block;
-    margin-block-start: units.$u6;
-    padding-block-end: units.$u6;
-    padding-block-start: units.$u3;
-  }
+  border-block-start: 1px solid css-footer-variables.$border-color;
+  display: block;
+  margin-block-start: units.$u6;
+  padding-block-end: units.$u6;
+  padding-block-start: units.$u3;
 
   .dso-link-list {
     @include link-list.exotic();

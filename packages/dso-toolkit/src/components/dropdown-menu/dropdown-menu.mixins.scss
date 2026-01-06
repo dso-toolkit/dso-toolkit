@@ -80,18 +80,15 @@
       button {
         @include link.reverse();
 
-        // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-        & {
-          clear: both;
-          color: dropdown-menu-variables.$link-color;
-          display: block;
-          font-weight: 400;
-          line-height: 1.5;
-          padding-block: 3px;
-          padding-inline: dropdown-menu-variables.$inline-padding;
-          text-decoration: none;
-          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
-        }
+        clear: both;
+        color: dropdown-menu-variables.$link-color;
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        padding-block: 3px;
+        padding-inline: dropdown-menu-variables.$inline-padding;
+        text-decoration: none;
+        white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
         &:hover,
         &:focus {

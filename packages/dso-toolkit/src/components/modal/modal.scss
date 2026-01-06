@@ -1,6 +1,7 @@
 @use "../../variables/media-query-breakpoints";
 @use "../../variables/zindex";
 @use "../button";
+@use "../icon";
 @use "../rich-content";
 @use "../modal";
 
@@ -21,14 +22,10 @@ body:has(dso-modal.hydrated) {
 
   .dso-close {
     &::before {
-      @include di.base("times");
+      @include di.base("times", icon.$size, middle);
 
-      // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-      & {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-      }
+      content: "";
+      display: inline-block;
     }
   }
 

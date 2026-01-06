@@ -99,16 +99,29 @@
     background-position: bottom 0 right 0;
   }
 
-  $icon: if(
-    map.has-key($link-map, "icon-color"),
-    map.get($link-map, "icon") + "-" + map.get($link-map, "icon-color"),
-    map.get($link-map, "icon")
-  );
-  $icon-hover: if(
-    map.has-key($link-map, "icon-hover-color"),
-    map.get($link-map, "icon") + "-" + map.get($link-map, "icon-hover-color"),
-    map.get($link-map, "icon")
-  );
+  $icon: map.get($link-map, "icon");
+
+  @if map.has-key($link-map, "icon-color") {
+    $icon: $icon + "-" + map.get($link-map, "icon-color");
+  }
+
+  $icon-hover: map.get($link-map, "icon");
+
+  @if map.has-key($link-map, "icon-hover-color") {
+    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
+  }
+
+  $icon: map.get($link-map, "icon");
+
+  @if map.has-key($link-map, "icon-color") {
+    $icon: $icon + "-" + map.get($link-map, "icon-color");
+  }
+
+  $icon-hover: map.get($link-map, "icon");
+
+  @if map.has-key($link-map, "icon-hover-color") {
+    $icon-hover: $icon-hover + "-" + map.get($link-map, "icon-hover-color");
+  }
 
   @include di.variant($icon);
 

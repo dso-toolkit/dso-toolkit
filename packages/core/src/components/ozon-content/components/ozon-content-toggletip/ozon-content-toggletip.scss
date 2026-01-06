@@ -20,16 +20,13 @@
 .toggletip-button {
   @include button.base($modifiers: false);
 
-  // stylelint-disable-next-line no-duplicate-selectors -- needed to fix sass deprecation warnings: #2724
-  & {
-    border: 0;
-    color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
-    line-height: 1;
-    padding: 0;
-    background-color: transparent;
-    cursor: pointer;
-    vertical-align: baseline;
-  }
+  border: 0;
+  color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: baseline;
 
   &,
   &:hover,

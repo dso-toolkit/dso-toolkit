@@ -26,54 +26,54 @@
 //   Determines which sections of styles should be skipped to avoid overriding component-specific rules.
 
 @mixin apply($background-color, $self) {
-  & {
-    // run contrast-color function to determine WCAG-compliant text color
-    $contrast-color: contrast-color-functions.apply($background-color);
+  // run contrast-color function to determine WCAG-compliant text color
+  $contrast-color: contrast-color-functions.apply($background-color);
+  $is-white-bg: contrast-color-functions.is-white($background-color);
+  $is-dark-contrast: $contrast-color == colors.$contrast-dark;
 
-    @if $self != "alert" {
-      @if contrast-color-functions.is-white($background-color) {
-        --_dso-alert-success-border-color: initial;
-        --_dso-alert-error-border-color: initial;
-        --_dso-alert-info-border-color: initial;
-        --_dso-alert-warning-border-color: initial;
-      } @else {
-        --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
-        --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
-        --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
-        --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
-      }
+  @if $self != "alert" {
+    @if $is-white-bg {
+      --_dso-alert-success-border-color: initial;
+      --_dso-alert-error-border-color: initial;
+      --_dso-alert-info-border-color: initial;
+      --_dso-alert-warning-border-color: initial;
+    } @else {
+      --_dso-alert-success-border-color: #{states.$success-compact-accent-color};
+      --_dso-alert-error-border-color: #{states.$danger-compact-accent-color};
+      --_dso-alert-info-border-color: #{states.$info-compact-accent-color};
+      --_dso-alert-warning-border-color: #{states.$warning-compact-accent-color};
     }
-
-    @if $self != "link" {
-      @if not contrast-color-functions.is-white($background-color) {
-        --link-color: currentColor;
-        --link-hover-color: currentColor;
-        --link-visited-color: currentColor;
-
-        // set according to contrast color determined by contrast-color function
-        $icon-color: if($contrast-color == colors.$contrast-dark, "zwart", "wit");
-
-        @include _linkIconColors($icon-color);
-      }
-    }
-
-    @if $self != "icon-button" {
-      @if not contrast-color-functions.is-white($background-color) {
-        @if $contrast-color == colors.$contrast-dark {
-          --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
-          --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
-          --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
-          --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
-        } @else if $contrast-color == colors.$contrast-light {
-          --_dso-icon-button-tertiary-color: #{colors.$wit};
-        }
-      }
-    }
-
-    // set css properties
-    background-color: $background-color;
-    color: $contrast-color;
   }
+
+  @if $self != "link" and not $is-white-bg {
+    --link-color: currentColor;
+    --link-hover-color: currentColor;
+    --link-visited-color: currentColor;
+
+    // set according to contrast color determined by contrast-color function
+    $icon-color: "wit";
+
+    @if $contrast-color == colors.$contrast-dark {
+      $icon-color: "zwart";
+    }
+
+    @include _linkIconColors($icon-color);
+  }
+
+  @if $self != "icon-button" and not $is-white-bg {
+    @if $is-dark-contrast {
+      --_dso-icon-button-tertiary-color: #{colors.$grijs-90};
+      --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-70};
+      --_dso-icon-button-tertiary-active-color: #{colors.$bosgroen-140};
+      --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
+    } @else if $contrast-color == colors.$contrast-light {
+      --_dso-icon-button-tertiary-color: #{colors.$wit};
+    }
+  }
+
+  // set css properties
+  background-color: $background-color;
+  color: $contrast-color;
 }
 
 @mixin _linkIconColors($icon-color) {
