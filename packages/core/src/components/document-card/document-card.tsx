@@ -73,7 +73,6 @@ export class DocumentCard implements ComponentInterface {
               <slot name="heading" />
             </span>
           </a>
-          {this.metaSlottedElement !== null && <slot name="meta" />}
         </div>
         <div class="dso-document-card-type">
           <slot name="type" />
