@@ -31,7 +31,6 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
           dsoDocumentCardClick?.(e);
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
-       
         ${typeItems
           ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
           : nothing}
