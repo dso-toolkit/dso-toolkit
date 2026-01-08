@@ -8,8 +8,10 @@
 @include utilities.box-sizing();
 @include tooltip.include($max-inline-size: 60 * units.$u1);
 
+$icon-margin-inline-start: units.$u1 * 0.5;
+
 :host {
-  display: inline-block;
+  display: inline;
   --_dt-rich-content-margin-block: #{units.$u1};
 }
 
@@ -27,6 +29,8 @@
   background-color: transparent;
   cursor: pointer;
   vertical-align: baseline;
+  display: inline;
+  overflow-wrap: break-word;
 
   &,
   &:hover,
@@ -38,7 +42,16 @@
   }
 
   dso-icon {
-    margin-inline-start: units.$u1 * 0.5;
+    margin-inline-start: $icon-margin-inline-start;
     vertical-align: middle;
+  }
+}
+
+.icon-container {
+  position: relative;
+  padding-inline-end: units.$u3 + $icon-margin-inline-start;
+
+  dso-icon {
+    position: absolute;
   }
 }
