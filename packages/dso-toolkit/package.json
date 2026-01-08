@@ -59,7 +59,7 @@
     "prettier": "^3.7.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "sass": "1.97.0",
+    "sass": "1.97.2",
     "storybook": "10.1.9",
     "stylelint": "^16.26.1",
     "through2": "^4.0.2",
