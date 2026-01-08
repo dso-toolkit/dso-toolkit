@@ -8,7 +8,7 @@ export class OzonContentFallbackNode implements OzonContentNode {
   // This name does not match any elements
   name = ["<fallback>"];
 
-  render(node: Node, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <span class={`fallback od-${getNodeName(node)}`}>{mapNodeToJsx(node.childNodes)}</span>;
+  render(node: Node, { mapNodeToJsx }: OzonContentNodeContext, ignoreMark: boolean) {
+    return <span class={`fallback od-${getNodeName(node)}`}>{mapNodeToJsx(node.childNodes, ignoreMark)}</span>;
   }
 }

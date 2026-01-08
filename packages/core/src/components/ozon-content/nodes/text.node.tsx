@@ -7,8 +7,8 @@ import { OzonContentNode } from "../ozon-content-node.interface";
 export class OzonContentTextNode implements OzonContentNode {
   name = "#text";
 
-  render({ textContent }: Node, { mark, emitMarkItemHighlight }: OzonContentNodeContext) {
-    if (!mark || !textContent) {
+  render({ textContent }: Node, { mark, emitMarkItemHighlight }: OzonContentNodeContext, ignoreMark: boolean) {
+    if (ignoreMark || !mark || !textContent) {
       return <Fragment>{textContent}</Fragment>;
     }
 

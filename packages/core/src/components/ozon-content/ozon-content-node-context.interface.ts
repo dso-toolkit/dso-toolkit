@@ -8,7 +8,7 @@ export interface OzonContentNodeContext<T = unknown> {
   inline: boolean;
   path: Node[];
   mark: MarkTextMarkFunction | undefined;
-  mapNodeToJsx(node: Node | Node[] | NodeList): JSX.Element;
+  mapNodeToJsx(node: Node | Node[] | NodeList, ignoreMark?: boolean): JSX.Element;
   emitClick(event: OzonContentClickEvent): void;
   state?: T;
   setState?(state: T): void;
