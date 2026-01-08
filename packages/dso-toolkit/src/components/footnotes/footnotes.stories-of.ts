@@ -30,13 +30,12 @@ export interface FootnotesTemplates<TemplateFnReturnType> {
   footnotesExampleTemplate: (footnote14: Footnote, footnote15: Footnote, list: Footnote[]) => TemplateFnReturnType;
 }
 
-interface FootnotesStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    FootnotesTemplates<TemplateFnReturnType>
-  > {}
+interface FootnotesStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  FootnotesTemplates<TemplateFnReturnType>
+> {}
 
 export function footnotesMeta<TRenderer extends Renderer>({
   readme,

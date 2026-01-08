@@ -13,8 +13,12 @@ interface SkiplinkStories {
   Default: SkiplinkStory;
 }
 
-interface SkiplinkStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, SkiplinkTemplates<TemplateFnReturnType>> {}
+interface SkiplinkStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SkiplinkTemplates<TemplateFnReturnType>
+> {}
 
 interface SkiplinkTemplates<TemplateFnReturnType> {
   skiplinkTemplate: (skiplinkProperties: Skiplink) => TemplateFnReturnType;

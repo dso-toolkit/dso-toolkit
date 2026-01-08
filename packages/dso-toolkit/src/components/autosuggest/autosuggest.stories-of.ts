@@ -19,13 +19,12 @@ interface AutosuggestStories {
   SuggestionGroups: AutosuggestStory;
 }
 
-interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AutosuggestTemplates<TemplateFnReturnType>
-  > {}
+interface AutosuggestStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AutosuggestTemplates<TemplateFnReturnType>
+> {}
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   fetchSuggestions: (value: string) => AutosuggestSuggestion[] | AutosuggestSuggestionGroup[],

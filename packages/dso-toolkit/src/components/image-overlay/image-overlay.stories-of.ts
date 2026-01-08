@@ -11,13 +11,12 @@ interface ImageOverlayStories {
   ImageOverlay: StoryObj<ImageOverlayArgs, Renderer>;
 }
 
-interface ImageOverlayStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ImageOverlayTemplates<TemplateFnReturnType>
-  > {}
+interface ImageOverlayStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ImageOverlayTemplates<TemplateFnReturnType>
+> {}
 
 export interface ImageOverlayTemplates<TemplateFnReturnType> {
   imageOverlayTemplate: (imageOverlayProperties: ImageOverlay) => TemplateFnReturnType;

@@ -27,13 +27,12 @@ interface PlekinfoCardStories {
   WithNameChangeComplex: PlekinfoCardStory;
 }
 
-interface PlekinfoCardStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    PlekinfoCardTemplates<TemplateFnReturnType>
-  > {
+interface PlekinfoCardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  PlekinfoCardTemplates<TemplateFnReturnType>
+> {
   decorator: PlekinfoCardDecorator<TemplateFnReturnType>;
 }
 

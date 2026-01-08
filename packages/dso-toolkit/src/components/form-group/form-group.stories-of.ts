@@ -107,8 +107,12 @@ export interface FormGroupTemplates<TemplateFnReturnType> {
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export interface FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, FormGroupTemplates<TemplateFnReturnType>> {
+export interface FormGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  FormGroupTemplates<TemplateFnReturnType>
+> {
   decorator: FormGroupDecorator<TemplateFnReturnType>;
 }
 

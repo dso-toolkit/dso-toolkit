@@ -10,13 +10,16 @@ interface JustifyFormGroupsStories {
   JustifyFormGroups: StoryObj<Record<string, never>, Renderer>;
 }
 
-export interface JustifyFormGroupsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    JustifyFormGroupsTemplates<TemplateFnReturnType>
-  > {}
+export interface JustifyFormGroupsStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  JustifyFormGroupsTemplates<TemplateFnReturnType>
+> {}
 
 export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
   justifyFormGroupsTemplate: (

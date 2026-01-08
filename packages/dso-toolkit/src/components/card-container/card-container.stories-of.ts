@@ -24,13 +24,12 @@ export interface CardContainerTemplates<TemplateFnReturnType> {
   content: TemplateFnReturnType[];
 }
 
-interface CardContainerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    CardContainerTemplates<TemplateFnReturnType>
-  > {}
+interface CardContainerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  CardContainerTemplates<TemplateFnReturnType>
+> {}
 
 export function cardContainerMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

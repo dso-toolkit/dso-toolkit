@@ -13,8 +13,12 @@ interface RenvooiStories {
   Default: RenvooiStory;
 }
 
-interface RenvooiStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, RenvooiTemplates<TemplateFnReturnType>> {}
+interface RenvooiStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  RenvooiTemplates<TemplateFnReturnType>
+> {}
 
 interface RenvooiTemplates<TemplateFnReturnType> {
   renvooiTemplate: (renvooiProperties: Renvooi) => TemplateFnReturnType;

@@ -16,13 +16,12 @@ interface MapControlsStories {
   MapControls: StoryObj<MapControlsArgs, Renderer>;
 }
 
-interface MapControlsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    MapControlsTemplates<TemplateFnReturnType>
-  > {
+interface MapControlsStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  MapControlsTemplates<TemplateFnReturnType>
+> {
   decorator: MapControlsDecorator<TemplateFnReturnType>;
 }
 
