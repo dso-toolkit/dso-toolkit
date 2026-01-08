@@ -22,12 +22,12 @@
 
 ## Slots
 
-| Slot        | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
-| `"heading"` | A slot to place the title of the card in.                     |
-| `"meta"`    | An optional slot to place a `Label` in.                       |
-| `"status"`  | A slot to hold some status information on the document.       |
-| `"type"`    | A slot to hold type of document with an optional `Toggletip`. |
+| Slot        | Description                                                                    |
+| ----------- | ------------------------------------------------------------------------------ |
+| `"heading"` | A slot to place the title of the card in.                                      |
+| `"status"`  | A slot to hold some status information on the document.*                       |
+| `"status"`  | A slot to hold an optional Label and some status information on the document.* |
+| `"type"`    | A slot to hold type of document with an optional `Toggletip`.                  |
 
 
 ## Dependencies
