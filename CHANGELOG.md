@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Changed
+* Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))
+
+### Changed
 * Ozon Content: voorkom markeren `figuur-titel` in Image Overlay ([#3461](https://github.com/dso-toolkit/dso-toolkit/issues/3461))
 * Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))
 
