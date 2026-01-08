@@ -23,7 +23,7 @@ export const buttonGroupArgTypes: ArgTypes<ButtonGroupArgs> = {
     },
   },
   buttonElement: {
-    options: ["button", "anchor"],
+    options: ["button", "anchor", "icon-button"],
     control: {
       type: "select",
     },
@@ -39,6 +39,6 @@ export const buttonGroupArgTypes: ArgTypes<ButtonGroupArgs> = {
 export function buttonGroupArgsMapper(a: ButtonGroupArgs): ButtonGroup {
   return {
     direction: a.direction,
-    buttons: buttons(a.direction, a.buttonVariant, a.buttonElement),
+    buttons: buttons(a.buttonVariant, a.buttonElement),
   };
 }

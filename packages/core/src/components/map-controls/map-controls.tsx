@@ -79,7 +79,13 @@ export class MapControls implements ComponentInterface {
       setTimeout(() => {
         this.hideContent = true;
 
-        this.#toggleButtonElement?.focus();
+        if (this.#toggleButtonElement?.checkVisibility()) {
+          this.#toggleButtonElement?.focus();
+        }
+
+        if (this.#toggleIconButtonElement?.checkVisibility()) {
+          this.#toggleIconButtonElement.focus();
+        }
       }, transitionDuration);
     }
   }
@@ -102,15 +108,23 @@ export class MapControls implements ComponentInterface {
 
   private text = i18n(() => this.host, translations);
 
-  #closeButtonElement: HTMLButtonElement | undefined;
+  #closeButtonElement: HTMLDsoIconButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
+  #toggleIconButtonElement: HTMLDsoIconButtonElement | undefined;
 
   render() {
     return (
       <Fragment>
+        <dso-icon-button
+          label={this.text("layersButton")}
+          icon="layers"
+          variant="map"
+          class="toggle-visibility-icon-button"
+          onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
+          ref={(element) => (this.#toggleIconButtonElement = element)}
+        />
         <button
           type="button"
-          id="toggle-visibility-button"
           class="dso-map toggle-visibility-button"
           onClick={(e) => this.toggleVisibility(e)}
           ref={(element) => (this.#toggleButtonElement = element)}
@@ -119,37 +133,32 @@ export class MapControls implements ComponentInterface {
           <span>{this.text("layersButton")}</span>
         </button>
         <dso-button-group class="zoom-buttons" direction="column">
-          <button
-            type="button"
-            class="dso-map"
-            onClick={(e) => this.dsoZoomIn.emit(e)}
+          <dso-icon-button
+            label={this.text("zoomIn")}
+            icon="plus"
+            variant="map"
+            onDsoClick={(e) => this.dsoZoomIn.emit(e.detail.originalEvent)}
             disabled={this.disableZoom === "in" || this.disableZoom === "both"}
-          >
-            <span class="sr-only">{this.text("zoomIn")}</span>
-            <dso-icon icon="plus"></dso-icon>
-          </button>
-          <button
-            type="button"
-            class="dso-map"
-            onClick={(e) => this.dsoZoomOut.emit(e)}
+          />
+          <dso-icon-button
+            label={this.text("zoomOut")}
+            icon="minus"
+            variant="map"
+            onDsoClick={(e) => this.dsoZoomOut.emit(e.detail.originalEvent)}
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
-          >
-            <span class="sr-only">{this.text("zoomOut")}</span>
-            <dso-icon icon="minus"></dso-icon>
-          </button>
+          />
         </dso-button-group>
         <section hidden={this.hideContent}>
           <header>
             <h2>{this.text("title")}</h2>
-            <button
-              type="button"
-              class="dso-tertiary close-button"
-              onClick={(e) => this.toggleVisibility(e)}
+            <dso-icon-button
+              class="close-button"
+              label={this.text("hidePanel", { title: this.text("title") })}
+              icon="times"
+              variant="tertiary"
+              onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
               ref={(element) => (this.#closeButtonElement = element)}
-            >
-              <span class="sr-only">{this.text("hidePanel", { title: this.text("title") })}</span>
-              <dso-icon icon="times"></dso-icon>
-            </button>
+            />
           </header>
           <dso-scrollable>
             <div class="content">

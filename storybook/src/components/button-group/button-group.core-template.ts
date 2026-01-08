@@ -7,10 +7,12 @@ import { ComponentImplementation } from "../../templates";
 export const coreButtonGroup: ComponentImplementation<ButtonGroup> = {
   component: "buttonGroup",
   implementation: "core",
-  template: ({ buttonTemplate }) =>
+  template: ({ buttonTemplate, iconButtonTemplate }) =>
     function buttonGroupTemplate({ direction, buttons }) {
       return html`<dso-button-group .direction=${ifDefined(direction)}>
-        ${buttons.map(buttonTemplate)}
+        ${buttons.some((b) => typeof b.icon === "string")
+          ? buttons.map(iconButtonTemplate)
+          : buttons.map(buttonTemplate)}
       </dso-button-group>`;
     },
 };

@@ -17,6 +17,8 @@
 
     background-color: colors.$grijs-20;
     gap: 1px;
+
+    --_dso-icon-button-map-box-shadow: 0;
   }
 }
 
@@ -28,11 +30,19 @@
   ::slotted(:not(:first-child)) {
     border-start-start-radius: 0 !important;
     border-end-start-radius: 0 !important;
+
+    --_dso-icon-button-border-start-start-radius: 0;
+    --_dso-icon-button-border-end-start-radius: 0;
   }
 
   ::slotted(:not(:last-child)) {
     border-start-end-radius: 0 !important;
     border-end-end-radius: 0 !important;
+
+    --_dso-icon-button-border-start-end-radius: 0;
+    --_dso-icon-button-border-end-end-radius: 0;
+
+    --_dso-icon-button-border-inline-end-width: 0;
   }
 
   ::slotted(.dso-secondary) {
@@ -52,11 +62,19 @@
   ::slotted(:not(:first-child)) {
     border-start-start-radius: 0 !important;
     border-start-end-radius: 0 !important;
+
+    --_dso-icon-button-border-start-start-radius: 0;
+    --_dso-icon-button-border-start-end-radius: 0;
   }
 
   ::slotted(:not(:last-child)) {
     border-end-start-radius: 0 !important;
     border-end-end-radius: 0 !important;
+
+    --_dso-icon-button-border-end-start-radius: 0;
+    --_dso-icon-button-border-end-end-radius: 0;
+
+    --_dso-icon-button-border-block-end-width: 0;
   }
 
   ::slotted(.dso-secondary) {

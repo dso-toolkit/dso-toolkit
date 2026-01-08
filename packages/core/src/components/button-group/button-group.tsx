@@ -37,7 +37,9 @@ export class ButtonGroup implements ComponentInterface {
   }
 
   get hasMapButtons(): boolean {
-    return !!this.host.querySelector(":scope > .dso-map");
+    const iconButton: HTMLDsoIconButtonElement | null = this.host.querySelector(":scope > dso-icon-button");
+
+    return iconButton?.variant === "map" || !!this.host.querySelector(":scope > .dso-map");
   }
 
   render() {
