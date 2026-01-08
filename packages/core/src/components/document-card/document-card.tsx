@@ -7,7 +7,7 @@ import { DocumentCardClickEvent } from "./document-card.interfaces";
 /**
  * @slot heading - A slot to place the title of the card in.
  * @slot type - A slot to hold type of document with an optional `Toggletip`.
- * @slot status - A slot to hold an optional Label and some status information on the document.*
+ * @slot status - A slot to hold an optional Label and some status information on the document.
  */
 @Component({
   tag: "dso-document-card",
