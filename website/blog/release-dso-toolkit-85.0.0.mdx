@@ -1,0 +1,46 @@
+---
+authors: [xiangjuzou-prog]
+---
+
+# DSO Toolkit v85.0.0
+
+Deze release bevat **BREAKING** changes voor het volgende component:
+
+- Autosuggest
+
+<!-- truncate -->
+
+## Autosuggest
+
+De property `suggestOnFocus` is verwijderd. Het gedrag dat de voorgaande suggesties opnieuw getoond worden, wanneer de
+invoer weer de focus krijgt, is nu het standaard gedrag bij meer dan 1 suggestie.
+
+### Migratiepad
+
+```html
+❌
+<dso-document-card href="#"
+  ><h2 slot="heading">Omgevingsplan Amsterdam</h2>
+  <div slot="meta">
+    <dso-label status="warning" compact=""> Ontwerp </dso-label>
+  </div>
+  <div slot="type">
+    <span class="dso-document-card-type-item">Omgevingsplan</span
+    ><span class="dso-document-card-type-item">Gemeente Amsterdam</span>
+  </div>
+  <div slot="status">Vastgesteld 07-06-2024 - geheel onherroepelijk in werking</div>
+</dso-document-card>
+
+✅
+<dso-document-card href="#"
+  ><h2 slot="heading">Omgevingsplan Amsterdam</h2>
+  <div slot="type">
+    <span class="dso-document-card-type-item">Omgevingsplan</span
+    ><span class="dso-document-card-type-item">Gemeente Amsterdam</span>
+  </div>
+  <div slot="status">
+    <dso-label status="warning" compact=""> Ontwerp </dso-label>
+    Vastgesteld 07-06-2024 - geheel onherroepelijk in werking
+  </div>
+</dso-document-card>
+```
