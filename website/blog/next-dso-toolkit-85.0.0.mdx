@@ -7,7 +7,7 @@ authors: [iterox, xiangjuzou-prog]
 Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Legend Item
-- Document card
+- Document Card
 
 Daarnaast is in deze release de ondersteuning voor Angular 18 komen te vervallen.
 Vanaf deze release ondersteunt DSO Toolkit Angular versies 19, 20 en 21.
@@ -50,8 +50,8 @@ Het `slot="meta"` is verwijderd. Het Label dat voorheen in het `slot="meta"` sto
 
 ```html
 ❌
-<dso-document-card href="#"
-  ><h2 slot="heading">Omgevingsplan Amsterdam</h2>
+<dso-document-card href="#">
+  <h2 slot="heading">Omgevingsplan Amsterdam</h2>
   <div slot="meta">
     <dso-label status="warning" compact=""> Ontwerp </dso-label>
   </div>
@@ -65,8 +65,8 @@ Het `slot="meta"` is verwijderd. Het Label dat voorheen in het `slot="meta"` sto
 </dso-document-card>
 
 ✅
-<dso-document-card href="#"
-  ><h2 slot="heading">Omgevingsplan Amsterdam</h2>
+<dso-document-card href="#">
+  <h2 slot="heading">Omgevingsplan Amsterdam</h2>
   <div slot="type">
     <span class="dso-document-card-type-item">Omgevingsplan</span>
     <span class="dso-document-card-type-item">Gemeente Amsterdam</span>
