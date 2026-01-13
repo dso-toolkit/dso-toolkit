@@ -12,13 +12,12 @@ interface TijdreisBannerStories {
   Default: StoryObj<TijdreisBannerArgs, Renderer>;
 }
 
-interface TijdreisBannerStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    TijdreisBannerTemplates<TemplateFnReturnType>
-  > {}
+interface TijdreisBannerStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TijdreisBannerTemplates<TemplateFnReturnType>
+> {}
 
 interface TijdreisBannerTemplates<TemplateFnReturnType> {
   tijdreisBannerTemplate: (tijdreisBannerProperties: {}) => TemplateFnReturnType;

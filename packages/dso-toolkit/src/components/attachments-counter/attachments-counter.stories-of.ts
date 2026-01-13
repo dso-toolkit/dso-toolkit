@@ -17,13 +17,16 @@ interface AttachmentsCounterStories {
   AttachmentsCounter: AttachmentsCounterStory;
 }
 
-interface AttachmentsCounterStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AttachmentsCounterTemplates<TemplateFnReturnType>
-  > {}
+interface AttachmentsCounterStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AttachmentsCounterTemplates<TemplateFnReturnType>
+> {}
 
 interface AttachmentsCounterTemplates<TemplateFnReturnType> {
   attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;

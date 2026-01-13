@@ -21,13 +21,12 @@ export interface InfoButtonTemplates<TemplateFnReturnType> {
   infoButtonTemplate: (infoButtonProperties: InfoButton) => TemplateFnReturnType;
 }
 
-interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    InfoButtonTemplates<TemplateFnReturnType>
-  > {}
+interface InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  InfoButtonTemplates<TemplateFnReturnType>
+> {}
 
 export function infoButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

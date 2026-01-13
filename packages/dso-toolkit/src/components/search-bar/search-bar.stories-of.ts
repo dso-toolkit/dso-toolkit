@@ -23,13 +23,12 @@ interface SearchBarStories {
   WithHiddenResultsMessage: SearchBarStory;
 }
 
-interface SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    SearchBarTemplates<TemplateFnReturnType>
-  > {}
+interface SearchBarStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  SearchBarTemplates<TemplateFnReturnType>
+> {}
 
 interface SearchBarTemplates<TemplateFnReturnType> {
   searchBarTemplate: (searchBarProperties: SearchBar) => TemplateFnReturnType;

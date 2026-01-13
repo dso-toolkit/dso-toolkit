@@ -15,13 +15,12 @@ interface PaginationStories {
   PaginationWithoutTotal: PaginationStory;
 }
 
-interface PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    PaginationTemplates<TemplateFnReturnType>
-  > {}
+interface PaginationStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  PaginationTemplates<TemplateFnReturnType>
+> {}
 
 export interface PaginationTemplates<TemplateFnReturnType> {
   paginationTemplate: (paginationProperties: Pagination) => TemplateFnReturnType;

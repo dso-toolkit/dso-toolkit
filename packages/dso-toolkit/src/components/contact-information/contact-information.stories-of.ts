@@ -17,13 +17,16 @@ interface ContactInformationTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-interface ContactInformationStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ContactInformationTemplates<TemplateFnReturnType>
-  > {}
+interface ContactInformationStoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ContactInformationTemplates<TemplateFnReturnType>
+> {}
 
 export function contactInformationMeta<TRenderer extends Renderer>({
   readme,

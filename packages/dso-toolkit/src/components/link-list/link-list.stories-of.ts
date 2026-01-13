@@ -36,8 +36,12 @@ export interface LinkListTemplates<TemplateFnReturnType> {
   inFooterTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
 }
 
-interface LinkListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LinkListTemplates<TemplateFnReturnType>> {}
+interface LinkListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LinkListTemplates<TemplateFnReturnType>
+> {}
 
 export function linkListMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

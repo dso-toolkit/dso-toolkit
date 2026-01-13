@@ -25,8 +25,12 @@ export interface LogoTemplates<TemplateFnReturnType> {
   logoTemplate: (logoProperties: Logo) => TemplateFnReturnType;
 }
 
-interface LogoStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, LogoTemplates<TemplateFnReturnType>> {}
+interface LogoStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LogoTemplates<TemplateFnReturnType>
+> {}
 
 export function logoMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

@@ -20,8 +20,12 @@ interface BadgeStories {
   Attention: BadgeStory;
 }
 
-interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, BadgeTemplates<TemplateFnReturnType>> {}
+interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  BadgeTemplates<TemplateFnReturnType>
+> {}
 
 interface BadgeTemplates<TemplateFnReturnType> {
   badgeTemplate: (badgeProperties: Badge) => TemplateFnReturnType;

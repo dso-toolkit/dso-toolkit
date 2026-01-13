@@ -13,13 +13,12 @@ interface ButtonGroupStories {
   Default: ButtonGroupStory;
 }
 
-interface ButtonGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ButtonGroupTemplates<TemplateFnReturnType>
-  > {}
+interface ButtonGroupStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ButtonGroupTemplates<TemplateFnReturnType>
+> {}
 
 interface ButtonGroupTemplates<TemplateFnReturnType> {
   buttonGroupTemplate: (buttonGroupProperties: ButtonGroup) => TemplateFnReturnType;

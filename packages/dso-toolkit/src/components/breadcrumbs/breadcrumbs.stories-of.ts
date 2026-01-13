@@ -13,13 +13,12 @@ interface BreadcrumbsStories {
   Breadcrumbs: BreadcrumbsStory;
 }
 
-interface BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    BreadcrumbsTemplates<TemplateFnReturnType>
-  > {}
+interface BreadcrumbsStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  BreadcrumbsTemplates<TemplateFnReturnType>
+> {}
 
 interface BreadcrumbsTemplates<TemplateFnReturnType> {
   breadcrumbsTemplate: (breadcrumbsProperties: Breadcrumbs) => TemplateFnReturnType;
