@@ -13,13 +13,12 @@ interface HistoryItemStories {
   Default: HistoryItemStory;
 }
 
-interface HistoryItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    HistoryItemTemplates<TemplateFnReturnType>
-  > {}
+interface HistoryItemStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  HistoryItemTemplates<TemplateFnReturnType>
+> {}
 
 interface HistoryItemTemplates<TemplateFnReturnType> {
   historyItemTemplate: (historyItemProperties: HistoryItem) => TemplateFnReturnType;

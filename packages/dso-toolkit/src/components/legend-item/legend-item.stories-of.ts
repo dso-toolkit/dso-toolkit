@@ -20,13 +20,12 @@ interface LegendItemStories {
   OnlySymbol: LegendItemStory;
 }
 
-interface LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    LegendItemTemplates<TemplateFnReturnType>
-  > {
+interface LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  LegendItemTemplates<TemplateFnReturnType>
+> {
   decorator: LegendItemDecorator<TemplateFnReturnType>;
 }
 

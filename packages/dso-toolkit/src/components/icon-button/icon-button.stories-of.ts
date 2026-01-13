@@ -15,13 +15,12 @@ interface IconButtonStories {
   Map: IconButtonStory;
 }
 
-interface IconButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    IconButtonTemplates<TemplateFnReturnType>
-  > {
+interface IconButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  IconButtonTemplates<TemplateFnReturnType>
+> {
   icons: string[];
 }
 

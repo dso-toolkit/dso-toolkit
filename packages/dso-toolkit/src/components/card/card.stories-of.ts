@@ -33,8 +33,12 @@ export interface CardTemplates<TemplateFnReturnType> {
   content: TemplateFnReturnType;
 }
 
-interface CardStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, CardTemplates<TemplateFnReturnType>> {}
+interface CardStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  CardTemplates<TemplateFnReturnType>
+> {}
 
 export function cardMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

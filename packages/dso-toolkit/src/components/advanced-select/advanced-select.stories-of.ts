@@ -19,13 +19,12 @@ interface AdvancedSelectStories {
   Default: AdvancedSelectStory;
 }
 
-interface AdvancedSelectStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    AdvancedSelectTemplates<TemplateFnReturnType>
-  > {}
+interface AdvancedSelectStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  AdvancedSelectTemplates<TemplateFnReturnType>
+> {}
 
 interface AdvancedSelectTemplates<TemplateFnReturnType> {
   advancedSelectTemplate: (advancedSelectProperties: AdvancedSelect<unknown>) => TemplateFnReturnType;

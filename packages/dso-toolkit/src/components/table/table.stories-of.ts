@@ -19,8 +19,12 @@ interface TableStories {
   DataTable: TableStory;
 }
 
-interface TableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TableTemplates<TemplateFnReturnType>> {}
+interface TableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TableTemplates<TemplateFnReturnType>
+> {}
 
 export interface TableTemplates<TemplateFnReturnType> {
   tableTemplate: (TableProperties: Table<TemplateFnReturnType>) => TemplateFnReturnType;

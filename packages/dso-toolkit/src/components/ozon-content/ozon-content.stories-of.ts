@@ -37,13 +37,12 @@ export interface OzonContentStories {
   RenvooiWeergave: OzonContentStory;
 }
 
-interface OzonContentStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    OzonContentTemplates<TemplateFnReturnType>
-  > {}
+interface OzonContentStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  OzonContentTemplates<TemplateFnReturnType>
+> {}
 
 export interface OzonContentTemplates<TemplateFnReturnType> {
   ozonContentTemplate: (ozonContentProperties: OzonContent) => TemplateFnReturnType;

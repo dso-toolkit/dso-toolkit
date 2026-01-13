@@ -16,8 +16,12 @@ export interface TileGridTemplates<TemplateFnReturnType> {
   tiles: Tile[];
 }
 
-interface TileGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TileGridTemplates<TemplateFnReturnType>> {}
+interface TileGridStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TileGridTemplates<TemplateFnReturnType>
+> {}
 
 export function tileGridMeta<TRenderer extends Renderer>({
   readme,

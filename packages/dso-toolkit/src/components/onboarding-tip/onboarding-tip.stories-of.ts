@@ -18,13 +18,12 @@ interface OnboardingTipStories {
   Default: StoryObj<OnboardingTipArgs, Renderer>;
 }
 
-interface OnboardingTipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    OnboardingTipTemplates<TemplateFnReturnType>
-  > {}
+interface OnboardingTipStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  OnboardingTipTemplates<TemplateFnReturnType>
+> {}
 
 interface OnboardingTipTemplates<TemplateFnReturnType> {
   onboardingTipTemplate: (onboardingTipProperties: OnboardingTip<TemplateFnReturnType>) => TemplateFnReturnType;

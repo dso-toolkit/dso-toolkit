@@ -16,8 +16,12 @@ interface ContextStories {
   LegendAlignLeft: ContextStory;
 }
 
-interface ContextStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, ContextTemplates<TemplateFnReturnType>> {}
+interface ContextStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ContextTemplates<TemplateFnReturnType>
+> {}
 
 interface ContextTemplates<TemplateFnReturnType> {
   contextTemplate: (contextProperties: Context<TemplateFnReturnType>) => TemplateFnReturnType;

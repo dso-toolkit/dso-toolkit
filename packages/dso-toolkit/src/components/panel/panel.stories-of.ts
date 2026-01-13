@@ -14,8 +14,12 @@ interface PanelStories {
   Emphasized: PanelStory;
 }
 
-interface PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, PanelTemplates<TemplateFnReturnType>> {}
+interface PanelStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  PanelTemplates<TemplateFnReturnType>
+> {}
 
 interface PanelTemplates<TemplateFnReturnType> {
   panelTemplate: (panelProperties: Panel<TemplateFnReturnType>) => TemplateFnReturnType;

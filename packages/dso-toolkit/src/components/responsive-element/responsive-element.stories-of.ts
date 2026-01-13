@@ -27,13 +27,12 @@ export interface ResponsiveElementTemplates<TemplateFnReturnType> {
   gridTemplate: ResponsiveElementTemplateFnType<TemplateFnReturnType>;
 }
 
-interface ResponsiveElementStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ResponsiveElementTemplates<TemplateFnReturnType>
-  > {}
+interface ResponsiveElementStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ResponsiveElementTemplates<TemplateFnReturnType>
+> {}
 
 export function responsiveElementMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

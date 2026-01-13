@@ -16,8 +16,12 @@ export interface CardGridTemplates<TemplateFnReturnType> {
   cards: Card<TemplateFnReturnType>[];
 }
 
-interface CardGridStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, CardGridTemplates<TemplateFnReturnType>> {}
+interface CardGridStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  CardGridTemplates<TemplateFnReturnType>
+> {}
 
 export function cardGridMeta<TRenderer extends Renderer>({
   readme,

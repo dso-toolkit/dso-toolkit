@@ -19,13 +19,12 @@ interface ProgressIndicatorStories {
   Large: ProgressIndicatorStory;
 }
 
-interface ProgressIndicatorStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ProgressIndicatorTemplates<TemplateFnReturnType>
-  > {}
+interface ProgressIndicatorStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ProgressIndicatorTemplates<TemplateFnReturnType>
+> {}
 
 export interface ProgressIndicatorTemplates<TemplateFnReturnType> {
   progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;

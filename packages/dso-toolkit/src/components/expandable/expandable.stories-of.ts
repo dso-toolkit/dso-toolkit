@@ -21,13 +21,12 @@ export interface ExpandableTemplates<TemplateFnReturnType> {
   expandableContent: TemplateFnReturnType;
 }
 
-interface ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ExpandableTemplates<TemplateFnReturnType>
-  > {
+interface ExpandableStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ExpandableTemplates<TemplateFnReturnType>
+> {
   decorator: ExpandableDecorator<TemplateFnReturnType>;
 }
 

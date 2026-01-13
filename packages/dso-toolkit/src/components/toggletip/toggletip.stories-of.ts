@@ -11,13 +11,12 @@ interface ToggletipStories {
   Toggletip: StoryObj<ToggletipArgs, Renderer>;
 }
 
-interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ToggletipTemplates<TemplateFnReturnType>
-  > {}
+interface ToggletipStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ToggletipTemplates<TemplateFnReturnType>
+> {}
 
 export interface ToggletipTemplates<TemplateFnReturnType> {
   toggletipTemplate: (toggletipProperties: Toggletip<TemplateFnReturnType>) => TemplateFnReturnType;

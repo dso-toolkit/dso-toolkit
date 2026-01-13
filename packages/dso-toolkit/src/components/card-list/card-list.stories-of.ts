@@ -16,8 +16,12 @@ export interface CardListTemplates<TemplateFnReturnType> {
   content: TemplateFnReturnType[];
 }
 
-interface CardListStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, CardListTemplates<TemplateFnReturnType>> {}
+interface CardListStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  CardListTemplates<TemplateFnReturnType>
+> {}
 
 export function cardListMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,

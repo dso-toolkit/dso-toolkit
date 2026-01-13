@@ -13,8 +13,12 @@ interface TreeViewStories {
   TreeView: StoryObj<TreeViewArgs, Renderer>;
 }
 
-interface TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<Implementation, Templates, TemplateFnReturnType, TreeViewTemplates<TemplateFnReturnType>> {}
+interface TreeViewStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TreeViewTemplates<TemplateFnReturnType>
+> {}
 
 export interface TreeViewTemplates<TemplateFnReturnType> {
   treeViewDemoTemplate: (

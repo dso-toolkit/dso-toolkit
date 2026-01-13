@@ -22,13 +22,12 @@ interface ShoppingCartStories {
   WithSubitemsAndWarning: ShoppingCartStory;
 }
 
-interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    ShoppingCartTemplates<TemplateFnReturnType>
-  > {}
+interface ShoppingCartStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  ShoppingCartTemplates<TemplateFnReturnType>
+> {}
 
 export interface ShoppingCartTemplates<TemplateFnReturnType> {
   shoppingCartTemplate: (shoppingCartProperties: ShoppingCart) => TemplateFnReturnType;

@@ -24,13 +24,12 @@ export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   featuresContent: featuresContentType<TemplateFnReturnType>;
 }
 
-interface DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType>
-  extends StoriesParameters<
-    Implementation,
-    Templates,
-    TemplateFnReturnType,
-    DocumentHeaderTemplates<TemplateFnReturnType>
-  > {}
+interface DocumentHeaderStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  DocumentHeaderTemplates<TemplateFnReturnType>
+> {}
 
 export function documentHeaderMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
   TRenderer,
