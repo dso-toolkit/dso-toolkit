@@ -13,4 +13,6 @@
 
 .dso-badge {
   @include badge.root();
+
+  margin-inline-start: var(--_dt-badge-margin-inline-start, 0px);
 }

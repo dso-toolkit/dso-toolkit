@@ -100,3 +100,8 @@
 .dso-document-card-type + .dso-document-card-status {
   margin-block-start: units.$u1;
 }
+
+::slotted([slot="status"]) {
+  --_dt-label-margin-inline-end: 8px;
+  --_dt-badge-margin-inline-start: 8px;
+}

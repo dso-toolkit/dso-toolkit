@@ -18,6 +18,8 @@
 .dso-label {
   @include label.root();
 
+  margin-inline-end: var(--_dt-label-margin-inline-end, 0px);
+
   &.dso-hover {
     .dso-label-content {
       text-decoration: line-through;
