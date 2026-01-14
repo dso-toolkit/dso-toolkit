@@ -52,16 +52,15 @@ Het `slot="meta"` is verwijderd. Het Label dat voorheen in het `slot="meta"` sto
 ❌
 <dso-document-card href="#">
   <h2 slot="heading">Omgevingsplan Amsterdam</h2>
-  <div slot="meta">
-    <dso-label status="warning" compact=""> Ontwerp </dso-label>
-  </div>
-
   <div slot="type">
     <span class="dso-document-card-type-item">Omgevingsplan</span>
     <span class="dso-document-card-type-item">Gemeente Amsterdam</span>
   </div>
-
-  <div slot="status">Vastgesteld 07-06-2024 - geheel onherroepelijk in werking</div>
+  <div slot="status">
+    Vastgesteld 07-06-2024 - geheel onherroepelijk in werking
+    <dso-badge status="outline">!</dso-badge>
+    <dso-badge status="warning">!</dso-badge>
+  </div>
 </dso-document-card>
 
 ✅
@@ -72,9 +71,10 @@ Het `slot="meta"` is verwijderd. Het Label dat voorheen in het `slot="meta"` sto
     <span class="dso-document-card-type-item">Gemeente Amsterdam</span>
   </div>
 
-  <div slot="status">
-    <dso-label status="warning" compact=""> Ontwerp </dso-label>
-    Vastgesteld 07-06-2024 - geheel onherroepelijk in werking
-  </div>
+  <span slot="status"> Vastgesteld 07-06-2024 - geheel onherroepelijk in werking</span>
+  <span slot="interactions">
+    <dso-badge status="outline">!</dso-badge>
+    <dso-badge status="warning">!</dso-badge>
+  </span>
 </dso-document-card>
 ```

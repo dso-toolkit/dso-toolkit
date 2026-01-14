@@ -38,7 +38,7 @@ describe("Document Card", () => {
   it("should show compact label with status='warning'", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-document-card--with-label")
       .get("dso-document-card.hydrated")
-      .find("[slot='status']> dso-label[status='warning'][compact]")
+      .find("[slot='meta'] > dso-label[status='warning'][compact]")
       .should("exist");
 
     cy.get("dso-document-card.hydrated").matchImageSnapshot();
