@@ -10,8 +10,12 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
       return {
         props,
         template: `
-        <div *ngIf="useOwnLabelId"><label [for]="useOwnLabelId">Label gemaakt door de implementatie</label></div>
-        <div *ngIf="labelledbyId"><span [id]="labelledbyId">Label elders op de pagina</span></div>
+        @if(useOwnLabelId){
+          <div><label [for]="useOwnLabelId">Label gemaakt door de implementatie</label></div>
+        }
+        @if(labelledbyId){
+          <div><span [id]="labelledbyId">Label elders op de pagina</span></div>
+        }
         <dso-slide-toggle
           [identifier]="useOwnLabelId"
           [checked]="checked"
@@ -20,7 +24,9 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
           [labelledbyId]="labelledbyId"
           (dsoActiveChange)="dsoActiveChange?.($event)"
         >
-          <span *ngIf="label">{{ label }}</span>
+        @if(label){
+          <span>{{ label }}</span>
+        }
         </dso-slide-toggle>
         `,
       };

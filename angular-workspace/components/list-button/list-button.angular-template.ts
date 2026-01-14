@@ -22,7 +22,9 @@ export const angularListButton: ComponentImplementation<ListButton> = {
             (dsoCountChange)="dsoCountChange($event)"
             (dsoSelectedChange)="dsoSelectedChange($event)"
           >
-            <span slot="subcontent" *ngIf="subcontent" [innerHTML]="$any(subcontent) | trustHtml"></span>
+            @if(subcontent){
+              <span slot="subcontent" [innerHTML]="$any(subcontent) | trustHtml"></span>
+            }
           </dso-list-button>
         `,
       };
