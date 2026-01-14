@@ -78,10 +78,13 @@ export class Table implements ComponentInterface {
                 <h2 id={this.labelledbyId} class={{ "sr-only": !caption }}>
                   {caption || "Uitvergrote tabel dialoog"}
                 </h2>
-                <button type="button" class="dso-close" onClick={() => this.closeModal()}>
-                  <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">Sluiten</span>
-                </button>
+                <dso-icon-button
+                  icon="times"
+                  variant="tertiary"
+                  class="dso-close"
+                  label="Sluiten"
+                  onClick={() => this.closeModal()}
+                />
               </div>
 
               <div class="dso-body dso-table-body">

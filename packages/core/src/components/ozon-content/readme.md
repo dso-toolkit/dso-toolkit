@@ -50,6 +50,7 @@ graph TD;
   dso-image-overlay --> dso-icon-button
   dso-icon-button --> dso-icon
   dso-ozon-content-toggletip --> dso-icon
+  dso-table --> dso-icon-button
   dso-table --> dso-icon
   dso-document-component --> dso-ozon-content
   style dso-ozon-content fill:#f9f,stroke:#333,stroke-width:4px
