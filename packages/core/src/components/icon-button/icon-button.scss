@@ -20,15 +20,13 @@
   padding-inline: calc(#{units.$u1} - 1px);
   padding-block: calc(#{units.$u1} - 1px);
 
-  border-start-start-radius: var(--_dso-icon-button-border-start-start-radius, button.$border-radius);
-  border-start-end-radius: var(--_dso-icon-button-border-start-end-radius, button.$border-radius);
-  border-end-end-radius: var(--_dso-icon-button-border-end-end-radius, button.$border-radius);
-  border-end-start-radius: var(--_dso-icon-button-border-end-start-radius, button.$border-radius);
+  border-start-start-radius: var(--_dt-icon-button-border-start-start-radius, button.$border-radius);
+  border-start-end-radius: var(--_dt-icon-button-border-start-end-radius, button.$border-radius);
+  border-end-end-radius: var(--_dt-icon-button-border-end-end-radius, button.$border-radius);
+  border-end-start-radius: var(--_dt-icon-button-border-end-start-radius, button.$border-radius);
 
-  // border-block-start-width: var(--_dso-icon-button-border-block-start-width, button.$border-width);
-  border-block-end-width: var(--_dso-icon-button-border-block-end-width, button.$border-width);
-  // border-inline-start-width: var(--_dso-icon-button-border-inline-start-width, button.$border-width);
-  border-inline-end-width: var(--_dso-icon-button-border-inline-end-width, button.$border-width);
+  border-block-end-width: var(--_dt-icon-button-border-block-end-width, button.$border-width);
+  border-inline-end-width: var(--_dt-icon-button-border-inline-end-width, button.$border-width);
 }
 
 .dso-tertiary {
@@ -72,11 +70,11 @@
   padding-block: units.$u1;
   border: 0;
   margin-inline-end: 0;
-  box-shadow: var(--_dso-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
-  border-start-start-radius: var(--_dso-icon-button-border-start-start-radius, button.$border-radius);
-  border-start-end-radius: var(--_dso-icon-button-border-start-end-radius, button.$border-radius);
-  border-end-end-radius: var(--_dso-icon-button-border-end-end-radius, button.$border-radius);
-  border-end-start-radius: var(--_dso-icon-button-border-end-start-radius, button.$border-radius);
+  box-shadow: var(--_dt-icon-button-map-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.3));
+  border-start-start-radius: var(--_dt-icon-button-border-start-start-radius, button.$border-radius);
+  border-start-end-radius: var(--_dt-icon-button-border-start-end-radius, button.$border-radius);
+  border-end-end-radius: var(--_dt-icon-button-border-end-end-radius, button.$border-radius);
+  border-end-start-radius: var(--_dt-icon-button-border-end-start-radius, button.$border-radius);
 }
 
 .icon-button {
