@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))
 
+### Task
+* Angular Storybook: Vervang `*ngIf` door `@if` block ([#3304](https://github.com/dso-toolkit/dso-toolkit/issues/3304))
+
 ## 🎇 Release 85.0.0 - 2026-01-13
 
 ### Changed

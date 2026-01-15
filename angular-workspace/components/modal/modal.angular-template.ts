@@ -19,7 +19,9 @@ export const angularModal: ComponentImplementation<Modal<IStory>> = {
             (dsoClose)="dsoClose?.($event)"
           >
             <div slot="body" [innerHTML]="body.template | trustHtml"></div>
-            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | trustHtml"></div>
+            @if(footer){
+              <div slot="footer" [innerHTML]="footer.template | trustHtml"></div>
+            }
           </dso-modal>`,
       };
     },

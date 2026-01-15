@@ -19,8 +19,9 @@ export const angularDropdownMenu: ComponentImplementation<DropdownMenu> = {
             </button>
             <div class="dso-dropdown-options">
               <ng-container *ngFor="let group of groups; let i = index">
-                <h2 *ngIf="group.header" class="dso-group-label">{{ group.header }}</h2>
-
+                @if(group.header){
+                  <h2 class="dso-group-label">{{ group.header }}</h2>
+                }
                 <ul>
                   <ng-container *ngFor="let item of group.items">
                     <li [class.dso-checked]="item.checked">

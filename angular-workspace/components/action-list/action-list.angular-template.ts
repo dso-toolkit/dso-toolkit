@@ -15,16 +15,17 @@ export const angularActionList: ComponentImplementation<ActionList<IStory>> = {
           ${props.actionListItems
             .map(
               (item, index) => `
-              <dso-action-list-item
-                *ngIf="actionListItems[${index}] as item"
-                [step]="${index + 1}"
-                [itemTitle]="item.title"
-                [flowLine]="item.flowLine"
-                [warning]="item.warning"
-                [divider]="item.divider"
-              >
-                ${item.content?.template ?? ""}
-              </dso-action-list-item>
+              @if(actionListItems[${index}]; as item){
+                <dso-action-list-item           
+                  [step]="${index + 1}"
+                  [itemTitle]="item.title"
+                  [flowLine]="item.flowLine"
+                  [warning]="item.warning"
+                  [divider]="item.divider"
+                >
+                  ${item.content?.template ?? ""}
+                </dso-action-list-item>   
+              }
             `,
             )
             .join("")}
