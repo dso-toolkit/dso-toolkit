@@ -15,7 +15,7 @@ export const angularActionList: ComponentImplementation<ActionList<IStory>> = {
           ${props.actionListItems
             .map(
               (item, index) => `
-              @if(actionListItems[${index}] as item){
+              @if(actionListItems[${index}]; as item){
                 <dso-action-list-item           
                   [step]="${index + 1}"
                   [itemTitle]="item.title"
