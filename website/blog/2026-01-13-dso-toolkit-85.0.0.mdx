@@ -1,12 +1,13 @@
 ---
-authors: [iterox]
+authors: [iterox, xiangjuzou-prog]
 ---
 
 # DSO Toolkit v85.0.0 🎇
 
-Deze release bevat een **BREAKING** change voor het volgende component:
+Deze release bevat **BREAKING** changes voor de volgende componenten:
 
 - Legend Item
+- Document Card
 
 Daarnaast is in deze release de ondersteuning voor Angular 18 komen te vervallen.
 Vanaf deze release ondersteunt DSO Toolkit Angular versies 19, 20 en 21.
@@ -39,4 +40,41 @@ attribuut `slot="label"`.
   <span slot="label">Legenda item label</span>
   <div slot="options"><dso-input-range label="Transparantie" unit="%"></dso-input-range></div>
 </dso-legend-item>
+```
+
+## Document Card
+
+Het `slot="meta"` is verwijderd. Het Label dat voorheen in het `slot="meta"` stond is nu verplaatst naar het begin van het `slot="status"`.
+
+### Migratiepad
+
+```html
+❌
+<dso-document-card href="#">
+  <h2 slot="heading">Omgevingsplan Amsterdam</h2>
+  <div slot="type">
+    <span class="dso-document-card-type-item">Omgevingsplan</span>
+    <span class="dso-document-card-type-item">Gemeente Amsterdam</span>
+  </div>
+  <div slot="status">
+    Vastgesteld 07-06-2024 - geheel onherroepelijk in werking
+    <dso-badge status="outline">!</dso-badge>
+    <dso-badge status="warning">!</dso-badge>
+  </div>
+</dso-document-card>
+
+✅
+<dso-document-card href="#">
+  <h2 slot="heading">Omgevingsplan Amsterdam</h2>
+  <div slot="type">
+    <span class="dso-document-card-type-item">Omgevingsplan</span>
+    <span class="dso-document-card-type-item">Gemeente Amsterdam</span>
+  </div>
+
+  <span slot="status"> Vastgesteld 07-06-2024 - geheel onherroepelijk in werking</span>
+  <span slot="interactions">
+    <dso-badge status="outline">!</dso-badge>
+    <dso-badge status="warning">!</dso-badge>
+  </span>
+</dso-document-card>
 ```

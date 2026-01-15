@@ -34,19 +34,6 @@
     background-color: document-card.$background-color-active;
   }
 }
-
-::slotted([slot="meta"]) {
-  display: flex !important;
-  justify-content: space-between !important;
-  flex-shrink: 0 !important;
-  align-self: end !important;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100% !important;
-    margin-block-start: units.$u2 !important;
-  }
-}
-
 ::slotted([slot="heading"]) {
   display: inline !important;
   color: colors.$bosgroen !important;
@@ -99,4 +86,12 @@
 .dso-document-card-heading + .dso-document-card-status,
 .dso-document-card-type + .dso-document-card-status {
   margin-block-start: units.$u1;
+}
+
+::slotted([slot="meta"]) {
+  margin-inline-end: units.$u1;
+}
+
+::slotted([slot="status"]) {
+  margin-inline-end: units.$u1;
 }

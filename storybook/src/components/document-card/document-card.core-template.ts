@@ -31,15 +31,16 @@ export const coreDocumentCard: ComponentImplementation<DocumentCard<never>> = {
           dsoDocumentCardClick?.(e);
         }}
         >${html`<h2 slot="heading">${label}</h2>`}
-        ${meta ? html`<div slot="meta">${labelTemplate(meta)}</div>` : nothing}
         ${typeItems
           ? html`<div slot="type">${typeItems} ${typeToelichting ? toggletipTemplate(typeToelichting) : nothing}</div>`
           : nothing}
-        ${status
-          ? html`<div slot="status">
-              ${status} ${statusToelichtingOutline && badgeTemplate(statusToelichtingOutline)}
+        ${meta ? html`<span slot="meta">${labelTemplate(meta)}</span>` : nothing}
+        ${status ? html`<span slot="status">${status}</span>` : nothing}
+        ${statusToelichtingOutline || statusToelichtingWarning
+          ? html`<span slot="interactions">
+              ${statusToelichtingOutline && badgeTemplate(statusToelichtingOutline)}
               ${statusToelichtingWarning ? badgeTemplate(statusToelichtingWarning) : nothing}
-            </div>`
+            </span>`
           : nothing}
       </dso-document-card>`;
     },

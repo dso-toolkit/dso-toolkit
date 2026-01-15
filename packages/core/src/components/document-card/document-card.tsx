@@ -6,9 +6,10 @@ import { DocumentCardClickEvent } from "./document-card.interfaces";
 
 /**
  * @slot heading - A slot to place the title of the card in.
- * @slot meta - An optional slot to place a `Label` in.
  * @slot type - A slot to hold type of document with an optional `Toggletip`.
+ * @slot meta - An optional slot to place a `Label` in.
  * @slot status - A slot to hold some status information on the document.
+ * @slot interactions - An optional slot for one or more `Badge`'s.
  */
 @Component({
   tag: "dso-document-card",
@@ -63,6 +64,10 @@ export class DocumentCard implements ComponentInterface {
     return this.host.querySelector("[slot='meta']");
   }
 
+  get interactionsSlottedElement() {
+    return this.host.querySelector("[slot='interactions']");
+  }
+
   render() {
     return (
       <div class="dso-document-card-container">
@@ -73,13 +78,14 @@ export class DocumentCard implements ComponentInterface {
               <slot name="heading" />
             </span>
           </a>
-          {this.metaSlottedElement !== null && <slot name="meta" />}
         </div>
         <div class="dso-document-card-type">
           <slot name="type" />
         </div>
         <div class="dso-document-card-status">
+          {this.metaSlottedElement !== null && <slot name="meta" />}
           <slot name="status" />
+          {this.interactionsSlottedElement !== null && <slot name="interactions" />}
         </div>
       </div>
     );
