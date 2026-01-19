@@ -4,26 +4,8 @@ import { IconButton } from "../icon-button";
 export function buttons(
   variant: "map" | "secondary",
   element: "button" | "anchor" | "icon-button",
-): Button[] | ButtonAnchor[] | IconButton[] {
-  const ib: IconButton[] = [
-    {
-      label: "Inzoomen",
-      variant,
-      icon: "plus",
-    },
-    {
-      label: "Uitzoomen",
-      variant,
-      icon: "minus",
-    },
-    {
-      label: "Opmeten",
-      variant,
-      icon: "measurement",
-    },
-  ];
-
-  const b: Button[] = [
+): Array<Button | ButtonAnchor | IconButton> {
+  const buttons: Button[] = [
     {
       label: "Button 1",
       variant,
@@ -53,15 +35,34 @@ export function buttons(
     },
   ];
 
-  if (element === "anchor") {
-    return b.map<ButtonAnchor>((button) => ({
-      ...button,
-      variant: button.variant || "primary",
-      url: "#",
-    }));
+  const iconButtons: IconButton[] = [
+    {
+      label: "Inzoomen",
+      variant,
+      icon: "plus",
+    },
+    {
+      label: "Uitzoomen",
+      variant,
+      icon: "minus",
+    },
+    {
+      label: "Opmeten",
+      variant,
+      icon: "measurement",
+    },
+  ];
+
+  switch (element) {
+    case "icon-button":
+      return iconButtons;
+    case "anchor":
+      return buttons.map<ButtonAnchor>((button) => ({
+        ...button,
+        variant: button.variant || "primary",
+        url: "#",
+      }));
+    default:
+      return buttons;
   }
-  if (element === "button") {
-    return b;
-  }
-  return ib;
 }

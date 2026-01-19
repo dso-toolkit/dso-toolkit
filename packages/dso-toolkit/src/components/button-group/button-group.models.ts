@@ -3,7 +3,7 @@ import { IconButton } from "../icon-button";
 
 export interface ButtonGroup {
   direction?: ButtonGroupDirection;
-  buttons: Button[] | ButtonAnchor[] | IconButton[];
+  buttons: Array<Button | ButtonAnchor | IconButton>;
 }
 
 export type ButtonGroupDirection = "row" | "column";

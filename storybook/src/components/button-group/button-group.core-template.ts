@@ -1,4 +1,4 @@
-import { ButtonGroup } from "dso-toolkit";
+import { Button, ButtonAnchor, ButtonGroup, IconButton } from "dso-toolkit";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -10,9 +10,13 @@ export const coreButtonGroup: ComponentImplementation<ButtonGroup> = {
   template: ({ buttonTemplate, iconButtonTemplate }) =>
     function buttonGroupTemplate({ direction, buttons }) {
       return html`<dso-button-group .direction=${ifDefined(direction)}>
-        ${buttons.some((b) => typeof b.icon === "string")
-          ? buttons.map(iconButtonTemplate)
-          : buttons.map(buttonTemplate)}
+        ${isIconButtons(buttons)
+          ? (buttons as Array<IconButton>).map(iconButtonTemplate)
+          : (buttons as Array<Button | ButtonAnchor>).map(buttonTemplate)}
       </dso-button-group>`;
     },
 };
+
+function isIconButtons(buttons: Array<Button | ButtonAnchor | IconButton>) {
+  return buttons.some((b) => typeof b.icon === "string");
+}
