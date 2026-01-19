@@ -152,7 +152,7 @@ export class InfoButton {
             variant="tertiary"
             label={this.label}
             onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
-            icon={this.active || this.toggletipActive ? "info-active" : "info"}
+            icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}
             ref={(element) => (this.button = element)}
           />
         ) : (
@@ -164,7 +164,7 @@ export class InfoButton {
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}
           >
-            <dso-icon icon={this.active || this.toggletipActive ? "info-active" : "info"}></dso-icon>
+            <dso-icon icon={this.active || this.toggletipActive ? "info-solid" : "info-outline"}></dso-icon>
             <span class="sr-only">{this.label}</span>
           </button>
         )}

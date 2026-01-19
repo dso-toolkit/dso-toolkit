@@ -159,12 +159,12 @@ export function nestedSections({ accordionTemplate }: Templates): AccordionSecti
 export const addonsSections: AccordionSection<React.JSX.Element>[] = [
   {
     ...section1,
-    icon: "user-line",
+    icon: "user-outline",
   },
   {
     ...section1,
     status: "error",
-    icon: "user-line",
+    icon: "user-outline",
     open: true,
   },
   {
@@ -190,16 +190,16 @@ export const addonsSections: AccordionSection<React.JSX.Element>[] = [
 export const alignmentSections: AccordionSection<React.JSX.Element>[] = [
   {
     ...section1,
-    icon: "user-line",
+    icon: "user-outline",
     open: true,
   },
   {
     ...section2,
-    icon: "user-line",
+    icon: "user-outline",
   },
   {
     ...section3,
-    icon: "user-line",
+    icon: "user-outline",
   },
 ];
 

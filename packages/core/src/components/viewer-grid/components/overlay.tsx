@@ -17,7 +17,7 @@ export const Overlay: FunctionalComponent<ViewerGridOverlayProps> = ({ ref, dsoC
   >
     <dso-icon-button
       class="overlay-close-button"
-      icon="times"
+      icon="cross"
       variant="tertiary"
       label="Sluiten"
       onDsoClick={dsoCloseOverlay}

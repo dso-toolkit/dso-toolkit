@@ -121,7 +121,7 @@ export class Legend implements ComponentInterface {
           </div>
 
           <dso-icon-button
-            icon="times"
+            icon="cross"
             variant="tertiary"
             label={this.text("closeLegend")}
             class="close-button"

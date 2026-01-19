@@ -45,7 +45,7 @@ export class Panel implements ComponentInterface {
         <div class="panel-heading">
           <slot name="heading" />
           <dso-icon-button
-            icon="times"
+            icon="cross"
             variant="tertiary"
             onDsoClick={(e) => this.dsoCloseClick.emit({ originalEvent: e.detail.originalEvent })}
             label={this.closeButtonLabel || this.text("close")}

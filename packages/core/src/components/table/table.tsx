@@ -79,7 +79,7 @@ export class Table implements ComponentInterface {
                   {caption || "Uitvergrote tabel dialoog"}
                 </h2>
                 <dso-icon-button
-                  icon="times"
+                  icon="cross"
                   variant="tertiary"
                   class="dso-close"
                   label="Sluiten"

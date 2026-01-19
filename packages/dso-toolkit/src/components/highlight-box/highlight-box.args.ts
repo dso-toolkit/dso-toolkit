@@ -52,7 +52,7 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
     },
   },
   icon: {
-    options: [undefined, "plus", "table"],
+    options: [undefined, "plus", "table-outline"],
     control: {
       type: "select",
     },
