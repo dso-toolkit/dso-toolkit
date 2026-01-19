@@ -1,7 +1,10 @@
 import { Button, ButtonAnchor } from "../button";
 import { IconButton } from "../icon-button";
 
+import { ButtonGroupDirection } from "./button-group.models";
+
 export function buttons(
+  direction: ButtonGroupDirection,
   variant: "map" | "secondary",
   element: "button" | "anchor" | "icon-button",
 ): Array<Button | ButtonAnchor | IconButton> {
@@ -40,16 +43,19 @@ export function buttons(
       label: "Inzoomen",
       variant,
       icon: "plus",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
     },
     {
       label: "Uitzoomen",
       variant,
       icon: "minus",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
     },
     {
       label: "Opmeten",
       variant,
       icon: "measurement",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
     },
   ];
 

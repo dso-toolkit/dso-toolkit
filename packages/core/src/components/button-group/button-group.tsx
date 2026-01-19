@@ -29,6 +29,7 @@ export class ButtonGroup implements ComponentInterface {
 
     this.mutationObserver.observe(this.host, {
       childList: true,
+      attributes: true,
     });
   }
 
@@ -36,15 +37,16 @@ export class ButtonGroup implements ComponentInterface {
     this.mutationObserver?.disconnect();
   }
 
-  get hasMapButtons(): boolean {
-    const iconButton: HTMLDsoIconButtonElement | null = this.host.querySelector(":scope > dso-icon-button");
+  get hasMapButton(): boolean {
+    const hasMapIconButton = this.host.querySelector(":scope > dso-icon-button[variant='map']") !== null;
+    const hasMapClass = this.host.querySelector(":scope > .dso-map") !== null;
 
-    return iconButton?.variant === "map" || !!this.host.querySelector(":scope > .dso-map");
+    return hasMapIconButton || hasMapClass;
   }
 
   render() {
     return (
-      <div class={clsx("container", { "has-map-buttons": this.hasMapButtons })} role="group">
+      <div class={clsx("container", { "has-map-buttons": this.hasMapButton })} role="group">
         <slot />
       </div>
     );

@@ -119,6 +119,7 @@ export class MapControls implements ComponentInterface {
           label={this.text("layersButton")}
           icon="layers"
           variant="map"
+          tooltipPlacement="left"
           class="toggle-visibility-icon-button"
           onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
           ref={(element) => (this.#toggleIconButtonElement = element)}
@@ -137,6 +138,7 @@ export class MapControls implements ComponentInterface {
             label={this.text("zoomIn")}
             icon="plus"
             variant="map"
+            tooltipPlacement="left"
             onDsoClick={(e) => this.dsoZoomIn.emit(e.detail.originalEvent)}
             disabled={this.disableZoom === "in" || this.disableZoom === "both"}
           />
@@ -144,6 +146,7 @@ export class MapControls implements ComponentInterface {
             label={this.text("zoomOut")}
             icon="minus"
             variant="map"
+            tooltipPlacement="left"
             onDsoClick={(e) => this.dsoZoomOut.emit(e.detail.originalEvent)}
             disabled={this.disableZoom === "out" || this.disableZoom === "both"}
           />
