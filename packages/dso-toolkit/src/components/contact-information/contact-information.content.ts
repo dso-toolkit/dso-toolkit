@@ -5,7 +5,7 @@ import { ContactInformation } from "./contact-information.models";
 export const contactInformationContent: ContactInformation<TemplateResult> = {
   linkItems: [
     { label: "14-303", url: "tel:40-303", icon: { icon: "call" } },
-    { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "email" } },
+    { label: "noreply@dso-toolkit.nl", url: "mailto:no-reply@dso-toolkit.nl", icon: { icon: "mail-outline" } },
     {
       label: "Online contactformulier",
       url: "https://www.google.nl",

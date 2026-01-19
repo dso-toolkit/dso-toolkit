@@ -8,7 +8,7 @@ interface TableHeadingSortable {
   sorting?: TableSorting;
 }
 
-export type TableSorting = "ascending" | "descending";
+export type TableSorting = "up" | "down";
 
 export interface TableContent<TemplateFnReturnType> {
   caption: string;

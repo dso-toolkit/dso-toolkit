@@ -11,12 +11,24 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
   template: () =>
     function tableTemplate({ noModal, content, role, verticalLines }) {
       function getAriaRoledescription(sorting: TableSorting | undefined): string | undefined {
-        if (sorting === "ascending") {
+        if (sorting === "up") {
           return "sorteer oplopend knop";
         }
 
-        if (sorting === "descending") {
+        if (sorting === "down") {
           return "sorteer aflopend knop";
+        }
+
+        return undefined;
+      }
+
+      function getAriaSortValue(sorting: TableSorting | undefined): "ascending" | "descending" | undefined {
+        if (sorting === "up") {
+          return "ascending";
+        }
+
+        if (sorting === "down") {
+          return "descending";
         }
 
         return undefined;
@@ -31,7 +43,7 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
               <tr>
                 {content.head.map((col, cellIndex) =>
                   "sortable" in col ? (
-                    <th scope="col" key={cellIndex} aria-sort={col.sorting}>
+                    <th scope="col" key={cellIndex} aria-sort={getAriaSortValue(col.sorting)}>
                       <button
                         type="button"
                         aria-roledescription={getAriaRoledescription(col.sorting)}

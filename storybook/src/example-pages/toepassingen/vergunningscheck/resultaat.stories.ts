@@ -83,7 +83,7 @@ const Resultaat = examplePageStories((templates) => {
                             <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
                             <span>${iconTemplate({ icon: "call" })} Telefoon: 0900 9394</span>
                             <span
-                              >${iconTemplate({ icon: "air" })}
+                              >${iconTemplate({ icon: "weather" })}
                               ${linkTemplate({ url: "#", label: "www.agv.nl", mode: "extern" })}</span
                             >
                             <span

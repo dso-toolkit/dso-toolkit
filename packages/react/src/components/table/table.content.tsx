@@ -59,7 +59,7 @@ export const imageOverlayTable = {
 export const sortedAscendingTable = {
   caption: "Overzicht van gebruikersnamen",
   head: [
-    { label: "Nummer", sortable: true, sorting: "ascending" },
+    { label: "Nummer", sortable: true, sorting: "up" },
     { label: "Voornaam", sortable: true },
     { label: "Achternaam", sortable: true },
     { label: "GitHub gebruikersnaam", sortable: true },
@@ -91,7 +91,7 @@ export const sortedAscendingTable = {
 export const sortedDescendingTable = {
   caption: "Overzicht van gebruikersnamen",
   head: [
-    { label: "Nummer", sortable: true, sorting: "descending" },
+    { label: "Nummer", sortable: true, sorting: "down" },
     { label: "Voornaam", sortable: true },
     { label: "Achternaam", sortable: true },
     { label: "GitHub gebruikersnaam", sortable: true },

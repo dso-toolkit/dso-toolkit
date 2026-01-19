@@ -187,7 +187,7 @@ export class ListButton implements ComponentInterface {
                 <dso-icon-button
                   label="Aantal verlagen"
                   variant="tertiary"
-                  icon="minus-circle"
+                  icon="minus-circle-outline"
                   disabled={this.count === Number(this.min) || this.disabled}
                   onDsoClick={(e) => this.stepValue(e, "decrement")}
                 />
@@ -200,7 +200,7 @@ export class ListButton implements ComponentInterface {
             <dso-icon-button
               label="Aantal verhogen"
               variant="tertiary"
-              icon="plus-circle"
+              icon="plus-circle-outline"
               disabled={this.count === Number(this.max) || this.disabled}
               onDsoClick={(e) => this.stepValue(e, "increment")}
             />

@@ -89,7 +89,7 @@ export function sortedAscendingTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
-      { label: "Nummer", sortable: true, sorting: "ascending" },
+      { label: "Nummer", sortable: true, sorting: "up" },
       { label: "Voornaam", sortable: true },
       { label: "Achternaam", sortable: true },
       { label: "GitHub gebruikersnaam", sortable: true },
@@ -137,7 +137,7 @@ export function sortedDescendingTable({ linkTemplate }: Templates) {
   return {
     caption: "Overzicht van gebruikersnamen",
     head: [
-      { label: "Nummer", sortable: true, sorting: "descending" },
+      { label: "Nummer", sortable: true, sorting: "down" },
       { label: "Voornaam", sortable: true },
       { label: "Achternaam", sortable: true },
       { label: "GitHub gebruikersnaam", sortable: true },
