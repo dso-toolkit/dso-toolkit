@@ -1,0 +1,17 @@
+@use "../variables/colors";
+
+mail-outline {
+  color: colors.$grijs-90;
+}
+
+mail-outline:grasgroen {
+  color: colors.$grasgroen;
+}
+
+mail-outline:scampi {
+  color: colors.$scampi;
+}
+
+mail-outline:zwart {
+  color: colors.$zwart;
+}

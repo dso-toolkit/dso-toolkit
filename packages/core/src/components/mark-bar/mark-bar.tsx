@@ -125,7 +125,7 @@ export class MarkBar implements ComponentInterface {
             <span class="label-text">{this.label}</span>
           </label>
           <dso-icon-button
-            icon="times"
+            icon="cross"
             variant="tertiary"
             label="Zoekopdracht legen"
             onDsoClick={(e) => this.handleClear(e.detail.originalEvent)}

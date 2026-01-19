@@ -68,7 +68,7 @@ export const cssNavbar: ComponentImplementation<Navbar<TemplateResult>> = {
                 ${when(
                   !extensionOpen,
                   () => html`${iconTemplate({ icon: "search" })}Zoeken`,
-                  () => html`${iconTemplate({ icon: "times" })}Stoppen`,
+                  () => html`${iconTemplate({ icon: "cross" })}Stoppen`,
                 )}
               </button>
               ${when(
