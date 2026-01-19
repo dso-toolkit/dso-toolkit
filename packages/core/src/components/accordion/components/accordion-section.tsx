@@ -126,7 +126,7 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 
   if (state === "danger") {
-    return <dso-icon icon="status-danger"></dso-icon>;
+    return <dso-icon icon="status-warning-red-solid"></dso-icon>;
   }
 
   if (state === "success") {
@@ -134,7 +134,7 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 
   if (state === "info") {
-    return <dso-icon icon="status-info"></dso-icon>;
+    return <dso-icon icon="status-info-solid"></dso-icon>;
   }
 
   if (state === "warning") {
@@ -453,7 +453,7 @@ export class AccordionSection implements ComponentInterface {
                 <span>
                   <dso-renvooi value={this.handleTitle} />
                   {this.isNeutral && (
-                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
+                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-solid" : "info-outline"} />
                   )}
                 </span>
                 {this.label && (

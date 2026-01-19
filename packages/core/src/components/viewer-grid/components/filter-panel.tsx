@@ -19,7 +19,7 @@ export const FilterPanel: FunctionalComponent<ViewerGridFilterPanelProps> = ({
         {title && <h3>{title}</h3>}
         <dso-icon-button
           class="dso-close"
-          icon="times"
+          icon="cross"
           variant="tertiary"
           label="Sluiten"
           onDsoClick={dsoCloseFilterPanel}
