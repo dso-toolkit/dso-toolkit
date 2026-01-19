@@ -19,6 +19,10 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   cursor: default !important;
 }
 
+::slotted([slot="label"]) {
+  user-select: text;
+}
+
 .toggletip-button {
   @include button.base($modifiers: false);
 

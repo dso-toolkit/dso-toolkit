@@ -36,6 +36,16 @@ span[role="paragraph"] + span[role="paragraph"] {
   margin-block: units.$u2 0;
 }
 
+span[role="paragraph"] {
+  display: flex;
+  align-items: center;
+  gap: units.$u1;
+
+  button.dso-tertiary span {
+    line-height: 1.5;
+  }
+}
+
 :host(:not([inline])) .fallback {
   display: block;
 }
