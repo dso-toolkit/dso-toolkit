@@ -6,7 +6,7 @@ const closeButton = ({ iconTemplate }: Templates) => {
   return (
     <button type="button" className="dso-tertiary" onClick={() => null}>
       <span className="sr-only">Sluiten</span>
-      {iconTemplate({ icon: "times" })}
+      {iconTemplate({ icon: "cross" })}
     </button>
   );
 };

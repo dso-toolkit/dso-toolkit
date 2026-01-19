@@ -18,7 +18,7 @@
     inset-block-start: units.$u1;
 
     &::before {
-      @include di.base("times-zwart");
+      @include di.base("cross-zwart");
 
       content: "";
       display: inline-block;

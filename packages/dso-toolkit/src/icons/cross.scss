@@ -1,0 +1,9 @@
+@use "../variables/colors";
+
+cross {
+  color: colors.$grasgroen;
+}
+
+cross:zwart {
+  color: colors.$zwart;
+}

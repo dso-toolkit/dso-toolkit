@@ -9,7 +9,7 @@ export class TijdreisBanner implements ComponentInterface {
   render() {
     return (
       <Fragment>
-        <dso-icon icon="clock" />
+        <dso-icon icon="clock-outline" />
         <slot></slot>
         <slot name="button"></slot>
       </Fragment>

@@ -1,0 +1,9 @@
+@use "../variables/colors";
+
+info-outline {
+  color: colors.$grasgroen;
+}
+
+info-outline:secondary {
+  color: colors.$grijs-60;
+}

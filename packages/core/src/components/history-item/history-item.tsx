@@ -32,7 +32,7 @@ export class HistoryItem implements ComponentInterface {
     "in-werking": "document",
     "tijdelijk-regelingdeel": "document",
     "tijdelijk-regelingdeel-besluit": "hammer",
-    waarschuwing: "status-warning-inline",
+    waarschuwing: "status-warning-red-solid",
     besluit: "hammer",
   };
 
@@ -115,7 +115,7 @@ export class HistoryItem implements ComponentInterface {
           )}
           {this.warningSlottedElement !== null && (
             <div class="history-item-warning">
-              <dso-icon icon="status-warning-inline" role="img" aria-label="Waarschuwing"></dso-icon>
+              <dso-icon icon="status-warning-red-solid" role="img" aria-label="Waarschuwing"></dso-icon>
               <slot name="warning"></slot>
             </div>
           )}

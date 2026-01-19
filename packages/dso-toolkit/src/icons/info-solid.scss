@@ -1,0 +1,9 @@
+@use "../variables/colors";
+
+info-solid {
+  color: colors.$grasgroen;
+}
+
+info-solid:secondary {
+  color: colors.$grijs-60;
+}

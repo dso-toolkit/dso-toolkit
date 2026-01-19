@@ -214,7 +214,7 @@ export class Label implements ComponentInterface {
           {this.removable && (
             <dso-icon-button
               variant="tertiary"
-              icon="times"
+              icon="cross"
               label={`Verwijder: ${this.labelText}`}
               onDsoClick={(e) => this.dsoRemoveClick.emit(e.detail.originalEvent)}
               onMouseEnter={() => (this.removeHover = true)}

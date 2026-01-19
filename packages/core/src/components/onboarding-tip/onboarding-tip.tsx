@@ -127,7 +127,7 @@ export class OnboardingTip implements ComponentInterface {
                 class="dso-close"
                 label="Sluiten"
                 variant="tertiary"
-                icon="times"
+                icon="cross"
                 onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
               />
               <slot></slot>

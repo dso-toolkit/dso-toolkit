@@ -346,12 +346,12 @@ export class Header implements ComponentInterface {
                         onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
                       >
                         <span>{this.text("help")}</span>
-                        <dso-icon icon="help"></dso-icon>
+                        <dso-icon icon="help-outline"></dso-icon>
                       </a>
                     ) : (
                       <button type="button" class="dso-tertiary" onClick={(e) => this.clickHandler(e, "help")}>
                         <span>{this.text("help")}</span>
-                        <dso-icon icon="help"></dso-icon>
+                        <dso-icon icon="help-outline"></dso-icon>
                       </button>
                     )}
                   </li>
@@ -424,12 +424,12 @@ export class Header implements ComponentInterface {
                   onClick={(e) => this.clickHandler(e, "help", { url: this.helpUrl })}
                 >
                   <span>{this.text("help")}</span>
-                  <dso-icon icon="help"></dso-icon>
+                  <dso-icon icon="help-outline"></dso-icon>
                 </a>
               ) : (
                 <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "help")}>
                   <span>{this.text("help")}</span>
-                  <dso-icon icon="help"></dso-icon>
+                  <dso-icon icon="help-outline"></dso-icon>
                 </button>
               )}
             </div>
@@ -484,7 +484,7 @@ export class Header implements ComponentInterface {
                     aria-current={this.userHomeActive ? "page" : undefined}
                     onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
                   >
-                    <dso-icon icon="user-line" class="main-menu-item-icon"></dso-icon>
+                    <dso-icon icon="user-outline" class="main-menu-item-icon"></dso-icon>
                     {this.text("userHome")}
                   </a>
                 </li>

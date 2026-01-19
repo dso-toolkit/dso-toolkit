@@ -72,7 +72,7 @@
     @include banner-mixins.info();
 
     &.dso-icon {
-      @include banner-mixins.with-icon("info");
+      @include banner-mixins.with-icon("info-solid");
     }
   }
 
@@ -161,7 +161,7 @@ dso-banner {
     @include banner-mixins.info();
 
     &[icon] {
-      @include banner-mixins.with-icon("info");
+      @include banner-mixins.with-icon("info-solid");
     }
   }
 

@@ -89,7 +89,7 @@
       inline-size: css-search-bar-variables.$block-size;
 
       &::before {
-        @include di.base("times");
+        @include di.base("cross");
 
         content: "";
         display: inline-block;

@@ -127,7 +127,7 @@ export class LegendItem implements ComponentInterface {
       this.active && hasOptions && !this.disabled && (
         <dso-icon-button
           label={this.text("options")}
-          icon="more"
+          icon="more-horizontal"
           variant="tertiary"
           class={{ active: this.showOptions }}
           id="options-button"

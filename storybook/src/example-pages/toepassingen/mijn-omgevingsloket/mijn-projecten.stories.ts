@@ -32,7 +32,7 @@ const MijnProjecten = examplePageStories((templates) => {
           label: buttonRowTemplate({
             buttons: [
               { label: "Nieuw project", type: "button", variant: "secondary", icon: { icon: "plus" } },
-              { label: "Actiecode invoeren", type: "button", variant: "secondary", icon: { icon: "email" } },
+              { label: "Actiecode invoeren", type: "button", variant: "secondary", icon: { icon: "mail-outline" } },
             ],
           }),
           content: searchBarTemplate({
@@ -84,21 +84,13 @@ const MijnProjecten = examplePageStories((templates) => {
                       actions: [
                         {
                           label: "Bewerk",
-                          type: "button",
                           variant: "tertiary",
-                          icon: {
-                            icon: "pencil",
-                          },
-                          iconMode: "only",
+                          icon: "pencil",
                         },
                         {
                           label: "Verwijder",
-                          type: "button",
                           variant: "tertiary",
-                          icon: {
-                            icon: "trash",
-                          },
-                          iconMode: "only",
+                          icon: "trash",
                         },
                       ],
                     })}

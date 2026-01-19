@@ -1,0 +1,9 @@
+@use "../variables/colors";
+
+postcard {
+  color: colors.$grasgroen;
+}
+
+postcard:zwart {
+  color: colors.$zwart;
+}
