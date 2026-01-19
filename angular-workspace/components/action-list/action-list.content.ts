@@ -38,7 +38,7 @@ const item2: ActionListItem<IStory> = {
               </p>
               <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
               <span><dso-icon icon="call"></dso-icon> Telefoon: 0900 9394</span>
-              <span><dso-icon icon="air"></dso-icon> <a href="#">www.agv.nl <dso-icon icon="external-link"></dso-icon></a></span
+              <span><dso-icon icon="weather"></dso-icon> <a href="#">www.agv.nl <dso-icon icon="external-link"></dso-icon></a></span
               >
               <span><dso-icon icon="buildings"></dso-icon> Bezoekadres: Korte Ouderkerkerdijk 7, 1096AC Amsterdam</span>
             </div>

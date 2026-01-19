@@ -29,7 +29,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({
     <div class="tree-branch-control">
       {item.hasItems ? (
         <div onClick={(e) => owner.itemClick(e, ancestors, item)}>
-          <dso-icon icon={item.open ? "minus-square" : "plus-square"}></dso-icon>
+          <dso-icon icon={item.open ? "minus-square-outline" : "plus-square-outline"}></dso-icon>
         </div>
       ) : (
         <dso-icon></dso-icon>

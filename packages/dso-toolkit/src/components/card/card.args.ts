@@ -62,7 +62,7 @@ export const cardContentButton: Omit<CardArgs, "dsoCardClick"> = {
       variant: "tertiary",
       label: "Toon informatie",
       icon: {
-        icon: "info",
+        icon: "info-solid",
       },
       screenreaderSuffix: `over "${cardContent.label}"`,
     },

@@ -117,7 +117,7 @@ export class Legend implements ComponentInterface {
           </div>
 
           <dso-icon-button
-            icon="times"
+            icon="cross"
             variant="tertiary"
             label="Sluit legenda"
             class="close-button"
