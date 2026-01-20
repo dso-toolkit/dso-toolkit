@@ -65,7 +65,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         active: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+        infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
     Inactive: {
@@ -74,7 +74,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         active: false,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+        infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
     SecondaryActive: {
@@ -84,7 +84,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+        infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
     SecondaryInactive: {
@@ -94,7 +94,7 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
         secondary: true,
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, undefined)),
+        infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
     WithToggletip: {
