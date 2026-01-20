@@ -51,18 +51,18 @@ export function positionTooltip(options: TooltipOptions) {
         hide({
           padding: arrowOffsetWidth + padding,
         }),
-        size({
-          apply({ availableHeight }) {
-            const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
+        enableInnerScroll &&
+          size({
+            apply({ availableHeight }) {
+              const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
 
-            if (!inner) return;
+              if (!inner) return;
 
-            Object.assign(inner.style, {
-              maxHeight: enableInnerScroll ? `${availableHeight}px` : "",
-              overflowY: enableInnerScroll ? "auto" : "",
-            });
-          },
-        }),
+              Object.assign(inner.style, {
+                maxHeight: `${availableHeight}px`,
+              });
+            },
+          }),
       ],
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {

@@ -33,7 +33,7 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
 
 export function infoButtonArgsMapper<TemplateFnReturnType>(
   a: InfoButtonArgs,
-  children: TemplateFnReturnType,
-): Required<InfoButton<TemplateFnReturnType>> {
+  children?: TemplateFnReturnType,
+): InfoButton<TemplateFnReturnType> {
   return { ...a, children };
 }
