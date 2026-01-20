@@ -21,11 +21,13 @@
 ### Depends on
 
 - [dso-icon](../../../icon)
+- [dso-scrollable](../../../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-ozon-content-toggletip --> dso-icon
+  dso-ozon-content-toggletip --> dso-scrollable
   dso-ozon-content --> dso-ozon-content-toggletip
   style dso-ozon-content-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```

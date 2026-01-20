@@ -57,6 +57,7 @@ graph TD;
   dso-mark-bar --> dso-icon
   dso-mark-bar --> dso-icon-button
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   style dso-mark-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

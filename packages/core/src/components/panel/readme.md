@@ -43,6 +43,7 @@
 graph TD;
   dso-panel --> dso-icon-button
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   dso-document-component --> dso-panel
   dso-survey-rating --> dso-panel
   style dso-panel fill:#f9f,stroke:#333,stroke-width:4px

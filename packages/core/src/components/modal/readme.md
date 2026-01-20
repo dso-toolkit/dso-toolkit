@@ -37,6 +37,7 @@ graph TD;
   dso-modal --> dso-icon-button
   dso-modal --> dso-scrollable
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   style dso-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

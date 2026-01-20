@@ -27,6 +27,7 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 graph TD;
   dso-image-overlay --> dso-icon-button
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   dso-ozon-content --> dso-image-overlay
   style dso-image-overlay fill:#f9f,stroke:#333,stroke-width:4px
 ```
