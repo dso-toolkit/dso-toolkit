@@ -37,12 +37,6 @@
     "type": "core"
   },
   {
-    "name": "info-button",
-    "selector": "dso-info-button.hydrated",
-    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
-    "type": "core"
-  },
-  {
     "name": "info",
     "selector": "dso-info.hydrated",
     "stories": ["default", "fixed"],
