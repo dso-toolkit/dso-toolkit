@@ -6,9 +6,8 @@ import { ButtonGroupDirection } from "./button-group.models";
 export function buttons(
   direction: ButtonGroupDirection,
   variant: "map" | "secondary",
-  element: "button" | "anchor" | "icon-button",
 ): Array<Button | ButtonAnchor | IconButton> {
-  const buttons: Button[] = [
+  return [
     {
       label: "Button 1",
       variant,
@@ -19,6 +18,7 @@ export function buttons(
     },
     {
       label: "Button 3",
+      url: "#",
       variant,
     },
     {
@@ -29,6 +29,12 @@ export function buttons(
       },
     },
     {
+      label: "Hamer",
+      variant,
+      icon: "hammer",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
+    },
+    {
       label: "Button 5",
       variant,
       icon: {
@@ -37,38 +43,4 @@ export function buttons(
       iconMode: "after",
     },
   ];
-
-  const iconButtons: IconButton[] = [
-    {
-      label: "Inzoomen",
-      variant,
-      icon: "plus",
-      tooltipPlacement: direction === "column" ? "right" : "bottom",
-    },
-    {
-      label: "Uitzoomen",
-      variant,
-      icon: "minus",
-      tooltipPlacement: direction === "column" ? "right" : "bottom",
-    },
-    {
-      label: "Opmeten",
-      variant,
-      icon: "measurement",
-      tooltipPlacement: direction === "column" ? "right" : "bottom",
-    },
-  ];
-
-  switch (element) {
-    case "icon-button":
-      return iconButtons;
-    case "anchor":
-      return buttons.map<ButtonAnchor>((button) => ({
-        ...button,
-        variant: button.variant || "primary",
-        url: "#",
-      }));
-    default:
-      return buttons;
-  }
 }
