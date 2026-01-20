@@ -26,6 +26,6 @@ export const Tooltip: FunctionalComponent<TooltipProps> = (
     }}
   >
     <span class="tooltip-arrow" ref={tipArrowElementRef}></span>
-    <div class="tooltip-inner">{children}</div>
+    <dso-scrollable class="tooltip-inner">{children}</dso-scrollable>
   </div>
 );

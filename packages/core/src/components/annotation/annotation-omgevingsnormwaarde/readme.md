@@ -53,6 +53,7 @@ graph TD;
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   style dso-annotation-omgevingsnormwaarde fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

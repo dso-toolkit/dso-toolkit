@@ -39,6 +39,7 @@ graph TD;
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   style dso-advanced-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

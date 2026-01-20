@@ -6,7 +6,12 @@
 
 :host {
   display: inline-block;
-  --_dso-tooltip-max-inline-size: 640px;
+
+  > .dso-tooltip {
+    --_dt-tooltip-max-inline-size: 640px;
+    --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+    --_dt-scrollable-container-padding-block: #{tooltip.$padding-inline};
+  }
 }
 
 @include utilities.box-sizing();

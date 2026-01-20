@@ -11,7 +11,7 @@
   $arrow-size: tooltip-variables.$arrow-size,
   $padding-block-inner: tooltip-variables.$padding-block,
   $padding-inline-inner: tooltip-variables.$padding-inline,
-  $max-inline-size: var(--_dso-tooltip-max-inline-size, tooltip-variables.$max-inline-size-small)
+  $max-inline-size: var(--_dt-tooltip-max-inline-size, tooltip-variables.$max-inline-size-small)
 ) {
   .dso-tooltip {
     @include set-colors.apply($background-color, "tooltip");
@@ -33,22 +33,22 @@
 
     .tooltip-inner {
       --_dt-span-role-paragraph-margin-block: #{units.$u1};
+      --_dt-scrollable-container-padding-inline: #{$padding-inline-inner};
+      --_dt-scrollable-container-padding-block: #{$padding-block-inner};
+
       @include set-colors.apply($background-color, "tooltip");
 
       font-family: typography.$font-family-base;
       font-size: typography.$root-font-size-base;
       font-weight: normal;
-      padding-block: $padding-block-inner;
-      padding-inline: $padding-inline-inner;
       border-radius: $radius-inner;
       line-height: 1.5;
       max-inline-size: $max-inline-size;
     }
 
     .tooltip-arrow {
-      @include set-colors.apply($background-color, "tooltip");
-
       position: absolute;
+      background-color: $background-color;
       border-start-start-radius: tooltip-variables.$border-radius;
       block-size: $arrow-size;
       inline-size: $arrow-size;
