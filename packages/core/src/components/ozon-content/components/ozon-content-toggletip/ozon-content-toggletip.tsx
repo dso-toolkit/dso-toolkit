@@ -95,19 +95,19 @@ export class ozonContentToggletip implements ComponentInterface {
   render() {
     return (
       <Fragment>
-        <span
-          class="toggletip-button"
-          role="button"
-          tabindex={0}
-          onClick={this.toggle}
-          onKeyDown={this.keyUpHandler}
-          onFocusout={this.focusOutHandler}
-          ref={(element) => (this.container = element)}
-        >
-          <span class="icon-container">
+        <span class="toggletip-wrapper" onFocusout={this.focusOutHandler} ref={(element) => (this.container = element)}>
+          <span class="toggletip-label" onClick={this.toggle} onKeyDown={this.keyUpHandler} tabindex={0}>
             <slot name="label" />
-            <dso-icon icon={this.icon} />
           </span>
+          <button
+            class="toggletip-icon-button"
+            type="button"
+            aria-label="Meer informatie"
+            onClick={this.toggle}
+            onKeyDown={this.keyUpHandler}
+          >
+            <dso-icon icon={this.icon} />
+          </button>
           <Tooltip
             visible
             onAfterHidden={() => {}}

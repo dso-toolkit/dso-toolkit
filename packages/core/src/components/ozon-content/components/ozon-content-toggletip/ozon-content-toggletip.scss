@@ -9,6 +9,7 @@
 @include tooltip.include($max-inline-size: 60 * units.$u1);
 
 $icon-margin-inline-start: units.$u1 * 0.5;
+$color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
 
 :host {
   display: inline;
@@ -19,22 +20,20 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   cursor: default !important;
 }
 
-::slotted([slot="label"]) {
-  user-select: text;
+.toggletip-wrapper {
+  display: inline;
 }
 
-.toggletip-button {
-  @include button.base($modifiers: false);
-
-  border: 0;
-  color: var(--_dso-ozon-content-toggletip-color, colors.$donkerblauw);
+.toggletip-label {
+  color: $color;
+  cursor: pointer;
+  display: inline;
   line-height: 1;
+  overflow-wrap: break-word;
   padding: 0;
   background-color: transparent;
-  cursor: pointer;
   vertical-align: baseline;
-  display: inline;
-  overflow-wrap: break-word;
+  font-weight: 500;
 
   &,
   &:hover,
@@ -44,18 +43,28 @@ $icon-margin-inline-start: units.$u1 * 0.5;
     text-decoration-style: dotted;
     text-underline-offset: 15%;
   }
-
-  dso-icon {
-    margin-inline-start: $icon-margin-inline-start;
-    vertical-align: middle;
-  }
 }
 
-.icon-container {
-  position: relative;
-  padding-inline-end: units.$u3 + $icon-margin-inline-start;
+.toggletip-icon-button {
+  @include button.base($modifiers: false);
+
+  border: 0;
+  color: $color;
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: baseline;
+  display: inline;
+  margin-inline-start: $icon-margin-inline-start;
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    color: $color;
+  }
 
   dso-icon {
-    position: absolute;
+    vertical-align: middle;
   }
 }

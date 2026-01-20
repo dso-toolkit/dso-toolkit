@@ -35,7 +35,7 @@ describe("Ozon Content", () => {
       .shadow()
       .find("dso-ozon-content-toggletip")
       .shadow()
-      .find(".toggletip-button")
+      .find(".toggletip-icon-button")
       .realClick();
 
     cy.get("dso-ozon-content.hydrated")
@@ -203,7 +203,7 @@ describe("Ozon Content", () => {
         .shadow()
         .find("dso-ozon-content-toggletip")
         .shadow()
-        .find(".toggletip-button")
+        .find(".toggletip-icon-button")
         .realClick();
 
       cy.get("dso-ozon-content.hydrated")
@@ -224,7 +224,7 @@ describe("Ozon Content", () => {
         .shadow()
         .find("dso-ozon-content-toggletip")
         .shadow()
-        .find(".toggletip-button")
+        .find(".toggletip-icon-button")
         .realClick();
 
       cy.get("dso-ozon-content.hydrated")
@@ -241,7 +241,7 @@ describe("Ozon Content", () => {
         .shadow()
         .find("dso-ozon-content-toggletip")
         .shadow()
-        .find(".toggletip-button")
+        .find(".toggletip-icon-button")
         .realClick();
 
       cy.get("dso-ozon-content.hydrated").shadow().find("dso-ozon-content-toggletip").find("button").click();
@@ -262,7 +262,7 @@ describe("Ozon Content", () => {
         .shadow()
         .find("dso-ozon-content-toggletip")
         .shadow()
-        .find(".toggletip-button")
+        .find(".toggletip-icon-button")
         .realClick();
 
       cy.get("dso-ozon-content.hydrated")
