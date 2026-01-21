@@ -24,16 +24,12 @@
 
 @include utilities.box-sizing();
 
-// Todo: #2315 this will be redundant when the icon only buttons are replaced with Icon Button
-.sr-only {
-  @include utilities.sr-only();
-}
-
 :host([open]) {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
 
-  .toggle-visibility-button {
+  .toggle-visibility-button,
+  .toggle-visibility-icon-button {
     display: none;
   }
 
@@ -42,23 +38,27 @@
   }
 }
 
+.toggle-visibility-icon-button {
+  display: none;
+}
+
 .toggle-visibility-button {
   position: absolute;
-  inset-inline-end: calc(100% + #{core-map-controls-variables.$controls-margin + button-variables.$map-size});
-  inset-block-start: core-map-controls-variables.$controls-margin;
+  inset-inline-end: calc(100% + #{core-map-controls-variables.$controls-inset + button-variables.$map-size});
+  inset-block-start: core-map-controls-variables.$controls-inset;
 }
 
 .zoom-buttons {
   position: absolute;
-  inset-inline-end: calc(100% + core-map-controls-variables.$controls-margin);
-  inset-block-start: core-map-controls-variables.$controls-margin;
+  inset-inline-end: calc(100% + core-map-controls-variables.$controls-inset);
+  inset-block-start: core-map-controls-variables.$controls-inset;
 }
 
 .close-button {
   padding: 0;
   position: absolute;
-  inset-inline-end: core-map-controls-variables.$controls-margin;
-  inset-block-start: core-map-controls-variables.$controls-margin;
+  inset-inline-end: core-map-controls-variables.$controls-inset;
+  inset-block-start: core-map-controls-variables.$controls-inset;
 }
 
 section:not([hidden]) {
@@ -87,19 +87,14 @@ header {
 
 @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
   button.toggle-visibility-button {
-    block-size: units.$u5;
-    margin-inline-end: 0;
-    min-inline-size: auto;
-    inset-inline-end: calc(100% + core-map-controls-variables.$controls-margin);
-    inline-size: units.$u5;
+    display: none;
+  }
 
-    dso-icon {
-      margin-inline-end: 0;
-    }
-
-    span {
-      @include utilities.sr-only();
-    }
+  .toggle-visibility-icon-button {
+    display: inline-block;
+    position: absolute;
+    inset-block-start: units.$u2;
+    inset-inline-end: calc(100% + core-map-controls-variables.$controls-inset);
   }
 
   .zoom-buttons {

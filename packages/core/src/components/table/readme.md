@@ -18,12 +18,15 @@
 
 ### Depends on
 
+- [dso-icon-button](../icon-button)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-table --> dso-icon-button
   dso-table --> dso-icon
+  dso-icon-button --> dso-icon
   dso-ozon-content --> dso-table
   style dso-table fill:#f9f,stroke:#333,stroke-width:4px
 ```

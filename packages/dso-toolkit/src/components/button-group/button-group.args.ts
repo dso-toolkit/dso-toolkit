@@ -5,7 +5,7 @@ import { ButtonGroup } from "./button-group.models.js";
 
 export interface ButtonGroupArgs {
   direction: "column" | "row";
-  buttonElement: "button" | "anchor";
+  buttonElement: "button" | "anchor" | "icon-button";
   buttonVariant: "secondary" | "map";
 }
 
@@ -23,7 +23,7 @@ export const buttonGroupArgTypes: ArgTypes<ButtonGroupArgs> = {
     },
   },
   buttonElement: {
-    options: ["button", "anchor"],
+    options: ["button", "anchor", "icon-button"],
     control: {
       type: "select",
     },

@@ -27,7 +27,7 @@
 
   @include _shared-variant($defaults-map, $variant);
 
-  border-width: 1px;
+  border-width: button-variables.$border-width;
   border-style: solid;
   border-radius: button-variables.$border-radius;
   line-height: typography.$line-height-base;

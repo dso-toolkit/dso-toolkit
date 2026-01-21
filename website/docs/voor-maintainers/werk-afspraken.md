@@ -18,6 +18,13 @@ Uitgangspunt is: De voertaal van de DSO Toolkit is Nederlands, tenzij:
 
 Zie [Change Management Notatie](./change-management-notatie).
 
+## Resolven van een conversation in Pull Requests
+
+Een reviewer plaatst een opmerking of vraag over 1 of meer regels code in een PR.
+Dit is de start van een conversation.
+De eigenaar van de PR reageert altijd op de opmerking of vraag van de reviewer in de betreffende conversation.
+Als de conversatie is afgerond is het uiteindelijk de reviewer die de conversation resolved.
+
 ## Stencil componenten
 
 ### State

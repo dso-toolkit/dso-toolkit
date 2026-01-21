@@ -1,15 +1,14 @@
-import { Button, ButtonAnchor } from "../button/button.models";
+import { Button, ButtonAnchor } from "../button";
+import { IconButton } from "../icon-button";
 
 import { ButtonGroupDirection } from "./button-group.models";
 
 export function buttons(
   direction: ButtonGroupDirection,
-  variant: Button["variant"] | ButtonAnchor["variant"],
-  element: "button" | "anchor",
-): Button[] | ButtonAnchor[] {
-  const url = element === "anchor" ? "#" : undefined;
-
-  const b: Button[] = [
+  variant: "map" | "secondary",
+  element: "button" | "anchor" | "icon-button",
+): Array<Button | ButtonAnchor | IconButton> {
+  const buttons: Button[] = [
     {
       label: "Button 1",
       variant,
@@ -30,14 +29,6 @@ export function buttons(
       },
     },
     {
-      label: "Hamer",
-      variant,
-      icon: {
-        icon: "hammer",
-      },
-      iconMode: direction === "row" ? "only" : undefined,
-    },
-    {
       label: "Button 5",
       variant,
       icon: {
@@ -47,11 +38,37 @@ export function buttons(
     },
   ];
 
-  return url
-    ? b.map<ButtonAnchor>((button) => ({
+  const iconButtons: IconButton[] = [
+    {
+      label: "Inzoomen",
+      variant,
+      icon: "plus",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
+    },
+    {
+      label: "Uitzoomen",
+      variant,
+      icon: "minus",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
+    },
+    {
+      label: "Opmeten",
+      variant,
+      icon: "measurement",
+      tooltipPlacement: direction === "column" ? "right" : "bottom",
+    },
+  ];
+
+  switch (element) {
+    case "icon-button":
+      return iconButtons;
+    case "anchor":
+      return buttons.map<ButtonAnchor>((button) => ({
         ...button,
         variant: button.variant || "primary",
-        url,
-      }))
-    : b;
+        url: "#",
+      }));
+    default:
+      return buttons;
+  }
 }

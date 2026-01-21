@@ -16,13 +16,44 @@ describe("Map Controls", () => {
       })
       .shadow()
       .as("dsoMapControlsShadow")
-      .find("#toggle-visibility-button")
+      .find(".toggle-visibility-button")
       .as("toggleVisibilityButton");
   });
 
   it("should be accessible", () => {
     cy.injectAxe();
     cy.dsoCheckA11y("dso-map-controls.hydrated");
+  });
+
+  it("shows a Button with Icon 'layers' and text 'Kaartlagen'", () => {
+    cy.viewport(768, 660).get("@toggleVisibilityButton").matchImageSnapshot();
+  });
+
+  it("shows a Button with Icon 'layers' and text 'Map layers'", () => {
+    cy.viewport(768, 660)
+      .visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
+      .get("dso-map-controls.hydrated")
+      .shadow()
+      .find(".toggle-visibility-button")
+      .matchImageSnapshot();
+  });
+
+  it("shows an Icon Button with Icon 'layers' and attribute label='Kaartlagen`", () => {
+    cy.viewport(767, 660)
+      .get("dso-map-controls.hydrated")
+      .shadow()
+      .find(".toggle-visibility-icon-button")
+      .should("have.attr", "label", "Kaartlagen")
+      .matchImageSnapshot();
+  });
+
+  it("shows an Icon Button with Icon 'layers' and attribute label='Map layers`", () => {
+    cy.viewport(767, 660)
+      .visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls&globals=locale:en")
+      .get("dso-map-controls.hydrated")
+      .shadow()
+      .find(".toggle-visibility-icon-button")
+      .should("have.attr", "label", "Map layers");
   });
 
   it("should close layer info when layer becomes available", () => {
@@ -64,8 +95,9 @@ describe("Map Controls", () => {
       .find("section header h2")
       .should("have.text", "Kaartlagen")
       .closest("header")
-      .find("button span")
-      .should("have.text", "Verberg paneel Kaartlagen");
+      .find("dso-icon-button")
+      .should("be.visible")
+      .and("have.attr", "label", "Verberg paneel Kaartlagen");
 
     cy.get("dso-map-controls.hydrated")
       .wait(300) // transitionDuration
@@ -77,7 +109,7 @@ describe("Map Controls", () => {
       .get("dso-map-controls.hydrated")
       .shadow()
       .as("dsoMapControlsShadow")
-      .find("#toggle-visibility-button")
+      .find(".toggle-visibility-button")
       .as("toggleVisibilityButton");
 
     cy.get("@toggleVisibilityButton")
@@ -87,8 +119,9 @@ describe("Map Controls", () => {
       .find("section header h2")
       .should("have.text", "Map layers")
       .closest("header")
-      .find("button span")
-      .should("have.text", "Hide panel Map layers");
+      .find("dso-icon-button")
+      .should("be.visible")
+      .and("have.attr", "label", "Hide panel Map layers");
 
     cy.get("dso-map-controls[open].hydrated")
       .wait(300) // transitionDuration
@@ -99,16 +132,16 @@ describe("Map Controls", () => {
     cy.get("@dsoMapControlsShadow")
       .find(".zoom-buttons")
       .as("zoomButtons")
-      .find("button")
+      .find("dso-icon-button")
       .first()
-      .should("have.text", "Zoom in")
+      .should("have.attr", "label", "Zoom in")
       .click()
       .get("@dsoZoomIn")
       .should("have.been.calledOnce")
       .get("@zoomButtons")
-      .find("button")
+      .find("dso-icon-button")
       .last()
-      .should("have.text", "Zoom uit")
+      .should("have.attr", "label", "Zoom uit")
       .click()
       .get("@dsoZoomOut")
       .should("have.been.calledOnce");

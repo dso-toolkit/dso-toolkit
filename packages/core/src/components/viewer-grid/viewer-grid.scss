@@ -99,7 +99,8 @@ button {
   }
 
   .toggle-button {
-    --_dso-icon-button-map-border-radius: 0 4px 4px 0;
+    --_dt-icon-button-border-start-start-radius: 0;
+    --_dt-icon-button-border-end-start-radius: 0;
   }
 }
 
@@ -124,8 +125,10 @@ button {
 
     .shrink,
     .expand {
-      --_dso-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
-      --_dso-icon-button-map-border-radius: 4px 0 0 4px;
+      --_dt-icon-button-map-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px 0px;
+
+      --_dt-icon-button-border-start-end-radius: 0;
+      --_dt-icon-button-border-end-end-radius: 0;
     }
   }
 }
