@@ -52,7 +52,7 @@ span[role="paragraph"] + span[role="paragraph"].int-io-ref-toggletip-paragraph {
 }
 
 span[role="paragraph"].int-io-ref-toggletip-paragraph {
-  block-size: 24px;
+  block-size: units.$u3;
 }
 
 :host(:not([inline])) .fallback {
