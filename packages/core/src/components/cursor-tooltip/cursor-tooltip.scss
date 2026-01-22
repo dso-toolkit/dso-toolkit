@@ -1,0 +1,21 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+@use "../../functional-components/tooltip";
+
+:host {
+  display: inline-block;
+  pointer-events: none;
+
+  .dso-tooltip {
+    .tooltip-arrow {
+      inset-block: -10px; // geen px gebruiken maar pencentage
+      inset-inline: 50%; // in het midden uitlijnen
+      // 45 graden draaien
+    }
+  }
+}
+
+@include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1, tooltip.$max-inline-size-small, true);
+
+@include utilities.box-sizing();

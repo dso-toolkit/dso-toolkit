@@ -10,7 +10,8 @@
   $arrow-size: tooltip-variables.$arrow-size,
   $padding-block-inner: tooltip-variables.$padding-block,
   $padding-inline-inner: tooltip-variables.$padding-inline,
-  $max-inline-size: tooltip-variables.$max-inline-size-small
+  $max-inline-size: tooltip-variables.$max-inline-size-small,
+  $visible: false
 ) {
   .dso-tooltip {
     @include set-colors.apply($background-color, "tooltip");
@@ -24,6 +25,11 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity tooltip-variables.$transition-duration;
+
+    @if ($visible) {
+      opacity: 1;
+      visibility: visible;
+    }
 
     &.visible {
       opacity: 1;
