@@ -32,8 +32,27 @@ span[role="paragraph"] {
   display: block;
 }
 
+span[role="paragraph"] {
+  .int-io-ref-toggletip-content {
+    margin-inline-start: units.$u1 * 0.5;
+    line-height: units.$u3;
+  }
+
+  .dso-tertiary.int-io-ref-toggletip-content {
+    transform: translateY(-2px);
+  }
+}
+
 span[role="paragraph"] + span[role="paragraph"] {
   margin-block: units.$u2 0;
+}
+
+span[role="paragraph"] + span[role="paragraph"].int-io-ref-toggletip-paragraph {
+  margin-block: units.$u1 0;
+}
+
+span[role="paragraph"].int-io-ref-toggletip-paragraph {
+  block-size: 24px;
 }
 
 :host(:not([inline])) .fallback {

@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))
 * Map Controls: Icon Button integratie ([#3362](https://github.com/dso-toolkit/dso-toolkit/issues/3362))
 
+### Fixed
+* Ozon Content: IntIoRef tooltip content uitlijning ([#3459](https://github.com/dso-toolkit/dso-toolkit/issues/3459))
+
 ### Task
 * Angular Storybook: Vervang `*ngIf` door `@if` block ([#3304](https://github.com/dso-toolkit/dso-toolkit/issues/3304))
 

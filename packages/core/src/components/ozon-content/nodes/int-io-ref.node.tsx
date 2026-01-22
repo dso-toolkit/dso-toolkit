@@ -28,17 +28,18 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
         <dso-ozon-content-toggletip icon="map-location">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           {annotated && (
-            <span role="paragraph">
-              Gebieden op de kaart tonen:{" "}
-              <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
+            <span role="paragraph" class="int-io-ref-toggletip-paragraph">
+              Gebieden op de kaart tonen:
+              <button type="button" class="dso-tertiary int-io-ref-toggletip-content" onClick={intIoRefOnClick}>
                 <span>Kenmerken en kaart</span>
                 <dso-icon icon="label" />
               </button>
             </span>
           )}
-          <span role="paragraph">
-            Officiële publicaties:{" "}
+          <span role="paragraph" class="int-io-ref-toggletip-paragraph">
+            Officiële publicaties:
             <a
+              class="int-io-ref-toggletip-content"
               target="_blank"
               rel="noopener noreferrer"
               href={href ?? undefined}
