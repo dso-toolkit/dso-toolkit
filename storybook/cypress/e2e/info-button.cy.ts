@@ -1,5 +1,5 @@
 describe("Info Button", () => {
-  const variants = ["inactive", "active", "secondary-inactive", "secondary-active", "with-toggletip"];
+  const variants = ["default", "information", "secondary-inactive", "secondary-active"];
 
   variants.forEach((variant) => {
     it(`${variant} should be accessible and match snapshot`, () => {
@@ -10,9 +10,9 @@ describe("Info Button", () => {
     });
   });
 
-  describe("with toggletip", () => {
+  describe("information toggletip", () => {
     beforeEach(() => {
-      cy.visit("http://localhost:45000/iframe.html?id=core-info-button--with-toggletip");
+      cy.visit("http://localhost:45000/iframe.html?id=core-info-button--information");
     });
 
     it(`should show the tooltip on hover`, () => {

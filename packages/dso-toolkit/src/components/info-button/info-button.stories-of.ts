@@ -11,11 +11,10 @@ import { InfoButton } from "./info-button.models.js";
 type InfoButtonStory = StoryObj<InfoButtonArgs, Renderer>;
 
 interface InfoButtonStories {
-  Active: InfoButtonStory;
-  Inactive: InfoButtonStory;
+  Default: InfoButtonStory;
+  Information: InfoButtonStory;
   SecondaryActive: InfoButtonStory;
   SecondaryInactive: InfoButtonStory;
-  WithToggletip: InfoButtonStory;
 }
 
 export interface InfoButtonTemplates<TemplateFnReturnType> {
@@ -59,22 +58,16 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
   templateContainer,
 }: InfoButtonStoriesParameters<Implementation, Templates, TemplateFnReturnType>): InfoButtonStories {
   return {
-    Active: {
+    Default: {
       ...baseStoryParameters,
-      args: {
-        active: true,
-      },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
         infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
-    Inactive: {
+    Information: {
       ...baseStoryParameters,
-      args: {
-        active: false,
-      },
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
+      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
+        infoButtonTemplate(infoButtonArgsMapper(args, children)),
       ),
     },
     SecondaryActive: {
@@ -95,15 +88,6 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
       },
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
         infoButtonTemplate(infoButtonArgsMapper(args)),
-      ),
-    },
-    WithToggletip: {
-      ...baseStoryParameters,
-      args: {
-        active: false,
-      },
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args, children)),
       ),
     },
   };
