@@ -19,10 +19,6 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   cursor: default !important;
 }
 
-::slotted([slot="label"]) {
-  user-select: text;
-}
-
 .toggletip-button {
   @include button.base($modifiers: false);
 
@@ -35,6 +31,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   vertical-align: baseline;
   display: inline;
   overflow-wrap: break-word;
+  user-select: text;
 
   &,
   &:hover,

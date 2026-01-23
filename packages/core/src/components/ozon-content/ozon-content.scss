@@ -32,27 +32,26 @@ span[role="paragraph"] {
   display: block;
 }
 
-span[role="paragraph"] {
-  .int-io-ref-toggletip-content {
-    margin-inline-start: units.$u1 * 0.5;
-    line-height: units.$u3;
-  }
-
-  .dso-tertiary.int-io-ref-toggletip-content {
-    transform: translateY(-2px);
-  }
-}
-
 span[role="paragraph"] + span[role="paragraph"] {
   margin-block: units.$u2 0;
 }
 
-span[role="paragraph"] + span[role="paragraph"].int-io-ref-toggletip-paragraph {
-  margin-block: units.$u1 0;
-}
-
 span[role="paragraph"].int-io-ref-toggletip-paragraph {
-  block-size: units.$u3;
+  margin-block-start: units.$u1;
+
+  button,
+  a {
+    margin-inline-start: units.$u1 * 0.5;
+  }
+
+  .dso-tertiary {
+    transform: translateY(-2px);
+    block-size: units.$u3;
+  }
+
+  + .int-io-ref-toggletip-paragraph {
+    margin-block: units.$u1 0;
+  }
 }
 
 :host(:not([inline])) .fallback {
@@ -310,5 +309,23 @@ td {
 
   del {
     @include delete.root();
+  }
+}
+
+.int-io-ref-toggletip-paragraph {
+  block-size: units.$u3;
+
+  button,
+  a {
+    margin-inline-start: units.$u1 * 0.5;
+    line-height: units.$u3;
+  }
+
+  .dso-tertiary {
+    transform: translateY(-2px);
+  }
+
+  + .int-io-ref-toggletip-paragraph {
+    margin-block: units.$u2 0;
   }
 }
