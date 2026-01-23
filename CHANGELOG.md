@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Onboarding Tip: WCAG verbeteringen ([#3301](https://github.com/dso-toolkit/dso-toolkit/issues/3301))
+
 ### Changed
 * **BREAKING** Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))
 
