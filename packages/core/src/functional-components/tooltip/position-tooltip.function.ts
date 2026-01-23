@@ -53,13 +53,14 @@ export function positionTooltip(options: TooltipOptions) {
         }),
         enableInnerScroll &&
           size({
-            apply({ availableHeight }) {
+            apply({ availableHeight, availableWidth }) {
               const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
 
               if (!inner) return;
 
               Object.assign(inner.style, {
-                maxHeight: `${availableHeight}px`,
+                width: `${availableWidth - padding * 2}px`,
+                maxHeight: `${availableHeight - padding}px`,
               });
             },
           }),
