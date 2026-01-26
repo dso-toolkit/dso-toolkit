@@ -114,7 +114,7 @@ export class OnboardingTip implements ComponentInterface {
     const ariaLabel = this.headingSlottedElement?.textContent;
     return (
       <Host popover="manual" ready={this.ready} onAnimationend={() => (this.ready = true)}>
-        <div role="dialog" class="onboarding-tip" aria-label={ariaLabel} onKeyDown={this.blockEscapeKey} tabindex={0}>
+        <div role="dialog" class="onboarding-tip" aria-label={ariaLabel} onKeyDown={this.blockEscapeKey} tabindex={-1}>
           <div class="onboarding-tip-inner">
             <div class="onboarding-tip-content-wrapper">
               {this.headingSlottedElement !== null && (
