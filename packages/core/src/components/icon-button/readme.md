@@ -59,11 +59,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   dso-alert --> dso-icon-button
   dso-document-component --> dso-icon-button
   dso-image-overlay --> dso-icon-button

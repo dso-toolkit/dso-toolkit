@@ -796,6 +796,11 @@ export namespace Components {
           * To set focus to the toggle button.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * The placement of the Toggle tip on click.
+          * @default "top"
+         */
+        "toggletipPlacement": TooltipPlacement;
     }
     interface DsoInputRange {
         /**
@@ -3505,6 +3510,11 @@ declare namespace LocalJSX {
           * For secondary Info Button.
          */
         "secondary"?: boolean;
+        /**
+          * The placement of the Toggle tip on click.
+          * @default "top"
+         */
+        "toggletipPlacement"?: TooltipPlacement;
     }
     interface DsoInputRange {
         /**

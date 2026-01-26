@@ -3,6 +3,7 @@ import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 import { DsoInfoButton } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+import { children } from "../toggletip/toggletip.content";
 
 import readme from "./readme.md?raw";
 
@@ -18,15 +19,16 @@ const meta: Meta<InfoButtonArgs> = {
 
 export default meta;
 
-const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStories({
+const { Default, Information, SecondaryActive, SecondaryInactive } = infoButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { infoButtonTemplate } = templates;
 
     return {
       infoButtonTemplate,
+      children,
     };
   },
 });
 
-export { Active, Inactive, SecondaryActive, SecondaryInactive };
+export { Default, Information, SecondaryActive, SecondaryInactive };

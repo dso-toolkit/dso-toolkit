@@ -8,7 +8,7 @@ export interface FormGroupBase<TemplateFnReturnType> {
   required?: boolean;
   readonly?: boolean;
   disabled?: boolean;
-  infoButton?: InfoButton;
+  infoButton?: InfoButton<TemplateFnReturnType>;
   info?: Info<TemplateFnReturnType>;
   state?: "invalid" | "valid";
   errorText?: string;

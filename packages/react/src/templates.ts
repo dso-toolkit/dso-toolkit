@@ -95,7 +95,7 @@ export interface Components {
   icon: Icon;
   imageOverlay: ImageOverlay;
   info: Info<JSX.Element>;
-  infoButton: InfoButton;
+  infoButton: InfoButton<JSX.Element>;
   label: Label;
   listButton: ListButton;
   modal: Modal<JSX.Element>;

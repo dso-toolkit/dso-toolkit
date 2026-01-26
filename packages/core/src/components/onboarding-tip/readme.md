@@ -48,6 +48,7 @@ graph TD;
   dso-onboarding-tip --> dso-icon
   dso-onboarding-tip --> dso-icon-button
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   style dso-onboarding-tip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
