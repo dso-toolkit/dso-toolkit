@@ -1,8 +1,8 @@
-import { Placement } from "@floating-ui/dom";
 import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 
 import { toggletip } from "../../functional-components/tooltip/toggletip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
+import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
@@ -42,7 +42,7 @@ export class InfoButton {
    * The placement of the Toggle tip on click.
    */
   @Prop()
-  toggletipPlacement: Placement = "top-start";
+  toggletipPlacement: TooltipPlacement = "top";
 
   /**
    * Emitted when the user activates the Info Button.
@@ -105,7 +105,7 @@ export class InfoButton {
         this.toggletipArrowElRef,
         !!this.active,
         this.showToggletip,
-        this.toggletipPlacement,
+        `${this.toggletipPlacement}-start`,
       );
 
       // Eventlisteners alleen toevoegen als toggletip actief is
