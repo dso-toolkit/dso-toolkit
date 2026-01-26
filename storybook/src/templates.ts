@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import {
   // Start: named template model imports
   Accordion,
@@ -122,7 +123,6 @@ import { coreButtonGroup } from "./components/button-group/button-group.core-tem
 import { coreCard } from "./components/card/card.core-template";
 import { coreCardContainer } from "./components/card-container/card-container.core-template";
 import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
-import { coreCursorTooltip } from "./components/cursor-tooltip/cursor-tooltip.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { coreDocumentCard } from "./components/document-card/document-card.core-template";
 import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
@@ -218,6 +218,7 @@ import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
+import { coreCursorTooltip } from "./components/cursor-tooltip/cursor-tooltip.core-template";
 // End: import templates
 
 export interface Components {
@@ -241,8 +242,8 @@ export interface Components {
   cardGrid: CardGrid<TemplateResult>;
   cardList: CardList<TemplateResult>;
   contactInformation: ContactInformation<TemplateResult | string>;
-  context: Context<TemplateResult>;
   cursorTooltip: CursorTooltip;
+  context: Context<TemplateResult>;
   datePicker: DatePicker;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;

@@ -8,14 +8,30 @@
   pointer-events: none;
 
   .dso-tooltip {
+    position: relative;
+    max-inline-size: 22.5em;
+    margin-block: 0;
+    margin-inline: units.$u1;
+
     .tooltip-arrow {
-      inset-block: -10px; // geen px gebruiken maar pencentage
+      position: absolute;
+      inset-block-start: -6px; // percentage boven de tooltip
       inset-inline: 50%; // in het midden uitlijnen
-      // 45 graden draaien
+      transform: translateX(-50%) rotate(180deg);
+      border-inline-start: units.$u1 solid transparent;
+      border-inline-end: units.$u1 solid transparent;
+      border-block-start: units.$u1 solid colors.$grijs-75;
+      background: transparent;
+      border-radius: units.$focus-border-radius;
+    }
+
+    .tooltip-inner {
+      padding-block: units.$u1;
+      padding-inline: units.$u2;
     }
   }
 }
 
-@include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1, tooltip.$max-inline-size-small, true);
+@include tooltip.include(colors.$grijs-75, 4px, units.$u1, 0, units.$u1, tooltip.$max-inline-size-small, true);
 
 @include utilities.box-sizing();
