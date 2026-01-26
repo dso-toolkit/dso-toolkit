@@ -29,7 +29,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           {annotated && (
             <span role="paragraph" class="int-io-ref-toggletip-paragraph">
-              Gebieden op de kaart tonen:
+              Gebieden op de kaart tonen:{" "}
               <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
                 <span>Kenmerken en kaart</span>
                 <dso-icon icon="label" />
@@ -37,7 +37,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
             </span>
           )}
           <span role="paragraph" class="int-io-ref-toggletip-paragraph">
-            Officiële publicaties:
+            Officiële publicaties:{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
