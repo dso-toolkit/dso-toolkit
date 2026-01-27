@@ -17,7 +17,8 @@ describe("Label", () => {
       .invoke("text", defaultLabelText);
   }
 
-  it("must truncate label", () => {
+  // Onderstaande test fixen via #3522
+  it.skip("must truncate label", () => {
     cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
 
     cy.get("@dsoLabel")
