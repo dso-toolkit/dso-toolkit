@@ -28,7 +28,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
         <dso-ozon-content-toggletip icon="map-location">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           {annotated && (
-            <span role="paragraph" class="int-io-ref-toggletip-paragraph">
+            <span role="paragraph">
               Gebieden op de kaart tonen:{" "}
               <button type="button" class="dso-tertiary" onClick={intIoRefOnClick}>
                 <span>Kenmerken en kaart</span>
@@ -36,7 +36,7 @@ export class OzonContentIntIoRefNode implements OzonContentNode {
               </button>
             </span>
           )}
-          <span role="paragraph" class="int-io-ref-toggletip-paragraph">
+          <span role="paragraph">
             Officiële publicaties:{" "}
             <a
               target="_blank"
