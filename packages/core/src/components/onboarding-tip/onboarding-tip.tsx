@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, h } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  State,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
@@ -32,6 +43,14 @@ export class OnboardingTip implements ComponentInterface {
   @State()
   popoverOpen = false;
 
+  private mutationObserver?: MutationObserver;
+
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+
+    this.mutationObserver.observe(this.host, { attributes: true, childList: true, subtree: true, characterData: true });
+  }
+
   componentDidRender() {
     if (!this.host.isConnected) {
       return;
@@ -40,6 +59,11 @@ export class OnboardingTip implements ComponentInterface {
     if (!this.popoverOpen) {
       this.host.showPopover();
       this.popoverOpen = true;
+
+      const onboardingTipElement = this.host.shadowRoot?.querySelector(".onboarding-tip");
+      if (this.hasOnboardingTipElement(onboardingTipElement)) {
+        OnboardingTip.setFocus(onboardingTipElement);
+      }
     }
 
     if (!this.cleanUp && this.referenceElement && this.tipArrowRef instanceof HTMLElement) {
@@ -55,6 +79,8 @@ export class OnboardingTip implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+    delete this.mutationObserver;
     if (this.popoverOpen) {
       this.host.hidePopover();
       this.popoverOpen = false;
@@ -63,10 +89,32 @@ export class OnboardingTip implements ComponentInterface {
     this.cleanUp = undefined;
   }
 
+  /**
+   * Set focus on the onboarding tip element and reset tabIndex for accessibility.
+   */
+  private static setFocus(target: HTMLElement) {
+    if (target) {
+      target.focus();
+    }
+  }
+
+  private hasOnboardingTipElement(element: Element | null | undefined): element is HTMLElement {
+    return element instanceof HTMLElement;
+  }
+
+  private blockEscapeKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+
+      this.dsoClose.emit({ originalEvent: e });
+    }
+  };
+
   render() {
+    const ariaLabel = this.headingSlottedElement?.textContent;
     return (
       <Host popover="manual" ready={this.ready} onAnimationend={() => (this.ready = true)}>
-        <div class="onboarding-tip" role="tooltip">
+        <div role="dialog" class="onboarding-tip" aria-label={ariaLabel} onKeyDown={this.blockEscapeKey} tabindex={-1}>
           <div class="onboarding-tip-inner">
             <div class="onboarding-tip-content-wrapper">
               {this.headingSlottedElement !== null && (
