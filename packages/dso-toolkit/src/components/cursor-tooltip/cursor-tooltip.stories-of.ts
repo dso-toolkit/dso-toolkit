@@ -55,6 +55,9 @@ export function cursorTooltipStories<Implementation, Templates, TemplateFnReturn
       render: templateContainer.render(storyTemplates, (args, { cursorTooltipTemplate }) =>
         cursorTooltipTemplate(cursorTooltipArgsMapper(args)),
       ),
+      parameters: {
+        layout: "centered",
+      },
     },
   };
 }
