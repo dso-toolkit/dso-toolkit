@@ -1,0 +1,31 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+@use "../../functional-components/tooltip";
+
+:host {
+  display: inline-block;
+  pointer-events: none;
+
+  .dso-tooltip {
+    position: relative;
+
+    .tooltip-arrow {
+      inset-block-start: units.$u1 * -0.5;
+      inset-inline: 50%;
+      transform: rotate(135deg);
+      border-radius: 0;
+    }
+  }
+}
+@include tooltip.include(
+  rgba(colors.$zwart, 0.75),
+  units.$u1 * 0.5,
+  units.$u1 * 1.5,
+  units.$u1,
+  units.$u2,
+  45 * units.$u1,
+  true
+);
+
+@include utilities.box-sizing();
