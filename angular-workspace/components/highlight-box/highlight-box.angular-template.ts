@@ -1,5 +1,5 @@
 import type { IStory } from "@storybook/angular";
-import { HighlightBox } from "dso-toolkit";
+import { HighlightBox, HighlightBoxColor } from "dso-toolkit";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -8,13 +8,13 @@ export const angularHighlightBox: ComponentImplementation<HighlightBox<IStory>> 
   implementation: "angular",
   template: ({ iconTemplate }) =>
     function highlightBoxTemplate(props) {
+      const defaultColor = props.color ?? HighlightBoxColor.grey;
       return {
         props,
         template: `
         <dso-highlight-box
           [step]="${props.step}"
-          [yellow]="${props.yellow}"
-          [white]="${props.white}"
+          [attr.color]="'${defaultColor}'"
           [dropShadow]="${props.dropShadow}"
           [border]="${props.border}"
         >

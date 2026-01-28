@@ -51,3 +51,89 @@ Waar voorheen de `Badge`'s aan het eind van het `slot="status"` werden geplaatst
   </span>
 </dso-document-card>
 ```
+
+- Highlight Box
+
+<!-- truncate -->
+
+## Highlight Box
+
+Waar voorheen de props `white`, `grey` en `yellow` booleans waren, zijn deze vervangen door één nieuwe property `color` van het
+`type HighlightBoxColor = "yellow" | "white" | "grey" | "green".`
+
+### `Core` Migratiepad
+
+```html
+❌
+<dso-highlight-box>
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+
+✅
+<dso-highlight-box color="grey">
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+```
+
+### `HTML/CSS` Migratiepad
+
+```html
+❌
+<div class="dso-highlight-box">
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+
+✅
+<div class="dso-highlight-box dso-grey">
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+```
+
+### `Angular` Migratiepad
+
+```html
+❌
+<dso-highlight-box [step]="undefined" [yellow]="false" [white]="false" [dropShadow]="false" [border]="false">
+  <div class="dso-rich-content">...</div>
+</dso-highlight-box>
+
+✅
+<dso-highlight-box
+  [step]="undefined"
+  [attr.color]="'grey'"
+  [dropShadow]="undefined"
+  [border]="undefined"
+></dso-highlight-box>
+```
+
+### `React` Migratiepad
+
+```html
+❌
+<React.ForwardRef
+>
+  <div className="dso-rich-content">
+    <React.Fragment key=".0">
+      <h3>
+        Toelichting: Vergunningvrij onder voorbehoud
+      </h3>
+       ...
+    </React.Fragment>
+  </div>
+</React.ForwardRef>
+
+✅
+<HighlightBox color="grey">
+  <div className="dso-rich-content">
+    <React.Fragment key=".0">
+       <h3>
+        Toelichting: Vergunningvrij onder voorbehoud
+      </h3>
+      ...
+    </React.Fragment>
+  </div>
+</HighlightBox>
+
+<div class="dso-rich-content">...</div>
+</dso-highlight-box>
+```

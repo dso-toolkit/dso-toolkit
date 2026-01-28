@@ -1,11 +1,9 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { HighlightBox } from "./highlight-box.models.js";
+import { HighlightBox, HighlightBoxColor } from "./highlight-box.models.js";
 
 export interface HighlightBoxArgs {
-  yellow: boolean;
-  white: boolean;
-  grey: boolean;
+  color: HighlightBoxColor;
   dropShadow: boolean;
   border: boolean;
   step?: number;
@@ -14,20 +12,9 @@ export interface HighlightBoxArgs {
 }
 
 export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
-  yellow: {
-    control: {
-      type: "boolean",
-    },
-  },
-  white: {
-    control: {
-      type: "boolean",
-    },
-  },
-  grey: {
-    control: {
-      type: "boolean",
-    },
+  color: {
+    options: Object.values(HighlightBoxColor),
+    control: { type: "select" },
   },
   dropShadow: {
     control: {
@@ -66,9 +53,7 @@ export function highlightBoxArgsMapper<TemplateFnReturnType>(
     border: a.border,
     dropShadow: a.dropShadow,
     content,
-    grey: a.grey,
-    white: a.white,
-    yellow: a.yellow,
+    color: a.color,
     icon: a.icon,
     step: a.step,
     bannerImage: a.bannerImage,

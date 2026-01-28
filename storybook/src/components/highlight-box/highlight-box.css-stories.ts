@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
+import { HighlightBoxArgs, HighlightBoxColor, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/highlight-box/readme.md?raw";
 import { html } from "lit-html";
 
@@ -8,11 +8,14 @@ import { templateContainer } from "../../templates";
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
   title: "HTML|CSS/Highlight Box",
+  args: {
+    color: HighlightBoxColor.grey,
+  },
 };
 
 export default meta;
 
-const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } =
+const { Default, Yellow, Green, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } =
   highlightBoxStories({
     templateContainer,
     storyTemplates: (templates) => {
@@ -80,4 +83,4 @@ const { Default, Yellow, Grey, GreyWithBorder, WhiteWithDropshadow, WithBorder, 
     },
   });
 
-export { Default, Grey, GreyWithBorder, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };
+export { Default, Green, Grey, GreyWithBorder, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

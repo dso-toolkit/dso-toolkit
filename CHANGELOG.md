@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Onboarding Tip: WCAG verbeteringen ([#3301](https://github.com/dso-toolkit/dso-toolkit/issues/3301))
+* **BREAKING** Highlight Box: Extra optie "green" ([#3256](https://github.com/dso-toolkit/dso-toolkit/issues/3256))
 
 ### Changed
 * **BREAKING** Document Card: Label positie aanpassen ([#3347](https://github.com/dso-toolkit/dso-toolkit/issues/3347))

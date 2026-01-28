@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { HighlightBoxArgs, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
+import { HighlightBoxArgs, HighlightBoxColor, highlightBoxMeta, highlightBoxStories } from "dso-toolkit";
 import * as React from "react";
 
 import { templateContainer } from "../../templates";
@@ -9,11 +9,14 @@ import readme from "./readme.md?raw";
 const meta: Meta<HighlightBoxArgs> = {
   ...highlightBoxMeta({ readme }),
   title: "Highlight Box",
+  args: {
+    color: HighlightBoxColor.grey,
+  },
 };
 
 export default meta;
 
-const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } = highlightBoxStories({
+const { Default, Yellow, Green, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } = highlightBoxStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { highlightBoxTemplate, iconTemplate } = templates;
@@ -75,4 +78,4 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
   },
 });
 
-export { Default, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };
+export { Default, Green, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

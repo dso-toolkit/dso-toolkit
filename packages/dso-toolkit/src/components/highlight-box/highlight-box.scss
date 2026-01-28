@@ -11,6 +11,7 @@
     $grey-selector: ".dso-grey",
     $white-selector: ".dso-white",
     $yellow-selector: ".dso-yellow",
+    $green-selector: ".dso-green",
     $drop-shadow-selector: ".dso-drop-shadow",
     $border-selector: ".dso-border",
     $has-counter-selector: ".dso-has-counter",
@@ -61,9 +62,10 @@
 // Web Component
 dso-highlight-box {
   @include highlight-box.children(
-    $grey-selector: "[grey]",
-    $white-selector: "[white]",
-    $yellow-selector: "[yellow]",
+    $grey-selector: '[color="grey"]',
+    $white-selector: '[color="white"]',
+    $yellow-selector: '[color="yellow"]',
+    $green-selector: '[color="green"]',
     $drop-shadow-selector: "[drop-shadow]",
     $border-selector: "[border]",
     $has-counter-selector: "[has-counter]",
@@ -74,12 +76,12 @@ dso-highlight-box {
     @include step-counter.icon();
   }
 
-  &[yellow],
-  &:not([border]):not([white]) {
+  &[color="yellow"],
+  &:not([border]):not([color="white"]) {
     @include highlight-box.exoticChildren();
   }
 
-  &:not([border]):not([white]) {
+  &:not([border]):not([color="white"]) {
     .dso-link-list {
       @include link-list.exotic();
 

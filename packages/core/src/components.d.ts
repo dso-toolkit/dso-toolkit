@@ -701,6 +701,11 @@ export namespace Components {
          */
         "border"?: boolean;
         /**
+          * The color of the Highlight Box. Default is "grey".
+          * @default HighlightBoxColor.grey
+         */
+        "color": string;
+        /**
           * For an Highlight Box with a drop shadow.
          */
         "dropShadow"?: boolean;
@@ -708,14 +713,6 @@ export namespace Components {
           * To create a step indicator.
          */
         "step"?: number;
-        /**
-          * For a while Highlight Box.
-         */
-        "white"?: boolean;
-        /**
-          * For yellow Highlight Box.
-         */
-        "yellow"?: boolean;
     }
     interface DsoHistoryItem {
         /**
@@ -3402,6 +3399,11 @@ declare namespace LocalJSX {
          */
         "border"?: boolean;
         /**
+          * The color of the Highlight Box. Default is "grey".
+          * @default HighlightBoxColor.grey
+         */
+        "color"?: string;
+        /**
           * For an Highlight Box with a drop shadow.
          */
         "dropShadow"?: boolean;
@@ -3409,14 +3411,6 @@ declare namespace LocalJSX {
           * To create a step indicator.
          */
         "step"?: number;
-        /**
-          * For a while Highlight Box.
-         */
-        "white"?: boolean;
-        /**
-          * For yellow Highlight Box.
-         */
-        "yellow"?: boolean;
     }
     interface DsoHistoryItem {
         /**
