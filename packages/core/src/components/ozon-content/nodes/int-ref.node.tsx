@@ -29,7 +29,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
       }
 
       return (
-        <dso-ozon-content-toggletip icon="info">
+        <dso-ozon-content-toggletip icon="info-outline">
           <span slot="label">{mapNodeToJsx(node.childNodes)}</span>
           {mapNodeToJsx(Array.from(definitieXMLDocument.documentElement.childNodes))}
         </dso-ozon-content-toggletip>

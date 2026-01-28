@@ -157,7 +157,7 @@ export class MapControls implements ComponentInterface {
             <dso-icon-button
               class="close-button"
               label={this.text("hidePanel", { title: this.text("title") })}
-              icon="times"
+              icon="cross"
               variant="tertiary"
               onDsoClick={(e) => this.toggleVisibility(e.detail.originalEvent)}
               ref={(element) => (this.#closeButtonElement = element)}

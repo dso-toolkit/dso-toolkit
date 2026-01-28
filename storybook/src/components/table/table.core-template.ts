@@ -12,12 +12,24 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
   template: () =>
     function tableTemplate({ noModal, content, headingColumns, role, verticalLines }) {
       function getAriaRoledescription(sorting: TableSorting | undefined): string | undefined {
-        if (sorting === "ascending") {
+        if (sorting === "up") {
           return "sorteer oplopend knop";
         }
 
-        if (sorting === "descending") {
+        if (sorting === "down") {
           return "sorteer aflopend knop";
+        }
+
+        return undefined;
+      }
+
+      function getAriaSortValue(sorting: TableSorting | undefined): "ascending" | "descending" | undefined {
+        if (sorting === "up") {
+          return "ascending";
+        }
+
+        if (sorting === "down") {
+          return "descending";
         }
 
         return undefined;
@@ -39,7 +51,7 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
               <tr>
                 ${content.head.map((col) =>
                   "sortable" in col
-                    ? html`<th scope="col" aria-sort=${ifDefined(col.sorting)}>
+                    ? html`<th scope="col" aria-sort=${ifDefined(getAriaSortValue(col.sorting))}>
                         <button
                           type="button"
                           aria-roledescription=${ifDefined(getAriaRoledescription(col.sorting))}

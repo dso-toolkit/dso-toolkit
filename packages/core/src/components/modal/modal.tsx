@@ -133,7 +133,7 @@ export class Modal implements ComponentInterface {
               {this.closable && (
                 <dso-icon-button
                   id="close-modal"
-                  icon="times"
+                  icon="cross"
                   variant="tertiary"
                   label={this.text("close")}
                   onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
