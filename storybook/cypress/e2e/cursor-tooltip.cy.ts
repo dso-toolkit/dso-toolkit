@@ -1,4 +1,4 @@
-describe("History Item", () => {
+describe("Cursor Tooltip", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-cursor-tooltip--default");
   });

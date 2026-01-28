@@ -7,7 +7,7 @@ export const coreCursorTooltip: ComponentImplementation<CursorTooltip> = {
   component: "cursorTooltip",
   implementation: "core",
   template: () =>
-    function cursorTooltipTemplate({ message }: CursorTooltip) {
+    function cursorTooltipTemplate({ message }) {
       return html`<dso-cursor-tooltip>${message}</dso-cursor-tooltip>`;
     },
 };
