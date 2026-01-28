@@ -7,22 +7,16 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
 })
 export class HighlightBox {
   /**
-   * For yellow Highlight Box.
+   * The color of the Highlight Box. Default is "grey".
    */
   @Prop({ reflect: true })
-  yellow?: boolean;
+  color = "grey";
 
   /**
    * For a bordered Highlight Box.
    */
   @Prop({ reflect: true })
   border?: boolean;
-
-  /**
-   * For a while Highlight Box.
-   */
-  @Prop({ reflect: true })
-  white?: boolean;
 
   /**
    * For an Highlight Box with a drop shadow.

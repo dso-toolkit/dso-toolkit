@@ -1,4 +1,4 @@
-import { HighlightBox } from "dso-toolkit";
+import { HighlightBox, HighlightBoxColor } from "dso-toolkit";
 import { html, nothing } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
@@ -9,7 +9,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "html-css",
   template: ({ iconTemplate, imageTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, grey, dropShadow, border, step, icon, content, bannerImage }) {
+    function highlightBoxTemplate({ color, dropShadow, border, step, icon, content, bannerImage }) {
       function stepCounter() {
         if (step) {
           return html`<div class="dso-step-counter">${step}</div>`;
@@ -25,9 +25,10 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
       return html`
         <div
           class="dso-highlight-box ${classMap({
-            "dso-yellow": !!yellow,
-            "dso-white": !!white,
-            "dso-grey": !!grey,
+            "dso-yellow": color === HighlightBoxColor.yellow,
+            "dso-white": color === HighlightBoxColor.white,
+            "dso-grey": color === HighlightBoxColor.grey,
+            "dso-green": color === HighlightBoxColor.green,
             "dso-drop-shadow": !!dropShadow,
             "dso-border": !!border,
             "dso-has-counter": !!(step || icon),

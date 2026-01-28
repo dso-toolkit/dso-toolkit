@@ -12,6 +12,7 @@ type HighlightBoxStory = StoryObj<HighlightBoxArgs, Renderer>;
 interface HighlightBoxStories {
   Default: HighlightBoxStory;
   Yellow: HighlightBoxStory;
+  Green: HighlightBoxStory;
   Grey: HighlightBoxStory;
   GreyWithBorder: HighlightBoxStory;
   WhiteWithDropshadow: HighlightBoxStory;
@@ -39,8 +40,7 @@ export function highlightBoxMeta<TRenderer extends Renderer>({ readme }: MetaOpt
   return {
     argTypes: highlightBoxArgTypes,
     args: {
-      yellow: false,
-      white: false,
+      color: "grey",
       border: false,
       dropShadow: false,
       bannerImage: false,
@@ -67,7 +67,15 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     Yellow: {
       args: {
-        yellow: true,
+        color: "yellow",
+      },
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    Green: {
+      args: {
+        color: "green",
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
         highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
@@ -75,7 +83,7 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     Grey: {
       args: {
-        grey: true,
+        color: "grey",
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
         highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
@@ -83,7 +91,7 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     GreyWithBorder: {
       args: {
-        grey: true,
+        color: "grey",
         border: true,
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
@@ -92,7 +100,7 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     WhiteWithDropshadow: {
       args: {
-        white: true,
+        color: "white",
         dropShadow: true,
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
@@ -101,6 +109,7 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     WithBorder: {
       args: {
+        color: "white",
         border: true,
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
@@ -109,7 +118,7 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     },
     WithIcon: {
       args: {
-        yellow: true,
+        color: "yellow",
         icon: "plus",
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
