@@ -32,8 +32,15 @@ span[role="paragraph"] {
   display: block;
 }
 
-span[role="paragraph"] + span[role="paragraph"] {
-  margin-block: units.$u2 0;
+span[role="paragraph"] {
+  margin-block: units.$u1;
+
+  & + span[role="paragraph"] {
+    margin-block: 0 units.$u1;
+  }
+  .dso-tertiary {
+    margin-block-start: -3px;
+  }
 }
 
 :host(:not([inline])) .fallback {
