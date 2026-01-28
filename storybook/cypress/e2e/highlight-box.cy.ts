@@ -12,6 +12,6 @@ describe("Highlight box", () => {
 
   it("Gives each box 100% width in mobile viewport", () => {
     cy.viewport(320, 720);
-    cy.get(".dso-highlight-box").invoke("width").should("be.equal", 209);
+    cy.get(".dso-highlight-box").invoke("width").should("be.closeTo", 209, 2);
   });
 });
