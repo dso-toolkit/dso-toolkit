@@ -9,29 +9,24 @@
 
   .dso-tooltip {
     position: relative;
-    max-inline-size: 22.5em;
-    margin-block: 0;
-    margin-inline: units.$u1;
 
     .tooltip-arrow {
-      position: absolute;
-      inset-block-start: -6px; // percentage boven de tooltip
-      inset-inline: 50%; // in het midden uitlijnen
-      transform: translateX(-50%) rotate(180deg);
-      border-inline-start: units.$u1 solid transparent;
-      border-inline-end: units.$u1 solid transparent;
-      border-block-start: units.$u1 solid colors.$grijs-75;
-      background: transparent;
-      border-radius: units.$focus-border-radius;
-    }
-
-    .tooltip-inner {
-      padding-block: units.$u1;
-      padding-inline: units.$u2;
+      inset-block-start: units.$u1 * -0.5;
+      inset-inline: 50%;
+      transform: rotate(135deg);
+      border-radius: 0;
     }
   }
 }
 
-@include tooltip.include(colors.$grijs-75, 4px, units.$u1, 0, units.$u1, tooltip.$max-inline-size-small, true);
+@include tooltip.include(
+  rgba(colors.$zwart, 0.75),
+  units.$u1 * 0.5,
+  units.$u1 * 1.5,
+  units.$u1,
+  units.$u2,
+  45 * units.$u1,
+  true
+);
 
 @include utilities.box-sizing();
