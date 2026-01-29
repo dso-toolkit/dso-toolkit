@@ -9,7 +9,9 @@ export class CursorTooltip implements ComponentInterface {
   render() {
     return (
       <Host class="dso-cursor-tooltip">
-        <slot />
+        <span>
+          <slot />
+        </span>
       </Host>
     );
   }
