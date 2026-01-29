@@ -108,15 +108,15 @@ export class ozonContentToggletip implements ComponentInterface {
             <slot name="label" />
             <dso-icon icon={this.icon} />
           </span>
-          <Tooltip
-            visible
-            onAfterHidden={() => {}}
-            tipElementRef={(element) => (this.tooltip = element)}
-            tipArrowElementRef={(element) => (this.tooltipArrow = element)}
-          >
-            <slot />
-          </Tooltip>
         </span>
+        <Tooltip
+          visible
+          onAfterHidden={() => {}}
+          tipElementRef={(element) => (this.tooltip = element)}
+          tipArrowElementRef={(element) => (this.tooltipArrow = element)}
+        >
+          <slot />
+        </Tooltip>
       </Fragment>
     );
   }

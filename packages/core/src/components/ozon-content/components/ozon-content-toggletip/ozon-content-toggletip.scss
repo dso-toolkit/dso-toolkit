@@ -31,6 +31,7 @@ $icon-margin-inline-start: units.$u1 * 0.5;
   vertical-align: baseline;
   display: inline;
   overflow-wrap: break-word;
+  user-select: text;
 
   &,
   &:hover,

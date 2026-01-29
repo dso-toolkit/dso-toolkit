@@ -1,3 +1,4 @@
+@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
 @use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
@@ -31,6 +32,7 @@
     }
 
     .tooltip-inner {
+      --_dt-span-role-paragraph-margin-block: #{units.$u1};
       @include set-colors.apply($background-color, "tooltip");
 
       font-family: typography.$font-family-base;
