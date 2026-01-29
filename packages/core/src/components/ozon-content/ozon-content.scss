@@ -33,10 +33,14 @@ span[role="paragraph"] {
 }
 
 span[role="paragraph"] {
-  margin-block: var(--_dt-span-role-paragraph-margin-block, units.$u2 0);
+  margin-block: var(--_dt-span-role-paragraph-margin-block, 0);
 
-  .dso-tertiary {
-    margin-block-start: -3px;
+  + span[role="paragraph"] {
+    margin-block: var(--_dt-span-role-paragraph-margin-block, units.$u2 0);
+
+    .dso-tertiary {
+      margin-block-start: -3px;
+    }
   }
 }
 
