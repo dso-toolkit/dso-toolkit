@@ -38,6 +38,7 @@ export function infoButtonMeta<TRenderer extends Renderer>({ readme }: MetaOptio
     args: {
       label: "Toelichting bij vraag",
       dsoToggle: fn(),
+      toggletipPlacement: "top",
     },
     parameters: {
       docs: readme
