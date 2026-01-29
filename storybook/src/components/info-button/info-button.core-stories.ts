@@ -4,6 +4,8 @@ import { InfoButtonArgs, infoButtonMeta, infoButtonStories } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 
+import { children } from "./info-button.content";
+
 const meta: Meta<InfoButtonArgs> = {
   ...infoButtonMeta({ readme }),
   title: "Core/Info Button",
@@ -11,15 +13,16 @@ const meta: Meta<InfoButtonArgs> = {
 
 export default meta;
 
-const { Active, Inactive, SecondaryActive, SecondaryInactive } = infoButtonStories({
+const { Default, Information, SecondaryActive, SecondaryInactive } = infoButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { infoButtonTemplate } = templates;
 
     return {
       infoButtonTemplate,
+      children: children(templates),
     };
   },
 });
 
-export { Active, Inactive, SecondaryActive, SecondaryInactive };
+export { Default, Information, SecondaryActive, SecondaryInactive };

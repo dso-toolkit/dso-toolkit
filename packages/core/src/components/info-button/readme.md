@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                       | Type                   | Default                   |
-| ----------- | ----------- | --------------------------------- | ---------------------- | ------------------------- |
-| `active`    | `active`    | Whether the InfoButton is active. | `boolean \| undefined` | `undefined`               |
-| `label`     | `label`     | The label.                        | `string`               | `"Toelichting bij optie"` |
-| `secondary` | `secondary` | For secondary Info Button.        | `boolean \| undefined` | `undefined`               |
+| Property             | Attribute             | Description                               | Type                                     | Default                   |
+| -------------------- | --------------------- | ----------------------------------------- | ---------------------------------------- | ------------------------- |
+| `active`             | `active`              | Whether the InfoButton is active.         | `boolean \| undefined`                   | `undefined`               |
+| `label`              | `label`               | The label.                                | `string`                                 | `"Toelichting bij optie"` |
+| `secondary`          | `secondary`           | For secondary Info Button.                | `boolean \| undefined`                   | `undefined`               |
+| `toggletipPlacement` | `toggletip-placement` | The placement of the Toggle tip on click. | `"bottom" \| "left" \| "right" \| "top"` | `"top"`                   |
 
 
 ## Events
@@ -45,13 +46,16 @@ Type: `Promise<void>`
 
 - [dso-icon-button](../icon-button)
 - [dso-icon](../icon)
+- [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
+  dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
+  dso-icon-button --> dso-scrollable
   dso-selectable --> dso-info-button
   dso-toggletip --> dso-info-button
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px
