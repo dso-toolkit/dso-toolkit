@@ -42,7 +42,7 @@ export class ozonContentToggletip implements ComponentInterface {
   };
 
   private close = () => {
-    this.active = false;
+    // this.active = false;
   };
 
   private focusOutHandler = (event: FocusEvent) => {
