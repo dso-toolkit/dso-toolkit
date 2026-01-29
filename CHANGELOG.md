@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🐉 Release 86.0.0 - 2026-01-29
+
 ### Added
 * Onboarding Tip: WCAG verbeteringen ([#3301](https://github.com/dso-toolkit/dso-toolkit/issues/3301))
 
