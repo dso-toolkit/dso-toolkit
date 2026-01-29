@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from "@stencil/core";
+import { Component, ComponentInterface, Host, h } from "@stencil/core";
 
 @Component({
   tag: "dso-cursor-tooltip",
@@ -8,12 +8,9 @@ import { Component, ComponentInterface, h } from "@stencil/core";
 export class CursorTooltip implements ComponentInterface {
   render() {
     return (
-      <div class="dso-tooltip">
-        <span class="tooltip-arrow"></span>
-        <div class="tooltip-inner">
-          <slot />
-        </div>
-      </div>
+      <Host class="dso-cursor-tooltip">
+        <slot />
+      </Host>
     );
   }
 }

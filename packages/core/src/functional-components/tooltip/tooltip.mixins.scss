@@ -10,8 +10,7 @@
   $arrow-size: tooltip-variables.$arrow-size,
   $padding-block-inner: tooltip-variables.$padding-block,
   $padding-inline-inner: tooltip-variables.$padding-inline,
-  $max-inline-size: tooltip-variables.$max-inline-size-small,
-  $visible: false
+  $max-inline-size: tooltip-variables.$max-inline-size-small
 ) {
   .dso-tooltip {
     @include set-colors.apply($background-color, "tooltip");
@@ -25,15 +24,6 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity tooltip-variables.$transition-duration;
-
-    @if ($visible) {
-      opacity: 1;
-      visibility: visible;
-    } @else {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity tooltip-variables.$transition-duration;
-    }
 
     .tooltip-inner {
       @include set-colors.apply($background-color, "tooltip");
@@ -50,9 +40,9 @@
 
     .tooltip-arrow {
       @include set-colors.apply($background-color, "tooltip");
-
       position: absolute;
       border-start-start-radius: tooltip-variables.$border-radius;
+      background-color: $background-color;
       block-size: $arrow-size;
       inline-size: $arrow-size;
       pointer-events: none;

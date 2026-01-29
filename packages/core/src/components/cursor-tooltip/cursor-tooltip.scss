@@ -1,32 +1,28 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/utilities";
-@use "../../functional-components/tooltip";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
 
 :host {
+  @include set-colors.apply(rgba(colors.$zwart, 0.75), "tooltip");
+
   display: inline-block;
   pointer-events: none;
+  position: relative;
+  inline-size: 200px;
 
-  .dso-tooltip {
-    position: relative;
-
-    .tooltip-arrow {
-      inset-block-start: units.$u1 * -0.5;
-      inset-inline: 50%;
-      transform: rotate(135deg);
-      border-radius: 0;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -20px;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    inline-size: 0;
+    block-size: 0;
+    border-inline-start: 20px solid transparent;
+    border-inline-end: 20px solid transparent;
+    border-block-end: 20px solid rgba(colors.$zwart, 0.75);
   }
 }
-
-@include tooltip.include(
-  rgba(colors.$zwart, 0.75),
-  units.$u1 * 0.5,
-  units.$u1 * 1.5,
-  units.$u1,
-  units.$u2,
-  45 * units.$u1,
-  true
-);
 
 @include utilities.box-sizing();
