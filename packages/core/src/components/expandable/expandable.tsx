@@ -13,15 +13,7 @@ import {
 } from "@stencil/core";
 import { clsx } from "clsx";
 
-export interface ExpandableAnimationStartEvent {
-  currentOpen: boolean;
-  nextOpen: boolean;
-}
-
-export interface ExpandableAnimationEndEvent {
-  bodyHeight: number | undefined;
-  open: boolean;
-}
+import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./expandable.interfaces";
 
 @Component({
   tag: "dso-expandable",
