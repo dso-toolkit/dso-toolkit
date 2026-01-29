@@ -15,7 +15,7 @@ import {
 } from "@stencil/core";
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
-import { ExpandableAnimationEndEvent } from "../../expandable/expandable";
+import { ExpandableAnimationEndEvent } from "../../expandable/expandable.interfaces";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";

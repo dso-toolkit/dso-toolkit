@@ -1,10 +1,10 @@
 import { InfoButton } from "dso-toolkit";
-import * as React from "react";
+import React, { JSX } from "react";
 
 import { DsoInfoButton } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
-export const reactInfoButton: ComponentImplementation<InfoButton<React.JSX.Element>> = {
+export const reactInfoButton: ComponentImplementation<InfoButton<JSX.Element>> = {
   component: "infoButton",
   implementation: "react",
   template: () =>
