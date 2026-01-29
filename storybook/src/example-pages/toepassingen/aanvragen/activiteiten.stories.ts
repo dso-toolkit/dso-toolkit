@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../../../example-page-stories";
@@ -58,6 +59,7 @@ const Activiteiten = examplePageStories((templates) => {
                 clearButton: true,
               })}
             `,
+            color: HighlightBoxColor.grey,
           })}
           <div class="row">
             <div class="col-sm-3">

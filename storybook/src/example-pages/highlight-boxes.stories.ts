@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../example-page-stories";
@@ -28,7 +29,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
         <div class="row dso-featured dso-equal-heights">
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -46,7 +47,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
 
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -64,7 +65,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
 
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -84,7 +85,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
         <div class="row dso-featured dso-equal-heights">
           <div class="col-md-6 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -102,7 +103,7 @@ const MeerdereHighlightBoxes = examplePageStories((templates) => {
 
           <div class="col-md-6 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({

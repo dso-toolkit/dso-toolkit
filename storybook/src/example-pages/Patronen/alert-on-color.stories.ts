@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { Alert } from "dso-toolkit";
+import { Alert, HighlightBoxColor } from "dso-toolkit";
 import { TemplateResult, html } from "lit-html";
 
 import { examplePageStories } from "../../example-page-stories";
@@ -16,31 +16,31 @@ export const AlertOnColor = examplePageStories((templates) => {
 
   return html`
     ${highlightBoxTemplate({
-      grey: true,
+      color: HighlightBoxColor.grey,
       content: content(templates),
     })}
     ${highlightBoxTemplate({
-      yellow: true,
+      color: HighlightBoxColor.yellow,
       content: content(templates),
     })}
     ${highlightBoxTemplate({
-      white: true,
+      color: HighlightBoxColor.white,
       content: content(templates),
     })}
     ${highlightBoxTemplate({
-      grey: true,
+      color: HighlightBoxColor.grey,
       content: html`
         ${highlightBoxTemplate({
-          white: true,
+          color: HighlightBoxColor.white,
           content: content(templates),
         })}
       `,
     })}
     ${highlightBoxTemplate({
-      white: true,
+      color: HighlightBoxColor.white,
       content: html`
         ${highlightBoxTemplate({
-          yellow: true,
+          color: HighlightBoxColor.yellow,
           content: content(templates),
         })}
       `,

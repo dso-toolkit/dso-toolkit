@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
-import { LinkListArgs, linkListMeta, linkListStories } from "dso-toolkit";
+import { HighlightBoxColor, LinkListArgs, linkListMeta, linkListStories } from "dso-toolkit";
 import readme from "dso-toolkit/src/components/link-list/readme.md?raw";
 import { TemplateResult, html } from "lit-html";
 
@@ -23,12 +23,13 @@ const { InFooter, InHighlightBox, InNav, Ol, Ul } = linkListStories({
 
     function inHighlightBoxTemplate(linkList: TemplateResult) {
       return html`
-        ${highlightBoxTemplate({ content: linkList })} ${highlightBoxTemplate({ content: linkList, yellow: true })}
-        ${highlightBoxTemplate({ content: linkList, border: true })}
+        ${highlightBoxTemplate({ content: linkList, color: HighlightBoxColor.grey })}
+        ${highlightBoxTemplate({ content: linkList, color: HighlightBoxColor.yellow })}
+        ${highlightBoxTemplate({ content: linkList, border: true, color: HighlightBoxColor.grey })}
         ${highlightBoxTemplate({
           content: linkList,
           dropShadow: true,
-          white: true,
+          color: HighlightBoxColor.white,
         })}
       `;
     }

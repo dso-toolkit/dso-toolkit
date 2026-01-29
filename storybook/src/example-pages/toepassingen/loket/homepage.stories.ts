@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../../../example-page-stories";
@@ -43,7 +44,7 @@ const Homepage = examplePageStories((templates) => {
              dummy class above) to set your desired background-image! -->
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               content: richContentTemplate({
                 children: html`
                   <h1>Homepage</h1>
@@ -59,7 +60,7 @@ const Homepage = examplePageStories((templates) => {
         <div class="row dso-featured dso-equal-heights">
           <div class="col-xs-12">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               border: true,
               content: richContentTemplate({
                 children: html`
@@ -115,7 +116,7 @@ const Homepage = examplePageStories((templates) => {
           </div>
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -132,7 +133,7 @@ const Homepage = examplePageStories((templates) => {
           </div>
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -149,7 +150,7 @@ const Homepage = examplePageStories((templates) => {
           </div>
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               bannerImage: true,
               content: richContentTemplate({
@@ -168,7 +169,9 @@ const Homepage = examplePageStories((templates) => {
         <div class="row dso-equal-heights">
           <div class="col-md-4 col-sm-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
+              dropShadow: true,
+              bannerImage: true,
               border: true,
               content: richContentTemplate({
                 children: html`

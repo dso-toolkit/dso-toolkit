@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { featuresContent } from "../../../components/document-header/document-header.content";
@@ -81,6 +82,7 @@ const Documenten = examplePageStories((templates) => {
                 content: html`<h2 style="margin-block-start: 0; color: #8b4a6a;">
                   Laan van Westenenk 701, 7334 DP Apeldoorn
                 </h2>`,
+                color: HighlightBoxColor.grey,
               })}
             </section>
             ${buttonTemplate({
@@ -118,6 +120,7 @@ const Documenten = examplePageStories((templates) => {
                 label: "Compact weergave",
                 name: "weergave",
               }),
+              color: HighlightBoxColor.grey,
             })}
             ${accordionTemplate({
               variant: "compact-black",

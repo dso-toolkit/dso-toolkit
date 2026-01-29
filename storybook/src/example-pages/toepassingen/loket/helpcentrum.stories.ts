@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit/dist/components/highlight-box/highlight-box.models";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../../../example-page-stories";
@@ -28,7 +29,7 @@ const Helpcentrum = examplePageStories((templates) => {
         >
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               content: richContentTemplate({
                 children: html`
                   <h1>Helpcentrum</h1>
@@ -84,7 +85,7 @@ const Helpcentrum = examplePageStories((templates) => {
         <div class="row dso-equal-heights">
           <div class="col-md-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               content: richContentTemplate({
                 children: html`
@@ -101,7 +102,7 @@ const Helpcentrum = examplePageStories((templates) => {
           </div>
           <div class="col-md-6">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               content: richContentTemplate({
                 children: html`

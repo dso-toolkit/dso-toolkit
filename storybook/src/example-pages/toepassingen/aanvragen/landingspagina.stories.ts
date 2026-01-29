@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../../../example-page-stories";
@@ -26,7 +27,7 @@ const Landingspagina = examplePageStories((templates) => {
         >
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               content: richContentTemplate({
                 children: html`
                   <h1>Direct een aanvraag of melding indienen</h1>
@@ -44,7 +45,7 @@ const Landingspagina = examplePageStories((templates) => {
         <div class="row">
           <div class="col-lg-8">
             ${highlightBoxTemplate({
-              yellow: true,
+              color: HighlightBoxColor.yellow,
               content: richContentTemplate({
                 children: html`
                   <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
@@ -90,7 +91,7 @@ const Landingspagina = examplePageStories((templates) => {
           <div class="col-lg-4">
             ${highlightBoxTemplate({
               border: true,
-              white: true,
+              color: HighlightBoxColor.white,
               content: richContentTemplate({
                 children: html`
                   <h2>Vragen?</h2>
@@ -110,7 +111,7 @@ const Landingspagina = examplePageStories((templates) => {
             <ol class="row dso-equal-heights">
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 1,
                   content: richContentTemplate({
@@ -126,7 +127,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 2,
                   content: richContentTemplate({
@@ -139,7 +140,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 3,
                   content: richContentTemplate({
@@ -152,7 +153,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 4,
                   content: richContentTemplate({
@@ -168,7 +169,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 5,
                   content: richContentTemplate({
@@ -181,7 +182,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 6,
                   content: richContentTemplate({
@@ -194,7 +195,7 @@ const Landingspagina = examplePageStories((templates) => {
               </li>
               <li class="col-md-3 col-sm-6">
                 ${highlightBoxTemplate({
-                  white: true,
+                  color: HighlightBoxColor.white,
                   dropShadow: true,
                   step: 7,
                   content: richContentTemplate({
@@ -217,7 +218,7 @@ const Landingspagina = examplePageStories((templates) => {
           </div>
           <div class="col-sm-4">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               content: richContentTemplate({
                 children: html`
@@ -232,7 +233,7 @@ const Landingspagina = examplePageStories((templates) => {
           </div>
           <div class="col-sm-4">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               content: richContentTemplate({
                 children: html`
@@ -248,7 +249,7 @@ const Landingspagina = examplePageStories((templates) => {
           </div>
           <div class="col-sm-4">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               dropShadow: true,
               content: richContentTemplate({
                 children: html`

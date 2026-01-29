@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/web-components-vite";
+import { HighlightBoxColor } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { examplePageStories } from "../example-page-stories";
@@ -35,7 +36,7 @@ const PaginaMetBanner = examplePageStories((templates) => {
         <div class="row">
           <div class="col-lg-8">
             ${highlightBoxTemplate({
-              yellow: true,
+              color: HighlightBoxColor.yellow,
               content: richContentTemplate({
                 children: html`
                   <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
@@ -68,7 +69,7 @@ const PaginaMetBanner = examplePageStories((templates) => {
           </div>
           <div class="col-lg-4">
             ${highlightBoxTemplate({
-              white: true,
+              color: HighlightBoxColor.white,
               border: true,
               content: richContentTemplate({
                 children: html`<h2>Vragen?</h2>
