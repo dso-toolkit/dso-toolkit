@@ -69,7 +69,6 @@ graph TD;
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-attachments-counter --> dso-icon
   style dso-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
 ```

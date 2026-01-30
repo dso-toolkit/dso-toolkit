@@ -50,7 +50,6 @@ graph TD;
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dsot-document-component-demo --> dso-annotation-locatie
   style dso-annotation-locatie fill:#f9f,stroke:#333,stroke-width:4px
 ```

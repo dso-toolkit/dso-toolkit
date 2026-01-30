@@ -82,7 +82,6 @@ graph TD;
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-info --> dso-icon-button
   dso-list-button --> dso-selectable
   dso-map-base-layers --> dso-selectable

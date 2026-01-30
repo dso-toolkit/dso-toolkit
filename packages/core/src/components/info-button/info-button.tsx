@@ -1,11 +1,13 @@
 import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 
-import { toggletip } from "../../functional-components/tooltip/toggletip.function";
+// import { toggletip } from "../../functional-components/tooltip/toggletip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
+import { positionTooltip } from '../../functional-components/tooltip/position-tooltip.function';
 
+// Todo: MutationObserver
 @Component({
   tag: "dso-info-button",
   shadow: true,
@@ -79,18 +81,16 @@ export class InfoButton {
     }
   }
 
-  private focusOutListener = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
+  private focusOutHandler = (event: FocusEvent) => {
+    if (this.active && !this.host.contains(event.relatedTarget as Node)) {
       this.active = !this.active;
     }
   };
 
-  private keyDownListener = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
+  private keyDownHandler = (event: KeyboardEvent) => {
+    if (this.active && event.key === "Escape") {
       this.active = !this.active;
     }
-
-    return;
   };
 
   get toggletipSlottedElement() {
@@ -98,40 +98,24 @@ export class InfoButton {
   }
 
   componentDidRender() {
-    if (this.toggletipSlottedElement) {
-      this.showToggletip = toggletip(
-        this.button,
-        this.toggletipElRef,
-        this.toggletipArrowElRef,
-        !!this.active,
-        this.showToggletip,
-        `${this.toggletipPlacement}-start`,
-      );
+    if (this.active && this.toggletipSlottedElement) {
+      this.toggletipElRef?.showPopover();
 
-      // Eventlisteners alleen toevoegen als toggletip actief is
-      if (this.active && !this.listenersAttached) {
-        this.host.addEventListener("keydown", this.keyDownListener);
-        this.host.addEventListener("focusout", this.focusOutListener);
-        this.listenersAttached = true;
-      }
-
-      // Eventlisteners verwijderen als toggletip niet actief
-      if (!this.active && this.listenersAttached) {
-        this.host.removeEventListener("keydown", this.keyDownListener);
-        this.host.removeEventListener("focusout", this.focusOutListener);
-        this.listenersAttached = false;
-      }
-    } else if (this.listenersAttached) {
-      // Als het slot leeg is, verwijder altijd de listeners
-      this.host.removeEventListener("keydown", this.keyDownListener);
-      this.host.removeEventListener("focusout", this.focusOutListener);
-      this.listenersAttached = false;
+      // Todo: handle cleanup
+      positionTooltip({
+        referenceElement: this.button!,
+        tipRef: this.toggletipElRef!,
+        tipArrowRef: this.toggletipArrowElRef!,
+        placementTip: this.toggletipPlacement,
+      });
+    } else {
+      this.toggletipElRef?.hidePopover();
     }
   }
 
   render() {
     return (
-      <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
+      <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)} onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
@@ -157,10 +141,12 @@ export class InfoButton {
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
-            visible={this.showToggletip}
+            visible={!!this.active}
             onAfterHidden={() => {}}
           >
-            <slot name="toggletip" />
+            <dso-scrollable>
+              <slot name="toggletip" />
+            </dso-scrollable>
           </Tooltip>
         )}
       </Host>

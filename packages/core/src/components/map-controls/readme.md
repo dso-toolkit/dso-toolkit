@@ -58,7 +58,6 @@ graph TD;
   dso-map-controls --> dso-button-group
   dso-map-controls --> dso-scrollable
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   style dso-map-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

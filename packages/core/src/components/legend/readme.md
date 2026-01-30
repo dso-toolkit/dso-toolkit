@@ -32,7 +32,6 @@ graph TD;
   dso-legend --> dso-icon-button
   dso-legend --> dso-scrollable
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   style dso-legend fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

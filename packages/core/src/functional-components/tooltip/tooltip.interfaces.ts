@@ -12,5 +12,4 @@ export type TooltipOptions = {
   topPositionSmallViewPort?: boolean;
   halfMainAxisOffset?: boolean;
   forceVisible?: boolean;
-  enableInnerScroll?: boolean;
 };

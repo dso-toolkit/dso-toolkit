@@ -33,7 +33,6 @@
 graph TD;
   dso-info --> dso-icon-button
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-selectable --> dso-info
   style dso-info fill:#f9f,stroke:#333,stroke-width:4px
 ```

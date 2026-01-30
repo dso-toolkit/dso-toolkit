@@ -50,7 +50,6 @@ graph TD;
   dso-label --> dso-icon-button
   dso-label --> dso-tooltip
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-accordion-section --> dso-label
   dso-advanced-select --> dso-label
   dso-annotation-activiteit --> dso-label

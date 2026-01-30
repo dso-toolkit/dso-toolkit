@@ -25,7 +25,6 @@ graph TD;
   dso-survey-rating --> dso-panel
   dso-panel --> dso-icon-button
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   style dso-survey-rating fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
