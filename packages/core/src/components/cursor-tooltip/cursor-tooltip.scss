@@ -8,42 +8,32 @@
 
 :host {
   @include set-colors.apply(rgba(colors.$zwart, 0.75), "tooltip");
+
   display: inline-block;
-  pointer-events: none;
   position: relative;
-  border-radius: units.$u1 * 0.5;
-  margin-inline: units.$u1;
+  max-inline-size: 45 * units.$u1;
+  pointer-events: none;
+  border-radius: 0.5 * units.$u1;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-  transition: opacity 0.15s;
-  border: 0;
-  padding: 0;
-  margin-block: units.$u1;
   overflow: unset;
+
+  margin-inline: units.$u1;
+  padding-inline: units.$u2;
+  padding-block-start: units.$u1;
+  padding-block-end: units.$u1;
 
   &::before {
     content: "";
     position: absolute;
-    inset-block-start: calc(-1 * #{units.$u1}); // move arrow up for gap
+    // Arrow sits flush with tooltip box, no gap or overlay
+    inset-block-start: -7.7px;
     block-size: units.$u1;
     inset-inline-start: 50%;
     transform: translateX(-50%);
-    inline-size: calc(2.12 * #{units.$u1});
+    inline-size: 17px;
     background: rgba(colors.$zwart, 0.75);
     clip-path: polygon(55% 5%, 100% 100%, 0% 100%, 45% 5%, 50% 3%);
     pointer-events: none;
     box-sizing: content-box;
-  }
-
-  span {
-    display: inline-block;
-    font-family: typography.$font-family-base;
-    font-size: typography.$root-font-size-base;
-    font-weight: normal;
-    padding-block-end: units.$u1;
-    padding-inline: units.$u2;
-    border-radius: units.$u1 * 0.5;
-    line-height: 1.5;
-    max-inline-size: calc(45 * #{units.$u1});
-    padding-block-start: calc(1.05 * #{units.$u1});
   }
 }
