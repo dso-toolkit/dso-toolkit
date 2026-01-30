@@ -23,6 +23,7 @@ import {
   ComponentsToTemplates,
   ContactInformation,
   Context,
+  CursorTooltip,
   DatePicker,
   DefinitionList,
   Description,
@@ -131,6 +132,7 @@ import { cssCardGrid } from "./components/card-grid/card-grid.css-template";
 import { cssCardList } from "./components/card-list/card-list.css-template";
 import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
 import { cssContext } from "./components/context/context.css-template";
+import { coreCursorTooltip } from "./components/cursor-tooltip/cursor-tooltip.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
 import { cssDefinitionList } from "./components/definition-list/definition-list.css-template";
 import { cssDescription } from "./components/description/description.css-template";
@@ -240,6 +242,7 @@ export interface Components {
   cardList: CardList<TemplateResult>;
   contactInformation: ContactInformation<TemplateResult | string>;
   context: Context<TemplateResult>;
+  cursorTooltip: CursorTooltip;
   datePicker: DatePicker;
   definitionList: DefinitionList<TemplateResult>;
   description: Description;
@@ -457,4 +460,5 @@ templateContainer.add(cssSearchBar);
 templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
+templateContainer.add(coreCursorTooltip);
 // End: add templates to container

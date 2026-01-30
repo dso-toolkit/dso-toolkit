@@ -451,6 +451,8 @@ export namespace Components {
     }
     interface DsoContactInformation {
     }
+    interface DsoCursorTooltip {
+    }
     interface DsoDatePicker {
         /**
           * ID of element that describes the input element
@@ -1863,6 +1865,12 @@ declare global {
         prototype: HTMLDsoContactInformationElement;
         new (): HTMLDsoContactInformationElement;
     };
+    interface HTMLDsoCursorTooltipElement extends Components.DsoCursorTooltip, HTMLStencilElement {
+    }
+    var HTMLDsoCursorTooltipElement: {
+        prototype: HTMLDsoCursorTooltipElement;
+        new (): HTMLDsoCursorTooltipElement;
+    };
     interface HTMLDsoDatePickerElementEventMap {
         "dsoDateChange": DatePickerChangeEvent;
         "dsoBlur": DatePickerBlurEvent;
@@ -2637,6 +2645,7 @@ declare global {
         "dso-card": HTMLDsoCardElement;
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-contact-information": HTMLDsoContactInformationElement;
+        "dso-cursor-tooltip": HTMLDsoCursorTooltipElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-document-card": HTMLDsoDocumentCardElement;
         "dso-document-component": HTMLDsoDocumentComponentElement;
@@ -3091,6 +3100,8 @@ declare namespace LocalJSX {
         "mode"?: CardContainerMode;
     }
     interface DsoContactInformation {
+    }
+    interface DsoCursorTooltip {
     }
     interface DsoDatePicker {
         /**
@@ -4337,6 +4348,7 @@ declare namespace LocalJSX {
         "dso-card": DsoCard;
         "dso-card-container": DsoCardContainer;
         "dso-contact-information": DsoContactInformation;
+        "dso-cursor-tooltip": DsoCursorTooltip;
         "dso-date-picker": DsoDatePicker;
         "dso-document-card": DsoDocumentCard;
         "dso-document-component": DsoDocumentComponent;
@@ -4415,6 +4427,7 @@ declare module "@stencil/core" {
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-contact-information": LocalJSX.DsoContactInformation & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
+            "dso-cursor-tooltip": LocalJSX.DsoCursorTooltip & JSXBase.HTMLAttributes<HTMLDsoCursorTooltipElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
             "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
