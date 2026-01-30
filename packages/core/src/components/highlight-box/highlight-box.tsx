@@ -19,10 +19,16 @@ export class HighlightBox {
   border?: boolean;
 
   /**
-   * For a while Highlight Box.
+   * For a white Highlight Box.
    */
   @Prop({ reflect: true })
   white?: boolean;
+
+  /**
+   * For a green Highlight Box.
+   */
+  @Prop({ reflect: true })
+  green?: boolean;
 
   /**
    * For an Highlight Box with a drop shadow.

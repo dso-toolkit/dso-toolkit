@@ -19,7 +19,7 @@ const meta: Meta<HighlightBoxArgs> = {
 
 export default meta;
 
-const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } = highlightBoxStories({
+const { Default, Yellow, Green, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerImage } = highlightBoxStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { highlightBoxTemplate } = templates;
@@ -31,4 +31,4 @@ const { Default, Yellow, WhiteWithDropshadow, WithBorder, WithIcon, WithBannerIm
   },
 });
 
-export { Default, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };
+export { Default, Green, WhiteWithDropshadow, WithBannerImage, WithBorder, WithIcon, Yellow };

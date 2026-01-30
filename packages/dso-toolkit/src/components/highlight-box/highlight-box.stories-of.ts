@@ -12,6 +12,7 @@ type HighlightBoxStory = StoryObj<HighlightBoxArgs, Renderer>;
 interface HighlightBoxStories {
   Default: HighlightBoxStory;
   Yellow: HighlightBoxStory;
+  Green: HighlightBoxStory;
   Grey: HighlightBoxStory;
   GreyWithBorder: HighlightBoxStory;
   WhiteWithDropshadow: HighlightBoxStory;
@@ -68,6 +69,14 @@ export function highlightBoxStories<Implementation, Templates, TemplateFnReturnT
     Yellow: {
       args: {
         yellow: true,
+      },
+      render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
+        highlightBoxTemplate(highlightBoxArgsMapper(args, content)),
+      ),
+    },
+    Green: {
+      args: {
+        green: true,
       },
       render: templateContainer.render(storyTemplates, (args, { highlightBoxTemplate, content }) =>
         highlightBoxTemplate(highlightBoxArgsMapper(args, content)),

@@ -9,7 +9,18 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "html-css",
   template: ({ iconTemplate, imageTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, grey, dropShadow, border, step, icon, content, bannerImage }) {
+    function highlightBoxTemplate({
+      yellow,
+      white,
+      grey,
+      green,
+      dropShadow,
+      border,
+      step,
+      icon,
+      content,
+      bannerImage,
+    }) {
       function stepCounter() {
         if (step) {
           return html`<div class="dso-step-counter">${step}</div>`;
@@ -28,6 +39,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
             "dso-yellow": !!yellow,
             "dso-white": !!white,
             "dso-grey": !!grey,
+            "dso-green": !!green,
             "dso-drop-shadow": !!dropShadow,
             "dso-border": !!border,
             "dso-has-counter": !!(step || icon),

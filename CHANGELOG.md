@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Highlight Box: Extra optie "green" ([#3256](https://github.com/dso-toolkit/dso-toolkit/issues/3256))
+
 ## 🐉 Release 86.0.0 - 2026-01-29
 
 ### Added
