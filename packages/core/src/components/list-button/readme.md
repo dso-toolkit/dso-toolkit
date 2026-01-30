@@ -45,7 +45,6 @@ graph TD;
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-info --> dso-icon-button
   style dso-list-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

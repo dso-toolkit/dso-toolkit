@@ -33,7 +33,6 @@ graph TD;
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
-  dso-icon-button --> dso-scrollable
   dso-legend-item --> dso-toggletip
   style dso-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```
