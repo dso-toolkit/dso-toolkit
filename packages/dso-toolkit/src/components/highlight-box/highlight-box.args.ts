@@ -6,6 +6,7 @@ export interface HighlightBoxArgs {
   yellow: boolean;
   white: boolean;
   grey: boolean;
+  green: boolean;
   dropShadow: boolean;
   border: boolean;
   step?: number;
@@ -15,6 +16,11 @@ export interface HighlightBoxArgs {
 
 export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
   yellow: {
+    control: {
+      type: "boolean",
+    },
+  },
+  green: {
     control: {
       type: "boolean",
     },
@@ -69,6 +75,7 @@ export function highlightBoxArgsMapper<TemplateFnReturnType>(
     grey: a.grey,
     white: a.white,
     yellow: a.yellow,
+    green: a.green,
     icon: a.icon,
     step: a.step,
     bannerImage: a.bannerImage,
