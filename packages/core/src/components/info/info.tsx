@@ -32,7 +32,7 @@ export class Info {
           <dso-icon-button
             label="Sluiten"
             variant="tertiary"
-            icon="times"
+            icon="cross"
             onDsoClick={(e) => this.dsoClose.emit(e.detail.originalEvent)}
           />
         )}
