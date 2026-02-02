@@ -5,6 +5,7 @@
   display: block;
   block-size: 100%;
   overflow-y: hidden;
+  border-radius: var(--_dt-scrollable-border-radius, 0);
 }
 
 @include utilities.box-sizing();

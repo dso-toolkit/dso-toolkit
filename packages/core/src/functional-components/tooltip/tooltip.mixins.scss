@@ -33,14 +33,14 @@
 
     .tooltip-inner {
       --_dt-span-role-paragraph-margin-block: #{units.$u1};
-      --_dt-scrollable-container-padding-inline: #{$padding-inline-inner};
-      --_dt-scrollable-container-padding-block: #{$padding-block-inner};
 
       @include set-colors.apply($background-color, "tooltip");
 
       font-family: typography.$font-family-base;
       font-size: typography.$root-font-size-base;
       font-weight: normal;
+      padding-block: $padding-block-inner;
+      padding-inline: $padding-inline-inner;
       border-radius: $radius-inner;
       line-height: 1.5;
       max-inline-size: $max-inline-size;
