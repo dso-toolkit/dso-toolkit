@@ -28,7 +28,7 @@ Cypress.on("uncaught:exception", (_err, _runnable) => {
 });
 
 addMatchImageSnapshotCommand({
-  failureThreshold: 0.01,
+  failureThreshold: 0,
   failureThresholdType: "percent",
   padding: 16, // units.$u2 for buiten-elementse functionele styling
   customDiffDir: "cypress/snapshot-diff",
