@@ -9,11 +9,23 @@ export const coreHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "core",
   template: ({ iconTemplate, imageTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, grey, dropShadow, border, step, icon, content, bannerImage }) {
+    function highlightBoxTemplate({
+      yellow,
+      white,
+      green,
+      grey,
+      dropShadow,
+      border,
+      step,
+      icon,
+      content,
+      bannerImage,
+    }) {
       return html`
         <dso-highlight-box
           step=${ifDefined(typeof step === "number" && step > 0 ? step : undefined)}
           ?yellow=${yellow}
+          ?green=${green}
           ?white=${white}
           ?grey=${grey}
           ?drop-shadow=${dropShadow}
