@@ -1,0 +1,35 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@include utilities.box-sizing();
+
+:host {
+  @include set-colors.apply(rgba(colors.$zwart, 0.75), "tooltip");
+
+  position: relative;
+  display: inline-block;
+  pointer-events: none;
+  overflow: unset;
+  max-inline-size: 360px;
+  margin-inline: units.$u1;
+  padding-inline: units.$u2;
+  padding-block: units.$u1;
+  border-radius: 4px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 0;
+    transform: translateX(-50%) translateY(-100%);
+    border-inline-start: units.$u1 solid transparent;
+    border-inline-end: units.$u1 solid transparent;
+    border-block-end: units.$u1 solid rgba(colors.$zwart, 0.75);
+    filter: none;
+    pointer-events: none;
+  }
+}
