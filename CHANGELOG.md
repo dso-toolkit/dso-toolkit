@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Cursor Tooltip: Nieuw component ([#3366](https://github.com/dso-toolkit/dso-toolkit/issues/3366))
+
 ## 🐉 Release 86.0.0 - 2026-01-29
 
 ### Added
