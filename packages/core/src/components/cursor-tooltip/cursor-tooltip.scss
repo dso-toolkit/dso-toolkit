@@ -9,31 +9,27 @@
 :host {
   @include set-colors.apply(rgba(colors.$zwart, 0.75), "tooltip");
 
-  display: inline-block;
   position: relative;
-  max-inline-size: 45 * units.$u1;
+  display: inline-block;
   pointer-events: none;
-  border-radius: 0.5 * units.$u1;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   overflow: unset;
-
+  max-inline-size: 360px;
   margin-inline: units.$u1;
   padding-inline: units.$u2;
-  padding-block-start: units.$u1;
-  padding-block-end: units.$u1;
+  padding-block: units.$u1;
+  border-radius: 4px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 
   &::before {
     content: "";
     position: absolute;
-    // Arrow sits flush with tooltip box, no gap or overlay
-    inset-block-start: -7.7px;
-    block-size: units.$u1;
     inset-inline-start: 50%;
-    transform: translateX(-50%);
-    inline-size: 17px;
-    background: rgba(colors.$zwart, 0.75);
-    clip-path: polygon(55% 5%, 100% 100%, 0% 100%, 45% 5%, 50% 3%);
+    inset-block-start: 0;
+    transform: translateX(-50%) translateY(-100%);
+    border-inline-start: units.$u1 solid transparent;
+    border-inline-end: units.$u1 solid transparent;
+    border-block-end: units.$u1 solid rgba(colors.$zwart, 0.75);
+    filter: none;
     pointer-events: none;
-    box-sizing: content-box;
   }
 }
