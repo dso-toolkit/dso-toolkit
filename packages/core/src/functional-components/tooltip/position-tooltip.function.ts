@@ -16,8 +16,8 @@ export function positionTooltip(options: TooltipOptions) {
     placementTip,
     topPositionSmallViewPort,
     halfMainAxisOffset,
-    forceVisible = false,
-    // enableInnerScroll = true,
+    forceVisible,
+    snuckInViewport,
   } = options;
 
   return autoUpdate(referenceElement, tipRef, () => {
@@ -51,17 +51,19 @@ export function positionTooltip(options: TooltipOptions) {
         hide({
           padding: arrowOffsetWidth + padding,
         }),
-        // enableInnerScroll &&
-          // Todo: option die niet met enableInnerScroll te maken heeft, maar iets zegt over hoe de tooltip zich gedraagt bij kleine viewports.
-          // De Onboarding Tip moet bijvoorbeeld ander gedrag hebben, daar zijn scrollbars niet gewenst.
+        snuckInViewport &&
           size({
             apply({ availableHeight, availableWidth }) {
               const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
+              const scrollable = tipRef.querySelector("dso-scrollable") as HTMLDivElement | null;
 
-              if (!inner) return;
+              if (!inner || !scrollable) return;
 
               Object.assign(inner.style, {
                 width: `${availableWidth - padding * 2}px`,
+              });
+
+              Object.assign(scrollable.style, {
                 maxHeight: `${availableHeight - padding}px`,
               });
             },

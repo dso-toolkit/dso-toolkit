@@ -8,8 +8,6 @@
 @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
 
 :host {
-  --_dt-tooltip-max-inline-size: 100%;
-
   display: inline-block;
   line-height: 1;
 }

@@ -1,13 +1,11 @@
-import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, forceUpdate, h } from "@stencil/core";
 
-// import { toggletip } from "../../functional-components/tooltip/toggletip.function";
+import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
-import { TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
 
 import { InfoButtonToggleEvent } from "./info-button.interfaces";
-import { positionTooltip } from '../../functional-components/tooltip/position-tooltip.function';
 
-// Todo: MutationObserver
 @Component({
   tag: "dso-info-button",
   shadow: true,
@@ -18,6 +16,8 @@ export class InfoButton {
   private buttonSecondary?: HTMLButtonElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
+  private cleanUp: TooltipClean | undefined;
+  private mutationObserver?: MutationObserver;
 
   @Element()
   host!: HTMLDsoInfoButtonElement;
@@ -55,11 +55,6 @@ export class InfoButton {
   @State()
   hover = false;
 
-  @State()
-  showToggletip = false;
-
-  private listenersAttached = false;
-
   /**
    * To set focus to the toggle button.
    */
@@ -72,50 +67,89 @@ export class InfoButton {
     }
   }
 
-  private handleToggle(originalEvent: MouseEvent) {
-    if (this.toggletipSlottedElement) {
-      this.active = !this.active;
-    } else {
-      this.active = !this.active;
-      this.dsoToggle.emit({ originalEvent, active: this.active });
+  private setActive(active: boolean, originalEvent?: MouseEvent) {
+    this.active = active;
+
+    if (!this.toggletipSlottedElement && originalEvent) {
+      this.dsoToggle.emit({ originalEvent, active });
     }
+  }
+
+  private handleToggle(originalEvent: MouseEvent) {
+    this.setActive(!this.active, originalEvent);
   }
 
   private focusOutHandler = (event: FocusEvent) => {
     if (this.active && !this.host.contains(event.relatedTarget as Node)) {
-      this.active = !this.active;
+      this.setActive(false);
     }
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
-    if (this.active && event.key === "Escape") {
-      this.active = !this.active;
+    if (!this.active) return;
+
+    if (event.key === "Escape") {
+      this.setActive(false);
     }
   };
+
+  private cleanupTooltip() {
+    this.cleanUp?.();
+    this.cleanUp = undefined;
+  }
 
   get toggletipSlottedElement() {
     return this.host.querySelector("[slot='toggletip']");
   }
 
   componentDidRender() {
-    if (this.active && this.toggletipSlottedElement) {
-      this.toggletipElRef?.showPopover();
+    if (this.toggletipSlottedElement) {
+      if (this.active && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
+        this.toggletipElRef?.showPopover();
 
-      // Todo: handle cleanup
-      positionTooltip({
-        referenceElement: this.button!,
-        tipRef: this.toggletipElRef!,
-        tipArrowRef: this.toggletipArrowElRef!,
-        placementTip: this.toggletipPlacement,
-      });
-    } else {
-      this.toggletipElRef?.hidePopover();
+        this.cleanUp = positionTooltip({
+          referenceElement: this.button!,
+          tipRef: this.toggletipElRef!,
+          tipArrowRef: this.toggletipArrowElRef!,
+          placementTip: this.toggletipPlacement,
+          snuckInViewport: true,
+        });
+      } else {
+        this.toggletipElRef?.hidePopover();
+
+        if (!this.active && this.cleanUp) {
+          this.cleanupTooltip();
+        }
+      }
     }
+  }
+
+  connectedCallback(): void {
+    this.mutationObserver = new MutationObserver(() => {
+      forceUpdate(this.host);
+    });
+
+    this.mutationObserver.observe(this.host, {
+      childList: true,
+      attributes: true,
+    });
+  }
+
+  disconnectedCallback() {
+    this.cleanupTooltip();
+    this.mutationObserver?.disconnect();
+
+    delete this.mutationObserver;
   }
 
   render() {
     return (
-      <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)} onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host
+        onMouseenter={() => (this.hover = true)}
+        onMouseleave={() => (this.hover = false)}
+        onKeydown={this.keyDownHandler}
+        onFocusout={this.focusOutHandler}
+      >
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"

@@ -5,17 +5,19 @@
 @use "../../functional-components/tooltip";
 
 :host {
+  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
+
   display: inline-block;
 
   > .dso-tooltip {
     --_dt-tooltip-max-inline-size: 640px;
     --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
-    --_dt-scrollable-container-padding-block: #{tooltip.$padding-inline};
+    --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
   }
 }
 
 @include utilities.box-sizing();
-@include tooltip.include();
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0);
 
 .sr-only {
   @include utilities.sr-only();
