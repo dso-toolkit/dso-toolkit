@@ -14,8 +14,7 @@
   $max-inline-size: tooltip-variables.$max-inline-size-small
 ) {
   .dso-tooltip {
-    @include set-colors.apply($background-color, "tooltip");
-
+    background-color: transparent;
     border-radius: $radius-inner;
     overflow: unset;
     margin: 0;
@@ -24,7 +23,6 @@
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
     opacity: 0;
     visibility: hidden;
-    transition: opacity tooltip-variables.$transition-duration;
 
     &.visible {
       opacity: 1;
@@ -46,8 +44,7 @@
     }
 
     .tooltip-arrow {
-      @include set-colors.apply($background-color, "tooltip");
-
+      background-color: $background-color;
       position: absolute;
       border-start-start-radius: tooltip-variables.$border-radius;
       block-size: $arrow-size;

@@ -1,0 +1,17 @@
+@use "dso-toolkit/src/variables/colors";
+@use "dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.background-light {
+  @include set-colors.apply(colors.$mauve, "background-light");
+}
+
+.background-dark {
+  @include set-colors.apply(colors.$lichtblauw-20, "background-dark");
+}

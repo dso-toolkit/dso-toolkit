@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Cursor Tooltip: Nieuw component ([#3366](https://github.com/dso-toolkit/dso-toolkit/issues/3366))
+* Button: Mode "on light" en "on dark" toevoegen aan de button varianten ([#3381](https://github.com/dso-toolkit/dso-toolkit/issues/3381))
 
 ## 🐉 Release 86.0.0 - 2026-01-29
 

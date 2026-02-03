@@ -169,6 +169,7 @@
   text-align: start;
   user-select: none;
   vertical-align: middle;
+  background-clip: padding-box;
 
   &:focus,
   &:focus-visible {
@@ -352,15 +353,39 @@
     @include base($modifiers);
   }
 
+  $defaults-map: (
+    "color": button-variables.$tertiary-color,
+  );
+
+  $hover-map: (
+    "color": button-variables.$tertiary-hover-color,
+  );
+
+  $active-map: (
+    "color": button-variables.$tertiary-active-color,
+  );
+
+  $disabled-map: (
+    "color": colors.$grasgroen-40,
+  );
+
+  @include _shared(
+    $base-styling,
+    $modifiers,
+    $defaults-map,
+    $hover-map,
+    $active-map,
+    $disabled-map,
+    $icon-only,
+    "tertiary"
+  );
+
   border: 0;
-  color: button-variables.$tertiary-color;
   line-height: 1;
   padding: 0;
   background-color: transparent;
 
   &[disabled] {
-    color: colors.$grasgroen-40;
-
     &.dso-spinner-left,
     &.dso-spinner-right {
       color: colors.$grasgroen;
@@ -369,13 +394,8 @@
 
   &:not([disabled]) {
     &:hover {
-      color: button-variables.$tertiary-hover-color;
       text-decoration: underline;
       text-underline-position: under;
-    }
-
-    &:active {
-      color: button-variables.$tertiary-active-color;
     }
   }
 
