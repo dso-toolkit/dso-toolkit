@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+// Start: import svg
 import asterisk from "dso-toolkit/src/icons/asterisk.svg";
 import balloonOutline from "dso-toolkit/src/icons/balloon-outline.svg";
 import balloonSolid from "dso-toolkit/src/icons/balloon-solid.svg";
@@ -124,7 +125,11 @@ import water from "dso-toolkit/src/icons/water.svg";
 import weather from "dso-toolkit/src/icons/weather.svg";
 import wip from "dso-toolkit/src/icons/wip.svg";
 
+import { IconAlias } from "./icon.interfaces";
+// End: import svg
+
 const icons = [
+  // Start: alias object
   { alias: "asterisk", svg: asterisk },
   { alias: "balloon-outline", svg: balloonOutline },
   { alias: "balloon-solid", svg: balloonSolid },
@@ -249,6 +254,7 @@ const icons = [
   { alias: "water", svg: water },
   { alias: "weather", svg: weather },
   { alias: "wip", svg: wip },
+  // End: alias object
 ];
 
 @Component({
@@ -261,7 +267,7 @@ export class Icon {
    * The alias of the icon.
    */
   @Prop()
-  icon?: string;
+  icon?: IconAlias;
 
   render() {
     if (this.icon) {

@@ -3,6 +3,7 @@ import { Component, ComponentInterface, Event, EventEmitter, Method, Prop, State
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
 import { TooltipClean, TooltipPlacement } from "../../functional-components/tooltip/tooltip.interfaces";
+import { IconAlias } from "../icon/icon.interfaces";
 
 import { IconButtonClickEvent, IconButtonVariant } from "./icon-button.interfaces";
 
@@ -16,7 +17,7 @@ export class IconButton implements ComponentInterface {
    * The alias of the icon in the button.
    */
   @Prop({ reflect: true })
-  icon!: string | undefined;
+  icon!: IconAlias | undefined;
 
   /**
    * The label of the Icon Button which is shown on hover in a tooltip.
