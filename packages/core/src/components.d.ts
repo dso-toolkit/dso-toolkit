@@ -709,7 +709,7 @@ export namespace Components {
          */
         "step"?: number;
         /**
-          * For a while Highlight Box.
+          * For a white Highlight Box.
          */
         "white"?: boolean;
         /**
@@ -3410,7 +3410,7 @@ declare namespace LocalJSX {
          */
         "step"?: number;
         /**
-          * For a while Highlight Box.
+          * For a white Highlight Box.
          */
         "white"?: boolean;
         /**
