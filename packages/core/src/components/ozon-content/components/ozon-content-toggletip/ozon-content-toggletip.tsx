@@ -3,6 +3,7 @@ import { Component, ComponentInterface, Element, Fragment, Listen, Prop, State, 
 import { positionTooltip } from "../../../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
 import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.interfaces";
+import { IconAlias } from "../../../icon/icon.interfaces";
 
 @Component({
   tag: "dso-ozon-content-toggletip",
@@ -21,7 +22,7 @@ export class ozonContentToggletip implements ComponentInterface {
    * The alias of the icon in the button.
    */
   @Prop({ reflect: true })
-  icon?: string;
+  icon?: IconAlias;
 
   @State()
   active = false;
