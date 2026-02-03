@@ -5,11 +5,10 @@ The default background color is `grey`. Other available variants are:
 - Green
 - Grey with border
 - White with Dropshadow
-- Grey with Banner Image
-- White with border
-- Yellow met icon
+- With Banner Image
+- With border
+- With icon
 - Yellow
-
 
 <!-- Auto Generated Below -->
 
