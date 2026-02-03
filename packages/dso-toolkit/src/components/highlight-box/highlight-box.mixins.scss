@@ -29,12 +29,13 @@
   $grey-selector,
   $white-selector,
   $yellow-selector,
+  $green-selector,
   $drop-shadow-selector,
   $border-selector,
   $has-counter-selector,
   $step-counter-selector
 ) {
-  &:not(#{$white-selector}, #{$yellow-selector}, #{$border-selector}) {
+  &:not(#{$white-selector}, #{$yellow-selector}, #{$border-selector}, #{$green-selector}) {
     @include set-colors.apply(colors.$grijs-5, "highlight-box");
   }
 
@@ -48,6 +49,10 @@
 
   &#{$yellow-selector} {
     @include set-colors.apply(colors.$geel-20, "highlight-box");
+  }
+
+  &#{$green-selector} {
+    @include set-colors.apply(colors.$grasgroen-10, "highlight-box");
   }
 
   &#{$drop-shadow-selector} {

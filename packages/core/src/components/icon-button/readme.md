@@ -49,12 +49,10 @@ Type: `Promise<void>`
  - [dso-legend](../legend)
  - [dso-legend-item](../legend-item)
  - [dso-list-button](../list-button)
- - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
  - [dso-modal](../modal)
  - [dso-onboarding-tip](../onboarding-tip)
  - [dso-panel](../panel)
- - [dso-table](../table)
 
 ### Depends on
 
@@ -73,12 +71,10 @@ graph TD;
   dso-legend --> dso-icon-button
   dso-legend-item --> dso-icon-button
   dso-list-button --> dso-icon-button
-  dso-map-controls --> dso-icon-button
   dso-mark-bar --> dso-icon-button
   dso-modal --> dso-icon-button
   dso-onboarding-tip --> dso-icon-button
   dso-panel --> dso-icon-button
-  dso-table --> dso-icon-button
   style dso-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
