@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 
 import { isModifiedEvent } from "../../utils/is-modified-event";
+import { IconAlias } from "../icon/icon.interfaces";
 
 import { HistoryItemClickEvent, HistoryItemType } from "./history-item.interfaces";
 
@@ -27,7 +28,7 @@ import { HistoryItemClickEvent, HistoryItemType } from "./history-item.interface
   shadow: true,
 })
 export class HistoryItem implements ComponentInterface {
-  private typeIcons: Record<HistoryItemType, string> = {
+  private typeIcons: Record<HistoryItemType, IconAlias> = {
     ontwerp: "pencil",
     "in-werking": "document",
     "tijdelijk-regelingdeel": "document",

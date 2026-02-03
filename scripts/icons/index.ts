@@ -3,6 +3,7 @@ import { readFile, writeFile } from "fs/promises";
 import path from "node:path";
 
 import minimist from "minimist";
+import * as prettier from "prettier";
 import { optimize } from "svgo";
 
 import { setFillCurrentColor } from "./set-fill-current-color";
@@ -73,4 +74,27 @@ async function main(newIconsDir: string = "./packages/dso-toolkit/src/icons-new"
       await writeFile(iconPath, result.data);
     }
   }
+
+  // await updateIconTsx(icons, prefix);
+
+  await generateTypeIconAlias(icons, prefix);
+}
+
+// async function updateIconTsx(icons: string[], prefix: string) {
+//   const iconTsx = readFileSync("packages/core/src/components/icon/icon.tsx", "utf-8");
+//   const iconTsxLines = iconTsx.split("\r\n");
+//   for (const line of iconTsxLines) {
+//     console.log(line);
+//   }
+// }
+
+async function generateTypeIconAlias(icons: string[], prefix: string) {
+  const filepath = "packages/core/src/components/icon/icon.interfaces.ts";
+  const aliases: string[] = icons.map((icon) => path.basename(icon.replace(prefix, "").toLowerCase(), ".svg"));
+  const contents = prettier.format(`export type IconAlias = "${aliases.join('"|"')}"`, {
+    ...(await prettier.resolveConfig(filepath)),
+    filepath,
+  });
+
+  await writeFile(filepath, await contents);
 }

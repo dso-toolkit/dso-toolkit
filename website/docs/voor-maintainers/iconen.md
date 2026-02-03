@@ -10,14 +10,14 @@ De DSO Toolkit biedt een iconenset aan. Deze set is op een aantal manieren te ge
   `packages/dso-toolkit/src/icons-new`.
 - Indien de nieuwe iconen in een folder naar keuze zijn geplaatst voer dan in de root van de repository het volgende
   commando uit: `yarn icons --newIconsDir <folder naar keuze>`.
-- Zijn de nieuwe iconen in de default folder `packages/dso-toolkit/src/icons-new` in de repository geplaatst, dan
-  is het commando simpelweg `yarn icons`.
+- Indien de nieuwe iconen in de folder `packages/dso-toolkit/src/icons-new` in de repository geplaatst, dan
+  is het commando simpelweg `yarn icons`. Het commando beschouwt die locatie als de default locatie.
 - Het commando `yarn icons` voert het script `scripts/icons` uit, dat de naam van de uit Figma gedownloade
   svg-bestanden transformeert naar de gewenste naam en optimaliseert de svg-bestanden met de node.js library
   [SVG Optimizer](https://github.com/svg/svgo). De custom plugin `setFillCurrentColor` zet `fill="currentColor"` op
   die svg's van iconen die in Figma Single Color Icons worden genoemd, zodat deze svg-bestanden via css van een ander
   kleur kunnen worden voorzien. `setFillCurrentColor` houdt daarbij rekening met iconen, waarvoor dit niet moet gebeuren.
-  Dat zijn de iconen die in Figma Multi Color Icons worden genomen: deze hebben een vaste kleurstelling. Daarnast
+  Dat zijn de iconen die in Figma Multi Color Icons worden genoemd: deze hebben een vaste kleurstelling. Daarnaast
   wordt het icon `spinner` niet door het script geprocessed, omdat dit een speciaal icon is met een animatie erin.
 - Nadat het script gedraaid heeft zullen de geoptimaliseerde svg-bestanden weggeschreven worden naar
   `/packages/dso-toolkit/src/icons` en wordt de Web Component implementatie in

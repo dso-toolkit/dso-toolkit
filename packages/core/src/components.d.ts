@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 import { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
+import { IconAlias } from "./components/icon/icon.interfaces";
 import { LabelStatus } from "./components/label/label.interfaces";
 import { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 import { AlertCloseEvent } from "./components/alert/alert.interfaces";
@@ -58,6 +59,7 @@ import { OzonContentBegripResolver as OzonContentBegripResolver1, OzonContentUrl
 export { AccordionInternalState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 export { RenvooiMarkFunction, RenvooiMarkItemHighlightEvent, RenvooiValue } from "./components/renvooi/renvooi.interfaces";
 export { AccordionHeading, AccordionSectionActiveChangeEvent, AccordionSectionAnimationEndEvent, AccordionSectionAnimationStartEvent, AccordionSectionState, AccordionSectionToggleClickEvent, AccordionSectionWijzigactie } from "./components/accordion/components/accordion-section.interfaces";
+export { IconAlias } from "./components/icon/icon.interfaces";
 export { LabelStatus } from "./components/label/label.interfaces";
 export { AdvancedSelectChangeEvent, AdvancedSelectOption, AdvancedSelectOptionOrGroup, AdvancedSelectRedirectEvent } from "./components/advanced-select/advanced-select.interfaces";
 export { AlertCloseEvent } from "./components/alert/alert.interfaces";
@@ -155,9 +157,9 @@ export namespace Components {
          */
         "heading": AccordionHeading;
         /**
-          * To set an icon in the heading handle.
+          * The alias of the icon in the heading handle.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
         /**
           * The label to be displayed in the heading handle inside a Label (optional)
          */
@@ -745,7 +747,7 @@ export namespace Components {
         /**
           * The alias of the icon.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
     }
     interface DsoIconButton {
         /**
@@ -756,7 +758,7 @@ export namespace Components {
         /**
           * The alias of the icon in the button.
          */
-        "icon": string | undefined;
+        "icon": IconAlias | undefined;
         /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
@@ -1108,7 +1110,7 @@ export namespace Components {
         /**
           * The alias of the icon in the button.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
     }
     interface DsoPagination {
         /**
@@ -2799,9 +2801,9 @@ declare namespace LocalJSX {
          */
         "heading"?: AccordionHeading;
         /**
-          * To set an icon in the heading handle.
+          * The alias of the icon in the heading handle.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
         /**
           * The label to be displayed in the heading handle inside a Label (optional)
          */
@@ -3517,7 +3519,7 @@ declare namespace LocalJSX {
         /**
           * The alias of the icon.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
     }
     interface DsoIconButton {
         /**
@@ -3528,7 +3530,7 @@ declare namespace LocalJSX {
         /**
           * The alias of the icon in the button.
          */
-        "icon": string | undefined;
+        "icon": IconAlias | undefined;
         /**
           * The label of the Icon Button which is shown on hover in a tooltip.
          */
@@ -3994,7 +3996,7 @@ declare namespace LocalJSX {
         /**
           * The alias of the icon in the button.
          */
-        "icon"?: string;
+        "icon"?: IconAlias;
     }
     interface DsoPagination {
         /**
