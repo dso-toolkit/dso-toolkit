@@ -1,4 +1,4 @@
-import { readdirSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { readFile, writeFile } from "fs/promises";
 import path from "node:path";
 
@@ -12,6 +12,8 @@ interface Args {
   dir: string | undefined;
   prefix: string | undefined;
 }
+
+const camelize = (s: string) => s.replace(/-./g, (x) => x[1].toUpperCase());
 
 // spinner is een speciale svg met een animatie erin, die niet overschreven moet worden.
 // favicon is voorlopig nog als icon in FIGMA aanwezig, maar willen we niet als icon aanbieden.
@@ -75,18 +77,50 @@ async function main(newIconsDir: string = "./packages/dso-toolkit/src/icons-new"
     }
   }
 
-  // await updateIconTsx(icons, prefix);
+  await updateIconTsx(icons, prefix);
 
   await generateTypeIconAlias(icons, prefix);
 }
 
-// async function updateIconTsx(icons: string[], prefix: string) {
-//   const iconTsx = readFileSync("packages/core/src/components/icon/icon.tsx", "utf-8");
-//   const iconTsxLines = iconTsx.split("\r\n");
-//   for (const line of iconTsxLines) {
-//     console.log(line);
-//   }
-// }
+async function updateIconTsx(icons: string[], prefix: string) {
+  const filepath = "packages/core/src/components/icon/icon.tsx";
+  const aliases: string[] = icons.map((icon) => path.basename(icon.replace(prefix, "").toLowerCase(), ".svg"));
+  // TODO: Volgende regel verwijderen via #3525
+  aliases.splice(aliases.indexOf("favicon"), 1);
+
+  const iconTsx = readFileSync(filepath, "utf-8");
+
+  // Filter out old import statements
+  let iconTsxLines = iconTsx.split("\r\n").filter((line) => !(line.startsWith("import ") && line.endsWith('.svg";')));
+
+  // Insert new import statements
+  aliases.forEach((alias, index) => {
+    iconTsxLines.splice(
+      iconTsxLines.indexOf("// Start: import svg") + 1 + index,
+      0,
+      `import ${camelize(alias)} from "dso-toolkit/src/icons/${alias}.svg";`,
+    );
+  });
+
+  // Filter out old alias objects
+  iconTsxLines = iconTsxLines.filter((line) => !(line.includes('{ alias: "') && line.endsWith(" },")));
+
+  // Insert new alias objects
+  aliases.forEach((alias, index) => {
+    iconTsxLines.splice(
+      iconTsxLines.findIndex((l) => l.includes("// Start: alias object")) + 1 + index,
+      0,
+      `{ alias: "${alias}", svg: ${camelize(alias)} },`,
+    );
+  });
+
+  const contents = prettier.format(iconTsxLines.join("\r\n"), {
+    ...(await prettier.resolveConfig(filepath)),
+    filepath,
+  });
+
+  await writeFile(filepath, await contents);
+}
 
 async function generateTypeIconAlias(icons: string[], prefix: string) {
   const filepath = "packages/core/src/components/icon/icon.interfaces.ts";
