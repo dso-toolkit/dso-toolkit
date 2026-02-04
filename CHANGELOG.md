@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Cursor Tooltip: Nieuw component ([#3366](https://github.com/dso-toolkit/dso-toolkit/issues/3366))
+* Highlight Box: Extra optie "green" ([#3256](https://github.com/dso-toolkit/dso-toolkit/issues/3256))
+
+### Changed
+* Input Range: Diverse verbeteringen ([#3148](https://github.com/dso-toolkit/dso-toolkit/issues/3148))
 
 ### Task
 * Storybook: React Storybook toont geen JSX voorschriften ([#2856](https://github.com/dso-toolkit/dso-toolkit/issues/2856))
