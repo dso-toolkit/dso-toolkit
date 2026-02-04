@@ -71,7 +71,7 @@ export class InputRange implements ComponentInterface {
             {this.description}
           </span>
         )}
-        <span class="counter min" aria-hidden="true">
+        <span class="counter" aria-hidden="true">
           {min}
           {this.unit}
         </span>
@@ -93,7 +93,7 @@ export class InputRange implements ComponentInterface {
             })
           }
         />
-        <span class="counter max" aria-hidden="true">
+        <span class="counter" aria-hidden="true">
           {max}
           {this.unit}
         </span>
