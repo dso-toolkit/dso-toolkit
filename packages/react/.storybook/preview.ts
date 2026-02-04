@@ -16,6 +16,7 @@ export const parameters: Parameters = {
     codePanel: true,
     source: {
       excludeDecorators: true,
+      type: "dynamic",
     },
   },
 };
