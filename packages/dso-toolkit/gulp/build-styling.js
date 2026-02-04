@@ -2,7 +2,6 @@ import gulp from "gulp";
 import filter from "gulp-filter";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
-import replace from "gulp-replace";
 import stylelint from "gulp-stylelint-esm";
 
 import { plugins } from "../postcss.config.js";
@@ -27,7 +26,30 @@ export function buildStyling() {
   return gulp
     .src("src/dso.scss", { sourcemaps: true })
     .pipe(sassTransformer())
-    .pipe(replace("DSO_TOOLKIT_VERSION_REPLACEMENT_TOKEN", `"${version}"`))
+    .pipe(
+      postcss([
+        (root) => {
+          const token = /DSO_TOOLKIT_VERSION_REPLACEMENT_TOKEN/g;
+          const replacement = `"${version}"`;
+
+          const replaceToken = (str) =>
+            str?.includes("DSO_TOOLKIT_VERSION_REPLACEMENT_TOKEN") ? str.replace(token, replacement) : str;
+
+          root.walkDecls((decl) => {
+            decl.value = replaceToken(decl.value);
+          });
+          root.walkRules((rule) => {
+            rule.selector = replaceToken(rule.selector);
+          });
+          root.walkAtRules((atRule) => {
+            atRule.params = replaceToken(atRule.params);
+          });
+          root.walkComments((comment) => {
+            comment.text = replaceToken(comment.text);
+          });
+        },
+      ]),
+    )
     .pipe(gulp.dest("dist", { sourcemaps: "." }))
     .pipe(filter("dso.css"))
     .pipe(
