@@ -707,11 +707,15 @@ export namespace Components {
          */
         "dropShadow"?: boolean;
         /**
+          * For a green Highlight Box.
+         */
+        "green"?: boolean;
+        /**
           * To create a step indicator.
          */
         "step"?: number;
         /**
-          * For a while Highlight Box.
+          * For a white Highlight Box.
          */
         "white"?: boolean;
         /**
@@ -3417,11 +3421,15 @@ declare namespace LocalJSX {
          */
         "dropShadow"?: boolean;
         /**
+          * For a green Highlight Box.
+         */
+        "green"?: boolean;
+        /**
           * To create a step indicator.
          */
         "step"?: number;
         /**
-          * For a while Highlight Box.
+          * For a white Highlight Box.
          */
         "white"?: boolean;
         /**

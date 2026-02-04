@@ -8,9 +8,16 @@ export const reactHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "react",
   template: ({ iconTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, content }) {
+    function highlightBoxTemplate({ yellow, white, green, dropShadow, border, step, icon, content }) {
       return (
-        <DsoHighlightBox step={step} yellow={yellow} white={white} dropShadow={dropShadow} border={border}>
+        <DsoHighlightBox
+          step={step}
+          yellow={yellow}
+          white={white}
+          green={green}
+          dropShadow={dropShadow}
+          border={border}
+        >
           {icon && iconTemplate({ icon, slot: "icon" })}
           {typeof content === "string" ? (
             <div className="dso-rich-content" dangerouslySetInnerHTML={{ __html: content }} />

@@ -26,7 +26,7 @@
   {
     "name": "highlight-box",
     "selector": "dso-highlight-box.hydrated",
-    "stories": ["default", "yellow", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
+    "stories": ["default", "yellow", "green", "white-with-dropshadow", "with-border", "with-icon", "with-banner-image"],
     "type": "core"
   },
   { "name": "icon", "selector": "dso-icon.hydrated", "stories": ["default"], "type": "core" },

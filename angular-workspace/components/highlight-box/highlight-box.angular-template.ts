@@ -15,6 +15,7 @@ export const angularHighlightBox: ComponentImplementation<HighlightBox<IStory>> 
           [step]="${props.step}"
           [yellow]="${props.yellow}"
           [white]="${props.white}"
+          [green]="${props.green}"
           [dropShadow]="${props.dropShadow}"
           [border]="${props.border}"
         >
