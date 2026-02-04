@@ -58,7 +58,7 @@ The referenced scripts are very small: Only the actually used Web Components are
 
 ### Develop or mockups
 
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 22 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 24 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -108,7 +108,7 @@ This will start Stencil on http://localhost:45333, Storybook on http://localhost
 
 ## Requirements
 
-Node 22. For development on the DSO Toolkit you also need Yarn.
+Node 24. For development on the DSO Toolkit you also need Yarn.
 
 ## Ports
 

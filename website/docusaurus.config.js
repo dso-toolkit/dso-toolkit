@@ -45,6 +45,9 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   favicon: "favicon.ico",
+  markdown: {
+    format: "mdx",
+  },
   i18n: {
     defaultLocale: "nl",
     locales: ["nl"],
