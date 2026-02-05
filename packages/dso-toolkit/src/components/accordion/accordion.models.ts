@@ -1,3 +1,4 @@
+import { IconAlias } from "../icon";
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
@@ -23,7 +24,7 @@ export interface AccordionSection<TemplateFnReturnType> {
   wijzigactie?: AccordionSectionWijzigactie;
   statusDescription?: string;
   status?: AccordionSectionStatus;
-  icon?: string;
+  icon?: IconAlias;
   attachmentCount?: number;
   content?: TemplateFnReturnType;
   labelStatus?: LabelStatus;
