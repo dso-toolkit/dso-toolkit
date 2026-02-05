@@ -36,7 +36,6 @@ export type IconAlias =
   | "external-link"
   | "eye-slash"
   | "eye"
-  | "favicon"
   | "filter"
   | "forbidden"
   | "hammer"
