@@ -2,6 +2,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
+import { IconAlias } from "../icon";
 
 import { Button, ButtonAnchor } from "./button.models.js";
 
@@ -16,7 +17,7 @@ export interface ButtonArgs {
   label: string;
   id?: string;
   disabled?: boolean;
-  icon?: string;
+  icon?: IconAlias;
   iconMode?: "only" | "after";
   mode?: "download" | "extern";
 }
