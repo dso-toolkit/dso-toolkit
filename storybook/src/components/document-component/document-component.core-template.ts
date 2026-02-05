@@ -11,16 +11,19 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
     function documentComponentTemplate({
       alternativeTitle,
       annotated,
-      bevatOntwerpInformatie,
+      badge,
+      badgeStatus,
+      badgeTooltip,
       children,
       dsoAnnotationToggle,
       dsoToggle,
       filtered,
-      genesteOntwerpInformatie,
       gereserveerd,
       heading,
       inhoud,
       kop,
+      label,
+      labelStatus,
       notApplicable,
       open,
       openAnnotation,
@@ -40,10 +43,13 @@ export const coreDocumentComponent: ComponentImplementation<DocumentComponent<Te
       return html`<dso-responsive-element class="dso-document-components">
         <dso-document-component
           ?annotated=${annotated}
-          ?bevat-ontwerp-informatie=${bevatOntwerpInformatie}
+          .badge=${ifDefined(badge)}
+          .badgeStatus=${ifDefined(badgeStatus)}
+          .badgeTooltip=${ifDefined(badgeTooltip)}
           ?filtered=${filtered}
-          ?geneste-ontwerp-informatie=${genesteOntwerpInformatie}
           .gereserveerd=${ifDefined(gereserveerd)}
+          .label=${ifDefined(label)}
+          .labelStatus=${ifDefined(labelStatus)}
           ?not-applicable=${notApplicable}
           ?open=${open}
           ?open-annotation=${openAnnotation}

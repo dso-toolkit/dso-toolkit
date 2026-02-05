@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property                    | Attribute      | Description                                                                                                     | Type                                     | Default      |
-| --------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
-| `jsonFile`                  | `json-file`    | Name of the file to load.                                                                                       | `string \| undefined`                    | `undefined`  |
-| `mode`                      | `mode`         | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"            | `"document" \| "table-of-contents"`      | `"document"` |
-| `openDefault`               | `open-default` | The default state for all Document Components.                                                                  | `boolean`                                | `false`      |
-| `ozonContentBegripResolver` | --             | A BegripResolver that will be called for STOP element "IntRef" with                                             | `OzonContentBegripResolver \| undefined` | `undefined`  |
-| `ozonContentUrlResolver`    | --             | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`    | `undefined`  |
-| `showCanvas`                | `show-canvas`  | Show canvas to where Document Component extends.                                                                | `boolean`                                | `false`      |
+| Property                    | Attribute            | Description                                                                                                     | Type                                     | Default      |
+| --------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
+| `jsonFile`                  | `json-file`          | Name of the file to load.                                                                                       | `string \| undefined`                    | `undefined`  |
+| `mode`                      | `mode`               | The mode of the Document Component. One of "document" or "table-of-contents". Defaults to "document"            | `"document" \| "table-of-contents"`      | `"document"` |
+| `openDefault`               | `open-default`       | The default state for all Document Components.                                                                  | `boolean`                                | `false`      |
+| `ozonContentBegripResolver` | --                   | A BegripResolver that will be called for STOP element "IntRef" with                                             | `OzonContentBegripResolver \| undefined` | `undefined`  |
+| `ozonContentUrlResolver`    | --                   | A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references. | `OzonContentUrlResolver \| undefined`    | `undefined`  |
+| `showBesluitversie`         | `show-besluitversie` | Show besluitversie version of the badge and label.                                                              | `boolean`                                | `false`      |
+| `showCanvas`                | `show-canvas`        | Show canvas to where Document Component extends.                                                                | `boolean`                                | `false`      |
 
 
 ## Events

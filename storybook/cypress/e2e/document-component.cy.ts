@@ -51,15 +51,27 @@ describe("Document Component", () => {
 
   it("shows a badge with an exclamationmark with tooltip", () => {
     cy.get("@document-component")
-      .invoke("attr", "geneste-ontwerp-informatie", true)
-      .invoke("attr", "bevat-ontwerp-informatie", false)
+      .invoke("prop", "badge", "!")
+      .invoke("prop", "badgeStatus", "warning")
+      .invoke("prop", "badgeTooltip", "Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.")
+      .invoke("prop", "label", undefined)
       .shadow()
       .as("dsoDocumentComponent")
-      .find("dso-badge[aria-describedby='nested-draft-description'].hydrated")
+      .find("dso-badge[aria-describedby='badge-description'].hydrated")
       .should("have.text", "!")
       .get("@dsoDocumentComponent")
-      .find("dso-tooltip#nested-draft-description.hydrated")
+      .find("dso-tooltip#badge-description.hydrated")
       .should("have.text", "Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.");
+  });
+
+  it("shows a label with status", () => {
+    cy.get("@document-component")
+      .invoke("prop", "label", "Ontwerp")
+      .invoke("prop", "labelStatus", "warning")
+      .shadow()
+      .find(".addons dso-label.hydrated")
+      .should("have.text", "Ontwerp")
+      .should("have.attr", "status", "warning");
   });
 
   const states = ["default", "voegtoe", "verwijder"];
@@ -138,7 +150,7 @@ describe("Document Component", () => {
       gereserveerd: `<Gereserveerd></Gereserveerd>`,
       vervallen: "",
       inhoud: "",
-      bevatOntwerpInformatie: false,
+      label: undefined,
       filtered: false,
     });
 

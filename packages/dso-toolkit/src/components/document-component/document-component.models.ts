@@ -1,3 +1,5 @@
+import { BadgeStatus } from "../badge/badge.models.js";
+import { LabelStatus } from "../label/label.models.js";
 import {
   OzonContentBegripResolver,
   OzonContentClickEvent,
@@ -8,13 +10,16 @@ import {
 export interface DocumentComponent<TemplateFnReturnType> {
   alternativeTitle?: string;
   annotated?: boolean;
-  bevatOntwerpInformatie?: boolean;
+  badge?: string;
+  badgeStatus?: BadgeStatus;
+  badgeTooltip?: string;
   children?: TemplateFnReturnType;
   dsoAnnotationToggle?: (e: CustomEvent<DocumentComponentAnnotationToggleEvent>) => void;
   dsoToggle?: (e: CustomEvent<DocumentComponentToggleEvent>) => void;
   filtered?: boolean;
-  genesteOntwerpInformatie?: boolean;
   gereserveerd?: DocumentComponentInputType;
+  label?: string;
+  labelStatus?: LabelStatus;
   heading: DocumentComponentHeading;
   inhoud?: string;
   notApplicable?: boolean;

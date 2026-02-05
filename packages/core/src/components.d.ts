@@ -525,20 +525,22 @@ export namespace Components {
          */
         "annotationsWijzigactie"?: DocumentComponentAnnotationsWijzigactie;
         /**
-          * Marks as draft.
-          * @default false
+          * Text to display in the badge (e.g. "!").
          */
-        "bevatOntwerpInformatie": boolean;
+        "badge"?: string;
+        /**
+          * Status/color of the badge.
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * Tooltip text for the badge.
+         */
+        "badgeTooltip"?: string;
         /**
           * Marks this Document Component as belonging to an active filter.
           * @default false
          */
         "filtered": boolean;
-        /**
-          * When a child Document Component has a status "Draft".
-          * @default false
-         */
-        "genesteOntwerpInformatie": boolean;
         /**
           * Marks Document Component as reserved.
          */
@@ -560,6 +562,14 @@ export namespace Components {
           * The Kop XML.
          */
         "kop": DocumentComponentInputType | undefined;
+        /**
+          * Text to display in the label (e.g. "Ontwerp", "Besluitversie").
+         */
+        "label"?: string;
+        /**
+          * Status/color of the label.
+         */
+        "labelStatus"?: LabelStatus;
         /**
           * To mark text.
          */
@@ -1436,6 +1446,11 @@ export namespace Components {
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
         "ozonContentUrlResolver"?: OzonContentUrlResolver1;
+        /**
+          * Show besluitversie version of the badge and label.
+          * @default false
+         */
+        "showBesluitversie": boolean;
         /**
           * Show canvas to where Document Component extends.
           * @default false
@@ -3203,20 +3218,22 @@ declare namespace LocalJSX {
          */
         "annotationsWijzigactie"?: DocumentComponentAnnotationsWijzigactie;
         /**
-          * Marks as draft.
-          * @default false
+          * Text to display in the badge (e.g. "!").
          */
-        "bevatOntwerpInformatie"?: boolean;
+        "badge"?: string;
+        /**
+          * Status/color of the badge.
+         */
+        "badgeStatus"?: BadgeStatus;
+        /**
+          * Tooltip text for the badge.
+         */
+        "badgeTooltip"?: string;
         /**
           * Marks this Document Component as belonging to an active filter.
           * @default false
          */
         "filtered"?: boolean;
-        /**
-          * When a child Document Component has a status "Draft".
-          * @default false
-         */
-        "genesteOntwerpInformatie"?: boolean;
         /**
           * Marks Document Component as reserved.
          */
@@ -3238,6 +3255,14 @@ declare namespace LocalJSX {
           * The Kop XML.
          */
         "kop"?: DocumentComponentInputType | undefined;
+        /**
+          * Text to display in the label (e.g. "Ontwerp", "Besluitversie").
+         */
+        "label"?: string;
+        /**
+          * Status/color of the label.
+         */
+        "labelStatus"?: LabelStatus;
         /**
           * To mark text.
          */
@@ -4330,6 +4355,11 @@ declare namespace LocalJSX {
           * A UrlResolver that will be called for all STOP elements that render to HTML5 elements with external references.
          */
         "ozonContentUrlResolver"?: OzonContentUrlResolver1;
+        /**
+          * Show besluitversie version of the badge and label.
+          * @default false
+         */
+        "showBesluitversie"?: boolean;
         /**
           * Show canvas to where Document Component extends.
           * @default false

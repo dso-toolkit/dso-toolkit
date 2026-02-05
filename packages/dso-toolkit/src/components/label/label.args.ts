@@ -3,20 +3,23 @@ import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
 
-import { Label } from "./label.models.js";
+import { Label, LabelStatus } from "./label.models.js";
+
+const LABEL_STATUS_OPTIONS: LabelStatus[] = [
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error",
+  "bright",
+  "attention",
+  "filter",
+  "toegevoegd",
+  "verwijderd",
+];
 
 export interface LabelArgs {
-  status:
-    | "primary"
-    | "success"
-    | "info"
-    | "warning"
-    | "error"
-    | "bright"
-    | "attention"
-    | "filter"
-    | "toegevoegd"
-    | "verwijderd";
+  status: LabelStatus;
   compact: boolean;
   truncate: boolean;
   label: string;
@@ -27,18 +30,7 @@ export interface LabelArgs {
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
   status: {
-    options: [
-      "primary",
-      "success",
-      "info",
-      "warning",
-      "error",
-      "bright",
-      "attention",
-      "filter",
-      "toegevoegd",
-      "verwijderd",
-    ],
+    options: LABEL_STATUS_OPTIONS,
     control: {
       type: "select",
     },
