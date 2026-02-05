@@ -25,6 +25,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity tooltip-variables.$transition-duration;
+    max-inline-size: $max-inline-size;
 
     &.visible {
       opacity: 1;
@@ -43,7 +44,6 @@
       padding-inline: $padding-inline-inner;
       border-radius: $radius-inner;
       line-height: 1.5;
-      max-inline-size: $max-inline-size;
     }
 
     .tooltip-arrow {

@@ -17,7 +17,7 @@ export function positionTooltip(options: TooltipOptions) {
     topPositionSmallViewPort,
     halfMainAxisOffset,
     forceVisible,
-    snuckInViewport,
+    restrictToViewport,
   } = options;
 
   return autoUpdate(referenceElement, tipRef, () => {
@@ -51,20 +51,18 @@ export function positionTooltip(options: TooltipOptions) {
         hide({
           padding: arrowOffsetWidth + padding,
         }),
-        snuckInViewport &&
+        restrictToViewport &&
           size({
             apply({ availableHeight, availableWidth }) {
-              const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
-              const scrollable = tipRef.querySelector("dso-scrollable") as HTMLDivElement | null;
-
-              if (!inner || !scrollable) return;
-
-              Object.assign(inner.style, {
+              Object.assign(tipRef.style, {
                 width: `${availableWidth - padding * 2}px`,
               });
 
-              Object.assign(scrollable.style, {
-                maxHeight: `${availableHeight - padding}px`,
+              const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
+              if (!inner) return;
+
+              Object.assign(inner.style, {
+                height: `${availableHeight - padding}px`,
               });
             },
           }),

@@ -12,5 +12,5 @@ export type TooltipOptions = {
   topPositionSmallViewPort?: boolean;
   halfMainAxisOffset?: boolean;
   forceVisible?: boolean;
-  snuckInViewport?: boolean;
+  restrictToViewport?: boolean;
 };

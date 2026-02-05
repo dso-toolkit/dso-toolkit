@@ -25,8 +25,8 @@ export class InfoButton {
   /**
    * Whether the InfoButton is active.
    */
-  @Prop({ mutable: true, reflect: true })
-  active?: boolean;
+  @Prop({ reflect: true })
+  active = false;
 
   /**
    * For secondary Info Button.
@@ -41,7 +41,7 @@ export class InfoButton {
   label = "Toelichting bij optie";
 
   /**
-   * The placement of the Toggle tip on click.
+   * The placement of the Toggletip on click.
    */
   @Prop()
   toggletipPlacement: TooltipPlacement = "top";
@@ -55,6 +55,9 @@ export class InfoButton {
   @State()
   hover = false;
 
+  @State()
+  toggletipActive = false;
+
   /**
    * To set focus to the toggle button.
    */
@@ -67,59 +70,67 @@ export class InfoButton {
     }
   }
 
-  private setActive(active: boolean, originalEvent?: MouseEvent) {
-    this.active = active;
-
-    if (!this.toggletipSlottedElement && originalEvent) {
-      this.dsoToggle.emit({ originalEvent, active });
-    }
+  private get isToggletipMode(): boolean {
+    return !!this.host.querySelector("[slot='toggletip']");
   }
 
   private handleToggle(originalEvent: MouseEvent) {
-    this.setActive(!this.active, originalEvent);
+    this.setActive(!this.active, !this.toggletipActive);
+
+    if (!this.isToggletipMode && originalEvent) {
+      this.dsoToggle.emit({ originalEvent, active: this.active });
+    }
   }
 
   private focusOutHandler = (event: FocusEvent) => {
-    if (this.active && !this.host.contains(event.relatedTarget as Node)) {
-      this.setActive(false);
+    if (!this.host.contains(event.relatedTarget as Node)) {
+      this.setActive(false, false);
     }
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
-    if (!this.active) return;
+    if (!this.active && !this.toggletipActive) return;
 
     if (event.key === "Escape") {
-      this.setActive(false);
+      this.setActive(false, false);
     }
   };
+
+  private setActive(active: boolean, toggletipActive: boolean) {
+    this.active = active;
+
+    if (this.isToggletipMode) {
+      this.toggletipActive = toggletipActive;
+    }
+  }
 
   private cleanupTooltip() {
     this.cleanUp?.();
     this.cleanUp = undefined;
   }
 
-  get toggletipSlottedElement() {
-    return this.host.querySelector("[slot='toggletip']");
-  }
-
   componentDidRender() {
-    if (this.toggletipSlottedElement) {
-      if (this.active && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
-        this.toggletipElRef?.showPopover();
+    if (!this.isToggletipMode) {
+      this.toggletipElRef?.hidePopover();
+      this.cleanupTooltip();
+      return;
+    }
 
-        this.cleanUp = positionTooltip({
-          referenceElement: this.button!,
-          tipRef: this.toggletipElRef!,
-          tipArrowRef: this.toggletipArrowElRef!,
-          placementTip: this.toggletipPlacement,
-          snuckInViewport: true,
-        });
-      } else {
-        this.toggletipElRef?.hidePopover();
+    if (this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
+      this.toggletipElRef?.showPopover();
 
-        if (!this.active && this.cleanUp) {
-          this.cleanupTooltip();
-        }
+      this.cleanUp = positionTooltip({
+        referenceElement: this.button!,
+        tipRef: this.toggletipElRef!,
+        tipArrowRef: this.toggletipArrowElRef!,
+        placementTip: this.toggletipPlacement,
+        restrictToViewport: true,
+      });
+    } else {
+      this.toggletipElRef?.hidePopover();
+
+      if (!this.toggletipActive && this.cleanUp) {
+        this.cleanupTooltip();
       }
     }
   }
@@ -155,7 +166,7 @@ export class InfoButton {
             variant="tertiary"
             label={this.label}
             onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
-            icon={this.active || this.hover ? "info-active" : "info"}
+            icon={this.active || this.hover || this.toggletipActive ? "info-active" : "info"}
             ref={(element) => (this.button = element)}
           />
         ) : (
@@ -163,19 +174,19 @@ export class InfoButton {
           <button
             type="button"
             class="dso-info-secondary"
-            aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
+            aria-expanded={this.active.toString()}
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}
           >
-            <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
+            <dso-icon icon={this.active || this.hover || this.toggletipActive ? "info-active" : "info"}></dso-icon>
             <span class="sr-only">{this.label}</span>
           </button>
         )}
-        {this.toggletipSlottedElement !== null && (
+        {this.isToggletipMode !== null && (
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
-            visible={!!this.active}
+            visible={this.toggletipActive}
             onAfterHidden={() => {}}
           >
             <dso-scrollable>

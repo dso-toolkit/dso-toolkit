@@ -797,8 +797,9 @@ export namespace Components {
     interface DsoInfoButton {
         /**
           * Whether the InfoButton is active.
+          * @default false
          */
-        "active"?: boolean;
+        "active": boolean;
         /**
           * The label.
           * @default "Toelichting bij optie"
@@ -813,7 +814,7 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * The placement of the Toggle tip on click.
+          * The placement of the Toggletip on click.
           * @default "top"
          */
         "toggletipPlacement": TooltipPlacement;
@@ -3539,6 +3540,7 @@ declare namespace LocalJSX {
     interface DsoInfoButton {
         /**
           * Whether the InfoButton is active.
+          * @default false
          */
         "active"?: boolean;
         /**
@@ -3555,7 +3557,7 @@ declare namespace LocalJSX {
          */
         "secondary"?: boolean;
         /**
-          * The placement of the Toggle tip on click.
+          * The placement of the Toggletip on click.
           * @default "top"
          */
         "toggletipPlacement"?: TooltipPlacement;
