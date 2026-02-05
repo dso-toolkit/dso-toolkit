@@ -4,10 +4,8 @@
 :host {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-
-  padding: 0.5rem;
-
+  gap: 0.625rem;
+  padding-block: 0.5rem;
   inline-size: 100%;
 }
 
@@ -15,85 +13,63 @@
 
 .counter {
   flex-shrink: 0;
-
-  min-inline-size: 5ch;
-
-  &.min {
-    text-align: end;
-  }
-
-  &.max {
-    text-align: start;
-  }
+  min-inline-size: 20px;
 }
 
 .input {
   flex-grow: 1;
-
   appearance: none;
-
   background-color: transparent;
-
   cursor: pointer;
 
   &::-webkit-slider-runnable-track {
     block-size: 0.5rem;
-
     background-color: colors.$grijs-10;
+    border: 1px solid colors.$grijs-60;
+    border-radius: 0.5rem;
+
     &:hover {
       background-color: colors.$grijs-20;
     }
-
-    border: 1px solid colors.$grijs-60;
-    border-radius: 0.5rem;
   }
 
   &::-webkit-slider-thumb {
     block-size: 1.5rem;
     inline-size: 1.5rem;
-
     appearance: none;
-
     margin-block-start: -0.55rem;
-
     background-color: colors.$grasgroen;
+    border-radius: 50%;
+
     &:hover {
       background-color: colors.$bosgroen;
     }
-
-    border-radius: 50%;
   }
 
   &::-moz-range-track {
     box-sizing: border-box;
-
     block-size: 0.5rem;
-
     background-color: colors.$grijs-10;
+    border: 1px solid colors.$grijs-60;
+    border-radius: 0.5rem;
+
     &:hover {
       background-color: colors.$grijs-20;
     }
-
-    border: 1px solid colors.$grijs-60;
-    border-radius: 0.5rem;
   }
 
   &::-moz-range-thumb {
     box-sizing: border-box;
-
     block-size: 1.5rem;
     inline-size: 1.5rem;
-
     appearance: none;
-
     margin-block-start: -0.5rem;
-
     background-color: colors.$grasgroen;
+    border-radius: 50%;
+    border-color: transparent;
+
     &:hover {
       background-color: colors.$bosgroen;
     }
-
-    border-color: transparent;
-    border-radius: 50%;
   }
 }
