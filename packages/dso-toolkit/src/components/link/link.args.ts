@@ -1,9 +1,11 @@
 import { ArgTypes } from "storybook/internal/types";
 
+import { IconAlias } from "../icon";
+
 import { Link } from "./link.models.js";
 
 export interface LinkArgs {
-  icon?: string;
+  icon?: IconAlias;
   iconMode?: "after";
   label: string;
   mode?: "download" | "extern" | undefined;

@@ -19,7 +19,7 @@ export const angularHighlightBox: ComponentImplementation<HighlightBox<IStory>> 
           [dropShadow]="${props.dropShadow}"
           [border]="${props.border}"
         >
-          ${props.icon ? iconTemplate({ icon: "icon", slot: "'icon'" }).template : ""}
+          ${props.icon ? iconTemplate({ icon: props.icon, slot: "'icon'" }).template : ""}
           ${typeof props.content === "string" ? props.content : props.content.template}
         </dso-highlight-box>
       `,

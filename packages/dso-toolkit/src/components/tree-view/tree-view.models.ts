@@ -1,3 +1,5 @@
+import { IconAlias } from "../icon";
+
 export interface TreeViewItem {
   /** The id of the item */
   id: string;
@@ -23,7 +25,7 @@ export interface TreeViewItem {
 
 export interface TreeViewItemIcon {
   /** The icon type */
-  icon: string;
+  icon: IconAlias;
   /** The label for the icon */
   label: string;
 }
