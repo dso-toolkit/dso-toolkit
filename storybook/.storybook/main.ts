@@ -1,10 +1,4 @@
-import { readdirSync } from "fs";
-import { createRequire } from "node:module";
-import { dirname, parse, resolve } from "path";
-
 import type { StorybookConfig } from "@storybook/web-components-vite";
-
-const requireFn = createRequire(import.meta.url);
 
 function getVersion() {
   if (process.env.CI && process.env.DT_REF) {
@@ -16,19 +10,6 @@ function getVersion() {
 const config: StorybookConfig = {
   typescript: { check: true },
   staticDirs: ["../../packages/dso-toolkit/storybook-assets"],
-  env: (config) => {
-    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
-    const iconsPath = resolve(corePath, "src/icons");
-    const icons = readdirSync(iconsPath)
-      .map((f) => parse(f))
-      .filter((p) => p.ext === ".svg")
-      .map((p) => p.name);
-
-    return {
-      ...config,
-      VITE_ICONS: icons.join(","),
-    };
-  },
   refs: (_config, { configType }) => {
     if (configType === "PRODUCTION") {
       return {

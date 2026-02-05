@@ -50,6 +50,8 @@ async function main(newIconsDir = "./packages/dso-toolkit/src/icons-new", prefix
   await generateTypeIconAlias(icons, prefix);
 
   await updateIconTsx(icons, prefix);
+
+  await generateIconsJson(icons, prefix);
 }
 
 async function optimizeSVGs(icons: string[], prefix: string, newIconsDir: string) {
@@ -155,4 +157,12 @@ async function updateIconTsx(icons: string[], prefix: string) {
   });
 
   await writeFile(filepath, await format(iconTsxLines.join("\r\n"), filepath));
+}
+
+async function generateIconsJson(icons: string[], prefix: string) {
+  const aliases = getAliases(icons, prefix);
+
+  const filepath = "packages/dso-toolkit/storybook-assets/icons.json";
+
+  await writeFile(filepath, await format(JSON.stringify(aliases), filepath));
 }
