@@ -1,9 +1,9 @@
 import { ArgTypes } from "storybook/internal/types";
 
-import { Icon } from "./icon.models.js";
+import { Icon, IconAlias } from "./icon.models.js";
 
 export interface IconArgs {
-  icon: string;
+  icon: IconAlias;
 }
 
 export function iconArgTypes(icons: string[]): ArgTypes<IconArgs> {

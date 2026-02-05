@@ -19,7 +19,7 @@ export interface FormGroupInputArgs {
   size?: number;
   helpText?: string;
   placeholder?: string;
-  feedbackIcon?: "email" | "energy";
+  feedbackIcon?: "mail-outline" | "energy";
   infoButtonHandler: HandlerFunction;
   infoButtonLabel: string;
   infoActive: boolean;
