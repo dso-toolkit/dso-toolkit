@@ -28,6 +28,9 @@ const getAliases = (icons: string[], prefix: string) => {
   return aliases;
 };
 
+// De uit Figma gedownloade svg-bestanden hebben een prefix. Voorbeeld: Icon=asterisk.svg
+const prefix = "Icon=";
+
 // spinner is een speciale svg met een animatie erin, die niet overschreven moet worden.
 // favicon is voorlopig nog als icon in FIGMA aanwezig, maar willen we niet als icon aanbieden.
 // favicon zal via issue #3525 worden verwijderd
@@ -42,7 +45,7 @@ main(args.newIconsDir).catch((error) => {
   process.exit(1);
 });
 
-async function main(newIconsDir = "./packages/dso-toolkit/src/icons-new", prefix = "Icon=") {
+async function main(newIconsDir = "./packages/dso-toolkit/src/icons-new") {
   const icons = await readdir(newIconsDir);
 
   await optimizeSVGs(icons, prefix, newIconsDir);
