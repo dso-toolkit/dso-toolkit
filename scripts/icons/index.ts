@@ -1,5 +1,4 @@
-import { readFileSync, readdirSync } from "fs";
-import { readFile, writeFile } from "fs/promises";
+import { readFile, readdir, writeFile } from "fs/promises";
 import path from "node:path";
 
 import minimist from "minimist";
@@ -9,7 +8,7 @@ import { optimize } from "svgo";
 import { setFillCurrentColor } from "./set-fill-current-color";
 
 interface Args {
-  dir: string | undefined;
+  newIconsDir: string | undefined;
   prefix: string | undefined;
 }
 
@@ -43,9 +42,18 @@ main(args.newIconsDir).catch((error) => {
   process.exit(1);
 });
 
-async function main(newIconsDir: string = "./packages/dso-toolkit/src/icons-new", prefix: string = "Icon=") {
+async function main(newIconsDir = "./packages/dso-toolkit/src/icons-new", prefix = "Icon=") {
+  const icons = await readdir(newIconsDir);
+
+  await optimizeSVGs(icons, prefix, newIconsDir);
+
+  await generateTypeIconAlias(icons, prefix);
+
+  await updateIconTsx(icons, prefix);
+}
+
+async function optimizeSVGs(icons: string[], prefix: string, newIconsDir: string) {
   const iconsDir = "./packages/dso-toolkit/src/icons";
-  const icons = readdirSync(newIconsDir);
 
   for (const icon of icons) {
     const newIconPath = `${newIconsDir}/${icon}`;
@@ -90,10 +98,6 @@ async function main(newIconsDir: string = "./packages/dso-toolkit/src/icons-new"
       await writeFile(iconPath, result.data);
     }
   }
-
-  await generateTypeIconAlias(icons, prefix);
-
-  await updateIconTsx(icons, prefix);
 }
 
 async function generateTypeIconAlias(icons: string[], prefix: string) {
@@ -109,7 +113,7 @@ async function generateTypeIconAlias(icons: string[], prefix: string) {
   // Start: DSO-Toolkit icon.models.ts
   filepath = "packages/dso-toolkit/src/components/icon/icon.models.ts";
 
-  const iconModels = readFileSync(filepath, "utf-8");
+  const iconModels = await readFile(filepath, "utf-8");
 
   const iconModelsLines = iconModels.split("\r\n");
   const start = iconModelsLines.indexOf("// Start: type IconAlias") + 1;
@@ -124,7 +128,7 @@ async function updateIconTsx(icons: string[], prefix: string) {
   const filepath = "packages/core/src/components/icon/icon.tsx";
   const aliases: string[] = getAliases(icons, prefix);
 
-  const iconTsx = readFileSync(filepath, "utf-8");
+  const iconTsx = await readFile(filepath, "utf-8");
 
   // Filter out svg import statements
   let iconTsxLines = iconTsx.split("\r\n").filter((line) => !(line.startsWith("import ") && line.endsWith('.svg";')));
