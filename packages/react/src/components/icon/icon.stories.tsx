@@ -1,12 +1,11 @@
 import type { Meta } from "@storybook/react-vite";
 import { IconArgs, iconMeta, iconStories } from "dso-toolkit";
+import icons from "dso-toolkit/storybook-assets/icons.json";
 
 import { templateContainer } from "../../templates";
 
 import { decorator } from "./icon-overview.decorator";
 import readme from "./readme.md?raw";
-
-const icons: string[] = import.meta.env?.VITE_ICONS?.split(",") || [];
 
 const meta: Meta<IconArgs> = {
   ...iconMeta({ readme }),

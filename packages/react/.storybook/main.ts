@@ -1,11 +1,5 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { readdirSync } from "fs";
-import { createRequire } from "node:module";
-import { dirname, parse, resolve } from "path";
-
 import type { StorybookConfig } from "@storybook/react-vite";
-
-const requireFn = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   typescript: {
@@ -23,19 +17,6 @@ const config: StorybookConfig = {
       to: "iframe-resizer",
     },
   ],
-  env: (config) => {
-    const corePath = dirname(requireFn.resolve("dso-toolkit/package.json"));
-    const iconsPath = resolve(corePath, "src/icons");
-    const icons = readdirSync(iconsPath)
-      .map((f) => parse(f))
-      .filter((p) => p.ext === ".svg")
-      .map((p) => p.name);
-
-    return {
-      ...config,
-      VITE_ICONS: icons.join(","),
-    };
-  },
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   stories: ["../src/**/*.stories.tsx"],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
