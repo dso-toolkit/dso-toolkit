@@ -37,7 +37,7 @@ const config: StorybookConfig = {
     };
   },
   addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
-  stories: ["../src/**/*.stories.tsx", "../**/*.stories.mdx"],
+  stories: ["../src/**/*.stories.tsx"],
   // Onderstaande method is uitgezet in #2241, gaan we verder onderzoeken in #2302
   // previewBody: (body) =>
   //   !process.env.CI

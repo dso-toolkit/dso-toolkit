@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Storybook: React Storybook toont geen JSX voorschriften ([#2856](https://github.com/dso-toolkit/dso-toolkit/issues/2856))
+* Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
 
 ## 🐉 Release 86.0.0 - 2026-01-29
 

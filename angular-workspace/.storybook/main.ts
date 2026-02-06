@@ -34,7 +34,7 @@ const config: StorybookConfig = {
       ICONS: icons.join(","),
     };
   },
-  stories: ["../../packages/dso-toolkit/src/**/*.stories.mdx", "../../packages/dso-toolkit/src/**/*.stories.tsx"],
+  stories: ["../components/*/*.stories.ts"],
   addons: [
     {
       name: "@storybook/addon-docs",
