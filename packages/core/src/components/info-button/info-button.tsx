@@ -165,7 +165,7 @@ export class InfoButton {
           <button
             type="button"
             class="dso-info-secondary"
-            aria-expanded={this.active || this.toggletipActive.toString()}
+            aria-expanded={(this.active || this.toggletipActive).toString()}
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}
           >
