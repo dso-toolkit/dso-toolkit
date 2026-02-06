@@ -14,7 +14,7 @@ const meta: Meta<LegendItemArgs> = {
 
 export default meta;
 
-const { Default, NotActivatable, NoOptions, NoSymbol, OnlySymbol } = legendItemStories({
+const { Default, EditMode, NotActivatable, NoOptions, NoSymbol, OnlySymbol } = legendItemStories({
   templateContainer,
   storyTemplates: ({ legendItemTemplate, inputRangeTemplate }) => {
     const optionsWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
@@ -29,4 +29,4 @@ const { Default, NotActivatable, NoOptions, NoSymbol, OnlySymbol } = legendItemS
   decorator,
 });
 
-export { Default, NoOptions, NoSymbol, NotActivatable, OnlySymbol };
+export { Default, EditMode, NoOptions, NoSymbol, NotActivatable, OnlySymbol };

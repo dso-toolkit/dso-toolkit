@@ -14,6 +14,7 @@ type LegendItemStory = StoryObj<LegendItemArgs, Renderer>;
 
 interface LegendItemStories {
   Default: LegendItemStory;
+  EditMode: LegendItemStory;
   NotActivatable: LegendItemStory;
   NoOptions: LegendItemStory;
   NoSymbol: LegendItemStory;
@@ -60,6 +61,17 @@ export function legendItemStories<Implementation, Templates, TemplateFnReturnTyp
 }: LegendItemStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LegendItemStories {
   return {
     Default: {
+      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      render: templateContainer.render(
+        storyTemplates,
+        (args, { legendItemTemplate, defaultSymbol, optionsWithInputRange, content }) =>
+          legendItemTemplate(legendItemArgsMapper(args, content, defaultSymbol, optionsWithInputRange)),
+      ),
+    },
+    EditMode: {
+      args: {
+        mode: "edit",
+      },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(
         storyTemplates,

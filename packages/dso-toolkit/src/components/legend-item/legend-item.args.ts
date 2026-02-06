@@ -14,6 +14,7 @@ export interface LegendItemArgs {
   dsoActiveChange: HandlerFunction;
   active: boolean;
   activatable: boolean;
+  mode?: "edit" | "view";
   label: string;
 }
 
@@ -22,6 +23,7 @@ export const legendItemArgs: LegendItemArgs = {
   disabledMessage: "",
   active: true,
   activatable: true,
+  mode: "view",
   label: "Legenda item label",
   dsoActiveChange: fn(),
   dsoMouseEnter: fn(),
@@ -55,6 +57,12 @@ export const legendItemArgTypes: ArgTypes<LegendItemArgs> = {
   activatable: {
     control: {
       type: "boolean",
+    },
+  },
+  mode: {
+    options: ["edit", "view"],
+    control: {
+      type: "select",
     },
   },
 };

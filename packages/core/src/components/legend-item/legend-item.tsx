@@ -54,6 +54,12 @@ export class LegendItem implements ComponentInterface {
   active?: boolean;
 
   /**
+   * Controls whether this Legend Item is in edit or view mode
+   */
+  @Prop({ reflect: true })
+  mode: "edit" | "view" = "view";
+
+  /**
    * Emitted when user checks or unchecks the Slide Toggle.
    */
   @Event()
@@ -96,6 +102,52 @@ export class LegendItem implements ComponentInterface {
     return this.host.querySelector("[slot='options']");
   }
 
+  private renderEditMode() {
+    return (
+      <dso-icon-button
+        label="Delete"
+        icon="trash"
+        variant="tertiary"
+        id="delete-button"
+        onDsoClick={() => console.log("delete")}
+      />
+    );
+  }
+
+  private renderViewMode(hasOptions: boolean, accessibleLabel: string) {
+    return [
+      this.active && hasOptions && !this.disabled && (
+        <dso-icon-button
+          label="Opties"
+          icon="more"
+          variant="tertiary"
+          class={{ active: this.showOptions }}
+          id="edit-button"
+          onDsoClick={() => (this.showOptions = !this.showOptions)}
+        />
+      ),
+      this.activatable && (
+        <dso-slide-toggle
+          accessibleLabel={accessibleLabel}
+          checked={this.active}
+          disabled={this.disabled}
+          onDsoActiveChange={(e) =>
+            this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
+          }
+        />
+      ),
+    ];
+  }
+
+  private renderRightContent(hasOptions: boolean, accessibleLabel: string) {
+    switch (this.mode) {
+      case "edit":
+        return this.renderEditMode();
+      case "view":
+        return this.renderViewMode(hasOptions, accessibleLabel);
+    }
+  }
+
   render() {
     const hasSymbol = this.symbolSlottedElement !== null;
     const hasOptions = this.optionsSlottedElement !== null;
@@ -120,29 +172,7 @@ export class LegendItem implements ComponentInterface {
           {this.disabled && this.disabledMessage && (
             <dso-toggletip position="bottom">{this.disabledMessage}</dso-toggletip>
           )}
-
-          <div class="legend-item-right-content">
-            {this.active && hasOptions && !this.disabled && (
-              <dso-icon-button
-                label="Opties"
-                icon="more"
-                variant="tertiary"
-                class={{ active: this.showOptions }}
-                id="edit-button"
-                onDsoClick={() => (this.showOptions = !this.showOptions)}
-              />
-            )}
-            {this.activatable && (
-              <dso-slide-toggle
-                accessibleLabel={accessibleLabel}
-                checked={this.active}
-                disabled={this.disabled}
-                onDsoActiveChange={(e) =>
-                  this.dsoActiveChange.emit({ current: Boolean(this.active), next: !this.active, originalEvent: e })
-                }
-              />
-            )}
-          </div>
+          <div class="legend-item-right-content">{this.renderRightContent(hasOptions, accessibleLabel)}</div>
         </div>
         {hasOptions && (
           <div hidden={this.disabled || !this.showOptions} class="options">
