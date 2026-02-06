@@ -888,6 +888,11 @@ export namespace Components {
           * Message to be shown behind a toggletip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
+        /**
+          * Controls whether this Legend Item is in edit or view mode
+          * @default "view"
+         */
+        "mode": "edit" | "view";
     }
     interface DsoListButton {
         /**
@@ -3640,6 +3645,11 @@ declare namespace LocalJSX {
           * Message to be shown behind a toggletip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
+        /**
+          * Controls whether this Legend Item is in edit or view mode
+          * @default "view"
+         */
+        "mode"?: "edit" | "view";
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */
