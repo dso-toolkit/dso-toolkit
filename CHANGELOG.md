@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* Legend: editmode toevoegen ([#3535](https://github.com/dso-toolkit/dso-toolkit/issues/3535))
+
 ## 🦉 Release 87.0.0 - 2026-02-06
 
 ### Added
