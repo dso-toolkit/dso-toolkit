@@ -30,11 +30,6 @@
 
   @include pseudo();
 
-  dso-icon + span,
-  span + dso-icon {
-    margin-inline-start: units.$u1;
-  }
-
   .sr-only + dso-icon {
     margin-inline-start: 0;
   }
@@ -87,16 +82,16 @@
   }
 
   background-repeat: no-repeat;
-  background-size: 1.25em 1.25em;
+  background-size: 1.5em 1.5em;
 
   @if $icon-placement == "before" {
     padding-inline-start: var(--_dso-link-icon-padding-inline-start, 1.5em);
-    background-position: bottom 0 left 0;
+    background-position: bottom -3px left 0;
   }
 
   @if $icon-placement == "after" {
     padding-inline-end: var(--_dso-link-icon-padding-inline-end, 1.5em);
-    background-position: bottom 0 right 0;
+    background-position: bottom -3px right 0;
   }
 
   $icon: map.get($link-map, "icon");
