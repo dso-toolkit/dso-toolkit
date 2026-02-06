@@ -3,6 +3,8 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction, isOdd } from "../../storybook";
+import { BadgeStatus } from "../badge/badge.models.js";
+import { LabelStatus } from "../label/label.models.js";
 import { OzonContentBegripResolver, OzonContentUrlResolver } from "../ozon-content/ozon-content.models.js";
 
 import {
@@ -15,16 +17,44 @@ import {
   DocumentComponentWijzigactie,
 } from "./document-component.models.js";
 
+const BADGE_STATUS_OPTIONS: (BadgeStatus | undefined)[] = [
+  undefined,
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error",
+  "outline",
+  "attention",
+];
+
+const LABEL_STATUS_OPTIONS: (LabelStatus | undefined)[] = [
+  undefined,
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error",
+  "bright",
+  "attention",
+  "filter",
+  "toegevoegd",
+  "verwijderd",
+];
+
 export interface DocumentComponentArgs {
   alternativeTitle?: string;
   annotated: boolean;
-  bevatOntwerpInformatie: boolean;
+  badge?: string;
+  badgeStatus?: BadgeStatus;
+  badgeTooltip?: string;
   dsoAnnotationToggle: HandlerFunction;
   dsoToggle: HandlerFunction;
   dsoMarkItemHighlight: HandlerFunction;
   filtered: boolean;
-  genesteOntwerpInformatie: boolean;
   gereserveerd: DocumentComponentInputType;
+  label?: string;
+  labelStatus?: LabelStatus;
   heading: DocumentComponentHeading;
   inhoud?: string;
   kop: string;
@@ -49,10 +79,13 @@ export const documentComponentArgs: Omit<
   "dsoAnnotationToggle" | "dsoToggle" | "dsoMarkItemHighlight" | "dsoTableOfContentsClick" | "dsoOzonContentClick"
 > = {
   annotated: true,
-  bevatOntwerpInformatie: true,
+  badge: undefined,
+  badgeStatus: undefined,
+  badgeTooltip: undefined,
   filtered: true,
-  genesteOntwerpInformatie: false,
   gereserveerd: "",
+  label: "Ontwerp",
+  labelStatus: "warning",
   heading: "h2",
   inhoud:
     "<Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'><Al>De artikelen 3.28, derde lid, en 3.38, aanhef en onder b, zijn van overeenkomstige toepassing op een activiteit als bedoeld in die artikelonderdelen die wordt verricht op een locatie waarvoor een op grond van artikel 4.35, eerste lid, van de Invoeringswet Omgevingswet als instructie geldende aanwijzing als beschermd stads- of dorpsgezicht als bedoeld in artikel 35, eerste lid, van de Monumentenwet 1988 zoals die wet luidde voor de inwerkingtreding van de Erfgoedwet van kracht is, zolang in dit omgevingsplan aan die locatie nog niet de functie-aanduiding rijksbeschermd stads- of dorpsgezicht is gegeven.</Al></Inhoud>",
@@ -79,9 +112,20 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     },
     if: { arg: "mode", eq: "document" },
   },
-  bevatOntwerpInformatie: {
+  badge: {
     control: {
-      type: "boolean",
+      type: "text",
+    },
+  },
+  badgeStatus: {
+    options: BADGE_STATUS_OPTIONS,
+    control: {
+      type: "select",
+    },
+  },
+  badgeTooltip: {
+    control: {
+      type: "text",
     },
   },
   dsoAnnotationToggle: argTypeAction(),
@@ -94,9 +138,15 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
       type: "boolean",
     },
   },
-  genesteOntwerpInformatie: {
+  label: {
     control: {
-      type: "boolean",
+      type: "text",
+    },
+  },
+  labelStatus: {
+    options: LABEL_STATUS_OPTIONS,
+    control: {
+      type: "select",
     },
   },
   gereserveerd: {

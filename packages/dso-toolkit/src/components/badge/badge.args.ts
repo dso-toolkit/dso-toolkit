@@ -2,6 +2,17 @@ import { ArgTypes } from "storybook/internal/types";
 
 import { Badge, BadgeStatus } from "./badge.models.js";
 
+const BADGE_STATUS_OPTIONS: (BadgeStatus | undefined)[] = [
+  undefined,
+  "primary",
+  "success",
+  "info",
+  "warning",
+  "error",
+  "outline",
+  "attention",
+];
+
 export interface BadgeArgs {
   status?: BadgeStatus;
   message: string;
@@ -9,7 +20,7 @@ export interface BadgeArgs {
 
 export const badgeArgTypes: ArgTypes<BadgeArgs> = {
   status: {
-    options: [undefined, "primary", "success", "info", "warning", "error", "outline", "attention"],
+    options: BADGE_STATUS_OPTIONS,
     control: {
       type: "select",
     },

@@ -3,8 +3,10 @@ import random from "lodash.random";
 import sampleSize from "lodash.samplesize";
 
 import {
+  BadgeStatus,
   DocumentComponentInputType,
   DsoDocumentComponentCustomEvent,
+  LabelStatus,
   OzonContentBegripResolver,
   OzonContentUrlResolver,
 } from "../../components";
@@ -47,6 +49,12 @@ export class DocumentComponentDemo implements ComponentInterface {
    */
   @Prop({ reflect: true })
   showCanvas = false;
+
+  /**
+   * Show besluitversie version of the badge and label.
+   */
+  @Prop()
+  showBesluitversie = false;
 
   /**
    * Name of the file to load.
@@ -316,17 +324,44 @@ export class DocumentComponentDemo implements ComponentInterface {
     const { DocumentComponent } = this;
 
     const embeddedDocuments = this.getEmbeddedDocumentComponents(documentComponent);
+    const showNestedBadge = this.hasNestedDraft(documentComponent);
+
+    let badge: string | undefined;
+    let badgeStatus: BadgeStatus | undefined;
+    let badgeTooltip: string | undefined;
+    let label: string | undefined;
+    let labelStatus: LabelStatus | undefined;
+
+    if (showNestedBadge) {
+      if (this.showBesluitversie) {
+        badge = "B";
+        badgeStatus = "primary";
+        badgeTooltip = "Dit is een besluitversie.";
+      } else {
+        badge = "!";
+        badgeStatus = "warning";
+        badgeTooltip = "Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.";
+      }
+    }
+
+    if (documentComponent.bevatOntwerpInformatie) {
+      if (this.showBesluitversie) {
+        label = "Besluitversie";
+        labelStatus = "primary";
+      } else {
+        label = "Ontwerp";
+        labelStatus = "warning";
+      }
+    }
 
     return (
       <dso-document-component
         annotated={this.isAnnotated(documentComponent)}
-        bevatOntwerpInformatie={!!documentComponent.bevatOntwerpInformatie}
         filtered={
           this.isOpen(documentComponent)
             ? this.isFiltered(documentComponent)
             : this.hasFilteredChildren(documentComponent)
         }
-        genesteOntwerpInformatie={this.hasNestedDraft(documentComponent)}
         gereserveerd={documentComponent.gereserveerd}
         heading="h2"
         kop={documentComponent.kop}
@@ -347,6 +382,11 @@ export class DocumentComponentDemo implements ComponentInterface {
         onDsoOzonContentClick={(e) => this.handleOzonContentClick(e)}
         ozonContentUrlResolver={this.ozonContentUrlResolver}
         ozonContentBegripResolver={this.ozonContentBegripResolver}
+        badge={badge}
+        badgeStatus={badgeStatus}
+        badgeTooltip={badgeTooltip}
+        label={label}
+        labelStatus={labelStatus}
       >
         {this.isOpenedAnnotation(documentComponent) && (
           <div slot="annotations">

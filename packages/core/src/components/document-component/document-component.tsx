@@ -14,6 +14,8 @@ import { DsoOzonContentCustomEvent } from "../../components";
 import { MarkText } from "../../functional-components/mark-text/mark-text.functional-component";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 import { parseXml } from "../../utils/parse-xml";
+import { BadgeStatus } from "../badge/badge.interfaces";
+import { LabelStatus } from "../label/label.interfaces";
 import { parseWijzigactieFromNode } from "../ozon-content/functions/parse-wijzigactie-from-node.function";
 import {
   OzonContentBegripResolver,
@@ -156,16 +158,34 @@ export class DocumentComponent implements ComponentInterface {
   notApplicable = false;
 
   /**
-   * When a child Document Component has a status "Draft".
+   * Text to display in the badge (e.g. "!").
    */
-  @Prop({ reflect: true })
-  genesteOntwerpInformatie = false;
+  @Prop()
+  badge?: string;
 
   /**
-   * Marks as draft.
+   * Status/color of the badge.
    */
-  @Prop({ reflect: true })
-  bevatOntwerpInformatie = false;
+  @Prop()
+  badgeStatus?: BadgeStatus;
+
+  /**
+   * Tooltip text for the badge.
+   */
+  @Prop()
+  badgeTooltip?: string;
+
+  /**
+   * Text to display in the label (e.g. "Ontwerp", "Besluitversie").
+   */
+  @Prop()
+  label?: string;
+
+  /**
+   * Status/color of the label.
+   */
+  @Prop()
+  labelStatus?: LabelStatus;
 
   /**
    * Enables annotations.
@@ -334,12 +354,8 @@ export class DocumentComponent implements ComponentInterface {
     });
   };
 
-  private showOntwerpBadge(): boolean {
-    return (
-      this.genesteOntwerpInformatie &&
-      !this.bevatOntwerpInformatie &&
-      ((!this.open && this.mode === "document") || this.mode === "table-of-contents")
-    );
+  private showBadge(): boolean {
+    return !!this.badge && ((!this.open && this.mode === "document") || this.mode === "table-of-contents");
   }
 
   private parseAantekenElement(input?: DocumentComponentInputType): DocumentComponentAantekenElement | undefined {
@@ -385,7 +401,7 @@ export class DocumentComponent implements ComponentInterface {
       collapsible ||
       this._kop ||
       this.alternativeTitle ||
-      this.bevatOntwerpInformatie ||
+      this.label ||
       this.annotated
     );
 
@@ -455,22 +471,20 @@ export class DocumentComponent implements ComponentInterface {
                 />
               )}
 
-              {this.showOntwerpBadge() && (
+              {this.showBadge() && (
                 <Fragment>
-                  <dso-badge status="warning" aria-describedby="nested-draft-description">
-                    !
+                  <dso-badge status={this.badgeStatus} aria-describedby="badge-description">
+                    {this.badge}
                   </dso-badge>
-                  <dso-tooltip id="nested-draft-description">
-                    Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp.
-                  </dso-tooltip>
+                  {this.badgeTooltip && <dso-tooltip id="badge-description">{this.badgeTooltip}</dso-tooltip>}
                 </Fragment>
               )}
 
-              {(this.bevatOntwerpInformatie || this.annotated) && (
+              {(this.label || this.annotated) && (
                 <div class="addons">
-                  {this.bevatOntwerpInformatie && (
-                    <dso-label status="warning" compact>
-                      Ontwerp
+                  {this.label && (
+                    <dso-label status={this.labelStatus} compact>
+                      {this.label}
                     </dso-label>
                   )}
                   {this.annotated && this.mode === "document" && (

@@ -25,6 +25,7 @@ type DocumentComponentStoryDemo = StoryObj<
     jsonFile: string;
     openDefault: boolean;
     showCanvas: boolean;
+    showBesluitversie: boolean;
     mode: DocumentComponentMode;
     dsoOzonContentClick: HandlerFunction;
     dsoTableOfContentsClick: HandlerFunction;
@@ -58,6 +59,7 @@ export interface DocumentComponentTemplates<TemplateFnReturnType> {
     jsonFile: string,
     openDefault: boolean,
     showCanvas: boolean,
+    showBesluitversie: boolean,
     mode: DocumentComponentMode,
     dsoOzonContentClick: HandlerFunction,
     dsoTableOfContentsClick: HandlerFunction,
@@ -102,6 +104,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         jsonFile: "ozon-response.json",
         openDefault: true,
         showCanvas: false,
+        showBesluitversie: false,
         mode: "document",
         dsoOzonContentClick: fn(),
         dsoTableOfContentsClick: fn(),
@@ -186,6 +189,11 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "boolean",
           },
         },
+        showBesluitversie: {
+          control: {
+            type: "boolean",
+          },
+        },
         mode: {
           options: ["document", "table-of-contents"],
           control: {
@@ -207,6 +215,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.jsonFile,
           args.openDefault,
           args.showCanvas,
+          args.showBesluitversie,
           args.mode,
           args.dsoOzonContentClick,
           args.dsoTableOfContentsClick,
@@ -221,6 +230,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         jsonFile: "ozon-response.json",
         openDefault: true,
         showCanvas: false,
+        showBesluitversie: false,
         mode: "table-of-contents",
         dsoOzonContentClick: fn(),
         dsoTableOfContentsClick: fn(),
@@ -248,6 +258,11 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
             type: "boolean",
           },
         },
+        showBesluitversie: {
+          control: {
+            type: "boolean",
+          },
+        },
         mode: {
           options: ["document", "table-of-contents"],
           control: {
@@ -263,6 +278,7 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
           args.jsonFile,
           args.openDefault,
           args.showCanvas,
+          args.showBesluitversie,
           args.mode,
           args.dsoOzonContentClick,
           args.dsoTableOfContentsClick,
@@ -278,9 +294,12 @@ export function documentComponentStories<Implementation, Templates, TemplateFnRe
         vervallen: undefined,
         notApplicable: undefined,
         gereserveerd: undefined,
-        genesteOntwerpInformatie: undefined,
+        badge: undefined,
+        badgeStatus: undefined,
+        badgeTooltip: undefined,
         filtered: undefined,
-        bevatOntwerpInformatie: undefined,
+        label: undefined,
+        labelStatus: undefined,
         annotated: undefined,
         open: true,
         alternativeTitle: "Adequaat aanbod openbaar vervoer",

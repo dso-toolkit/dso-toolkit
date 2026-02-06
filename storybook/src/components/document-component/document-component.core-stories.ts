@@ -61,6 +61,7 @@ const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
           jsonFile,
           openDefault,
           showCanvas,
+          showBesluitversie,
           mode,
           ozonContentClick,
           tableOfContentsClick,
@@ -73,6 +74,7 @@ const { Default, Contents, Inhoudsopgave, IMRO } = documentComponentStories(
             .jsonFile=${jsonFile}
             ?open-default=${openDefault}
             ?show-canvas=${showCanvas}
+            ?show-besluitversie=${showBesluitversie}
             .mode=${mode}
             .ozonContentUrlResolver=${ozonContentUrlResolver}
             .ozonContentBegripResolver=${ozonContentBegripResolver}

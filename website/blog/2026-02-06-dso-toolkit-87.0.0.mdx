@@ -1,0 +1,61 @@
+---
+authors: [wouterheldens]
+---
+
+# DSO Toolkit v87.0.0 🦉
+
+Deze release bevat een **BREAKING** change voor het volgende component:
+
+- Document Component
+
+<!-- truncate -->
+
+## Document Component
+
+De properties `bevatOntwerpInformatie` en `genesteOntwerpInformatie` zijn verwijderd. Hiervoor in de plaats zijn de generieke properties `label`, `labelStatus`, `badge`, `badgeStatus` en `badgeTooltip` gekomen.
+
+Voorheen was de "Ontwerp"-status hardcoded in het component: `bevatOntwerpInformatie` toonde altijd een geel "Ontwerp" label en `genesteOntwerpInformatie` toonde altijd een waarschuwingsbadge. Met deze wijziging kan de afnemer zelf de tekst, status en tooltip instellen. Dit maakt het component geschikt voor meerdere scenario's, zoals "Ontwerp" en "Besluitversie".
+
+### Migratiepad
+
+#### Label (voorheen `bevatOntwerpInformatie`)
+
+De property `bevatOntwerpInformatie` is vervangen door `label` en `labelStatus`. Waar voorheen het component zelf het label "Ontwerp" renderde, geeft de afnemer nu expliciet de tekst en kleur mee.
+
+```html
+❌
+<dso-document-component bevat-ontwerp-informatie></dso-document-component>
+
+✅
+<dso-document-component label="Ontwerp" label-status="warning"></dso-document-component>
+```
+
+#### Badge (voorheen `genesteOntwerpInformatie`)
+
+De property `genesteOntwerpInformatie` is vervangen door `badge`, `badgeStatus` en `badgeTooltip`. Waar voorheen het component automatisch een "!" badge met tooltip toonde, geeft de afnemer nu zelf de badge-inhoud, kleur en tooltip mee.
+
+```html
+❌
+<dso-document-component geneste-ontwerp-informatie></dso-document-component>
+
+✅
+<dso-document-component
+  badge="!"
+  badge-status="warning"
+  badge-tooltip="Er zijn onderliggende onderdelen die veranderen binnen dit ontwerp."
+></dso-document-component>
+```
+
+### Voorbeeld: Besluitversie
+
+Door de generieke opzet is het nu ook mogelijk om andere statussen weer te geven:
+
+```html
+<dso-document-component
+  label="Besluitversie"
+  label-status="primary"
+  badge="B"
+  badge-status="primary"
+  badge-tooltip="Dit onderdeel bevat een besluitversie."
+></dso-document-component>
+```
