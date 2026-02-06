@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 
 interface TooltipProps {
   visible: boolean;
-  onAfterHidden: () => void;
+  onAfterHidden?: () => void;
   tipElementRef: (ref: HTMLDivElement | undefined) => void;
   tipArrowElementRef: (ref: HTMLSpanElement | undefined) => void;
 }
@@ -21,7 +21,7 @@ export const Tooltip: FunctionalComponent<TooltipProps> = (
       e.stopPropagation();
 
       if (e.propertyName === "opacity" && !visible) {
-        onAfterHidden();
+        onAfterHidden?.();
       }
     }}
   >
