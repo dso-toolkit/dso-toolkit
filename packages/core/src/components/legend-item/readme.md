@@ -12,6 +12,7 @@
 | `active`          | `active`           | Controls whether this Legend Item is active or not                      | `boolean \| undefined` | `undefined` |
 | `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
 | `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
+| `mode`            | `mode`             | Controls whether this Legend Item is in edit or view mode               | `"edit" \| "view"`     | `"view"`    |
 
 
 ## Events
@@ -36,22 +37,22 @@
 
 ### Depends on
 
-- [dso-toggletip](../toggletip)
 - [dso-icon-button](../icon-button)
 - [dso-slide-toggle](../slide-toggle)
+- [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
-  dso-legend-item --> dso-toggletip
   dso-legend-item --> dso-icon-button
   dso-legend-item --> dso-slide-toggle
+  dso-legend-item --> dso-toggletip
+  dso-icon-button --> dso-icon
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
-  dso-icon-button --> dso-icon
   style dso-legend-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

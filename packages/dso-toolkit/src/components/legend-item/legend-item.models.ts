@@ -8,6 +8,7 @@ export interface LegendItem<TemplateFnReturnType> {
   dsoActiveChange?: (e: CustomEvent<LegendItemActiveChangeEvent>) => void;
   active?: boolean;
   activatable?: boolean;
+  mode?: "edit" | "view";
   symbol?: TemplateFnReturnType;
 }
 

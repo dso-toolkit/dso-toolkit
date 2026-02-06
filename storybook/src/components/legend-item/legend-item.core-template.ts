@@ -18,6 +18,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
       dsoActiveChange,
       active,
       activatable,
+      mode,
       symbol,
     }) {
       return html`
@@ -29,6 +30,7 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
           @dsoActiveChange=${ifDefined(dsoActiveChange)}
           .active=${active}
           .activatable=${activatable}
+          .mode=${ifDefined(mode)}
         >
           ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
           ${options ? html`<div slot="options">${options}</div>` : nothing}
