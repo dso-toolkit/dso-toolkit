@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Document Component: Uitbreidingen voor Besluitversies ([#3516](https://github.com/dso-toolkit/dso-toolkit/issues/3516))
 * Cursor Tooltip: Nieuw component ([#3366](https://github.com/dso-toolkit/dso-toolkit/issues/3366))
 * Highlight Box: Extra optie "green" ([#3256](https://github.com/dso-toolkit/dso-toolkit/issues/3256))
+* Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
 ### Changed
 * Input Range: Diverse verbeteringen ([#3148](https://github.com/dso-toolkit/dso-toolkit/issues/3148))

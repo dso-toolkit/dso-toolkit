@@ -65,7 +65,7 @@ export interface Components {
   icon: Icon;
   imageOverlay: ImageOverlay;
   info: Info<IStory>;
-  infoButton: InfoButton;
+  infoButton: InfoButton<IStory>;
   // label: Label;
   listButton: ListButton;
   modal: Modal<IStory>;
