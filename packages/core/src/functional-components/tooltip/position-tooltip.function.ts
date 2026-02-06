@@ -62,7 +62,7 @@ export function positionTooltip(options: TooltipOptions) {
               if (!inner) return;
 
               Object.assign(inner.style, {
-                height: `${availableHeight - padding}px`,
+                maxHeight: `${availableHeight - padding}px`,
               });
             },
           }),

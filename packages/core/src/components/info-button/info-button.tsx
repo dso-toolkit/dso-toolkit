@@ -75,34 +75,29 @@ export class InfoButton {
   }
 
   private handleToggle(originalEvent: MouseEvent) {
-    this.setActive(!this.active, !this.toggletipActive);
-
-    if (!this.isToggletipMode && originalEvent) {
+    if (this.isToggletipMode) {
+      this.toggletipActive = !this.toggletipActive;
+      this.toggletipElRef?.showPopover();
+    } else {
       this.dsoToggle.emit({ originalEvent, active: this.active });
     }
   }
 
   private focusOutHandler = (event: FocusEvent) => {
     if (!this.host.contains(event.relatedTarget as Node)) {
-      this.setActive(false, false);
+      this.toggletipActive = false;
+      this.toggletipElRef?.hidePopover();
     }
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
-    if (!this.active && !this.toggletipActive) return;
+    if (!this.toggletipActive) return;
 
     if (event.key === "Escape") {
-      this.setActive(false, false);
+      this.toggletipActive = false;
+      this.toggletipElRef?.hidePopover();
     }
   };
-
-  private setActive(active: boolean, toggletipActive: boolean) {
-    this.active = active;
-
-    if (this.isToggletipMode) {
-      this.toggletipActive = toggletipActive;
-    }
-  }
 
   private cleanupTooltip() {
     this.cleanUp?.();
@@ -116,22 +111,17 @@ export class InfoButton {
       return;
     }
 
-    if (this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
+    if (!this.cleanUp && this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
       this.toggletipElRef?.showPopover();
 
       this.cleanUp = positionTooltip({
-        referenceElement: this.button!,
-        tipRef: this.toggletipElRef!,
-        tipArrowRef: this.toggletipArrowElRef!,
+        referenceElement: this.button,
+        tipRef: this.toggletipElRef,
+        tipArrowRef: this.toggletipArrowElRef,
         placementTip: this.toggletipPlacement,
+        forceVisible: true,
         restrictToViewport: true,
       });
-    } else {
-      this.toggletipElRef?.hidePopover();
-
-      if (!this.toggletipActive && this.cleanUp) {
-        this.cleanupTooltip();
-      }
     }
   }
 
@@ -174,7 +164,7 @@ export class InfoButton {
           <button
             type="button"
             class="dso-info-secondary"
-            aria-expanded={this.active.toString()}
+            aria-expanded={this.active || this.toggletipActive.toString()}
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}
           >
@@ -187,7 +177,6 @@ export class InfoButton {
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
             visible={this.toggletipActive}
-            onAfterHidden={() => {}}
           >
             <dso-scrollable>
               <slot name="toggletip" />
