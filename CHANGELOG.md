@@ -35,6 +35,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Ozon Content: voorkom markeren `figuur-titel` in Image Overlay ([#3461](https://github.com/dso-toolkit/dso-toolkit/issues/3461))
+* Legend: Visuele aanpassingen ([#3496](https://github.com/dso-toolkit/dso-toolkit/issues/3496))
 
 ### Fixed
 * **BREAKING** Legend Item: accessible name van Slide Toggle niet gekoppeld met het zichtbare label ([#3487](https://github.com/dso-toolkit/dso-toolkit/issues/3487))
@@ -43,6 +44,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Task
 * Packages: Sass updaten ([#3421](https://github.com/dso-toolkit/dso-toolkit/issues/3421))
 * **BREAKING** Packages: Dependencies updates ([#3480](https://github.com/dso-toolkit/dso-toolkit/issues/3480))
+
+### Task
+* Packages: Sass updaten ([#3421](https://github.com/dso-toolkit/dso-toolkit/issues/3421))
 
 ## 🧑‍🎤 Release 84.1.0 - 2025-12-22
 
