@@ -17,7 +17,7 @@ export function positionTooltip(options: TooltipOptions) {
     topPositionSmallViewPort,
     halfMainAxisOffset,
     forceVisible,
-    restrictToViewport,
+    restrictContentElement,
   } = options;
 
   return autoUpdate(referenceElement, tipRef, () => {
@@ -51,17 +51,14 @@ export function positionTooltip(options: TooltipOptions) {
         hide({
           padding: arrowOffsetWidth + padding,
         }),
-        restrictToViewport &&
+        restrictContentElement &&
           size({
             apply({ availableHeight, availableWidth }) {
               Object.assign(tipRef.style, {
                 width: `${availableWidth - padding * 2}px`,
               });
 
-              const inner = tipRef.querySelector(".tooltip-inner") as HTMLDivElement | null;
-              if (!inner) return;
-
-              Object.assign(inner.style, {
+              Object.assign(restrictContentElement.style, {
                 maxHeight: `${availableHeight - padding}px`,
               });
             },

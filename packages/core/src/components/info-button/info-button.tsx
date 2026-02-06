@@ -18,6 +18,7 @@ export class InfoButton {
   private toggletipArrowElRef?: HTMLSpanElement;
   private cleanUp: TooltipClean | undefined;
   private mutationObserver?: MutationObserver;
+  private restrictContentElement?: HTMLElement;
 
   @Element()
   host!: HTMLDsoInfoButtonElement;
@@ -120,7 +121,7 @@ export class InfoButton {
         tipArrowRef: this.toggletipArrowElRef,
         placementTip: this.toggletipPlacement,
         forceVisible: true,
-        restrictToViewport: true,
+        restrictContentElement: this.restrictContentElement,
       });
     }
   }
@@ -178,7 +179,7 @@ export class InfoButton {
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
             visible={this.toggletipActive}
           >
-            <dso-scrollable>
+            <dso-scrollable ref={(element) => (this.restrictContentElement = element)}>
               <slot name="toggletip" />
             </dso-scrollable>
           </Tooltip>
