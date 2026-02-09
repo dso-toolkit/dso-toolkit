@@ -54,12 +54,9 @@ export function positionTooltip(options: TooltipOptions) {
         restrictContentElement &&
           size({
             apply({ availableHeight, availableWidth }) {
-              Object.assign(tipRef.style, {
-                width: `${availableWidth - padding * 2}px`,
-              });
-
               Object.assign(restrictContentElement.style, {
                 maxHeight: `${availableHeight - padding}px`,
+                maxWidth: `${availableWidth - padding * 2}px`,
               });
             },
           }),

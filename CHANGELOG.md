@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Next
+### Added
+* **BREAKING** Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
 ## 🦉 Release 87.0.0 - 2026-02-06
 
@@ -11,7 +13,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Document Component: Uitbreidingen voor Besluitversies ([#3516](https://github.com/dso-toolkit/dso-toolkit/issues/3516))
 * Cursor Tooltip: Nieuw component ([#3366](https://github.com/dso-toolkit/dso-toolkit/issues/3366))
 * Highlight Box: Extra optie "green" ([#3256](https://github.com/dso-toolkit/dso-toolkit/issues/3256))
-* Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
 ### Changed
 * Input Range: Diverse verbeteringen ([#3148](https://github.com/dso-toolkit/dso-toolkit/issues/3148))
