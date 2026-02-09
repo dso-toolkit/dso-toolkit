@@ -80,7 +80,7 @@ export class InfoButton {
       this.toggletipActive = !this.toggletipActive;
       this.toggletipElRef?.showPopover();
     } else {
-      this.dsoToggle.emit({ originalEvent, active: this.active });
+      this.dsoToggle.emit({ originalEvent, active: !this.active });
     }
   }
 
