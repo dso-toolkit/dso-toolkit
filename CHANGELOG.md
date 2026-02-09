@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* **BREAKING** Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
+* Button: Mode "on light" en "on dark" toevoegen aan de button varianten ([#3381](https://github.com/dso-toolkit/dso-toolkit/issues/3381))
+
 ### Task
 * CICD: addnab/docker-run-action verouderd ([#3557](https://github.com/dso-toolkit/dso-toolkit/issues/3557))
 
