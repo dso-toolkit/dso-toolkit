@@ -252,7 +252,7 @@
   {
     "name": "info-button",
     "selector": ".dso-info-button",
-    "stories": ["inactive", "active", "secondary-inactive", "secondary-active"],
+    "stories": ["inactive", "secondary-inactive", "secondary-active"],
     "type": "html-css"
   },
   { "name": "label-group", "selector": ".dso-label-group", "stories": ["label-group"], "type": "html-css" },
