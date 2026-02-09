@@ -29,7 +29,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -80,7 +80,7 @@ export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
+export { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -876,6 +876,12 @@ export namespace Components {
          */
         "tabItems": LegendTabItem[];
     }
+    interface DsoLegendGroup {
+        /**
+          * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
+         */
+        "mode"?: LegendMode;
+    }
     interface DsoLegendItem {
         /**
           * Controls whether this Legend Item can be active or not
@@ -898,7 +904,7 @@ export namespace Components {
           * Controls whether this Legend Item is in edit or view mode
           * @default "view"
          */
-        "mode": "edit" | "view";
+        "mode": LegendMode;
     }
     interface DsoListButton {
         /**
@@ -2140,6 +2146,12 @@ declare global {
         prototype: HTMLDsoLegendElement;
         new (): HTMLDsoLegendElement;
     };
+    interface HTMLDsoLegendGroupElement extends Components.DsoLegendGroup, HTMLStencilElement {
+    }
+    var HTMLDsoLegendGroupElement: {
+        prototype: HTMLDsoLegendGroupElement;
+        new (): HTMLDsoLegendGroupElement;
+    };
     interface HTMLDsoLegendItemElementEventMap {
         "dsoActiveChange": LegendItemActiveChangeEvent;
         "dsoDelete": any;
@@ -2693,6 +2705,7 @@ declare global {
         "dso-input-range": HTMLDsoInputRangeElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-legend": HTMLDsoLegendElement;
+        "dso-legend-group": HTMLDsoLegendGroupElement;
         "dso-legend-item": HTMLDsoLegendItemElement;
         "dso-list-button": HTMLDsoListButtonElement;
         "dso-logo": HTMLDsoLogoElement;
@@ -3640,6 +3653,12 @@ declare namespace LocalJSX {
          */
         "tabItems"?: LegendTabItem[];
     }
+    interface DsoLegendGroup {
+        /**
+          * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
+         */
+        "mode"?: LegendMode;
+    }
     interface DsoLegendItem {
         /**
           * Controls whether this Legend Item can be active or not
@@ -3662,7 +3681,7 @@ declare namespace LocalJSX {
           * Controls whether this Legend Item is in edit or view mode
           * @default "view"
          */
-        "mode"?: "edit" | "view";
+        "mode"?: LegendMode;
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */
@@ -4430,6 +4449,7 @@ declare namespace LocalJSX {
         "dso-input-range": DsoInputRange;
         "dso-label": DsoLabel;
         "dso-legend": DsoLegend;
+        "dso-legend-group": DsoLegendGroup;
         "dso-legend-item": DsoLegendItem;
         "dso-list-button": DsoListButton;
         "dso-logo": DsoLogo;
@@ -4509,6 +4529,7 @@ declare module "@stencil/core" {
             "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-legend": LocalJSX.DsoLegend & JSXBase.HTMLAttributes<HTMLDsoLegendElement>;
+            "dso-legend-group": LocalJSX.DsoLegendGroup & JSXBase.HTMLAttributes<HTMLDsoLegendGroupElement>;
             "dso-legend-item": LocalJSX.DsoLegendItem & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
             "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
