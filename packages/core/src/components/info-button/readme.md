@@ -2,7 +2,6 @@
 
 Het gedrag van de Info Button is afhankelijk van het gebruik van het toggletip-slot:
 
-- De active prop is stateless en wordt niet meer intern aangepast door het component.
 - Bij een klik emit de `Info Button` het `dsoToggle` event, zolang het `slot name="toggletip"` niet is gevuld.
 - Zodra het `slot name="toggletip"` wél is gevuld, verzorgt het component zelf de Toggle Tip functionaliteit en wordt er geen `dsoToggle` event meer ge-emit.
 

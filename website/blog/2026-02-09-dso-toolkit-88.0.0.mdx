@@ -12,9 +12,10 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 ## Info Button
 
-- De active prop is stateless en wordt niet meer intern aangepast door het component.
+- **Breaking**: De active prop is nu volledig stateless en wordt niet langer intern aangepast door het component. De verantwoordelijkheid voor het beheren van de active state ligt nu volledig bij de afnemer.
 - Bij een klik emit de `Info Button` het `dsoToggle` event, zolang het `slot name="toggletip"` niet is gevuld.
-- Zodra het `slot name="toggletip"` wél is gevuld, verzorgt het component zelf de Toggle Tip functionaliteit en wordt er geen `dsoToggle` event meer ge-emit.
+- Het `slot name="toggletip"` is toegevoegd om de `Toggle Tip` functionaliteit door het component zelf te laten verzorgen. Wanneer dit slot is gevuld, neemt de `Info Button` het tonen en verbergen van de `toggletip` over op basis van klik op de `info-button`.
+  Dit is nieuwe en optionele functionaliteit; bestaande implementaties zonder dit slot blijven werken zoals voorheen.
 
 ### Toggle Tip gebruik
 
