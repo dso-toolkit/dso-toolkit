@@ -2142,6 +2142,7 @@ declare global {
     };
     interface HTMLDsoLegendItemElementEventMap {
         "dsoActiveChange": LegendItemActiveChangeEvent;
+        "dsoDelete": any;
         "dsoMouseEnter": any;
         "dsoMouseLeave": any;
     }
@@ -3666,6 +3667,10 @@ declare namespace LocalJSX {
           * Emitted when user checks or unchecks the Slide Toggle.
          */
         "onDsoActiveChange"?: (event: DsoLegendItemCustomEvent<LegendItemActiveChangeEvent>) => void;
+        /**
+          * Emitted when the user clicks the delete button.
+         */
+        "onDsoDelete"?: (event: DsoLegendItemCustomEvent<any>) => void;
         /**
           * Emitted when the mouse enters the Legend Item
          */
