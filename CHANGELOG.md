@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **BREAKING** Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
+### Changed
+* Legend: Visuele aanpassingen ([#3496](https://github.com/dso-toolkit/dso-toolkit/issues/3496))
+
 ## 🦉 Release 87.0.0 - 2026-02-06
 
 ### Added
@@ -40,7 +43,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Ozon Content: voorkom markeren `figuur-titel` in Image Overlay ([#3461](https://github.com/dso-toolkit/dso-toolkit/issues/3461))
-* Legend: Visuele aanpassingen ([#3496](https://github.com/dso-toolkit/dso-toolkit/issues/3496))
 
 ### Fixed
 * **BREAKING** Legend Item: accessible name van Slide Toggle niet gekoppeld met het zichtbare label ([#3487](https://github.com/dso-toolkit/dso-toolkit/issues/3487))
