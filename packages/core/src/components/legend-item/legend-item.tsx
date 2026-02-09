@@ -66,6 +66,12 @@ export class LegendItem implements ComponentInterface {
   dsoActiveChange!: EventEmitter<LegendItemActiveChangeEvent>;
 
   /**
+   * Emitted when the user clicks the delete button.
+   */
+  @Event()
+  dsoDelete!: EventEmitter;
+
+  /**
    * Emitted when the mouse enters the Legend Item
    */
   @Event()
@@ -109,7 +115,7 @@ export class LegendItem implements ComponentInterface {
         icon="trash"
         variant="tertiary"
         id="delete-button"
-        onDsoClick={() => console.log("delete")}
+        onDsoClick={() => this.dsoDelete.emit()}
       />
     );
   }
