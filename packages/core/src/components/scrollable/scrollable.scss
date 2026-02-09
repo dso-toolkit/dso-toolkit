@@ -5,6 +5,7 @@
   display: block;
   block-size: 100%;
   overflow-y: hidden;
+  border-radius: var(--_dt-scrollable-border-radius, 0);
 }
 
 @include utilities.box-sizing();
@@ -20,7 +21,8 @@
     max-block-size: inherit;
     min-block-size: inherit;
     overflow-y: auto;
-    padding-inline: var(--_dso-scrollable-container-padding-inline, 0);
+    padding-inline: var(--_dt-scrollable-container-padding-inline, 0);
+    padding-block: var(--_dt-scrollable-container-padding-block, 0);
 
     &::before,
     &::after {

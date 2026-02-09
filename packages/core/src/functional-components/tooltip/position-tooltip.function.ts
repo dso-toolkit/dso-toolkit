@@ -1,4 +1,4 @@
-import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift } from "@floating-ui/dom";
+import { Placement, arrow, autoUpdate, computePosition, flip, hide, offset, shift, size } from "@floating-ui/dom";
 
 import { TooltipOptions } from "./tooltip.interfaces";
 
@@ -16,15 +16,16 @@ export function positionTooltip(options: TooltipOptions) {
     placementTip,
     topPositionSmallViewPort,
     halfMainAxisOffset,
-    forceVisible = false,
+    forceVisible,
+    restrictContentElement,
   } = options;
 
   return autoUpdate(referenceElement, tipRef, () => {
     const padding = 5;
-    const arrowLength = tipArrowRef.offsetWidth;
-    const axisOffsetCalc = Math.sqrt(2 * arrowLength ** 2);
+    const arrowOffsetWidth = tipArrowRef.offsetWidth;
+    const axisOffsetCalc = Math.sqrt(2 * arrowOffsetWidth ** 2);
     const mainAxisOffset = halfMainAxisOffset ? axisOffsetCalc / 2 : axisOffsetCalc;
-    const arrowPadding = arrowLength * Math.sqrt(2) * 1.5;
+    const arrowPadding = arrowOffsetWidth * Math.sqrt(2) * 1.5;
     const smallViewport = topPositionSmallViewPort && document.body.clientWidth < 992;
 
     // Set placement to top if viewport is small and topPositionSmallViewPort is set to true
@@ -44,12 +45,21 @@ export function positionTooltip(options: TooltipOptions) {
           padding,
         }),
         arrow({
-          padding: arrowPadding,
+          padding: arrowOffsetWidth,
           element: tipArrowRef,
         }),
         hide({
-          padding: arrowPadding + arrowLength + padding,
+          padding: arrowOffsetWidth + padding,
         }),
+        restrictContentElement &&
+          size({
+            apply({ availableHeight, availableWidth }) {
+              Object.assign(restrictContentElement.style, {
+                maxHeight: `${availableHeight - padding}px`,
+                maxWidth: `${availableWidth - padding * 2}px`,
+              });
+            },
+          }),
       ],
       placement,
     }).then(({ x, y, middlewareData, placement: computedPlacement, strategy }) => {
@@ -106,7 +116,7 @@ export function positionTooltip(options: TooltipOptions) {
           bottom: "",
           left: arrowX ? `${arrowX}px` : "",
           top: arrowY ? `${arrowY}px` : "",
-          [staticSide]: `${-arrowLength / 2}px`,
+          [staticSide]: `${-arrowOffsetWidth / 2}px`,
           transform: `rotate(${angle}deg)`,
         });
       }

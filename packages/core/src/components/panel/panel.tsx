@@ -4,10 +4,7 @@ import { clsx } from "clsx";
 import { i18n } from "../../utils/i18n";
 
 import { translations } from "./panel.i18n";
-
-export interface PanelCloseEvent {
-  originalEvent: Event;
-}
+import { PanelCloseEvent } from "./panel.interfaces";
 
 /**
  * @slot - The contents to be highlighted within the panel
