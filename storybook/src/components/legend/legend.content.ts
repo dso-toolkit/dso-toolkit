@@ -3,8 +3,11 @@ import { html } from "lit-html";
 import { Templates } from "../../templates";
 import { defaultSymbol } from "../legend-item/legend-item.content";
 
-export function legendaRichContent({ legendItemTemplate, richContentTemplate }: Templates) {
-  return richContentTemplate({
+export function legendaRichContent({ legendItemTemplate, legendGroupTemplate, inputRangeTemplate }: Templates) {
+  const optionsWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
+
+  return html`${legendGroupTemplate({
+    heading: html`<h3 slot="heading">Legenda</h3>`,
     children: html`
       ${legendItemTemplate({
         content: html`<h3 slot="label">Legenda</h3>`,

@@ -12,6 +12,7 @@ import {
 } from "@stencil/core";
 import { clsx } from "clsx";
 
+import { LegendMode } from "../legend/legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
@@ -57,7 +58,7 @@ export class LegendItem implements ComponentInterface {
    * Controls whether this Legend Item is in edit or view mode
    */
   @Prop({ reflect: true })
-  mode: "edit" | "view" = "view";
+  mode: LegendMode = "view";
 
   /**
    * Emitted when user checks or unchecks the Slide Toggle.

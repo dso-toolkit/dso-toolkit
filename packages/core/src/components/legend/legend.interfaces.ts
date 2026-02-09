@@ -1,3 +1,8 @@
+/**
+ * Shared type for edit/view mode used by both Legend Group and Legend Item components
+ */
+export type LegendMode = "edit" | "view";
+
 export interface LegendTabItem {
   label: string;
   id: string;
