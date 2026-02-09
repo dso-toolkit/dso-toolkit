@@ -25,6 +25,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity tooltip-variables.$transition-duration;
+    max-inline-size: $max-inline-size;
 
     &.visible {
       opacity: 1;
@@ -33,6 +34,7 @@
 
     .tooltip-inner {
       --_dt-span-role-paragraph-margin-block: #{units.$u1};
+
       @include set-colors.apply($background-color, "tooltip");
 
       font-family: typography.$font-family-base;
@@ -42,13 +44,11 @@
       padding-inline: $padding-inline-inner;
       border-radius: $radius-inner;
       line-height: 1.5;
-      max-inline-size: $max-inline-size;
     }
 
     .tooltip-arrow {
-      @include set-colors.apply($background-color, "tooltip");
-
       position: absolute;
+      background-color: $background-color;
       border-start-start-radius: tooltip-variables.$border-radius;
       block-size: $arrow-size;
       inline-size: $arrow-size;

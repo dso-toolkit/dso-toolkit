@@ -2,11 +2,18 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/info-button";
 
+@use "../../functional-components/tooltip";
+
 :host {
+  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+
   display: inline-block;
 }
 
 @include utilities.box-sizing();
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 640px);
 
 .sr-only {
   @include utilities.sr-only();
