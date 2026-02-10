@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from "@stencil/core";
 
 import { LegendMode } from "../legend.interfaces";
 
@@ -37,8 +37,12 @@ export class LegendGroup implements ComponentInterface {
     }
   }
 
+  @Event()
+  dsoLegendGroupModeChange!: EventEmitter<LegendMode>;
+
   private toggleMode = () => {
-    this.mode = this.mode === "view" ? "edit" : "view";
+    const newMode: LegendMode = this.mode === "view" ? "edit" : "view";
+    this.dsoLegendGroupModeChange.emit(newMode);
   };
 
   connectedCallback() {
@@ -71,7 +75,7 @@ export class LegendGroup implements ComponentInterface {
                 label={this.mode === "view" ? "Bewerk" : "Bekijk"}
                 icon={this.mode === "view" ? "pencil" : "check"}
                 variant="tertiary"
-                onClick={this.toggleMode}
+                onDsoClick={this.toggleMode}
               />
             </div>
           )}

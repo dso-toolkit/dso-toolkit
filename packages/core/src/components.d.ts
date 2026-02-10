@@ -1563,6 +1563,10 @@ export interface DsoLegendCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLegendElement;
 }
+export interface DsoLegendGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoLegendGroupElement;
+}
 export interface DsoLegendItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLegendItemElement;
@@ -2146,7 +2150,18 @@ declare global {
         prototype: HTMLDsoLegendElement;
         new (): HTMLDsoLegendElement;
     };
+    interface HTMLDsoLegendGroupElementEventMap {
+        "dsoLegendGroupModeChange": LegendMode;
+    }
     interface HTMLDsoLegendGroupElement extends Components.DsoLegendGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoLegendGroupElementEventMap>(type: K, listener: (this: HTMLDsoLegendGroupElement, ev: DsoLegendGroupCustomEvent<HTMLDsoLegendGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoLegendGroupElementEventMap>(type: K, listener: (this: HTMLDsoLegendGroupElement, ev: DsoLegendGroupCustomEvent<HTMLDsoLegendGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDsoLegendGroupElement: {
         prototype: HTMLDsoLegendGroupElement;
@@ -3658,6 +3673,7 @@ declare namespace LocalJSX {
           * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
          */
         "mode"?: LegendMode;
+        "onDsoLegendGroupModeChange"?: (event: DsoLegendGroupCustomEvent<LegendMode>) => void;
     }
     interface DsoLegendItem {
         /**

@@ -14,6 +14,13 @@ Wanneer `mode` is ingesteld op `"view"` wordt een potlood-icoon getoond. In `"ed
 | `mode`   | `mode`    | Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown. | `"edit" \| "view" \| undefined` | `undefined` |
 
 
+## Events
+
+| Event                      | Description | Type                            |
+| -------------------------- | ----------- | ------------------------------- |
+| `dsoLegendGroupModeChange` |             | `CustomEvent<"edit" \| "view">` |
+
+
 ## Slots
 
 | Slot        | Description                                                                                                                         |
