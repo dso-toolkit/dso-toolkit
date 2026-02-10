@@ -10,12 +10,14 @@ export interface LegendArgs {
   tabItems: LegendTabItem[];
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
+  dsoLegendGroupModeChange: HandlerFunction;
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
   tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
+  dsoLegendGroupModeChange: argTypeAction(),
 };
 
 export const legendaTabItem: LegendTabItem = {
@@ -34,6 +36,7 @@ export const legendArgs = componentArgs<LegendArgs>({
   tabItems: [{ ...legendaTabItem, active: true }, kaartlagenTabItem],
   dsoContentSwitch: fn(),
   dsoClose: fn(),
+  dsoLegendGroupModeChange: fn(),
 });
 
 export function legendArgsMapper<TemplateFnReturnType>(
@@ -46,5 +49,6 @@ export function legendArgsMapper<TemplateFnReturnType>(
     content,
     dsoContentSwitch: (e) => a.dsoContentSwitch(e.detail),
     dsoClose: (e) => a.dsoClose(e.detail),
+    dsoLegendGroupModeChange: (e) => a.dsoLegendGroupModeChange(e.detail),
   };
 }
