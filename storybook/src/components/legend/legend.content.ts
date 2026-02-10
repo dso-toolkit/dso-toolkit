@@ -20,6 +20,7 @@ export function legendaRichContent({ legendItemTemplate, richContentTemplate }: 
       <hr />
       ${legendItemTemplate({
         content: html`<h3 slot="label">Geselecteerde kenmerken</h3>`,
+        active: true,
         options: html`<label>Zichtbaarheid</label><dso-input-range label="Transparantie" unit="%"></dso-input-range>`,
       })}
       ${legendItemTemplate({
