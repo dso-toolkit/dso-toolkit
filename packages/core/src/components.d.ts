@@ -30,7 +30,7 @@ import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interf
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
-import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+import { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -81,7 +81,7 @@ export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interf
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
 export { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
-export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+export { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";

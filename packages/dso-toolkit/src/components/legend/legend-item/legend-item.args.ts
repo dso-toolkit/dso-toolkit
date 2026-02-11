@@ -2,7 +2,7 @@ import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
-import { argTypeAction } from "../../storybook";
+import { argTypeAction } from "../../../storybook";
 
 import { LegendItem } from "./legend-item.models.js";
 

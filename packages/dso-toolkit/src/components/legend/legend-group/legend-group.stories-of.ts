@@ -5,9 +5,9 @@ import { LegendGroupArgs, legendGroupArgs, legendGroupArgTypes, legendGroupArgsM
 import { LegendGroup } from "./legend-group.models.js";
 import { LegendItem } from "../legend-item/legend-item.models.js";
 
-import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { StoriesParameters, StoryObj } from "../../../template-container.js";
 import { compiler } from "markdown-to-jsx";
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
+import { MetaOptions } from "../../../storybook/meta-options.interface.js";
 
 type LegendGroupStory = StoryObj<LegendGroupArgs, Renderer>;
 

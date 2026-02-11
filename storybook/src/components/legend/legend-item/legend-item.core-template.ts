@@ -2,7 +2,7 @@ import { LegendItem } from "dso-toolkit";
 import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { ComponentImplementation } from "../../templates";
+import { ComponentImplementation } from "../../../templates";
 
 export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>> = {
   component: "legendItem",

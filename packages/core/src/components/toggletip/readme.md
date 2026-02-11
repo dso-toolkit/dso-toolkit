@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [dso-legend-item](../legend-item)
+ - [dso-legend-item](../legend/legend-item)
 
 ### Depends on
 
