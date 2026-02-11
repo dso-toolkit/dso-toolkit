@@ -26,18 +26,24 @@ Dit is de release procedure:
     - In de `package.json` van `angular-workspace/projects/component-library` en `packages/react` wordt het versienummer van de peerDependency `@dso-toolkit/core` bijgewerkt.
 
 4.  Voer het commando `yarn` uit, zodat `yarn.lock` wordt geüpdatet met de aangepaste peerDependency naar `@dso-toolkit/core`.
-5.  De 6 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `yarn.lock`) moeten gecommit worden op de `master`-branch met de volgende commit-message: `😍 Release 67.0.0`. Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
+5.  De 6 resulterende gewijzigde bestanden (4x `package.json`, `CHANGELOG.md` en `yarn.lock`) eventueel aangevuld
+    met de gecorrigeerde naam van de blog-post moeten gecommit worden op de `master`-branch met de volgende
+    commit-message: `😍 Release 67.0.0`.
+    Vervolgens pushen we deze release-commit naar origin. Dit triggert een build van de `master`-branch.
 6.  Wanneer de build van de `master`-branch gereed is, voorzien we de release-commit van de tag `v67.0.0`. Dit
     triggert de release-build, die resulteert in het publiceren van versie `67.0.0` van de 4 npm-packages:
     `@dso-toolkit/core`, `dso-toolkit`, `@dso-toolkit/angular` en `@dso-toolkit/react`.
 7.  Als de release-build gereed is versturen we in Slack in 3 workspaces/channels een aankondiging. Dat doen we in
     #general van DSO Toolkit, #dso-obo-release van Kadaster-IT en #release_toolkit van DSO-LV. Dit is een voorbeeld
-    de aankondiging:
+    van de aankondiging:
 
     > 😍 Zojuist is DSO Toolkit 67.0.0 uitgekomen. Bekijk de [CHANGELOG](https://github.com/dso-toolkit/dso-toolkit/blob/master/CHANGELOG.md#-release-6700---2024-11-14) en de [blogpost](https://www.dso-toolkit.nl/67.0.0/blog).
 
     De verwijzing in het bericht naar de blogpost is optioneel.
 
-8.  Als laatste kan de Github milestone gesloten worden door op
+8.  Controleer vervolgens of `What's Changed`-sectie van de [release tag](https://github.
+    com/dso-toolkit/dso-toolkit/releases/tag/v67.0.0) in github volledig is. Is dit niet het geval  
+    dan moet deze nog handmatig worden aangevuld.
+9.  Als laatste kan de Github milestone gesloten worden door op
     https://github.com/dso-toolkit/dso-toolkit/milestones van milestone `67.0.0` eerst op "edit" te klikken,
     de Due date in te vullen en vervolgens op "Close milestone" te klikken.

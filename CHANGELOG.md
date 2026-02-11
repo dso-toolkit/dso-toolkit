@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🤧 Release 88.0.0 - 2026-02-11
+
 ### Added
 * **BREAKING** Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
