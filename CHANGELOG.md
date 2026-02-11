@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Docs
 * Docs: Vermeldingen van "Aan de slag met de Omgevingswet" weghalen ([#3542](https://github.com/dso-toolkit/dso-toolkit/issues/3542))
 
+### Task
+* Autosuggest: In Search Bar met state invalid en notFoundLabel ([#3255](https://github.com/dso-toolkit/dso-toolkit/issues/3255))
+
 ## 🧞‍♂️ Release 90.0.0 - 2026-03-13
 
 ### Added

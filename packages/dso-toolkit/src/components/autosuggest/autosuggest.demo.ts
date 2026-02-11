@@ -4682,6 +4682,8 @@ const suggestions: AutosuggestSuggestion[] = [
   },
 ];
 
+export const invalidInput = "Rote";
+
 export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
   const terms = value.match(/(\S+)/g);
 
