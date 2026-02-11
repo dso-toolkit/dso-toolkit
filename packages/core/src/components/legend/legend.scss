@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/units";
+@use "legend.variables" as legend-variables;
 
 @include utilities.box-sizing();
 
@@ -10,9 +11,10 @@
   inline-size: 344px;
   background-color: colors.$wit;
   box-shadow: 0 0 units.$u1 0 rgba(0, 0, 0, 0.3);
+  border-radius: legend-variables.$border-radius;
 
   .topbar {
-    padding-block: units.$u1;
+    padding-block-start: units.$u1;
     padding-inline: units.$u2;
 
     .tabs {
@@ -55,8 +57,12 @@
 
   .content {
     --_dso-form-group-margin-block-end: 0;
+    --_dt-scrollable-container-border-end-start-radius: #{legend-variables.$border-radius};
+    --_dt-scrollable-container-border-end-end-radius: #{legend-variables.$border-radius};
     --_dt-scrollable-container-padding-inline: #{units.$u2};
 
     max-block-size: 52vh;
+    border-end-start-radius: legend-variables.$border-radius;
+    border-end-end-radius: legend-variables.$border-radius;
   }
 }

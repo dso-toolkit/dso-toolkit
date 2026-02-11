@@ -44,13 +44,8 @@
 .legend-item-right-content {
   margin-inline-start: auto;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
 
   dso-slide-toggle {
-    display: flex;
-    align-self: center;
     line-height: 1;
     margin-inline-start: 8px;
     padding-block-start: 0 !important;
