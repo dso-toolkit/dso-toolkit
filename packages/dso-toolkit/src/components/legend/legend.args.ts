@@ -4,9 +4,10 @@ import { fn } from "storybook/test";
 
 import { argTypeAction, componentArgs } from "../../storybook";
 
-import { Legend, LegendTabItem } from "./legend.models";
+import { Legend, LegendMode, LegendTabItem } from "./legend.models";
 
 export interface LegendArgs {
+  mode: LegendMode;
   tabItems: LegendTabItem[];
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
@@ -14,6 +15,10 @@ export interface LegendArgs {
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
+  mode: {
+    control: { type: "select" },
+    options: ["edit", "view"],
+  },
   tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
@@ -33,6 +38,7 @@ export const kaartlagenTabItem: LegendTabItem = {
 };
 
 export const legendArgs = componentArgs<LegendArgs>({
+  mode: "view",
   tabItems: [{ ...legendaTabItem, active: true }, kaartlagenTabItem],
   dsoContentSwitch: fn(),
   dsoClose: fn(),

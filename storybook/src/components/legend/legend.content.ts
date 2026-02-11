@@ -1,17 +1,18 @@
+import { LegendMode } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 import { defaultSymbol } from "../legend-item/legend-item.content";
 
-export function legendaRichContent({ legendItemTemplate, legendGroupTemplate, inputRangeTemplate }: Templates) {
+export function legendaRichContent(
+  { legendItemTemplate, legendGroupTemplate, inputRangeTemplate }: Templates,
+  mode: LegendMode,
+) {
   const optionsWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
 
   return html`${legendGroupTemplate({
     heading: html`<h3 slot="heading">Legenda</h3>`,
     children: html`
-      ${legendItemTemplate({
-        content: html`<h3 slot="label">Legenda</h3>`,
-      })}
       ${legendItemTemplate({
         content: html`<span slot="label">Document</span>`,
         symbol: defaultSymbol,
@@ -19,13 +20,13 @@ export function legendaRichContent({ legendItemTemplate, legendGroupTemplate, in
       ${legendItemTemplate({
         content: html`<span slot="label">Gekozen locatie</span>`,
         symbol: defaultSymbol,
-      })}
-      <hr />
-      ${legendItemTemplate({
-        content: html`<h3 slot="label">Geselecteerde kenmerken</h3>`,
-        active: true,
-        options: html`<label>Zichtbaarheid</label><dso-input-range label="Transparantie" unit="%"></dso-input-range>`,
-      })}
+      })}`,
+  })}
+  <hr />
+  ${legendGroupTemplate({
+    mode,
+    heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
+    children: html`
       ${legendItemTemplate({
         content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
@@ -36,17 +37,41 @@ export function legendaRichContent({ legendItemTemplate, legendGroupTemplate, in
         activatable: true,
         active: true,
         symbol: defaultSymbol,
+        options: optionsWithInputRange,
       })}
-    `,
-  });
+      ${legendItemTemplate({
+        content: html`<span slot="label">Niet activeerbaar</span>`,
+        activatable: false,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Alleen symbool</span>`,
+        activatable: false,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Uitgeschakeld</span>`,
+        activatable: true,
+        disabled: true,
+        disabledMessage: "Dit item is uitgeschakeld",
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Zonder symbool</span>`,
+        activatable: true,
+        active: true,
+      })}`,
+  })}`;
 }
 
-export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate, infoButtonTemplate }: Templates) {
-  return richContentTemplate({
+export function kaartlagenRichContent(
+  { legendItemTemplate, legendGroupTemplate, infoButtonTemplate }: Templates,
+  mode: LegendMode,
+) {
+  return html`${legendGroupTemplate({
+    mode,
+    heading: html`<h3 slot="heading">Informatie</h3>`,
     children: html`
-      ${legendItemTemplate({
-        content: html`<h3 slot="label">Informatie</h3>`,
-      })}
       ${legendItemTemplate({
         content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
@@ -102,11 +127,13 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate,
             <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
           </div>
         </fieldset>`,
-      })}
-      <hr />
-      ${legendItemTemplate({
-        content: html`<h3 slot="label">Achtergrond</h3>`,
-      })}
+      })}`,
+  })}
+  <hr />
+  ${legendGroupTemplate({
+    mode,
+    heading: html`<h3 slot="heading">Achtergrond</h3>`,
+    children: html`
       ${legendItemTemplate({
         content: html`<span slot="label">Topgrafie (BRT)</span>`,
         activatable: true,
@@ -141,7 +168,6 @@ export function kaartlagenRichContent({ legendItemTemplate, richContentTemplate,
       ${legendItemTemplate({
         content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
-      })}
-    `,
-  });
+      })}`,
+  })}`;
 }
