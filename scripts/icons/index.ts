@@ -9,7 +9,6 @@ import { setFillCurrentColor } from "./set-fill-current-color";
 
 interface Args {
   newIconsDir: string | undefined;
-  prefix: string | undefined;
 }
 
 const camelize = (s: string) => s.replace(/-./g, (x) => x[1].toUpperCase());
@@ -21,7 +20,7 @@ async function format(source: string, filepath: string) {
   });
 }
 
-const getAliases = (icons: string[], prefix: string) => {
+const getAliases = (icons: string[]) => {
   const aliases = icons.map((icon) => path.basename(icon.replace(prefix, "").toLowerCase(), ".svg"));
   // TODO: Volgende regel verwijderen via #3525
   aliases.splice(aliases.indexOf("favicon"), 1);
@@ -37,7 +36,7 @@ const prefix = "Icon=";
 // TODO: #3525
 const ignoreIcons = ["favicon", "spinner"];
 
-const args = minimist<Args>(process.argv.slice(2));
+const args = minimist<Args>(process.argv.slice(1));
 
 main(args.newIconsDir).catch((error) => {
   console.error(error);
@@ -48,16 +47,16 @@ main(args.newIconsDir).catch((error) => {
 async function main(newIconsDir = "./packages/dso-toolkit/src/icons-new") {
   const icons = await readdir(newIconsDir);
 
-  await optimizeSVGs(icons, prefix, newIconsDir);
+  await optimizeSVGs(icons, newIconsDir);
 
-  await generateTypeIconAlias(icons, prefix);
+  await generateTypeIconAlias(icons);
 
-  await updateIconTsx(icons, prefix);
+  await updateIconTsx(icons);
 
-  await generateIconsJson(icons, prefix);
+  await generateIconsJson(icons);
 }
 
-async function optimizeSVGs(icons: string[], prefix: string, newIconsDir: string) {
+async function optimizeSVGs(icons: string[], newIconsDir: string) {
   const iconsDir = "./packages/dso-toolkit/src/icons";
 
   for (const icon of icons) {
@@ -105,8 +104,8 @@ async function optimizeSVGs(icons: string[], prefix: string, newIconsDir: string
   }
 }
 
-async function generateTypeIconAlias(icons: string[], prefix: string) {
-  const aliases = getAliases(icons, prefix);
+async function generateTypeIconAlias(icons: string[]) {
+  const aliases = getAliases(icons);
 
   const contents = `export type IconAlias = "${aliases.join('"|"')}"`;
 
@@ -129,9 +128,9 @@ async function generateTypeIconAlias(icons: string[], prefix: string) {
   // End: DSO-Toolkit icon.models.ts
 }
 
-async function updateIconTsx(icons: string[], prefix: string) {
+async function updateIconTsx(icons: string[]) {
   const filepath = "packages/core/src/components/icon/icon.tsx";
-  const aliases: string[] = getAliases(icons, prefix);
+  const aliases: string[] = getAliases(icons);
 
   const iconTsx = await readFile(filepath, "utf-8");
 
@@ -162,8 +161,8 @@ async function updateIconTsx(icons: string[], prefix: string) {
   await writeFile(filepath, await format(iconTsxLines.join("\r\n"), filepath));
 }
 
-async function generateIconsJson(icons: string[], prefix: string) {
-  const aliases = getAliases(icons, prefix);
+async function generateIconsJson(icons: string[]) {
+  const aliases = getAliases(icons);
 
   const filepath = "packages/dso-toolkit/storybook-assets/icons.json";
 
