@@ -13,7 +13,7 @@ import {
   legendArgsMapper,
   legendaTabItem,
 } from "./legend.args.js";
-import { Legend } from "./legend.models";
+import { Legend, LegendMode } from "./legend.models";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
 
@@ -33,8 +33,8 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface LegendTemplates<TemplateFnReturnType> {
   legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
-  legendaRichContent: TemplateFnReturnType;
-  kaartlagenRichContent: TemplateFnReturnType;
+  legendaRichContent: (mode: LegendMode) => TemplateFnReturnType;
+  kaartlagenRichContent: (mode: LegendMode) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -63,14 +63,14 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
     Legenda: {
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
-        legendTemplate(legendArgsMapper(args, legendaRichContent)),
+        legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode))),
       ),
     },
     Kaartlagen: {
       args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
       decorators: [(story) => decorator(story, legendItemDemoCss)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
-        legendTemplate(legendArgsMapper(args, kaartlagenRichContent)),
+        legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args.mode))),
       ),
     },
   };
