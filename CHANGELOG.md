@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * CICD: addnab/docker-run-action verouderd ([#3557](https://github.com/dso-toolkit/dso-toolkit/issues/3557))
+* Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
 
 ## 🤧 Release 88.0.0 - 2026-02-11
 
