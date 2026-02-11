@@ -3,7 +3,7 @@ import { ComponentAnnotations, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { LegendItemDecorator, legendItemDemoCss } from "../legend-item";
+import { LegendItemDecorator, legendItemDemoCss } from "./legend-item";
 
 import {
   LegendArgs,

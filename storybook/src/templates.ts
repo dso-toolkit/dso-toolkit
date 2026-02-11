@@ -140,8 +140,8 @@ import { coreInfoButton } from "./components/info-button/info-button.core-templa
 import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { coreLabel } from "./components/label/label.core-template";
 import { coreLegend } from "./components/legend/legend.core-template";
-import { coreLegendGroup } from "./components/legend-group/legend-group.core-template";
-import { coreLegendItem } from "./components/legend-item/legend-item.core-template";
+import { coreLegendGroup } from "./components/legend/legend-group/legend-group.core-template";
+import { coreLegendItem } from "./components/legend/legend-item/legend-item.core-template";
 import { coreListButton } from "./components/list-button/list-button.core-template";
 import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";

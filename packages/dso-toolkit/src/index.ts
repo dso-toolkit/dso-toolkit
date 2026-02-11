@@ -1,5 +1,4 @@
 /* Since Storybook 7 we have support for export * from ''; */
-export * from "./components/legend-group";
 export {
   BaseComponentImplementation,
   ComponentsToTemplates,
@@ -109,8 +108,6 @@ export * from "./components/label";
 export * from "./components/label-group";
 
 export * from "./components/legend";
-
-export * from "./components/legend-item";
 
 export * from "./components/link-list";
 

@@ -2,7 +2,7 @@ import { LegendGroup } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
-import { ComponentImplementation } from "../../templates";
+import { ComponentImplementation } from "../../../templates";
 
 export const coreLegendGroup: ComponentImplementation<LegendGroup<TemplateResult>> = {
   component: "legendGroup",

@@ -1,8 +1,8 @@
 import { compiler } from "markdown-to-jsx";
 import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
-import { MetaOptions } from "../../storybook/meta-options.interface.js";
-import { StoriesParameters, StoryObj } from "../../template-container.js";
+import { MetaOptions } from "../../../storybook/meta-options.interface.js";
+import { StoriesParameters, StoryObj } from "../../../template-container.js";
 
 import { LegendItemArgs, legendItemArgTypes, legendItemArgs, legendItemArgsMapper } from "./legend-item.args.js";
 import { legendItemDemoCss } from "./legend-item.demo.js";

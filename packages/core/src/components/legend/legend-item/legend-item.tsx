@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import { clsx } from "clsx";
 
-import { LegendMode } from "../legend/legend.interfaces";
+import { LegendMode } from "../legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**

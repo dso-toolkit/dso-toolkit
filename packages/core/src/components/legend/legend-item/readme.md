@@ -1,5 +1,36 @@
 # `<dso-legend-item>`
 
+<!-- Auto Generated dso-toolkit -->
+
+## Types
+
+### LegendItemActiveChangeEvent
+
+```typescript
+export interface LegendItemActiveChangeEvent {
+  /**
+   * De huidige status van de Legend Item.
+   */
+  current: boolean;
+
+  /**
+   * De gewenste status van de Legend Item.
+   */
+  next: boolean;
+
+  originalEvent: Event;
+}
+```
+
+<!-- src/components/legend/legend-item/legend-item.interfaces.ts::LegendItemActiveChangeEvent -->
+
+### LegendMode
+
+```typescript
+export type LegendMode = "edit" | "view";
+```
+
+<!-- src/components/legend/legend.interfaces.ts::LegendMode -->
 
 <!-- Auto Generated Below -->
 
@@ -38,9 +69,9 @@
 
 ### Depends on
 
-- [dso-icon-button](../icon-button)
-- [dso-slide-toggle](../slide-toggle)
-- [dso-toggletip](../toggletip)
+- [dso-icon-button](../../icon-button)
+- [dso-slide-toggle](../../slide-toggle)
+- [dso-toggletip](../../toggletip)
 
 ### Graph
 ```mermaid
