@@ -48,20 +48,20 @@ status-danger {
 Het is mogelijk om van een icoon een variant met een andere kleur te maken. Dit kan door een stylesheet met dezelfde naam naast het icoon te plaatsen. In de SVG worden alle `fill="currentColor"` vervangen met de waarde van de CSS property `color`.
 
 ```
-/packages/dso-toolkit/src/icons/times.svg
-/packages/dso-toolkit/src/icons/times.scss
+/packages/dso-toolkit/src/icons/cross.svg
+/packages/dso-toolkit/src/icons/cross.scss
 ```
 
 ```scss
-// /packages/dso-toolkit/src/icons/times.scss
+// /packages/dso-toolkit/src/icons/cross.scss
 
 @use "../variables/colors";
 
-times {
+cross {
   color: colors.$grasgroen;
 }
 
-times:bosgroen {
+cross:bosgroen {
   color: colors.$bosgroen;
 }
 ```
@@ -88,11 +88,11 @@ Maak altijd gebruik van `di.base()`. Als op hetzelfde element voorwaardelijk een
   ::before {
     content: "";
 
-    @include di.base("times");
+    @include di.base("cross");
   }
 
   &:hover {
-    @include di.variant("times-red");
+    @include di.variant("cross-red");
   }
 }
 ```
