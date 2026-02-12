@@ -1,8 +1,10 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 import { clsx } from "clsx";
 
+import { i18n } from "../../utils/i18n";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
+import { translations } from "./legend.i18n";
 import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./legend.interfaces";
 
 @Component({
@@ -31,6 +33,8 @@ export class Legend implements ComponentInterface {
    */
   @Event()
   dsoClose!: EventEmitter<LegendCloseEvent>;
+
+  private text = i18n(() => this.host, translations);
 
   private get tabs() {
     return Array.from(this.host.shadowRoot!.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
@@ -119,9 +123,9 @@ export class Legend implements ComponentInterface {
           <dso-icon-button
             icon="times"
             variant="tertiary"
-            label="Sluit legenda"
+            label={this.text("closeLegend")}
             class="close-button"
-            onClick={(e) => this.dsoClose.emit({ originalEvent: e })}
+            onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e.detail.originalEvent })}
           />
         </div>
 

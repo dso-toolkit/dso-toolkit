@@ -55,7 +55,7 @@ export class LegendGroup implements ComponentInterface {
       this.handleModeChange();
     });
 
-    this.mutationObserver.observe(this.host, { childList: true, subtree: true });
+    this.mutationObserver.observe(this.host, { childList: true });
 
     // Initialize child legend-items with current mode
     this.handleModeChange();
