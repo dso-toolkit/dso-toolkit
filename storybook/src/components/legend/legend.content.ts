@@ -11,9 +11,8 @@ export function legendaRichContent(
   const optionsWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
 
   return html`${legendGroupTemplate({
-    heading: html`<h3 slot="heading">Legenda</h3>`,
-    children: html`
-      ${legendItemTemplate({
+      heading: html`<h3 slot="heading">Legenda</h3>`,
+      children: html` ${legendItemTemplate({
         content: html`<span slot="label">Document</span>`,
         symbol: defaultSymbol,
       })}
@@ -21,13 +20,12 @@ export function legendaRichContent(
         content: html`<span slot="label">Gekozen locatie</span>`,
         symbol: defaultSymbol,
       })}`,
-  })}
-  <hr />
-  ${legendGroupTemplate({
-    mode,
-    heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
-    children: html`
-      ${legendItemTemplate({
+    })}
+    <hr />
+    ${legendGroupTemplate({
+      mode,
+      heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
+      children: html` ${legendItemTemplate({
         content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
         symbol: defaultSymbol,
@@ -61,7 +59,7 @@ export function legendaRichContent(
         activatable: true,
         active: true,
       })}`,
-  })}`;
+    })}`;
 }
 
 export function kaartlagenRichContent(
@@ -69,10 +67,9 @@ export function kaartlagenRichContent(
   mode: LegendMode,
 ) {
   return html`${legendGroupTemplate({
-    mode,
-    heading: html`<h3 slot="heading">Informatie</h3>`,
-    children: html`
-      ${legendItemTemplate({
+      mode,
+      heading: html`<h3 slot="heading">Informatie</h3>`,
+      children: html` ${legendItemTemplate({
         content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
       })}
@@ -128,13 +125,12 @@ export function kaartlagenRichContent(
           </div>
         </fieldset>`,
       })}`,
-  })}
-  <hr />
-  ${legendGroupTemplate({
-    mode,
-    heading: html`<h3 slot="heading">Achtergrond</h3>`,
-    children: html`
-      ${legendItemTemplate({
+    })}
+    <hr />
+    ${legendGroupTemplate({
+      mode,
+      heading: html`<h3 slot="heading">Achtergrond</h3>`,
+      children: html` ${legendItemTemplate({
         content: html`<span slot="label">Topgrafie (BRT)</span>`,
         activatable: true,
         active: true,
@@ -159,7 +155,7 @@ export function kaartlagenRichContent(
           Grootschalige topgrafie (BGT)
           ${infoButtonTemplate({
             label: "Begeleidende tekst met lange content",
-            children: "Een toggletip bij de banner met lange content",
+            children: "Een info-button bij de banner met lange content",
           })}
         </span>`,
         activatable: true,
@@ -169,5 +165,5 @@ export function kaartlagenRichContent(
         content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
       })}`,
-  })}`;
+    })}`;
 }
