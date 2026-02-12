@@ -897,7 +897,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Message to be shown behind a toggletip when the Legend Item is disabled
+          * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
         /**
@@ -3690,7 +3690,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Message to be shown behind a toggletip when the Legend Item is disabled
+          * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
         /**

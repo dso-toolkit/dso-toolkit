@@ -37,13 +37,13 @@ export type LegendMode = "edit" | "view";
 
 ## Properties
 
-| Property          | Attribute          | Description                                                             | Type                   | Default     |
-| ----------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------- | ----------- |
-| `activatable`     | `activatable`      | Controls whether this Legend Item can be active or not                  | `boolean \| undefined` | `undefined` |
-| `active`          | `active`           | Controls whether this Legend Item is active or not                      | `boolean \| undefined` | `undefined` |
-| `disabled`        | `disabled`         | To disable the Legend Item                                              | `boolean`              | `false`     |
-| `disabledMessage` | `disabled-message` | Message to be shown behind a toggletip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
-| `mode`            | `mode`             | Controls whether this Legend Item is in edit or view mode               | `"edit" \| "view"`     | `"view"`    |
+| Property          | Attribute          | Description                                                                    | Type                   | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------ | ---------------------- | ----------- |
+| `activatable`     | `activatable`      | Controls whether this Legend Item can be active or not                         | `boolean \| undefined` | `undefined` |
+| `active`          | `active`           | Controls whether this Legend Item is active or not                             | `boolean \| undefined` | `undefined` |
+| `disabled`        | `disabled`         | To disable the Legend Item                                                     | `boolean`              | `false`     |
+| `disabledMessage` | `disabled-message` | Message to be shown in an info-button tooltip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
+| `mode`            | `mode`             | Controls whether this Legend Item is in edit or view mode                      | `"edit" \| "view"`     | `"view"`    |
 
 
 ## Events
@@ -58,11 +58,11 @@ export type LegendMode = "edit" | "view";
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"label"`   | The label for this Legend Item. Should be targetted with either `<h3 slot="label">...</h3>` or `<span slot="label">...</span>`                                                                                       |
-| `"options"` | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
-| `"symbol"`  | A span where the symbol is styled upon                                                                                                                                                                               |
+| Slot        | Description                                                                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"label"`   | The label for this Legend Item. Should be targetted with `<span slot="label">...</span>`                                                                                                                                |
+| `"options"` | The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an options-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true. |
+| `"symbol"`  | A span where the symbol is styled upon                                                                                                                                                                                  |
 
 
 ## Dependencies

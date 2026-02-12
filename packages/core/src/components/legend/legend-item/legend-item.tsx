@@ -18,10 +18,9 @@ import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 import { translations } from "./legend-item.i18n";
 
 /**
- * @slot label - The label for this Legend Item. Should be targetted with either `<h3 slot="label">...</h3>` or
- * `<span slot="label">...</span>`
+ * @slot label - The label for this Legend Item. Should be targetted with `<span slot="label">...</span>`
  * @slot symbol - A span where the symbol is styled upon
- * @slot options - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an edit-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
+ * @slot options - The slot to place controls in (i.e. `dso-input-range`). If present, this will cause the appearance of an options-button (three dots) to show the controls. Will not be displayed if property `disabled` is set to true.
  */
 @Component({
   tag: "dso-legend-item",
@@ -39,7 +38,7 @@ export class LegendItem implements ComponentInterface {
   disabled = false;
 
   /**
-   * Message to be shown behind a toggletip when the Legend Item is disabled
+   * Message to be shown in an info-button tooltip when the Legend Item is disabled
    */
   @Prop()
   disabledMessage?: string;
@@ -96,7 +95,7 @@ export class LegendItem implements ComponentInterface {
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
 
-    this.mutationObserver.observe(this.host, { attributes: true, childList: true, subtree: true });
+    this.mutationObserver.observe(this.host, { childList: true });
   }
 
   disconnectedCallback(): void {
@@ -105,11 +104,11 @@ export class LegendItem implements ComponentInterface {
     delete this.mutationObserver;
   }
 
-  get symbolSlottedElement() {
+  private get symbolSlottedElement() {
     return this.host.querySelector("[slot='symbol']");
   }
 
-  get optionsSlottedElement() {
+  private get optionsSlottedElement() {
     return this.host.querySelector("[slot='options']");
   }
 
@@ -133,7 +132,7 @@ export class LegendItem implements ComponentInterface {
           icon="more"
           variant="tertiary"
           class={{ active: this.showOptions }}
-          id="edit-button"
+          id="options-button"
           onDsoClick={() => (this.showOptions = !this.showOptions)}
         />
       ),
