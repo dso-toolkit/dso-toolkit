@@ -71,17 +71,15 @@ export type LegendMode = "edit" | "view";
 
 - [dso-icon-button](../../icon-button)
 - [dso-slide-toggle](../../slide-toggle)
-- [dso-toggletip](../../toggletip)
+- [dso-info-button](../../info-button)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-legend-item --> dso-icon-button
   dso-legend-item --> dso-slide-toggle
-  dso-legend-item --> dso-toggletip
+  dso-legend-item --> dso-info-button
   dso-icon-button --> dso-icon
-  dso-toggletip --> dso-info-button
-  dso-toggletip --> dso-tooltip
   dso-info-button --> dso-icon-button
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
