@@ -160,10 +160,9 @@ export class LegendItem implements ComponentInterface {
     const hasOptions = this.optionsSlottedElement !== null;
 
     const label = this.host.querySelector("span[slot='label']");
-    let accessibleLabel = "Maak actief";
-    if (label?.textContent) {
-      accessibleLabel = `Maak ${label.textContent.toLowerCase()} actief`;
-    }
+    const accessibleLabel = label?.textContent
+      ? `Maak ${label.textContent.toLowerCase()} actief`
+      : "Maak actief";
 
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>

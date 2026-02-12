@@ -1,8 +1,13 @@
 @use "~dso-toolkit/src/utilities";
-@use "~dso-toolkit/src/components/context/context";
 
 :host {
   display: block;
 }
 
 @include utilities.box-sizing();
+
+.legend-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
