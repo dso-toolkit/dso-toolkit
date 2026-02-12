@@ -1,14 +1,16 @@
-import { Resource } from "i18next";
+import { Resource } from "../../../utils/i18n";
 
 export const translations: Resource = {
   en: {
     "dso-legend-group": {
-      dummy: "English",
+      edit: "Edit",
+      view: "View",
     },
   },
   nl: {
     "dso-legend-group": {
-      dummy: "Nederlands",
+      edit: "Bewerk",
+      view: "Bekijk",
     },
   },
 };

@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from "@stencil/core";
 
+import { i18n } from "../../../utils/i18n";
 import { LegendMode } from "../legend.interfaces";
+import { translations } from "./legend-group.i18n";
 
 /**
  * @slot heading - The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>` or `<span slot="heading">...</span>`
@@ -21,6 +23,8 @@ export class LegendGroup implements ComponentInterface {
    */
   @Prop({ reflect: true })
   mode?: LegendMode;
+
+  private text = i18n(() => this.host, translations);
 
   private mutationObserver?: MutationObserver;
 
@@ -69,7 +73,7 @@ export class LegendGroup implements ComponentInterface {
           <slot name="heading" />
           {this.mode && (
             <dso-icon-button
-              label={this.mode === "view" ? "Bewerk" : "Bekijk"}
+              label={this.mode === "view" ? this.text("edit") : this.text("view")}
               icon={this.mode === "view" ? "pencil" : "check"}
               variant="tertiary"
               onDsoClick={this.toggleMode}
