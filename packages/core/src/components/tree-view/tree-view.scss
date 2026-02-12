@@ -101,7 +101,7 @@
 
   .tree-content {
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
     margin-block: core-tree-view-variables.$vspace;
     margin-inline: 0;
     max-inline-size: calc(100% - (core-tree-view-variables.$indent + core-tree-view-variables.$hspace));
@@ -157,7 +157,6 @@
     dso-icon {
       color: colors.$grasgroen;
       font-size: 0.75em;
-      margin-inline-start: 0.5em;
       vertical-align: text-bottom;
     }
   }
