@@ -65,19 +65,15 @@ export class LegendGroup implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class="dso-context-wrapper">
-          <span class="dso-context-label">
-            <slot name="heading" />
-          </span>
+        <div class="legend-group-header">
+          <slot name="heading" />
           {this.mode && (
-            <div class="dso-context-container">
-              <dso-icon-button
-                label={this.mode === "view" ? "Bewerk" : "Bekijk"}
-                icon={this.mode === "view" ? "pencil" : "check"}
-                variant="tertiary"
-                onDsoClick={this.toggleMode}
-              />
-            </div>
+            <dso-icon-button
+              label={this.mode === "view" ? "Bewerk" : "Bekijk"}
+              icon={this.mode === "view" ? "pencil" : "check"}
+              variant="tertiary"
+              onDsoClick={this.toggleMode}
+            />
           )}
         </div>
         <slot />
