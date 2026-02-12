@@ -12,8 +12,10 @@ import {
 } from "@stencil/core";
 import { clsx } from "clsx";
 
+import { i18n } from "../../../utils/i18n";
 import { LegendMode } from "../legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
+import { translations } from "./legend-item.i18n";
 
 /**
  * @slot label - The label for this Legend Item. Should be targetted with either `<h3 slot="label">...</h3>` or
@@ -87,6 +89,8 @@ export class LegendItem implements ComponentInterface {
   @State()
   showOptions = false;
 
+  private text = i18n(() => this.host, translations);
+
   private mutationObserver?: MutationObserver;
 
   connectedCallback(): void {
@@ -112,7 +116,7 @@ export class LegendItem implements ComponentInterface {
   private renderEditMode() {
     return (
       <dso-icon-button
-        label="Delete"
+        label={this.text("delete")}
         icon="trash"
         variant="tertiary"
         id="delete-button"
@@ -125,7 +129,7 @@ export class LegendItem implements ComponentInterface {
     return [
       this.active && hasOptions && !this.disabled && (
         <dso-icon-button
-          label="Opties"
+          label={this.text("options")}
           icon="more"
           variant="tertiary"
           class={{ active: this.showOptions }}
@@ -161,8 +165,8 @@ export class LegendItem implements ComponentInterface {
 
     const label = this.host.querySelector("span[slot='label']");
     const accessibleLabel = label?.textContent
-      ? `Maak ${label.textContent.toLowerCase()} actief`
-      : "Maak actief";
+      ? this.text("makeActive", { label: label.textContent.toLowerCase() })
+      : this.text("makeActiveDefault");
 
     return (
       <Host onMouseEnter={() => this.dsoMouseEnter.emit()} onMouseLeave={() => this.dsoMouseLeave.emit()}>
