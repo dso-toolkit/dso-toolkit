@@ -3,14 +3,14 @@ import { Resource } from "../../../utils/i18n";
 export const translations: Resource = {
   en: {
     "dso-legend-group": {
-      edit: "Edit",
-      view: "View",
+      edit: "Edit layers",
+      view: "Leave editmode",
     },
   },
   nl: {
     "dso-legend-group": {
-      edit: "Bewerk",
-      view: "Bekijk",
+      edit: "Kaartlagen bewerken",
+      view: "Bewerken verlaten",
     },
   },
 };
