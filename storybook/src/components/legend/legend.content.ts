@@ -2,6 +2,7 @@ import { LegendMode } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { Templates } from "../../templates";
+
 import { defaultSymbol } from "./legend-item/legend-item.content";
 
 export function legendaRichContent(

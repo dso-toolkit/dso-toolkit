@@ -1,5 +1,5 @@
-import { PartialStoryFn } from "storybook/internal/types";
 import { TemplateResult, html } from "lit-html";
+import { PartialStoryFn } from "storybook/internal/types";
 
 // https://github.com/dso-toolkit/dso-toolkit/issues/1313#issue-1041224938
 const legendItemDemoCss = `

@@ -2,6 +2,7 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop
 
 import { i18n } from "../../../utils/i18n";
 import { LegendMode } from "../legend.interfaces";
+
 import { translations } from "./legend-group.i18n";
 
 /**

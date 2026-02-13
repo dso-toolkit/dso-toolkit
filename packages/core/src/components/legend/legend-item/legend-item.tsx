@@ -14,8 +14,9 @@ import { clsx } from "clsx";
 
 import { i18n } from "../../../utils/i18n";
 import { LegendMode } from "../legend.interfaces";
-import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
+
 import { translations } from "./legend-item.i18n";
+import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
 
 /**
  * @slot label - The label for this Legend Item. Should be targetted with `<span slot="label">...</span>`
