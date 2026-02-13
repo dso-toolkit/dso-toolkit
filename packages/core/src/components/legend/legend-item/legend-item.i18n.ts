@@ -5,7 +5,7 @@ export const translations: Resource = {
     "dso-legend-item": {
       delete: "Remove layer",
       disabledInfo: "More info",
-      options: "Options",
+      options: "Edit layer",
       makeActive: "Make {{label}} active",
       makeActiveDefault: "Make active",
     },
@@ -14,7 +14,7 @@ export const translations: Resource = {
     "dso-legend-item": {
       delete: "Kaartlaag verwijderen",
       disabledInfo: "Meer informatie",
-      options: "Opties",
+      options: "Kaartlaag bewerken",
       makeActive: "Maak {{label}} actief",
       makeActiveDefault: "Maak actief",
     },
