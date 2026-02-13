@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Listen, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
@@ -25,6 +25,26 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   showToggletip = false;
 
+  @Listen("click", { target: "window" })
+  handleWindowMouseDown(event: MouseEvent) {
+    if (!this.active) return;
+
+    const path = event.composedPath();
+    const clickedInsideHost = path.includes(this.host);
+    const clickedInsideTooltip = this.tooltip && path.includes(this.tooltip);
+
+    if (!clickedInsideHost && !clickedInsideTooltip) {
+      this.close();
+    }
+
+    if (clickedInsideTooltip) {
+      const interactive = path.some((el) => el instanceof HTMLElement && el.tagName === "BUTTON");
+      if (interactive) {
+        this.close();
+      }
+    }
+  }
+
   private container: HTMLSpanElement | undefined;
   private tooltip: HTMLElement | undefined;
   private tooltipArrow: HTMLElement | undefined;
@@ -43,12 +63,6 @@ export class ozonContentToggletip implements ComponentInterface {
 
   private close = () => {
     this.active = false;
-  };
-
-  private focusOutHandler = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.close();
-    }
   };
 
   private keyUpHandler = (event: KeyboardEvent) => {
@@ -101,7 +115,6 @@ export class ozonContentToggletip implements ComponentInterface {
           tabindex={0}
           onClick={this.toggle}
           onKeyDown={this.keyUpHandler}
-          onFocusout={this.focusOutHandler}
           ref={(element) => (this.container = element)}
         >
           <span class="icon-container">
