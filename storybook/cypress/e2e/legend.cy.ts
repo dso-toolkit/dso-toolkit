@@ -58,6 +58,20 @@ describe("Legend", () => {
     cy.get("@dsoLegendShadow").find(".tab:nth-child(1)").should("have.focus");
   });
 
+  it("should show all legend items in view mode", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda");
+    cy.get("dso-legend.hydrated").as("dsoLegend").shadow().as("dsoLegendShadow");
+    cy.get("@dsoLegendShadow").find(".content").invoke("css", "max-block-size", "none");
+    cy.get("@dsoLegend").matchImageSnapshot("legend view mode", { failureThreshold: 0.001 });
+  });
+
+  it("should show all legend items in edit mode", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+    cy.get("dso-legend.hydrated").as("dsoLegend").shadow().as("dsoLegendShadow");
+    cy.get("@dsoLegendShadow").find(".content").invoke("css", "max-block-size", "none");
+    cy.get("@dsoLegend").matchImageSnapshot("legend edit mode", { failureThreshold: 0.001 });
+  });
+
   it("should show a scrollbar when the content in the slot is heigher than 600px", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-legend--kaartlagen");
     cy.get("dso-legend.hydrated").as("dsoLegend").shadow().as("dsoLegendShadow");
@@ -65,26 +79,42 @@ describe("Legend", () => {
     cy.get("@dsoLegend")
       .contains("dso-legend-item", "Provinciegrenzen")
       .shadow()
-      .within(() => {
-        cy.get("dso-icon-button").realClick();
-        cy.get("div.options").should("not.have.attr", "hidden");
-      });
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .click({ force: true });
+    cy.get("@dsoLegend")
+      .contains("dso-legend-item", "Provinciegrenzen")
+      .shadow()
+      .find("div.options")
+      .should("not.have.attr", "hidden");
 
     cy.get("@dsoLegend")
       .contains("dso-legend-item", "Landgrenzen")
       .shadow()
-      .within(() => {
-        cy.get("dso-icon-button").realClick();
-        cy.get("div.options").should("not.have.attr", "hidden");
-      });
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .click({ force: true });
+    cy.get("@dsoLegend")
+      .contains("dso-legend-item", "Landgrenzen")
+      .shadow()
+      .find("div.options")
+      .should("not.have.attr", "hidden");
 
     cy.get("@dsoLegend")
       .contains("dso-legend-item", "Topgrafie (BRT)")
+      .scrollIntoView()
       .shadow()
-      .within(() => {
-        cy.get("dso-icon-button").realClick();
-        cy.get("div.options").should("not.have.attr", "hidden");
-      });
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .click({ force: true });
+    cy.get("@dsoLegend")
+      .contains("dso-legend-item", "Topgrafie (BRT)")
+      .shadow()
+      .find("div.options")
+      .should("not.have.attr", "hidden");
 
     cy.get("@dsoLegend").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
