@@ -4,7 +4,7 @@ import { MapControls } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { defaultSymbol } from "../legend/legend-item/legend-item.content";
+import { defaultSymbol } from "../legend/legend.content";
 
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
