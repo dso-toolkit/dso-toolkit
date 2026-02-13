@@ -30,7 +30,7 @@ describe("Legend Item", () => {
       .invoke("prop", "disabled", true)
       .invoke("prop", "disabledMessage", "Deze kaartlaag is uitgeschakeld")
       .shadow()
-      .find("#edit-button")
+      .find("#options-button")
       .should("not.exist")
       .get("@dsoLegendItem")
       .shadow()
@@ -47,7 +47,7 @@ describe("Legend Item", () => {
       .invoke("prop", "disabled", false)
       .invoke("prop", "disabledMessage", "")
       .shadow()
-      .find("#edit-button")
+      .find("#options-button")
       .should("exist")
       .get("@dsoLegendItem")
       .shadow()
@@ -56,22 +56,22 @@ describe("Legend Item", () => {
   });
 
   it("should hide the edit button when the slider is not active", () => {
-    cy.get("@dsoLegendItem").invoke("prop", "active", false).shadow().find("#edit-button").should("not.exist");
+    cy.get("@dsoLegendItem").invoke("prop", "active", false).shadow().find("#options-button").should("not.exist");
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
 
   it("should show the edit button when the slider is active", () => {
-    cy.get("@dsoLegendItem").invoke("prop", "active", true).shadow().find("#edit-button").should("be.visible");
+    cy.get("@dsoLegendItem").invoke("prop", "active", true).shadow().find("#options-button").should("be.visible");
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
 
-  it("should show the options containing an input-range when clicked on edit-button", () => {
+  it("should show the options containing an input-range when clicked on options-button", () => {
     cy.get("@dsoLegendItem")
       .find("div[slot='options'] dso-input-range")
       .should("be.hidden")
       .get("dso-legend-item")
       .shadow()
-      .find("#edit-button")
+      .find("#options-button")
       .click()
       .get("dso-legend-item")
       .find("div[slot='options'] dso-input-range")
@@ -81,7 +81,7 @@ describe("Legend Item", () => {
 
     cy.get("dso-legend-item")
       .shadow()
-      .find("#edit-button")
+      .find("#options-button")
       .click()
       .get("dso-legend-item")
       .find("div[slot='options']")
@@ -127,14 +127,14 @@ describe("Legend Item", () => {
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without symbol`);
   });
 
-  it("should not show a edit-button when slot options is removed", () => {
+  it("should not show a options-button when slot options is removed", () => {
     cy.get("@dsoLegendItem")
       .get("[slot='options']")
       .invoke("remove")
       .get("@dsoLegendItemShadow")
-      .find("#edit-button")
+      .find("#options-button")
       .should("not.exist");
 
-    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without edit-button`);
+    cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without options-button`);
   });
 });
