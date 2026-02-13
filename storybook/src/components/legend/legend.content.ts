@@ -3,7 +3,7 @@ import { html } from "lit-html";
 
 import { Templates } from "../../templates";
 
-import { defaultSymbol } from "./legend-item/legend-item.content";
+export const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
 export function legendaRichContent(
   { legendItemTemplate, legendGroupTemplate, inputRangeTemplate }: Templates,
