@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Changed
+* **BREAKING** Legend: Legend en Legend Item fuseren tot één component Legend ([#3490](https://github.com/dso-toolkit/dso-toolkit/issues/3490))
+
+### Task
+* CICI: addnab/docker-run-action verouderd ([#3557](https://github.com/dso-toolkit/dso-toolkit/issues/3557))
+
+## 🤧 Release 88.0.0 - 2026-02-11
+
 ### Added
 * Button: Mode "on light" en "on dark" toevoegen aan de button varianten ([#3381](https://github.com/dso-toolkit/dso-toolkit/issues/3381))
 
@@ -17,7 +25,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Info Button: Toggletip functionaliteit ([#3395](https://github.com/dso-toolkit/dso-toolkit/issues/3395))
 
 ### Changed
-* Legend: Editmode toevoegen ([#3535](https://github.com/dso-toolkit/dso-toolkit/issues/3535))
 * Legend: Visuele aanpassingen ([#3496](https://github.com/dso-toolkit/dso-toolkit/issues/3496))
 
 ## 🦉 Release 87.0.0 - 2026-02-06

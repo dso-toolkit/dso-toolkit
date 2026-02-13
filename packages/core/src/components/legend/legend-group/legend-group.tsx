@@ -5,7 +5,7 @@ import { LegendMode } from "../legend.interfaces";
 import { translations } from "./legend-group.i18n";
 
 /**
- * @slot heading - The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>` or `<span slot="heading">...</span>`
+ * @slot heading - The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>`
  * @slot - The legend items for this group. Should contain `dso-legend-item` elements.
  */
 @Component({

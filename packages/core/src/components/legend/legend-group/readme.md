@@ -23,10 +23,10 @@ Wanneer `mode` is ingesteld op `"view"` wordt een potlood-icoon getoond. In `"ed
 
 ## Slots
 
-| Slot        | Description                                                                                                                         |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-|             | The legend items for this group. Should contain `dso-legend-item` elements.                                                         |
-| `"heading"` | The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>` or `<span slot="heading">...</span>` |
+| Slot        | Description                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------------- |
+|             | The legend items for this group. Should contain `dso-legend-item` elements.                    |
+| `"heading"` | The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>` |
 
 
 ## Dependencies

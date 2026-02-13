@@ -1,10 +1,21 @@
-import { LegendItemDecorator } from "dso-toolkit";
+import { PartialStoryFn } from "storybook/internal/types";
 import { TemplateResult, html } from "lit-html";
 
-export const decorator: LegendItemDecorator<TemplateResult> = (story, css) => html`
+// https://github.com/dso-toolkit/dso-toolkit/issues/1313#issue-1041224938
+const legendItemDemoCss = `
+  .symboolcode[data-symboolcode=regelingsgebied] {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-image: url(images/regelingsgebied.png);
+    background-size: contain;
+  }
+`;
+
+export const decorator = (story: PartialStoryFn): TemplateResult => html`
   ${story()}
 
   <style>
-    ${css}
+    ${legendItemDemoCss}
   </style>
 `;
