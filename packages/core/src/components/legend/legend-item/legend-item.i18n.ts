@@ -3,7 +3,7 @@ import { Resource } from "../../../utils/i18n";
 export const translations: Resource = {
   en: {
     "dso-legend-item": {
-      delete: "Delete",
+      delete: "Remove layer",
       disabledInfo: "More info",
       options: "Options",
       makeActive: "Make {{label}} active",
@@ -12,7 +12,7 @@ export const translations: Resource = {
   },
   nl: {
     "dso-legend-item": {
-      delete: "Verwijder",
+      delete: "Kaartlaag verwijderen",
       disabledInfo: "Meer informatie",
       options: "Opties",
       makeActive: "Maak {{label}} actief",
