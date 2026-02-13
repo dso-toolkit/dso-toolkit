@@ -10,7 +10,7 @@
     "lib": ["DOM", "ES2022"],
     "moduleResolution": "node",
     "module": "ESNext",
-    "target": "ES2017",
+    "target": "ES2020",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,

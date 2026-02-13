@@ -11,7 +11,7 @@
     "lib": ["DOM", "ES2019"],
     "moduleResolution": "bundler",
     "module": "ESNext",
-    "target": "ES2017",
+    "target": "ES2020",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,

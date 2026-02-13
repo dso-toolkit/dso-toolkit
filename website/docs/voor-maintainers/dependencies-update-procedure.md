@@ -6,15 +6,6 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 Inventariseer voor welke packages er patches zijn gemaakt in `/.yarn/patches`. Voor een update van een package met 'n patch betekent onderzoek naar de gevolgen.
 
-Vanaf release 🪼 69.2.1 kennen we (weer) 2 patches:
-
-### `@stencil-angular-output-target-npm-0.10.2.patch`
-
-In deze patch fixen wij een bug (omissie) in `@stencil/angular-output-target`, waarbij de events die web-componenten
-kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de door
-`@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
-intellisense/code-completion is in de IDE.
-
 ## TypeScript-versiebeleid
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
@@ -67,7 +58,12 @@ In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
 
 ## Node / Cypress
 
-Let op de Docker base image in de Dockerfile.
+- **Docker base image:** `cypress/included:15.10.0-node-24.13.1`.
+- **Node-versie:** `24.13.1` (Er is nog geen Node 25 image voor Cypress).
+
+**Compatibiliteit Azure CLI**
+
+Azure CLI ondersteunt momenteel alleen Debian 11 (Bullseye) en Debian 12 (Bookworm). Debian 13 (Trixie) wordt nog niet ondersteund (We gebruiken Bookworm in plaats van Trixie).
 
 **Notitie:**
 

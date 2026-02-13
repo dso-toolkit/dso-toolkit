@@ -27,7 +27,7 @@
     "target": "ES2020",
     "module": "ES2020",
     "lib": ["ES2020", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true // Skip type checking of declaration files (*.d.ts) for faster compilation
   },
   "exclude": ["www", ".angular"],
   "angularCompilerOptions": {
