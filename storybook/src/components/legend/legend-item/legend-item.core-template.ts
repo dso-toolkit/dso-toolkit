@@ -21,11 +21,18 @@ export const coreLegendItem: ComponentImplementation<LegendItem<TemplateResult>>
       mode,
       symbol,
     }) {
-      return html`
-    <dso-legend-item ?disabled=${disabled} .disabledMessage=${disabledMessage} @dsoMouseEnter=${ifDefined(dsoMouseEnter)} @dsoMouseLeave=${ifDefined(dsoMouseLeave)} @dsoActiveChange=${ifDefined(dsoActiveChange)} .active=${active} .activatable=${activatable} .mode=${ifDefined(mode)}>
-      ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing}
-      ${content}
-      ${options ? html`<div slot="options">${options}</div>` : nothing}
-    </dso-legend-item>`;
+      return html` <dso-legend-item
+        ?disabled=${disabled}
+        .disabledMessage=${disabledMessage}
+        @dsoMouseEnter=${ifDefined(dsoMouseEnter)}
+        @dsoMouseLeave=${ifDefined(dsoMouseLeave)}
+        @dsoActiveChange=${ifDefined(dsoActiveChange)}
+        .active=${active}
+        .activatable=${activatable}
+        .mode=${ifDefined(mode)}
+      >
+        ${symbol ? html`<span slot="symbol">${symbol}</span>` : nothing} ${content}
+        ${options ? html`<div slot="options">${options}</div>` : nothing}
+      </dso-legend-item>`;
     },
 };

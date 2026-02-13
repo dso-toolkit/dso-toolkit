@@ -1,9 +1,8 @@
 import { compiler } from "markdown-to-jsx";
-import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { LegendItemDecorator, legendItemDemoCss } from "./legend-item";
 
 import {
   LegendArgs,
@@ -28,7 +27,7 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
   TemplateFnReturnType,
   LegendTemplates<TemplateFnReturnType>
 > {
-  decorator: LegendItemDecorator<TemplateFnReturnType>;
+  decorator: (story: PartialStoryFn) => TemplateFnReturnType;
 }
 
 interface LegendTemplates<TemplateFnReturnType> {
@@ -61,14 +60,14 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
 }: LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LegendStories {
   return {
     Legenda: {
-      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
         legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode))),
       ),
     },
     Kaartlagen: {
       args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
-      decorators: [(story) => decorator(story, legendItemDemoCss)],
+      decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
         legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args.mode))),
       ),

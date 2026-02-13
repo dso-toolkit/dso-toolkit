@@ -454,4 +454,3 @@ interface MenuItemProps {
 interface DocumentComponentProps {
   path: DocumentComponent[];
 }
-
