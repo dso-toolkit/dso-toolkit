@@ -4,12 +4,11 @@ import { MapControls } from "dso-toolkit";
 import { html } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
-import { defaultSymbol } from "../legend/legend.content";
 
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
   implementation: "core",
-  template: ({ richContentTemplate, legendItemTemplate, selectableTemplate }) =>
+  template: ({ richContentTemplate }) =>
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
@@ -39,11 +38,6 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
           ></dso-map-overlays>
           ${richContentTemplate({
             children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,
-          })}
-          ${legendItemTemplate({
-            disabled: true,
-            content: selectableTemplate({ id: "1", type: "checkbox", value: "1", label: "Legenda item label" }),
-            symbol: defaultSymbol,
           })}
         </dso-map-controls>
       `;

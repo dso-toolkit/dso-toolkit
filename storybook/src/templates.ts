@@ -150,8 +150,6 @@ import { coreInfoButton } from "./components/info-button/info-button.core-templa
 import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { coreLabel } from "./components/label/label.core-template";
 import { coreLegend } from "./components/legend/legend.core-template";
-import { coreLegendGroup } from "./components/legend/legend-group/legend-group.core-template";
-import { coreLegendItem } from "./components/legend/legend-item/legend-item.core-template";
 import { coreListButton } from "./components/list-button/list-button.core-template";
 import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
@@ -385,8 +383,6 @@ templateContainer.add(coreInfoButton);
 templateContainer.add(coreInputRange);
 templateContainer.add(coreLabel);
 templateContainer.add(coreLegend);
-templateContainer.add(coreLegendGroup);
-templateContainer.add(coreLegendItem);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
