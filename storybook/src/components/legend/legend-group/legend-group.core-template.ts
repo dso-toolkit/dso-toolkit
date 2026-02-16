@@ -9,8 +9,8 @@ export const coreLegendGroup: ComponentImplementation<LegendGroup<TemplateResult
   implementation: "core",
   template: () =>
     function legendGroupTemplate({ mode, heading, children }) {
-      return html` <dso-legend-group mode=${ifDefined(mode)}>
-        ${heading ? html`${heading}` : nothing} ${children ? children : nothing}
+      return html`<dso-legend-group mode=${ifDefined(mode)}>
+        ${heading || nothing} ${children || nothing}
       </dso-legend-group>`;
     },
 };

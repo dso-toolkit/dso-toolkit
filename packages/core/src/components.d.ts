@@ -29,7 +29,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 import { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -80,7 +80,7 @@ export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { LegendCloseEvent, LegendContentSwitchEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
+export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 export { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
@@ -2151,7 +2151,7 @@ declare global {
         new (): HTMLDsoLegendElement;
     };
     interface HTMLDsoLegendGroupElementEventMap {
-        "dsoLegendGroupModeChange": LegendMode;
+        "dsoLegendGroupModeChange": LegendGroupModeChangeEvent;
     }
     interface HTMLDsoLegendGroupElement extends Components.DsoLegendGroup, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsoLegendGroupElementEventMap>(type: K, listener: (this: HTMLDsoLegendGroupElement, ev: DsoLegendGroupCustomEvent<HTMLDsoLegendGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3673,7 +3673,7 @@ declare namespace LocalJSX {
           * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
          */
         "mode"?: LegendMode;
-        "onDsoLegendGroupModeChange"?: (event: DsoLegendGroupCustomEvent<LegendMode>) => void;
+        "onDsoLegendGroupModeChange"?: (event: DsoLegendGroupCustomEvent<LegendGroupModeChangeEvent>) => void;
     }
     interface DsoLegendItem {
         /**

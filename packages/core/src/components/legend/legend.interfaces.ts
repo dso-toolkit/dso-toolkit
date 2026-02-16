@@ -17,3 +17,8 @@ export interface LegendContentSwitchEvent {
 export interface LegendCloseEvent {
   originalEvent?: MouseEvent | Event;
 }
+
+export interface LegendGroupModeChangeEvent {
+  originalEvent: MouseEvent;
+  next: LegendMode;
+}

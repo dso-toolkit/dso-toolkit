@@ -1,8 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from "@stencil/core";
-
 import { i18n } from "../../../utils/i18n";
-import { LegendMode } from "../legend.interfaces";
-
+import { LegendGroupModeChangeEvent, LegendMode } from "../legend.interfaces";
 import { translations } from "./legend-group.i18n";
 
 /**
@@ -30,24 +28,25 @@ export class LegendGroup implements ComponentInterface {
   private mutationObserver?: MutationObserver;
 
   private get legendItems() {
-    return Array.from(this.host.querySelectorAll<HTMLDsoLegendItemElement>("dso-legend-item"));
+    return Array.from(this.host.querySelectorAll("dso-legend-item"));
   }
 
   @Watch("mode")
   handleModeChange() {
     if (this.mode) {
+      const mode = this.mode;
       this.legendItems.forEach((item) => {
-        item.mode = this.mode!;
+        item.mode = mode;
       });
     }
   }
 
-  @Event()
-  dsoLegendGroupModeChange!: EventEmitter<LegendMode>;
+  @Event({ bubbles: false })
+  dsoLegendGroupModeChange!: EventEmitter<LegendGroupModeChangeEvent>;
 
-  private toggleMode = () => {
+  private toggleMode = (e: CustomEvent<{ originalEvent: MouseEvent }>) => {
     const newMode: LegendMode = this.mode === "view" ? "edit" : "view";
-    this.dsoLegendGroupModeChange.emit(newMode);
+    this.dsoLegendGroupModeChange.emit({ originalEvent: e.detail.originalEvent, next: newMode });
   };
 
   connectedCallback() {
