@@ -63,8 +63,6 @@ import {
   Label,
   LabelGroup,
   Legend,
-  LegendGroup,
-  LegendItem,
   Link,
   LinkList,
   List,
@@ -109,7 +107,6 @@ import {
 import { TemplateResult } from "lit-html";
 
 // Start: import templates
-
 import { coreAccordion } from "./components/accordion/accordion.core-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreAdvancedSelect } from "./components/advanced-select/advanced-select.core-template";
@@ -133,61 +130,22 @@ import { coreCardContainer } from "./components/card-container/card-container.co
 import { cssCardGrid } from "./components/card-grid/card-grid.css-template";
 import { cssCardList } from "./components/card-list/card-list.css-template";
 import { coreContactInformation } from "./components/contact-information/contact-information.core-template";
+import { cssContext } from "./components/context/context.css-template";
 import { coreCursorTooltip } from "./components/cursor-tooltip/cursor-tooltip.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
-import { coreDocumentCard } from "./components/document-card/document-card.core-template";
-import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
-import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
-import { coreExpandable } from "./components/expandable/expandable.core-template";
-import { coreHeader } from "./components/header/header.core-template";
-import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
-import { coreHistoryItem } from "./components/history-item/history-item.core-template";
-import { coreIcon } from "./components/icon/icon.core-template";
-import { coreIconButton } from "./components/icon-button/icon-button.core-template";
-import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-template";
-import { coreInfo } from "./components/info/info.core-template";
-import { coreInfoButton } from "./components/info-button/info-button.core-template";
-import { coreInputRange } from "./components/input-range/input-range.core-template";
-import { coreLabel } from "./components/label/label.core-template";
-import { coreLegend } from "./components/legend/legend.core-template";
-import { coreListButton } from "./components/list-button/list-button.core-template";
-import { coreLogo } from "./components/logo/logo.core-template";
-import { coreMapControls } from "./components/map-controls/map-controls.core-template";
-import { coreMapLayer } from "./components/map-layer/map-layer.core-template";
-import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
-import { coreModal } from "./components/modal/modal.core-template";
-import { coreOnboardingTip } from "./components/onboarding-tip/onboarding-tip.core-template";
-import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
-import { corePagination } from "./components/pagination/pagination.core-template";
-import { corePanel } from "./components/panel/panel.core-template";
-import { corePlekinfoCard } from "./components/plekinfo-card/plekinfo-card.core-template";
-import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
-import { coreProjectItem } from "./components/project-item/project-item.core-template";
-import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
-import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
-import { coreScrollable } from "./components/scrollable/scrollable.core-template";
-import { coreSelectable } from "./components/selectable/selectable.core-template";
-import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
-import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
-import { coreSurveyRating } from "./components/survey-rating/survey-rating.core-template";
-import { coreTable } from "./components/table/table.core-template";
-import { coreTabs } from "./components/tabs/tabs.core-template";
-import { coreTijdreisBanner } from "./components/tijdreis-banner/tijdreis-banner.core-template";
-import { coreToggletip } from "./components/toggletip/toggletip.core-template";
-import { coreTooltip } from "./components/tooltip/tooltip.core-template";
-import { coreTreeView } from "./components/tree-view/tree-view.core-template";
-import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
-import { cssContext } from "./components/context/context.css-template";
 import { cssDefinitionList } from "./components/definition-list/definition-list.css-template";
 import { cssDescription } from "./components/description/description.css-template";
+import { coreDocumentCard } from "./components/document-card/document-card.core-template";
+import { coreDocumentComponent } from "./components/document-component/document-component.core-template";
 import { cssDocumentHeader } from "./components/document-header/document-header.css-template";
+import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-template";
 import { cssDropdownMenu } from "./components/dropdown-menu/dropdown-menu.css-template";
+import { coreExpandable } from "./components/expandable/expandable.core-template";
 import { cssFooter } from "./components/footer/footer.css-template";
 import { cssFootnote } from "./components/footnotes/footnote.css-template";
 import { cssFootnotes } from "./components/footnotes/footnotes.css-template";
 import { cssForm } from "./components/form/form.css-template";
 import { cssFormButtons } from "./components/form-buttons/form-buttons.css-template";
-import { cssFormGroup } from "./components/form-group/form-group.css-template";
 import { cssFormGroupCheckboxes } from "./components/form-group/form-group-checkboxes.css-template";
 import { cssFormGroupConfirm } from "./components/form-group/form-group-confirm.css-template";
 import { cssFormGroupDatePicker } from "./components/form-group/form-group-date-picker.css-template";
@@ -198,26 +156,66 @@ import { cssFormGroupSearchBar } from "./components/form-group/form-group-search
 import { cssFormGroupSelect } from "./components/form-group/form-group-select.css-template";
 import { cssFormGroupStatic } from "./components/form-group/form-group-static.css-template";
 import { cssFormGroupTextarea } from "./components/form-group/form-group-textarea.css-template";
+import { cssFormGroup } from "./components/form-group/form-group.css-template";
+import { coreHeader } from "./components/header/header.core-template";
 import { cssHeading } from "./components/heading/heading.css-template";
+import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { cssHighlightBox } from "./components/highlight-box/highlight-box.css-template";
+import { coreHistoryItem } from "./components/history-item/history-item.core-template";
+import { coreIcon } from "./components/icon/icon.core-template";
+import { coreIconButton } from "./components/icon-button/icon-button.core-template";
 import { cssImage } from "./components/image/image.css-template";
+import { coreImageOverlay } from "./components/image-overlay/image-overlay.core-template";
+import { coreInfo } from "./components/info/info.core-template";
 import { cssInfo } from "./components/info/info.css-template";
+import { coreInfoButton } from "./components/info-button/info-button.core-template";
 import { cssInfoButton } from "./components/info-button/info-button.css-template";
+import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
+import { coreLabel } from "./components/label/label.core-template";
 import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
+import { coreLegend } from "./components/legend/legend.core-template";
 import { cssLink } from "./components/link/link.css-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
 import { cssList } from "./components/list/list.css-template";
+import { coreListButton } from "./components/list-button/list-button.core-template";
+import { coreLogo } from "./components/logo/logo.core-template";
+import { coreMapControls } from "./components/map-controls/map-controls.core-template";
+import { coreMapLayer } from "./components/map-layer/map-layer.core-template";
+import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
+import { coreModal } from "./components/modal/modal.core-template";
 import { cssModal } from "./components/modal/modal.css-template";
 import { cssNavbar } from "./components/navbar/navbar.css-template";
+import { coreOnboardingTip } from "./components/onboarding-tip/onboarding-tip.core-template";
+import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
+import { corePagination } from "./components/pagination/pagination.core-template";
+import { corePanel } from "./components/panel/panel.core-template";
 import { cssParagraph } from "./components/paragraph/paragraph.css-template";
+import { corePlekinfoCard } from "./components/plekinfo-card/plekinfo-card.core-template";
+import { coreProgressIndicator } from "./components/progress-indicator/progress-indicator.core-template";
+import { coreProjectItem } from "./components/project-item/project-item.core-template";
+import { coreRenvooi } from "./components/renvooi/renvooi.core-template";
+import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { cssRichContent } from "./components/rich-content/rich-content.css-template";
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
+import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
+import { coreSelectable } from "./components/selectable/selectable.core-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
+import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
+import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
+import { coreSurveyRating } from "./components/survey-rating/survey-rating.core-template";
+import { coreTable } from "./components/table/table.core-template";
+import { coreTabs } from "./components/tabs/tabs.core-template";
+import { coreTijdreisBanner } from "./components/tijdreis-banner/tijdreis-banner.core-template";
 import { cssTile } from "./components/tile/tile.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
+import { coreToggletip } from "./components/toggletip/toggletip.core-template";
+import { coreTooltip } from "./components/tooltip/tooltip.core-template";
+import { coreTreeView } from "./components/tree-view/tree-view.core-template";
+import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
+
 // End: import templates
 
 export interface Components {
@@ -282,8 +280,6 @@ export interface Components {
   label: Label;
   labelGroup: LabelGroup;
   legend: Legend<TemplateResult>;
-  legendGroup: LegendGroup<TemplateResult>;
-  legendItem: LegendItem<TemplateResult>;
   link: Link;
   linkList: LinkList;
   list: List;
@@ -366,7 +362,6 @@ templateContainer.add(coreButtonGroup);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreContactInformation);
-templateContainer.add(coreCursorTooltip);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDocumentCard);
 templateContainer.add(coreDocumentComponent);
@@ -461,4 +456,5 @@ templateContainer.add(cssSearchBar);
 templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
+templateContainer.add(coreCursorTooltip);
 // End: add templates to container

@@ -16,9 +16,9 @@ Wanneer `mode` is ingesteld op `"view"` wordt een potlood-icoon getoond. In `"ed
 
 ## Events
 
-| Event                      | Description | Type                                      |
-| -------------------------- | ----------- | ----------------------------------------- |
-| `dsoLegendGroupModeChange` |             | `CustomEvent<LegendGroupModeChangeEvent>` |
+| Event                      | Description                                                 | Type                                      |
+| -------------------------- | ----------------------------------------------------------- | ----------------------------------------- |
+| `dsoLegendGroupModeChange` | Emitted when the user toggles the mode of the Legend Group. | `CustomEvent<LegendGroupModeChangeEvent>` |
 
 
 ## Slots
