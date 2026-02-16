@@ -3673,6 +3673,9 @@ declare namespace LocalJSX {
           * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
          */
         "mode"?: LegendMode;
+        /**
+          * Emitted when the user toggles the mode of the Legend Group.
+         */
         "onDsoLegendGroupModeChange"?: (event: DsoLegendGroupCustomEvent<LegendGroupModeChangeEvent>) => void;
     }
     interface DsoLegendItem {
