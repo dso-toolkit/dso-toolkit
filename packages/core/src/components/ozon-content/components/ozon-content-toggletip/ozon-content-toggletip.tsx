@@ -10,9 +10,10 @@ import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.
   shadow: true,
 })
 export class ozonContentToggletip implements ComponentInterface {
+  private cleanUp: TooltipClean | undefined;
+
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
-
   /**
    * The alias of the icon in the button.
    */
@@ -26,7 +27,7 @@ export class ozonContentToggletip implements ComponentInterface {
   showToggletip = false;
 
   @Listen("click", { target: "window" })
-  handleWindowMouseDown(event: MouseEvent) {
+  handleWindowClick(event: MouseEvent) {
     if (!this.active) return;
 
     const path = event.composedPath();
@@ -65,7 +66,7 @@ export class ozonContentToggletip implements ComponentInterface {
     this.active = false;
   };
 
-  private keyUpHandler = (event: KeyboardEvent) => {
+  private keyDownHandler = (event: KeyboardEvent) => {
     switch (event.key) {
       case "Escape":
         this.close();
@@ -90,20 +91,19 @@ export class ozonContentToggletip implements ComponentInterface {
       }
     }
 
-    let cleanUp: TooltipClean | undefined;
-
-    if (this.active && !cleanUp && this.container && this.tooltip && this.tooltipArrow) {
-      cleanUp = positionTooltip({
+    if (!this.cleanUp && this.active && this.container && this.tooltip && this.tooltipArrow) {
+      this.cleanUp = positionTooltip({
         referenceElement: this.container,
         tipRef: this.tooltip,
         tipArrowRef: this.tooltipArrow,
         placementTip: "top",
       });
     }
+  }
 
-    if (!this.active && cleanUp) {
-      cleanUp();
-    }
+  disconnectedCallback() {
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   }
 
   render() {
@@ -114,7 +114,7 @@ export class ozonContentToggletip implements ComponentInterface {
           role="button"
           tabindex={0}
           onClick={this.toggle}
-          onKeyDown={this.keyUpHandler}
+          onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
         >
           <span class="icon-container">
