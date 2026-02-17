@@ -137,4 +137,27 @@ describe("Legend Item", () => {
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- without options-button`);
   });
+
+  it("should show delete button in edit mode", () => {
+    cy.get("@dsoLegendItem").invoke("prop", "mode", "edit");
+    cy.get("@dsoLegendItemShadow").find("#delete-button").should("exist");
+  });
+
+  it("should not show slide-toggle in edit mode", () => {
+    cy.get("@dsoLegendItem").invoke("prop", "mode", "edit");
+    cy.get("@dsoLegendItemShadow").find("dso-slide-toggle").should("not.exist");
+  });
+
+  it("should not show options-button in edit mode", () => {
+    cy.get("@dsoLegendItem").invoke("prop", "mode", "edit");
+    cy.get("@dsoLegendItemShadow").find("#options-button").should("not.exist");
+  });
+
+  it("should emit dsoDelete event when delete button is clicked in edit mode", () => {
+    cy.get("@dsoLegendItem")
+      .invoke("prop", "mode", "edit")
+      .then(($element) => $element.on("dsoDelete", cy.stub().as("dsoDeleteListener")));
+    cy.get("@dsoLegendItemShadow").find("#delete-button").shadow().find("button").click();
+    cy.get("@dsoDeleteListener").should("have.been.calledOnce");
+  });
 });

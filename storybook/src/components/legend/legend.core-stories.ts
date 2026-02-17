@@ -10,7 +10,7 @@ import { decorator } from "./legend-item/legend-item.decorator";
 import { kaartlagenRichContent, legendaRichContent } from "./legend.content";
 
 const meta: Meta<LegendArgs> = {
-  ...legendMeta({ readme: `${legendItemReadme}\n${legendItemReadme}\n${legendItemReadme}` }),
+  ...legendMeta({ readme: `${legendReadme}\n${legendGroupReadme}\n${legendItemReadme}` }),
   title: "Core/Legend",
 };
 

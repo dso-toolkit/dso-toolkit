@@ -156,6 +156,8 @@ export class LegendItem implements ComponentInterface {
         return this.renderEditMode();
       case "view":
         return this.renderViewMode(hasOptions, accessibleLabel);
+      default:
+        return this.renderViewMode(hasOptions, accessibleLabel);
     }
   }
 
