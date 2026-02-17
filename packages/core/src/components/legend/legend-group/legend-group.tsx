@@ -23,7 +23,7 @@ export class LegendGroup implements ComponentInterface {
    * When not set, no edit/view toggle icon is shown.
    */
   @Prop({ reflect: true })
-  mode?: LegendMode;
+  mode!: LegendMode;
 
   private text = i18n(() => this.host, translations);
 

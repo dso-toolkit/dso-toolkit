@@ -37,13 +37,13 @@ export type LegendMode = "edit" | "view";
 
 ## Properties
 
-| Property          | Attribute          | Description                                                                    | Type                   | Default     |
-| ----------------- | ------------------ | ------------------------------------------------------------------------------ | ---------------------- | ----------- |
-| `activatable`     | `activatable`      | Controls whether this Legend Item can be active or not                         | `boolean \| undefined` | `undefined` |
-| `active`          | `active`           | Controls whether this Legend Item is active or not                             | `boolean \| undefined` | `undefined` |
-| `disabled`        | `disabled`         | To disable the Legend Item                                                     | `boolean`              | `false`     |
-| `disabledMessage` | `disabled-message` | Message to be shown in an info-button tooltip when the Legend Item is disabled | `string \| undefined`  | `undefined` |
-| `mode`            | `mode`             | Controls whether this Legend Item is in edit or view mode                      | `"edit" \| "view"`     | `"view"`    |
+| Property          | Attribute          | Description                                                                    | Type                            | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------ | ------------------------------- | ----------- |
+| `activatable`     | `activatable`      | Controls whether this Legend Item can be active or not                         | `boolean \| undefined`          | `undefined` |
+| `active`          | `active`           | Controls whether this Legend Item is active or not                             | `boolean \| undefined`          | `undefined` |
+| `disabled`        | `disabled`         | To disable the Legend Item                                                     | `boolean`                       | `false`     |
+| `disabledMessage` | `disabled-message` | Message to be shown in an info-button tooltip when the Legend Item is disabled | `string \| undefined`           | `undefined` |
+| `mode`            | `mode`             | Controls whether this Legend Item is in edit or view mode                      | `"edit" \| "view" \| undefined` | `"view"`    |
 
 
 ## Events
