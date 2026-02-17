@@ -68,12 +68,18 @@
       --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-40};
     } @else if $contrast-color == colors.$contrast-light {
       --_dso-icon-button-tertiary-color: #{colors.$wit};
+      --_dso-icon-button-tertiary-hover-color: #{colors.$grijs-10};
       --_dso-icon-button-tertiary-disabled-color: #{colors.$grijs-30};
     }
   }
 
   @if self != "button" and not $is-white-bg {
-    @if $contrast-color == colors.$contrast-light {
+    @if $is-dark-contrast {
+      --_dso-button-tertiary-color: #{colors.$grijs-90};
+      --_dso-button-tertiary-hover-color: #{colors.$grijs-70};
+      --_dso-button-tertiary-active-color: #{colors.$bosgroen-140};
+      --_dso-button-tertiary-disabled-color: #{colors.$grijs-40};
+    } @else if $contrast-color == colors.$contrast-light {
       --_dso-button-primary-background-color: #{colors.$wit};
       --_dso-button-primary-hover-background-color: #{rgba(colors.$wit, 0.8)};
       --_dso-button-primary-active-background-color: #{colors.$grijs-5};

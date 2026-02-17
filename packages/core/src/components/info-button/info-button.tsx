@@ -54,9 +54,6 @@ export class InfoButton {
   dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
 
   @State()
-  hover = false;
-
-  @State()
   toggletipActive = false;
 
   /**
@@ -145,18 +142,13 @@ export class InfoButton {
 
   render() {
     return (
-      <Host
-        onMouseenter={() => (this.hover = true)}
-        onMouseleave={() => (this.hover = false)}
-        onKeydown={this.keyDownHandler}
-        onFocusout={this.focusOutHandler}
-      >
+      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
             label={this.label}
             onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
-            icon={this.active || this.hover || this.toggletipActive ? "info-active" : "info"}
+            icon={this.active || this.toggletipActive ? "info-active" : "info"}
             ref={(element) => (this.button = element)}
           />
         ) : (
@@ -168,7 +160,7 @@ export class InfoButton {
             onClick={(e) => this.handleToggle(e)}
             ref={(element) => (this.buttonSecondary = element)}
           >
-            <dso-icon icon={this.active || this.hover || this.toggletipActive ? "info-active" : "info"}></dso-icon>
+            <dso-icon icon={this.active || this.toggletipActive ? "info-active" : "info"}></dso-icon>
             <span class="sr-only">{this.label}</span>
           </button>
         )}
