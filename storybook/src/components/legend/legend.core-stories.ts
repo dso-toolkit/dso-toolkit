@@ -1,8 +1,9 @@
 import legendGroupReadme from "@dso-toolkit/core/src/components/legend/legend-group/readme.md?raw";
 import legendItemReadme from "@dso-toolkit/core/src/components/legend/legend-item/readme.md?raw";
 import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw";
-import type { Meta } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { LegendArgs, legendMeta, legendStories } from "dso-toolkit";
+import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
@@ -33,3 +34,17 @@ const { Legenda, Kaartlagen } = legendStories({
 });
 
 export { Kaartlagen, Legenda };
+
+export const LegendItemDefault: StoryObj = {
+  tags: ["!dev", "!autodocs"],
+  decorators: [(story) => decorator(story)],
+  render: () => html`
+    <dso-legend-item .active=${true} .activatable=${true}>
+      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+      <span slot="label">Legenda item label</span>
+      <div slot="options">
+        <dso-input-range label="Transparantie" unit="%"></dso-input-range>
+      </div>
+    </dso-legend-item>
+  `,
+};
