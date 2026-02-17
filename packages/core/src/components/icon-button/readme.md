@@ -47,8 +47,7 @@ Type: `Promise<void>`
  - [dso-info-button](../info-button)
  - [dso-label](../label)
  - [dso-legend](../legend)
- - [dso-legend-group](../legend/legend-group)
- - [dso-legend-item](../legend/legend-item)
+ - [dso-legend-item](../legend-item)
  - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
  - [dso-mark-bar](../mark-bar)
@@ -72,7 +71,6 @@ graph TD;
   dso-info-button --> dso-icon-button
   dso-label --> dso-icon-button
   dso-legend --> dso-icon-button
-  dso-legend-group --> dso-icon-button
   dso-legend-item --> dso-icon-button
   dso-list-button --> dso-icon-button
   dso-map-controls --> dso-icon-button

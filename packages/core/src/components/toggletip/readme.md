@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-legend-item](../legend-item)
+
 ### Depends on
 
 - [dso-info-button](../info-button)
@@ -29,6 +33,7 @@ graph TD;
   dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
+  dso-legend-item --> dso-toggletip
   style dso-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
