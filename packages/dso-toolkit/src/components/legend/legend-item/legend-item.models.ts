@@ -1,3 +1,5 @@
+import { LegendMode } from "../legend.models.js";
+
 export interface LegendItem<TemplateFnReturnType> {
   options?: TemplateFnReturnType;
   content?: TemplateFnReturnType;
@@ -6,9 +8,10 @@ export interface LegendItem<TemplateFnReturnType> {
   dsoMouseEnter?: (e: CustomEvent<MouseEvent>) => void;
   dsoMouseLeave?: (e: CustomEvent<MouseEvent>) => void;
   dsoActiveChange?: (e: CustomEvent<LegendItemActiveChangeEvent>) => void;
+  dsoDelete?: (e: CustomEvent) => void;
   active?: boolean;
   activatable?: boolean;
-  mode?: "edit" | "view";
+  mode?: LegendMode;
   symbol?: TemplateFnReturnType;
 }
 

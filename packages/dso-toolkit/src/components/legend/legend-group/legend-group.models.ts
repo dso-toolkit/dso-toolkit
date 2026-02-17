@@ -1,5 +1,8 @@
+import { LegendMode } from "../legend.models.js";
+
 export interface LegendGroup<TemplateFnReturnType = unknown> {
-  mode?: "edit" | "view";
+  mode?: LegendMode;
   heading?: TemplateFnReturnType;
   children?: TemplateFnReturnType;
+  dsoLegendGroupModeChange?: (e: CustomEvent) => void;
 }

@@ -12,6 +12,7 @@ export interface LegendArgs {
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
   dsoLegendGroupModeChange: HandlerFunction;
+  dsoDelete: HandlerFunction;
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
@@ -23,6 +24,7 @@ export const legendArgTypes: ArgTypes<LegendArgs> = {
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
   dsoLegendGroupModeChange: argTypeAction(),
+  dsoDelete: argTypeAction(),
 };
 
 export const legendaTabItem: LegendTabItem = {
@@ -43,6 +45,7 @@ export const legendArgs = componentArgs<LegendArgs>({
   dsoContentSwitch: fn(),
   dsoClose: fn(),
   dsoLegendGroupModeChange: fn(),
+  dsoDelete: fn(),
 });
 
 export function legendArgsMapper<TemplateFnReturnType>(
@@ -55,6 +58,5 @@ export function legendArgsMapper<TemplateFnReturnType>(
     content,
     dsoContentSwitch: (e) => a.dsoContentSwitch(e.detail),
     dsoClose: (e) => a.dsoClose(e.detail),
-    dsoLegendGroupModeChange: (e) => a.dsoLegendGroupModeChange(e.detail),
   };
 }
