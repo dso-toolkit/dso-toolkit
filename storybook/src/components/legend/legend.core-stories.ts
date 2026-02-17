@@ -9,19 +9,8 @@ import { templateContainer } from "../../templates";
 import { decorator } from "./legend-item/legend-item.decorator";
 import { kaartlagenRichContent, legendaRichContent } from "./legend.content";
 
-/** Strips sections that break markdown-to-jsx */
-function cleanReadme(md: string): string {
-  return md
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/## Types[\s\S]*?(?=## Properties|## Events|$)/, "")
-    .replace(/## Dependencies[\s\S]*?(?=\n---|\n# |$)/, "")
-    .replace(/\n-{3,}\n[\s\S]*?\*Built with.*?\*/, "");
-}
-
-const readme = [legendReadme, legendGroupReadme, legendItemReadme].map(cleanReadme).join("\n\n---\n\n");
-
 const meta: Meta<LegendArgs> = {
-  ...legendMeta({ readme }),
+  ...legendMeta({ readme: `${legendItemReadme}\n${legendItemReadme}\n${legendItemReadme}` }),
   title: "Core/Legend",
 };
 
