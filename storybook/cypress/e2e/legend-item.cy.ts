@@ -1,6 +1,6 @@
 describe("Legend Item", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-legend-item--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-legend--legend-item-default");
     cy.get("dso-legend-item.hydrated").as("dsoLegendItem").shadow().as("dsoLegendItemShadow");
   });
 
@@ -38,7 +38,7 @@ describe("Legend Item", () => {
       .should("be.disabled")
       .get("@dsoLegendItem")
       .shadow()
-      .find("dso-toggletip")
+      .find("dso-info-button")
       .should("exist");
 
     cy.get("@dsoLegendItem").matchImageSnapshot(`${Cypress.currentTest.title} -- disabled true`);
