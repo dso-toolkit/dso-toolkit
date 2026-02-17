@@ -3,7 +3,6 @@ export interface Legend<TemplateFnReturnType> {
   tabItems: LegendTabItem[];
   dsoContentSwitch?: (e: CustomEvent<LegendContentSwitchEvent>) => void;
   dsoClose?: (e: CustomEvent<LegendCloseEvent>) => void;
-  dsoLegendGroupModeChange?: (e: CustomEvent<LegendMode>) => void;
 }
 
 export type LegendMode = "edit" | "view";

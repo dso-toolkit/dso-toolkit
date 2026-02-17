@@ -32,8 +32,8 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface LegendTemplates<TemplateFnReturnType> {
   legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
-  legendaRichContent: (mode: LegendMode) => TemplateFnReturnType;
-  kaartlagenRichContent: (mode: LegendMode) => TemplateFnReturnType;
+  legendaRichContent: (mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void, dsoDelete?: (e: CustomEvent) => void) => TemplateFnReturnType;
+  kaartlagenRichContent: (mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void, dsoDelete?: (e: CustomEvent) => void) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -61,16 +61,20 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
   return {
     Legenda: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
-        legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode))),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) => {
+        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+        const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
+        return legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode, modeChangeHandler, deleteHandler)));
+      }),
     },
     Kaartlagen: {
       args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
-        legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args.mode))),
-      ),
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) => {
+        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+        const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
+        return legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args.mode, modeChangeHandler, deleteHandler)));
+      }),
     },
   };
 }
