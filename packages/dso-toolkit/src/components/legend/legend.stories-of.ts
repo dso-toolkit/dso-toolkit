@@ -32,8 +32,16 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface LegendTemplates<TemplateFnReturnType> {
   legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
-  legendaRichContent: (mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void, dsoDelete?: (e: CustomEvent) => void) => TemplateFnReturnType;
-  kaartlagenRichContent: (mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void, dsoDelete?: (e: CustomEvent) => void) => TemplateFnReturnType;
+  legendaRichContent: (
+    mode: LegendMode,
+    dsoLegendGroupModeChange?: (e: CustomEvent) => void,
+    dsoDelete?: (e: CustomEvent) => void,
+  ) => TemplateFnReturnType;
+  kaartlagenRichContent: (
+    mode: LegendMode,
+    dsoLegendGroupModeChange?: (e: CustomEvent) => void,
+    dsoDelete?: (e: CustomEvent) => void,
+  ) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -73,7 +81,9 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) => {
         const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
         const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
-        return legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args.mode, modeChangeHandler, deleteHandler)));
+        return legendTemplate(
+          legendArgsMapper(args, kaartlagenRichContent(args.mode, modeChangeHandler, deleteHandler)),
+        );
       }),
     },
   };

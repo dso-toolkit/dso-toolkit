@@ -8,11 +8,7 @@ export const coreLegend: ComponentImplementation<Legend<TemplateResult>> = {
   implementation: "core",
   template: () =>
     function legendTemplate({ tabItems, dsoClose, dsoContentSwitch, content }) {
-      return html`<dso-legend
-        .tabItems=${tabItems}
-        @dsoContentSwitch=${dsoContentSwitch}
-        @dsoClose=${dsoClose}
-      >
+      return html`<dso-legend .tabItems=${tabItems} @dsoContentSwitch=${dsoContentSwitch} @dsoClose=${dsoClose}>
         ${content}
       </dso-legend>`;
     },
