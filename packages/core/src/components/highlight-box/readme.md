@@ -25,6 +25,19 @@ The default background color is `grey`. Other available variants are:
 | `yellow`     | `yellow`      | For yellow Highlight Box.                | `boolean \| undefined` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [dso-map-message](../map-message)
+
+### Graph
+```mermaid
+graph TD;
+  dso-map-message --> dso-highlight-box
+  style dso-highlight-box fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
