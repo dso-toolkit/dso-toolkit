@@ -118,4 +118,162 @@ describe("Legend", () => {
 
     cy.get("@dsoLegend").matchImageSnapshot(`${Cypress.currentTest.title}`);
   });
+
+  it("should emit dsoLegendGroupModeChange event when clicking the edit button on a legend group", () => {
+    cy.get("@dsoLegend")
+      .contains("dso-legend-group", "Geselecteerde kenmerken")
+      .then(($element) =>
+        $element.on("dsoLegendGroupModeChange", cy.stub().as("dsoLegendGroupModeChangeListener")),
+      )
+      .shadow()
+      .find("dso-icon-button")
+      .shadow()
+      .find("button")
+      .click();
+
+    cy.get("@dsoLegendGroupModeChangeListener").should("have.been.calledOnce");
+  });
+
+  describe("Legend Item", () => {
+    it("should show label and symbol", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Document")
+        .should("include.text", "Document")
+        .shadow()
+        .find(".legend-item")
+        .should("have.class", "legend-item-symbol");
+    });
+
+    it("shows a Slide Toggle with accessible label", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Acculader in werking")
+        .shadow()
+        .find("dso-slide-toggle button")
+        .should("have.attr", "aria-label", "Maak acculader in werking actief");
+    });
+
+    it("should hide the options-button and disable the slide-toggle when disabled", () => {
+      cy.get("@dsoLegend").contains("dso-legend-item", "Uitgeschakeld").as("dsoLegendItem");
+
+      cy.get("@dsoLegendItem").shadow().find("#options-button").should("not.exist");
+      cy.get("@dsoLegendItem").shadow().find(".dso-slider").should("be.disabled");
+      cy.get("@dsoLegendItem").shadow().find("dso-info-button").should("exist");
+    });
+
+    it("should hide the options-button when the slider is not active", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Bomen kappen")
+        .invoke("prop", "active", false)
+        .shadow()
+        .find("#options-button")
+        .should("not.exist");
+    });
+
+    it("should show the options-button when the slider is active", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Bomen kappen")
+        .shadow()
+        .find("#options-button")
+        .should("be.visible");
+    });
+
+    it("should show the options containing an input-range when clicked on options-button", () => {
+      cy.get("@dsoLegend").contains("dso-legend-item", "Bomen kappen").as("dsoLegendItem");
+
+      cy.get("@dsoLegendItem").find("div[slot='options'] dso-input-range").should("be.hidden");
+
+      cy.get("@dsoLegendItem").shadow().find("#options-button").click();
+      cy.get("@dsoLegendItem").find("div[slot='options'] dso-input-range").should("be.visible");
+
+      cy.get("@dsoLegendItem").shadow().find("#options-button").click();
+      cy.get("@dsoLegendItem").find("div[slot='options']").should("be.hidden");
+    });
+
+    it("should emit dsoActiveChange event", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Acculader in werking")
+        .then(($element) => $element.on("dsoActiveChange", cy.stub().as("activeChangeListener")))
+        .shadow()
+        .find("dso-slide-toggle")
+        .click();
+
+      cy.get("@activeChangeListener").should("have.been.calledOnce");
+    });
+
+    it("should show an active Slide Toggle", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Bomen kappen")
+        .shadow()
+        .find("dso-slide-toggle button")
+        .should("have.attr", "aria-checked", "true");
+    });
+
+    it("should not show a slide-toggle when activatable is false", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Niet activeerbaar")
+        .shadow()
+        .find("dso-slide-toggle button")
+        .should("not.exist");
+    });
+
+    it("should not show a symbol when no symbol slot is provided", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Zonder symbool")
+        .shadow()
+        .find('[name="symbol"]')
+        .should("not.exist");
+    });
+
+    it("should not show an options-button when no options slot is provided", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-item", "Acculader in werking")
+        .shadow()
+        .find("#options-button")
+        .should("not.exist");
+    });
+
+    it("should show delete button in edit mode", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Acculader in werking")
+        .shadow()
+        .find("#delete-button")
+        .should("exist");
+    });
+
+    it("should not show slide-toggle in edit mode", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Acculader in werking")
+        .shadow()
+        .find("dso-slide-toggle")
+        .should("not.exist");
+    });
+
+    it("should not show options-button in edit mode", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Bomen kappen")
+        .shadow()
+        .find("#options-button")
+        .should("not.exist");
+    });
+
+    it("should emit dsoDelete event when delete button is clicked in edit mode", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Acculader in werking")
+        .then(($element) => $element.on("dsoDelete", cy.stub().as("dsoDeleteListener")));
+
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Acculader in werking")
+        .shadow()
+        .find("#delete-button")
+        .shadow()
+        .find("button")
+        .click();
+
+      cy.get("@dsoDeleteListener").should("have.been.calledOnce");
+    });
+  });
 });

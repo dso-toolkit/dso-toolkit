@@ -33,18 +33,4 @@ const { Legenda, Kaartlagen } = legendStories({
   decorator,
 });
 
-const LegendItemDefault: StoryObj = {
-  tags: ["!dev", "!autodocs"],
-  decorators: [(story) => decorator(story)],
-  render: () => html`
-    <dso-legend-item .active=${true} .activatable=${true}>
-      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
-      <span slot="label">Legenda item label</span>
-      <div slot="options">
-        <dso-input-range label="Transparantie" unit="%"></dso-input-range>
-      </div>
-    </dso-legend-item>
-  `,
-};
-
-export { Kaartlagen, LegendItemDefault, Legenda };
+export { Kaartlagen, Legenda };
