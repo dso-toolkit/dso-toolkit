@@ -7,12 +7,11 @@ export const coreInfoButton: ComponentImplementation<InfoButton<TemplateResult>>
   component: "infoButton",
   implementation: "core",
   template: () =>
-    function infoButtonTemplate({ label, active, toggletipPlacement, secondary, dsoToggle, children }) {
+    function infoButtonTemplate({ label, active, toggletipPlacement, dsoToggle, children }) {
       return html`
         <dso-info-button
           label=${label}
           ?active=${active}
-          ?secondary=${secondary}
           .toggletipPlacement=${toggletipPlacement}
           @dsoToggle=${(e: CustomEvent) => dsoToggle?.(e.detail)}
         >

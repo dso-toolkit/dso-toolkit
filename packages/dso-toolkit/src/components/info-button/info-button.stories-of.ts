@@ -13,8 +13,6 @@ type InfoButtonStory = StoryObj<InfoButtonArgs, Renderer>;
 interface InfoButtonStories {
   Default: InfoButtonStory;
   Information: InfoButtonStory;
-  SecondaryActive: InfoButtonStory;
-  SecondaryInactive: InfoButtonStory;
 }
 
 export interface InfoButtonTemplates<TemplateFnReturnType> {
@@ -68,26 +66,6 @@ export function infoButtonStories<Implementation, Templates, TemplateFnReturnTyp
       ...baseStoryParameters,
       render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate, children }) =>
         infoButtonTemplate(infoButtonArgsMapper(args, children)),
-      ),
-    },
-    SecondaryActive: {
-      ...baseStoryParameters,
-      args: {
-        active: true,
-        secondary: true,
-      },
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
-      ),
-    },
-    SecondaryInactive: {
-      ...baseStoryParameters,
-      args: {
-        active: false,
-        secondary: true,
-      },
-      render: templateContainer.render(storyTemplates, (args, { infoButtonTemplate }) =>
-        infoButtonTemplate(infoButtonArgsMapper(args)),
       ),
     },
   };

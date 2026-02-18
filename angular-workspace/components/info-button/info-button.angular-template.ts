@@ -14,7 +14,6 @@ export const angularInfoButton: ComponentImplementation<InfoButton<IStory>> = {
           <dso-info-button
             [label]="label"
             [active]="active"
-            [secondary]="secondary"
             [toggletipPlacement]="toggletipPlacement"
             (dsoToggle)="dsoToggle?.($event)">
             ${props.children ? `<div slot="toggletip">${props.children.template}</div>` : ""}

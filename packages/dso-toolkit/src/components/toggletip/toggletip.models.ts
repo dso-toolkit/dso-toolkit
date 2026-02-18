@@ -3,7 +3,6 @@ export interface Toggletip<TemplateFnReturnType> {
   position?: "top" | "right" | "bottom" | "left";
   small?: boolean;
   label?: string;
-  secondary?: boolean;
 }
 
 export function isToggletipInterface<TemplateFnReturnType>(object: unknown): object is Toggletip<TemplateFnReturnType> {
