@@ -58,9 +58,6 @@ In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
 
 ## Node / Cypress
 
-- **Docker base image:** `cypress/included:15.10.0-node-24.13.1`.
-- **Node-versie:** `24.13.1` (Er is nog geen Node 25 image voor Cypress).
-
 **Compatibiliteit Azure CLI**
 
 Azure CLI ondersteunt momenteel alleen Debian 11 (Bullseye) en Debian 12 (Bookworm). Debian 13 (Trixie) wordt nog niet ondersteund (We gebruiken Bookworm in plaats van Trixie).
