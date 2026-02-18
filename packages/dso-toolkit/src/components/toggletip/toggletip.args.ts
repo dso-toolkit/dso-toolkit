@@ -8,7 +8,6 @@ export interface ToggletipArgs {
   position: "top" | "right" | "bottom" | "left";
   small?: boolean;
   label?: string;
-  secondary?: boolean;
 }
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
@@ -28,11 +27,6 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
       type: "text",
     },
   },
-  secondary: {
-    control: {
-      type: "boolean",
-    },
-  },
 };
 
 export function toggletipArgsMapper<TemplateFnReturnType>(
@@ -44,6 +38,5 @@ export function toggletipArgsMapper<TemplateFnReturnType>(
     position: a.position,
     small: a.small,
     label: a.label,
-    secondary: a.secondary,
   };
 }
