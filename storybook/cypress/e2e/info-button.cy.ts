@@ -1,5 +1,5 @@
 describe("Info Button", () => {
-  const variants = ["default", "information", "secondary-inactive", "secondary-active"];
+  const variants = ["default", "information"];
 
   variants.forEach((variant) => {
     it(`${variant} should be accessible and match snapshot`, () => {
