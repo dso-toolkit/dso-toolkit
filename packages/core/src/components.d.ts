@@ -37,6 +37,7 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 import { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
+import { MapMessageActionClickEvent } from "./components/map-message/map-message.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 import { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -88,6 +89,7 @@ export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 export { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 export { MapLayerActiveChangeEvent } from "./components/map-layer/map-layer.interfaces";
 export { MapLayerObjectActiveChangeEvent } from "./components/map-layer/components/map-layer-object.interfaces";
+export { MapMessageActionClickEvent } from "./components/map-message/map-message.interfaces";
 export { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 export { MarkBarClearEvent, MarkBarFocusOptions, MarkBarInputEvent, MarkBarPaginationEvent } from "./components/mark-bar/mark-bar.interfaces";
 export { ModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -1002,6 +1004,23 @@ export namespace Components {
          */
         "active"?: boolean;
     }
+    interface DsoMapMessage {
+        /**
+          * The labels for the action buttons in the map message component.
+          * @default []
+         */
+        "buttonLabels": string[];
+        /**
+          * The message text to display in the map message component.
+          * @default ""
+         */
+        "message": string;
+        /**
+          * Variant determines the icon and actions shown. Allowed values: "success", "error", "instruction". Default is "instruction".
+          * @default "instruction"
+         */
+        "variant": "success" | "error" | "instruction";
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -1579,6 +1598,10 @@ export interface DsoMapLayerCustomEvent<T> extends CustomEvent<T> {
 export interface DsoMapLayerObjectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapLayerObjectElement;
+}
+export interface DsoMapMessageCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapMessageElement;
 }
 export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2262,6 +2285,23 @@ declare global {
         prototype: HTMLDsoMapLayerObjectElement;
         new (): HTMLDsoMapLayerObjectElement;
     };
+    interface HTMLDsoMapMessageElementEventMap {
+        "dsoActionClick": MapMessageActionClickEvent;
+    }
+    interface HTMLDsoMapMessageElement extends Components.DsoMapMessage, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoMapMessageElementEventMap>(type: K, listener: (this: HTMLDsoMapMessageElement, ev: DsoMapMessageCustomEvent<HTMLDsoMapMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoMapMessageElementEventMap>(type: K, listener: (this: HTMLDsoMapMessageElement, ev: DsoMapMessageCustomEvent<HTMLDsoMapMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoMapMessageElement: {
+        prototype: HTMLDsoMapMessageElement;
+        new (): HTMLDsoMapMessageElement;
+    };
     interface HTMLDsoMapOverlaysElementEventMap {
         "dsoToggleOverlay": OverlayChangeEvent;
     }
@@ -2694,6 +2734,7 @@ declare global {
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-layer": HTMLDsoMapLayerElement;
         "dso-map-layer-object": HTMLDsoMapLayerObjectElement;
+        "dso-map-message": HTMLDsoMapMessageElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-mark-bar": HTMLDsoMarkBarElement;
         "dso-modal": HTMLDsoModalElement;
@@ -3815,6 +3856,27 @@ declare namespace LocalJSX {
          */
         "onDsoMouseLeave"?: (event: DsoMapLayerObjectCustomEvent<any>) => void;
     }
+    interface DsoMapMessage {
+        /**
+          * The labels for the action buttons in the map message component.
+          * @default []
+         */
+        "buttonLabels"?: string[];
+        /**
+          * The message text to display in the map message component.
+          * @default ""
+         */
+        "message"?: string;
+        /**
+          * Emitted when an action button is activated in the map message component.
+         */
+        "onDsoActionClick"?: (event: DsoMapMessageCustomEvent<MapMessageActionClickEvent>) => void;
+        /**
+          * Variant determines the icon and actions shown. Allowed values: "success", "error", "instruction". Default is "instruction".
+          * @default "instruction"
+         */
+        "variant"?: "success" | "error" | "instruction";
+    }
     interface DsoMapOverlays {
         /**
           * To group the overlays together. Generally the default value suffices.
@@ -4422,6 +4484,7 @@ declare namespace LocalJSX {
         "dso-map-controls": DsoMapControls;
         "dso-map-layer": DsoMapLayer;
         "dso-map-layer-object": DsoMapLayerObject;
+        "dso-map-message": DsoMapMessage;
         "dso-map-overlays": DsoMapOverlays;
         "dso-mark-bar": DsoMarkBar;
         "dso-modal": DsoModal;
@@ -4501,6 +4564,7 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-layer": LocalJSX.DsoMapLayer & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
             "dso-map-layer-object": LocalJSX.DsoMapLayerObject & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
+            "dso-map-message": LocalJSX.DsoMapMessage & JSXBase.HTMLAttributes<HTMLDsoMapMessageElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
             "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;

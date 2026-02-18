@@ -12,5 +12,5 @@
 
   box-shadow: insert-variables.$box-shadow;
 
-  --_dso-ozon-content-toggletip-color: colors.$zwart;
+  --_dso-ozon-content-toggletip-color: #{colors.$zwart};
 }

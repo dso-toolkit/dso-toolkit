@@ -71,6 +71,7 @@ import {
   Logo,
   MapControls,
   MapLayer,
+  MapMessage,
   MarkBar,
   Modal,
   Navbar,
@@ -108,6 +109,7 @@ import {
 import { TemplateResult } from "lit-html";
 
 // Start: import templates
+
 import { coreAccordion } from "./components/accordion/accordion.core-template";
 import { coreActionList } from "./components/action-list/action-list.core-template";
 import { coreAdvancedSelect } from "./components/advanced-select/advanced-select.core-template";
@@ -185,6 +187,7 @@ import { coreListButton } from "./components/list-button/list-button.core-templa
 import { coreLogo } from "./components/logo/logo.core-template";
 import { coreMapControls } from "./components/map-controls/map-controls.core-template";
 import { coreMapLayer } from "./components/map-layer/map-layer.core-template";
+import { coreMapMessage } from "./components/map-message/map-message.core-template";
 import { coreMarkBar } from "./components/mark-bar/mark-bar.core-template";
 import { coreModal } from "./components/modal/modal.core-template";
 import { cssModal } from "./components/modal/modal.css-template";
@@ -217,7 +220,6 @@ import { coreToggletip } from "./components/toggletip/toggletip.core-template";
 import { coreTooltip } from "./components/tooltip/tooltip.core-template";
 import { coreTreeView } from "./components/tree-view/tree-view.core-template";
 import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-template";
-
 // End: import templates
 
 export interface Components {
@@ -290,6 +292,7 @@ export interface Components {
   logo: Logo;
   mapControls: MapControls;
   mapLayer: MapLayer<TemplateResult>;
+  mapMessage: MapMessage;
   markBar: MarkBar;
   modal: Modal<TemplateResult>;
   navbar: Navbar<TemplateResult>;
@@ -365,6 +368,7 @@ templateContainer.add(coreButtonGroup);
 templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreContactInformation);
+templateContainer.add(coreCursorTooltip);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDocumentCard);
 templateContainer.add(coreDocumentComponent);
@@ -386,6 +390,7 @@ templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
 templateContainer.add(coreMapLayer);
+templateContainer.add(coreMapMessage);
 templateContainer.add(coreMarkBar);
 templateContainer.add(coreModal);
 templateContainer.add(coreOnboardingTip);
@@ -460,5 +465,4 @@ templateContainer.add(cssSearchBar);
 templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
-templateContainer.add(coreCursorTooltip);
 // End: add templates to container

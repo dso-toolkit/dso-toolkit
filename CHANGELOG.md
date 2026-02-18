@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Map Message: Nieuw component ([#3365](https://github.com/dso-toolkit/dso-toolkit/issues/3365))
+
 ### Fixed
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 

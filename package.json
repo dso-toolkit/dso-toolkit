@@ -60,5 +60,8 @@
     "typescript": "~5.9.3",
     "wait-on": "^9.0.3"
   },
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "devDependencies": {
+    "esbuild": "^0.27.3"
+  }
 }
