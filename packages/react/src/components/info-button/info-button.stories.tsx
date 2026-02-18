@@ -13,7 +13,7 @@ const meta: Meta<InfoButtonArgs> = {
 
 export default meta;
 
-const { Default, Information, SecondaryActive, SecondaryInactive } = infoButtonStories({
+const { Default, Information } = infoButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { infoButtonTemplate } = templates;
@@ -25,4 +25,4 @@ const { Default, Information, SecondaryActive, SecondaryInactive } = infoButtonS
   },
 });
 
-export { Default, Information, SecondaryActive, SecondaryInactive };
+export { Default, Information };

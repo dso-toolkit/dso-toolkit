@@ -13,7 +13,6 @@ import { InfoButtonToggleEvent } from "./info-button.interfaces";
 })
 export class InfoButton {
   private button?: HTMLDsoIconButtonElement;
-  private buttonSecondary?: HTMLButtonElement;
   private toggletipElRef?: HTMLDivElement;
   private toggletipArrowElRef?: HTMLSpanElement;
   private cleanUp: TooltipClean | undefined;
@@ -28,12 +27,6 @@ export class InfoButton {
    */
   @Prop({ reflect: true })
   active = false;
-
-  /**
-   * For secondary Info Button.
-   */
-  @Prop()
-  secondary?: boolean;
 
   /**
    * The label.
@@ -64,11 +57,7 @@ export class InfoButton {
    */
   @Method()
   async setFocus() {
-    if (this.secondary) {
-      this.buttonSecondary?.focus();
-    } else {
-      this.button?.setFocus?.();
-    }
+    this.button?.setFocus?.();
   }
 
   private handleToggle(originalEvent: MouseEvent) {
@@ -147,28 +136,14 @@ export class InfoButton {
   render() {
     return (
       <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
-        {!this.secondary ? (
-          <dso-icon-button
-            variant="tertiary"
-            label={this.label}
-            onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
-            icon={this.active || this.toggletipActive ? "info-active" : "info"}
-            ref={(element) => (this.button = element)}
-          />
-        ) : (
-          // ToDo: remove this part in https://github.com/dso-toolkit/dso-toolkit/issues/3350. Tertiary on color already working
-          <button
-            type="button"
-            class="dso-info-secondary"
-            aria-expanded={(this.active || this.toggletipActive).toString()}
-            onClick={(e) => this.handleToggle(e)}
-            ref={(element) => (this.buttonSecondary = element)}
-          >
-            <dso-icon icon={this.active || this.toggletipActive ? "info-active" : "info"}></dso-icon>
-            <span class="sr-only">{this.label}</span>
-          </button>
-        )}
-        {this.hasToggletip !== null && (
+        <dso-icon-button
+          variant="tertiary"
+          label={this.label}
+          onDsoClick={(e) => this.handleToggle(e.detail.originalEvent)}
+          icon={this.active || this.toggletipActive ? "info-active" : "info"}
+          ref={(element) => (this.button = element)}
+        />
+        {this.isToggletipMode !== null && (
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}

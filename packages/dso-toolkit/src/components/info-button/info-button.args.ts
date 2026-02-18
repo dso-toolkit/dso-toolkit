@@ -8,7 +8,6 @@ import { InfoButton, InfoButtonTooltipPlacement } from "./info-button.models.js"
 export interface InfoButtonArgs {
   active: boolean;
   toggletipPlacement: InfoButtonTooltipPlacement;
-  secondary: boolean;
   label: string;
   dsoToggle: HandlerFunction;
 }
@@ -28,11 +27,6 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
     options: ["top", "left", "bottom", "right"],
     control: {
       type: "select",
-    },
-  },
-  secondary: {
-    control: {
-      type: "boolean",
     },
   },
   dsoToggle: argTypeAction(),
