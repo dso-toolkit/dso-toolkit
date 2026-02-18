@@ -47,4 +47,4 @@ const LegendItemDefault: StoryObj = {
   `,
 };
 
-export { Kaartlagen, Legenda, LegendItemDefault };
+export { Kaartlagen, LegendItemDefault, Legenda };
