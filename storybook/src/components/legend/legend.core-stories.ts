@@ -33,9 +33,7 @@ const { Legenda, Kaartlagen } = legendStories({
   decorator,
 });
 
-export { Kaartlagen, Legenda };
-
-export const LegendItemDefault: StoryObj = {
+const LegendItemDefault: StoryObj = {
   tags: ["!dev", "!autodocs"],
   decorators: [(story) => decorator(story)],
   render: () => html`
@@ -48,3 +46,5 @@ export const LegendItemDefault: StoryObj = {
     </dso-legend-item>
   `,
 };
+
+export { Kaartlagen, Legenda, LegendItemDefault };
