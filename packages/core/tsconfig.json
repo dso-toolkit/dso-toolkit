@@ -21,16 +21,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src", "scripts/readme.ts"],
-  "exclude": ["node_modules"],
-  "overrides": [
-    {
-      "files": ["src/**/*.interfaces.ts"],
-      "compilerOptions": {
-        "compilerOptions": {
-          "noUnusedLocals": false
-        }
-      },
-      "include": ["src/index.ts"]
-    }
-  ]
+  "exclude": ["node_modules"]
 }
