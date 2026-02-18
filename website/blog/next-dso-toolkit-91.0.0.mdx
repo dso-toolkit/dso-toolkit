@@ -1,0 +1,72 @@
+---
+authors: [iterox]
+---
+
+# DSO Toolkit v91.0.0 🧱
+
+Deze release bevat **BREAKING** changes voor de volgende componenten:
+
+- Info Button
+- Toggletip
+
+<!-- truncate -->
+
+## Info Button
+
+De property `secondary` is verwijderd. De kleurstelling die gekoppeld was aan `secondary` is in 🌯 Release 79.1.0
+ondergebracht in het component `Icon Button` in de tertiary variant op een lichte achtergrondkleur en daar maakt
+`Info Button` nu gebruik van.
+
+```html
+❌
+<dso-info-button label="Toelichting bij vraag" secondary ...></dso-info-button>
+
+❌
+<button type="button" class="dso-info-button dso-info-secondary" aria-expanded="false">
+  <span class="sr-only"> Toelichting bij vraag </span>
+</button>
+
+✅
+<dso-info-button label="Toelichting bij vraag" ...></dso-info-button>
+
+✅
+<button type="button" class="dso-info-button">
+  <span class="sr-only"> Toelichting bij vraag </span>
+</button>
+```
+
+## Toggletip
+
+De property `secondary` is verwijderd. Onder de motorkap maakt `Toggletip` gebruik van `Info Button`. De property
+`secondary` werd gebruikt om `Info Button` als `secondary` in te stellen, maar met de verwijdering van die property
+op het component `Info Button` is deze ook komen te vervallen voor `Toggletip`.
+
+Overigens raden wij sinds 🤧 Release 88.0.0 aan om in plaats van het component `Toggletip` het component `Info
+Button` met Toggletip functionaliteit te gebruiken. Daarnaast bieden wij sinds 🦡 Release 90.1.0 ook het component
+`Badge` aan met Toggletip functionaliteit.
+
+```html
+❌
+<dso-toggletip secondary>
+  <div class="dso-rich-content">...</div>
+</dso-toggletip>
+
+✅
+<dso-toggletip>
+  <div class="dso-rich-content">...</div>
+</dso-toggletip>
+
+✅
+<dso-info-button label="Toelichting bij vraag">
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-info-button>
+
+✅
+<dso-badge>
+  <div slot="toggletip">
+    <div class="dso-rich-content">...</div>
+  </div>
+</dso-badge>
+```
