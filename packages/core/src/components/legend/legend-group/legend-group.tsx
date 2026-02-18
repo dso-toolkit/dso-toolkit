@@ -25,20 +25,11 @@ export class LegendGroup implements ComponentInterface {
   @Prop({ reflect: true })
   mode!: LegendMode;
 
-  private text = i18n(() => this.host, translations);
-
-  private mutationObserver?: MutationObserver;
-
-  private get legendItems() {
-    return Array.from(this.host.querySelectorAll("dso-legend-item"));
-  }
-
   @Watch("mode")
   handleModeChange() {
     if (this.mode) {
-      const mode = this.mode;
       this.legendItems.forEach((item) => {
-        item.mode = mode;
+        item.mode = this.mode;
       });
     }
   }
@@ -49,9 +40,19 @@ export class LegendGroup implements ComponentInterface {
   @Event({ bubbles: false })
   dsoLegendGroupModeChange!: EventEmitter<LegendGroupModeChangeEvent>;
 
+  private text = i18n(() => this.host, translations);
+
+  private mutationObserver?: MutationObserver;
+
+  private get legendItems() {
+    return Array.from(this.host.querySelectorAll("dso-legend-item"));
+  }
+
   private toggleMode = (e: CustomEvent<{ originalEvent: MouseEvent }>) => {
-    const newMode: LegendMode = this.mode === "view" ? "edit" : "view";
-    this.dsoLegendGroupModeChange.emit({ originalEvent: e.detail.originalEvent, next: newMode });
+    this.dsoLegendGroupModeChange.emit({
+      originalEvent: e.detail.originalEvent,
+      next: this.mode === "view" ? "edit" : "view",
+    });
   };
 
   connectedCallback() {
