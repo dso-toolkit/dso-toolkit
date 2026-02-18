@@ -31,7 +31,7 @@
 
   display: flex !important;
   flex-wrap: wrap;
-  column-gap: units.$u2;
+  column-gap: #{units.$u2};
 }
 
 ::slotted([slot="status"]) {
