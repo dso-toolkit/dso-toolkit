@@ -1,4 +1,16 @@
-import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, forceUpdate, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -47,6 +59,26 @@ export class InfoButton {
   @Prop()
   toggletipPlacement: TooltipPlacement = "top";
 
+  @Listen("click", { target: "window" })
+  handleWindowClick(event: MouseEvent) {
+    if (!this.toggletipActive) return;
+
+    const path = event.composedPath();
+    const clickedInsideHost = path.includes(this.host);
+    const clickedInsideTooltip = this.toggletipElRef && path.includes(this.toggletipElRef);
+
+    if (this.toggletipActive && !clickedInsideHost && !clickedInsideTooltip) {
+      this.toggletipActive = false;
+    }
+
+    if (clickedInsideTooltip) {
+      const interactive = path.some((el) => el instanceof HTMLElement && el.tagName === "BUTTON");
+      if (interactive) {
+        this.toggletipActive = false;
+      }
+    }
+  }
+
   /**
    * Emitted when the user activates the Info Button.
    */
@@ -75,25 +107,16 @@ export class InfoButton {
   private handleToggle(originalEvent: MouseEvent) {
     if (this.isToggletipMode) {
       this.toggletipActive = !this.toggletipActive;
-      this.toggletipElRef?.showPopover();
     } else {
       this.dsoToggle.emit({ originalEvent, active: !this.active });
     }
   }
-
-  private focusOutHandler = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
-    }
-  };
 
   private keyDownHandler = (event: KeyboardEvent) => {
     if (!this.toggletipActive) return;
 
     if (event.key === "Escape") {
       this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
     }
   };
 
@@ -110,8 +133,6 @@ export class InfoButton {
     }
 
     if (!this.cleanUp && this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
-      this.toggletipElRef?.showPopover();
-
       this.cleanUp = positionTooltip({
         referenceElement: this.button,
         tipRef: this.toggletipElRef,
@@ -119,6 +140,16 @@ export class InfoButton {
         placementTip: this.toggletipPlacement,
         restrictContentElement: this.restrictContentElement,
       });
+    }
+
+    if (this.cleanUp && this.toggletipActive) {
+      this.toggletipElRef?.showPopover();
+    }
+
+    if (!this.toggletipActive) {
+      this.toggletipElRef?.hidePopover();
+      this.cleanupTooltip();
+      return;
     }
   }
 
@@ -142,7 +173,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host onKeydown={this.keyDownHandler}>
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
