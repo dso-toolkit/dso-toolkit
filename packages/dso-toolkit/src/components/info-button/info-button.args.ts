@@ -1,14 +1,13 @@
-import { TooltipPlacement } from "@dso-toolkit/core/src";
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
 
 import { argTypeAction } from "../../storybook";
 
-import { InfoButton } from "./info-button.models.js";
+import { InfoButton, InfoButtonTooltipPlacement } from "./info-button.models.js";
 
 export interface InfoButtonArgs {
   active: boolean;
-  toggletipPlacement: TooltipPlacement;
+  toggletipPlacement: InfoButtonTooltipPlacement;
   secondary: boolean;
   label: string;
   dsoToggle: HandlerFunction;
