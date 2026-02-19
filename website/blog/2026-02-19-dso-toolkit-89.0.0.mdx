@@ -12,7 +12,7 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 ## Legend
 
-Het design system component `Legend Item` is opgegaan in `Legend`. `Legend Item` kan vanaf nu alleen maar binnen `Legend` worden gebruikt. Daarnaast is het vanaf nu mogelijk om Legend Items te groeperen met `Legend Group` (`dso-legend-group`).
+`Legend Item` is opgegaan in `Legend` en kan alleen nog worden gebruikt binnen een `dso-legend-group`. Elke `dso-legend-group` beheert de groepskop en de edit/view-modus van zijn onderliggende `dso-legend-item` elementen.
 
 ### Wat is er veranderd?
 
@@ -31,10 +31,11 @@ Het `heading`-slot verwacht een `<h3 slot="heading">...</h3>`.
 
 ### Nieuw op `dso-legend-item`
 
-| Property / Event | Beschrijving                                                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------------------------------ |
-| `mode`           | `"edit"` \| `"view"` (default: `"view"`) — Wordt automatisch gezet door de bovenliggende `dso-legend-group`. |
-| `dsoDelete`      | Event dat wordt geëmit wanneer de gebruiker op de verwijderknop klikt (zichtbaar in edit-modus).             |
+| Property / Event | Beschrijving                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| `dsoDelete`      | Event dat wordt geëmit wanneer de gebruiker op de verwijderknop klikt (zichtbaar in edit-modus). |
+
+De `mode` van een `dso-legend-item` wordt intern beheerd door de bovenliggende `dso-legend-group` en hoeft niet handmatig gezet te worden.
 
 ### Migratiepad
 

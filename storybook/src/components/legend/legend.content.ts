@@ -21,7 +21,6 @@ const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
     @dsoDelete=${ifDefined(p.dsoDelete)}
     .active=${p.active}
     .activatable=${p.activatable}
-    .mode=${ifDefined(p.mode)}
   >
     ${p.symbol ? html`<span slot="symbol">${p.symbol}</span>` : nothing} ${p.content}
     ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}

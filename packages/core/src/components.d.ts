@@ -884,6 +884,10 @@ export namespace Components {
     }
     interface DsoLegendItem {
         /**
+          * @default "view"
+         */
+        "_mode": LegendMode | undefined;
+        /**
           * Controls whether this Legend Item can be active or not
          */
         "activatable"?: boolean;
@@ -900,11 +904,6 @@ export namespace Components {
           * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
-        /**
-          * Controls whether this Legend Item is in edit or view mode
-          * @default "view"
-         */
-        "mode": LegendMode | undefined;
     }
     interface DsoListButton {
         /**
@@ -3680,6 +3679,10 @@ declare namespace LocalJSX {
     }
     interface DsoLegendItem {
         /**
+          * @default "view"
+         */
+        "_mode"?: LegendMode | undefined;
+        /**
           * Controls whether this Legend Item can be active or not
          */
         "activatable"?: boolean;
@@ -3696,11 +3699,6 @@ declare namespace LocalJSX {
           * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
-        /**
-          * Controls whether this Legend Item is in edit or view mode
-          * @default "view"
-         */
-        "mode"?: LegendMode | undefined;
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */

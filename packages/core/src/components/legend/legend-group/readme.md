@@ -1,4 +1,4 @@
-#  `<dso-legend-group>`
+# `<dso-legend-group>`
 
 
 

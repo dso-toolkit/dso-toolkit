@@ -56,11 +56,9 @@ export class LegendItem implements ComponentInterface {
   @Prop({ reflect: true })
   active?: boolean;
 
-  /**
-   * Controls whether this Legend Item is in edit or view mode
-   */
+  /** @internal Controls whether this Legend Item is in edit or view mode. Set by the parent Legend Group. */
   @Prop({ reflect: true })
-  mode: LegendMode | undefined = "view";
+  _mode: LegendMode | undefined = "view";
 
   /**
    * Emitted when user checks or unchecks the Slide Toggle.
@@ -151,7 +149,7 @@ export class LegendItem implements ComponentInterface {
   }
 
   private renderRightContent(hasOptions: boolean, accessibleLabel: string) {
-    switch (this.mode) {
+    switch (this._mode) {
       case "edit":
         return this.renderEditMode();
       case "view":
