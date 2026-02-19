@@ -34,7 +34,6 @@ export interface LegendItem<TemplateFnReturnType> {
   dsoDelete?: (e: CustomEvent) => void;
   active?: boolean;
   activatable?: boolean;
-  mode?: LegendMode;
   symbol?: TemplateFnReturnType;
 }
 

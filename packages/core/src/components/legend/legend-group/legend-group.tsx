@@ -30,7 +30,7 @@ export class LegendGroup implements ComponentInterface {
     if (this.mode) {
       const mode = this.mode;
       this.legendItems.forEach((item) => {
-        item.mode = mode;
+        item._mode = mode;
       });
     }
   }
@@ -45,7 +45,7 @@ export class LegendGroup implements ComponentInterface {
 
   private mutationObserver?: MutationObserver;
 
-  private get legendItems() {
+  private get legendItems(): HTMLDsoLegendItemElement[] {
     return Array.from(this.host.querySelectorAll("dso-legend-item"));
   }
 
