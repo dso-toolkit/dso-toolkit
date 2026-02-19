@@ -1,9 +1,8 @@
 import legendGroupReadme from "@dso-toolkit/core/src/components/legend/legend-group/readme.md?raw";
 import legendItemReadme from "@dso-toolkit/core/src/components/legend/legend-item/readme.md?raw";
 import legendReadme from "@dso-toolkit/core/src/components/legend/readme.md?raw";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Meta } from "@storybook/web-components-vite";
 import { LegendArgs, legendMeta, legendStories } from "dso-toolkit";
-import { html } from "lit-html";
 
 import { templateContainer } from "../../templates";
 
