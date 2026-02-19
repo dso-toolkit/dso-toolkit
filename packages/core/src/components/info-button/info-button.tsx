@@ -67,12 +67,14 @@ export class InfoButton {
     const clickedInsideHost = path.includes(this.host);
     const clickedInsideTooltip = this.toggletipElRef && path.includes(this.toggletipElRef);
 
-    if (this.toggletipActive && !clickedInsideHost && !clickedInsideTooltip) {
+    if (!clickedInsideHost && !clickedInsideTooltip) {
       this.toggletipActive = false;
     }
 
     if (clickedInsideTooltip) {
-      const interactive = path.some((el) => el instanceof HTMLElement && el.tagName === "BUTTON");
+      const interactive = path.some(
+        (el) => el instanceof HTMLElement && (el.tagName === "BUTTON" || el.getAttribute("role") === "button"),
+      );
       if (interactive) {
         this.toggletipActive = false;
       }
@@ -88,6 +90,9 @@ export class InfoButton {
   @State()
   toggletipActive = false;
 
+  @State()
+  hasToggletip = false;
+
   /**
    * To set focus to the toggle button.
    */
@@ -100,12 +105,8 @@ export class InfoButton {
     }
   }
 
-  private get isToggletipMode(): boolean {
-    return !!this.host.querySelector("[slot='toggletip']");
-  }
-
   private handleToggle(originalEvent: MouseEvent) {
-    if (this.isToggletipMode) {
+    if (this.hasToggletip) {
       this.toggletipActive = !this.toggletipActive;
     } else {
       this.dsoToggle.emit({ originalEvent, active: !this.active });
@@ -126,7 +127,7 @@ export class InfoButton {
   }
 
   componentDidRender() {
-    if (!this.isToggletipMode) {
+    if (!this.hasToggletip) {
       this.toggletipElRef?.hidePopover();
       this.cleanupTooltip();
       return;
@@ -142,19 +143,19 @@ export class InfoButton {
       });
     }
 
-    if (this.cleanUp && this.toggletipActive) {
-      this.toggletipElRef?.showPopover();
-    }
-
-    if (!this.toggletipActive) {
-      this.toggletipElRef?.hidePopover();
-      this.cleanupTooltip();
-      return;
+    if (this.cleanUp) {
+      if (this.toggletipActive) {
+        this.toggletipElRef?.showPopover();
+      } else {
+        this.toggletipElRef?.hidePopover();
+        this.cleanupTooltip();
+      }
     }
   }
 
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => {
+      this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
       forceUpdate(this.host);
     });
 
@@ -195,7 +196,7 @@ export class InfoButton {
             <span class="sr-only">{this.label}</span>
           </button>
         )}
-        {this.isToggletipMode !== null && (
+        {this.hasToggletip !== null && (
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
