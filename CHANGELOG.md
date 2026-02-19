@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Button: Mode "on light" en "on dark" toevoegen aan de button varianten ([#3381](https://github.com/dso-toolkit/dso-toolkit/issues/3381))
 
+### Fixed
+* Info Button: Dependency van dso-toolkit naar dso-toolkit-core ([#3576](https://github.com/dso-toolkit/dso-toolkit/issues/3576))
+
 ### Task
 * CICD: addnab/docker-run-action verouderd ([#3557](https://github.com/dso-toolkit/dso-toolkit/issues/3557))
 

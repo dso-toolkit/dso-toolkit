@@ -1,8 +1,8 @@
-import { TooltipPlacement } from "@dso-toolkit/core/src";
+export type InfoButtonTooltipPlacement = "top" | "bottom" | "left" | "right";
 
 export interface InfoButton<TemplateFnReturnType> {
   active?: boolean;
-  toggletipPlacement?: TooltipPlacement;
+  toggletipPlacement?: InfoButtonTooltipPlacement;
   secondary?: boolean;
   label?: string;
   dsoToggle?: (e: CustomEvent<InfoButtonToggleEvent>) => void;
