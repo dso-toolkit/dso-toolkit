@@ -2,7 +2,7 @@
 authors: [wouterheldens]
 ---
 
-# DSO Toolkit v89.0.0 🗺️
+# DSO Toolkit v89.0.0 🌹
 
 Deze release bevat een **BREAKING** change voor het volgende component:
 
@@ -12,7 +12,7 @@ Deze release bevat een **BREAKING** change voor het volgende component:
 
 ## Legend
 
-De `Legend Item` en `Legend` Storybook-stories zijn samengevoegd onder één `Legend`-story. Daarnaast is het nieuwe subcomponent `Legend Group` (`dso-legend-group`) geïntroduceerd.
+Het design system component `Legend Item` is opgegaan in `Legend`. `Legend Item` kan vanaf nu alleen maar binnen `Legend` worden gebruikt. Daarnaast is het vanaf nu mogelijk om Legend Items te groeperen met `Legend Group` (`dso-legend-group`).
 
 ### Wat is er veranderd?
 
@@ -82,8 +82,6 @@ In edit-modus toont elk `dso-legend-item` een verwijderknop. Luister naar het `d
 
 ##### View-modus (`mode="view"`)
 
-<img src="/img/2026-02-19-legend-view-mode.png" alt="Legend in view-modus" width="270" />
-
 ```html
 <dso-legend>
   <dso-legend-group mode="view">
@@ -99,8 +97,6 @@ In edit-modus toont elk `dso-legend-item` een verwijderknop. Luister naar het `d
 ##### Edit-modus (`mode="edit"`)
 
 Wanneer de gebruiker naar edit-modus schakelt via het potloodicoon, emit `dso-legend-group` het `dsoLegendGroupModeChange` event. Na het updaten van `mode` naar `"edit"` toont elk item een verwijderknop die bij klik het `dsoDelete` event emit:
-
-<img src="/img/2026-02-19-legend-edit-mode.png" alt="Legend in edit-modus" width="270" />
 
 ```html
 <dso-legend>

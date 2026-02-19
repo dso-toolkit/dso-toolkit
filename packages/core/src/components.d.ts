@@ -904,7 +904,7 @@ export namespace Components {
           * Controls whether this Legend Item is in edit or view mode
           * @default "view"
          */
-        "mode": LegendMode;
+        "mode": LegendMode | undefined;
     }
     interface DsoListButton {
         /**
@@ -3700,7 +3700,7 @@ declare namespace LocalJSX {
           * Controls whether this Legend Item is in edit or view mode
           * @default "view"
          */
-        "mode"?: LegendMode;
+        "mode"?: LegendMode | undefined;
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */

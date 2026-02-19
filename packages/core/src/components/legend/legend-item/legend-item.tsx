@@ -60,7 +60,7 @@ export class LegendItem implements ComponentInterface {
    * Controls whether this Legend Item is in edit or view mode
    */
   @Prop({ reflect: true })
-  mode: LegendMode = "view";
+  mode: LegendMode | undefined = "view";
 
   /**
    * Emitted when user checks or unchecks the Slide Toggle.
@@ -155,6 +155,7 @@ export class LegendItem implements ComponentInterface {
       case "edit":
         return this.renderEditMode();
       case "view":
+      default:
         return this.renderViewMode(hasOptions, accessibleLabel);
     }
   }
