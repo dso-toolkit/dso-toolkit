@@ -23,13 +23,14 @@ export class LegendGroup implements ComponentInterface {
    * When not set, no edit/view toggle icon is shown.
    */
   @Prop({ reflect: true })
-  mode!: LegendMode;
+  mode?: LegendMode;
 
   @Watch("mode")
   handleModeChange() {
     if (this.mode) {
+      const mode = this.mode;
       this.legendItems.forEach((item) => {
-        item.mode = this.mode;
+        item.mode = mode;
       });
     }
   }

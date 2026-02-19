@@ -1,4 +1,4 @@
-# dso-legend-item
+# `<dso-legend-item>`
 
 
 

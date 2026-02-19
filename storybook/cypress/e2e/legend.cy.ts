@@ -122,9 +122,7 @@ describe("Legend", () => {
   it("should emit dsoLegendGroupModeChange event when clicking the edit button on a legend group", () => {
     cy.get("@dsoLegend")
       .contains("dso-legend-group", "Geselecteerde kenmerken")
-      .then(($element) =>
-        $element.on("dsoLegendGroupModeChange", cy.stub().as("dsoLegendGroupModeChangeListener")),
-      )
+      .then(($element) => $element.on("dsoLegendGroupModeChange", cy.stub().as("dsoLegendGroupModeChangeListener")))
       .shadow()
       .find("dso-icon-button")
       .shadow()

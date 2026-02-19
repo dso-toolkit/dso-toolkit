@@ -6,12 +6,12 @@ import { Templates } from "../../templates";
 
 const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
-const legendGroup = (p: LegendGroup<TemplateResult>) =>
+const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
   html`<dso-legend-group mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
     ${p.heading || nothing} ${p.children || nothing}
   </dso-legend-group>`;
 
-const legendItem = (p: LegendItem<TemplateResult>) =>
+const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
   html`<dso-legend-item
     ?disabled=${p.disabled}
     .disabledMessage=${ifDefined(p.disabledMessage)}
@@ -35,29 +35,29 @@ export function legendaRichContent(
 ) {
   const optionsWithInputRange = inputRangeTemplate({ label: "Transparantie", unit: "%" });
 
-  return html`${legendGroup({
+  return html`${legendGroupTemplate({
       heading: html`<h3 slot="heading">Legenda</h3>`,
-      children: html`${legendItem({
+      children: html`${legendItemTemplate({
         content: html`<span slot="label">Document</span>`,
         symbol: defaultSymbol,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Gekozen locatie</span>`,
         symbol: defaultSymbol,
       })}`,
     })}
     <hr />
-    ${legendGroup({
+    ${legendGroupTemplate({
       mode,
       dsoLegendGroupModeChange,
       heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
-      children: html`${legendItem({
+      children: html`${legendItemTemplate({
         content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
         symbol: defaultSymbol,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Bomen kappen</span>`,
         activatable: true,
         active: true,
@@ -65,19 +65,19 @@ export function legendaRichContent(
         options: optionsWithInputRange,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Niet activeerbaar</span>`,
         activatable: false,
         symbol: defaultSymbol,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Alleen symbool</span>`,
         activatable: false,
         symbol: defaultSymbol,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Uitgeschakeld</span>`,
         activatable: true,
         disabled: true,
@@ -85,7 +85,7 @@ export function legendaRichContent(
         symbol: defaultSymbol,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Zonder symbool</span>`,
         activatable: true,
         active: true,
@@ -100,31 +100,31 @@ export function kaartlagenRichContent(
   dsoLegendGroupModeChange?: (e: CustomEvent) => void,
   dsoDelete?: (e: CustomEvent) => void,
 ) {
-  return html`${legendGroup({
+  return html`${legendGroupTemplate({
       mode,
       dsoLegendGroupModeChange,
       heading: html`<h3 slot="heading">Informatie</h3>`,
-      children: html`${legendItem({
+      children: html`${legendItemTemplate({
         content: html`<span slot="label">BAG panden</span>`,
         activatable: true,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Kadastrale kaart</span>`,
         activatable: true,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Gemeentegrenzen</span>`,
         activatable: true,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Waterschapsgrenzen</span>`,
         activatable: true,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
         active: true,
@@ -145,7 +145,7 @@ export function kaartlagenRichContent(
           </div>
         </fieldset>`,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Landgrenzen</span>`,
         activatable: true,
         active: true,
@@ -168,11 +168,11 @@ export function kaartlagenRichContent(
       })}`,
     })}
     <hr />
-    ${legendGroup({
+    ${legendGroupTemplate({
       mode,
       dsoLegendGroupModeChange,
       heading: html`<h3 slot="heading">Achtergrond</h3>`,
-      children: html`${legendItem({
+      children: html`${legendItemTemplate({
         content: html`<span slot="label">Topgrafie (BRT)</span>`,
         activatable: true,
         active: true,
@@ -193,7 +193,7 @@ export function kaartlagenRichContent(
           </div>
         </fieldset>`,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">
           Grootschalige topgrafie (BGT)
           ${infoButtonTemplate({
@@ -205,7 +205,7 @@ export function kaartlagenRichContent(
         active: true,
         dsoDelete,
       })}
-      ${legendItem({
+      ${legendItemTemplate({
         content: html`<span slot="label">Luchtfoto</span>`,
         activatable: true,
         dsoDelete,
