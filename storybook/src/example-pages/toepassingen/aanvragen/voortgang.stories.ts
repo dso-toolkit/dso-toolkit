@@ -30,7 +30,7 @@ const Voortgang = examplePageStories((templates) => {
           items: [
             { text: "Vragen en antwoorden verstuurd.", icon: { icon: "status-success" } },
             { text: "Bezig met versturen van documenten.", icon: { icon: "spinner" } },
-            { text: "Documenten indienen.", icon: { icon: "clock" } },
+            { text: "Documenten indienen.", icon: { icon: "clock-outline" } },
           ],
         })}
         <hr />
@@ -41,7 +41,7 @@ const Voortgang = examplePageStories((templates) => {
           items: [
             { text: "Vragen en antwoorden verstuurd.", icon: { icon: "status-success" } },
             { text: "Bezig met versturen van documenten.", icon: { icon: "spinner" } },
-            { text: "Documenten indienen.", icon: { icon: "clock" } },
+            { text: "Documenten indienen.", icon: { icon: "clock-outline" } },
           ],
         })}
         <hr />

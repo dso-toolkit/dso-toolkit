@@ -20,7 +20,7 @@ export const cardContainerContent: { cards: Omit<Card<unknown>, "dsoCardClick">[
           variant: "tertiary",
           label: "Toon informatie",
           icon: {
-            icon: "info",
+            icon: "info-solid",
           },
         },
       ],

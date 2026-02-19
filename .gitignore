@@ -19,3 +19,5 @@ node_modules
 .DS_Store
 
 **/hashes.json
+
+/packages/dso-toolkit/src/icons-new

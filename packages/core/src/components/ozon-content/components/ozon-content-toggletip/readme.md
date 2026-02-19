@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                          | Type                  | Default     |
-| -------- | --------- | ------------------------------------ | --------------------- | ----------- |
-| `icon`   | `icon`    | The alias of the icon in the button. | `string \| undefined` | `undefined` |
+| Property | Attribute | Description                          | Type                     | Default     |
+| -------- | --------- | ------------------------------------ | ------------------------ | ----------- |
+| `icon`   | `icon`    | The alias of the icon in the button. | `IconAlias \| undefined` | `undefined` |
 
 
 ## Dependencies

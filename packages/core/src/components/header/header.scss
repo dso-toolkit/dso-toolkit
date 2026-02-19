@@ -83,7 +83,6 @@
   .help {
     .dso-tertiary {
       display: flex;
-      gap: 0.5rem;
 
       cursor: pointer;
 
@@ -196,7 +195,7 @@ dso-dropdown-menu {
           text-align: start;
 
           dso-icon {
-            margin-inline-start: units.$u1;
+            margin-inline-start: 0;
           }
         }
 

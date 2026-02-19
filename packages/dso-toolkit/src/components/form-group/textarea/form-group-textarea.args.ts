@@ -18,7 +18,7 @@ export interface FormGroupTextareaArgs {
   rows?: number;
   helpText?: string;
   placeholder?: string;
-  feedbackIcon?: "email" | "energy";
+  feedbackIcon?: "mail-outline" | "energy";
   infoButtonHandler: HandlerFunction;
   infoButtonLabel: string;
   infoActive: boolean;
@@ -100,7 +100,7 @@ export const formGroupTextareaArgTypes: ArgTypes<FormGroupTextareaArgs> = {
     },
   },
   feedbackIcon: {
-    options: [undefined, "email", "energy"],
+    options: [undefined, "mail-outline", "energy"],
     control: {
       type: "select",
     },
