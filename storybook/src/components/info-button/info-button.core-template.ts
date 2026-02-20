@@ -13,7 +13,7 @@ export const coreInfoButton: ComponentImplementation<InfoButton<TemplateResult>>
           label=${label}
           ?active=${active}
           ?secondary=${secondary}
-          ?toggletip-placement=${toggletipPlacement}
+          .toggletipPlacement=${toggletipPlacement}
           @dsoToggle=${(e: CustomEvent) => dsoToggle?.(e.detail)}
         >
           ${children && html`<div slot="toggletip">${children}</div>`}

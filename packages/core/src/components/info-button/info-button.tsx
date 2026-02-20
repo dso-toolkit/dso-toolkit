@@ -1,16 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Listen,
-  Method,
-  Prop,
-  State,
-  forceUpdate,
-  h,
-} from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -69,15 +57,6 @@ export class InfoButton {
 
     if (!clickedInsideHost && !clickedInsideTooltip) {
       this.toggletipActive = false;
-    }
-
-    if (clickedInsideTooltip) {
-      const interactive = path.some(
-        (el) => el instanceof HTMLElement && (el.tagName === "BUTTON" || el.getAttribute("role") === "button"),
-      );
-      if (interactive) {
-        this.toggletipActive = false;
-      }
     }
   }
 
@@ -156,7 +135,6 @@ export class InfoButton {
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => {
       this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
-      forceUpdate(this.host);
     });
 
     this.mutationObserver.observe(this.host, {
