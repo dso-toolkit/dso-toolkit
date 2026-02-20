@@ -29,8 +29,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
-import { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -80,8 +79,7 @@ export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
-export { LegendItemActiveChangeEvent } from "./components/legend/legend-item/legend-item.interfaces";
+export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -2168,7 +2166,7 @@ declare global {
     };
     interface HTMLDsoLegendItemElementEventMap {
         "dsoActiveChange": LegendItemActiveChangeEvent;
-        "dsoDelete": any;
+        "dsoDelete": LegendItemDeleteEvent;
         "dsoMouseEnter": any;
         "dsoMouseLeave": any;
     }
@@ -3706,7 +3704,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user clicks the delete button.
          */
-        "onDsoDelete"?: (event: DsoLegendItemCustomEvent<any>) => void;
+        "onDsoDelete"?: (event: DsoLegendItemCustomEvent<LegendItemDeleteEvent>) => void;
         /**
           * Emitted when the mouse enters the Legend Item
          */

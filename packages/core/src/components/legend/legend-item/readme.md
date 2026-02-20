@@ -20,7 +20,7 @@
 | Event             | Description                                            | Type                                       |
 | ----------------- | ------------------------------------------------------ | ------------------------------------------ |
 | `dsoActiveChange` | Emitted when user checks or unchecks the Slide Toggle. | `CustomEvent<LegendItemActiveChangeEvent>` |
-| `dsoDelete`       | Emitted when the user clicks the delete button.        | `CustomEvent<any>`                         |
+| `dsoDelete`       | Emitted when the user clicks the delete button.        | `CustomEvent<LegendItemDeleteEvent>`       |
 | `dsoMouseEnter`   | Emitted when the mouse enters the Legend Item          | `CustomEvent<any>`                         |
 | `dsoMouseLeave`   | Emitted when the mouse leaves the Legend Item          | `CustomEvent<any>`                         |
 

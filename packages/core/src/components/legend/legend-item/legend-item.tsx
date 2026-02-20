@@ -13,10 +13,8 @@ import {
 import { clsx } from "clsx";
 
 import { i18n } from "../../../utils/i18n";
-import { LegendMode } from "../legend.interfaces";
-
 import { translations } from "./legend-item.i18n";
-import { LegendItemActiveChangeEvent } from "./legend-item.interfaces";
+import { LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode } from "../legend.interfaces";
 
 /**
  * @slot label - The label for this Legend Item. Should be targetted with `<span slot="label">...</span>`
@@ -69,8 +67,8 @@ export class LegendItem implements ComponentInterface {
   /**
    * Emitted when the user clicks the delete button.
    */
-  @Event()
-  dsoDelete!: EventEmitter;
+  @Event({ bubbles: false })
+  dsoDelete!: EventEmitter<LegendItemDeleteEvent>;
 
   /**
    * Emitted when the mouse enters the Legend Item
@@ -118,7 +116,7 @@ export class LegendItem implements ComponentInterface {
         icon="trash"
         variant="tertiary"
         id="delete-button"
-        onDsoClick={() => this.dsoDelete.emit()}
+        onDsoClick={(e) => this.dsoDelete.emit({ originalEvent: e.detail.originalEvent })}
       />
     );
   }
