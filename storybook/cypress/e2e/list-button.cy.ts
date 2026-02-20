@@ -31,7 +31,7 @@ describe("ListButton", () => {
       .find(".dso-selectable-input-wrapper > label")
       .should(
         "contain.html",
-        'Milieubelastende activiteit - Melding<span class="sr-only"> Sublabel</span><span class="sr-only"> <span>Subcontent</span></span>',
+        '<span class="sr-only"> Sublabel</span><span class="sr-only"> <span>Subcontent</span></span>Milieubelastende activiteit - Melding',
       )
       .get("@dsoListButton")
       .find('> [slot="subcontent"]')
@@ -62,6 +62,10 @@ describe("ListButton", () => {
   });
 
   it("should render subcontent in slot with prefix", () => {
+    cy.get("dso-list-button").then(($el) => {
+      $el.append(`<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`);
+    });
+
     cy.get("dso-list-button")
       .invoke("append", `<span slot="subcontent">Subcontent met <strong>HTML</strong></span>`)
       .get("dso-list-button")
@@ -70,7 +74,7 @@ describe("ListButton", () => {
       .find(".dso-selectable-input-wrapper > label")
       .should(
         "contain.html",
-        'Milieubelastende activiteit - Melding<span class="sr-only">subcontentPrefix: <span>Subcontent met <strong>HTML</strong></span></span>',
+        '<span class="sr-only">subcontentPrefix: <span>Subcontent met <strong>HTML</strong></span></span>Milieubelastende activiteit - Melding',
       );
   });
 
