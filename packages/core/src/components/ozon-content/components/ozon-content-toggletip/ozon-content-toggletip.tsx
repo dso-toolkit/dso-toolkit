@@ -23,9 +23,6 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   active = false;
 
-  @State()
-  showToggletip = false;
-
   @Listen("click", { target: "window" })
   handleWindowClick(event: MouseEvent) {
     if (!this.active) return;
@@ -35,13 +32,13 @@ export class ozonContentToggletip implements ComponentInterface {
     const clickedInsideTooltip = this.tooltip && path.includes(this.tooltip);
 
     if (!clickedInsideHost && !clickedInsideTooltip) {
-      this.close();
+      this.toggle();
     }
 
     if (clickedInsideTooltip) {
       const interactive = path.some((el) => el instanceof HTMLElement && el.tagName === "BUTTON");
       if (interactive) {
-        this.close();
+        this.toggle();
       }
     }
   }
@@ -51,25 +48,13 @@ export class ozonContentToggletip implements ComponentInterface {
   private tooltipArrow: HTMLElement | undefined;
 
   private toggle = () => {
-    if (this.active) {
-      this.close();
-    } else {
-      this.open();
-    }
-  };
-
-  private open = () => {
-    this.active = true;
-  };
-
-  private close = () => {
-    this.active = false;
+    this.active = !this.active;
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
     switch (event.key) {
       case "Escape":
-        this.close();
+        this.toggle();
         return;
       case " ":
       case "Enter":
@@ -81,16 +66,6 @@ export class ozonContentToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (this.tooltip) {
-      if (this.active && !this.showToggletip) {
-        this.tooltip.showPopover();
-        this.showToggletip = true;
-      } else if (!this.active && this.showToggletip) {
-        this.tooltip?.hidePopover();
-        this.showToggletip = false;
-      }
-    }
-
     if (!this.cleanUp && this.active && this.container && this.tooltip && this.tooltipArrow) {
       this.cleanUp = positionTooltip({
         referenceElement: this.container,
@@ -99,9 +74,22 @@ export class ozonContentToggletip implements ComponentInterface {
         placementTip: "top",
       });
     }
+
+    if (this.cleanUp && this.tooltip) {
+      if (this.active) {
+        this.tooltip?.showPopover();
+      } else {
+        this.tooltip?.hidePopover();
+        this.cleanupTooltip();
+      }
+    }
   }
 
   disconnectedCallback() {
+    this.cleanupTooltip();
+  }
+
+  private cleanupTooltip() {
     this.cleanUp?.();
     this.cleanUp = undefined;
   }
