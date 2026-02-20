@@ -33,7 +33,7 @@
  - [dso-annotation-kaart](../annotation/annotation-kaart)
  - [dso-annotation-locatie](../annotation/annotation-locatie)
  - [dso-annotation-omgevingsnormwaarde](../annotation/annotation-omgevingsnormwaarde)
- - [dso-legend-item](../legend-item)
+ - [dso-legend-item](../legend/legend-item)
  - [dso-map-layer](../map-layer)
  - [dso-map-layer-object](../map-layer/components)
 

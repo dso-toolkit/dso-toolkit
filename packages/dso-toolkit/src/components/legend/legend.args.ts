@@ -4,18 +4,27 @@ import { fn } from "storybook/test";
 
 import { argTypeAction, componentArgs } from "../../storybook";
 
-import { Legend, LegendTabItem } from "./legend.models";
+import { Legend, LegendMode, LegendTabItem } from "./legend.models";
 
 export interface LegendArgs {
+  mode: LegendMode;
   tabItems: LegendTabItem[];
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
+  dsoLegendGroupModeChange: HandlerFunction;
+  dsoDelete: HandlerFunction;
 }
 
 export const legendArgTypes: ArgTypes<LegendArgs> = {
+  mode: {
+    control: { type: "select" },
+    options: ["edit", "view"],
+  },
   tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
   dsoClose: argTypeAction(),
+  dsoLegendGroupModeChange: argTypeAction(),
+  dsoDelete: argTypeAction(),
 };
 
 export const legendaTabItem: LegendTabItem = {
@@ -31,9 +40,12 @@ export const kaartlagenTabItem: LegendTabItem = {
 };
 
 export const legendArgs = componentArgs<LegendArgs>({
+  mode: "view",
   tabItems: [{ ...legendaTabItem, active: true }, kaartlagenTabItem],
   dsoContentSwitch: fn(),
   dsoClose: fn(),
+  dsoLegendGroupModeChange: fn(),
+  dsoDelete: fn(),
 });
 
 export function legendArgsMapper<TemplateFnReturnType>(

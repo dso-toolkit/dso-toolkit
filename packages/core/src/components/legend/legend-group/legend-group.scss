@@ -1,0 +1,13 @@
+@use "~dso-toolkit/src/utilities";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.legend-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

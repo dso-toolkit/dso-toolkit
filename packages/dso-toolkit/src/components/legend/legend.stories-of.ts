@@ -1,9 +1,8 @@
 import { compiler } from "markdown-to-jsx";
-import { ComponentAnnotations, Renderer } from "storybook/internal/types";
+import { ComponentAnnotations, PartialStoryFn, Renderer } from "storybook/internal/types";
 
 import { MetaOptions } from "../../storybook/meta-options.interface.js";
 import { StoriesParameters, StoryObj } from "../../template-container.js";
-import { LegendItemDecorator, legendItemDemoCss } from "../legend-item";
 
 import {
   LegendArgs,
@@ -13,7 +12,7 @@ import {
   legendArgsMapper,
   legendaTabItem,
 } from "./legend.args.js";
-import { Legend } from "./legend.models";
+import { Legend, LegendMode } from "./legend.models";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
 
@@ -28,13 +27,21 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
   TemplateFnReturnType,
   LegendTemplates<TemplateFnReturnType>
 > {
-  decorator: LegendItemDecorator<TemplateFnReturnType>;
+  decorator: (story: PartialStoryFn) => TemplateFnReturnType;
 }
 
 interface LegendTemplates<TemplateFnReturnType> {
   legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
-  legendaRichContent: TemplateFnReturnType;
-  kaartlagenRichContent: TemplateFnReturnType;
+  legendaRichContent: (
+    mode: LegendMode,
+    dsoLegendGroupModeChange?: (e: CustomEvent) => void,
+    dsoDelete?: (e: CustomEvent) => void,
+  ) => TemplateFnReturnType;
+  kaartlagenRichContent: (
+    mode: LegendMode,
+    dsoLegendGroupModeChange?: (e: CustomEvent) => void,
+    dsoDelete?: (e: CustomEvent) => void,
+  ) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -61,17 +68,23 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
 }: LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType>): LegendStories {
   return {
     Legenda: {
-      decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
-        legendTemplate(legendArgsMapper(args, legendaRichContent)),
-      ),
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) => {
+        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+        const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
+        return legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode, modeChangeHandler, deleteHandler)));
+      }),
     },
     Kaartlagen: {
       args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
-      decorators: [(story) => decorator(story, legendItemDemoCss)],
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
-        legendTemplate(legendArgsMapper(args, kaartlagenRichContent)),
-      ),
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) => {
+        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+        const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
+        return legendTemplate(
+          legendArgsMapper(args, kaartlagenRichContent(args.mode, modeChangeHandler, deleteHandler)),
+        );
+      }),
     },
   };
 }

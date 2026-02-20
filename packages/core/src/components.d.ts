@@ -29,8 +29,7 @@ import { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 import { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-import { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
-import { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+import { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -80,8 +79,7 @@ export { IconButtonClickEvent, IconButtonVariant } from "./components/icon-butto
 export { TooltipPlacement } from "./functional-components/tooltip/tooltip.interfaces";
 export { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 export { InputRangeChangeEvent } from "./components/input-range/input-range.interfaces";
-export { LegendCloseEvent, LegendContentSwitchEvent, LegendTabItem } from "./components/legend/legend.interfaces";
-export { LegendItemActiveChangeEvent } from "./components/legend-item/legend-item.interfaces";
+export { LegendCloseEvent, LegendContentSwitchEvent, LegendGroupModeChangeEvent, LegendItemActiveChangeEvent, LegendItemDeleteEvent, LegendMode, LegendTabItem } from "./components/legend/legend.interfaces";
 export { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 export { LogoClickEvent, LogoLabelClickEvent } from "./components/logo/logo.interfaces";
 export { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -876,7 +874,17 @@ export namespace Components {
          */
         "tabItems": LegendTabItem[];
     }
+    interface DsoLegendGroup {
+        /**
+          * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
+         */
+        "mode"?: LegendMode;
+    }
     interface DsoLegendItem {
+        /**
+          * @default "view"
+         */
+        "_mode": LegendMode | undefined;
         /**
           * Controls whether this Legend Item can be active or not
          */
@@ -891,7 +899,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Message to be shown behind a toggletip when the Legend Item is disabled
+          * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
     }
@@ -1552,6 +1560,10 @@ export interface DsoLegendCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLegendElement;
 }
+export interface DsoLegendGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoLegendGroupElement;
+}
 export interface DsoLegendItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLegendItemElement;
@@ -2135,8 +2147,26 @@ declare global {
         prototype: HTMLDsoLegendElement;
         new (): HTMLDsoLegendElement;
     };
+    interface HTMLDsoLegendGroupElementEventMap {
+        "dsoLegendGroupModeChange": LegendGroupModeChangeEvent;
+    }
+    interface HTMLDsoLegendGroupElement extends Components.DsoLegendGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoLegendGroupElementEventMap>(type: K, listener: (this: HTMLDsoLegendGroupElement, ev: DsoLegendGroupCustomEvent<HTMLDsoLegendGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoLegendGroupElementEventMap>(type: K, listener: (this: HTMLDsoLegendGroupElement, ev: DsoLegendGroupCustomEvent<HTMLDsoLegendGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoLegendGroupElement: {
+        prototype: HTMLDsoLegendGroupElement;
+        new (): HTMLDsoLegendGroupElement;
+    };
     interface HTMLDsoLegendItemElementEventMap {
         "dsoActiveChange": LegendItemActiveChangeEvent;
+        "dsoDelete": LegendItemDeleteEvent;
         "dsoMouseEnter": any;
         "dsoMouseLeave": any;
     }
@@ -2687,6 +2717,7 @@ declare global {
         "dso-input-range": HTMLDsoInputRangeElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-legend": HTMLDsoLegendElement;
+        "dso-legend-group": HTMLDsoLegendGroupElement;
         "dso-legend-item": HTMLDsoLegendItemElement;
         "dso-list-button": HTMLDsoListButtonElement;
         "dso-logo": HTMLDsoLogoElement;
@@ -3634,7 +3665,21 @@ declare namespace LocalJSX {
          */
         "tabItems"?: LegendTabItem[];
     }
+    interface DsoLegendGroup {
+        /**
+          * Controls whether this Legend Group and its child Legend Items are in edit or view mode. When not set, no edit/view toggle icon is shown.
+         */
+        "mode"?: LegendMode;
+        /**
+          * Emitted when the user toggles the mode of the Legend Group.
+         */
+        "onDsoLegendGroupModeChange"?: (event: DsoLegendGroupCustomEvent<LegendGroupModeChangeEvent>) => void;
+    }
     interface DsoLegendItem {
+        /**
+          * @default "view"
+         */
+        "_mode"?: LegendMode | undefined;
         /**
           * Controls whether this Legend Item can be active or not
          */
@@ -3649,13 +3694,17 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Message to be shown behind a toggletip when the Legend Item is disabled
+          * Message to be shown in an info-button tooltip when the Legend Item is disabled
          */
         "disabledMessage"?: string;
         /**
           * Emitted when user checks or unchecks the Slide Toggle.
          */
         "onDsoActiveChange"?: (event: DsoLegendItemCustomEvent<LegendItemActiveChangeEvent>) => void;
+        /**
+          * Emitted when the user clicks the delete button.
+         */
+        "onDsoDelete"?: (event: DsoLegendItemCustomEvent<LegendItemDeleteEvent>) => void;
         /**
           * Emitted when the mouse enters the Legend Item
          */
@@ -4415,6 +4464,7 @@ declare namespace LocalJSX {
         "dso-input-range": DsoInputRange;
         "dso-label": DsoLabel;
         "dso-legend": DsoLegend;
+        "dso-legend-group": DsoLegendGroup;
         "dso-legend-item": DsoLegendItem;
         "dso-list-button": DsoListButton;
         "dso-logo": DsoLogo;
@@ -4494,6 +4544,7 @@ declare module "@stencil/core" {
             "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-legend": LocalJSX.DsoLegend & JSXBase.HTMLAttributes<HTMLDsoLegendElement>;
+            "dso-legend-group": LocalJSX.DsoLegendGroup & JSXBase.HTMLAttributes<HTMLDsoLegendGroupElement>;
             "dso-legend-item": LocalJSX.DsoLegendItem & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
             "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
