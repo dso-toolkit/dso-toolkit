@@ -38,13 +38,13 @@ export class InfoButton {
   /**
    * The label.
    */
-  @Prop()
+  @Prop({ reflect: true })
   label = "Toelichting bij optie";
 
   /**
    * The placement of the Toggletip on click.
    */
-  @Prop()
+  @Prop({ reflect: true })
   toggletipPlacement: TooltipPlacement = "top";
 
   @Listen("click", { target: "window" })
