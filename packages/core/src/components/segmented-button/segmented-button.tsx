@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Event, EventEmitter, Prop, forceUpdate, h } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, Prop, h } from "@stencil/core";
 
 import type { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./segmented-button.interfaces";
 
@@ -28,21 +28,21 @@ export class SegmentedButton implements ComponentInterface {
   /**
    * Emitted when the active option changes.
    */
-  @Event()
+  @Event({ bubbles: false })
   dsoChange!: EventEmitter<SegmentedButtonChangeEvent>;
 
   /**
    * Set the active option by index.
    * @param index The index of the option to set as active.
+   * @param originalEvent The native event that triggered the change.
    */
-  private setActive(index: number) {
+  private setActive(index: number, originalEvent: Event) {
     if (index < 0 || index >= this.options.length) return;
     if (this.options[index]?.disabled) return;
     if (this.activeOption === index) return;
 
     this.activeOption = index;
-    this.dsoChange.emit({ option: index });
-    forceUpdate(this);
+    this.dsoChange.emit({ originalEvent, option: index });
   }
 
   render() {
@@ -62,7 +62,7 @@ export class SegmentedButton implements ComponentInterface {
                 checked={index === this.activeOption}
                 disabled={disabled}
                 aria-checked={index === this.activeOption ? "true" : "false"}
-                onChange={() => this.setActive(index)}
+                onChange={(event) => this.setActive(index, event)}
               />
               <span class="segment-label">{label}</span>
             </label>
