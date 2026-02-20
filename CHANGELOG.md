@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Angular Output: ngModel toevoegen aan form web components ([#3447](https://github.com/dso-toolkit/dso-toolkit/issues/3447))
+* Segmented Button: Nieuw component ([#3397](https://github.com/dso-toolkit/dso-toolkit/issues/3397))
+
 
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
@@ -46,7 +48,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Button: Mode "on light" en "on dark" toevoegen aan de button varianten ([#3381](https://github.com/dso-toolkit/dso-toolkit/issues/3381))
-* Segmented Button: Nieuw component ([#3397](https://github.com/dso-toolkit/dso-toolkit/issues/3397))
 
 ### Fixed
 * Info Button: Dependency van dso-toolkit naar dso-toolkit-core ([#3576](https://github.com/dso-toolkit/dso-toolkit/issues/3576))

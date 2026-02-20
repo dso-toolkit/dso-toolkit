@@ -87,6 +87,7 @@ import {
   RowEqualHeights,
   Scrollable,
   SearchBar,
+  SegmentedButton,
   Selectable,
   ShoppingCart,
   Skiplink,
@@ -304,6 +305,7 @@ export interface Components {
   rowEqualHeights: RowEqualHeights<TemplateResult>;
   scrollable: Scrollable<TemplateResult>;
   searchBar: SearchBar;
+  segmentedButton: SegmentedButton;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
   skiplink: Skiplink;
