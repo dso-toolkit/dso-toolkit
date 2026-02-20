@@ -14,7 +14,10 @@ export default meta;
 const { Default, WithDisabledButton } = segmentedButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
-    return templates;
+    const { segmentedButtonTemplate } = templates;
+    return {
+      segmentedButtonTemplate,
+    };
   },
 });
 

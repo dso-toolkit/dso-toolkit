@@ -1,12 +1,14 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors" as colors;
+@use "~dso-toolkit/src/variables/units";
+
 @include utilities.box-sizing();
 
 .dso-segmented-button {
   display: inline-flex;
-  gap: 4px;
+  gap: units.$u1 * 0.5;
   border: 1px solid colors.$grijs-20;
-  border-radius: 12px;
+  border-radius: units.$u1 * 1.5;
   padding-inline: 6px;
   flex-wrap: nowrap;
 
@@ -50,12 +52,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    block-size: 24px;
+    block-size: units.$u3;
     font-size: 16px;
     font-weight: 500;
     background: colors.$wit;
     color: colors.$grasgroen;
-    border-radius: 12px;
-    padding-inline: 12px;
+    border-radius: units.$u1 * 1.5;
+    padding-inline: units.$u1 * 1.5;
   }
 }
