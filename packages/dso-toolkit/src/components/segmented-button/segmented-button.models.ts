@@ -1,10 +1,11 @@
 export interface SegmentedButtonChangeEvent {
+  originalEvent: Event;
   option: number;
 }
 export interface SegmentedButton {
   options: SegmentedButtonOption[];
   activeOption: number;
-  dsoChange?: (e: CustomEvent<SegmentedButtonChangeEvent>) => void;
+  dsoChange?: (event: CustomEvent<SegmentedButtonChangeEvent>) => void;
 }
 
 export interface SegmentedButtonOption {
