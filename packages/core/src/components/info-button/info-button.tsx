@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, forceUpdate, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -38,14 +38,27 @@ export class InfoButton {
   /**
    * The label.
    */
-  @Prop()
+  @Prop({ reflect: true })
   label = "Toelichting bij optie";
 
   /**
    * The placement of the Toggletip on click.
    */
-  @Prop()
+  @Prop({ reflect: true })
   toggletipPlacement: TooltipPlacement = "top";
+
+  @Listen("click", { target: "window" })
+  handleWindowClick(event: MouseEvent) {
+    if (!this.toggletipActive) return;
+
+    const path = event.composedPath();
+    const clickedInsideHost = path.includes(this.host);
+    const clickedInsideTooltip = this.toggletipElRef && path.includes(this.toggletipElRef);
+
+    if (!clickedInsideHost && !clickedInsideTooltip) {
+      this.toggletipActive = false;
+    }
+  }
 
   /**
    * Emitted when the user activates the Info Button.
@@ -55,6 +68,9 @@ export class InfoButton {
 
   @State()
   toggletipActive = false;
+
+  @State()
+  hasToggletip = false;
 
   /**
    * To set focus to the toggle button.
@@ -68,32 +84,19 @@ export class InfoButton {
     }
   }
 
-  private get isToggletipMode(): boolean {
-    return !!this.host.querySelector("[slot='toggletip']");
-  }
-
   private handleToggle(originalEvent: MouseEvent) {
-    if (this.isToggletipMode) {
+    if (this.hasToggletip) {
       this.toggletipActive = !this.toggletipActive;
-      this.toggletipElRef?.showPopover();
     } else {
       this.dsoToggle.emit({ originalEvent, active: !this.active });
     }
   }
-
-  private focusOutHandler = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
-    }
-  };
 
   private keyDownHandler = (event: KeyboardEvent) => {
     if (!this.toggletipActive) return;
 
     if (event.key === "Escape") {
       this.toggletipActive = false;
-      this.toggletipElRef?.hidePopover();
     }
   };
 
@@ -103,15 +106,13 @@ export class InfoButton {
   }
 
   componentDidRender() {
-    if (!this.isToggletipMode) {
+    if (!this.hasToggletip) {
       this.toggletipElRef?.hidePopover();
       this.cleanupTooltip();
       return;
     }
 
     if (!this.cleanUp && this.toggletipActive && this.button && this.toggletipElRef && this.toggletipArrowElRef) {
-      this.toggletipElRef?.showPopover();
-
       this.cleanUp = positionTooltip({
         referenceElement: this.button,
         tipRef: this.toggletipElRef,
@@ -120,11 +121,20 @@ export class InfoButton {
         restrictContentElement: this.restrictContentElement,
       });
     }
+
+    if (this.cleanUp) {
+      if (this.toggletipActive) {
+        this.toggletipElRef?.showPopover();
+      } else {
+        this.toggletipElRef?.hidePopover();
+        this.cleanupTooltip();
+      }
+    }
   }
 
   connectedCallback(): void {
     this.mutationObserver = new MutationObserver(() => {
-      forceUpdate(this.host);
+      this.hasToggletip = !!this.host.querySelector("[slot='toggletip']");
     });
 
     this.mutationObserver.observe(this.host, {
@@ -142,7 +152,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
+      <Host onKeydown={this.keyDownHandler}>
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
@@ -164,7 +174,7 @@ export class InfoButton {
             <span class="sr-only">{this.label}</span>
           </button>
         )}
-        {this.isToggletipMode !== null && (
+        {this.hasToggletip !== null && (
           <Tooltip
             tipElementRef={(element) => (this.toggletipElRef = element)}
             tipArrowElementRef={(element) => (this.toggletipArrowElRef = element)}
