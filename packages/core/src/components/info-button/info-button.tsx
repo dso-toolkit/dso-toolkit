@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../functional-components/tooltip/tooltip.functional-component";
@@ -46,19 +46,6 @@ export class InfoButton {
    */
   @Prop({ reflect: true })
   toggletipPlacement: TooltipPlacement = "top";
-
-  @Listen("click", { target: "window" })
-  handleWindowClick(event: MouseEvent) {
-    if (!this.toggletipActive) return;
-
-    const path = event.composedPath();
-    const clickedInsideHost = path.includes(this.host);
-    const clickedInsideTooltip = this.toggletipElRef && path.includes(this.toggletipElRef);
-
-    if (!clickedInsideHost && !clickedInsideTooltip) {
-      this.toggletipActive = false;
-    }
-  }
 
   /**
    * Emitted when the user activates the Info Button.
