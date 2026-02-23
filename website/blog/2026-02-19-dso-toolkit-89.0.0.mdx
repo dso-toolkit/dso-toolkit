@@ -7,6 +7,7 @@ authors: [wouterheldens]
 Deze release bevat een **BREAKING** change voor het volgende component:
 
 - Legend
+- Legend-item
 
 <!-- truncate -->
 
@@ -71,6 +72,30 @@ Groepskoppen die voorheen als `dso-legend-item` met een `<h3 slot="label">` werd
       <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
       <span slot="label">Acculader in werking</span>
     </dso-legend-item>
+  </dso-legend-group>
+</dso-legend>
+```
+
+#### `dso-rich-content` wrapper verwijderen
+
+De `<div class="dso-rich-content">` wrapper binnen `dso-legend` is niet meer nodig en mag niet meer gebruikt worden. De content wordt direct in `dso-legend` geplaatst.
+
+```html
+❌
+<dso-legend>
+  <div class="dso-rich-content">
+    <dso-legend-group>
+      <h3 slot="heading">Geselecteerde kenmerken</h3>
+      ...
+    </dso-legend-group>
+  </div>
+</dso-legend>
+
+✅
+<dso-legend>
+  <dso-legend-group>
+    <h3 slot="heading">Geselecteerde kenmerken</h3>
+    ...
   </dso-legend-group>
 </dso-legend>
 ```

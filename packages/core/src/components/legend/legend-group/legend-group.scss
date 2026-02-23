@@ -7,7 +7,11 @@
 @include utilities.box-sizing();
 
 .legend-group-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+
+  dso-icon-button {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+  }
 }

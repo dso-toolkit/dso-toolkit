@@ -7,7 +7,7 @@ import { LegendArgs, legendMeta, legendStories } from "dso-toolkit";
 import { templateContainer } from "../../templates";
 
 import { decorator } from "./legend-item/legend-item.decorator";
-import { kaartlagenRichContent, legendaRichContent } from "./legend.content";
+import { kaartlagenRichContent, legendaRichContent, manyItemsContent } from "./legend.content";
 
 const meta: Meta<LegendArgs> = {
   ...legendMeta({ readme: `${legendReadme}\n${legendGroupReadme}\n${legendItemReadme}` }),
@@ -16,7 +16,7 @@ const meta: Meta<LegendArgs> = {
 
 export default meta;
 
-const { Legenda, Kaartlagen } = legendStories({
+const { Legenda, Kaartlagen, MultipleGroups } = legendStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { legendTemplate } = templates;
@@ -27,9 +27,10 @@ const { Legenda, Kaartlagen } = legendStories({
         legendaRichContent(templates, mode, dsoLegendGroupModeChange, dsoDelete),
       kaartlagenRichContent: (mode, dsoLegendGroupModeChange, dsoDelete) =>
         kaartlagenRichContent(templates, mode, dsoLegendGroupModeChange, dsoDelete),
+      manyItemsContent: (mode, dsoLegendGroupModeChange) => manyItemsContent(mode, dsoLegendGroupModeChange),
     };
   },
   decorator,
 });
 
-export { Kaartlagen, Legenda };
+export { Kaartlagen, Legenda, MultipleGroups };

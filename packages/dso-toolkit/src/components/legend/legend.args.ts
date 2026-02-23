@@ -53,7 +53,6 @@ export function legendArgsMapper<TemplateFnReturnType>(
   content: TemplateFnReturnType,
 ): Legend<TemplateFnReturnType> {
   return {
-    ...a,
     tabItems: a.tabItems,
     content,
     dsoContentSwitch: (e) => a.dsoContentSwitch(e.detail),

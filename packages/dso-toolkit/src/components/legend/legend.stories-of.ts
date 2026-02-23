@@ -19,6 +19,7 @@ type LegendStory = StoryObj<LegendArgs, Renderer>;
 interface LegendStories {
   Legenda: LegendStory;
   Kaartlagen: LegendStory;
+  MultipleGroups: LegendStory;
 }
 
 interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -42,6 +43,7 @@ interface LegendTemplates<TemplateFnReturnType> {
     dsoLegendGroupModeChange?: (e: CustomEvent) => void,
     dsoDelete?: (e: CustomEvent) => void,
   ) => TemplateFnReturnType;
+  manyItemsContent: (mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -84,6 +86,13 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
         return legendTemplate(
           legendArgsMapper(args, kaartlagenRichContent(args.mode, modeChangeHandler, deleteHandler)),
         );
+      }),
+    },
+    MultipleGroups: {
+      decorators: [(story) => decorator(story)],
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, manyItemsContent }) => {
+        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+        return legendTemplate(legendArgsMapper(args, manyItemsContent(args.mode, modeChangeHandler)));
       }),
     },
   };

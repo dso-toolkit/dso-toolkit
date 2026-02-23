@@ -93,6 +93,105 @@ export function legendaRichContent(
     })}`;
 }
 
+export function manyItemsContent(mode: LegendMode, dsoLegendGroupModeChange?: (e: CustomEvent) => void) {
+  return html`${legendGroupTemplate({
+      heading: html`<h3 slot="heading">Thema's</h3>`,
+      children: html`${legendItemTemplate({
+        content: html`<span slot="label">Bouwen en verbouwen</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Slopen</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Kappen van bomen</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Monumenten</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}`,
+    })}
+    <hr />
+    ${legendGroupTemplate({
+      mode,
+      dsoLegendGroupModeChange,
+      heading: html`<h3 slot="heading">Gebieden</h3>`,
+      children: html`${legendItemTemplate({
+        content: html`<span slot="label">Bestemmingsplangebied</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Wijzigingsgebied</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Uitwerkingsgebied</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Bouwvlak</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Functieaanduiding</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Maatvoeringsaanduiding</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Figuur</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Gebiedsaanduiding</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}`,
+    })}
+    <hr />
+    ${legendGroupTemplate({
+      mode,
+      dsoLegendGroupModeChange,
+      heading: html`<h3 slot="heading">Achtergrond</h3>`,
+      children: html`${legendItemTemplate({
+        content: html`<span slot="label">Topografie</span>`,
+        activatable: true,
+        active: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Luchtfoto</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}
+      ${legendItemTemplate({
+        content: html`<span slot="label">Kadastrale kaart</span>`,
+        activatable: true,
+        symbol: defaultSymbol,
+      })}`,
+    })}`;
+}
+
 export function kaartlagenRichContent(
   { infoButtonTemplate }: Templates,
   mode: LegendMode,
