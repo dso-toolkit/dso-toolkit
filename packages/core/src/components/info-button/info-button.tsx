@@ -100,6 +100,13 @@ export class InfoButton {
     }
   };
 
+  private focusOutHandler = (event: FocusEvent) => {
+    if (!this.host.contains(event.relatedTarget as Node)) {
+      this.toggletipActive = false;
+      this.toggletipElRef?.hidePopover();
+    }
+  };
+
   private cleanupTooltip() {
     this.cleanUp?.();
     this.cleanUp = undefined;
@@ -152,7 +159,7 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onKeydown={this.keyDownHandler}>
+      <Host onKeydown={this.keyDownHandler} onFocusout={this.focusOutHandler}>
         {!this.secondary ? (
           <dso-icon-button
             variant="tertiary"
