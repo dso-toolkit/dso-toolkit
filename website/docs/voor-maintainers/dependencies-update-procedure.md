@@ -10,9 +10,9 @@ Inventariseer voor welke packages er patches zijn gemaakt in `/.yarn/patches`. V
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.39.0). Echter draait versie v4.39.0 ook goed met typescript 5.9.3.
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.0). Echter draait versie v4.43.0 ook goed met typescript 5.9.3.
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v20.3.12) ondersteunt TypeScript \>=5.8.0 \<6.0.0
+- Angular (v21.1.4) ondersteunt TypeScript \>=5.8.0 \<6.0.0
 
 Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
 
@@ -57,6 +57,8 @@ Herstructuring van de output `dso.css` kan voorkomen na het updaten van Sass. Ma
 In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
 
 ## Node / Cypress
+
+Let op de Docker base image in de Dockerfile.
 
 **Compatibiliteit Azure CLI**
 

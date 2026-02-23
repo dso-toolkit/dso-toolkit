@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 
+### Task
+* Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
+
 ## 🧑‍🔧 Release 88.1.0 - 2026-02-23
 
 ### Added
@@ -23,7 +26,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * CICD: addnab/docker-run-action verouderd ([#3557](https://github.com/dso-toolkit/dso-toolkit/issues/3557))
-* Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
 
 ## 🤧 Release 88.0.0 - 2026-02-11
 
