@@ -11,6 +11,9 @@ import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.
 })
 export class ozonContentToggletip implements ComponentInterface {
   private cleanUp: TooltipClean | undefined;
+  private container: HTMLSpanElement | undefined;
+  private tooltip: HTMLElement | undefined;
+  private tooltipArrow: HTMLElement | undefined;
 
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
@@ -42,10 +45,6 @@ export class ozonContentToggletip implements ComponentInterface {
       }
     }
   }
-
-  private container: HTMLSpanElement | undefined;
-  private tooltip: HTMLElement | undefined;
-  private tooltipArrow: HTMLElement | undefined;
 
   private toggle = () => {
     this.active = !this.active;
