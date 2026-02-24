@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Fragment, Prop, State, h } from "@stencil/core";
+import { Component, ComponentInterface, Element, Fragment, Listen, Prop, State, h } from "@stencil/core";
 
 import { positionTooltip } from "../../../../functional-components/tooltip/position-tooltip.function";
 import { Tooltip } from "../../../../functional-components/tooltip/tooltip.functional-component";
@@ -10,9 +10,13 @@ import { TooltipClean } from "../../../../functional-components/tooltip/tooltip.
   shadow: true,
 })
 export class ozonContentToggletip implements ComponentInterface {
+  private cleanUp: TooltipClean | undefined;
+  private container: HTMLSpanElement | undefined;
+  private tooltip: HTMLElement | undefined;
+  private tooltipArrow: HTMLElement | undefined;
+
   @Element()
   host!: HTMLDsoOzonContentToggletipElement;
-
   /**
    * The alias of the icon in the button.
    */
@@ -22,39 +26,34 @@ export class ozonContentToggletip implements ComponentInterface {
   @State()
   active = false;
 
-  @State()
-  showToggletip = false;
+  @Listen("click", { target: "window" })
+  handleWindowClick(event: MouseEvent) {
+    if (!this.active) return;
 
-  private container: HTMLSpanElement | undefined;
-  private tooltip: HTMLElement | undefined;
-  private tooltipArrow: HTMLElement | undefined;
+    const path = event.composedPath();
+    const clickedInsideHost = path.includes(this.host);
+    const clickedInsideTooltip = this.tooltip && path.includes(this.tooltip);
+
+    if (!clickedInsideHost && !clickedInsideTooltip) {
+      this.toggle();
+    }
+
+    if (clickedInsideTooltip) {
+      const interactive = path.some((el) => el instanceof HTMLElement && el.tagName === "BUTTON");
+      if (interactive) {
+        this.toggle();
+      }
+    }
+  }
 
   private toggle = () => {
-    if (this.active) {
-      this.close();
-    } else {
-      this.open();
-    }
+    this.active = !this.active;
   };
 
-  private open = () => {
-    this.active = true;
-  };
-
-  private close = () => {
-    this.active = false;
-  };
-
-  private focusOutHandler = (event: FocusEvent) => {
-    if (!this.host.contains(event.relatedTarget as Node)) {
-      this.close();
-    }
-  };
-
-  private keyUpHandler = (event: KeyboardEvent) => {
+  private keyDownHandler = (event: KeyboardEvent) => {
     switch (event.key) {
       case "Escape":
-        this.close();
+        this.toggle();
         return;
       case " ":
       case "Enter":
@@ -66,20 +65,8 @@ export class ozonContentToggletip implements ComponentInterface {
   };
 
   componentDidRender() {
-    if (this.tooltip) {
-      if (this.active && !this.showToggletip) {
-        this.tooltip.showPopover();
-        this.showToggletip = true;
-      } else if (!this.active && this.showToggletip) {
-        this.tooltip?.hidePopover();
-        this.showToggletip = false;
-      }
-    }
-
-    let cleanUp: TooltipClean | undefined;
-
-    if (this.active && !cleanUp && this.container && this.tooltip && this.tooltipArrow) {
-      cleanUp = positionTooltip({
+    if (!this.cleanUp && this.active && this.container && this.tooltip && this.tooltipArrow) {
+      this.cleanUp = positionTooltip({
         referenceElement: this.container,
         tipRef: this.tooltip,
         tipArrowRef: this.tooltipArrow,
@@ -87,9 +74,23 @@ export class ozonContentToggletip implements ComponentInterface {
       });
     }
 
-    if (!this.active && cleanUp) {
-      cleanUp();
+    if (this.cleanUp && this.tooltip) {
+      if (this.active) {
+        this.tooltip?.showPopover();
+      } else {
+        this.tooltip?.hidePopover();
+        this.cleanupTooltip();
+      }
     }
+  }
+
+  disconnectedCallback() {
+    this.cleanupTooltip();
+  }
+
+  private cleanupTooltip() {
+    this.cleanUp?.();
+    this.cleanUp = undefined;
   }
 
   render() {
@@ -100,8 +101,7 @@ export class ozonContentToggletip implements ComponentInterface {
           role="button"
           tabindex={0}
           onClick={this.toggle}
-          onKeyDown={this.keyUpHandler}
-          onFocusout={this.focusOutHandler}
+          onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
         >
           <span class="icon-container">
