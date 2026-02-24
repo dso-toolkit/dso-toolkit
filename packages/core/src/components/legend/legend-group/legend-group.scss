@@ -1,4 +1,5 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: block;
@@ -8,6 +9,11 @@
 
 .legend-group-header {
   position: relative;
+
+  ::slotted(h3) {
+    margin-block: units.$u1 !important;
+    padding-block: units.$u1 * 0.5 !important;
+  }
 
   dso-icon-button {
     position: absolute;
