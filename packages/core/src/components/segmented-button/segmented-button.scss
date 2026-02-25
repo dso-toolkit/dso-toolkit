@@ -1,0 +1,63 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors" as colors;
+@use "~dso-toolkit/src/variables/units";
+
+@include utilities.box-sizing();
+
+.dso-segmented-button {
+  display: inline-flex;
+  gap: units.$u1 * 0.5;
+  border: 1px solid colors.$grijs-20;
+  border-radius: units.$u1 * 1.5;
+  padding-inline: 6px;
+  flex-wrap: nowrap;
+
+  label {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &:not(.disabled):hover input:not(:checked) + .segment-label {
+      color: colors.$bosgroen;
+    }
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: 0;
+
+    &:focus-visible + .segment-label {
+      outline: 2px solid colors.$bosgroen;
+      outline-offset: 2px;
+    }
+
+    &:checked + .segment-label {
+      background-color: colors.$bosgroen;
+      color: colors.$wit;
+    }
+  }
+
+  .segment-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    block-size: units.$u3;
+    font-size: 16px;
+    font-weight: 500;
+    background: colors.$wit;
+    color: colors.$grasgroen;
+    border-radius: units.$u1 * 1.5;
+    padding-inline: units.$u1 * 1.5;
+  }
+}

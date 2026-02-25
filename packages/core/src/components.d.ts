@@ -47,6 +47,7 @@ import { PanelCloseEvent } from "./components/panel/panel.interfaces";
 import { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
+import { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
@@ -98,6 +99,7 @@ export { PanelCloseEvent } from "./components/panel/panel.interfaces";
 export { PlekinfoCardClickEvent, PlekinfoWijzigactie } from "./components/plekinfo-card/plekinfo-card.interfaces";
 export { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 export { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
+export { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./components/segmented-button/segmented-button.interfaces";
 export { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 export { SkiplinkClickEvent } from "./components/skiplink/skiplink.interfaces";
 export { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
@@ -1189,6 +1191,26 @@ export namespace Components {
     interface DsoScrollable {
         "_setScrollState": () => Promise<void>;
     }
+    interface DsoSegmentedButton {
+        /**
+          * The index of the currently active option. Defaults to -1 (no active option).
+          * @default -1
+         */
+        "activeOption": number;
+        /**
+          * The available options for the segmented button.
+          * @default []
+         */
+        "options": SegmentedButtonOption[];
+        /**
+          * Literal accessible label for the radio group (aria-label). If not set, defaults to 'Segmented button options'.
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required to the group).
+         */
+        "segmentedAriaRequired"?: boolean;
+    }
     interface DsoSelectable {
         /**
           * Mark the Selectable as checked
@@ -1623,6 +1645,10 @@ export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
 export interface DsoScrollableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoScrollableElement;
+}
+export interface DsoSegmentedButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSegmentedButtonElement;
 }
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2474,6 +2500,23 @@ declare global {
         prototype: HTMLDsoScrollableElement;
         new (): HTMLDsoScrollableElement;
     };
+    interface HTMLDsoSegmentedButtonElementEventMap {
+        "dsoChange": SegmentedButtonChangeEvent;
+    }
+    interface HTMLDsoSegmentedButtonElement extends Components.DsoSegmentedButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsoSegmentedButtonElementEventMap>(type: K, listener: (this: HTMLDsoSegmentedButtonElement, ev: DsoSegmentedButtonCustomEvent<HTMLDsoSegmentedButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsoSegmentedButtonElementEventMap>(type: K, listener: (this: HTMLDsoSegmentedButtonElement, ev: DsoSegmentedButtonCustomEvent<HTMLDsoSegmentedButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsoSegmentedButtonElement: {
+        prototype: HTMLDsoSegmentedButtonElement;
+        new (): HTMLDsoSegmentedButtonElement;
+    };
     interface HTMLDsoSelectableElementEventMap {
         "dsoChange": SelectableChangeEvent;
     }
@@ -2708,6 +2751,7 @@ declare global {
         "dso-renvooi": HTMLDsoRenvooiElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-scrollable": HTMLDsoScrollableElement;
+        "dso-segmented-button": HTMLDsoSegmentedButtonElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-skiplink": HTMLDsoSkiplinkElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
@@ -4053,6 +4097,30 @@ declare namespace LocalJSX {
          */
         "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEndEvent>) => void;
     }
+    interface DsoSegmentedButton {
+        /**
+          * The index of the currently active option. Defaults to -1 (no active option).
+          * @default -1
+         */
+        "activeOption"?: number;
+        /**
+          * Emitted when the active option changes.
+         */
+        "onDsoChange"?: (event: DsoSegmentedButtonCustomEvent<SegmentedButtonChangeEvent>) => void;
+        /**
+          * The available options for the segmented button.
+          * @default []
+         */
+        "options"?: SegmentedButtonOption[];
+        /**
+          * Literal accessible label for the radio group (aria-label). If not set, defaults to 'Segmented button options'.
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required to the group).
+         */
+        "segmentedAriaRequired"?: boolean;
+    }
     interface DsoSelectable {
         /**
           * Mark the Selectable as checked
@@ -4436,6 +4504,7 @@ declare namespace LocalJSX {
         "dso-renvooi": DsoRenvooi;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
+        "dso-segmented-button": DsoSegmentedButton;
         "dso-selectable": DsoSelectable;
         "dso-skiplink": DsoSkiplink;
         "dso-slide-toggle": DsoSlideToggle;
@@ -4518,6 +4587,7 @@ declare module "@stencil/core" {
             "dso-renvooi": LocalJSX.DsoRenvooi & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
+            "dso-segmented-button": LocalJSX.DsoSegmentedButton & JSXBase.HTMLAttributes<HTMLDsoSegmentedButtonElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;

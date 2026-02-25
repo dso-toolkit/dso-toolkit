@@ -88,6 +88,7 @@ import {
   RowEqualHeights,
   Scrollable,
   SearchBar,
+  SegmentedButton,
   Selectable,
   ShoppingCart,
   Skiplink,
@@ -203,6 +204,7 @@ import { cssRichContent } from "./components/rich-content/rich-content.css-templ
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
 import { coreScrollable } from "./components/scrollable/scrollable.core-template";
 import { cssSearchBar } from "./components/search-bar/search-bar.css-template";
+import { coreSegmentedButton } from "./components/segmented-button/segmented-button.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
 import { cssShoppingCart } from "./components/shopping-cart/shopping-cart.css-template";
 import { coreSkiplink } from "./components/skiplink/skiplink.core-template";
@@ -276,7 +278,7 @@ export interface Components {
   image: Image;
   imageOverlay: ImageOverlay;
   info: Info<TemplateResult>;
-  infoButton: InfoButton;
+  infoButton: InfoButton<TemplateResult>;
   inputRange: InputRange;
   justifyFormGroups: JustifyFormGroups<TemplateResult>;
   label: Label;
@@ -307,6 +309,7 @@ export interface Components {
   rowEqualHeights: RowEqualHeights<TemplateResult>;
   scrollable: Scrollable<TemplateResult>;
   searchBar: SearchBar;
+  segmentedButton: SegmentedButton;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
   skiplink: Skiplink;
@@ -461,4 +464,8 @@ templateContainer.add(cssShoppingCart);
 templateContainer.add(cssTile);
 templateContainer.add(cssTileGrid);
 templateContainer.add(coreCursorTooltip);
+templateContainer.add(coreSegmentedButton);
 // End: add templates to container
+
+// Export segmentedButtonTemplate for Storybook usage
+export const segmentedButtonTemplate = coreSegmentedButton.template;

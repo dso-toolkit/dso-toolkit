@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Added
+* Segmented Button: Nieuw component ([#3397](https://github.com/dso-toolkit/dso-toolkit/issues/3397))
+
 ### Fixed
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 
