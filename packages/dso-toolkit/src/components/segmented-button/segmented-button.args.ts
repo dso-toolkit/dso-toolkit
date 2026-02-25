@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
@@ -7,8 +8,10 @@ import { SegmentedButton } from "./segmented-button.models.js";
 
 export interface SegmentedButtonArgs {
   options: SegmentedButton["options"];
-  activeOption: number;
+  activeOption?: number;
   dsoChange: HandlerFunction;
+  segmentedAriaRequired?: boolean;
+  segmentedAriaLabel?: string;
 }
 
 export const segmentedButtonArgs: SegmentedButtonArgs = {
@@ -18,8 +21,9 @@ export const segmentedButtonArgs: SegmentedButtonArgs = {
     { label: "Button 3", disabled: false },
     { label: "Button 4", disabled: false },
   ],
-  activeOption: -1,
-  dsoChange: () => undefined,
+  segmentedAriaRequired: true,
+  segmentedAriaLabel: "Segmented button options",
+  dsoChange: fn(),
 };
 
 export const segmentedButtonArgTypes: ArgTypes<SegmentedButtonArgs> = {
@@ -29,11 +33,22 @@ export const segmentedButtonArgTypes: ArgTypes<SegmentedButtonArgs> = {
     },
   },
   activeOption: {
+    options: [undefined, 0, 1, 2, 3, 4],
     control: {
-      type: "number",
+      type: "select",
     },
   },
   dsoChange: argTypeAction(),
+  segmentedAriaRequired: {
+    control: {
+      type: "boolean",
+    },
+  },
+  segmentedAriaLabel: {
+    control: {
+      type: "text",
+    },
+  },
 };
 
 export function segmentedButtonArgsMapper(a: SegmentedButtonArgs): SegmentedButton {
