@@ -12,7 +12,7 @@ import {
   legendArgsMapper,
   legendaTabItem,
 } from "./legend.args.js";
-import { Legend, LegendMode } from "./legend.models";
+import { Legend } from "./legend.models";
 
 type LegendStory = StoryObj<LegendArgs, Renderer>;
 
@@ -32,12 +32,8 @@ interface LegendStoriesParameters<Implementation, Templates, TemplateFnReturnTyp
 
 interface LegendTemplates<TemplateFnReturnType> {
   legendTemplate: (legendProperties: Legend<TemplateFnReturnType>) => TemplateFnReturnType;
-  legendaRichContent: (
-    mode: LegendMode,
-    dsoLegendGroupModeChange?: (e: CustomEvent) => void,
-    dsoDelete?: (e: CustomEvent) => void,
-  ) => TemplateFnReturnType;
-  kaartlagenRichContent: () => TemplateFnReturnType;
+  legendaRichContent: (args: LegendArgs) => TemplateFnReturnType;
+  kaartlagenRichContent: (args: LegendArgs) => TemplateFnReturnType;
 }
 
 export function legendMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -65,17 +61,15 @@ export function legendStories<Implementation, Templates, TemplateFnReturnType>({
   return {
     Legenda: {
       decorators: [(story) => decorator(story)],
-      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) => {
-        const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
-        const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
-        return legendTemplate(legendArgsMapper(args, legendaRichContent(args.mode, modeChangeHandler, deleteHandler)));
-      }),
+      render: templateContainer.render(storyTemplates, (args, { legendTemplate, legendaRichContent }) =>
+        legendTemplate(legendArgsMapper(args, legendaRichContent(args))),
+      ),
     },
     Kaartlagen: {
       args: { tabItems: [legendaTabItem, { ...kaartlagenTabItem, active: true }] },
       decorators: [(story) => decorator(story)],
       render: templateContainer.render(storyTemplates, (args, { legendTemplate, kaartlagenRichContent }) =>
-        legendTemplate(legendArgsMapper(args, kaartlagenRichContent())),
+        legendTemplate(legendArgsMapper(args, kaartlagenRichContent(args))),
       ),
     },
   };

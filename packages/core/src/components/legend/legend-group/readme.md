@@ -25,6 +25,7 @@
 | ----------- | ---------------------------------------------------------------------------------------------- |
 |             | The legend items for this group. Should contain `dso-legend-item` elements.                    |
 | `"heading"` | The heading/label for this Legend Group. Should be targeted with `<h3 slot="heading">...</h3>` |
+| `"options"` | Controls shown in edit mode (i.e. `dso-input-range`). Only visible when mode is "edit".        |
 
 
 ## Dependencies

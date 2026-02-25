@@ -24,7 +24,7 @@ const { Legenda, Kaartlagen } = legendStories({
     return {
       legendTemplate,
       legendaRichContent,
-      kaartlagenRichContent: () => kaartlagenRichContent(templates),
+      kaartlagenRichContent,
     };
   },
   decorator,

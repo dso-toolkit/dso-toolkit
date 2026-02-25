@@ -8,6 +8,11 @@ import { Legend, LegendMode, LegendTabItem } from "./legend.models";
 
 export interface LegendArgs {
   mode: LegendMode;
+  disabled: boolean;
+  disabledMessage: string;
+  active: boolean;
+  activatable: boolean;
+  label: string;
   tabItems: LegendTabItem[];
   dsoContentSwitch: HandlerFunction;
   dsoClose: HandlerFunction;
@@ -19,6 +24,21 @@ export const legendArgTypes: ArgTypes<LegendArgs> = {
   mode: {
     control: { type: "select" },
     options: ["edit", "view"],
+  },
+  disabled: {
+    control: { type: "boolean" },
+  },
+  disabledMessage: {
+    control: { type: "text" },
+  },
+  active: {
+    control: { type: "boolean" },
+  },
+  activatable: {
+    control: { type: "boolean" },
+  },
+  label: {
+    control: { type: "text" },
   },
   tabItems: argTypeAction(),
   dsoContentSwitch: argTypeAction(),
@@ -41,6 +61,11 @@ export const kaartlagenTabItem: LegendTabItem = {
 
 export const legendArgs = componentArgs<LegendArgs>({
   mode: "view",
+  disabled: false,
+  disabledMessage: "Voorbeeld tekst",
+  active: true,
+  activatable: true,
+  label: "Topografie (BRT)",
   tabItems: [{ ...legendaTabItem, active: true }, kaartlagenTabItem],
   dsoContentSwitch: fn(),
   dsoClose: fn(),

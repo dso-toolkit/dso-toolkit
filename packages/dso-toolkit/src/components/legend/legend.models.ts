@@ -54,6 +54,7 @@ export interface LegendItemActiveChangeEvent {
 export interface LegendGroup<TemplateFnReturnType = unknown> {
   mode?: LegendMode;
   heading?: TemplateFnReturnType;
+  options?: TemplateFnReturnType;
   children?: TemplateFnReturnType;
   dsoLegendGroupModeChange?: (e: CustomEvent) => void;
 }

@@ -71,6 +71,27 @@ describe("Legend", () => {
       cy.get("@dsoLegend").matchImageSnapshot("legend edit mode", { failureThreshold: 0.001 });
     });
 
+    it("should show group options slot in edit mode", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--legenda&args=mode:edit");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-group", "Geselecteerde kenmerken")
+        .shadow()
+        .find("slot[name='options']")
+        .should("exist");
+
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-group", "Geselecteerde kenmerken")
+        .find("[slot='options']")
+        .should("be.visible");
+    });
+
+    it("should not show group options slot in view mode", () => {
+      cy.get("@dsoLegend")
+        .contains("dso-legend-group", "Geselecteerde kenmerken")
+        .find("[slot='options']")
+        .should("not.be.visible");
+    });
+
     it("should emit dsoLegendGroupModeChange event when clicking the edit button on a legend group", () => {
       cy.get("@dsoLegend")
         .contains("dso-legend-group", "Geselecteerde kenmerken")
@@ -186,17 +207,17 @@ describe("Legend", () => {
       cy.get("@dsoLegend").matchImageSnapshot("kaartlagen view mode", { failureThreshold: 0.001 });
     });
 
-    it("should show the options-button when the slider is active", () => {
+    it("should show the options-button when the item is active", () => {
       cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Provinciegrenzen")
+        .contains("dso-legend-item", "Topografie (BRT)")
         .shadow()
         .find("#options-button")
         .should("be.visible");
     });
 
-    it("should hide the options-button when the slider is not active", () => {
+    it("should hide the options-button when the item is not active", () => {
       cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Provinciegrenzen")
+        .contains("dso-legend-item", "Topografie (BRT)")
         .invoke("prop", "active", false)
         .shadow()
         .find("#options-button")
@@ -204,7 +225,7 @@ describe("Legend", () => {
     });
 
     it("should toggle options visibility when clicking the options-button", () => {
-      cy.get("@dsoLegend").contains("dso-legend-item", "Provinciegrenzen").as("dsoLegendItem");
+      cy.get("@dsoLegend").contains("dso-legend-item", "Topografie (BRT)").as("dsoLegendItem");
 
       cy.get("@dsoLegendItem").shadow().find("div.options").should("have.attr", "hidden");
 
@@ -215,48 +236,22 @@ describe("Legend", () => {
       cy.get("@dsoLegendItem").shadow().find("div.options").should("have.attr", "hidden");
     });
 
-    it("should show a scrollbar when the content in the slot is heigher than 600px", () => {
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Provinciegrenzen")
+    it("should not show options-button when the item is disabled", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--kaartlagen&args=disabled:true");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Topografie (BRT)")
         .shadow()
-        .find("dso-icon-button")
-        .shadow()
-        .find("button")
-        .click({ force: true });
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Provinciegrenzen")
-        .shadow()
-        .find("div.options")
-        .should("not.have.attr", "hidden");
+        .find("#options-button")
+        .should("not.exist");
+    });
 
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Landgrenzen")
+    it("should show disabled info-button when the item is disabled", () => {
+      cy.visit("http://localhost:45000/iframe.html?id=core-legend--kaartlagen&args=disabled:true");
+      cy.get("dso-legend.hydrated")
+        .contains("dso-legend-item", "Topografie (BRT)")
         .shadow()
-        .find("dso-icon-button")
-        .shadow()
-        .find("button")
-        .click({ force: true });
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Landgrenzen")
-        .shadow()
-        .find("div.options")
-        .should("not.have.attr", "hidden");
-
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Topgrafie (BRT)")
-        .scrollIntoView()
-        .shadow()
-        .find("dso-icon-button")
-        .shadow()
-        .find("button")
-        .click({ force: true });
-      cy.get("@dsoLegend")
-        .contains("dso-legend-item", "Topgrafie (BRT)")
-        .shadow()
-        .find("div.options")
-        .should("not.have.attr", "hidden");
-
-      cy.get("@dsoLegend").matchImageSnapshot(`${Cypress.currentTest.title}`);
+        .find("dso-info-button")
+        .should("exist");
     });
   });
 });

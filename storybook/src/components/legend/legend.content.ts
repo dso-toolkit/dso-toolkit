@@ -1,14 +1,13 @@
-import { type LegendGroup, type LegendItem, type LegendMode } from "dso-toolkit";
+import { type LegendArgs, type LegendGroup, type LegendItem } from "dso-toolkit";
 import { TemplateResult, html, nothing } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-
-import type { Templates } from "../../templates";
 
 const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
 const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
   html`<dso-legend-group .mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
-    ${p.heading || nothing} ${p.children || nothing}
+    ${p.heading || nothing} ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}
+    ${p.children || nothing}
   </dso-legend-group>`;
 
 const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
@@ -26,11 +25,27 @@ const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
     ${p.options ? html`<div slot="options">${p.options}</div>` : nothing}
   </dso-legend-item>`;
 
-export function legendaRichContent(
-  mode: LegendMode,
-  dsoLegendGroupModeChange?: (e: CustomEvent) => void,
-  dsoDelete?: (e: CustomEvent) => void,
-) {
+const zichtbaarheidOption = html`<label>Zichtbaarheid</label
+  ><dso-input-range label="Transparantie" unit="%"></dso-input-range>`;
+
+const wijzigKaartLaagOption = html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
+  <legend class="sr-only">Wijzig kaartlaag kleur</legend>
+  <div class="dso-label-container">
+    <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
+  </div>
+  <div class="dso-field-container">
+    <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur"> Kleur </dso-selectable>
+    <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
+      Grijstinten
+    </dso-selectable>
+    <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
+  </div>
+</fieldset>`;
+
+export function legendaRichContent(args: LegendArgs) {
+  const modeChangeHandler = (e: CustomEvent) => args.dsoLegendGroupModeChange(e.detail);
+  const deleteHandler = (e: CustomEvent) => args.dsoDelete(e.detail);
+
   return html`${legendGroupTemplate({
       heading: html`<h3 slot="heading">Legenda</h3>`,
       children: html`${legendItemTemplate({
@@ -44,26 +59,27 @@ export function legendaRichContent(
     })}
     <hr />
     ${legendGroupTemplate({
-      mode,
-      dsoLegendGroupModeChange,
+      mode: args.mode,
+      dsoLegendGroupModeChange: modeChangeHandler,
       heading: html`<h3 slot="heading">Geselecteerde kenmerken</h3>`,
-      children: html`${legendItemTemplate({
+      options: zichtbaarheidOption,
+      children: html` ${legendItemTemplate({
         content: html`<span slot="label">Acculader in werking</span>`,
         activatable: true,
         symbol: defaultSymbol,
-        dsoDelete,
+        dsoDelete: deleteHandler,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Bomen kappen</span>`,
         activatable: true,
         active: true,
         symbol: defaultSymbol,
-        dsoDelete,
+        dsoDelete: deleteHandler,
       })}`,
     })}`;
 }
 
-export function kaartlagenRichContent({ infoButtonTemplate }: Templates) {
+export function kaartlagenRichContent(args: LegendArgs) {
   return html`${legendGroupTemplate({
       heading: html`<h3 slot="heading">Informatie</h3>`,
       children: html`${legendItemTemplate({
@@ -85,77 +101,28 @@ export function kaartlagenRichContent({ infoButtonTemplate }: Templates) {
       ${legendItemTemplate({
         content: html`<span slot="label">Provinciegrenzen</span>`,
         activatable: true,
-        active: true,
-        options: html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
-          <legend class="sr-only">Wijzig kaartlaag kleur</legend>
-          <div class="dso-label-container">
-            <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
-          </div>
-          <div class="dso-field-container">
-            <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur">
-              Kleur
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
-              Grijstinten
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
-          </div>
-        </fieldset>`,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Landgrenzen</span>`,
         activatable: true,
-        active: true,
-        options: html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
-          <legend class="sr-only">Wijzig kaartlaag kleur</legend>
-          <div class="dso-label-container">
-            <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
-          </div>
-          <div class="dso-field-container">
-            <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur">
-              Kleur
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
-              Grijstinten
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
-          </div>
-        </fieldset>`,
       })}`,
     })}
     <hr />
     ${legendGroupTemplate({
       heading: html`<h3 slot="heading">Achtergrond</h3>`,
       children: html`${legendItemTemplate({
-        content: html`<span slot="label">Topgrafie (BRT)</span>`,
-        activatable: true,
-        active: true,
-        options: html`<fieldset class="form-group dso-radios" aria-errormessage="mijn-id-error-text">
-          <legend class="sr-only">Wijzig kaartlaag kleur</legend>
-          <div class="dso-label-container">
-            <span class="control-label" aria-hidden="true">Wijzig kaartlaag kleur</span>
-          </div>
-          <div class="dso-field-container">
-            <dso-selectable type="radio" name="kaartlaag-kleur" checked identifier="1" value="kleur">
-              Kleur
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="2" value="grijstinten">
-              Grijstinten
-            </dso-selectable>
-            <dso-selectable type="radio" name="kaartlaag-kleur" identifier="3" value="opties-3">Pastel</dso-selectable>
-          </div>
-        </fieldset>`,
+        content: html`<span slot="label">${args.label}</span>`,
+        activatable: args.activatable,
+        active: args.active,
+        disabled: args.disabled,
+        disabledMessage: args.disabledMessage || undefined,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
-        content: html`<span slot="label">
-          Grootschalige topgrafie (BGT)
-          ${infoButtonTemplate({
-            label: "Begeleidende tekst met lange content",
-            children: "Een info-button bij de banner met lange content",
-          })}
-        </span>`,
+        content: html`<span slot="label">Grootschalige topografie (BGT)</span>`,
         activatable: true,
         active: true,
+        options: wijzigKaartLaagOption,
       })}
       ${legendItemTemplate({
         content: html`<span slot="label">Luchtfoto</span>`,
