@@ -26,20 +26,22 @@ describe("Scrollable", () => {
   });
 
   it("should emit event when scroll has reached top or bottom", () => {
+    const events: string[] = [];
+
     cy.get("dso-scrollable.hydrated")
       .then(($scrollable) => {
-        $scrollable.on("dsoScrollEnd", cy.stub().as("dsoScrollEndListener"));
+        $scrollable.on("dsoScrollEnd", (e: CustomEvent) => events.push(e.detail.scrollEnd));
       })
-      .get("@dsoScrollEndListener")
-      .should("not.have.been.called")
       .get("@scrollContainer")
       .scrollTo("bottom")
-      .get("@dsoScrollEndListener")
-      .should("have.been.calledOnce")
+      .get("@scrollContainer")
+      .should("have.class", "dso-scroll-bottom")
+      .then(() => expect(events).to.include("bottom"))
       .get("@scrollContainer")
       .scrollTo("top")
-      .get("@dsoScrollEndListener")
-      .should("have.been.called.be.calledTwice");
+      .get("@scrollContainer")
+      .should("have.class", "dso-scroll-top")
+      .then(() => expect(events).to.include("top"));
   });
 
   it("should update scroll state on resize", () => {

@@ -73,5 +73,9 @@
         opacity: 1;
       }
     }
+
+    &.dso-scroll-noScroll {
+      overflow-y: hidden;
+    }
   }
 }

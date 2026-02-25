@@ -94,7 +94,8 @@ export class Scrollable {
 
     const { scrollHeight, clientHeight, scrollTop } = this.scrollContainerDiv;
 
-    if (scrollHeight <= clientHeight) {
+    // Prevents unwanted scrollbar caused by browser zoom rounding
+    if (scrollHeight - clientHeight < 8) {
       return "noScroll";
     }
 
@@ -143,9 +144,7 @@ export class Scrollable {
       <div ref={(el) => (this.shadowContainerDiv = el)} class="dso-shadow-container">
         <div
           ref={(el) => (this.scrollContainerDiv = el)}
-          class={clsx("dso-scroll-container", {
-            [`dso-scroll-${this.scrollPosition}`]: this.scrollPosition !== "noScroll",
-          })}
+          class={clsx("dso-scroll-container", `dso-scroll-${this.scrollPosition}`)}
           onScroll={() => this._setScrollState()}
         >
           <slot></slot>
