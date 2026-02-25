@@ -28,7 +28,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@algolia/abtesting@npm:1.12.2":
   version: 1.12.2
   resolution: "@algolia/abtesting@npm:1.12.2"
@@ -45,32 +44,11 @@ __metadata:
   version: 1.15.0
   resolution: "@algolia/abtesting@npm:1.15.0"
   dependencies:
-=======
-"@algolia/abtesting@npm:1.15.0":
-  version: 1.15.0
-  resolution: "@algolia/abtesting@npm:1.15.0"
-  dependencies:
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
     "@algolia/client-common": "npm:5.49.0"
     "@algolia/requester-browser-xhr": "npm:5.49.0"
     "@algolia/requester-fetch": "npm:5.49.0"
     "@algolia/requester-node-http": "npm:5.49.0"
   checksum: 10/9167d869e3c25e77365131927afd6633d96d2f445ce8766430d4c011d277b40aa163aa37b400fffaf877b9bc714f3355718a33afa8e87b51427efc94a7c75aff
-<<<<<<< HEAD
-=======
-  languageName: node
-  linkType: hard
-
-"@algolia/abtesting@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@algolia/abtesting@npm:1.6.1"
-  dependencies:
-    "@algolia/client-common": "npm:5.40.1"
-    "@algolia/requester-browser-xhr": "npm:5.40.1"
-    "@algolia/requester-fetch": "npm:5.40.1"
-    "@algolia/requester-node-http": "npm:5.40.1"
-  checksum: 10/9aa4351996722785db61c747cecf2a9539c2d5d9b69b194e954cc5b88363e2a589b8a7b303b66dffb2100f9211559f07c61c9fcb1662e6c87ddd947d287e816b
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -406,42 +384,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular-devkit/architect@npm:0.2101.4, @angular-devkit/architect@npm:~0.2101.4":
   version: 0.2101.4
   resolution: "@angular-devkit/architect@npm:0.2101.4"
   dependencies:
     "@angular-devkit/core": "npm:21.1.4"
     rxjs: "npm:7.8.2"
-=======
-"@angular-devkit/architect@npm:0.2100.6, @angular-devkit/architect@npm:~0.2100.3":
-  version: 0.2100.6
-  resolution: "@angular-devkit/architect@npm:0.2100.6"
-  dependencies:
-    "@angular-devkit/core": "npm:21.0.6"
-    rxjs: "npm:7.8.2"
-  checksum: 10/0e16108b6849ab2ff4019bedd54cd50dc893995ea7f0ce474438fdf1494e8244db283d4d0e8be90a0a9d1c5e521f261184d2a482afe4080a3cf34b03be8f80ab
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/architect@npm:0.2101.4":
-  version: 0.2101.4
-  resolution: "@angular-devkit/architect@npm:0.2101.4"
-  dependencies:
-    "@angular-devkit/core": "npm:21.1.4"
-    rxjs: "npm:7.8.2"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   bin:
     architect: bin/cli.js
   checksum: 10/6b272143a56d95770f1b33ccb90e2ad5be36660663faf7585b732b0de4d398ba7051e01b7d0bc9e8cf7503c6f2f6fe50458ab506664ed03cd10987532cfd46e3
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular-devkit/build-angular@npm:^21.1.4":
-=======
-"@angular-devkit/build-angular@npm:^21.0.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.4
   resolution: "@angular-devkit/build-angular@npm:21.1.4"
   dependencies:
@@ -566,15 +521,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular-devkit/core@npm:21.1.0":
   version: 21.1.0
   resolution: "@angular-devkit/core@npm:21.1.0"
-=======
-"@angular-devkit/core@npm:21.0.6":
-  version: 21.0.6
-  resolution: "@angular-devkit/core@npm:21.0.6"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   dependencies:
     ajv: "npm:8.17.1"
     ajv-formats: "npm:3.0.1"
@@ -587,7 +536,6 @@ __metadata:
   peerDependenciesMeta:
     chokidar:
       optional: true
-<<<<<<< HEAD
   checksum: 10/5b99000372aa8b79f7713afa3d48c46d6cf80bdaeb3bab5f2910c9a84d6bdf48279b4f985cf8f0ad920133c0e48998ca39c726fff19a874dc4a6a087db97c4db
   languageName: node
   linkType: hard
@@ -595,49 +543,6 @@ __metadata:
 "@angular-devkit/core@npm:21.1.4, @angular-devkit/core@npm:^21.1.4":
   version: 21.1.4
   resolution: "@angular-devkit/core@npm:21.1.4"
-=======
-  checksum: 10/a6370dfd5541c13f467b2bb302a5a605d541ac729885a2ac03c1974600e589dca0ac6ecf96c4d6072d4aa8548c6780a2dda723b3ceca184b7ee63aa213b196f3
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/core@npm:21.1.0":
-  version: 21.1.0
-  resolution: "@angular-devkit/core@npm:21.1.0"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
-  dependencies:
-    ajv: "npm:8.17.1"
-    ajv-formats: "npm:3.0.1"
-    jsonc-parser: "npm:3.3.1"
-    picomatch: "npm:4.0.3"
-    rxjs: "npm:7.8.2"
-    source-map: "npm:0.7.6"
-  peerDependencies:
-    chokidar: ^5.0.0
-  peerDependenciesMeta:
-    chokidar:
-      optional: true
-<<<<<<< HEAD
-  checksum: 10/648460e76078668bb11e5ead5fc7e0875d9c35680477e177562c7faf89de28ee7e4767e2364004947621ffebb63a7f31ed6cf8b9e834c5f1bbfb933bf27f2b86
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/schematics@npm:21.1.0":
-  version: 21.1.0
-  resolution: "@angular-devkit/schematics@npm:21.1.0"
-  dependencies:
-    "@angular-devkit/core": "npm:21.1.0"
-    jsonc-parser: "npm:3.3.1"
-    magic-string: "npm:0.30.21"
-    ora: "npm:9.0.0"
-    rxjs: "npm:7.8.2"
-=======
-  checksum: 10/5b99000372aa8b79f7713afa3d48c46d6cf80bdaeb3bab5f2910c9a84d6bdf48279b4f985cf8f0ad920133c0e48998ca39c726fff19a874dc4a6a087db97c4db
-  languageName: node
-  linkType: hard
-
-"@angular-devkit/core@npm:21.1.4, @angular-devkit/core@npm:^21.0.3":
-  version: 21.1.4
-  resolution: "@angular-devkit/core@npm:21.1.4"
   dependencies:
     ajv: "npm:8.17.1"
     ajv-formats: "npm:3.0.1"
@@ -654,19 +559,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:21.0.6":
-  version: 21.0.6
-  resolution: "@angular-devkit/schematics@npm:21.0.6"
-  dependencies:
-    "@angular-devkit/core": "npm:21.0.6"
-    jsonc-parser: "npm:3.3.1"
-    magic-string: "npm:0.30.19"
-    ora: "npm:9.0.0"
-    rxjs: "npm:7.8.2"
-  checksum: 10/5d31f3e64eb1753fc2709370e444b47e96bf47198c49c00693a9b329642ed3e88b8d1b0688af4e32b45b9cdc1d7674089443ab34c8f2e1f6b82d634f1791982b
-  languageName: node
-  linkType: hard
-
 "@angular-devkit/schematics@npm:21.1.0":
   version: 21.1.0
   resolution: "@angular-devkit/schematics@npm:21.1.0"
@@ -676,12 +568,10 @@ __metadata:
     magic-string: "npm:0.30.21"
     ora: "npm:9.0.0"
     rxjs: "npm:7.8.2"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   checksum: 10/84e39850facc58e32c5e76dd53e79863f14971893fc0366e5578d808f1e6ee6b66d484ce14fd839f3f76cab1648ef37ba4ee6cbfed854170cc19f5013b94c2b5
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular-devkit/schematics@npm:21.1.4":
   version: 21.1.4
   resolution: "@angular-devkit/schematics@npm:21.1.4"
@@ -696,9 +586,6 @@ __metadata:
   linkType: hard
 
 "@angular/animations@npm:^21.1.5":
-=======
-"@angular/animations@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/animations@npm:21.1.5"
   dependencies:
@@ -790,11 +677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/cdk@npm:^21.1.5":
-=======
-"@angular/cdk@npm:^21.0.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/cdk@npm:21.1.5"
   dependencies:
@@ -809,7 +692,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/cli@npm:~21.1.4":
   version: 21.1.4
   resolution: "@angular/cli@npm:21.1.4"
@@ -821,19 +703,6 @@ __metadata:
     "@listr2/prompt-adapter-inquirer": "npm:3.0.5"
     "@modelcontextprotocol/sdk": "npm:1.26.0"
     "@schematics/angular": "npm:21.1.4"
-=======
-"@angular/cli@npm:~21.0.3":
-  version: 21.0.6
-  resolution: "@angular/cli@npm:21.0.6"
-  dependencies:
-    "@angular-devkit/architect": "npm:0.2100.6"
-    "@angular-devkit/core": "npm:21.0.6"
-    "@angular-devkit/schematics": "npm:21.0.6"
-    "@inquirer/prompts": "npm:7.9.0"
-    "@listr2/prompt-adapter-inquirer": "npm:3.0.5"
-    "@modelcontextprotocol/sdk": "npm:1.25.2"
-    "@schematics/angular": "npm:21.0.6"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
     "@yarnpkg/lockfile": "npm:1.1.0"
     algoliasearch: "npm:5.46.2"
     ini: "npm:6.0.0"
@@ -848,19 +717,11 @@ __metadata:
     zod: "npm:4.3.5"
   bin:
     ng: bin/ng.js
-<<<<<<< HEAD
   checksum: 10/58cf41e7fa9ae9e5933bc9714a21cba0fd8d846fd16e035c5be17cc8003272efd1031ed9891f22e4fe04d14511805abcb05bc207a560478918945747c2be6271
   languageName: node
   linkType: hard
 
 "@angular/common@npm:^21.1.5":
-=======
-  checksum: 10/06ab8e63a9a74e5daaaf9d800844b9a9848ef329d560a7a28a92547c23255bbb739819351f2b5d45fbcc08673e7d31ec6fc3da561b725518284e8f560d89d821
-  languageName: node
-  linkType: hard
-
-"@angular/common@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/common@npm:21.1.5"
   dependencies:
@@ -872,11 +733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/compiler-cli@npm:^21.1.5":
-=======
-"@angular/compiler-cli@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/compiler-cli@npm:21.1.5"
   dependencies:
@@ -901,11 +758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/compiler@npm:^21.1.5":
-=======
-"@angular/compiler@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/compiler@npm:21.1.5"
   dependencies:
@@ -914,11 +767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/core@npm:^21.1.5":
-=======
-"@angular/core@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/core@npm:21.1.5"
   dependencies:
@@ -936,11 +785,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/forms@npm:^21.1.5":
-=======
-"@angular/forms@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/forms@npm:21.1.5"
   dependencies:
@@ -955,11 +800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/platform-browser-dynamic@npm:^21.1.5":
-=======
-"@angular/platform-browser-dynamic@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/platform-browser-dynamic@npm:21.1.5"
   dependencies:
@@ -973,11 +814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/platform-browser@npm:^21.1.5":
-=======
-"@angular/platform-browser@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/platform-browser@npm:21.1.5"
   dependencies:
@@ -993,11 +830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@angular/router@npm:^21.1.5":
-=======
-"@angular/router@npm:^21.0.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.5
   resolution: "@angular/router@npm:21.1.5"
   dependencies:
@@ -1193,11 +1026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@azure/storage-file-datalake@npm:^12.29.0":
-=======
-"@azure/storage-file-datalake@npm:^12.28.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 12.29.0
   resolution: "@azure/storage-file-datalake@npm:12.29.0"
   dependencies:
@@ -2801,11 +2630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@compodoc/compodoc@npm:^1.2.1":
-=======
-"@compodoc/compodoc@npm:^1.1.32":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.2.1
   resolution: "@compodoc/compodoc@npm:1.2.1"
   dependencies:
@@ -4283,15 +4108,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@easyops-cn/docusaurus-search-local@npm:^0.55.0":
   version: 0.55.0
   resolution: "@easyops-cn/docusaurus-search-local@npm:0.55.0"
-=======
-"@easyops-cn/docusaurus-search-local@npm:^0.52.2":
-  version: 0.52.3
-  resolution: "@easyops-cn/docusaurus-search-local@npm:0.52.3"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   dependencies:
     "@docusaurus/plugin-content-docs": "npm:^2 || ^3"
     "@docusaurus/theme-translations": "npm:^2 || ^3"
@@ -4315,14 +4134,10 @@ __metadata:
     open-ask-ai: ^0.7.3
     react: ^16.14.0 || ^17 || ^18 || ^19
     react-dom: ^16.14.0 || 17 || ^18 || ^19
-<<<<<<< HEAD
   peerDependenciesMeta:
     open-ask-ai:
       optional: true
   checksum: 10/75c90fcd9cbe097ad8b133c4588326a89b3c746980b0737e9a7ca73a99efffddd497d4c24c0289cbaddb886d1009114a5d271648d8235ed34c38b57b36fb43ff
-=======
-  checksum: 10/073429a01973b503e693a91f32863489a2e292dbae276102aa1dbad98e2378a3c2e71feefde35997dea7dbeebac1399581188187850340847ffb30c098d33497
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -4822,11 +4637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@floating-ui/dom@npm:^1.7.5":
-=======
-"@floating-ui/dom@npm:^1.7.4":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.7.5
   resolution: "@floating-ui/dom@npm:1.7.5"
   dependencies:
@@ -4952,11 +4763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@hono/node-server@npm:^1.19.9":
-=======
-"@hono/node-server@npm:^1.19.7":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.19.9
   resolution: "@hono/node-server@npm:1.19.9"
   peerDependencies:
@@ -4996,11 +4803,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@iframe-resizer/child@npm:^5.5.9":
-=======
-"@iframe-resizer/child@npm:^5.5.7":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 5.5.9
   resolution: "@iframe-resizer/child@npm:5.5.9"
   dependencies:
@@ -5018,11 +4821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@iframe-resizer/react@npm:^5.5.9":
-=======
-"@iframe-resizer/react@npm:^5.5.7":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 5.5.9
   resolution: "@iframe-resizer/react@npm:5.5.9"
   dependencies:
@@ -5061,11 +4860,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@inquirer/confirm@npm:5.1.21, @inquirer/confirm@npm:^5.1.21":
-=======
-"@inquirer/confirm@npm:5.1.21, @inquirer/confirm@npm:^5.1.19":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 5.1.21
   resolution: "@inquirer/confirm@npm:5.1.21"
   dependencies:
@@ -5287,7 +5082,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@isaacs/balanced-match@npm:^4.0.1":
   version: 4.0.1
   resolution: "@isaacs/balanced-match@npm:4.0.1"
@@ -5304,8 +5098,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-=======
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
 "@isaacs/fs-minipass@npm:^4.0.0":
   version: 4.0.1
   resolution: "@isaacs/fs-minipass@npm:4.0.1"
@@ -5368,11 +5160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@joshwooding/vite-plugin-react-docgen-typescript@npm:^0.6.4":
-=======
-"@joshwooding/vite-plugin-react-docgen-typescript@npm:^0.6.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 0.6.4
   resolution: "@joshwooding/vite-plugin-react-docgen-typescript@npm:0.6.4"
   dependencies:
@@ -5741,11 +5529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@lit-labs/ssr-dom-shim@npm:^1.5.0":
-=======
-"@lit-labs/ssr-dom-shim@npm:^1.3.0, @lit-labs/ssr-dom-shim@npm:^1.5.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.5.1
   resolution: "@lit-labs/ssr-dom-shim@npm:1.5.1"
   checksum: 10/8b90e101cbaef3aa9d3a16cd90010c2c7c13cc0b3effa8ce166e2c7a57e52e759fb7bb4f800ce5b5dfb1d7cbd8430a0b430bcc8bcb8b54d1417dbf2eb046dd6a
@@ -5887,19 +5671,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@modelcontextprotocol/sdk@npm:1.26.0":
   version: 1.26.0
   resolution: "@modelcontextprotocol/sdk@npm:1.26.0"
   dependencies:
     "@hono/node-server": "npm:^1.19.9"
-=======
-"@modelcontextprotocol/sdk@npm:1.25.2":
-  version: 1.25.2
-  resolution: "@modelcontextprotocol/sdk@npm:1.25.2"
-  dependencies:
-    "@hono/node-server": "npm:^1.19.7"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
     content-type: "npm:^1.0.5"
@@ -5907,16 +5683,10 @@ __metadata:
     cross-spawn: "npm:^7.0.5"
     eventsource: "npm:^3.0.2"
     eventsource-parser: "npm:^3.0.0"
-<<<<<<< HEAD
     express: "npm:^5.2.1"
     express-rate-limit: "npm:^8.2.1"
     hono: "npm:^4.11.4"
     jose: "npm:^6.1.3"
-=======
-    express: "npm:^5.0.1"
-    express-rate-limit: "npm:^7.5.0"
-    jose: "npm:^6.1.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
     json-schema-typed: "npm:^8.0.2"
     pkce-challenge: "npm:^5.0.0"
     raw-body: "npm:^3.0.0"
@@ -5930,11 +5700,7 @@ __metadata:
       optional: true
     zod:
       optional: false
-<<<<<<< HEAD
   checksum: 10/a206b2a4d61a23be8b8f4c886528dd9348d11b17ce36013b350edf5c082b1c1f07941d52ea098f721daf3828085b6f6276bb844c484a0e9913edbc028517a3d5
-=======
-  checksum: 10/32ce322664e03aa038986ee60a5d3b92ddbec45cf1a023d07f7d90fec3e2926ba40bb21fc6f723bf1d50979995ae76bc440001f4d5eec3f5b55aa824091c20ab
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -6605,12 +6371,12 @@ __metadata:
   linkType: hard
 
 "@octokit/endpoint@npm:^11.0.2":
-  version: 11.0.3
-  resolution: "@octokit/endpoint@npm:11.0.3"
+  version: 11.0.2
+  resolution: "@octokit/endpoint@npm:11.0.2"
   dependencies:
     "@octokit/types": "npm:^16.0.0"
     universal-user-agent: "npm:^7.0.2"
-  checksum: 10/21b67d76fb1ea28bd87ca467c12dfab648af55522b936760316d70f8ccdd638f170d636ee72606857f0cd8f343f40c8a4e8f55993d6b1f5b9ecf102e072044c5
+  checksum: 10/0d088747baf94eafbba69da23ba840b40cd3f5d0bfbc51c692ff9d9d78de6d81f06366e6e30df8c1783355be826c27d38ab9ab0708396af8f430b06cfa29db35
   languageName: node
   linkType: hard
 
@@ -7310,28 +7076,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-android-arm-eabi@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-android-arm-eabi@npm:4.59.0"
-=======
-"@rollup/rollup-android-arm-eabi@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-android-arm-eabi@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-android-arm64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-android-arm64@npm:4.59.0"
-=======
-"@rollup/rollup-android-arm64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-android-arm64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -7343,15 +7097,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-darwin-arm64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-darwin-arm64@npm:4.59.0"
-=======
-"@rollup/rollup-darwin-arm64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-darwin-arm64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -7363,67 +7111,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-darwin-x64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-darwin-x64@npm:4.59.0"
-=======
-"@rollup/rollup-darwin-x64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-darwin-x64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-freebsd-arm64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-freebsd-arm64@npm:4.59.0"
-=======
-"@rollup/rollup-freebsd-arm64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-freebsd-arm64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-freebsd-x64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-freebsd-x64@npm:4.59.0"
-=======
-"@rollup/rollup-freebsd-x64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-freebsd-x64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-arm-gnueabihf@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.59.0"
-=======
-"@rollup/rollup-linux-arm-gnueabihf@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=arm & libc=glibc
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-arm-musleabihf@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.59.0"
-=======
-"@rollup/rollup-linux-arm-musleabihf@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=arm & libc=musl
   languageName: node
   linkType: hard
@@ -7435,15 +7153,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-arm64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-arm64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
@@ -7455,106 +7167,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-arm64-musl@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-arm64-musl@npm:4.59.0"
-=======
-"@rollup/rollup-linux-arm64-musl@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-loong64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-loong64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-loong64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-loong64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=loong64 & libc=glibc
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-loong64-musl@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-loong64-musl@npm:4.59.0"
-=======
-"@rollup/rollup-linux-loong64-musl@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-loong64-musl@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=loong64 & libc=musl
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-ppc64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-ppc64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-ppc64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-ppc64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-ppc64-musl@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-ppc64-musl@npm:4.59.0"
-=======
-"@rollup/rollup-linux-ppc64-musl@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-ppc64-musl@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=ppc64 & libc=musl
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-riscv64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-riscv64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-riscv64-musl@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-riscv64-musl@npm:4.59.0"
-=======
-"@rollup/rollup-linux-riscv64-musl@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-riscv64-musl@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=riscv64 & libc=musl
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-s390x-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-s390x-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
@@ -7566,15 +7230,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-x64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-linux-x64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -7586,41 +7244,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-linux-x64-musl@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-linux-x64-musl@npm:4.59.0"
-=======
-"@rollup/rollup-linux-x64-musl@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-linux-x64-musl@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-openbsd-x64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-openbsd-x64@npm:4.59.0"
-=======
-"@rollup/rollup-openbsd-x64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-openbsd-x64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-openharmony-arm64@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-openharmony-arm64@npm:4.59.0"
-=======
-"@rollup/rollup-openharmony-arm64@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-openharmony-arm64@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
@@ -7632,41 +7272,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-win32-arm64-msvc@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.59.0"
-=======
-"@rollup/rollup-win32-arm64-msvc@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-win32-ia32-msvc@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.59.0"
-=======
-"@rollup/rollup-win32-ia32-msvc@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-win32-x64-gnu@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-win32-x64-gnu@npm:4.59.0"
-=======
-"@rollup/rollup-win32-x64-gnu@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-win32-x64-gnu@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -7678,15 +7300,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@rollup/rollup-win32-x64-msvc@npm:4.59.0":
   version: 4.59.0
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.59.0"
-=======
-"@rollup/rollup-win32-x64-msvc@npm:4.57.1":
-  version: 4.57.1
-  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -7713,7 +7329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@schematics/angular@npm:21.1.4":
   version: 21.1.4
   resolution: "@schematics/angular@npm:21.1.4"
@@ -7722,16 +7337,6 @@ __metadata:
     "@angular-devkit/schematics": "npm:21.1.4"
     jsonc-parser: "npm:3.3.1"
   checksum: 10/4ebfd375638e1a885fdd4cd3af41b08c894e1f9bb99d76377643b08931449b0ccc253932c413d41cc44097a6ffe49ade3ab3eca766849d3e3ca2dff09ee43598
-=======
-"@schematics/angular@npm:21.0.6":
-  version: 21.0.6
-  resolution: "@schematics/angular@npm:21.0.6"
-  dependencies:
-    "@angular-devkit/core": "npm:21.0.6"
-    "@angular-devkit/schematics": "npm:21.0.6"
-    jsonc-parser: "npm:3.3.1"
-  checksum: 10/0bb76d16099d3aee00a45afce9ec33a4d5b51db524a45e05e556dd726c3230f08b455938ffb85fd6edf08f089dc27f80a6419bd6ea184fa8fb4d30bb1082772e
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -7951,11 +7556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@stencil/react-output-target@npm:^1.4.1":
-=======
-"@stencil/react-output-target@npm:^1.2.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.4.1
   resolution: "@stencil/react-output-target@npm:1.4.1"
   dependencies:
@@ -8483,11 +8084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@tsconfig/docusaurus@npm:^2.0.9":
-=======
-"@tsconfig/docusaurus@npm:^2.0.7":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 2.0.9
   resolution: "@tsconfig/docusaurus@npm:2.0.9"
   checksum: 10/47211b3cc2ed12cfb1d26701da44e7d069c42361c5e884388f456d99ac7f722c313e9fcfd93328f4741ff66c26a84467263a2b7152170d3023169a301092bcf4
@@ -9044,26 +8641,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-<<<<<<< HEAD
   version: 25.2.3
   resolution: "@types/node@npm:25.2.3"
   dependencies:
     undici-types: "npm:~7.16.0"
   checksum: 10/46962e3c1c0205da5b637c2e924f4eb03ce16f384af686b69afeb5fd4f8274d9a570375f8a24de2750633b69cb7ac33f0e458d9c3f20a66e12eb3a569499062d
-=======
-  version: 25.3.0
-  resolution: "@types/node@npm:25.3.0"
-  dependencies:
-    undici-types: "npm:~7.18.0"
-  checksum: 10/061b00c8de070a606a052afaa4c45dca5f8d6a8e7e39c0c3e196bb650ee37e986bbb161991ea39076a05aada102f36b13c974528448a09efd8d36bdfee75de4b
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^16.0.0":
-  version: 16.18.126
-  resolution: "@types/node@npm:16.18.126"
-  checksum: 10/33e0fa9209a4a96459a8fdf6b078ca9590eb67a8d51899180cfac8afecb9aa133c755d1c38a8b947b9f384f2faa184cabf4e567f5f6dded285be1b31588ec199
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -9152,11 +8734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@types/react@npm:*, @types/react@npm:^19.2.14":
-=======
-"@types/react@npm:*, @types/react@npm:^19.2.7":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 19.2.14
   resolution: "@types/react@npm:19.2.14"
   dependencies:
@@ -9404,11 +8982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@typescript-eslint/eslint-plugin@npm:^8.56.0":
-=======
-"@typescript-eslint/eslint-plugin@npm:^8.50.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 8.56.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.56.0"
   dependencies:
@@ -9428,11 +9002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@typescript-eslint/parser@npm:^8.56.0":
-=======
-"@typescript-eslint/parser@npm:^8.50.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 8.56.0
   resolution: "@typescript-eslint/parser@npm:8.56.0"
   dependencies:
@@ -9522,11 +9092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@typescript-eslint/utils@npm:8.56.0, @typescript-eslint/utils@npm:^8.48.0":
-=======
-"@typescript-eslint/utils@npm:8.56.0, @typescript-eslint/utils@npm:^8.8.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 8.56.0
   resolution: "@typescript-eslint/utils@npm:8.56.0"
   dependencies:
@@ -9997,18 +9563,6 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: 10/c71f14dd2b6f2535d043f74019c8169f7aeb1106bafbb741af96f34fdbf932255c919ddd46344043d03b62ea0ccb319f83667ec5eedf612393f29054fe5ce4a5
-  languageName: node
-  linkType: hard
-
-"ajv@npm:^8.0.0, ajv@npm:^8.0.1, ajv@npm:^8.17.1, ajv@npm:^8.9.0":
-  version: 8.18.0
-  resolution: "ajv@npm:8.18.0"
-  dependencies:
-    fast-deep-equal: "npm:^3.1.3"
-    fast-uri: "npm:^3.0.1"
-    json-schema-traverse: "npm:^1.0.0"
-    require-from-string: "npm:^2.0.2"
-  checksum: 10/bfed9de827a2b27c6d4084324eda76a4e32bdde27410b3e9b81d06e6f8f5c78370fc6b93fe1d869f1939ff1d7c4ae8896960995acb8425e3e9288c8884247c48
   languageName: node
   linkType: hard
 
@@ -10734,11 +10288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "axe-core@npm:^4.11.1, axe-core@npm:^4.2.0":
-=======
-"axe-core@npm:^4.11.0, axe-core@npm:^4.2.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 4.11.1
   resolution: "axe-core@npm:4.11.1"
   checksum: 10/bbc8e8959258a229b92fbaa73437050825579815051cac7b0fdbb6752946fea226e403bfeeef3d60d712477bdd4c01afdc8455f27c3d85e4251df88b032b6250
@@ -10757,23 +10307,14 @@ __metadata:
   linkType: hard
 
 "b4a@npm:^1.6.4":
-<<<<<<< HEAD
   version: 1.8.0
   resolution: "b4a@npm:1.8.0"
-=======
-  version: 1.7.5
-  resolution: "b4a@npm:1.7.5"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   peerDependencies:
     react-native-b4a: "*"
   peerDependenciesMeta:
     react-native-b4a:
       optional: true
-<<<<<<< HEAD
   checksum: 10/ce85601eef7f68f81320c2bcadd96a0c1be654bcb8c10622f73ef8b99762a323b1f3a3603dfaee557bd706a7326e372b8e5544b8746f5096ef4d3612ee4da061
-=======
-  checksum: 10/aa69f7c9c22e27b6eec6333a8816a115b54a3fe202f58b9c74ec4ad2ebb0ddd7dc2e2af4ba577a86bf34e78ed1144dc987d103f4749761c73a5ded5506e81e6a
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -10892,15 +10433,9 @@ __metadata:
   linkType: hard
 
 "balanced-match@npm:^4.0.2":
-<<<<<<< HEAD
   version: 4.0.4
   resolution: "balanced-match@npm:4.0.4"
   checksum: 10/fb07bb66a0959c2843fc055838047e2a95ccebb837c519614afb067ebfdf2fa967ca8d712c35ced07f2cd26fc6f07964230b094891315ad74f11eba3d53178a0
-=======
-  version: 4.0.3
-  resolution: "balanced-match@npm:4.0.3"
-  checksum: 10/e9e2177f1eb7db0af2375715e6f992f15d41518921e14f5029de50766ff1b3da824e47e1d5492493e9bb7c743b827e42546cbc260a055b7086e45f54b2b152b9
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -11167,15 +10702,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brace-expansion@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "brace-expansion@npm:5.0.2"
-  dependencies:
-    balanced-match: "npm:^4.0.2"
-  checksum: 10/18d382c0919c68f8bb56fbe4a9cb1181a0bf10e6786b5683e586493dfbb517bdcf972f4a3a8d560486627fd9c9c6ecef0a2b8fd454eb6082780307ffd5586251
-  languageName: node
-  linkType: hard
-
 "braces@npm:^3.0.3, braces@npm:~3.0.2":
   version: 3.0.3
   resolution: "braces@npm:3.0.3"
@@ -11422,15 +10948,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001759, caniuse-lite@npm:^1.0.30001760, caniuse-lite@npm:^1.0.30001766":
-<<<<<<< HEAD
   version: 1.0.30001774
   resolution: "caniuse-lite@npm:1.0.30001774"
   checksum: 10/63c87aeac08548847ecd12746144029761707d9eae57750f673543a2b2a6126bca98584dd551818e8dc2a480d11489bebe0027af26de4ee46466e7b216109862
-=======
-  version: 1.0.30001770
-  resolution: "caniuse-lite@npm:1.0.30001770"
-  checksum: 10/a85fb0895881d31f0b7ae246725a8b67ab8590601a08027439be1d53418352b58896418145b4da2eaae7130d59877b487eeef9e4434fa1069225b9e50d00f79b
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -11631,11 +11151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "cheerio@npm:^1.0.0, cheerio@npm:^1.0.0-rc.10, cheerio@npm:^1.2.0":
-=======
-"cheerio@npm:^1.0.0, cheerio@npm:^1.0.0-rc.10, cheerio@npm:^1.1.2":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 1.2.0
   resolution: "cheerio@npm:1.2.0"
   dependencies:
@@ -12751,15 +12267,9 @@ __metadata:
   linkType: hard
 
 "cssdb@npm:^8.6.0":
-<<<<<<< HEAD
   version: 8.8.0
   resolution: "cssdb@npm:8.8.0"
   checksum: 10/80de494f27df4e1f54a7053ba5c89615af4317999ee5f6a56375715dfa778b5ec548239530c0c56799efc4bc0bdc1090326d0bacd495cbba8f62069db1779430
-=======
-  version: 8.7.1
-  resolution: "cssdb@npm:8.7.1"
-  checksum: 10/70b38620d6ac4b3fff0c1e6edff4ee5ed37f22f9d426dbf0fe5051ad14e39b31e4606068eb12cf46233ea305554a589574f95cce89f23bb79f651e344002bde6
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -12956,11 +12466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "cypress@npm:^15.10.0":
-=======
-"cypress@npm:^15.7.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 15.10.0
   resolution: "cypress@npm:15.10.0"
   dependencies:
@@ -13856,7 +13362,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "ejs@npm:^3.1.7":
   version: 3.1.10
   resolution: "ejs@npm:3.1.10"
@@ -13872,12 +13377,6 @@ __metadata:
   version: 1.5.302
   resolution: "electron-to-chromium@npm:1.5.302"
   checksum: 10/0d31470d04a0d1ea046dd363370081b67e6fe822949b10cfece0a64fd2f8180afb5ccaf14f4294251e444a0af627eb0dc0156242b714c0f10561adf2a21aa5f7
-=======
-"electron-to-chromium@npm:^1.5.263":
-  version: 1.5.286
-  resolution: "electron-to-chromium@npm:1.5.286"
-  checksum: 10/530ae36571f3f737431dc1f97ab176d9ec38d78e7a14a78fff78540769ef139e9011200a886864111ee26d64e647136531ff004f368f5df8cdd755c45ad97649
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -14667,15 +14166,9 @@ __metadata:
   linkType: hard
 
 "eslint-visitor-keys@npm:^5.0.0":
-<<<<<<< HEAD
   version: 5.0.1
   resolution: "eslint-visitor-keys@npm:5.0.1"
   checksum: 10/f9cc1a57b75e0ef949545cac33d01e8367e302de4c1483266ed4d8646ee5c306376660196bbb38b004e767b7043d1e661cb4336b49eff634a1bbe75c1db709ec
-=======
-  version: 5.0.0
-  resolution: "eslint-visitor-keys@npm:5.0.0"
-  checksum: 10/05334d637c73d02f644b8dbfd6f555f049a229654b543b4b701944051072808d944368164c8b291cecb60e157a54d05f221eb45945a1bdd06c3e0e298ddb4678
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -15088,11 +14581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "express@npm:^5.2.1":
-=======
-"express@npm:^5.0.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 5.2.1
   resolution: "express@npm:5.2.1"
   dependencies:
@@ -15287,22 +14776,13 @@ __metadata:
   linkType: hard
 
 "fast-xml-parser@npm:^5.0.7":
-<<<<<<< HEAD
   version: 5.3.7
   resolution: "fast-xml-parser@npm:5.3.7"
-=======
-  version: 5.3.6
-  resolution: "fast-xml-parser@npm:5.3.6"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   dependencies:
     strnum: "npm:^2.1.2"
   bin:
     fxparser: src/cli/cli.js
-<<<<<<< HEAD
   checksum: 10/c3dfba84b8c8920a1a6f2596c387c8fbb3b76fcad9a26769a793f1e26d7718c50363478f3be2a71e952b2bf765be51d8f8e3434b37cc7af029c6a09662ea6ba4
-=======
-  checksum: 10/03527ab0bdf49d960fdc8f6088cd0715c052e06b68b39459da87b1a1fbb3439a855b2d83cbf3c400e983b8e668b396296b072a4dd5c63403cf1e618c9326b6df
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -15607,21 +15087,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "focus-trap@npm:^8.0.0":
   version: 8.0.0
   resolution: "focus-trap@npm:8.0.0"
   dependencies:
     tabbable: "npm:^6.4.0"
   checksum: 10/ffc737f567e3c66d51b3872778de324f28c013e195e3813f2bbe3d39e895581e6a231dc24aba222a37c5db11867671f8acce3ae96e959499f100978e343e15a2
-=======
-"focus-trap@npm:^7.6.6":
-  version: 7.8.0
-  resolution: "focus-trap@npm:7.8.0"
-  dependencies:
-    tabbable: "npm:^6.4.0"
-  checksum: 10/363ecc13739da9829435fea7443436cec06058dc53511340078f77b00267fecc8f6048b1b3e9500b7c0edc686080213f9df77edb4fc44565fc9b93bc90866f04
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -16115,7 +15586,6 @@ __metadata:
   linkType: hard
 
 "glob@npm:^13.0.0, glob@npm:^13.0.1, glob@npm:^13.0.3":
-<<<<<<< HEAD
   version: 13.0.6
   resolution: "glob@npm:13.0.6"
   dependencies:
@@ -16123,15 +15593,6 @@ __metadata:
     minipass: "npm:^7.1.3"
     path-scurry: "npm:^2.0.2"
   checksum: 10/201ad69e5f0aa74e1d8c00a481581f8b8c804b6a4fbfabeeb8541f5d756932800331daeba99b58fb9e4cd67e12ba5a7eba5b82fb476691588418060b84353214
-=======
-  version: 13.0.5
-  resolution: "glob@npm:13.0.5"
-  dependencies:
-    minimatch: "npm:^10.2.1"
-    minipass: "npm:^7.1.2"
-    path-scurry: "npm:^2.0.0"
-  checksum: 10/c86a2a2ab12382d9afcf04d0b59e665a93db6c394ea9632be9f4192c2f946f414590c244290bca8e2a5ba41a2f3fb0c93ea6a6674d0344e3fdb3e7dd570eae05
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -16820,7 +16281,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "hono@npm:^4.11.4":
   version: 4.12.2
   resolution: "hono@npm:4.12.2"
@@ -16828,8 +16288,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-=======
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
 "hookified@npm:^1.14.0, hookified@npm:^1.15.0":
   version: 1.15.1
   resolution: "hookified@npm:1.15.1"
@@ -17273,15 +16731,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "i18next@npm:^25.8.13":
   version: 25.8.13
   resolution: "i18next@npm:25.8.13"
-=======
-"i18next@npm:^25.7.3":
-  version: 25.8.11
-  resolution: "i18next@npm:25.8.11"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   dependencies:
     "@babel/runtime": "npm:^7.28.4"
   peerDependencies:
@@ -17289,11 +16741,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-<<<<<<< HEAD
   checksum: 10/69d1277587810b86d2cc0c36240004151f1ed696a5c6bb8ced9ffbc0addd9f9f5a0a13b35459a322ffa52ea177b2602cad2a39c11025adb81f4df93510b6a46a
-=======
-  checksum: 10/088cb151c18d35c7061bf48e858d3d4298bdc8a9f011e99cf64570298f6a33e13f50bcdc65dc2c2babd545b2a677e2e9c02ea869932c18c6a5fa67971ebdfe44
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -18219,16 +17667,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"isexe@npm:^3.1.1":
-  version: 3.1.5
-  resolution: "isexe@npm:3.1.5"
-  checksum: 10/ae479f6b0505507f1a73c1d57be6d0546e59fc9202bb0d5b31ba8ff5f3e79dd385bce57a2e60c5645aba567018cbbfc663519cd28367e9962242d97dd151d2ab
-  languageName: node
-  linkType: hard
-
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
 "isexe@npm:^4.0.0":
   version: 4.0.0
   resolution: "isexe@npm:4.0.0"
@@ -18294,7 +17732,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "jake@npm:^10.8.5":
   version: 10.9.4
   resolution: "jake@npm:10.9.4"
@@ -18308,8 +17745,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-=======
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
 "jest-diff@npm:^30.0.2":
   version: 30.2.0
   resolution: "jest-diff@npm:30.2.0"
@@ -19036,11 +18471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "lit-html@npm:^3.1.2, lit-html@npm:^3.3.0, lit-html@npm:^3.3.2":
-=======
-"lit-html@npm:^3.1.2, lit-html@npm:^3.3.0, lit-html@npm:^3.3.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 3.3.2
   resolution: "lit-html@npm:3.3.2"
   dependencies:
@@ -19495,20 +18926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "magic-string@npm:0.30.21, magic-string@npm:^0.30.0, magic-string@npm:^0.30.21, magic-string@npm:^0.30.5":
-=======
-"magic-string@npm:0.30.19":
-  version: 0.30.19
-  resolution: "magic-string@npm:0.30.19"
-  dependencies:
-    "@jridgewell/sourcemap-codec": "npm:^1.5.5"
-  checksum: 10/5045467fad59ddfba6ccfb00fde6edbc0f841089f0da07d844cf513c73de289bbbf933bde16168cba2c9ef38d75ac68e1617a5ce74aae16d6f39285bda1d51c4
-  languageName: node
-  linkType: hard
-
-"magic-string@npm:0.30.21, magic-string@npm:^0.30.0, magic-string@npm:^0.30.17, magic-string@npm:^0.30.21, magic-string@npm:^0.30.5":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 0.30.21
   resolution: "magic-string@npm:0.30.21"
   dependencies:
@@ -19597,15 +19015,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "markdown-to-jsx@npm:^9.7.6":
   version: 9.7.6
   resolution: "markdown-to-jsx@npm:9.7.6"
-=======
-"markdown-to-jsx@npm:^9.3.5":
-  version: 9.7.4
-  resolution: "markdown-to-jsx@npm:9.7.4"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   peerDependencies:
     react: ">= 16.0.0"
     solid-js: ">=1.0.0"
@@ -19619,11 +19031,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-<<<<<<< HEAD
   checksum: 10/3d90b6a9f25e7f240d5d1dd34a8e196b2038d060d6bf40357499003b356d4fb3be4ec9c41a643c8a58cc703cf7920d5ae3a22f40cbfe6ddcd10a71f54a6af34c
-=======
-  checksum: 10/c02767641d9aaff0fa105d0b49c8f241ec975654060a211c948b72c432e3a8d54c5cc4b6736d694978313df73441653580b9c93467eab9ecefc99b7f443c0e47
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -20677,48 +20085,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "minimatch@npm:10.1.1":
   version: 10.1.1
   resolution: "minimatch@npm:10.1.1"
-=======
-"minimatch@npm:3.1.2, minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "minimatch@npm:3.1.2"
   dependencies:
-    brace-expansion: "npm:^1.1.7"
-  checksum: 10/e0b25b04cd4ec6732830344e5739b13f8690f8a012d73445a4a19fbc623f5dd481ef7a5827fde25954cd6026fede7574cc54dc4643c99d6c6b653d6203f94634
+    "@isaacs/brace-expansion": "npm:^5.0.0"
+  checksum: 10/110f38921ea527022e90f7a5f43721838ac740d0a0c26881c03b57c261354fb9a0430e40b2c56dfcea2ef3c773768f27210d1106f1f2be19cde3eea93f26f45e
   languageName: node
   linkType: hard
 
-"minimatch@npm:9.0.3":
-  version: 9.0.3
-  resolution: "minimatch@npm:9.0.3"
-  dependencies:
-    brace-expansion: "npm:^2.0.1"
-  checksum: 10/c81b47d28153e77521877649f4bab48348d10938df9e8147a58111fe00ef89559a2938de9f6632910c4f7bf7bb5cd81191a546167e58d357f0cfb1e18cecc1c5
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^10.0.1, minimatch@npm:^10.0.3, minimatch@npm:^10.1.1, minimatch@npm:^10.2.1":
-  version: 10.2.1
-  resolution: "minimatch@npm:10.2.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
-  dependencies:
-    brace-expansion: "npm:^5.0.2"
-  checksum: 10/d41c195ee1f2c70a75641088e36d0fa5fa286cb6fe48558e6d3bf3d95f640eda453c217707215389b12234df12175f65f338c0b841b36b0125177dbd6a80d026
-  languageName: node
-  linkType: hard
-
-<<<<<<< HEAD
 "minimatch@npm:3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
-=======
-"minimatch@npm:^9.0.3, minimatch@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "minimatch@npm:9.0.5"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   dependencies:
     brace-expansion: "npm:^1.1.7"
   checksum: 10/e0b25b04cd4ec6732830344e5739b13f8690f8a012d73445a4a19fbc623f5dd481ef7a5827fde25954cd6026fede7574cc54dc4643c99d6c6b653d6203f94634
@@ -20819,11 +20197,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "minipass@npm:^7.0.2, minipass@npm:^7.0.3, minipass@npm:^7.0.4, minipass@npm:^7.1.2, minipass@npm:^7.1.3":
-=======
-"minipass@npm:^7.0.2, minipass@npm:^7.0.3, minipass@npm:^7.0.4, minipass@npm:^7.1.2":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 7.1.3
   resolution: "minipass@npm:7.1.3"
   checksum: 10/175e4d5e20980c3cd316ae82d2c031c42f6c746467d8b1905b51060a0ba4461441a0c25bb67c025fd9617f9a3873e152c7b543c6b5ac83a1846be8ade80dffd6
@@ -21041,11 +20415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "ng-packagr@npm:^21.1.0":
-=======
-"ng-packagr@npm:^21.0.1":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 21.1.0
   resolution: "ng-packagr@npm:21.1.0"
   dependencies:
@@ -22337,11 +21707,7 @@ __metadata:
   dependencies:
     lru-cache: "npm:^11.0.0"
     minipass: "npm:^7.1.2"
-<<<<<<< HEAD
   checksum: 10/2b4257422bcb870a4c2d205b3acdbb213a72f5e2250f61c80f79c9d014d010f82bdf8584441612c8e1fa4eb098678f5704a66fa8377d72646bad4be38e57a2c3
-=======
-  checksum: 10/1e9c74e9ccf94d7c16056a5cb2dba9fa23eec1bc221ab15c44765486b9b9975b4cd9a4d55da15b96eadf67d5202e9a2f1cec9023fbb35fe7d9ccd0ff1891f88b
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -22523,11 +21889,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "plop@npm:^4.0.5":
-=======
-"plop@npm:^4.0.4":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 4.0.5
   resolution: "plop@npm:4.0.5"
   dependencies:
@@ -23929,16 +23291,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"proc-log@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "proc-log@npm:5.0.0"
-  checksum: 10/35610bdb0177d3ab5d35f8827a429fb1dc2518d9e639f2151ac9007f01a061c30e0c635a970c9b00c39102216160f6ec54b62377c92fac3b7bfc2ad4b98d195c
-  languageName: node
-  linkType: hard
-
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
 "proc-log@npm:^6.0.0, proc-log@npm:^6.1.0":
   version: 6.1.0
   resolution: "proc-log@npm:6.1.0"
@@ -24246,11 +23598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.2.4":
-=======
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.2.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 19.2.4
   resolution: "react-dom@npm:19.2.4"
   dependencies:
@@ -24394,11 +23742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:^19.2.4":
-=======
-"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:^19.2.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 19.2.4
   resolution: "react@npm:19.2.4"
   checksum: 10/18179fe217f67eb2d0bc61cd04e7ad3c282ea09a1dface7eacd71816f62609f4bbf566c447c704335284deb8397b00bca084e0cd60e6f437279a7498e2d0bfe0
@@ -25131,11 +24475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "rimraf@npm:^6.1.3":
-=======
-"rimraf@npm:^6.1.2":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 6.1.3
   resolution: "rimraf@npm:6.1.3"
   dependencies:
@@ -25216,7 +24556,6 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^4.24.0, rollup@npm:^4.43.0":
-<<<<<<< HEAD
   version: 4.59.0
   resolution: "rollup@npm:4.59.0"
   dependencies:
@@ -25245,36 +24584,6 @@ __metadata:
     "@rollup/rollup-win32-ia32-msvc": "npm:4.59.0"
     "@rollup/rollup-win32-x64-gnu": "npm:4.59.0"
     "@rollup/rollup-win32-x64-msvc": "npm:4.59.0"
-=======
-  version: 4.57.1
-  resolution: "rollup@npm:4.57.1"
-  dependencies:
-    "@rollup/rollup-android-arm-eabi": "npm:4.57.1"
-    "@rollup/rollup-android-arm64": "npm:4.57.1"
-    "@rollup/rollup-darwin-arm64": "npm:4.57.1"
-    "@rollup/rollup-darwin-x64": "npm:4.57.1"
-    "@rollup/rollup-freebsd-arm64": "npm:4.57.1"
-    "@rollup/rollup-freebsd-x64": "npm:4.57.1"
-    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.57.1"
-    "@rollup/rollup-linux-arm-musleabihf": "npm:4.57.1"
-    "@rollup/rollup-linux-arm64-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-arm64-musl": "npm:4.57.1"
-    "@rollup/rollup-linux-loong64-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-loong64-musl": "npm:4.57.1"
-    "@rollup/rollup-linux-ppc64-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-ppc64-musl": "npm:4.57.1"
-    "@rollup/rollup-linux-riscv64-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-riscv64-musl": "npm:4.57.1"
-    "@rollup/rollup-linux-s390x-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-x64-gnu": "npm:4.57.1"
-    "@rollup/rollup-linux-x64-musl": "npm:4.57.1"
-    "@rollup/rollup-openbsd-x64": "npm:4.57.1"
-    "@rollup/rollup-openharmony-arm64": "npm:4.57.1"
-    "@rollup/rollup-win32-arm64-msvc": "npm:4.57.1"
-    "@rollup/rollup-win32-ia32-msvc": "npm:4.57.1"
-    "@rollup/rollup-win32-x64-gnu": "npm:4.57.1"
-    "@rollup/rollup-win32-x64-msvc": "npm:4.57.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
     "@types/estree": "npm:1.0.8"
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -25332,11 +24641,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-<<<<<<< HEAD
   checksum: 10/728237932aad7022c0640cd126b9fe5285f2578099f22a0542229a17785320a6553b74582fa5977877541c1faf27de65ed2750bc89dbb55b525405244a46d9f1
-=======
-  checksum: 10/0451371339e593967c979e498fac4dfd0ba15fadf0dac96875940796307a00d62ab68460366a65f4872ae8edd9339e3d9501e8e5764c1f23e25e0951f75047c6
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   languageName: node
   linkType: hard
 
@@ -25699,8 +25004,6 @@ __metadata:
 "sass-loader@npm:^16.0.2":
   version: 16.0.7
   resolution: "sass-loader@npm:16.0.7"
-<<<<<<< HEAD
-=======
   dependencies:
     neo-async: "npm:^2.6.2"
   peerDependencies:
@@ -25727,34 +25030,6 @@ __metadata:
 "sass@npm:1.97.1":
   version: 1.97.1
   resolution: "sass@npm:1.97.1"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
-  dependencies:
-    neo-async: "npm:^2.6.2"
-  peerDependencies:
-    "@rspack/core": 0.x || ^1.0.0 || ^2.0.0-0
-    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-    sass: ^1.3.0
-    sass-embedded: "*"
-    webpack: ^5.0.0
-  peerDependenciesMeta:
-    "@rspack/core":
-      optional: true
-<<<<<<< HEAD
-    node-sass:
-      optional: true
-    sass:
-      optional: true
-    sass-embedded:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10/074be7eadbbb2e14f581b06e9f1ec010807d76bd5cc5cd9c6a120fa377f1b94a7f8dc4b0eea5b12cf34511e9b00fe056093b7da02e849d3f2513bfe21e9f660f
-  languageName: node
-  linkType: hard
-
-"sass@npm:1.97.1":
-  version: 1.97.1
-  resolution: "sass@npm:1.97.1"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -25766,34 +25041,6 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 10/c493d08f63ecd82b6db94bed16c1fffc0cccf94fc30f73f0f09fa6023a811cafb3862697d8a24264b511541474d2be5fac7ddba00ed56738d13f1837c93721b5
-  languageName: node
-  linkType: hard
-
-"sass@npm:1.97.3, sass@npm:^1.81.0":
-  version: 1.97.3
-  resolution: "sass@npm:1.97.3"
-=======
-  bin:
-    sass: sass.js
-  checksum: 10/c493d08f63ecd82b6db94bed16c1fffc0cccf94fc30f73f0f09fa6023a811cafb3862697d8a24264b511541474d2be5fac7ddba00ed56738d13f1837c93721b5
-  languageName: node
-  linkType: hard
-
-"sass@npm:1.97.2":
-  version: 1.97.2
-  resolution: "sass@npm:1.97.2"
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
-  dependencies:
-    "@parcel/watcher": "npm:^2.4.1"
-    chokidar: "npm:^4.0.0"
-    immutable: "npm:^5.0.2"
-    source-map-js: "npm:>=0.6.2 <2.0.0"
-  dependenciesMeta:
-    "@parcel/watcher":
-      optional: true
-  bin:
-    sass: sass.js
-  checksum: 10/707ef8e525ed32d375e737346140d4b675f44de208df996c2df3407f5e62f3f38226ea1faf41a9fd4b068201e67b3a7e152b9e9c3b098daa847dd480c735f038
   languageName: node
   linkType: hard
 
@@ -25956,11 +25203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.3, semver@npm:^7.7.4":
-=======
-"semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 7.7.4
   resolution: "semver@npm:7.7.4"
   bin:
@@ -27298,11 +26541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "tabbable@npm:^6.4.0":
-=======
-"tabbable@npm:^6.3.0, tabbable@npm:^6.4.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 6.4.0
   resolution: "tabbable@npm:6.4.0"
   checksum: 10/0fe8fada2d97bd02058af2e0176bddca26b1100c069e0a096ac19ad8ef61bd0b4f0cf05e1dd68229b8f1cb6fe6bf4c34d50a5f4a3e26b150a92f89b7dc0a4916
@@ -28083,10 +27322,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.18.0":
-  version: 7.18.2
-  resolution: "undici-types@npm:7.18.2"
-  checksum: 10/e61a5918f624d68420c3ca9d301e9f15b61cba6e97be39fe2ce266dd6151e4afe424d679372638826cb506be33952774e0424141200111a9857e464216c009af
+"undici-types@npm:~7.16.0":
+  version: 7.16.0
+  resolution: "undici-types@npm:7.16.0"
+  checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
   languageName: node
   linkType: hard
 
@@ -28751,11 +27990,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "vite@npm:^7.3.1":
-=======
-"vite@npm:^7.3.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 7.3.1
   resolution: "vite@npm:7.3.1"
   dependencies:
@@ -28834,11 +28069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "wait-on@npm:^9.0.4":
-=======
-"wait-on@npm:^9.0.3":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 9.0.4
   resolution: "wait-on@npm:9.0.4"
   dependencies:
@@ -29771,11 +29002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "zod-to-json-schema@npm:^3.25.1":
-=======
-"zod-to-json-schema@npm:^3.25.0":
->>>>>>> 8cb13969 (#3397 [Added] Segmented Button: Nieuw component)
   version: 3.25.1
   resolution: "zod-to-json-schema@npm:3.25.1"
   peerDependencies:

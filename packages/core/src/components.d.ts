@@ -1203,15 +1203,26 @@ export namespace Components {
     }
     interface DsoSegmentedButton {
         /**
-          * The index of the currently active option.  Defaults to `-1`, indicating no active option.  Note: This prop can be set externally to any index, including disabled options. However, users cannot click disabled buttons to change the active state themselves.
-          * @default -1
+          * Index of the currently active option
          */
-        "activeOption": number;
+        "activeOption"?: number;
         /**
-          * The available options for the segmented button.
+          * Optional custom group name
+         */
+        "groupName"?: string;
+        /**
+          * Options to render in the segmented button
           * @default []
          */
         "options": SegmentedButtonOption[];
+        /**
+          * Accessible label for the radio group
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required)
+         */
+        "segmentedAriaRequired"?: boolean;
     }
     interface DsoSelectable {
         /**
@@ -4144,19 +4155,30 @@ declare namespace LocalJSX {
     }
     interface DsoSegmentedButton {
         /**
-          * The index of the currently active option.  Defaults to `-1`, indicating no active option.  Note: This prop can be set externally to any index, including disabled options. However, users cannot click disabled buttons to change the active state themselves.
-          * @default -1
+          * Index of the currently active option
          */
         "activeOption"?: number;
         /**
-          * Emitted when the active option changes.
+          * Optional custom group name
+         */
+        "groupName"?: string;
+        /**
+          * Emitted when active option changes
          */
         "onDsoChange"?: (event: DsoSegmentedButtonCustomEvent<SegmentedButtonChangeEvent>) => void;
         /**
-          * The available options for the segmented button.
+          * Options to render in the segmented button
           * @default []
          */
         "options"?: SegmentedButtonOption[];
+        /**
+          * Accessible label for the radio group
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required)
+         */
+        "segmentedAriaRequired"?: boolean;
     }
     interface DsoSelectable {
         /**
@@ -4791,6 +4813,12 @@ declare namespace LocalJSX {
     interface DsoRenvooiAttributes {
         "value": RenvooiValue | RenvooiValue[];
     }
+    interface DsoSegmentedButtonAttributes {
+        "groupName": string;
+        "segmentedAriaLabel": string;
+        "segmentedAriaRequired": boolean;
+        "activeOption": number;
+    }
     interface DsoSelectableAttributes {
         "type": "checkbox" | "radio";
         "identifier": string;
@@ -4917,9 +4945,10 @@ declare namespace LocalJSX {
         "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
-        "dso-selectable": DsoSelectable;
-        "dso-skiplink": DsoSkiplink;
-        "dso-slide-toggle": DsoSlideToggle;
+        "dso-segmented-button": Omit<DsoSegmentedButton, keyof DsoSegmentedButtonAttributes> & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes]?: DsoSegmentedButton[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `attr:${K}`]?: DsoSegmentedButtonAttributes[K] } & { [K in keyof DsoSegmentedButton & keyof DsoSegmentedButtonAttributes as `prop:${K}`]?: DsoSegmentedButton[K] };
+        "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]> & OneOf<"value", DsoSelectable["value"], DsoSelectableAttributes["value"]>;
+        "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;
+        "dso-slide-toggle": Omit<DsoSlideToggle, keyof DsoSlideToggleAttributes> & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes]?: DsoSlideToggle[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `attr:${K}`]?: DsoSlideToggleAttributes[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `prop:${K}`]?: DsoSlideToggle[K] };
         "dso-survey-rating": DsoSurveyRating;
         "dso-tab": Omit<DsoTab, keyof DsoTabAttributes> & { [K in keyof DsoTab & keyof DsoTabAttributes]?: DsoTab[K] } & { [K in keyof DsoTab & keyof DsoTabAttributes as `attr:${K}`]?: DsoTabAttributes[K] } & { [K in keyof DsoTab & keyof DsoTabAttributes as `prop:${K}`]?: DsoTab[K] };
         "dso-table": Omit<DsoTable, keyof DsoTableAttributes> & { [K in keyof DsoTable & keyof DsoTableAttributes]?: DsoTable[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `attr:${K}`]?: DsoTableAttributes[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `prop:${K}`]?: DsoTable[K] };
@@ -4997,22 +5026,23 @@ declare module "@stencil/core" {
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */
-            "dso-renvooi": LocalJSX.DsoRenvooi & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
-            "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
-            "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
-            "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
-            "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
-            "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
-            "dso-survey-rating": LocalJSX.DsoSurveyRating & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;
-            "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
-            "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
-            "dso-tabs": LocalJSX.DsoTabs & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
-            "dso-tijdreis-banner": LocalJSX.DsoTijdreisBanner & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
-            "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
-            "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
-            "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
-            "dso-viewer-grid": LocalJSX.DsoViewerGrid & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
-            "dsot-document-component-demo": LocalJSX.DsotDocumentComponentDemo & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
+            "dso-renvooi": LocalJSX.IntrinsicElements["dso-renvooi"] & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
+            "dso-responsive-element": LocalJSX.IntrinsicElements["dso-responsive-element"] & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
+            "dso-scrollable": LocalJSX.IntrinsicElements["dso-scrollable"] & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
+            "dso-segmented-button": LocalJSX.IntrinsicElements["dso-segmented-button"] & JSXBase.HTMLAttributes<HTMLDsoSegmentedButtonElement>;
+            "dso-selectable": LocalJSX.IntrinsicElements["dso-selectable"] & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-skiplink": LocalJSX.IntrinsicElements["dso-skiplink"] & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
+            "dso-slide-toggle": LocalJSX.IntrinsicElements["dso-slide-toggle"] & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
+            "dso-survey-rating": LocalJSX.IntrinsicElements["dso-survey-rating"] & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;
+            "dso-tab": LocalJSX.IntrinsicElements["dso-tab"] & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
+            "dso-table": LocalJSX.IntrinsicElements["dso-table"] & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
+            "dso-tabs": LocalJSX.IntrinsicElements["dso-tabs"] & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
+            "dso-tijdreis-banner": LocalJSX.IntrinsicElements["dso-tijdreis-banner"] & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
+            "dso-toggletip": LocalJSX.IntrinsicElements["dso-toggletip"] & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
+            "dso-tooltip": LocalJSX.IntrinsicElements["dso-tooltip"] & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
+            "dso-tree-view": LocalJSX.IntrinsicElements["dso-tree-view"] & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
+            "dso-viewer-grid": LocalJSX.IntrinsicElements["dso-viewer-grid"] & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
+            "dsot-document-component-demo": LocalJSX.IntrinsicElements["dsot-document-component-demo"] & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
         }
     }
 }

@@ -15,6 +15,7 @@ const { Default, WithDisabledButton } = segmentedButtonStories({
   templateContainer,
   storyTemplates: (templates) => {
     const { segmentedButtonTemplate } = templates;
+
     return {
       segmentedButtonTemplate,
     };
