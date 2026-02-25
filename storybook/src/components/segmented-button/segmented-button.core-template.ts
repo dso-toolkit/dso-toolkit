@@ -8,11 +8,13 @@ export const coreSegmentedButton: ComponentImplementation<SegmentedButton> = {
   component: "segmentedButton",
   implementation: "core",
   template: () =>
-    function segmentedButtonTemplate({ options, activeOption, dsoChange }) {
+    function segmentedButtonTemplate({ options, activeOption, dsoChange, segmentedAriaRequired, segmentedAriaLabel }) {
       return html`
         <dso-segmented-button
           .options=${options}
-          .activeOption=${activeOption}
+          active-option=${activeOption}
+          .segmentedAriaRequired=${segmentedAriaRequired}
+          .segmentedAriaLabel=${segmentedAriaLabel}
           @dsoChange=${ifDefined(dsoChange)}
         ></dso-segmented-button>
       `;

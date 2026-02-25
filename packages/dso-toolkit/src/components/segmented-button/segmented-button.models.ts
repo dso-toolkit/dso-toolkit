@@ -4,8 +4,10 @@ export interface SegmentedButtonChangeEvent {
 }
 export interface SegmentedButton {
   options: SegmentedButtonOption[];
-  activeOption: number;
+  activeOption?: number;
   dsoChange?: (event: CustomEvent<SegmentedButtonChangeEvent>) => void;
+  segmentedAriaRequired?: boolean;
+  segmentedAriaLabel?: string;
 }
 
 export interface SegmentedButtonOption {
