@@ -13,7 +13,7 @@ const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
 
 const legendItemTemplate = (p: LegendItem<TemplateResult>) =>
   html`<dso-legend-item
-    ?disabled=${p.disabled}
+    .disabled=${p.disabled}
     .disabledMessage=${ifDefined(p.disabledMessage)}
     @dsoMouseEnter=${ifDefined(p.dsoMouseEnter)}
     @dsoMouseLeave=${ifDefined(p.dsoMouseLeave)}
