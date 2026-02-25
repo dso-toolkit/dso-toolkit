@@ -40,7 +40,7 @@ export class LegendItem implements ComponentInterface {
   /**
    * Message to be shown in an info-button tooltip when the Legend Item is disabled
    */
-  @Prop()
+  @Prop({ reflect: true })
   disabledMessage?: string;
 
   /**
