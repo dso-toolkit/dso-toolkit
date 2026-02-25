@@ -7,7 +7,7 @@ import type { Templates } from "../../templates";
 const defaultSymbol = html`<span class="symboolcode" data-symboolcode="regelingsgebied"></span>`;
 
 const legendGroupTemplate = (p: LegendGroup<TemplateResult>) =>
-  html`<dso-legend-group mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
+  html`<dso-legend-group .mode=${ifDefined(p.mode)} @dsoLegendGroupModeChange=${ifDefined(p.dsoLegendGroupModeChange)}>
     ${p.heading || nothing} ${p.children || nothing}
   </dso-legend-group>`;
 
