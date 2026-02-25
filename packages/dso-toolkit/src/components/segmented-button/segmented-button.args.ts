@@ -1,5 +1,6 @@
 import { HandlerFunction } from "storybook/actions";
 import { ArgTypes } from "storybook/internal/types";
+import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
 
@@ -19,7 +20,7 @@ export const segmentedButtonArgs: SegmentedButtonArgs = {
     { label: "Button 4", disabled: false },
   ],
   activeOption: -1,
-  dsoChange: () => undefined,
+  dsoChange: fn(),
 };
 
 export const segmentedButtonArgTypes: ArgTypes<SegmentedButtonArgs> = {

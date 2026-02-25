@@ -9,18 +9,30 @@ import type { SegmentedButtonChangeEvent, SegmentedButtonOption } from "./segmen
 })
 export class SegmentedButton implements ComponentInterface {
   /**
+   * Unique name for the radio group to prevent conflicts when multiple segmented buttons are on the same page.
+   */
+  private groupName = `dso-segmented-button-${crypto.randomUUID()}`;
+  /**
    * The available options for the segmented button.
    */
   @Prop({ reflect: true })
   options: SegmentedButtonOption[] = [];
 
   /**
+   * Literal accessible label for the radio group (aria-label). If not set, defaults to 'Segmented button options'.
+   */
+  @Prop()
+  segmentedAriaLabel?: string;
+
+  /**
+   * Whether selection is required (adds aria-required to the group).
+   */
+  @Prop()
+  segmentedAriaRequired?: boolean;
+
+  /**
    * The index of the currently active option.
-   *
-   * Defaults to `-1`, indicating no active option.
-   *
-   * Note: This prop can be set externally to any index, including disabled options.
-   * However, users cannot click disabled buttons to change the active state themselves.
+   * Defaults to -1 (no active option).
    */
   @Prop({ reflect: true, mutable: true })
   activeOption: number = -1;
@@ -31,11 +43,6 @@ export class SegmentedButton implements ComponentInterface {
   @Event({ bubbles: false })
   dsoChange!: EventEmitter<SegmentedButtonChangeEvent>;
 
-  /**
-   * Set the active option by index.
-   * @param index The index of the option to set as active.
-   * @param originalEvent The native event that triggered the change.
-   */
   private setActive(index: number, originalEvent: Event) {
     if (index < 0 || index >= this.options.length) return;
     if (this.options[index]?.disabled) return;
@@ -46,22 +53,29 @@ export class SegmentedButton implements ComponentInterface {
   }
 
   render() {
+    const ariaLabel = this.segmentedAriaLabel || "Segmented button options";
+    const groupName = this.groupName ?? "dso-segmented-button";
     return (
-      <div class="dso-segmented-button" role="radiogroup" aria-label="Segmented button options">
+      <div
+        class="dso-segmented-button"
+        role="radiogroup"
+        aria-label={ariaLabel}
+        aria-required={this.segmentedAriaRequired ? "true" : undefined}
+      >
         {this.options.map((option, index) => {
           const { label, disabled = false } = option;
-          const inputId = `dso-segmented-button-${index}`;
+          const inputId = `${groupName}-${index}`;
+          const key = `${label}-${index}`;
 
           return (
-            <label key={index} htmlFor={inputId} class={{ disabled }}>
+            <label key={key} htmlFor={inputId} class={{ disabled }}>
               <input
                 id={inputId}
                 type="radio"
-                name="dso-segmented-button"
+                name={groupName}
                 value={String(index)}
                 checked={index === this.activeOption}
                 disabled={disabled}
-                aria-checked={index === this.activeOption ? "true" : "false"}
                 onChange={(event) => this.setActive(index, event)}
               />
               <span class="segment-label">{label}</span>

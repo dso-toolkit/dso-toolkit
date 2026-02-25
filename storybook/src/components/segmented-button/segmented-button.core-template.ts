@@ -12,7 +12,7 @@ export const coreSegmentedButton: ComponentImplementation<SegmentedButton> = {
       return html`
         <dso-segmented-button
           .options=${options}
-          .activeOption=${activeOption}
+          activeOption=${activeOption}
           @dsoChange=${ifDefined(dsoChange)}
         ></dso-segmented-button>
       `;

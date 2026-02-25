@@ -1193,7 +1193,7 @@ export namespace Components {
     }
     interface DsoSegmentedButton {
         /**
-          * The index of the currently active option.  Defaults to `-1`, indicating no active option.  Note: This prop can be set externally to any index, including disabled options. However, users cannot click disabled buttons to change the active state themselves.
+          * The index of the currently active option. Defaults to -1 (no active option).
           * @default -1
          */
         "activeOption": number;
@@ -1202,6 +1202,14 @@ export namespace Components {
           * @default []
          */
         "options": SegmentedButtonOption[];
+        /**
+          * Literal accessible label for the radio group (aria-label). If not set, defaults to 'Segmented button options'.
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required to the group).
+         */
+        "segmentedAriaRequired"?: boolean;
     }
     interface DsoSelectable {
         /**
@@ -4091,7 +4099,7 @@ declare namespace LocalJSX {
     }
     interface DsoSegmentedButton {
         /**
-          * The index of the currently active option.  Defaults to `-1`, indicating no active option.  Note: This prop can be set externally to any index, including disabled options. However, users cannot click disabled buttons to change the active state themselves.
+          * The index of the currently active option. Defaults to -1 (no active option).
           * @default -1
          */
         "activeOption"?: number;
@@ -4104,6 +4112,14 @@ declare namespace LocalJSX {
           * @default []
          */
         "options"?: SegmentedButtonOption[];
+        /**
+          * Literal accessible label for the radio group (aria-label). If not set, defaults to 'Segmented button options'.
+         */
+        "segmentedAriaLabel"?: string;
+        /**
+          * Whether selection is required (adds aria-required to the group).
+         */
+        "segmentedAriaRequired"?: boolean;
     }
     interface DsoSelectable {
         /**
