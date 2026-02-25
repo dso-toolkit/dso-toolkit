@@ -29,9 +29,10 @@ describe("ListButton", () => {
       })
       .get("@dsoListButtonShadow")
       .find(".dso-selectable-input-wrapper > label")
-      .should("contain.text", "Milieubelastende activiteit - Melding")
-      .and("contain.text", "Sublabel")
-      .and("contain.text", "Subcontent")
+      .should(
+        "contain.html",
+        'Milieubelastende activiteit - Melding<span class="sr-only"> Sublabel</span><span class="sr-only"> <span>Subcontent</span></span>',
+      )
       .get("@dsoListButton")
       .find('> [slot="subcontent"]')
       .should("have.attr", "aria-hidden", "true")
@@ -54,8 +55,8 @@ describe("ListButton", () => {
     cy.get("dso-list-button")
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-selectable-input-wrapper > label > .sr-only")
-      .should("contain.text", "Subcontent met HTML")
+      .find(".dso-selectable-input-wrapper > label > span > .sr-only")
+      .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>")
       .get("dso-list-button.hydrated")
       .matchImageSnapshot();
   });
@@ -67,8 +68,10 @@ describe("ListButton", () => {
       .invoke("prop", "subcontentPrefix", "subcontentPrefix")
       .shadow()
       .find(".dso-selectable-input-wrapper > label")
-      .should("contain.text", "Milieubelastende activiteit - Melding")
-      .and("contain.text", "subcontentPrefix: Subcontent met HTML");
+      .should(
+        "contain.html",
+        'Milieubelastende activiteit - Melding<span class="sr-only">subcontentPrefix: <span>Subcontent met <strong>HTML</strong></span></span>',
+      );
   });
 
   it("should be accessible", () => {
