@@ -20,7 +20,7 @@
     block-size: 100%;
     max-block-size: inherit;
     min-block-size: inherit;
-    overflow-y: auto;
+    overflow-y: hidden;
     padding-inline: var(--_dt-scrollable-container-padding-inline, 0);
     padding-block: var(--_dt-scrollable-container-padding-block, 0);
     border-end-start-radius: var(--_dt-scrollable-container-border-end-start-radius, 0);
@@ -55,6 +55,12 @@
       inset-block-end: 0;
     }
 
+    &.dso-scroll-bottom,
+    &.dso-scroll-top,
+    &.dso-scroll-middle {
+      overflow-y: auto;
+    }
+
     &.dso-scroll-bottom {
       &::before {
         opacity: 1;
@@ -72,10 +78,6 @@
       &::after {
         opacity: 1;
       }
-    }
-
-    &.dso-scroll-noScroll {
-      overflow-y: hidden;
     }
   }
 }

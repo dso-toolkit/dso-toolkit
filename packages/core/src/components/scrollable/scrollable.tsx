@@ -144,7 +144,9 @@ export class Scrollable {
       <div ref={(el) => (this.shadowContainerDiv = el)} class="dso-shadow-container">
         <div
           ref={(el) => (this.scrollContainerDiv = el)}
-          class={clsx("dso-scroll-container", `dso-scroll-${this.scrollPosition}`)}
+          class={clsx("dso-scroll-container", {
+            [`dso-scroll-${this.scrollPosition}`]: this.scrollPosition !== "noScroll",
+          })}
           onScroll={() => this._setScrollState()}
         >
           <slot></slot>
