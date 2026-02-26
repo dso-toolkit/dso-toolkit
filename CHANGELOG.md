@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING** Legend: Legend en Legend Item fuseren tot één component Legend ([#3490](https://github.com/dso-toolkit/dso-toolkit/issues/3490))
 
 ### Fixed
+* Viewer Grid: Gesloten Filter Panel kan focus krijgen ([#3546](https://github.com/dso-toolkit/dso-toolkit/issues/3546))
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 

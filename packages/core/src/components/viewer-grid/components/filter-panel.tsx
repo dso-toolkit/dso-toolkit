@@ -13,7 +13,7 @@ export const FilterPanel: FunctionalComponent<ViewerGridFilterPanelProps> = ({
   ref,
   dsoCloseFilterPanel,
 }) => (
-  <dialog class="filter-panel" ref={ref}>
+  <dialog class="filter-panel" ref={ref} inert={!open}>
     {open && (
       <Fragment>
         {title && <h3>{title}</h3>}
