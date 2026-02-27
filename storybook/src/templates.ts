@@ -173,7 +173,6 @@ import { cssInfoButton } from "./components/info-button/info-button.css-template
 import { coreInputRange } from "./components/input-range/input-range.core-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
 import { coreLabel } from "./components/label/label.core-template";
-import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
 import { coreLegend } from "./components/legend/legend.core-template";
 import { cssLink } from "./components/link/link.css-template";
@@ -442,7 +441,6 @@ templateContainer.add(cssImage);
 templateContainer.add(cssInfo);
 templateContainer.add(cssInfoButton);
 templateContainer.add(cssJustifyFormGroups);
-templateContainer.add(cssLabel);
 templateContainer.add(cssLabelGroup);
 templateContainer.add(cssLink);
 templateContainer.add(cssLinkList);

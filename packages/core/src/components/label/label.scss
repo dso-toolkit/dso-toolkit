@@ -1,37 +1,103 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/units";
-@use "~dso-toolkit/src/components/label";
+@use "~dso-toolkit/src/global/mixins/symbol.mixins" as symbol-mixins;
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+@use "~dso-toolkit/src/components/delete";
+@use "~dso-toolkit/src/components/insert";
+
+@use "label.variables" as label-variables;
+
+@include utilities.box-sizing();
 
 :host {
   display: inline-block;
   max-inline-size: 100%;
-  font-weight: normal;
-}
 
-@include utilities.box-sizing();
+  .dso-label {
+    @include set-colors.apply(label-variables.$default-bg-color, "label");
 
-// Todo: Replace .sr-only selector with web component specific selector, no need for .sr-only if we can generate the SCSS
-.sr-only {
-  @include utilities.sr-only();
-}
+    display: inline-flex;
+    align-items: center;
 
-.dso-label {
-  @include label.root();
+    padding-block: #{units.$u1 * 0.5};
+    padding-inline: units.$u1;
+    max-inline-size: 100%;
+    font-weight: normal;
+    border-radius: 4px;
+    line-height: 1.5;
 
-  &.dso-hover {
-    .dso-label-content {
+    &:focus-within,
+    &.dso-hover {
       text-decoration: line-through;
     }
-  }
-}
 
-.dso-truncate.dso-label-content {
-  display: inline-block;
-  max-inline-size: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
-  vertical-align: bottom;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+    &.dso-label-info {
+      @include set-colors.apply(label-variables.$info-bg-color, "label");
+    }
+
+    &.dso-label-primary {
+      @include set-colors.apply(label-variables.$primary-bg-color, "label");
+    }
+
+    &.dso-label-success {
+      @include set-colors.apply(label-variables.$success-bg-color, "label");
+    }
+
+    &.dso-label-warning {
+      @include set-colors.apply(label-variables.$warning-bg-color, "label");
+    }
+
+    &.dso-label-error {
+      @include set-colors.apply(label-variables.$error-bg-color, "label");
+    }
+
+    &.dso-label-bright {
+      @include set-colors.apply(label-variables.$bright-bg-color, "label");
+
+      outline: 1px solid label-variables.$bright-border-color;
+      outline-offset: -1px;
+    }
+
+    &.dso-label-attention {
+      @include set-colors.apply(label-variables.$attention-bg-color, "label");
+    }
+
+    &.dso-label-filter {
+      @include set-colors.apply(label-variables.$filter-bg-color, "label");
+
+      border-inline-start: 5px solid label-variables.$filter-border-color;
+    }
+
+    &.dso-label-toegevoegd {
+      @include insert.root();
+    }
+
+    &.dso-label-verwijderd {
+      @include delete.root();
+    }
+
+    &.dso-compact {
+      padding-block: 0;
+      padding-inline: units.$u1;
+    }
+  }
+
+  ::slotted([slot="symbol"]) {
+    background-color: label-variables.$primary-color;
+
+    @include symbol-mixins.symbolContainer(
+      label-variables.$symbol-block-size,
+      label-variables.$symbol-block-size * label-variables.$symbol-aspect-ratio
+    );
+  }
+
+  dso-icon-button {
+    float: inline-end;
+    margin-inline-start: units.$u1;
+    margin-inline-end: units.$u1 * -0.5;
+  }
 }
 
 :host([removable]) {
@@ -40,8 +106,13 @@
   }
 }
 
-dso-icon-button {
-  float: inline-end;
-  margin-inline-start: units.$u1;
-  margin-inline-end: units.$u1 * -0.5;
+:host([truncate]) {
+  .dso-label-content {
+    display: inline-block;
+    max-inline-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+    vertical-align: bottom;
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+  }
 }
