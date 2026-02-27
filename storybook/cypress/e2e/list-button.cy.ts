@@ -55,7 +55,7 @@ describe("ListButton", () => {
     cy.get("dso-list-button")
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-selectable-input-wrapper > label > .sr-only")
+      .find(".dso-selectable-input-wrapper > label > span > .sr-only")
       .should("contain.html", "<span>Subcontent met <strong>HTML</strong></span>")
       .get("dso-list-button.hydrated")
       .matchImageSnapshot();

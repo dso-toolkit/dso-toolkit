@@ -2755,6 +2755,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface DsoAccordion {
         /**
           * Places the chevron at the opposite side.  Note: this mode does not display `state`, `attachmentCount` or `status` props on Accordion Sections
@@ -4427,161 +4429,536 @@ declare namespace LocalJSX {
          */
         "showCanvas"?: boolean;
     }
+
+    interface DsoAccordionAttributes {
+        "variant": AccordionVariant;
+        "reverseAlign": boolean;
+    }
+    interface DsoAccordionSectionAttributes {
+        "handleTitle": RenvooiValue | RenvooiValue[] | undefined;
+        "wijzigactie": AccordionSectionWijzigactie;
+        "heading": AccordionHeading;
+        "handleUrl": string;
+        "status": AccordionSectionState;
+        "attachmentCount": number;
+        "icon": string;
+        "statusDescription": string;
+        "open": boolean;
+        "hasNestedAccordion": boolean;
+        "label": string;
+        "labelStatus": LabelStatus;
+        "activatable": boolean;
+        "active": boolean;
+    }
+    interface DsoActionListAttributes {
+        "listTitle": string;
+    }
+    interface DsoActionListItemAttributes {
+        "step": number;
+        "itemTitle": string;
+        "flowLine": boolean;
+        "warning": boolean;
+        "divider": boolean;
+    }
+    interface DsoAdvancedSelectAttributes {
+        "activeHint": string;
+    }
+    interface DsoAlertAttributes {
+        "status": "success" | "info" | "warning" | "error";
+        "roleAlert": boolean;
+        "compact": boolean;
+        "closable": boolean;
+    }
+    interface DsoAnnotationActiviteitAttributes {
+        "wijzigactie": AnnotationWijzigactie;
+        "active": boolean;
+        "gewijzigdeLocatie": boolean;
+        "naam": RenvooiValue | string;
+        "regelKwalificatie": RenvooiValue | string;
+        "regelKwalificatieVoorzetsel": string;
+    }
+    interface DsoAnnotationGebiedsaanwijzingAttributes {
+        "wijzigactie": AnnotationWijzigactie;
+        "active": boolean;
+        "gewijzigdeLocatie": boolean;
+        "naam": RenvooiValue | string;
+    }
+    interface DsoAnnotationKaartAttributes {
+        "wijzigactie": AnnotationWijzigactie;
+        "naam": RenvooiValue | string;
+        "href": string;
+    }
+    interface DsoAnnotationLocatieAttributes {
+        "wijzigactie": AnnotationWijzigactie;
+        "active": boolean;
+        "gewijzigdeLocatie": boolean;
+        "locatieNoemer": RenvooiValue | string;
+    }
+    interface DsoAnnotationOmgevingsnormwaardeAttributes {
+        "wijzigactie": AnnotationWijzigactie;
+        "active": boolean;
+        "gewijzigdeLocatie": boolean;
+        "naam": RenvooiValue | string;
+        "toelichting": string;
+        "eenheid": RenvooiValue | string;
+    }
+    interface DsoAttachmentsCounterAttributes {
+        "count": number;
+    }
+    interface DsoAutosuggestAttributes {
+        "loading": boolean;
+        "loadingLabel": string;
+        "loadingDelayed": number;
+        "notFoundLabel": string;
+    }
+    interface DsoBadgeAttributes {
+        "status": BadgeStatus;
+    }
+    interface DsoBannerAttributes {
+        "status": "success" | "error" | "info" | "warning";
+        "compact": boolean;
+        "icon": boolean;
+    }
+    interface DsoButtonGroupAttributes {
+        "direction": ButtonGroupDirection;
+    }
+    interface DsoCardAttributes {
+        "href": string | undefined;
+        "mode": string;
+        "active": boolean;
+    }
+    interface DsoCardContainerAttributes {
+        "mode": CardContainerMode;
+    }
+    interface DsoDatePickerAttributes {
+        "name": string;
+        "identifier": string | undefined;
+        "disabled": boolean;
+        "required": boolean;
+        "invalid": boolean;
+        "describedBy": string;
+        "dsoAutofocus": boolean;
+        "value": string;
+        "min": string | undefined;
+        "max": string | undefined;
+    }
+    interface DsoDocumentCardAttributes {
+        "href": string | undefined;
+        "active": boolean;
+    }
+    interface DsoDocumentComponentAttributes {
+        "heading": "h2" | "h3" | "h4" | "h5" | "h6";
+        "kop": DocumentComponentInputType | undefined;
+        "inhoud": DocumentComponentInputType | undefined;
+        "open": boolean;
+        "filtered": boolean;
+        "notApplicable": boolean;
+        "badge": string;
+        "badgeStatus": BadgeStatus;
+        "badgeTooltip": string;
+        "label": string;
+        "labelStatus": LabelStatus;
+        "annotated": boolean;
+        "gereserveerd": DocumentComponentInputType | undefined;
+        "vervallen": DocumentComponentInputType | undefined;
+        "openAnnotation": boolean;
+        "alternativeTitle": string;
+        "type": string;
+        "wijzigactie": DocumentComponentWijzigactie;
+        "annotationsWijzigactie": DocumentComponentAnnotationsWijzigactie;
+        "recursiveToggle": string;
+        "mode": DocumentComponentMode;
+        "href": string;
+    }
+    interface DsoDropdownMenuAttributes {
+        "open": boolean;
+        "dropdownAlign": "left" | "right";
+        "dropdownOptionsOffset": number;
+        "checkable": boolean;
+    }
+    interface DsoExpandableAttributes {
+        "open": boolean;
+        "enableAnimation": boolean;
+        "minimumHeight": number;
+    }
+    interface DsoHeaderAttributes {
+        "compact": HeaderCompactMode;
+        "authStatus": HeaderAuthStatus;
+        "loginUrl": string;
+        "logoutUrl": string;
+        "showHelp": boolean;
+        "helpUrl": string;
+        "userProfileName": string;
+        "userProfileUrl": string;
+        "userHomeUrl": string;
+        "userHomeActive": boolean;
+    }
+    interface DsoHighlightBoxAttributes {
+        "yellow": boolean;
+        "border": boolean;
+        "white": boolean;
+        "green": boolean;
+        "dropShadow": boolean;
+        "step": number;
+    }
+    interface DsoHistoryItemAttributes {
+        "type": HistoryItemType;
+        "href": string;
+    }
+    interface DsoIconAttributes {
+        "icon": string;
+    }
+    interface DsoIconButtonAttributes {
+        "icon": string | undefined;
+        "label": string | undefined;
+        "variant": IconButtonVariant;
+        "tooltipPlacement": TooltipPlacement;
+        "disabled": boolean;
+    }
+    interface DsoImageOverlayAttributes {
+        "wijzigactie": string;
+    }
+    interface DsoInfoAttributes {
+        "fixed": boolean;
+        "active": boolean;
+    }
+    interface DsoInfoButtonAttributes {
+        "active": boolean;
+        "secondary": boolean;
+        "label": string;
+        "toggletipPlacement": TooltipPlacement;
+    }
+    interface DsoInputRangeAttributes {
+        "min": number;
+        "max": number;
+        "value": number;
+        "step": number;
+        "label": string;
+        "unit": string;
+        "description": string;
+    }
+    interface DsoLabelAttributes {
+        "compact": boolean;
+        "removable": boolean;
+        "status": LabelStatus;
+        "truncate": boolean;
+    }
+    interface DsoLegendGroupAttributes {
+        "mode": LegendMode;
+    }
+    interface DsoLegendItemAttributes {
+        "disabled": boolean;
+        "disabledMessage": string;
+        "activatable": boolean;
+        "active": boolean;
+        "_mode": LegendMode | undefined;
+    }
+    interface DsoListButtonAttributes {
+        "label": string;
+        "sublabel": string;
+        "count": number;
+        "min": string;
+        "max": string;
+        "checked": boolean;
+        "disabled": boolean;
+        "subcontentPrefix": string;
+    }
+    interface DsoLogoAttributes {
+        "name": string;
+        "logoUrl": string;
+        "label": string;
+        "labelUrl": string;
+        "ribbon": string;
+    }
+    interface DsoMapBaseLayersAttributes {
+        "group": string;
+    }
+    interface DsoMapControlsAttributes {
+        "open": boolean;
+        "disableZoom": "in" | "out" | "both";
+    }
+    interface DsoMapLayerAttributes {
+        "label": string | undefined;
+        "activatable": boolean;
+        "active": boolean;
+    }
+    interface DsoMapLayerObjectAttributes {
+        "active": boolean;
+    }
+    interface DsoMapOverlaysAttributes {
+        "group": string;
+    }
+    interface DsoMarkBarAttributes {
+        "value": string;
+        "label": string;
+        "current": number;
+        "totalCount": number;
+    }
+    interface DsoModalAttributes {
+        "fullscreen": boolean;
+        "modalTitle": string;
+        "dialogRole": string | null;
+        "returnFocus": false | HTMLElement | undefined;
+        "closable": boolean;
+    }
+    interface DsoOnboardingTipAttributes {
+        "placement": TooltipPlacement;
+    }
+    interface DsoOzonContentAttributes {
+        "content": OzonContentInputType;
+        "inline": boolean;
+        "annotated": boolean;
+    }
+    interface DsoOzonContentToggletipAttributes {
+        "icon": string;
+    }
+    interface DsoPaginationAttributes {
+        "totalPages": number;
+        "currentPage": number;
+    }
+    interface DsoPanelAttributes {
+        "closeButtonLabel": string;
+        "emphasized": boolean;
+    }
+    interface DsoPlekinfoCardAttributes {
+        "wijzigactie": PlekinfoWijzigactie;
+        "href": string | undefined;
+        "targetBlank": boolean;
+        "active": boolean;
+    }
+    interface DsoProgressIndicatorAttributes {
+        "label": string;
+        "size": "small" | "medium" | "large";
+        "block": boolean;
+    }
+    interface DsoProjectItemAttributes {
+        "label": string;
+    }
+    interface DsoRenvooiAttributes {
+        "value": RenvooiValue | RenvooiValue[];
+    }
+    interface DsoSelectableAttributes {
+        "type": "checkbox" | "radio";
+        "identifier": string;
+        "name": string;
+        "value": string;
+        "invalid": boolean;
+        "describedById": string;
+        "labelledById": string;
+        "disabled": boolean;
+        "required": boolean;
+        "checked": boolean;
+        "indeterminate": boolean;
+        "infoFixed": boolean;
+    }
+    interface DsoSkiplinkAttributes {
+        "to": string | undefined;
+        "label": string | undefined;
+    }
+    interface DsoSlideToggleAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "accessibleLabel": string;
+        "labelledbyId": string;
+        "identifier": string;
+    }
+    interface DsoTabAttributes {
+        "active": boolean;
+        "disabled": boolean;
+        "href": string;
+    }
+    interface DsoTableAttributes {
+        "noModal": boolean;
+    }
+    interface DsoToggletipAttributes {
+        "label": string;
+        "position": Placement;
+        "small": boolean;
+        "secondary": boolean;
+    }
+    interface DsoTooltipAttributes {
+        "descriptive": boolean;
+        "position": Placement;
+        "strategy": "auto" | "absolute" | "fixed";
+        "noArrow": boolean;
+        "stateless": boolean;
+        "small": boolean;
+        "active": boolean;
+    }
+    interface DsoViewerGridAttributes {
+        "filterPanelTitle": string;
+        "filterPanelOpen": boolean;
+        "overlayOpen": boolean;
+        "documentPanelOpen": boolean;
+        "mainSize": ViewerGridPanelSize;
+        "activeTab": ViewerGridTab;
+        "documentPanelSize": ViewerGridPanelSize;
+        "mainPanelExpanded": boolean;
+        "mainPanelHidden": boolean;
+    }
+    interface DsotDocumentComponentDemoAttributes {
+        "showCanvas": boolean;
+        "showBesluitversie": boolean;
+        "jsonFile": string;
+        "openDefault": boolean;
+        "mode": DocumentComponentMode;
+    }
+
     interface IntrinsicElements {
-        "dso-accordion": DsoAccordion;
-        "dso-accordion-section": DsoAccordionSection;
-        "dso-action-list": DsoActionList;
-        "dso-action-list-item": DsoActionListItem;
-        "dso-advanced-select": DsoAdvancedSelect;
-        "dso-alert": DsoAlert;
-        "dso-annotation-activiteit": DsoAnnotationActiviteit;
-        "dso-annotation-gebiedsaanwijzing": DsoAnnotationGebiedsaanwijzing;
-        "dso-annotation-kaart": DsoAnnotationKaart;
-        "dso-annotation-locatie": DsoAnnotationLocatie;
-        "dso-annotation-omgevingsnormwaarde": DsoAnnotationOmgevingsnormwaarde;
-        "dso-attachments-counter": DsoAttachmentsCounter;
-        "dso-autosuggest": DsoAutosuggest;
-        "dso-badge": DsoBadge;
-        "dso-banner": DsoBanner;
-        "dso-button-group": DsoButtonGroup;
-        "dso-card": DsoCard;
-        "dso-card-container": DsoCardContainer;
+        "dso-accordion": Omit<DsoAccordion, keyof DsoAccordionAttributes> & { [K in keyof DsoAccordion & keyof DsoAccordionAttributes]?: DsoAccordion[K] } & { [K in keyof DsoAccordion & keyof DsoAccordionAttributes as `attr:${K}`]?: DsoAccordionAttributes[K] } & { [K in keyof DsoAccordion & keyof DsoAccordionAttributes as `prop:${K}`]?: DsoAccordion[K] };
+        "dso-accordion-section": Omit<DsoAccordionSection, keyof DsoAccordionSectionAttributes> & { [K in keyof DsoAccordionSection & keyof DsoAccordionSectionAttributes]?: DsoAccordionSection[K] } & { [K in keyof DsoAccordionSection & keyof DsoAccordionSectionAttributes as `attr:${K}`]?: DsoAccordionSectionAttributes[K] } & { [K in keyof DsoAccordionSection & keyof DsoAccordionSectionAttributes as `prop:${K}`]?: DsoAccordionSection[K] } & OneOf<"handleTitle", DsoAccordionSection["handleTitle"], DsoAccordionSectionAttributes["handleTitle"]>;
+        "dso-action-list": Omit<DsoActionList, keyof DsoActionListAttributes> & { [K in keyof DsoActionList & keyof DsoActionListAttributes]?: DsoActionList[K] } & { [K in keyof DsoActionList & keyof DsoActionListAttributes as `attr:${K}`]?: DsoActionListAttributes[K] } & { [K in keyof DsoActionList & keyof DsoActionListAttributes as `prop:${K}`]?: DsoActionList[K] } & OneOf<"listTitle", DsoActionList["listTitle"], DsoActionListAttributes["listTitle"]>;
+        "dso-action-list-item": Omit<DsoActionListItem, keyof DsoActionListItemAttributes> & { [K in keyof DsoActionListItem & keyof DsoActionListItemAttributes]?: DsoActionListItem[K] } & { [K in keyof DsoActionListItem & keyof DsoActionListItemAttributes as `attr:${K}`]?: DsoActionListItemAttributes[K] } & { [K in keyof DsoActionListItem & keyof DsoActionListItemAttributes as `prop:${K}`]?: DsoActionListItem[K] } & OneOf<"step", DsoActionListItem["step"], DsoActionListItemAttributes["step"]>;
+        "dso-advanced-select": Omit<DsoAdvancedSelect, keyof DsoAdvancedSelectAttributes> & { [K in keyof DsoAdvancedSelect & keyof DsoAdvancedSelectAttributes]?: DsoAdvancedSelect[K] } & { [K in keyof DsoAdvancedSelect & keyof DsoAdvancedSelectAttributes as `attr:${K}`]?: DsoAdvancedSelectAttributes[K] } & { [K in keyof DsoAdvancedSelect & keyof DsoAdvancedSelectAttributes as `prop:${K}`]?: DsoAdvancedSelect[K] };
+        "dso-alert": Omit<DsoAlert, keyof DsoAlertAttributes> & { [K in keyof DsoAlert & keyof DsoAlertAttributes]?: DsoAlert[K] } & { [K in keyof DsoAlert & keyof DsoAlertAttributes as `attr:${K}`]?: DsoAlertAttributes[K] } & { [K in keyof DsoAlert & keyof DsoAlertAttributes as `prop:${K}`]?: DsoAlert[K] } & OneOf<"status", DsoAlert["status"], DsoAlertAttributes["status"]>;
+        "dso-annotation-activiteit": Omit<DsoAnnotationActiviteit, keyof DsoAnnotationActiviteitAttributes> & { [K in keyof DsoAnnotationActiviteit & keyof DsoAnnotationActiviteitAttributes]?: DsoAnnotationActiviteit[K] } & { [K in keyof DsoAnnotationActiviteit & keyof DsoAnnotationActiviteitAttributes as `attr:${K}`]?: DsoAnnotationActiviteitAttributes[K] } & { [K in keyof DsoAnnotationActiviteit & keyof DsoAnnotationActiviteitAttributes as `prop:${K}`]?: DsoAnnotationActiviteit[K] };
+        "dso-annotation-gebiedsaanwijzing": Omit<DsoAnnotationGebiedsaanwijzing, keyof DsoAnnotationGebiedsaanwijzingAttributes> & { [K in keyof DsoAnnotationGebiedsaanwijzing & keyof DsoAnnotationGebiedsaanwijzingAttributes]?: DsoAnnotationGebiedsaanwijzing[K] } & { [K in keyof DsoAnnotationGebiedsaanwijzing & keyof DsoAnnotationGebiedsaanwijzingAttributes as `attr:${K}`]?: DsoAnnotationGebiedsaanwijzingAttributes[K] } & { [K in keyof DsoAnnotationGebiedsaanwijzing & keyof DsoAnnotationGebiedsaanwijzingAttributes as `prop:${K}`]?: DsoAnnotationGebiedsaanwijzing[K] };
+        "dso-annotation-kaart": Omit<DsoAnnotationKaart, keyof DsoAnnotationKaartAttributes> & { [K in keyof DsoAnnotationKaart & keyof DsoAnnotationKaartAttributes]?: DsoAnnotationKaart[K] } & { [K in keyof DsoAnnotationKaart & keyof DsoAnnotationKaartAttributes as `attr:${K}`]?: DsoAnnotationKaartAttributes[K] } & { [K in keyof DsoAnnotationKaart & keyof DsoAnnotationKaartAttributes as `prop:${K}`]?: DsoAnnotationKaart[K] };
+        "dso-annotation-locatie": Omit<DsoAnnotationLocatie, keyof DsoAnnotationLocatieAttributes> & { [K in keyof DsoAnnotationLocatie & keyof DsoAnnotationLocatieAttributes]?: DsoAnnotationLocatie[K] } & { [K in keyof DsoAnnotationLocatie & keyof DsoAnnotationLocatieAttributes as `attr:${K}`]?: DsoAnnotationLocatieAttributes[K] } & { [K in keyof DsoAnnotationLocatie & keyof DsoAnnotationLocatieAttributes as `prop:${K}`]?: DsoAnnotationLocatie[K] };
+        "dso-annotation-omgevingsnormwaarde": Omit<DsoAnnotationOmgevingsnormwaarde, keyof DsoAnnotationOmgevingsnormwaardeAttributes> & { [K in keyof DsoAnnotationOmgevingsnormwaarde & keyof DsoAnnotationOmgevingsnormwaardeAttributes]?: DsoAnnotationOmgevingsnormwaarde[K] } & { [K in keyof DsoAnnotationOmgevingsnormwaarde & keyof DsoAnnotationOmgevingsnormwaardeAttributes as `attr:${K}`]?: DsoAnnotationOmgevingsnormwaardeAttributes[K] } & { [K in keyof DsoAnnotationOmgevingsnormwaarde & keyof DsoAnnotationOmgevingsnormwaardeAttributes as `prop:${K}`]?: DsoAnnotationOmgevingsnormwaarde[K] };
+        "dso-attachments-counter": Omit<DsoAttachmentsCounter, keyof DsoAttachmentsCounterAttributes> & { [K in keyof DsoAttachmentsCounter & keyof DsoAttachmentsCounterAttributes]?: DsoAttachmentsCounter[K] } & { [K in keyof DsoAttachmentsCounter & keyof DsoAttachmentsCounterAttributes as `attr:${K}`]?: DsoAttachmentsCounterAttributes[K] } & { [K in keyof DsoAttachmentsCounter & keyof DsoAttachmentsCounterAttributes as `prop:${K}`]?: DsoAttachmentsCounter[K] } & OneOf<"count", DsoAttachmentsCounter["count"], DsoAttachmentsCounterAttributes["count"]>;
+        "dso-autosuggest": Omit<DsoAutosuggest, keyof DsoAutosuggestAttributes> & { [K in keyof DsoAutosuggest & keyof DsoAutosuggestAttributes]?: DsoAutosuggest[K] } & { [K in keyof DsoAutosuggest & keyof DsoAutosuggestAttributes as `attr:${K}`]?: DsoAutosuggestAttributes[K] } & { [K in keyof DsoAutosuggest & keyof DsoAutosuggestAttributes as `prop:${K}`]?: DsoAutosuggest[K] };
+        "dso-badge": Omit<DsoBadge, keyof DsoBadgeAttributes> & { [K in keyof DsoBadge & keyof DsoBadgeAttributes]?: DsoBadge[K] } & { [K in keyof DsoBadge & keyof DsoBadgeAttributes as `attr:${K}`]?: DsoBadgeAttributes[K] } & { [K in keyof DsoBadge & keyof DsoBadgeAttributes as `prop:${K}`]?: DsoBadge[K] };
+        "dso-banner": Omit<DsoBanner, keyof DsoBannerAttributes> & { [K in keyof DsoBanner & keyof DsoBannerAttributes]?: DsoBanner[K] } & { [K in keyof DsoBanner & keyof DsoBannerAttributes as `attr:${K}`]?: DsoBannerAttributes[K] } & { [K in keyof DsoBanner & keyof DsoBannerAttributes as `prop:${K}`]?: DsoBanner[K] } & OneOf<"status", DsoBanner["status"], DsoBannerAttributes["status"]>;
+        "dso-button-group": Omit<DsoButtonGroup, keyof DsoButtonGroupAttributes> & { [K in keyof DsoButtonGroup & keyof DsoButtonGroupAttributes]?: DsoButtonGroup[K] } & { [K in keyof DsoButtonGroup & keyof DsoButtonGroupAttributes as `attr:${K}`]?: DsoButtonGroupAttributes[K] } & { [K in keyof DsoButtonGroup & keyof DsoButtonGroupAttributes as `prop:${K}`]?: DsoButtonGroup[K] };
+        "dso-card": Omit<DsoCard, keyof DsoCardAttributes> & { [K in keyof DsoCard & keyof DsoCardAttributes]?: DsoCard[K] } & { [K in keyof DsoCard & keyof DsoCardAttributes as `attr:${K}`]?: DsoCardAttributes[K] } & { [K in keyof DsoCard & keyof DsoCardAttributes as `prop:${K}`]?: DsoCard[K] } & OneOf<"href", DsoCard["href"], DsoCardAttributes["href"]>;
+        "dso-card-container": Omit<DsoCardContainer, keyof DsoCardContainerAttributes> & { [K in keyof DsoCardContainer & keyof DsoCardContainerAttributes]?: DsoCardContainer[K] } & { [K in keyof DsoCardContainer & keyof DsoCardContainerAttributes as `attr:${K}`]?: DsoCardContainerAttributes[K] } & { [K in keyof DsoCardContainer & keyof DsoCardContainerAttributes as `prop:${K}`]?: DsoCardContainer[K] };
         "dso-contact-information": DsoContactInformation;
         "dso-cursor-tooltip": DsoCursorTooltip;
-        "dso-date-picker": DsoDatePicker;
-        "dso-document-card": DsoDocumentCard;
-        "dso-document-component": DsoDocumentComponent;
-        "dso-dropdown-menu": DsoDropdownMenu;
-        "dso-expandable": DsoExpandable;
-        "dso-header": DsoHeader;
-        "dso-highlight-box": DsoHighlightBox;
-        "dso-history-item": DsoHistoryItem;
-        "dso-icon": DsoIcon;
-        "dso-icon-button": DsoIconButton;
-        "dso-image-overlay": DsoImageOverlay;
-        "dso-info": DsoInfo;
-        "dso-info-button": DsoInfoButton;
-        "dso-input-range": DsoInputRange;
-        "dso-label": DsoLabel;
+        "dso-date-picker": Omit<DsoDatePicker, keyof DsoDatePickerAttributes> & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes]?: DsoDatePicker[K] } & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes as `attr:${K}`]?: DsoDatePickerAttributes[K] } & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes as `prop:${K}`]?: DsoDatePicker[K] };
+        "dso-document-card": Omit<DsoDocumentCard, keyof DsoDocumentCardAttributes> & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes]?: DsoDocumentCard[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `attr:${K}`]?: DsoDocumentCardAttributes[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `prop:${K}`]?: DsoDocumentCard[K] } & OneOf<"href", DsoDocumentCard["href"], DsoDocumentCardAttributes["href"]>;
+        "dso-document-component": Omit<DsoDocumentComponent, keyof DsoDocumentComponentAttributes> & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes]?: DsoDocumentComponent[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `attr:${K}`]?: DsoDocumentComponentAttributes[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `prop:${K}`]?: DsoDocumentComponent[K] };
+        "dso-dropdown-menu": Omit<DsoDropdownMenu, keyof DsoDropdownMenuAttributes> & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes]?: DsoDropdownMenu[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `attr:${K}`]?: DsoDropdownMenuAttributes[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `prop:${K}`]?: DsoDropdownMenu[K] };
+        "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
+        "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };
+        "dso-highlight-box": Omit<DsoHighlightBox, keyof DsoHighlightBoxAttributes> & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes]?: DsoHighlightBox[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `attr:${K}`]?: DsoHighlightBoxAttributes[K] } & { [K in keyof DsoHighlightBox & keyof DsoHighlightBoxAttributes as `prop:${K}`]?: DsoHighlightBox[K] };
+        "dso-history-item": Omit<DsoHistoryItem, keyof DsoHistoryItemAttributes> & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes]?: DsoHistoryItem[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `attr:${K}`]?: DsoHistoryItemAttributes[K] } & { [K in keyof DsoHistoryItem & keyof DsoHistoryItemAttributes as `prop:${K}`]?: DsoHistoryItem[K] } & OneOf<"type", DsoHistoryItem["type"], DsoHistoryItemAttributes["type"]>;
+        "dso-icon": Omit<DsoIcon, keyof DsoIconAttributes> & { [K in keyof DsoIcon & keyof DsoIconAttributes]?: DsoIcon[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `attr:${K}`]?: DsoIconAttributes[K] } & { [K in keyof DsoIcon & keyof DsoIconAttributes as `prop:${K}`]?: DsoIcon[K] };
+        "dso-icon-button": Omit<DsoIconButton, keyof DsoIconButtonAttributes> & { [K in keyof DsoIconButton & keyof DsoIconButtonAttributes]?: DsoIconButton[K] } & { [K in keyof DsoIconButton & keyof DsoIconButtonAttributes as `attr:${K}`]?: DsoIconButtonAttributes[K] } & { [K in keyof DsoIconButton & keyof DsoIconButtonAttributes as `prop:${K}`]?: DsoIconButton[K] } & OneOf<"icon", DsoIconButton["icon"], DsoIconButtonAttributes["icon"]> & OneOf<"label", DsoIconButton["label"], DsoIconButtonAttributes["label"]>;
+        "dso-image-overlay": Omit<DsoImageOverlay, keyof DsoImageOverlayAttributes> & { [K in keyof DsoImageOverlay & keyof DsoImageOverlayAttributes]?: DsoImageOverlay[K] } & { [K in keyof DsoImageOverlay & keyof DsoImageOverlayAttributes as `attr:${K}`]?: DsoImageOverlayAttributes[K] } & { [K in keyof DsoImageOverlay & keyof DsoImageOverlayAttributes as `prop:${K}`]?: DsoImageOverlay[K] };
+        "dso-info": Omit<DsoInfo, keyof DsoInfoAttributes> & { [K in keyof DsoInfo & keyof DsoInfoAttributes]?: DsoInfo[K] } & { [K in keyof DsoInfo & keyof DsoInfoAttributes as `attr:${K}`]?: DsoInfoAttributes[K] } & { [K in keyof DsoInfo & keyof DsoInfoAttributes as `prop:${K}`]?: DsoInfo[K] };
+        "dso-info-button": Omit<DsoInfoButton, keyof DsoInfoButtonAttributes> & { [K in keyof DsoInfoButton & keyof DsoInfoButtonAttributes]?: DsoInfoButton[K] } & { [K in keyof DsoInfoButton & keyof DsoInfoButtonAttributes as `attr:${K}`]?: DsoInfoButtonAttributes[K] } & { [K in keyof DsoInfoButton & keyof DsoInfoButtonAttributes as `prop:${K}`]?: DsoInfoButton[K] };
+        "dso-input-range": Omit<DsoInputRange, keyof DsoInputRangeAttributes> & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes]?: DsoInputRange[K] } & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes as `attr:${K}`]?: DsoInputRangeAttributes[K] } & { [K in keyof DsoInputRange & keyof DsoInputRangeAttributes as `prop:${K}`]?: DsoInputRange[K] };
+        "dso-label": Omit<DsoLabel, keyof DsoLabelAttributes> & { [K in keyof DsoLabel & keyof DsoLabelAttributes]?: DsoLabel[K] } & { [K in keyof DsoLabel & keyof DsoLabelAttributes as `attr:${K}`]?: DsoLabelAttributes[K] } & { [K in keyof DsoLabel & keyof DsoLabelAttributes as `prop:${K}`]?: DsoLabel[K] };
         "dso-legend": DsoLegend;
-        "dso-legend-group": DsoLegendGroup;
-        "dso-legend-item": DsoLegendItem;
-        "dso-list-button": DsoListButton;
-        "dso-logo": DsoLogo;
-        "dso-map-base-layers": DsoMapBaseLayers;
-        "dso-map-controls": DsoMapControls;
-        "dso-map-layer": DsoMapLayer;
-        "dso-map-layer-object": DsoMapLayerObject;
-        "dso-map-overlays": DsoMapOverlays;
-        "dso-mark-bar": DsoMarkBar;
-        "dso-modal": DsoModal;
-        "dso-onboarding-tip": DsoOnboardingTip;
-        "dso-ozon-content": DsoOzonContent;
-        "dso-ozon-content-toggletip": DsoOzonContentToggletip;
-        "dso-pagination": DsoPagination;
-        "dso-panel": DsoPanel;
-        "dso-plekinfo-card": DsoPlekinfoCard;
-        "dso-progress-indicator": DsoProgressIndicator;
-        "dso-project-item": DsoProjectItem;
-        "dso-renvooi": DsoRenvooi;
+        "dso-legend-group": Omit<DsoLegendGroup, keyof DsoLegendGroupAttributes> & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes]?: DsoLegendGroup[K] } & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes as `attr:${K}`]?: DsoLegendGroupAttributes[K] } & { [K in keyof DsoLegendGroup & keyof DsoLegendGroupAttributes as `prop:${K}`]?: DsoLegendGroup[K] };
+        "dso-legend-item": Omit<DsoLegendItem, keyof DsoLegendItemAttributes> & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes]?: DsoLegendItem[K] } & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes as `attr:${K}`]?: DsoLegendItemAttributes[K] } & { [K in keyof DsoLegendItem & keyof DsoLegendItemAttributes as `prop:${K}`]?: DsoLegendItem[K] };
+        "dso-list-button": Omit<DsoListButton, keyof DsoListButtonAttributes> & { [K in keyof DsoListButton & keyof DsoListButtonAttributes]?: DsoListButton[K] } & { [K in keyof DsoListButton & keyof DsoListButtonAttributes as `attr:${K}`]?: DsoListButtonAttributes[K] } & { [K in keyof DsoListButton & keyof DsoListButtonAttributes as `prop:${K}`]?: DsoListButton[K] };
+        "dso-logo": Omit<DsoLogo, keyof DsoLogoAttributes> & { [K in keyof DsoLogo & keyof DsoLogoAttributes]?: DsoLogo[K] } & { [K in keyof DsoLogo & keyof DsoLogoAttributes as `attr:${K}`]?: DsoLogoAttributes[K] } & { [K in keyof DsoLogo & keyof DsoLogoAttributes as `prop:${K}`]?: DsoLogo[K] };
+        "dso-map-base-layers": Omit<DsoMapBaseLayers, keyof DsoMapBaseLayersAttributes> & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes]?: DsoMapBaseLayers[K] } & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes as `attr:${K}`]?: DsoMapBaseLayersAttributes[K] } & { [K in keyof DsoMapBaseLayers & keyof DsoMapBaseLayersAttributes as `prop:${K}`]?: DsoMapBaseLayers[K] };
+        "dso-map-controls": Omit<DsoMapControls, keyof DsoMapControlsAttributes> & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes]?: DsoMapControls[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `attr:${K}`]?: DsoMapControlsAttributes[K] } & { [K in keyof DsoMapControls & keyof DsoMapControlsAttributes as `prop:${K}`]?: DsoMapControls[K] };
+        "dso-map-layer": Omit<DsoMapLayer, keyof DsoMapLayerAttributes> & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes]?: DsoMapLayer[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `attr:${K}`]?: DsoMapLayerAttributes[K] } & { [K in keyof DsoMapLayer & keyof DsoMapLayerAttributes as `prop:${K}`]?: DsoMapLayer[K] } & OneOf<"label", DsoMapLayer["label"], DsoMapLayerAttributes["label"]>;
+        "dso-map-layer-object": Omit<DsoMapLayerObject, keyof DsoMapLayerObjectAttributes> & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes]?: DsoMapLayerObject[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `attr:${K}`]?: DsoMapLayerObjectAttributes[K] } & { [K in keyof DsoMapLayerObject & keyof DsoMapLayerObjectAttributes as `prop:${K}`]?: DsoMapLayerObject[K] };
+        "dso-map-overlays": Omit<DsoMapOverlays, keyof DsoMapOverlaysAttributes> & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes]?: DsoMapOverlays[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `attr:${K}`]?: DsoMapOverlaysAttributes[K] } & { [K in keyof DsoMapOverlays & keyof DsoMapOverlaysAttributes as `prop:${K}`]?: DsoMapOverlays[K] };
+        "dso-mark-bar": Omit<DsoMarkBar, keyof DsoMarkBarAttributes> & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes]?: DsoMarkBar[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `attr:${K}`]?: DsoMarkBarAttributes[K] } & { [K in keyof DsoMarkBar & keyof DsoMarkBarAttributes as `prop:${K}`]?: DsoMarkBar[K] };
+        "dso-modal": Omit<DsoModal, keyof DsoModalAttributes> & { [K in keyof DsoModal & keyof DsoModalAttributes]?: DsoModal[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `attr:${K}`]?: DsoModalAttributes[K] } & { [K in keyof DsoModal & keyof DsoModalAttributes as `prop:${K}`]?: DsoModal[K] };
+        "dso-onboarding-tip": Omit<DsoOnboardingTip, keyof DsoOnboardingTipAttributes> & { [K in keyof DsoOnboardingTip & keyof DsoOnboardingTipAttributes]?: DsoOnboardingTip[K] } & { [K in keyof DsoOnboardingTip & keyof DsoOnboardingTipAttributes as `attr:${K}`]?: DsoOnboardingTipAttributes[K] } & { [K in keyof DsoOnboardingTip & keyof DsoOnboardingTipAttributes as `prop:${K}`]?: DsoOnboardingTip[K] };
+        "dso-ozon-content": Omit<DsoOzonContent, keyof DsoOzonContentAttributes> & { [K in keyof DsoOzonContent & keyof DsoOzonContentAttributes]?: DsoOzonContent[K] } & { [K in keyof DsoOzonContent & keyof DsoOzonContentAttributes as `attr:${K}`]?: DsoOzonContentAttributes[K] } & { [K in keyof DsoOzonContent & keyof DsoOzonContentAttributes as `prop:${K}`]?: DsoOzonContent[K] };
+        "dso-ozon-content-toggletip": Omit<DsoOzonContentToggletip, keyof DsoOzonContentToggletipAttributes> & { [K in keyof DsoOzonContentToggletip & keyof DsoOzonContentToggletipAttributes]?: DsoOzonContentToggletip[K] } & { [K in keyof DsoOzonContentToggletip & keyof DsoOzonContentToggletipAttributes as `attr:${K}`]?: DsoOzonContentToggletipAttributes[K] } & { [K in keyof DsoOzonContentToggletip & keyof DsoOzonContentToggletipAttributes as `prop:${K}`]?: DsoOzonContentToggletip[K] };
+        "dso-pagination": Omit<DsoPagination, keyof DsoPaginationAttributes> & { [K in keyof DsoPagination & keyof DsoPaginationAttributes]?: DsoPagination[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `attr:${K}`]?: DsoPaginationAttributes[K] } & { [K in keyof DsoPagination & keyof DsoPaginationAttributes as `prop:${K}`]?: DsoPagination[K] };
+        "dso-panel": Omit<DsoPanel, keyof DsoPanelAttributes> & { [K in keyof DsoPanel & keyof DsoPanelAttributes]?: DsoPanel[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `attr:${K}`]?: DsoPanelAttributes[K] } & { [K in keyof DsoPanel & keyof DsoPanelAttributes as `prop:${K}`]?: DsoPanel[K] };
+        "dso-plekinfo-card": Omit<DsoPlekinfoCard, keyof DsoPlekinfoCardAttributes> & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes]?: DsoPlekinfoCard[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `attr:${K}`]?: DsoPlekinfoCardAttributes[K] } & { [K in keyof DsoPlekinfoCard & keyof DsoPlekinfoCardAttributes as `prop:${K}`]?: DsoPlekinfoCard[K] } & OneOf<"href", DsoPlekinfoCard["href"], DsoPlekinfoCardAttributes["href"]>;
+        "dso-progress-indicator": Omit<DsoProgressIndicator, keyof DsoProgressIndicatorAttributes> & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes]?: DsoProgressIndicator[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `attr:${K}`]?: DsoProgressIndicatorAttributes[K] } & { [K in keyof DsoProgressIndicator & keyof DsoProgressIndicatorAttributes as `prop:${K}`]?: DsoProgressIndicator[K] };
+        "dso-project-item": Omit<DsoProjectItem, keyof DsoProjectItemAttributes> & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes]?: DsoProjectItem[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `attr:${K}`]?: DsoProjectItemAttributes[K] } & { [K in keyof DsoProjectItem & keyof DsoProjectItemAttributes as `prop:${K}`]?: DsoProjectItem[K] };
+        "dso-renvooi": Omit<DsoRenvooi, keyof DsoRenvooiAttributes> & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes]?: DsoRenvooi[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `attr:${K}`]?: DsoRenvooiAttributes[K] } & { [K in keyof DsoRenvooi & keyof DsoRenvooiAttributes as `prop:${K}`]?: DsoRenvooi[K] };
         "dso-responsive-element": DsoResponsiveElement;
         "dso-scrollable": DsoScrollable;
-        "dso-selectable": DsoSelectable;
-        "dso-skiplink": DsoSkiplink;
-        "dso-slide-toggle": DsoSlideToggle;
+        "dso-selectable": Omit<DsoSelectable, keyof DsoSelectableAttributes> & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes]?: DsoSelectable[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `attr:${K}`]?: DsoSelectableAttributes[K] } & { [K in keyof DsoSelectable & keyof DsoSelectableAttributes as `prop:${K}`]?: DsoSelectable[K] } & OneOf<"type", DsoSelectable["type"], DsoSelectableAttributes["type"]> & OneOf<"value", DsoSelectable["value"], DsoSelectableAttributes["value"]>;
+        "dso-skiplink": Omit<DsoSkiplink, keyof DsoSkiplinkAttributes> & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes]?: DsoSkiplink[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `attr:${K}`]?: DsoSkiplinkAttributes[K] } & { [K in keyof DsoSkiplink & keyof DsoSkiplinkAttributes as `prop:${K}`]?: DsoSkiplink[K] } & OneOf<"to", DsoSkiplink["to"], DsoSkiplinkAttributes["to"]> & OneOf<"label", DsoSkiplink["label"], DsoSkiplinkAttributes["label"]>;
+        "dso-slide-toggle": Omit<DsoSlideToggle, keyof DsoSlideToggleAttributes> & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes]?: DsoSlideToggle[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `attr:${K}`]?: DsoSlideToggleAttributes[K] } & { [K in keyof DsoSlideToggle & keyof DsoSlideToggleAttributes as `prop:${K}`]?: DsoSlideToggle[K] };
         "dso-survey-rating": DsoSurveyRating;
-        "dso-tab": DsoTab;
-        "dso-table": DsoTable;
+        "dso-tab": Omit<DsoTab, keyof DsoTabAttributes> & { [K in keyof DsoTab & keyof DsoTabAttributes]?: DsoTab[K] } & { [K in keyof DsoTab & keyof DsoTabAttributes as `attr:${K}`]?: DsoTabAttributes[K] } & { [K in keyof DsoTab & keyof DsoTabAttributes as `prop:${K}`]?: DsoTab[K] };
+        "dso-table": Omit<DsoTable, keyof DsoTableAttributes> & { [K in keyof DsoTable & keyof DsoTableAttributes]?: DsoTable[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `attr:${K}`]?: DsoTableAttributes[K] } & { [K in keyof DsoTable & keyof DsoTableAttributes as `prop:${K}`]?: DsoTable[K] };
         "dso-tabs": DsoTabs;
         "dso-tijdreis-banner": DsoTijdreisBanner;
-        "dso-toggletip": DsoToggletip;
-        "dso-tooltip": DsoTooltip;
+        "dso-toggletip": Omit<DsoToggletip, keyof DsoToggletipAttributes> & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes]?: DsoToggletip[K] } & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes as `attr:${K}`]?: DsoToggletipAttributes[K] } & { [K in keyof DsoToggletip & keyof DsoToggletipAttributes as `prop:${K}`]?: DsoToggletip[K] };
+        "dso-tooltip": Omit<DsoTooltip, keyof DsoTooltipAttributes> & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes]?: DsoTooltip[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `attr:${K}`]?: DsoTooltipAttributes[K] } & { [K in keyof DsoTooltip & keyof DsoTooltipAttributes as `prop:${K}`]?: DsoTooltip[K] };
         "dso-tree-view": DsoTreeView;
-        "dso-viewer-grid": DsoViewerGrid;
-        "dsot-document-component-demo": DsotDocumentComponentDemo;
+        "dso-viewer-grid": Omit<DsoViewerGrid, keyof DsoViewerGridAttributes> & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes]?: DsoViewerGrid[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `attr:${K}`]?: DsoViewerGridAttributes[K] } & { [K in keyof DsoViewerGrid & keyof DsoViewerGridAttributes as `prop:${K}`]?: DsoViewerGrid[K] };
+        "dsot-document-component-demo": Omit<DsotDocumentComponentDemo, keyof DsotDocumentComponentDemoAttributes> & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes]?: DsotDocumentComponentDemo[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `attr:${K}`]?: DsotDocumentComponentDemoAttributes[K] } & { [K in keyof DsotDocumentComponentDemo & keyof DsotDocumentComponentDemoAttributes as `prop:${K}`]?: DsotDocumentComponentDemo[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
-            "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
-            "dso-action-list": LocalJSX.DsoActionList & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
-            "dso-action-list-item": LocalJSX.DsoActionListItem & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
-            "dso-advanced-select": LocalJSX.DsoAdvancedSelect & JSXBase.HTMLAttributes<HTMLDsoAdvancedSelectElement>;
-            "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
-            "dso-annotation-activiteit": LocalJSX.DsoAnnotationActiviteit & JSXBase.HTMLAttributes<HTMLDsoAnnotationActiviteitElement>;
-            "dso-annotation-gebiedsaanwijzing": LocalJSX.DsoAnnotationGebiedsaanwijzing & JSXBase.HTMLAttributes<HTMLDsoAnnotationGebiedsaanwijzingElement>;
-            "dso-annotation-kaart": LocalJSX.DsoAnnotationKaart & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
-            "dso-annotation-locatie": LocalJSX.DsoAnnotationLocatie & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
+            "dso-accordion": LocalJSX.IntrinsicElements["dso-accordion"] & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
+            "dso-accordion-section": LocalJSX.IntrinsicElements["dso-accordion-section"] & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
+            "dso-action-list": LocalJSX.IntrinsicElements["dso-action-list"] & JSXBase.HTMLAttributes<HTMLDsoActionListElement>;
+            "dso-action-list-item": LocalJSX.IntrinsicElements["dso-action-list-item"] & JSXBase.HTMLAttributes<HTMLDsoActionListItemElement>;
+            "dso-advanced-select": LocalJSX.IntrinsicElements["dso-advanced-select"] & JSXBase.HTMLAttributes<HTMLDsoAdvancedSelectElement>;
+            "dso-alert": LocalJSX.IntrinsicElements["dso-alert"] & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
+            "dso-annotation-activiteit": LocalJSX.IntrinsicElements["dso-annotation-activiteit"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationActiviteitElement>;
+            "dso-annotation-gebiedsaanwijzing": LocalJSX.IntrinsicElements["dso-annotation-gebiedsaanwijzing"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationGebiedsaanwijzingElement>;
+            "dso-annotation-kaart": LocalJSX.IntrinsicElements["dso-annotation-kaart"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationKaartElement>;
+            "dso-annotation-locatie": LocalJSX.IntrinsicElements["dso-annotation-locatie"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationLocatieElement>;
             /**
              * Dit component wordt voor een Omgevingsnorm en Omgevingswaarde gebruikt.
              */
-            "dso-annotation-omgevingsnormwaarde": LocalJSX.DsoAnnotationOmgevingsnormwaarde & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
-            "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
-            "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
-            "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
-            "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
-            "dso-button-group": LocalJSX.DsoButtonGroup & JSXBase.HTMLAttributes<HTMLDsoButtonGroupElement>;
-            "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
-            "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
-            "dso-contact-information": LocalJSX.DsoContactInformation & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
-            "dso-cursor-tooltip": LocalJSX.DsoCursorTooltip & JSXBase.HTMLAttributes<HTMLDsoCursorTooltipElement>;
-            "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
-            "dso-document-card": LocalJSX.DsoDocumentCard & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
-            "dso-document-component": LocalJSX.DsoDocumentComponent & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
-            "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
-            "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
-            "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
-            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
-            "dso-history-item": LocalJSX.DsoHistoryItem & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
-            "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
-            "dso-icon-button": LocalJSX.DsoIconButton & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
-            "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
-            "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
-            "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
-            "dso-input-range": LocalJSX.DsoInputRange & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
-            "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
-            "dso-legend": LocalJSX.DsoLegend & JSXBase.HTMLAttributes<HTMLDsoLegendElement>;
-            "dso-legend-group": LocalJSX.DsoLegendGroup & JSXBase.HTMLAttributes<HTMLDsoLegendGroupElement>;
-            "dso-legend-item": LocalJSX.DsoLegendItem & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
-            "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
-            "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
-            "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
-            "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
-            "dso-map-layer": LocalJSX.DsoMapLayer & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
-            "dso-map-layer-object": LocalJSX.DsoMapLayerObject & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
-            "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
-            "dso-mark-bar": LocalJSX.DsoMarkBar & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
-            "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
-            "dso-onboarding-tip": LocalJSX.DsoOnboardingTip & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
-            "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
-            "dso-ozon-content-toggletip": LocalJSX.DsoOzonContentToggletip & JSXBase.HTMLAttributes<HTMLDsoOzonContentToggletipElement>;
-            "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
-            "dso-panel": LocalJSX.DsoPanel & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
-            "dso-plekinfo-card": LocalJSX.DsoPlekinfoCard & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
-            "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
-            "dso-project-item": LocalJSX.DsoProjectItem & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
+            "dso-annotation-omgevingsnormwaarde": LocalJSX.IntrinsicElements["dso-annotation-omgevingsnormwaarde"] & JSXBase.HTMLAttributes<HTMLDsoAnnotationOmgevingsnormwaardeElement>;
+            "dso-attachments-counter": LocalJSX.IntrinsicElements["dso-attachments-counter"] & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
+            "dso-autosuggest": LocalJSX.IntrinsicElements["dso-autosuggest"] & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
+            "dso-badge": LocalJSX.IntrinsicElements["dso-badge"] & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-banner": LocalJSX.IntrinsicElements["dso-banner"] & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
+            "dso-button-group": LocalJSX.IntrinsicElements["dso-button-group"] & JSXBase.HTMLAttributes<HTMLDsoButtonGroupElement>;
+            "dso-card": LocalJSX.IntrinsicElements["dso-card"] & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
+            "dso-card-container": LocalJSX.IntrinsicElements["dso-card-container"] & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
+            "dso-contact-information": LocalJSX.IntrinsicElements["dso-contact-information"] & JSXBase.HTMLAttributes<HTMLDsoContactInformationElement>;
+            "dso-cursor-tooltip": LocalJSX.IntrinsicElements["dso-cursor-tooltip"] & JSXBase.HTMLAttributes<HTMLDsoCursorTooltipElement>;
+            "dso-date-picker": LocalJSX.IntrinsicElements["dso-date-picker"] & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
+            "dso-document-card": LocalJSX.IntrinsicElements["dso-document-card"] & JSXBase.HTMLAttributes<HTMLDsoDocumentCardElement>;
+            "dso-document-component": LocalJSX.IntrinsicElements["dso-document-component"] & JSXBase.HTMLAttributes<HTMLDsoDocumentComponentElement>;
+            "dso-dropdown-menu": LocalJSX.IntrinsicElements["dso-dropdown-menu"] & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
+            "dso-expandable": LocalJSX.IntrinsicElements["dso-expandable"] & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            "dso-header": LocalJSX.IntrinsicElements["dso-header"] & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
+            "dso-highlight-box": LocalJSX.IntrinsicElements["dso-highlight-box"] & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
+            "dso-history-item": LocalJSX.IntrinsicElements["dso-history-item"] & JSXBase.HTMLAttributes<HTMLDsoHistoryItemElement>;
+            "dso-icon": LocalJSX.IntrinsicElements["dso-icon"] & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-icon-button": LocalJSX.IntrinsicElements["dso-icon-button"] & JSXBase.HTMLAttributes<HTMLDsoIconButtonElement>;
+            "dso-image-overlay": LocalJSX.IntrinsicElements["dso-image-overlay"] & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
+            "dso-info": LocalJSX.IntrinsicElements["dso-info"] & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
+            "dso-info-button": LocalJSX.IntrinsicElements["dso-info-button"] & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
+            "dso-input-range": LocalJSX.IntrinsicElements["dso-input-range"] & JSXBase.HTMLAttributes<HTMLDsoInputRangeElement>;
+            "dso-label": LocalJSX.IntrinsicElements["dso-label"] & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-legend": LocalJSX.IntrinsicElements["dso-legend"] & JSXBase.HTMLAttributes<HTMLDsoLegendElement>;
+            "dso-legend-group": LocalJSX.IntrinsicElements["dso-legend-group"] & JSXBase.HTMLAttributes<HTMLDsoLegendGroupElement>;
+            "dso-legend-item": LocalJSX.IntrinsicElements["dso-legend-item"] & JSXBase.HTMLAttributes<HTMLDsoLegendItemElement>;
+            "dso-list-button": LocalJSX.IntrinsicElements["dso-list-button"] & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
+            "dso-logo": LocalJSX.IntrinsicElements["dso-logo"] & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
+            "dso-map-base-layers": LocalJSX.IntrinsicElements["dso-map-base-layers"] & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
+            "dso-map-controls": LocalJSX.IntrinsicElements["dso-map-controls"] & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
+            "dso-map-layer": LocalJSX.IntrinsicElements["dso-map-layer"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerElement>;
+            "dso-map-layer-object": LocalJSX.IntrinsicElements["dso-map-layer-object"] & JSXBase.HTMLAttributes<HTMLDsoMapLayerObjectElement>;
+            "dso-map-overlays": LocalJSX.IntrinsicElements["dso-map-overlays"] & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
+            "dso-mark-bar": LocalJSX.IntrinsicElements["dso-mark-bar"] & JSXBase.HTMLAttributes<HTMLDsoMarkBarElement>;
+            "dso-modal": LocalJSX.IntrinsicElements["dso-modal"] & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
+            "dso-onboarding-tip": LocalJSX.IntrinsicElements["dso-onboarding-tip"] & JSXBase.HTMLAttributes<HTMLDsoOnboardingTipElement>;
+            "dso-ozon-content": LocalJSX.IntrinsicElements["dso-ozon-content"] & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
+            "dso-ozon-content-toggletip": LocalJSX.IntrinsicElements["dso-ozon-content-toggletip"] & JSXBase.HTMLAttributes<HTMLDsoOzonContentToggletipElement>;
+            "dso-pagination": LocalJSX.IntrinsicElements["dso-pagination"] & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
+            "dso-panel": LocalJSX.IntrinsicElements["dso-panel"] & JSXBase.HTMLAttributes<HTMLDsoPanelElement>;
+            "dso-plekinfo-card": LocalJSX.IntrinsicElements["dso-plekinfo-card"] & JSXBase.HTMLAttributes<HTMLDsoPlekinfoCardElement>;
+            "dso-progress-indicator": LocalJSX.IntrinsicElements["dso-progress-indicator"] & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            "dso-project-item": LocalJSX.IntrinsicElements["dso-project-item"] & JSXBase.HTMLAttributes<HTMLDsoProjectItemElement>;
             /**
              * Met dit component kan een `RenvooiValue` worden gepresenteerd.
              */
-            "dso-renvooi": LocalJSX.DsoRenvooi & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
-            "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
-            "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
-            "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
-            "dso-skiplink": LocalJSX.DsoSkiplink & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
-            "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
-            "dso-survey-rating": LocalJSX.DsoSurveyRating & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;
-            "dso-tab": LocalJSX.DsoTab & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
-            "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
-            "dso-tabs": LocalJSX.DsoTabs & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
-            "dso-tijdreis-banner": LocalJSX.DsoTijdreisBanner & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
-            "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
-            "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
-            "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
-            "dso-viewer-grid": LocalJSX.DsoViewerGrid & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
-            "dsot-document-component-demo": LocalJSX.DsotDocumentComponentDemo & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
+            "dso-renvooi": LocalJSX.IntrinsicElements["dso-renvooi"] & JSXBase.HTMLAttributes<HTMLDsoRenvooiElement>;
+            "dso-responsive-element": LocalJSX.IntrinsicElements["dso-responsive-element"] & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
+            "dso-scrollable": LocalJSX.IntrinsicElements["dso-scrollable"] & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
+            "dso-selectable": LocalJSX.IntrinsicElements["dso-selectable"] & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-skiplink": LocalJSX.IntrinsicElements["dso-skiplink"] & JSXBase.HTMLAttributes<HTMLDsoSkiplinkElement>;
+            "dso-slide-toggle": LocalJSX.IntrinsicElements["dso-slide-toggle"] & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
+            "dso-survey-rating": LocalJSX.IntrinsicElements["dso-survey-rating"] & JSXBase.HTMLAttributes<HTMLDsoSurveyRatingElement>;
+            "dso-tab": LocalJSX.IntrinsicElements["dso-tab"] & JSXBase.HTMLAttributes<HTMLDsoTabElement>;
+            "dso-table": LocalJSX.IntrinsicElements["dso-table"] & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
+            "dso-tabs": LocalJSX.IntrinsicElements["dso-tabs"] & JSXBase.HTMLAttributes<HTMLDsoTabsElement>;
+            "dso-tijdreis-banner": LocalJSX.IntrinsicElements["dso-tijdreis-banner"] & JSXBase.HTMLAttributes<HTMLDsoTijdreisBannerElement>;
+            "dso-toggletip": LocalJSX.IntrinsicElements["dso-toggletip"] & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
+            "dso-tooltip": LocalJSX.IntrinsicElements["dso-tooltip"] & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
+            "dso-tree-view": LocalJSX.IntrinsicElements["dso-tree-view"] & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
+            "dso-viewer-grid": LocalJSX.IntrinsicElements["dso-viewer-grid"] & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
+            "dsot-document-component-demo": LocalJSX.IntrinsicElements["dsot-document-component-demo"] & JSXBase.HTMLAttributes<HTMLDsotDocumentComponentDemoElement>;
         }
     }
 }

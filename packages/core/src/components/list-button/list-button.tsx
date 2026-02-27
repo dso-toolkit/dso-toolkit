@@ -163,14 +163,16 @@ export class ListButton implements ComponentInterface {
           onClick={(e) => this.handleSelectClick(e)}
         >
           <dso-selectable type="checkbox" value="list-button" name="naam" checked={selected} disabled={this.disabled}>
-            {this.label}
-            {this.sublabel && <span class="sr-only"> {this.sublabel}</span>}
-            {this.subcontentSlot && (
-              <span class="sr-only">
-                {this.subcontentPrefix && this.subcontentPrefix + ":"}{" "}
-                <span innerHTML={this.subcontentSlot.innerHTML}></span>
-              </span>
-            )}
+            <span>
+              {this.label}
+              {this.sublabel && <span class="sr-only"> {this.sublabel}</span>}
+              {this.subcontentSlot && (
+                <span class="sr-only">
+                  {this.subcontentPrefix && this.subcontentPrefix + ":"}{" "}
+                  <span innerHTML={this.subcontentSlot.innerHTML}></span>
+                </span>
+              )}
+            </span>
           </dso-selectable>
           {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
           {this.subcontentSlot && (

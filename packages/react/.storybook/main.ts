@@ -50,13 +50,7 @@ const config: StorybookConfig = {
     // Merge custom configuration into the default config
     const { mergeConfig } = await import("vite");
 
-    return mergeConfig(config, {
-      esbuild: {
-        // Preserve function/class names for Storybook source code display
-        // Without this, React.ForwardRef shows instead of actual component names
-        keepNames: true,
-      },
-    });
+    return mergeConfig(config, {});
   },
   core: {
     builder: "@storybook/builder-vite",

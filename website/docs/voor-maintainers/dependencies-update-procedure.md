@@ -6,22 +6,13 @@ Dependency updates doen we bij voorkeur aan het begin van een sprint zodat we de
 
 Inventariseer voor welke packages er patches zijn gemaakt in `/.yarn/patches`. Voor een update van een package met 'n patch betekent onderzoek naar de gevolgen.
 
-Vanaf release 🪼 69.2.1 kennen we (weer) 2 patches:
-
-### `@stencil-angular-output-target-npm-0.10.2.patch`
-
-In deze patch fixen wij een bug (omissie) in `@stencil/angular-output-target`, waarbij de events die web-componenten
-kunnen emitten niet herkend worden door een IDE. Deze fix zorgt ervoor dat de door
-`@stencil/angular-output-target` gegenereerde code de juiste typings bevat, zodat er wel
-intellisense/code-completion is in de IDE.
-
 ## TypeScript-versiebeleid
 
 Bij het updaten van TypeScript houden we rekening met de versies die ondersteund worden door Stencil, Storybook en Angular:
 
-- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.39.0). Echter draait versie v4.39.0 ook goed met typescript 5.9.3.
+- Stencil ondersteunt momenteel TypeScript tot en met versie 5.8.3 (Stencil v4.43.0). Echter draait versie v4.43.0 ook goed met typescript 5.9.3.
 - Storybook (v10) draait officieel op TypeScript 4.9, maar is compatibel met hogere versies.
-- Angular (v20.3.12) ondersteunt TypeScript \>=5.8.0 \<6.0.0
+- Angular (v21.1.4) ondersteunt TypeScript \>=5.8.0 \<6.0.0
 
 Stencil loopt traditioneel achter op de laatste TypeScript-releases. Houd bij toekomstige updates daarom altijd rekening met de maximale ondersteunde TypeScript-versie van Stencil. Voer een check uit op:
 
@@ -68,6 +59,14 @@ In `.github/workflows/danger.yml` de packages TypeScript en Danger meenemen.
 ## Node / Cypress
 
 Let op de Docker base image in de Dockerfile.
+
+**Compatibiliteit Azure CLI**
+
+Azure CLI ondersteunt momenteel alleen Debian 11 (Bullseye) en Debian 12 (Bookworm). Debian 13 (Trixie) wordt nog niet ondersteund (We gebruiken Bookworm in plaats van Trixie).
+
+**Notitie:**
+
+Bij elke nieuwe major versie van Node moet ook de README.md worden aangepast zodat de juiste Node-versie wordt gecommuniceerd naar gebruikers en ontwikkelaars.
 
 ## Azcopy
 

@@ -8,7 +8,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["../src/test.ts", "../src/**/*.spec.ts", "../projects/**/*.spec.ts"],
+  "exclude": [
+    "../src/test.ts",
+    "../src/**/*.spec.ts",
+    "../projects/**/*.spec.ts",
+    "../projects/component-library/src/lib/stencil-generated/**/*"
+  ],
   "include": ["../components/**/*", "../projects/**/*", "./preview.ts"],
   "files": ["./typings.d.ts"]
 }
