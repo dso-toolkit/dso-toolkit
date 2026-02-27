@@ -50,7 +50,6 @@ graph TD;
   dso-legend-item --> dso-info-button
   dso-icon-button --> dso-icon
   dso-info-button --> dso-icon-button
-  dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   style dso-legend-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

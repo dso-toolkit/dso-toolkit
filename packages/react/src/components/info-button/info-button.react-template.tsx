@@ -8,12 +8,11 @@ export const reactInfoButton: ComponentImplementation<InfoButton<JSX.Element>> =
   component: "infoButton",
   implementation: "react",
   template: () =>
-    function infoButtonTemplate({ label, active, toggletipPlacement, secondary, dsoToggle, children }) {
+    function infoButtonTemplate({ label, active, toggletipPlacement, dsoToggle, children }) {
       return (
         <DsoInfoButton
           label={label}
           active={active}
-          secondary={secondary}
           toggletipPlacement={toggletipPlacement}
           onDsoToggle={(e: CustomEvent) => dsoToggle?.(e.detail)}
         >

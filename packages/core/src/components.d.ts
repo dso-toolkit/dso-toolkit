@@ -804,10 +804,6 @@ export namespace Components {
          */
         "label": string;
         /**
-          * For secondary Info Button.
-         */
-        "secondary"?: boolean;
-        /**
           * To set focus to the toggle button.
          */
         "setFocus": () => Promise<void>;
@@ -1326,10 +1322,6 @@ export namespace Components {
           * @default "right"
          */
         "position": Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
         /**
           * Set to true for small Toggletip.
          */
@@ -3584,10 +3576,6 @@ declare namespace LocalJSX {
          */
         "onDsoToggle"?: (event: DsoInfoButtonCustomEvent<InfoButtonToggleEvent>) => void;
         /**
-          * For secondary Info Button.
-         */
-        "secondary"?: boolean;
-        /**
           * The placement of the Toggletip on click.
           * @default "top"
          */
@@ -4249,10 +4237,6 @@ declare namespace LocalJSX {
           * @default "right"
          */
         "position"?: Placement;
-        /**
-          * Set to true for secondary Toggletip.
-         */
-        "secondary"?: boolean;
         /**
           * Set to true for small Toggletip.
          */

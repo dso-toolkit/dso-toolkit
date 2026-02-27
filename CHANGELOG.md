@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 
+### Removed
+* **BREAKING** Info Button: `secondary` verwijderen ([#3350](https://github.com/dso-toolkit/dso-toolkit/issues/3350))
+
 ## 🧑‍🔧 Release 88.1.0 - 2026-02-23
 
 ### Added
