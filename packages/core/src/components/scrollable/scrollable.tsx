@@ -94,7 +94,10 @@ export class Scrollable {
 
     const { scrollHeight, clientHeight, scrollTop } = this.scrollContainerDiv;
 
-    if (scrollHeight <= clientHeight) {
+    // At certain browser zoom levels (e.g. 25-50%), scrollHeight and clientHeight are
+    // rounded independently, causing a false overflow of up to ~8px. Returning "noScroll"
+    // keeps overflow-y: hidden (via CSS) which prevents the scrollbar from appearing.
+    if (scrollHeight - clientHeight < 8) {
       return "noScroll";
     }
 
