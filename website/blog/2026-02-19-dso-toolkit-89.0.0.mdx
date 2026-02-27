@@ -1,0 +1,141 @@
+---
+authors: [wouterheldens]
+---
+
+# DSO Toolkit v89.0.0 🌹
+
+Deze release bevat een **BREAKING** change voor het volgende component:
+
+- Legend
+- Legend-item
+
+<!-- truncate -->
+
+## Legend
+
+`Legend Item` is opgegaan in `Legend` en kan alleen nog worden gebruikt binnen een `dso-legend-group`. Elke `dso-legend-group` beheert de groepskop en de edit/view-modus van zijn onderliggende `dso-legend-item` elementen.
+
+### Wat is er veranderd?
+
+**Voorheen** werden groepskoppen als `dso-legend-item` met een `<h3 slot="label">` gerenderd. Er was geen concept van groepering, edit/view-modus of verwijderfunctionaliteit.
+
+**Nu** worden `dso-legend-item` elementen geplaatst in een `dso-legend-group`. De groepskop wordt via het `heading`-slot van `dso-legend-group` meegegeven. `dso-legend-group` beheert de `mode` ("edit" | "view") van zijn onderliggende items.
+
+### Nieuw: `dso-legend-group`
+
+| Property / Slot            | Beschrijving                                                                                                                                                                  |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mode`                     | `"edit"` \| `"view"` — Schakelt de modus van de groep en cascadeert naar onderliggende `dso-legend-item` elementen. Wanneer niet gezet wordt er geen edit/view icoon getoond. |
+| `dsoLegendGroupModeChange` | Event dat wordt geëmit wanneer de gebruiker de modus wijzigt. Bevat `{ next: LegendMode, originalEvent: MouseEvent }`.                                                        |
+| `heading` slot             | De groepskop. Verwacht een `<h3 slot="heading">...</h3>`.                                                                                                                     |
+| `options` slot             | Controls die alleen in edit-modus zichtbaar zijn (bijv. `dso-input-range` voor transparantie). Gebruik `<div slot="options">...</div>`.                                       |
+
+### Nieuw op `dso-legend-item`
+
+| Property / Event | Beschrijving                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| `dsoDelete`      | Event dat wordt geëmit wanneer de gebruiker op de verwijderknop klikt (zichtbaar in edit-modus). |
+
+De `mode` van een `dso-legend-item` wordt intern beheerd door de bovenliggende `dso-legend-group` en hoeft niet handmatig gezet te worden.
+
+### Migratiepad
+
+#### Groepskoppen: `dso-legend-item` met `<h3>` → `dso-legend-group`
+
+Groepskoppen die voorheen als `dso-legend-item` met een `<h3 slot="label">` werden gerenderd, worden nu als `dso-legend-group` met een `<h3 slot="heading">` weergegeven. De bijbehorende items worden als children in de groep geplaatst.
+
+```html
+❌
+<dso-legend>
+  <dso-legend-item>
+    <h3 slot="label">Geselecteerde kenmerken</h3>
+  </dso-legend-item>
+  <dso-legend-item>
+    <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+    <span slot="label">Bomen kappen</span>
+  </dso-legend-item>
+  <dso-legend-item>
+    <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+    <span slot="label">Acculader in werking</span>
+  </dso-legend-item>
+</dso-legend>
+
+✅
+<dso-legend>
+  <dso-legend-group>
+    <h3 slot="heading">Geselecteerde kenmerken</h3>
+    <dso-legend-item>
+      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+      <span slot="label">Bomen kappen</span>
+    </dso-legend-item>
+    <dso-legend-item>
+      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+      <span slot="label">Acculader in werking</span>
+    </dso-legend-item>
+  </dso-legend-group>
+</dso-legend>
+```
+
+#### `dso-rich-content` wrapper verwijderen
+
+De `<div class="dso-rich-content">` wrapper binnen `dso-legend` is niet meer nodig en mag niet meer gebruikt worden. De content wordt direct in `dso-legend` geplaatst.
+
+```html
+❌
+<dso-legend>
+  <div class="dso-rich-content">
+    <dso-legend-group>
+      <h3 slot="heading">Geselecteerde kenmerken</h3>
+      ...
+    </dso-legend-group>
+  </div>
+</dso-legend>
+
+✅
+<dso-legend>
+  <dso-legend-group>
+    <h3 slot="heading">Geselecteerde kenmerken</h3>
+    ...
+  </dso-legend-group>
+</dso-legend>
+```
+
+#### Edit/view-modus gebruiken
+
+Om de edit/view-modus te activeren, zet `mode` op de `dso-legend-group`. De groep cascadeert deze modus automatisch naar alle onderliggende `dso-legend-item` elementen. Luister naar `dsoLegendGroupModeChange` om de modus te wijzigen. Wanneer `mode` **niet** wordt meegegeven, wordt er geen edit/view icoon getoond in de groepskop.
+
+In edit-modus toont elk `dso-legend-item` een verwijderknop. Luister naar het `dsoDelete` event om hierop te reageren.
+
+##### View-modus (`mode="view"`)
+
+```html
+<dso-legend>
+  <dso-legend-group mode="view">
+    <h3 slot="heading">Geselecteerde kenmerken</h3>
+    <dso-legend-item>
+      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+      <span slot="label">Bomen kappen</span>
+    </dso-legend-item>
+  </dso-legend-group>
+</dso-legend>
+```
+
+##### Edit-modus (`mode="edit"`)
+
+Wanneer de gebruiker naar edit-modus schakelt via het potloodicoon, emit `dso-legend-group` het `dsoLegendGroupModeChange` event. Na het updaten van `mode` naar `"edit"` toont elk item een verwijderknop die bij klik het `dsoDelete` event emit. Daarnaast wordt de inhoud van het `options`-slot zichtbaar (bijv. een transparantieregelaar):
+
+```html
+<dso-legend>
+  <dso-legend-group mode="edit">
+    <h3 slot="heading">Geselecteerde kenmerken</h3>
+    <div slot="options">
+      <label>Zichtbaarheid</label>
+      <dso-input-range label="Transparantie" unit="%"></dso-input-range>
+    </div>
+    <dso-legend-item>
+      <span slot="symbol"><span class="symboolcode" data-symboolcode="regelingsgebied"></span></span>
+      <span slot="label">Bomen kappen</span>
+    </dso-legend-item>
+  </dso-legend-group>
+</dso-legend>
+```

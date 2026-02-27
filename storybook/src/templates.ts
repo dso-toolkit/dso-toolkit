@@ -63,7 +63,6 @@ import {
   Label,
   LabelGroup,
   Legend,
-  LegendItem,
   Link,
   LinkList,
   List,
@@ -177,7 +176,6 @@ import { coreLabel } from "./components/label/label.core-template";
 import { cssLabel } from "./components/label/label.css-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
 import { coreLegend } from "./components/legend/legend.core-template";
-import { coreLegendItem } from "./components/legend-item/legend-item.core-template";
 import { cssLink } from "./components/link/link.css-template";
 import { cssLinkList } from "./components/link-list/link-list.css-template";
 import { cssList } from "./components/list/list.css-template";
@@ -282,7 +280,6 @@ export interface Components {
   label: Label;
   labelGroup: LabelGroup;
   legend: Legend<TemplateResult>;
-  legendItem: LegendItem<TemplateResult>;
   link: Link;
   linkList: LinkList;
   list: List;
@@ -381,7 +378,6 @@ templateContainer.add(coreInfoButton);
 templateContainer.add(coreInputRange);
 templateContainer.add(coreLabel);
 templateContainer.add(coreLegend);
-templateContainer.add(coreLegendItem);
 templateContainer.add(coreListButton);
 templateContainer.add(coreLogo);
 templateContainer.add(coreMapControls);
