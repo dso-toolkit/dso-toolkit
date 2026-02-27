@@ -10,7 +10,7 @@ $content-selector: ".dso-description-content";
   + #{$content-selector} {
     > a {
       &::before {
-        @include di.base("times-zwart");
+        @include di.base("cross-zwart");
 
         content: "";
         display: block;

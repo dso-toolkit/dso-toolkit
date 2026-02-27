@@ -21,7 +21,7 @@ export const cssLabel: ComponentImplementation<Label> = {
             ? html`
                 <button type="button" @click=${ifDefined(dsoRemoveClick)}>
                   <span class="sr-only">Verwijder</span>
-                  ${iconTemplate({ icon: "times" })}
+                  ${iconTemplate({ icon: "cross" })}
                 </button>
               `
             : nothing} </span

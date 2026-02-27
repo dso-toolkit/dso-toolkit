@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property | Attribute | Description            | Type                  | Default     |
-| -------- | --------- | ---------------------- | --------------------- | ----------- |
-| `icon`   | `icon`    | The alias of the icon. | `string \| undefined` | `undefined` |
+| Property | Attribute | Description            | Type                     | Default     |
+| -------- | --------- | ---------------------- | ------------------------ | ----------- |
+| `icon`   | `icon`    | The alias of the icon. | `IconAlias \| undefined` | `undefined` |
 
 
 ## Dependencies

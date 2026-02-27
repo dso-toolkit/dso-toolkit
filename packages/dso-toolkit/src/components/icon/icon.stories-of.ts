@@ -58,7 +58,7 @@ export function iconStories<Implementation, Templates, TemplateFnReturnType>({
     Default: {
       argTypes: iconArgTypes(icons),
       args: {
-        icon: "user",
+        icon: "user-solid",
       },
       render: templateContainer.render(storyTemplates, (args, { iconTemplate }) => iconTemplate(iconArgsMapper(args))),
     },

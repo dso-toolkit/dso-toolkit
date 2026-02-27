@@ -10,7 +10,7 @@
 | Property             | Attribute           | Description                                                         | Type                                              | Default       |
 | -------------------- | ------------------- | ------------------------------------------------------------------- | ------------------------------------------------- | ------------- |
 | `disabled`           | `disabled`          | To disable the Icon Button                                          | `boolean`                                         | `false`       |
-| `icon` _(required)_  | `icon`              | The alias of the icon in the button.                                | `string \| undefined`                             | `undefined`   |
+| `icon` _(required)_  | `icon`              | The alias of the icon in the button.                                | `IconAlias \| undefined`                          | `undefined`   |
 | `label` _(required)_ | `label`             | The label of the Icon Button which is shown on hover in a tooltip.  | `string \| undefined`                             | `undefined`   |
 | `tooltipPlacement`   | `tooltip-placement` | The placement of the tooltip on hover and focus of the Icon Button. | `"bottom" \| "left" \| "right" \| "top"`          | `"top"`       |
 | `variant`            | `variant`           | The variant of the Icon Button.                                     | `"map" \| "secondary" \| "tertiary" \| undefined` | `"secondary"` |

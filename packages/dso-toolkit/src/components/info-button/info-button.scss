@@ -6,21 +6,21 @@
 .dso-info-button {
   @include button.base($modifiers: false);
   @include info-button.root();
-  @include di.base("info", info-button.$size);
+  @include di.base("info-outline", info-button.$size);
 
   &.dso-open,
   &:hover,
   &:active {
-    @include di.variant("info-active");
+    @include di.variant("info-solid");
   }
 
   &.dso-info-secondary {
-    @include di.variant("info-secondary");
+    @include di.variant("info-outline-secondary");
 
     &.dso-open,
     &:hover,
     &:active {
-      @include di.variant("info-active-secondary");
+      @include di.variant("info-solid-secondary");
     }
   }
 }

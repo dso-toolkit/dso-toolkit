@@ -14,7 +14,7 @@ describe("Button Group", () => {
         cy.visit(
           `http://localhost:45000/iframe.html?id=core-button-group--default&args=buttonElement:${buttonElement}`,
         );
-        cy.get("dso-button-group.hydrated").invoke("prop", direction).matchImageSnapshot();
+        cy.get("dso-button-group.hydrated").invoke("prop", "direction", direction).matchImageSnapshot();
       });
     }
   }

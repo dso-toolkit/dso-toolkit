@@ -75,7 +75,7 @@ export function formButtonsStories<Implementation, Templates, TemplateFnReturnTy
           },
           {
             icon: {
-              icon: "angle-right",
+              icon: "chevron-right",
             },
             iconMode: "after",
             variant: "primary",
@@ -85,7 +85,7 @@ export function formButtonsStories<Implementation, Templates, TemplateFnReturnTy
         asideButtons: [
           {
             icon: {
-              icon: "angle-left",
+              icon: "chevron-left",
             },
             variant: "tertiary",
             label: "Vorige stap",

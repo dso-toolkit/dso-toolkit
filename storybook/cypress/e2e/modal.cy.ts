@@ -19,13 +19,13 @@ describe("Modal", () => {
       .and("have.attr", "aria-labelledby")
       .get("@dsoModal")
       .find(".dso-dialog")
-      .should("have.attr", "role", "document")
+      .should("have.css", "opacity", "1")
+      .and("have.attr", "role", "document")
       .find("#close-modal")
       .shadow()
       .find("button[aria-label='Sluiten']");
 
-    // The wait equals the modal animation-duration of 200ms
-    cy.wait(200).matchImageSnapshot();
+    cy.matchImageSnapshot();
   });
 
   it("should pass role to dialog", () => {

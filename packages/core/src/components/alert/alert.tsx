@@ -58,7 +58,9 @@ export class Alert {
         class={clsx("alert", `alert-${this.status}`, { "dso-compact": this.compact })}
         role={this.roleAlert ? "alert" : undefined}
       >
-        {!this.compact && <dso-icon class="icon-status" icon={"status-" + this.status} />}
+        {!this.compact && (
+          <dso-icon class="icon-status" icon={`status-${this.status === "info" ? "info-solid" : this.status}`} />
+        )}
         <span class="sr-only">{status}:</span>
         <slot></slot>
 
@@ -66,7 +68,7 @@ export class Alert {
           <dso-icon-button
             label={this.text("close")}
             variant="tertiary"
-            icon="times"
+            icon="cross"
             onDsoClick={(e) => this.dsoClose.emit({ originalEvent: e })}
           />
         )}

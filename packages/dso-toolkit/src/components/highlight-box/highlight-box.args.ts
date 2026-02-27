@@ -1,5 +1,7 @@
 import { ArgTypes } from "storybook/internal/types";
 
+import { IconAlias } from "../icon";
+
 import { HighlightBox } from "./highlight-box.models.js";
 
 export interface HighlightBoxArgs {
@@ -10,7 +12,7 @@ export interface HighlightBoxArgs {
   dropShadow: boolean;
   border: boolean;
   step?: number;
-  icon?: string;
+  icon?: IconAlias;
   bannerImage?: boolean;
 }
 
@@ -52,7 +54,7 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
     },
   },
   icon: {
-    options: [undefined, "plus", "table"],
+    options: [undefined, "plus", "table-outline"],
     control: {
       type: "select",
     },

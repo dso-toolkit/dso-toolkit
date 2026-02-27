@@ -12,7 +12,7 @@ export const decorator: IconOverviewDecorator<React.JSX.Element> = (story, icons
           }
 
           return (
-            <li>
+            <li key={icon}>
               {s}
               <br />
               <code>{icon}</code>

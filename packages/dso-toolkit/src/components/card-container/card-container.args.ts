@@ -42,7 +42,7 @@ export const cardContainerArgs: Omit<CardContainerArgs, "mode"> = {
           variant: "tertiary",
           label: "Toon informatie",
           icon: {
-            icon: "info",
+            icon: "info-solid",
           },
         },
       ],

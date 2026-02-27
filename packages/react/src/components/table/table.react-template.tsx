@@ -38,7 +38,7 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
                         className={clsx("dso-tertiary dso-sort", { "dso-sort-active": !!col.sorting })}
                       >
                         <span>{col.label}</span>
-                        <DsoIcon icon={col.sorting ? "sort-" + col.sorting : "sort"}></DsoIcon>
+                        <DsoIcon icon={col.sorting === "ascending" ? "sort-ascending" : "sort-descending"}></DsoIcon>
                       </button>
                     </th>
                   ) : (

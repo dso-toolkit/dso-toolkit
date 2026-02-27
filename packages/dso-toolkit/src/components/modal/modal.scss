@@ -22,7 +22,7 @@ body:has(dso-modal.hydrated) {
 
   .dso-close {
     &::before {
-      @include di.base("times", icon.$size, middle);
+      @include di.base("cross", icon.$size, middle);
 
       content: "";
       display: inline-block;

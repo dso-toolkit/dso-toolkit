@@ -3,6 +3,7 @@ import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction, noControl } from "../../storybook";
+import { IconAlias } from "../icon";
 import { LabelStatus } from "../label";
 import { RenvooiValue } from "../renvooi";
 
@@ -24,7 +25,7 @@ export interface AccordionArgs {
   statusDescription: string;
   status: AccordionSectionStatus;
   attachmentCount: number;
-  icon: string;
+  icon: IconAlias;
   heading: AccordionHeading;
   handleUrl: string;
   handleTitle: RenvooiValue;
@@ -94,7 +95,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   icon: {
-    options: [undefined, "", "plus", "table"],
+    options: [undefined, "", "plus", "table-outline"],
     control: {
       type: "select",
     },

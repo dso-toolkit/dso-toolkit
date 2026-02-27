@@ -91,12 +91,12 @@ label {
     @include _shared(
       (
         "default": "download",
-        "hover": "download-wit",
+        "hover": "download-bosgroen",
         "disabled": "download-grasgroen-40",
       ),
       (
         "default": "external-link",
-        "hover": "external-link-wit",
+        "hover": "external-link-bosgroen",
         "disabled": "external-link-grasgroen-40",
       )
     );

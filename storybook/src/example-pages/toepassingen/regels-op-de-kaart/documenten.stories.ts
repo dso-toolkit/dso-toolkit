@@ -131,7 +131,7 @@ const Documenten = examplePageStories((templates) => {
                     ${plekinfoCardsListActiviteiten.map((plekinfoCard) => {
                       return html`${plekinfoCardTemplate({
                           ...plekinfoCard,
-                          symbool: iconTemplate({ icon: "house" }),
+                          symbool: iconTemplate({ icon: "home" }),
                         })}
                         <hr />`;
                     })}
@@ -147,7 +147,7 @@ const Documenten = examplePageStories((templates) => {
                     ${plekinfoCardsListLocaties.map((plekinfoCard) =>
                       plekinfoCardTemplate({
                         ...plekinfoCard,
-                        symbool: iconTemplate({ icon: "house" }),
+                        symbool: iconTemplate({ icon: "home" }),
                       }),
                     )}
                   `,

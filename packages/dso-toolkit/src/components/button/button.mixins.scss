@@ -81,7 +81,7 @@
 }
 
 @mixin _spinner-icon($color, $valign, $position) {
-  background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner %7B animation: rotator 8s linear infinite; transform-origin: center; %7D @keyframes rotator %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D .path %7B stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: %23#{string.slice(#{$color}, 2)}; animation: dash 2s ease-in-out infinite; %7D @keyframes dash %7B 0%25 %7B stroke-dashoffset: 265; %7D 50%25 %7B stroke-dashoffset: 65; transform:rotate(90deg); %7D 100%25 %7B stroke-dashoffset: 265; transform:rotate(360deg); %7D %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='10' stroke-linecap='butt' cx='50' cy='50' r='45'%3E%3C/circle%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner %7B animation: rotator 8s linear infinite; transform-origin: center; %7D @keyframes rotator %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D .path %7B stroke-dasharray: 42.4; stroke-dashoffset: 0; transform-origin: center; stroke: %23#{string.slice(#{$color}, 2)}; animation: dash 2s ease-in-out infinite; %7D @keyframes dash %7B 0%25 %7B stroke-dashoffset: 42.4; %7D 50%25 %7B stroke-dashoffset: 10.4; transform:rotate(90deg); %7D 100%25 %7B stroke-dashoffset: 42.4; transform:rotate(360deg); %7D %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='1.6' stroke-linecap='butt' cx='12' cy='12' r='7.2'%3E%3C/circle%3E%3C/svg%3E");
   background-repeat: no-repeat;
   content: "";
   display: inline-block;
@@ -186,7 +186,6 @@
       &::after {
         content: "";
         display: inline-block;
-        margin-inline-start: units.$u1;
       }
     }
   }

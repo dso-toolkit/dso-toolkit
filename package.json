@@ -20,6 +20,7 @@
     "build-www": "nx run-many --target=build-www",
     "e2e": "yarn workspace dso-storybook e2e",
     "release": "yarn tsx scripts/release",
+    "icons": "yarn tsx scripts/icons",
     "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
     "start": "tsx scripts/start.ts"
@@ -56,6 +57,7 @@
     "stylelint": "^16.26.1",
     "stylelint-config-recommended-scss": "^16.0.2",
     "stylelint-use-logical-spec": "^5.0.1",
+    "svgo": "^4.0.0",
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "wait-on": "^9.0.3"

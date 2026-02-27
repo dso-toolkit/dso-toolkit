@@ -3,12 +3,13 @@ import { ArgTypes } from "storybook/internal/types";
 import { fn } from "storybook/test";
 
 import { argTypeAction } from "../../storybook";
+import { IconAlias } from "../icon";
 
 import { IconButtonTooltipPlacement, IconButtonVariant } from "./icon-button.models";
 
 export interface IconButtonArgs {
   variant: IconButtonVariant;
-  icon: string;
+  icon: IconAlias;
   label: string;
   tooltipPlacement?: IconButtonTooltipPlacement;
   dsoClick?: HandlerFunction;

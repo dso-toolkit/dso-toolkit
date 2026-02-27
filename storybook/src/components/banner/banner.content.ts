@@ -8,7 +8,7 @@ function closeButton({ buttonTemplate }: Templates) {
     type: "button",
     variant: "tertiary",
     onClick: () => null,
-    icon: { icon: "times" },
+    icon: { icon: "cross" },
     iconMode: "only",
   });
 }
