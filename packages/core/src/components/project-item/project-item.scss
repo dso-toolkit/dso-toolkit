@@ -19,7 +19,7 @@
   --_dt-dl-before-display: none;
   --_dt-dl-dt-font-weight: normal;
   --_dt-dl-dd-margin-block-start: 0;
-  --_dt-dl-dd-margin-inline-start: units.$u1;
+  --_dt-dl-dd-margin-inline-start: #{units.$u1};
   --_dt-dl-dd-padding-inline-start: 0;
   --_dt-dl-dt-inline-size: auto;
   --_dt-dl-dd-last-margin-block-end: 0;
@@ -31,7 +31,7 @@
 
   display: flex !important;
   flex-wrap: wrap;
-  column-gap: units.$u2;
+  column-gap: #{units.$u2};
 }
 
 ::slotted([slot="status"]) {
