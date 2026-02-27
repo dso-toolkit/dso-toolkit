@@ -18,7 +18,7 @@ describe("Label", () => {
   }
 
   // Onderstaande test fixen via #3522
-  it.skip("must truncate label", () => {
+  it("must truncate label", () => {
     cy.get("@dsoLabel").matchImageSnapshot(`${Cypress.currentTest.title} -- before truncation`);
 
     cy.get("@dsoLabel")
@@ -131,7 +131,7 @@ describe("Label", () => {
     });
 
     it(`matches snapshots for status "${status}"`, () => {
-      cy.get("@dsoLabel").invoke("prop", "status", status);
+      cy.get("@dsoLabel").invoke("attr", "status", status);
 
       cy.get("@dsoLabel").matchImageSnapshot();
     });
