@@ -6,7 +6,7 @@ import { MetaOptions } from "../../storybook/meta-options.interface";
 import { StoriesParameters, StoryObj } from "../../template-container";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args.js";
-import { fetchSuggestionGroups, fetchSuggestions, mark } from "./autosuggest.demo.js";
+import { fetchSuggestionGroups, fetchSuggestions, invalidInput, mark } from "./autosuggest.demo.js";
 import { AutosuggestMarkItem, AutosuggestSuggestion, AutosuggestSuggestionGroup } from "./autosuggest.models.js";
 
 type AutosuggestStory = StoryObj<AutosuggestArgs, Renderer>;
@@ -15,6 +15,7 @@ interface AutosuggestStories {
   Example: AutosuggestStory;
   Minimal3Characters: AutosuggestStory;
   InSearchbar: AutosuggestStory;
+  InSearchbarInvalid: AutosuggestStory;
   WithProvidedMarkFunction: AutosuggestStory;
   SuggestionGroups: AutosuggestStory;
 }
@@ -35,6 +36,7 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingLabel: string,
   loadingDelayed: number,
   notFoundLabel: string,
+  invalid?: boolean,
   minimalCharacters?: number,
   mark?: (
     suggestion: AutosuggestSuggestion,
@@ -100,6 +102,7 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
           args.loadingLabel,
           args.loadingDelayed,
           args.notFoundLabel,
+          false,
           3,
         ),
       ),
@@ -118,6 +121,30 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
         ),
       ),
     },
+    InSearchbarInvalid: {
+      args: {
+        notFoundLabel: `${invalidInput} kan niet gevonden worden, zoek op een andere manier.`,
+      },
+      play: async ({ canvas, userEvent }) => {
+        const input = canvas.getByLabelText("Label", { selector: "input" });
+
+        await userEvent.type(input, invalidInput);
+        await userEvent.click(input);
+      },
+      render: templateContainer.render(storyTemplates, (args, { autosuggestInSearchBarTemplate }) =>
+        autosuggestInSearchBarTemplate(
+          fetchSuggestions,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel,
+          true,
+        ),
+      ),
+    },
     WithProvidedMarkFunction: {
       render: templateContainer.render(storyTemplates, (args, { autosuggestInSearchBarTemplate }) =>
         autosuggestInSearchBarTemplate(
@@ -129,6 +156,7 @@ export function autosuggestStories<Implementation, Templates, TemplateFnReturnTy
           args.loadingLabel,
           args.loadingDelayed,
           args.notFoundLabel,
+          false,
           undefined,
           mark,
         ),

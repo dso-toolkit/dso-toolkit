@@ -444,6 +444,17 @@ describe("Autosuggest", () => {
     cy.matchImageSnapshot();
   });
 
+  it("shows Autosuggest in Search Bar with notFoundLabel and invalid state", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--in-searchbar-invalid");
+    cy.injectAxe();
+    cy.dsoCheckA11y("dso-autosuggest.hydrated");
+
+    cy.get("input").should("have.value", "Rote");
+    cy.matchImageSnapshot({
+      clip: { x: 0, y: 0, width: 1000, height: 150 },
+    });
+  });
+
   describe("with grouped items", () => {
     beforeEach(() => {
       cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--suggestion-groups");

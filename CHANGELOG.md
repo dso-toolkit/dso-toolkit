@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 
+### Task
+* Autosuggest: In Search Bar met state invalid en notFoundLabel ([#3255](https://github.com/dso-toolkit/dso-toolkit/issues/3255))
+
 ## 🧑‍🔧 Release 88.1.0 - 2026-02-23
 
 ### Added
