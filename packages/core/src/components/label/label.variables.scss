@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "../../variables/colors";
+@use "~dso-toolkit/src/variables/colors";
 
 $default-bg-color: colors.$grijs-5;
 $default-color: colors.$grijs-90;
