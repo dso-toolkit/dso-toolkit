@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 
+### Removed
+* **BREAKING** Label: Remove HTML/CSS implementatie ([#3318](https://github.com/dso-toolkit/dso-toolkit/issues/3318))
+
 ### Task
 * Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
 * Visueel Regressietesten: Optimaliseer `failureThreshold` ([#3201](https://github.com/dso-toolkit/dso-toolkit/issues/3201))
