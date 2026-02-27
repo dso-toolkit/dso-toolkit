@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+## 🚐 Release 88.1.0-ghi-3495.0 - 2026-02-27
+
 ### Changed
 * **BREAKING** Legend: Legend en Legend Item fuseren tot één component Legend ([#3490](https://github.com/dso-toolkit/dso-toolkit/issues/3490))
 
