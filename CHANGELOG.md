@@ -32,6 +32,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
 * Ozon Content: Toggletip focus out handler verwerkt interactieve element niet goed ([#3560](https://github.com/dso-toolkit/dso-toolkit/issues/3560))
 
+### Removed
+* **BREAKING** Label: Remove HTML/CSS implementatie ([#3318](https://github.com/dso-toolkit/dso-toolkit/issues/3318))
+
 ### Task
 * Packages: Dependencies updates ([#3495](https://github.com/dso-toolkit/dso-toolkit/issues/3495))
 
