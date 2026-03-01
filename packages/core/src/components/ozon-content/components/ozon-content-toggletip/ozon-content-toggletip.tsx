@@ -104,10 +104,13 @@ export class ozonContentToggletip implements ComponentInterface {
           onKeyDown={this.keyDownHandler}
           ref={(element) => (this.container = element)}
         >
-          <span class="icon-container">
-            <slot name="label" />
-            <dso-icon icon={this.icon} />
-          </span>
+          {this.icon && (
+            <span class="icon-container">
+              <slot name="label" />
+              <dso-icon icon={this.icon} />
+            </span>
+          )}
+          {!this.icon && <slot name="label" />}
         </span>
         <Tooltip
           visible
