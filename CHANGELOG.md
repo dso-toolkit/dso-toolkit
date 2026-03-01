@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING** Legend: Legend en Legend Item fuseren tot één component Legend ([#3490](https://github.com/dso-toolkit/dso-toolkit/issues/3490))
+* Ozon Content: i-tje verwijderen bij verwijzing naar begrip (IntRef naar `<Begrip>`) ([#3562](https://github.com/dso-toolkit/dso-toolkit/issues/3562))
 
 ### Fixed
 * Autosuggest: Onterechte scrollbar ([#3284](https://github.com/dso-toolkit/dso-toolkit/issues/3284))
