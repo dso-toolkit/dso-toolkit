@@ -6,7 +6,7 @@
 @mixin root($strikethrough: true) {
   @include set-colors.apply(colors.$rood-20, "delete");
 
-  --_dso-ozon-content-toggletip-color: colors.$zwart;
+  --_dso-ozon-content-toggletip-color: #{colors.$zwart};
 
   @if ($strikethrough) {
     @include strikethrough();
