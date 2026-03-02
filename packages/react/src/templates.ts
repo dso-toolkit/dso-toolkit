@@ -81,7 +81,7 @@ export interface Components {
   alert: Alert<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
   autosuggest: Autosuggest<JSX.Element>;
-  badge: Badge;
+  badge: Badge<JSX.Element>;
   banner: Banner<JSX.Element>;
   card: Card<JSX.Element>;
   cardContainer: CardContainer<JSX.Element>;

@@ -6,12 +6,6 @@
     "type": "core"
   },
   {
-    "name": "badge",
-    "selector": "dso-badge.hydrated",
-    "stories": ["attention", "error", "info", "outline", "plain", "primary", "success", "warning"],
-    "type": "core"
-  },
-  {
     "name": "banner",
     "selector": "dso-banner.hydrated",
     "stories": ["success", "error", "info", "warning", "rich-warning"],

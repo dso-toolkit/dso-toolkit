@@ -1,0 +1,25 @@
+@use "~dso-toolkit/src/variables/colors";
+
+$default-hover-bg-color: colors.$grijs-40;
+$default-toggled-bg-color: colors.$grijs-70;
+
+$outline-hover-bg-color: colors.$grijs-10;
+$outline-toggled-bg-color: colors.$grijs-20;
+
+$info-hover-bg-color: colors.$donkerblauw-60;
+$info-toggled-bg-color: colors.$donkerblauw-120;
+
+$primary-hover-bg-color: colors.$bosgroen-60;
+$primary-toggled-bg-color: colors.$bosgroen-140;
+
+$success-hover-bg-color: colors.$grasgroen-60;
+$success-toggled-bg-color: colors.$grasgroen-120;
+
+$warning-hover-bg-color: colors.$geel-60;
+$warning-toggled-bg-color: colors.$geel-120;
+
+$error-hover-bg-color: colors.$rood-60;
+$error-toggled-bg-color: colors.$rood-120;
+
+$attention-hover-bg-color: colors.$mauve-60;
+$attention-toggled-bg-color: colors.$mauve-120;
