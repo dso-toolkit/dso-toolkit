@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 
+### Task
+* Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
+
 ## 🌹 Release 89.0.0 - 2026-03-02
 
 ### Changed

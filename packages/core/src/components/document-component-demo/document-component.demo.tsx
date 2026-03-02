@@ -15,6 +15,7 @@ import {
   DocumentComponentOzonContentClickEvent,
   DocumentComponentRecursiveToggleEvent,
   DocumentComponentTableOfContentsClickEvent,
+  DocumentComponentType,
   DocumentComponentWijzigactie,
 } from "../document-component/document-component.interfaces";
 
@@ -27,7 +28,7 @@ interface DocumentEmbedded {
 
 interface DocumentComponent extends DocumentEmbedded {
   documentTechnischId: string;
-  type?: string;
+  type?: DocumentComponentType;
   volgordeNummer: number;
   inhoud?: string;
   kop?: string;

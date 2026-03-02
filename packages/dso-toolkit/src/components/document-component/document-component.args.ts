@@ -42,6 +42,31 @@ const LABEL_STATUS_OPTIONS: (LabelStatus | undefined)[] = [
   "verwijderd",
 ];
 
+const TYPE_OPTIONS: DocumentComponentType[] = [
+  "AANHEF",
+  "AFDELING",
+  "ALGEMENE_TOELICHTING",
+  "ARTIKEL",
+  "ARTIKELGEWIJZE_TOELICHTING",
+  "BEGRIP",
+  "BIJLAGE",
+  "BOEK",
+  "CONDITIE_ARTIKEL",
+  "DEEL",
+  "DIVISIE",
+  "DIVISIETEKST",
+  "HOOFDSTUK",
+  "LICHAAM",
+  "LID",
+  "PARAGRAAF",
+  "SLUITING",
+  "SUBPARAGRAAF",
+  "SUBSUBPARAGRAAF",
+  "TITEL",
+  "TITELDEEL",
+  "TOELICHTING",
+];
+
 export interface DocumentComponentArgs {
   alternativeTitle?: string;
   annotated: boolean;
@@ -206,7 +231,7 @@ export const documentComponentArgTypes: ArgTypes<DocumentComponentArgs> = {
     if: { arg: "mode", eq: "document" },
   },
   type: {
-    options: ["LICHAAM", "HOOFDSTUK", "AFDELING", "ARTIKEL", "LID", "PARAGRAAF", "SUBPARAGRAAF", "SUBSUBPARAGRAAF"],
+    options: TYPE_OPTIONS,
     control: {
       type: "select",
     },
