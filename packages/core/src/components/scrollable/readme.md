@@ -15,6 +15,7 @@
 ### Used by
 
  - [dso-autosuggest](../autosuggest)
+ - [dso-badge](../badge)
  - [dso-info-button](../info-button)
  - [dso-legend](../legend)
  - [dso-map-controls](../map-controls)
@@ -24,6 +25,7 @@
 ```mermaid
 graph TD;
   dso-autosuggest --> dso-scrollable
+  dso-badge --> dso-scrollable
   dso-info-button --> dso-scrollable
   dso-legend --> dso-scrollable
   dso-map-controls --> dso-scrollable

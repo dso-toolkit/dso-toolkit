@@ -10,8 +10,8 @@ export interface DocumentCard<TemplateFnReturnType> {
   typeItems: TemplateFnReturnType[];
   typeToelichting: Toggletip<never>;
   status: string;
-  statusToelichtingOutline?: Badge;
-  statusToelichtingWarning?: Badge;
+  statusToelichtingOutline?: Badge<TemplateFnReturnType>;
+  statusToelichtingWarning?: Badge<TemplateFnReturnType>;
   dsoDocumentCardClick?: (e: CustomEvent<DocumentCardClickEvent>) => void;
 }
 
