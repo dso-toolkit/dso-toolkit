@@ -229,7 +229,7 @@ export interface Components {
   applicationHeading: ApplicationHeading;
   attachmentsCounter: AttachmentsCounter;
   autosuggest: Autosuggest<TemplateResult>;
-  badge: Badge;
+  badge: Badge<TemplateResult>;
   banner: Banner<TemplateResult>;
   breadcrumbs: Breadcrumbs;
   button: Button | ButtonAnchor;

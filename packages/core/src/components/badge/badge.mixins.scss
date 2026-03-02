@@ -1,0 +1,99 @@
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/global/mixins/set-colors.mixin" as set-colors;
+
+@use "./badge.variables" as badge-variables;
+
+@mixin interactive() {
+  &:hover,
+  &:focus-visible {
+    @include _variant(badge-variables.$default-hover-bg-color);
+  }
+
+  &.toggled {
+    @include _variant(badge-variables.$default-toggled-bg-color);
+  }
+
+  &.badge-info {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$info-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$info-toggled-bg-color);
+    }
+  }
+
+  &.badge-primary {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$primary-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$primary-toggled-bg-color);
+    }
+  }
+
+  &.badge-success {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$success-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$success-toggled-bg-color);
+    }
+  }
+
+  &.badge-warning {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$warning-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$warning-toggled-bg-color);
+    }
+  }
+
+  &.badge-error {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$error-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$error-toggled-bg-color);
+    }
+  }
+
+  &.badge-outline {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$outline-hover-bg-color, colors.$grijs-90);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$outline-toggled-bg-color, colors.$grijs-90);
+    }
+  }
+
+  &.badge-attention {
+    &:hover,
+    &:focus-visible {
+      @include _variant(badge-variables.$attention-hover-bg-color);
+    }
+
+    &.toggled {
+      @include _variant(badge-variables.$attention-toggled-bg-color);
+    }
+  }
+}
+
+@mixin _variant($background-color, $border-color: $background-color) {
+  @include set-colors.apply($background-color, "badge");
+
+  border-color: $border-color;
+}

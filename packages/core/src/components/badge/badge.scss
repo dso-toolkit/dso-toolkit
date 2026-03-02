@@ -1,16 +1,40 @@
 @use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/components/badge";
+@use "~dso-toolkit/src/variables/units";
+
+@use "../../functional-components/tooltip";
+
+@use "./badge.mixins" as badge-mixins;
+
+@include tooltip.include($padding-block-inner: 0, $padding-inline-inner: 0, $max-inline-size: 640px);
 
 :host {
+  --_dt-scrollable-border-radius: #{units.$u1 * 0.5};
+  --_dt-scrollable-container-padding-inline: #{tooltip.$padding-inline};
+  --_dt-scrollable-container-padding-block: #{tooltip.$padding-block};
+
   display: inline-block;
 }
 
 @include utilities.box-sizing();
 
-.sr-only {
-  @include utilities.sr-only();
-}
-
 .dso-badge {
   @include badge.root();
+
+  &.interactive {
+    @include badge-mixins.interactive();
+  }
+}
+
+.toggletip-button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+
+  + {
+    @include tooltip.include(colors.$grijs-60, 4px, units.$u1, 0, units.$u1);
+  }
 }

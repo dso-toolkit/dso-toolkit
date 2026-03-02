@@ -18,6 +18,7 @@ interface BadgeStories {
   Error: BadgeStory;
   Outline: BadgeStory;
   Attention: BadgeStory;
+  Information: BadgeStory;
 }
 
 interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType> extends StoriesParameters<
@@ -28,7 +29,8 @@ interface BadgeStoriesParameters<Implementation, Templates, TemplateFnReturnType
 > {}
 
 interface BadgeTemplates<TemplateFnReturnType> {
-  badgeTemplate: (badgeProperties: Badge) => TemplateFnReturnType;
+  badgeTemplate: (badgeProperties: Badge<TemplateFnReturnType>) => TemplateFnReturnType;
+  children?: TemplateFnReturnType;
 }
 
 export function badgeMeta<TRenderer extends Renderer>({ readme }: MetaOptions = {}): ComponentAnnotations<
@@ -121,6 +123,20 @@ export function badgeStories<Implementation, Templates, TemplateFnReturnType>({
       },
       render: templateContainer.render(storyTemplates, (args, { badgeTemplate }) =>
         badgeTemplate(badgeArgsMapper(args)),
+      ),
+    },
+    Information: {
+      args: {
+        status: "primary",
+        message: "1",
+        toggletip: true,
+        label: "Toon toelichting",
+        toggletipPlacement: "top",
+        tooltipPlacement: "top",
+      },
+      parameters: { layout: "centered" },
+      render: templateContainer.render(storyTemplates, (args, { badgeTemplate, children }) =>
+        badgeTemplate(badgeArgsMapper(args, children)),
       ),
     },
   };
