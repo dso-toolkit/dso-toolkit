@@ -6,7 +6,7 @@ import { templateContainer } from "../../templates";
 
 const meta: Meta<SegmentedButtonArgs> = {
   ...segmentedButtonMeta({ readme }),
-  title: "Core/Segmented-Button",
+  title: "Core/Segmented Button",
 };
 
 export default meta;
