@@ -199,9 +199,7 @@ export class Label implements ComponentInterface {
         >
           <slot name="symbol"></slot>
           <span
-            class={clsx("dso-label-content", {
-              "dso-truncate": !!this.truncate,
-            })}
+            class="dso-label-content"
             ref={(element) => (this.labelContent = element)}
             tabindex={this.truncate && this.isTruncated ? 0 : undefined}
             onMouseEnter={() => (this.textHover = true)}
