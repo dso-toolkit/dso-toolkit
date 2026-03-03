@@ -18,12 +18,12 @@
     user-select: none;
     flex-shrink: 0;
 
-    &.disabled {
+    &.is-disabled .segment-label{
       cursor: not-allowed;
-      opacity: 0.6;
+      color: colors.$grasgroen-40;
     }
 
-    &:not(.disabled):hover input:not(:checked) + .segment-label {
+    &:not(.is-disabled):hover input:not(:checked) + .segment-label {
       color: colors.$bosgroen;
     }
   }
