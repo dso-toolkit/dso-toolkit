@@ -29,8 +29,8 @@ export class SegmentedButton implements ComponentInterface {
   @Prop({ reflect: true })
   segmentedAriaLabel?: string;
 
-  /** 
-   Whether selection is required (adds aria-required) 
+  /**
+   * Whether selection is required (adds aria-required)
    */
   @Prop({ reflect: true })
   segmentedAriaRequired?: boolean;

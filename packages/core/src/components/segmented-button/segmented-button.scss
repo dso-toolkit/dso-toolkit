@@ -18,8 +18,7 @@
     user-select: none;
     flex-shrink: 0;
 
-    &.is-disabled .segment-label{
-      cursor: not-allowed;
+    &.is-disabled .segment-label {
       color: colors.$grasgroen-40;
     }
 
