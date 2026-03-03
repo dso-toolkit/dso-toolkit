@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Next
 
+### Fixed
+* Icon Button: HidePopover alleen aanroepen als de tooltip connected is met de DOM ([#3503](https://github.com/dso-toolkit/dso-toolkit/issues/3503))
+
 ### Changed
 * Icon: Nieuwe iconenset ([#2542](https://github.com/dso-toolkit/dso-toolkit/issues/2542))
 
@@ -127,6 +130,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Icon Button: Failed to execute 'showPopover' on 'HTMLElement': Invalid on disconnected popover elements ([#3426](https://github.com/dso-toolkit/dso-toolkit/issues/3426))
+
+### Fixed
+* Icon Button: HidePopover alleen aanroepen als de tooltip connected is met de DOM ([#3503](https://github.com/dso-toolkit/dso-toolkit/issues/3503))
 
 ### Removed
 * **BREAKING** Progress Bar: Remove ([#3265](https://github.com/dso-toolkit/dso-toolkit/issues/3265))
