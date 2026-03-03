@@ -35,7 +35,7 @@ describe("Alert", () => {
     icon: string;
   }> = [
     { status: "success", message: "Gelukt", icon: "status-success" },
-    { status: "info", message: "Opmerking", icon: "status-info" },
+    { status: "info", message: "Opmerking", icon: "status-info-solid" },
     { status: "warning", message: "Waarschuwing", icon: "status-warning" },
     { status: "error", message: "Fout", icon: "status-error" },
   ];

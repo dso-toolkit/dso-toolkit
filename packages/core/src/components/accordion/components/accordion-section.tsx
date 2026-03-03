@@ -16,6 +16,7 @@ import {
 
 import { DsoSlideToggleCustomEvent } from "../../../components";
 import { ExpandableAnimationEndEvent } from "../../expandable/expandable.interfaces";
+import { IconAlias } from "../../icon/icon.interfaces";
 import { LabelStatus } from "../../label/label.interfaces";
 import { RenvooiValue } from "../../renvooi/renvooi.interfaces";
 import { SlideToggleActiveEvent } from "../../slide-toggle/slide-toggle.interfaces";
@@ -104,7 +105,7 @@ const Handle: FunctionalComponent<{
 
 const HandleIcon: FunctionalComponent<{
   state?: AccordionSectionState;
-  icon?: string;
+  icon?: IconAlias;
   attachmentCount?: number;
 }> = ({ state, icon, attachmentCount }) => {
   if (state) {
@@ -126,7 +127,7 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 
   if (state === "danger") {
-    return <dso-icon icon="status-danger"></dso-icon>;
+    return <dso-icon icon="status-warning-red-solid"></dso-icon>;
   }
 
   if (state === "success") {
@@ -134,7 +135,7 @@ const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = (
   }
 
   if (state === "info") {
-    return <dso-icon icon="status-info"></dso-icon>;
+    return <dso-icon icon="status-info-solid"></dso-icon>;
   }
 
   if (state === "warning") {
@@ -194,10 +195,10 @@ export class AccordionSection implements ComponentInterface {
   attachmentCount?: number;
 
   /**
-   * To set an icon in the heading handle.
+   * The alias of the icon in the heading handle.
    */
   @Prop()
-  icon?: string;
+  icon?: IconAlias;
 
   /**
    * The status of the section.
@@ -453,7 +454,7 @@ export class AccordionSection implements ComponentInterface {
                 <span>
                   <dso-renvooi value={this.handleTitle} />
                   {this.isNeutral && (
-                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-active" : "info"} />
+                    <dso-icon class="info-icon" icon={this.open || this.hover ? "info-solid" : "info-outline"} />
                   )}
                 </span>
                 {this.label && (

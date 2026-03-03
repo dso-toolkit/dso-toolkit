@@ -1,4 +1,4 @@
-import { Icon } from "../icon/icon.models.js";
+import { Icon } from "../icon";
 
 export interface Link {
   icon?: Icon;

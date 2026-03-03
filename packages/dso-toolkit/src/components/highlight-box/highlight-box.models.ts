@@ -1,3 +1,5 @@
+import { IconAlias } from "../icon";
+
 export interface HighlightBox<TemplateFnReturnType = string> {
   yellow?: boolean;
   white?: boolean;
@@ -6,7 +8,7 @@ export interface HighlightBox<TemplateFnReturnType = string> {
   dropShadow?: boolean;
   border?: boolean;
   step?: number;
-  icon?: string;
+  icon?: IconAlias;
   content: TemplateFnReturnType | string;
   bannerImage?: boolean;
 }

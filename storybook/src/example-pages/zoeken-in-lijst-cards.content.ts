@@ -11,7 +11,7 @@ export const cardList: CardList<TemplateResult> = {
         {
           type: "button",
           variant: "tertiary",
-          icon: { icon: "info" },
+          icon: { icon: "info-outline" },
           label: "Extra informatie",
           iconMode: "only",
         },
@@ -26,7 +26,7 @@ export const cardList: CardList<TemplateResult> = {
         {
           type: "button",
           variant: "tertiary",
-          icon: { icon: "info" },
+          icon: { icon: "info-outline" },
           label: "Extra informatie",
           iconMode: "only",
         },
@@ -41,7 +41,7 @@ export const cardList: CardList<TemplateResult> = {
         {
           type: "button",
           variant: "tertiary",
-          icon: { icon: "info" },
+          icon: { icon: "info-outline" },
           label: "Extra informatie",
           iconMode: "only",
         },
@@ -56,7 +56,7 @@ export const cardList: CardList<TemplateResult> = {
         {
           type: "button",
           variant: "tertiary",
-          icon: { icon: "info" },
+          icon: { icon: "info-outline" },
           label: "Extra informatie",
           iconMode: "only",
         },

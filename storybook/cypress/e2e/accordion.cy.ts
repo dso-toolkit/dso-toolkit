@@ -1,3 +1,5 @@
+import { IconAlias } from "dso-toolkit";
+
 describe("Accordion", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-accordion--default");
@@ -101,14 +103,14 @@ describe("Accordion", () => {
   });
 
   it("should render state icon and text", () => {
-    const statusMap: Record<string, string> = {
-      success: "succes:",
-      info: "info:",
-      warning: "waarschuwing:",
-      error: "fout:",
+    const statusMap: Record<string, { text: string; icon: IconAlias }> = {
+      success: { text: "succes:", icon: "status-success" },
+      info: { text: "info:", icon: "status-info-solid" },
+      warning: { text: "waarschuwing:", icon: "status-warning" },
+      error: { text: "fout:", icon: "status-error" },
     };
 
-    Object.entries(statusMap).forEach(([key, text]) => {
+    Object.entries(statusMap).forEach(([key, entry]) => {
       cy.get("dso-accordion.hydrated")
         .find("dso-accordion-section")
         .first()
@@ -117,10 +119,10 @@ describe("Accordion", () => {
         .find(".dso-section-handle > button, .dso-section-handle > a")
         .as("dsoAccordionHandle")
         .find("span.sr-only")
-        .should("contain.text", text)
+        .should("contain.text", entry.text)
         .get("@dsoAccordionHandle")
         .find(".dso-section-handle-addons dso-icon")
-        .should("have.prop", "icon", `status-${key}`);
+        .should("have.prop", "icon", entry.icon);
     });
   });
 

@@ -266,7 +266,7 @@ export const subItems: Record<string, TreeViewItem[]> = {
       hasItems: false,
       icons: [
         {
-          icon: "house",
+          icon: "home",
           label: "wonen",
         },
       ],
