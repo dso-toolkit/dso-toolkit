@@ -25,7 +25,6 @@ Daarnaast wordt aria-expanded correct bijgewerkt, zodat screenreaders de actuele
 | -------------------- | --------------------- | ---------------------------------------- | ---------------------------------------- | ------------------------- |
 | `active`             | `active`              | Whether the InfoButton is active.        | `boolean`                                | `false`                   |
 | `label`              | `label`               | The label.                               | `string`                                 | `"Toelichting bij optie"` |
-| `secondary`          | `secondary`           | For secondary Info Button.               | `boolean \| undefined`                   | `undefined`               |
 | `toggletipPlacement` | `toggletip-placement` | The placement of the Toggletip on click. | `"bottom" \| "left" \| "right" \| "top"` | `"top"`                   |
 
 
@@ -60,14 +59,12 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon-button](../icon-button)
-- [dso-icon](../icon)
 - [dso-scrollable](../scrollable)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-info-button --> dso-icon-button
-  dso-info-button --> dso-icon
   dso-info-button --> dso-scrollable
   dso-icon-button --> dso-icon
   dso-legend-item --> dso-info-button

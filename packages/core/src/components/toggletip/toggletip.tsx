@@ -31,12 +31,6 @@ export class Toggletip {
   @Prop()
   small?: boolean;
 
-  /**
-   * Set to true for secondary Toggletip.
-   */
-  @Prop()
-  secondary?: boolean;
-
   private infoButton?: HTMLDsoInfoButtonElement;
 
   private click = () => {
@@ -83,7 +77,6 @@ export class Toggletip {
           onClick={this.click}
           label={this.label}
           active={this.active}
-          secondary={this.secondary}
           ref={(element) => (this.infoButton = element)}
         />
         <dso-tooltip
