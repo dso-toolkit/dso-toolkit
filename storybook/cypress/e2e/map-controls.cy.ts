@@ -35,10 +35,7 @@ describe("Map Controls", () => {
       .get("dso-map-controls.hydrated")
       .shadow()
       .find(".toggle-visibility-button")
-      // The global setting for failureThreshold: 0.01 gives:
-      // Error: Image was 4.107744107744108% different from saved snapshot with 488 different pixels.
-      // So we override that value here
-      .matchImageSnapshot({ failureThreshold: 0.05 });
+      .matchImageSnapshot();
   });
 
   it("shows an Icon Button with Icon 'layers' and attribute label='Kaartlagen`", () => {

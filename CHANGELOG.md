@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Task
 * Document Component: types toevoegen ([#3500](https://github.com/dso-toolkit/dso-toolkit/issues/3500))
+* Visueel Regressietesten: Optimaliseer `failureThreshold` ([#3201](https://github.com/dso-toolkit/dso-toolkit/issues/3201))
 
 ## 🌹 Release 89.0.0 - 2026-03-02
 
