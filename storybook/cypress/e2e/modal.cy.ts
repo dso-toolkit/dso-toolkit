@@ -23,7 +23,9 @@ describe("Modal", () => {
       .and("have.attr", "role", "document")
       .find("#close-modal")
       .shadow()
-      .find("button[aria-label='Sluiten']");
+      .find("button[aria-label='Sluiten'] > #tooltip")
+      .should("have.css", "opacity", "1")
+      .and("have.class", "visible");
 
     cy.matchImageSnapshot();
   });

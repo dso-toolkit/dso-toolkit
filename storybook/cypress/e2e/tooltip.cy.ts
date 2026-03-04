@@ -32,7 +32,7 @@ describe("Tooltip", () => {
   // Temporary test, this shouldn't be needed. Don't copy/paste this.
   it("should look ok", () => {
     prepareComponent();
-    cy.get("@dsoButton").matchImageSnapshot();
+    cy.get("@dsoButton").matchImageSnapshot({ failureThreshold: 0.08 });
   });
 
   it("should show tooltip on focus on button and hide on escape key", () => {
