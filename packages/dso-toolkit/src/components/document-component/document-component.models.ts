@@ -50,14 +50,28 @@ export type DocumentComponentWijzigactie = "voegtoe" | "verwijder" | "nieuweCont
 export type DocumentComponentAnnotationsWijzigactie = "voegtoe" | "verwijder";
 
 export type DocumentComponentType =
-  | "LICHAAM"
-  | "HOOFDSTUK"
+  | "AANHEF"
   | "AFDELING"
+  | "ALGEMENE_TOELICHTING"
   | "ARTIKEL"
+  | "ARTIKELGEWIJZE_TOELICHTING"
+  | "BEGRIP"
+  | "BIJLAGE"
+  | "BOEK"
+  | "CONDITIE_ARTIKEL"
+  | "DEEL"
+  | "DIVISIE"
+  | "DIVISIETEKST"
+  | "HOOFDSTUK"
+  | "LICHAAM"
   | "LID"
   | "PARAGRAAF"
+  | "SLUITING"
   | "SUBPARAGRAAF"
-  | "SUBSUBPARAGRAAF";
+  | "SUBSUBPARAGRAAF"
+  | "TITEL"
+  | "TITELDEEL"
+  | "TOELICHTING";
 
 export type DocumentComponentMode = "document" | "table-of-contents";
 

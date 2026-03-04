@@ -21,7 +21,7 @@ import { CardClickEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
+import { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 import { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 import { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 import { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -72,7 +72,7 @@ export { CardClickEvent } from "./components/card/card.interfaces";
 export { CardContainerMode } from "./components/card-container/card-container.interfaces";
 export { DatePickerBlurEvent, DatePickerChangeEvent, DatePickerFocusEvent, DatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 export { DocumentCardClickEvent } from "./components/document-card/document-card.interfaces";
-export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
+export { DocumentComponentAnnotationsWijzigactie, DocumentComponentInputType, DocumentComponentMarkFunction, DocumentComponentMarkItemHighlightEvent, DocumentComponentMode, DocumentComponentOpenToggleEvent, DocumentComponentOzonContentClickEvent, DocumentComponentRecursiveToggleEvent, DocumentComponentRecursiveToggleState, DocumentComponentTableOfContentsClickEvent, DocumentComponentToggleAnnotationEvent, DocumentComponentType, DocumentComponentWijzigactie } from "./components/document-component/document-component.interfaces";
 export { OzonContentBegripResolver, OzonContentClickEvent, OzonContentInputType, OzonContentMarkItemHighlightEvent, OzonContentUrlResolver } from "./components/ozon-content/ozon-content.interfaces";
 export { ExpandableAnimationEndEvent, ExpandableAnimationStartEvent } from "./components/expandable/expandable.interfaces";
 export { HeaderAuthStatus, HeaderCompactMode, HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -609,7 +609,7 @@ export namespace Components {
         /**
           * Type of Document Component.
          */
-        "type"?: string;
+        "type": DocumentComponentType | undefined;
         /**
           * Marks the Document Component as expired.
          */
@@ -3367,7 +3367,7 @@ declare namespace LocalJSX {
         /**
           * Type of Document Component.
          */
-        "type"?: string;
+        "type": DocumentComponentType | undefined;
         /**
           * Marks the Document Component as expired.
          */
@@ -4565,7 +4565,7 @@ declare namespace LocalJSX {
         "vervallen": DocumentComponentInputType | undefined;
         "openAnnotation": boolean;
         "alternativeTitle": string;
-        "type": string;
+        "type": DocumentComponentType | undefined;
         "wijzigactie": DocumentComponentWijzigactie;
         "annotationsWijzigactie": DocumentComponentAnnotationsWijzigactie;
         "recursiveToggle": string;
@@ -4829,7 +4829,7 @@ declare namespace LocalJSX {
         "dso-cursor-tooltip": DsoCursorTooltip;
         "dso-date-picker": Omit<DsoDatePicker, keyof DsoDatePickerAttributes> & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes]?: DsoDatePicker[K] } & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes as `attr:${K}`]?: DsoDatePickerAttributes[K] } & { [K in keyof DsoDatePicker & keyof DsoDatePickerAttributes as `prop:${K}`]?: DsoDatePicker[K] };
         "dso-document-card": Omit<DsoDocumentCard, keyof DsoDocumentCardAttributes> & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes]?: DsoDocumentCard[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `attr:${K}`]?: DsoDocumentCardAttributes[K] } & { [K in keyof DsoDocumentCard & keyof DsoDocumentCardAttributes as `prop:${K}`]?: DsoDocumentCard[K] } & OneOf<"href", DsoDocumentCard["href"], DsoDocumentCardAttributes["href"]>;
-        "dso-document-component": Omit<DsoDocumentComponent, keyof DsoDocumentComponentAttributes> & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes]?: DsoDocumentComponent[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `attr:${K}`]?: DsoDocumentComponentAttributes[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `prop:${K}`]?: DsoDocumentComponent[K] };
+        "dso-document-component": Omit<DsoDocumentComponent, keyof DsoDocumentComponentAttributes> & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes]?: DsoDocumentComponent[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `attr:${K}`]?: DsoDocumentComponentAttributes[K] } & { [K in keyof DsoDocumentComponent & keyof DsoDocumentComponentAttributes as `prop:${K}`]?: DsoDocumentComponent[K] } & OneOf<"type", DsoDocumentComponent["type"], DsoDocumentComponentAttributes["type"]>;
         "dso-dropdown-menu": Omit<DsoDropdownMenu, keyof DsoDropdownMenuAttributes> & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes]?: DsoDropdownMenu[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `attr:${K}`]?: DsoDropdownMenuAttributes[K] } & { [K in keyof DsoDropdownMenu & keyof DsoDropdownMenuAttributes as `prop:${K}`]?: DsoDropdownMenu[K] };
         "dso-expandable": Omit<DsoExpandable, keyof DsoExpandableAttributes> & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes]?: DsoExpandable[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `attr:${K}`]?: DsoExpandableAttributes[K] } & { [K in keyof DsoExpandable & keyof DsoExpandableAttributes as `prop:${K}`]?: DsoExpandable[K] };
         "dso-header": Omit<DsoHeader, keyof DsoHeaderAttributes> & { [K in keyof DsoHeader & keyof DsoHeaderAttributes]?: DsoHeader[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `attr:${K}`]?: DsoHeaderAttributes[K] } & { [K in keyof DsoHeader & keyof DsoHeaderAttributes as `prop:${K}`]?: DsoHeader[K] };

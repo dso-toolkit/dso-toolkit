@@ -48,6 +48,30 @@ export interface DocumentComponentTableOfContentsClickEvent {
   isModifiedEvent: boolean;
 }
 
+export type DocumentComponentType =
+  | "AANHEF"
+  | "AFDELING"
+  | "ALGEMENE_TOELICHTING"
+  | "ARTIKEL"
+  | "ARTIKELGEWIJZE_TOELICHTING"
+  | "BEGRIP"
+  | "BIJLAGE"
+  | "BOEK"
+  | "CONDITIE_ARTIKEL"
+  | "DEEL"
+  | "DIVISIE"
+  | "DIVISIETEKST"
+  | "HOOFDSTUK"
+  | "LICHAAM"
+  | "LID"
+  | "PARAGRAAF"
+  | "SLUITING"
+  | "SUBPARAGRAAF"
+  | "SUBSUBPARAGRAAF"
+  | "TITEL"
+  | "TITELDEEL"
+  | "TOELICHTING";
+
 export interface DocumentComponentAantekenElement {
   type: "Vervallen" | "Gereserveerd";
   wijzigactie?: DocumentComponentWijzigactie;

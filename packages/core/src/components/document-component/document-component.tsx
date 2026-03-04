@@ -37,6 +37,7 @@ import {
   DocumentComponentRecursiveToggleState,
   DocumentComponentTableOfContentsClickEvent,
   DocumentComponentToggleAnnotationEvent,
+  DocumentComponentType,
   DocumentComponentWijzigactie,
 } from "./document-component.interfaces";
 
@@ -237,7 +238,7 @@ export class DocumentComponent implements ComponentInterface {
    * Type of Document Component.
    */
   @Prop({ reflect: true })
-  type?: string;
+  type!: DocumentComponentType | undefined;
 
   /**
    * The wijzigactie as in STOP.
