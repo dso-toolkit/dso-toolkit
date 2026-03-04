@@ -1,7 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
-import { clsx } from "clsx";
 
-import { MapMessageActionClickEvent } from "./map-message.interfaces";
+import { ButtonConfig, MapMessageActionClickEvent } from "./map-message.interfaces";
 
 @Component({
   tag: "dso-map-message",
@@ -38,53 +37,27 @@ export class MapMessage implements ComponentInterface {
   @Event({ bubbles: false })
   dsoActionClick!: EventEmitter<MapMessageActionClickEvent>;
 
-  private updateButtonRowMargin = () => {
-    const root = this.host.shadowRoot;
-    if (!root) {
-      return;
-    }
-
-    const container = root.querySelector<HTMLElement>(".dso-map-message-content");
-    if (!container || this.variant === "instruction") {
-      return;
-    }
-
-    const buttonRow = container.querySelector<HTMLElement>(".dso-button-row");
-    const body = container.querySelector<HTMLElement>(".dso-map-message-body");
-    if (!buttonRow || !body) {
-      return;
-    }
-
-    const isWrapped = buttonRow.offsetTop > body.offsetTop;
-    buttonRow.style.setProperty("margin-inline-start", isWrapped ? "32px" : "8px");
-  };
-
-  componentDidLoad() {
-    this.updateButtonRowMargin();
-    window.addEventListener("resize", this.updateButtonRowMargin.bind(this));
-  }
-
-  disconnectedCallback() {
-    window.removeEventListener("resize", this.updateButtonRowMargin.bind(this));
-  }
-
-  componentDidUpdate() {
-    this.updateButtonRowMargin();
-  }
-
   // Returns button configuration based on variant
-  private getButtonConfig(): Array<{ label: string; class: string; icon: string }> {
+  private getButtonConfig(): ButtonConfig[] {
+    if (this.variant === "instruction") {
+      return [];
+    }
+
     if (this.variant === "success") {
       return [
         {
           label: this.buttonLabels[0] || "Ongedaan maken",
           class: "dso-action-button dso-primary",
           icon: "undo",
+          type: "button",
+          iconMode: "after",
         },
         {
           label: this.buttonLabels[1] || "Volgende",
           class: "dso-action-button dso-secondary",
           icon: "chevron-right",
+          type: "button",
+          iconMode: "after",
         },
       ];
     }
@@ -95,11 +68,15 @@ export class MapMessage implements ComponentInterface {
         label: this.buttonLabels[0] || "Sluiten",
         class: "dso-action-button dso-primary",
         icon: "times",
+        iconMode: "after",
+        type: "button",
       },
       {
         label: this.buttonLabels[1] || "Opnieuw proberen",
         class: "dso-action-button dso-secondary",
         icon: "undo",
+        iconMode: "after",
+        type: "button",
       },
     ];
   }
@@ -107,20 +84,22 @@ export class MapMessage implements ComponentInterface {
   private renderButtons() {
     const buttons = this.getButtonConfig();
 
+    if (!buttons.length) {
+      return null;
+    }
+
     return (
-      <div class="dso-map-message-actions" aria-label="Acties voor melding">
-        <div class="dso-button-row">
-          {buttons.map((btn, idx) => (
-            <button
-              type="button"
-              class={btn.class}
-              onClick={(event) => this.dsoActionClick.emit({ actionIndex: idx, originalEvent: event })}
-            >
-              <span>{btn.label}</span>
-              <dso-icon icon={btn.icon} />
-            </button>
-          ))}
-        </div>
+      <div class="dso-button-row" role="group" aria-label="Acties voor melding">
+        {buttons.map((btn, idx) => (
+          <button
+            type={btn.type}
+            class={btn.class}
+            onClick={(event) => this.dsoActionClick.emit({ actionIndex: idx, originalEvent: event })}
+          >
+            <span>{btn.label}</span>
+            {btn.iconMode === "after" && <dso-icon icon={btn.icon} />}
+          </button>
+        ))}
       </div>
     );
   }
@@ -128,17 +107,18 @@ export class MapMessage implements ComponentInterface {
   render() {
     const isError = this.variant === "error";
     const liveRole = isError ? "alert" : "status";
+    const hasActions = this.variant !== "instruction";
     return (
       <Host>
         <dso-highlight-box>
           <div
-            class={clsx("dso-map-message-content", `variant-${this.variant}`, "background-dark")}
+            class={`dso-map-message-content variant-${this.variant} ${hasActions ? "has-actions" : ""}`}
             role={liveRole}
             aria-atomic="true"
           >
             <div class="dso-map-message-body">
               {this.variant !== "instruction" && (
-                <dso-icon icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
+                <dso-icon class="dso-map-message-icon" icon={`status-${this.variant}`} aria-hidden="true"></dso-icon>
               )}
               <span class="dso-map-message-text">{this.message}</span>
             </div>

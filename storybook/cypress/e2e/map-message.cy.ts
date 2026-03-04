@@ -55,12 +55,12 @@ describe("dso-map-message - props coverage", () => {
     });
     cy.get(segmentedButtonSelector)
       .shadow()
-      .find(".dso-map-message-actions button")
+      .find(".dso-button-row button")
       .eq(0)
       .should("contain.text", customLabels[0]);
     cy.get(segmentedButtonSelector)
       .shadow()
-      .find(".dso-map-message-actions button")
+      .find(".dso-button-row button")
       .eq(1)
       .should("contain.text", customLabels[1]);
   });
@@ -79,7 +79,7 @@ describe("dso-map-message - props coverage", () => {
 
     cy.get(segmentedButtonSelector)
       .shadow()
-      .find(".dso-map-message-actions button")
+      .find(".dso-button-row button")
       .should("have.length.at.least", 2)
       .then(($buttons) => {
         // Enter key on first button

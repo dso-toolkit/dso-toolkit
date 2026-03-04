@@ -9,3 +9,11 @@ export interface MapMessageActionClickEvent {
   actionIndex: number;
   originalEvent: MouseEvent;
 }
+
+export interface ButtonConfig {
+  label: string;
+  class: string;
+  icon: string;
+  type: "button";
+  iconMode: "after";
+};
